@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGraphLayoutFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:54 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-10-08 12:07:43 $
+  Version:   $Revision: 1.4 $
   Thanks:    Scott Hill of RPI for developing this class
              Mark Lacy for Procter & Gamble for support
 
@@ -108,8 +108,8 @@ public:
 protected:
   vtkGraphLayoutFilter();
   ~vtkGraphLayoutFilter() {}
-  vtkGraphLayoutFilter(const vtkGraphLayoutFilter&) {}
-  void operator=(const vtkGraphLayoutFilter&) {}
+  vtkGraphLayoutFilter(const vtkGraphLayoutFilter&);
+  void operator=(const vtkGraphLayoutFilter&);
 
   void Execute();
 
