@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkRenderWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-22 13:31:58 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1998-07-09 18:16:37 $
+  Version:   $Revision: 1.26 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -674,7 +674,7 @@ vtkTkRenderWidget_MakeRenderWindow(struct vtkTkRenderWidget *self)
   else
     {
     renderWindow = (vtkXRenderWindow *)
-      vtkTclGetPointerFromObject(self->RW,"vtkXRenderWindow",self->Interp, new_flag);
+      vtkTclGetPointerFromObject(self->RW,"vtkRenderWindow",self->Interp, new_flag);
     self->RenderWindow = (vtkRenderWindow *)(renderWindow);
     }
   
