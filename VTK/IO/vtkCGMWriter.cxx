@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCGMWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-11-07 14:09:09 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2003-11-11 19:37:52 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #include "vtkCellData.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkCGMWriter, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkCGMWriter, "$Revision: 1.13 $");
 vtkStandardNewMacro(vtkCGMWriter);
 
 vtkCxxSetObjectMacro(vtkCGMWriter, Viewport, vtkViewport);
@@ -509,7 +509,9 @@ typedef struct _vtkSortValues {
   int   cellId;
 } vtkSortValues;
 
-static int qsortCompare(const void *val1, const void *val2)
+extern "C" 
+{
+int vtkCGMqsortCompare(const void *val1, const void *val2)
 {
   if (((vtkSortValues *)val1)->z > ((vtkSortValues *)val2)->z)
     {
@@ -523,6 +525,7 @@ static int qsortCompare(const void *val1, const void *val2)
     {
     return (0);
     }
+}
 }
 
 void vtkCGMWriter::WriteData()
@@ -675,7 +678,7 @@ void vtkCGMWriter::WriteData()
       depth[cellId].cellId = cellId;
       }
     
-    qsort((void *)depth, numCells, sizeof(vtkSortValues), qsortCompare);
+    qsort((void *)depth, numCells, sizeof(vtkSortValues), vtkCGMqsortCompare);
     }
  
 
