@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArrayCalculator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-25 19:16:21 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-07-30 18:46:50 $
+  Version:   $Revision: 1.22 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkDoubleArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkArrayCalculator, "$Revision: 1.21 $");
+vtkCxxRevisionMacro(vtkArrayCalculator, "$Revision: 1.22 $");
 vtkStandardNewMacro(vtkArrayCalculator);
 
 vtkArrayCalculator::vtkArrayCalculator()
@@ -229,7 +229,7 @@ void vtkArrayCalculator::Execute()
       }
     else
       {
-      vtkErrorMacro("Invalid array name: " << this->ScalarArrayNames[i]);
+      vtkErrorMacro("Invalid array name: " << this->VectorArrayNames[i]);
       return;
       }
     }
