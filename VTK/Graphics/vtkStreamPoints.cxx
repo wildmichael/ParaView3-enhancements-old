@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-19 14:50:26 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2000-10-19 16:30:09 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -79,7 +79,8 @@ void vtkStreamPoints::Execute()
   vtkPolyData *output = this->GetOutput();
   vtkDataSet *input = this->GetInput();
   vtkIdList *pts;
-  
+
+  this->SavePointInterval = this->TimeIncrement;  
   this->vtkStreamer::Integrate();
   if ( this->NumberOfStreamers <= 0 )
     {

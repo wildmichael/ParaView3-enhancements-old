@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDashedStreamLine.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:11:21 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2000-10-19 16:30:09 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -78,7 +78,8 @@ void vtkDashedStreamLine::Execute()
   float xEnd[3], vEnd[3], sEnd;
   vtkDataSet *input = this->GetInput();
   vtkPolyData *output = this->GetOutput();
-  
+
+  this->SavePointInterval = this->StepLength;
   this->vtkStreamer::Integrate();
   if ( this->NumberOfStreamers <= 0 )
     {
