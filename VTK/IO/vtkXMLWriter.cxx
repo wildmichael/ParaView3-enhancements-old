@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-02-09 14:40:17 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2003-02-17 16:57:52 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,14 +20,14 @@
 #include "vtkByteSwap.h"
 #include "vtkCellData.h"
 #include "vtkDataArray.h"
-#include "vtkDataCompressor.h"
+#include "vtkZLibDataCompressor.h"
 #include "vtkDataSet.h"
 #include "vtkOutputStream.h"
 #include "vtkPointData.h"
 #include "vtkPoints.h"
 #include "vtkUnsignedCharArray.h"
 
-vtkCxxRevisionMacro(vtkXMLWriter, "$Revision: 1.14 $");
+vtkCxxRevisionMacro(vtkXMLWriter, "$Revision: 1.15 $");
 vtkCxxSetObjectMacro(vtkXMLWriter, Compressor, vtkDataCompressor);
 
 //----------------------------------------------------------------------------
@@ -55,7 +55,7 @@ vtkXMLWriter::vtkXMLWriter()
 
   // Initialize compression data.
   this->BlockSize = 32768;
-  this->Compressor = 0;
+  this->Compressor = vtkZLibDataCompressor::New();
   this->CompressionHeader = 0;
   
   this->EncodeAppendedData = 1;
