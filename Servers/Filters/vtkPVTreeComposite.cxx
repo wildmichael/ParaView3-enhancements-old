@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVTreeComposite.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-07 21:16:27 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2002-08-28 19:49:46 $
+  Version:   $Revision: 1.36 $
   
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -43,21 +43,23 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkActor.h"
 #include "vtkActorCollection.h"
+#include "vtkDataSet.h"
 #include "vtkMapper.h"
 #include "vtkMultiProcessController.h"
 #include "vtkObjectFactory.h"
+#include "vtkPVRenderView.h"
+#include "vtkRenderWindow.h"
+#include "vtkRendererCollection.h"
+
 #ifdef VTK_USE_MPI
 #include "vtkMPIController.h"
 #else
 #include "vtkMultiProcessController.h"
 #endif
-#include "vtkRendererCollection.h"
-#include "vtkRenderWindow.h"
-#include "vtkPVRenderView.h"
 
 //-------------------------------------------------------------------------
 vtkStandardNewMacro(vtkPVTreeComposite);
-vtkCxxRevisionMacro(vtkPVTreeComposite, "$Revision: 1.35 $");
+vtkCxxRevisionMacro(vtkPVTreeComposite, "$Revision: 1.36 $");
 
 vtkCxxSetObjectMacro(vtkPVTreeComposite, RenderView, vtkPVRenderView);
 
