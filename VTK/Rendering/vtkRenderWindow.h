@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1998-02-09 15:10:53 $
-  Version:   $Revision: 1.63 $
+  Date:      $Date: 1998-02-13 16:06:33 $
+  Version:   $Revision: 1.64 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,11 +64,12 @@ class vtkTextureDevice;
 class vtkPropertyDevice;
 class vtkPolyDataMapperDevice;
 
-// lets define the diferent types of stereo
+// lets define the different types of stereo
 #define VTK_STEREO_CRYSTAL_EYES 1
 #define VTK_STEREO_RED_BLUE     2
-#define VTK_STEREO_LEFT         3
-#define VTK_STEREO_RIGHT        4
+#define VTK_STEREO_INTERLACED   3
+#define VTK_STEREO_LEFT         4
+#define VTK_STEREO_RIGHT        5
 
 class VTK_EXPORT vtkRenderWindow : public vtkWindow
 {
@@ -142,6 +143,8 @@ public:
     {this->SetStereoType(VTK_STEREO_CRYSTAL_EYES);};
   void SetStereoTypeToRedBlue() 
     {this->SetStereoType(VTK_STEREO_RED_BLUE);};
+  void SetStereoTypeToInterlaced() 
+    {this->SetStereoType(VTK_STEREO_INTERLACED);};
   void SetStereoTypeToLeft() 
     {this->SetStereoType(VTK_STEREO_LEFT);};
   void SetStereoTypeToRight() 
