@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProcrustesAlignmentFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-25 12:46:28 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-01-25 13:26:44 $
+  Version:   $Revision: 1.5 $
   Thanks:    Tim Hutton and Rasmus Paulsen who developed and contributed this class
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -23,7 +23,7 @@
 #include "vtkPolyData.h"
 #include "vtkMath.h"
 
-vtkCxxRevisionMacro(vtkProcrustesAlignmentFilter, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkProcrustesAlignmentFilter, "$Revision: 1.5 $");
 vtkStandardNewMacro(vtkProcrustesAlignmentFilter);
 
 //----------------------------------------------------------------------------
@@ -45,7 +45,7 @@ vtkProcrustesAlignmentFilter::~vtkProcrustesAlignmentFilter()
 
 //----------------------------------------------------------------------------
 // Calculate the centroid of a point cloud
-void Centroid(vtkPoints* pd, float *cp)
+void static inline Centroid(vtkPoints* pd, float *cp)
 {
   // Center point
   cp[0] = 0; cp[1] = 0; cp[2] = 0;
@@ -63,7 +63,7 @@ void Centroid(vtkPoints* pd, float *cp)
 
 //----------------------------------------------------------------------------
 // Calculate the centroid size of a point cloud
-double CentroidSize(vtkPoints* pd, float *cp)
+double static inline CentroidSize(vtkPoints* pd, float *cp)
 {
   Centroid(pd, cp);
   
@@ -80,7 +80,7 @@ double CentroidSize(vtkPoints* pd, float *cp)
 
 //----------------------------------------------------------------------------
 // Translation of point cloud. Could be done using transformations
-void TranslateShape(vtkPoints* pd, float *tp)
+void static inline TranslateShape(vtkPoints* pd, float *tp)
 {
   for (int i = 0; i < pd->GetNumberOfPoints(); i++)
   {
@@ -92,7 +92,7 @@ void TranslateShape(vtkPoints* pd, float *tp)
 
 //----------------------------------------------------------------------------
 // Scaling of point cloud. Could be done using transformations
-void ScaleShape(vtkPoints* pd, double S)
+void static inline ScaleShape(vtkPoints* pd, double S)
 {
   for (int i = 0; i < pd->GetNumberOfPoints(); i++)
   {
@@ -104,7 +104,7 @@ void ScaleShape(vtkPoints* pd, double S)
 
 //----------------------------------------------------------------------------
 // Normalise a point cloud to have centroid (0,0,0) and centroid size 1
-int NormaliseShape(vtkPoints* pd)
+int static inline NormaliseShape(vtkPoints* pd)
 {
   float cp[3];
   double S = CentroidSize(pd, cp);
