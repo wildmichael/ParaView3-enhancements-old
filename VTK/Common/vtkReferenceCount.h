@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkReferenceCount.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-01 20:38:46 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-09-04 21:42:43 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -77,7 +77,8 @@ public:
   virtual void UnRegister(vtkObject* o);
   int  GetReferenceCount() {return this->ReferenceCount;};
   void ReferenceCountingOff();
-
+  void SetReferenceCount(int);
+  
 private:
   int ReferenceCount;      // Number of uses of this object by other objects
   int ReferenceCounting; // Turn on/off reference counting mechanism

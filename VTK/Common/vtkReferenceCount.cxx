@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkReferenceCount.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:51:33 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-09-04 21:42:43 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -76,6 +76,18 @@ vtkReferenceCount::~vtkReferenceCount()
 }
 
 // Description:
+// Sets the reference count (use with care)
+void vtkReferenceCount::SetReferenceCount(int ref)
+{
+  if ( this->ReferenceCounting == 0 )
+    {
+    vtkErrorMacro(<<"Attempting to Register an object which has reference counting turned off.");
+    }
+  this->ReferenceCount = ref;
+  vtkDebugMacro(<< "Reference Count set to " << this->ReferenceCount);
+}
+
+// Description:
 // Increase the reference count (mark as used by another object).
 void vtkReferenceCount::Register(vtkObject* o)
 {
@@ -86,6 +98,11 @@ void vtkReferenceCount::Register(vtkObject* o)
   this->ReferenceCount++;
   vtkDebugMacro(<< "Registered by " << o->GetClassName() << " (" << o 
     << "), ReferenceCount = " << this->ReferenceCount);
+
+  if (this->ReferenceCount <= 0)
+    {
+    delete this;
+    }
 }
 
 // Description:
