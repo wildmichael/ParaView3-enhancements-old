@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:39 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-03-08 00:23:25 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -159,10 +159,18 @@ int vtkImageActor::RenderOpaqueGeometry(vtkViewport* viewport)
   input->SetUpdateExtent(this->DisplayExtent);
   input->PropagateUpdateExtent();
   input->UpdateData();
-  
+
   // render the texture map
-  this->Load(vtkRenderer::SafeDownCast(viewport));
-  return 1;
+  if ( input->GetScalarType() == VTK_UNSIGNED_CHAR )
+    {
+    this->Load(vtkRenderer::SafeDownCast(viewport));
+    return 1;
+    }
+  else
+    {
+    vtkErrorMacro(<<"This filter requires unsigned char scalars as input");
+    return 0;
+    }
 }
 
 // Get the bounds for this Volume as (Xmin,Xmax,Ymin,Ymax,Zmin,Zmax).
