@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:18 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2002-02-13 22:44:37 $
+  Version:   $Revision: 1.51 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -379,9 +379,9 @@ protected:
 
   virtual void RemoveArray(int index);
 
-  static int NumberOfAttributeComponents[NUM_ATTRIBUTES];
-  static int AttributeLimits[NUM_ATTRIBUTES];
-  static char AttributeNames[NUM_ATTRIBUTES][10];
+  static const int NumberOfAttributeComponents[NUM_ATTRIBUTES];
+  static const int AttributeLimits[NUM_ATTRIBUTES];
+  static const char AttributeNames[NUM_ATTRIBUTES][10];
 
 private:
   int SetAttribute(vtkDataArray* da, int attributeType);

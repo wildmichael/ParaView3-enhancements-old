@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:17 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2002-02-13 22:44:37 $
+  Version:   $Revision: 1.58 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,16 +33,17 @@
 #include "vtkIdTypeArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkDataSetAttributes, "$Revision: 1.57 $");
+vtkCxxRevisionMacro(vtkDataSetAttributes, "$Revision: 1.58 $");
 vtkStandardNewMacro(vtkDataSetAttributes);
 
 //--------------------------------------------------------------------------
-char vtkDataSetAttributes::AttributeNames[vtkDataSetAttributes::NUM_ATTRIBUTES][10] =
-  { "Scalars",
-    "Vectors",
-    "Normals",
-    "TCoords",
-    "Tensors" };
+const char vtkDataSetAttributes
+::AttributeNames[vtkDataSetAttributes::NUM_ATTRIBUTES][10] =
+{ "Scalars",
+  "Vectors",
+  "Normals",
+  "TCoords",
+  "Tensors" };
 
 // Construct object with copying turned on for all data.
 vtkDataSetAttributes::vtkDataSetAttributes()
@@ -1390,20 +1391,22 @@ int vtkDataSetAttributes::SetActiveAttribute(int index, int attributeType)
     }
 }
 
-    // Scalars set to NOLIMIT 
-int vtkDataSetAttributes::NumberOfAttributeComponents[vtkDataSetAttributes::NUM_ATTRIBUTES]
-= { 0,
-    3,
-    3,
-    3,
-    9};
+const int vtkDataSetAttributes
+::NumberOfAttributeComponents[vtkDataSetAttributes::NUM_ATTRIBUTES] =
+{ 0,
+  3,
+  3,
+  3,
+  9};
 
-int vtkDataSetAttributes::AttributeLimits[vtkDataSetAttributes::NUM_ATTRIBUTES]
-= { NOLIMIT,
-    EXACT,
-    EXACT,
-    MAX,
-    EXACT };
+// Scalars set to NOLIMIT 
+const int vtkDataSetAttributes
+::AttributeLimits[vtkDataSetAttributes::NUM_ATTRIBUTES] =
+{ NOLIMIT,
+  EXACT,
+  EXACT,
+  MAX,
+  EXACT };
 
 int vtkDataSetAttributes::CheckNumberOfComponents(vtkDataArray* da,
                                                   int attributeType)
