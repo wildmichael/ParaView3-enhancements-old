@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-06-09 12:48:58 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1997-06-09 16:40:54 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -706,8 +706,10 @@ void vtkImageReader::UpdateFromFile(vtkImageRegion *region)
 
 //----------------------------------------------------------------------------
 // Description:
-// Set the data type of pixles in the file.  If the OutputScalarType is not 
-// set yet, it is also set to "type" as a default.
+// Set the data type of pixles in the file.  
+// As a convienience, the OutputScalarType is set to the same value.
+// If you want the output scalar type to have a different value, set it
+// after this method is called.
 void vtkImageReader::SetDataScalarType(int type)
 {
   vtkImageCache *cache;
@@ -717,10 +719,7 @@ void vtkImageReader::SetDataScalarType(int type)
 
   // Set the default output scalar type
   cache = this->GetCache();
-  if (cache->GetScalarType() == VTK_VOID)
-    {
-    cache->SetScalarType(type);
-    }
+  cache->SetScalarType(type);
 }
 
 
