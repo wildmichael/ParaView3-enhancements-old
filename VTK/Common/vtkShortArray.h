@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShortArray.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-09 15:35:37 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2001-05-28 05:41:47 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -192,13 +192,6 @@ public:
   void SetArray(short* array, int size, int save);
   void SetVoidArray(void *array,int size, int save) 
     {this->SetArray((short*)array, size, save);};
-  
-#ifndef VTK_REMOVE_LEGACY_CODE
-  // Description:
-  // For legacy compatibility. Do not use.
-  void DeepCopy(vtkDataArray &da) 
-    {VTK_LEGACY_METHOD(DeepCopy,"3.2"); this->DeepCopy(&da);}
-#endif
   
 protected:
   vtkShortArray(int numComp=1);
