@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-05 18:30:43 $
-  Version:   $Revision: 1.178 $
+  Date:      $Date: 2002-04-11 19:37:38 $
+  Version:   $Revision: 1.179 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,7 +32,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-vtkCxxRevisionMacro(vtkRenderer, "$Revision: 1.178 $");
+vtkCxxRevisionMacro(vtkRenderer, "$Revision: 1.179 $");
 
 // Create a vtkRenderer with a black background, a white ambient light, 
 // two-sided lighting turned on, a viewport of (0,0,1,1), and backface culling
@@ -193,7 +193,7 @@ void vtkRenderer::Render(void)
   // count of them there too
   if ( this->Props->GetNumberOfItems() > 0 )
     {
-    this->PropArray                = new vtkProp *[this->Props->GetNumberOfItems()];
+    this->PropArray = new vtkProp *[this->Props->GetNumberOfItems()];
     }
   else
     {
@@ -292,23 +292,6 @@ float vtkRenderer::GetAllocatedRenderTime()
 float vtkRenderer::GetTimeFactor()
 {
   return this->TimeFactor;
-}
-
-void vtkRenderer::RenderOverlay()
-{
-  vtkProp *aProp;
-  
-  for (this->Props->InitTraversal(); 
-       (aProp = this->Props->GetNextProp()); )
-    {
-    if ( aProp->GetVisibility() )
-      {
-      aProp->RenderOverlay(this);
-      }
-    }
-
-  this->InvokeEvent(vtkCommand::EndEvent,NULL);
-  this->RenderTime.Modified();
 }
 
 // Ask active camera to load its view matrix.
@@ -444,7 +427,7 @@ int vtkRenderer::UpdateGeometry()
   // no time (culled) it would have been removed from
   // the list
   
-  // loop through props and give them a change to 
+  // loop through props and give them a chance to 
   // render themselves as opaque geometry
   for ( i = 0; i < this->PropArrayCount; i++ )
     {
@@ -462,7 +445,17 @@ int vtkRenderer::UpdateGeometry()
       this->PropArray[i]->RenderTranslucentGeometry(this);
     }
 
-  
+  // loop through props and give them a chance to 
+  // render themselves as an overlay (or underlay)
+  for ( i = 0; i < this->PropArrayCount; i++ )
+    {
+    this->NumberOfPropsRenderedAsGeometry += 
+      this->PropArray[i]->RenderOverlay(this);
+    }
+
+  this->InvokeEvent(vtkCommand::EndEvent,NULL);
+  this->RenderTime.Modified();
+
   vtkDebugMacro( << "Rendered " << 
                     this->NumberOfPropsRenderedAsGeometry << " actors" );
 
@@ -1335,7 +1328,18 @@ void vtkRenderer::PickGeometry()
       prop->RenderTranslucentGeometry(this);
     prop->PokeMatrix(NULL);
     }
-  
+
+  for ( i = 0; i < this->PathArrayCount; i++ )
+    {
+    this->UpdatePickId();
+    prop = this->PathArray[i]->GetLastNode()->GetProp();
+    matrix = this->PathArray[i]->GetLastNode()->GetMatrix();
+    prop->PokeMatrix(matrix);
+    this->NumberOfPropsRenderedAsGeometry += 
+      prop->RenderOverlay(this);
+    prop->PokeMatrix(NULL);
+    }
+
   vtkDebugMacro( << "Pick Rendered " << 
                     this->NumberOfPropsRenderedAsGeometry << " actors" );
 

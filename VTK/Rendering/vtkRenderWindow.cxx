@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:18 $
-  Version:   $Revision: 1.122 $
+  Date:      $Date: 2002-04-11 19:37:38 $
+  Version:   $Revision: 1.123 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 #include <stdio.h>
 #include <string.h>
 
-vtkCxxRevisionMacro(vtkRenderWindow, "$Revision: 1.122 $");
+vtkCxxRevisionMacro(vtkRenderWindow, "$Revision: 1.123 $");
 
 // Construct an instance of  vtkRenderWindow with its screen size 
 // set to 300x300, borders turned on, positioned at (0,0), double 
@@ -335,8 +335,6 @@ void vtkRenderWindow::Render()
       this->CurrentSubFrame = 0;
       this->CopyResultFrame();
 
-      this->Renderers->RenderOverlay();
-
       // free any memory
       delete [] this->AccumulationBuffer;
       this->AccumulationBuffer = NULL;
@@ -384,7 +382,6 @@ void vtkRenderWindow::Render()
       }
     
     this->CopyResultFrame();
-    this->Renderers->RenderOverlay();
     }  
 
   if (this->ResultFrame) 

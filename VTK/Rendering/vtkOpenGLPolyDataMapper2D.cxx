@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-11 15:04:28 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2002-04-11 19:37:38 $
+  Version:   $Revision: 1.36 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,15 +29,15 @@
 #include "vtkgluPickMatrix.h"
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkOpenGLPolyDataMapper2D, "$Revision: 1.35 $");
+vtkCxxRevisionMacro(vtkOpenGLPolyDataMapper2D, "$Revision: 1.36 $");
 vtkStandardNewMacro(vtkOpenGLPolyDataMapper2D);
 #endif
 
 #include "vtkMath.h"
 
 
-void vtkOpenGLPolyDataMapper2D::RenderOpaqueGeometry(vtkViewport* viewport,
-                                                     vtkActor2D* actor)
+void vtkOpenGLPolyDataMapper2D::RenderOverlay(vtkViewport* viewport,
+                                              vtkActor2D* actor)
 {
   int            numPts;
   vtkPolyData    *input= (vtkPolyData *)this->Input;

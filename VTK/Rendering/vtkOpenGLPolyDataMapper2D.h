@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:52 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-04-11 19:37:38 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -37,7 +37,7 @@ public:
 
   // Description:
   // Actually draw the poly data.
-  void RenderOpaqueGeometry(vtkViewport* viewport, vtkActor2D* actor);
+  void RenderOverlay(vtkViewport* viewport, vtkActor2D* actor);
 
 protected:
   vtkOpenGLPolyDataMapper2D() {};

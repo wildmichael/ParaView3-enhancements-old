@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:21 $
-  Version:   $Revision: 1.103 $
+  Date:      $Date: 2002-04-11 19:37:38 $
+  Version:   $Revision: 1.104 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -265,12 +265,6 @@ public:
   // Description:
   // Given a pixel location, return the Z value
   float GetZ (int x, int y);
-
-  // Description:
-  // Render the overlay actors. This gets called from the RenderWindow
-  // because it may need to be synchronized to happen after the
-  // buffers have been swapped.
-  void RenderOverlay();
 
   // Description:
   // Return the MTime of the renderer also considering its ivars.
