@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:09:12 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2000-03-16 19:41:01 $
+  Version:   $Revision: 1.34 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -272,6 +272,12 @@ unsigned char *vtkXImageWindow::GetPixelData(int x1, int y1,
   
   return data;
 }
+
+void vtkXImageWindow::Frame()
+{
+  this->SwapBuffers();
+}
+
 
 void vtkXImageWindow::SwapBuffers()
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:09:12 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2000-03-16 19:41:00 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -124,6 +124,10 @@ public:
   // Swaps the 2D drawing buffers.  The user should not need to 
   // use this call.  To invoke double buffering, call DoubleBufferOn
   void SwapBuffers();
+
+  // Description:
+  // Flush the buffer and swap buffers if necessary.
+  void Frame();
 
   // Description:
   // Determine the desired depth of the window.
