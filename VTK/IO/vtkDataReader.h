@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:03:30 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1998-09-02 18:38:08 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -149,7 +149,7 @@ public:
   int ReadCells(int size, int *data);
   int ReadCoordinates(vtkRectilinearGrid *rg, int axes, int numCoords);
   vtkDataArray *ReadArray(char *dataType, int numTuples, int numComp);
-  vtkFieldData *ReadFieldData(int num);
+  vtkFieldData *ReadFieldData();
 
   int Read(char *);
   int Read(unsigned char *);

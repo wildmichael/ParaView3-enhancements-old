@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-08-25 16:44:39 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 1998-09-02 18:38:07 $
+  Version:   $Revision: 1.62 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -425,7 +425,7 @@ int vtkDataReader::ReadCellData(vtkDataSet *ds, int numCells)
     else if ( ! strncmp(line, "field", 5) )
       {
       vtkFieldData *f;
-      if ( ! (f=this->ReadFieldData(numCells)) ) return 0;
+      if ( ! (f=this->ReadFieldData()) ) return 0;
       a->SetFieldData(f);
       f->Delete();
       }
@@ -528,7 +528,7 @@ int vtkDataReader::ReadPointData(vtkDataSet *ds, int numPts)
     else if ( ! strncmp(line, "field", 5) )
       {
       vtkFieldData *f;
-      if ( ! (f=this->ReadFieldData(numPts)) ) return 0;
+      if ( ! (f=this->ReadFieldData()) ) return 0;
       a->SetFieldData(f);
       f->Delete();
       }
@@ -1336,7 +1336,7 @@ int vtkDataReader::ReadCells(int size, int *data)
   return 1;
 }
 
-vtkFieldData *vtkDataReader::ReadFieldData(int vtkNotUsed(num))
+vtkFieldData *vtkDataReader::ReadFieldData()
 {
   int i, numArrays, skipField=0;
   vtkFieldData *f;

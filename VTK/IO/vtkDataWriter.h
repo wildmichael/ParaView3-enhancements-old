@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:03:36 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1998-09-02 18:38:16 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -140,7 +140,7 @@ public:
   int WriteCells(FILE *fp, vtkCellArray *cells, char *label);
   int WriteCellData(FILE *fp, vtkDataSet *ds);
   int WritePointData(FILE *fp, vtkDataSet *ds);
-  int WriteFieldData(FILE *fp, vtkFieldData *f, int num);
+  int WriteFieldData(FILE *fp, vtkFieldData *f);
   void CloseVTKFile(FILE *fp);
 
 protected:

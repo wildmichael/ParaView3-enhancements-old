@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-08-14 17:41:22 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 1998-09-02 18:38:09 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -212,7 +212,7 @@ int vtkDataWriter::WriteCellData(FILE *fp, vtkDataSet *ds)
 //
   if ( field && field->GetNumberOfTuples() > 0 )
     {
-    if ( ! this->WriteFieldData(fp, field, numCells) ) return 0;
+    if ( ! this->WriteFieldData(fp, field) ) return 0;
     }
 
   return 1;
@@ -290,7 +290,7 @@ int vtkDataWriter::WritePointData(FILE *fp, vtkDataSet *ds)
 //
   if ( field && field->GetNumberOfTuples() > 0 )
     {
-    if ( ! this->WriteFieldData(fp, field, numPts) ) return 0;
+    if ( ! this->WriteFieldData(fp, field) ) return 0;
     }
 
   return 1;
@@ -590,7 +590,7 @@ int vtkDataWriter::WriteTensorData(FILE *fp, vtkTensors *tensors, int num)
   return this->WriteArray(fp, tensors->GetDataType(), tensors->GetData(), format, num, 9);
 }
 
-int vtkDataWriter::WriteFieldData(FILE *fp, vtkFieldData *f, int num)
+int vtkDataWriter::WriteFieldData(FILE *fp, vtkFieldData *f)
 {
   char format[1024];
   int i, numArrays=f->GetNumberOfArrays();
