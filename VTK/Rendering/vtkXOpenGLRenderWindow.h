@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-15 20:03:00 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-08-17 17:02:20 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -61,8 +61,6 @@ class VTK_EXPORT vtkXOpenGLRenderWindow : public vtkOpenGLRenderWindow
 {
 protected:
   GLXContext ContextId;
-  int MultiSamples;
-  long OldMonitorSetting;
 
 public:
   static vtkXOpenGLRenderWindow *New();
