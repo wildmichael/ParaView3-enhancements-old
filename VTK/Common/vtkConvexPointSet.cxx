@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConvexPointSet.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-20 12:10:51 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-06-20 13:30:28 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkPointData.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkConvexPointSet, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkConvexPointSet, "$Revision: 1.9 $");
 vtkStandardNewMacro(vtkConvexPointSet);
 
 // Construct the hexahedron with eight points.
@@ -39,6 +39,8 @@ vtkConvexPointSet::vtkConvexPointSet()
   this->BoundaryTris = vtkCellArray::New();
   this->BoundaryTris->Allocate(100);
   this->Triangle = vtkTriangle::New();
+  this->Triangulator = vtkOrderedTriangulator::New();
+  this->Triangulator->PreSortedOff();
 }
 
 vtkConvexPointSet::~vtkConvexPointSet()
@@ -105,13 +107,6 @@ int vtkConvexPointSet::Triangulate(int index, vtkIdList *ptIds, vtkPoints *pts)
   pts->Reset();
   if ( numPts < 1 ) return 0;
   
-  // Create a triangulator if necessary.
-  if ( ! this->Triangulator )
-    {
-    this->Triangulator = vtkOrderedTriangulator::New();
-    this->Triangulator->PreSortedOff();
-    }
-
   // Initialize Delaunay insertion process.
   // No more than numPts points can be inserted.
   this->Triangulator->InitTriangulation(this->GetBounds(), numPts);
