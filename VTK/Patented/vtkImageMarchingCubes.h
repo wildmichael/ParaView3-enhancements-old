@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMarchingCubes.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-13 20:16:31 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-06-25 12:40:58 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -182,7 +182,7 @@ inline float *vtkImageMarchingCubes::GetValues()
 
 // Description:
 // Fill a supplied list with contour values. There will be
-// GetNumberOfContours() values in the list.Make sure you allocate
+// GetNumberOfContours() values in the list. Make sure you allocate
 // enough memory to hold the list.
 inline void vtkImageMarchingCubes::GetValues(float *contourValues)
 {this->ContourValues->GetValues(contourValues);};
@@ -197,7 +197,7 @@ inline void vtkImageMarchingCubes::SetNumberOfContours(int number)
 // Description:
 // Get the number of contours in the list of contour values.
 inline int vtkImageMarchingCubes::GetNumberOfContours()
-{return this->GetNumberOfContours();};
+{return this->ContourValues->GetNumberOfContours();};
 
 // Description:
 // Generate numContours equally spaced contour values between specified
