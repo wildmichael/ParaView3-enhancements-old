@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDOM.h,v 1.8 2003-11-06 21:57:03 clarke Exp $  */
-/*  Date : $Date: 2003-11-06 21:57:03 $ */
-/*  Version : $Revision: 1.8 $ */
+/*  Id : $Id: XdmfDOM.h,v 1.9 2004-02-13 20:22:53 andy Exp $  */
+/*  Date : $Date: 2004-02-13 20:22:53 $ */
+/*  Version : $Revision: 1.9 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -271,6 +271,7 @@ Return the number type of the node as set in the
 XML by : NuberType="Integer" Precision="4"
 */
   XdmfInt32 GetNumberType( XdmfXNode *Node );
+  XdmfInt32 GetNumberType( const char* attribute, const char* precision);
 
 //! Find the Number of XdmfParameters
   XdmfInt32 FindNumberOfParameters( XdmfXNode *Node = NULL ) {
@@ -294,6 +295,7 @@ XdmfString  DocType;
 XdmfString  System;
 XdmfString  xml;
 XDMF_TREE_NODE  *tree;
+XdmfString LastDOMGet;
 
 void ExpandNode(XDMF_TREE_NODE *node, XdmfInt32 *size);
 void ReNew(XdmfInt32 *size);
