@@ -38,7 +38,7 @@
 #include "vtkUnstructuredGrid.h"
 #include "vtkCallbackCommand.h"
 
-vtkCxxRevisionMacro(vtkPVGeometryFilter, "$Revision: 1.38 $");
+vtkCxxRevisionMacro(vtkPVGeometryFilter, "$Revision: 1.39 $");
 vtkStandardNewMacro(vtkPVGeometryFilter);
 
 vtkCxxSetObjectMacro(vtkPVGeometryFilter, Controller, vtkMultiProcessController);
@@ -316,7 +316,8 @@ void vtkPVGeometryFilter::ExecuteCellNormals(vtkPolyData *output)
     return;
     }
 
-  output->GetCellData()->SetNormals(cellNormals);
+  output->GetCellData()->AddArray(cellNormals);
+  output->GetCellData()->SetActiveNormals(cellNormals->GetName());
   cellNormals->Delete();
   cellNormals = NULL;
 }
