@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyLine.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-15 21:09:47 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 1999-07-31 20:47:09 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,7 +67,7 @@ int vtkPolyLine::GenerateSlidingNormals(vtkPoints *pts, vtkCellArray *lines, vtk
 {
   int npts, *linePts;
   float sPrev[3], sNext[3], q[3], w[3], normal[3], theta;
-  float p[3], pPrev[3], pNext[3];
+  float p[3], pNext[3];
   float c[3], f1, f2;
   int i, j, largeRotation;
   //
@@ -169,7 +169,6 @@ int vtkPolyLine::GenerateSlidingNormals(vtkPoints *pts, vtkCellArray *lines, vtk
 // 
           for (i=0; i<3; i++)
             {
-            pPrev[i] = p[i];
             p[i] = pNext[i];
             }
           pts->GetPoint(linePts[j+1],pNext);

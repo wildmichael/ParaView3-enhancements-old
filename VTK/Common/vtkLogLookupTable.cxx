@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLogLookupTable.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-05-22 03:23:54 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1999-07-31 20:47:07 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -149,7 +149,6 @@ void vtkLogLookupTable::MapScalarsThroughTable(void *input,
 					       int numberOfValues,
 					       int inputIncrement)
 {
-  int i = numberOfValues;
   switch (inputDataType)
     {
     case VTK_CHAR:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolygon.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-19 15:26:06 $
-  Version:   $Revision: 1.66 $
+  Date:      $Date: 1999-07-31 20:47:09 $
+  Version:   $Revision: 1.67 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1251,7 +1251,7 @@ int vtkPolygon::IntersectPolygonWithPolygon(int npts, float *pts,float bounds[6]
                                             float x[3])
 {
   float n[3], coords[3];
-  int i, j, retStat;
+  int i, j;
   float *p1, *p2, ray[3];
   float t;
   //
@@ -1273,7 +1273,7 @@ int vtkPolygon::IntersectPolygonWithPolygon(int npts, float *pts,float bounds[6]
       continue;
       }
 
-    if ( (retStat=vtkPlane::IntersectWithLine(p1,p2,n,pts2,t,x)) == 1 ) 
+    if ( (vtkPlane::IntersectWithLine(p1,p2,n,pts2,t,x)) == 1 ) 
       {
       if ( (npts2==3
 	    && vtkTriangle::PointInTriangle(x,pts2,pts2+3,pts2+6,tol2))
@@ -1284,7 +1284,7 @@ int vtkPolygon::IntersectPolygonWithPolygon(int npts, float *pts,float bounds[6]
         return 1;
         }
       } 
-    else //if ( retStat == ON_PLANE ) 
+    else
       {
       return 0;
       }
@@ -1309,7 +1309,7 @@ int vtkPolygon::IntersectPolygonWithPolygon(int npts, float *pts,float bounds[6]
       continue;
       }
 
-    if ( (retStat=vtkPlane::IntersectWithLine(p1,p2,n,pts,t,x)) == 1 ) 
+    if ( (vtkPlane::IntersectWithLine(p1,p2,n,pts,t,x)) == 1 ) 
       {
       if ( (npts==3 && vtkTriangle::PointInTriangle(x,pts,pts+3,pts+6,tol2))
 	   || (npts>3 && vtkPolygon::PointInPolygon(x,npts,pts,bounds,n)
@@ -1318,7 +1318,7 @@ int vtkPolygon::IntersectPolygonWithPolygon(int npts, float *pts,float bounds[6]
         return 1;
         }
       } 
-    else //if ( retStat == ON_PLANE ) 
+    else
       {
       return 0;
       }

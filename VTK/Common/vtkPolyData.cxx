@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 19:12:51 $
-  Version:   $Revision: 1.95 $
+  Date:      $Date: 1999-07-31 20:47:08 $
+  Version:   $Revision: 1.96 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1352,8 +1352,6 @@ void vtkPolyData::CopyUpdateExtent(vtkDataObject *data)
 //----------------------------------------------------------------------------
 void vtkPolyData::CopyInformation(vtkDataObject *data)
 {
-  vtkPolyData *polyData = (vtkPolyData*)(data);
-
   // Stuff specific to this data type.  Do nothing if data types don't match?
   if (strcmp(data->GetClassName(), "vtkPolyData") == 0)
     {

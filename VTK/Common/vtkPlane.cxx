@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlane.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-16 19:43:23 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1999-07-31 20:47:07 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -145,7 +145,6 @@ int vtkPlane::IntersectWithLine(float p1[3], float p2[3], float n[3],
                                float p0[3], float& t, float x[3])
 {
   float num, den, p21[3];
-  int i;
   float fabsden, fabstolerance;
   //
   // Compute line vector

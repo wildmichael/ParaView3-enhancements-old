@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-27 17:43:35 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 1999-07-31 20:47:10 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -627,7 +627,6 @@ void vtkStructuredGrid::SetDimensions(int dim[3])
 // Get the points defining a cell. (See vtkDataSet for more info.)
 void vtkStructuredGrid::GetCellPoints(int cellId, vtkIdList *ptIds)
 {
-  int idx, loc[3];
   int iMin, iMax, jMin, jMax, kMin, kMax;
   int d01 = this->Dimensions[0]*this->Dimensions[1];
  
@@ -889,7 +888,6 @@ void vtkStructuredGrid::ClipUpdateExtentWithWholeExtent()
 //----------------------------------------------------------------------------
 void vtkStructuredGrid::SetUpdateExtent(int piece, int numPieces)
 {
-  int *wholeDim;
   int numPiecesInFirstHalf;
   int size[3], mid, splitAxis;
   int ext[6];

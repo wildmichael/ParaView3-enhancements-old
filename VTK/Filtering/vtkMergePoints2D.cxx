@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergePoints2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-05-27 18:43:36 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-07-31 20:47:07 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,7 +45,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // -1.
 int vtkMergePoints2D::IsInsertedPoint(float x[2])
 {
-  int i, ijk0, ijk1, ijk2;
+  int i, ijk0, ijk1;
   int idx;
   vtkIdList *bucket;
   //

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:28 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 1999-07-31 20:47:11 $
+  Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -600,8 +600,6 @@ void vtkUnstructuredGrid::CopyUpdateExtent(vtkDataObject *data)
 //----------------------------------------------------------------------------
 void vtkUnstructuredGrid::CopyInformation(vtkDataObject *data)
 {
-  vtkUnstructuredGrid *grid = (vtkUnstructuredGrid*)(data);
-
   // Stuff specific to this data type.  Do nothing if data types don't match?
   if (strcmp(data->GetClassName(), "vtkUnstructuredGrid") == 0)
     {

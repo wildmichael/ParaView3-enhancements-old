@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-24 21:42:19 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1999-07-31 20:47:08 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -323,7 +323,7 @@ void vtkPointLocator::FindDistributedPoints(int N, float x[3],
 					    vtkIdList *result, int M)
 {
   int i, j;
-  float minDist2, dist2;
+  float dist2;
   float *pt;
   int level;
   int ptId, cno;
@@ -479,7 +479,7 @@ void vtkPointLocator::FindClosestNPoints(int N, float x,
 void vtkPointLocator::FindClosestNPoints(int N, float x[3],vtkIdList *result)
 {
   int i, j;
-  float minDist2, dist2;
+  float dist2;
   float *pt;
   int level;
   int ptId, cno;
@@ -616,7 +616,7 @@ void vtkPointLocator::FindPointsWithinRadius(float R, float x[3],
 					     vtkIdList *result)
 {
   int i, j;
-  float minDist2, dist2;
+  float dist2;
   float *pt;
   int level;
   int ptId, cno;

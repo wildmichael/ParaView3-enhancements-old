@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLine.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-10 22:38:50 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 1999-07-31 20:47:06 $
+  Version:   $Revision: 1.58 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -116,7 +116,6 @@ int vtkLine::Intersection (float a1[3], float a2[3], float b1[3], float b2[3],
   double a21[3], b21[3], b1a1[3];
   double c[2];
   double *A[2], row1[2], row2[2];
-  int i;
   
   //  Initialize 
   u = v = 0.0;
