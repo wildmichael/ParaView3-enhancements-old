@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMaskPoints.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-08 09:16:21 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-09-20 22:23:54 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -13,7 +13,7 @@ without the express written consent of the authors.
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-// .NAME vlMaskPoints -
+// .NAME vlMaskPoints - selectively filter points
 // .SECTION Description
 // vlMaskPoints is a filter that passes through points and point attributes 
 // from input dataset. (Other geometry is not passed through). It is 
