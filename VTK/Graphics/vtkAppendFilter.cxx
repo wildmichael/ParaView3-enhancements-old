@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-09 16:44:48 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1995-10-28 14:04:12 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -82,7 +82,7 @@ void vtkAppendFilter::Update()
   if (this->Updating) return;
 
   this->Updating = 1;
-  for (mtime=0, this->InputList.InitTraversal(); ds = this->InputList.GetNextItem(); )
+  for (mtime=0, this->InputList.InitTraversal(); (ds = this->InputList.GetNextItem()); )
     {
     ds->Update();
     dsMtime = ds->GetMTime();
@@ -101,7 +101,7 @@ void vtkAppendFilter::Update()
     if ( this->EndMethod ) (*this->EndMethod)(this->EndMethodArg);
     }
 
-  for (this->InputList.InitTraversal(); ds = this->InputList.GetNextItem(); )
+  for (this->InputList.InitTraversal(); (ds = this->InputList.GetNextItem()); )
     if ( ds->ShouldIReleaseData() ) ds->ReleaseData();
 }
 
@@ -132,7 +132,7 @@ void vtkAppendFilter::Execute()
   tensorsPresent = 1;
   userDefinedPresent = 1;
 
-  for ( this->InputList.InitTraversal(); ds = this->InputList.GetNextItem(); )
+  for (this->InputList.InitTraversal(); (ds = this->InputList.GetNextItem()); )
     {
     numPts += ds->GetNumberOfPoints();
     numCells += ds->GetNumberOfCells();
@@ -163,7 +163,8 @@ void vtkAppendFilter::Execute()
 
   newPts = new vtkFloatPoints(numPts);
 
-  for ( ptOffset=0, this->InputList.InitTraversal(); ds = this->InputList.GetNextItem(); ptOffset+=numPts)
+  for (ptOffset=0, this->InputList.InitTraversal(); 
+       (ds = this->InputList.GetNextItem()); ptOffset+=numPts)
     {
     numPts = ds->GetNumberOfPoints();
     numCells = ds->GetNumberOfCells();
