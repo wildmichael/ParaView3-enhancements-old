@@ -5,8 +5,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDistributedDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 2003-10-03 00:48:17 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-10-16 19:04:49 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -152,6 +152,7 @@ public:
   //   by all processes, or it will hang.
 
   void Execute();
+  void SingleProcessExecute();
   void ExecuteInformation();
 
 
@@ -193,14 +194,14 @@ private:
   vtkPKdTree *Kdtree;
   vtkMultiProcessController *Controller;
 
+  int NumProcesses;
+  int MyId;
+
   char *GlobalIdArrayName;
 
   int RetainKdtree;
   int IncludeAllIntersectingCells;
   int ClipCells;
-
-  int NumProcesses;
-  int MyLocalId;
 
   int Timing;
 
