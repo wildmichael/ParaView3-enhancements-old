@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractList.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-21 22:26:12 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-03-22 12:02:04 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -46,12 +46,12 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 template<class DType>
 class vtkAbstractList : public vtkContainer
 {
+public:
   // Description:
   // This is a prototype for a compare function. It has to
   // return true if objects are the same and false if not.
   typedef int (*CompareFunction)(DType item1, DType item2);
 
-public:
   // Description:
   // Append an Item to the end of the list
   virtual unsigned long AppendItem(DType a) = 0;
