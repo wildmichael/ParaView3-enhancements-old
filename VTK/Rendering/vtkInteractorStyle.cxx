@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-11-30 19:28:46 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2000-12-07 16:37:09 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -876,6 +876,10 @@ void vtkInteractorStyle::OnMouseMove(int vtkNotUsed(ctrl), int vtkNotUsed(shift)
 {
   this->LastPos[0] = X;
   this->LastPos[1] = Y;
+  if (this->HasObserver(vtkCommand::MouseMoveEvent)) 
+    {
+    this->InvokeEvent(vtkCommand::MouseMoveEvent,NULL);
+    }
 }
 
 //----------------------------------------------------------------------------
