@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:55 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2002-02-16 19:12:32 $
+  Version:   $Revision: 1.42 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -40,7 +40,7 @@ public:
 };
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkOpenGLRenderer, "$Revision: 1.41 $");
+vtkCxxRevisionMacro(vtkOpenGLRenderer, "$Revision: 1.42 $");
 vtkStandardNewMacro(vtkOpenGLRenderer);
 #endif
 
@@ -212,7 +212,15 @@ void vtkOpenGLRenderer::Clear(void)
 
 void vtkOpenGLRenderer::StartPick(unsigned int pickFromSize)
 {
+
   int bufferSize = pickFromSize * 4;
+
+  // Do not remove this MakeCurrent! Due to Start / End methods on
+  // some objects which get executed during a pipeline update, 
+  // other windows might get rendered since the last time
+  // a MakeCurrent was called.
+  this->RenderWindow->MakeCurrent();
+
   this->PickInfo->PickBuffer = new GLuint[bufferSize];
   glSelectBuffer(bufferSize, this->PickInfo->PickBuffer);
   // change to selection mode
