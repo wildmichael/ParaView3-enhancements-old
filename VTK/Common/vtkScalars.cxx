@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalars.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:50:24 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1998-03-27 14:16:11 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,7 +54,7 @@ vtkScalars::vtkScalars(int dataType, int dim) : vtkAttributeData(dataType)
   
   this->CurrentAlpha = 1.0;
   this->CurrentLookupTable = NULL;
-  this->CurrentColorFunction = NULL;
+  this->CurrentColorFunction = &vtkScalars::MapThroughLookupTable;
 }
 
 vtkScalars::~vtkScalars()
