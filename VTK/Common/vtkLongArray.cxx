@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLongArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-18 11:11:48 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2001-04-18 12:03:45 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -238,7 +238,7 @@ long *vtkLongArray::ResizeAndExtend(const int sz)
   return this->Array;
 }
 
-void vtkLongArray::Resize(const int sz)
+void vtkLongArray::Resize(int sz)
 {
   long *newArray;
   int newSize = sz*this->NumberOfComponents;

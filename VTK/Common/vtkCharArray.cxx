@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCharArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-18 11:11:48 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2001-04-18 12:03:45 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -234,7 +234,7 @@ char *vtkCharArray::ResizeAndExtend(const int sz)
   return this->Array;
 }
 
-void vtkCharArray::Resize(const int sz)
+void vtkCharArray::Resize(int sz)
 {
   char *newArray;
   int newSize = sz*this->NumberOfComponents;

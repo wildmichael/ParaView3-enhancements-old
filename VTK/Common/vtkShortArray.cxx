@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShortArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-18 11:11:48 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2001-04-18 12:03:45 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -236,7 +236,7 @@ short *vtkShortArray::ResizeAndExtend(const int sz)
   return this->Array;
 }
 
-void vtkShortArray::Resize(const int sz)
+void vtkShortArray::Resize(int sz)
 {
   short *newArray;
   int newSize = sz*this->NumberOfComponents;

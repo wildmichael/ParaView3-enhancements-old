@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedLongArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-18 11:11:48 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-04-18 12:03:45 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -239,7 +239,7 @@ unsigned long *vtkUnsignedLongArray::ResizeAndExtend(const int sz)
   return this->Array;
 }
 
-void vtkUnsignedLongArray::Resize(const int sz)
+void vtkUnsignedLongArray::Resize(int sz)
 {
   unsigned long *newArray;
   int newSize = sz*this->NumberOfComponents;

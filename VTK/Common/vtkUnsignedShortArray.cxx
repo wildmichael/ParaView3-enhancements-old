@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedShortArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-18 11:11:48 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2001-04-18 12:03:45 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -238,7 +238,7 @@ unsigned short *vtkUnsignedShortArray::ResizeAndExtend(const int sz)
   return this->Array;
 }
 
-void vtkUnsignedShortArray::Resize(const int sz)
+void vtkUnsignedShortArray::Resize(int sz)
 {
   unsigned short *newArray;
   int newSize = sz*this->NumberOfComponents;

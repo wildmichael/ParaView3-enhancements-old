@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFloatArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-18 11:11:48 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2001-04-18 12:03:45 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -233,7 +233,7 @@ float *vtkFloatArray::ResizeAndExtend(const int sz)
   return this->Array;
 }
 
-void vtkFloatArray::Resize(const int sz)
+void vtkFloatArray::Resize(int sz)
 {
   float *newArray;
   int newSize = sz * this->NumberOfComponents;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBitArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-18 11:11:48 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2001-04-18 12:03:45 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -252,7 +252,7 @@ unsigned char *vtkBitArray::ResizeAndExtend(const int sz)
   return this->Array;
 }
 
-void vtkBitArray::Resize(const int sz)
+void vtkBitArray::Resize(int sz)
 {
   unsigned char *newArray;
   int newSize = sz*this->NumberOfComponents;
