@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-07 19:06:14 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-06-16 12:51:52 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -132,6 +132,7 @@ int main( int argc, char *argv[] )
     }
 
   floatArray->Delete();
+  ucCharArray->Delete();
   ucArray->Delete();
   sphereSource->Delete();
   actor->Delete();
@@ -139,7 +140,7 @@ int main( int argc, char *argv[] )
   ren->Delete();
   renWin->Delete();
   iren->Delete();
-  
+  delete [] checks;
   return !retVal;
 }
 
