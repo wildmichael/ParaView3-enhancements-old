@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-27 13:42:39 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 1999-04-27 19:04:28 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -131,6 +131,7 @@ class VTK_EXPORT vtkTransform : public vtkObject
   // origin and x, y, z. It then concatenates this matrix with the current
   // transformation matrix.
   void RotateWXYZ ( float angle, float x, float y, float z);
+  void RotateWXYZ (double angle, double x, double y, double z);
 
   // Description:
   // Scales the current transformation matrix in the x, y and z directions.
@@ -253,11 +254,13 @@ class VTK_EXPORT vtkTransform : public vtkObject
   // The setting of the PreMultiplyFlag will determine if the Point is
   // Pre or Post multiplied.
   float *GetPoint();
+  double *GetDoublePoint();
   void GetPoint(float p[4]);
 
   // Description:
   // Set the point to use in the GetPoint calculations.
   vtkSetVector4Macro(Point,float);
+  vtkSetVector4Macro(DoublePoint,double);
 
   // Description:
   // For legacy compatibility. Do not use.
@@ -277,6 +280,7 @@ private:
   vtkMatrix4x4 **Stack;
   vtkMatrix4x4 **StackBottom;
   float Point[4];
+  double DoublePoint[4];
   float Orientation[3];
 
 };
