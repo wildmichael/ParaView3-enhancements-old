@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 2000-06-08 09:11:05 $
-  Version:   $Revision: 1.68 $
+  Date:      $Date: 2000-06-19 12:08:31 $
+  Version:   $Revision: 1.69 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -170,11 +170,12 @@ public:
   vtkGetMacro(Initialized,int);
 
   // Description:
-  // Set/Get the object used to perform pick operations. It must be a 
-  // subclass of vtkAbstractPropPicker, meaning that it can identify
-  // a particular instance of vtkProp.
-  vtkSetObjectMacro(Picker,vtkAbstractPropPicker);
-  vtkGetObjectMacro(Picker,vtkAbstractPropPicker);
+  // Set/Get the object used to perform pick operations. In order to
+  // pick instances of vtkProp, the picker must be a subclass of 
+  // vtkAbstractPropPicker, meaning that it can identify a particular 
+  // instance of vtkProp.
+  vtkSetObjectMacro(Picker,vtkAbstractPicker);
+  vtkGetObjectMacro(Picker,vtkAbstractPicker);
 
   // Description:
   // Create default picker. Used to create one when none is specified.
@@ -224,7 +225,7 @@ public:
   // Description:
   // Render the scene. Just pass the render call on to the RenderWindow.
   void Render();
-  
+
 protected:
   vtkRenderWindowInteractor();
   ~vtkRenderWindowInteractor();
@@ -233,10 +234,9 @@ protected:
 
   vtkRenderWindow    *RenderWindow;
   vtkInteractorStyle *InteractorStyle;
-  // used to track picked objects in actor mode
-  // reason for existence: user may use any kind of picker.  Interactor
-  //    need the high precision of cell picker at all time.
-  vtkAbstractPropPicker          *Picker;
+
+  // Used as a helper object to pick instances of vtkProp
+  vtkAbstractPicker          *Picker;
 
   //
   int   Initialized;

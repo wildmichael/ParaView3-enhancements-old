@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWorldPointPicker.h,v $
   Language:  C++
-  Date:      $Date: 2000-06-16 09:52:19 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-06-19 12:08:31 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,7 +58,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkAbstractPropPicker.h"
 
-class VTK_EXPORT vtkWorldPointPicker : public vtkAbstractPropPicker
+class VTK_EXPORT vtkWorldPointPicker : public vtkAbstractPicker
 {
 public:
   static vtkWorldPointPicker *New();

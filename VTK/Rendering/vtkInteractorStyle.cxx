@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-08 09:11:03 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2000-06-19 12:08:31 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -792,12 +792,16 @@ void vtkInteractorStyle::OnChar(int ctrl, int shift,
     case 'P' :
       if (this->State == VTKIS_START) 
         {
-        vtkAssemblyPath *path;
+        vtkAssemblyPath *path=NULL;
         this->FindPokedRenderer(this->LastPos[0],this->LastPos[1]);
         rwi->StartPickCallback();
         rwi->GetPicker()->Pick(this->LastPos[0],this->LastPos[1], 0.0, 
                                this->CurrentRenderer);
-        path = rwi->GetPicker()->GetPath();
+        vtkAbstractPropPicker *picker;
+        if ( picker=vtkAbstractPropPicker::SafeDownCast(rwi->GetPicker()) )
+          {
+          path = picker->GetPath();
+          }
         if ( path == NULL )
           {
           this->HighlightProp(NULL);
