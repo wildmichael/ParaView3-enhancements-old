@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHeap.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:25 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-06-13 08:41:32 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkHeap.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkHeap, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkHeap, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkHeap);
 
 vtkHeap::vtkHeap()
@@ -83,7 +83,7 @@ void* vtkHeap::AllocateMemory(size_t n)
   return node->Ptr;
 }
 
-char* vtkHeap::vtkStrDup(const char* str)
+char* vtkHeap::StringDup(const char* str)
 {
   this->NumberOfAllocations++;
 

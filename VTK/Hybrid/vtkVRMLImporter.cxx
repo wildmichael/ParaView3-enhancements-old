@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLImporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-28 03:33:50 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 2002-06-13 08:41:32 $
+  Version:   $Revision: 1.53 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -82,7 +82,7 @@ void vtkVRMLAllocator::CleanUp()
 }
 char* vtkVRMLAllocator::StrDup(const char *str)
 {
-  return Heap->vtkStrDup(str);
+  return Heap->StringDup(str);
 }
 
 
@@ -4233,7 +4233,7 @@ YY_MALLOC_DECL
 #define YY_BREAK break;
 #endif
 
-vtkCxxRevisionMacro(vtkVRMLImporter, "$Revision: 1.52 $");
+vtkCxxRevisionMacro(vtkVRMLImporter, "$Revision: 1.53 $");
 vtkStandardNewMacro(vtkVRMLImporter);
 
 vtkPoints* vtkVRMLImporter::PointsNew()
