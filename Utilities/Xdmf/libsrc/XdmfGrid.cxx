@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGrid.cxx,v 1.2 2003-09-16 19:07:40 andy Exp $  */
-/*  Date : $Date: 2003-09-16 19:07:40 $ */
-/*  Version : $Revision: 1.2 $ */
+/*  Id : $Id: XdmfGrid.cxx,v 1.3 2003-09-18 13:06:25 andy Exp $  */
+/*  Date : $Date: 2003-09-18 13:06:25 $ */
+/*  Version : $Revision: 1.3 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -44,10 +44,16 @@ XdmfGrid::XdmfGrid() {
   this->BaseGridIsMine = 1;
   this->Attribute = (XdmfAttribute **)calloc(1, sizeof( XdmfAttribute * ));
   this->AssignedAttribute = NULL;
+  this->NumberOfAttributes = 0;
   }
 
 XdmfGrid::~XdmfGrid() {
+  XdmfInt32  Index;
   if( this->GeometryIsMine && this->Geometry ) delete this->Geometry;
+  for ( Index = 0; Index < this->NumberOfAttributes; Index ++ )
+    {
+    delete this->Attribute[Index];
+    }
   free(this->Attribute);
   }
 
@@ -140,12 +146,17 @@ if( Attribute ) {
 } else {
   this->SetName( GetUnique("Grid_" ) );
 }
+XdmfInt32 OldNumberOfAttributes = this->NumberOfAttributes;
 this->NumberOfAttributes = this->DOM->FindNumberOfElements("Attribute", Element );
 if( this->NumberOfAttributes > 0 ){
   XdmfInt32  Index;
   XdmfAttribute  *Attribute;
   XdmfXNode    *AttributeElement;
 
+  for ( Index = 0; Index < OldNumberOfAttributes; Index ++ )
+    {
+    delete this->Attribute[Index];
+    }
   this->Attribute = ( XdmfAttribute **)realloc( this->Attribute,
       this->NumberOfAttributes * sizeof( XdmfAttribute * ));
   for( Index = 0 ; Index < this->NumberOfAttributes ; Index++ ){
