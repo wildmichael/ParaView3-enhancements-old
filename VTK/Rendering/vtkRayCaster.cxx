@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRayCaster.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:07:27 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1999-11-02 20:02:46 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -760,13 +760,13 @@ void vtkRayCaster::ComputeRowBounds( vtkRenderer *ren, vtkProp *prop, int index 
     
     if ( y2 < y1 ) 
       {
-      low = y2;
-      high = y1;
+      low = (int)(y2);
+      high = (int)(y1);
       }
     else
       {
-      low = y1;
-      high = y2;
+      low = (int)(y1);
+      high = (int)(y2);
       }
 
     if ( low < 0 )
