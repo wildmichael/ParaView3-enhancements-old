@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKWIcon.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-02 18:59:13 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-08-06 18:28:01 $
+  Version:   $Revision: 1.5 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -43,11 +43,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkImageConstantPad.h"
 #include "vtkImageData.h"
+#include "vtkImageFlip.h"
 #include "vtkObjectFactory.h"
 
 #include "icons.h"
-
-#include "vtkPNGWriter.h"
 
 //------------------------------------------------------------------------------
 vtkStandardNewMacro( vtkKWIcon );
@@ -99,10 +98,17 @@ void vtkKWIcon::SetImageData(vtkImageData* id)
     pad->Delete();
     }
 
-  this->SetData(static_cast<unsigned char*>(image->GetScalarPointer()), 
-                width, height);
-
+  vtkImageFlip* flip = vtkImageFlip::New();
+  flip->SetInput(image);
+  flip->SetFilteredAxis(1);
+  flip->Update();
   image->UnRegister(this);
+
+  this->SetData(
+    static_cast<unsigned char*>(flip->GetOutput()->GetScalarPointer()),
+    width, height);
+  flip->Delete();
+
 }
 
 void vtkKWIcon::SetData(const unsigned char* data, int width, int height)
