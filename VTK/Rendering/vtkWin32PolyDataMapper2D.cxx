@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32PolyDataMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-25 14:53:59 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-03-02 16:48:24 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -201,10 +201,6 @@ void vtkWin32PolyDataMapper2D::RenderOverlay(vtkViewport* viewport,
       cellScalars = 1;
       }
     }
-vtkDebugMacro(<< c);
-//    printf("c = %s\n", c);
-vtkDebugMacro(<< cellScalars);
-//    printf("cellScalars = %d\n", cellScalars);
 
   // set the colors for the foreground
   brush = CreateSolidBrush(RGB(red,green,blue));
@@ -266,10 +262,10 @@ vtkDebugMacro(<< cellScalars);
 	{
 	rgba = c->GetColor(pts[j]);
 	}
-      //      npen = (HPEN) CreatePen(PS_SOLID,0,RGB(rgba[0],rgba[1],rgba[2]));
-      //      pen =  (HPEN) SelectObject(hdc,npen);   
-      //      DeleteObject(pen);
-      //      pen = npen;
+      npen = (HPEN) CreatePen(PS_SOLID,0,RGB(rgba[0],rgba[1],rgba[2]));
+      pen =  (HPEN) SelectObject(hdc,npen);   
+      DeleteObject(pen);
+      pen = npen;
       }
     if (npts > currSize)
       {
