@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-02-14 13:46:27 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1995-02-14 15:30:16 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -25,6 +25,16 @@ vlWriter::vlWriter()
   this->EndWrite = NULL;
   this->EndWriteArgDelete = NULL;
   this->EndWriteArg = NULL;
+}
+
+// Description:
+// General write method executes subclasses WriteData() method, as well as
+// StartWrite() and EndWrite() methods.
+void vlWriter::Write()
+{
+  if ( this->StartWrite ) (*this->StartWrite)(this->StartWriteArg);
+  this->WriteData();
+  if ( this->EndWrite ) (*this->EndWrite)(this->EndWriteArg);
 }
 
 // Description:

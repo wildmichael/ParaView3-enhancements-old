@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkSTLWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-09 19:58:27 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1995-02-14 15:30:12 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -28,7 +28,7 @@ vlSTLWriter::~vlSTLWriter()
   if ( this->Filename ) delete [] this->Filename;
 }
 
-void vlSTLWriter::Write()
+void vlSTLWriter::WriteData()
 {
   vlPoints *pts;
   vlCellArray *polys;

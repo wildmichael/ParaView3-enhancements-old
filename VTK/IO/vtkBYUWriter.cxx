@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkBYUWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-09 19:58:23 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1995-02-14 15:30:18 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -40,7 +40,7 @@ vlBYUWriter::~vlBYUWriter()
 
 // Description:
 // Write out data in MOVIE.BYU format.
-void vlBYUWriter::Write()
+void vlBYUWriter::WriteData()
 {
   FILE *geomFp;
   vlPolyData *input=(vlPolyData *)this->Input;

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkBYUWriter.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-21 20:47:27 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1995-02-14 15:30:19 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -75,9 +75,8 @@ public:
   vlGetMacro(WriteTexture,int);
   vlBooleanMacro(WriteTexture,int);
 
-  void Write();
-
 protected:
+  void WriteData();
   void Execute() {this->Write();};
 
   char *GeometryFilename;

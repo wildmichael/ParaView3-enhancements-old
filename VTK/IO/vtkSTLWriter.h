@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkSTLWriter.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-21 20:47:30 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1995-02-14 15:30:12 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -49,9 +49,8 @@ public:
   vlSetClampMacro(WriteMode,int,STL_ASCII,STL_BINARY);
   vlGetMacro(WriteMode,int);
 
-  void Write();
-
 protected:
+  void WriteData();
   void Execute() {this->Write();};
 
   char *Filename;
