@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPixel.h,v $
   Language:  C++
-  Date:      $Date: 1995-12-27 10:56:42 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1996-06-11 17:08:29 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -83,6 +83,7 @@ public:
 
   // pixel specific
   void InterpolationFunctions(float pcoords[3], float weights[4]);
+  void InterpolationDerivs(float pcoords[3], float derivs[8]);
 };
 
 #endif
