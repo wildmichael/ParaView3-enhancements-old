@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: vtkXdmfWin32RenderWindowInteractor.cxx,v 1.1 2003-05-09 17:29:42 clarke Exp $  */
-/*  Date : $Date: 2003-05-09 17:29:42 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: vtkXdmfWin32RenderWindowInteractor.cxx,v 1.2 2003-05-11 16:45:32 andy Exp $  */
+/*  Date : $Date: 2003-05-11 16:45:32 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -55,7 +55,7 @@ if ( Block ) {
 void vtkXdmfWin32RenderWindowInteractor::LoopOnce( )
 {
 MSG msg;
-while (PeekMessage ( &msg, NULL, 0, 0, PM_NOREMOVE) {
+while (PeekMessage ( &msg, NULL, 0, 0, PM_NOREMOVE)) {
 	if(GetMessage(&msg, NULL, 0, 0)){
 		TranslateMessage(&msg);
 		DispatchMessage(&msg);	
