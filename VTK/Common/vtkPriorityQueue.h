@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPriorityQueue.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-01 07:23:38 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2000-11-22 22:48:27 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -89,7 +89,8 @@ public:
 
   // Description:
   // Removes item at specified location from tree; then reorders and
-  // balances tree. The location == 0 is the root of the tree.
+  // balances tree. The location == 0 is the root of the tree. If queue
+  // is exhausted, then a value < 0 is returned.
   int Pop(float &priority, int location=0);
   
   // Description:
