@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-31 15:10:56 $
-  Version:   $Revision: 1.117 $
+  Date:      $Date: 2000-07-31 17:13:50 $
+  Version:   $Revision: 1.118 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -531,62 +531,6 @@ void vtkPolyData::GetCellBounds(int cellId, float bounds[6])
       {
       bounds[5] = x[2];
       }
-    }
-}
-
-//----------------------------------------------------------------------------
-void vtkPolyData::ComputeBounds()
-{
-    if (this->GetMTime() > this->ComputeTime)
-    {
-        int t, i, npts, *pts;
-        float x[3];
-      
-        this->Bounds[0] = this->Bounds[2] = this->Bounds[4] =  VTK_LARGE_FLOAT;
-        this->Bounds[1] = this->Bounds[3] = this->Bounds[5] = -VTK_LARGE_FLOAT;
-
-        vtkCellArray *cella[4];
-        cella[0] = this->GetVerts();
-        cella[1] = this->GetLines();
-        cella[2] = this->GetPolys();
-        cella[3] = this->GetStrips();
-
-        for (t = 0; t < 4; t++) 
-        {
-            for (cella[t]->InitTraversal(); cella[t]->GetNextCell(npts,pts); )
-            {
-                for (i = 0;  i < npts; i++)
-                {
-                    this->Points->GetPoint( pts[i], x );
-
-                    if (x[0] < this->Bounds[0])
-                    {
-                        this->Bounds[0] = x[0];
-                    }
-                    if (x[0] > this->Bounds[1])
-                    {
-                        this->Bounds[1] = x[0];
-                    }
-                    if (x[1] < this->Bounds[2])
-                    {
-                        this->Bounds[2] = x[1];
-                    }
-                    if (x[1] > this->Bounds[3])
-                    {
-                        this->Bounds[3] = x[1];
-                    }
-                    if (x[2] < this->Bounds[4])
-                    {
-                        this->Bounds[4] = x[2];
-                    }
-                    if (x[2] > this->Bounds[5])
-                    {
-                        this->Bounds[5] = x[2];
-                    }
-                }
-            }
-        }
-        this->ComputeTime.Modified();
     }
 }
 

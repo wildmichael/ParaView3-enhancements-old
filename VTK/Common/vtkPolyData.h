@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 2000-07-31 15:10:56 $
-  Version:   $Revision: 1.97 $
+  Date:      $Date: 2000-07-31 17:13:50 $
+  Version:   $Revision: 1.98 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -117,10 +117,6 @@ public:
   // routine BuildLinks() has been called.
   void GetPointCells(int ptId, vtkIdList *cellIds);
 
-  // Description:
-  // Compute the (X, Y, Z)  bounds of the data.
-  void ComputeBounds();
-  
   // Description:
   // Recover extra allocated memory when creating data whose initial size
   // is unknown. Examples include using the InsertNextCell() method, or
