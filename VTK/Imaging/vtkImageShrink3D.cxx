@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageShrink3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-10-31 14:06:41 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1997-01-03 14:58:44 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,6 +52,10 @@ vtkImageShrink3D::vtkImageShrink3D()
   this->SetShrinkFactors(1, 1, 1);
   this->SetShift(0, 0, 0);
   this->AveragingOn();
+
+  this->ExecuteDimensionality = 3;
+  // Other dimesionalities can be simulated with specific shrink factors.
+  this->Dimensionality = 3;
 }
 
 //----------------------------------------------------------------------------

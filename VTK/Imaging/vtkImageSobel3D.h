@@ -1,10 +1,10 @@
 /*=========================================================================
 
   Program:   Visualization Toolkit
-  Module:    $RCSfile: vtkImageShrink3D.h,v $
+  Module:    $RCSfile: vtkImageSobel3D.h,v $
   Language:  C++
-  Date:      $Date: 1997-01-03 14:58:53 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1997-01-03 14:59:10 $
+  Version:   $Revision: 1.1 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,54 +38,43 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkImageShrink3D - Subsamples an image.
+// .NAME vtkImageSobel3D - Computes a vector field using sobel functions.
 // .SECTION Description
-// vtkImageShrink3D shrinks an image by sub sampling on a 
-// uniform grid (integer multiples).  This has become an obsolete
-// filter, because spatial filters now have strides which will produce 
-// the save result.
+// vtkImageSobel3D computes a vector field from a scalar field by using
+// Sobel functions.  The number of vector components is 3 because
+// the input is a volume.
 
 
-#ifndef __vtkImageShrink3D_h
-#define __vtkImageShrink3D_h
+
+#ifndef __vtkImageSobel3D_h
+#define __vtkImageSobel3D_h
 
 
 #include "vtkImageFilter.h"
 
-class vtkImageShrink3D : public vtkImageFilter
+class vtkImageSobel3D : public vtkImageFilter
 {
 public:
-  vtkImageShrink3D();
-  char *GetClassName() {return "vtkImageShrink3D";};
+  vtkImageSobel3D();
+  char *GetClassName() {return "vtkImageSobel3D";};
   void PrintSelf(ostream& os, vtkIndent indent);
   
-  // Description:
-  // Set/Get the shrink factors
-  vtkSetVector3Macro(ShrinkFactors,int);
-  vtkGetVector3Macro(ShrinkFactors,int);
+  void InterceptCacheUpdate(vtkImageRegion *region);
 
   // Description:
-  // Set/Get the pixel to use as origin.
-  vtkSetVector3Macro(Shift,int);
-  vtkGetVector3Macro(Shift,int);
-
-  // Description:
-  // Choose Averaging or sub sampling
-  vtkSetMacro(Averaging,int);
-  vtkGetMacro(Averaging,int);
-  vtkBooleanMacro(Averaging,int);
-  
+  // This SetAxes method sets VTK_COMPONENT_AXIS as the fourth axis.
+  // The superclass is told not to loop over this axis.
+  // Note: Get Axes still returns the super class axes.
+  void SetAxes(int num, int *axes);
+  vtkImageSetMacro(Axes,int);
   
 protected:
-  int ShrinkFactors[3];
-  int Shift[3];
-  int Averaging;
-
   void ComputeOutputImageInformation(vtkImageRegion *inRegion,
 				     vtkImageRegion *outRegion);
-  void ComputeRequiredInputRegionExtent(vtkImageRegion *outRegion,
+  void ComputeRequiredInputRegionExtent(vtkImageRegion *outRegion, 
 					vtkImageRegion *inRegion);
-  void Execute(vtkImageRegion *inRegion, vtkImageRegion *outRegion);  
+  void Execute(vtkImageRegion *inRegion, vtkImageRegion *outRegion);
+
 };
 
 #endif

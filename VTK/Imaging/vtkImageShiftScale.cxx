@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageShiftScale.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-10-17 15:11:46 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1997-01-03 14:58:37 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,6 +50,11 @@ vtkImageShiftScale::vtkImageShiftScale()
   this->Shift = 0.0;
   this->Scale = 1.0;
   this->SetAxes(VTK_IMAGE_X_AXIS, VTK_IMAGE_Y_AXIS);
+
+  // For better performance, the execute function was written as a 2d.
+  this->ExecuteDimensionality = 2;
+  // Pixel operation.
+  this->Dimensionality = 0;
 }
 
 
@@ -59,8 +64,8 @@ vtkImageShiftScale::vtkImageShiftScale()
 // This templated function executes the filter for any type of data.
 template <class T>
 void vtkImageShiftScaleExecute(vtkImageShiftScale *self,
-				   vtkImageRegion *inRegion, T *inPtr,
-				   vtkImageRegion *outRegion, T *outPtr)
+			       vtkImageRegion *inRegion, T *inPtr,
+			       vtkImageRegion *outRegion, T *outPtr)
 {
   int min0, max0, min1, max1;
   int idx0, idx1;
