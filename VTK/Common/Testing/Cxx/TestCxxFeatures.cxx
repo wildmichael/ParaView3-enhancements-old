@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestCxxFeatures.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-02-03 15:25:37 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2003-02-03 19:59:56 $
+  Version:   $Revision: 1.22 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -316,11 +316,20 @@ int TestNonTypeTemplate()
 
 //----------------------------------------------------------------------------
 
-#if !defined(VTK_CXX_SGI)
 int TestBinaryWriting()
 {
   int result = 1;
+  // ios::binary does not exist on SGI and OSF cxx (DEC)
+  // it failed to compile on these machines:
+  // ct02_oc.crd IRIX64-6.5-CC-64 
+  // manifold IRIX64-6.5-CC-n32  
+  // kulu.crd IRIX64-6.5-CC-o32 
+  // a62.iue.tuwien.ac.at OSF1-V5.1-cxx 
+#if defined(VTK_CXX_SGI) || defined( __DECCXX_VER)
+  ofstream fout("TestCxxFeatures_TestBinaryWriting", ios::out );
+#else  
   ofstream fout("TestCxxFeatures_TestBinaryWriting", ios::out | ios::binary);
+#endif
   if(!fout)
     {
     cerr << "Error opening TestCxxFeatures_TestBinaryWriting for binary writing.\n";
@@ -328,7 +337,6 @@ int TestBinaryWriting()
     }
   return result;
 }
-#endif
 
 //----------------------------------------------------------------------------
 
@@ -346,8 +354,6 @@ int main()
   DO_TEST(TestFullySpecializedClass);
   DO_TEST(TestIfScope);
   DO_TEST(TestNonTypeTemplate);
-#if !defined(VTK_CXX_SGI)
   DO_TEST(TestBinaryWriting);
-#endif
   return result;
 }
