@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKWRegisteryUtilities.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-12 17:30:36 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-06-25 21:09:49 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -92,10 +92,12 @@ class VTK_EXPORT vtkKWRegisteryUtilities : public vtkObject
   // Should the registry be locked?
   vtkGetMacro(Locked, int);
 
+//BTX
   enum {
     READONLY,
     READWRITE
   };
+//ETX
 
   protected:
   vtkKWRegisteryUtilities();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKWUNIXRegisteryUtilities.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-25 14:28:31 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-06-25 21:09:49 $
+  Version:   $Revision: 1.4 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -42,8 +42,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkKWUNIXRegisteryUtilities.h"
 
 #include "vtkObjectFactory.h"
-#include "vtkKWHashTable.h"
-#include "vtkKWHashTableIterator.h"
 #include "vtkString.h"
 #include "vtkArrayMap.txx"
 #include "vtkArrayMapIterator.txx"
