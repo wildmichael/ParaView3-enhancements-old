@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTIFFWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-14 16:00:02 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-02-14 16:12:22 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,10 +60,11 @@ vtkTIFFWriter* vtkTIFFWriter::New()
     {
     return (vtkTIFFWriter*)ret;
     }
-  if (sizeof(vtkTiffLong) != 4)
+  int longSize = sizeof(vtkTiffLong);
+  if (longSize != 4)
     {
     vtkGenericWarningMacro ("vtkTIFFWriter expects sizeof(vtkTiffLong) to be 4,"
-		     << " but sizeof (vtkTiffLong) is " << sizeof(vtkTiffLong));
+		     << " but sizeof (vtkTiffLong) is " << longSize);
     }
   // If the factory was unable to create the object, then create it here.
   return new vtkTIFFWriter;
