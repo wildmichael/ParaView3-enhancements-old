@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleSwitch.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:17:46 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-11-16 16:36:14 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -83,6 +83,29 @@ vtkInteractorStyleSwitch::~vtkInteractorStyleSwitch()
   
   this->TrackballCamera->Delete();
   this->TrackballCamera = NULL;
+}
+
+void vtkInteractorStyleSwitch::SetAutoAdjustCameraClippingRange( int value )
+{
+  if ( value == this->AutoAdjustCameraClippingRange )
+    {
+    return;
+    }
+  
+  if ( value < 0 || value > 1 )
+    {
+    vtkErrorMacro("Value must be between 0 and 1 for" <<
+                  " SetAutoAdjustCameraClippingRange");
+    return;
+    }
+  
+  this->AutoAdjustCameraClippingRange = value;
+  this->JoystickActor->SetAutoAdjustCameraClippingRange( value );
+  this->JoystickCamera->SetAutoAdjustCameraClippingRange( value );
+  this->TrackballActor->SetAutoAdjustCameraClippingRange( value );
+  this->TrackballCamera->SetAutoAdjustCameraClippingRange( value );
+  
+  this->Modified();
 }
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleImage.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:17:45 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-11-16 16:36:14 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -191,7 +191,7 @@ void vtkInteractorStyleImage::DollyXY(int vtkNotUsed(dx), int dy)
   else
     {
     cam->Dolly(zoomFactor);
-    this->CurrentRenderer->ResetCameraClippingRange();
+    this->ResetCameraClippingRange();
     }
   
   vtkRenderWindowInteractor *rwi = this->Interactor;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleFlight.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:17:44 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-11-16 16:36:14 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to John Biddiscombe of the Rutherford Appleton Laboratory
              who developed class.
 
@@ -288,7 +288,7 @@ void vtkInteractorStyleFlight::JumpTo(double campos[3], double focpos[3]) {
       {
         this->CurrentCamera->SetViewUp(this->FixedUpVector);
       }
-    this->CurrentRenderer->ResetCameraClippingRange();
+    this->ResetCameraClippingRange();
     // Make sure light follows camera if desired
     vtkRenderWindowInteractor *rwi = this->Interactor;
     if (rwi->GetLightFollowCamera()) 
@@ -357,7 +357,7 @@ void vtkInteractorStyleFlight::OnTimer(void) {
               {
                 this->CurrentCamera->SetViewUp(this->FixedUpVector);
               }
-            this->CurrentRenderer->ResetCameraClippingRange();
+            this->ResetCameraClippingRange();
             // Make sure light follows camera if desired
             if (rwi->GetLightFollowCamera()) 
               {

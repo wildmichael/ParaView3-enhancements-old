@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleSwitch.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:12 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2001-11-16 16:36:14 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -89,7 +89,11 @@ public:
   void SetInteractor(vtkRenderWindowInteractor *iren);
   
   void OnTimer();
-
+  
+  // Description:
+  // We must override this method in order to pass the setting down to
+  // the underlying styles
+  void SetAutoAdjustCameraClippingRange( int value );
   
 protected:
   vtkInteractorStyleSwitch();

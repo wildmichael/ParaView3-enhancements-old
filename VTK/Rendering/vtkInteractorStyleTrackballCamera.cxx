@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleTrackballCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:17:47 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2001-11-16 16:36:15 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -125,7 +125,7 @@ void vtkInteractorStyleTrackballCamera::RotateXY(int dx, int dy)
   cam->Azimuth(rxf);
   cam->Elevation(ryf);
   cam->OrthogonalizeViewUp();
-  this->CurrentRenderer->ResetCameraClippingRange();
+  this->ResetCameraClippingRange();
   vtkRenderWindowInteractor *rwi = this->Interactor;
   if (this->CurrentLight)
     {
@@ -208,7 +208,7 @@ void vtkInteractorStyleTrackballCamera::DollyXY(int vtkNotUsed(dx), int dy)
   else
     {
     cam->Dolly(zoomFactor);
-    this->CurrentRenderer->ResetCameraClippingRange();
+    this->ResetCameraClippingRange();
     }
   
   vtkRenderWindowInteractor *rwi = this->Interactor;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleTrackballActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:17:46 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-11-16 16:36:15 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -221,7 +221,7 @@ void vtkInteractorStyleTrackballActor::RotateXY(int x, int y, int oldX,
     delete [] rotate[1];
     delete [] rotate;
     
-    this->CurrentRenderer->ResetCameraClippingRange();
+    this->ResetCameraClippingRange();
     rwi->Render();
     }
 }
@@ -390,7 +390,7 @@ void vtkInteractorStyleTrackballActor::SpinXY(int x, int y, int oldX, int oldY)
   delete [] rotate[0];
   delete [] rotate;
   
-  this->CurrentRenderer->ResetCameraClippingRange();
+  this->ResetCameraClippingRange();
   rwi->Render();
 }
 
@@ -425,7 +425,7 @@ void vtkInteractorStyleTrackballActor::ScaleXY(int vtkNotUsed(x), int y,
                         this->ObjCenter,
                         0, rotate, scale);
   
-  this->CurrentRenderer->ResetCameraClippingRange();
+  this->ResetCameraClippingRange();
   rwi->Render();
 }
 

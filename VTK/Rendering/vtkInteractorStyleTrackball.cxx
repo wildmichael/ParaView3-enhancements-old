@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleTrackball.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-13 05:16:53 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-11-16 16:36:15 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -140,7 +140,7 @@ void vtkInteractorStyleTrackball::TrackballRotateCamera(int x, int y)
     this->CurrentCamera->Azimuth(rxf);
     this->CurrentCamera->Elevation(ryf);
     this->CurrentCamera->OrthogonalizeViewUp();
-    this->CurrentRenderer->ResetCameraClippingRange();
+    this->ResetCameraClippingRange();
     vtkRenderWindowInteractor *rwi = this->Interactor;
     if (rwi->GetLightFollowCamera())
       {
@@ -259,7 +259,7 @@ void vtkInteractorStyleTrackball::TrackballDollyCamera(int x, int y)
     else
       {
       this->CurrentCamera->Dolly(zoomFactor);
-      this->CurrentRenderer->ResetCameraClippingRange();
+      this->ResetCameraClippingRange();
       }
     
     vtkRenderWindowInteractor *rwi = this->Interactor;
@@ -367,7 +367,7 @@ void vtkInteractorStyleTrackball::TrackballRotateActor(int x, int y)
       
       this->OldX = x;
       this->OldY = y;
-      this->CurrentRenderer->ResetCameraClippingRange();
+      this->ResetCameraClippingRange();
       rwi->Render();
       }
     }
@@ -438,7 +438,7 @@ void vtkInteractorStyleTrackball::TrackballSpinActor(int x, int y)
     
     this->OldX = x;
     this->OldY = y;
-    this->CurrentRenderer->ResetCameraClippingRange();
+    this->ResetCameraClippingRange();
     rwi->Render();
     }
 }
@@ -580,7 +580,7 @@ void vtkInteractorStyleTrackball::TrackballScaleActor(int x, int y)
 
     this->OldX = x;
     this->OldY = y;
-    this->CurrentRenderer->ResetCameraClippingRange();
+    this->ResetCameraClippingRange();
     rwi->Render();
     }
 }

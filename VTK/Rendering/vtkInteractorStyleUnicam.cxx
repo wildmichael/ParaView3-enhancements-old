@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleUnicam.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:17:47 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-11-16 16:36:15 $
+  Version:   $Revision: 1.15 $
 
 =========================================================================*/
 
@@ -635,6 +635,6 @@ void vtkInteractorStyleUnicam::MyTranslateCamera(float v[3])
   this->CurrentCamera->SetPosition  (newP);
   this->CurrentCamera->SetFocalPoint(newF);
 
-  this->CurrentRenderer->ResetCameraClippingRange();
+  this->ResetCameraClippingRange();
 }
 
