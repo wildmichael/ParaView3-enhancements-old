@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTimeStamp.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:19 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2001-10-08 04:30:30 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -53,17 +53,22 @@ vtkTimeStamp* vtkTimeStamp::New()
   return new vtkTimeStamp;
 }
 
-static vtkSimpleCriticalSection TimeStampCritSec;
-
+//-------------------------------------------------------------------------
 void vtkTimeStamp::Modified()
 {
-  static unsigned long vtkTimeStampTime = 0; 
+#if defined(WIN32) || defined(_WIN32)
+  static LONG vtkTimeStampTime = 0;
 
+  this->ModifiedTime = (unsigned long)InterlockedIncrement(&vtkTimeStampTime);
+#else
+  static unsigned long vtkTimeStampTime = 0;
+  static vtkSimpleCriticalSection TimeStampCritSec;
+  
   TimeStampCritSec.Lock();
   this->ModifiedTime = ++vtkTimeStampTime;
   TimeStampCritSec.Unlock();
+#endif
 }
-
 
 
 
