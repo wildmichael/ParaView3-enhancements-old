@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32RenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-21 16:07:10 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1998-06-12 18:45:43 $
+  Version:   $Revision: 1.12 $
   
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -103,7 +103,8 @@ protected:
   UINT TimerId;
   WNDPROC OldProc;
   LPARAM LastPosition;
-
+  
+  //BTX
   // Description:
   // Class variables so an exit method can be defined for this class
   // (used to set different exit methods for various language bindings,
@@ -111,6 +112,7 @@ protected:
   static void (*ClassExitMethod)(void *);
   static void (*ClassExitMethodArgDelete)(void *);
   static void *ClassExitMethodArg;
+  //ETX
 };
 
 #endif
