@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-28 14:49:23 $
-  Version:   $Revision: 1.111 $
+  Date:      $Date: 2001-01-28 18:34:33 $
+  Version:   $Revision: 1.112 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -1285,7 +1285,7 @@ void vtkImageData::UpdateData()
     if (!(fd=this->CellData->GetFieldData()))
       {
       fd = vtkFieldData::New();
-      this->PointData->SetFieldData(fd);
+      this->CellData->SetFieldData(fd);
       fd->Delete();
       }
     fd->AddReplaceArray(levels, "vtkGhostLevels");
