@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimatePro.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-25 15:59:59 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 1999-07-20 19:32:03 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -971,8 +971,8 @@ void vtkDecimatePro::SplitVertex(int ptId, int type, unsigned short int numTris,
           {
           this->Mesh->GetCellEdgeNeighbors(tri, ptId, p[j], cellIds);
           if ( cellIds->GetNumberOfIds() == 1 && 
-               triangles->IsId((tri=cellIds->GetId(0)))
-               && group->GetNumberOfIds() < maxGroupSize )
+               triangles->IsId((tri=cellIds->GetId(0))) > -1 && 
+               group->GetNumberOfIds() < maxGroupSize )
             {
             group->InsertNextId(tri);
             triangles->DeleteId(tri);
