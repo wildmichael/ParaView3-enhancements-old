@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-16 22:23:06 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-03-19 13:26:58 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -65,15 +65,21 @@ vtkPolyDataMapper::vtkPolyDataMapper()
 void vtkPolyDataMapper::Render(vtkRenderer *ren, vtkActor *act) 
 {
   int currentPiece, nPieces;
-
+  vtkPolyData *input = this->GetInput();
+  
+  if (input == NULL)
+    {
+    vtkErrorMacro("Mapper has no input.");
+    return;
+    }
+  
   nPieces = this->NumberOfPieces * this->NumberOfSubPieces;
 
   for(int i=0; i<this->NumberOfSubPieces; i++)
     {
     // If more than one pieces, render in loop.
     currentPiece = this->NumberOfSubPieces * this->Piece + i;
-    this->GetInput()->SetUpdateExtent(currentPiece, nPieces,
- 				      this->GhostLevel);
+    input->SetUpdateExtent(currentPiece, nPieces, this->GhostLevel);
     this->RenderPiece(ren, act);
     }
 }
