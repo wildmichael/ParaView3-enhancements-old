@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTextureMapToPlane.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-14 13:41:32 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-09-20 08:37:27 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -212,11 +212,11 @@ void vlTextureMapToPlane::ComputeNormal()
 //  Solve linear system using Kramers rule
 //
   c1 = m; c2 = m+3; c3 = m+6;
-  if ( (det = math.Determinate3x3 (c1,c2,c3)) <= TOLERANCE )
+  if ( (det = math.Determinant3x3 (c1,c2,c3)) <= TOLERANCE )
     return;
 
-  this->Normal[0] = math.Determinate3x3 (v,c2,c3) / det;
-  this->Normal[1] = math.Determinate3x3 (c1,v,c3) / det;
+  this->Normal[0] = math.Determinant3x3 (v,c2,c3) / det;
+  this->Normal[1] = math.Determinant3x3 (c1,v,c3) / det;
   this->Normal[2] = -1.0; // because of the formulation
 
   return;
