@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTextSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-05-05 16:42:52 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1995-05-07 16:55:35 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -302,12 +302,12 @@ void vlTextSource::Execute()
 	newPoints->InsertNextPoint(x);
 	newScalars->InsertNextColor(black);
       
-	x[0] = pos*vlfont_width + vlfont_width - 1; 
+	x[0] = pos*vlfont_width + vlfont_width; 
 	x[1] = vlfont_height;
 	newPoints->InsertNextPoint(x);
 	newScalars->InsertNextColor(black);
 
-	x[0] = pos*vlfont_width + vlfont_width - 1; 
+	x[0] = pos*vlfont_width + vlfont_width; 
 	x[1] = 0;
 	newPoints->InsertNextPoint(x);
 	newScalars->InsertNextColor(black);
