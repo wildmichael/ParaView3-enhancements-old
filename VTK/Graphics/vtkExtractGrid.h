@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractGrid.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:05:13 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2000-04-04 04:55:59 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -95,6 +95,7 @@ protected:
   void operator=(const vtkExtractGrid&) {};
 
   void Execute();
+  void ExecuteInformation();
 
   int VOI[6];
   int SampleRate[3];
