@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.h,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:29:05 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1995-07-24 09:33:45 $
+  Version:   $Revision: 1.22 $
 
 This file is part of the Visualization Toolkit. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -40,6 +40,7 @@ class vtkRenderer : public vtkObject
 {
 public:
   vtkRenderer();
+  ~vtkRenderer();
   char *GetClassName() {return "vtkRenderer";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -154,6 +155,7 @@ public:
 protected:
   vtkVolumeRenderer *VolumeRenderer;
   vtkCamera *ActiveCamera;
+  vtkLight  *CreatedLight;
   vtkLightCollection Lights;
   vtkActorCollection Actors;
   float Ambient[3];  
@@ -167,7 +169,9 @@ protected:
   int   Erase;
   float Aspect[2];
   float Center[2];
-
+  int   SelfCreatedCamera;
+  int   SelfCreatedLight;
+  
   void (*StartRenderMethod)(void *);
   void (*StartRenderMethodArgDelete)(void *);
   void *StartRenderMethodArg;
