@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGrid.cxx,v 1.5 2003-10-21 15:12:48 andy Exp $  */
-/*  Date : $Date: 2003-10-21 15:12:48 $ */
-/*  Version : $Revision: 1.5 $ */
+/*  Id : $Id: XdmfGrid.cxx,v 1.6 2003-11-06 21:57:03 clarke Exp $  */
+/*  Date : $Date: 2003-11-06 21:57:03 $ */
+/*  Version : $Revision: 1.6 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -207,8 +207,8 @@ if( Status == XDMF_FAIL ){
   XdmfErrorMessage("Error Reading Geometry");
   return( XDMF_FAIL );
   }
-XdmfDebug("Setting Base Grid");
 /*
+XdmfDebug("Setting Base Grid");
 Status = this->SetBaseGrid();
 if( Status == XDMF_FAIL ){
   XdmfErrorMessage("Error Setting Base Grid");

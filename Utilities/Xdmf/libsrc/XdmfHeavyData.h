@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfHeavyData.h,v 1.6 2003-10-21 18:37:37 andy Exp $  */
-/*  Date : $Date: 2003-10-21 18:37:37 $ */
-/*  Version : $Revision: 1.6 $ */
+/*  Id : $Id: XdmfHeavyData.h,v 1.7 2003-11-06 21:57:03 clarke Exp $  */
+/*  Date : $Date: 2003-11-06 21:57:03 $ */
+/*  Version : $Revision: 1.7 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -27,10 +27,12 @@
 
 #include "XdmfArray.h"
 
+//! Container class for Heavy Data Access
 /*!
 This is an abstract convenience object for reading and writing
 HeavyData Files. 
 Datasets in HeavyDat are specified by :
+\verbatim
   Domain:Filename:Pathname
 where
   Domain = NDGM | FILE | CORE | GASS
@@ -38,6 +40,7 @@ where
     FILE is assumed
   Filename = UNIX style Pathname of HeavyDat file
   Pathname = HeavyData Pathname inside HeavyData File
+\endverbatim
 */
 class XDMF_EXPORT XdmfHeavyData : public XdmfDataDesc {
 
