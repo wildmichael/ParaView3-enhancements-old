@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSight6BinaryReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-17 13:49:00 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2002-12-26 18:18:50 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,18 +16,23 @@
 
 =========================================================================*/
 #include "vtkEnSight6BinaryReader.h"
-#include "vtkObjectFactory.h"
-#include "vtkUnstructuredGrid.h"
-#include "vtkStructuredGrid.h"
-#include "vtkRectilinearGrid.h"
-#include "vtkStructuredPoints.h"
-#include "vtkPolyData.h"
-#include "vtkFloatArray.h"
-#include "vtkIdTypeArray.h"
+
 #include "vtkByteSwap.h"
+#include "vtkCellData.h"
+#include "vtkFloatArray.h"
+#include "vtkIdList.h"
+#include "vtkIdTypeArray.h"
+#include "vtkObjectFactory.h"
+#include "vtkPointData.h"
+#include "vtkPolyData.h"
+#include "vtkRectilinearGrid.h"
+#include "vtkStructuredGrid.h"
+#include "vtkStructuredPoints.h"
+#include "vtkUnstructuredGrid.h"
+
 #include <ctype.h>
 
-vtkCxxRevisionMacro(vtkEnSight6BinaryReader, "$Revision: 1.25 $");
+vtkCxxRevisionMacro(vtkEnSight6BinaryReader, "$Revision: 1.26 $");
 vtkStandardNewMacro(vtkEnSight6BinaryReader);
 
 //----------------------------------------------------------------------------

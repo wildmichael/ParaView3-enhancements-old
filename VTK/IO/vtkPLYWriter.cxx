@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLYWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-03 20:56:27 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-12-26 18:18:50 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,14 +17,17 @@
 =========================================================================*/
 #include "vtkPLYWriter.h"
 
+#include "vtkCellArray.h"
+#include "vtkCellData.h"
 #include "vtkObjectFactory.h"
 #include "vtkPLY.h"
+#include "vtkPointData.h"
 #include "vtkPolyData.h"
 #include "vtkScalarsToColors.h"
 
 #include <stddef.h>
 
-vtkCxxRevisionMacro(vtkPLYWriter, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkPLYWriter, "$Revision: 1.16 $");
 vtkStandardNewMacro(vtkPLYWriter);
 
 vtkCxxSetObjectMacro(vtkPLYWriter,LookupTable,vtkScalarsToColors);

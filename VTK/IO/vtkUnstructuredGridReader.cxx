@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-31 23:13:18 $
-  Version:   $Revision: 1.65 $
+  Date:      $Date: 2002-12-26 18:18:50 $
+  Version:   $Revision: 1.66 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,10 +18,12 @@
 #include "vtkUnstructuredGridReader.h"
 
 #include "vtkByteSwap.h"
+#include "vtkCellArray.h"
+#include "vtkFieldData.h"
 #include "vtkObjectFactory.h"
 #include "vtkUnstructuredGrid.h"
 
-vtkCxxRevisionMacro(vtkUnstructuredGridReader, "$Revision: 1.65 $");
+vtkCxxRevisionMacro(vtkUnstructuredGridReader, "$Revision: 1.66 $");
 vtkStandardNewMacro(vtkUnstructuredGridReader);
 
 #ifdef read

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPostScriptWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-13 17:14:29 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-12-26 18:18:50 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,10 +17,11 @@
 =========================================================================*/
 #include "vtkPostScriptWriter.h"
 
-#include "vtkObjectFactory.h"
 #include "vtkImageData.h"
+#include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 
-vtkCxxRevisionMacro(vtkPostScriptWriter, "$Revision: 1.18 $");
+vtkCxxRevisionMacro(vtkPostScriptWriter, "$Revision: 1.19 $");
 vtkStandardNewMacro(vtkPostScriptWriter);
 
 #define VTK_MARGIN 0.95

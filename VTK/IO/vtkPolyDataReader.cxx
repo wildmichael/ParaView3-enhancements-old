@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-31 23:13:18 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-12-26 18:18:50 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,10 +17,12 @@
 =========================================================================*/
 #include "vtkPolyDataReader.h"
 
+#include "vtkCellArray.h"
+#include "vtkFieldData.h"
 #include "vtkObjectFactory.h"
 #include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkPolyDataReader, "$Revision: 1.23 $");
+vtkCxxRevisionMacro(vtkPolyDataReader, "$Revision: 1.24 $");
 vtkStandardNewMacro(vtkPolyDataReader);
 
 vtkPolyDataReader::vtkPolyDataReader()

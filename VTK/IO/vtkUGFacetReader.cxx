@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUGFacetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-01 13:03:05 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2002-12-26 18:18:50 $
+  Version:   $Revision: 1.44 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,13 +18,15 @@
 #include "vtkUGFacetReader.h"
 
 #include "vtkByteSwap.h"
+#include "vtkCellArray.h"
 #include "vtkFloatArray.h"
 #include "vtkMergePoints.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 #include "vtkPolyData.h"
 #include "vtkShortArray.h"
 
-vtkCxxRevisionMacro(vtkUGFacetReader, "$Revision: 1.43 $");
+vtkCxxRevisionMacro(vtkUGFacetReader, "$Revision: 1.44 $");
 vtkStandardNewMacro(vtkUGFacetReader);
 
 // Construct object to extract all parts, and with point merging

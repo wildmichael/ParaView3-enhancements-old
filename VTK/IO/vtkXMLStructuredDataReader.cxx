@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLStructuredDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 18:32:04 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-12-26 18:18:50 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,11 +16,13 @@
 
 =========================================================================*/
 #include "vtkXMLStructuredDataReader.h"
+
+#include "vtkDataArray.h"
+#include "vtkDataSet.h"
 #include "vtkXMLDataElement.h"
 #include "vtkXMLDataParser.h"
-#include "vtkDataSet.h"
 
-vtkCxxRevisionMacro(vtkXMLStructuredDataReader, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkXMLStructuredDataReader, "$Revision: 1.5 $");
 
 //----------------------------------------------------------------------------
 vtkXMLStructuredDataReader::vtkXMLStructuredDataReader()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSLCReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-30 20:36:05 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2002-12-26 18:18:50 $
+  Version:   $Revision: 1.45 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,10 +19,11 @@
 
 #include "vtkImageData.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 
 #include <ctype.h>
 
-vtkCxxRevisionMacro(vtkSLCReader, "$Revision: 1.44 $");
+vtkCxxRevisionMacro(vtkSLCReader, "$Revision: 1.45 $");
 vtkStandardNewMacro(vtkSLCReader);
 
 // Constructor for a vtkSLCReader.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJPEGWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-10 18:20:29 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-12-26 18:18:50 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,12 +19,13 @@
 
 #include "vtkImageData.h"
 #include "vtkObjectFactory.h"
+#include "vtkUnsignedCharArray.h"
 
 extern "C" {
 #include <jpeglib.h>
 }
 
-vtkCxxRevisionMacro(vtkJPEGWriter, "$Revision: 1.13 $");
+vtkCxxRevisionMacro(vtkJPEGWriter, "$Revision: 1.14 $");
 vtkStandardNewMacro(vtkJPEGWriter);
 
 vtkCxxSetObjectMacro(vtkJPEGWriter,Result,vtkUnsignedCharArray);

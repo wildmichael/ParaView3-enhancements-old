@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightGoldReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-13 17:14:28 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2002-12-26 18:18:50 $
+  Version:   $Revision: 1.34 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,17 +16,21 @@
 
 =========================================================================*/
 #include "vtkEnSightGoldReader.h"
-#include "vtkObjectFactory.h"
-#include "vtkUnstructuredGrid.h"
-#include "vtkStructuredGrid.h"
-#include "vtkRectilinearGrid.h"
-#include "vtkImageData.h"
-#include "vtkPolyData.h"
+
+#include "vtkCellData.h"
 #include "vtkFloatArray.h"
+#include "vtkIdList.h"
+#include "vtkImageData.h"
+#include "vtkObjectFactory.h"
+#include "vtkPointData.h"
+#include "vtkPolyData.h"
+#include "vtkRectilinearGrid.h"
+#include "vtkStructuredGrid.h"
+#include "vtkUnstructuredGrid.h"
 
 #include <ctype.h>
 
-vtkCxxRevisionMacro(vtkEnSightGoldReader, "$Revision: 1.33 $");
+vtkCxxRevisionMacro(vtkEnSightGoldReader, "$Revision: 1.34 $");
 vtkStandardNewMacro(vtkEnSightGoldReader);
 
 //----------------------------------------------------------------------------

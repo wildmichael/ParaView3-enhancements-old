@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNGReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-30 20:36:05 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-12-26 18:18:50 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,10 +19,11 @@
 
 #include "vtkImageData.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 
 #include <png.h>
 
-vtkCxxRevisionMacro(vtkPNGReader, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkPNGReader, "$Revision: 1.16 $");
 vtkStandardNewMacro(vtkPNGReader);
 
 void vtkPNGReader::ExecuteInformation()

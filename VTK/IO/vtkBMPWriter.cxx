@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBMPWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-13 17:14:28 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-12-26 18:18:50 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,8 +19,9 @@
 
 #include "vtkImageData.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 
-vtkCxxRevisionMacro(vtkBMPWriter, "$Revision: 1.20 $");
+vtkCxxRevisionMacro(vtkBMPWriter, "$Revision: 1.21 $");
 vtkStandardNewMacro(vtkBMPWriter);
 
 vtkBMPWriter::vtkBMPWriter()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-13 14:56:55 $
-  Version:   $Revision: 1.97 $
+  Date:      $Date: 2002-12-26 18:18:50 $
+  Version:   $Revision: 1.98 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,25 +16,29 @@
 
 =========================================================================*/
 #include "vtkDataWriter.h"
-#include "vtkDataSet.h"
-#include "vtkFieldData.h"
-#include "vtkLookupTable.h"
-#include "vtkCellArray.h"
-#include "vtkByteSwap.h"
-#include "vtkBitArray.h"
-#include "vtkCharArray.h"
-#include "vtkUnsignedCharArray.h"
-#include "vtkShortArray.h"
-#include "vtkUnsignedShortArray.h"
-#include "vtkIntArray.h"
-#include "vtkUnsignedIntArray.h"
-#include "vtkLongArray.h"
-#include "vtkUnsignedLongArray.h"
-#include "vtkDoubleArray.h"
-#include "vtkFloatArray.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkDataWriter, "$Revision: 1.97 $");
+#include "vtkBitArray.h"
+#include "vtkByteSwap.h"
+#include "vtkCellArray.h"
+#include "vtkCellData.h"
+#include "vtkCharArray.h"
+#include "vtkDataSet.h"
+#include "vtkDoubleArray.h"
+#include "vtkFieldData.h"
+#include "vtkFloatArray.h"
+#include "vtkIntArray.h"
+#include "vtkLongArray.h"
+#include "vtkLookupTable.h"
+#include "vtkObjectFactory.h"
+#include "vtkPointData.h"
+#include "vtkPoints.h"
+#include "vtkShortArray.h"
+#include "vtkUnsignedCharArray.h"
+#include "vtkUnsignedIntArray.h"
+#include "vtkUnsignedLongArray.h"
+#include "vtkUnsignedShortArray.h"
+
+vtkCxxRevisionMacro(vtkDataWriter, "$Revision: 1.98 $");
 vtkStandardNewMacro(vtkDataWriter);
 
 // this undef is required on the hp. vtkMutexLock ends up including

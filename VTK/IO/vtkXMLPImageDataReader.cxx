@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLPImageDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-16 18:23:06 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-12-26 18:18:50 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,12 +16,15 @@
 
 =========================================================================*/
 #include "vtkXMLPImageDataReader.h"
+
+#include "vtkDataArray.h"
+#include "vtkImageData.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 #include "vtkXMLDataElement.h"
 #include "vtkXMLImageDataReader.h"
-#include "vtkImageData.h"
 
-vtkCxxRevisionMacro(vtkXMLPImageDataReader, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkXMLPImageDataReader, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkXMLPImageDataReader);
 
 //----------------------------------------------------------------------------

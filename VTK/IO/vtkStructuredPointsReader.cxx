@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-31 23:13:18 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2002-12-26 18:18:50 $
+  Version:   $Revision: 1.54 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,11 +17,14 @@
 =========================================================================*/
 #include "vtkStructuredPointsReader.h"
 
-#include "vtkObjectFactory.h"
+#include "vtkDataArray.h"
 #include "vtkErrorCode.h"
+#include "vtkFieldData.h"
+#include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 #include "vtkStructuredPoints.h"
 
-vtkCxxRevisionMacro(vtkStructuredPointsReader, "$Revision: 1.53 $");
+vtkCxxRevisionMacro(vtkStructuredPointsReader, "$Revision: 1.54 $");
 vtkStandardNewMacro(vtkStructuredPointsReader);
 
 vtkStructuredPointsReader::vtkStructuredPointsReader()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLPDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-29 14:33:47 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-12-26 18:18:50 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,12 +17,15 @@
 =========================================================================*/
 #include "vtkXMLPDataReader.h"
 
+#include "vtkCellData.h"
+#include "vtkDataArray.h"
 #include "vtkDataArraySelection.h"
 #include "vtkDataSet.h"
+#include "vtkPointData.h"
 #include "vtkXMLDataElement.h"
 #include "vtkXMLDataReader.h"
 
-vtkCxxRevisionMacro(vtkXMLPDataReader, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkXMLPDataReader, "$Revision: 1.3 $");
 
 //----------------------------------------------------------------------------
 vtkXMLPDataReader::vtkXMLPDataReader()

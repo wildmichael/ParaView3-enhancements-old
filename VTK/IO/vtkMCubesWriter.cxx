@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMCubesWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-31 23:13:18 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2002-12-26 18:18:50 $
+  Version:   $Revision: 1.30 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,10 +18,12 @@
 #include "vtkMCubesWriter.h"
 
 #include "vtkByteSwap.h"
+#include "vtkCellArray.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 #include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkMCubesWriter, "$Revision: 1.29 $");
+vtkCxxRevisionMacro(vtkMCubesWriter, "$Revision: 1.30 $");
 vtkStandardNewMacro(vtkMCubesWriter);
 
 // Create object.

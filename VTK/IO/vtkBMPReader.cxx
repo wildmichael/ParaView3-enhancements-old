@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBMPReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-10 20:02:55 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2002-12-26 18:18:50 $
+  Version:   $Revision: 1.41 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,10 +19,11 @@
 
 #include "vtkByteSwap.h"
 #include "vtkImageData.h"
-#include "vtkObjectFactory.h"
 #include "vtkLookupTable.h"
+#include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 
-vtkCxxRevisionMacro(vtkBMPReader, "$Revision: 1.40 $");
+vtkCxxRevisionMacro(vtkBMPReader, "$Revision: 1.41 $");
 vtkStandardNewMacro(vtkBMPReader);
 
 #ifdef read

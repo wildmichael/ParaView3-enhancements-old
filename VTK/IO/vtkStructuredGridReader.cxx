@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-09 17:05:24 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2002-12-26 18:18:50 $
+  Version:   $Revision: 1.55 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,10 +17,11 @@
 =========================================================================*/
 #include "vtkStructuredGridReader.h"
 
+#include "vtkFieldData.h"
 #include "vtkObjectFactory.h"
 #include "vtkStructuredGrid.h"
 
-vtkCxxRevisionMacro(vtkStructuredGridReader, "$Revision: 1.54 $");
+vtkCxxRevisionMacro(vtkStructuredGridReader, "$Revision: 1.55 $");
 vtkStandardNewMacro(vtkStructuredGridReader);
 
 vtkStructuredGridReader::vtkStructuredGridReader()

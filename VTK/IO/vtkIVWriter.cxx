@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIVWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-13 17:14:28 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-12-26 18:18:50 $
+  Version:   $Revision: 1.27 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,11 +18,12 @@
 #include "vtkIVWriter.h"
 
 #include "vtkAbstractMapper.h"
+#include "vtkCellArray.h"
 #include "vtkLookupTable.h"
 #include "vtkObjectFactory.h"
 #include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkIVWriter, "$Revision: 1.26 $");
+vtkCxxRevisionMacro(vtkIVWriter, "$Revision: 1.27 $");
 vtkStandardNewMacro(vtkIVWriter);
 
 void vtkIVWriter::WriteData()

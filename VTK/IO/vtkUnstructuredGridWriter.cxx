@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-31 23:13:18 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2002-12-26 18:18:50 $
+  Version:   $Revision: 1.35 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,10 +18,11 @@
 #include "vtkUnstructuredGridWriter.h"
 
 #include "vtkByteSwap.h"
+#include "vtkCellArray.h"
 #include "vtkObjectFactory.h"
 #include "vtkUnstructuredGrid.h"
 
-vtkCxxRevisionMacro(vtkUnstructuredGridWriter, "$Revision: 1.34 $");
+vtkCxxRevisionMacro(vtkUnstructuredGridWriter, "$Revision: 1.35 $");
 vtkStandardNewMacro(vtkUnstructuredGridWriter);
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-01 13:03:05 $
-  Version:   $Revision: 1.65 $
+  Date:      $Date: 2002-12-26 18:18:50 $
+  Version:   $Revision: 1.66 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,6 +18,8 @@
 #include "vtkSTLReader.h"
 
 #include "vtkByteSwap.h"
+#include "vtkCellArray.h"
+#include "vtkCellData.h"
 #include "vtkFloatArray.h"
 #include "vtkMergePoints.h"
 #include "vtkObjectFactory.h"
@@ -25,7 +27,7 @@
 
 #include <ctype.h>
 
-vtkCxxRevisionMacro(vtkSTLReader, "$Revision: 1.65 $");
+vtkCxxRevisionMacro(vtkSTLReader, "$Revision: 1.66 $");
 vtkStandardNewMacro(vtkSTLReader);
 
 #define VTK_ASCII 0
