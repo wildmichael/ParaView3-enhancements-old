@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 21:17:38 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1997-07-11 16:42:51 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -58,7 +58,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkObject.h"
 #include "vtkImageCache.h"
 #include "vtkImageRegion.h"
-//#include "vtkStructuredPointsToImage.h"
+#include "vtkStructuredPoints.h"
+#include "vtkStructuredPointsToImage.h"
 
 // For placement of origin in the viewer.
 #define VTK_IMAGE_VIEWER_UPPER_LEFT 0
@@ -94,8 +95,8 @@ public:
   // Set/Get the input to the viewer.
   vtkSetObjectMacro(Input,vtkImageCache);
   vtkGetObjectMacro(Input,vtkImageCache);
-  //  void SetInput(vtkStructuredPoints *spts)
-  //    {this->SetInput(spts->GetStructuredPointsToImage()->GetOutput());}
+  void SetInput(vtkStructuredPoints *spts)
+    {this->SetInput(spts->GetStructuredPointsToImage()->GetOutput());}
   
   // Description:
   // Methods used to specify the region to be displayed.
