@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-08-20 15:12:31 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1997-10-16 18:43:41 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -687,7 +687,7 @@ void vtkVolumeRayCastMapper::RenderParallelImage( vtkRenderer *ren )
   // Loop through all pixels and cast rays where necessary
   for ( j = 0; j < this->ViewRaysSize[1]; j++ )
     {
-    noAbort = !(renWin->GetAbortRender());
+    noAbort = !(renWin->CheckAbortStatus());
     if (noAbort)
       {
       ray_origin[0] = start_ray[0] + (float)j * this->YOriginIncrement[0];
@@ -956,7 +956,7 @@ void vtkVolumeRayCastMapper::RenderPerspectiveImage( vtkRenderer *ren )
   // Loop through all pixel    
   for ( j = 0; j < this->ViewRaysSize[1]; j++ )
     {
-    noAbort = !(renWin->GetAbortRender());
+    noAbort = !(renWin->CheckAbortStatus());
     if (noAbort)
       {
       for ( i = 0; i < this->ViewRaysSize[0]; i++ )
