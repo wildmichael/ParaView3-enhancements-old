@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXYPlotActor.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:27 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-11-28 02:36:58 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to Kitware & RPI/SCOREC who supported the development
              of this class.
 
@@ -227,7 +227,8 @@ public:
   // methods that follow have an index i that corresponds to the input dataset
   // or data object. 
   void SetPlotColor(int i, float r, float g, float b);
-  void SetPlotColor(int i, float color[3]);
+  void SetPlotColor(int i, const float color[3]) {
+    this->SetPlotColor(i, color[0], color[1], color[2]); };
   float *GetPlotColor(int i);
   void SetPlotSymbol(int i,vtkPolyData *input);
   vtkPolyData *GetPlotSymbol(int i);
