@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellCenters.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:31 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-08-10 14:24:29 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -80,8 +80,8 @@ public:
 protected:
   vtkCellCenters();
   ~vtkCellCenters() {};
-  vtkCellCenters(const vtkCellCenters&) {};
-  void operator=(const vtkCellCenters&) {};
+  vtkCellCenters(const vtkCellCenters&);
+  void operator=(const vtkCellCenters&);
 
   void Execute();
 
