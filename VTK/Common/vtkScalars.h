@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalars.h,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:29:23 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1995-07-11 16:44:29 $
+  Version:   $Revision: 1.26 $
 
 This file is part of the Visualization Toolkit. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -51,7 +51,7 @@ public:
   virtual vtkScalars *MakeObject(int sze, int ext=1000) = 0;
 
   // Description:
-  // Return data type. One of "bit", "char", "short", "int", "float", or
+  // Return data type. One of "bit", "unsigned char", "short", "int", "float", or
   // "double".
   virtual char *GetDataType() = 0;
 

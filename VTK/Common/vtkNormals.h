@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkNormals.h,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:28:42 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1995-07-11 16:44:22 $
+  Version:   $Revision: 1.14 $
 
 This file is part of the Visualization Toolkit. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -42,7 +42,7 @@ public:
   virtual vtkNormals *MakeObject(int sze, int ext=1000) = 0;
 
   // Description:
-  // Return data type. One of "bit", "char", "short", "int", "float", or
+  // Return data type. One of "bit", "unsigned char", "short", "int", "float", or
   // "double".
   virtual char *GetDataType() = 0;
 

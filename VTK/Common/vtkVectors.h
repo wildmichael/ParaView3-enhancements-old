@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectors.h,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:29:49 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1995-07-11 16:44:40 $
+  Version:   $Revision: 1.16 $
 
 This file is part of the Visualization Toolkit. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -41,7 +41,7 @@ public:
   virtual vtkVectors *MakeObject(int sze, int ext=1000) = 0;
 
   // Description:
-  // Return data type. One of "bit", "char", "short", "int", "float", or
+  // Return data type. One of "bit", "unsigned char", "short", "int", "float", or
   // "double".
   virtual char *GetDataType() = 0;
 

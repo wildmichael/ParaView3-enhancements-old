@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensors.h,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:29:35 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1995-07-11 16:44:36 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -42,7 +42,7 @@ public:
   virtual vtkTensors *MakeObject(int sze, int d=3, int ext=1000) = 0;
 
   // Description:
-  // Return data type. One of "bit", "char", "short", "int", "float", or
+  // Return data type. One of "bit", "unsigned char", "short", "int", "float", or
   // "double".
   virtual char *GetDataType() = 0;
 
