@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTreeComposite.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-07 18:23:19 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-05-29 15:51:31 $
+  Version:   $Revision: 1.13 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -813,6 +813,8 @@ void vtkTreeComposite::InitializeOffScreen()
   renWin = vtkWin32OpenGLRenderWindow::SafeDownCast(this->RenderWindow);
   if (renWin)
     {
+    // Lets keep the render window single buffer
+    renWin->DoubleBufferOff();
     // I do not want to replace the original.
     renWin = renWin;
     }
