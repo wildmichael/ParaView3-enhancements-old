@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXYPlotActor.h,v $
   Language:  C++
-  Date:      $Date: 2002-07-14 04:07:07 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2002-11-11 21:41:29 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -370,6 +370,7 @@ public:
   virtual void SetAxisLabelTextProperty(vtkTextProperty *p);
   vtkGetObjectMacro(AxisLabelTextProperty,vtkTextProperty);
       
+#ifndef VTK_REMOVE_LEGACY_CODE
   // Description:
   // Set/Get the font family. Three font types are allowed: Arial (VTK_ARIAL),
   // Courier (VTK_COURIER), and Times (VTK_TIMES).
@@ -380,7 +381,9 @@ public:
   void SetFontFamilyToArial()   { this->SetFontFamily(VTK_ARIAL);  };
   void SetFontFamilyToCourier() { this->SetFontFamily(VTK_COURIER);};
   void SetFontFamilyToTimes()   { this->SetFontFamily(VTK_TIMES);  };
+#endif
 
+#ifndef VTK_REMOVE_LEGACY_CODE
   // Description:
   // Enable/disable text bolding.
   // Warning: these functions remain for backward compatibility. Use the
@@ -388,7 +391,9 @@ public:
   virtual void SetBold(int val);
   virtual int GetBold();
   vtkBooleanMacro(Bold, int);
+#endif
 
+#ifndef VTK_REMOVE_LEGACY_CODE
   // Description:
   // Enable/disable text italic.
   // Warning: these functions remain for backward compatibility. Use the
@@ -396,7 +401,9 @@ public:
   virtual void SetItalic(int val);
   virtual int GetItalic();
   vtkBooleanMacro(Italic, int);
+#endif
 
+#ifndef VTK_REMOVE_LEGACY_CODE
   // Description:
   // Enable/disable text shadows.
   // Warning: these functions remain for backward compatibility. Use the
@@ -404,6 +411,7 @@ public:
   virtual void SetShadow(int val);
   virtual int GetShadow();
   vtkBooleanMacro(Shadow, int);
+#endif
 
   // Description:
   // Enable/Disable plotting of Log of x-values.
