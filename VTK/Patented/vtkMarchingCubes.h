@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingCubes.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-06 18:07:20 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-09-06 21:51:30 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -73,7 +73,7 @@ public:
 
   // Description:
   // Return array of contour values (size of numContours).
-  vtkGetVectorMacro(Values,float,MAX_CONTOURS);
+  vtkGetVectorMacro(Values,float,VTK_MAX_CONTOURS);
 
   void GenerateValues(int numContours, float range[2]);
   void GenerateValues(int numContours, float range1, float range2);
@@ -81,7 +81,7 @@ public:
 protected:
   void Execute();
 
-  float Values[MAX_CONTOURS];
+  float Values[VTK_MAX_CONTOURS];
   int NumberOfContours;
   float Range[2];
 };
