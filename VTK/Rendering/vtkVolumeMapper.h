@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeMapper.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:49:22 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1997-07-16 22:44:37 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -105,14 +105,14 @@ public:
   vtkBooleanMacro(Clipping,int);
 
   float GetXminClipPlane( void ) { return this->ClippingPlanes[0]; };
-  float GetYminClipPlane( void ) { return this->ClippingPlanes[1]; };
-  float GetZminClipPlane( void ) { return this->ClippingPlanes[2]; };
-  float GetXmaxClipPlane( void ) { return this->ClippingPlanes[3]; };
-  float GetYmaxClipPlane( void ) { return this->ClippingPlanes[4]; };
+  float GetXmaxClipPlane( void ) { return this->ClippingPlanes[1]; };
+  float GetYminClipPlane( void ) { return this->ClippingPlanes[2]; };
+  float GetYmaxClipPlane( void ) { return this->ClippingPlanes[3]; };
+  float GetZminClipPlane( void ) { return this->ClippingPlanes[4]; };
   float GetZmaxClipPlane( void ) { return this->ClippingPlanes[5]; };
 
   // Description:
-  // Set/Get the ClippingPlanes ( xmin, ymin, zmin, xmax, ymax, zmax )
+  // Set/Get the ClippingPlanes ( xmin, xmax, ymin, ymax, zmin, zmax )
   void SetClippingPlanes( float a, float b, float c, 
                           float d, float e, float f );
   void SetClippingPlanes( float p[6] ); 
