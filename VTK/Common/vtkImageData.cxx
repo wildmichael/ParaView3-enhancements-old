@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-04 12:30:14 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1997-05-02 20:03:23 $
+  Version:   $Revision: 1.23 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -852,7 +852,7 @@ static void vtkImageDataCopyData(vtkImageData *self, void *outPtr,
 			   extent);
       break;
     default:
-      cerr << "vtkImageDataCopyData: Cannot handle ScalarType.\n\n";
+      vtkGenericWarningMacro("vtkImageDataCopyData: Cannot handle ScalarType.");
     }   
 }
 
