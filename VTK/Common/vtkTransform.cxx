@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-03-08 12:24:07 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-03-14 12:30:38 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -548,6 +548,15 @@ void vlTransform::PrintSelf (ostream& os, vlIndent indent)
 
 float *vlTransform::GetVector()
 {
-  this->Stack[0]->VectorMultiply(this->Vector,this->Vector);
+  if (this->PreMultiplyFlag)
+    {
+    this->Stack[0]->Transpose();
+    this->Stack[0]->VectorMultiply(this->Vector,this->Vector);
+    this->Stack[0]->Transpose();
+    }
+  else
+    {
+    this->Stack[0]->VectorMultiply(this->Vector,this->Vector);
+    }
   return this->Vector;
 }
