@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageLogic.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:47:43 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-05-06 12:07:27 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -312,6 +312,17 @@ void vtkImageLogic::ThreadedExecute(vtkImageData **inData,
     {
     void *in2Ptr = inData[1]->GetScalarPointerForExtent(outExt);
     
+    // this filter expects that inputs that have the same number of components
+    if (inData[0]->GetNumberOfScalarComponents() != 
+        inData[1]->GetNumberOfScalarComponents())
+      {
+      vtkErrorMacro(<< "Execute: input1 NumberOfScalarComponents, "
+                    << inData[0]->GetNumberOfScalarComponents()
+                    << ", must match out input2 NumberOfScalarComponents "
+                    << inData[1]->GetNumberOfScalarComponents());
+      return;
+      }
+
     switch (inData[0]->GetScalarType())
       {
       case VTK_FLOAT:
