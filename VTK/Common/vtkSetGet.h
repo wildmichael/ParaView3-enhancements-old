@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSetGet.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:42 $
-  Version:   $Revision: 1.88 $
+  Date:      $Date: 2001-12-10 21:22:11 $
+  Version:   $Revision: 1.89 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -162,6 +162,7 @@ virtual type Get##name () { \
 virtual void Set##name (const char* _arg) \
   { \
   vtkDebugMacro(<< this->GetClassName() << " (" << this << "): setting " << #name " to " << _arg ); \
+  if ( this->name == NULL && _arg == NULL) { return;} \
   if ( this->name && _arg && (!strcmp(this->name,_arg))) { return;} \
   if (this->name) { delete [] this->name; } \
   if (_arg) \
