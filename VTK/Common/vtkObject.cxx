@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkObject.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-04 16:25:52 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-02-07 09:09:51 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -75,7 +75,7 @@ void vlObject::PrintSelf(ostream& os, vlIndent indent)
 {
   if (this->ShouldIPrint(vlObject::GetClassName()))
     {
-    os << indent << "Debug state: " << this->Debug << "\n";
+    os << indent << "Debug: " << (this->Debug ? "On\n" : "Off\n");
     os << indent << "Modified Time: " << this->GetMtime() << "\n";
     os << indent << "Reference Count: " << this->RefCount << "\n";
     }
