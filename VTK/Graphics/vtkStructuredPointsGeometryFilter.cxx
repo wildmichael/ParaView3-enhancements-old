@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 21:25:51 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-09-30 14:17:21 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -253,7 +253,7 @@ void vtkStructuredPointsGeometryFilter::Execute()
               {
               x = input->GetPoint(pos+i);
               ptIds[0] = newPts->InsertNextPoint(x);
-              outPD->CopyData(pd,idx,ptIds[0]);
+              outPD->CopyData(pd,pos+i,ptIds[0]);
               newVerts->InsertNextCell(1,ptIds);
               }
             }
