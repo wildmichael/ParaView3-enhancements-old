@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAxisActor2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-07 21:32:25 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-04-22 21:41:58 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -161,14 +161,14 @@ public:
   // Description:
   // Set/Get the length of the tick marks (expressed in pixels or display
   // coordinates). 
-  vtkSetClampMacro(TickLength, float, 0, 100);
+  vtkSetClampMacro(TickLength, int, 0, 100);
   vtkGetMacro(TickLength, int);
   
   // Description:
   // Set/Get the offset of the labels (expressed in pixels or display
   // coordinates). The offset is the distance of labels from tick marks
   // or other objects.
-  vtkSetClampMacro(TickOffset, float, 0, 100);
+  vtkSetClampMacro(TickOffset, int, 0, 100);
   vtkGetMacro(TickOffset, int);
   
   // Description:
