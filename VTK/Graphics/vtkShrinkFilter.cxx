@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShrinkFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-17 22:42:53 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2001-03-18 13:30:21 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -107,7 +107,9 @@ void vtkShrinkFilter::Execute()
   tenth   = numCells / 10;
   decimal = 0.0;
   if (tenth == 0)
+    {
     tenth = 1;
+    }
 
   for (cellId=0; cellId < numCells; cellId++)
     {
@@ -118,14 +120,13 @@ void vtkShrinkFilter::Execute()
   
     if (cellId % tenth == 0) 
       {
-	decimal += 0.1;
-	this->UpdateProgress (decimal);
-	if (this->GetAbortExecute())
-	  {
-	    break; //out of cell loop
-	  }
+      decimal += 0.1;
+      this->UpdateProgress (decimal);
+      if (this->GetAbortExecute())
+	{
+	break; //out of cell loop
+	}
       }
-
 
     // get the center of the cell
     center[0] = center[1] = center[2] = 0.0;
