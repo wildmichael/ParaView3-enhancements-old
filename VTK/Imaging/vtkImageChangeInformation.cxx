@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageChangeInformation.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-11 21:24:53 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-05-16 15:08:07 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -102,37 +102,37 @@ void vtkImageChangeInformation::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "OutputExtentStart: (" 
      << this->OutputExtentStart[0] << ","
      << this->OutputExtentStart[1] << ","
-     << this->OutputExtentStart[2] << endl;
+     << this->OutputExtentStart[2] << ")" << endl;
 
   os << indent << "ExtentTranslation: (" 
      << this->ExtentTranslation[0] << ","
      << this->ExtentTranslation[1] << ","
-     << this->ExtentTranslation[2] << endl;
+     << this->ExtentTranslation[2] << ")" << endl;
 
   os << indent << "OutputSpacing: (" 
      << this->OutputSpacing[0] << ","
      << this->OutputSpacing[1] << ","
-     << this->OutputSpacing[2] << endl;
+     << this->OutputSpacing[2] << ")" << endl;
 
   os << indent << "SpacingScale: (" 
      << this->SpacingScale[0] << ","
      << this->SpacingScale[1] << ","
-     << this->SpacingScale[2] << endl;
+     << this->SpacingScale[2] << ")" << endl;
 
   os << indent << "OutputOrigin: (" 
      << this->OutputOrigin[0] << ","
      << this->OutputOrigin[1] << ","
-     << this->OutputOrigin[2] << endl;
+     << this->OutputOrigin[2] << ")" << endl;
 
   os << indent << "OriginScale: (" 
      << this->OriginScale[0] << ","
      << this->OriginScale[1] << ","
-     << this->OriginScale[2] << endl;
+     << this->OriginScale[2] << ")" << endl;
 
   os << indent << "OriginTranslation: (" 
      << this->OriginTranslation[0] << ","
      << this->OriginTranslation[1] << ","
-     << this->OriginTranslation[2] << endl;
+     << this->OriginTranslation[2] << ")" << endl;
 }
 
 //----------------------------------------------------------------------------
