@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkSetGet.h,v $
   Language:  C++
-  Date:      $Date: 1994-07-13 16:30:38 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1994-09-09 23:05:21 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -243,6 +243,6 @@ type *Get##name () { \
 // vlErrorMacro(<< "Error message" << variable);
 //
 #define vlErrorMacro(x) \
-  cerr << "In " __FILE__ << ", line " << __LINE__ << "\n" << this->GetClassName() << " (" << this << "): " x << "\n\n"
+  cerr << "ERROR In " __FILE__ << ", line " << __LINE__ << "\n" << this->GetClassName() << " (" << this << "): " x << "\n\n"
 
 #endif
