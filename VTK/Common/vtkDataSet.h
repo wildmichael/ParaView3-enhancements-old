@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-25 07:47:35 $
-  Version:   $Revision: 1.97 $
+  Date:      $Date: 2000-09-25 22:58:12 $
+  Version:   $Revision: 1.98 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -121,6 +121,13 @@ public:
   // Description:
   // Get the bounds of the cell with cellId such that:
   //     0 <= cellId < NumberOfCells.
+  // A subclass may be able to determine the bounds of cell without using
+  // an expensive GetCell() method. A default implementation is provided
+  // that actually uses a GetCell() call.  This is to ensure the method
+  // is available to all datasets.  Subclasses should override this method
+  // to provide an efficient implementation.
+  // THIS METHOD IS THREAD SAFE IF FIRST CALLED FROM A SINGLE THREAD AND
+  // THE DATASET IS NOT MODIFIED
   virtual void GetCellBounds(int cellId, float bounds[6]);
   
   // Description:
@@ -230,7 +237,7 @@ public:
   // Description:
   // Compute the data bounding box from data points.
   // THIS METHOD IS NOT THREAD SAFE.
-  virtual void ComputeBounds() = 0;
+  virtual void ComputeBounds();
 
   // Description:
   // Return a pointer to the geometry bounding box in the form
