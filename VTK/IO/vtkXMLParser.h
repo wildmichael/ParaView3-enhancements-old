@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLParser.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-14 14:53:42 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-12-05 22:55:15 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -62,6 +62,12 @@ public:
   virtual int Parse(const char* inputString, unsigned int length);
 
   // Description:
+  // This method initialize parser but does not perform any actual parsing.
+  virtual int InitializeParser();
+  virtual int ParseChunk(const char* inputString, unsigned int length);
+  virtual int CleanupParser();
+
+  // Description:
   // Set and get file name.
   vtkSetStringMacro(FileName);
   vtkGetStringMacro(FileName);
@@ -75,6 +81,10 @@ protected:
 
   // File name to parse
   char* FileName;
+
+  // This variable is true if there was a parse error while parsing in
+  // chunks.
+  int ParseError;
   
   // Character message to parse
   const char* InputString;
