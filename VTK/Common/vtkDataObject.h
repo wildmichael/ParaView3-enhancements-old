@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.h,v $
   Language:  C++
-  Date:      $Date: 2001-02-01 13:57:37 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2001-02-16 21:08:06 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -272,7 +272,7 @@ public:
   // consumer cannot handle this (i.e. DataSetToDataSetFitler)
   // the image will crop itself.  This functionality used to be in 
   // ImageToStructuredPoints.
-  vtkSetMacro(RequestExactExtent, int);
+  void SetRequestExactExtent(int v);
   vtkGetMacro(RequestExactExtent, int);
   vtkBooleanMacro(RequestExactExtent, int);
   

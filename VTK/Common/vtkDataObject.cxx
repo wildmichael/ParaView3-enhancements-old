@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-01 13:57:37 $
-  Version:   $Revision: 1.63 $
+  Date:      $Date: 2001-02-16 21:08:06 $
+  Version:   $Revision: 1.64 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -371,6 +371,12 @@ void vtkDataObject::SetUpdateNumberOfPieces( int num )
 void vtkDataObject::SetUpdateGhostLevel(int level)
 {
   this->UpdateGhostLevel = level;
+}
+
+//----------------------------------------------------------------------------
+void vtkDataObject::SetRequestExactExtent( int flag )
+{
+  this->RequestExactExtent = flag;
 }
 
 //----------------------------------------------------------------------------
