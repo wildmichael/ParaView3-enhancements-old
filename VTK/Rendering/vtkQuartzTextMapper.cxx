@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuartzTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:14 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-03-27 13:47:06 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,10 +16,9 @@
 
 =========================================================================*/
 #include "vtkQuartzTextMapper.h"
-#include "vtkQuartzImageWindow.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkQuartzTextMapper, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkQuartzTextMapper, "$Revision: 1.5 $");
 vtkStandardNewMacro(vtkQuartzTextMapper);
 
 vtkQuartzTextMapper::vtkQuartzTextMapper()
