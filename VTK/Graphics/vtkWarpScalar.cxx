@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpScalar.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-27 21:13:29 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1999-06-25 16:07:23 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -77,8 +77,8 @@ void vtkWarpScalar::Execute()
   vtkPointData *pd;
   int i, ptId, numPts;
   float *x, *n, s, newX[3];
-  vtkPointSet *input=(vtkPointSet *)this->Input;
-  vtkPointSet *output=(vtkPointSet *)this->Output;
+  vtkPointSet *input = this->GetInput();
+  vtkPointSet *output = this->GetOutput();
   
   vtkDebugMacro(<<"Warping data with scalars");
 

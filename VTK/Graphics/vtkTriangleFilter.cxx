@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-02 20:07:20 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1999-06-25 16:07:19 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,7 +44,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 void vtkTriangleFilter::Execute()
 {
-  vtkPolyData *input=(vtkPolyData *)this->Input;
+  vtkPolyData *input = this->GetInput();
   int numCells=input->GetNumberOfCells();
   int dim, i, j, pts[3], cellNum, numPts, numSimplices, newId, type;
   vtkIdList *ptIds=vtkIdList::New();

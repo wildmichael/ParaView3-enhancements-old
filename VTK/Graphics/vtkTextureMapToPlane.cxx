@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToPlane.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-29 14:53:35 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1999-06-25 16:07:17 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -73,8 +73,8 @@ void vtkTextureMapToPlane::Execute()
   float proj, minProj, axis[3], sAxis[3], tAxis[3];
   int dir = 0;
   float s, t, sSf, tSf, *p;
-  vtkDataSet *input=(vtkDataSet *)this->Input;
-  vtkDataSet *output=(vtkDataSet *)this->Output;
+  vtkDataSet *input = this->GetInput();
+  vtkDataSet *output = this->GetOutput();
 
   vtkDebugMacro(<<"Generating texture coordinates!");
   if ( (numPts=input->GetNumberOfPoints()) < 3 && 
@@ -218,7 +218,7 @@ void vtkTextureMapToPlane::Execute()
 
 void vtkTextureMapToPlane::ComputeNormal()
 {
-  vtkDataSet *output=(vtkDataSet *)this->Output;
+  vtkDataSet *output = this->GetOutput();
   int numPts=output->GetNumberOfPoints();
   float m[9], v[3], *x;
   int i, ptId;

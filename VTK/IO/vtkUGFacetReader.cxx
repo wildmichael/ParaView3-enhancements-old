@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUGFacetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-21 14:07:58 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1999-06-25 16:07:20 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -99,7 +99,7 @@ void vtkUGFacetReader::Execute()
   vtkPoints *newPts, *mergedPts;
   vtkNormals *newNormals, *mergedNormals;
   vtkCellArray *newPolys, *mergedPolys;
-  vtkPolyData *output=(vtkPolyData *)this->Output;
+  vtkPolyData *output = this->GetOutput();
   fpos_t pos;
   int triEstimate;
 

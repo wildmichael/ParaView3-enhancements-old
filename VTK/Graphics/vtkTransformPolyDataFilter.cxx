@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-26 14:22:02 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-06-25 16:07:19 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,8 +61,8 @@ void vtkTransformPolyDataFilter::Execute()
   vtkNormals *inNormals, *inCellNormals;
   vtkNormals *newNormals=NULL, *newCellNormals=NULL;
   int numPts, numCells;
-  vtkPolyData *input=(vtkPolyData *)this->Input;
-  vtkPolyData *output=(vtkPolyData *)this->Output;
+  vtkPolyData *input = this->GetInput();
+  vtkPolyData *output = this->GetOutput();
   vtkPointData *pd=input->GetPointData(), *outPD=output->GetPointData();
   vtkCellData *cd=input->GetCellData(), *outCD=output->GetCellData();
 

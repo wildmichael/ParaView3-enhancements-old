@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexturedSphereSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-29 14:53:36 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-06-25 16:07:18 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,7 +66,7 @@ void vtkTexturedSphereSource::Execute()
   vtkCellArray *newPolys;
   float x[3], deltaPhi, deltaTheta, phi, theta, radius, norm;
   int pts[3];
-  vtkPolyData *output=(vtkPolyData *)this->Output;
+  vtkPolyData *output = this->GetOutput();
   float tc[2];
   
   //

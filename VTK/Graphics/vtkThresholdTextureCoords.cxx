@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThresholdTextureCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-29 14:53:36 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1999-06-25 16:07:18 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -100,8 +100,8 @@ void vtkThresholdTextureCoords::Execute()
   vtkTCoords *newTCoords;
   int ptId;
   vtkScalars *inScalars;
-  vtkDataSet *input=(vtkDataSet *)this->Input;
-  vtkDataSet *output=(vtkDataSet *)this->Output;
+  vtkDataSet *input = this->GetInput();
+  vtkDataSet *output = this->GetOutput();
 
   vtkDebugMacro(<< "Executing texture threshold filter");
 

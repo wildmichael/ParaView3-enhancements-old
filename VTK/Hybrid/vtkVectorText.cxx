@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorText.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-21 14:07:59 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1999-06-25 16:07:21 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1663,7 +1663,7 @@ vtkVectorText::vtkVectorText()
 
 void vtkVectorText::Execute()
 {
-  vtkPolyData *output=(vtkPolyData *)this->Output;
+  vtkPolyData *output = this->GetOutput();
   vtkPoints *newPoints;
   vtkCellArray *newPolys;
   int ptOffset = 0;

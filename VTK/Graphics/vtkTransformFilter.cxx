@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-26 14:22:01 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1999-06-25 16:07:19 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,8 +62,8 @@ void vtkTransformFilter::Execute()
   vtkNormals *inNormals, *inCellNormals;
   vtkNormals *newNormals=NULL, *newCellNormals=NULL;
   int numPts, numCells;
-  vtkPointSet *input=(vtkPointSet *)this->Input;
-  vtkPointSet *output= this->GetOutput();
+  vtkPointSet *input = this->GetInput();
+  vtkPointSet *output = this->GetOutput();
   vtkPointData *pd=input->GetPointData(), *outPD=output->GetPointData();
   vtkCellData *cd=input->GetCellData(), *outCD=output->GetCellData();
 

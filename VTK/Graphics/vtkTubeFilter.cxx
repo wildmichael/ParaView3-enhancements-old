@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTubeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-29 14:53:37 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1999-06-25 16:07:20 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,8 +80,8 @@ void vtkTubeFilter::Execute()
   int deleteNormals=0, ptId;
   float sFactor=1.0, range[2];
   vtkPointData *pd, *outPD;
-  vtkPolyData *input=(vtkPolyData *)this->Input;
-  vtkPolyData *output=(vtkPolyData *)this->Output;
+  vtkPolyData *input = this->GetInput();
+  vtkPolyData *output = this->GetOutput();
   //
   // Initialize
   //

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-21 14:07:57 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1999-06-25 16:07:17 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -195,7 +195,7 @@ void vtkTextSource::Execute()
   int drawingBlack = 0;
   unsigned char white[4];
   unsigned char black[4];
-  vtkPolyData *output=(vtkPolyData *)this->Output;
+  vtkPolyData *output = this->GetOutput();
   vtkUnsignedCharArray *data;
   
   // convert colors to unsigned char

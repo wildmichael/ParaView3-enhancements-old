@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume16Reader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-28 12:54:09 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1999-06-25 16:07:22 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -145,7 +145,7 @@ void vtkVolume16Reader::Execute()
   float Spacing[3];
   float origin[3];
 
-  vtkStructuredPoints *output=(vtkStructuredPoints *)this->Output;
+  vtkStructuredPoints *output = this->GetOutput();
 
   // Validate instance variables
   if (this->FilePrefix == NULL) 

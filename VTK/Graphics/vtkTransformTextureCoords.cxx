@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformTextureCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-29 14:53:37 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-06-25 16:07:19 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,8 +74,8 @@ void vtkTransformTextureCoords::AddPosition(float deltaPosition[3])
 
 void vtkTransformTextureCoords::Execute()
 {
-  vtkDataSet *input=(vtkDataSet *)this->Input;
-  vtkDataSet *output=(vtkDataSet *)this->Output;
+  vtkDataSet *input = this->GetInput();
+  vtkDataSet *output = this->GetOutput();
   vtkTCoords *inTCoords=input->GetPointData()->GetTCoords();
   vtkTCoords *newTCoords;
   int numPts=input->GetNumberOfPoints();
