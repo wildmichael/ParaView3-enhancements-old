@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNGReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-13 17:47:47 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-07-23 21:29:31 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -240,6 +240,13 @@ static void vtkPNGReaderUpdate2(vtkPNGReader *self, OT *outPtr,
   if (png_get_valid(png_ptr, info_ptr, PNG_INFO_tRNS)) 
     {
     png_set_tRNS_to_alpha(png_ptr);
+    }
+
+  if (bit_depth > 8)
+    {
+#ifndef VTK_WORDS_BIGENDIAN
+    png_set_swap(png_ptr);
+#endif
     }
 
   // have libpng handle interlacing

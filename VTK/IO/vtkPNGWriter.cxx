@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNGWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-13 22:42:39 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-07-23 21:29:31 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -209,10 +209,11 @@ void vtkPNGWriter::WriteSlice(vtkImageData *data)
     }
   png_byte **row_pointers = new png_byte *[height];
   int *outInc = data->GetIncrements();
+  int rowInc = outInc[1]*bit_depth/8;
   for (ui = 0; ui < height; ui++)
     {
     row_pointers[height - ui - 1] = (png_byte *)outPtr;
-    outPtr = (unsigned char *)outPtr + outInc[1];
+    outPtr = (unsigned char *)outPtr + rowInc;
     }
   png_write_image(png_ptr, row_pointers);
 
