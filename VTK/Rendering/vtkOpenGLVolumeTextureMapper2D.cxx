@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLVolumeTextureMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-02 20:26:54 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-09-15 21:24:48 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -153,6 +153,7 @@ void vtkOpenGLVolumeTextureMapper2D::Render(vtkRenderer *ren, vtkVolume *vol)
     {
     this->TimeToDraw = 0.0001;
     }	
+  timer->Delete();
 }
 
 void vtkOpenGLVolumeTextureMapper2D::RenderRectangle( float v[12], 
