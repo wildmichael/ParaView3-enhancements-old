@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLSource.h,v $
   Language:  C++
-  Date:      $Date: 2003-04-17 15:04:05 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-04-30 16:01:00 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -43,6 +43,12 @@ public:
   vtkPolyData* GetOutput(int idx);
   vtkPolyData* GetOutput() { return this->GetOutput(0);}
 
+  // Description: 
+  // Descided whether to generate color arrays or not.
+  vtkSetMacro(Color,int);
+  vtkGetMacro(Color,int);
+  vtkBooleanMacro(Color,int);
+
 protected:
   vtkVRMLSource();
   ~vtkVRMLSource();
@@ -53,6 +59,7 @@ protected:
 
   char* FileName;
   vtkVRMLImporter *Importer;
+  int Color;
 
 private:
   vtkVRMLSource(const vtkVRMLSource&);  // Not implemented.
