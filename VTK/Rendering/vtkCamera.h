@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-20 21:12:52 $
-  Version:   $Revision: 1.83 $
+  Date:      $Date: 2002-04-18 19:19:30 $
+  Version:   $Revision: 1.84 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -150,6 +150,17 @@ class VTK_RENDERING_EXPORT vtkCamera : public vtkObject
   void SetParallelProjection(int flag);
   vtkGetMacro(ParallelProjection,int);
   vtkBooleanMacro(ParallelProjection,int);
+
+  // Description:
+  // Set/Get the value of the UseHorizontalViewAngle instance variable. If set,
+  // the camera's view angle represents a horizontal view angle, rather than 
+  // the default vertical view angle. This is useful if the application uses
+  // a display device which whose specs indicate a particular horizontal view angle,
+  // or if the application varies the window height but wants to keep the
+  // perspective transform unchanges.
+  void SetUseHorizontalViewAngle(int flag);
+  vtkGetMacro(UseHorizontalViewAngle, int);
+  vtkBooleanMacro(UseHorizontalViewAngle, int);
 
   // Description:
   // Set/Get the camera view angle, which is the angular height of the
@@ -386,6 +397,7 @@ protected:
   double DirectionOfProjection[3];
   double ViewPlaneNormal[3];
   double ViewShear[3];
+  int    UseHorizontalViewAngle;
 
   vtkTransform *ViewTransform;
   vtkPerspectiveTransform *PerspectiveTransform;
