@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPoints.h,v $
   Language:  C++
-  Date:      $Date: 1999-01-28 00:51:21 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1999-02-03 20:55:20 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -145,7 +145,7 @@ inline void vtkPoints::SetPoint(int id, float x, float y, float z)
   p[1] = y;
   p[2] = z;
   this->Data->SetTuple(id,p);
-};
+}
 
 inline void vtkPoints::InsertPoint(int id, float x, float y, float z)
 {

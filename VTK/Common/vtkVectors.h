@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectors.h,v $
   Language:  C++
-  Date:      $Date: 1999-01-28 00:51:21 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1999-02-03 20:55:21 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -144,7 +144,7 @@ inline void vtkVectors::SetVector(int id, float vx, float vy, float vz)
   v[1] = vy;
   v[2] = vz;
   this->Data->SetTuple(id,v);
-};
+}
 
 inline void vtkVectors::InsertVector(int id, float vx, float vy, float vz)
 {

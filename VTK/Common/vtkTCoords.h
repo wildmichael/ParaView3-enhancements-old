@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTCoords.h,v $
   Language:  C++
-  Date:      $Date: 1999-01-28 00:51:21 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1999-02-03 20:55:21 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -143,7 +143,7 @@ inline void vtkTCoords::SetTCoord(int id, float tx, float ty, float tz)
   tc[1] = ty;
   tc[2] = tz;
   this->Data->SetTuple(id,tc);
-};
+}
 
 inline void vtkTCoords::InsertTCoord(int id, float tx, float ty, float tz)
 {
