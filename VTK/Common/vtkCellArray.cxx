@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-16 11:45:04 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1997-05-15 23:22:18 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,7 +42,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 vtkCellArray::vtkCellArray()
 {
-  this->Ia = new vtkIntArray;
+  this->Ia = vtkIntArray::New();
   this->NumberOfCells = 0;
   this->Location = 0;
 }
@@ -56,7 +56,7 @@ vtkCellArray::vtkCellArray(const int sz, const int ext)
 
 vtkCellArray::vtkCellArray (const vtkCellArray& ca)
 {
-  this->Ia = new vtkIntArray;
+  this->Ia = vtkIntArray::New();
   this->NumberOfCells = ca.NumberOfCells;
   this->Location = 0;
   *(this->Ia) = *(ca.Ia);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToUnstructuredGridFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:51:50 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1997-05-15 23:23:03 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,6 +42,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 vtkDataSetToUnstructuredGridFilter::vtkDataSetToUnstructuredGridFilter()
 {
-  this->Output = new vtkUnstructuredGrid;
+  this->Output = vtkUnstructuredGrid::New();
   this->Output->SetSource(this);
 }

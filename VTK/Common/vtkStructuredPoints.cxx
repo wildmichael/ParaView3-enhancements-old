@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-16 21:38:39 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 1997-05-15 23:22:37 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -640,7 +640,7 @@ vtkStructuredPointsToImage *vtkStructuredPoints::GetStructuredPointsToImage()
 {
   if ( ! this->StructuredPointsToImage)
     {
-    this->StructuredPointsToImage = new vtkStructuredPointsToImage;
+    this->StructuredPointsToImage = vtkStructuredPointsToImage::New();
     this->StructuredPointsToImage->SetInput(this);
     }
   

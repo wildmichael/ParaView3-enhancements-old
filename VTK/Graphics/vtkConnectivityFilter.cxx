@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConnectivityFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-14 20:21:56 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1997-05-15 23:22:53 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,7 +44,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // Construct with default extraction mode to extract largest regions.
 vtkConnectivityFilter::vtkConnectivityFilter()
 {
-  this->RegionSizes = new vtkIntArray;
+  this->RegionSizes = vtkIntArray::New();
   this->ExtractionMode = VTK_EXTRACT_LARGEST_REGION;
   this->ColorRegions = 0;
   this->MaxRecursionDepth = 10000;

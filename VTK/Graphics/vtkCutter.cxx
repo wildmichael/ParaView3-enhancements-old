@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-30 11:55:20 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1997-05-15 23:22:57 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -263,7 +263,7 @@ void vtkCutter::SetLocator(vtkPointLocator *locator)
 void vtkCutter::CreateDefaultLocator()
 {
   if ( this->SelfCreatedLocator ) this->Locator->Delete();
-  this->Locator = new vtkMergePoints;
+  this->Locator = vtkMergePoints::New();
   this->SelfCreatedLocator = 1;
 }
 

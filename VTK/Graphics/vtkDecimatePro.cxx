@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimatePro.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-14 20:21:59 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1997-05-15 23:23:04 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -96,7 +96,7 @@ static float ComputeSingleTriangleError(float x[3], float x1[3], float x2[3]);
 // degree is 25. Error accumulation is turned off.
 vtkDecimatePro::vtkDecimatePro()
 {
-  this->InflectionPoints = new vtkFloatArray;
+  this->InflectionPoints = vtkFloatArray::New();
   this->TargetReduction = 0.90;
   this->FeatureAngle = 15.0;
   this->PreserveTopology = 0;
@@ -178,7 +178,7 @@ void vtkDecimatePro::Execute()
     {
     inPts = input->GetPoints();
     inPolys = input->GetPolys();
-    Mesh = new vtkPolyData;
+    Mesh = vtkPolyData::New();
     newPts = new vtkFloatPoints(numPts); newPts->SetNumberOfPoints(numPts);
     for ( i=0; i < numPts; i++ ) newPts->SetPoint(i,inPts->GetPoint(i));
     newPolys = new vtkCellArray(*(inPolys));
@@ -297,7 +297,7 @@ void vtkDecimatePro::Execute()
   this->DeleteQueue();
 
   // Now grab the cells that are left
-  newPolys = new vtkCellArray;
+  newPolys = vtkCellArray::New();
   newPolys->Allocate(newPolys->EstimateSize(3,numTris-totalEliminated));
 
   for (cellId=0; cellId < numTris; cellId++)

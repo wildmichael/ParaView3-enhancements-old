@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-13 20:53:23 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1997-05-15 23:22:34 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -122,7 +122,7 @@ int vtkPointSet::FindPoint(float x[3])
 
   if ( !this->Locator )
     {
-    this->Locator = new vtkPointLocator;
+    this->Locator = vtkPointLocator::New();
     this->Locator->SetDataSet(this);
     }
 
@@ -150,7 +150,7 @@ int vtkPointSet::FindCell(float x[3], vtkCell *cell, int cellId, float tol2,
 
   if ( !this->Locator )
     {
-    this->Locator = new vtkPointLocator;
+    this->Locator = vtkPointLocator::New();
     this->Locator->SetDataSet(this);
     }
 

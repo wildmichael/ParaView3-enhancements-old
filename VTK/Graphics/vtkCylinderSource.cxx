@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCylinderSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-12-20 15:54:13 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1997-05-15 23:22:59 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -87,7 +87,7 @@ void vtkCylinderSource::Execute()
   newNormals = new vtkFloatNormals(numPts);
   newTCoords = new vtkFloatTCoords(numPts,2);
 
-  newPolys = new vtkCellArray;
+  newPolys = vtkCellArray::New();
   newPolys->Allocate(newPolys->EstimateSize(numPolys,this->Resolution));
 //
 // Generate points and point data for sides

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCastToConcrete.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-13 20:56:20 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1997-05-15 23:22:50 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,15 +44,15 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // Construct object.
 vtkCastToConcrete::vtkCastToConcrete()
 {
-  this->PolyData = new vtkPolyData;
+  this->PolyData = vtkPolyData::New();
   this->PolyData->SetSource(this);
-  this->StructuredPoints = new vtkStructuredPoints;
+  this->StructuredPoints = vtkStructuredPoints::New();
   this->StructuredPoints->SetSource(this);
-  this->StructuredGrid = new vtkStructuredGrid;
+  this->StructuredGrid = vtkStructuredGrid::New();
   this->StructuredGrid->SetSource(this);
-  this->UnstructuredGrid = new vtkUnstructuredGrid;
+  this->UnstructuredGrid = vtkUnstructuredGrid::New();
   this->UnstructuredGrid->SetSource(this);
-  this->RectilinearGrid = new vtkRectilinearGrid;
+  this->RectilinearGrid = vtkRectilinearGrid::New();
   this->RectilinearGrid->SetSource(this);
 }
 

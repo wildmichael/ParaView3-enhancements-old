@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-02-18 20:53:08 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1997-05-15 23:22:51 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,7 +57,7 @@ vtkClipPolyData::vtkClipPolyData(vtkImplicitFunction *cf)
   this->SelfCreatedLocator = 0;
 
   this->GenerateClippedOutput = 0;
-  this->ClippedOutput = new vtkPolyData;
+  this->ClippedOutput = vtkPolyData::New();
   this->ClippedOutput->SetSource(this);
 }
 
@@ -295,7 +295,7 @@ void vtkClipPolyData::SetLocator(vtkPointLocator *locator)
 void vtkClipPolyData::CreateDefaultLocator()
 {
   if ( this->SelfCreatedLocator ) this->Locator->Delete();
-  this->Locator = new vtkMergePoints;
+  this->Locator = vtkMergePoints::New();
   this->SelfCreatedLocator = 1;
 }
 

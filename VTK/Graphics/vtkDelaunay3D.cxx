@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-03-12 21:11:38 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1997-05-15 23:23:06 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,7 +55,7 @@ vtkDelaunay3D::vtkDelaunay3D()
   this->BoundingTriangulation = 0;
   this->Offset = 2.5;
 
-  this->Output = new vtkUnstructuredGrid;
+  this->Output = vtkUnstructuredGrid::New();
   this->Output->SetSource(this);
 }
 
@@ -371,7 +371,7 @@ void vtkDelaunay3D::Execute()
   int ptId;
   vtkPoints *inPoints;
   vtkFloatPoints *points;
-  vtkUnstructuredGrid *Mesh=new vtkUnstructuredGrid;
+  vtkUnstructuredGrid *Mesh=vtkUnstructuredGrid::New();
   vtkPointSet *input=(vtkPointSet *)this->Input;
   vtkUnstructuredGrid *output=(vtkUnstructuredGrid *)this->Output;
   float x[3];

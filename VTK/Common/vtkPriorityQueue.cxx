@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPriorityQueue.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-14 20:03:21 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1997-05-15 23:22:34 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,7 +44,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // Instantiate priority queue with default size and extension size of 1000.
 vtkPriorityQueue::vtkPriorityQueue()
 {
-  this->ItemLocation = new vtkIntArray;
+  this->ItemLocation = vtkIntArray::New();
   this->Size = this->Extend = 1000;
   this->Array = new vtkPriorityItem[this->Size];
   this->MaxId = -1;

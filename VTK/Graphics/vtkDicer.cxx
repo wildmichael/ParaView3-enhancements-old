@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDicer.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-03-12 21:11:39 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1997-05-15 23:23:07 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,8 +79,8 @@ void vtkDicer::BuildTree(vtkIdList *ptIds, vtkOBBNode *OBBptr)
   //
   if ( numPts > this->NumberOfPointsPerPiece )
     {
-    vtkOBBNode *LHnode=new vtkOBBNode;
-    vtkOBBNode *RHnode=new vtkOBBNode;
+    vtkOBBNode *LHnode= new vtkOBBNode;
+    vtkOBBNode *RHnode= new vtkOBBNode;
     OBBptr->Kids = new vtkOBBNode *[2];
     OBBptr->Kids[0] = LHnode;
     OBBptr->Kids[1] = RHnode;
