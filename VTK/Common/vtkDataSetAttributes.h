@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:09:24 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2001-12-10 21:17:16 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -177,6 +177,16 @@ public:
   int SetTensors(vtkDataArray* da);
   int SetActiveTensors(const char* name);
   vtkDataArray* GetTensors();
+
+  // Description:
+  // This will first look for an array with the correct name.
+  // If one exists, it is returned. Otherwise, the name argument
+  // is ignored, and the active attribute is returned.
+  vtkDataArray* GetScalars(const char* name);
+  vtkDataArray* GetVectors(const char* name);
+  vtkDataArray* GetNormals(const char* name);
+  vtkDataArray* GetTCoords(const char* name);
+  vtkDataArray* GetTensors(const char* name);
 
   // Description:
   // Make the array with the given name the active attribute.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:09:38 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2001-12-10 21:17:12 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1318,6 +1318,81 @@ int vtkDataSetAttributes::SetActiveTensors(const char* name)
 vtkDataArray* vtkDataSetAttributes::GetTensors() 
 { 
   return this->GetAttribute(TENSORS); 
+}
+
+vtkDataArray* vtkDataSetAttributes::GetScalars(const char* name)
+{
+  if (name == NULL)
+    {
+    return this->GetScalars();
+    }
+  vtkDataArray *array = this->GetArray(name);
+  if (array)
+    {
+    return array;
+    }
+  vtkWarningMacro("Could not find array with name " << name);
+  return this->GetScalars();
+}
+
+vtkDataArray* vtkDataSetAttributes::GetVectors(const char* name)
+{
+  if (name == NULL)
+    {
+    return this->GetVectors();
+    }
+  vtkDataArray *array = this->GetArray(name);
+  if (array)
+    {
+    return array;
+    }
+  vtkWarningMacro("Could not find array with name " << name);
+  return this->GetVectors();
+}
+
+vtkDataArray* vtkDataSetAttributes::GetNormals(const char* name)
+{
+  if (name == NULL)
+    {
+    return this->GetNormals();
+    }
+  vtkDataArray *array = this->GetArray(name);
+  if (array)
+    {
+    return array;
+    }
+  vtkWarningMacro("Could not find array with name " << name);
+  return this->GetNormals();
+}
+
+vtkDataArray* vtkDataSetAttributes::GetTCoords(const char* name)
+{
+  if (name == NULL)
+    {
+    return this->GetTCoords();
+    }
+  vtkDataArray *array = this->GetArray(name);
+  if (array)
+    {
+    return array;
+    }
+  vtkWarningMacro("Could not find array with name " << name);
+  return this->GetTCoords();
+}
+
+vtkDataArray* vtkDataSetAttributes::GetTensors(const char* name)
+{
+  if (name == NULL)
+    {
+    return this->GetTensors();
+    }
+  vtkDataArray *array = this->GetArray(name);
+  if (array)
+    {
+    return array;
+    }
+  vtkWarningMacro("Could not find array with name " << name);
+  return this->GetTensors();
 }
 
 int vtkDataSetAttributes::SetActiveAttribute(int index, int attributeType)
