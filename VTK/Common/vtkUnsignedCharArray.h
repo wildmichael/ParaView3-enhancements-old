@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedCharArray.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:48:22 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1997-04-27 11:28:10 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -132,7 +132,7 @@ inline unsigned char *vtkUnsignedCharArray::WritePtr(const int id, const int num
 // Insert data at a specified position in the array.
 inline vtkUnsignedCharArray& vtkUnsignedCharArray::InsertValue(const int id, const unsigned char c)
 {
-  if ( id >= this->Size ) this->Resize(id);
+  if ( id >= this->Size ) this->Resize(id+1);
   this->Array[id] = c;
   if ( id > this->MaxId ) this->MaxId = id;
   return *this;
