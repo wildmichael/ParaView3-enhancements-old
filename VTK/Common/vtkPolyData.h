@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-20 13:12:15 $
-  Version:   $Revision: 1.114 $
+  Date:      $Date: 2001-09-28 19:30:26 $
+  Version:   $Revision: 1.115 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -400,6 +400,11 @@ public:
   // Shallow and Deep copy.
   void ShallowCopy(vtkDataObject *src);  
   void DeepCopy(vtkDataObject *src);
+
+  // Description:
+  // This method will remove any cell that has a ghost level array value
+  // greater or equal to level.  It does not remove unused points (yet).
+  void RemoveGhostCells(int level);
 
 protected:
   vtkPolyData();
