@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-03 19:23:35 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 1999-11-04 16:45:26 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -127,6 +127,7 @@ class VTK_EXPORT vtkTransform : public vtkObject
   void RotateWXYZ ( float angle, float x, float y, float z);
 //ETX
   void RotateWXYZ (double angle, double x, double y, double z);
+
   // Description:
   // Scales the current transformation matrix in the x, y and z directions.
   // A scale factor of zero will automatically be replaced with one.
@@ -198,6 +199,10 @@ class VTK_EXPORT vtkTransform : public vtkObject
   // Description:
   // Set the current matrix directly (copies m).
   void SetMatrix(vtkMatrix4x4& m);
+
+  // Description:
+  // Set the current matrix directly (copies Elements).
+  void SetMatrix(double Elements[16]);
 
   // Description:
   // Returns the current transformation matrix.
