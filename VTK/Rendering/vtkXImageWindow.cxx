@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-15 20:57:55 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1999-01-19 16:27:41 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -709,19 +709,13 @@ void vtkXImageWindow::GetDefaultVisualInfo(XVisualInfo *info)
       {
       rate = 2;
       }
-    /*
     else if (v->depth == 16 && v->c_class == TrueColor)
       {
       rate = 3;
       }
-    else if (v->depth == 15 && v->c_class == TrueColor)
-      {
-      rate = 4;
-      }
-    */
     else if (v->depth == 8 && v->c_class == PseudoColor)
       {
-      rate = 5;
+      rate = 4;
       }
     else
       {
