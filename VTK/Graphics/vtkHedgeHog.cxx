@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHedgeHog.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-28 13:33:50 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2001-06-28 20:04:49 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -142,7 +142,6 @@ void vtkHedgeHog::Execute()
     newLines->InsertNextCell(2,pts);
 
     outputPD->CopyData(pd,ptId,pts[0]);
-    outputPD->CopyData(pd,ptId,pts[1]);
     }
 
   // Update ourselves and release memory
