@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageNonMaximumSuppression.h,v $
   Language:  C++
-  Date:      $Date: 1996-10-21 18:51:15 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-01-03 14:58:03 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,7 +79,6 @@ public:
   
 protected:
   int HandleBoundaries;
-  int NumberOfAxes;
 
   void ComputeOutputImageInformation(vtkImageRegion *inRegion1,
 				     vtkImageRegion *inRegion2,

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-10-31 14:05:55 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-01-03 14:57:38 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -364,7 +364,7 @@ void vtkImageMultipleInputFilter::Execute(int dim, vtkImageRegion **inRegions,
   int idx;
 
   // Terminate recursion?
-  if (dim <= this->Dimensionality)
+  if (dim <= this->ExecuteDimensionality)
     {
     this->Execute(inRegions, outRegion);
     return;
