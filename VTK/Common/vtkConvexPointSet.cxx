@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConvexPointSet.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-30 19:31:35 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-05-30 20:13:19 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,18 +21,8 @@
 #include "vtkPointLocator.h"
 #include "vtkObjectFactory.h"
 
-//---------------------------------------------------------------------------
-vtkConvexPointSet* vtkConvexPointSet::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkConvexPointSet");
-  if(ret)
-    {
-    return (vtkConvexPointSet*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkConvexPointSet;
-}
+vtkCxxRevisionMacro(vtkConvexPointSet, "$Revision: 1.3 $");
+vtkStandardNewMacro(vtkConvexPointSet);
 
 // Construct the hexahedron with eight points.
 vtkConvexPointSet::vtkConvexPointSet()
