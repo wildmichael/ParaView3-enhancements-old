@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadricClustering.h,v $
   Language:  C++
-  Date:      $Date: 2000-10-04 14:35:13 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-10-04 18:06:40 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -83,6 +83,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define __vtkQuadricClustering_h
 
 #include "vtkPolyDataToPolyDataFilter.h"
+#include "vtkTimerLog.h"
 
 typedef struct {
   int VertexId;
@@ -156,6 +157,8 @@ protected:
   float ZBinSize;
   VTK_POINT_QUADRIC* QuadricArray;
   vtkIdList *BinIds;
+
+  vtkTimerLog* log;
 };
 
 #endif
