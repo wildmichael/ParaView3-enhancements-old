@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVGlyphFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-09 19:06:42 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-05-13 20:01:55 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,11 +19,12 @@
 
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkPVGlyphFilter, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkPVGlyphFilter, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkPVGlyphFilter);
 
 vtkPVGlyphFilter::vtkPVGlyphFilter()
 {
+  this->SetColorModeToColorByScalar();
 }
 
 vtkPVGlyphFilter::~vtkPVGlyphFilter()
