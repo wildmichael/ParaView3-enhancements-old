@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkAppendFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-12 21:19:13 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-09-16 12:53:09 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -49,7 +49,6 @@ void vlAppendFilter::RemoveInput(vlDataSet *ds)
 void vlAppendFilter::Update()
 {
   unsigned long int mtime, ds_mtime;
-  int i;
   vlDataSet *ds;
 
   // make sure input is available
@@ -63,12 +62,11 @@ void vlAppendFilter::Update()
   if (this->Updating) return;
 
   this->Updating = 1;
-  for (mtime=0, i=0; i < this->Input.GetNumberOfItems(); i++)
+  for (mtime=0, this->Input.InitTraversal(); ds = this->Input.GetNextItem(); )
     {
-    ds = this->Input.GetItem(i+1);
+    ds->Update();
     ds_mtime = ds->GetMTime();
     if ( ds_mtime > mtime ) mtime = ds_mtime;
-    ds->Update();
     }
   this->Updating = 0;
 
@@ -104,9 +102,8 @@ void vlAppendFilter::Execute()
   normalsPresent = 1;
   tcoordsPresent = 1;
 
-  for ( i=0; i < this->Input.GetNumberOfItems(); i++)
+  for ( this->Input.InitTraversal(); ds = this->Input.GetNextItem(); )
     {
-    ds = this->Input.GetItem(i+1);
     numPts += ds->GetNumberOfPoints();
     numCells += ds->GetNumberOfCells();
     pd = ds->GetPointData();
@@ -131,9 +128,8 @@ void vlAppendFilter::Execute()
 
   newPts = new vlFloatPoints(numPts);
 
-  for ( ptOffset=0, i=0; i < this->Input.GetNumberOfItems(); i++, ptOffset+=numPts)
+  for ( ptOffset=0, this->Input.InitTraversal(); ds = this->Input.GetNextItem(); ptOffset+=numPts)
     {
-    ds = this->Input.GetItem(i+1);
     numPts = ds->GetNumberOfPoints();
     numCells = ds->GetNumberOfCells();
     pd = ds->GetPointData();
