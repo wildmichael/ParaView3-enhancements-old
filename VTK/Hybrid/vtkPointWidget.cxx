@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-21 20:29:43 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-08-22 11:21:44 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,7 @@
 #include "vtkRenderWindow.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkPointWidget, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkPointWidget, "$Revision: 1.10 $");
 vtkStandardNewMacro(vtkPointWidget);
 
 vtkPointWidget::vtkPointWidget()
@@ -353,7 +353,6 @@ void vtkPointWidget::OnMiddleButtonDown()
   if ( path != NULL )
     {
     this->State = vtkPointWidget::Translating;
-    int idx = this->CursorPicker->GetCellId();
     this->Highlight(1);
     this->ConstraintAxis = this->DetermineConstraintAxis(-1,NULL);
     }
