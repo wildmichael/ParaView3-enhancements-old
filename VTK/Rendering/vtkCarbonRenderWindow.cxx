@@ -3,8 +3,8 @@
 Program:   Visualization Toolkit
 Module:    $RCSfile: vtkCarbonRenderWindow.cxx,v $
 Language:  C++
-Date:      $Date: 2003-09-30 19:16:06 $
-Version:   $Revision: 1.22 $
+Date:      $Date: 2003-12-01 20:22:53 $
+Version:   $Revision: 1.23 $
 Thanks:    to Yves Starreveld for developing this class
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
@@ -32,7 +32,7 @@ Thanks:    to Yves Starreveld for developing this class
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkCarbonRenderWindow, "$Revision: 1.22 $");
+vtkCxxRevisionMacro(vtkCarbonRenderWindow, "$Revision: 1.23 $");
 vtkStandardNewMacro(vtkCarbonRenderWindow);
 
 
@@ -795,11 +795,11 @@ void vtkCarbonRenderWindow::Finalize(void)
       //this->CleanUpOffScreenRendering()
     }
 
+  this->Clean();
+  //ReleaseDC in Win32
+  this->DeviceContext = NULL;
   if (this->WindowId && this->OwnWindow)
     {
-      this->Clean();
-      //ReleaseDC in Win32
-      this->DeviceContext = NULL;
       SetWRefCon(this->WindowId, (long)0);
       DisposeWindow(this->WindowId);
     }
