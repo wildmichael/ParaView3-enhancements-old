@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMesaRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-03 15:59:53 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-06-08 21:32:20 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -137,7 +137,7 @@ public:
   // Description:
   // Specify the X window id to use if a WindowRemap is done.
   void     SetNextWindowId(Window);
-  void     SetWindowName(char *);
+  void     SetWindowName(const char *);
 
   // Description:
   // Move the window to a new position on the display.

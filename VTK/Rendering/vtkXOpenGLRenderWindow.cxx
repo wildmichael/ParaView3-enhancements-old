@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-03 17:39:08 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-06-08 21:32:20 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -80,7 +80,7 @@ vtkXOpenGLRenderWindowInternal::vtkXOpenGLRenderWindowInternal(
 
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkXOpenGLRenderWindow, "$Revision: 1.17 $");
+vtkCxxRevisionMacro(vtkXOpenGLRenderWindow, "$Revision: 1.18 $");
 vtkStandardNewMacro(vtkXOpenGLRenderWindow);
 #endif
 
@@ -1090,7 +1090,7 @@ void vtkXOpenGLRenderWindow::SetParentId(void *arg)
 }
 
 
-void vtkXOpenGLRenderWindow::SetWindowName(char * name)
+void vtkXOpenGLRenderWindow::SetWindowName(const char * name)
 {
   XTextProperty win_name_text_prop;
 
