@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRibbonFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-22 22:32:30 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1998-08-20 20:13:27 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -273,8 +273,5 @@ void vtkRibbonFilter::PrintSelf(ostream& os, vtkIndent indent)
 	this->DefaultNormal[0] << ", " <<
 	this->DefaultNormal[1] << ", " <<
 	this->DefaultNormal[2] << " )\n";
-
-"\n";
-
 }
 
