@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:24:46 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-11-15 15:53:47 $
+  Version:   $Revision: 1.18 $
 
 
 
@@ -413,19 +413,27 @@ static void ContourImage(vtkSynchronizedTemplates2D *self,
 void vtkSynchronizedTemplates2D::Execute()
 {
   vtkImageData  *input= this->GetInput();
-  vtkPointData  *pd = input->GetPointData();
+  vtkPointData  *pd;
   vtkPoints     *newPts;
   vtkCellArray  *newLines;
-  vtkDataArray  *inScalars = pd->GetScalars();
+  vtkDataArray  *inScalars;
   vtkDataArray  *newScalars = NULL;
   vtkPolyData   *output = this->GetOutput();
-  int           *ext = input->GetUpdateExtent();
+  int           *ext;
   int           dims[3];
   int           dataSize, estimatedSize;
   
 
   vtkDebugMacro(<< "Executing 2D structured contour");
   
+  if (input == NULL)
+    {
+    vtkErrorMacro("Missing input.");
+    return;
+    }
+  ext = input->GetUpdateExtent();
+  pd = input->GetPointData();
+  inScalars = pd->GetScalars();
   if ( inScalars == NULL )
     {
     vtkErrorMacro(<<"Scalars must be defined for contouring");

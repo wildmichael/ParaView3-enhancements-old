@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:24:46 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2001-11-15 15:53:48 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -548,9 +548,9 @@ void vtkSynchronizedTemplates3D::ThreadedExecute(vtkImageData *data,
     this->Threads[threadId] = output;
     }
   
-  if ( exExt[0] == exExt[1] || exExt[2] == exExt[3] || exExt[4] == exExt[5] )
+  if ( exExt[0] >= exExt[1] || exExt[2] >= exExt[3] || exExt[4] >= exExt[5] )
     {
-    vtkErrorMacro(<<"3D structured contours requires 3D data");
+    vtkDebugMacro(<<"3D structured contours requires 3D data");
     return;
     }
   
@@ -906,13 +906,14 @@ void vtkSynchronizedTemplates3D::ComputeInputUpdateExtents(vtkDataObject *out)
   int piece, numPieces, ghostLevel;
   int *wholeExt;
   int ext[6];
-  vtkExtentTranslator *translator = input->GetExtentTranslator();
+  vtkExtentTranslator *translator;
 
   if (input == NULL)
     {
     vtkErrorMacro("Input not set");
     return;
     }
+  translator = input->GetExtentTranslator();
 
   wholeExt = input->GetWholeExtent();
 

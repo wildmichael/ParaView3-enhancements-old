@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToDataObjectFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-15 14:20:18 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-11-15 15:53:46 $
+  Version:   $Revision: 1.25 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -144,14 +144,23 @@ void vtkDataSetToDataObjectFilter::Execute()
       {
       vtkRectilinearGrid *rgrid=(vtkRectilinearGrid *)input;
       da = rgrid->GetXCoordinates();
-      da->SetName("XCoordinates");
-      fd->AddArray( da );
+      if (da != NULL)
+        {
+        da->SetName("XCoordinates");
+        fd->AddArray( da );
+        }
       da = rgrid->GetYCoordinates();
-      da->SetName("YCoordinates");
-      fd->AddArray( da );
+      if (da != NULL)
+        {
+        da->SetName("YCoordinates");
+        fd->AddArray( da );
+        }
       da = rgrid->GetZCoordinates();
-      da->SetName("ZCoordinates");
-      fd->AddArray( da );
+      if (da != NULL)
+        {
+        da->SetName("ZCoordinates");
+        fd->AddArray( da );
+        }
       }
     
     else if ( input->GetDataObjectType() == VTK_UNSTRUCTURED_GRID )
