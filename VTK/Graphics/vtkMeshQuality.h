@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMeshQuality.h,v $
   Language:  C++
-  Date:      $Date: 2004-12-08 23:44:52 $ 
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2004-12-09 00:40:22 $ 
+  Version:   $Revision: 1.6 $
 
   Copyright 2003 Sandia Corporation.
   Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -39,7 +39,6 @@
 #ifndef vtkMeshQuality_h
 #define vtkMeshQuality_h
 
-#include "vtkConfigure.h"
 #include "vtkDataSetToDataSetFilter.h"
 
 class vtkCell;
@@ -52,7 +51,7 @@ class vtkCell;
 class VTK_GRAPHICS_EXPORT vtkMeshQuality : public vtkDataSetToDataSetFilter
 {
 public:
-  void PrintSelf( ostream&, vtkIndent indent );
+  void PrintSelf(ostream& os, vtkIndent indent);
   vtkTypeRevisionMacro(vtkMeshQuality,vtkDataSetToDataSetFilter);
   static vtkMeshQuality* New();
 
