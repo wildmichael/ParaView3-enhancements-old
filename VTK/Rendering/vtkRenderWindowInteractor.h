@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-24 00:02:08 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 1998-10-24 12:58:41 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -281,7 +281,6 @@ public:
   void SetPicker(vtkPicker& picker) {this->SetPicker(&picker);};
 
 protected:
-  
   vtkRenderWindow *RenderWindow;
   vtkCamera   *CurrentCamera;
   vtkLight    *CurrentLight;
@@ -306,8 +305,6 @@ protected:
   vtkActor *OutlineActor;
   vtkRenderer *PickedRenderer;
   vtkActor *CurrentActor;
-
-
   
   // used to track picked objects in actor mode
   vtkCellPicker *InteractionPicker;
@@ -328,7 +325,8 @@ protected:
   float NewPickPoint[4];
   float OldPickPoint[4];
   float MotionVector[3];                // vector used for interaction
-  float OldX, OldY;
+  float OldX;
+  float OldY;
   
   // this really belong in camera
   float ViewLook[3];
@@ -343,8 +341,6 @@ protected:
   float ObjCenter[3];                   // center of bounding box
   float DispObjCenter[3];               // center of box in display coord
   float Radius;                         // radius of virtual sphere
-
-
   
   // user methods that can be used to override default behaviour
   void (*StartPickMethod)(void *);
@@ -384,8 +380,6 @@ protected:
   void (*RightButtonReleaseMethod)(void *);
   void (*RightButtonReleaseMethodArgDelete)(void *);
   void *RightButtonReleaseMethodArg;
-
-  
 
   // convenience methods for converting between coordinate systems
   virtual void ComputeDisplayToWorld(float x, float y, float z,
