@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkImageViewerWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-20 20:53:31 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-04-23 15:04:48 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -446,6 +446,8 @@ static int vtkTkImageViewerWidget_MakeImageViewer(struct vtkTkImageViewerWidget 
     {
     return TCL_OK;
     }
+
+  dpy = Tk_Display(self->TkWin);
   
   if (winPtr->window != None) 
     {
