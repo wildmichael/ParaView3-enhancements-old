@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32ImageMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:44 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2002-05-23 01:29:10 $
+  Version:   $Revision: 1.33 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,11 +19,14 @@
 #include "vtkWin32ImageWindow.h"
 #include "vtkProperty2D.h"
 #include "vtkObjectFactory.h"
+#include "vtkLookupTable.h"
 
 #ifndef VTK_REMOVE_LEGACY_CODE
 
-vtkCxxRevisionMacro(vtkWin32ImageMapper, "$Revision: 1.32 $");
+vtkCxxRevisionMacro(vtkWin32ImageMapper, "$Revision: 1.33 $");
 vtkStandardNewMacro(vtkWin32ImageMapper);
+
+vtkSetObjectMacro(vtkWin32ImageMapper,LookupTable,vtkLookupTable);
 
 vtkWin32ImageMapper::vtkWin32ImageMapper()
 {
