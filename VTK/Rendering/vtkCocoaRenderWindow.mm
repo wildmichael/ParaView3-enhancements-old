@@ -1,10 +1,10 @@
-=====================================================================
+/*=========================================================================
 
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCocoaRenderWindow.mm,v $
   Language:  C++
-  Date:      $Date: 2002-10-24 15:27:55 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2003-01-03 19:43:42 $
+  Version:   $Revision: 1.6 $
   Thanks:    to Yves Starreveld for developing this class
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,7 +58,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define id Id // since id is a reserved token in ObjC and is used a _lot_ in vtk
 
 
-vtkCxxRevisionMacro(vtkCocoaRenderWindow, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkCocoaRenderWindow, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkCocoaRenderWindow);
 
 
@@ -200,7 +200,7 @@ void vtkCocoaRenderWindow::SetSize(int x, int y)
 
 void vtkCocoaRenderWindow::SetForceMakeCurrent()
 {
-  this.ForceMakeCurrent = 1;
+  this->ForceMakeCurrent = 1;
 }
 
 void vtkCocoaRenderWindow::SetPosition(int x, int y)
