@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtentTranslator.h,v $
   Language:  C++
-  Date:      $Date: 2000-08-08 08:59:00 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2000-08-13 22:08:38 $
+  Version:   $Revision: 1.4 $
 
 
 
@@ -82,7 +82,7 @@ public:
   vtkGetVector6Macro(WholeExtent, int);
   vtkSetVector6Macro(Extent, int);
   vtkGetVector6Macro(Extent, int);
-  int PieceToExtent();
+  virtual int PieceToExtent();
   vtkSetMacro(Piece,int);
   vtkGetMacro(Piece,int);
   vtkSetMacro(NumberOfPieces,int);

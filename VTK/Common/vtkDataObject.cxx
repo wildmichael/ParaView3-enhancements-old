@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-07 22:28:52 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2000-08-13 22:08:38 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -130,11 +130,16 @@ unsigned long int vtkDataObject::GetMTime()
 //----------------------------------------------------------------------------
 void vtkDataObject::Initialize()
 {
-//
-// We don't modify ourselves because the "ReleaseData" methods depend upon
-// no modification when initialized.
-//
+  //
+  // We don't modify ourselves because the "ReleaseData" methods depend upon
+  // no modification when initialized.
+  //
   this->FieldData->Initialize();
+
+  this->Extent[0] = this->Extent[2] = this->Extent[4] = 0;
+  this->Extent[1] = this->Extent[3] = this->Extent[5] = -1;
+  this->Piece = -1;
+  this->NumberOfPieces = 0;
 }
 
 //----------------------------------------------------------------------------
@@ -280,12 +285,10 @@ void vtkDataObject::TriggerAsynchronousUpdate()
 
 void vtkDataObject::UpdateData()
 {
-  // This is a bit of a hack.  I do not want to add another method, but
-  // I do want to find out if the requested extent is empty.
-  // If UpdateExtentIsOutsideOfTheExtent returns -1 then the extent
-  // is invalid (a signal that no data is requested).
+  // I want to find out if the requested extent is empty.
   if (this->UpdateExtentIsEmpty())
     {
+    this->Initialize();
     return;
     }
   
