@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-04 18:53:07 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-04-05 11:48:28 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.

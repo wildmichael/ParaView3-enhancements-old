@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-04 18:55:29 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-04-05 11:48:28 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 #include "vtkCallbackCommand.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkSphereWidget, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkSphereWidget, "$Revision: 1.5 $");
 vtkStandardNewMacro(vtkSphereWidget);
 
 vtkSphereWidget::vtkSphereWidget()
@@ -98,6 +98,10 @@ vtkSphereWidget::~vtkSphereWidget()
   this->SphereSource->Delete();
 
   this->SpherePicker->Delete();
+
+  this->HandleSource->Delete();
+  this->HandleMapper->Delete();
+  this->HandleActor->Delete();
 
   if ( this->SphereProperty )
     {
