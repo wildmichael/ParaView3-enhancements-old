@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-17 15:47:38 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2003-04-18 12:35:53 $
+  Version:   $Revision: 1.31 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -47,7 +47,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkSynchronizedTemplates2D, "$Revision: 1.30 $");
+vtkCxxRevisionMacro(vtkSynchronizedTemplates2D, "$Revision: 1.31 $");
 vtkStandardNewMacro(vtkSynchronizedTemplates2D);
 
 //----------------------------------------------------------------------------
@@ -434,7 +434,7 @@ void vtkSynchronizedTemplates2D::Execute()
   //
   // Allocate necessary objects
   //
-  estimatedSize = (int) (sqrt((double)dims[0]*dims[1]*dims[2]));
+  estimatedSize = (int) (sqrt((double)(dataSize)));
   if (estimatedSize < 1024)
     {
     estimatedSize = 1024;
