@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInterpolatedVelocityField.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-07 15:52:50 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2003-01-08 13:22:38 $
+  Version:   $Revision: 1.22 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,11 +26,11 @@
 
 #include <vector>
 
-vtkCxxRevisionMacro(vtkInterpolatedVelocityField, "$Revision: 1.21 $");
+vtkCxxRevisionMacro(vtkInterpolatedVelocityField, "$Revision: 1.22 $");
 vtkStandardNewMacro(vtkInterpolatedVelocityField);
 
 typedef vtkstd::vector< vtkSmartPointer<vtkDataSet> > DataSetsTypeBase;
-class vtkInterpolatedVelocityField::DataSetsType: public DataSetsTypeBase {};
+class vtkInterpolatedVelocityFieldDataSetsType: public DataSetsTypeBase {};
 
 vtkInterpolatedVelocityField::vtkInterpolatedVelocityField()
 {
@@ -47,7 +47,7 @@ vtkInterpolatedVelocityField::vtkInterpolatedVelocityField()
   this->Cell = vtkGenericCell::New();
   this->VectorsSelection = 0;
 
-  this->DataSets = new DataSetsType;
+  this->DataSets = new vtkInterpolatedVelocityFieldDataSetsType;
   this->LastDataSet = 0;
 }
 
