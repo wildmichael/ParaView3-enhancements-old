@@ -3,8 +3,8 @@
 Program:   Visualization Toolkit
 Module:    $RCSfile: vtkCarbonRenderWindowInteractor.cxx,v $
 Language:  C++
-Date:      $Date: 2002-05-28 12:17:42 $
-Version:   $Revision: 1.3 $
+Date:      $Date: 2002-05-28 12:39:39 $
+Version:   $Revision: 1.4 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen
 All rights reserved.
@@ -43,18 +43,19 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <string.h>
 #include <math.h>
 
+#include "vtkActor.h"
 #include "vtkCarbonRenderWindow.h"
 #include "vtkCarbonRenderWindowInteractor.h"
-#include "vtkInteractorStyle.h"
-#include "vtkActor.h"
-#include <OpenGL/gl.h>
-#include "vtkObjectFactory.h"
 #include "vtkCommand.h"
+#include "vtkCommand.h"
+#include "vtkInteractorStyle.h"
+#include "vtkObjectFactory.h"
 
+#include <OpenGL/gl.h>
 #import <Carbon/Carbon.h>
 
 
-vtkCxxRevisionMacro(vtkCarbonRenderWindowInteractor, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkCarbonRenderWindowInteractor, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkCarbonRenderWindowInteractor);
 
 void (*vtkCarbonRenderWindowInteractor::ClassExitMethod)(void *) 
