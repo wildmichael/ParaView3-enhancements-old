@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKWSerializer.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-07 12:36:42 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-03-03 21:39:18 $
+  Version:   $Revision: 1.4 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -64,11 +64,12 @@ public:
   static int GetNextToken(istream *is, char result[1024]);
   static void WriteSafeString(ostream& os, const char *val);
   
+  static void EatWhiteSpace(istream *is);
+
 protected:
   vtkKWSerializer() {};
   ~vtkKWSerializer() {};
 
-  static void EatWhiteSpace(istream *is);
 private:
   vtkKWSerializer(const vtkKWSerializer&); // Not implemented
   void operator=(const vtkKWSerializer&); // Not implemented
