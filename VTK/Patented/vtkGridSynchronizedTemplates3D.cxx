@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGridSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-07 21:10:32 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2002-05-11 18:08:59 $
+  Version:   $Revision: 1.58 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -44,7 +44,7 @@
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkGridSynchronizedTemplates3D, "$Revision: 1.57 $");
+vtkCxxRevisionMacro(vtkGridSynchronizedTemplates3D, "$Revision: 1.58 $");
 vtkStandardNewMacro(vtkGridSynchronizedTemplates3D);
 
 //----------------------------------------------------------------------------
@@ -998,8 +998,7 @@ void vtkGridSynchronizedTemplates3D::Execute()
       {
       threadPD = this->Threads[idx]->GetPointData();
       
-      if ( !this->Threads[idx] || 
-           this->Threads[idx]->GetNumberOfPoints() <= 0 )
+      if ( !this->Threads[idx])
         {
         continue; //no input, just skip
         }
@@ -1022,8 +1021,7 @@ void vtkGridSynchronizedTemplates3D::Execute()
       {
       threadCD = this->Threads[idx]->GetCellData();
       
-      if ( !this->Threads[idx] || 
-           this->Threads[idx]->GetNumberOfPoints() <= 0 )
+      if ( !this->Threads[idx])
         {
         continue; //no input, just skip
         }

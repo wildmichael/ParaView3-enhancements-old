@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-07 21:10:32 $
-  Version:   $Revision: 1.62 $
+  Date:      $Date: 2002-05-11 18:08:59 $
+  Version:   $Revision: 1.63 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -44,7 +44,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkExtentTranslator.h"
 
-vtkCxxRevisionMacro(vtkSynchronizedTemplates3D, "$Revision: 1.62 $");
+vtkCxxRevisionMacro(vtkSynchronizedTemplates3D, "$Revision: 1.63 $");
 vtkStandardNewMacro(vtkSynchronizedTemplates3D);
 
 //----------------------------------------------------------------------------
@@ -786,8 +786,7 @@ void vtkSynchronizedTemplates3D::Execute()
     int firstPD=1;
     for (idx = 0; idx < this->NumberOfThreads; ++idx)
       {
-      if ( !this->Threads[idx] || 
-           this->Threads[idx]->GetNumberOfPoints() <= 0 )
+        if ( !this->Threads[idx])
         {
         continue; //no input, just skip
         }
@@ -810,8 +809,7 @@ void vtkSynchronizedTemplates3D::Execute()
 
     for (idx = 0; idx < this->NumberOfThreads; ++idx)
       {
-      if ( !this->Threads[idx] || 
-           this->Threads[idx]->GetNumberOfPoints() <= 0 )
+      if ( !this->Threads[idx])
         {
         continue; //no input, just skip
         }
