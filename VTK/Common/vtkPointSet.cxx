@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSet.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-24 08:58:42 $
-  Version:   $Revision: 1.63 $
+  Date:      $Date: 2000-10-25 20:28:18 $
+  Version:   $Revision: 1.64 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -160,6 +160,7 @@ int vtkPointSet::FindCell(float x[3], vtkCell *cell, vtkGenericCell *gencell,
   float           closestPoint[3];
   float           dist2;
   vtkIdList       *cellIds, *ptIds;
+  int             initialCellProvided = 1;
 
   // make sure everything is up to snuff
   if ( !this->Points )
@@ -188,6 +189,7 @@ int vtkPointSet::FindCell(float x[3], vtkCell *cell, vtkGenericCell *gencell,
   // the point.  Then use one of the cells to begin the walking process.
   if ( !cell )
     {
+    initialCellProvided = 0;
     ptId = this->Locator->FindClosestPoint(x);
     if ( ptId < 0 )
       {
@@ -226,7 +228,7 @@ int vtkPointSet::FindCell(float x[3], vtkCell *cell, vtkGenericCell *gencell,
       }
     }
 
-  // If a cell is supplied, or we were unable to find a starting cell (in the
+  // If a cell is supplied, or we didn't find a starting cell (in the
   // previous chunk of code), then we use this to start our search. A
   // walking scheme is used, where we walk towards the point and eventually
   // locate the cell that contains the point.
@@ -275,12 +277,22 @@ int vtkPointSet::FindCell(float x[3], vtkCell *cell, vtkGenericCell *gencell,
         }
 
       }//for a walk
-    }
+    }//if we have a starting cell
 
   cellIds->Delete();
   ptIds->Delete();
 
-  return -1;
+  //sometimes the initial cell is a really bad guess so we'll
+  //just ignore it and start from scratch as a last resort
+  if ( initialCellProvided )
+    {
+    return this->FindCell(x, NULL, gencell, cellId, tol2,
+                          subId, pcoords, weights);
+    }
+  else
+    {
+    return -1;
+    }
 }
 
 //----------------------------------------------------------------------------
