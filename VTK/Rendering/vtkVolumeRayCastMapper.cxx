@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-27 15:18:38 $
-  Version:   $Revision: 1.68 $
+  Date:      $Date: 2001-08-28 20:10:04 $
+  Version:   $Revision: 1.69 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -555,6 +555,9 @@ VTK_THREAD_RETURN_TYPE VolumeRayCastMapper_CastRays( void *arg )
   
   VTKVRCDynamicInfo *dynamicInfo = new VTKVRCDynamicInfo;
 
+  // Initialize this to avoid purify problems
+  dynamicInfo->ScalarValue = 0;
+  
   float *rayStart     = dynamicInfo->TransformedStart;
   float *rayEnd       = dynamicInfo->TransformedEnd;
   float *rayDirection = dynamicInfo->TransformedDirection;
