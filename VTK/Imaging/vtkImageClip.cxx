@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageClip.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:30 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2000-06-01 07:50:19 $
+  Version:   $Revision: 1.34 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -106,16 +106,26 @@ void vtkImageClip::PrintSelf(ostream& os, vtkIndent indent)
 void vtkImageClip::SetOutputWholeExtent(int extent[6])
 {
   int idx;
+  int modified = 0;
   
   for (idx = 0; idx < 6; ++idx)
     {
     if (this->OutputWholeExtent[idx] != extent[idx])
       {
       this->OutputWholeExtent[idx] = extent[idx];
-      this->Modified();
+      modified = 1;
       }
     }
   this->Initialized = 1;
+  if (modified)
+    {
+    this->Modified();
+    vtkImageData *output = this->GetOutput();
+    if (output)
+      {
+      output->SetUpdateExtent(extent);
+      }
+    }
 }
 
 //----------------------------------------------------------------------------
