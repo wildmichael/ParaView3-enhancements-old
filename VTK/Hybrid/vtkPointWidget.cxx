@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-21 17:54:24 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-08-21 18:43:16 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,7 @@
 #include "vtkRenderWindow.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkPointWidget, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkPointWidget, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkPointWidget);
 
 vtkPointWidget::vtkPointWidget()
@@ -486,11 +486,17 @@ void vtkPointWidget::OnMouseMove()
         this->DetermineConstraintAxis(this->ConstraintAxis,pickPoint);
       this->MoveFocus(prevPickPoint, pickPoint);
       }
+    else
+      {
+      return; //avoid the extra render
+      }
     }
+
   else if ( this->State == vtkPointWidget::Scaling )
     {
     this->Scale(prevPickPoint, pickPoint, X, Y);
     }
+
   else if ( this->State == vtkPointWidget::Translating )
     {
     if ( !this->WaitingForMotion || this->WaitCount++ > 3 )
@@ -498,6 +504,10 @@ void vtkPointWidget::OnMouseMove()
       this->ConstraintAxis = 
         this->DetermineConstraintAxis(this->ConstraintAxis,pickPoint);
       this->Translate(prevPickPoint, pickPoint);
+      }
+    else
+      {
+      return; //avoid the extra render
       }
     }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-21 17:54:24 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-08-21 18:43:16 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -36,7 +36,7 @@
 // grab (left mouse) on any widget line and "slide" the point into
 // position. Scaling is achieved by using the right mouse button "up" the
 // render window (makes the widget bigger) or "down" the render window (makes
-// the widget smaller). To translate the cursor use the middle mouse button.
+// the widget smaller). To translate the widget use the middle mouse button.
 // (Note: all of the translation interactions can be constrained to one of
 // the x-y-z axes by using the "shift" key.) The vtkPointWidget produces as
 // output a polydata with a single point and a vertex cell.
