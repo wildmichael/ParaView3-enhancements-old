@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-17 14:11:07 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2002-08-18 08:36:03 $
+  Version:   $Revision: 1.50 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -34,7 +34,7 @@
 #include <limits.h>
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkOpenGLImageMapper, "$Revision: 1.49 $");
+vtkCxxRevisionMacro(vtkOpenGLImageMapper, "$Revision: 1.50 $");
 vtkStandardNewMacro(vtkOpenGLImageMapper);
 #endif
 
@@ -207,7 +207,12 @@ void vtkOpenGLImageMapperRender(vtkOpenGLImageMapper *self, vtkImageData *data,
   glDrawPixels(width, height, ((bpp < 4) ? GL_RGB : GL_RGBA),
                GL_UNSIGNED_BYTE, (void *)newPtr);
   
-  delete [] newPtr;    
+  if (self->GetRenderToRectangle())
+    {
+    // restore zoom to 1,1 otherwise other glDrawPixels cals may be affected
+    glPixelZoom(1.0, 1.0);
+    }
+  delete [] newPtr;
 }
 
 //---------------------------------------------------------------
@@ -348,6 +353,11 @@ void vtkOpenGLImageMapperRenderShort(vtkOpenGLImageMapper *self, vtkImageData *d
   glDrawPixels(width, height, ((bpp < 4) ? GL_RGB : GL_RGBA),
                GL_UNSIGNED_BYTE, (void *)newPtr);
 
+  if (self->GetRenderToRectangle())
+    {
+    // restore zoom to 1,1 otherwise other glDrawPixels cals may be affected
+    glPixelZoom(1.0, 1.0);
+    }
   delete [] newPtr;
 }
 
@@ -482,6 +492,13 @@ void vtkOpenGLImageMapperRenderChar(vtkOpenGLImageMapper *self, vtkImageData *da
 
     delete [] newPtr;
     }
+
+  if (self->GetRenderToRectangle())
+    {
+    // restore zoom to 1,1 otherwise other glDrawPixels cals may be affected
+    glPixelZoom(1.0, 1.0);
+    }
+
   glPixelStorei( GL_UNPACK_ROW_LENGTH, 0);
 }
 
