@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsToStructuredPointsFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:56:45 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1999-12-19 21:47:25 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -104,13 +104,21 @@ int vtkStructuredPointsToStructuredPointsFilter::ComputeInputUpdateExtents(
                                                          vtkDataObject *data)
 {
   vtkStructuredPoints *output = (vtkStructuredPoints*)data;
+  vtkStructuredPoints *input = this->GetInput();
+  
   if (this->NumberOfInputs > 1)
     {
     vtkErrorMacro("Subclass did not implement ComputeInputUpdateExtent");
     return 0;
     }
   
-  this->GetInput()->CopyUpdateExtent(output);
+  if (input == NULL)
+    {
+    vtkErrorMacro(<<"Input is NULL");
+    return;
+    }
+
+  input->CopyUpdateExtent(output);
   return 1;
 }
 
