@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp3D.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-28 16:27:36 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2003-01-21 20:34:38 $
+  Version:   $Revision: 1.36 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -268,7 +268,14 @@ public:
   // the documentation for vtkProp.
   void InitPathTraversal();
 
-  
+  // Description:
+  // Get the vtkProp3D's mtime 
+  unsigned long int GetMTime();
+
+  // Description:
+  // Get the modified time of the user matrix or user transform.
+  unsigned long int GetUserTransformMatrixMTime();
+ 
   // Description:
   // Generate the matrix based on ivars
   virtual void ComputeMatrix();

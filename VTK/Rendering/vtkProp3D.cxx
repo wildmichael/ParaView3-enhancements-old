@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:20:41 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2003-01-21 20:34:38 $
+  Version:   $Revision: 1.30 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 
 typedef double (*SqMatPtr)[4];
 
-vtkCxxRevisionMacro(vtkProp3D, "$Revision: 1.29 $");
+vtkCxxRevisionMacro(vtkProp3D, "$Revision: 1.30 $");
 
 // Construct with the following defaults: origin(0,0,0) 
 // position=(0,0,0) and orientation=(0,0,0). No user defined 
@@ -82,6 +82,41 @@ vtkProp3D::~vtkProp3D()
     this->UserTransform->UnRegister(this);
     this->UserTransform = NULL;
     }
+}
+
+unsigned long int vtkProp3D::GetMTime()
+{
+  unsigned long mTime=this->Superclass::GetMTime();
+  unsigned long time;
+
+  time = this->GetUserTransformMatrixMTime();
+  mTime = ( time > mTime ? time : mTime );
+
+  return mTime;
+}
+
+unsigned long int vtkProp3D::GetUserTransformMatrixMTime()
+{
+  unsigned long mTime;
+  unsigned long time;
+
+  // Factored out of GetMTime because there are times we want
+  // just this information, without being influenced by other
+  // changes that affect this class's or a subclass's mtime.
+  // (E.g. see vtkLODProp3D)
+  if ( this->UserMatrix != NULL )
+    {
+    mTime = this->UserMatrix->GetMTime();
+    }
+
+  if ( this->UserTransform != NULL )
+    {
+    time = this->UserTransform->GetMTime();
+    mTime = ( time > mTime ? time : mTime );
+    }
+
+
+  return mTime;
 }
 
 // Incrementally change the position of the Prop3D.
