@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapTcl.c,v $
   Language:  C++
-  Date:      $Date: 1999-09-12 15:05:43 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-09-13 14:46:16 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -220,7 +220,7 @@ void return_result(FILE *fp)
     /* this is done by looking them up in a hint file */
     case 301: case 307:
     case 304: case 305: case 306:
-    case 314: case 315: case 316:      
+    case 313: case 314: case 315: case 316:      
       use_hints(fp);
       break;
     default:
@@ -418,6 +418,7 @@ void outputFunction(FILE *fp, FileInfo *data)
     {
     case 301: case 307:
     case 304: case 305: case 306:
+    case 313: case 314: case 315: case 316:
       args_ok = currentFunction->HaveHint;
       break;
     }
