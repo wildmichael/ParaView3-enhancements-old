@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAxes.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-23 20:33:41 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1997-06-06 12:43:27 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -134,7 +134,7 @@ void vtkAxes::Execute()
 
 void vtkAxes::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolySource::PrintSelf(os,indent);
+  vtkPolyDataSource::PrintSelf(os,indent);
   os << indent << "Origin: (" << this->Origin[0] << ", "
                << this->Origin[1] << ", "
                << this->Origin[2] << ")\n";

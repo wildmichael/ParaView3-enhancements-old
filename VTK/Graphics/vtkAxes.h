@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAxes.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:50:41 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1997-06-06 12:43:28 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,9 +49,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkAxes_h
 #define __vtkAxes_h
 
-#include "vtkPolySource.h"
+#include "vtkPolyDataSource.h"
 
-class VTK_EXPORT vtkAxes : public vtkPolySource 
+class VTK_EXPORT vtkAxes : public vtkPolyDataSource 
 {
 public:
   vtkAxes();
