@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLYReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-27 19:09:25 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-09-07 18:43:12 $
+  Version:   $Revision: 1.2 $
   Thanks:    Mike Dresser MD/PhD
              Director of Core Facility for Imaging
              Program in Molecular and Cell Biology
@@ -47,12 +47,13 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // .SECTION Description
 // vtkPLYReader is a source object that reads polygonal data in
 // Stanford University PLY file format (see 
-// http://graphics.stanford.edu/data/3Dscanrep/).
-
-// .SECTION Caveats
-// PLY does not handle big endian versus little endian correctly. Also,
-// this class is compiled into VTK only if the PLY library is found
-// during the make process (using CMake).
+// http://graphics.stanford.edu/data/3Dscanrep/). It requires that
+// the elements "vertex" and "face" are defined. The "vertex" element
+// must have the properties "x", "y", and "z". The "face" element must
+// have the property "vertex_indices" defined. Optionally, if the "face"
+// element has the properties "intensity" and/or the triplet "red",
+// "green", and "blue"; these are read and added as scalars to the
+// output data.
 
 // .SECTION See Also
 // vtkPLYWriter
