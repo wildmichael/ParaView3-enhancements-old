@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1996-05-24 19:51:08 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1996-07-12 14:10:31 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -240,6 +240,11 @@ public:
   // and from bottom to top.
   virtual unsigned char *GetPixelData(int x,int y,int x2,int y2,int front) = 0;
   virtual void SetPixelData(int x,int y,int x2,int y2,unsigned char *,int front) = 0;
+
+  // Description:
+  // Set/Get the zbuffer data from the frame buffer.
+  virtual float *GetZbufferData(int x, int y, int x2, int y2) = 0;
+  virtual void SetZbufferData(int x, int y, int x2, int y2, float *) = 0;
 
   // Description:
   // Set the number of frames for doing antialiasing. The default is
