@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:03:00 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-08-31 20:27:03 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,7 +59,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class vtkRenderer;
 class vtkVolume;
 class vtkVolumeTransform;
-
+class vtkPlaneCollection;
 
 // Macro for floor of x
 #define vtkFloorFuncMacro(x)   (((x) < 0.0)?((int)((x)-1.0)):((int)(x)))
@@ -166,11 +166,16 @@ protected:
   void                         *ScalarDataPointer;
   float                        *DepthRangeBufferPointer;
 
-//BTX
-  int                          ClipRayAgainstVolume( VTKRayCastRayInfo *rayInfo,
-						     VTKRayCastVolumeInfo *volumeInfo,
-						     float bounds[6] );
-//ETX
+  int                          ClipRayAgainstVolume( 
+					  VTKRayCastRayInfo *rayInfo,
+					  VTKRayCastVolumeInfo *volumeInfo,
+					  float bounds[6] );
+
+  int                          ClipRayAgainstClippingPlanes( 
+					  VTKRayCastRayInfo *rayInfo,
+					  VTKRayCastVolumeInfo *volumeInfo,
+					  vtkPlaneCollection *planes );
+
   void                         GeneralImageInitialization( vtkRenderer *ren, 
 							   vtkVolume *vol );
 
