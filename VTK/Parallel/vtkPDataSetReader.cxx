@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPDataSetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-18 15:48:20 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2003-04-22 17:23:46 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -34,7 +34,7 @@
 #include "vtkUnstructuredGrid.h"
 #include "vtkExtentTranslator.h"
 
-vtkCxxRevisionMacro(vtkPDataSetReader, "$Revision: 1.23 $");
+vtkCxxRevisionMacro(vtkPDataSetReader, "$Revision: 1.24 $");
 vtkStandardNewMacro(vtkPDataSetReader);
 
 //----------------------------------------------------------------------------
@@ -937,7 +937,7 @@ ifstream *vtkPDataSetReader::OpenFile(const char* filename)
 {
   ifstream *file;
 
-  if (!filename)
+  if (!filename || filename[0] == '\0')
     {
     //vtkErrorMacro(<<"A FileName must be specified.");
     return NULL;
