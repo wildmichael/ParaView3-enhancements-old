@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:15 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 1999-11-03 19:23:35 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -287,8 +287,7 @@ protected:
   vtkMatrix4x4 **StackBottom;
   float Point[4];
   double DoublePoint[4];
-  float Orientation[3];
-
+  float ReturnValue[4];
 };
 
 
