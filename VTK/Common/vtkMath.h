@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMath.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:40:46 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1997-09-18 18:05:49 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,7 +58,15 @@ public:
   vtkMath() {};
   static vtkMath *New() {return new vtkMath;};
   virtual const char *GetClassName() {return "vtkMath";};
+  virtual void Delete(); //delete a vtk object.
   
+#ifdef _WIN32
+  // avoid dll boundary problems
+  void* operator new( size_t tSize, const char *, int);
+  void* operator new( size_t tSize );
+  void operator delete( void* p );
+#endif 
+
   // constants
   static float Pi() {return 3.14159265358979;};
   static float DegreesToRadians() {return 0.017453292;};
