@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageLogic.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:48:08 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1998-10-01 17:47:43 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,7 +47,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 vtkImageLogic::vtkImageLogic()
 {
   this->Operation = VTK_AND;
-  this->OutputTrueValue = 0;
+  this->OutputTrueValue = 255;
 }
 
 

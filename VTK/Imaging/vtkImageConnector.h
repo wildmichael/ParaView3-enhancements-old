@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageConnector.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-16 21:09:06 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-10-01 17:47:42 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,6 +64,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // For the breadth first search
 class vtkImageConnectorSeed { //;prevent man page generation
 public:
+  static vtkImageConnectorSeed *New() {return new vtkImageConnectorSeed;};
   void *Pointer;
   int  Index[3];
   vtkImageConnectorSeed *Next;

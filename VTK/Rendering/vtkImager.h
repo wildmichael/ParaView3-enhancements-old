@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImager.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-16 21:09:18 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-10-01 17:47:46 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,7 +50,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkImager_h
 #define __vtkImager_h
 
-#include "vtkReferenceCount.h"
+#include "vtkObject.h"
 #include "vtkActor2DCollection.h"
 #include "vtkActor2D.h"
 #include "vtkViewport.h"

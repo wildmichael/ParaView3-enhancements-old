@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-16 21:09:18 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-10-01 17:47:46 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -157,7 +157,7 @@ public:
   vtkGetStringMacro(FileName);
 
 protected:
-  vtkImagerCollection Imagers;
+  vtkImagerCollection *Imagers;
   int WindowCreated;
   int GrayScaleHint;
   virtual void MakeDefaultWindow() = 0;

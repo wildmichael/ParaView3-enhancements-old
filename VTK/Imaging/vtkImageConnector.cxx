@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageConnector.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:48:02 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-10-01 17:47:41 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,7 +74,7 @@ void vtkImageConnector::RemoveAllSeeds()
 //----------------------------------------------------------------------------
 vtkImageConnectorSeed *vtkImageConnector::NewSeed(int index[3], void *ptr)
 {
-  vtkImageConnectorSeed *seed = new vtkImageConnectorSeed;
+  vtkImageConnectorSeed *seed = vtkImageConnectorSeed::New();
   int idx;
 
   for (idx = 0; idx < 3; ++idx)

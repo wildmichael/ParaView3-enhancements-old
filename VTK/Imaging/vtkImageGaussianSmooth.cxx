@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGaussianSmooth.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:48:06 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1998-10-01 17:47:43 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -407,7 +407,7 @@ void vtkImageGaussianSmooth::ThreadedExecute(vtkImageData *inData,
     total = this->Dimensionality * (outExt[1] - outExt[0] + 1) 
       * (outExt[3] - outExt[2] + 1) * (outExt[5] - outExt[4] + 1)
       * this->Input->GetNumberOfScalarComponents();
-    // pixels per update (50 of them)
+    // pixels per update (50 updates)
     target = total / 50;
     }
   

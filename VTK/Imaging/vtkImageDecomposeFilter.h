@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDecomposeFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:28:37 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-10-01 17:47:42 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,7 +43,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // This superclass molds the vtkImageIterateFilter superclass so
 // it iterates over the axes.  The filter uses dimensionality to 
 // determine how many axes to execute (starting from x).  
-// Full filtered axes is not supported (but could be).
 // The filter also provides convenience methods for permuting information
 // retrieved from input, output and vtkImageData.
 
@@ -57,25 +56,29 @@ class VTK_EXPORT vtkImageDecomposeFilter : public vtkImageIterateFilter
 {
 public:
 
-// Description:
-// Construct an instance of vtkImageDecomposeFilter fitler.
+  // Description:
+  // Construct an instance of vtkImageDecomposeFilter fitler with default
+  // dimensionality 3.
   vtkImageDecomposeFilter();
 
   static vtkImageDecomposeFilter *New() {return new vtkImageDecomposeFilter;};
   const char *GetClassName() {return "vtkImageDecomposeFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
+  // Description:
+  // Dimensionality is the number of axes which are considered durring
+  // execution. To process images dimensionality would be set to 2.
   void SetDimensionality(int dim);
   vtkGetMacro(Dimensionality,int);
 
   // Description:
-  // for compatability
+  // Obsolete legacy methods.
   void SetFilteredAxes(int axis0);
   void SetFilteredAxes(int axis0, int axis2);
   void SetFilteredAxes(int axis0, int axis2, int axis3);
 
   // Description:
-  // public for template execute functions
+  // Private methods kept public for template execute functions.
   void PermuteIncrements(int *increments, int &inc0, int &inc1, int &inc2);
   void PermuteExtent(int *extent, int &min0, int &max0, int &min1, int &max1,
 		     int &min2, int &max2);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCanvasSource2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:48:01 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-10-01 17:47:41 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1021,7 +1021,7 @@ static void vtkImageCanvasSource2DFill(vtkImageData *image, float *color,
     }
   
   // Create the seed
-  pixel = new vtkImageCanvasSource2DPixel;
+  pixel = vtkImageCanvasSource2DPixel::New();
   pixel->X = x;
   pixel->Y = y;
   pixel->Pointer = (void *)(ptr);
@@ -1067,7 +1067,7 @@ static void vtkImageCanvasSource2DFill(vtkImageData *image, float *color,
 	  }
 	else
 	  {
-	  pixel = new vtkImageCanvasSource2DPixel;
+	  pixel = vtkImageCanvasSource2DPixel::New();
 	  }
 	pixel->X = first->X-1;
 	pixel->Y = first->Y;
@@ -1112,7 +1112,7 @@ static void vtkImageCanvasSource2DFill(vtkImageData *image, float *color,
 	  }
 	else
 	  {
-	  pixel = new vtkImageCanvasSource2DPixel;
+	  pixel = vtkImageCanvasSource2DPixel::New();
 	  }
 	pixel->X = first->X+1;
 	pixel->Y = first->Y;
@@ -1157,7 +1157,7 @@ static void vtkImageCanvasSource2DFill(vtkImageData *image, float *color,
 	  }
 	else
 	  {
-	  pixel = new vtkImageCanvasSource2DPixel;
+	  pixel = vtkImageCanvasSource2DPixel::New();
 	  }
 	pixel->X = first->X;
 	pixel->Y = first->Y-1;
@@ -1202,7 +1202,7 @@ static void vtkImageCanvasSource2DFill(vtkImageData *image, float *color,
 	  }
 	else
 	  {
-	  pixel = new vtkImageCanvasSource2DPixel;
+	  pixel = vtkImageCanvasSource2DPixel::New();
 	  }
 	pixel->X = first->X;
 	pixel->Y = first->Y+1;

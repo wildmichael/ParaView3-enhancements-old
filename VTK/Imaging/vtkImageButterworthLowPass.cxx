@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageButterworthLowPass.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-16 12:55:58 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-10-01 17:47:40 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -96,7 +96,7 @@ void vtkImageButterworthLowPass::ThreadedExecute(vtkImageData *inData,
   int min0, max0;
   float *inPtr;
   float *outPtr;
-  int *extent, *wholeExtent;
+  int *wholeExtent;
   float *spacing;
   int inInc0, inInc1, inInc2;
   int outInc0, outInc1, outInc2;

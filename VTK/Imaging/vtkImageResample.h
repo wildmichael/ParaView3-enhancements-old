@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageResample.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-16 21:09:15 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1998-10-01 17:47:45 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,7 +40,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 // .NAME vtkImageResample - Resamples an image using linear interpolation.
 // .SECTION Description
-// vtkImageResample resamples the input image 
+// This filter produces an output with different spacing (and extent)
+// than the input.  Linear interpolation is used to resample the data.
+// The Output spacing can be set explicitly or relative to input spacing
+// with the SetAxisMagnificationFactor method.
 
 
 #ifndef __vtkImageResample_h
@@ -53,8 +56,8 @@ class VTK_EXPORT vtkImageResample : public vtkImageDecomposeFilter
 {
 public:
 
-// Description:
-// Constructor: Sets default filter to be identity.
+  // Description:
+  // Constructor: Sets default filter to be identity.
   vtkImageResample();
 
   static vtkImageResample *New() {return new vtkImageResample;};

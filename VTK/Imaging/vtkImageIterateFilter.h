@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIterateFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-16 21:09:11 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-10-01 17:47:43 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,6 +74,7 @@ public:
   // Get which iteration is current being performed. Normally the
   // user will not access this method.
   vtkGetMacro(Iteration,int);
+  vtkGetMacro(NumberOfIterations,int);
   
 protected:
   virtual void RecursiveStreamUpdate(vtkImageData *outData);

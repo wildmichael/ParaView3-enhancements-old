@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCanvasSource2D.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-16 21:09:06 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-10-01 17:47:41 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,6 +59,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // For the fill functionality (use connector ??)
 class vtkImageCanvasSource2DPixel { //;prevent man page generation
 public:
+  static vtkImageCanvasSource2DPixel *New() 
+    {return new vtkImageCanvasSource2DPixel;};
   int X;
   int Y;
   void *Pointer;
