@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.h,v $
   Language:  C++
-  Date:      $Date: 2000-03-23 20:47:36 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 2000-03-29 18:01:57 $
+  Version:   $Revision: 1.62 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -314,7 +314,7 @@ public:
   virtual void PrepareForNewData();
 
   void SetMemoryLimit( int vtkNotUsed(x) ) 
-    { vtkErrorMacro( << "Memory limit no longer supported - use streamer" ); };
+    { vtkErrorMacro( << "vtkImageData::SetMemoryLimit no longer supported - use the class vtkImageDataStreamer instead" ); };
 
   int GetMemoryLimit() { return 0; };
 
