@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCastToConcrete.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:40:53 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1998-11-24 18:26:28 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -118,30 +118,35 @@ void vtkCastToConcrete::Execute()
     {
     this->PolyData->CopyStructure(input);
     this->PolyData->GetPointData()->PassData(input->GetPointData());
+    this->PolyData->GetCellData()->PassData(input->GetCellData());
     }
 
   else if ( input->GetDataSetType() == VTK_STRUCTURED_POINTS )
     {
     this->StructuredPoints->CopyStructure(input);
     this->StructuredPoints->GetPointData()->PassData(input->GetPointData());
+    this->StructuredPoints->GetCellData()->PassData(input->GetCellData());
     }
 
   else if ( input->GetDataSetType() == VTK_STRUCTURED_GRID )
     {
     this->StructuredGrid->CopyStructure(input);
     this->StructuredGrid->GetPointData()->PassData(input->GetPointData());
+    this->StructuredGrid->GetCellData()->PassData(input->GetCellData());
     }
 
   else if ( input->GetDataSetType() == VTK_UNSTRUCTURED_GRID )
     {
     this->UnstructuredGrid->CopyStructure(input);
     this->UnstructuredGrid->GetPointData()->PassData(input->GetPointData());
+    this->UnstructuredGrid->GetCellData()->PassData(input->GetCellData());
     }
 
   else if ( input->GetDataSetType() == VTK_RECTILINEAR_GRID )
     {
     this->RectilinearGrid->CopyStructure(input);
     this->RectilinearGrid->GetPointData()->PassData(input->GetPointData());
+    this->RectilinearGrid->GetCellData()->PassData(input->GetCellData());
     }
 
   else
