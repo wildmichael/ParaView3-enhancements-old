@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-15 14:20:14 $
-  Version:   $Revision: 1.84 $
+  Date:      $Date: 2001-12-10 23:11:30 $
+  Version:   $Revision: 1.85 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -201,11 +201,16 @@ float vtkDataSet::GetLength()
   this->ComputeBounds();
   for (i=0; i<3; i++)
     {
-    diff = this->Bounds[2*i+1] - this->Bounds[2*i];
+    diff = static_cast<double>(this->Bounds[2*i+1]) - 
+      static_cast<double>(this->Bounds[2*i]);
     l += diff * diff;
     }
- 
-  return (float)sqrt(l);
+  diff = sqrt(l);
+  if(diff > VTK_LARGE_FLOAT)
+    {
+    return VTK_LARGE_FLOAT;
+    }
+  return static_cast<float>(diff);
 }
 
 //----------------------------------------------------------------------------

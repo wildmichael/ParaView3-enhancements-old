@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:09:35 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2001-12-10 23:11:30 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -239,7 +239,7 @@ void vtkCell::GetBounds(float bounds[6])
 // Compute Length squared of cell (i.e., bounding box diagonal squared).
 float vtkCell::GetLength2 ()
 {
-  float diff, l=0.0;
+  double diff, l=0.0;
   int i;
 
   this->GetBounds();
@@ -248,8 +248,11 @@ float vtkCell::GetLength2 ()
     diff = this->Bounds[2*i+1] - this->Bounds[2*i];
     l += diff * diff;
     }
- 
-  return l;
+  if(l > VTK_LARGE_FLOAT)
+    {
+    return VTK_LARGE_FLOAT;
+    }
+  return static_cast<float>(l);
 }
 
 // Return center of the cell in parametric coordinates.
