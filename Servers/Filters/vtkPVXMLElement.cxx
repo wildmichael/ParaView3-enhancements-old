@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVXMLElement.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-28 15:19:34 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-06-10 13:49:58 $
+  Version:   $Revision: 1.4 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -42,7 +42,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkPVXMLElement.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkPVXMLElement, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkPVXMLElement, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkPVXMLElement);
 
 //----------------------------------------------------------------------------
@@ -86,6 +86,8 @@ vtkPVXMLElement::~vtkPVXMLElement()
 void vtkPVXMLElement::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->Superclass::PrintSelf(os, indent);
+  os << "Id: " << (this->Id?this->Id:"<none>") << endl;
+  os << "Name: " << (this->Name?this->Name:"<none>") << endl;
 }
 
 //----------------------------------------------------------------------------
