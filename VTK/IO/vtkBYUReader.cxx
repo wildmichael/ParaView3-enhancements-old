@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkBYUReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-10-03 18:52:14 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1994-11-07 09:01:07 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -39,22 +39,6 @@ vlBYUReader::~vlBYUReader()
   if ( this->DisplacementFilename ) delete [] this->DisplacementFilename;
   if ( this->ScalarFilename ) delete [] this->ScalarFilename;
   if ( this->TextureFilename ) delete [] this->TextureFilename;
-}
-
-void vlBYUReader::PrintSelf(ostream& os, vlIndent indent)
-{
-  if (this->ShouldIPrint(vlBYUReader::GetClassName()))
-    {
-    vlPolySource::PrintSelf(os,indent);
-
-    os << indent << "Geometry Filename: " << this->GeometryFilename << "\n";
-    os << indent << "Read Displacement: " << (this->ReadDisplacement ? "On\n" : "Off\n");
-    os << indent << "Displacement Filename: " << this->DisplacementFilename << "\n";
-    os << indent << "Read Scalar: " << (this->ReadScalar ? "On\n" : "Off\n");
-    os << indent << "Scalar Filename: " << this->ScalarFilename << "\n";
-    os << indent << "Read Texture: " << (this->ReadTexture ? "On\n" : "Off\n");
-    os << indent << "Texture Filename: " << this->TextureFilename << "\n";
-    }
 }
 
 void vlBYUReader::Execute()
@@ -153,7 +137,7 @@ void vlBYUReader::ReadGeometryFile(FILE *geomFile, int &numPts)
       }
     else //terminated based on exceeding number of points
       {
-      while ( id >= 0 ) fscanf (geomFile, "%d", &id);
+      for ( id=1; id >= 0; ) fscanf (geomFile, "%d", &id);
       }
     npts++;
 
@@ -267,3 +251,17 @@ void vlBYUReader::ReadTextureFile(int numPts)
 
   this->PointData.SetTCoords(newTCoords);
 }
+
+void vlBYUReader::PrintSelf(ostream& os, vlIndent indent)
+{
+  vlPolySource::PrintSelf(os,indent);
+
+  os << indent << "Geometry Filename: " << this->GeometryFilename << "\n";
+  os << indent << "Read Displacement: " << (this->ReadDisplacement ? "On\n" : "Off\n");
+  os << indent << "Displacement Filename: " << this->DisplacementFilename << "\n";
+  os << indent << "Read Scalar: " << (this->ReadScalar ? "On\n" : "Off\n");
+  os << indent << "Scalar Filename: " << this->ScalarFilename << "\n";
+  os << indent << "Read Texture: " << (this->ReadTexture ? "On\n" : "Off\n");
+  os << indent << "Texture Filename: " << this->TextureFilename << "\n";
+}
+
