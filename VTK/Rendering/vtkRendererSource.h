@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRendererSource.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-12 18:49:56 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2002-08-13 17:00:36 $
+  Version:   $Revision: 1.40 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -73,10 +73,19 @@ public:
   // Description:
   // A boolean value to control whether to grab z-buffer 
   // (i.e., depth values) along with the image data. The z-buffer data
-  // is placed into the field data attributes.
+  // is placed into a field data attributes named "ZBuffer" .
   vtkSetMacro(DepthValues,int);
   vtkGetMacro(DepthValues,int);
   vtkBooleanMacro(DepthValues,int);
+
+  // Description:
+  // A boolean value to control whether to grab z-buffer 
+  // (i.e., depth values) along with the image data. The z-buffer data
+  // is placed in the scalars as a fourth Z component (shift and scaled
+  // to map the full 0..255 range).
+  vtkSetMacro(DepthValuesInScalars,int);
+  vtkGetMacro(DepthValuesInScalars,int);
+  vtkBooleanMacro(DepthValuesInScalars,int);
   
 protected:
   vtkRendererSource();
@@ -90,6 +99,7 @@ protected:
   int WholeWindow;
   int RenderFlag;
   int DepthValues;
+  int DepthValuesInScalars;
 
 private:
   vtkRendererSource(const vtkRendererSource&);  // Not implemented.
