@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:10 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 1999-10-12 15:55:18 $
+  Version:   $Revision: 1.56 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1014,11 +1014,10 @@ unsigned long vtkStructuredGrid::GetActualMemorySize()
 
 
 //----------------------------------------------------------------------------
-void vtkStructuredGrid::InternalUpdate()
+void vtkStructuredGrid::ClipWithUpdateExtent()
 {
   int *uExt, *ext;
 
-  this->vtkDataObject::InternalUpdate();
   uExt = this->GetUpdateExtent();
   ext = this->GetExtent();
   if (uExt[0] > ext[0] || uExt[1] < ext[1] || uExt[2] > ext[2] || 
