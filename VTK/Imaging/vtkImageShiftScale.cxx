@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageShiftScale.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-09-26 21:09:35 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1996-10-16 12:27:49 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -109,7 +109,7 @@ void vtkImageShiftScale::Execute(vtkImageRegion *inRegion,
 					     vtkImageRegion *outRegion)
 {
   void *inPtr = inRegion->GetScalarPointer();
-  void *outPtr = outRegion->GetScalarPointer();
+  void *outPtr = outRegion->GetScalarWritePointer();
   
   vtkDebugMacro(<< "Execute: inRegion = " << inRegion 
 		<< ", outRegion = " << outRegion);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSpatialFilter.h,v $
   Language:  C++
-  Date:      $Date: 1996-10-15 17:21:57 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1996-10-16 12:28:10 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,8 +66,10 @@ public:
   // Get the Spatial kernel size and middle.
   void GetKernelSize(int num, int *size);
   vtkImageGetMacro(KernelSize,int);
+  int *GetKernelSize() {return this->KernelSize;};  
   void GetKernelMiddle(int num, int *middle);
   vtkImageGetMacro(KernelMiddle,int);
+  int *GetKernelMiddle() {return this->KernelMiddle;};  
   // Description:
   // Set/Get whether use boundary execute method or not (shrink image).
   vtkSetMacro(HandleBoundaries,int);
