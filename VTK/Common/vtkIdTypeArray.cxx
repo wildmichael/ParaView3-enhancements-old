@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdTypeArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-04 14:20:50 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-01-18 16:41:05 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,7 +42,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkIdTypeArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkIdTypeArray, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkIdTypeArray, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkIdTypeArray);
 
 vtkDataArray *vtkIdTypeArray::MakeObject()
@@ -142,7 +142,7 @@ void vtkIdTypeArray::DeepCopy(vtkDataArray *ia)
     return;
     }
 
-  if ( ia->GetDataType() != VTK_INT )
+  if ( ia->GetDataType() != VTK_ID_TYPE )
     {
       vtkDataArray::DeepCopy(ia);
       return;
