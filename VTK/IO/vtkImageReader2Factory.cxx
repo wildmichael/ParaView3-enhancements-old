@@ -3,8 +3,8 @@
 Program:   Visualization Toolkit
 Module:    $RCSfile: vtkImageReader2Factory.cxx,v $
 Language:  C++
-Date:      $Date: 2002-01-04 15:10:05 $
-Version:   $Revision: 1.2 $
+Date:      $Date: 2002-01-04 22:58:46 $
+Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,13 +42,14 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkImageReader2Factory.h"
 #include "vtkObjectFactory.h"
 #include "vtkImageReader2.h"
+#include "vtkGESignaReader.h"
 #include "vtkPNGReader.h"
 #include "vtkJPEGReader.h"
 #include "vtkTIFFReader.h"
 #include "vtkImageReader2Collection.h"
 #include "vtkObjectFactoryCollection.h"
 
-vtkCxxRevisionMacro(vtkImageReader2Factory, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkImageReader2Factory, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkImageReader2Factory);
 
 class vtkCleanUpImageReader2Factory
@@ -100,11 +101,12 @@ void vtkImageReader2Factory::RegisterReader(vtkImageReader2* r)
 
 
 vtkImageReader2* vtkImageReader2Factory::CreateImageReader2(const char* path)
-{
+{ 
+  vtkImageReader2Factory::InitializeReaders();
   vtkObjectFactoryCollection* collection
     = vtkObjectFactory::GetRegisteredFactories();
-  vtkImageReader2* ret = 0;
-  vtkObjectFactory* f = 0;
+  vtkImageReader2* ret;
+  vtkObjectFactory* f;
   // first try the current registered object factories to see
   // if one of them can 
   for(collection->InitTraversal(); (f = collection->GetNextItem()); )
@@ -151,5 +153,8 @@ void vtkImageReader2Factory::InitializeReaders()
   reader->Delete();
   vtkImageReader2Factory::AvailiableReaders->
     AddItem((reader = vtkJPEGReader::New()));
+  reader->Delete();
+  vtkImageReader2Factory::AvailiableReaders->
+    AddItem((reader = vtkGESignaReader::New()));
   reader->Delete();
 }
