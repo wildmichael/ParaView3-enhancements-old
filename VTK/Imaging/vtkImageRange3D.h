@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageRange3D.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-11 20:16:12 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-05-12 11:46:09 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,11 +38,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkImageRange3D - Dilate implemented as a minimum.
+// .NAME vtkImageRange3D - Max - min of a circular neighborhood.
 // .SECTION Description
-// vtkImageRange3D replaces a pixel with the minimum over
+// vtkImageRange3D replaces a pixel with the maximum minus minimum over
 // an elipsiodal neighborhood.  If KernelSize of an axis is 1, no processing
-// is done on that axis.  This filter can do 2D or 1D dilation also.
+// is done on that axis.
 
 
 #ifndef __vtkImageRange3D_h
