@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObjectFactory.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-04 14:21:25 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2002-01-08 22:31:12 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -50,7 +50,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkOverrideInformation.h"
 #include "vtkDebugLeaks.h"
 
-vtkCxxRevisionMacro(vtkObjectFactory, "$Revision: 1.30 $");
+vtkCxxRevisionMacro(vtkObjectFactory, "$Revision: 1.31 $");
 
 vtkObjectFactoryCollection* vtkObjectFactory::RegisteredFactories = 0;
 
@@ -753,3 +753,20 @@ void vtkObjectFactory::SetAllEnableFlags(int flag,
 
 
   
+void vtkObjectFactory::CreateAllInstance(const char* vtkclassname,
+                                               vtkCollection* retList)
+{
+  vtkObjectFactory* f;
+  vtkObjectFactoryCollection* collection
+    = vtkObjectFactory::GetRegisteredFactories();
+  for(collection->InitTraversal(); (f = collection->GetNextItem()); )
+    {
+    vtkObject* o = f->CreateObject(vtkclassname);
+    if(o)
+      {
+      retList->AddItem(o);
+      o->Delete();
+      }
+    }
+}
+
