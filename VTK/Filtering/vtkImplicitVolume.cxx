@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-26 14:21:51 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-01-05 13:11:36 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -152,7 +152,10 @@ void vtkImplicitVolume::EvaluateGradient(float x[3], float n[3])
 
   else
     { // use outside value
-    for ( i=0; i < 3; i++ ) n[i] = this->OutGradient[i];
+    for ( i=0; i < 3; i++ )
+      {
+      n[i] = this->OutGradient[i];
+      }
     }
   gradient->Delete();
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitSelectionLoop.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-06 14:43:21 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-01-05 13:11:35 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,7 +55,10 @@ vtkImplicitSelectionLoop::vtkImplicitSelectionLoop()
 
 vtkImplicitSelectionLoop::~vtkImplicitSelectionLoop()
 {
-  if (this->Loop) this->Loop->Delete();
+  if (this->Loop)
+    {
+    this->Loop->Delete();
+    }
   this->Polygon->Delete();
   this->Polygon = NULL;
 }
@@ -141,7 +144,10 @@ float vtkImplicitSelectionLoop::EvaluateFunction(float x[3])
     {
     dist2 = vtkLine::DistanceToLine(xProj,this->Polygon->Points->GetPoint(i),
 			this->Polygon->Points->GetPoint((i+1)%numPts),t,closest);
-    if ( dist2 < minDist2 ) minDist2 = dist2;
+    if ( dist2 < minDist2 )
+      {
+      minDist2 = dist2;
+      }
     }
 
   minDist2 = (float)sqrt(minDist2);

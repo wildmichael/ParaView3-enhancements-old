@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitWindowFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-26 14:21:51 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-01-05 13:11:36 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -76,7 +76,10 @@ float vtkImplicitWindowFunction::EvaluateFunction(float x[3])
   diff2 = value - this->WindowRange[1];
 
   scaledRange = (this->WindowValues[1] - this->WindowValues[0]) / 2.0;
-  if ( scaledRange == 0.0 ) scaledRange = 1.0;
+  if ( scaledRange == 0.0 )
+    {
+    scaledRange = 1.0;
+    }
 
   if ( diff1 >= 0.0 && diff2 <= 0.0 ) //within window
     {
@@ -120,7 +123,10 @@ unsigned long int vtkImplicitWindowFunction::GetMTime()
   if ( this->ImplicitFunction )
   {
     fMtime = this->ImplicitFunction->GetMTime();
-    if ( fMtime > mtime ) mtime = fMtime;
+    if ( fMtime > mtime )
+      {
+      mtime = fMtime;
+      }
   }
   return mtime;
 }

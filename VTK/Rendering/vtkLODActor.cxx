@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-11-05 13:41:20 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1999-01-05 13:11:37 $
+  Version:   $Revision: 1.33 $
   
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -191,7 +191,10 @@ void vtkLODActor::Render(vtkRenderer *ren)
   
   
   /* render the texture */
-  if (this->Texture) this->Texture->Render(ren);
+  if (this->Texture)
+    {
+    this->Texture->Render(ren);
+    }
   
   // make sure the device has the same matrix
   matrix = this->Device->GetUserMatrix();

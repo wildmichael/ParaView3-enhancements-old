@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-26 14:21:51 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-01-05 13:11:36 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -127,7 +127,10 @@ int vtkImporter::OpenImportFile ()
 void vtkImporter::CloseImportFile()
 {
   vtkDebugMacro(<<"Closing import file");
-  if ( this->FileFD != NULL ) fclose (this->FileFD);
+  if ( this->FileFD != NULL )
+    {
+    fclose (this->FileFD);
+    }
   this->FileFD = NULL;
 }
 
@@ -136,12 +139,24 @@ void vtkImporter::PrintSelf(ostream& os, vtkIndent indent)
   vtkObject::PrintSelf(os,indent);
 
   os << indent << "Render Window: ";
-  if ( this->RenderWindow ) os << this->RenderWindow << "\n";
-  else os << "(none)\n";
+  if ( this->RenderWindow )
+    {
+    os << this->RenderWindow << "\n";
+    }
+  else
+    {
+    os << "(none)\n";
+    }
 
   os << indent << "Renderer: ";
-  if ( this->Renderer ) os << this->Renderer << "\n";
-  else os << "(none)\n";
+  if ( this->Renderer )
+    {
+    os << this->Renderer << "\n";
+    }
+  else
+    {
+    os << "(none)\n";
+    }
 
   os << indent << "File Name: " 
      << (this->FileName ? this->FileName : "(none)") << "\n";
