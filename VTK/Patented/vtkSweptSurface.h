@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSweptSurface.h,v $
   Language:  C++
-  Date:      $Date: 1998-11-04 12:20:08 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1999-02-25 18:30:03 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -172,6 +172,8 @@ protected:
   int ComputeNumberOfSteps(vtkTransform *t1, vtkTransform *t2, float bbox[24]);
   void SampleInput(vtkMatrix4x4 *m, int inDim[3], float inOrigin[3],
                    float inAr[3], vtkScalars *in, vtkScalars *out);
+  void ComputeFootprint (vtkMatrix4x4 *m, int inDim[3], float inOrigin[3],
+			 float inSpacing[3], int Indicies[6]);
   void Cap(vtkScalars *s);
   void GetRelativePosition(vtkTransform &t, float *origin, float *position);
   virtual void InterpolateStates(float *pos1, float *pos2, float *euler1, 
