@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-16 21:33:19 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1995-08-22 16:05:39 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -107,7 +107,7 @@ class vtkTransform : public vtkObject
   void MultiplyNormals(vtkNormals *inNormals, vtkNormals *outNormals);
   vtkSetVector4Macro(Point,float);
   float *GetPoint();
-  void GetPoint(float p[3]);
+  void GetPoint(float p[4]);
 
  private:
   int PreMultiplyFlag;
