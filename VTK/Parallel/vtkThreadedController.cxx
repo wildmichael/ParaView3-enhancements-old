@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreadedController.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-12 21:24:10 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-01-26 20:49:40 $
+  Version:   $Revision: 1.2 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -369,7 +369,7 @@ void vtkThreadedController::SingleMethodExecute()
 
   // GLOBAL_CONTROLLER will be from thread0 always.
   // GetLocalController will translate to the local controller.
-  this->SetGlobalController(this);
+  vtkMultiProcessController::SetGlobalController(this);
   
   this->MultiThreader->SingleMethodExecute();
 }
@@ -390,7 +390,7 @@ void vtkThreadedController::MultipleMethodExecute()
 
   // GLOBAL_CONTROLLER will be from thread0 always.
   // GetLocalController will translate to the local controller.
-  this->SetGlobalController(this);
+  vtkMultiProcessController::SetGlobalController(this);
 
   this->MultiThreader->SingleMethodExecute();
 }

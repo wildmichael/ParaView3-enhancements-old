@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParallelFactory.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-19 20:58:21 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-01-26 20:49:40 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1999-2000 Mercury Computers Inc. All rigts reserved.
@@ -25,6 +25,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include "vtkParallelFactory.h"
 #include "vtkPSphereSource.h"
+#include "vtkPPolyDataNormals.h"
 #include "vtkVersion.h"
 
 void vtkParallelFactory::PrintSelf(ostream& os, vtkIndent indent)
@@ -34,6 +35,7 @@ void vtkParallelFactory::PrintSelf(ostream& os, vtkIndent indent)
 
 
 VTK_CREATE_CREATE_FUNCTION(vtkPSphereSource);
+VTK_CREATE_CREATE_FUNCTION(vtkPPolyDataNormals);
 
 
 vtkParallelFactory::vtkParallelFactory()
@@ -43,6 +45,11 @@ vtkParallelFactory::vtkParallelFactory()
 			 "Parallel",
 			 1,
 			 vtkObjectFactoryCreatevtkPSphereSource);
+  this->RegisterOverride("vtkPolyDataNormals",
+			 "vtkPPolyDataNormals",
+			 "Parallel",
+			 1,
+			 vtkObjectFactoryCreatevtkPPolyDataNormals);
 }
 
 const char* vtkParallelFactory::GetVTKSourceVersion()
@@ -58,5 +65,6 @@ const char* vtkParallelFactory::GetDescription()
 
 extern "C" vtkObjectFactory* vtkLoad()
 {
+  cout << "Factory is being loaded." << endl;
   return vtkParallelFactory::New();
 }

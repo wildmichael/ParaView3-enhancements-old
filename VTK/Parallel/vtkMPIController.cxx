@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPIController.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-16 16:40:01 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-01-26 20:49:39 $
+  Version:   $Revision: 1.2 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -281,7 +281,7 @@ void vtkMPIController::SingleMethodExecute()
     {
     if (this->SingleMethod)
       {
-      this->SetGlobalController(this);
+      vtkMultiProcessController::SetGlobalController(this);
       (this->SingleMethod)(this, this->SingleData);
       }
     else
@@ -307,7 +307,7 @@ void vtkMPIController::MultipleMethodExecute()
     {
     if (this->MultipleMethod[i])
       {
-      this->SetGlobalController(this);
+      vtkMultiProcessController::SetGlobalController(this);
       (this->MultipleMethod[i])(this, this->MultipleData[i]);
       }
     else

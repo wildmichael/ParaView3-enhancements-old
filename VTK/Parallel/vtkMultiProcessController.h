@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiProcessController.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-12 21:24:10 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-01-26 20:49:39 $
+  Version:   $Revision: 1.2 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -233,6 +233,8 @@ public:
   // This method can be used to synchronize processes/threads.
   virtual void Barrier() = 0;
 
+  static void SetGlobalController(vtkMultiProcessController *controller);
+
   //------------------ Communication --------------------
   
   // Description:
@@ -286,9 +288,6 @@ protected:
   // It needs to be virtual and static.
   virtual vtkMultiProcessController *GetLocalController();
 
-  // It has to be set by the subclass (SingleMethodExecute ...), 
-  // but I do not want to make the global variable visible in the header file.
-  virtual void SetGlobalController(vtkMultiProcessController *controller);
   
   // This flag can force deep copies during send.
   int ForceDeepCopy;
