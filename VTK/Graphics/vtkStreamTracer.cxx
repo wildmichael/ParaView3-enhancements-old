@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamTracer.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-09-11 15:00:06 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2003-09-18 15:51:50 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -35,7 +35,7 @@
 #include "vtkRungeKutta4.h"
 #include "vtkRungeKutta45.h"
 
-vtkCxxRevisionMacro(vtkStreamTracer, "$Revision: 1.22 $");
+vtkCxxRevisionMacro(vtkStreamTracer, "$Revision: 1.23 $");
 vtkStandardNewMacro(vtkStreamTracer);
 vtkCxxSetObjectMacro(vtkStreamTracer,Integrator,vtkInitialValueProblemSolver);
 
@@ -774,9 +774,16 @@ void vtkStreamTracer::Integrate(vtkPolyData* output,
       vorticity->InsertNextTuple(vort);
       // rotation
       // local rotation = vorticity . unit tangent ( i.e. velocity/speed )
-      omega = vtkMath::Dot(vort, velocity);
-      omega /= speed;
-      omega *= this->RotationScale;
+      if (speed != 0.0)
+        {
+          omega = vtkMath::Dot(vort, velocity);
+          omega /= speed;
+          omega *= this->RotationScale;
+        }
+      else
+        {
+          omega = 0.0;
+        }
       angularVel->InsertNextValue(omega);
       rotation->InsertNextValue(0.0);
       }
