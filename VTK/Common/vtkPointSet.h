@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSet.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:26:00 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2002-06-07 22:11:59 $
+  Version:   $Revision: 1.58 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,7 +30,8 @@
 #define __vtkPointSet_h
 
 #include "vtkDataSet.h"
-#include "vtkPointLocator.h"
+
+class vtkPointLocator;
 
 class VTK_COMMON_EXPORT vtkPointSet : public vtkDataSet
 {
@@ -73,7 +74,7 @@ public:
 
   // Description:
   // Specify point array to define point coordinates.
-  vtkSetObjectMacro(Points,vtkPoints);
+  virtual void SetPoints(vtkPoints*);
   vtkGetObjectMacro(Points,vtkPoints);
 
   // Description:

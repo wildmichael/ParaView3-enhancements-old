@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-08 19:07:16 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 2002-06-07 22:12:17 $
+  Version:   $Revision: 1.62 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,14 +16,16 @@
 
 =========================================================================*/
 #include "vtkDelaunay3D.h"
+
+#include "vtkEdgeTable.h"
 #include "vtkMath.h"
+#include "vtkObjectFactory.h"
+#include "vtkPointLocator.h"
+#include "vtkPolyData.h"
 #include "vtkTetra.h"
 #include "vtkTriangle.h"
-#include "vtkEdgeTable.h"
-#include "vtkPolyData.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkDelaunay3D, "$Revision: 1.61 $");
+vtkCxxRevisionMacro(vtkDelaunay3D, "$Revision: 1.62 $");
 vtkStandardNewMacro(vtkDelaunay3D);
 
 //----------------------------------------------------------------------------
