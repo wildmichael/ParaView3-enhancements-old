@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-08-26 18:33:32 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1997-10-15 21:28:50 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,6 +72,16 @@ Bool vtkXRenderWindowPredProc(Display *vtkNotUsed(disp), XEvent *event,
 
   return 0;
   
+}
+
+void *vtkXRenderWindow::GetGenericContext()
+{
+  static GC gc = (GC) NULL; 
+
+  if (!gc) gc = XCreateGC(this->DisplayId, this->WindowId, 0, 0);
+
+  return (void *) gc;
+
 }
 
 int vtkXRenderWindow::GetEventPending()
