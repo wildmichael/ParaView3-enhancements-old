@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUGFacetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-21 15:21:52 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2001-08-27 23:01:49 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -124,7 +124,7 @@ void vtkUGFacetReader::Execute()
   int triEstimate;
 
   vtkDebugMacro(<<"Reading UG facet file...");
-  if ( this->FileName == NULL )
+  if ( this->FileName == NULL || strlen(this->FileName) == 0)
     {
     vtkErrorMacro(<<"No FileName specified...please specify one.");
     return;
@@ -306,7 +306,7 @@ int vtkUGFacetReader::GetNumberOfParts()
   FILE *fp;
   int numberOfParts;
 
-  if ( this->FileName == NULL )
+  if ( this->FileName == NULL || strlen(this->FileName) == 0)
     {
     vtkErrorMacro(<<"No FileName specified...please specify one.");
     return 0;
