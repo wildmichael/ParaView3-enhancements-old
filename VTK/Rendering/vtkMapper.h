@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:05:44 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 2000-04-07 20:08:53 $
+  Version:   $Revision: 1.57 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -181,6 +181,8 @@ public:
   vtkSetVector2Macro(ScalarRange,float);
   vtkGetVectorMacro(ScalarRange,float,2);
 
+  // Description:
+  // Update the input to the Mapper.
   virtual void Update();
 
   // Description:
@@ -222,12 +224,10 @@ public:
   void SetRenderTime(float time) {this->RenderTime = time;}
   vtkGetMacro(RenderTime, float);
 
-//BTX
   // Description:
-  // Allow access the the input as a vtkDataSet - a few objects need
-  // this such as vtkActor, and some exporters
+  // Get the input as a vtkDataSet.  This method is overridden in
+  // the specialized mapper classes to return more specific data types.
   vtkDataSet *GetInput();
-//ETX
 
 protected:
   vtkMapper();
