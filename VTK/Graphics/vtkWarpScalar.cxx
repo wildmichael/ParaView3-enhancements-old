@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpScalar.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:49:29 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1997-11-06 14:12:58 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -83,7 +83,6 @@ void vtkWarpScalar::Execute()
   vtkDebugMacro(<<"Warping data with scalars");
 
   inPts = input->GetPoints();
-  numPts = inPts->GetNumberOfPoints();
   pd = input->GetPointData();
   inNormals = pd->GetNormals();
   inScalars = pd->GetScalars();
@@ -93,6 +92,8 @@ void vtkWarpScalar::Execute()
     vtkErrorMacro(<<"No data to warp");
     return;
     }
+
+  numPts = inPts->GetNumberOfPoints();
 
   if ( inNormals && !this->UseNormal )
     {
