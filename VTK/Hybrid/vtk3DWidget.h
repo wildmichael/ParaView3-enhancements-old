@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtk3DWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-09-05 11:53:07 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-09-10 18:02:27 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -128,7 +128,7 @@ protected:
   float InitialBounds[6];
   float InitialLength;
   float HandleSize;
-  float SizeHandles(float factor=1.0);
+  float SizeHandles(float factor);
   virtual void SizeHandles() {}//subclass in turn invokes parent's SizeHandles()
   
   //used to track the depth of the last pick; also interacts with handle sizing
