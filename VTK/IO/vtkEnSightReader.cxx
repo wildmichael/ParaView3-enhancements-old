@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-17 14:48:28 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-01-23 14:18:23 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -606,7 +606,7 @@ int vtkEnSightReader::ReadCaseFile()
             vtkDebugMacro("complex scalar per node");
             this->VariableMode = VTK_COMPLEX_SCALAR_PER_NODE;
             this->AddVariableType();
-            if (sscanf(line, " %*s %*s %*s %*s %*d %*d %s %s", subLine) == 1)
+            if (sscanf(line, " %*s %*s %*s %*s %*d %*d %*s %s", subLine) == 1)
               {
               this->AddVariableDescription(subLine);
               sscanf(line, " %*s %*s %*s %*s %*d %*d %*s %s %s", subLine,

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSight6Reader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-23 14:00:43 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-01-23 14:18:23 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -88,7 +88,6 @@ int vtkEnSight6Reader::ReadGeometryFile()
   char tempLine1[256], tempLine2[256], tempLine3[256], tempLine4[256];
   int partId;
   int lineRead;
-  int useListedIds = 0;
   int pointId;
   float point[3];
   int i;
