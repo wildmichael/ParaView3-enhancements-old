@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: SocketClient.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-27 14:27:44 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-06-04 00:18:26 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,6 +26,7 @@
 #include "vtkRegressionTestImage.h"
 #include "vtkRenderWindow.h"
 #include "vtkRenderer.h"
+#include "vtkSocketCommunicator.h"
 #include "vtkSocketController.h"
 #include "vtkStructuredGrid.h"
 #include "vtkStructuredPoints.h"

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSocketCommunicator.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-17 01:50:34 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2002-06-04 00:18:26 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,15 +33,6 @@
 
 #ifndef __vtkSocketCommunicator_h
 #define __vtkSocketCommunicator_h
-
-#if !defined(_WIN32) || defined(__CYGWIN__)
- #include <sys/types.h>
- #include <sys/socket.h>
- #include <netinet/in.h>
- #include <arpa/inet.h>
- #include <netdb.h>
- #include <unistd.h>
-#endif
 
 #include "vtkByteSwap.h"
 #include "vtkCommunicator.h"

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSocketCommunicator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-07 20:09:52 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2002-06-04 00:18:26 $
+  Version:   $Revision: 1.36 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,6 +18,15 @@
 #include "vtkSocketCommunicator.h"
 #include "vtkSocketController.h"
 #include "vtkObjectFactory.h"
+
+#if !defined(_WIN32) || defined(__CYGWIN__)
+ #include <sys/types.h>
+ #include <sys/socket.h>
+ #include <netinet/in.h>
+ #include <arpa/inet.h>
+ #include <netdb.h>
+ #include <unistd.h>
+#endif
 
 #if defined(_WIN32) && !defined(__CYGWIN__)
 #define WSA_VERSION MAKEWORD(1,1)
@@ -48,7 +57,7 @@
     return 0; \
     }
 
-vtkCxxRevisionMacro(vtkSocketCommunicator, "$Revision: 1.35 $");
+vtkCxxRevisionMacro(vtkSocketCommunicator, "$Revision: 1.36 $");
 vtkStandardNewMacro(vtkSocketCommunicator);
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: SocketServer.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-31 23:13:44 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-06-04 00:18:26 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,6 +24,7 @@
 #include "vtkRectilinearGrid.h"
 #include "vtkRectilinearGridReader.h"
 #include "vtkRegressionTestImage.h"
+#include "vtkSocketCommunicator.h"
 #include "vtkSocketController.h"
 #include "vtkStructuredPoints.h"
 #include "vtkStructuredPointsReader.h"

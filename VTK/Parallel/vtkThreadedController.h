@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreadedController.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-29 12:01:16 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-06-04 00:18:26 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,8 +31,8 @@
 #define __vtkThreadedController_h
 
 #include "vtkMultiProcessController.h"
-#include "vtkMultiThreader.h"
-#include "vtkCriticalSection.h"
+#include "vtkMultiThreader.h" // For VTK_THREAD_RETURN_TYPE
+#include "vtkCriticalSection.h" // For vtkSimpleCriticalSection
 
 class VTK_PARALLEL_EXPORT vtkThreadedController : public vtkMultiProcessController
 {
