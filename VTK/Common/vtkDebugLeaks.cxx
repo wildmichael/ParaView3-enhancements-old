@@ -36,7 +36,7 @@ int vtkDebugLeaksIgnoreClassesCheck(const char* s)
   return 0;
 }
 
-vtkCxxRevisionMacro(vtkDebugLeaks, "$Revision: 1.27 $");
+vtkCxxRevisionMacro(vtkDebugLeaks, "$Revision: 1.28 $");
 vtkStandardNewMacro(vtkDebugLeaks);
 
 //----------------------------------------------------------------------------
@@ -386,17 +386,6 @@ void vtkDebugLeaks::ClassFinalize()
   delete vtkDebugLeaks::CriticalSection;
   vtkDebugLeaks::CriticalSection = 0;
 #endif
-}
-
-//----------------------------------------------------------------------------
-void vtkDebugLeaks::PrintSelf(ostream& os, vtkIndent indent)
-{
-  this->Superclass::PrintSelf(os,indent);
-  
-  os << indent << "MemoryTable:\n";
-  this->MemoryTable->PrintTable(os);
-
-  os << indent << "CriticalSection: " << this->CriticalSection << "\n";
 }
 
 //----------------------------------------------------------------------------
