@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-01-09 03:05:00 $
-  Version:   $Revision: 1.72 $
+  Date:      $Date: 1997-02-14 12:20:34 $
+  Version:   $Revision: 1.73 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -192,10 +192,14 @@ vtkCell *vtkPolyData::GetCell(int cellId)
       break;
     }
 
-  for (i=0; i < numPts; i++)
+  int last = numPts - 1;
+  cell->PointIds.InsertId(last,pts[last]);
+  cell->Points.InsertPoint(last,this->Points->GetPoint(pts[last]));
+  int *pt = &pts[0];
+  for (i=0; i < last; i++, pt++)
     {
-    cell->PointIds.InsertId(i,pts[i]);
-    cell->Points.InsertPoint(i,this->Points->GetPoint(pts[i]));
+    cell->PointIds.SetId(i,*pt);
+    cell->Points.SetPoint(i,this->Points->GetPoint(*pt));
     }
 
   return cell;
