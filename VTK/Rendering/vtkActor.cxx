@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-22 22:32:14 $
-  Version:   $Revision: 1.65 $
+  Date:      $Date: 1998-06-24 11:18:35 $
+  Version:   $Revision: 1.66 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,7 +62,7 @@ vtkActor::vtkActor()
   this->TraversalLocation = 0;
 
   // an experiment with culling and LOD
-  this->AllocatedRenderingTime = 10.0;
+  this->AllocatedRenderTime = 10.0;
 }
 
 vtkActor::~vtkActor()
@@ -465,8 +465,8 @@ void vtkActor::PrintSelf(ostream& os, vtkIndent indent)
 
   os << indent << "Scale: (" << this->Scale[0] << ", " 
      << this->Scale[1] << ", " << this->Scale[2] << ")\n";
-  os << indent << "AllocatedRenderingTime: " 
-     << this->AllocatedRenderingTime << endl;
+  os << indent << "AllocatedRenderTime: " 
+     << this->AllocatedRenderTime << endl;
 }
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-10 16:12:49 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 1998-06-24 11:18:34 $
+  Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -164,8 +164,8 @@ class VTK_EXPORT vtkActor : public vtkProp
   // Description:
   // The renderer may use the allocated rendering time to determine
   // how to render this actor. (LOD Experiment)
-  vtkSetMacro(AllocatedRenderingTime, float);
-  vtkGetMacro(AllocatedRenderingTime, float);
+  vtkSetMacro(AllocatedRenderTime, float);
+  vtkGetMacro(AllocatedRenderTime, float);
   
 protected:
   vtkProperty *Property; 
@@ -178,7 +178,7 @@ protected:
   int TraversalLocation;
   
   // This is for LOD experiment
-  float AllocatedRenderingTime;
+  float AllocatedRenderTime;
 };
 
 #endif
