@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageConnector.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-15 13:01:25 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-07-15 14:56:49 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -160,7 +160,7 @@ void vtkImageConnector::MarkRegion(vtkImageRegion *region, int numberOfAxes)
       // check pixel below
       if (*pExtent < *pIndex)
         {
-        ptr = seed->Pointer - pIncs[idx];
+        ptr = (unsigned char *)(seed->Pointer) - pIncs[idx];
         if (*ptr == this->UnconnectedValue)
           { // add a new seed
           --pIndex;
@@ -172,7 +172,7 @@ void vtkImageConnector::MarkRegion(vtkImageRegion *region, int numberOfAxes)
       // check above pixel
       if (*pExtent > *pIndex)
         {
-        ptr = seed->Pointer + pIncs[idx];
+        ptr = (unsigned char *)(seed->Pointer) + pIncs[idx];
         if (*ptr == this->UnconnectedValue)
           { // add a new seed
           ++pIndex;
