@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMCubesReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-07-18 14:47:21 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1996-07-18 15:30:24 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -82,7 +82,6 @@ void vtkMCubesReader::Execute()
   vtkByteSwap swap;
   
   vtkDebugMacro(<<"Reading marching cubes file");
-  fprintf(stderr,"size of vtkIdList is %i\n",sizeof(vtkIdList));
   
   //
   // Initialize
