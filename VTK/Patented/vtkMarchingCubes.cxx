@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMarchingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-02-09 14:17:57 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1995-05-13 10:18:32 $
+  Version:   $Revision: 1.2 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -40,7 +40,7 @@ void vlMarchingCubes::SetValue(int i, float value)
     {
     this->Modified();
     this->Values[i] = value;
-    if ( i > NumberOfContours ) this->NumberOfContours = i;
+    if ( i >= this->NumberOfContours ) this->NumberOfContours = i + 1;
     if ( value < this->Range[0] ) this->Range[0] = value;
     if ( value > this->Range[1] ) this->Range[1] = value;
     }
@@ -54,15 +54,13 @@ void vlMarchingCubes::GenerateValues(int numContours, float range[2])
   float val, incr;
   int i;
 
-  numContours = (numContours >= MAX_CONTOURS ? MAX_CONTOURS-1 : 
-                 (numContours < 0 ? 0 : numContours) );
+  numContours = (numContours > MAX_CONTOURS ? MAX_CONTOURS : 
+                 (numContours > 1 ? numContours : 2) );
 
-  if ( numContours < 1 ) numContours = 1;
-
-  incr = (range[1] - range[0]) / numContours;
+  incr = (range[1] - range[0]) / (numContours-1);
   for (i=0, val=range[0]; i < numContours; i++, val+=incr)
     {
-    this->SetValue(i,val); // don't modify object unless absolutely nec.
+    this->SetValue(i,val);
     }
 }
 
