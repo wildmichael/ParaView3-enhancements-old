@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightGoldBinaryReader.h,v $
   Language:  C++
-  Date:      $Date: 2003-10-24 17:19:59 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2003-10-26 01:11:48 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -138,6 +138,7 @@ protected:
   // Internal function to read in a single integer.
   // Returns zero if there was an error.
   int ReadInt(int *result);
+  int ReadPartId(int *result);
 
   // Description:
   // Internal function to read in an integer array.
