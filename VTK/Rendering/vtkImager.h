@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImager.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-26 14:22:08 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-02-24 17:43:30 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,24 +61,23 @@ class vtkImageWindow;
 class VTK_EXPORT vtkImager : public vtkViewport
 { 
 public:
-  // Description:
-  // Create an imager with viewport (0, 0, 1, 1)
-
   vtkImager();
-
-  static vtkImager *New() {return new vtkImager;};
+  static vtkImager *New();
   const char *GetClassName() {return "vtkImager";};
 
   // Description:
   // Renders an imager.  Passes Render message on the 
   // the imager's actor2D collection.
-  void Render();
+  virtual void RenderOpaqueGeometry();
+  virtual void RenderTranslucentGeometry();
+  virtual void RenderOverlay();
 
   // Description:
   // Get the image window that an imager is attached to.
   vtkImageWindow* GetImageWindow() {return (vtkImageWindow*) this->VTKWindow;};
   vtkWindow *GetVTKWindow() {return (vtkWindow*) this->VTKWindow;};
 
+  
   //BTX
   // Description:
   // These set methods are used by the image window, and should not be
@@ -92,8 +91,6 @@ public:
   void Erase(){vtkErrorMacro(<<"vtkImager::Erase - Not implemented!");};
 
 protected:
-
-
 };
 
 
