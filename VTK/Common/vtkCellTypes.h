@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellTypes.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:37:59 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-01-07 14:16:04 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -94,7 +94,7 @@ public:
 
   // Description:
   // Delete cell by setting to NULL cell type.
-  void DeleteCell(int cellId) { this->Array[cellId].type = VTK_NULL_ELEMENT;};
+  void DeleteCell(int cellId) { this->Array[cellId].type = VTK_EMPTY_CELL;};
 
   // Description:
   // Return the number of types in the list.
