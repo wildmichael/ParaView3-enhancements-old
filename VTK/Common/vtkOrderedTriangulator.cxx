@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOrderedTriangulator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-06 13:18:15 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-07-08 12:21:43 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -52,6 +52,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <new.h>
 #include <iostream.h>
 #endif
+
 
 // TO DO:
 // + In place new to avoid new/delete
@@ -116,19 +117,6 @@ vtkMemoryPool::~vtkMemoryPool()
     }
 }
 
-inline void* vtkMemoryPool::GetNextPointer()
-{
-  if (this->Position == this->CurrentBlock->End)
-    {
-    this->CreateNextBlock();
-    }
-
-  void* retVal = static_cast<void *>(this->Position);
-  this->Position += this->CellSize;
-
-  return retVal;
-}
-
 inline void* vtkMemoryPool::CreateNextBlock()
 {
   if (this->CurrentBlock->Next)
@@ -148,6 +136,19 @@ inline void* vtkMemoryPool::CreateNextBlock()
 
   this->Position = this->CurrentBlock->Data;
   return static_cast<void *>(this->Position);
+}
+
+inline void* vtkMemoryPool::GetNextPointer()
+{
+  if (this->Position == this->CurrentBlock->End)
+    {
+    this->CreateNextBlock();
+    }
+
+  void* retVal = static_cast<void *>(this->Position);
+  this->Position += this->CellSize;
+
+  return retVal;
 }
 
 // A vector of type T to support operations.
