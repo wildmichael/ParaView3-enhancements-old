@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-04 12:29:10 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 1997-04-15 17:45:30 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -294,6 +294,10 @@ public:
   // all the time they want to.
   void SetDesiredUpdateRate(float);
   vtkGetMacro(DesiredUpdateRate,float);
+
+  // Description:
+  // Get the interactor associated with this render window
+  vtkGetObjectMacro(Interactor,vtkRenderWindowInteractor);
 
 protected:
   virtual void DoStereoRender();
