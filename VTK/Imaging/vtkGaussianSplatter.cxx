@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGaussianSplatter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-05-15 15:05:55 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2000-10-25 19:58:52 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -153,6 +153,8 @@ void vtkGaussianSplatter::Execute()
   else
     {
     this->SampleFactor = &vtkGaussianSplatter::PositionSampling;
+    this->S = 0.0; //position sampling does not require S to be defined
+                   //but this makes purify happy.
     }
 
   // Traverse all points - injecting into volume.
@@ -712,7 +714,7 @@ float vtkGaussianSplatter::EccentricGaussian (float cx[3])
     
 void vtkGaussianSplatter::SetScalar(int idx, float dist2)
 {
-  float v = (this->*SampleFactor)(S) * exp((double)
+  float v = (this->*SampleFactor)(this->S) * exp((double)
             (this->ExponentFactor*(dist2)/(this->Radius2)));
 
   if ( this->Visited[idx] )
