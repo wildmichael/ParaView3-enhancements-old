@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExplicitCell.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-05 20:30:22 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-06-07 22:40:02 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,8 @@
 #define __vtkExplicitCell_h
 
 #include "vtkNonLinearCell.h"
-#include "vtkDataSet.h"
+
+class vtkDataSet;
 
 class VTK_COMMON_EXPORT vtkExplicitCell : public vtkNonLinearCell
 {
@@ -56,7 +57,7 @@ public:
   // cells because they often need to keep extra information (typically
   // contained in the cell data of a point set). This information might be
   // things like knot points/weights, boundaries, etc.
-  vtkSetObjectMacro(DataSet,vtkDataSet);
+  virtual void SetDataSet(vtkDataSet*);
   vtkGetObjectMacro(DataSet,vtkDataSet);
 
 protected:
