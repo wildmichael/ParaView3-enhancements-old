@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-09-19 11:28:24 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2003-11-07 14:33:21 $
+  Version:   $Revision: 1.40 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #include "vtkCellArray.h"
 #include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkCell3D, "$Revision: 1.39 $");
+vtkCxxRevisionMacro(vtkCell3D, "$Revision: 1.40 $");
 
 vtkCell3D::vtkCell3D()
 {
@@ -67,7 +67,7 @@ void vtkCell3D::Clip(float value, vtkDataArray *cellScalars,
   int type;
   vtkIdType id, ptId;
   vtkIdType internalId[VTK_CELL_SIZE];
-  float s1, s2, *xPtr, t, p1[3], p2[3], x[3], deltaScalar;
+  float s1, s2, x[3], t, p1[3], p2[3], deltaScalar;
   int allInside=1, allOutside=1;
   
   // Create a triangulator if necessary.
@@ -116,12 +116,12 @@ void vtkCell3D::Clip(float value, vtkDataArray *cellScalars,
     for (p=pPtr, i=0; i<numPts; i++, p+=3)
       {
       ptId = this->PointIds->GetId(i);
-      xPtr = this->Points->GetPoint(i);
-      if ( locator->InsertUniquePoint(xPtr, id) )
+      this->Points->GetPoint(i, x);
+      if ( locator->InsertUniquePoint(x, id) )
         {
         outPD->CopyData(inPD,ptId, id);
         }
-      this->Triangulator->InsertPoint(id, xPtr, p, type);
+      this->Triangulator->InsertPoint(id, x, p, type);
       }//for all cell points of fixed topology
 
     this->Triangulator->TemplateTriangulate(this->GetCellType(),
@@ -175,12 +175,12 @@ void vtkCell3D::Clip(float value, vtkDataArray *cellScalars,
       type = 4; //outside, its type might change later (nearby intersection)
       }
 
-    xPtr = this->Points->GetPoint(i);
-    if ( locator->InsertUniquePoint(xPtr, id) )
+    this->Points->GetPoint(i, x);
+    if ( locator->InsertUniquePoint(x, id) )
       {
       outPD->CopyData(inPD,ptId, id);
       }
-    internalId[i] = this->Triangulator->InsertPoint(id, xPtr, p, type);
+    internalId[i] = this->Triangulator->InsertPoint(id, x, p, type);
     }//for all points
   
   // For each edge intersection point, insert into triangulation. Edge

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadraticEdge.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-23 17:24:02 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2003-11-07 14:33:21 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkQuadraticEdge, "$Revision: 1.18 $");
+vtkCxxRevisionMacro(vtkQuadraticEdge, "$Revision: 1.19 $");
 vtkStandardNewMacro(vtkQuadraticEdge);
 
 // Construct the line with two points.
@@ -106,9 +106,10 @@ void vtkQuadraticEdge::EvaluateLocation(int& vtkNotUsed(subId),
                                         float x[3], float *weights)
 {
   int i;
-  float *a0 = this->Points->GetPoint(0);
-  float *a1 = this->Points->GetPoint(1);
-  float *a2 = this->Points->GetPoint(2); //midside node
+  float a0[3], a1[3], a2[3];
+  this->Points->GetPoint(0, a0);
+  this->Points->GetPoint(1, a1);
+  this->Points->GetPoint(2, a2); //midside node
 
   this->InterpolationFunctions(pcoords,weights);
   
@@ -220,9 +221,10 @@ void vtkQuadraticEdge::Derivatives(int vtkNotUsed(subId),
                                    float pcoords[3], float *values,
                                    int dim, float *derivs)
 {
-  float *x0 = this->Points->GetPoint(0);
-  float *x1 = this->Points->GetPoint(1);
-  float *x2 = this->Points->GetPoint(2); //midside node
+  float x0[3], x1[3], x2[3];
+  this->Points->GetPoint(0, x0);
+  this->Points->GetPoint(1, x1);
+  this->Points->GetPoint(2, x2); //midside node
 
   // set up Jacobian matrix and inverse matrix
   double *jTj[3], jTj0[3], jTj1[3], jTj2[3];

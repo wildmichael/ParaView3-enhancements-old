@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-02-19 13:57:10 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2003-11-07 14:33:21 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkPolyData.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkPointLocator2D, "$Revision: 1.24 $");
+vtkCxxRevisionMacro(vtkPointLocator2D, "$Revision: 1.25 $");
 vtkCxxSetObjectMacro(vtkPointLocator2D,Points,vtkPoints);
 
 vtkPointLocator2D* vtkPointLocator2D::New() 
@@ -919,7 +919,7 @@ int vtkPointLocator2D::IsInsertedPoint(float x[2])
     //
     int *nei, lvtk, cno, ptId;
     vtkIdList *ptIds;
-    float *pt;
+    float pt[3];
 
     // the InsertionLevel stuff is wacky 
     for (lvtk=0; lvtk <= 0; lvtk++)
@@ -936,7 +936,7 @@ int vtkPointLocator2D::IsInsertedPoint(float x[2])
           for (j=0; j < ptIds->GetNumberOfIds(); j++) 
             {
             ptId = ptIds->GetId(j);
-            pt = this->Points->GetPoint(ptId);
+            this->Points->GetPoint(ptId, pt);
 
             if ( ((x[0]-pt[0])*(x[0]-pt[0])+(x[1]-pt[1])*(x[1]-pt[1]))
                  <= this->InsertionTol2 )

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolygon.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-10-31 20:44:17 $
-  Version:   $Revision: 1.100 $
+  Date:      $Date: 2003-11-07 14:33:21 $
+  Version:   $Revision: 1.101 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,7 +30,7 @@
 #include "vtkTriangle.h"
 #include "vtkBox.h"
 
-vtkCxxRevisionMacro(vtkPolygon, "$Revision: 1.100 $");
+vtkCxxRevisionMacro(vtkPolygon, "$Revision: 1.101 $");
 vtkStandardNewMacro(vtkPolygon);
 
 // Instantiate polygon.
@@ -280,7 +280,7 @@ int vtkPolygon::ParameterizePolygon(float *p0, float *p10, float& l10,
   int i, j;
   float s, t, p[3], p1[3], p2[3], sbounds[2], tbounds[2];
   int numPts=this->Points->GetNumberOfPoints();
-  float *x1, *x2;
+  float x1[3], x2[3];
 
   //  This is a two pass process: first create a p' coordinate system
   //  that is then adjusted to insure that the polygon points are all in
@@ -288,8 +288,8 @@ int vtkPolygon::ParameterizePolygon(float *p0, float *p10, float& l10,
   //  first vertex and the first edge.
   //
   this->ComputeNormal (this->Points,n);
-  x1 = this->Points->GetPoint(0);
-  x2 = this->Points->GetPoint(1);
+  this->Points->GetPoint(0, x1);
+  this->Points->GetPoint(1, x2);
   for (i=0; i<3; i++) 
     {
     p0[i] = x1[i];
@@ -314,7 +314,7 @@ int vtkPolygon::ParameterizePolygon(float *p0, float *p10, float& l10,
 
   for(i=1; i<numPts; i++) 
     {
-    x1 = this->Points->GetPoint(i);
+    this->Points->GetPoint(i, x1);
     for(j=0; j<3; j++)
       {
       p[j] = x1[j] - p0[j];
@@ -1043,11 +1043,11 @@ void vtkPolygon::ComputeWeights(float x[3], float *weights)
 {
   int i;
   int numPts=this->Points->GetNumberOfPoints();
-  float sum, *pt;
+  float sum, pt[3];
 
   for (sum=0.0, i=0; i<numPts; i++)
     {
-    pt = this->Points->GetPoint(i);
+    this->Points->GetPoint(i, pt);
     weights[i] = vtkMath::Distance2BetweenPoints(x,pt);
     if ( weights[i] == 0.0 ) //exact hit
       {
@@ -1077,7 +1077,7 @@ void vtkPolygon::ComputeWeights(float x[3], float *weights)
 int vtkPolygon::IntersectWithLine(float p1[3], float p2[3], float tol,float& t,
                                  float x[3], float pcoords[3], int& subId)
 {
-  float *pt1, n[3];
+  float pt1[3], n[3];
   float tol2 = tol*tol;
   float closestPoint[3];
   float dist2;
@@ -1089,7 +1089,7 @@ int vtkPolygon::IntersectWithLine(float p1[3], float p2[3], float tol,float& t,
 
   // Define a plane to intersect with
   //
-  pt1 = this->Points->GetPoint(1);
+  this->Points->GetPoint(1, pt1);
   this->ComputeNormal (this->Points,n);
  
   // Intersect plane of the polygon with line

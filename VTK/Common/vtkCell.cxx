@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-23 17:24:02 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 2003-11-07 14:33:21 $
+  Version:   $Revision: 1.59 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkMarchingSquaresCases.h"
 #include "vtkPoints.h"
 
-vtkCxxRevisionMacro(vtkCell, "$Revision: 1.58 $");
+vtkCxxRevisionMacro(vtkCell, "$Revision: 1.59 $");
 
 // Construct cell.
 vtkCell::vtkCell()
@@ -187,7 +187,7 @@ char vtkCell::HitBBox (float bounds[6], float origin[3], float dir[3],
 // to array of six float values.
 float *vtkCell::GetBounds ()
 {
-  float *x;
+  float x[3];
   int i, numPts=this->Points->GetNumberOfPoints();
 
   this->Bounds[0] = this->Bounds[2] = this->Bounds[4] =  VTK_LARGE_FLOAT;
@@ -195,7 +195,7 @@ float *vtkCell::GetBounds ()
 
   for (i=0; i<numPts; i++)
     {
-    x = this->Points->GetPoint(i);
+    this->Points->GetPoint(i, x);
 
     this->Bounds[0] = (x[0] < this->Bounds[0] ? x[0] : this->Bounds[0]);
     this->Bounds[1] = (x[0] > this->Bounds[1] ? x[0] : this->Bounds[1]);

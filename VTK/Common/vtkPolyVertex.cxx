@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyVertex.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:24:21 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 2003-11-07 14:33:21 $
+  Version:   $Revision: 1.61 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 #include "vtkPoints.h"
 #include "vtkVertex.h"
 
-vtkCxxRevisionMacro(vtkPolyVertex, "$Revision: 1.60 $");
+vtkCxxRevisionMacro(vtkPolyVertex, "$Revision: 1.61 $");
 vtkStandardNewMacro(vtkPolyVertex);
 
 vtkPolyVertex::vtkPolyVertex()
@@ -44,13 +44,13 @@ int vtkPolyVertex::EvaluatePosition(float x[3], float* closestPoint,
                                    float& minDist2, float *weights)
 {
   int numPts=this->Points->GetNumberOfPoints();
-  float *X;
+  float X[3];
   float dist2;
   int i;
 
   for (minDist2=VTK_LARGE_FLOAT, i=0; i<numPts; i++)
     {
-    X = this->Points->GetPoint(i);
+    this->Points->GetPoint(i, X);
     dist2 = vtkMath::Distance2BetweenPoints(X,x);
     if (dist2 < minDist2)
       {
@@ -86,10 +86,7 @@ void vtkPolyVertex::EvaluateLocation(int& subId,
                                      float x[3], float *weights)
 {
   int i;
-  float *X = this->Points->GetPoint(subId);
-  x[0] = X[0];
-  x[1] = X[1];
-  x[2] = X[2];
+  this->Points->GetPoint(subId, x);
 
   for (i=0; i<this->GetNumberOfPoints(); i++)
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadraticTriangle.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-23 17:24:02 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2003-11-07 14:33:21 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkQuadraticTriangle, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtkQuadraticTriangle, "$Revision: 1.11 $");
 vtkStandardNewMacro(vtkQuadraticTriangle);
 
 // Construct the line with two points.
@@ -140,12 +140,13 @@ void vtkQuadraticTriangle::EvaluateLocation(int& vtkNotUsed(subId),
                                         float x[3], float *weights)
 {
   int i;
-  float *a0 = this->Points->GetPoint(0);
-  float *a1 = this->Points->GetPoint(1);
-  float *a2 = this->Points->GetPoint(2);
-  float *a3 = this->Points->GetPoint(3);
-  float *a4 = this->Points->GetPoint(4);
-  float *a5 = this->Points->GetPoint(5);
+  float a0[3], a1[3], a2[3], a3[3], a4[3], a5[3];
+  this->Points->GetPoint(0, a0);
+  this->Points->GetPoint(1, a1);
+  this->Points->GetPoint(2, a2);
+  this->Points->GetPoint(3, a3);
+  this->Points->GetPoint(4, a4);
+  this->Points->GetPoint(5, a5);
 
   this->InterpolationFunctions(pcoords,weights);
   
