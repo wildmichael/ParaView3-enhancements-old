@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBJExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:04:23 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1998-07-09 18:14:42 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -199,7 +199,7 @@ void vtkOBJExporter::WriteAnActor(vtkActor *anActor, FILE *fpObj, FILE *fpMtl,
     for (i = 0; i < tcoords->GetNumberOfTCoords(); i++)
       {
       p = tcoords->GetTCoord(i);
-      fprintf (fpObj, "vt %g %g %g\n", p[0], p[1], p[2]);
+      fprintf (fpObj, "vt %g %g\n", p[0], p[1]);
       }
     }
   
