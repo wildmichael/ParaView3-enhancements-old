@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-10 12:33:16 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-09-11 11:25:21 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,6 +64,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkFloatArray.h"
 #include "vtkSynchronizedTemplates3D.h"
 #include "vtkMath.h"
+#include "vtkUnstructuredInformation.h"
 
 //----------------------------------------------------------------------------
 // Description:
@@ -635,6 +636,9 @@ void vtkSynchronizedTemplates3D::ExecuteInformation()
     }
   this->GetOutput()->SetEstimatedWholeMemorySize(
     numTris*sizeTri + numPts*sizePt);
+
+  // do this better in the future
+  this->GetOutput()->GetUnstructuredInformation()->SetMaximumNumberOfPieces(1000);
 }
 
 //----------------------------------------------------------------------------
