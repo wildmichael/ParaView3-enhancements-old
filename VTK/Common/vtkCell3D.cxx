@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-21 20:07:50 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-05-21 20:23:48 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -62,7 +62,8 @@ void vtkCell3D::Clip(float value, vtkScalars *cellScalars,
   int numPts=this->GetNumberOfPoints();
   int numEdges=this->GetNumberOfEdges();
   int *edges;
-
+  int i;
+  
   // Create one if necessary
   if ( ! this->Triangulator )
     {
@@ -79,7 +80,7 @@ void vtkCell3D::Clip(float value, vtkScalars *cellScalars,
   int type, ptId, id;
   int internalId[VTK_CELL_SIZE];
   float s1, s2, *xPtr, t, p1[3], p2[3], x[3];
-  for (int i=0; i<numPts; i++)
+  for (i=0; i<numPts; i++)
     {
     ptId = this->PointIds->GetId(i);
       
