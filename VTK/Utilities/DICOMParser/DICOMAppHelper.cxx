@@ -3,8 +3,8 @@
   Program:   DICOMParser
   Module:    $RCSfile: DICOMAppHelper.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-11-07 17:24:41 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2003-11-10 19:11:02 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 2003 Matt Turek
   All rights reserved.
@@ -77,14 +77,14 @@ DICOMAppHelper::DICOMAppHelper()
   this->ByteSwapData = false;
   this->PixelSpacing[0] = this->PixelSpacing[1] = 1.0;
   this->Dimensions[0] = this->Dimensions[1] = 0;
-  this->PhotometricInterpretation = NULL;
-  this->TransferSyntaxUID = NULL;
+  this->PhotometricInterpretation = new dicom_stl::string();
+  this->TransferSyntaxUID = new dicom_stl::string();
   this->RescaleOffset = 0.0;
   this->RescaleSlope = 1.0;
   this->ImageData = NULL;
   this->ImageDataLengthInBytes = 0;
-  this->PatientName = NULL;
-  this->StudyUID = NULL;
+  this->PatientName = new dicom_stl::string();
+  this->StudyUID = new dicom_stl::string();
   this->GantryAngle = 0.0;
 
   this->SeriesUIDCB = new DICOMMemberCallback<DICOMAppHelper>;
