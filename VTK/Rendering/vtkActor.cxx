@@ -3,8 +3,8 @@
   Program:   OSCAR 
   Module:    $RCSfile: vtkActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-01-13 12:57:41 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-01-17 12:49:02 $
+  Version:   $Revision: 1.7 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -46,20 +46,6 @@ vlActor::vlActor()
 vlActor::~vlActor()
 {
   if ( this->Mapper ) this->Mapper->UnRegister((void *)this);
-}
-
-void vlActor::SetVisibility(int flg)
-{
-  if ( this->Visibility != flg )
-    {
-    this->Visibility = flg;
-    this->Modified();
-    }
-}
-
-int vlActor::GetVisibility()
-{
-  return this->Visibility;
 }
 
 void vlActor::Render(vlRenderer *ren)
