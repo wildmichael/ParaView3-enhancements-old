@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-23 18:50:21 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-07-26 17:20:30 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -991,6 +991,7 @@ void vtkVolumeProMapper::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->vtkVolumeMapper::PrintSelf(os,indent);
 
+  // don't print SubVolume ivar
   os << indent << "Number Of Boards: " << this->NumberOfBoards << endl;
 
   os << indent << "Major Board Version: " << this->MajorBoardVersion << endl;
