@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:17 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1999-09-15 21:16:57 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -190,6 +190,7 @@ protected:
   float                        RayColor[4];
   float                        VolumeBounds[6];
   float                        WorldToVolumeMatrix[16];
+  float                        VolumeToWorldMatrix[16];
   float                        ViewToVolumeMatrix[16];
 };
 

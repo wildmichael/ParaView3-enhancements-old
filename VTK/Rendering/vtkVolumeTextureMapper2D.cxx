@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeTextureMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-03 16:17:19 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-09-15 21:16:57 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -135,7 +135,7 @@ VolumeTextureMapper2D_XMajorDirection( T *data_ptr,
 
   cropping       = me->GetCropping();
   croppingFlags  = me->GetCroppingRegionFlags();
-  croppingBounds = me->GetCroppingBounds();
+  croppingBounds = me->GetCroppingRegionPlanes();
 
   if ( !cropping )
     {
@@ -404,7 +404,7 @@ VolumeTextureMapper2D_YMajorDirection( T *data_ptr,
 
   cropping       = me->GetCropping();
   croppingFlags  = me->GetCroppingRegionFlags();
-  croppingBounds = me->GetCroppingBounds();
+  croppingBounds = me->GetCroppingRegionPlanes();
 
   if ( !cropping )
     {
@@ -671,7 +671,7 @@ VolumeTextureMapper2D_ZMajorDirection( T *data_ptr,
 
   cropping       = me->GetCropping();
   croppingFlags  = me->GetCroppingRegionFlags();
-  croppingBounds = me->GetCroppingBounds();
+  croppingBounds = me->GetCroppingRegionPlanes();
 
   if ( !cropping )
     {
