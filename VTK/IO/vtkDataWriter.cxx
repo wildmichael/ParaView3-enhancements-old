@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:49:22 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-07-29 12:02:51 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -359,7 +359,7 @@ int vtkDataWriter::WriteScalarData(FILE *fp, vtkScalars *scalars, int numPts)
         for (i=0; i<numPts; i++)
           {
           s = scalars->GetScalar(i);
-          fprintf (fp, "%d ", s);
+          fprintf (fp, "%d ", (int)s);
           if ( !((i+1)%6) ) fprintf (fp,"\n");
           }
         }
