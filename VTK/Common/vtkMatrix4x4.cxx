@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMatrix4x4.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:24:50 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1998-11-03 11:04:33 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -303,6 +303,7 @@ void vtkMatrix4x4::DeepCopy(vtkMatrix4x4 *source)
 {
   int i, j;
   
+  this->Modified();
   for (i = 0; i < 4; ++i)
     {
     for (j = 0; j < 4; ++j)
@@ -316,6 +317,7 @@ vtkMatrix4x4& vtkMatrix4x4::operator= (const vtkMatrix4x4& source)
 {
   int i, j;
 
+  this->Modified();
   for (i = 0; i < 4; ++i)
     {
     for (j = 0; j < 4; ++j)
