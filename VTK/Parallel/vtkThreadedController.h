@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreadedController.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-28 19:01:51 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-11-04 21:26:50 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -47,8 +47,8 @@ public:
   virtual void Initialize(int* argc, char*** argv, int)
     { this->Initialize(argc, argv); }
   virtual void Initialize(int* argc, char*** argv);
-  virtual void Finalize() {}
-  virtual void Finalize(int) {}
+  virtual void Finalize();
+  virtual void Finalize(int) {this->Finalize();}
 
   // Description:
   // This method returns an integer from 0 to (NumberOfProcesses-1)
@@ -126,8 +126,8 @@ protected:
   static HANDLE BarrierEndedEvent;
   static HANDLE NextThread;
 #else
-  static vtkSimpleCriticalSection BarrierLock;
-  static vtkSimpleCriticalSection BarrierInProgress;
+  static vtkSimpleCriticalSection* BarrierLock;
+  static vtkSimpleCriticalSection* BarrierInProgress;
 #endif
   
   ThreadIdType ThreadId;
