@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp3D.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-15 20:39:15 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2001-09-27 21:16:15 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -249,6 +249,10 @@ public:
       return this->Matrix; 
     }
 
+  // Description: 
+  // Is the matrix for this actor identity
+  vtkGetMacro(IsIdentity,int);
+  
 protected:
   vtkProp3D();
   ~vtkProp3D();
@@ -267,7 +271,7 @@ protected:
   vtkTransform  *Transform;
   float         Bounds[6];
   vtkProp3D     *CachedProp3D; //support the PokeMatrix() method
-  
+  int           IsIdentity;
 };
 
 #endif
