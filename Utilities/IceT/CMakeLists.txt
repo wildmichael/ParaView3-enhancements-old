@@ -1,4 +1,4 @@
-# $Id: CMakeLists.txt,v 1.4 2003-07-10 18:30:58 andy Exp $
+# $Id: CMakeLists.txt,v 1.5 2003-07-14 18:54:21 lawcc Exp $
 #
 ## Copyright 2003 Sandia Coporation
 ## Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -98,7 +98,11 @@ CONFIGURE_FILE(${ICET_SOURCE_DIR}/src/include/GL/ice-t_config.h.in
 INCLUDE_DIRECTORIES(${ICET_SOURCE_DIR}/src/include)
 INCLUDE_DIRECTORIES(${ICET_BINARY_DIR}/src/include)
 
-SUBDIRS(src doc)
+SUBDIRS(src)
+IF(NOT WIN32)
+  SUBDIRS(doc)
+ENDIF(NOT WIN32)
+
 IF (BUILD_TESTING)
   SUBDIRS(tests)
 ENDIF (BUILD_TESTING)
