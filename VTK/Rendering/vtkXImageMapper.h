@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXImageMapper.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-16 21:09:21 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-01-15 20:57:53 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -91,8 +91,8 @@ public:
   int GetXWindowVisualClass(vtkWindow* window);
  
   // Description:
-  // Returns the color map used by the window
-  void GetXWindowColors(vtkWindow* window, XColor colors[], int ncolors);
+  // Returns a pseudo color mapping from 0 255 to 50 199
+  void GetXColors(int colors[]);
 
   // Description:
   // Returns the color masks used by the window.

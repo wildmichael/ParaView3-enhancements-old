@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-19 17:34:06 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-01-15 20:57:57 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -274,6 +274,16 @@ void vtkXTextMapper::Render(vtkViewport* viewport, vtkActor2D* actor)
   vtkDebugMacro(<<"vtkXTextMapper::Render - Font specifier: " << fontname);
 
   // Set the font
+  int cnt;
+  char **fn = XListFonts(displayId, fontname, 1, &cnt);
+  if (fn)
+    {
+    XFreeFontNames(fn);
+    }
+  if (!cnt)
+    {
+    sprintf(fontname,"9x15");
+    }
   Font font = XLoadFont(displayId,  fontname );
   XSetFont(displayId, gc, font);
 
