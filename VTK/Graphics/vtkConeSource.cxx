@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConeSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-30 17:45:10 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 2002-03-30 17:50:26 $
+  Version:   $Revision: 1.59 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkConeSource, "$Revision: 1.58 $");
+vtkCxxRevisionMacro(vtkConeSource, "$Revision: 1.59 $");
 vtkStandardNewMacro(vtkConeSource);
 
 //----------------------------------------------------------------------------
@@ -128,6 +128,7 @@ void vtkConeSource::Execute()
     break;
   }
   newPoints = vtkPoints::New();
+  newPoints->SetDataTypeToFloat(); //used later during transformation
   newPoints->Allocate(numPts);
 
   // Create cone
