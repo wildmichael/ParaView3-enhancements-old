@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBlankStructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-30 11:34:57 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-07-30 15:44:49 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -109,8 +109,15 @@ void vtkBlankStructuredGrid::Execute()
   vtkCellData *outCD=output->GetCellData();
   int numPts = input->GetNumberOfPoints();
   vtkDataArray *dataArray=NULL;
+  int numComp;
 
   vtkDebugMacro(<< "Blanking Grid");
+
+  // Pass input to output
+  //
+  output->CopyStructure(input);
+  outPD->PassData(pd);
+  outCD->PassData(cd);
 
   // Get the appropriate data array
   //
@@ -123,10 +130,10 @@ void vtkBlankStructuredGrid::Execute()
     dataArray = pd->GetArray(this->ArrayId);
     }
     
-  int numComp = dataArray->GetNumberOfComponents();
-  if ( !dataArray || this->Component >= numComp )
+  if ( !dataArray || 
+       (numComp=dataArray->GetNumberOfComponents()) <= this->Component )
     {
-    vtkWarningMacro(<<"Data array (used for coloring) not found");
+    vtkWarningMacro(<<"Data array not found");
     return;
     }
   void *dptr = dataArray->GetVoidPointer(0);
@@ -140,8 +147,8 @@ void vtkBlankStructuredGrid::Execute()
   // call templated function
   switch (dataArray->GetDataType())
     {
-    vtkTemplateMacro8(vtkBlankStructuredGridExecute, this, (VTK_TT *)(dptr), numComp,
-                      numPts, this->Component, this->MinBlankingValue, 
+    vtkTemplateMacro8(vtkBlankStructuredGridExecute, this, (VTK_TT *)(dptr), numPts,
+                      numComp, this->Component, this->MinBlankingValue, 
                       this->MaxBlankingValue, blanking);
     default:
       break;
@@ -150,6 +157,7 @@ void vtkBlankStructuredGrid::Execute()
   // Clean up and get out
   output->SetPointVisibility(blanking);
   blanking->Delete();
+  output->BlankingOn();
 }
 
 
