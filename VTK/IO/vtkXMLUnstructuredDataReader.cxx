@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLUnstructuredDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-05 13:45:23 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2003-05-05 15:29:15 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkCellArray.h"
 #include "vtkPointSet.h"
 
-vtkCxxRevisionMacro(vtkXMLUnstructuredDataReader, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkXMLUnstructuredDataReader, "$Revision: 1.8 $");
 
 //----------------------------------------------------------------------------
 vtkXMLUnstructuredDataReader::vtkXMLUnstructuredDataReader()
@@ -266,7 +266,8 @@ void vtkXMLUnstructuredDataReader::ReadXMLData()
     }
   
   // Read the data needed from each piece.
-  for(i=this->StartPiece; i < this->EndPiece; ++i)
+  for(i=this->StartPiece; (i < this->EndPiece && !this->AbortExecute &&
+                           !this->DataError); ++i)
     {
     // Set the range of progress for this piece.
     this->SetProgressRange(progressRange, i-this->StartPiece, fractions);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLPDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-05 14:42:30 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2003-05-05 15:29:15 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 #include "vtkXMLDataElement.h"
 #include "vtkXMLDataReader.h"
 
-vtkCxxRevisionMacro(vtkXMLPDataReader, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkXMLPDataReader, "$Revision: 1.7 $");
 
 //----------------------------------------------------------------------------
 vtkXMLPDataReader::vtkXMLPDataReader()
@@ -313,6 +313,7 @@ int vtkXMLPDataReader::ReadPieceData(int index)
     }
   
   // Actually read the data.
+  this->PieceReaders[this->Piece]->SetAbortExecute(0);
   vtkDataArraySelection* pds =
     this->PieceReaders[this->Piece]->GetPointDataArraySelection();
   vtkDataArraySelection* cds =
@@ -426,4 +427,8 @@ void vtkXMLPDataReader::PieceProgressCallback()
   float pieceProgress = this->PieceReaders[this->Piece]->GetProgress();
   float progress = this->ProgressRange[0] + pieceProgress*width;
   this->UpdateProgressDiscrete(progress);
+  if(this->AbortExecute)
+    {
+    this->PieceReaders[this->Piece]->SetAbortExecute(1);
+    }
 }
