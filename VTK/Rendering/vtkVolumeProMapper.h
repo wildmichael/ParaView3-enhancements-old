@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:17:31 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2001-12-28 16:39:01 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -75,12 +75,21 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkVolumeMapper.h"
 #include "vtkToolkits.h"
+#include "vtkVersion.h"
+
 //BTX
+#ifdef VTK_HAVE_VP1000
+namespace vli3 {
+#endif
 class VLIContext;
 class VLIVolume;
 class VLILookupTable;
 class VLILight;
 class VLICutPlane;
+#ifdef VTK_HAVE_VP1000
+}
+using namespace vli3;
+#endif
 //ETX
 
 #define VTK_BLEND_MODE_COMPOSITE        0
@@ -93,8 +102,13 @@ class VLICutPlane;
 #define VTK_VOLUME_8BIT                 0
 #define VTK_VOLUME_12BIT_UPPER          1
 #define VTK_VOLUME_12BIT_LOWER          2
-
+//BTX
+#if ((VTK_MAJOR_VERSION == 3)&&(VTK_MINOR_VERSION == 2))
+class VTK_EXPORT vtkVolumeProMapper : public vtkVolumeMapper
+#else
+//ETX
 class VTK_RENDERING_EXPORT vtkVolumeProMapper : public vtkVolumeMapper
+#endif
 {
 public:
   vtkTypeMacro(vtkVolumeProMapper,vtkVolumeMapper);
@@ -302,6 +316,13 @@ protected:
 
   // The embedded geometry flag
   int IntermixIntersectingGeometry;
+  
+//BTX
+#if ((VTK_MAJOR_VERSION == 3)&&(VTK_MINOR_VERSION == 2))
+  // WARNING: INTERNAL METHOD - NOT FOR GENERAL USE
+  virtual int GetMapperType() {return VTK_FRAMEBUFFER_VOLUME_MAPPER;};
+#endif
+//ETX
   
 private:
   vtkVolumeProMapper(const vtkVolumeProMapper&);  // Not implemented.

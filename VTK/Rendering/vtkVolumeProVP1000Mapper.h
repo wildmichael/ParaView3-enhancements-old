@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProVP1000Mapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:17:32 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-12-28 16:39:02 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -140,6 +140,13 @@ protected:
                                      int size[2],
                                      unsigned int *outData )
     { (void)outData; }
+
+#if ((VTK_MAJOR_VERSION == 3)&&(VTK_MINOR_VERSION == 2))
+  vtkGetVectorMacro( VoxelCroppingRegionPlanes, float, 6 );
+  void ConvertCroppingRegionPlanesToVoxels();
+  float                VoxelCroppingRegionPlanes[6];
+#endif
+
   
   // Keep track of the size of the data loaded so we know if we can
   // simply update when a change occurs or if we need to release and

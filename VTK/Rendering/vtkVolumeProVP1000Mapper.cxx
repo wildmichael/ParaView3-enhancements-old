@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProVP1000Mapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-17 20:03:49 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-12-28 16:39:01 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1065,4 +1065,10 @@ void vtkVolumeProVP1000Mapper::Render( vtkRenderer *ren, vtkVolume *vol )
   delete [] outData;
 }
 
-
+#if ((VTK_MAJOR_VERSION == 3)&&(VTK_MINOR_VERSION == 2))
+void vtkVolumeProVP1000Mapper::ConvertCroppingRegionPlanesToVoxels()
+{
+  memcpy( this->VoxelCroppingRegionPlanes, this->CroppingRegionPlanes,
+          sizeof ( this->VoxelCroppingRegionPlanes ) );
+}
+#endif

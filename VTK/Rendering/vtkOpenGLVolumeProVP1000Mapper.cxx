@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLVolumeProVP1000Mapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-10 20:50:18 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-12-28 16:39:01 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -225,5 +225,10 @@ void vtkOpenGLVolumeProVP1000Mapper::GetDepthBufferValues(vtkRenderer *ren,
     }
   
   // The render window allocated this memory, so it should release it.
+#if ((VTK_MAJOR_VERSION == 3)&&(VTK_MINOR_VERSION == 2))
+  delete [] zData;
+#else
   vtkOpenGLRenderWindow::SafeDownCast(ren->GetRenderWindow())->ReleaseRGBAPixelData(zData);
+#endif
 }
+
