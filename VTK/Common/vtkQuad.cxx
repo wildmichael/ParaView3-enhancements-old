@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuad.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-15 09:58:33 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1995-07-16 08:34:53 $
+  Version:   $Revision: 1.23 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -200,7 +200,7 @@ void vtkQuad::EvaluateLocation(int& subId, float pcoords[3], float x[3],
                               float weights[MAX_CELL_SIZE])
 {
   int i, j;
-  float *pt, pc[3];
+  float *pt;
 
   this->InterpolationFunctions(pcoords, weights);
 
