@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamLine.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:42:08 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2001-11-05 20:23:38 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -82,7 +82,6 @@ void vtkStreamLine::Execute()
   vtkFloatArray* normals = NULL;
   vtkFloatArray* rotation = 0;
   vtkPolyData *output=this->GetOutput();
-  vtkFieldData *fd;
 
   this->SavePointInterval = this->StepLength;
   this->vtkStreamer::Integrate();
