@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangularTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:01:26 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-10-03 13:03:22 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -179,7 +179,6 @@ void vtkTriangularTexture::Execute()
 {
   int numPts;
   vtkUnsignedCharArray *newScalars;
-  vtkUnsignedCharArray *data;
   vtkStructuredPoints *output = this->GetOutput();
   
   if ( (numPts = this->XSize * this->YSize) < 1 )
