@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNMReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:09:26 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-10-21 19:09:35 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -111,7 +111,7 @@ int vtkPNMReaderGetInt(FILE *fp)
 }
   
 
-void vtkPNMReader::UpdateInformation()
+void vtkPNMReader::ExecuteInformation()
 {
   int xsize, ysize, comp;
   char magic[80];

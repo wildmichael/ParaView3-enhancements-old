@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTIFFReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:09:28 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-10-21 19:09:47 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -170,7 +170,7 @@ long vtkTIFFReader::ReadTagLong(_vtkTifTag *tag, FILE *fp)
   return result;
 }
 
-void vtkTIFFReader::UpdateInformation()
+void vtkTIFFReader::ExecuteInformation()
 {
   int xsize, ysize;
   FILE *fp;
