@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-05-30 01:49:33 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1996-07-13 21:12:28 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -250,9 +250,10 @@ vtkCell *vtkStructuredGrid::GetCell(int cellId)
       break;
     }
 
-  // Extract point coordinates and point ids. NOTE: the ordering of the VlQuad
+  // Extract point coordinates and point ids. NOTE: the ordering of the vtkQuad
   // and vtkHexahedron cells are tricky.
-  for (i=0; i<cell->PointIds.GetNumberOfIds(); i++)
+  int NumberOfIds = cell->PointIds.GetNumberOfIds();
+  for (i=0; i<NumberOfIds; i++)
     {
     idx = cell->PointIds.GetId(i);
     cell->Points.InsertPoint(i,this->Points->GetPoint(idx));
