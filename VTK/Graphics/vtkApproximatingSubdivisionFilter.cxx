@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkApproximatingSubdivisionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-11-14 15:20:20 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-11-29 16:09:15 $
+  Version:   $Revision: 1.10 $
   Thanks:    This work was supported bt PHS Research Grant No. 1 P41 RR13218-01
              from the National Center for Research Resources
 
@@ -148,9 +148,9 @@ void vtkApproximatingSubdivisionFilter::Execute()
     for (idx = 0; idx < num; ++idx)
       {
       if (ghostLevels->GetGhostLevel(idx) <= updateGhostLevel)
-	{
-	idList->InsertNextId(idx);
-	}
+        {
+        idList->InsertNextId(idx);
+        }
       }
     
     tmpPolys->Allocate(outputPolys->GetNumberOfCells() * 4);
