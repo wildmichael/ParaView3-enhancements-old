@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtk3DSImporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-24 16:32:16 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1997-07-31 10:54:34 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -447,10 +447,11 @@ static int parse_3ds_file(vtk3DSImporter *importer)
 
     if (chunk.tag == 0x4D4D)
 	parse_3ds (importer, &chunk);
-    else {
-	fprintf (stderr, "%s: Error: Input file is not .3DS format\n", "threed_studio_reader");
+    else
+      {
+	vtkGenericWarningMacro(<< "Error: Input file is not .3DS format\n");
 	return 0;
-    }
+      }
 
     end_chunk (importer, &chunk);
     return 1;
@@ -892,7 +893,7 @@ static void parse_colour (vtk3DSImporter *importer, Colour *colour)
 		     colour->blue  = colour_24.blue/255.0;
 		     break;
 
-	default:     fprintf (stderr, "%s: Error parsing colour\n", "threed_studio_reader");
+	default: vtkGenericWarningMacro(<< "Error parsing colour");
     }
 
     end_chunk (importer, &chunk);
