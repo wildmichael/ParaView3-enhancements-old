@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPDataSetReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-17 01:50:34 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-06-18 19:06:27 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -60,6 +60,10 @@ public:
   // needing to read the whole file.
   virtual int ReadOutputType();
 
+  // Description:
+  // Called to determine if the file can be read by the reader.
+  int CanReadFile(const char* filename);
+
 protected:
   vtkPDataSetReader();
   ~vtkPDataSetReader();
@@ -82,7 +86,7 @@ protected:
   void SetNumberOfPieces(int num);
 
 //BTX
-  ifstream *OpenFile();
+  ifstream *OpenFile(const char *);
 //ETX
   int ReadXML(ifstream *file, char **block, char **param, char **value);
 
