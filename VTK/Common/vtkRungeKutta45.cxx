@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRungeKutta45.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-12 13:42:22 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-08-13 13:09:38 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkRungeKutta45.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkRungeKutta45, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkRungeKutta45, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkRungeKutta45);
 
 // Cash-Karp parameters
@@ -140,11 +140,11 @@ int vtkRungeKutta45::ComputeNextStep(float* xprev, float* dxprev,
     // 0.9 is a safety factor to prevent infinite loops (see reference)
     if ( errRatio > 1 )
       {
-      tmp = 0.9*delT*pow(errRatio, static_cast<float>(-0.25));
+      tmp = 0.9*delT*pow(errRatio, static_cast<double>(-0.25));
       }
     else
       {
-      tmp = 0.9*delT*pow(errRatio, static_cast<float>(-0.2));
+      tmp = 0.9*delT*pow(errRatio, static_cast<double>(-0.2));
       }
     tmp2 = fabs(tmp);
     
