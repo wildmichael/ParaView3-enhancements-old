@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:18 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-07-25 13:02:11 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,6 +57,7 @@ vtkDataObject::vtkDataObject()
   this->EstimatedMemorySize = 0;
   this->PointLock = vtkMutexLock::New();
   this->CellLock = vtkMutexLock::New();
+  this->Locality = 0;
 }
 
 //----------------------------------------------------------------------------
