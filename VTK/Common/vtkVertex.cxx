@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkVertex.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-04-05 07:43:25 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-04-14 15:30:03 $
+  Version:   $Revision: 1.7 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -24,7 +24,6 @@ int vlPoint::EvaluatePosition(float x[3], int& subId, float pcoords[3],
 {
   int numPts;
   float *X;
-  float dist2;
   vlMath math;
 
   subId = 0;

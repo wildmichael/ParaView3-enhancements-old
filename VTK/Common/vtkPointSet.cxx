@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-04-11 21:20:10 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-04-14 15:30:04 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -37,8 +37,8 @@ unsigned long int vlPointSet::GetMTime()
 {
   unsigned long int dsTime = vlDataSet::GetMTime();
 
-  if ( this->Points.GetMTime() > dsTime ) dsTime = this->Points.GetMTime();
-  if ( this->Locator.GetMTime() > dsTime ) dsTime = this->Locator.GetMTime();
+  if ( this->Points->GetMTime() > dsTime ) dsTime = this->Points->GetMTime();
+  if ( this->Locator->GetMTime() > dsTime ) dsTime = this->Locator->GetMTime();
 
   return dsTime;
 }

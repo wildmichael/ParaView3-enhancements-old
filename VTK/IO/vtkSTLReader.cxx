@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkSTLReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-03-27 16:11:12 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1994-04-14 15:30:11 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -92,7 +92,7 @@ int vlSTLReader::ReadBinarySTL(FILE *fp, vlFloatPoints *newPts, vlCellArray *new
     vlDebugMacro(<< "Bad binary count (" << numTris << ")");
     }
 
-  while ( fread(&facet,48,1,fp) > 0 )
+  for ( i=0; fread(&facet,48,1,fp) > 0; i++ )
     {
     fread(&ibuff2,2,1,fp); /* read extra junk */
 
@@ -127,7 +127,6 @@ int vlSTLReader::ReadBinarySTL(FILE *fp, vlFloatPoints *newPts, vlCellArray *new
 int vlSTLReader::ReadASCIISTL(FILE *fp, vlFloatPoints *newPts, vlCellArray *newPolys)
 {
   char line[256];
-  int i;
   float x[3];
   int pts[3];
 
