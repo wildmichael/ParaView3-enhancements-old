@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToImageFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-13 20:24:36 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2001-03-15 20:58:10 $
+  Version:   $Revision: 1.38 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -338,9 +338,12 @@ void vtkImageToImageFilter::MultiThread(vtkImageData *inData,
 // The execute method created by the subclass.
 void vtkImageToImageFilter::ThreadedExecute(vtkImageData *vtkNotUsed(inData), 
                                             vtkImageData *vtkNotUsed(outData),
-                                            int extent[6], int vtkNotUsed(threadId))
+                                            int extent[6], int threadId)
 {
   extent = extent;
-  vtkErrorMacro("subclass should override this method!!!");
+  if (threadId == 0)
+    {
+    vtkErrorMacro("subclass should override ThreadedExecute!!!");
+    }
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-13 18:42:01 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2001-03-15 20:58:10 $
+  Version:   $Revision: 1.50 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -269,10 +269,13 @@ void vtkImageMultipleInputFilter::ExecuteData(vtkDataObject *out)
 void vtkImageMultipleInputFilter::ThreadedExecute(vtkImageData 
 				  **vtkNotUsed(inData), 
 				  vtkImageData *vtkNotUsed(outData),
-				  int extent[6], int vtkNotUsed(threadId))
+				  int extent[6], int threadId)
 {
   extent = extent;
-  vtkErrorMacro("subclase should override this method!!!");
+  if (threadId == 0)
+    {
+    vtkErrorMacro("subclass must override ThreadedExecute!!!");
+    }
 }
 
   
