@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:49 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-08-28 13:24:22 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,8 +68,6 @@ vtkRectilinearGridSource::vtkRectilinearGridSource()
   // Filters will know it is empty. 
   this->Outputs[0]->ReleaseData();
   this->Outputs[0]->Delete();
-  this->ExecuteExtent[0] = this->ExecuteExtent[2] = this->ExecuteExtent[4] = 0;
-  this->ExecuteExtent[1] = this->ExecuteExtent[3] = this->ExecuteExtent[5] = 0;
 }
 
 //----------------------------------------------------------------------------

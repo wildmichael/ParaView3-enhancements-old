@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-26 21:40:45 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2001-08-28 13:24:33 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -62,8 +62,6 @@ vtkStructuredGridReader::vtkStructuredGridReader()
   // Filters will know it is empty. 
   this->Outputs[0]->ReleaseData();
   this->Outputs[0]->Delete();
-  this->ExecuteExtent[0] = this->ExecuteExtent[2] = this->ExecuteExtent[4] = 0;
-  this->ExecuteExtent[1] = this->ExecuteExtent[3] = this->ExecuteExtent[5] = 0;
 }
 
 vtkStructuredGridReader::~vtkStructuredGridReader()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:47 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2001-08-28 13:24:22 $
+  Version:   $Revision: 1.50 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,23 +68,12 @@ public:
   vtkImageData *GetOutput(int idx)
     {return (vtkImageData *) this->vtkSource::GetOutput(idx);}
   
-  // Description:
-  // For streaming.  ExecuteExtent is set to the extent
-  // of the output that is currently being generated. 
-  // Note: Threaded execution might break this up further.
-  int *GetExecuteExtent() 
-    {return this->ExecuteExtent;}
-  
 protected:
   vtkImageSource();
   ~vtkImageSource() {};
   vtkImageSource(const vtkImageSource&);
   void operator=(const vtkImageSource&);
 
-  // Used by streaming: The extent of the output being processed
-  // by the execute method. Set in the ComputeInputUpdateExtents method.
-  int ExecuteExtent[6];
-  
   void Execute();
   virtual void Execute(vtkImageData *data);
 
