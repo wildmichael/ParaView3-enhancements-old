@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMath.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:13 $
-  Version:   $Revision: 1.66 $
+  Date:      $Date: 2001-03-08 15:42:08 $
+  Version:   $Revision: 1.67 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -181,7 +181,7 @@ public:
 			 double x[3]);
 
   // Description:
-  // Solve Ay = x for y and place the result in x.  The matrix A is
+  // Solve Ay = x for y and place the result in y.  The matrix A is
   // destroyed in the process.
   static void LinearSolve3x3(const float A[3][3], const float x[3], 
 			     float y[3]);
@@ -189,10 +189,11 @@ public:
 			     double y[3]);
 
   // Description:
-  // Multiply a vector by a 3x3 matrix.  The result is placed in x.
-  static void Multiply3x3(const float A[3][3], const float x[3], float y[3]);
-  static void Multiply3x3(const double A[3][3], const double x[3], 
-			  double y[3]);
+  // Multiply a vector by a 3x3 matrix.  The result is placed in out.
+  static void Multiply3x3(const float A[3][3], const float in[3], 
+			  float out[3]);
+  static void Multiply3x3(const double A[3][3], const double in[3], 
+			  double out[3]);
   
   // Description:
   // Mutltiply one 3x3 matrix by another according to C = BA (if the order
