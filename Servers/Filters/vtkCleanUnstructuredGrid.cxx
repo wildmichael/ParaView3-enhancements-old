@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCleanUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-09-19 15:54:58 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-09-22 16:59:04 $
+  Version:   $Revision: 1.2 $
 
 =========================================================================*/
 
@@ -27,7 +27,7 @@
 #include "vtkCollection.h"
 #include "vtkPointLocator.h"
 
-vtkCxxRevisionMacro(vtkCleanUnstructuredGrid, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkCleanUnstructuredGrid, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkCleanUnstructuredGrid);
 
 vtkCleanUnstructuredGrid::vtkCleanUnstructuredGrid()
@@ -98,7 +98,6 @@ void vtkCleanUnstructuredGrid::Execute()
   vtkIdList *cellPoints = vtkIdList::New();
   num = input->GetNumberOfCells();
   output->Allocate(num);
-  vtkIdType cellPtId;
   for (id = 0; id < num; ++id)
     {
     input->GetCellPoints(id, cellPoints);
