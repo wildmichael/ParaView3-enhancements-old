@@ -1,5 +1,5 @@
 /* zutil.h -- internal interface and configuration of the compression library
- * Copyright (C) 1995-1998 Jean-loup Gailly.
+ * Copyright (C) 1995-2002 Jean-loup Gailly.
  * For conditions of distribution and use, see copyright notice in zlib.h
  */
 
@@ -8,7 +8,7 @@
    subject to change. Applications should only use zlib.h.
  */
 
-/* @(#) $Id: zutil.h,v 1.2 2002-01-04 14:30:51 king Exp $ */
+/* @(#) $Id: zutil.h,v 1.3 2002-05-16 15:51:00 andy Exp $ */
 
 #ifndef _Z_UTIL_H
 #define _Z_UTIL_H
