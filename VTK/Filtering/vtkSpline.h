@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpline.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-18 17:08:13 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-09-05 19:09:35 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,10 +67,6 @@ public:
   vtkSetMacro(ClampValue,int);
   vtkGetMacro(ClampValue,int);
   vtkBooleanMacro(ClampValue,int);
-
-  // Description:
-  // Evaluate a 1D spline.
-  float Evaluate (float t);
 
   // Description:
   // Compute the coefficients for the spline.

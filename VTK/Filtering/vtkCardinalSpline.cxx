@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCardinalSpline.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-18 17:08:06 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-09-05 19:09:36 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,6 +46,45 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // ClampingOff
 vtkCardinalSpline::vtkCardinalSpline ()
 {
+}
+
+// Description
+// Evaluate a 1D Spline
+float vtkCardinalSpline::Evaluate (float t)
+{
+  int i, index;
+  int size = this->PiecewiseFunction->GetSize ();
+  float *intervals;
+  float *coefficients;
+
+  // check to see if we need to recompute the spline
+  if (this->ComputeTime < this->GetMTime ())
+    {
+    this->Compute ();
+    }	
+
+  intervals = this->Intervals;
+  coefficients = this->Coefficients;
+
+  // clamp the function at both ends
+  if (t < intervals[0]) t = intervals[0];
+  if (t > intervals[size - 1]) t = intervals[size - 1];
+
+  // find pointer to cubic spline coefficient
+  for (i = 1; i < size; i++)
+    {
+    index = i - 1;
+    if (t < intervals[i]) break;
+    }
+
+  // calculate offset within interval
+  t = (t - intervals[index]);
+
+  // evaluate y
+  return (t * (t * (t * *(coefficients + index * 4 + 3)
+                      + *(coefficients + index * 4 + 2))
+                      + *(coefficients + index * 4 + 1))
+                      + *(coefficients + index * 4));
 }
 
 // Description

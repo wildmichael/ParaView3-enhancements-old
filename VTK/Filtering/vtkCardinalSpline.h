@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCardinalSpline.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-18 17:08:07 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-09-05 19:09:37 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,6 +60,10 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
 
   void Compute ();
+
+  // Description:
+  // Evaluate a 1D cardinal spline.
+  float Evaluate (float t);
 
 protected:
   void Fit1D (int n, float *x, float *y, float *w, float coefficients[][4],

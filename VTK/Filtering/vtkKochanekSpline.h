@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKochanekSpline.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-18 17:08:11 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-09-05 19:09:38 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -81,6 +81,10 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
 
   void Compute ();
+
+  // Description:
+  // Evaluate a 1D Kochanek spline.
+  float Evaluate (float t);
 
   // Description:
   // Set the bias for all points. Default is 0.
