@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkImplicitModeller.h,v $
   Language:  C++
-  Date:      $Date: 1994-05-12 07:52:41 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-05-13 12:59:30 $
+  Version:   $Revision: 1.5 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -44,11 +44,22 @@ public:
   void SetModelBounds(float xmin, float xmax, float ymin, float ymax, float zmin, float zmax);
   vlGetVectorMacro(ModelBounds,float);
 
+  vlSetMacro(Capping,int);
+  vlGetMacro(Capping,int);
+  vlBooleanMacro(Capping,int);
+  
+  vlSetMacro(CapValue,float);
+  vlGetMacro(CapValue,float);
+
 protected:
   void Execute();
+  void Cap(vlFloatScalars *s);
+
   int SampleDimensions[3];
   float MaximumDistance;
   float ModelBounds[6];
+  int Capping;
+  float CapValue;
 };
 
 #endif
