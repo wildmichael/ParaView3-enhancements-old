@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGridSynchronizedTemplates3D.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:16 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-03-19 13:21:39 $
+  Version:   $Revision: 1.16 $
 
 
 
@@ -169,6 +169,12 @@ public:
   // from the input will be larger than this value (KiloBytes).
   void SetInputMemoryLimit(long limit);
 
+  // Description:
+  // Set the point-data field-array name that you want to contour.  
+  // An empty string means use the default scalars.
+  vtkSetStringMacro(ActiveArray);
+  vtkGetStringMacro(ActiveArray);  
+  
 protected:
   vtkGridSynchronizedTemplates3D();
   ~vtkGridSynchronizedTemplates3D();
@@ -193,6 +199,8 @@ protected:
   vtkPolyData *Threads[VTK_MAX_THREADS];
   void InitializeOutput(int *ext,vtkPolyData *o);
 
+  char *ActiveArray;
+  
 private:
   //BTX
   friend VTK_EXPORT vtkKitwareContourFilter;
