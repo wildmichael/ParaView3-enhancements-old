@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkImplicitModeller.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-03-31 11:14:40 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-04-05 07:45:02 $
+  Version:   $Revision: 1.8 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -91,6 +91,7 @@ void vlImplicitModeller::Execute()
   int min[3], max[3];
   float x[3], prevDistance2, distance2;
   int jkFactor;
+  float weights[MAX_CELL_SIZE];
 
   vlDebugMacro(<< "Executing implicit model");
 //
@@ -144,7 +145,7 @@ void vlImplicitModeller::Execute()
           x[0] = this->AspectRatio[0] * i + this->Origin[0];
           idx = jkFactor*k + this->Dimensions[0]*j + i;
           prevDistance2 = newScalars->GetScalar(idx);
-          cell->EvaluatePosition(x, subId, pcoords, distance2);
+          cell->EvaluatePosition(x, subId, pcoords, distance2, weights);
           if (distance2 < prevDistance2)
             newScalars->SetScalar(idx,distance2);
           }
