@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLPPolyDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-03-27 15:00:33 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-05-08 13:57:16 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkUnsignedCharArray.h"
 #include "vtkCellArray.h"
 
-vtkCxxRevisionMacro(vtkXMLPPolyDataReader, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkXMLPPolyDataReader, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkXMLPPolyDataReader);
 
 //----------------------------------------------------------------------------
@@ -236,6 +236,10 @@ void vtkXMLPPolyDataReader::CopyArrayForCells(vtkDataArray* inArray,
                                               vtkDataArray* outArray)
 {
   if(!this->PieceReaders[this->Piece])
+    {
+    return;
+    }
+  if (inArray == NULL || outArray == NULL)
     {
     return;
     }
