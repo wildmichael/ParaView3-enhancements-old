@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArcPlotter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-12 16:09:30 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-09-13 14:36:21 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -119,7 +119,7 @@ void vtkArcPlotter::Execute()
     return;
     }
 
-  // Process attribute data to determine ranges, cumber of components, etc.
+  // Process attribute data to determine ranges, number of components, etc.
   if ( this->ProcessComponents(numPts, inPD) <= 0 )
     {
     return;
@@ -266,7 +266,7 @@ int vtkArcPlotter::ProcessComponents(vtkIdType numPts, vtkPointData *pd)
   vtkIdType i;
   int j;
   float *range;
-  vtkFieldData *fd;
+  vtkFieldData *fd = pd->GetFieldData();
   
   this->Data = NULL;
   switch (this->PlotMode)
