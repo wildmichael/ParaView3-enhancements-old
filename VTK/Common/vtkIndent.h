@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIndent.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:36:35 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1995-08-15 16:51:41 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,10 +39,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 
-// .NAME vtkIndent - control print indentation
+// .NAME vtkIndent - a simple class to control print indentation
 // .SECTION Description
 // vtkIndent is used to control indentation during the chaining print 
-// process.
+// process. This way nested objects can correctly indent themselves.
 
 #ifndef __vtkIndent_h
 #define __vtkIndent_h
