@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTableExtentTranslator.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-06-06 17:42:43 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-06-07 15:20:23 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkTableExtentTranslator.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkTableExtentTranslator, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkTableExtentTranslator, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkTableExtentTranslator);
 
 //----------------------------------------------------------------------------
@@ -161,7 +161,7 @@ vtkTableExtentTranslator::PieceToExtentThreadSafe(int piece, int numPieces,
                                                   int ghostLevel, 
                                                   int *wholeExtent, 
                                                   int *resultExtent, 
-                                                  int splitMode, 
+                                                  int vtkNotUsed(splitMode), 
                                                   int byPoints)
 {
   if (byPoints)
