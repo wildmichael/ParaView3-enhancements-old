@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHedgeHog.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:03 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2001-06-21 15:27:26 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -67,8 +67,8 @@ void vtkHedgeHog::Execute()
   int numPts;
   vtkPoints *newPts;
   vtkPointData *pd;
-  vtkVectors *inVectors;
-  vtkNormals *inNormals;
+  vtkDataArray *inVectors;
+  vtkDataArray *inNormals;
   int i, ptId;
   vtkIdType pts[2];
   vtkCellArray *newLines;
@@ -81,7 +81,7 @@ void vtkHedgeHog::Execute()
   //
   numPts = input->GetNumberOfPoints();
   pd = input->GetPointData();
-  inVectors = pd->GetVectors();
+  inVectors = pd->GetActiveVectors();
   if ( numPts < 1 )
     {
     vtkErrorMacro(<<"No input data");
@@ -93,7 +93,7 @@ void vtkHedgeHog::Execute()
     return;
     }
 
-  inNormals = pd->GetNormals();
+  inNormals = pd->GetActiveNormals();
   if ( !inNormals && this->VectorMode == VTK_USE_NORMAL)
     {
     vtkErrorMacro(<<"No normals in input data");
@@ -121,11 +121,11 @@ void vtkHedgeHog::Execute()
     x = input->GetPoint(ptId);
     if (this->VectorMode == VTK_USE_VECTOR)
       {
-      v = inVectors->GetVector(ptId);
+      v = inVectors->GetTuple(ptId);
       }
     else
       {
-      v = inNormals->GetNormal(ptId);
+      v = inNormals->GetTuple(ptId);
       }
     for (i=0; i<3; i++)
       {
