@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConnectivityFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-02-20 22:12:03 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1998-03-26 23:03:23 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -153,7 +153,7 @@ protected:
   void TraverseAndMark(int cellId);
 
 private:
-  vtkFloatScalars *CellScalars;
+  vtkScalars *CellScalars;
   vtkIdList *NeighborCellPointIds;
 
 };

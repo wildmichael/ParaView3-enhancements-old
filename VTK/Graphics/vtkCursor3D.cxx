@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCursor3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:43:37 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1998-03-26 23:03:25 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,10 +46,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // all parts of cursor visible, and wrapping off.
 vtkCursor3D::vtkCursor3D()
 {
-  vtkFloatPoints *pts;
+  vtkPoints *pts;
 
   this->Focus = vtkPolyData::New();
-  pts = vtkFloatPoints::New();
+  pts = vtkPoints::New();
   pts->Allocate(1);
   pts->vtkPoints::InsertPoint(0, 0.0, 0.0, 0.0);
   this->Focus->SetPoints(pts);
@@ -83,7 +83,7 @@ void vtkCursor3D::Execute()
 {
   int i;
   int numPts=0, numLines=0;
-  vtkFloatPoints *newPts;
+  vtkPoints *newPts;
   vtkCellArray *newLines;
   float x[3];
   int ptIds[2];
@@ -147,7 +147,7 @@ void vtkCursor3D::Execute()
 
   if ( numPts ) 
     {
-    newPts = vtkFloatPoints::New();
+    newPts = vtkPoints::New();
     newPts->Allocate(numPts);
     newLines = new vtkCellArray;
     newLines->Allocate(newLines->EstimateSize(numLines,2));

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimatePro.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-21 15:18:20 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1998-03-26 23:03:37 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -127,7 +127,7 @@ void vtkDecimatePro::Execute()
 {
   int i, ptId, numPts, numTris, collapseId;
   vtkPoints *inPts;
-  vtkFloatPoints *newPts;
+  vtkPoints *newPts;
   vtkCellArray *inPolys;
   vtkCellArray *newPolys;
   float error, previousError=0.0, reduction;
@@ -183,7 +183,7 @@ void vtkDecimatePro::Execute()
     inPts = input->GetPoints();
     inPolys = input->GetPolys();
     Mesh = vtkPolyData::New();
-    newPts = vtkFloatPoints::New(); newPts->SetNumberOfPoints(numPts);
+    newPts = vtkPoints::New(); newPts->SetNumberOfPoints(numPts);
     for ( i=0; i < numPts; i++ ) newPts->SetPoint(i,inPts->GetPoint(i));
     newPolys = new vtkCellArray(*(inPolys));
     Mesh->SetPoints(newPts);
@@ -194,8 +194,9 @@ void vtkDecimatePro::Execute()
     }
   else
     {
-    this->Output->CopyStructure(this->Input);
-    this->Output->GetPointData()->PassData(this->Input->GetPointData());
+    ((vtkDataSet *)this->Output)->CopyStructure((vtkDataSet *)this->Input);
+    ((vtkDataSet *)this->Output)->GetPointData()->PassData(
+                                  ((vtkDataSet *)this->Input)->GetPointData());
     vtkWarningMacro(<<"Reduction == 0: passing data through unchanged");
     return;
     }

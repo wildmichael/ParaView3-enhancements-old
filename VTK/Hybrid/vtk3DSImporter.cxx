@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtk3DSImporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-09-22 21:18:23 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-03-26 23:03:04 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -200,7 +200,7 @@ vtkPolyData *vtk3DSImporter::GeneratePolyData (Mesh *mesh)
   int i;
   Face	*face;
   vtkCellArray *triangles;
-  vtkFloatPoints *vertices;
+  vtkPoints *vertices;
   vtkPolyData *polyData;
 
   face = mesh->face;
@@ -214,7 +214,7 @@ vtkPolyData *vtk3DSImporter::GeneratePolyData (Mesh *mesh)
     triangles->InsertCellPoint (face->c);
     }
 
-  vertices = vtkFloatPoints::New ();
+  vertices = vtkPoints::New ();
   vertices->Allocate(mesh->vertices);
   for (i = 0; i < mesh->vertices; i++)
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToDataSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-01-16 21:21:08 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1998-03-26 23:03:34 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -87,29 +87,29 @@ void vtkDataSetToDataSetFilter::SetInput(vtkDataSet *input)
     this->Input = input;
     this->Modified();
 
-    if ( this->Input == NULL ) return;
+    if ( input == NULL ) return;
 
-    if ( this->Input->GetDataSetType() == VTK_POLY_DATA )
+    if ( input->GetDataSetType() == VTK_POLY_DATA )
       {
       this->Output = this->PolyData;
       }
 
-    else if ( this->Input->GetDataSetType() == VTK_STRUCTURED_POINTS )
+    else if ( input->GetDataSetType() == VTK_STRUCTURED_POINTS )
       {
       this->Output = this->StructuredPoints;
       }
 
-    else if ( this->Input->GetDataSetType() == VTK_STRUCTURED_GRID )
+    else if ( input->GetDataSetType() == VTK_STRUCTURED_GRID )
       {
       this->Output = this->StructuredGrid;
       }
 
-    else if ( this->Input->GetDataSetType() == VTK_UNSTRUCTURED_GRID )
+    else if ( input->GetDataSetType() == VTK_UNSTRUCTURED_GRID )
       {
       this->Output = this->UnstructuredGrid;
       }
 
-    else if ( this->Input->GetDataSetType() == VTK_RECTILINEAR_GRID )
+    else if ( input->GetDataSetType() == VTK_RECTILINEAR_GRID )
       {
       this->Output = this->RectilinearGrid;
       }
@@ -158,7 +158,7 @@ void vtkDataSetToDataSetFilter::Update()
 
     if ( this->StartMethod ) (*this->StartMethod)(this->StartMethodArg);
     // copy topological/geometric structure from input
-    this->Output->CopyStructure(this->Input);
+    ((vtkDataSet *)this->Output)->CopyStructure((vtkDataSet *)this->Input);
     // reset AbortExecute flag and Progress
     this->AbortExecute = 0;
     this->Progress = 0.0;
@@ -182,7 +182,7 @@ vtkDataSet *vtkDataSetToDataSetFilter::GetOutput()
     {
     vtkErrorMacro(<<"Abstract filters require input to be set before output can be retrieved");
     }
-  return this->Output;
+  return (vtkDataSet *)this->Output;
 }
 
 // Description:

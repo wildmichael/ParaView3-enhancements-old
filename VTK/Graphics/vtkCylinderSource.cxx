@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCylinderSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:43:44 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1998-03-26 23:03:27 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,9 +40,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include <math.h>
 #include "vtkCylinderSource.h"
-#include "vtkFloatPoints.h"
-#include "vtkFloatNormals.h"
-#include "vtkFloatTCoords.h"
+#include "vtkPoints.h"
+#include "vtkNormals.h"
+#include "vtkTCoords.h"
 
 vtkCylinderSource::vtkCylinderSource (int res)
 {
@@ -62,9 +62,9 @@ void vtkCylinderSource::Execute()
   float *center = this->Center;
   int i, idx;
   int pts[VTK_CELL_SIZE];
-  vtkFloatPoints *newPoints; 
-  vtkFloatNormals *newNormals;
-  vtkFloatTCoords *newTCoords;
+  vtkPoints *newPoints; 
+  vtkNormals *newNormals;
+  vtkTCoords *newTCoords;
   vtkCellArray *newPolys;
   vtkPolyData *output = this->GetOutput();
   
@@ -83,11 +83,11 @@ void vtkCylinderSource::Execute()
     numPolys = this->Resolution;
     }
 
-  newPoints = vtkFloatPoints::New();
+  newPoints = vtkPoints::New();
   newPoints->Allocate(numPts);
-  newNormals = vtkFloatNormals::New();
+  newNormals = vtkNormals::New();
   newNormals->Allocate(numPts);
-  newTCoords = vtkFloatTCoords::New();
+  newTCoords = vtkTCoords::New();
   newTCoords->Allocate(numPts,2);
 
   newPolys = vtkCellArray::New();

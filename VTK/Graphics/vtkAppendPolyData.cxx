@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-01-16 21:20:50 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1998-03-26 23:03:06 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -120,10 +120,10 @@ void vtkAppendPolyData::Update()
 void vtkAppendPolyData::Execute()
 {
   int scalarsPresent, vectorsPresent, normalsPresent, tcoordsPresent;
-  int tensorsPresent, userDefinedPresent;
+  int tensorsPresent, fieldPresent;
   vtkPolyData *ds;
   vtkPoints  *inPts;
-  vtkFloatPoints *newPts;
+  vtkPoints *newPts;
   vtkCellArray *inVerts, *newVerts;
   vtkCellArray *inLines, *newLines;
   vtkCellArray *inPolys, *newPolys;
@@ -145,7 +145,7 @@ void vtkAppendPolyData::Execute()
   normalsPresent = 1;
   tcoordsPresent = 1;
   tensorsPresent = 1;
-  userDefinedPresent = 1;
+  fieldPresent = 1;
 
   for (this->InputList.InitTraversal(); (ds = this->InputList.GetNextItem()); )
     {
@@ -157,7 +157,7 @@ void vtkAppendPolyData::Execute()
     if ( pd->GetNormals() == NULL ) normalsPresent &= 0;
     if ( pd->GetTCoords() == NULL ) tcoordsPresent &= 0;
     if ( pd->GetTensors() == NULL ) tensorsPresent &= 0;
-    if ( pd->GetUserDefined() == NULL ) userDefinedPresent &= 0;
+    if ( pd->GetFieldData() == NULL ) fieldPresent &= 0;
     }
 
   if ( numPts < 1 )
@@ -172,10 +172,10 @@ void vtkAppendPolyData::Execute()
   if ( !normalsPresent ) outputPD->CopyNormalsOff();
   if ( !tcoordsPresent ) outputPD->CopyTCoordsOff();
   if ( !tensorsPresent ) outputPD->CopyTensorsOff();
-  if ( !userDefinedPresent ) outputPD->CopyUserDefinedOff();
+  if ( !fieldPresent ) outputPD->CopyFieldDataOff();
   outputPD->CopyAllocate(pd,numPts);
 
-  newPts = vtkFloatPoints::New();
+  newPts = vtkPoints::New();
   newPts->SetNumberOfPoints(numPts);
 
   newVerts = vtkCellArray::New();

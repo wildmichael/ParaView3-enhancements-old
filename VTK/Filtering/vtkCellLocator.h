@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLocator.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 18:54:36 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1998-03-26 23:03:17 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -102,7 +102,7 @@ protected:
   void GetChildren(int idx, int level, int children[8]);
   int GenerateIndex(int offset, int numDivs, int i, int j, int k, int &idx);
   void GenerateFace(int face, int numDivs, int i, int j, int k,
-                    vtkFloatPoints *pts, vtkCellArray *polys);
+                    vtkPoints *pts, vtkCellArray *polys);
 };
 
 #endif
