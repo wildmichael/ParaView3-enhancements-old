@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-12-03 14:17:45 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1998-06-22 22:32:16 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -245,7 +245,7 @@ void vtkBYUWriter::WriteTextureFile(int numPts)
 
 void vtkBYUWriter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkWriter::PrintSelf(os,indent);
+  vtkPolyDataWriter::PrintSelf(os,indent);
 
   os << indent << "Geometry File Name: " 
      << (this->GeometryFileName ? this->GeometryFileName : "(none)") << "\n";

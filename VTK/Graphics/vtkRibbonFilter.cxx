@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRibbonFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:04:45 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1998-06-22 22:32:30 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -268,5 +268,13 @@ void vtkRibbonFilter::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Angle: " << this->Angle << "\n";
   os << indent << "VaryWidth: " << (this->VaryWidth ? "On\n" : "Off\n");
   os << indent << "Width Factor: " << this->WidthFactor << "\n";
+  os << indent << "Use Default Normal: " << this->UseDefaultNormal << "\n";
+  os << indent << "Default Normal: " << "( " << 
+	this->DefaultNormal[0] << ", " <<
+	this->DefaultNormal[1] << ", " <<
+	this->DefaultNormal[2] << " )\n";
+
+"\n";
+
 }
 

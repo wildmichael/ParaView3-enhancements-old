@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitTextureCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:04:10 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1998-06-22 22:32:20 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -167,6 +167,8 @@ void vtkImplicitTextureCoords::Execute()
 void vtkImplicitTextureCoords::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkDataSetToDataSetFilter::PrintSelf(os,indent);
+
+  os << indent << "Flip Texture: " << this->FlipTexture << "\n";
 
   if ( this->RFunction != NULL )
     {

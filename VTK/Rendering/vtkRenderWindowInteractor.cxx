@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-16 21:11:11 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1998-06-22 22:32:29 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -619,5 +619,8 @@ void vtkRenderWindowInteractor::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "LightFollowCamera: " << (this->LightFollowCamera ? "On\n" : "Off\n");
   os << indent << "DesiredUpdateRate: " << this->DesiredUpdateRate << "\n";
   os << indent << "StillUpdateRate: " << this->StillUpdateRate << "\n";
+  os << indent << "Initialized: " << this->Initialized << "\n";
+  os << indent << "EventPosition: " << "( " << this->EventPosition[0] <<
+     ", " << this->EventPosition[1] << " )\n";
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRayCaster.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-07 12:08:49 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1998-06-22 22:32:26 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -947,6 +947,19 @@ void vtkRayCaster::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->vtkObject::PrintSelf(os,indent);
 
+  os << indent << "Renderer: " << this->Renderer << "\n";
+
+  os << indent << "Selected Image Scale Index: " << 
+     this->SelectedImageScaleIndex << "\n";
+
+  os << indent << "Automatic Scale Adjustment: " << 
+     this->AutomaticScaleAdjustment << "\n";
+
+  os << indent << "Automatic Scale Lower Limit: " << 
+     this->AutomaticScaleLowerLimit << "\n";
+
   os << indent << "Bilinear Image Zoom: " << this->BilinearImageZoom << "\n";
+
+  os << indent << "Total Render Time: " << this->TotalRenderTime << "\n";
 }
 

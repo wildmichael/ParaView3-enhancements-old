@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-19 20:37:52 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 1998-06-22 22:32:17 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -324,6 +324,11 @@ void vtkContourFilter::CreateDefaultLocator()
 void vtkContourFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkDataSetToPolyDataFilter::PrintSelf(os,indent);
+
+  os << indent << "Compute Gradients: " << (this->ComputeGradients ? "On\n" : "Off\n");
+  os << indent << "Compute Normals: " << (this->ComputeNormals ? "On\n" : "Off\n");
+  os << indent << "Compute Scalars: " << (this->ComputeScalars ? "On\n" : "Off\n");
+  os << indent << "Use Scalar Tree: " << (this->UseScalarTree ? "On\n" : "Off\n");
 
   this->ContourValues->PrintSelf(os,indent);
 

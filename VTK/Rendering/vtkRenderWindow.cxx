@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-20 17:16:41 $
-  Version:   $Revision: 1.66 $
+  Date:      $Date: 1998-06-22 22:32:27 $
+  Version:   $Revision: 1.67 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -709,6 +709,16 @@ void vtkRenderWindow::PrintSelf(ostream& os, vtkIndent indent)
   this->Renderers.PrintSelf(os,indent.GetNextIndent());
   os << indent << "Stereo Render: " 
      << (this->StereoRender ? "On\n":"Off\n");
+
+  os << indent << "Anti Aliased Frames: " << this->AAFrames << "\n";
+  os << indent << "Abort Render: " << this->AbortRender << "\n";
+  os << indent << "Desired Update Rate: " << this->DesiredUpdateRate << "\n";
+  os << indent << "Focal Depth Frames: " << this->FDFrames << "\n";
+  os << indent << "In Abort Check: " << this->InAbortCheck << "\n";
+  os << indent << "Interactor: " << this->Interactor << "\n";
+  os << indent << "Motion Blur Frames: " << this->SubFrames << "\n";
+  os << indent << "Swapbuffers: " << (this->SwapBuffers ? "On\n":"Off\n");
+  os << indent << "StereoType: " << this->GetStereoTypeAsString() << "\n";
 
   os << indent << "File Name: " 
      << (this->FileName ? this->FileName : "(none)") << "\n";

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-30 18:16:17 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1998-06-22 22:32:31 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -217,6 +217,10 @@ void vtkSphereSource::PrintSelf(ostream& os, vtkIndent indent)
 
   os << indent << "Theta Resolution: " << this->ThetaResolution << "\n";
   os << indent << "Phi Resolution: " << this->PhiResolution << "\n";
+  os << indent << "Theta Start: " << this->StartTheta << "\n";
+  os << indent << "Phi Start: " << this->StartPhi << "\n";
+  os << indent << "Theta End: " << this->EndTheta << "\n";
+  os << indent << "Phi End: " << this->EndPhi << "\n";
   os << indent << "Radius: " << this->Radius << "\n";
   os << indent << "Center: (" << this->Center[0] << ", " 
      << this->Center[1] << ", " << this->Center[2] << ")\n";

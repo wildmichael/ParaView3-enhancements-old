@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPiecewiseFunction.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:46:10 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-06-22 22:32:24 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,7 +51,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkPiecewiseFunction_h
 
 #include "vtkObject.h"
-//#include "vtkInterpolator.h"
 
 class VTK_EXPORT vtkPiecewiseFunction : public vtkObject 
 {
@@ -65,10 +64,6 @@ public:
   // Description:
   // Get the number of points used to specify the function
   int  GetSize();
-
-  //  This we will add when we go beyond linear interpolation
-  //  vtkSetObjectMacro( Interpolator, vtkInterpolator );
-  //  vtkGetObjectMacro( Interpolator, vtkInterpolator );
 
   // Description:
   // Add/Remove points to/from the function. If a duplicate point is added
@@ -138,9 +133,6 @@ protected:
   // One  = clamp to the lowest value below defined points and
   //        highest value above defined points
   int	Clamping;
-
-  // If no interpolator defined, defaults to nearest neighbor
-  //  vtkInterpolator	*Interpolator;
 
   // Array of points ((X,Y) pairs)
   float	*Function;
