@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightMasterServerReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-17 18:08:54 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-06-19 19:12:39 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkString.h"
 
-vtkCxxRevisionMacro(vtkEnSightMasterServerReader, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkEnSightMasterServerReader, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkEnSightMasterServerReader);
 
 //----------------------------------------------------------------------------
@@ -147,11 +147,9 @@ int vtkEnSightMasterServerReader::DetermineFileName(int piece)
           return VTK_ERROR;
           }
         this->SetPieceCaseFileName(filename);
+        break;
         }
-      else
-        {
-        currentserver ++;
-        }
+      currentserver ++;
       }
     //cout << "Read: " << result << endl;
     }
