@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32RenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1998-11-05 22:13:13 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1998-11-11 21:47:31 $
+  Version:   $Revision: 1.17 $
   
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -111,7 +111,7 @@ public:
   virtual void EndAnimation();
 
   //BTX
-  friend LRESULT CALLBACK vtkHandleMessage(HWND hwnd,UINT uMsg,
+  friend VTK_EXPORT LRESULT CALLBACK vtkHandleMessage(HWND hwnd,UINT uMsg,
 					   WPARAM w, LPARAM l);
   //ETX
 
