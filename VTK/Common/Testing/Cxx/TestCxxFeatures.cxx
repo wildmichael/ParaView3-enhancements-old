@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestCxxFeatures.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-06 15:19:58 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2003-01-07 20:32:48 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -98,11 +98,14 @@
 # define vtkstd
 #endif
 
+#if !defined(VTK_CXX_SGI_6)
+// Fails on kulu.crd IRIX64-6.5-CC-o32 (old SGI compiler).
 void UsingStdVector()
 {
   using vtkstd::vector;
   vector<int>();
 }
+#endif
 
 //----------------------------------------------------------------------------
 
@@ -113,7 +116,7 @@ int FullySpecializedFunction(T*)
   return 0;
 }
 
-#if 0
+#if !defined(VTK_CXX_SGI_6)
 // Fails on kulu.crd IRIX64-6.5-CC-o32 (old SGI compiler).
 template <>
 int FullySpecializedFunction<int>(int*)
