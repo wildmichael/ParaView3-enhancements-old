@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageHybridMedian2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-24 22:04:43 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2003-04-25 11:41:19 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include <vtkstd/algorithm>
 #include <vtkstd/numeric>
 
-vtkCxxRevisionMacro(vtkImageHybridMedian2D, "$Revision: 1.16 $");
+vtkCxxRevisionMacro(vtkImageHybridMedian2D, "$Revision: 1.17 $");
 vtkStandardNewMacro(vtkImageHybridMedian2D);
 
 //----------------------------------------------------------------------------
@@ -40,7 +40,7 @@ vtkImageHybridMedian2D::vtkImageHybridMedian2D()
 
 
 template <class T>
-void vtkImageHybridMedian2D(vtkImageHybridMedian2D *self,
+void vtkImageHybridMedian2DExecute(vtkImageHybridMedian2D *self,
                              vtkImageData *inData, T *inPtr2,
                              vtkImageData *outData, T *outPtr2,
                              int outExt[6], int id)
@@ -265,7 +265,7 @@ void vtkImageHybridMedian2D::ThreadedExecute(vtkImageData *inData,
 
   switch (inData->GetScalarType())
     {
-    vtkTemplateMacro7(vtkImageHybridMedian2D, this, inData,
+    vtkTemplateMacro7(vtkImageHybridMedian2DExecute, this, inData,
                       (VTK_TT *)(inPtr), outData, (VTK_TT *)(outPtr),
                       outExt, id);
 
