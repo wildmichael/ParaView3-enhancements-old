@@ -5,8 +5,8 @@
 ##   Program:   Visualization Toolkit
 ##   Module:    $RCSfile: HeaderTesting.py,v $
 ##   Language:  Python
-##   Date:      $Date: 2003-02-03 16:03:46 $
-##   Version:   $Revision: 1.13 $
+##   Date:      $Date: 2003-02-28 20:51:25 $
+##   Version:   $Revision: 1.14 $
 
 ##   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
 ##   All rights reserved.
@@ -164,7 +164,7 @@ class TestVTKFiles:
         pass
     
     def CheckParent(self):
-        classre = "^class\s*VTK_.*EXPORT (vtk[A-Z0-9][^ :\n]*)\s*:\s*public\s*(vtk[^ \n\{]*)"
+        classre = "^class(\s*VTK_.*EXPORT|\s*) (vtk[A-Z0-9][^ :\n]*)\s*:\s*public\s*(vtk[^ \n\{]*)"
         cname = ""
         pname = ""
         classlines = []
@@ -174,9 +174,15 @@ class TestVTKFiles:
             line = string.strip(a)
             rm = regx.match(line)
             if rm:
-                cname = rm.group(1)
-                pname = rm.group(2)
+                export = rm.group(1)
+                export = string.strip(export)
+                cname = rm.group(2)
+                pname = rm.group(3)
                 classlines.append(" %4d: %s" % (cc, line))
+                if not export:
+                    self.Print("File: %s defines 1 class with no export macro:" % self.FileName)
+                    self.Print(" %4d: %s" % (cc, line))
+                    self.Error("No export macro")
             cc = cc + 1
         if len(classlines) > 1:
             self.Print()
