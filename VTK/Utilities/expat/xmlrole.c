@@ -4,9 +4,10 @@ See the file COPYING for copying permission.
 */
 
 static char RCSId[]
-  = "$Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/expat/Attic/xmlrole.c,v 1.4 2002-07-18 18:11:40 king Exp $";
-const char* GetVTKEXpatXMLRole_RCSId()
+  = "$Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/expat/Attic/xmlrole.c,v 1.5 2004-04-26 17:49:20 king Exp $";
+const char* vtk_expat_GetXMLRole_RCSId()
 {
+  /* Avoid warning about unused static without removing RCSId from original. */
   return RCSId;
 }
 
