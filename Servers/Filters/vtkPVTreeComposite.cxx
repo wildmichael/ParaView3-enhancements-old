@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVTreeComposite.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-27 19:26:20 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2002-06-11 13:46:35 $
+  Version:   $Revision: 1.29 $
   
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -53,6 +53,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #endif
 #include "vtkRendererCollection.h"
 #include "vtkRenderWindow.h"
+#include "vtkPVRenderView.h"
+
+vtkCxxSetObjectMacro(vtkPVTreeComposite, RenderView, vtkPVRenderView);
 
 //-------------------------------------------------------------------------
 vtkPVTreeComposite* vtkPVTreeComposite::New()

@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVTreeComposite.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-27 19:26:20 $
-  Version:   $Revision: 1.15 $  
+  Date:      $Date: 2002-06-11 13:46:35 $
+  Version:   $Revision: 1.16 $  
   
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -56,8 +56,8 @@ class vtkMPIController;
 #endif
 
 #include "vtkCompositeManager.h"
-#include "vtkPVRenderView.h"
 
+class vtkPVRenderView;
 
 class VTK_EXPORT vtkPVTreeComposite : public vtkCompositeManager
 {
@@ -74,7 +74,7 @@ public:
   
   // Description:
   // The RenderView has methods for checking for events.
-  vtkSetObjectMacro(RenderView, vtkPVRenderView);
+  virtual void SetRenderView(vtkPVRenderView*);
   vtkGetObjectMacro(RenderView, vtkPVRenderView);
   
   // Description:
