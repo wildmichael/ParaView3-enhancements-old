@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUGFacetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-01-28 10:43:56 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1996-04-30 01:29:40 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -87,10 +87,10 @@ void vtkUGFacetReader::Execute()
     }
 
   // allocate memory
-  newPoints = new vtkFloatPoints(7500,10000);
-  newNormals = new vtkFloatNormals(7500,10000);
+  newPoints = new vtkFloatPoints(25000,25000);
+  newNormals = new vtkFloatNormals(25000,25000);
   newPolys = new vtkCellArray;
-  newPolys->Allocate(newPolys->EstimateSize(2500,3),10000);
+  newPolys->Allocate(newPolys->EstimateSize(25000,3),25000);
 
   // loop over all facet sets, extracting triangles
   for (setNumber=0; setNumber < numFacetSets; setNumber++) 
