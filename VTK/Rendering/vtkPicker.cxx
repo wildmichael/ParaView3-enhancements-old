@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-08 17:29:47 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1998-05-08 18:04:43 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -160,6 +160,7 @@ int vtkPicker::Pick(float selectionX, float selectionY, float selectionZ,
   float *bounds, tol;
   float tF, tB;
   float hitPosition[3];
+  float cameraDOP[3];
   
   // Invoke start pick method if defined
   if ( this->StartPickMethod ) (*this->StartPickMethod)(this->StartPickMethodArg);
@@ -209,13 +210,13 @@ int vtkPicker::Pick(float selectionX, float selectionY, float selectionZ,
   //  intersects the front clipping plane, and terminating where this
   //  line intersects the back clipping plane.
   for (i=0; i<3; i++) ray[i] = this->PickPosition[i] - cameraPos[i];
+  for (i=0; i<3; i++) cameraDOP[i] = cameraFP[i] - cameraPos[i];
 
-  if (( rayLength = vtkMath::Dot(ray,ray)) == 0.0 ) 
+  if (( rayLength = vtkMath::Dot(cameraDOP,ray)) == 0.0 ) 
     {
     vtkWarningMacro("Cannot process points");
     return 0;
     } 
-  else rayLength = sqrt (rayLength);
 
   clipRange = camera->GetClippingRange();
 
