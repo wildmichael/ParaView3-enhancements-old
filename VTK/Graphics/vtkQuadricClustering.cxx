@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadricClustering.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-11-07 18:32:16 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2003-11-11 18:58:56 $
+  Version:   $Revision: 1.58 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #include "vtkTimerLog.h"
 #include "vtkTriangle.h"
 
-vtkCxxRevisionMacro(vtkQuadricClustering, "$Revision: 1.57 $");
+vtkCxxRevisionMacro(vtkQuadricClustering, "$Revision: 1.58 $");
 vtkStandardNewMacro(vtkQuadricClustering);
 
 //----------------------------------------------------------------------------
@@ -1046,6 +1046,21 @@ void vtkQuadricClustering::SetDivisionSpacing(float x, float y, float z)
       this->DivisionSpacing[1] == y && this->DivisionSpacing[2] == z)
     {
     return;
+    }
+  if ( x <= 0 )
+    {
+    vtkErrorMacro( << "Spacing (x) should be larger than 0.0, setting to 1.0" );
+    x = 1.0;
+    }
+  if ( y <= 0 )
+    {
+    vtkErrorMacro( << "Spacing (y) should be larger than 0.0, setting to 1.0" );
+    y = 1.0;
+    }
+  if ( z <= 0 )
+    {
+    vtkErrorMacro( << "Spacing (z) should be larger than 0.0, setting to 1.0" );
+    z = 1.0;
     }
   this->Modified();
   this->DivisionSpacing[0] = x;
