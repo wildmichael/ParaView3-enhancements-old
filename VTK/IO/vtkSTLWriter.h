@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkSTLWriter.h,v $
   Language:  C++
-  Date:      $Date: 1994-06-10 16:55:30 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-07-20 21:44:40 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -15,9 +15,14 @@ without the express written consent of the authors.
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-//
-// Write Stereo Lithography Files
-//
+// .NAME vlSTLWriter - write stereo lithography files
+// .SECTION Description
+// vlSTLWriter writes stereo lithography (.stl) files in either ASCII or 
+// binary form.
+// .SECTION Caveats
+// Binary files written on one system may not be readable on other systems.
+// vlSTLWriter uses VAX or PC byte ordering and swaps bytes on other systems.
+
 #ifndef __vlSTLWriter_h
 #define __vlSTLWriter_h
 
