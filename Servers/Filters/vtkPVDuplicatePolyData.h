@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVDuplicatePolyData.h,v $
   Language:  C++
-  Date:      $Date: 2003-03-18 16:52:45 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-06-13 17:53:39 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -70,6 +70,13 @@ public:
   vtkGetMacro(PassThrough,int);
   vtkBooleanMacro(PassThrough,int);
 
+  // Description:
+  // This flag should be set on all processes when MPI root
+  // is used as client.
+  vtkSetMacro(ZeroEmpty,int);
+  vtkGetMacro(ZeroEmpty,int);
+  vtkBooleanMacro(ZeroEmpty,int);
+
 protected:
   vtkPVDuplicatePolyData();
   ~vtkPVDuplicatePolyData();
@@ -77,7 +84,7 @@ protected:
   // Data generation method
   void ComputeInputUpdateExtents(vtkDataObject *output);
   void Execute();
-  void ClientExecute();
+  void ClientExecute(vtkMultiProcessController* controller);
   void ExecuteInformation();
 
   vtkMultiProcessController *Controller;
@@ -88,6 +95,7 @@ protected:
   int ClientFlag;
 
   int PassThrough;
+  int ZeroEmpty;
 
 private:
   vtkPVDuplicatePolyData(const vtkPVDuplicatePolyData&); // Not implemented
