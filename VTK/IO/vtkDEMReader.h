@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDEMReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-19 19:58:03 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-01-25 12:41:55 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -166,6 +166,7 @@ protected:
   int ReadTypeARecord ();
   int ReadProfiles (vtkImageData *data);
   void Execute();
+  void Execute(vtkImageData *outData) {this->vtkImageSource::Execute(outData);}
 };
 
 #endif
