@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredPointsToStructuredPointsFilter.h,v $
   Language:  C++
-  Date:      $Date: 1994-11-06 19:34:45 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-11-15 11:12:46 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -32,9 +32,20 @@ public:
   char *GetClassName() {return "vlDataSetToStructuredPointsFilter";};
   void PrintSelf(ostream& os, vlIndent indent);
 
+  // Object interface
   void Modified();
   unsigned long int GetMTime();
+  void DebugOn();
+  void DebugOff();
+
+  //DataSet interface
   void Update();
+
+protected:
+  //Filter interface
+  int GetDataReleased();
+  void SetDataReleased(int flag);
+
 };
 
 #endif

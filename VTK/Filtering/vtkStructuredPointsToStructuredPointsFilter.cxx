@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredPointsToStructuredPointsFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-06 19:34:43 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-11-15 11:12:45 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -26,6 +26,28 @@ unsigned long int vlStructuredPointsToStructuredPointsFilter::GetMTime()
   unsigned long dtime = this->vlStructuredPoints::GetMTime();
   unsigned long ftime = this->vlStructuredPointsFilter::_GetMTime();
   return (dtime > ftime ? dtime : ftime);
+}
+
+void vlStructuredPointsToStructuredPointsFilter::DebugOn()
+{
+  vlStructuredPoints::DebugOn();
+  vlStructuredPointsFilter::_DebugOn();
+}
+
+void vlStructuredPointsToStructuredPointsFilter::DebugOff()
+{
+  vlStructuredPoints::DebugOff();
+  vlStructuredPointsFilter::_DebugOff();
+}
+
+int vlStructuredPointsToStructuredPointsFilter::GetDataReleased()
+{
+  return this->DataReleased;
+}
+
+void vlStructuredPointsToStructuredPointsFilter::SetDataReleased(int flag)
+{
+  this->DataReleased = flag;
 }
 
 void vlStructuredPointsToStructuredPointsFilter::Update()

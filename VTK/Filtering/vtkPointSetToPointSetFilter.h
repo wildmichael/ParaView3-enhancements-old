@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointSetToPointSetFilter.h,v $
   Language:  C++
-  Date:      $Date: 1994-11-06 19:34:30 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-11-15 11:12:40 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -49,13 +49,21 @@ public:
 
   void ComputeBounds();
 
+  // Object interface
   void Modified();
   unsigned long int GetMTime();
+  void DebugOn();
+  void DebugOff();
+
+  //DataSet interface
   void Update();
 
 protected:
   vlDataSet *PointSet;
 
+  //Filter interface
+  int GetDataReleased();
+  void SetDataReleased(int flag);
 };
 
 #endif

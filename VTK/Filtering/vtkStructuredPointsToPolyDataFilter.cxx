@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredPointsToPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-06 19:34:40 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-11-15 11:12:43 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -28,9 +28,31 @@ unsigned long int vlStructuredPointsToPolyDataFilter::GetMTime()
   return (dtime > ftime ? dtime : ftime);
 }
 
+void vlStructuredPointsToPolyDataFilter::DebugOn()
+{
+  vlPolyData::DebugOn();
+  vlStructuredPointsFilter::_DebugOn();
+}
+
+void vlStructuredPointsToPolyDataFilter::DebugOff()
+{
+  vlPolyData::DebugOff();
+  vlStructuredPointsFilter::_DebugOff();
+}
+
 void vlStructuredPointsToPolyDataFilter::Update()
 {
   this->UpdateFilter();
+}
+
+int vlStructuredPointsToPolyDataFilter::GetDataReleased()
+{
+  return this->DataReleased;
+}
+
+void vlStructuredPointsToPolyDataFilter::SetDataReleased(int flag)
+{
+  this->DataReleased = flag;
 }
 
 void vlStructuredPointsToPolyDataFilter::PrintSelf(ostream& os, vlIndent indent)

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataSetToUnstructuredGridFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-06 19:37:39 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-11-15 11:12:35 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -28,9 +28,31 @@ unsigned long int vlDataSetToUnstructuredGridFilter::GetMTime()
   return (dtime > ftime ? dtime : ftime);
 }
 
+int vlDataSetToUnstructuredGridFilter::GetDataReleased()
+{
+  return this->DataReleased;
+}
+
+void vlDataSetToUnstructuredGridFilter::SetDataReleased(int flag)
+{
+  this->DataReleased = flag;
+}
+
 void vlDataSetToUnstructuredGridFilter::Update()
 {
   this->UpdateFilter();
+}
+
+void vlDataSetToUnstructuredGridFilter::DebugOn()
+{
+  vlUnstructuredGrid::DebugOn();
+  vlDataSetFilter::_DebugOn();
+}
+
+void vlDataSetToUnstructuredGridFilter::DebugOff()
+{
+  vlUnstructuredGrid::DebugOff();
+  vlDataSetFilter::_DebugOff();
 }
 
 void vlDataSetToUnstructuredGridFilter::PrintSelf(ostream& os, vlIndent indent)

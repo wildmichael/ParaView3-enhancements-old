@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointSetToPointSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-07 10:02:05 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1994-11-15 11:12:39 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -46,6 +46,28 @@ unsigned long int vlPointSetToPointSetFilter::GetMTime()
   unsigned long dtime = this->vlPointSet::GetMTime();
   unsigned long ftime = this->vlPointSetFilter::_GetMTime();
   return (dtime > ftime ? dtime : ftime);
+}
+
+void vlPointSetToPointSetFilter::DebugOn()
+{
+  vlPointSet::DebugOn();
+  vlPointSetFilter::_DebugOn();
+}
+
+void vlPointSetToPointSetFilter::DebugOff()
+{
+  vlPointSet::DebugOff();
+  vlPointSetFilter::_DebugOff();
+}
+
+int vlPointSetToPointSetFilter::GetDataReleased()
+{
+  return this->DataReleased;
+}
+
+void vlPointSetToPointSetFilter::SetDataReleased(int flag)
+{
+  this->DataReleased = flag;
 }
 
 void vlPointSetToPointSetFilter::Update()

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataSetToDataSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-06 19:37:32 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1994-11-15 11:12:29 $
+  Version:   $Revision: 1.15 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -57,11 +57,33 @@ void vlDataSetToDataSetFilter::Modified()
   this->vlDataSetFilter::_Modified();
 }
 
+void vlDataSetToDataSetFilter::DebugOn()
+{
+  vlDataSet::DebugOn();
+  vlDataSetFilter::_DebugOn();
+}
+
+void vlDataSetToDataSetFilter::DebugOff()
+{
+  vlDataSet::DebugOff();
+  vlDataSetFilter::_DebugOff();
+}
+
 unsigned long int vlDataSetToDataSetFilter::GetMTime()
 {
   unsigned long dtime = this->vlDataSet::GetMTime();
   unsigned long ftime = this->vlDataSetFilter::_GetMTime();
   return (dtime > ftime ? dtime : ftime);
+}
+
+int vlDataSetToDataSetFilter::GetDataReleased()
+{
+  return this->DataReleased;
+}
+
+void vlDataSetToDataSetFilter::SetDataReleased(int flag)
+{
+  this->DataReleased = flag;
 }
 
 void vlDataSetToDataSetFilter::Update()
