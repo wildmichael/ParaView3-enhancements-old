@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSampleFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-03-13 18:45:15 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1997-04-04 16:08:53 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -174,6 +174,9 @@ void vtkSampleFunction::Execute()
       {
       p = output->GetPoint(ptId);
       this->ImplicitFunction->FunctionGradient(p, n);
+      n[0] *= -1;
+      n[1] *= -1;
+      n[2] *= -1;
       vtkMath::Normalize(n);
       newNormals->SetNormal(ptId,n);
       }
