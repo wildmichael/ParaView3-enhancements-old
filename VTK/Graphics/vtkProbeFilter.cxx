@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProbeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-18 12:51:57 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 2001-05-18 16:13:03 $
+  Version:   $Revision: 1.62 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -41,6 +41,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 #include "vtkProbeFilter.h"
 #include "vtkObjectFactory.h"
+#include "vtkImageData.h"
 
 //----------------------------------------------------------------------------
 vtkProbeFilter* vtkProbeFilter::New()
