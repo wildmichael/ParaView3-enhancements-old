@@ -4,8 +4,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDICOMImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-11-15 20:53:24 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2003-12-05 18:19:04 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -29,7 +29,7 @@
 #include <vtkstd/vector>
 #include <vtkstd/string>
 
-vtkCxxRevisionMacro(vtkDICOMImageReader, "$Revision: 1.16 $");
+vtkCxxRevisionMacro(vtkDICOMImageReader, "$Revision: 1.17 $");
 vtkStandardNewMacro(vtkDICOMImageReader);
 
 class vtkDICOMImageReaderVector : public vtkstd::vector<vtkstd::string>
@@ -397,7 +397,7 @@ void vtkDICOMImageReader::SetDirectoryName(const char* dn)
   this->Modified(); 
 }
 
-float* vtkDICOMImageReader::GetPixelSpacing()
+double* vtkDICOMImageReader::GetPixelSpacing()
 {
   vtkstd::vector<vtkstd::pair<float, vtkstd::string> > sortedFiles;
     
