@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSeparableConvolution.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:33:24 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-06-14 19:19:23 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkImageSeparableConvolution.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageSeparableConvolution, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkImageSeparableConvolution, "$Revision: 1.10 $");
 vtkStandardNewMacro(vtkImageSeparableConvolution);
 
 // Actually do the convolution
@@ -183,10 +183,10 @@ void vtkImageSeparableConvolution::ComputeInputUpdateExtent(int inExt[6],
 }
 
 template <class T>
-static void vtkImageSeparableConvolutionExecute ( vtkImageSeparableConvolution* self,
-                                                  vtkImageData* inData,
-                                                  vtkImageData* outData,
-                                                  T* vtkNotUsed ( dummy ) )
+void vtkImageSeparableConvolutionExecute ( vtkImageSeparableConvolution* self,
+                                           vtkImageData* inData,
+                                           vtkImageData* outData,
+                                           T* vtkNotUsed ( dummy ) )
 {
   T *inPtr0, *inPtr1, *inPtr2;
   float *outPtr0, *outPtr1, *outPtr2;

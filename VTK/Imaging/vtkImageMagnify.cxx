@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMagnify.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:32:56 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2002-06-14 19:19:23 $
+  Version:   $Revision: 1.41 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkImageMagnify.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageMagnify, "$Revision: 1.40 $");
+vtkCxxRevisionMacro(vtkImageMagnify, "$Revision: 1.41 $");
 vtkStandardNewMacro(vtkImageMagnify);
 
 //----------------------------------------------------------------------------
@@ -88,10 +88,10 @@ void vtkImageMagnify::ComputeInputUpdateExtent(int inExt[6],
 // 2d even though operation is 1d.
 // Note: Slight misalignment (pixel replication is not nearest neighbor).
 template <class T>
-static void vtkImageMagnifyExecute(vtkImageMagnify *self,
-                                  vtkImageData *inData, T *inPtr, int inExt[6],
-                                  vtkImageData *outData, T *outPtr,
-                                  int outExt[6], int id)
+void vtkImageMagnifyExecute(vtkImageMagnify *self,
+                            vtkImageData *inData, T *inPtr, int inExt[6],
+                            vtkImageData *outData, T *outPtr,
+                            int outExt[6], int id)
 {
   int idxC, idxX, idxY, idxZ;
   int inIdxX, inIdxY, inIdxZ;

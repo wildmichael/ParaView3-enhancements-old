@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSobel2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:33:29 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-06-14 19:19:23 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageSobel2D, "$Revision: 1.24 $");
+vtkCxxRevisionMacro(vtkImageSobel2D, "$Revision: 1.25 $");
 vtkStandardNewMacro(vtkImageSobel2D);
 
 //----------------------------------------------------------------------------
@@ -59,10 +59,10 @@ void vtkImageSobel2D::ExecuteInformation(vtkImageData *vtkNotUsed(inData),
 // it handles boundaries. Pixels are just replicated to get values 
 // out of extent.
 template <class T>
-static void vtkImageSobel2DExecute(vtkImageSobel2D *self,
-                                   vtkImageData *inData, T *inPtr, 
-                                   vtkImageData *outData, int *outExt, 
-                                   float *outPtr, int id)
+void vtkImageSobel2DExecute(vtkImageSobel2D *self,
+                            vtkImageData *inData, T *inPtr, 
+                            vtkImageData *outData, int *outExt, 
+                            float *outPtr, int id)
 {
   float r0, r1, *r;
   // For looping though output (and input) pixels.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangularTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-12 17:33:45 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-06-14 19:19:23 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkUnsignedCharArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkTriangularTexture, "$Revision: 1.20 $");
+vtkCxxRevisionMacro(vtkTriangularTexture, "$Revision: 1.21 $");
 vtkStandardNewMacro(vtkTriangularTexture);
 
 // Instantiate object with XSize and YSize = 64; the texture pattern =1
@@ -33,8 +33,8 @@ vtkTriangularTexture::vtkTriangularTexture()
   this->ScaleFactor = 1.0;
 }
 
-static void OpaqueAtElementCentroid (int XSize, int YSize, float ScaleFactor, 
-                                     vtkUnsignedCharArray *newScalars)
+void vtkOpaqueAtElementCentroid (int XSize, int YSize, float ScaleFactor, 
+                                 vtkUnsignedCharArray *newScalars)
 {
   int i, j;
   float opacity;
@@ -84,8 +84,8 @@ static void OpaqueAtElementCentroid (int XSize, int YSize, float ScaleFactor,
     }
 }
 
-static void OpaqueAtVertices (int XSize, int YSize, float ScaleFactor, 
-                              vtkUnsignedCharArray *newScalars)
+void vtkOpaqueAtVertices (int XSize, int YSize, float ScaleFactor, 
+                          vtkUnsignedCharArray *newScalars)
 {
   int i, j;
   float opacity;
@@ -161,11 +161,13 @@ void vtkTriangularTexture::ExecuteData(vtkDataObject *outp)
   switch (this->TexturePattern) 
     {
     case 1: // opaque at element vertices
-      OpaqueAtVertices (this->XSize, this->YSize, this->ScaleFactor, newScalars);
+      vtkOpaqueAtVertices (this->XSize, this->YSize, 
+                           this->ScaleFactor, newScalars);
       break;
 
     case 2: // opaque at element centroid
-      OpaqueAtElementCentroid (this->XSize, this->YSize, this->ScaleFactor, newScalars);
+      vtkOpaqueAtElementCentroid (this->XSize, this->YSize, 
+                                  this->ScaleFactor, newScalars);
       break;
 
     case 3: // opaque in rings around vertices

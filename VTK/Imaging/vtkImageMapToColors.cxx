@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapToColors.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:32:59 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-06-14 19:19:23 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkImageMapToColors.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageMapToColors, "$Revision: 1.17 $");
+vtkCxxRevisionMacro(vtkImageMapToColors, "$Revision: 1.18 $");
 vtkStandardNewMacro(vtkImageMapToColors);
 
 //----------------------------------------------------------------------------
@@ -134,11 +134,11 @@ void vtkImageMapToColors::ExecuteInformation(vtkImageData *inData,
 //----------------------------------------------------------------------------
 // This non-templated function executes the filter for any type of data.
 
-static void vtkImageMapToColorsExecute(vtkImageMapToColors *self,
-                                       vtkImageData *inData, void *inPtr,
-                                       vtkImageData *outData, 
-                                       unsigned char *outPtr,
-                                       int outExt[6], int id)
+void vtkImageMapToColorsExecute(vtkImageMapToColors *self,
+                                vtkImageData *inData, void *inPtr,
+                                vtkImageData *outData, 
+                                unsigned char *outPtr,
+                                int outExt[6], int id)
 {
   int idxY, idxZ;
   int extX, extY, extZ;

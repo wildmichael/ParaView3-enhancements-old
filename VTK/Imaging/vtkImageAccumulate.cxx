@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAccumulate.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-22 17:52:33 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2002-06-14 19:19:23 $
+  Version:   $Revision: 1.46 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include <math.h>
 #include <stdlib.h>
 
-vtkCxxRevisionMacro(vtkImageAccumulate, "$Revision: 1.45 $");
+vtkCxxRevisionMacro(vtkImageAccumulate, "$Revision: 1.46 $");
 vtkStandardNewMacro(vtkImageAccumulate);
 
 //----------------------------------------------------------------------------
@@ -124,14 +124,13 @@ vtkImageStencilData *vtkImageAccumulate::GetStencil()
 //----------------------------------------------------------------------------
 // This templated function executes the filter for any type of data.
 template <class T>
-static void vtkImageAccumulateExecute(vtkImageAccumulate *self,
-                                      vtkImageData *inData, T *inPtr,
-                                      vtkImageData *outData, int *outPtr,
-                                      double Min[3],
-                                      double Max[3],
-                                      double Mean[3],
-                                      double StandardDeviation[3],
-                                      long int *VoxelCount)
+void vtkImageAccumulateExecute(vtkImageAccumulate *self,
+                               vtkImageData *inData, T *inPtr,
+                               vtkImageData *outData, int *outPtr,
+                               double Min[3], double Max[3],
+                               double Mean[3],
+                               double StandardDeviation[3],
+                               long int *VoxelCount)
 {
   int idX, idY, idZ, idxC;
   int iter, pmin0, pmax0, min0, max0, min1, max1, min2, max2;

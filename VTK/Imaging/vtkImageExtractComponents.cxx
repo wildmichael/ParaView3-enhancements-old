@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageExtractComponents.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:32:29 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2002-06-14 19:19:23 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageExtractComponents, "$Revision: 1.25 $");
+vtkCxxRevisionMacro(vtkImageExtractComponents, "$Revision: 1.26 $");
 vtkStandardNewMacro(vtkImageExtractComponents);
 
 //----------------------------------------------------------------------------
@@ -111,10 +111,10 @@ void vtkImageExtractComponents::ExecuteInformation(
 
 //----------------------------------------------------------------------------
 template <class T>
-static void vtkImageExtractComponentsExecute(vtkImageExtractComponents *self,
-                                             vtkImageData *inData, T *inPtr,
-                                             vtkImageData *outData, T *outPtr,
-                                             int outExt[6], int id)
+void vtkImageExtractComponentsExecute(vtkImageExtractComponents *self,
+                                      vtkImageData *inData, T *inPtr,
+                                      vtkImageData *outData, T *outPtr,
+                                      int outExt[6], int id)
 {
   int idxR, idxY, idxZ;
   int maxX, maxY, maxZ;

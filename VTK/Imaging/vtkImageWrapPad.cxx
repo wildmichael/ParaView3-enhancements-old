@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWrapPad.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:33:40 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-06-14 19:19:23 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkImageWrapPad.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageWrapPad, "$Revision: 1.23 $");
+vtkCxxRevisionMacro(vtkImageWrapPad, "$Revision: 1.24 $");
 vtkStandardNewMacro(vtkImageWrapPad);
 
 //----------------------------------------------------------------------------
@@ -69,10 +69,10 @@ void vtkImageWrapPad::ComputeInputUpdateExtent(int inExt[6],
 //----------------------------------------------------------------------------
 // This templated function executes the filter for any type of data.
 template <class T>
-static void vtkImageWrapPadExecute(vtkImageWrapPad *self,
-                                   vtkImageData *inData, T *vtkNotUsed(inPtr),
-                                   vtkImageData *outData, T *outPtr,
-                                   int outExt[6], int id)
+void vtkImageWrapPadExecute(vtkImageWrapPad *self,
+                            vtkImageData *inData, T *vtkNotUsed(inPtr),
+                            vtkImageData *outData, T *outPtr,
+                            int outExt[6], int id)
 {
   int min0, max0;
   int imageMin0, imageMax0, imageMin1, imageMax1, 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageRange3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:33:19 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2002-06-14 19:19:23 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkImageData.h"
 
-vtkCxxRevisionMacro(vtkImageRange3D, "$Revision: 1.22 $");
+vtkCxxRevisionMacro(vtkImageRange3D, "$Revision: 1.23 $");
 vtkStandardNewMacro(vtkImageRange3D);
 
 //----------------------------------------------------------------------------
@@ -117,11 +117,11 @@ void vtkImageRange3D::ExecuteInformation(vtkImageData *vtkNotUsed(inData),
 // If the filter needs to be faster, the function could be duplicated
 // for strictly center (no boundary ) processing.
 template <class T>
-static void vtkImageRange3DExecute(vtkImageRange3D *self,
-                                   vtkImageData *mask,
-                                   vtkImageData *inData, T *inPtr, 
-                                   vtkImageData *outData, int *outExt, 
-                                   float *outPtr, int id)
+void vtkImageRange3DExecute(vtkImageRange3D *self,
+                            vtkImageData *mask,
+                            vtkImageData *inData, T *inPtr, 
+                            vtkImageData *outData, int *outExt, 
+                            float *outPtr, int id)
 {
   int *kernelMiddle, *kernelSize;
   // For looping though output (and input) pixels.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageThreshold.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-06 19:45:55 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2002-06-14 19:19:23 $
+  Version:   $Revision: 1.39 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkImageProgressIterator.h"
 
-vtkCxxRevisionMacro(vtkImageThreshold, "$Revision: 1.38 $");
+vtkCxxRevisionMacro(vtkImageThreshold, "$Revision: 1.39 $");
 vtkStandardNewMacro(vtkImageThreshold);
 
 //----------------------------------------------------------------------------
@@ -118,10 +118,10 @@ void vtkImageThreshold::ExecuteInformation(vtkImageData *inData,
 //----------------------------------------------------------------------------
 // This templated function executes the filter for any type of data.
 template <class IT, class OT>
-static void vtkImageThresholdExecute(vtkImageThreshold *self,
-                                     vtkImageData *inData,
-                                     vtkImageData *outData, 
-                                     int outExt[6], int id, IT *, OT *)
+void vtkImageThresholdExecute(vtkImageThreshold *self,
+                              vtkImageData *inData,
+                              vtkImageData *outData, 
+                              int outExt[6], int id, IT *, OT *)
 {
   vtkImageIterator<IT> inIt(inData, outExt);
   vtkImageProgressIterator<OT> outIt(outData, outExt, self, id);
@@ -230,10 +230,10 @@ static void vtkImageThresholdExecute(vtkImageThreshold *self,
 
 //----------------------------------------------------------------------------
 template <class T>
-static void vtkImageThresholdExecute1(vtkImageThreshold *self,
-                                      vtkImageData *inData,
-                                      vtkImageData *outData,
-                                      int outExt[6], int id, T *)
+void vtkImageThresholdExecute1(vtkImageThreshold *self,
+                               vtkImageData *inData,
+                               vtkImageData *outData,
+                               int outExt[6], int id, T *)
 {
   switch (outData->GetScalarType())
     {
