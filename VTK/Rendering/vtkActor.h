@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkActor.h,v $
   Language:  C++
-  Date:      $Date: 1995-01-05 13:39:46 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1995-05-08 18:13:20 $
+  Version:   $Revision: 1.15 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -47,10 +47,11 @@ class vlActor : public vlObject
 
   // Description:
   // Specify the property object to control rendering surface properties.
-  vlSetObjectMacro(Property,vlProperty);
+  void SetProperty(vlProperty *lut);
+  void SetProperty(vlProperty& lut) {this->SetProperty(&lut);};
   // Description:
   // Get the property object that controls rendering surface properties.
-  vlGetObjectMacro(Property,vlProperty);
+  vlProperty *GetProperty();
 
   // Description:
   // Specify the Texture object to control rendering texture.
@@ -171,6 +172,7 @@ protected:
   int   Dragable;
   vlTransform Transform;
   float Bounds[6];
+  int SelfCreatedProperty;
 };
 
 #endif

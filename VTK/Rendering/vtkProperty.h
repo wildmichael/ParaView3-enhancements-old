@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkProperty.h,v $
   Language:  C++
-  Date:      $Date: 1995-01-05 13:40:26 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-05-08 18:13:33 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -32,6 +32,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #include "StrPts.hh"
 
 class vlRenderer;
+class vlPropertyDevice;
 
 class vlProperty : public vlObject
 {
@@ -44,7 +45,7 @@ public:
   // Abstract interface to renderer. Each concrete subclass of vlProperty
   // will load its data into graphics system in response to this method
   // invocation.
-  virtual void Render(vlRenderer *ren) = 0;
+  virtual void Render(vlRenderer *ren);
 
   void SetFlat (void);
   void SetGouraud (void);
@@ -133,6 +134,7 @@ protected:
   int   Representation;
   int   EdgeVisibility;
   int   Backface;
+  vlPropertyDevice *Device;
 };
 
 #endif

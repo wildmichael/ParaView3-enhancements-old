@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-04-20 10:31:01 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1995-05-08 18:13:38 $
+  Version:   $Revision: 1.28 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -133,7 +133,7 @@ void vlRenderer::DoLights()
   if (!this->UpdateLights())
     {
     vlWarningMacro(<<"No lights are on, creating one.");
-    light1 = this->RenderWindow->MakeLight();
+    light1 = new vlLight;
     this->AddLights(light1);
     light1->SetPosition(this->ActiveCamera->GetPosition());
     light1->SetFocalPoint(this->ActiveCamera->GetFocalPoint());
@@ -150,7 +150,7 @@ void vlRenderer::DoCameras()
   if (!this->UpdateCameras())
     {
     vlWarningMacro(<< "No cameras are on, creating one.");
-    cam1 = this->RenderWindow->MakeCamera();
+    cam1 = new vlCamera;
     this->SetActiveCamera(cam1);
     this->ResetCamera();
     this->UpdateCameras();

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1995-05-02 13:26:33 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1995-05-08 18:13:37 $
+  Version:   $Revision: 1.14 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -30,6 +30,10 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #include "RenderC.hh"
 
 class vlRenderWindowInteractor;
+class vlLightDevice;
+class vlCameraDevice;
+class vlTextureDevice;
+class vlPropertyDevice;
 
 // lets define the diferent types of stereo
 #define VL_STEREO_CRYSTAL_EYES 1
@@ -65,24 +69,20 @@ public:
   virtual vlRenderer  *MakeRenderer() = 0;
 
   // Description:
-  // Create a device specific actor.
-  virtual vlActor     *MakeActor() = 0;
-
-  // Description:
   // Create a device specific light.
-  virtual vlLight     *MakeLight() = 0;
+  virtual vlLightDevice *MakeLight() = 0;
 
   // Description:
   // Create a device specific camera.
-  virtual vlCamera    *MakeCamera() = 0;
+  virtual vlCameraDevice    *MakeCamera() = 0;
 
   // Description:
   // Create a device specific property.
-  virtual vlProperty    *MakeProperty() = 0;
+  virtual vlPropertyDevice    *MakeProperty() = 0;
 
   // Description:
   // Create a device specific texture.
-  virtual vlTexture     *MakeTexture() = 0;
+  virtual vlTextureDevice     *MakeTexture() = 0;
 
   // Description:
   // Create an interactor to control renderers in this window.

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-01-05 10:54:21 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1995-05-08 18:13:39 $
+  Version:   $Revision: 1.2 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -15,6 +15,9 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 =========================================================================*/
 #include <stdlib.h>
 #include "Texture.hh"
+#include "Renderer.hh"
+#include "RenderW.hh"
+#include "TextDev.hh"
 
 // Description:
 // Construct object and initialize.
@@ -24,6 +27,16 @@ vlTexture::vlTexture()
   this->Interpolate = 0;
 
   this->Input = NULL;
+  this->Device = NULL;
+}
+
+void vlTexture::Load(vlRenderer *ren)
+{
+  if (!this->Device)
+    {
+    this->Device = ren->GetRenderWindow()->MakeTexture();
+    }
+  this->Device->Load(this,ren);
 }
 
 void vlTexture::PrintSelf(ostream& os, vlIndent indent)

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTexture.h,v $
   Language:  C++
-  Date:      $Date: 1995-01-05 10:54:14 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1995-05-08 18:13:40 $
+  Version:   $Revision: 1.2 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -32,6 +32,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #include "StrPts.hh"
 
 class vlRenderer;
+class vlTextureDevice;
 
 class vlTexture : public vlObject
 {
@@ -49,7 +50,7 @@ public:
   // Abstract interface to renderer. Each concrete subclass of vlTexture
   // will load its data into graphics system in response to this method
   // invocation.
-  virtual void Load(vlRenderer *ren) = 0;
+  virtual void Load(vlRenderer *ren);
 
   // Description:
   // Turn on/off the repetition of the texture map when the texture
@@ -73,6 +74,7 @@ protected:
   int   Repeat;
   int   Interpolate;
   vlStructuredPoints *Input;
+  vlTextureDevice *Device;
 };
 
 #endif

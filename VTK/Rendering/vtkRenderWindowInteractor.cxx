@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-02-20 15:37:44 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-05-08 18:13:29 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -108,7 +108,7 @@ void vlRenderWindowInteractor::HighlightActor(vlActor *actor)
   if ( ! this->OutlineActor )
     {
     // have to defer creation to get right type
-    this->OutlineActor = this->RenderWindow->MakeActor();
+    this->OutlineActor = new vlActor;
     this->OutlineActor->PickableOff();
     this->OutlineActor->DragableOff();
     this->OutlineActor->SetMapper(this->OutlineMapper);

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCamera.h,v $
   Language:  C++
-  Date:      $Date: 1995-01-05 13:41:31 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-05-08 18:13:24 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -29,6 +29,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #include "Trans.hh"
 
 class vlRenderer;
+class vlCameraDevice;
 
 class vlCamera : public vlObject
 {
@@ -57,7 +58,7 @@ class vlCamera : public vlObject
   // Abstract interface to renderer. Each concrete subclass of vlCamera
   // will load its data into graphics system in response to this method
   // invocation.
-  virtual void Render(vlRenderer *ren) = 0;
+  virtual void Render(vlRenderer *ren);
 
   // Description:
   // Set the camera view angle (i.e., the width of view in degrees). Larger
@@ -82,6 +83,9 @@ class vlCamera : public vlObject
   // Description:
   // Get the size of the cameras lense in world coordinates.
   vlGetMacro(FocalDisk,float);
+
+  vlSetMacro(LeftEye,int);
+  vlGetMacro(LeftEye,int);
 
   void SetThickness(float);
   vlGetMacro(Thickness,float);
@@ -138,6 +142,7 @@ class vlCamera : public vlObject
   vlTransform PerspectiveTransform;
   float Orientation[3];
   float FocalDisk;
+  vlCameraDevice *Device;
 };
 
 #endif

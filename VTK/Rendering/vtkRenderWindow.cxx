@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-05-02 13:26:34 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1995-05-08 18:13:35 $
+  Version:   $Revision: 1.16 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express

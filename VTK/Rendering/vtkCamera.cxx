@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-04-10 09:41:44 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1995-05-08 18:13:25 $
+  Version:   $Revision: 1.20 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -16,6 +16,9 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #include <math.h>
 #include "Camera.hh"
 #include "vlMath.hh"
+#include "Renderer.hh"
+#include "RenderW.hh"
+#include "CamDev.hh"
 
 // Description:
 // Construct camera instance with its focal point at the origin, 
@@ -56,6 +59,16 @@ vlCamera::vlCamera()
   this->Orientation[2] = 0.0;
   
   this->FocalDisk = 1.0;
+  this->Device = NULL;
+}
+
+void vlCamera::Render(vlRenderer *ren)
+{
+  if (!this->Device)
+    {
+    this->Device = ren->GetRenderWindow()->MakeCamera();
+    }
+  this->Device->Render(this,ren);
 }
 
 // Description:
