@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBandedPolyDataContourFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-10 21:41:40 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-01-11 17:48:54 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -113,6 +113,7 @@ protected:
 
   void Execute();
 
+  int ComputeIndex(float,float);
   int ComputeLowerScalarIndex(float);
   int ComputeUpperScalarIndex(float);
   int IsContourValue(float val);
