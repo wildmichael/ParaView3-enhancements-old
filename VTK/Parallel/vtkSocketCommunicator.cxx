@@ -1,18 +1,15 @@
 /*=========================================================================
 
-Program:   Visualization Toolkit
-Module:    $RCSfile: vtkSocketCommunicator.cxx,v $
-Language:  C++
-Date:      $Date: 2003-10-17 11:12:07 $
-Version:   $Revision: 1.43 $
+  Program:   Visualization Toolkit
+  Module:    $RCSfile: vtkSocketCommunicator.cxx,v $
 
-Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
-All rights reserved.
-See Copyright.txt or http://www.kitware.com/Copyright.htm for details.
+  Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen
+  All rights reserved.
+  See Copyright.txt or http://www.kitware.com/Copyright.htm for details.
 
-This software is distributed WITHOUT ANY WARRANTY; without even 
-the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR 
-PURPOSE.  See the above copyright notice for more information.
+     This software is distributed WITHOUT ANY WARRANTY; without even
+     the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+     PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
 #include "vtkSocketCommunicator.h"
@@ -38,7 +35,7 @@ PURPOSE.  See the above copyright notice for more information.
 #define vtkCloseSocketMacro(sock) (close(sock))
 #endif
 
-vtkCxxRevisionMacro(vtkSocketCommunicator, "$Revision: 1.43 $");
+vtkCxxRevisionMacro(vtkSocketCommunicator, "$Revision: 1.44 $");
 vtkStandardNewMacro(vtkSocketCommunicator);
 
 //----------------------------------------------------------------------------

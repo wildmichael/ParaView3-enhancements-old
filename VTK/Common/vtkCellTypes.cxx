@@ -2,23 +2,20 @@
 
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellTypes.cxx,v $
-  Language:  C++
-  Date:      $Date: 2002-01-22 15:25:14 $
-  Version:   $Revision: 1.19 $
 
-  Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
+  Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
   See Copyright.txt or http://www.kitware.com/Copyright.htm for details.
 
-     This software is distributed WITHOUT ANY WARRANTY; without even 
-     the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR 
+     This software is distributed WITHOUT ANY WARRANTY; without even
+     the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
 #include "vtkCellTypes.h"
 #include "vtkObjectFactory.h"  
 
-vtkCxxRevisionMacro(vtkCellTypes, "$Revision: 1.19 $");
+vtkCxxRevisionMacro(vtkCellTypes, "$Revision: 1.20 $");
 vtkStandardNewMacro(vtkCellTypes);
 
 vtkCellTypes::vtkCellTypes ()

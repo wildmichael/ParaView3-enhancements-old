@@ -2,23 +2,20 @@
 
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowCollection.cxx,v $
-  Language:  C++
-  Date:      $Date: 2002-08-22 18:39:31 $
-  Version:   $Revision: 1.7 $
 
-  Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
+  Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
   See Copyright.txt or http://www.kitware.com/Copyright.htm for details.
 
-     This software is distributed WITHOUT ANY WARRANTY; without even 
-     the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR 
+     This software is distributed WITHOUT ANY WARRANTY; without even
+     the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
 #include "vtkRenderWindowCollection.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkRenderWindowCollection, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkRenderWindowCollection, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkRenderWindowCollection);
 
 void vtkRenderWindowCollection::PrintSelf(ostream& os, vtkIndent indent)

@@ -2,16 +2,13 @@
 
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFoo.cxx,v $
-  Language:  C++
-  Date:      $Date: 2003-08-20 14:35:25 $
-  Version:   $Revision: 1.6 $
 
-  Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
+  Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
   See Copyright.txt or http://www.kitware.com/Copyright.htm for details.
 
-     This software is distributed WITHOUT ANY WARRANTY; without even 
-     the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR 
+     This software is distributed WITHOUT ANY WARRANTY; without even
+     the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
@@ -24,7 +21,7 @@
 
 //----------------------------------------------------------------------------
 
-vtkCxxRevisionMacro(vtkImageFoo, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkImageFoo, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkImageFoo);
 
 //----------------------------------------------------------------------------

@@ -2,16 +2,13 @@
 
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPIEventLog.cxx,v $
-  Language:  C++
-  Date:      $Date: 2002-01-22 15:34:37 $
-  Version:   $Revision: 1.6 $
 
-  Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
+  Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
   See Copyright.txt or http://www.kitware.com/Copyright.htm for details.
 
-     This software is distributed WITHOUT ANY WARRANTY; without even 
-     the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR 
+     This software is distributed WITHOUT ANY WARRANTY; without even
+     the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
@@ -23,7 +20,7 @@
 
 int vtkMPIEventLog::LastEventId = 0;
 
-vtkCxxRevisionMacro(vtkMPIEventLog, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkMPIEventLog, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkMPIEventLog);
 
 void vtkMPIEventLog::PrintSelf(ostream& os, vtkIndent indent)

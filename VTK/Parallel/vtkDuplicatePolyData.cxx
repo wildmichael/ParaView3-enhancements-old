@@ -2,16 +2,13 @@
 
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDuplicatePolyData.cxx,v $
-  Language:  C++
-  Date:      $Date: 2003-03-14 21:12:49 $
-  Version:   $Revision: 1.2 $
 
-  Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
+  Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
   See Copyright.txt or http://www.kitware.com/Copyright.htm for details.
 
-     This software is distributed WITHOUT ANY WARRANTY; without even 
-     the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR 
+     This software is distributed WITHOUT ANY WARRANTY; without even
+     the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
@@ -25,7 +22,7 @@
 #include "vtkPolyData.h"
 #include "vtkSocketController.h"
 
-vtkCxxRevisionMacro(vtkDuplicatePolyData, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkDuplicatePolyData, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkDuplicatePolyData);
 
 vtkCxxSetObjectMacro(vtkDuplicatePolyData,Controller, vtkMultiProcessController);

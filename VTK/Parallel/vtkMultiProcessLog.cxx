@@ -2,16 +2,13 @@
 
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiProcessLog.cxx,v $
-  Language:  C++
-  Date:      $Date: 2003-07-22 19:26:23 $
-  Version:   $Revision: 1.5 $
 
-  Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
+  Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
   See Copyright.txt or http://www.kitware.com/Copyright.htm for details.
 
-     This software is distributed WITHOUT ANY WARRANTY; without even 
-     the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR 
+     This software is distributed WITHOUT ANY WARRANTY; without even
+     the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
@@ -25,7 +22,7 @@
 // A log for each process.
 vtkThreadSafeLog *VTK_TIMER_LOGS[VTK_MULTI_PROCESS_LOG_MAX];
 
-vtkCxxRevisionMacro(vtkMultiProcessLog, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkMultiProcessLog, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkMultiProcessLog);
 
 //----------------------------------------------------------------------------

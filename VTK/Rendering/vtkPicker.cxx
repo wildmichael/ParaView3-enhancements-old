@@ -2,16 +2,13 @@
 
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPicker.cxx,v $
-  Language:  C++
-  Date:      $Date: 2003-06-18 10:56:26 $
-  Version:   $Revision: 1.79 $
 
-  Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
+  Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
   See Copyright.txt or http://www.kitware.com/Copyright.htm for details.
 
-     This software is distributed WITHOUT ANY WARRANTY; without even 
-     the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR 
+     This software is distributed WITHOUT ANY WARRANTY; without even
+     the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
@@ -38,7 +35,7 @@
 #include "vtkVolumeMapper.h"
 #include "vtkBox.h"
 
-vtkCxxRevisionMacro(vtkPicker, "$Revision: 1.79 $");
+vtkCxxRevisionMacro(vtkPicker, "$Revision: 1.80 $");
 vtkStandardNewMacro(vtkPicker);
 
 // Construct object with initial tolerance of 1/40th of window. There are no

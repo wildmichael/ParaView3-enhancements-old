@@ -2,23 +2,20 @@
 
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInstantiator.cxx,v $
-  Language:  C++
-  Date:      $Date: 2002-09-18 19:41:31 $
-  Version:   $Revision: 1.5 $
 
-  Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
+  Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
   See Copyright.txt or http://www.kitware.com/Copyright.htm for details.
 
-     This software is distributed WITHOUT ANY WARRANTY; without even 
-     the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR 
+     This software is distributed WITHOUT ANY WARRANTY; without even
+     the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
 #include "vtkInstantiator.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkInstantiator, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkInstantiator, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkInstantiator);
 
 // Node in hash table.
