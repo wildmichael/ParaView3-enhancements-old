@@ -1,19 +1,17 @@
 /*=========================================================================
 
-
   Program:   Visualization Library
   Module:    $RCSfile: vtkTimeStamp.h,v $
   Language:  C++
+  Date:      $Date: 1994-02-04 12:42:31 $
+  Version:   $Revision: 1.7 $
 
-Date:      $Date: 1994-02-03 12:58:54 $
-  Version:   $Revision: 1.6 $
-
-This file is part of the Visualization
-Library. No part of this file or its
-contents may be copied, reproduced or
-altered in any way without the express
+This file is part of the Visualization Library. No part of this file or its 
+contents may be copied, reproduced or altered in any way without the express
 written consent of the authors.
-Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
+
+Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
+
 =========================================================================*/
 //
 // Classes that need to keep track of modification / execution time use

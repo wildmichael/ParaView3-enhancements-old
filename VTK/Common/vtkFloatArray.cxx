@@ -1,3 +1,18 @@
+/*=========================================================================
+
+  Program:   Visualization Library
+  Module:    $RCSfile: vtkFloatArray.cxx,v $
+  Language:  C++
+  Date:      $Date: 1994-02-04 12:42:19 $
+  Version:   $Revision: 1.6 $
+
+This file is part of the Visualization Library. No part of this file or its 
+contents may be copied, reproduced or altered in any way without the express
+written consent of the authors.
+
+Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
+
+=========================================================================*/
 //
 //  Dynamic, self adjusting floating point array
 //
@@ -82,14 +97,14 @@ vlFloatArray& vlFloatArray::operator+=(const vlFloatArray& fa)
 
   return *this;
 }
-void vlFloatArray::PrintSelf(ostream& os)
+void vlFloatArray::PrintSelf(ostream& os, vlIndent indent)
 {
-  os << "    Array: " << this->Array << "\n";
-  os << "    Size: " << this->Size << "\n";
-  os << "    MaxId: " << this->MaxId << "\n";
-  os << "    Extend size: " << this->Extend << "\n";
+  vlObject::PrintSelf(os,indent);
 
-  vlObject::PrintSelf(os);
+  os << indent << "Array: " << this->Array << "\n";
+  os << indent << "Size: " << this->Size << "\n";
+  os << indent << "MaxId: " << this->MaxId << "\n";
+  os << indent << "Extend size: " << this->Extend << "\n";
 }
 
 //
