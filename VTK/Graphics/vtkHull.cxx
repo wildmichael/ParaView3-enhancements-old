@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHull.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-02 16:09:06 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2001-02-28 12:49:54 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -540,10 +540,12 @@ void vtkHull::Execute()
   // Compute the D value for each plane according to the vertices in the
   // geometry
   this->ComputePlaneDistances();
+  this->UpdateProgress(0.25);
 
   // Create a large polygon representing each plane, and clip that polygon
   // against all other planes to form the polygons of the hull.
   this->ClipPolygonsFromPlanes( outPoints, outPolys, bounds );
+  this->UpdateProgress(0.80);
 
   // Set the output vertices and polygons
   output->SetPoints( outPoints );

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractPolyDataGeometry.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:37 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-02-28 12:49:54 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -171,24 +171,18 @@ void vtkExtractPolyDataGeometry::Execute()
   output->Allocate(numCells);
   outputCD->CopyAllocate(cd);
 
-  updateInterval = numCells / 1000;
-  if (updateInterval < 1)
-    {
-    updateInterval = 1;
-    }
+  updateInterval = numCells/20 + 1;
+  int abort=0;
 
   // Loop over all cells inserting those that are "in"
-  for (cellId=0; cellId < numCells; cellId++)
+  for (cellId=0; cellId < numCells && !abort; cellId++)
     {
 
     //manage progress reports / early abort
-    if ( ! (cellId % updateInterval) ) 
+    if ( !(cellId % updateInterval) ) 
       {
       this->UpdateProgress ((float)cellId / numCells);
-      if ( this->GetAbortExecute() ) 
-        {
-        break;
-        }
+      abort = this->GetAbortExecute();
       }
 
     //check to see whether points are inside
