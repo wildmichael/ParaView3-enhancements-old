@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNGReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 19:44:35 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2003-08-19 08:02:57 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -45,7 +45,7 @@ protected:
   // Get the file extensions for this format.
   // Returns a string with a space separated list of extensions in 
   // the format .extension
-  virtual const char* GetFileExensions()
+  virtual const char* GetFileExtensions()
     {
       return ".png";
     }

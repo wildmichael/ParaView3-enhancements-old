@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader2.h,v $
   Language:  C++
-  Date:      $Date: 2003-07-23 14:23:57 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2003-08-19 08:02:57 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -194,7 +194,7 @@ public:
   // Get the file extensions for this format.
   // Returns a string with a space separated list of extensions in 
   // the format .extension
-  virtual const char* GetFileExensions()
+  virtual const char* GetFileExtensions()
     {
       return 0;
     }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNMReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 19:44:35 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2003-08-19 08:02:57 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -48,7 +48,7 @@ public:
   int CanReadFile(const char* fname); 
   // Description:
   // .pnm .pgm .ppm
-  virtual const char* GetFileExensions()
+  virtual const char* GetFileExtensions()
     {
       return ".pnm .pgm .ppm";
     }

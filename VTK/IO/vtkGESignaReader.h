@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGESignaReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 19:44:35 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2003-08-19 08:02:57 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -46,7 +46,7 @@ public:
 
   // Description:
   // Valid extentsions
-  virtual const char* GetFileExensions()
+  virtual const char* GetFileExtensions()
     {
       return ".MR .CT";
     }
