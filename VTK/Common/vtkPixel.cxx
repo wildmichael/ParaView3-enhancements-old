@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPixel.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-05-29 07:59:12 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1995-05-30 11:33:02 $
+  Version:   $Revision: 1.14 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -183,7 +183,7 @@ void vlPixel::Contour(float value, vlFloatScalars *cellScalars,
                      vlCellArray *lines, vlCellArray *polys, 
                      vlFloatScalars *scalars)
 {
-  static int CASE_MASK[4] = {1,2,4,8};
+  static int CASE_MASK[4] = {1,2,8,4}; //note difference!
   LINE_CASES *lineCase;
   EDGE_LIST  *edge;
   int i, j, index, *vert;
