@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCommand.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-26 15:51:25 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-09-03 20:53:06 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -69,6 +69,7 @@ static const char *vtkCommandEventStrings[] = {
   "CreateTimerEvent",
   "DestroyTimerEvent",
   "PlaceWidgetEvent",
+  "CursorChangedEvent",
   NULL
 };
 

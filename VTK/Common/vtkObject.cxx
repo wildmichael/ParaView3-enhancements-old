@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-15 15:40:30 $
-  Version:   $Revision: 1.79 $
+  Date:      $Date: 2002-09-03 20:53:06 $
+  Version:   $Revision: 1.80 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -85,7 +85,7 @@ public:
   unsigned long AddObserver(unsigned long event, vtkCommand *cmd, float p);
   void RemoveObserver(unsigned long tag);
   void RemoveObservers(unsigned long event);
-  void InvokeEvent(unsigned long event, void *callData, vtkObject *self);
+  int InvokeEvent(unsigned long event, void *callData, vtkObject *self);
   vtkCommand *GetCommand(unsigned long tag);
   unsigned long GetTag(vtkCommand*);
   int HasObserver(unsigned long event);
@@ -262,7 +262,7 @@ vtkObject *vtkObject::SafeDownCast(vtkObject *o)
 
 void vtkObject::CollectRevisions(ostream& os)
 {
-  os << "vtkObject $Revision: 1.79 $\n";
+  os << "vtkObject $Revision: 1.80 $\n";
 }
 
 //----------------------------------Command/Observer stuff-------------------
@@ -420,7 +420,7 @@ int vtkSubjectHelper::HasObserver(unsigned long event)
   return 0;
 }
 
-void vtkSubjectHelper::InvokeEvent(unsigned long event, void *callData,
+int vtkSubjectHelper::InvokeEvent(unsigned long event, void *callData,
                                    vtkObject *self)
 {
   vtkObserver *elem = this->Start;
@@ -438,11 +438,12 @@ void vtkSubjectHelper::InvokeEvent(unsigned long event, void *callData,
       // and return
       if(abort)
         {
-        return;
+        return 1;
         }
       }
     elem = next;
-    }  
+    }
+  return 0;
 }
 
 unsigned long vtkSubjectHelper::GetTag(vtkCommand* cmd)
@@ -548,17 +549,18 @@ void vtkObject::RemoveObservers(const char *event)
   this->RemoveObservers(vtkCommand::GetEventIdFromString(event));
 }
 
-void vtkObject::InvokeEvent(unsigned long event, void *callData)
+int vtkObject::InvokeEvent(unsigned long event, void *callData)
 {
   if (this->SubjectHelper)
     {
-    this->SubjectHelper->InvokeEvent(event,callData, this);
+    return this->SubjectHelper->InvokeEvent(event,callData, this);
     }
+  return 0;
 }
 
-void vtkObject::InvokeEvent(const char *event, void *callData)
+int vtkObject::InvokeEvent(const char *event, void *callData)
 {
-  this->InvokeEvent(vtkCommand::GetEventIdFromString(event), callData);
+  return this->InvokeEvent(vtkCommand::GetEventIdFromString(event), callData);
 }
 
 int vtkObject::HasObserver(unsigned long event)
