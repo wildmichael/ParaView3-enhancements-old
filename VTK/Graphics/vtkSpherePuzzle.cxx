@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpherePuzzle.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-17 14:36:11 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-12-20 19:19:30 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -67,6 +67,7 @@ vtkSpherePuzzle::vtkSpherePuzzle()
 {
   this->Transform = vtkTransform::New();
   this->Reset();
+  this->Active = 0;
 }
 
 //----------------------------------------------------------------------------
