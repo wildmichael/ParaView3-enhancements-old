@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMassProperties.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:48:53 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-07-22 12:12:34 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -99,7 +99,7 @@ public:
   void Update();
 
   void SetInput(vtkPolyData *input);
-  vtkPolyData *GetInput() {return (vtkPolyData *)this->Input;};
+  vtkPolyData *GetInput();
 
 protected:
   double  SurfaceArea;
@@ -111,7 +111,6 @@ protected:
   double  Ky;
   double  Kz;
   double  NormalizedShapeIndex;
-  vtkPolyData *Input;
   vtkTimeStamp ExecuteTime;
 
 };

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-02 19:48:28 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1999-07-22 12:12:58 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -123,16 +123,16 @@ GLenum vtkOpenGLPolyDataMapper::GetLmcolorMode(vtkProperty *prop)
 void vtkOpenGLPolyDataMapper::Render(vtkRenderer *ren, vtkActor *act)
 {
   int numPts;
-  vtkPolyData *input= (vtkPolyData *)this->Input;
+  vtkPolyData *input= this->GetInput();
   vtkTimerLog *timer;
   vtkPlaneCollection *clipPlanes;
   vtkPlane *plane;
   int i,numClipPlanes;
   double planeEquation[4];
 
-//
-// make sure that we've been properly initialized
-//
+  //
+  // make sure that we've been properly initialized
+  //
   if (ren->GetRenderWindow()->CheckAbortStatus())
     {
     return;
@@ -151,7 +151,7 @@ void vtkOpenGLPolyDataMapper::Render(vtkRenderer *ren, vtkActor *act)
         {
         (*this->StartMethod)(this->StartMethodArg);
         }
-      input->ForceUpdate();
+      input->Update();
       if ( this->EndMethod )
         {
         (*this->EndMethod)(this->EndMethodArg);
@@ -2379,7 +2379,7 @@ void vtkOpenGLPolyDataMapper::Draw(vtkRenderer *aren, vtkActor *act)
   vtkTCoords *t;
   int tDim;
   int noAbort = 1;
-  vtkPolyData *input = (vtkPolyData *)this->Input;
+  vtkPolyData *input = this->GetInput();
   int cellScalars = 0;
   int cellNum = 0;
   int cellNormals = 0;

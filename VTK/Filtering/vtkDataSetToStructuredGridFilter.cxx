@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToStructuredGridFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:43:59 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-07-22 12:12:47 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,9 +40,22 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkDataSetToStructuredGridFilter.h"
 
-vtkDataSetToStructuredGridFilter::vtkDataSetToStructuredGridFilter()
+//----------------------------------------------------------------------------
+// Specify the input data or filter.
+void vtkDataSetToStructuredGridFilter::SetInput(vtkDataSet *input)
 {
-  this->Output = vtkStructuredGrid::New();
-  this->Output->SetSource(this);
+  this->vtkProcessObject::SetInput(0, input);
+}
+
+//----------------------------------------------------------------------------
+// Specify the input data or filter.
+vtkDataSet *vtkDataSetToStructuredGridFilter::GetInput()
+{
+  if (this->NumberOfInputs < 1)
+    {
+    return NULL;
+    }
+  
+  return (vtkDataSet *)(this->Inputs[0]);
 }
 

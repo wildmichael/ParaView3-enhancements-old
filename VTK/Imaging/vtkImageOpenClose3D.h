@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageOpenClose3D.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-15 18:52:05 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-07-22 12:13:48 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,10 +58,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkImageOpenClose3D_h
 
 
-#include "vtkImageFilter.h"
+#include "vtkImageToImageFilter.h"
 #include "vtkImageDilateErode3D.h"
 
-class VTK_EXPORT vtkImageOpenClose3D : public vtkImageFilter
+class VTK_EXPORT vtkImageOpenClose3D : public vtkImageToImageFilter
 {
 public:
   // Description:
@@ -90,22 +90,12 @@ public:
   // Foward Source messages to filter1
 
   // Description:
-  // This method sets the cache object of the filter.
-  // It justs feeds the request to the sub filter.
-  void SetCache(vtkImageCache *cache);
-  
-  // Description:
-  // This method returns the l;ast cache of the internal pipline.
-  vtkImageCache *GetCache();
-
-  
-  // Description:
   // This method returns the cache to make a connection
   // It justs feeds the request to the sub filter.
-  vtkImageCache *GetOutput();
+  vtkImageData *GetOutput();
 
   // Description:
-  // A method used internally, which is part of the vtkImageFilter API.
+  // A method used internally, which is part of the vtkImageToImageFilter API.
   // Return the maximum MTime of this filter, and all of the previous filters
   // in the pipline.
   unsigned long GetPipelineMTime();
@@ -114,10 +104,7 @@ public:
 
   // Description:
   // Set the Input of the filter.
-  void SetInput(vtkImageCache *Input);
-  void SetInput(vtkStructuredPoints *spts)
-    {vtkStructuredPointsToImage *tmp = spts->MakeStructuredPointsToImage();
-    this->SetInput(tmp->GetOutput()); tmp->Delete();};
+  void SetInput(vtkImageData *Input);
 
   // Forward dilateErode messages to both filters.
 

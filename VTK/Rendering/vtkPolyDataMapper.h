@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-22 14:14:23 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-07-22 12:13:02 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,10 +65,8 @@ public:
   // Description:
   // Specify the input data to map.
   void SetInput(vtkPolyData *in);
+  vtkPolyData *GetInput();
 
-  // Description:
-  // For legacy compatability. Do not use.
-  void SetInput(vtkPolyData& in) {this->SetInput(&in);};
 };
 
 #endif

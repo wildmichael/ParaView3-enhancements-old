@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1999-03-17 21:45:12 $
-  Version:   $Revision: 1.73 $
+  Date:      $Date: 1999-07-22 12:12:23 $
+  Version:   $Revision: 1.74 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -94,7 +94,7 @@ public:
 
   // Description:
   // Return what type of dataset this is.
-  int GetDataSetType() {return VTK_POLY_DATA;};
+  int GetDataObjectType() {return VTK_POLY_DATA;}
 
   // Description:
   // Copy the geometric and topological structure of an input poly data object.
@@ -338,7 +338,14 @@ public:
   void GetCellEdgeNeighbors(int cellId, int p1, int p2, vtkIdList& cellIds)
     {this->GetCellEdgeNeighbors(cellId, p1, p2, &cellIds);}
 
-  
+  // Description:
+  // For streaming.  User/next filter specifies which piece the want updated.
+  // The source of this poly data has to return exactly this piece.
+  void SetUpdateExtent(int piece, int numPieces);
+  void GetUpdateExtent(int &piece, int &numPieces);
+  int GetUpdateNumberOfPieces() {return this->UpdateNumberOfPieces;}
+  int GetUpdatePiece() {return this->UpdatePiece;}
+
 protected:
   // constant cell objects returned by GetCell called.
   vtkVertex *Vertex;
@@ -365,6 +372,15 @@ protected:
   // built only when necessary
   vtkCellTypes *Cells;
   vtkCellLinks *Links;
+
+  // ----- streaming stuff -----------
+  void CopyUpdateExtent(vtkDataObject *polyData);
+  void CopyInformation(vtkDataObject *polyData);
+
+  // First attempt at a generic update extent.
+  // Cannot specify a range, but pieces can be large or small.
+  int UpdatePiece;
+  int UpdateNumberOfPieces;
 };
 
 inline void vtkPolyData::GetPointCells(int ptId, unsigned short& ncells, 

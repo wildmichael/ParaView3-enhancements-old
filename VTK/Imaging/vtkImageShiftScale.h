@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageShiftScale.h,v $
   Language:  C++
-  Date:      $Date: 1999-01-14 15:32:48 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1999-07-22 12:13:52 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,9 +50,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkImageShiftScale_h
 
 
-#include "vtkImageFilter.h"
+#include "vtkImageToImageFilter.h"
 
-class VTK_EXPORT vtkImageShiftScale : public vtkImageFilter
+class VTK_EXPORT vtkImageShiftScale : public vtkImageToImageFilter
 {
 public:
   vtkImageShiftScale();
@@ -97,7 +97,7 @@ protected:
   int OutputScalarType;
   int ClampOverflow;
   
-  void ExecuteImageInformation();
+  void ExecuteInformation();
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
 		       int extent[6], int id);
 };

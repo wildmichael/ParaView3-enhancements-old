@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWriter.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:33 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1999-07-22 12:13:23 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -81,11 +81,11 @@ public:
   // Description:
   // Convenient alias for Write() method.
   void Update();
+  
+  vtkDataObject *GetInput();
 
 protected:
   virtual void WriteData() = 0; //internal method subclasses must respond to
-  vtkDataObject *Input;
-
 };
 
 #endif

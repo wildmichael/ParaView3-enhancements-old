@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMagnify.h,v $
   Language:  C++
-  Date:      $Date: 1999-06-16 19:33:57 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-07-22 12:13:43 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,9 +48,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkImageMagnify_h
 #define __vtkImageMagnify_h
 
-#include "vtkImageFilter.h"
+#include "vtkImageToImageFilter.h"
 
-class VTK_EXPORT vtkImageMagnify : public vtkImageFilter
+class VTK_EXPORT vtkImageMagnify : public vtkImageToImageFilter
 {
 public:
   vtkImageMagnify();
@@ -75,8 +75,8 @@ public:
 protected:
   int MagnificationFactors[3];
   int Interpolate;
-  void ComputeRequiredInputUpdateExtent(int inExt[6], int outExt[6]);
-  void ExecuteImageInformation();
+  void ComputeInputUpdateExtent(int inExt[6], int outExt[6]);
+  void ExecuteInformation();
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-17 14:56:10 $
-  Version:   $Revision: 1.66 $
+  Date:      $Date: 1999-07-22 12:12:38 $
+  Version:   $Revision: 1.67 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1213,4 +1213,53 @@ void vtkCamera::PrintSelf(ostream& os, vtkIndent indent)
     << this->ViewUp[1] << ", " << this->ViewUp[2] << ")\n";
   os << indent << "Window Center: (" << this->WindowCenter[0] << ", " 
     << this->WindowCenter[1] << ")\n";
+}
+
+
+void vtkCamera::WriteSelf(ostream& os)
+{
+  // update orientation
+  this->GetOrientation();
+
+  os << this->ClippingRange[0] << " " << this->ClippingRange[1] << " ";
+  os << this->Distance << " ";
+  os << this->EyeAngle << " ";
+  os << this->FocalDisk << " ";
+  os << this->FocalPoint[0] << " " 
+     << this->FocalPoint[1] << " " << this->FocalPoint[2] << " ";
+  os << this->LeftEye << " ";
+  os << this->Orientation[0] << " " 
+     << this->Orientation[1] << " " << this->Orientation[2] << " ";
+  os << this->Position[0] << " " 
+     << this->Position[1] << " " << this->Position[2] << " ";
+  os << this->ParallelProjection << " ";
+  os << this->ParallelScale << " ";
+  os << this->Stereo << " ";
+  os << this->Thickness << " ";
+  os << this->ViewAngle << " ";
+  os << this->ViewPlaneNormal[0] << " " 
+     << this->ViewPlaneNormal[1] << " " << this->ViewPlaneNormal[2] << " ";
+  os << this->ViewUp[0] << " " 
+     << this->ViewUp[1] << " " << this->ViewUp[2] << " ";
+  os << this->WindowCenter[0] << " " << this->WindowCenter[1] << " ";
+}
+
+void vtkCamera::ReadSelf(istream& is)
+{
+  is >> ClippingRange[0] >> ClippingRange[1] ;
+  is >> Distance ;
+  is >> EyeAngle ;
+  is >> FocalDisk ;
+  is >> FocalPoint[0] >> FocalPoint[1]  >> FocalPoint[2] ;
+  is >> LeftEye ;
+  is >> Orientation[0] >> Orientation[1]  >> Orientation[2] ;
+  is >> Position[0] >> Position[1]  >> Position[2] ;
+  is >> ParallelProjection ;
+  is >> ParallelScale ;
+  is >> Stereo ;
+  is >> Thickness ;
+  is >> ViewAngle ;
+  is >> ViewPlaneNormal[0] >> ViewPlaneNormal[1]  >> ViewPlaneNormal[2] ;
+  is >> ViewUp[0] >> ViewUp[1]  >> ViewUp[2] ;
+  is >> WindowCenter[0] >> WindowCenter[1] ;
 }

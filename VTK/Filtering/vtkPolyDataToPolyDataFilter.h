@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataToPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:09 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-07-22 12:13:03 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,20 +53,24 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkPolyDataToPolyDataFilter_h
 #define __vtkPolyDataToPolyDataFilter_h
 
-#include "vtkPolyDataFilter.h"
+#include "vtkPolyDataSource.h"
 #include "vtkPolyData.h"
 
-class VTK_EXPORT vtkPolyDataToPolyDataFilter : public vtkPolyDataFilter
+class VTK_EXPORT vtkPolyDataToPolyDataFilter : public vtkPolyDataSource
 {
 public:
-  vtkPolyDataToPolyDataFilter();
   static vtkPolyDataToPolyDataFilter *New() {
     return new vtkPolyDataToPolyDataFilter;};
   const char *GetClassName() {return "vtkPolyDataToPolyDataFilter";};
 
   // Description:
-  // Get the output of this filter.
-  vtkPolyData *GetOutput() {return (vtkPolyData *)this->Output;};
+  // Set / get the input data or filter.
+  virtual void SetInput(vtkPolyData *input);
+  vtkPolyData *GetInput();
+  
+  // Since input0 and output are both polydata, we can have default behavior
+  // that copies information for in[0] to out.
+  void ExecuteInformation();
 
 };
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCanvasSource2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-02-02 19:09:46 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-07-22 12:13:28 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,7 +49,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkImageCanvasSource2D_h
 
 #include <math.h>
-#include "vtkImageData.h"
+#include "vtkStructuredPoints.h"
 
 //
 // Special classes for manipulating data
@@ -70,7 +70,7 @@ public:
 //
 
 
-class VTK_EXPORT vtkImageCanvasSource2D : public vtkImageData
+class VTK_EXPORT vtkImageCanvasSource2D : public vtkStructuredPoints
 {
 public:
 

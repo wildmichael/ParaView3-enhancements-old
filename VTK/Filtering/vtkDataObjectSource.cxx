@@ -3,8 +3,8 @@
  Program:   Visualization Toolkit
  Module:    $RCSfile: vtkDataObjectSource.cxx,v $
  Language:  C++
- Date:      $Date: 1998-12-02 21:29:08 $
- Version:   $Revision: 1.1 $
+ Date:      $Date: 1999-07-22 12:12:42 $
+ Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,21 +42,24 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 vtkDataObjectSource::vtkDataObjectSource()
 {
-  this->Output = vtkDataObject::New();
-  this->Output->SetSource(this);
+  this->SetOutput(vtkDataObject::New());
 }
 
-vtkDataObjectSource::~vtkDataObjectSource()
+
+//----------------------------------------------------------------------------
+vtkDataObject *vtkDataObjectSource::GetOutput()
 {
-  this->Output->Delete();
-  this->Output = NULL;
+  if (this->NumberOfOutputs < 1)
+    {
+    return NULL;
+    }
+  
+  return (vtkDataObject *)(this->Outputs[0]);
 }
 
-void vtkDataObjectSource::PrintSelf(ostream& os, vtkIndent indent)
+//----------------------------------------------------------------------------
+void vtkDataObjectSource::SetOutput(vtkDataObject *output)
 {
-  vtkSource::PrintSelf(os,indent);
-
+  this->vtkSource::SetOutput(0, output);
 }
-
-
 

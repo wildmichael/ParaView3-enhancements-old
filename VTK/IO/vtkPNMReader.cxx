@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNMReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:53:32 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-07-22 12:13:59 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -92,7 +92,7 @@ int vtkPNMReaderGetInt(FILE *fp)
 }
   
 
-void vtkPNMReader::UpdateImageInformation()
+void vtkPNMReader::UpdateInformation()
 {
   int xsize, ysize, comp;
   char magic[80];
@@ -200,7 +200,7 @@ void vtkPNMReader::UpdateImageInformation()
   this->SetDataScalarTypeToUnsignedChar();
   this->SetNumberOfScalarComponents(comp);
   
-  vtkImageReader::UpdateImageInformation();
+  vtkImageReader::UpdateInformation();
 }
 
 

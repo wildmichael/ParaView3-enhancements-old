@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkChairDisplay.h,v $
   Language:  C++
-  Date:      $Date: 1999-05-27 18:43:37 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-07-22 12:12:29 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,10 +45,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkChairDisplay_h
 #define __vtkChairDisplay_h
 
-#include "vtkImageCache.h"
+#include "vtkImageData.h"
 #include "vtkPolyDataSource.h"
-#include "vtkStructuredPoints.h"
-#include "vtkStructuredPointsToImage.h"
 
 class VTK_EXPORT vtkChairDisplay : public vtkPolyDataSource
 {
@@ -61,11 +59,8 @@ public:
   
   // Description:
   // Set/Get the source for the scalar data to contour.
-  vtkSetObjectMacro(Input, vtkImageCache);
-  vtkGetObjectMacro(Input, vtkImageCache);
-  void SetInput(vtkStructuredPoints *spts)
-    {vtkStructuredPointsToImage *tmp = spts->MakeStructuredPointsToImage();
-     this->SetInput(tmp->GetOutput()); tmp->Delete();}
+  void SetInput(vtkImageData *input);
+  vtkImageData *GetInput();
   
   // Description:
   // Set/Get the size of the notch.
@@ -84,7 +79,6 @@ public:
                        int xstart, int ystart,int xsize, int ysize, int p2x);
   
 protected:
-  vtkImageCache *Input;
   vtkScalars *Scalars;
   vtkStructuredPoints *TextureOutput;
   

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-31 14:08:39 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-07-22 12:13:03 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,23 +40,29 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkPolyDataWriter.h"
 
+//----------------------------------------------------------------------------
 // Specify the input data or filter.
 void vtkPolyDataWriter::SetInput(vtkPolyData *input)
 {
-  if ( this->Input != input )
+  this->vtkProcessObject::SetInput(0, input);
+}
+
+//----------------------------------------------------------------------------
+// Specify the input data or filter.
+vtkPolyData *vtkPolyDataWriter::GetInput()
+{
+  if (this->NumberOfInputs < 1)
     {
-    vtkDebugMacro(<<" setting Input to " << (void *)input);
-    if (this->Input) {this->Input->UnRegister(this);}
-    this->Input = (vtkDataSet *) input;
-    if (this->Input) {this->Input->Register(this);}
-    this->Modified();
+    return NULL;
     }
+  
+  return (vtkPolyData *)(this->Inputs[0]);
 }
 
 void vtkPolyDataWriter::WriteData()
 {
-  FILE *fp;
-  vtkPolyData *input=(vtkPolyData *)this->Input;
+  ostream *fp;
+  vtkPolyData *input = this->GetInput();
 
   vtkDebugMacro(<<"Writing vtk polygonal data...");
 
@@ -64,10 +70,10 @@ void vtkPolyDataWriter::WriteData()
     {
     return;
     }
-//
-// Write polygonal data specific stuff
-//
-  fprintf(fp,"DATASET POLYDATA\n");
+  //
+  // Write polygonal data specific stuff
+  //
+  *fp << "DATASET POLYDATA\n"; 
   this->WritePoints(fp, input->GetPoints());
 
   if (input->GetVerts())

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConeSource.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-07 13:11:03 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1999-07-22 12:12:41 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -94,6 +94,7 @@ public:
 
 protected:
   void Execute();
+  void ExecuteInformation();
   float Height;
   float Radius;
   int Resolution;

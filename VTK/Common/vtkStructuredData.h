@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredData.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:24:56 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1999-07-22 12:12:26 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,6 +75,7 @@ public:
   // improperly specified a -1 is returned. If the dimensions are unchanged, a
   // value of 100 is returned.
   static int SetDimensions(int inDim[3], int dim[3]);
+  static int SetExtent(int inExt[3], int ext[3]);
 
   // Description:
   // Return the topological dimension of the data (e.g., 0, 1, 2, or 3D).
@@ -113,3 +114,4 @@ public:
 
 
 #endif
+

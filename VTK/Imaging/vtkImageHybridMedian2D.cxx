@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageHybridMedian2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-15 18:30:19 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-07-22 12:13:39 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -82,9 +82,9 @@ void vtkImageHybridMedian2D::ThreadedExecute(vtkImageData *inData,
     return;
     }
 
-  this->ComputeRequiredInputUpdateExtent(inExt, outExt); 
+  this->ComputeInputUpdateExtent(inExt, outExt); 
   inData->GetIncrements(inInc0, inInc1, inInc2);
-  this->Input->GetWholeExtent(wholeMin0, wholeMax0, wholeMin1, wholeMax1,
+  this->GetInput()->GetWholeExtent(wholeMin0, wholeMax0, wholeMin1, wholeMax1,
 			      wholeMin2, wholeMax2);
   numComps = inData->GetNumberOfScalarComponents();
   outData->GetIncrements(outInc0, outInc1, outInc2);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMaskBits.h,v $
   Language:  C++
-  Date:      $Date: 1999-02-23 16:06:23 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-07-22 12:13:45 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -48,10 +48,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkImageMaskBits_h
 
 
-#include "vtkImageFilter.h"
+#include "vtkImageToImageFilter.h"
 #include "vtkImageLogic.h"     // included for the boolean operators
 
-class VTK_EXPORT vtkImageMaskBits : public vtkImageFilter
+class VTK_EXPORT vtkImageMaskBits : public vtkImageToImageFilter
 {
  public:
   vtkImageMaskBits();

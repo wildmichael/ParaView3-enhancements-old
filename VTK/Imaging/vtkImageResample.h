@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageResample.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:47:45 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-07-22 12:13:51 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -78,8 +78,8 @@ protected:
   float MagnificationFactors[3];
   float OutputSpacing[3];
   
-  void ExecuteImageInformation();
-  void ComputeRequiredInputUpdateExtent(int inExt[6], int outExt[6]);
+  void ExecuteInformation(vtkImageData *inData, vtkImageData *outData);
+  void ComputeInputUpdateExtent(int inExt[6], int outExt[6]);
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
 		       int outExt[6], int threadId);
 };

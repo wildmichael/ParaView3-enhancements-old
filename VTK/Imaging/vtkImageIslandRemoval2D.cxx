@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIslandRemoval2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-18 12:56:06 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1999-07-22 12:13:40 $
+  Version:   $Revision: 1.22 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,7 +39,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkImageIslandRemoval2D.h"
-#include "vtkImageCache.h"
+
 
 
 
@@ -60,7 +60,7 @@ vtkImageIslandRemoval2D::vtkImageIslandRemoval2D()
 //----------------------------------------------------------------------------
 void vtkImageIslandRemoval2D::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImageFilter::PrintSelf(os,indent);
+  vtkImageToImageFilter::PrintSelf(os,indent);
   os << indent << "AreaThreshold: " << this->AreaThreshold;
   if (this->SquareNeighborhood)
     {
@@ -91,13 +91,13 @@ void vtkImageIslandRemoval2D::InterceptCacheUpdate()
     return;
     }
 
-  memcpy(wholeExtent,this->Output->GetWholeExtent(),6*sizeof(int));
-  memcpy(extent,this->Output->GetUpdateExtent(),6*sizeof(int));
+  memcpy(wholeExtent,this->GetOutput()->GetWholeExtent(),6*sizeof(int));
+  memcpy(extent,this->GetOutput()->GetUpdateExtent(),6*sizeof(int));
   extent[0] = wholeExtent[0];
   extent[1] = wholeExtent[1];
   extent[2] = wholeExtent[2];
   extent[3] = wholeExtent[3];
-  this->Output->SetUpdateExtent(extent);
+  this->GetOutput()->SetUpdateExtent(extent);
 }
 
 
@@ -532,7 +532,7 @@ void vtkImageIslandRemoval2D::Execute(vtkImageData *inData,
     return;
     }
 
-  outExt = this->Output->GetUpdateExtent();
+  outExt = this->GetOutput()->GetUpdateExtent();
   void *inPtr = inData->GetScalarPointerForExtent(outExt);
   void *outPtr = outData->GetScalarPointerForExtent(outExt);
   

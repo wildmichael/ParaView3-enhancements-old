@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMaskBits.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-23 21:19:08 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-07-22 12:13:45 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include <math.h>
-#include "vtkImageCache.h"
+
 #include "vtkImageMaskBits.h"
 
 vtkImageMaskBits::vtkImageMaskBits()
@@ -237,7 +237,7 @@ void vtkImageMaskBits::ThreadedExecute(vtkImageData *inData,
 
 void vtkImageMaskBits::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImageFilter::PrintSelf(os,indent);
+  vtkImageToImageFilter::PrintSelf(os,indent);
 
   os << indent << "Operation: " << this->Operation << "\n";
   os << indent << "Masks: (" << this->Masks[0] << ", " << this->Masks[1] << ", "

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableDataObjectSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-07 21:45:37 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-07-22 12:13:04 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,8 +46,8 @@ vtkProgrammableDataObjectSource::vtkProgrammableDataObjectSource()
   this->ExecuteMethod = NULL;
   this->ExecuteMethodArg = NULL;
 
-  this->Output = vtkDataObject::New();
-  this->Output->SetSource(this);
+  this->vtkSource::SetOutput(0,vtkDataObject::New());
+  this->Outputs[0]->Delete();
 }
 
 vtkProgrammableDataObjectSource::~vtkProgrammableDataObjectSource()
@@ -57,6 +57,16 @@ vtkProgrammableDataObjectSource::~vtkProgrammableDataObjectSource()
     {
     (*this->ExecuteMethodArgDelete)(this->ExecuteMethodArg);
     }
+}
+
+vtkDataObject *vtkProgrammableDataObjectSource::GetOutput()
+{
+  if (this->NumberOfOutputs < 1)
+    {
+    return NULL;
+    }
+  
+  return (vtkDataObject *)(this->Outputs[0]);
 }
 
 // Specify the function to use to generate the source data. Note
@@ -101,9 +111,7 @@ void vtkProgrammableDataObjectSource::Execute()
 void vtkProgrammableDataObjectSource::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkSource::PrintSelf(os,indent);
-
-  os << indent << "Execute Time: " <<this->ExecuteTime.GetMTime() << "\n";
-
+  
   if ( this->ExecuteMethod )
     {
     os << indent << "An ExecuteMethod has been defined\n";

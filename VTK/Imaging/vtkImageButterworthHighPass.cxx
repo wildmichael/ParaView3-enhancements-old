@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageButterworthHighPass.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-16 12:55:58 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-07-22 12:13:27 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -121,7 +121,7 @@ void vtkImageButterworthHighPass::ThreadedExecute(vtkImageData *inData,
     return;
     }
   
-  wholeExtent = this->Input->GetWholeExtent();
+  wholeExtent = this->GetInput()->GetWholeExtent();
   spacing = inData->GetSpacing();
 
   inPtr = (float *)(inData->GetScalarPointerForExtent(ext));
@@ -244,7 +244,7 @@ void vtkImageButterworthHighPass::ThreadedExecute(vtkImageData *inData,
 
 void vtkImageButterworthHighPass::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImageFilter::PrintSelf(os,indent);
+  vtkImageToImageFilter::PrintSelf(os,indent);
 
   os << indent << "Order: " << this->Order << "\n";
 

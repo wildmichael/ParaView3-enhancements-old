@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1999-05-31 16:34:02 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1999-07-22 12:13:24 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -137,6 +137,11 @@ public:
   virtual void SetWidget(Widget);
   Widget GetWidget() {return this->top;};
 
+  // Description:
+  // Finish setting up a new window after the WindowRemap.
+  virtual void FinishSettingUpNewWindow();  
+  
+  
   // Description
   // This method will store the top level shell widget for the interactor.
   // This method and the method invocation sequence applies for:
@@ -183,11 +188,20 @@ protected:
   int PositionBeforeStereo[2];
   Widget TopLevelShell;
 
-  XtIntervalId AddTimeOut(XtAppContext app_context, unsigned long interval,
-			  XtTimerCallbackProc proc, XtPointer client_data) ;
+  virtual XtIntervalId ExtAddTimeOut(XtAppContext app_context, 
+				  unsigned long interval,
+				  XtTimerCallbackProc proc, 
+				  XtPointer client_data) ;
   void GetMousePosition(int *x, int *y); 
   void Timer(XtPointer client_data, XtIntervalId *id); 
   void Callback(Widget w, XtPointer client_data, XEvent *event, Boolean *ctd); 
+
+  void ExtXRenderWindowInteractorTimer(XtPointer,XtIntervalId *); 
+  void ExtXRenderWindowInteractorCallback(Widget,XtPointer,
+					  XEvent *,Boolean *);
 };
 
 #endif
+
+
+

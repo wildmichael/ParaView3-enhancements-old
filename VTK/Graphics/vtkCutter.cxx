@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-26 14:21:45 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 1999-07-22 12:12:41 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,7 +70,7 @@ vtkCutter::~vtkCutter()
 // or contour values modified, then this object is modified as well.
 unsigned long vtkCutter::GetMTime()
 {
-  unsigned long mTime=this->vtkDataSetFilter::GetMTime();
+  unsigned long mTime=this->vtkDataSetToPolyDataFilter::GetMTime();
   unsigned long contourValuesMTime=this->ContourValues->GetMTime();
   unsigned long time;
  
@@ -254,10 +254,10 @@ void vtkCutter::Execute()
 	} // for all cells
       } // sort by value
     } // end switch
-//
-// Update ourselves.  Because we don't know upfront how many verts, lines,
-// polys we've created, take care to reclaim memory. 
-//
+  //
+  // Update ourselves.  Because we don't know upfront how many verts, lines,
+  // polys we've created, take care to reclaim memory. 
+  //
   cellScalars->Delete();
   cutScalars->Delete();
 

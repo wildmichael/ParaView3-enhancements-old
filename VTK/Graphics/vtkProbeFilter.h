@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProbeFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-15 18:56:33 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1999-07-22 12:13:04 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,23 +62,18 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
-  // Overload update method because execution can branch two ways (Input 
-  // and Source). Also input and output are abstract.
-  void Update();
-
-  // Description:
   // Specify the point locations used to probe input. Any geometry
   // can be used.
-  vtkSetObjectMacro(Source,vtkDataSet);
-  vtkGetObjectMacro(Source,vtkDataSet);
-  void SetSource(vtkImageCache *cache) 
+  void SetSource(vtkDataSet *source);
+  vtkDataSet *GetSource();
+  void SetSource(vtkImageData *cache) 
     {vtkImageToStructuredPoints *tmp = cache->MakeImageToStructuredPoints();
     this->SetSource(tmp->GetOutput()); tmp->Delete();}
 
 protected:
   void Execute();
-  vtkDataSet *Source;
-
+  // This filter takes more than one input, so it needs this method.
+  int ComputeInputUpdateExtents(vtkDataObject *output);
 };
 
 #endif

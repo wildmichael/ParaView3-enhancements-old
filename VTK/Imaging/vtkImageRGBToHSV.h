@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageRGBToHSV.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-16 21:09:14 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-07-22 12:13:50 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,9 +49,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkImageRGBToHSV_h
 
 
-#include "vtkImageFilter.h"
+#include "vtkImageToImageFilter.h"
 
-class VTK_EXPORT vtkImageRGBToHSV : public vtkImageFilter
+class VTK_EXPORT vtkImageRGBToHSV : public vtkImageToImageFilter
 {
 public:
   vtkImageRGBToHSV();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume16Reader.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-26 14:22:04 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1999-07-22 12:13:21 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -145,6 +145,7 @@ public:
 
 protected:
   void Execute();
+  void ExecuteInformation();
   int   DataDimensions[2];
   unsigned short DataMask;
   int   SwapBytes;

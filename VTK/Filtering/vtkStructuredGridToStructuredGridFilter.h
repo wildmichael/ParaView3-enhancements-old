@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridToStructuredGridFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:22 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-07-22 12:13:13 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,21 +50,31 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkStructuredGridToStructuredGridFilter_h
 #define __vtkStructuredGridToStructuredGridFilter_h
 
-#include "vtkStructuredGridFilter.h"
-#include "vtkStructuredGrid.h"
+#include "vtkStructuredGridSource.h"
 
-class VTK_EXPORT vtkStructuredGridToStructuredGridFilter : public vtkStructuredGridFilter
+class VTK_EXPORT vtkStructuredGridToStructuredGridFilter : public vtkStructuredGridSource
 {
 public:
-  vtkStructuredGridToStructuredGridFilter();
   static vtkStructuredGridToStructuredGridFilter *New() {
     return new vtkStructuredGridToStructuredGridFilter;};
   const char *GetClassName() {return "vtkStructuredGridToStructuredGridFilter";};
 
   // Description:
-  // Get the output of this filter.
-  vtkStructuredGrid *GetOutput() {return (vtkStructuredGrid *)this->Output;};
+  // Set / get the input Grid or filter.
+  void SetInput(vtkStructuredGrid *input);
+  vtkStructuredGrid *GetInput();
 
+  // Since input0 and output are the same, we can have default behavior
+  // that copies information for in[0] to out.
+  void ExecuteInformation();
+  
+protected:
+  
+  // Since we know Inputs[0] is the same type as Outputs[0] we can
+  // use CopyUpdateExtent of the data object to propagate extents.
+  // It the filter has more than one input, all bets are off.
+  // It is then up to the subclass to implement this method.
+  int ComputeInputUpdateExtents(vtkDataObject *output);
 };
 
 #endif

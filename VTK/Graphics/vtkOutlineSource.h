@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutlineSource.h,v $
   Language:  C++
-  Date:      $Date: 1998-08-29 20:30:54 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1999-07-22 12:12:59 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,6 +63,7 @@ public:
 
 protected:
   void Execute();
+  void ExecuteInformation();
   float Bounds[6];
 };
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAnisotropicDiffusion3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:48:00 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1999-07-22 12:13:26 $
+  Version:   $Revision: 1.26 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -147,7 +147,7 @@ void vtkImageAnisotropicDiffusion3D::ThreadedExecute(vtkImageData *inData,
   int idx;
   vtkImageData *temp;
   
-  this->ComputeRequiredInputUpdateExtent(inExt,outExt);
+  this->ComputeInputUpdateExtent(inExt,outExt);
   
   vtkDebugMacro(<< "Execute: inData = " << inData 
   << ", outData = " << outData);

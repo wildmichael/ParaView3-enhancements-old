@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBMPReader.h,v $
   Language:  C++
-  Date:      $Date: 1998-12-30 16:30:39 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-07-22 12:13:25 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -90,7 +90,7 @@ protected:
   short Depth;
   
   virtual void ComputeDataIncrements();
-  virtual void UpdateImageInformation();
+  virtual void UpdateInformation();
   virtual void Execute(vtkImageData *out);
   
 };

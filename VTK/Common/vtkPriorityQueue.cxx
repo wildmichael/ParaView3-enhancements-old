@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPriorityQueue.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-14 13:52:14 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-07-22 12:12:24 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -86,7 +86,7 @@ vtkPriorityQueue::~vtkPriorityQueue()
 void vtkPriorityQueue::Insert(float priority, int id)
 {
   int i, idx;
-  static vtkPriorityItem temp;
+  vtkPriorityItem temp;
 
   // check and make sure item hasn't been inserted before
   if ( id <= this->ItemLocation->GetMaxId() && 
@@ -142,7 +142,7 @@ int vtkPriorityQueue::Pop(int location)
 int vtkPriorityQueue::Pop(float &priority, int location)
 {
   int id, i, j, idx;
-  static vtkPriorityItem temp;
+  vtkPriorityItem temp;
 
   if ( this->MaxId < 0 )
     {

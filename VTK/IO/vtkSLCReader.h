@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSLCReader.h,v $
   Language:  C++
-  Date:      $Date: 1999-06-21 14:07:57 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1999-07-22 12:13:08 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,6 +79,13 @@ protected:
   // Description:
   // Reads the file name and builds a vtkStructuredPoints dataset.
   void Execute();
+
+  // Description:
+  // Not used now, but will be needed when this is made into an 
+  // imaging filter.
+  // Sets WholeExtent, Origin, Spacing, ScalarType 
+  // and NumberOfComponents of output.
+  void ExecuteInformation2();
   
   // Description:
   // Decodes an array of eight bit run-length encoded data.

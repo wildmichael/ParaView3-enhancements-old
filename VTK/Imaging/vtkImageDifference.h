@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDifference.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-13 18:43:25 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-07-22 12:13:32 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,15 +61,12 @@ public:
 
   // Description:
   // Specify the Image to compare the input to.
-  void SetImage(vtkImageCache *image) {this->SetInput2(image);}
-  void SetImage(vtkStructuredPoints *image) {this->SetInput2(image);}
-  vtkImageCache *GetImage() {return this->GetInput2();}
+  void SetImage(vtkImageData *image) {this->SetInput2(image);}
+  vtkImageData *GetImage() {return this->GetInput2();}
 
   // Description:
   // Specify the Input for comparison.
-  void SetInput(vtkImageCache *input) {this->SetInput1(input);}
-  void SetInput(vtkStructuredPoints *input) {this->SetInput1(input);}
-  vtkImageCache *GetInput() {return this->GetInput1();}
+  void SetInput(vtkImageData *input) {this->SetInput1(input);}
 
   // Description:
   // Return the total error in comparing the two images.
@@ -115,8 +112,8 @@ protected:
   int Threshold;
   int Averaging;
   
-  void ExecuteImageInformation(); 
-  void ComputeRequiredInputUpdateExtent(int inExt[6], int outExt[6],
+  void ExecuteInformation(); 
+  void ComputeInputUpdateExtent(int inExt[6], int outExt[6],
 					int whichInput);
   void ThreadedExecute(vtkImageData **inDatas, vtkImageData *outData,
 		       int extent[6], int id);  

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToStructuredPointsFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:44:00 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-07-22 12:12:48 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,9 +40,53 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkDataSetToStructuredPointsFilter.h"
 
-vtkDataSetToStructuredPointsFilter::vtkDataSetToStructuredPointsFilter()
+//----------------------------------------------------------------------------
+// Specify the input data or filter.
+void vtkDataSetToStructuredPointsFilter::SetInput(vtkDataSet *input)
 {
-  this->Output = vtkStructuredPoints::New();
-  this->Output->SetSource(this);
+  this->vtkProcessObject::SetInput(0, input);
 }
+
+//----------------------------------------------------------------------------
+// Specify the input data or filter.
+vtkDataSet *vtkDataSetToStructuredPointsFilter::GetInput()
+{
+  if (this->NumberOfInputs < 1)
+    {
+    return NULL;
+    }
+  
+  return (vtkDataSet *)(this->Inputs[0]);
+}
+
+//----------------------------------------------------------------------------
+// All the DataSetToStructuredPointsFilters require all their input.
+int vtkDataSetToStructuredPointsFilter::ComputeInputUpdateExtents(
+                                                           vtkDataObject *data)
+{
+  vtkStructuredPoints *output = (vtkStructuredPoints*)data;
+  vtkDataSet *input = this->GetInput();
+  int *ext;
+  
+  if (input == NULL)
+    {
+    return 0;
+    }
+  
+  // Lets just check to see if the outputs UpdateExtent is valid.
+  ext = output->GetUpdateExtent();
+  if (ext[0] > ext[1] || ext[2] > ext[3] || ext[4] > ext[5])
+    {
+    return 0;
+    }
+  
+  input->SetUpdateExtent(0, 1);
+  return 1;
+}
+
+    
+
+
+
+
 

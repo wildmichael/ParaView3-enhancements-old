@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCast.h,v $
   Language:  C++
-  Date:      $Date: 1998-11-08 00:29:41 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-07-22 12:13:29 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,9 +52,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkImageCast_h
 
 
-#include "vtkImageFilter.h"
+#include "vtkImageToImageFilter.h"
 
-class VTK_EXPORT vtkImageCast : public vtkImageFilter
+class VTK_EXPORT vtkImageCast : public vtkImageToImageFilter
 {
 public:
   vtkImageCast();
@@ -94,7 +94,7 @@ public:
 protected:
   int ClampOverflow;
   int OutputScalarType;
-  void ExecuteImageInformation();
+  void ExecuteInformation();
   void InternalUpdate(vtkImageData *data);
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData, 
 		       int ext[6], int id);

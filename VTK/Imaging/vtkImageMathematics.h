@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMathematics.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-05 21:22:02 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-07-22 12:13:45 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -112,7 +112,7 @@ protected:
   double ConstantK;
   double ConstantC;
   
-  void ExecuteImageInformation();
+  void ExecuteInformation();
   void ThreadedExecute(vtkImageData **inDatas, vtkImageData *outData,
 		       int extent[6], int id);
 };

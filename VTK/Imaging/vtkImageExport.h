@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageExport.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-15 11:15:39 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-07-22 12:13:34 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 
@@ -54,7 +54,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <fstream.h>
 #include "vtkProcessObject.h"
 #include "vtkImageFlip.h"
-#include "vtkImageCache.h"
 #include "vtkStructuredPoints.h"
 #include "vtkStructuredPointsToImage.h"
 
@@ -82,43 +81,37 @@ public:
   // Description:
   // Get the number of scalar components of the data
   int GetDataNumberOfScalarComponents() {
-    this->Input->UpdateImageInformation();
-    return this->Input->GetNumberOfScalarComponents(); };
+    this->GetInput()->UpdateInformation();
+    return this->GetInput()->GetNumberOfScalarComponents(); };
 
   // Description: 
   // Get misc. information about the data
   int *GetDataExtent() {   
-    this->Input->UpdateImageInformation();
-    return this->Input->GetWholeExtent(); };
+    this->GetInput()->UpdateInformation();
+    return this->GetInput()->GetWholeExtent(); };
   void GetDataExtent(int *ptr) {   
-    this->Input->UpdateImageInformation();
-    this->Input->GetWholeExtent(ptr); };
+    this->GetInput()->UpdateInformation();
+    this->GetInput()->GetWholeExtent(ptr); };
   float *GetDataSpacing() { 
-    this->Input->UpdateImageInformation();
-    return this->Input->GetSpacing(); };
+    this->GetInput()->UpdateInformation();
+    return this->GetInput()->GetSpacing(); };
   void GetDataSpacing(float *ptr) { 
-    this->Input->UpdateImageInformation();
-    this->Input->GetSpacing(ptr); };
+    this->GetInput()->UpdateInformation();
+    this->GetInput()->GetSpacing(ptr); };
   float *GetDataOrigin() { 
-    this->Input->UpdateImageInformation();
-    return this->Input->GetOrigin(); };
+    this->GetInput()->UpdateInformation();
+    return this->GetInput()->GetOrigin(); };
   void GetDataOrigin(float *ptr) { 
-    this->Input->UpdateImageInformation();
-    this->Input->GetOrigin(ptr); };
+    this->GetInput()->UpdateInformation();
+    this->GetInput()->GetOrigin(ptr); };
   int GetDataScalarType() {
-    this->Input->UpdateImageInformation();
-    return this->Input->GetScalarType(); };
-  const char *GetDataScalarTypeAsString() { 
-    this->Input->UpdateImageInformation();
-    return this->Input->GetScalarTypeAsString(); };
+    this->GetInput()->UpdateInformation();
+    return this->GetInput()->GetScalarType(); };
 
   // Description:
   // Set/Get the input object from the image pipeline.
-  vtkSetObjectMacro(Input,vtkImageCache);
-  vtkGetObjectMacro(Input,vtkImageCache);
-  void SetInput(vtkStructuredPoints *spts)
-    {vtkStructuredPointsToImage *tmp = spts->MakeStructuredPointsToImage();
-     this->SetInput(tmp->GetOutput()); tmp->Delete();}
+  void SetInput(vtkImageData *input);
+  vtkImageData *GetInput();
 
   // Description:
   // Set/Get whether the data goes to the exported memory starting 
@@ -138,8 +131,6 @@ public:
   void *GetPointerToData();
 
 protected:
-  vtkImageCache *Input;
-
   vtkImageFlip *ImageFlip;
 
   int ImageLowerLeft;
@@ -147,7 +138,7 @@ protected:
 
   void FinalExport(vtkImageData *data, int extent[6],
 		   void **output);
-  void RecursiveExport(int axis, vtkImageCache *cache,
+  void RecursiveExport(int axis, vtkImageData *data,
 		       void **output);
 };
 

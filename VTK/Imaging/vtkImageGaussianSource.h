@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGaussianSource.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-16 21:09:10 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-07-22 12:13:37 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -77,7 +77,7 @@ public:
   vtkSetMacro(StandardDeviation, float);
   vtkGetMacro(StandardDeviation, float);
 
-  void UpdateImageInformation();
+  void UpdateInformation();
 
 private:
   float StandardDeviation;

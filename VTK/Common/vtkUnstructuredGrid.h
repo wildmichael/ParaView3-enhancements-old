@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 1999-03-17 21:45:14 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1999-07-22 12:12:29 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,7 +79,7 @@ public:
 
   // Description:
   // Standard vtkDataSet API methods. See vtkDataSet for more information.
-  int GetDataSetType() {return VTK_UNSTRUCTURED_GRID;};
+  int GetDataObjectType() {return VTK_UNSTRUCTURED_GRID;};
   void Allocate(int numCells=1000, int extSize=1000);
   int InsertNextCell(int type, int npts, int *pts);
   int InsertNextCell(int type, vtkIdList *ptIds);
@@ -114,6 +114,13 @@ public:
     {this->GetPointCells(ptId, &cellIds);}
   int InsertNextCell(int type, vtkIdList &pts) {return this->InsertNextCell(type, &pts);}
   
+  // Description:
+  // For streaming.  User/next filter specifies which piece the want updated.
+  // The source of this poly data has to return exactly this piece.
+  void SetUpdateExtent(int piece, int numPieces);
+  void GetUpdateExtent(int &piece, int &numPieces);
+  int GetUpdateNumberOfPieces() {return this->UpdateNumberOfPieces;}
+  int GetUpdatePiece() {return this->UpdatePiece;}
 
 protected:
   // used by GetCell method
@@ -137,8 +144,22 @@ protected:
   vtkCellTypes *Cells;
   vtkCellArray *Connectivity;
   vtkCellLinks *Links;
+
+  // ----- streaming stuff -----------
+  void CopyUpdateExtent(vtkDataObject *grid);
+  void CopyInformation(vtkDataObject *grid);
+
+  // First attempt at a generic update extent.
+  // Cannot specify a range, but pieces can be large or small.
+  int UpdatePiece;
+  int UpdateNumberOfPieces;  
 };
 
 #endif
+
+
+
+
+
 
 

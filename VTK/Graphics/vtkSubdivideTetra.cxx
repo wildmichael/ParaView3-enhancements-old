@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSubdivideTetra.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:25:05 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-07-22 12:12:35 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,20 +45,18 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // Construct with all types of clipping turned off.
 vtkSubdivideTetra::vtkSubdivideTetra()
 {
-  this->Output = vtkUnstructuredGrid::New();
-  this->Output->SetSource(this);
 }
 
 void vtkSubdivideTetra::Execute()
 {
-  int numPts=((vtkDataSet *)this->Input)->GetNumberOfPoints();
-  int numCells=((vtkDataSet *)this->Input)->GetNumberOfCells();
-  vtkUnstructuredGrid *input=(vtkUnstructuredGrid *)this->Input;
+  vtkUnstructuredGrid *input=(vtkUnstructuredGrid *)this->GetInput();
+  int numPts = input->GetNumberOfPoints();
+  int numCells = input->GetNumberOfCells();
   vtkPoints *inPts=input->GetPoints();
   int cellId, i, pts[4];
   vtkCell *cell;
   vtkPointData *pd = input->GetPointData();
-  vtkUnstructuredGrid *output = (vtkUnstructuredGrid *)this->Output;
+  vtkUnstructuredGrid *output = this->GetOutput();
   vtkPointData *outputPD = output->GetPointData();
   vtkPoints *newPts;
   int ptId;
@@ -247,6 +245,6 @@ void vtkSubdivideTetra::Execute()
 
 void vtkSubdivideTetra::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkUnstructuredGridFilter::PrintSelf(os,indent);
+  vtkUnstructuredGridToUnstructuredGridFilter::PrintSelf(os,indent);
 }
 

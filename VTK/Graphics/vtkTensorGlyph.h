@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensorGlyph.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-26 14:22:01 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1999-07-22 12:13:17 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -95,8 +95,8 @@ public:
 
   // Description:
   // Specify the geometry to copy to each point.
-  vtkSetObjectMacro(Source,vtkPolyData);
-  vtkGetObjectMacro(Source,vtkPolyData);
+  void SetSource(vtkPolyData *source);
+  vtkPolyData *GetSource();
 
   // Description:
   // Turn on/off scaling of glyph with eigenvalues.
@@ -143,7 +143,6 @@ public:
 protected:
   void Execute();
 
-  vtkPolyData *Source; // Geometry to copy to each point
   int Scaling; // Determine whether scaling of geometry is performed
   float ScaleFactor; // Scale factor to use to scale geometry
   int ExtractEigenvalues; // Boolean controls eigenfunction extraction

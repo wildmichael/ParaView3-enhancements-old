@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToStructuredGridFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-07 13:11:07 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-07-22 12:12:47 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,20 +47,23 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkDataSetToStructuredGridFilter_h
 #define __vtkDataSetToStructuredGridFilter_h
 
-#include "vtkDataSetFilter.h"
-#include "vtkStructuredGrid.h"
+#include "vtkStructuredGridSource.h"
+#include "vtkImageToStructuredPoints.h"
 
-class VTK_EXPORT vtkDataSetToStructuredGridFilter : public vtkDataSetFilter
+class VTK_EXPORT vtkDataSetToStructuredGridFilter : public vtkStructuredGridSource
 {
 public:
-  vtkDataSetToStructuredGridFilter();
   static vtkDataSetToStructuredGridFilter *New() {
     return new vtkDataSetToStructuredGridFilter;};
   const char *GetClassName() {return "vtkDataSetToStructuredGridFilter";};
 
   // Description:
-  // Get the output of this filter.
-  vtkStructuredGrid *GetOutput() {return (vtkStructuredGrid *)this->Output;};
+  // Set / get the input data or filter.
+  virtual void SetInput(vtkDataSet *input);
+  virtual void SetInput(vtkImageData *cache)
+    {vtkImageToStructuredPoints *tmp = cache->MakeImageToStructuredPoints();
+    this->SetInput(tmp->GetOutput()); tmp->Delete();}
+  vtkDataSet *GetInput();
 
 };
 

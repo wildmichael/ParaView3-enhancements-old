@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutlineFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 23:38:40 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-07-22 12:12:59 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,9 +65,25 @@ void vtkOutlineFilter::Execute()
   // Let OutlineSource do all the work
   //
 
-  this->OutlineSource->SetBounds (((vtkDataSet *)this->Input)->GetBounds());
-  this->OutlineSource->Update ();
+  this->OutlineSource->SetBounds(this->GetInput()->GetBounds());
+  this->OutlineSource->Update();
 
-  output->CopyStructure (this->OutlineSource->GetOutput ());
+  output->CopyStructure(this->OutlineSource->GetOutput());
 
+}
+
+
+void vtkOutlineFilter::ExecuteInformation()
+{
+  vtkPolyData *output = this->GetOutput();
+  
+  vtkDebugMacro(<< "Creating dataset outline");
+
+  //
+  // Let OutlineSource do all the work
+  //
+
+  this->OutlineSource->UpdateInformation();
+  output->SetEstimatedMemorySize(
+    this->OutlineSource->GetOutput()->GetEstimatedMemorySize());
 }

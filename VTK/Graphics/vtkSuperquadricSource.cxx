@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSuperquadricSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-08-21 12:01:57 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-07-22 12:12:35 $
+  Version:   $Revision: 1.5 $
   Thanks:    Mike Halle, Brigham and Women's Hospital
 
 
@@ -169,7 +169,7 @@ void vtkSuperquadricSource::Execute()
   float thetaOffset, phiOffset;
   float texCoord[2];
 
-  vtkPolyData *output=(vtkPolyData *)this->Output;
+  vtkPolyData *output = this->GetOutput();
 
   dims[0] = this->Scale[0] * this->Size;
   dims[1] = this->Scale[1] * this->Size;

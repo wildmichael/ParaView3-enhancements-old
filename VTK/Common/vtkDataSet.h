@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-06 14:37:51 $
-  Version:   $Revision: 1.80 $
+  Date:      $Date: 1999-07-22 12:12:19 $
+  Version:   $Revision: 1.81 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -87,13 +87,6 @@ public:
   // be of the same type.
   // THIS METHOD IS NOT THREAD SAFE.
   virtual void CopyStructure(vtkDataSet *ds) = 0;
-
-  // Description:
-  // Return class name of data type. This is one of VTK_STRUCTURED_GRID, 
-  // VTK_STRUCTURED_POINTS, VTK_UNSTRUCTURED_GRID, VTK_POLY_DATA, or
-  // VTK_RECTILINEAR_GRID (see vtkSetGet.h for definitions).
-  // THIS METHOD IS THREAD SAFE
-  virtual int GetDataSetType() = 0;
 
   // Description:
   // Determine the number of points composing the dataset.
@@ -315,6 +308,12 @@ public:
     {this->GetPointCells(ptId, &cellIds);}
   void GetCellNeighbors(int cellId, vtkIdList& ptIds, vtkIdList& cellIds)
     {this->GetCellNeighbors(cellId, &ptIds, &cellIds);}
+  
+  int GetDataObjectType() {return VTK_DATA_SET;}
+  
+  // Description:
+  // NOW OBSOLETE.  Use GetDataType instead.
+  virtual int GetDataSetType() {return this->GetDataObjectType();}
   
 protected:
   vtkCellData *CellData;   // Scalars, vectors, etc. associated w/ each cell

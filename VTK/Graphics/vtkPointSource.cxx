@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:04:32 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1999-07-22 12:13:02 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,6 +41,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkPointSource.h"
 #include "vtkMath.h"
 
+//----------------------------------------------------------------------------
 vtkPointSource::vtkPointSource(int numPts)
 {
   this->NumberOfPoints = (numPts > 0 ? numPts : 10);
@@ -52,13 +53,14 @@ vtkPointSource::vtkPointSource(int numPts)
   this->Radius = 0.5;
 }
 
+//----------------------------------------------------------------------------
 void vtkPointSource::Execute()
 {
   int i;
   float radius, theta, phi, x[3], rho;
   vtkPoints *newPoints;
   vtkCellArray *newVerts;
-  vtkPolyData *output = (vtkPolyData *)this->Output;
+  vtkPolyData *output = this->GetOutput();
   
   vtkDebugMacro(<< "Generating random cloud of points...");
 
@@ -79,9 +81,9 @@ void vtkPointSource::Execute()
     x[2] = this->Center[2] + rho * cos((double)phi);
     newVerts->InsertCellPoint(newPoints->InsertNextPoint(x));
     }
-//
-// Update ourselves and release memory
-//
+   //
+   // Update ourselves and release memory
+   //
   output->SetPoints(newPoints);
   newPoints->Delete();
 
@@ -89,6 +91,21 @@ void vtkPointSource::Execute()
   newVerts->Delete();
 }
 
+//----------------------------------------------------------------------------
+void vtkPointSource::ExecuteInformation()
+{
+  unsigned long size;
+  
+  // points and verts.
+  size = this->NumberOfPoints * 3 * sizeof(float) + sizeof(int);
+  // convert to KBytes
+  size = 1 + size / 1000;
+  
+  this->GetOutput()->SetEstimatedMemorySize(size);
+}
+
+
+//----------------------------------------------------------------------------
 void vtkPointSource::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkPolyDataSource::PrintSelf(os,indent);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:25:07 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1999-07-22 12:12:37 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,15 +70,17 @@ public:
   void AddInput(vtkDataSet *in);
 
   // Description:
+  // Get any input of this filter.
+  vtkDataSet *GetInput(int idx);
+  
+  // Description:
   // Remove a dataset from the list of data to append.
   void RemoveInput(vtkDataSet *in);
 
   // Description:
-  // Return the list of inputs to this filter.
-  vtkDataSetCollection *GetInputList() {return this->InputList;}
-
-  // filter interface
-  void Update();
+  // Returns a copy of the input array.  Modifications to this list
+  // will not be reflected in the actual inputs.
+  vtkDataSetCollection *GetInputList();
 
   // Description:
   // For legacy compatibility. Do not use.
@@ -88,7 +90,8 @@ public:
 protected:
   // Usual data generation method
   void Execute();
-  // list of data sets to append together
+  // list of data sets to append together.
+  // Here as a convenience.  It is a copy of the input array.
   vtkDataSetCollection *InputList;
 };
 

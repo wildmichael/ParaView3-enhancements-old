@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindowToImageFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:38:25 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-07-22 12:12:29 $
+  Version:   $Revision: 1.5 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -73,9 +73,10 @@ public:
 
   // Description:
   // This method returns the largest region that can be generated.
-  void UpdateImageInformation();
+  void UpdateInformation();
   
 protected:
+  // vtkWindow is not a vtkDataObject, so we need our own ivar.
   vtkWindow *Input;
   void Execute(vtkImageData *data);
 };

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:48:05 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-07-22 12:13:12 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,10 +40,30 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkStructuredGridSource.h"
 
+//----------------------------------------------------------------------------
 vtkStructuredGridSource::vtkStructuredGridSource()
 {
-  this->Output = vtkStructuredGrid::New();
-  this->Output->SetSource(this);
+  this->vtkSource::SetOutput(0, vtkStructuredGrid::New());
+  this->ExecuteExtent[0] = this->ExecuteExtent[2] = this->ExecuteExtent[4] = 0;
+  this->ExecuteExtent[1] = this->ExecuteExtent[3] = this->ExecuteExtent[5] = 0;
+}
+
+//----------------------------------------------------------------------------
+vtkStructuredGrid *vtkStructuredGridSource::GetOutput()
+{
+  if (this->NumberOfOutputs < 1)
+    {
+    return NULL;
+    }
+  
+  return (vtkStructuredGrid *)(this->Outputs[0]);
+}
+
+
+//----------------------------------------------------------------------------
+void vtkStructuredGridSource::SetOutput(vtkStructuredGrid *output)
+{
+  this->vtkSource::SetOutput(0, output);
 }
 
 

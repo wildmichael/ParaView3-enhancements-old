@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGradient.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-16 21:09:10 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-07-22 12:13:38 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,9 +52,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkImageGradient_h
 
 
-#include "vtkImageFilter.h"
+#include "vtkImageToImageFilter.h"
 
-class VTK_EXPORT vtkImageGradient : public vtkImageFilter
+class VTK_EXPORT vtkImageGradient : public vtkImageToImageFilter
 {
 public:
   vtkImageGradient();
@@ -78,8 +78,8 @@ protected:
   int HandleBoundaries;
   int Dimensionality;
   
-  void ExecuteImageInformation(); 
-  void ComputeRequiredInputUpdateExtent(int inExt[6], int outExt[6]);
+  void ExecuteInformation(); 
+  void ComputeInputUpdateExtent(int inExt[6], int outExt[6]);
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
 		       int extent[6], int id);
 };

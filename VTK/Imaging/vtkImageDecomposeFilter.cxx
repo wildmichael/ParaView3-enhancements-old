@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSFile: vtkImageDecomposeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:48:03 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-07-22 12:13:31 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,7 +39,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include <math.h>
-#include "vtkImageCache.h"
+
 #include "vtkImageDecomposeFilter.h"
 
 

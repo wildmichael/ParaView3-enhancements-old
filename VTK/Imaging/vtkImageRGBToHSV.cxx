@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageRGBToHSV.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-18 17:18:23 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-07-22 12:13:50 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -232,7 +232,7 @@ void vtkImageRGBToHSV::ThreadedExecute(vtkImageData *inData,
 
 void vtkImageRGBToHSV::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImageFilter::PrintSelf(os,indent);
+  vtkImageToImageFilter::PrintSelf(os,indent);
 
   os << indent << "Maximum: " << this->Maximum << "\n";
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSobel2D.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-16 21:09:16 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-07-22 12:13:54 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,7 +62,7 @@ public:
 protected:
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
 		       int outExt[6], int id);
-  void ExecuteImageInformation();
+  void ExecuteInformation();
 };
 
 #endif

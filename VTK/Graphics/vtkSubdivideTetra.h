@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSubdivideTetra.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:08:28 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-07-22 12:12:35 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,9 +46,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkSubdivideTetra_h
 #define __vtkSubdivideTetra_h
 
-#include "vtkUnstructuredGridFilter.h"
+#include "vtkUnstructuredGridToUnstructuredGridFilter.h"
 
-class VTK_EXPORT vtkSubdivideTetra : public vtkUnstructuredGridFilter
+class VTK_EXPORT vtkSubdivideTetra : public vtkUnstructuredGridToUnstructuredGridFilter
 {
 public:
   vtkSubdivideTetra();
@@ -56,9 +56,6 @@ public:
   const char *GetClassName() {return "vtkSubdivideTetra";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
-  // Description:
-  // Get the output of this filter.
-  vtkUnstructuredGrid *GetOutput() {return (vtkUnstructuredGrid *)this->Output;};
 
 protected:
   void Execute();

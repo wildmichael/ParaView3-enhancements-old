@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIVWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-08-21 12:01:48 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-07-22 12:12:32 $
+  Version:   $Revision: 1.10 $
   Thanks:    to Jon A. Webb for contributing this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,7 +67,7 @@ void vtkIVWriter::WriteData()
   vtkDebugMacro("Writing OpenInventor file");
   fprintf(fp,"#Inventor V2.0 ascii\n");
   fprintf(fp,"# OpenInventor file written by the visualization toolkit\n\n");
-  this->WritePolyData((vtkPolyData *)this->Input, fp);
+  this->WritePolyData(this->GetInput(), fp);
   if (fclose(fp)) 
     {
     vtkErrorMacro(<< this->FileName << " did not close successfully. Check disk space.");

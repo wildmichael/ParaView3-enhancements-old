@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAppend.h,v $
   Language:  C++
-  Date:      $Date: 1998-11-05 12:32:22 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-07-22 12:13:27 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,8 +75,8 @@ protected:
   // Array holds the AppendAxisExtent shift for each input.
   int *Shifts;
 
-  void ExecuteImageInformation();
-  void ComputeRequiredInputUpdateExtent(int inExt[6], int outExt[6],
+  void ExecuteInformation();
+  void ComputeInputUpdateExtent(int inExt[6], int outExt[6],
 					int whichInput);
   
   void ThreadedExecute(vtkImageData **inDatas, vtkImageData *outData,

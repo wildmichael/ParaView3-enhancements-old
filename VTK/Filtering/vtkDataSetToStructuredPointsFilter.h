@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToStructuredPointsFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-07 13:11:07 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1999-07-22 12:12:48 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,24 +50,32 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkDataSetToStructuredPointsFilter_h
 #define __vtkDataSetToStructuredPointsFilter_h
 
-#include "vtkDataSetFilter.h"
-#include "vtkStructuredPoints.h"
+#include "vtkStructuredPointsSource.h"
+#include "vtkImageToStructuredPoints.h"
 
-class VTK_EXPORT vtkDataSetToStructuredPointsFilter : public vtkDataSetFilter
+class VTK_EXPORT vtkDataSetToStructuredPointsFilter : public vtkStructuredPointsSource
 {
 public:
-  vtkDataSetToStructuredPointsFilter();
   static vtkDataSetToStructuredPointsFilter *New() {
     return new vtkDataSetToStructuredPointsFilter;};
   const char *GetClassName() {return "vtkDataSetToStructuredPointsFilter";};
 
   // Description:
-  // Get the output of this filter.
-  vtkStructuredPoints *GetOutput() {
-    return (vtkStructuredPoints *)this->Output;};
-
+  // Set / get the input data or filter.
+  virtual void SetInput(vtkDataSet *input);
+  virtual void SetInput(vtkImageData *cache)
+    {vtkImageToStructuredPoints *tmp = cache->MakeImageToStructuredPoints();
+    this->SetInput(tmp->GetOutput()); tmp->Delete();}
+  vtkDataSet *GetInput();
+  
+protected:
+  // All the DataSetToStructuredPointsFilters require all their input.
+  int ComputeInputUpdateExtents(vtkDataObject *output);
 };
 
 #endif
+
+
+
 
 

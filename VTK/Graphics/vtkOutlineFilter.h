@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutlineFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 23:38:41 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-07-22 12:12:59 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,6 +61,7 @@ public:
 protected:
   vtkOutlineSource *OutlineSource;
   void Execute();
+  void ExecuteInformation();
 };
 
 #endif

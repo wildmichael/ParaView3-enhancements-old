@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageTranslateExtent.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-16 21:09:17 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-07-22 12:13:56 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,9 +46,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkImageTranslateExtent_h
 #define __vtkImageTranslateExtent_h
 
-#include "vtkImageFilter.h"
+#include "vtkImageToImageFilter.h"
 
-class VTK_EXPORT vtkImageTranslateExtent : public vtkImageFilter
+class VTK_EXPORT vtkImageTranslateExtent : public vtkImageToImageFilter
 {
 public:
   vtkImageTranslateExtent();
@@ -64,12 +64,12 @@ public:
 
   // Description:
   // This method simply copies by reference the input data to the output.
-  void InternalUpdate(vtkImageData *outData);
+  void InternalUpdate(vtkDataObject *data);
 
 protected:
   int Translation[3];
   
-  void ExecuteImageInformation();
+  void ExecuteInformation();
 };
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridWriter.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:25:29 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1999-07-22 12:13:20 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,11 +63,7 @@ public:
   // Description:
   // Specify the input data or filter.
   void SetInput(vtkUnstructuredGrid *input);
-  vtkUnstructuredGrid *GetInput() {return (vtkUnstructuredGrid *)this->Input;};
-                               
-  // Description:
-  // For legacy compatibiltiy. Do not use.
-  void SetInput(vtkUnstructuredGrid &input) {this->SetInput(&input);};
+  vtkUnstructuredGrid *GetInput();
 
 protected:
   void WriteData();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridToStructuredGridFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:48:08 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-07-22 12:13:13 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,9 +40,54 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkStructuredGridToStructuredGridFilter.h"
 
-vtkStructuredGridToStructuredGridFilter::vtkStructuredGridToStructuredGridFilter()
+//----------------------------------------------------------------------------
+// Specify the input data or filter.
+void vtkStructuredGridToStructuredGridFilter::SetInput(vtkStructuredGrid *input)
 {
-  this->Output = vtkStructuredGrid::New();
-  this->Output->SetSource(this);
+  this->vtkProcessObject::SetInput(0, input);
+}
+
+//----------------------------------------------------------------------------
+// Specify the input data or filter.
+vtkStructuredGrid *vtkStructuredGridToStructuredGridFilter::GetInput()
+{
+  if (this->NumberOfInputs < 1)
+    {
+    return NULL;
+    }
+  
+  return (vtkStructuredGrid *)(this->Inputs[0]);
+}
+
+
+//----------------------------------------------------------------------------
+// just copy WholeExtent fropm the first input.
+void vtkStructuredGridToStructuredGridFilter::ExecuteInformation()
+{
+  vtkStructuredGrid *input = this->GetInput();
+  vtkStructuredGrid *output = this->GetOutput();
+  
+  if (output == NULL || input == NULL)
+    {
+    return;
+    }
+  
+  output->SetWholeExtent(input->GetWholeExtent());
+}
+
+//----------------------------------------------------------------------------
+int vtkStructuredGridToStructuredGridFilter::ComputeInputUpdateExtents(
+                                                           vtkDataObject *data)
+{
+  vtkStructuredGrid *output = (vtkStructuredGrid *)data;
+  
+  if (this->NumberOfInputs > 1)
+    {
+    vtkErrorMacro("Subclass did not implement ComputeInputUpdateExtent");
+    return 0;
+    }
+  
+  this->GetInput()->CopyUpdateExtent(output);
+  return 1;
 }
 

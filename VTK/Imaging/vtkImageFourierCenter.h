@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFourierCenter.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-16 21:09:09 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-07-22 12:13:36 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,7 +60,7 @@ public:
   const char *GetClassName() {return "vtkImageFourierCenter";};
   
 protected:
-  void ComputeRequiredInputUpdateExtent(int inExt[6], int outExt[6]);
+  void ComputeInputUpdateExtent(int inExt[6], int outExt[6]);
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
 		       int outExt[6], int threadId);
 };

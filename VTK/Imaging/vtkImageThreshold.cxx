@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageThreshold.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-18 17:18:26 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1999-07-22 12:13:55 $
+  Version:   $Revision: 1.22 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -120,11 +120,11 @@ void vtkImageThreshold::ThresholdBetween(float lower, float upper)
 }
 
 //----------------------------------------------------------------------------
-void vtkImageThreshold::ExecuteImageInformation()
+void vtkImageThreshold::ExecuteInformation()
 {
   if (this->OutputScalarType != -1)
     {
-    this->Output->SetScalarType(this->OutputScalarType);
+    this->GetOutput()->SetScalarType(this->OutputScalarType);
     }
 }
 
@@ -337,7 +337,7 @@ void vtkImageThreshold::ThreadedExecute(vtkImageData *inData,
 
 void vtkImageThreshold::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImageFilter::PrintSelf(os,indent);
+  vtkImageToImageFilter::PrintSelf(os,indent);
 
   os << indent << "OutputScalarType: " << this->OutputScalarType << "\n";
   os << indent << "InValue: " << this->InValue << "\n";

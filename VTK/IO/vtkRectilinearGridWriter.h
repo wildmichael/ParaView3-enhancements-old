@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridWriter.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:25:23 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-07-22 12:13:07 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,12 +64,8 @@ public:
   // Description:
   // Set / get the input data or filter.
   void SetInput(vtkRectilinearGrid *input);
-  vtkRectilinearGrid *GetInput() {return (vtkRectilinearGrid *)this->Input;};
+  vtkRectilinearGrid *GetInput();
                                
-  // Description:
-  // For legacy compatibiltiy. Do not use.
-  void SetInput(vtkRectilinearGrid &input) {this->SetInput(&input);};
-  
 protected:
   void WriteData();
 

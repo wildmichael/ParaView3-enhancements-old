@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-02 19:48:28 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 1999-07-22 12:12:56 $
+  Version:   $Revision: 1.57 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -81,11 +81,6 @@ vtkMapper::~vtkMapper()
     {
     this->Colors->Delete();
     }
-  if (this->Input)
-    {
-    this->Input->UnRegister(this);
-    this->Input = NULL;
-    }
 }
 
 void vtkMapper::SetGlobalImmediateModeRendering(int val)
@@ -133,7 +128,7 @@ vtkScalars *vtkMapper::GetColors()
   vtkScalars *scalars;
   
   // make sure we have an input
-  if (!this->Input)
+  if (!this->GetInput())
     {
     return NULL;
     }
@@ -141,19 +136,19 @@ vtkScalars *vtkMapper::GetColors()
   // get and scalar data according to scalar mode
   if ( this->ScalarMode == VTK_SCALAR_MODE_DEFAULT )
     {
-    scalars = this->Input->GetPointData()->GetScalars();
+    scalars = this->GetInput()->GetPointData()->GetScalars();
     if (!scalars)
       {
-      scalars = this->Input->GetCellData()->GetScalars();
+      scalars = this->GetInput()->GetCellData()->GetScalars();
       }
     }
   else if ( this->ScalarMode == VTK_SCALAR_MODE_USE_POINT_DATA )
     {
-    scalars = this->Input->GetPointData()->GetScalars();
+    scalars = this->GetInput()->GetPointData()->GetScalars();
     }
   else
     {
-    scalars = this->Input->GetCellData()->GetScalars();
+    scalars = this->GetInput()->GetCellData()->GetScalars();
     }
   
   // do we have any scalars ?
@@ -237,9 +232,9 @@ void vtkMapper::CreateDefaultLookupTable()
 // Update the network connected to this mapper.
 void vtkMapper::Update()
 {
-  if ( this->Input )
+  if ( this->GetInput() )
     {
-    this->Input->Update();
+    this->GetInput()->Update();
     }
 }
 

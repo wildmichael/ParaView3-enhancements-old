@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKitwareContourFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-19 17:45:57 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-07-22 12:14:07 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.

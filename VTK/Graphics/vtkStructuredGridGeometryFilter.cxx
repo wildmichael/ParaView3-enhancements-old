@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-05 13:40:22 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1999-07-22 12:13:11 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,8 +66,8 @@ void vtkStructuredGridGeometryFilter::Execute()
   float *x;
   vtkPointData *pd, *outPD;
   vtkCellData *cd, *outCD;
-  vtkStructuredGrid *input=(vtkStructuredGrid *)this->Input;
-  vtkPolyData *output=(vtkPolyData *)this->Output;
+  vtkStructuredGrid *input = this->GetInput();
+  vtkPolyData *output = this->GetOutput();
 
   vtkDebugMacro(<< "Extracting structured points geometry");
 

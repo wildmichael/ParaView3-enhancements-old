@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-25 15:59:59 $
-  Version:   $Revision: 1.62 $
+  Date:      $Date: 1999-07-22 12:12:41 $
+  Version:   $Revision: 1.63 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -136,17 +136,21 @@ void vtkContourFilter::Execute()
 
   // If structured points, use more efficient algorithms
 #ifdef VTK_USE_PATENTED
-  if ( input->GetDataSetType() == VTK_STRUCTURED_POINTS &&
-       inScalars->GetDataType() != VTK_BIT)
+  if ( (input->GetDataObjectType() == VTK_STRUCTURED_POINTS) ||
+       (input->GetDataObjectType() == VTK_IMAGE_DATA)) 
     {
-    int dim = input->GetCell(0)->GetCellDimension();
-
-    if ( input->GetCell(0)->GetCellDimension() >= 2 ) 
+    if (inScalars->GetDataType() != VTK_BIT)
       {
-      this->StructuredPointsContour(dim);
-      return;
+      int dim = input->GetCell(0)->GetCellDimension();
+      
+      if ( input->GetCell(0)->GetCellDimension() >= 2 ) 
+	{
+	this->StructuredPointsContour(dim);
+	return;
+	}
       }
     }
+  
 #endif
 
   inScalars->GetRange(range);

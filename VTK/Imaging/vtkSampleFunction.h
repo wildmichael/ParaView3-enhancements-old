@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSampleFunction.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:16 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1999-07-22 12:13:08 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -119,6 +119,7 @@ public:
 
 protected:
   void Execute();
+  void ExecuteInformation();
   void Cap(vtkScalars *s);
 
   int SampleDimensions[3];

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitTextureCoords.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-26 14:21:51 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1999-07-22 12:12:55 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -109,13 +109,7 @@ public:
   // function (i.e., a rotation around the r-s-t=0.5 axis).
   vtkSetMacro(FlipTexture,int);
   vtkGetMacro(FlipTexture,int);
-  vtkBooleanMacro(FlipTexture,int);
-  
-  // Description:
-  // Update input to this filter and the filter itself. Note that we are 
-  // overloading this method because the output is an abstract dataset type.
-  // This requires special treatment.
-  void Update();
+  vtkBooleanMacro(FlipTexture,int);  
   
 protected:
   void Execute();

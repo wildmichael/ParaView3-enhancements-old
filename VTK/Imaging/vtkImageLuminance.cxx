@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageLuminance.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-18 12:56:07 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-07-22 12:13:42 $
+  Version:   $Revision: 1.7 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -38,15 +38,15 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include <math.h>
-#include "vtkImageCache.h"
+
 #include "vtkImageLuminance.h"
 
 
 //----------------------------------------------------------------------------
 // This method tells the superclass that the first axis will collapse.
-void vtkImageLuminance::ExecuteImageInformation()
+void vtkImageLuminance::ExecuteInformation()
 {
-  this->Output->SetNumberOfScalarComponents(1);
+  this->GetOutput()->SetNumberOfScalarComponents(1);
 }
 
 //----------------------------------------------------------------------------

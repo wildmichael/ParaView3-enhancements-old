@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSpatialFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-12-29 17:07:03 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1999-07-22 12:13:55 $
+  Version:   $Revision: 1.28 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,9 +52,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkImageSpatialFilter_h
 
 
-#include "vtkImageFilter.h"
+#include "vtkImageToImageFilter.h"
 
-class VTK_EXPORT vtkImageSpatialFilter : public vtkImageFilter
+class VTK_EXPORT vtkImageSpatialFilter : public vtkImageToImageFilter
 {
 public:
   vtkImageSpatialFilter();
@@ -76,9 +76,9 @@ protected:
   int   Strides[3];      // Shrink factor
   int   HandleBoundaries;     // Output shrinks if boundaries aren't handled
 
-  void ExecuteImageInformation();
+  void ExecuteInformation();
   void ComputeOutputWholeExtent(int extent[6], int handleBoundaries);
-  void ComputeRequiredInputUpdateExtent(int extent[6], int wholeExtent[6]);
+  void ComputeInputUpdateExtent(int extent[6], int wholeExtent[6]);
 
 };
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDivergence.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-16 19:38:18 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-07-22 12:13:32 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,7 +39,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include <math.h>
-#include "vtkImageCache.h"
+
 #include "vtkImageDivergence.h"
 
 
@@ -51,7 +51,7 @@ vtkImageDivergence::vtkImageDivergence()
 
 //----------------------------------------------------------------------------
 // Just clip the request.  The subclass may need to overwrite this method.
-void vtkImageDivergence::ComputeRequiredInputUpdateExtent(int inExt[6], 
+void vtkImageDivergence::ComputeInputUpdateExtent(int inExt[6], 
 							    int outExt[6])
 {
   int idx;
@@ -60,7 +60,7 @@ void vtkImageDivergence::ComputeRequiredInputUpdateExtent(int inExt[6],
   // handle XYZ
   memcpy(inExt,outExt,sizeof(int)*6);
   
-  wholeExtent = this->Input->GetWholeExtent();
+  wholeExtent = this->GetInput()->GetWholeExtent();
   // update and Clip
   for (idx = 0; idx < 3; ++idx)
     {
@@ -267,7 +267,7 @@ void vtkImageDivergence::ThreadedExecute(vtkImageData *inData,
 
 void vtkImageDivergence::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImageFilter::PrintSelf(os,indent);
+  vtkImageToImageFilter::PrintSelf(os,indent);
 
   os << indent << "Dimensionality: " << this->Dimensionality << "\n";
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereSource.h,v $
   Language:  C++
-  Date:      $Date: 1999-05-05 11:33:11 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1999-07-22 12:13:10 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -114,6 +114,8 @@ public:
 
 protected:
   void Execute();
+  void ExecuteInformation();
+  
   float Radius;
   float Center[3];
   int ThetaResolution;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageNoiseSource.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-16 21:09:13 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-07-22 12:13:47 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -77,7 +77,7 @@ public:
 
   // Description:
   // updates the inage information, (Extent, Scalar type, etc).
-  void UpdateImageInformation();
+  void UpdateInformation();
 
 private:
   float Minimum;

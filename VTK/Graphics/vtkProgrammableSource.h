@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableSource.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-16 19:50:24 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-07-22 12:13:06 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -76,7 +76,6 @@ public:
   ~vtkProgrammableSource();
   static vtkProgrammableSource *New() {return new vtkProgrammableSource;};
   const char *GetClassName() {return "vtkProgrammableSource";};
-  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Specify the function to use to generate the source data. Note
@@ -110,27 +109,12 @@ public:
   // Get the output as a concrete type.
   vtkRectilinearGrid *GetRectilinearGridOutput();
 
-  // Description:
-  // Handle the source/data loop.
-  void UnRegister(vtkObject *o);
-
-  // Description:
-  // Test to see if this object is in a reference counting loop.
-  virtual int InRegisterLoop(vtkObject *);
-
 protected:
   void Execute();
 
   void (*ExecuteMethod)(void *); //function to invoke
   void (*ExecuteMethodArgDelete)(void *);
-  void *ExecuteMethodArg;
-  
-  // objects used to support the retrieval of output
-  vtkPolyData *PolyData;
-  vtkStructuredPoints *StructuredPoints;
-  vtkStructuredGrid *StructuredGrid;
-  vtkUnstructuredGrid *UnstructuredGrid;
-  vtkRectilinearGrid *RectilinearGrid;
+  void *ExecuteMethodArg;  
 };
 
 #endif

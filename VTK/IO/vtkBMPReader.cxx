@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBMPReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-16 19:38:15 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-07-22 12:13:25 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,7 +60,7 @@ vtkBMPReader::~vtkBMPReader()
     }
 }
 
-void vtkBMPReader::UpdateImageInformation()
+void vtkBMPReader::UpdateInformation()
 {
   int xsize, ysize;
   FILE *fp;
@@ -269,7 +269,7 @@ void vtkBMPReader::UpdateImageInformation()
   this->SetDataScalarTypeToUnsignedChar();
   this->SetNumberOfScalarComponents(3);
   
-  vtkImageReader::UpdateImageInformation();
+  vtkImageReader::UpdateInformation();
 }
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageNoiseSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-15 18:30:22 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-07-22 12:13:47 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -39,7 +39,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include <stdlib.h>
 #include "vtkMath.h"
-#include "vtkImageCache.h"
+
 #include "vtkImageNoiseSource.h"
 
 
@@ -97,12 +97,11 @@ void vtkImageNoiseSource::SetWholeExtent(int xMin, int xMax,
     }
 }
 //----------------------------------------------------------------------------
-void vtkImageNoiseSource::UpdateImageInformation()
+void vtkImageNoiseSource::UpdateInformation()
 {
-  this->CheckCache();
-  this->Output->SetWholeExtent(this->WholeExtent);
-  this->Output->SetScalarType(VTK_FLOAT);
-  this->Output->SetNumberOfScalarComponents(1);
+  this->GetOutput()->SetWholeExtent(this->WholeExtent);
+  this->GetOutput()->SetScalarType(VTK_FLOAT);
+  this->GetOutput()->SetNumberOfScalarComponents(1);
 }
 
 void vtkImageNoiseSource::Execute(vtkImageData *data)

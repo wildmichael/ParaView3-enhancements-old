@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPiecewiseFunction.h,v $
   Language:  C++
-  Date:      $Date: 1999-02-16 19:37:41 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-07-22 12:13:00 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,6 +63,10 @@ public:
   void Initialize();
   void DeepCopy( vtkPiecewiseFunction *f );
 
+  // Description:
+  // Return what type of dataset this is.
+  int GetDataObjectType() {return VTK_PIECEWISE_FUNCTION;};
+  
   // Description:
   // Get the number of points used to specify the function
   int  GetSize();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageHSVToRGB.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-16 19:38:20 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-07-22 12:13:38 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -266,7 +266,7 @@ void vtkImageHSVToRGB::ThreadedExecute(vtkImageData *inData,
 
 void vtkImageHSVToRGB::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImageFilter::PrintSelf(os,indent);
+  vtkImageToImageFilter::PrintSelf(os,indent);
 
   os << indent << "Maximum: " << this->Maximum << "\n";
 }

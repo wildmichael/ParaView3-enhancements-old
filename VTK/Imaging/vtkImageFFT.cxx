@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFFT.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-16 19:38:19 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-07-22 12:13:35 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,28 +39,29 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include <math.h>
-#include "vtkImageCache.h"
+
 #include "vtkImageFFT.h"
 
 
 //----------------------------------------------------------------------------
 // This extent of the components changes to real and imaginary values.
-void vtkImageFFT::ExecuteImageInformation()
+void vtkImageFFT::ExecuteInformation(vtkImageData *inData, 
+				     vtkImageData *outData)
 {
-  this->Output->SetNumberOfScalarComponents(2);
-  this->Output->SetScalarType(VTK_FLOAT);
+  outData->SetNumberOfScalarComponents(2);
+  outData->SetScalarType(VTK_FLOAT);
 }
 
 //----------------------------------------------------------------------------
 // This method tells the superclass that the whole input array is needed
 // to compute any output region.
-void vtkImageFFT::ComputeRequiredInputUpdateExtent(int inExt[6], 
-						   int outExt[6])
+void vtkImageFFT::ComputeInputUpdateExtent(int inExt[6], 
+					   int outExt[6])
 {
   int *extent;
   
   // Assumes that the input update extent has been initialized to output ...
-  extent = this->Input->GetWholeExtent();
+  extent = this->GetInput()->GetWholeExtent();
   memcpy(inExt, outExt, 6 * sizeof(int));
   inExt[this->Iteration*2] = extent[this->Iteration*2];
   inExt[this->Iteration*2 + 1] = extent[this->Iteration*2 + 1];
@@ -187,7 +188,7 @@ void vtkImageFFT::ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
   void *inPtr, *outPtr;
   int inExt[6];
 
-  this->ComputeRequiredInputUpdateExtent(inExt, outExt);  
+  this->ComputeInputUpdateExtent(inExt, outExt);  
   inPtr = inData->GetScalarPointerForExtent(inExt);
   outPtr = outData->GetScalarPointerForExtent(outExt);
   

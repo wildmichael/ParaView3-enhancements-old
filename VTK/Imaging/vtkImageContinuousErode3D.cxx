@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageContinuousErode3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-16 19:38:17 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-07-22 12:13:30 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,7 +39,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkImageData.h"
-#include "vtkImageCache.h"
+
 #include "vtkImageContinuousErode3D.h"
 #include "vtkImageEllipsoidSource.h"
 
@@ -119,7 +119,7 @@ void vtkImageContinuousErode3D::SetKernelSize(int size0, int size1, int size2)
     this->Ellipse->GetOutput()->SetUpdateExtent(0, this->KernelSize[0]-1, 
 						0, this->KernelSize[1]-1, 
 						0, this->KernelSize[2]-1);
-    this->Ellipse->GetOutput()->UpdateAndReturnData();
+    this->Ellipse->GetOutput()->Update();
     }
 }
 
@@ -290,13 +290,14 @@ void vtkImageContinuousErode3D::ThreadedExecute(vtkImageData *inData,
 						int outExt[6], int id)
 {
   int inExt[6];
-  this->ComputeRequiredInputUpdateExtent(inExt,outExt);
+  this->ComputeInputUpdateExtent(inExt,outExt);
   void *inPtr = inData->GetScalarPointerForExtent(inExt);
   void *outPtr = outData->GetScalarPointerForExtent(outExt);
   vtkImageData *mask;
 
   // Error checking on mask
-  mask = this->Ellipse->GetOutput()->UpdateAndReturnData();
+  this->Ellipse->GetOutput()->Update();
+  mask = this->Ellipse->GetOutput();
   if (mask->GetScalarType() != VTK_UNSIGNED_CHAR)
     {
     vtkErrorMacro(<< "Execute: mask has wrong scalar type");

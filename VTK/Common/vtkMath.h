@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMath.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-28 19:54:18 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 1999-07-22 12:12:22 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -173,10 +173,18 @@ public:
   static int SolveLinearSystem(double **A, double *x, int size);
 
   // Description:
-  // Invert input square matrix A into matrix AI. Note that A is modified during
+  // Invert input square matrix A into matrix AI. 
+  // Note that A is modified during
   // the inversion. The size variable is the dimension of the matrix. Returns 0
   // if inverse not computed.
   static int InvertMatrix(double **A, double **AI, int size);
+
+  // Description:
+  // Thread safe version of InvertMatrix method.
+  // Working memory arrays tmp1SIze and tmp2Size
+  // of length size must be passsed in.
+  static int InvertMatrix(double **A, double **AI, int size,
+			  int *tmp1Size, double *tmp2Size);
 
   // Description:
   // Factor linear equations Ax = b using LU decompostion A = LU where L is
@@ -185,6 +193,13 @@ public:
   // of square matrix n. Output factorization LU is in matrix A. If error is 
   // found, method returns 0. 
   static int LUFactorLinearSystem(double **A, int *index, int size);
+
+  // Description:
+  // Thread safe version of LUFactorLinearSystem method.
+  // Working memory array tmpSize of length size
+  // must be passed in.
+  static int LUFactorLinearSystem(double **A, int *index, int size,
+                           double *tmpSize);
 
   // Description:
   // Solve linear equations Ax = b using LU decompostion A = LU where L is

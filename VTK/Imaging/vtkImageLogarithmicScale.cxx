@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageLogarithmicScale.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-18 12:56:07 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-07-22 12:13:42 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,7 +39,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include <math.h>
-#include "vtkImageCache.h"
+
 #include "vtkImageLogarithmicScale.h"
 
 
@@ -196,7 +196,7 @@ void vtkImageLogarithmicScale::ThreadedExecute(vtkImageData *inData,
 
 void vtkImageLogarithmicScale::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImageFilter::PrintSelf(os,indent);
+  vtkImageToImageFilter::PrintSelf(os,indent);
 
   os << indent << "Constant: " << this->Constant << "\n";
 }

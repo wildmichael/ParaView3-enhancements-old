@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLight.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-27 19:07:12 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1999-07-22 12:12:56 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -130,6 +130,9 @@ public:
   vtkSetVector3Macro(AttenuationValues,float);
   vtkGetVectorMacro(AttenuationValues,float,3);
 
+  void ReadSelf(istream& is);
+  void WriteSelf(ostream& os);
+  
 protected:
   float FocalPoint[3];
   float Position[3];

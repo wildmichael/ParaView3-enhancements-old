@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipVolume.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-22 10:38:34 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-07-22 12:12:40 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -138,7 +138,7 @@ public:
 
   // Description:
   // Return the clipped output.
-  vtkUnstructuredGrid *GetClippedOutput() {return this->ClippedOutput;};
+  vtkUnstructuredGrid *GetClippedOutput();
 
   // Description:
   // Set the tolerance for merging clip intersection points that are near
@@ -165,14 +165,6 @@ public:
   // Description:
   // For legacy compatibility. Do not use.
   void SetLocator(vtkPointLocator& locator) {this->SetLocator(&locator);};
-
-  // Description:
-  // Handle the source/data loop.
-  void UnRegister(vtkObject *o);
-
-  // Description:
-  // Test to see if this object is in a reference counting loop.
-  virtual int InRegisterLoop(vtkObject *);
 
 protected:
   void Execute();

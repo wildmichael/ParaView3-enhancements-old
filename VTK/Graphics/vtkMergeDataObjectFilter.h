@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeDataObjectFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-12-23 20:01:19 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-07-22 12:12:57 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,19 +70,14 @@ class VTK_EXPORT vtkMergeDataObjectFilter : public vtkDataSetToDataSetFilter
 public:
   vtkMergeDataObjectFilter();
   ~vtkMergeDataObjectFilter();
-  static vtkMergeDataObjectFilter *New() {return new vtkMergeDataObjectFilter;};
+  static vtkMergeDataObjectFilter *New() {return new vtkMergeDataObjectFilter;}
   const char *GetClassName() {return "vtkMergeDataObjectFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
-  // Update the data, re-executing if required. This method overloads superclasses
-  // because there are two inputs: Input & DataObject.
-  void Update();
-
-  // Description:
   // Specify the data object to merge with the input dataset.
-  vtkSetObjectMacro(DataObject,vtkDataObject);
-  vtkGetObjectMacro(DataObject,vtkDataObject);
+  void SetDataObject(vtkDataObject *object);
+  vtkDataObject *GetDataObject();
 
   // Description:
   // Specify where to place the field data during the merge process.  There
@@ -102,7 +97,9 @@ protected:
   // Usual data generation method
   void Execute();
 
-  vtkDataObject *DataObject;  // scalars to merge
+  // What do we need from the input and data object?
+  int ComputeInputUpdateExtents(vtkDataObject *output);
+  
   int OutputField; // which output field
 
 };

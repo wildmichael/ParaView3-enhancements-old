@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIdealLowPass.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-16 21:09:11 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-07-22 12:13:39 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,9 +51,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkImageIdealLowPass_h
 
 
-#include "vtkImageFilter.h"
+#include "vtkImageToImageFilter.h"
 
-class VTK_EXPORT vtkImageIdealLowPass : public vtkImageFilter
+class VTK_EXPORT vtkImageIdealLowPass : public vtkImageToImageFilter
 {
 public:
   vtkImageIdealLowPass();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimate.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-23 21:19:50 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 1999-07-22 12:14:05 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -157,8 +157,8 @@ void vtkDecimate::Execute()
   int totalEliminated=0;
   int size;
   int abortFlag = 0;
-  vtkPolyData *input=(vtkPolyData *)this->Input;
-  vtkPolyData *output=(vtkPolyData *)this->Output;
+  vtkPolyData *input=this->GetInput();
+  vtkPolyData *output=this->GetOutput();
 
 
   vtkDebugMacro(<<"Decimating mesh...");

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-31 17:38:44 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-07-22 12:12:51 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,9 +60,6 @@ vtkExtractUnstructuredGrid::vtkExtractUnstructuredGrid()
   this->PointClipping = 0;
   this->CellClipping = 0;
   this->ExtentClipping = 0;
-
-  this->Output = vtkUnstructuredGrid::New();
-  this->Output->SetSource(this);
 }
 
 // Specify a (xmin,xmax, ymin,ymax, zmin,zmax) bounding box to clip data.
@@ -108,7 +105,7 @@ void vtkExtractUnstructuredGrid::SetExtent(float *extent)
 void vtkExtractUnstructuredGrid::Execute()
 {
   int cellId, i, newCellId, newPtId;
-  vtkUnstructuredGrid *input=(vtkUnstructuredGrid *)this->Input;
+  vtkUnstructuredGrid *input=this->GetInput();
   int numPts=input->GetNumberOfPoints();
   int numCells=input->GetNumberOfCells();
   vtkPoints *inPts=input->GetPoints(), *newPts;
@@ -120,7 +117,7 @@ void vtkExtractUnstructuredGrid::Execute()
   vtkPointData *pd = input->GetPointData();
   vtkCellData *cd = input->GetCellData();
   int allVisible, numIds;
-  vtkUnstructuredGrid *output = (vtkUnstructuredGrid *)this->Output;
+  vtkUnstructuredGrid *output = this->GetOutput();
   vtkPointData *outputPD = output->GetPointData();
   vtkCellData *outputCD = output->GetCellData();
   int *pointMap;
@@ -241,7 +238,7 @@ void vtkExtractUnstructuredGrid::Execute()
 
 void vtkExtractUnstructuredGrid::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkUnstructuredGridFilter::PrintSelf(os,indent);
+  vtkUnstructuredGridToUnstructuredGridFilter::PrintSelf(os,indent);
 
   os << indent << "Point Minimum : " << this->PointMinimum << "\n";
   os << indent << "Point Maximum : " << this->PointMaximum << "\n";

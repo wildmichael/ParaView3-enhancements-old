@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridOutlineFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:21 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1999-07-22 12:13:12 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,8 +56,18 @@ public:
     return new vtkStructuredGridOutlineFilter;};
   const char *GetClassName() {return "vtkStructuredGridOutlineFilter";};
 
+  //========================== Streaming stuff ===========================
+  
+  // Sets the inputs UpdatePiece.
+  void UpdateInformation();
+
 protected:
+  int GetNumberOfStreamDivisions();
+  int ComputeDivisionExtents(vtkDataObject *output, int idx, int NumDivisions);
+  void StreamExecuteStart();
   void Execute();
+
+  void ConvertPiece(int piece, int numPieces, int &start, int &end);
 };
 
 #endif

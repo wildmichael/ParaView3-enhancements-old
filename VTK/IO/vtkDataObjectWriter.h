@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObjectWriter.h,v $
   Language:  C++
-  Date:      $Date: 1998-12-02 21:29:25 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-07-22 12:12:43 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,7 +68,7 @@ public:
   // Description:
   // Set / get the input data or filter.
   void SetInput(vtkDataObject *input);
-  vtkDataObject *GetInput() {return this->Input;};
+  vtkDataObject *GetInput();
               
   // Description:
   // Methods delegated to vtkDataWriter, see vtkDataWriter.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredData.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-13 17:45:09 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 1999-07-22 12:12:26 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,6 +68,8 @@ int vtkStructuredData::SetDimensions(int inDim[3], int dim[3])
   int dataDim, i;
   int dataDescription=VTK_UNCHANGED;
 
+  
+  
   if ( inDim[0] != dim[0] || inDim[1] != dim[1] || inDim[2] != dim[2] )
     {
     if ( inDim[0]<1 || inDim[1]<1 || inDim[2]<1 )
@@ -122,6 +124,81 @@ int vtkStructuredData::SetDimensions(int inDim[3], int dim[3])
       {
       dataDescription = VTK_SINGLE_POINT;
       }
+    }
+
+  return dataDescription;
+}
+
+// Specify the extent of a regular, rectangular dataset. The input is
+// the new extent (inExt) and the current extent (ext). The function 
+// returns the dimension of the dataset (0-3D). If the extents are 
+// improperly specified a -1 is returned. If the dimensions are unchanged, a
+// value of 100 is returned.
+int vtkStructuredData::SetExtent(int inExt[3], int ext[3])
+{
+  int dataDim, i;
+  int dataDescription;
+
+  if ( inExt[0] == ext[0] && inExt[1] == ext[1] &&
+       inExt[2] == ext[2] && inExt[3] == ext[3] &&
+       inExt[4] == ext[4] && inExt[5] == ext[5])
+    {
+    return VTK_UNCHANGED;
+    }
+  
+  if ( inExt[0]>inExt[1] || inExt[2]>inExt[3] || inExt[4]>inExt[5] )
+    {
+    return -1;
+    }
+
+  dataDim = 0;
+  for (i=0; i<3 ; ++i)
+    {
+    ext[i*2] = inExt[i*2];
+    ext[i*2+1] = inExt[i*2+1];
+    if (inExt[i*2] < inExt[i*2+1])
+      {
+      dataDim++;
+      }
+    }
+  
+  if ( dataDim == 3 )
+    {
+    dataDescription = VTK_XYZ_GRID;
+    }
+  else if ( dataDim == 2)
+    {
+    if ( inExt[0] == inExt[1] )
+      {
+      dataDescription = VTK_YZ_PLANE;
+      }
+    else if ( inExt[2] == inExt[3] )
+      {
+      dataDescription = VTK_XZ_PLANE;
+      }
+    else
+      {
+      dataDescription = VTK_XY_PLANE;
+      }
+    }
+  else if ( dataDim == 1 )
+    {
+    if ( inExt[0] < inExt[1] )
+      {
+      dataDescription = VTK_X_LINE;
+      }
+    else if ( inExt[2] < inExt[3] )
+      {
+      dataDescription = VTK_Y_LINE;
+      }
+    else
+      {
+      dataDescription = VTK_Z_LINE;
+      }
+    }
+  else
+    {
+    dataDescription = VTK_SINGLE_POINT;
     }
 
   return dataDescription;

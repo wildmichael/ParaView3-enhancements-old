@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIdealLowPass.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-15 18:30:19 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-07-22 12:13:39 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -122,7 +122,7 @@ void vtkImageIdealLowPass::ThreadedExecute(vtkImageData *inData,
     return;
     }
   
-  wholeExtent = this->Input->GetWholeExtent();
+  wholeExtent = this->GetInput()->GetWholeExtent();
   spacing = inData->GetSpacing();
 
   inPtr = (float *)(inData->GetScalarPointerForExtent(ext));
@@ -238,7 +238,7 @@ void vtkImageIdealLowPass::ThreadedExecute(vtkImageData *inData,
 
 void vtkImageIdealLowPass::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImageFilter::PrintSelf(os,indent);
+  vtkImageToImageFilter::PrintSelf(os,indent);
 
   os << indent << "CutOff: ( "
      << this->CutOff[0] << ", "

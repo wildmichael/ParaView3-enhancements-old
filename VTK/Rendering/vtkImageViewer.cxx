@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-20 14:23:51 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1999-07-22 12:13:57 $
+  Version:   $Revision: 1.26 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -94,7 +94,7 @@ void vtkImageViewer::Render()
   if (this->ImageWindow->GetSize()[0] == 0 && this->ImageMapper->GetInput())
     {
     // get the size from the mappers input
-    this->ImageMapper->GetInput()->UpdateImageInformation();
+    this->ImageMapper->GetInput()->UpdateInformation();
     int *ext = this->ImageMapper->GetInput()->GetWholeExtent();
     this->ImageWindow->SetSize(ext[1] - ext[0] + 1, ext[3] - ext[2] + 1);
     }

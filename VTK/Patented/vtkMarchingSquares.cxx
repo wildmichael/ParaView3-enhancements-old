@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingSquares.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-19 15:30:51 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1999-07-22 12:14:07 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -256,7 +256,7 @@ static void ContourImage(T *scalars, vtkScalars *newScalars, int roi[6], int dir
 //
 void vtkMarchingSquares::Execute()
 {
-  vtkStructuredPoints *input=(vtkStructuredPoints *)this->Input;
+  vtkStructuredPoints *input = this->GetInput();
   vtkPointData *pd=input->GetPointData();
   vtkPoints *newPts;
   vtkCellArray *newLines;
@@ -387,10 +387,10 @@ void vtkMarchingSquares::Execute()
     {
     this->CreateDefaultLocator();
     }
-  this->Locator->InitPointInsertion (newPts, ((vtkDataSet *)this->Input)->GetBounds());
-//
-// Check data type and execute appropriate function
-//
+  this->Locator->InitPointInsertion (newPts, this->GetInput()->GetBounds());
+  //
+  // Check data type and execute appropriate function
+  //
   if (inScalars->GetNumberOfComponents() == 1 )
     {
     switch (inScalars->GetDataType())

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageEuclideanToPolar.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-16 21:09:08 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-07-22 12:13:34 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,9 +47,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkImageEuclideanToPolar_h
 
 
-#include "vtkImageFilter.h"
+#include "vtkImageToImageFilter.h"
 
-class VTK_EXPORT vtkImageEuclideanToPolar : public vtkImageFilter
+class VTK_EXPORT vtkImageEuclideanToPolar : public vtkImageToImageFilter
 {
 public:
   vtkImageEuclideanToPolar();

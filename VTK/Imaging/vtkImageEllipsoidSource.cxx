@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageEllipsoidSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-16 19:38:18 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-07-22 12:13:33 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkImageData.h"
-#include "vtkImageCache.h"
+
 #include "vtkImageEllipsoidSource.h"
 
 //----------------------------------------------------------------------------
@@ -127,13 +127,12 @@ void vtkImageEllipsoidSource::GetWholeExtent(int extent[6])
 }
 
 //----------------------------------------------------------------------------
-void vtkImageEllipsoidSource::UpdateImageInformation()
+void vtkImageEllipsoidSource::UpdateInformation()
 {
-  this->CheckCache();
-  this->Output->SetSpacing(1.0, 1.0, 1.0);
-  this->Output->SetWholeExtent(this->WholeExtent);
-  this->Output->SetNumberOfScalarComponents(1);
-  this->Output->SetScalarType(this->OutputScalarType);
+  this->GetOutput()->SetSpacing(1.0, 1.0, 1.0);
+  this->GetOutput()->SetWholeExtent(this->WholeExtent);
+  this->GetOutput()->SetNumberOfScalarComponents(1);
+  this->GetOutput()->SetScalarType(this->OutputScalarType);
 }
 
 
@@ -206,7 +205,7 @@ void vtkImageEllipsoidSource::Execute(vtkImageData *data)
   int *extent;
   void *ptr;
   
-  extent = this->Output->GetUpdateExtent();
+  extent = this->GetOutput()->GetUpdateExtent();
   ptr = data->GetScalarPointerForExtent(extent);
   
   switch (data->GetScalarType())

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMutexLock.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-05-20 15:46:32 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-07-22 12:12:22 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -108,5 +108,4 @@ void vtkMutexLock::Unlock()
 // Print method for vtkMutexLock
 void vtkMutexLock::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkObject::PrintSelf(os,indent);
 }

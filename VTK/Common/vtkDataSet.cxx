@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-24 21:42:19 $
-  Version:   $Revision: 1.65 $
+  Date:      $Date: 1999-07-22 12:12:18 $
+  Version:   $Revision: 1.66 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -73,7 +73,6 @@ PointData(ds.PointData)
     {
     this->Bounds[i] = ds.Bounds[i];
     }
-  this->DataReleased = 1;
   this->ReleaseDataFlag = ds.ReleaseDataFlag;
 }
 

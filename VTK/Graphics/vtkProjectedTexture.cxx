@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProjectedTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-06 20:42:04 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-07-22 12:12:34 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -100,10 +100,9 @@ void vtkProjectedTexture::Execute()
   float proj;
   float rightv[3], upv[3], diff[3];
   float sScale, tScale, sOffset, tOffset, sSize, tSize, s, t;
-  vtkDataSet *input=(vtkDataSet *) this->Input;
-
+  vtkDataSet *input = this->GetInput();
   float  *p;
-  vtkDataSet *output= (vtkDataSet *) this->Output;
+  vtkDataSet *output = this->GetOutput();
 
   vtkDebugMacro(<<"Generating texture coordinates!");
   numPts=input->GetNumberOfPoints();

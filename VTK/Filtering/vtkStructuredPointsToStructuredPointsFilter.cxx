@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsToStructuredPointsFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:48:19 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-07-22 12:13:15 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,9 +40,58 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkStructuredPointsToStructuredPointsFilter.h"
 
-vtkStructuredPointsToStructuredPointsFilter::vtkStructuredPointsToStructuredPointsFilter()
+//----------------------------------------------------------------------------
+// Specify the input data or filter.
+void vtkStructuredPointsToStructuredPointsFilter::SetInput(
+                                                   vtkStructuredPoints *input)
 {
-  this->Output = vtkStructuredPoints::New();
-  this->Output->SetSource(this);
+  this->vtkProcessObject::SetInput(0, input);
+}
+
+//----------------------------------------------------------------------------
+// Specify the input data or filter.
+vtkStructuredPoints *vtkStructuredPointsToStructuredPointsFilter::GetInput()
+{
+  if (this->NumberOfInputs < 1)
+    {
+    return NULL;
+    }
+  
+  return (vtkStructuredPoints *)(this->Inputs[0]);
+}
+
+
+//----------------------------------------------------------------------------
+// Copy WholeExtent, Spacing and Origin.
+void vtkStructuredPointsToStructuredPointsFilter::ExecuteInformation()
+{
+  vtkStructuredPoints *input = this->GetInput();
+  vtkStructuredPoints *output = this->GetOutput();
+  
+  if (output == NULL || input == NULL)
+    {
+    return;
+    }
+  
+  output->SetWholeExtent(input->GetWholeExtent());
+  // Now should Origin and Spacing really be part of information?
+  // How about xyx arrays in RectilinearGrid of Points in StructuredGrid?
+  output->SetSpacing(input->GetSpacing());
+  output->SetOrigin(input->GetOrigin());
+}
+
+//----------------------------------------------------------------------------
+int vtkStructuredPointsToStructuredPointsFilter::ComputeInputUpdateExtents(
+                                                         vtkDataObject *data)
+{
+  vtkStructuredPoints *output = (vtkStructuredPoints*)data;
+  if (this->NumberOfInputs > 1)
+    {
+    vtkErrorMacro("Subclass did not implement ComputeInputUpdateExtent");
+    return 0;
+    }
+  
+  this->GetInput()->CopyUpdateExtent(output);
+  return 1;
 }
 

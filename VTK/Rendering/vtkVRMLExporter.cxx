@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-21 14:07:58 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1999-07-22 12:13:20 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -273,7 +273,7 @@ void vtkVRMLExporter::WriteAnActor(vtkActor *anActor, FILE *fp)
   ds = anActor->GetMapper()->GetInput();
   
   // we really want polydata
-  if ( ds->GetDataSetType() != VTK_POLY_DATA )
+  if ( ds->GetDataObjectType() != VTK_POLY_DATA )
     {
     gf = vtkGeometryFilter::New();
     gf->SetInput(ds);

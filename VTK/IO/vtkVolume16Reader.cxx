@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume16Reader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-25 16:07:22 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1999-07-22 12:13:20 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -135,6 +135,21 @@ char *vtkVolume16Reader::GetDataByteOrderAsString()
 }
 
 
+void vtkVolume16Reader::ExecuteInformation()
+{
+  int dim[3];
+  vtkStructuredPoints *output = this->GetOutput();
+  
+  this->ComputeTransformedDimensions(dim);
+  output->SetWholeExtent(0, dim[0]-1, 0, dim[1]-1, 0, dim[2]-1);
+
+  output->SetScalarType(VTK_UNSIGNED_SHORT);
+  output->SetNumberOfScalarComponents(1);
+  
+  // I think I will remove spacing and origin from image information!
+}
+    
+    
 void vtkVolume16Reader::Execute()
 {
   vtkScalars *newScalars;
@@ -165,7 +180,7 @@ void vtkVolume16Reader::Execute()
   if (dim[0] <= 0 || dim[1] <= 0) 
     {
     vtkErrorMacro(<< "x, y dimensions " << dim[0] << ", " << dim[1] 
-                  << "must be greater than 0.");
+                  << "must be greater than 0.");    
     return;
     } 
 
