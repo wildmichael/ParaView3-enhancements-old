@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNGWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-08-06 21:24:46 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2003-08-29 16:33:56 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 
 #include <png.h>
 
-vtkCxxRevisionMacro(vtkPNGWriter, "$Revision: 1.17 $");
+vtkCxxRevisionMacro(vtkPNGWriter, "$Revision: 1.18 $");
 vtkStandardNewMacro(vtkPNGWriter);
 
 vtkCxxSetObjectMacro(vtkPNGWriter,Result,vtkUnsignedCharArray);
@@ -282,10 +282,13 @@ void vtkPNGWriter::WriteSlice(vtkImageData *data)
   delete [] row_pointers;
   png_destroy_write_struct(&png_ptr, &info_ptr);
 
-  fflush(fp);
-  if (ferror(fp))
+  if (fp)
     {
-    this->SetErrorCode(vtkErrorCode::OutOfDiskSpaceError);
+    fflush(fp);
+    if (ferror(fp))
+      {
+      this->SetErrorCode(vtkErrorCode::OutOfDiskSpaceError);
+      }
     }
   
   if (fp)
