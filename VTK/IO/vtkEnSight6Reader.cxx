@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSight6Reader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-25 20:03:57 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-06-26 11:34:01 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1442,7 +1442,7 @@ int vtkEnSight6Reader::CreateUnstructuredGridOutput(int partId,
             intIds[j] = this->UnstructuredNodeIds->IsId(intIds[j]);
             }
           }
-        for (j = 0; j < 2; i++)
+        for (j = 0; j < 2; j++)
           {
           nodeIds[j] = intIds[j];
           }
