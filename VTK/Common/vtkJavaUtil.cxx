@@ -3,8 +3,8 @@
   Program:   Java Wrapper for VTK
   Module:    $RCSfile: vtkJavaUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-14 22:03:23 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1997-05-14 23:54:10 $
+  Version:   $Revision: 1.5 $
 
 This file's contents may be copied, reproduced or altered in any way 
 without the express written consent of the author.
@@ -24,6 +24,7 @@ Copyright (c) Ken Martin 1995
 #ifdef _WIN32
 #include "vtkSetGet.h"
 #include "vtkWin32Header.h"
+#include "vtkObject.h"
 HANDLE vtkGlobalMutex = NULL;
 #define VTK_GET_MUTEX() WaitForSingleObject(vtkGlobalMutex,INFINITE)
 #define VTK_RELEASE_MUTEX() ReleaseMutex(vtkGlobalMutex)
