@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSocketCommunicator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-19 13:41:30 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-09-19 17:20:59 $
+  Version:   $Revision: 1.24 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -138,7 +138,7 @@ static int SendMessage(char* data, int length, int tag, int sock)
     vtkGenericWarningMacro("Could not send tag.");
     return 0;
     }
-  while ( total < sizeof(int) )
+  while ( total < (int)sizeof(int) )
     {
     sent = send ( sock, (char*)data + total, sizeof(int) - total, 0 );
     vtkSCSendError;
@@ -243,7 +243,7 @@ int vtkSocketCommunicator::ReceiveMessage( char *data, int size, int length,
     vtkErrorMacro("Could not receive tag.");
     return 0;
     }
-  while ( total < sizeof(int) )
+  while ( total < (int)sizeof(int) )
     {
     cout << total << endl;
     received = recv( this->Socket, &(charTag[total]), sizeof(int) - total, 0 );
