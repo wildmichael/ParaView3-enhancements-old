@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32TextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-19 17:34:01 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-06-05 18:46:18 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -211,6 +211,10 @@ void vtkWin32TextMapper::Render(vtkViewport* viewport, vtkActor2D* actor)
   // Calculate the size of the bounding rectangle
   DrawText(hdc, this->Input, strlen(this->Input), &rect, 
 	   DT_CALCRECT|DT_LEFT|DT_NOPREFIX);
+
+  // adjust the rectangle to account for lower left origin
+  rect.top = 2*rect.top - rect.bottom;
+  rect.bottom = ptDestOff.y;
 
   // Set the colors for the shadow
   long status;
