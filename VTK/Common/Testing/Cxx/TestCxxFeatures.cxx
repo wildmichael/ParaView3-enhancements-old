@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestCxxFeatures.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-18 19:08:25 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2003-07-01 12:52:01 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -65,7 +65,7 @@
 #endif
 
 // Check for MSVC.
-#if defined(VTK_CXX_MSVC)
+#if defined(VTK_CXX_MSVC) && (_MSC_VER < 1310)
 # define VTK_TYPENAME /* empty */
 #endif
 
@@ -90,6 +90,12 @@
 #if defined(VTK_CXX_GCC_3)
 # include <sstream>
 #endif
+
+//----------------------------------------------------------------------------
+
+/* Test inclusion of typeinfo header.  */
+
+#include <typeinfo>
 
 //----------------------------------------------------------------------------
 
