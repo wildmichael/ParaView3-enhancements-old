@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-30 14:58:27 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-05-01 13:33:19 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,11 +60,9 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
   const char *GetClassName() {return "vtkMapper2D";};
   
-  virtual void RenderOverlay(vtkViewport* viewport, vtkActor2D* actor) {};
-  virtual void RenderOpaqueGeometry(vtkViewport* viewport, 
-		vtkActor2D* actor) {};
-  virtual void RenderTranslucentGeometry(vtkViewport* viewport, 
-		vtkActor2D* actor) {};
+  virtual void RenderOverlay(vtkViewport*, vtkActor2D*) {};
+  virtual void RenderOpaqueGeometry(vtkViewport*, vtkActor2D*) {};
+  virtual void RenderTranslucentGeometry(vtkViewport*, vtkActor2D*) {};
 
   // Description:
   // Release any graphics resources that are being consumed by this mapper.
