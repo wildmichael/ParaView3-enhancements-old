@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVXMLElement.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-27 19:26:20 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-05-28 12:11:29 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -137,7 +137,7 @@ protected:
   void SetParent(vtkPVXMLElement* parent);
   
   //BTX
-  friend vtkPVXMLParser;
+  friend class vtkPVXMLParser;
   //ETX
   
 private:
