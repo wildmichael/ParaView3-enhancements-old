@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.h,v $
   Language:  C++
-  Date:      $Date: 2000-07-26 11:41:34 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2000-08-02 12:07:09 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -269,9 +269,9 @@ public:
   // Description:
   // Set / Get the update piece and the update number of pieces. Similar
   // to update extent in 3D.
-  vtkSetMacro( UpdatePiece, int );
+  void SetUpdatePiece(int piece);
+  void SetUpdateNumberOfPieces(int num);
   vtkGetMacro( UpdatePiece, int );
-  vtkSetMacro( UpdateNumberOfPieces, int );
   vtkGetMacro( UpdateNumberOfPieces, int );
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-26 15:56:06 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2000-08-02 12:07:09 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -345,7 +345,6 @@ unsigned long vtkDataObject::GetEstimatedMemorySize()
 }
 
 //----------------------------------------------------------------------------
-
 void vtkDataObject::SetUpdateExtent( int x1, int x2, 
 				     int y1, int y2, 
 				     int z1, int z2 )
@@ -356,17 +355,32 @@ void vtkDataObject::SetUpdateExtent( int x1, int x2,
   this->UpdateExtent[3] = y2;
   this->UpdateExtent[4] = z1;
   this->UpdateExtent[5] = z2;
+  
+  this->UpdateExtentInitialized = 1;
 }
 
 //----------------------------------------------------------------------------
-
 void vtkDataObject::SetUpdateExtent( int ext[6] )
 {
   memcpy( this->UpdateExtent, ext, 6*sizeof(int) );
+  this->UpdateExtentInitialized = 1;
 }
 
 //----------------------------------------------------------------------------
+void vtkDataObject::SetUpdatePiece( int piece )
+{
+  this->UpdatePiece = piece;
+  this->UpdateExtentInitialized = 1;
+}
 
+//----------------------------------------------------------------------------
+void vtkDataObject::SetUpdateNumberOfPieces( int num )
+{
+  this->UpdateNumberOfPieces = num;
+  this->UpdateExtentInitialized = 1;
+}
+
+//----------------------------------------------------------------------------
 void vtkDataObject::SetSource(vtkSource *arg)
 {
   vtkDebugMacro( << this->GetClassName() << " (" 
