@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-05-31 16:26:34 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 1999-08-22 17:49:57 $
+  Version:   $Revision: 1.60 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1182,12 +1182,8 @@ void vtkRenderWindowInteractor::JoystickDollyCamera(int x, int y)
     }
   else
     {
-    double *clippingRange = this->CurrentCamera->GetClippingRange();
-    double dist = clippingRange[1] - clippingRange[0];
-    this->CurrentCamera->SetClippingRange(clippingRange[0]/zoomFactor,
-                                          clippingRange[0]/zoomFactor +
-                                          dist);
     this->CurrentCamera->Dolly(zoomFactor);
+    this->CurrentRenderer->ResetCameraClippingRange();
     }
 
   if (this->LightFollowCamera)
@@ -1346,10 +1342,8 @@ void vtkRenderWindowInteractor::TrackballDollyCamera(int x, int y)
       }
     else
       {
-      double *clippingRange = this->CurrentCamera->GetClippingRange();
-      this->CurrentCamera->SetClippingRange(clippingRange[0]/zoomFactor,
-                                            clippingRange[1]/zoomFactor);
       this->CurrentCamera->Dolly(zoomFactor);
+      this->CurrentRenderer->ResetCameraClippingRange();
       }
     
     if (this->LightFollowCamera)
