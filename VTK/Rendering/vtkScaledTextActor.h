@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScaledTextActor.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-08 14:37:18 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2002-01-08 23:04:15 $
+  Version:   $Revision: 1.23 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -74,7 +74,7 @@ public:
 
   // Description:
   // Get the vtkTextMapper that defines the text to be drawn.
-  vtkTextMapper *GetMapper(void);
+  vtkMapper2D *GetMapper(void);
 
   // Description:
   // Set/Get the minimum size in pixels for this actor.
