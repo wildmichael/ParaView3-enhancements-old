@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPoints.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:27 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 1999-07-23 18:11:40 $
+  Version:   $Revision: 1.59 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -59,9 +59,13 @@ class VTK_EXPORT vtkStructuredPoints : public vtkImageData
 {
 public:
   vtkStructuredPoints();
-  static vtkStructuredPoints *New() {return new vtkStructuredPoints;};
-  const char *GetClassName() {return "vtkStructuredPoints";};
+  static vtkStructuredPoints *New() {return new vtkStructuredPoints;}
+  const char *GetClassName() {return "vtkStructuredPoints";}
   
+  // Description:
+  // Create a similar type object
+  vtkDataObject *MakeObject() {return new vtkStructuredPoints;}
+
   // Description:
   // Return what type of dataset this is.
   int GetDataObjectType() {return VTK_STRUCTURED_POINTS;}
