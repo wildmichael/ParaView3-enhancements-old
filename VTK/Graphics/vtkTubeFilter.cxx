@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTubeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-21 17:10:39 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2000-01-22 13:38:30 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -379,7 +379,7 @@ void vtkTubeFilter::Execute()
   if (this->Capping)
     {
     int offset = newPts->GetNumberOfPoints();
-    int s, e;
+    int st, e;
     // Insert new points (different normals)
     int num = capPoints->GetNumberOfPoints();
     float *tmp;
@@ -397,16 +397,16 @@ void vtkTubeFilter::Execute()
       newStrips->InsertNextCell(this->NumberOfSides);
       newStrips->InsertCellPoint(offset);
       newStrips->InsertCellPoint(offset+1);
-      s = offset+2;
+      st = offset+2;
       e = offset + this->NumberOfSides - 1;
-      while (s <= e)
+      while (st <= e)
         {
         newStrips->InsertCellPoint(e);
-        if (e != s)
+        if (e != st)
           {
-          newStrips->InsertCellPoint(s);
+          newStrips->InsertCellPoint(st);
           }
-        ++s;
+        ++st;
         --e;
         }
       offset += this->NumberOfSides;
@@ -415,16 +415,16 @@ void vtkTubeFilter::Execute()
       newStrips->InsertNextCell(this->NumberOfSides);
       newStrips->InsertCellPoint(offset+1);
       newStrips->InsertCellPoint(offset);
-      s = offset+2;
+      st = offset+2;
       e = offset + this->NumberOfSides - 1;
-      while (s <= e)
+      while (st <= e)
         {
-        newStrips->InsertCellPoint(s);
-        if (e != s)
+        newStrips->InsertCellPoint(st);
+        if (e != st)
           {
           newStrips->InsertCellPoint(e);
           }
-        ++s;
+        ++st;
         --e;
         }
       offset += this->NumberOfSides;
