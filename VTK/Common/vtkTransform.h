@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-30 18:19:47 $
-  Version:   $Revision: 1.65 $
+  Date:      $Date: 2000-05-07 20:15:55 $
+  Version:   $Revision: 1.66 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -168,7 +168,7 @@ class VTK_EXPORT vtkTransform : public vtkLinearTransform
   // the Scale() was the last transform applied.
   void GetOrientationWXYZ(double wxyz[4]);
   void GetOrientationWXYZ(float wxyz[3]) {
-    double temp[4]; this->GetOrientation(temp); 
+    double temp[4]; this->GetOrientationWXYZ(temp); 
     wxyz[0]=temp[0]; wxyz[1]=temp[1]; wxyz[2]=temp[2]; wxyz[3]=temp[3];};
   float *GetOrientationWXYZ() { 
     this->GetOrientationWXYZ(this->ReturnValue); return this->ReturnValue; };
