@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-16 21:46:44 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1995-08-18 08:53:10 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,7 +45,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // scaling. It combines these instance variables into one matrix as 
 // follows: [x y z 1] = [x y z 1] Translate(-origin) Scale(scale) Rot(y) 
 // Rot(x) Rot (z) Trans(origin) Trans(position).
-//
+
 // .SECTION see also
 // vtkActor vtkVolumeCollection vtkVolumeRenderer
 
