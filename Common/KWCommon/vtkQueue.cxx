@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQueue.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-20 17:51:41 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-12-27 14:59:33 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,7 +17,7 @@
 =========================================================================*/
 
 #include "vtkQueue.txx"
-#include "vtkLinkedList.txx"
+#include "vtkVector.txx"
 
 #ifndef VTK_NO_EXPLICIT_TEMPLATE_INSTANTIATION
 
