@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastStructures.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-22 14:14:39 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-09-15 21:10:46 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,6 +59,7 @@ typedef struct
 
   // Matrices for switching from view to volume coordinate, and back
   float                        WorldToVolumeMatrix[16];
+  float                        VolumeToWorldMatrix[16];
   float                        ViewToVolumeMatrix[16];
 
   // The distance from the camera to the center of the volume
