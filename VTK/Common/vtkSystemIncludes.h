@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSystemIncludes.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 20:09:53 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-06-18 20:26:23 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -91,7 +91,7 @@ using std::ifstream;
 #endif
 
 #ifdef VTK_USE_64BIT_IDS
-typedef long vtkIdType
+typedef long vtkIdType;
 #else
 typedef int vtkIdType;
 #endif
