@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:29:04 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1995-07-10 17:10:03 $
+  Version:   $Revision: 1.18 $
 
 This file is part of the Visualization Toolkit. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -164,8 +164,8 @@ public:
 
   // Description:
   // Set/Get the pixel data of an image, transmitted as RGBRGB... 
-  virtual unsigned char *GetPixelData(int x,int y,int x2,int y2) = 0;
-  virtual void SetPixelData(int x,int y,int x2,int y2,unsigned char *) = 0;
+  virtual unsigned char *GetPixelData(int x,int y,int x2,int y2,int front) = 0;
+  virtual void SetPixelData(int x,int y,int x2,int y2,unsigned char *,int front) = 0;
 
   // Description:
   // Set the number of frames for doing anti aliasing, default is zero.
