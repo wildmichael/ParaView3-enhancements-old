@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDilateErode3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-09-16 18:07:21 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1996-09-18 14:04:50 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -294,7 +294,7 @@ void vtkImageDilateErode3d::ExecuteCenter3d(vtkImageRegion *inRegion,
   // Error checking on mask
   if ( ! this->Mask || (this->Mask->GetDataType() != VTK_UNSIGNED_CHAR))
     {
-    vtkErrorMacro(<< "Execute3d: Bad Mask");
+    vtkErrorMacro(<< "Execute: Bad Mask");
     return;
     }
 
@@ -345,7 +345,7 @@ void vtkImageDilateErode3d::ExecuteCenter3d(vtkImageRegion *inRegion,
 // This method contains the first switch statement that calls the correct
 // templated function for the input and output region types.
 // It hanldes image boundaries, so the image does not shrink.
-void vtkImageDilateErode3d::Execute3d(vtkImageRegion *inRegion, 
+void vtkImageDilateErode3d::Execute(vtkImageRegion *inRegion, 
 					    vtkImageRegion *outRegion)
 {
   void *inPtr = inRegion->GetScalarPointer();
@@ -357,7 +357,7 @@ void vtkImageDilateErode3d::Execute3d(vtkImageRegion *inRegion,
   // Error checking on mask
   if ( ! this->Mask || (this->Mask->GetDataType() != VTK_UNSIGNED_CHAR))
     {
-    vtkErrorMacro(<< "Execute3d: Bad Mask");
+    vtkErrorMacro(<< "Execute: Bad Mask");
     return;
     }
 
