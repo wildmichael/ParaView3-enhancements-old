@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper.h,v $
   Language:  C++
-  Date:      $Date: 2000-08-09 10:15:44 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-08-10 09:07:50 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,6 +58,7 @@ class VTK_EXPORT vtkPolyDataMapper : public vtkMapper
 public:
   static vtkPolyDataMapper *New();
   vtkTypeMacro(vtkPolyDataMapper,vtkMapper);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Implement required Render method. Just a dummy routine here.
@@ -84,7 +85,6 @@ protected:
   ~vtkPolyDataMapper() {};
   vtkPolyDataMapper(const vtkPolyDataMapper&) {};
   void operator=(const vtkPolyDataMapper&) {};
-  void PrintSelf(ostream& os, vtkIndent indent);
 
   int Piece;
   int NumberOfPieces;
