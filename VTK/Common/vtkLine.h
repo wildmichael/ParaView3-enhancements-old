@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLine.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:04:48 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 1999-11-30 18:45:11 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -114,6 +114,10 @@ public:
   // infinite in extent.
   //
   static float DistanceToLine(float x[3], float p1[3], float p2[3]);
+
+  // Description:
+  // Line specific methods.
+  static void InterpolationFunctions(float pcoords[3], float weights[2]);
 
   // Description:
   // For legacy compatibility. Do not use.

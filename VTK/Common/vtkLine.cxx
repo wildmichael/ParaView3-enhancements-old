@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLine.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:04:47 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 1999-11-30 18:45:11 $
+  Version:   $Revision: 1.60 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -593,3 +593,11 @@ void vtkLine::Clip(float value, vtkScalars *cellScalars,
     }
 }
 
+//
+// Compute interpolation functions
+//
+void vtkLine::InterpolationFunctions(float pcoords[3], float weights[2])
+{
+  weights[0] = 1.0 - pcoords[0];
+  weights[1] = pcoords[0];
+}

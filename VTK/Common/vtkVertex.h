@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVertex.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:23 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 1999-11-30 18:45:12 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -111,6 +111,10 @@ public:
   // dimensions.
   void Derivatives(int subId, float pcoords[3], float *values, 
                    int dim, float *derivs);
+
+  // Description:
+  // Vertex specific methods.
+  static void InterpolationFunctions(float pcoords[3], float weights[1]);
 
   // Description:
   // For legacy compatibility. Do not use.
