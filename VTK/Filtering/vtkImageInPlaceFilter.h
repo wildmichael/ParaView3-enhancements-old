@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageInPlaceFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 21:16:42 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1997-07-16 13:46:55 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -95,6 +95,7 @@ protected:
   int NumberOfFilteredAxes;
   vtkImageCache *Input;     
   int Bypass;
+  int Updating;
   
   virtual void SetFilteredAxes(int num, int *axes);
   virtual void ExecuteImageInformation(vtkImageCache *in,

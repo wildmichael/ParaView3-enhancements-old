@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageInPlaceFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 21:16:41 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1997-07-16 13:46:53 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,6 +53,7 @@ vtkImageInPlaceFilter::vtkImageInPlaceFilter()
   this->NumberOfFilteredAxes = 2;
   this->Input = NULL;
   this->Bypass = 0;
+  this->Updating = 0;
 
   // Invalid
   this->NumberOfExecutionAxes = -1;
@@ -192,6 +193,14 @@ void vtkImageInPlaceFilter::Update()
     vtkErrorMacro(<< "Input is not set.");
     return;
     }
+
+  // prevent infinite loops.
+  if (this->Updating)
+    {
+    return;
+    }
+  this->Updating = 1;
+  
   this->CheckCache();
   
   // In case this update is called directly.
@@ -211,6 +220,7 @@ void vtkImageInPlaceFilter::Update()
       {
       this->Input->ReleaseData();
       }
+    this->Updating = 0;
     return;
     }  
   
@@ -219,6 +229,7 @@ void vtkImageInPlaceFilter::Update()
   if (this->NumberOfExecutionAxes < 0)
     {
     vtkErrorMacro(<< "Subclass has not set NumberOfExecutionAxes");
+    this->Updating = 0;
     return;
     }
 
@@ -231,6 +242,7 @@ void vtkImageInPlaceFilter::Update()
   if (outRegion->IsEmpty())
     {
     outRegion->Delete();
+    this->Updating = 0;
     return;
     }
     
@@ -251,6 +263,7 @@ void vtkImageInPlaceFilter::Update()
     vtkErrorMacro("Update: Could not get input");
     inRegion->Delete();
     outRegion->Delete();
+    this->Updating = 0;
     return;
     }   
   
@@ -279,6 +292,8 @@ void vtkImageInPlaceFilter::Update()
   // free the region
   inRegion->Delete();
   outRegion->Delete();
+
+  this->Updating = 0;
 }
 
 
