@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSLCReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-22 22:34:53 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-04-01 20:19:31 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -236,7 +236,7 @@ void vtkSLCReader::Execute()
     }
   }
 
-  delete scan_ptr;
+  delete [] scan_ptr;
 
   vtkDebugMacro(<< "Read " << volume_size << " points");
 
