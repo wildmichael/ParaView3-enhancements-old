@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVTreeComposite.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-02 19:23:01 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-05-04 13:58:45 $
+  Version:   $Revision: 1.4 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -50,33 +50,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkTreeComposite.h"
 #include "vtkPVRenderView.h"
+#include "vtkToolkits.h"
 
-#ifndef _WIN32
-//#ifndef VTK_USE_MPI
-
-/*
-
-class VTK_EXPORT vtkPVTreeComposite : public vtkTreeComposite
-{
-public:
-  vtkPVTreeComposite() {};
-  static vtkPVTreeComposite *New() { return new vtkPVTreeComposite;}
-  vtkTypeMacro(vtkPVTreeComposite,vtkTreeComposite);
-
-  void SetRenderView(vtkPVRenderView *v) {v = v;}  
-  
-protected:
-  vtkPVTreeComposite(const vtkPVTreeComposite&) {};
-  void operator=(const vtkPVTreeComposite&) {};
-};
-
-*/
-
-#else
-
-
-
+#ifdef VTK_USE_MPI
 #include "vtkMPIController.h"
+#endif
 
 class VTK_EXPORT vtkPVTreeComposite : public vtkTreeComposite
 {
@@ -105,31 +83,28 @@ protected:
   int LocalProcessId;
   int RenderAborted;
   vtkPVRenderView *RenderView;
-
+  
+//BTX 
+#ifdef VTK_USE_MPI 
   int SatelliteFinalAbortCheck();
   int SatelliteAbortCheck();
   int RootAbortCheck();
   int RootFinalAbortCheck();
-  
-  vtkMPIController *MPIController;
-
-//BTX  
   // For the asynchronous receives.
+  vtkMPIController *MPIController;
   vtkMPICommunicator::Request ReceiveRequest;
-  int ReceivePending;
-  int ReceiveMessage;
-//ETX  
-  
   // Only used on the satellite processes.  When on, the root is 
   // waiting in a blocking receive.  It expects to be pinged so
   // it can check for abort requests.
   int RootWaiting;
-
+  int ReceivePending;
+  int ReceiveMessage;
+#endif
+//ETX  
+  
   
 };
 
-// ifndef VTK_USE_MPI
-#endif
 
 
 // ifndef __vtkPVTreeComposite_h
