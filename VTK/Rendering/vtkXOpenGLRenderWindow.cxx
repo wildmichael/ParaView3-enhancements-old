@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-12 14:53:35 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2002-08-12 15:22:18 $
+  Version:   $Revision: 1.30 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -86,7 +86,7 @@ vtkXOpenGLRenderWindowInternal::vtkXOpenGLRenderWindowInternal(
 
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkXOpenGLRenderWindow, "$Revision: 1.29 $");
+vtkCxxRevisionMacro(vtkXOpenGLRenderWindow, "$Revision: 1.30 $");
 vtkStandardNewMacro(vtkXOpenGLRenderWindow);
 #endif
 
@@ -253,7 +253,10 @@ vtkXOpenGLRenderWindow::~vtkXOpenGLRenderWindow()
   // free the cursors
   if (this->DisplayId)
     {
-    XUndefineCursor(this->DisplayId,this->WindowId);
+    if (this->WindowId)
+      {
+      XUndefineCursor(this->DisplayId,this->WindowId);
+      }
     if (this->XCArrow)
       {
       XFreeCursor(this->DisplayId,this->XCArrow);
