@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TaskParallelismWithPorts.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:27:35 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-02-16 13:59:21 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,7 @@
 
 // This function sets up properties common to both processes
 // and executes the task corresponding to the current process
-void process(vtkMultiProcessController* controller, void* arg)
+void process(vtkMultiProcessController* controller, void* vtkNotUsed(arg))
 {
   taskFunction task;
   int myId = controller->GetLocalProcessId();

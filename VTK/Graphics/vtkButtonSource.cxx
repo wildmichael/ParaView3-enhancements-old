@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkButtonSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-11 17:47:41 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-02-16 13:59:22 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkButtonSource, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkButtonSource, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkButtonSource);
 
 // Construct 
@@ -390,7 +390,7 @@ void vtkButtonSource::IntersectEllipseWithLine(float a2, float b2, float dX,
     }
 }
 
-float vtkButtonSource::ComputeDepth(int inTextureRegion, 
+float vtkButtonSource::ComputeDepth(int vtkNotUsed(inTextureRegion),
                                     float x, float y, float n[3])
 {
   float z;

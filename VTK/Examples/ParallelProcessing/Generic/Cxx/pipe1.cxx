@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: pipe1.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-07 13:54:42 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-02-16 13:59:21 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,7 +31,8 @@ void IncrementXFreq(void* sr)
 
 // Pipe 1 for PipelineParallelism.
 // See PipelineParallelism.cxx for more information.
-void pipe1(vtkMultiProcessController* controller, void* arg)
+void pipe1(vtkMultiProcessController* vtkNotUsed(controller), 
+           void* vtkNotUsed(arg))
 {
   double extent = 20;
   int iextent = static_cast<int>(extent);

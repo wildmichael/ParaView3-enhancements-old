@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: pipe2.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:27:36 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-02-16 13:59:21 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,8 @@
 
 // Pipe 2 for PipelineParallelism.
 // See PipelineParallelism.cxx for more information.
-void pipe2(vtkMultiProcessController* controller, void* arg)
+void pipe2(vtkMultiProcessController* vtkNotUsed(controller), 
+           void* vtkNotUsed(arg))
 {
   // Input port
   vtkInputPort* ip = vtkInputPort::New();

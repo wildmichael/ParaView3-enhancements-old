@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: ParallelIso.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:27:34 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-02-16 13:59:21 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -48,8 +48,8 @@ static const int ISO_VALUE_RMI_TAG=300;
 static const int PORT_TAG=999;
 
 // call back to set the iso surface value.
-void SetIsoValueRMI(void *localArg, void *remoteArg, 
-                  int remoteArgLen, int id)
+void SetIsoValueRMI(void *localArg, void* vtkNotUsed(remoteArg), 
+                    int vtkNotUsed(remoteArgLen), int vtkNotUsed(id))
 { 
   float val;
 
