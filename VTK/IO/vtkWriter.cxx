@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-09 19:58:36 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-11-15 11:15:53 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -14,6 +14,16 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 
 =========================================================================*/
 #include "Writer.hh"
+
+// Description:
+// Construct with no start and end write methods or arguments.
+vlWriter::vlWriter()
+{
+  this->StartWrite = NULL;
+  this->StartWriteArg = NULL;
+  this->EndWrite = NULL;
+  this->EndWriteArg = NULL;
+}
 
 // Description:
 // Specify a function to be called before data is written.

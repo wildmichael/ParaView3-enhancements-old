@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkWriter.h,v $
   Language:  C++
-  Date:      $Date: 1994-11-06 19:41:26 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-11-15 11:15:52 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -26,6 +26,8 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 class vlWriter : public vlObject 
 {
 public:
+  vlWriter();
+  ~vlWriter() {};
   char *GetClassName() {return "vlWriter";};
   void PrintSelf(ostream& os, vlIndent indent);
 
