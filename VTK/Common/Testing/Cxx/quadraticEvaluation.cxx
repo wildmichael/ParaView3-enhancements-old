@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: quadraticEvaluation.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-05 17:47:09 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-11-12 18:55:41 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -47,21 +47,21 @@ int TestQE(ostream& strm)
   int subId;
 
   //-----------------------------------------------------------
-  strm << "Test instantiation New() and MakeObject() Start" << endl;
+  strm << "Test instantiation New() and NewInstance() Start" << endl;
   vtkQuadraticEdge *edge = vtkQuadraticEdge::New();
-  vtkQuadraticEdge *edge2 = static_cast<vtkQuadraticEdge*>(edge->MakeObject());
+  vtkQuadraticEdge *edge2 = edge->NewInstance();
   
   vtkQuadraticTriangle *tri = vtkQuadraticTriangle::New();
-  vtkQuadraticTriangle *tri2 = static_cast<vtkQuadraticTriangle*>(tri->MakeObject());
+  vtkQuadraticTriangle *tri2 = tri->NewInstance();
   
   vtkQuadraticQuad *quad = vtkQuadraticQuad::New();
-  vtkQuadraticQuad *quad2 = static_cast<vtkQuadraticQuad*>(quad->MakeObject());
+  vtkQuadraticQuad *quad2 = quad->NewInstance();
   
   vtkQuadraticTetra *tetra = vtkQuadraticTetra::New();
-  vtkQuadraticTetra *tetra2 = static_cast<vtkQuadraticTetra*>(tetra->MakeObject());
+  vtkQuadraticTetra *tetra2 = tetra->NewInstance();
   
   vtkQuadraticHexahedron *hex = vtkQuadraticHexahedron::New();
-  vtkQuadraticHexahedron *hex2 = static_cast<vtkQuadraticHexahedron*>(hex->MakeObject());
+  vtkQuadraticHexahedron *hex2 = hex->NewInstance();
 
   edge2->Delete();
   tri2->Delete();
@@ -69,7 +69,7 @@ int TestQE(ostream& strm)
   tetra2->Delete();
   hex2->Delete();
 
-  strm << "Test instantiation New() and MakeObject() End" << endl;
+  strm << "Test instantiation New() and NewInstance() End" << endl;
   
 
   //-------------------------------------------------------------

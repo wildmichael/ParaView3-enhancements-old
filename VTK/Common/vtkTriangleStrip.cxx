@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleStrip.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 18:32:04 $
-  Version:   $Revision: 1.69 $
+  Date:      $Date: 2002-11-12 18:55:41 $
+  Version:   $Revision: 1.70 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkTriangleStrip, "$Revision: 1.69 $");
+vtkCxxRevisionMacro(vtkTriangleStrip, "$Revision: 1.70 $");
 vtkStandardNewMacro(vtkTriangleStrip);
 
 vtkTriangleStrip::vtkTriangleStrip()
@@ -34,13 +34,6 @@ vtkTriangleStrip::~vtkTriangleStrip()
 {
   this->Line->Delete();
   this->Triangle->Delete();
-}
-
-vtkCell *vtkTriangleStrip::MakeObject()
-{
-  vtkCell *cell = vtkTriangleStrip::New();
-  cell->DeepCopy(this);
-  return cell;
 }
 
 int vtkTriangleStrip::EvaluatePosition(float x[3], float* closestPoint,

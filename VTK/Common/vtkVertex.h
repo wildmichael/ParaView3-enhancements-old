@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVertex.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:26:38 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 2002-11-12 18:55:41 $
+  Version:   $Revision: 1.60 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,7 +32,6 @@ public:
   
   // Description:
   // Make a new vtkVertex object with the same information as this object.
-  vtkCell *MakeObject();
 
   // Description:
   // See the vtkCell API for descriptions of these methods.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadraticHexahedron.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-06 13:15:18 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-11-12 18:55:41 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -50,7 +50,6 @@ public:
   // Description:
   // Implement the vtkCell API. See the vtkCell API for descriptions 
   // of these methods.
-  vtkCell *MakeObject();
   int GetCellType() {return VTK_QUADRATIC_HEXAHEDRON;}
   int GetCellDimension() {return 3;}
   int GetNumberOfEdges() {return 12;}

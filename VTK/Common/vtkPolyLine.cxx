@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyLine.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 18:32:04 $
-  Version:   $Revision: 1.72 $
+  Date:      $Date: 2002-11-12 18:55:41 $
+  Version:   $Revision: 1.73 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkPolyLine, "$Revision: 1.72 $");
+vtkCxxRevisionMacro(vtkPolyLine, "$Revision: 1.73 $");
 vtkStandardNewMacro(vtkPolyLine);
 
 vtkPolyLine::vtkPolyLine()
@@ -32,13 +32,6 @@ vtkPolyLine::vtkPolyLine()
 vtkPolyLine::~vtkPolyLine()
 {
   this->Line->Delete();
-}
-
-vtkCell *vtkPolyLine::MakeObject()
-{
-  vtkCell *cell = vtkPolyLine::New();
-  cell->DeepCopy(this);
-  return cell;
 }
 
 // Given points and lines, compute normals to lines. These are not true 

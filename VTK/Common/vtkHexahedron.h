@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHexahedron.h,v $
   Language:  C++
-  Date:      $Date: 2002-09-13 13:10:47 $
-  Version:   $Revision: 1.62 $
+  Date:      $Date: 2002-11-12 18:55:41 $
+  Version:   $Revision: 1.63 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -46,7 +46,6 @@ public:
 
   // Description:
   // See the vtkCell API for descriptions of these methods.
-  vtkCell *MakeObject();
   int GetCellType() {return VTK_HEXAHEDRON;}
   int GetNumberOfEdges() {return 12;}
   int GetNumberOfFaces() {return 6;}

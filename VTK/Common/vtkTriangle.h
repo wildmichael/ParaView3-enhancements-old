@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangle.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:26:31 $
-  Version:   $Revision: 1.76 $
+  Date:      $Date: 2002-11-12 18:55:41 $
+  Version:   $Revision: 1.77 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -37,7 +37,6 @@ public:
   // Description:
   // Create a new cell and copy this triangle's information into the
   // cell. Returns a pointer to the new cell created.
-  vtkCell *MakeObject();
 
   // Description:
   // Get the edge specified by edgeId (range 0 to 2) and return that edge's

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolygon.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-07 21:13:37 $
-  Version:   $Revision: 1.96 $
+  Date:      $Date: 2002-11-12 18:55:41 $
+  Version:   $Revision: 1.97 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 
 #include <stdlib.h>
 
-vtkCxxRevisionMacro(vtkPolygon, "$Revision: 1.96 $");
+vtkCxxRevisionMacro(vtkPolygon, "$Revision: 1.97 $");
 vtkStandardNewMacro(vtkPolygon);
 
 // Instantiate polygon.
@@ -48,13 +48,6 @@ vtkPolygon::~vtkPolygon()
   this->Quad->Delete();
   this->TriScalars->Delete();
   this->Line->Delete();
-}
-
-vtkCell *vtkPolygon::MakeObject()
-{
-  vtkCell *cell = vtkPolygon::New();
-  cell->DeepCopy(this);
-  return cell;
 }
 
 #define VTK_POLYGON_FAILURE -1

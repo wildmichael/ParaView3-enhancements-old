@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHexahedron.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-28 21:35:00 $
-  Version:   $Revision: 1.83 $
+  Date:      $Date: 2002-11-12 18:55:41 $
+  Version:   $Revision: 1.84 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 #include "vtkPointLocator.h"
 #include "vtkQuad.h"
 
-vtkCxxRevisionMacro(vtkHexahedron, "$Revision: 1.83 $");
+vtkCxxRevisionMacro(vtkHexahedron, "$Revision: 1.84 $");
 vtkStandardNewMacro(vtkHexahedron);
 
 static const float VTK_DIVERGED = 1.e6;
@@ -55,13 +55,6 @@ vtkHexahedron::~vtkHexahedron()
 {
   this->Line->Delete();
   this->Quad->Delete();
-}
-
-vtkCell *vtkHexahedron::MakeObject()
-{
-  vtkCell *cell = vtkHexahedron::New();
-  cell->DeepCopy(this);
-  return cell;
 }
 
 //  Method to calculate parametric coordinates in an eight noded

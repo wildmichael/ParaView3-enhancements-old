@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuad.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-08 00:28:44 $
-  Version:   $Revision: 1.78 $
+  Date:      $Date: 2002-11-12 18:55:41 $
+  Version:   $Revision: 1.79 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #include "vtkPointLocator.h"
 #include "vtkTriangle.h"
 
-vtkCxxRevisionMacro(vtkQuad, "$Revision: 1.78 $");
+vtkCxxRevisionMacro(vtkQuad, "$Revision: 1.79 $");
 vtkStandardNewMacro(vtkQuad);
 
 static const float VTK_DIVERGED = 1.e6;
@@ -53,13 +53,6 @@ vtkQuad::vtkQuad()
 vtkQuad::~vtkQuad()
 {
   this->Line->Delete();
-}
-
-vtkCell *vtkQuad::MakeObject()
-{
-  vtkCell *cell = vtkQuad::New();
-  cell->DeepCopy(this);
-  return cell;
 }
 
 static const int VTK_QUAD_MAX_ITERATION=20;

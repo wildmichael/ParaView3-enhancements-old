@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadraticQuad.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-21 09:52:10 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-11-12 18:55:41 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkQuadraticQuad, "$Revision: 1.13 $");
+vtkCxxRevisionMacro(vtkQuadraticQuad, "$Revision: 1.14 $");
 vtkStandardNewMacro(vtkQuadraticQuad);
 
 // Construct the line with two points.
@@ -59,13 +59,6 @@ vtkQuadraticQuad::~vtkQuadraticQuad()
   this->PointData->Delete();
   this->CellData->Delete();
   this->Scalars->Delete();
-}
-
-vtkCell *vtkQuadraticQuad::MakeObject()
-{
-  vtkQuadraticQuad *cell = vtkQuadraticQuad::New();
-  cell->DeepCopy(this);
-  return (vtkCell *)cell;
 }
 
 vtkCell *vtkQuadraticQuad::GetEdge(int edgeId)

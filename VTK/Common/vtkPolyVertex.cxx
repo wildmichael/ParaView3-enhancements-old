@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyVertex.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-08 00:28:44 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 2002-11-12 18:55:41 $
+  Version:   $Revision: 1.59 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkPointData.h"
 #include "vtkCellData.h"
 
-vtkCxxRevisionMacro(vtkPolyVertex, "$Revision: 1.58 $");
+vtkCxxRevisionMacro(vtkPolyVertex, "$Revision: 1.59 $");
 vtkStandardNewMacro(vtkPolyVertex);
 
 vtkPolyVertex::vtkPolyVertex()
@@ -35,13 +35,6 @@ vtkPolyVertex::vtkPolyVertex()
 vtkPolyVertex::~vtkPolyVertex()
 {
   this->Vertex->Delete();
-}
-
-vtkCell *vtkPolyVertex::MakeObject()
-{
-  vtkCell *cell = vtkPolyVertex::New();
-  cell->DeepCopy(this);
-  return cell;
 }
 
 int vtkPolyVertex::EvaluatePosition(float x[3], float* closestPoint,

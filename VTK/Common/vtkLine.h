@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLine.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:34 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 2002-11-12 18:55:41 $
+  Version:   $Revision: 1.62 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,7 +32,6 @@ public:
 
   // Description:
   // See the vtkCell API for descriptions of these methods.
-  vtkCell *MakeObject();
   int GetCellType() {return VTK_LINE;};
   int GetCellDimension() {return 1;};
   int GetNumberOfEdges() {return 0;};

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadraticHexahedron.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-18 19:55:32 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-11-12 18:55:41 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkQuadraticHexahedron, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkQuadraticHexahedron, "$Revision: 1.13 $");
 vtkStandardNewMacro(vtkQuadraticHexahedron);
 
 // Construct the hex with 20 points + 7 extra points for internal
@@ -67,13 +67,6 @@ vtkQuadraticHexahedron::~vtkQuadraticHexahedron()
   this->Scalars->Delete();
 }
 
-
-vtkCell *vtkQuadraticHexahedron::MakeObject()
-{
-  vtkQuadraticHexahedron *cell = vtkQuadraticHexahedron::New();
-  cell->DeepCopy(this);
-  return (vtkCell *)cell;
-}
 
 static int LinearHexs[8][8] = { {0,8,24,11,16,22,26,20},
                                 {8,1,9,24,22,17,21,26},

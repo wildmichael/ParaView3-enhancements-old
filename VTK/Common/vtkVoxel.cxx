@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxel.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-28 21:35:00 $
-  Version:   $Revision: 1.74 $
+  Date:      $Date: 2002-11-12 18:55:41 $
+  Version:   $Revision: 1.75 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 #include "vtkPointData.h"
 #include "vtkPointLocator.h"
 
-vtkCxxRevisionMacro(vtkVoxel, "$Revision: 1.74 $");
+vtkCxxRevisionMacro(vtkVoxel, "$Revision: 1.75 $");
 vtkStandardNewMacro(vtkVoxel);
 
 // Construct the voxel with eight points.
@@ -52,13 +52,6 @@ vtkVoxel::~vtkVoxel()
 {
   this->Line->Delete();
   this->Pixel->Delete();
-}
-
-vtkCell *vtkVoxel::MakeObject()
-{
-  vtkCell *cell = vtkVoxel::New();
-  cell->DeepCopy(this);
-  return cell;
 }
 
 int vtkVoxel::EvaluatePosition(float x[3], float* closestPoint,

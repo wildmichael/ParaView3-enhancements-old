@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadraticTetra.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-18 19:55:32 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-11-12 18:55:41 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkQuadraticTetra, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkQuadraticTetra, "$Revision: 1.10 $");
 vtkStandardNewMacro(vtkQuadraticTetra);
 
 // Construct the line with two points.
@@ -55,13 +55,6 @@ vtkQuadraticTetra::~vtkQuadraticTetra()
   this->Scalars->Delete();
 }
 
-
-vtkCell *vtkQuadraticTetra::MakeObject()
-{
-  vtkQuadraticTetra *cell = vtkQuadraticTetra::New();
-  cell->DeepCopy(this);
-  return (vtkCell *)cell;
-}
 
 static int TetraEdge[6][3] = { {0,1,4}, {1,2,5}, {2,0,6}, 
                                {0,3,7}, {1,3,8}, {2,3,9} };

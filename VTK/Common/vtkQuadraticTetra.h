@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadraticTetra.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-31 20:53:36 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-11-12 18:55:41 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -49,7 +49,6 @@ public:
   // Description:
   // Implement the vtkCell API. See the vtkCell API for descriptions 
   // of these methods.
-  vtkCell *MakeObject();
   int GetCellType() {return VTK_QUADRATIC_TETRA;}
   int GetCellDimension() {return 3;}
   int GetNumberOfEdges() {return 6;}

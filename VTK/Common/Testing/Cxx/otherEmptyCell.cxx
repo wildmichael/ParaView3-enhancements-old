@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: otherEmptyCell.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-05 17:47:09 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-11-12 18:55:41 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,7 +30,8 @@
 void TestOEC(ostream& strm)
 {
   vtkEmptyCell *cell = vtkEmptyCell::New();
-  vtkCell *cell2 = cell->MakeObject();
+  vtkCell *cell2 = cell->NewInstance();
+  cell2->DeepCopy(cell);
   vtkIdList *ids = vtkIdList::New();
   vtkPoints *pts = vtkPoints::New();
   float v = 0.0;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyVertex.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:26:04 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 2002-11-12 18:55:41 $
+  Version:   $Revision: 1.59 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -34,7 +34,6 @@ public:
 
   // Description:
   // See the vtkCell API for descriptions of these methods.
-  vtkCell *MakeObject();
   int GetCellType() {return VTK_POLY_VERTEX;};
   int GetCellDimension() {return 0;};
   int GetNumberOfEdges() {return 0;};

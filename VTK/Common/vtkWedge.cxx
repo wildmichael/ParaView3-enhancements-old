@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWedge.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-13 13:10:47 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2002-11-12 18:55:41 $
+  Version:   $Revision: 1.28 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkUnstructuredGrid.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkWedge, "$Revision: 1.27 $");
+vtkCxxRevisionMacro(vtkWedge, "$Revision: 1.28 $");
 vtkStandardNewMacro(vtkWedge);
 
 static const float VTK_DIVERGED = 1.e6;
@@ -52,13 +52,6 @@ vtkWedge::~vtkWedge()
   this->Line->Delete();
   this->Triangle->Delete();
   this->Quad->Delete();
-}
-
-vtkCell *vtkWedge::MakeObject()
-{
-  vtkCell *cell = vtkWedge::New();
-  cell->DeepCopy(this);
-  return cell;
 }
 
 static const int VTK_MAX_ITERATION=10;

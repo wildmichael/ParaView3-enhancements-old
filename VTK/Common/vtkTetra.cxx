@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTetra.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-13 13:10:47 $
-  Version:   $Revision: 1.73 $
+  Date:      $Date: 2002-11-12 18:55:41 $
+  Version:   $Revision: 1.74 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkUnstructuredGrid.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkTetra, "$Revision: 1.73 $");
+vtkCxxRevisionMacro(vtkTetra, "$Revision: 1.74 $");
 vtkStandardNewMacro(vtkTetra);
 
 // Construct the tetra with four points.
@@ -50,13 +50,6 @@ vtkTetra::~vtkTetra()
 {
   this->Triangle->Delete();
   this->Line->Delete();
-}
-
-vtkCell *vtkTetra::MakeObject()
-{
-  vtkCell *cell = vtkTetra::New();
-  cell->DeepCopy(this);
-  return cell;
 }
 
 int vtkTetra::EvaluatePosition(float x[3], float* closestPoint,

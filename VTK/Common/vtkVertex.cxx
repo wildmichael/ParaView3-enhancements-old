@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVertex.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-08 00:28:44 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 2002-11-12 18:55:41 $
+  Version:   $Revision: 1.57 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkPointData.h"
 #include "vtkCellData.h"
 
-vtkCxxRevisionMacro(vtkVertex, "$Revision: 1.56 $");
+vtkCxxRevisionMacro(vtkVertex, "$Revision: 1.57 $");
 vtkStandardNewMacro(vtkVertex);
 
 // Construct the vertex with a single point.
@@ -45,13 +45,6 @@ vtkVertex::vtkVertex()
 }
 
 // Make a new vtkVertex object with the same information as this object.
-vtkCell *vtkVertex::MakeObject()
-{
-  vtkCell *cell = vtkVertex::New();
-  cell->DeepCopy(this);
-  return cell;
-}
-
 int vtkVertex::EvaluatePosition(float x[3], float* closestPoint,
                                 int& subId, float pcoords[3], 
                                 float& dist2, float *weights)

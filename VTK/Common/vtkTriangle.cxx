@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangle.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-08 00:28:44 $
-  Version:   $Revision: 1.90 $
+  Date:      $Date: 2002-11-12 18:55:41 $
+  Version:   $Revision: 1.91 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #include "vtkPointLocator.h"
 #include "vtkPolygon.h"
 
-vtkCxxRevisionMacro(vtkTriangle, "$Revision: 1.90 $");
+vtkCxxRevisionMacro(vtkTriangle, "$Revision: 1.91 $");
 vtkStandardNewMacro(vtkTriangle);
 
 // Construct the triangle with three points.
@@ -56,13 +56,6 @@ vtkTriangle::~vtkTriangle()
 
 // Create a new cell and copy this triangle's information into the cell.
 // Returns a poiner to the new cell created.
-vtkCell *vtkTriangle::MakeObject()
-{
-  vtkCell *cell = vtkTriangle::New();
-  cell->DeepCopy(this);
-  return cell;
-}
-
 int vtkTriangle::EvaluatePosition(float x[3], float* closestPoint,
                                  int& subId, float pcoords[3], 
                                  float& dist2, float *weights)

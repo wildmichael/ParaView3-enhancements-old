@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleStrip.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:26:32 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 2002-11-12 18:55:41 $
+  Version:   $Revision: 1.62 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -39,7 +39,6 @@ public:
 
   // Description:
   // See the vtkCell API for descriptions of these methods.
-  vtkCell *MakeObject();
   int GetCellType() {return VTK_TRIANGLE_STRIP;};
   int GetCellDimension() {return 2;};
   int GetNumberOfEdges() {return this->GetNumberOfPoints();};

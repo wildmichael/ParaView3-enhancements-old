@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLine.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-31 19:24:18 $
-  Version:   $Revision: 1.76 $
+  Date:      $Date: 2002-11-12 18:55:41 $
+  Version:   $Revision: 1.77 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkPointData.h"
 #include "vtkPointLocator.h"
 
-vtkCxxRevisionMacro(vtkLine, "$Revision: 1.76 $");
+vtkCxxRevisionMacro(vtkLine, "$Revision: 1.77 $");
 vtkStandardNewMacro(vtkLine);
 
 // Construct the line with two points.
@@ -42,13 +42,6 @@ vtkLine::vtkLine()
     {
     this->PointIds->SetId(i,0);
     }
-}
-
-vtkCell *vtkLine::MakeObject()
-{
-  vtkCell *cell = vtkLine::New();
-  cell->DeepCopy(this);
-  return cell;
 }
 
 static const int VTK_NO_INTERSECTION=0;

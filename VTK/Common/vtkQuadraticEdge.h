@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadraticEdge.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-27 10:55:11 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-11-12 18:55:41 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -45,7 +45,6 @@ public:
   // Description:
   // Implement the vtkCell API. See the vtkCell API for descriptions 
   // of these methods.
-  vtkCell *MakeObject();
   int GetCellType() {return VTK_QUADRATIC_EDGE;};
   int GetCellDimension() {return 1;}
   int GetNumberOfEdges() {return 0;}

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-20 12:10:51 $
-  Version:   $Revision: 1.77 $
+  Date:      $Date: 2002-11-12 18:55:41 $
+  Version:   $Revision: 1.78 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -63,10 +63,11 @@ public:
   // coordinates specified.
   void Initialize(int npts, vtkIdType *pts, vtkPoints *p);
 
+#ifndef VTK_REMOVE_LEGACY_CODE
   // Description:
-  // Create concrete copy of this cell. Initially, the copy is made by
-  // performing a ShallowCopy() operation.
-  virtual vtkCell *MakeObject() = 0;
+  // For legacy compatibility.  Do not use.
+  virtual vtkCell* MakeObject();
+#endif
 
   // Description:
   // Copy this cell by reference counting the internal data structures. 

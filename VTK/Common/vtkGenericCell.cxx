@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericCell.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-20 12:10:51 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-11-12 18:55:41 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -39,7 +39,7 @@
 #include "vtkConvexPointSet.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkGenericCell, "$Revision: 1.16 $");
+vtkCxxRevisionMacro(vtkGenericCell, "$Revision: 1.17 $");
 vtkStandardNewMacro(vtkGenericCell);
 
 // Construct cell.
@@ -51,13 +51,6 @@ vtkGenericCell::vtkGenericCell()
 vtkGenericCell::~vtkGenericCell()
 {
   this->Cell->Delete();
-}
-
-// The following methods dereference vtkCell virtual functions to allow
-// vtkCell to act like a concrete object.
-vtkCell *vtkGenericCell::MakeObject()
-{
-  return this->Cell->MakeObject();
 }
 
 void vtkGenericCell::ShallowCopy(vtkCell *c)

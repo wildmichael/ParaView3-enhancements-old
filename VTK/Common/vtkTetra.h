@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTetra.h,v $
   Language:  C++
-  Date:      $Date: 2002-09-13 13:10:47 $
-  Version:   $Revision: 1.71 $
+  Date:      $Date: 2002-11-12 18:55:41 $
+  Version:   $Revision: 1.72 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -47,7 +47,6 @@ public:
 
   // Description:
   // See the vtkCell API for descriptions of these methods.
-  vtkCell *MakeObject();
   int GetCellType() {return VTK_TETRA;}
   int GetNumberOfEdges() {return 6;}
   int GetNumberOfFaces() {return 4;}

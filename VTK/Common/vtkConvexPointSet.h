@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConvexPointSet.h,v $
   Language:  C++
-  Date:      $Date: 2002-09-13 13:10:47 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-11-12 18:55:41 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -51,7 +51,6 @@ public:
 
   // Description:
   // See the vtkCell API for descriptions of these methods.
-  virtual vtkCell *MakeObject();
   virtual int GetCellType() {return VTK_CONVEX_POINT_SET;}
 
   // Description:

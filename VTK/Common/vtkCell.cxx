@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-28 21:35:00 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2002-11-12 18:55:41 $
+  Version:   $Revision: 1.54 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkCell.h"
 #include "vtkMarchingSquaresCases.h"
 
-vtkCxxRevisionMacro(vtkCell, "$Revision: 1.53 $");
+vtkCxxRevisionMacro(vtkCell, "$Revision: 1.54 $");
 
 // Construct cell.
 vtkCell::vtkCell()
@@ -306,3 +306,14 @@ vtkMarchingSquaresLineCases* vtkMarchingSquaresLineCases::GetCases()
 {
   return VTK_MARCHING_SQUARES_LINECASES;
 }
+
+//----------------------------------------------------------------------------
+#ifndef VTK_REMOVE_LEGACY_CODE
+vtkCell* vtkCell::MakeObject()
+{
+  VTK_LEGACY_METHOD(MakeObject, "4.2");
+  vtkCell* c = this->NewInstance();
+  c->DeepCopy(this);
+  return c;
+}
+#endif
