@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1996-10-23 18:18:57 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1996-11-04 16:33:56 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -321,7 +321,7 @@ protected:
   int   Erase;
   int   SwapBuffers;
   float DesiredUpdateRate;
-  FILE* PpmImageFilePtr;
+  FILE* PPMImageFilePtr;
 };
 
 #endif
