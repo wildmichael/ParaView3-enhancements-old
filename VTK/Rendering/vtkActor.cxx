@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-07-02 16:10:01 $
-  Version:   $Revision: 1.67 $
+  Date:      $Date: 1998-08-11 18:55:44 $
+  Version:   $Revision: 1.68 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -119,9 +119,6 @@ vtkActor& vtkActor::operator=(const vtkActor& actor)
 }
 
 
-#ifdef VTK_USE_GLR
-#include "vtkGLActor.h"
-#endif
 #ifdef VTK_USE_OGLR
 #include "vtkOpenGLActor.h"
 #endif
@@ -141,9 +138,6 @@ vtkActor *vtkActor::New()
   
 #ifdef VTK_USE_SBR
   if (!strcmp("Starbase",temp)) return vtkStarbaseActor::New();
-#endif
-#ifdef VTK_USE_GLR
-  if (!strcmp("GL",temp)) return vtkGLActor::New();
 #endif
 #ifdef VTK_USE_OGLR
   if (!strcmp("OpenGL",temp)) return vtkOpenGLActor::New();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLight.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-22 22:32:22 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1998-08-11 18:55:59 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -73,9 +73,6 @@ vtkLight::vtkLight()
   this->Exponent = 1;
 }
 
-#ifdef VTK_USE_GLR
-#include "vtkGLLight.h"
-#endif
 #ifdef VTK_USE_OGLR
 #include "vtkOpenGLLight.h"
 #endif
@@ -95,9 +92,6 @@ vtkLight *vtkLight::New()
   
 #ifdef VTK_USE_SBR
   if (!strcmp("Starbase",temp)) return vtkStarbaseLight::New();
-#endif
-#ifdef VTK_USE_GLR
-  if (!strcmp("GL",temp)) return vtkGLLight::New();
 #endif
 #ifdef VTK_USE_OGLR
   if (!strcmp("OpenGL",temp)) return vtkOpenGLLight::New();

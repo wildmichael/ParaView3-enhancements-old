@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:46:26 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-08-11 18:56:00 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,9 +41,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkPolyDataMapper.h"
 #include "vtkRenderWindow.h"
 
-#ifdef VTK_USE_GLR
-#include "vtkGLPolyDataMapper.h"
-#endif
 #ifdef VTK_USE_OGLR
 #include "vtkOpenGLPolyDataMapper.h"
 #endif
@@ -63,9 +60,6 @@ vtkPolyDataMapper *vtkPolyDataMapper::New()
   
 #ifdef VTK_USE_SBR
   if (!strcmp("Starbase",temp)) return vtkStarbasePolyDataMapper::New();
-#endif
-#ifdef VTK_USE_GLR
-  if (!strcmp("GL",temp)) return vtkGLPolyDataMapper::New();
 #endif
 #ifdef VTK_USE_OGLR
   if (!strcmp("OpenGL",temp)) return vtkOpenGLPolyDataMapper::New();

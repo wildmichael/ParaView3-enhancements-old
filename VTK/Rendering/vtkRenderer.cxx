@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-07-02 16:12:12 $
-  Version:   $Revision: 1.83 $
+  Date:      $Date: 1998-08-11 18:56:04 $
+  Version:   $Revision: 1.84 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -92,9 +92,6 @@ vtkRenderer::~vtkRenderer()
   if (this->BackingImage) delete [] this->BackingImage;
 }
 
-#ifdef VTK_USE_GLR
-#include "vtkGLRenderer.h"
-#endif
 #ifdef VTK_USE_OGLR
 #include "vtkOpenGLRenderer.h"
 #endif
@@ -114,9 +111,6 @@ vtkRenderer *vtkRenderer::New()
   
 #ifdef VTK_USE_SBR
   if (!strcmp("Starbase",temp)) return vtkStarbaseRenderer::New();
-#endif
-#ifdef VTK_USE_GLR
-  if (!strcmp("GL",temp)) return vtkGLRenderer::New();
 #endif
 #ifdef VTK_USE_OGLR
   if (!strcmp("OpenGL",temp)) return vtkOpenGLRenderer::New();

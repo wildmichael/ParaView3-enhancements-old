@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-23 19:13:21 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1998-08-11 18:56:01 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -116,9 +116,6 @@ vtkProperty& vtkProperty::operator=(const vtkProperty& p)
 }
 
 
-#ifdef VTK_USE_GLR
-#include "vtkGLProperty.h"
-#endif
 #ifdef VTK_USE_OGLR
 #include "vtkOpenGLProperty.h"
 #endif
@@ -138,9 +135,6 @@ vtkProperty *vtkProperty::New()
   
 #ifdef VTK_USE_SBR
   if (!strcmp("Starbase",temp)) return vtkStarbaseProperty::New();
-#endif
-#ifdef VTK_USE_GLR
-  if (!strcmp("GL",temp)) return vtkGLProperty::New();
 #endif
 #ifdef VTK_USE_OGLR
   if (!strcmp("OpenGL",temp)) return vtkOpenGLProperty::New();
