@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-02 13:00:03 $
-  Version:   $Revision: 1.94 $
+  Date:      $Date: 2002-05-02 13:26:32 $
+  Version:   $Revision: 1.95 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -247,9 +247,17 @@ public:
       this->Modified();
       }
   };
-  void SetEventPosition(int pos[2])
+  virtual void SetEventPosition(int pos[2])
   {
     this->SetEventPosition(pos[0], pos[1]);
+  } 
+  virtual void SetEventPositionFlipY(int x, int y)
+  {
+    this->SetEventPosition(x, this->Size[1] - y - 1);
+  }
+  virtual void SetEventPositionFlipY(int pos[2])
+  {
+    this->SetEventPositionFlipY(pos[0], pos[1]);
   } 
   vtkSetMacro(ControlKey, int);
   vtkGetMacro(ControlKey, int);
