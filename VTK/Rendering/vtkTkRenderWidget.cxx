@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkRenderWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-25 00:51:20 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1999-03-03 20:29:07 $
+  Version:   $Revision: 1.32 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -307,7 +307,7 @@ static void vtkTkRenderWidget_Destroy(char *memPtr)
     {
     self->RenderWindow->UnRegister(NULL);
     self->RenderWindow = NULL;
-    free (self->RW);
+    ckfree (self->RW);
     }
   ckfree((char *) memPtr);
 }
