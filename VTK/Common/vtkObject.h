@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-23 13:34:29 $
-  Version:   $Revision: 1.62 $
+  Date:      $Date: 1999-08-17 15:30:59 $
+  Version:   $Revision: 1.63 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -175,15 +175,6 @@ public:
   // languages use this to know when a C++ object has been freed.
   // This is not intended for any use other than scripting.
   void SetDeleteMethod(void (*f)(void *));
-  //ETX
-  
-  //BTX
-  // Description:
-  // An experiment with serialization. Not yet complete.
-  virtual void ReadSelf(istream& vtkNotUsed(is))
-    {vtkErrorMacro("ReadSelf not implemented");}  
-  virtual void WriteSelf(ostream& vtkNotUsed(os))
-    {vtkErrorMacro("WriteSelf not implemented");}  
   //ETX
   
 protected:

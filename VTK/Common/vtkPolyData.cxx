@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-31 20:47:08 $
-  Version:   $Revision: 1.96 $
+  Date:      $Date: 1999-08-17 15:31:00 $
+  Version:   $Revision: 1.97 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1358,6 +1358,29 @@ void vtkPolyData::CopyInformation(vtkDataObject *data)
     // no information I can think of yet.
     }
 }
+
+//----------------------------------------------------------------------------
+unsigned long vtkPolyData::GetEstimatedUpdateExtentMemorySize()
+{
+  int idx;
+  unsigned long size;
+  
+  if (this->UpdateNumberOfPieces <= 0)
+    {
+    // should not happen (trying to make this robust)
+    return this->EstimatedWholeMemorySize;
+    }
+  
+  size = this->EstimatedWholeMemorySize;
+  size = size * this->UpdatePiece / this->UpdateNumberOfPieces;
+  
+  if (size < 1)
+    {
+    return 1;
+    }
+  return size;
+}
+
 
 
 //----------------------------------------------------------------------------

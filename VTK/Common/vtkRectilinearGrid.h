@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGrid.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:24 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1999-08-17 15:31:01 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -222,6 +222,10 @@ public:
   // Just copies the WholeExtent from another structured grid.
   void CopyInformation(vtkDataObject *structuredGrid);
 
+  // Description:
+  // Return the amount of memory for the update piece.
+  unsigned long GetEstimatedUpdateExtentMemorySize();
+  
 protected:
   // for the GetCell method
   vtkVertex *Vertex;

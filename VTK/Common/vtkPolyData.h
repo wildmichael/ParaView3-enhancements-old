@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:23 $
-  Version:   $Revision: 1.74 $
+  Date:      $Date: 1999-08-17 15:31:00 $
+  Version:   $Revision: 1.75 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -345,6 +345,10 @@ public:
   void GetUpdateExtent(int &piece, int &numPieces);
   int GetUpdateNumberOfPieces() {return this->UpdateNumberOfPieces;}
   int GetUpdatePiece() {return this->UpdatePiece;}
+
+  // Description:
+  // Return the amount of memory for the update piece.
+  unsigned long GetEstimatedUpdateExtentMemorySize();
 
 protected:
   // constant cell objects returned by GetCell called.
