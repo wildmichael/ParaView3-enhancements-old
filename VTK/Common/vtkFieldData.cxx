@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldData.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-04 14:20:42 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2002-01-09 16:56:22 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,7 +42,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkFieldData.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkFieldData, "$Revision: 1.40 $");
+vtkCxxRevisionMacro(vtkFieldData, "$Revision: 1.41 $");
 vtkStandardNewMacro(vtkFieldData);
 
 vtkFieldData::BasicIterator::BasicIterator(const int* list, 
@@ -661,6 +661,7 @@ void vtkFieldData::ClearFieldFlags()
 // If it is, it returns the index otherwise it returns -1
 int vtkFieldData::FindFlag(const char* field)
 {
+  if ( !field ) return -1;
   for(int i=0; i<this->NumberOfFieldFlags; i++)
     {
     if (this->CopyFieldFlags[i].ArrayName &&
