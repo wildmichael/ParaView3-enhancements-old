@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuartzRenderWindowInteractor.mm,v $
   Language:  C++
-  Date:      $Date: 2002-01-05 16:20:57 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-01-06 21:17:41 $
+  Version:   $Revision: 1.5 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -66,24 +66,8 @@ void vtkQuartzRenderWindowInteractor::SetButtonDown(int button)
     this->whichButtonDown = button;
 }
 
-
-//------------------------------------------------------------------------------
-//vtkQuartzRenderWindowInteractor* vtkQuartzRenderWindowInteractor::New()
-//{
-  // First try to create the object from the vtkObjectFactory
-//  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkQuartzRenderWindowInteractor");
- // if(ret)
- //   {
- //   return (vtkQuartzRenderWindowInteractor*)ret;
- //   }
-  // If the factory was unable to create the object, then create it here.
-//  return new vtkQuartzRenderWindowInteractor;
-//}
-
-vtkCxxRevisionMacro(vtkQuartzRenderWindowInteractor, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkQuartzRenderWindowInteractor, "$Revision: 1.5 $");
 vtkStandardNewMacro(vtkQuartzRenderWindowInteractor);
-
-
 
 void (*vtkQuartzRenderWindowInteractor::ClassExitMethod)(void *) = (void (*)(void *))NULL;
 void *vtkQuartzRenderWindowInteractor::ClassExitMethodArg = (void *)NULL;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuartzRenderWindow.mm,v $
   Language:  C++
-  Date:      $Date: 2002-01-05 16:20:57 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-01-06 21:17:41 $
+  Version:   $Revision: 1.9 $
   Thanks:    to Yves Starreveld for developing this class
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,21 +60,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define id Id // since id is a reserved token in ObjC and is used a _lot_ in vtk
 
 
-
-//------------------------------------------------------------------------------
-//vtkQuartzRenderWindow* vtkQuartzRenderWindow::New()
-//{
-  // First try to create the object from the vtkObjectFactory
- // vtkObject* ret = vtkObjectFactory::CreateInstance("vtkQuartzRenderWindow");
-  //if(ret)
-  //  {
-  //  return (vtkQuartzRenderWindow*)ret;
-  //  }
-  // If the factory was unable to create the object, then create it here.
- // return new vtkQuartzRenderWindow;
-//}
-
-vtkCxxRevisionMacro(vtkQuartzRenderWindow, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkQuartzRenderWindow, "$Revision: 1.9 $");
 vtkStandardNewMacro(vtkQuartzRenderWindow);
 
 
