@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarBarActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-26 17:42:40 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2000-01-31 21:59:00 $
+  Version:   $Revision: 1.24 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -109,6 +109,29 @@ vtkScalarBarActor::vtkScalarBarActor()
   this->LastSize[1] = 0;
 }
 
+// Shallow copy of an actor.
+void vtkScalarBarActor::ShallowCopy(vtkScalarBarActor *actor)
+{
+  this->vtkActor2D::ShallowCopy(actor);
+  this->SetBold(actor->GetBold());
+  this->SetItalic(actor->GetItalic());
+  this->SetShadow(actor->GetShadow());
+  this->SetFontFamily(actor->GetFontFamily());
+  this->SetLabelFormat(actor->GetLabelFormat());
+
+  this->SetLookupTable(actor->GetLookupTable());
+  this->SetTitle(actor->GetTitle());
+  this->SetOrientation(actor->GetOrientation());
+
+  this->GetPositionCoordinate()->SetCoordinateSystem(
+    actor->GetPositionCoordinate()->GetCoordinateSystem());    
+  this->GetPositionCoordinate()->SetValue(
+    actor->GetPositionCoordinate()->GetValue());
+  this->GetPosition2Coordinate()->SetCoordinateSystem(
+    actor->GetPosition2Coordinate()->GetCoordinateSystem());    
+  this->GetPosition2Coordinate()->SetValue(
+    actor->GetPosition2Coordinate()->GetValue());
+}
 // Release any graphics resources that are being consumed by this actor.
 // The parameter window could be used to determine which graphic
 // resources to release.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarBarActor.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-26 17:42:40 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2000-01-31 21:59:00 $
+  Version:   $Revision: 1.22 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -189,6 +189,10 @@ public:
   // Set/Get the title of the scalar bar actor,
   vtkSetStringMacro(Title);
   vtkGetStringMacro(Title);
+
+  // Description:
+  // Shallow copy of this class.
+  void ShallowCopy(vtkScalarBarActor *actor);
 
 protected:
   vtkScalarBarActor();
