@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-05-27 20:23:12 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1996-05-30 01:49:38 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,7 +66,6 @@ vtkTransform::vtkTransform ()
 vtkTransform::vtkTransform (const vtkTransform& t)
 {
   int i, n;
-  vtkMatrix4x4 *stack;
 
   this->PreMultiplyFlag = t.PreMultiplyFlag;
   this->StackSize = t.StackSize;

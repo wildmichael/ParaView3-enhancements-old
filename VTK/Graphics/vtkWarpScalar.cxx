@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpScalar.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 21:24:24 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1996-05-30 01:49:45 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,12 +55,14 @@ float *vtkWarpScalar::DataNormal(int id, vtkNormals *normals)
   return normals->GetNormal(id);
 }
 
-float *vtkWarpScalar::InstanceNormal(int id, vtkNormals *normals)
+float *vtkWarpScalar::InstanceNormal(int vtkNotUsed(id), 
+				     vtkNormals *vtkNotUsed(normals))
 {
   return this->Normal;
 }
 
-float *vtkWarpScalar::ZNormal(int id, vtkNormals *normals)
+float *vtkWarpScalar::ZNormal(int vtkNotUsed(id), 
+			      vtkNormals *vtkNotUsed(normals))
 {
   static float zNormal[3]={0.0,0.0,1.0};
   return zNormal;

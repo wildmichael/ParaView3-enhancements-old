@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-05-23 11:50:17 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1996-05-30 01:49:33 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -121,7 +121,7 @@ void vtkStructuredGrid::Initialize()
   this->Blanking = 0;
 }
 
-int vtkStructuredGrid::GetCellType(int cellId)
+int vtkStructuredGrid::GetCellType(int vtkNotUsed(cellId))
 {
   switch (this->DataDescription)
     {

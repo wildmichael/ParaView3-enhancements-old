@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-04-24 19:41:09 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1996-05-30 01:49:15 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -95,7 +95,7 @@ void vtkAppendPolyData::Update()
 
   if ( mtime > this->ExecuteTime || this->GetMTime() > this->ExecuteTime )
     {
-    for ( this->InputList.InitTraversal(); pd=this->InputList.GetNextItem(); )
+    for (this->InputList.InitTraversal();(pd=this->InputList.GetNextItem()); )
       {
       if ( pd->GetDataReleased() ) pd->ForceUpdate();
       }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearExtrusionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-29 16:14:22 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1996-05-30 01:49:19 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,7 +64,8 @@ float *vtkLinearExtrusionFilter::ViaNormal(float x[3], int id, vtkNormals *n)
   return xNew;
 }
 
-float *vtkLinearExtrusionFilter::ViaVector(float x[3], int id, vtkNormals *n)
+float *vtkLinearExtrusionFilter::ViaVector(float x[3], int vtkNotUsed(id), 
+					   vtkNormals *vtkNotUsed(n))
 {
   static float xNew[3];
   int i;
@@ -75,7 +76,8 @@ float *vtkLinearExtrusionFilter::ViaVector(float x[3], int id, vtkNormals *n)
   return xNew;
 }
 
-float *vtkLinearExtrusionFilter::ViaPoint(float x[3], int id, vtkNormals *n)
+float *vtkLinearExtrusionFilter::ViaPoint(float x[3], int vtkNotUsed(id), 
+					  vtkNormals *vtkNotUsed(n))
 {
   static float xNew[3];
   int i;

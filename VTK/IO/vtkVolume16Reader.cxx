@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume16Reader.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-05-08 18:48:29 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1996-05-30 01:49:41 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -111,7 +111,6 @@ void vtkVolume16Reader::Execute()
 vtkStructuredPoints *vtkVolume16Reader::GetImage(int ImageNumber)
 {
   vtkScalars *newScalars;
-  int numberSlices;
   int *dim;
   int dimensions[3];
   vtkStructuredPoints *result;

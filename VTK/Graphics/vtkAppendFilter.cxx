@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-04-24 19:41:08 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1996-05-30 01:49:14 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -92,7 +92,7 @@ void vtkAppendFilter::Update()
 
   if ( mtime > this->ExecuteTime || this->GetMTime() > this->ExecuteTime )
     {
-    for ( this->InputList.InitTraversal(); ds=this->InputList.GetNextItem(); )
+    for ( this->InputList.InitTraversal();(ds=this->InputList.GetNextItem());)
       {
       if ( ds->GetDataReleased() ) ds->ForceUpdate();
       }

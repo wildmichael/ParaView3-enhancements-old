@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyLine.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-30 11:25:21 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1996-05-30 01:49:29 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -488,7 +488,7 @@ int vtkPolyLine::IntersectWithLine(float p1[3], float p2[3],float tol,float& t,
   return 0;
 }
 
-int vtkPolyLine::Triangulate(int index, vtkFloatPoints &pts)
+int vtkPolyLine::Triangulate(int vtkNotUsed(index), vtkFloatPoints &pts)
 {
   pts.Reset();
   for (int subId=0; subId<this->Points.GetNumberOfPoints()-1; subId++)

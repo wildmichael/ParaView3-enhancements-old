@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlane.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-12-27 10:53:21 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1996-05-30 01:49:28 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -81,7 +81,7 @@ float vtkPlane::EvaluateFunction(float x[3])
 
 // Description
 // Evaluate function gradient at point x[3].
-void vtkPlane::EvaluateGradient(float x[3], float n[3])
+void vtkPlane::EvaluateGradient(float vtkNotUsed(x)[3], float n[3])
 {
   for (int i=0; i<3; i++) n[i] = this->Normal[i];
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTensorGlyph.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-04-24 19:41:28 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1996-05-30 01:49:35 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -150,7 +150,7 @@ void vtkTensorGlyph::Execute()
     outPD->CopyScalarsOn();
     outPD->CopyAllocate(pd,numPts*numSourcePts);
     }
-  if ( sourceNormals = pd->GetNormals() )
+  if ( (sourceNormals = pd->GetNormals()) )
     newNormals = new vtkFloatNormals(numPts*numSourcePts);
 //
 // First copy all topology (transformation independent)

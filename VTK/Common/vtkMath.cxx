@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMath.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-05-24 18:50:17 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1996-05-30 01:49:20 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -182,7 +182,7 @@ int vtkMath::LUFactorLinearSystem(double **A, int *index, int size)
 {
   static double *scale = NULL;
   static maxSize=0;
-  int i, maxI, j, k, idx, ii;
+  int i, maxI, j, k;
   double largest, temp1, temp2, sum;
 //
 // Check on allocation of working vectors
