@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-01 21:00:08 $
-  Version:   $Revision: 1.93 $
+  Date:      $Date: 2002-05-27 16:12:01 $
+  Version:   $Revision: 1.94 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,13 +16,17 @@
 
 =========================================================================*/
 #include "vtkRenderWindowInteractor.h"
-#include "vtkPropPicker.h"
-#include "vtkInteractorStyleSwitch.h"
+
 #include "vtkGraphicsFactory.h"
+#include "vtkInteractorStyleSwitch.h"
 #include "vtkMath.h"
 #include "vtkOldStyleCallbackCommand.h"
+#include "vtkPropPicker.h"
+#include "vtkRenderWindow.h"
 
-vtkCxxRevisionMacro(vtkRenderWindowInteractor, "$Revision: 1.93 $");
+vtkCxxRevisionMacro(vtkRenderWindowInteractor, "$Revision: 1.94 $");
+
+vtkCxxSetObjectMacro(vtkRenderWindowInteractor,Picker,vtkAbstractPicker);
 
 // Construct object so that light follows camera motion.
 vtkRenderWindowInteractor::vtkRenderWindowInteractor()
@@ -477,3 +481,15 @@ void vtkRenderWindowInteractor::PrintSelf(ostream& os, vtkIndent indent)
      << "\n";
   os << indent << "RepeatCount: " << this->RepeatCount << "\n";
 }
+
+void vtkRenderWindowInteractor::Initialize() 
+{
+  this->Initialized=1; 
+  this->Enable();
+  this->RenderWindow->Render();
+}
+
+void vtkRenderWindowInteractor::HideCursor() 
+{ this->RenderWindow->HideCursor(); };
+void vtkRenderWindowInteractor::ShowCursor() 
+{ this->RenderWindow->ShowCursor(); };

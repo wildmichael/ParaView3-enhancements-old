@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorObserver.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-03 19:30:38 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-05-27 16:12:01 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,10 +16,12 @@
 
 =========================================================================*/
 #include "vtkInteractorObserver.h"
+
 #include "vtkCallbackCommand.h"
 #include "vtkObjectFactory.h"
+#include "vtkRenderer.h"
 
-vtkCxxRevisionMacro(vtkInteractorObserver, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkInteractorObserver, "$Revision: 1.16 $");
 
 vtkInteractorObserver::vtkInteractorObserver()
 {

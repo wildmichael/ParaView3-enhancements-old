@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-08 13:36:56 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-05-27 16:12:01 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -68,6 +68,7 @@ class vtkPolyData;
 class vtkSphereSource;
 class vtkSphere;
 class vtkCellPicker;
+class vtkProperty;
 
 #define VTK_SPHERE_OFF 0
 #define VTK_SPHERE_WIREFRAME 1

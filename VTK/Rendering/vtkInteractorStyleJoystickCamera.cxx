@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleJoystickCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-06 21:19:25 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2002-05-27 16:12:01 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,11 +16,13 @@
 
 =========================================================================*/
 #include "vtkInteractorStyleJoystickCamera.h"
-#include "vtkObjectFactory.h"
+
 #include "vtkCommand.h"
 #include "vtkMath.h"
+#include "vtkObjectFactory.h"
+#include "vtkRenderer.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyleJoystickCamera, "$Revision: 1.25 $");
+vtkCxxRevisionMacro(vtkInteractorStyleJoystickCamera, "$Revision: 1.26 $");
 vtkStandardNewMacro(vtkInteractorStyleJoystickCamera);
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-06 21:19:25 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2002-05-27 16:12:01 $
+  Version:   $Revision: 1.44 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -101,10 +101,13 @@
 #define VTKIS_ANIM_OFF 0
 #define VTKIS_ANIM_ON  1
 
-class vtkPolyDataMapper;
-class vtkOutlineSource;
+class vtkActor2D;
+class vtkActor;
 class vtkCallbackCommand;
-
+class vtkOutlineSource;
+class vtkPolyDataMapper;
+class vtkProp3D;
+class vtkProp;
 
 class VTK_RENDERING_EXPORT vtkInteractorStyle : public vtkInteractorObserver
 {

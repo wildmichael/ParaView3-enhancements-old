@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleImage.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-06 21:19:25 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-05-27 16:12:01 $
+  Version:   $Revision: 1.22 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,11 +16,14 @@
 
 =========================================================================*/
 #include "vtkInteractorStyleImage.h"
-#include "vtkObjectFactory.h"
-#include "vtkMath.h"
-#include "vtkCommand.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyleImage, "$Revision: 1.21 $");
+#include "vtkAbstractPropPicker.h"
+#include "vtkAssemblyPath.h"
+#include "vtkCommand.h"
+#include "vtkMath.h"
+#include "vtkObjectFactory.h"
+
+vtkCxxRevisionMacro(vtkInteractorStyleImage, "$Revision: 1.22 $");
 vtkStandardNewMacro(vtkInteractorStyleImage);
 
 //----------------------------------------------------------------------------

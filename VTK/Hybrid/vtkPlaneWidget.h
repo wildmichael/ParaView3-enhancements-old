@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlaneWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-21 20:43:10 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-05-27 16:12:01 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -77,14 +77,17 @@
 #include "vtk3DWidget.h"
 
 class vtkActor;
-class vtkPolyDataMapper;
+class vtkCellPicker;
+class vtkConeSource;
+class vtkLineSource;
+class vtkPlaneSource;
 class vtkPoints;
 class vtkPolyData;
-class vtkLineSource;
-class vtkConeSource;
+class vtkPolyDataMapper;
+class vtkProp;
+class vtkProperty;
 class vtkSphereSource;
-class vtkCellPicker;
-class vtkPlaneSource;
+class vtkTransform;
 
 #define VTK_PLANE_OFF 0
 #define VTK_PLANE_OUTLINE 1

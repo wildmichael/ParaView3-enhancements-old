@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLineWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-08 13:36:56 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-05-27 16:12:01 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -78,6 +78,8 @@ class vtkActor;
 class vtkPolyDataMapper;
 class vtkPoints;
 class vtkPolyData;
+class vtkProp;
+class vtkProperty;
 class vtkSphereSource;
 class vtkCellPicker;
 
