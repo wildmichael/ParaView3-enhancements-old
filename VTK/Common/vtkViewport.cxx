@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewport.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-04 09:28:24 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2001-11-06 14:12:41 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -134,8 +134,11 @@ void vtkViewport::AddProp(vtkProp *p)
 }
 void vtkViewport::RemoveProp(vtkProp *p)
 {
-  p->ReleaseGraphicsResources(this->VTKWindow);
-  this->Props->RemoveItem(p);
+  if (p)
+    {
+    p->ReleaseGraphicsResources(this->VTKWindow);
+    this->Props->RemoveItem(p);
+    }
 }
 
 // look through the props and get all the actors
