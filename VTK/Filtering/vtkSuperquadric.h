@@ -3,9 +3,9 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSuperquadric.h,v $
   Language:  C++
-  Date:      $Date: 1998-08-04 11:10:11 $
-  Version:   $Revision: 1.1 $
-
+  Date:      $Date: 1998-08-04 12:39:56 $
+  Version:   $Revision: 1.2 $
+  Thanks:    Mike Halle, Brigham and Women's Hospital
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
