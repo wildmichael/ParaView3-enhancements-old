@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIterativeClosestPointTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-25 13:43:23 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-07-31 13:48:03 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to Sebastien Barre who developed this class. Thanks to
              Tim Hutton too for the idea.
 
@@ -232,6 +232,15 @@ unsigned long vtkIterativeClosestPointTransform::GetMTime()
   if (this->Locator)
     {
     mtime = this->Locator->GetMTime(); 
+    if (mtime > result)
+      {
+      result = mtime;
+      }
+    }
+
+  if (this->LandmarkTransform)
+    {
+    mtime = this->LandmarkTransform->GetMTime();
     if (mtime > result)
       {
       result = mtime;
