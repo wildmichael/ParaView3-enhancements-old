@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-02 18:21:13 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 1998-04-02 18:30:52 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -152,15 +152,21 @@ int vtkDataReader::ReadString(char result[256])
 // Returns zero if there was an error.
 int vtkDataReader::Read(char *result)
 {
-  *this->IS >> *result;
+  int intData;
+  *this->IS >> intData;
   if (this->IS->fail()) return 0;
+
+  *result = (char) intData;
   return 1;
 }
 
 int vtkDataReader::Read(unsigned char *result)
 {
-  *this->IS >> *result;
+  int intData;
+  *this->IS >> intData;
   if (this->IS->fail()) return 0;
+
+  *result = (unsigned char) intData;
   return 1;
 }
 
