@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDebugLeaks.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-31 16:56:31 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-01-31 18:20:48 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -43,7 +43,7 @@ int vtkDebugLeaksIgnoreClassesCheck(const char* s)
   return 0;
 }
 
-vtkCxxRevisionMacro(vtkDebugLeaks, "$Revision: 1.18 $");
+vtkCxxRevisionMacro(vtkDebugLeaks, "$Revision: 1.19 $");
 vtkStandardNewMacro(vtkDebugLeaks);
 
 int vtkDebugLeaks::PromptUser = 1;
@@ -229,29 +229,26 @@ unsigned int vtkDebugLeaksHashTable::GetCount(const char* key)
 int vtkDebugLeaksHashTable::IsEmpty()
 {
   int count = 0;
-  int ignore = 0;
   for(int i =0; i < 64; i++)
     {
     vtkDebugLeaksHashNode *pos = this->Nodes[i];
     if(pos)
       { 
-      count += pos->Count;
-      if(vtkDebugLeaksIgnoreClassesCheck(pos->Key))
+      if(!vtkDebugLeaksIgnoreClassesCheck(pos->Key))
         {
-        ignore++;
+        count += pos->Count;
         }
       while(pos->Next)
         {
         pos = pos->Next;
-        if(vtkDebugLeaksIgnoreClassesCheck(pos->Key))
+        if(!vtkDebugLeaksIgnoreClassesCheck(pos->Key))
           {
-          ignore++;
+          count += pos->Count;
           }
-        count += pos->Count;
         }
       }
     }
-  return ((count - ignore) == 0);
+  return !count;
 }
 
 int vtkDebugLeaksHashTable::DecrementCount(const char *key)
@@ -342,7 +339,6 @@ void vtkDebugLeaks::PrintCurrentLeaks()
     {
     vtkOutputWindow::GetInstance()->PromptUserOff();
     }
-  vtkOutputWindow::GetInstance()->PromptUserOn();
   vtkGenericWarningMacro("vtkDebugLeaks has detected LEAKS!\n ");
   // force some other singletons to delete themselves now
   vtkObjectFactory::UnRegisterAllFactories();
