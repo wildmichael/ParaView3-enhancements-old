@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitFunction.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-26 14:21:40 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1998-11-14 17:00:16 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -98,6 +98,7 @@ public:
   // Evaluate function at position x-y-z and return value. Must be implemented
   // by derived class.
   virtual float EvaluateFunction(float x[3]) = 0;
+  float EvaluateFunction(float x, float y, float z);
 
   // Description:
   // Evaluate function gradient at position x-y-z and pass back vector. Must
