@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEmptyCell.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-06 19:05:54 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-09-18 12:38:34 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,7 +43,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkCellArray.h"
 #include "vtkPointLocator.h"
 
-// Description:
 // Deep copy of cell.
 vtkEmptyCell::vtkEmptyCell(const vtkEmptyCell& vtkNotUsed(p))
 {

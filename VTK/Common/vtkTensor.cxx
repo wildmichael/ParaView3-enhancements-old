@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensor.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:51:44 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-09-18 12:38:45 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,7 +40,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkTensor.h"
 
-// Description:
 // Construct tensor initially pointing to internal storage.
 vtkTensor::vtkTensor()
 {

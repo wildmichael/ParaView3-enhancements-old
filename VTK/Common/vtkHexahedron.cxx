@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHexahedron.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:51:00 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 1998-09-18 12:38:34 $
+  Version:   $Revision: 1.53 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,7 +45,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkCellArray.h"
 #include "vtkPointLocator.h"
 
-// Description:
 // Construct the hexahedron with eight points.
 vtkHexahedron::vtkHexahedron()
 {
@@ -658,7 +657,6 @@ void vtkHexahedron::Derivatives(int vtkNotUsed(subId), float pcoords[3],
     }
 }
 
-// Description:
 // Given parametric coordinates compute inverse Jacobian transformation
 // matrix. Returns 9 elements of 3x3 inverse Jacobian plus interpolation
 // function derivatives.

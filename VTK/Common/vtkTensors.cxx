@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensors.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-13 13:34:11 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1998-09-18 12:38:45 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,7 +40,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkTensors.h"
 
-// Description:
 // Construct object with an initial data array of type float.
 vtkTensors::vtkTensors(int dataType) : vtkAttributeData(dataType)
 {
@@ -104,7 +103,6 @@ int vtkTensors::InsertNextTensor(float t11, float t12, float t13,
   return this->InsertNextTensor(&t);
 }
 
-// Description:
 // Given a list of pt ids, return an array of tensors.
 void vtkTensors::GetTensors(vtkIdList& ptIds, vtkTensors& t)
 {

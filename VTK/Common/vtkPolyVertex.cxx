@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyVertex.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:51:27 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 1998-09-18 12:38:41 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -225,7 +225,6 @@ void vtkPolyVertex::Clip(float value, vtkScalars *cellScalars,
     }
 }
 
-// Description:
 // Return the center of the point cloud in parametric coordinates.
 inline int vtkPolyVertex::GetParametricCenter(float pcoords[3])
 {

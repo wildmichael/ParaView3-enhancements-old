@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdList.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:51:01 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1998-09-18 12:38:35 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,7 +51,6 @@ vtkIdList::~vtkIdList()
   this->Ia->Delete();
 }
 
-// Description:
 // Copy an id list by reference counting internal array.
 void vtkIdList::ShallowCopy(vtkIdList& ids)
 {
@@ -63,7 +62,6 @@ void vtkIdList::ShallowCopy(vtkIdList& ids)
     }
 }
 
-// Description:
 // Copy an id list by explicitly copying the internal array.
 void vtkIdList::DeepCopy(vtkIdList& ids)
 {
@@ -73,7 +71,6 @@ void vtkIdList::DeepCopy(vtkIdList& ids)
     }
 }
 
-// Description:
 // Delete specified id from list. Will replace all occurences of id in list.
 void vtkIdList::DeleteId(int Id)
 {
@@ -101,7 +98,6 @@ void vtkIdList::DeleteId(int Id)
 }
 
 #define VTK_TMP_ARRAY_SIZE 500
-// Description:
 // Intersect this list with another vtkIdList. Updates current list according
 // to result of intersection operation.
 void vtkIdList::IntersectWith(vtkIdList& otherIds)

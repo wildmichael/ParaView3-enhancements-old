@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyLine.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:51:27 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 1998-09-18 12:38:41 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,7 +49,6 @@ vtkCell *vtkPolyLine::MakeObject()
   return cell;
 }
 
-// Description:
 // Given points and lines, compute normals to lines. These are not true 
 // normals, they are "orientation" normals used by classes like vtkTubeFilter
 // that control the rotation around the line. The normals try to stay pointing
@@ -444,7 +443,6 @@ void vtkPolyLine::Clip(float value, vtkScalars *cellScalars,
   lineScalars->Delete();
 }
 
-// Description:
 // Return the center of the point cloud in parametric coordinates.
 inline int vtkPolyLine::GetParametricCenter(float pcoords[3])
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCoordinate.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-08-22 19:03:23 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-09-18 12:38:32 $
+  Version:   $Revision: 1.6 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -43,7 +43,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #define VTK_RINT(x) ((x > 0.0) ? (int)(x + 0.5) : (int)(x - 0.5))
 
-// Description:
 // Creates an Coordinate with the following defaults: 
 // value of  0, 0, 0 in world  coordinates
 vtkCoordinate::vtkCoordinate()
@@ -57,7 +56,6 @@ vtkCoordinate::vtkCoordinate()
   this->Computing = 0;
 }
 
-// Description:
 // Destroy a Coordinate.  
 vtkCoordinate::~vtkCoordinate()
 {

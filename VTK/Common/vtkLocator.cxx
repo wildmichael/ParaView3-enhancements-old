@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-29 17:41:21 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1998-09-18 12:38:37 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,7 +40,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkLocator.h"
 
-// Description:
 // Construct with automatic computation of divisions, averaging
 // 25 points per bucket.
 vtkLocator::vtkLocator()

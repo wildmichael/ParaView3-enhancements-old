@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkNormals.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-13 13:34:09 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1998-09-18 12:38:39 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,14 +40,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkNormals.h"
 
-// Description:
 // Construct object with an initial data array of type float.
 vtkNormals::vtkNormals(int dataType) : vtkAttributeData(dataType)
 {
   this->Data->SetNumberOfComponents(3);
 }
 
-// Description:
 // Given a list of pt ids, return an array of normals.
 void vtkNormals::GetNormals(vtkIdList& ptIds, vtkNormals& n)
 {

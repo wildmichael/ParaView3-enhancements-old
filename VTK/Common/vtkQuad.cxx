@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuad.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:51:31 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 1998-09-18 12:38:43 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,7 +46,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkPointLocator.h"
 #include "vtkMath.h"
 
-// Description:
 // Construct the quad with four points.
 vtkQuad::vtkQuad()
 {
@@ -697,7 +696,6 @@ static QUAD_CASES quadCasesComplement[] = {
 {{   4, 100, 101, 102, 103,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1}}, // 15
 };
 
-// Description:
 // Clip this quad using scalar value provided. Like contouring, except
 // that it cuts the quad to produce other quads and/or triangles.
 void vtkQuad::Clip(float value, vtkScalars *cellScalars, 

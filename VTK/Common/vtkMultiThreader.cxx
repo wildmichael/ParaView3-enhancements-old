@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiThreader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:51:18 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1998-09-18 12:38:38 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,7 +69,6 @@ int vtkMultiThreader::GetGlobalMaximumNumberOfThreads()
   return vtkMultiThreaderGlobalMaximumNumberOfThreads;
 }
 
-// Description:
 // Constructor. Default all the methods to NULL. Since the
 // ThreadInfoArray is static, the ThreadIDs can be initialized here
 // and will not change.
@@ -125,13 +124,11 @@ vtkMultiThreader::vtkMultiThreader()
 #endif
 }
 
-// Description:
 // Destructor. Nothing allocated so nothing needs to be done here.
 vtkMultiThreader::~vtkMultiThreader()
 {
 }
 
-// Description:
 // Set the user defined method that will be run on NumberOfThreads threads
 // when SingleMethodExecute is called.
 void vtkMultiThreader::SetSingleMethod( vtkThreadFunctionType f, 
@@ -141,7 +138,6 @@ void vtkMultiThreader::SetSingleMethod( vtkThreadFunctionType f,
   this->SingleData   = data;
 }
 
-// Description:
 // Set one of the user defined methods that will be run on NumberOfThreads
 // threads when MultipleMethodExecute is called. This method should be
 // called with index = 0, 1, ..,  NumberOfThreads-1 to set up all the
@@ -161,7 +157,6 @@ void vtkMultiThreader::SetMultipleMethod( int index,
     }
 }
 
-// Description:
 // Execute the method set as the SingleMethod on NumberOfThreads threads.
 void vtkMultiThreader::SingleMethodExecute()
 {
@@ -652,7 +647,6 @@ void vtkMultiThreader::TerminateThread( int ThreadID )
 
 }
 
-// Description:
 // Print method for the multithreader
 void vtkMultiThreader::PrintSelf(ostream& os, vtkIndent indent)
 {

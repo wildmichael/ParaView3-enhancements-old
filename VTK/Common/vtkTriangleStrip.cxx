@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleStrip.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:51:49 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 1998-09-18 12:38:47 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -270,7 +270,6 @@ void vtkTriangleStrip::Derivatives(int subId, float pcoords[3], float *values,
   this->Triangle.Derivatives(0, pcoords, values, dim, derivs);
 }
 
-// Description:
 // Given a list of triangle strips, decompose into a list of (triangle) 
 // polygons. The polygons are appended to the end of the list of polygons.
 void vtkTriangleStrip::DecomposeStrips(vtkCellArray *strips, vtkCellArray *polys)
@@ -344,7 +343,6 @@ void vtkTriangleStrip::Clip(float value, vtkScalars *cellScalars,
   triScalars->Delete();
 }
 
-// Description:
 // Return the center of the point cloud in parametric coordinates.
 inline int vtkTriangleStrip::GetParametricCenter(float pcoords[3])
 {

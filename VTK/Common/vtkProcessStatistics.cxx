@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProcessStatistics.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 21:37:07 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-09-18 12:38:42 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -89,7 +89,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #endif /* no HAVE_GETPAGESIZE */
 #endif _WIN32
 
-// Description:
 // Construct the ProcessStatistics with eight points.
 vtkProcessStatistics::vtkProcessStatistics()
 {

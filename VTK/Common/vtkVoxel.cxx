@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxel.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:52:00 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 1998-09-18 12:38:49 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,7 +45,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkCellArray.h"
 #include "vtkPointLocator.h"
 
-// Description:
 // Construct the voxel with eight points.
 vtkVoxel::vtkVoxel()
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPixel.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:51:19 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 1998-09-18 12:38:39 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,7 +47,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkLine.h"
 #include "vtkPointLocator.h"
 
-// Description:
 // Construct the pixel with four points.
 vtkPixel::vtkPixel()
 {
