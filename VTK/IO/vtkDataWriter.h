@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:35 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2001-01-26 20:46:43 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -64,7 +64,6 @@ class vtkVectors;
 class vtkNormals;
 class vtkTCoords;
 class vtkTensors;
-class vtkGhostLevels;
 class vtkDataArray;
 
 class VTK_EXPORT vtkDataWriter : public vtkWriter
@@ -134,12 +133,6 @@ public:
   vtkSetStringMacro(TensorsName);
   vtkGetStringMacro(TensorsName);
 
-  // Description:
-  // Give a name to the ghost levels data.  If not specified, uses default
-  // name "ghostLevels".
-  vtkSetStringMacro(GhostLevelsName);
-  vtkGetStringMacro(GhostLevelsName);
-  
   // Description:
   // Give a name to the normals data. If not specified, uses default
   // name "normals".
@@ -228,7 +221,6 @@ protected:
   char *ScalarsName;
   char *VectorsName;
   char *TensorsName;
-  char *GhostLevelsName;
   char *TCoordsName;
   char *NormalsName;
   char *LookupTableName;
@@ -241,7 +233,6 @@ protected:
   int WriteNormalData(ostream *fp, vtkNormals *n, int num);
   int WriteTCoordData(ostream *fp, vtkTCoords *tc, int num);
   int WriteTensorData(ostream *fp, vtkTensors *t, int num);
-  int WriteGhostLevelData(ostream *fp, vtkGhostLevels *g, int num);
 
 };
 

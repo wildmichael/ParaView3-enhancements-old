@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-11 19:26:55 $
-  Version:   $Revision: 1.75 $
+  Date:      $Date: 2001-01-26 20:46:43 $
+  Version:   $Revision: 1.76 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -195,7 +195,8 @@ void vtkMapper::ShallowCopy(vtkMapper *m)
 vtkScalars *vtkMapper::GetColors()
 {
   vtkScalars *scalars;
-  vtkDataArray *dataArray;
+  vtkDataArray *dataArray=0;
+  vtkFieldData *fd;
   int i, numScalars;
   
   // make sure we have an input
@@ -223,15 +224,17 @@ vtkScalars *vtkMapper::GetColors()
     }
   else if ( this->ScalarMode == VTK_SCALAR_MODE_USE_POINT_FIELD_DATA )
     {
-    if (this->ArrayAccessMode == VTK_GET_ARRAY_BY_ID)
+    fd = this->GetInput()->GetPointData()->GetFieldData();
+    if (fd)
       {
-      dataArray = this->GetInput()->GetPointData()->GetFieldData()->
-        GetArray(this->ArrayId);
-      }
-    else
-      {
-      dataArray = this->GetInput()->GetPointData()->GetFieldData()->
-        GetArray(this->ArrayName);
+      if (this->ArrayAccessMode == VTK_GET_ARRAY_BY_ID)
+	{
+	dataArray = fd->GetArray(this->ArrayId);
+	}
+      else
+	{
+	dataArray = fd->GetArray(this->ArrayName);
+	}
       }
     
     if (dataArray &&
@@ -249,15 +252,17 @@ vtkScalars *vtkMapper::GetColors()
     }
   else if ( this->ScalarMode == VTK_SCALAR_MODE_USE_CELL_FIELD_DATA )
     {
-    if (this->ArrayAccessMode == VTK_GET_ARRAY_BY_ID)
+    fd = this->GetInput()->GetCellData()->GetFieldData();
+    if (fd)
       {
-      dataArray = this->GetInput()->GetCellData()->GetFieldData()->
-        GetArray(this->ArrayId);
-      }
-    else
-      {
-      dataArray = this->GetInput()->GetCellData()->GetFieldData()->
-        GetArray(this->ArrayName);
+      if (this->ArrayAccessMode == VTK_GET_ARRAY_BY_ID)
+	{
+	dataArray = fd->GetArray(this->ArrayId);
+	}
+      else
+	{
+	dataArray = fd->GetArray(this->ArrayName);
+	}
       }
 
     if (dataArray &&
