@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-05 20:13:55 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2003-05-07 13:12:37 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,7 @@
 #include "vtkUnsignedCharArray.h"
 #include "vtkZLibDataCompressor.h"
 
-vtkCxxRevisionMacro(vtkXMLWriter, "$Revision: 1.19 $");
+vtkCxxRevisionMacro(vtkXMLWriter, "$Revision: 1.20 $");
 vtkCxxSetObjectMacro(vtkXMLWriter, Compressor, vtkDataCompressor);
 
 //----------------------------------------------------------------------------
@@ -1433,6 +1433,10 @@ void vtkXMLWriter::WriteCoordinatesInline(vtkDataArray* xc, vtkDataArray* yc,
     vtkIdType total = (oxc->GetNumberOfTuples()+
                        oyc->GetNumberOfTuples()+
                        ozc->GetNumberOfTuples());
+    if(total == 0)
+      {
+      total = 1;
+      }
     float fractions[4] =
       {
         0,
@@ -1497,6 +1501,10 @@ void vtkXMLWriter::WriteCoordinatesAppendedData(vtkDataArray* xc,
     vtkIdType total = (oxc->GetNumberOfTuples()+
                        oyc->GetNumberOfTuples()+
                        ozc->GetNumberOfTuples());
+    if(total == 0)
+      {
+      total = 1;
+      }
     float fractions[4] =
       {
         0,

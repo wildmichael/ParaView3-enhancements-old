@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLPolyDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-05 13:45:23 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-05-07 13:12:37 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkUnsignedCharArray.h"
 #include "vtkCellArray.h"
 
-vtkCxxRevisionMacro(vtkXMLPolyDataReader, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkXMLPolyDataReader, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkXMLPolyDataReader);
 
 //----------------------------------------------------------------------------
@@ -390,15 +390,16 @@ int vtkXMLPolyDataReader::ReadArrayForCells(vtkXMLDataElement* da,
   // be read for each type of cell.
   float progressRange[2] = {0,0};
   this->GetProgressRange(progressRange);
+  int total = this->TotalNumberOfCells?this->TotalNumberOfCells:1;
   float fractions[5] =
     {
       0,
-      float(this->NumberOfVerts[this->Piece])/this->TotalNumberOfCells,
+      float(this->NumberOfVerts[this->Piece])/total,
       float(this->NumberOfVerts[this->Piece]+
-            this->NumberOfLines[this->Piece])/this->TotalNumberOfCells,
+            this->NumberOfLines[this->Piece])/total,
       float(this->NumberOfVerts[this->Piece]+
             this->NumberOfLines[this->Piece]+
-            this->NumberOfStrips[this->Piece])/this->TotalNumberOfCells,
+            this->NumberOfStrips[this->Piece])/total,
       1
     };
   
