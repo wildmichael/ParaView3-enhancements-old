@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTclUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:26:24 $
-  Version:   $Revision: 1.71 $
+  Date:      $Date: 2002-02-18 22:15:17 $
+  Version:   $Revision: 1.72 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -80,6 +80,11 @@ VTKTCL_EXPORT void vtkTclGenericDeleteObject(ClientData cd)
   // lookup the objects name
   sprintf(temps,"%p",as->Pointer);
   entry = Tcl_FindHashEntry(&is->PointerLookup,temps); 
+  if (!entry)
+    {
+    return;
+    }
+
   temp = (char *)(Tcl_GetHashValue(entry));
   args[0] = temp;
   
