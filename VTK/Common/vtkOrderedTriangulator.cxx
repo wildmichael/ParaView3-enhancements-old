@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOrderedTriangulator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-23 11:57:26 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2001-05-23 12:02:12 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -538,7 +538,7 @@ int vtkOTTetra::InSphere(double x[3])
           (x[1] - this->Center[1]) * (x[1] - this->Center[1]) +
           (x[2] - this->Center[2]) * (x[2] - this->Center[2]);
 
-  return (dist2 < (0.9999999999L * this->Radius2) ? 1 : 0);
+  return (dist2 < (0.999999999L * this->Radius2) ? 1 : 0);
 }
 
 //------------------------------------------------------------------------
