@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-16 13:47:45 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-08-21 18:41:45 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -116,6 +116,8 @@ vtkEnSightReader::vtkEnSightReader()
   this->TimeValue = 0;
   this->MinimumTimeValue = 0;
   this->MaximumTimeValue = 0;
+  this->GeometryTimeValue = -1;
+  this->MeasuredTimeValue = -1;
   
   this->NumberOfGeometryParts = 0;
 
@@ -1143,12 +1145,14 @@ int vtkEnSightReader::ReadVariableFiles()
 	  if (this->VariableTypes[i] == VTK_SCALAR_PER_MEASURED_NODE ||
 	       this->VariableTypes[i] == VTK_VECTOR_PER_MEASURED_NODE)
 	    {
-	    if (newTime >= this->MeasuredTimeValue)
+	    if (newTime >= this->MeasuredTimeValue ||
+                this->MeasuredTimeSet == -1)
 	      {
 	      validTime = 1;
 	      }
 	    }
-	  else if (newTime >= this->GeometryTimeValue)
+	  else if (newTime >= this->GeometryTimeValue ||
+                   this->GeometryTimeSet == -1)
 	    {
 	    validTime = 1;
 	    }
