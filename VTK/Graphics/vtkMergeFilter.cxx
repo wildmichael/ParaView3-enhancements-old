@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-02 21:09:06 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1998-04-22 18:49:59 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -142,6 +142,8 @@ void vtkMergeFilter::Update()
 
   this->Updating = 1;
   this->Geometry->Update();
+  mtime = this->Geometry->GetMTime();
+  
   if ( this->Scalars ) 
     {
     this->Scalars->Update();
