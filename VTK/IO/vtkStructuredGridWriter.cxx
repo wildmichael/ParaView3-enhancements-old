@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-08-22 18:18:50 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2003-11-12 14:50:16 $
+  Version:   $Revision: 1.37 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,6 +19,7 @@
 
 #include "vtkObjectFactory.h"
 #include "vtkStructuredGrid.h"
+#include "vtkUnsignedCharArray.h"
 
 #if !defined(_WIN32) || defined(__CYGWIN__)
 # include <unistd.h> /* unlink */
@@ -26,7 +27,7 @@
 # include <io.h> /* unlink */
 #endif
 
-vtkCxxRevisionMacro(vtkStructuredGridWriter, "$Revision: 1.36 $");
+vtkCxxRevisionMacro(vtkStructuredGridWriter, "$Revision: 1.37 $");
 vtkStandardNewMacro(vtkStructuredGridWriter);
 
 //----------------------------------------------------------------------------
@@ -93,7 +94,7 @@ void vtkStructuredGridWriter::WriteData()
     }
   
   // If blanking, write that information out
-  if ( input->GetBlanking() )
+  if ( input->GetPointBlanking() )
     {
     if (!this->WriteBlanking(fp, input))
       {
@@ -125,7 +126,7 @@ void vtkStructuredGridWriter::WriteData()
 
 int vtkStructuredGridWriter::WriteBlanking(ostream *fp, vtkStructuredGrid *grid)
 {
-  vtkUnsignedCharArray *blanking=grid->GetPointVisibility();
+  vtkUnsignedCharArray *blanking=grid->GetPointVisibilityArray();
   
   int numPts = grid->GetNumberOfPoints();
   *fp << "BLANKING " << numPts;

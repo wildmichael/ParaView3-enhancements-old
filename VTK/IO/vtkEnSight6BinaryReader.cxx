@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSight6BinaryReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-11-11 21:28:44 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2003-11-12 14:50:16 $
+  Version:   $Revision: 1.36 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -35,7 +35,7 @@
 #include <ctype.h>
 #include <vtkstd/string>
 
-vtkCxxRevisionMacro(vtkEnSight6BinaryReader, "$Revision: 1.35 $");
+vtkCxxRevisionMacro(vtkEnSight6BinaryReader, "$Revision: 1.36 $");
 vtkStandardNewMacro(vtkEnSight6BinaryReader);
 
 //----------------------------------------------------------------------------
@@ -2553,7 +2553,6 @@ int vtkEnSight6BinaryReader::CreateStructuredGridOutput(int partId,
   output->SetPoints(points);  
   if (iblanked)
     {
-    output->BlankingOn();
     iblanks = new int[numPts];
     this->ReadIntArray(iblanks, numPts);
     for (i = 0; i < numPts; i++)

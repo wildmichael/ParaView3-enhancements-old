@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBlankStructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-17 02:05:38 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2003-11-12 14:50:16 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,8 +21,9 @@
 #include "vtkObjectFactory.h"
 #include "vtkPointData.h"
 #include "vtkStructuredGrid.h"
+#include "vtkUnsignedCharArray.h"
 
-vtkCxxRevisionMacro(vtkBlankStructuredGrid, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkBlankStructuredGrid, "$Revision: 1.9 $");
 vtkStandardNewMacro(vtkBlankStructuredGrid);
 
 // Construct object to extract all of the input data.
@@ -125,9 +126,8 @@ void vtkBlankStructuredGrid::Execute()
     }
 
   // Clean up and get out
-  output->SetPointVisibility(blanking);
+  output->SetPointVisibilityArray(blanking);
   blanking->Delete();
-  output->BlankingOn();
 }
 
 

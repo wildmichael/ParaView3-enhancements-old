@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLOT3DReader.h,v $
   Language:  C++
-  Date:      $Date: 2003-10-28 21:10:40 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 2003-11-12 14:50:16 $
+  Version:   $Revision: 1.56 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -235,6 +235,9 @@ public:
   // for binary files.
   virtual int CanReadBinaryFile(const char* fname);
 
+  // Description:
+  int GenerateDefaultConfiguration();
+
 //BTX
   enum 
   {
@@ -317,6 +320,11 @@ protected:
   vtkFloatArray** PointCache;
   vtkUnsignedCharArray** IBlankCache;
 
+  int VerifySettings(char* buf, int bufSize);
+  void ReadIntBlockV(char** buf, int n, int* block);
+  void SkipByteCountV(char** buf);
+
+  
 private:
   vtkPLOT3DReader(const vtkPLOT3DReader&);  // Not implemented.
   void operator=(const vtkPLOT3DReader&);  // Not implemented.
