@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSource.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:20:59 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 1999-09-16 16:47:56 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -89,6 +89,13 @@ public:
   // has already been called, and assumes the output is out of date.
   virtual void InternalUpdate(vtkDataObject *output);
 
+  // Description:
+  // This method is called by the data object as part of the update chain
+  // of events.  It provides a mechanism to start a non-blocking update
+  // in upstream ports.  A side effect of this method is that the 
+  // UpdateExtents are propagated upstream.
+  void PreUpdate(vtkDataObject *output);
+  
   // Description:
   // Turn on/off flag to control whether this object's data is released
   // after being used by a source.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-10 12:24:27 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1999-09-16 16:47:55 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -292,17 +292,19 @@ long vtkDataObject::GetPipelineMTime()
 }
 
 //----------------------------------------------------------------------------
-void vtkDataObject::SetLocality(int locality) 
+void vtkDataObject::PreUpdate() 
 {
-  this->Information->SetLocality(locality);
+  // We only need to do anything if the UpdateExtent has been changed since 
+  // the last PreUpdate.
+  if (this->GetGenericUpdateExtent()->GetMTime() > this->PreUpdateTime)
+    {
+    if (this->Source)
+      {
+      this->Source->PreUpdate(this);
+      }
+    this->PreUpdateTime.Modified();
+    }
 }
-
-//----------------------------------------------------------------------------
-int vtkDataObject::GetLocality()
-{
-  return this->Information->GetLocality();
-}
-
 
 
 
