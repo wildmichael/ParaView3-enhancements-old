@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLDataElement.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-18 19:08:13 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2003-05-21 17:41:14 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 
 #include <ctype.h>
 
-vtkCxxRevisionMacro(vtkXMLDataElement, "$Revision: 1.13 $");
+vtkCxxRevisionMacro(vtkXMLDataElement, "$Revision: 1.14 $");
 vtkStandardNewMacro(vtkXMLDataElement);
 
 //----------------------------------------------------------------------------
@@ -223,6 +223,17 @@ const char* vtkXMLDataElement::GetAttributeName(int idx)
     }
 
   return this->AttributeNames[idx];
+}
+
+//----------------------------------------------------------------------------
+const char* vtkXMLDataElement::GetAttributeValue(int idx)
+{
+  if (idx < 0 || idx >= this->NumberOfAttributes)
+    {
+    return 0;
+    }
+
+  return this->AttributeValues[idx];
 }
 
 //----------------------------------------------------------------------------
