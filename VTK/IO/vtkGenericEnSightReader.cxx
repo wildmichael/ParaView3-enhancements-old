@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericEnSightReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-31 18:58:17 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-02-01 19:25:12 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -318,8 +318,8 @@ int vtkGenericEnSightReader::DetermineEnSightVersion()
             } // end if IFile == NULL
           
           this->ReadBinaryLine(binaryLine);
-          sscanf(line, " %*s %s", subLine);
-          if (strcmp(subLine, "Binary") != 0)
+          sscanf(binaryLine, " %*s %s", subLine);
+          if (strcmp(subLine, "Binary") == 0)
             {
             fclose(this->IFile);
             this->IFile = NULL;
@@ -387,8 +387,8 @@ int vtkGenericEnSightReader::DetermineEnSightVersion()
           } // end if IFile == NULL
         
         this->ReadBinaryLine(binaryLine);
-        sscanf(line, " %*s %s", subLine);
-        if (strcmp(subLine, "Binary") != 0)
+        sscanf(binaryLine, " %*s %s", subLine);
+        if (strcmp(subLine, "Binary") == 0)
           {
           fclose(this->IFile);
           this->IFile = NULL;
