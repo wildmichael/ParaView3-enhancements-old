@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestImageIterator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-05 18:33:51 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-03-07 15:33:13 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #include "vtkImageData.h"
 
 template<typename T>
-int DoTest(T* = 0)
+int DoTest(T*)
 {
   int ext[6] = { 0, 0, 0, 0, 0, 0 };
   vtkImageData *id = vtkImageData::New();
@@ -44,16 +44,16 @@ int main()
 {
   vtkDebugLeaks::PromptUserOff();
 
-  DoTest<char>();
-  DoTest<int>();
-  DoTest<long>();
-  DoTest<short>();
-  DoTest<float>();
-  DoTest<double>();
-  DoTest<unsigned long>();
-  DoTest<unsigned short>();
-  DoTest<unsigned char>();
-  DoTest<unsigned int>();  
+  DoTest( static_cast<char*>( 0 ) );
+  DoTest( static_cast<int*>( 0 ) );
+  DoTest( static_cast<long*>( 0 ) );
+  DoTest( static_cast<short*>( 0 ) );
+  DoTest( static_cast<float*>( 0 ) );
+  DoTest( static_cast<double*>( 0 ) );
+  DoTest( static_cast<unsigned long*>( 0 ) );
+  DoTest( static_cast<unsigned short*>( 0 ) );
+  DoTest( static_cast<unsigned char*>( 0 ) );
+  DoTest( static_cast<unsigned int*>( 0 ) );  
 
   return 0;
 } 
