@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-28 12:33:28 $
-  Version:   $Revision: 1.148 $
+  Date:      $Date: 2000-07-31 03:30:41 $
+  Version:   $Revision: 1.149 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -527,7 +527,7 @@ vtkActorCollection *vtkRenderer::GetActors()
   return this->Actors;
 }
 
-// look through the props and get all the actors
+// look through the props and get all the volumes
 vtkVolumeCollection *vtkRenderer::GetVolumes()
 {
   vtkProp *aProp;
