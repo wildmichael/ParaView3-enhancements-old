@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewport.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-02 15:17:18 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2000-03-08 12:46:41 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -572,10 +572,5 @@ vtkProp* vtkViewport::PickPropFrom(float selectionX, float selectionY, vtkPropCo
 {
   this->PickFromProps = pickfrom;
   return this->PickProp(selectionX, selectionY);
-  if(this->PickFromProps)
-    {
-    this->PickFromProps->Delete();
-    }
-  this->PickFromProps = NULL;
 }
 
