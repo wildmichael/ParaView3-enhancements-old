@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty.h,v $
   Language:  C++
-  Date:      $Date: 1995-12-27 10:56:54 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1996-01-15 09:26:59 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,6 +66,8 @@ public:
   ~vtkProperty();
   char *GetClassName() {return "vtkProperty";};
   void PrintSelf(ostream& os, vtkIndent indent);
+
+  vtkProperty &operator=(const vtkProperty& p);
 
   // Description:
   // This method causes the property to set up whatever is required for

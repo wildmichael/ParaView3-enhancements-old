@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1995-12-27 10:58:33 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1996-01-15 09:27:01 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,6 +58,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class vtkRenderWindowInteractor;
 class vtkLightDevice;
 class vtkCameraDevice;
+class vtkActorDevice;
 class vtkTextureDevice;
 class vtkPropertyDevice;
 
@@ -112,6 +113,11 @@ public:
   // Create a device specific camera. This is used by vtkCamera to create
   // the correct type of vtkCameraDevice.
   virtual vtkCameraDevice    *MakeCamera() = 0;
+
+  // Description:
+  // Create a device specific actor. This is used by vtkActor to create
+  // the correct type of vtkActorDevice.
+  virtual vtkActorDevice    *MakeActor() = 0;
 
   // Description:
   // Create a device specific property. This is used by vtkProperty to create

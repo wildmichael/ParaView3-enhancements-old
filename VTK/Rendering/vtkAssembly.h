@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssembly.h,v $
   Language:  C++
-  Date:      $Date: 1996-01-10 08:56:02 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1996-01-15 09:27:04 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -117,6 +117,7 @@ protected:
   vtkActorCollection Parts;
   int ApplyTransform;
   int ApplyProperty;
+  vtkTimeStamp RenderTime;
 
 };
 
