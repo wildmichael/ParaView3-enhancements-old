@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEncodedGradientEstimator.h,v $
   Language:  C++
-  Date:      $Date: 1999-02-09 04:28:55 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-02-10 18:17:41 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -113,9 +113,29 @@ public:
   vtkGetObjectMacro( DirectionEncoder, vtkDirectionEncoder );
 
   // Description:
+  // If you don't want to compute gradient magnitudes (but you
+  // do want normals for shading) this can be used. Be careful - if
+  // if you a non-constant gradient magnitude transfer function and
+  // you turn this on, it may crash
+  vtkSetMacro( ComputeGradientMagnitudes, int );
+  vtkGetMacro( ComputeGradientMagnitudes, int );
+  vtkBooleanMacro( ComputeGradientMagnitudes, int );
+
+  // Description:
+  // If the data in each slice is only contained within a circle circumscribed
+  // within the slice, and the slice is square, then don't compute anything
+  // outside the cirle.
+  vtkSetMacro( ClipOutsideCircle, int );
+  vtkGetMacro( ClipOutsideCircle, int );
+  vtkBooleanMacro( ClipOutsideCircle, int );
+
+  // Description:
   // Get the time required for the last update in seconds or cpu seconds
   vtkGetMacro( LastUpdateTimeInSeconds, float );
   vtkGetMacro( LastUpdateTimeInCPUSeconds, float );
+
+  vtkGetMacro( UseCircleClip, int );
+  int *GetCircleLimits() { return this->CircleLimits; };
 
   // These variables should be protected but are being
   // made public to be accessible to the templated function.
@@ -144,6 +164,7 @@ public:
   int                   ScalarInputSize[3];
   float                 ScalarInputAspect[3];
 
+  int                   ComputeGradientMagnitudes;
 
 protected:
 
@@ -158,6 +179,12 @@ protected:
 
   float                      LastUpdateTimeInSeconds;
   float                      LastUpdateTimeInCPUSeconds;
+
+  int                        ClipOutsideCircle;
+  int                        *CircleLimits;
+  int                        CircleLimitsSize;
+  int                        UseCircleClip;
+  void                       ComputeCircleLimits( int size );
 }; 
 
 
