@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLRectilinearGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-16 18:23:07 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-11-22 20:49:50 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,13 +16,14 @@
 
 =========================================================================*/
 #include "vtkXMLRectilinearGridReader.h"
+
+#include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
+#include "vtkRectilinearGrid.h"
 #include "vtkXMLDataElement.h"
 #include "vtkXMLDataParser.h"
-#include "vtkFloatArray.h"
-#include "vtkRectilinearGrid.h"
 
-vtkCxxRevisionMacro(vtkXMLRectilinearGridReader, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkXMLRectilinearGridReader, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkXMLRectilinearGridReader);
 
 //----------------------------------------------------------------------------
@@ -130,10 +131,15 @@ void vtkXMLRectilinearGridReader::SetupOutputInformation()
   this->Superclass::SetupOutputInformation();  
   vtkRectilinearGrid* output = this->GetOutput();
   
+  // Use the configuration of the first piece since all are the same.
+  vtkXMLDataElement* xc = this->CoordinateElements[0]->GetNestedElement(0);
+  vtkXMLDataElement* yc = this->CoordinateElements[0]->GetNestedElement(1);
+  vtkXMLDataElement* zc = this->CoordinateElements[0]->GetNestedElement(2);
+  
   // Create the coordinate arrays.
-  vtkDataArray* x = vtkFloatArray::New();
-  vtkDataArray* y = vtkFloatArray::New();
-  vtkDataArray* z = vtkFloatArray::New();
+  vtkDataArray* x = this->CreateDataArray(xc);
+  vtkDataArray* y = this->CreateDataArray(yc);
+  vtkDataArray* z = this->CreateDataArray(zc);
   output->SetXCoordinates(x);
   output->SetYCoordinates(y);
   output->SetZCoordinates(z);
