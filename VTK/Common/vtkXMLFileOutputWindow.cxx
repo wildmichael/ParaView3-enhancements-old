@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLFileOutputWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-18 16:03:14 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-12-18 20:29:27 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -71,6 +71,7 @@ void vtkXMLFileOutputWindow::Initialize()
     else
       {
       this->OStream = new ofstream(this->FileName);
+      this->DisplayTag("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
       }
     }
 }
