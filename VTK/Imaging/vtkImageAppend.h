@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAppend.h,v $
   Language:  C++
-  Date:      $Date: 1998-11-04 18:52:31 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-11-05 12:32:22 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,6 +62,7 @@ public:
   static vtkImageAppend *New(){return new vtkImageAppend;};
   const char *GetClassName() {return "vtkImageAppend";};
   vtkImageAppend();
+  ~vtkImageAppend();
   void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:
