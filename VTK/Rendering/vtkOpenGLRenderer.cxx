@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:12:09 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2000-06-08 07:41:13 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -470,6 +470,7 @@ void vtkOpenGLRenderer::DonePick()
     this->PickedZ = (this->PickedZ > 1.0) ? 1.0: this->PickedZ;
     }
   delete [] this->PickInfo->PickBuffer;
+  this->PickInfo->PickBuffer = 0;
 }
 
 
@@ -486,7 +487,11 @@ unsigned int vtkOpenGLRenderer::GetPickedID()
 
 vtkOpenGLRenderer::~vtkOpenGLRenderer()
 {
-  delete [] this->PickInfo->PickBuffer;
+  if (this->PickInfo->PickBuffer)
+    {
+    delete [] this->PickInfo->PickBuffer;
+    this->PickInfo->PickBuffer = 0;
+    }
   delete this->PickInfo;
 }
 
