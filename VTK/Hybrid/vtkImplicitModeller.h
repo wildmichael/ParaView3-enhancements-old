@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitModeller.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-27 15:32:59 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1997-06-30 17:41:14 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -99,6 +99,12 @@ public:
   vtkSetMacro(CapValue,float);
   vtkGetMacro(CapValue,float);
 
+  // Special methods allow sequential appending of data to the output.
+  void Update();
+  void StartAppend();
+  void Append(vtkDataSet *input);
+  void EndAppend();
+
 protected:
   void Execute();
   void Cap(vtkFloatScalars *s);
@@ -108,6 +114,7 @@ protected:
   float ModelBounds[6];
   int Capping;
   float CapValue;
+  int DataAppended;
 };
 
 #endif
