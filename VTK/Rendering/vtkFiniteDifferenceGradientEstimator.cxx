@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFiniteDifferenceGradientEstimator.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-08-24 18:40:13 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-08-26 12:09:13 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -209,22 +209,7 @@ vtkFiniteDifferenceGradientEstimator::~vtkFiniteDifferenceGradientEstimator()
 {
 }
 
-// Description:
-// This method is used to compute the encoded normal and the
-// magnitude of the gradient for each voxel location in the 
-// ScalarInput.
-void vtkFiniteDifferenceGradientEstimator::UpdateNormals( )
-{
-  vtkDebugMacro( << "Updating Normals!" );
-  this->Threader.SetNumberOfThreads( this->NumberOfThreads );
-  
-  this->Threader.SetSingleMethod( FiniteDiffGradEst_SwitchOnDataType,
-				  (vtkObject *)this );
-  
-  this->Threader.SingleMethodExecute();
-}
-
-VTK_THREAD_RETURN_TYPE FiniteDiffGradEst_SwitchOnDataType( void *arg )
+static VTK_THREAD_RETURN_TYPE vtkSwitchOnDataType( void *arg )
 {
   vtkFiniteDifferenceGradientEstimator   *estimator;
   int                                    thread_count;
@@ -240,7 +225,7 @@ VTK_THREAD_RETURN_TYPE FiniteDiffGradEst_SwitchOnDataType( void *arg )
   // Find the data type of the ScalarInput and call the correct 
   // templated function to actually compute the normals and magnitudes
 
-  switch (estimator->ScalarInput->GetPointData()->GetScalars()->GetDataType())
+  switch (estimator->GetScalarInput()->GetPointData()->GetScalars()->GetDataType())
     {
     case VTK_CHAR:
       {
@@ -313,6 +298,21 @@ VTK_THREAD_RETURN_TYPE FiniteDiffGradEst_SwitchOnDataType( void *arg )
   return VTK_THREAD_RETURN_VALUE;
 }
 
+
+// Description:
+// This method is used to compute the encoded normal and the
+// magnitude of the gradient for each voxel location in the 
+// ScalarInput.
+void vtkFiniteDifferenceGradientEstimator::UpdateNormals( )
+{
+  vtkDebugMacro( << "Updating Normals!" );
+  this->Threader.SetNumberOfThreads( this->NumberOfThreads );
+  
+  this->Threader.SetSingleMethod( vtkSwitchOnDataType,
+				  (vtkObject *)this );
+  
+  this->Threader.SingleMethodExecute();
+}
 
 // Description:
 // Print the vtkFiniteDifferenceGradientEstimator

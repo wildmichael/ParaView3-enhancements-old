@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFiniteDifferenceGradientEstimator.h,v $
   Language:  C++
-  Date:      $Date: 1998-08-11 17:26:20 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-08-26 12:09:14 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,8 +69,6 @@ public:
   int                   SampleSpacingInVoxels;
 
 protected:
-
-  friend VTK_THREAD_RETURN_TYPE FiniteDiffGradEst_SwitchOnDataType( void *arg );
 
   // Description:
   // Recompute the encoded normals and gradient magnitudes.
