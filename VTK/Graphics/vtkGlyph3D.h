@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-30 12:38:11 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2001-09-07 14:12:07 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -221,10 +221,10 @@ public:
   const char *GetIndexModeAsString();
 
   // Description:
-  // Enable/disable the generation of point ids as part of the output. The point
-  // ids are the id of the input generating point. The point ids are stored in the
-  // output point field data and named "InputPointIds". Point generation is useful 
-  // for debugging and pick operations.
+  // Enable/disable the generation of point ids as part of the output. The
+  // point ids are the id of the input generating point. The point ids are
+  // stored in the output point field data and named "InputPointIds". Point
+  // generation is useful for debugging and pick operations.
   vtkSetMacro(GeneratePointIds,int);
   vtkGetMacro(GeneratePointIds,int);
   vtkBooleanMacro(GeneratePointIds,int);
