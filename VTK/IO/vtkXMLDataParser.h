@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLDataParser.h,v $
   Language:  C++
-  Date:      $Date: 2003-05-02 19:18:08 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2003-06-13 14:41:23 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -124,7 +124,6 @@ protected:
   void StartElement(const char* name, const char** atts);
   void EndElement(const char*);
   int ParsingComplete();
-  void ClearStreamEOF();
   int CheckPrimaryAttributes();
   void FindAppendedDataPosition();
   unsigned long FindInlineDataPosition(unsigned long start);

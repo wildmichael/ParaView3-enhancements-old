@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLParser.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-02-25 18:50:01 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2003-06-13 14:41:23 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include <ctype.h>
 #include <sys/stat.h>
 
-vtkCxxRevisionMacro(vtkXMLParser, "$Revision: 1.16 $");
+vtkCxxRevisionMacro(vtkXMLParser, "$Revision: 1.17 $");
 vtkStandardNewMacro(vtkXMLParser);
 
 //----------------------------------------------------------------------------
@@ -254,6 +254,12 @@ int vtkXMLParser::ParseXML()
         }
       }
     }
+  
+  // Clear the fail and eof bits on the input stream so we can later
+  // seek back to read data.
+  this->Stream->clear(this->Stream->rdstate() & ~ios::eofbit);
+  this->Stream->clear(this->Stream->rdstate() & ~ios::failbit);
+  
   return 1;
 }
 
