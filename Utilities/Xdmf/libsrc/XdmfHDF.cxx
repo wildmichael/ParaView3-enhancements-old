@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfHDF.cxx,v 1.6 2003-10-21 15:12:48 andy Exp $  */
-/*  Date : $Date: 2003-10-21 15:12:48 $ */
-/*  Version : $Revision: 1.6 $ */
+/*  Id : $Id: XdmfHDF.cxx,v 1.7 2003-10-21 18:37:37 andy Exp $  */
+/*  Date : $Date: 2003-10-21 18:37:37 $ */
+/*  Version : $Revision: 1.7 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -587,7 +587,7 @@ XdmfDebug("Using Domain " << this->Domain );
       if( strlen( this->GetNdgmHost() ) < 2 ) {
         H5Pset_fapl_ndgm( this->AccessPlist, 1000000, NULL);
       } else {
-        H5Pset_fapl_ndgm( this->AccessPlist, 1000000, this->GetNdgmHost());
+        H5Pset_fapl_ndgm( this->AccessPlist, 1000000, (char*)this->GetNdgmHost());
       }
 #else
       XdmfErrorMessage("NDGM Interface is unavailable");
@@ -638,7 +638,7 @@ if( this->File < 0 ){
       if( strlen( this->GetNdgmHost() ) < 2 ) {
         H5Pset_fapl_ndgm( this->AccessPlist, 1000000, NULL);
       } else {
-        H5Pset_fapl_ndgm( this->AccessPlist, 1000000, this->GetNdgmHost() );
+        H5Pset_fapl_ndgm( this->AccessPlist, 1000000, (char*)this->GetNdgmHost() );
       }
 #else
       XdmfErrorMessage("NDGM interface is unavailable");

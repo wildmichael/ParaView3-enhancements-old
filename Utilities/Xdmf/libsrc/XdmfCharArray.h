@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfCharArray.h,v 1.3 2003-10-21 15:12:48 andy Exp $  */
-/*  Date : $Date: 2003-10-21 15:12:48 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: XdmfCharArray.h,v 1.4 2003-10-21 18:37:37 andy Exp $  */
+/*  Date : $Date: 2003-10-21 18:37:37 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -49,7 +49,7 @@ public:
     return( strlen( String ) );
     };
 //! Set the Data from a Disk File
-  XdmfInt32 SetFromFile( XdmfString FileName );
+  XdmfInt32 SetFromFile( XdmfConstString FileName );
 };
 
 #endif // __XdmfCharArray_h

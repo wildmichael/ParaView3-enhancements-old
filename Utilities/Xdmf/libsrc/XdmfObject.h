@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfObject.h,v 1.12 2003-10-21 15:12:48 andy Exp $  */
-/*  Date : $Date: 2003-10-21 15:12:48 $ */
-/*  Version : $Revision: 1.12 $ */
+/*  Id : $Id: XdmfObject.h,v 1.13 2003-10-21 18:37:37 andy Exp $  */
+/*  Date : $Date: 2003-10-21 18:37:37 $ */
+/*  Version : $Revision: 1.13 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -354,6 +354,22 @@ XdmfInt32 Set##var (type _arg) \
   return ( XDMF_SUCCESS ); \
   }
 
+#define XdmfSetStringMacro(var) \
+XdmfInt32 Set##var (XdmfConstString _arg) \
+  { \
+  if ( this->var == _arg ) { return XDMF_SUCCESS; } \
+  if ( this->var && _arg && strcmp(this->var, _arg) == 0 ) { return XDMF_SUCCESS; } \
+  if ( this->var ) { delete [] this->var; this->var = 0; } \
+  if ( _arg ) { this->var = new char[ strlen(_arg) + 1 ]; strcpy(this->var, _arg); } \
+  return ( XDMF_SUCCESS ); \
+  }
+
+#define XdmfGetStringMacro(var) \
+XdmfConstString Get##var () \
+  { \
+  return ( this->var ); \
+  }
+
 #define XdmfSetIndexValueMacro(var,type) \
 XdmfInt32 Set##var ( XdmfInt64 Index, type _arg) \
   { \
@@ -404,7 +420,7 @@ XDMF_EXPORT void SetGlobalDebug( XdmfInt32 DebugLevel );
 
 XDMF_EXPORT XdmfString GetUnique( XdmfString Pattern = NULL );
 extern XDMF_EXPORT XdmfString XdmfObjectToHandle( XdmfObject *Source );
-extern XDMF_EXPORT XdmfObject *HandleToXdmfObject( XdmfString Source );
+extern XDMF_EXPORT XdmfObject *HandleToXdmfObject( XdmfConstString Source );
 
 extern XDMF_EXPORT istrstream& ICE_READ_STREAM64(istrstream& istr, ICE_64_INT& i);
 

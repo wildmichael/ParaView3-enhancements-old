@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfHeavyData.h,v 1.5 2003-10-21 15:12:48 andy Exp $  */
-/*  Date : $Date: 2003-10-21 15:12:48 $ */
-/*  Version : $Revision: 1.5 $ */
+/*  Id : $Id: XdmfHeavyData.h,v 1.6 2003-10-21 18:37:37 andy Exp $  */
+/*  Date : $Date: 2003-10-21 18:37:37 $ */
+/*  Version : $Revision: 1.6 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -55,7 +55,7 @@ public:
 //! Get the default Pathname for File:/Dataset
         XdmfGetValueMacro(WorkingDirectory, XdmfString);
 //! Set the default Pathname for File:/Dataset
-        void SetWorkingDirectory( XdmfString String );
+        void SetWorkingDirectory( XdmfConstString String );
 
 
 //! Get the current domain

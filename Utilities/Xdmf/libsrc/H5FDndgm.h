@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: H5FDndgm.h,v 1.3 2003-05-09 17:29:42 clarke Exp $  */
-/*  Date : $Date: 2003-05-09 17:29:42 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: H5FDndgm.h,v 1.4 2003-10-21 18:37:37 andy Exp $  */
+/*  Date : $Date: 2003-10-21 18:37:37 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -33,7 +33,7 @@
 #define H5FD_NDGM  (H5FD_ndgm_init())
 
 XDMF_EXPORT hid_t H5FD_ndgm_init(void);
-XDMF_EXPORT herr_t H5Pset_fapl_ndgm(hid_t fapl_id, size_t increment, char *host);
+XDMF_EXPORT herr_t H5Pset_fapl_ndgm(hid_t fapl_id, size_t increment, const char* host);
 XDMF_EXPORT herr_t H5Pget_fapl_ndgm(hid_t fapl_id, size_t *increment/*out*/, char **host);
 
 #endif

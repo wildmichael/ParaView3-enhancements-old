@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfObject.cxx,v 1.6 2003-10-21 15:12:48 andy Exp $  */
-/*  Date : $Date: 2003-10-21 15:12:48 $ */
-/*  Version : $Revision: 1.6 $ */
+/*  Id : $Id: XdmfObject.cxx,v 1.7 2003-10-21 18:37:37 andy Exp $  */
+/*  Date : $Date: 2003-10-21 18:37:37 $ */
+/*  Version : $Revision: 1.7 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -91,7 +91,7 @@ return( (XdmfString)Handle.str() );
 }
 
 XdmfObject *
-HandleToXdmfObject( XdmfString Source ){
+HandleToXdmfObject( XdmfConstString Source ){
 XdmfString src = new char[ strlen(Source) + 1 ];
 strcpy(src, Source);
 istrstream Handle( src, strlen(src));

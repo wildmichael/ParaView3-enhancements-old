@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: H5FDndgm.c,v 1.2 2003-10-16 14:54:53 andy Exp $  */
-/*  Date : $Date: 2003-10-16 14:54:53 $ */
-/*  Version : $Revision: 1.2 $ */
+/*  Id : $Id: H5FDndgm.c,v 1.3 2003-10-21 18:37:37 andy Exp $  */
+/*  Date : $Date: 2003-10-21 18:37:37 $ */
+/*  Version : $Revision: 1.3 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -446,7 +446,7 @@ H5FD_ndgm_init(void)
  *-------------------------------------------------------------------------
  */
 herr_t
-H5Pset_fapl_ndgm(hid_t fapl_id, size_t increment, char *host )
+H5Pset_fapl_ndgm(hid_t fapl_id, size_t increment, const char *host )
 {
     H5FD_ndgm_fapl_t  fa;
     
