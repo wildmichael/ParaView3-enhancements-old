@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLPDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-05 15:29:15 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2003-05-21 17:42:33 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 #include "vtkXMLDataElement.h"
 #include "vtkXMLDataReader.h"
 
-vtkCxxRevisionMacro(vtkXMLPDataReader, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkXMLPDataReader, "$Revision: 1.8 $");
 
 //----------------------------------------------------------------------------
 vtkXMLPDataReader::vtkXMLPDataReader()
@@ -81,8 +81,8 @@ void vtkXMLPDataReader::SetupOutputInformation()
   // Setup the output arrays.
   vtkXMLDataElement* ePointData = this->PPointDataElement;
   vtkXMLDataElement* eCellData = this->PCellDataElement;
-  vtkPointData* pointData = this->GetOutputAsDataSet()->GetPointData();
-  vtkCellData* cellData = this->GetOutputAsDataSet()->GetCellData();  
+  vtkPointData* pointData = this->GetOutputAsDataSet(0)->GetPointData();
+  vtkCellData* cellData = this->GetOutputAsDataSet(0)->GetCellData();  
   
   // Setup the point and cell data arrays without allocation.
   this->SetDataArraySelections(ePointData, this->PointDataArraySelection);
@@ -138,7 +138,7 @@ void vtkXMLPDataReader::SetupOutputData()
 {
   this->Superclass::SetupOutputData();
   
-  vtkDataSet* output = this->GetOutputAsDataSet();
+  vtkDataSet* output = this->GetOutputAsDataSet(0);
   vtkXMLDataElement* ePointData = this->PPointDataElement;
   vtkXMLDataElement* eCellData = this->PCellDataElement;
   vtkPointData* pointData = output->GetPointData();
@@ -327,7 +327,7 @@ int vtkXMLPDataReader::ReadPieceData(int index)
 int vtkXMLPDataReader::ReadPieceData()
 {
   vtkDataSet* input = this->GetPieceInputAsDataSet(this->Piece);
-  vtkDataSet* output = this->GetOutputAsDataSet();
+  vtkDataSet* output = this->GetOutputAsDataSet(0);
   
   // Copy point data and cell data for this piece.
   int i;

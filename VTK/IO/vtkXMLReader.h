@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLReader.h,v $
   Language:  C++
-  Date:      $Date: 2003-05-05 14:42:13 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2003-05-21 17:42:33 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -53,6 +53,7 @@ public:
   // Description:
   // Get the output as a vtkDataSet pointer.
   vtkDataSet* GetOutputAsDataSet();
+  vtkDataSet* GetOutputAsDataSet(int index);
   
   // Description:
   // Get the data array selection tables used to configure which data
@@ -175,6 +176,10 @@ protected:
   
   // Whether there was an error reading the file in ExecuteData.
   int DataError;
+  
+  // The index of the output on which ExecuteData is currently
+  // running.
+  int CurrentOutput;
   
   // The current range over which progress is moving.  This allows for
   // incrementally fine-tuned progress updates.
