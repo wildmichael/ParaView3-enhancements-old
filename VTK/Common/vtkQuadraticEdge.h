@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadraticEdge.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-17 10:47:04 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-05-24 20:42:34 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,6 +23,10 @@
 // shape function. The cell includes a mid-edge node. The ordering of the
 // three points defining the cell is point ids (1,2,3) where id #3 is the
 // midedge node.
+
+// .SECTION See Also
+// vtkQuadraticEdge vtkQuadraticTriangle vtkQuadraticTetra
+// vtQuadraticQuad vtkQuadraticHexahedron
 
 #ifndef __vtkQuadraticEdge_h
 #define __vtkQuadraticEdge_h

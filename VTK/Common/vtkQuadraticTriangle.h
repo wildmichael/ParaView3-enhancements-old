@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadraticTriangle.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-17 10:47:04 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-05-24 20:42:34 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,6 +25,10 @@
 // point ids (1-3,4-6) where id #4 is the midedge node between points
 // (1,2); id #5 is the midedge node between points (2,3); and id #6 is the 
 // midedge node between points (3,1).
+
+// .SECTION See Also
+// vtkQuadraticEdge vtkQuadraticTetra
+// vtQuadraticQuad vtkQuadraticHexahedron
 
 #ifndef __vtkQuadraticTriangle_h
 #define __vtkQuadraticTriangle_h

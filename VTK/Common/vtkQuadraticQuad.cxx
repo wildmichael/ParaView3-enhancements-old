@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadraticQuad.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-24 17:50:36 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-05-24 20:42:34 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkQuadraticQuad, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkQuadraticQuad, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkQuadraticQuad);
 
 // Construct the line with two points.
@@ -85,8 +85,8 @@ vtkCell *vtkQuadraticQuad::GetEdge(int edgeId)
   return this->Edge;
 }
 
-static float linearQuads[4][4] = { {0,4,8,7}, {8,4,1,5}, 
-                                   {8,5,2,6}, {7,8,6,3} };
+static int linearQuads[4][4] = { {0,4,8,7}, {8,4,1,5}, 
+                                 {8,5,2,6}, {7,8,6,3} };
 
 void vtkQuadraticQuad::ComputeMidQuadNode(float *weights)
 {
