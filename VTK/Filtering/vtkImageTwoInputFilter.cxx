@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageTwoInputFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-15 23:24:34 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-06-10 17:50:53 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -251,8 +251,10 @@ vtkImageTwoInputFilter::UpdatePointData(int dim, vtkImageRegion *outRegion)
     }
   
   // fill the output region 
+  if ( this->StartMethod ) (*this->StartMethod)(this->StartMethodArg);
   this->Execute(dim, inRegion1, inRegion2, outRegion);
-
+  if ( this->EndMethod ) (*this->EndMethod)(this->EndMethodArg);
+  
   // Save the new region in cache.
   this->Output->CacheRegion(outRegion);  
   

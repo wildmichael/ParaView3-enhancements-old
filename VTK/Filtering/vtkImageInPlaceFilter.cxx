@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageInPlaceFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-23 20:39:30 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1997-06-10 17:50:48 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -172,7 +172,9 @@ void vtkImageInPlaceFilter::UpdatePointData(int dim, vtkImageRegion *outRegion)
 
   // fill the output region 
   // The inRegion is passed just in case.
+  if ( this->StartMethod ) (*this->StartMethod)(this->StartMethodArg);
   this->Execute(dim, inRegion, outRegion);
+  if ( this->EndMethod ) (*this->EndMethod)(this->EndMethodArg);
 
   // Save the new region in cache.
   this->Output->CacheRegion(outRegion);

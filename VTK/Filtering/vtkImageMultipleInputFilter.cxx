@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-15 23:24:30 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1997-06-10 17:50:49 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -253,8 +253,10 @@ void vtkImageMultipleInputFilter::UpdatePointData(int dim,
     }
   
   // fill the output region 
+  if ( this->StartMethod ) (*this->StartMethod)(this->StartMethodArg);
   this->Execute(dim, this->Regions, outRegion);
-
+  if ( this->EndMethod ) (*this->EndMethod)(this->EndMethodArg);
+  
   // Save the new region in cache.
   this->Output->CacheRegion(outRegion);  
   

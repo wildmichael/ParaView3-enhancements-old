@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-06-10 13:40:22 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1997-06-10 17:50:50 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -71,9 +71,6 @@ vtkImageReader::vtkImageReader()
     this->Flips[idx] = 0;
     }
 
-  // origin is lower left, so flip y axis by default.
-  this->Flips[1] = 1;
-  
   this->FileName = NULL;
   
   this->HeaderSize = 0;

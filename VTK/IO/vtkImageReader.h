@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-10 13:40:23 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1997-06-10 17:50:52 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -96,7 +96,7 @@ public:
   
   
   // Description:
-  // Set/Get the spacing of the data.
+  // Set/Get the spacing of the data in the file.
   void SetDataSpacing(int num, float *ratio);
   vtkImageSetMacro(DataSpacing,float);
   void GetDataSpacing(int num, float *ratio);
@@ -104,7 +104,7 @@ public:
   float *GetDataSpacing() {return this->DataSpacing;};  
   
   // Description:
-  // Set/Get the origin of the data (location of point (0,0,0,...)).
+  // Set/Get the origin of the data (location of first pixel in the file).
   void SetDataOrigin(int num, float *ratio);
   vtkImageSetMacro(DataOrigin,float);
   void GetDataOrigin(int num, float *ratio);
@@ -147,8 +147,8 @@ public:
   // the same file on a LittleEndian machine will result in swapping.
   // As a quick note most UNIX machines are BigEndian while PC's
   // and VAX tend to be LittleEndian. So if the file you are reading
-  // in was generated on a VAX or PC, SetFileByteOrderToLittleEndian 
-  // otherwise SetFileByteOrderToBigEndian. 
+  // in was generated on a VAX or PC, SetDataByteOrderToLittleEndian 
+  // otherwise SetDataByteOrderToBigEndian. 
   void SetDataByteOrderToBigEndian();
   void SetDataByteOrderToLittleEndian();
   int GetDataByteOrder();
