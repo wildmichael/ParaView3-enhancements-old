@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader2Collection.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:14 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-05-31 23:12:41 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,8 @@
 #define __vtkImageReader2Collection_h
 
 #include "vtkCollection.h"
-#include "vtkImageReader2.h"
+
+class vtkImageReader2;
 
 class VTK_IO_EXPORT vtkImageReader2Collection : public vtkCollection
 {
@@ -55,15 +56,5 @@ private:
   vtkImageReader2Collection(const vtkImageReader2Collection&);  // Not implemented.
   void operator=(const vtkImageReader2Collection&);  // Not implemented.
 };
-
-inline void vtkImageReader2Collection::AddItem(vtkImageReader2 *f) 
-{
-  this->vtkCollection::AddItem((vtkObject *)f);
-}
-
-inline vtkImageReader2 *vtkImageReader2Collection::GetNextItem() 
-{ 
-  return static_cast<vtkImageReader2*>(this->GetNextItemAsObject());
-}
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMCubesReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:16 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2002-05-31 23:12:41 $
+  Version:   $Revision: 1.52 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -50,10 +50,7 @@
 #ifndef __vtkMCubesReader_h
 #define __vtkMCubesReader_h
 
-#include <stdio.h>
 #include "vtkPolyDataSource.h"
-#include "vtkPoints.h"
-#include "vtkCellArray.h"
 
 #define VTK_FILE_BYTE_ORDER_BIG_ENDIAN 0
 #define VTK_FILE_BYTE_ORDER_LITTLE_ENDIAN 1

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTIFFWriter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:24 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-05-31 23:12:41 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,6 @@
 #ifndef __vtkTIFFWriter_h
 #define __vtkTIFFWriter_h
 
-#include <stdio.h>
 #include "vtkImageWriter.h"
 
 class VTK_IO_EXPORT vtkTIFFWriter : public vtkImageWriter

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWriter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:15 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2002-05-31 23:12:41 $
+  Version:   $Revision: 1.32 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,8 @@
 #define __vtkImageWriter_h
 
 #include "vtkProcessObject.h"
-#include "vtkImageData.h"
+
+class vtkImageData;
 
 class VTK_IO_EXPORT vtkImageWriter : public vtkProcessObject
 {

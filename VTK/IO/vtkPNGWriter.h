@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNGWriter.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-31 22:21:23 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-05-31 23:12:41 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,6 +27,9 @@
 #define __vtkPNGWriter_h
 
 #include "vtkImageWriter.h"
+
+class vtkImageData;
+class vtkUnsignedCharArray;
 
 class VTK_IO_EXPORT vtkPNGWriter : public vtkImageWriter
 {

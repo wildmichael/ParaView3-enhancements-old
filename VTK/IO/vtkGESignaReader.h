@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGESignaReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-02-14 17:03:45 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-05-31 23:12:41 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,7 +32,6 @@
 #ifndef __vtkGESignaReader_h
 #define __vtkGESignaReader_h
 
-#include <stdio.h>
 #include "vtkMedicalImageReader2.h"
 
 class VTK_IO_EXPORT vtkGESignaReader : public vtkMedicalImageReader2

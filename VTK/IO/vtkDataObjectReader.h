@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObjectReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:10 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-05-31 23:12:41 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,7 +32,8 @@
 #define __vtkDataObjectReader_h
 
 #include "vtkDataReader.h"
-#include "vtkDataObject.h"
+
+class vtkDataObject;
 
 class VTK_IO_EXPORT vtkDataObjectReader : public vtkDataReader
 {

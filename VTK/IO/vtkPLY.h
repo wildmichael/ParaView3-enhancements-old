@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLY.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:17 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-05-31 23:12:41 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -65,7 +65,6 @@ WARRANTY OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
 #ifndef __vtkPLY_h
 #define __vtkPLY_h
 
-#include <stdio.h>
 #include <stddef.h>
 #include "vtkObject.h"
 

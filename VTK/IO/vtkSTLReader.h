@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:21 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 2002-05-31 23:12:41 $
+  Version:   $Revision: 1.59 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -35,10 +35,10 @@
 #ifndef __vtkSTLReader_h
 #define __vtkSTLReader_h
 
-#include <stdio.h>
 #include "vtkPolyDataSource.h"
-#include "vtkPoints.h"
-#include "vtkCellArray.h"
+
+class vtkPoints;
+class vtkCellArray;
 
 class VTK_IO_EXPORT vtkSTLReader : public vtkPolyDataSource 
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUWriter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:09 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2002-05-31 23:12:41 $
+  Version:   $Revision: 1.41 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,9 +29,7 @@
 #ifndef __vtkBYUWriter_h
 #define __vtkBYUWriter_h
 
-#include <stdio.h>
 #include "vtkPolyDataWriter.h"
-#include "vtkPolyData.h"
 
 class VTK_IO_EXPORT vtkBYUWriter : public vtkPolyDataWriter
 {

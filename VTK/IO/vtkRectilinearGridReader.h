@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:20 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2002-05-31 23:12:41 $
+  Version:   $Revision: 1.31 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,7 +32,8 @@
 #define __vtkRectilinearGridReader_h
 
 #include "vtkDataReader.h"
-#include "vtkRectilinearGrid.h"
+
+class vtkRectilinearGrid;
 
 class VTK_IO_EXPORT vtkRectilinearGridReader : public vtkDataReader
 {

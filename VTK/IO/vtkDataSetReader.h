@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-07 02:12:30 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2002-05-31 23:12:41 $
+  Version:   $Revision: 1.54 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -35,13 +35,13 @@
 #define __vtkDataSetReader_h
 
 #include "vtkDataReader.h"
-#include "vtkDataSet.h"
 
+class vtkDataSet;
 class vtkPolyData;
-class vtkStructuredPoints;
-class vtkStructuredGrid;
-class vtkUnstructuredGrid;
 class vtkRectilinearGrid;
+class vtkStructuredGrid;
+class vtkStructuredPoints;
+class vtkUnstructuredGrid;
 
 class VTK_IO_EXPORT vtkDataSetReader : public vtkDataReader
 {
@@ -55,8 +55,7 @@ public:
   // to know the type of the data, the FileName must be set before GetOutput 
   // is applied.
   vtkDataSet *GetOutput();
-  vtkDataSet *GetOutput(int idx)
-    {return static_cast<vtkDataSet *>(this->vtkSource::GetOutput(idx)); };
+  vtkDataSet *GetOutput(int idx);
 
   // Description:
   // Get the output as various concrete types. This method is typically used

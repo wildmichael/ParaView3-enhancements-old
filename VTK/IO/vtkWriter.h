@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWriter.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-13 02:20:12 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2002-05-31 23:12:41 $
+  Version:   $Revision: 1.46 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -37,7 +37,8 @@
 #define __vtkWriter_h
 
 #include "vtkProcessObject.h"
-#include "vtkDataObject.h"
+
+class vtkDataObject;
 
 #define VTK_ASCII 1
 #define VTK_BINARY 2

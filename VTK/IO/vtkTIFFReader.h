@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTIFFReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-25 01:28:39 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2002-05-31 23:12:41 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -50,7 +50,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef __vtkTIFFReader_h
 #define __vtkTIFFReader_h
 
-#include <stdio.h>
 #include "vtkImageReader2.h"
 
 //BTX

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-31 15:59:46 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-05-31 23:12:41 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,8 @@
 #define __vtkEnSightReader_h
 
 #include "vtkDataSetSource.h"
-#include "vtkCollection.h"
+
+class vtkCollection;
 
 // element types
 #define VTK_ENSIGHT_POINT               0

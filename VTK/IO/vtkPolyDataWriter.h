@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataWriter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:20 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2002-05-31 23:12:41 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,8 @@
 #define __vtkPolyDataWriter_h
 
 #include "vtkDataWriter.h"
-#include "vtkPolyData.h"
+
+class vtkPolyData;
 
 class VTK_IO_EXPORT vtkPolyDataWriter : public vtkDataWriter
 {

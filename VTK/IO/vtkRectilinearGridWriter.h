@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridWriter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:21 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-05-31 23:12:41 $
+  Version:   $Revision: 1.22 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,8 @@
 #define __vtkRectilinearGridWriter_h
 
 #include "vtkDataWriter.h"
-#include "vtkRectilinearGrid.h"
+
+class vtkRectilinearGrid;
 
 class VTK_IO_EXPORT vtkRectilinearGridWriter : public vtkDataWriter
 {

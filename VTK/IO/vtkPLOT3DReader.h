@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLOT3DReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:17 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2002-05-31 23:12:41 $
+  Version:   $Revision: 1.49 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -78,10 +78,9 @@
 #ifndef __vtkPLOT3DReader_h
 #define __vtkPLOT3DReader_h
 
-#include <stdio.h>
 #include "vtkStructuredGridSource.h"
-#include "vtkIntArray.h"
 
+class vtkIntArray;
 class vtkFloatArray;
 
 // file formats
