@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-15 14:01:54 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-09-20 18:07:56 $
+  Version:   $Revision: 1.17 $
 
 Copyright (c) 1998-2000 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -44,10 +44,8 @@ vtkPVContourFilter::vtkPVContourFilter()
   
   this->Accept = vtkKWPushButton::New();
   this->Accept->SetParent(this->Properties);
-  this->ContourValueEntry = vtkKWEntry::New();
+  this->ContourValueEntry = vtkKWLabeledEntry::New();
   this->ContourValueEntry->SetParent(this->Properties);
-  this->ContourValueLabel = vtkKWLabel::New();
-  this->ContourValueLabel->SetParent(this->Properties);
   this->SourceButton = vtkKWPushButton::New();
   this->SourceButton->SetParent(this->Properties);
   
@@ -62,8 +60,6 @@ vtkPVContourFilter::~vtkPVContourFilter()
   
   this->ContourValueEntry->Delete();
   this->ContourValueEntry = NULL;
-  this->ContourValueLabel->Delete();
-  this->ContourValueLabel = NULL;
   
   this->SourceButton->Delete();
   this->SourceButton = NULL;
@@ -87,16 +83,13 @@ void vtkPVContourFilter::CreateProperties()
   this->SourceButton->SetCommand(this, "GetSource");
   this->Script("pack %s", this->SourceButton->GetWidgetName());
 
-  this->ContourValueLabel->Create(this->Application, "");
-  this->ContourValueLabel->SetLabel("Contour Value:");
-  this->ContourValueEntry->Create(this->Application, "");
+  this->ContourValueEntry->Create(this->Application);
+  this->ContourValueEntry->SetLabel("Contour Value:");
   this->ContourValueEntry->SetValue(this->GetContour()->GetValue(0), 2);
 
   this->Accept->Create(this->Application, "-text Accept");
   this->Accept->SetCommand(this, "ContourValueChanged");
-  this->Script("pack %s", this->Accept->GetWidgetName());
-  this->Script("pack %s %s -side left -anchor w",
-	       this->ContourValueLabel->GetWidgetName(),
+  this->Script("pack %s %s", this->Accept->GetWidgetName(),
 	       this->ContourValueEntry->GetWidgetName());
 }
 
