@@ -3,8 +3,8 @@
   Program:   DICOMParser
   Module:    $RCSfile: DICOMAppHelper.h,v $
   Language:  C++
-  Date:      $Date: 2003-08-27 18:49:00 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2003-09-08 14:31:11 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 2003 Matt Turek
   All rights reserved.
@@ -48,7 +48,7 @@ struct DICOMTagInfo
   doublebyte group;
   doublebyte element;
   DICOMParser::VRTypes datatype;
-  char* description;
+  const char* description;
 };
 
 

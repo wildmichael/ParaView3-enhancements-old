@@ -3,8 +3,8 @@
   Program:   DICOMParser
   Module:    $RCSfile: DICOMFile.h,v $
   Language:  C++
-  Date:      $Date: 2003-08-27 18:49:00 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2003-09-08 14:31:11 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 2003 Matt Turek
   All rights reserved.
@@ -222,7 +222,7 @@ class DICOM_EXPORT DICOMFile
       | (v >> 24));
     }
 
-  char* GetPlatformEndian() {return this->PlatformEndian;}
+ const char* GetPlatformEndian() {return this->PlatformEndian;}
 
  protected:
   //
@@ -245,7 +245,7 @@ class DICOM_EXPORT DICOMFile
   //
   // Platform endianness
   //
-  char* PlatformEndian;
+  const char* PlatformEndian;
 
  private:
   DICOMFile(const DICOMFile&);

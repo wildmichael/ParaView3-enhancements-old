@@ -3,8 +3,8 @@
   Program:   DICOMParser
   Module:    $RCSfile: DICOMAppHelper.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-09-07 15:44:30 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2003-09-08 14:31:11 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 2003 Matt Turek
   All rights reserved.
@@ -323,7 +323,7 @@ void DICOMAppHelper::ArrayCallback(DICOMParser *parser,
                                    unsigned char* val,
                                    quadbyte len) 
 {
-  char* desc = "No description";
+  const char* desc = "No description";
   
   TagMapType::iterator iter = this->Implementation->TagMap.find(dicom_stl::pair<doublebyte, doublebyte> (group, element));
   if (iter != this->Implementation->TagMap.end())
@@ -583,7 +583,7 @@ void DICOMAppHelper::TransferSyntaxCallback(DICOMParser *parser,
   dicom_stream::cout << "Platform byte order: " << platformByteOrder << dicom_stream::endl;
 #endif
 
-  static char* TRANSFER_UID_EXPLICIT_BIG_ENDIAN = "1.2.840.10008.1.2.2";
+  static const char* TRANSFER_UID_EXPLICIT_BIG_ENDIAN = "1.2.840.10008.1.2.2";
 
   // Only add the ToggleSwapBytes callback when we need it.
   if (strcmp(TRANSFER_UID_EXPLICIT_BIG_ENDIAN, (char*) val) == 0)
