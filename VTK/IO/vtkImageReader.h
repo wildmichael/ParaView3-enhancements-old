@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-10 17:50:52 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1997-06-13 20:15:05 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -196,7 +196,6 @@ protected:
   int DataExtent[VTK_IMAGE_EXTENT_DIMENSIONS];
   
   virtual void Initialize();
-  virtual void UpdatePointData(vtkImageRegion *outRegion) = 0;    
   void UpdateFromFile(vtkImageRegion *region);
 };
 
