@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume16Reader.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 20:00:30 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1996-08-21 20:57:17 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,7 +67,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkVolume16Reader_h
 
 #include <stdio.h>
-#include "vtkVolumeReader.hh"
+#include "vtkVolumeReader.h"
 
 class vtkVolume16Reader : public vtkVolumeReader
 {

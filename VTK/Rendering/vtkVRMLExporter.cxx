@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 20:01:29 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1996-08-21 20:57:04 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,10 +38,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkVRMLExporter.hh"
-#include "vtkGeometryFilter.hh"
-#include "vtkPolyMapper.hh"
-#include "vtkMath.hh"
+#include "vtkVRMLExporter.h"
+#include "vtkGeometryFilter.h"
+#include "vtkPolyMapper.h"
+#include "vtkMath.h"
 
 vtkVRMLExporter::vtkVRMLExporter()
 {

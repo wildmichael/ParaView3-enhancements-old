@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:55:41 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1996-08-21 20:51:39 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,11 +38,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkDataSetReader.hh"
-#include "vtkPolyReader.hh"
-#include "vtkStructuredPointsReader.hh"
-#include "vtkStructuredGridReader.hh"
-#include "vtkUnstructuredGridReader.hh"
+#include "vtkDataSetReader.h"
+#include "vtkPolyReader.h"
+#include "vtkStructuredPointsReader.h"
+#include "vtkStructuredGridReader.h"
+#include "vtkUnstructuredGridReader.h"
 
 
 vtkDataSetReader::vtkDataSetReader()

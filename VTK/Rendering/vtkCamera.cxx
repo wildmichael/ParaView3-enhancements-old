@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-20 11:05:39 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 1996-08-21 20:50:57 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,12 +39,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include <math.h>
-#include "vtkCamera.hh"
-#include "vtkMath.hh"
-#include "vtkRenderer.hh"
-#include "vtkRenderWindow.hh"
-#include "vtkCameraDevice.hh"
-#include "vtkTimeStamp.hh"
+#include "vtkCamera.h"
+#include "vtkMath.h"
+#include "vtkRenderer.h"
+#include "vtkRenderWindow.h"
+#include "vtkCameraDevice.h"
+#include "vtkTimeStamp.h"
 
 // Description:
 // Construct camera instance with its focal point at the origin, 

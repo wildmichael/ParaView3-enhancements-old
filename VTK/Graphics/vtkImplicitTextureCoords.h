@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitTextureCoords.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:55:45 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1996-08-21 20:53:17 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,8 +72,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkImplicitTextureCoords_h
 #define __vtkImplicitTextureCoords_h
 
-#include "vtkDataSetToDataSetFilter.hh"
-#include "vtkImplicitFunction.hh"
+#include "vtkDataSetToDataSetFilter.h"
+#include "vtkImplicitFunction.h"
 
 class vtkImplicitTextureCoords : public vtkDataSetToDataSetFilter 
 {

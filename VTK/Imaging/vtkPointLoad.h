@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLoad.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:56:46 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1996-08-21 20:54:21 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,7 +52,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkPointLoad_h
 #define __vtkPointLoad_h
 
-#include "vtkStructuredPointsSource.hh"
+#include "vtkStructuredPointsSource.h"
 
 class vtkPointLoad :  public vtkStructuredPointsSource
 {

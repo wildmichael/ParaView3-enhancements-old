@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:58:54 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1996-08-21 20:54:26 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,8 +38,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkPointSource.hh"
-#include "vtkMath.hh"
+#include "vtkPointSource.h"
+#include "vtkMath.h"
 
 vtkPointSource::vtkPointSource(int numPts)
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 20:00:20 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1996-08-21 20:55:47 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkStreamPoints.hh"
+#include "vtkStreamPoints.h"
 
 // Description:
 // Construct object with time increment set to 1.0.

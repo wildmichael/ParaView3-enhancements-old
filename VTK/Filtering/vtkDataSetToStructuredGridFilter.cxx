@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToStructuredGridFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:55:45 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1996-08-21 20:51:45 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkDataSetToStructuredGridFilter.hh"
+#include "vtkDataSetToStructuredGridFilter.h"
 
 vtkDataSetToStructuredGridFilter::vtkDataSetToStructuredGridFilter()
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEdgePoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:56:07 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1996-08-21 20:52:14 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkEdgePoints.hh"
+#include "vtkEdgePoints.h"
 
 // Description:
 // Construct object with contour value of 0.0.

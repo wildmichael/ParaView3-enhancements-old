@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-15 21:30:26 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 1996-08-21 20:55:01 $
+  Version:   $Revision: 1.58 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,11 +41,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <stdlib.h>
 #include <string.h>
 
-#include "vtkRenderer.hh"
-#include "vtkRenderWindow.hh"
-#include "vtkVolumeRenderer.hh"
-#include "vtkNewVolumeRenderer.hh"
-#include "vtkMath.hh"
+#include "vtkRenderer.h"
+#include "vtkRenderWindow.h"
+#include "vtkVolumeRenderer.h"
+#include "vtkNewVolumeRenderer.h"
+#include "vtkMath.h"
 
 // Description:
 // Create a vtkRenderer with a black background, a white ambient light, 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSource.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:56:52 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1996-08-21 20:54:27 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,7 +47,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkPointSource_h
 #define __vtkPointSource_h
 
-#include "vtkPolySource.hh"
+#include "vtkPolySource.h"
 
 class vtkPointSource : public vtkPolySource 
 {

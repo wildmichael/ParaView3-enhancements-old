@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensorGlyph.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 20:00:51 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1996-08-21 20:56:23 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,11 +38,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkTensorGlyph.hh"
-#include "vtkTransform.hh"
-#include "vtkFloatVectors.hh"
-#include "vtkFloatNormals.hh"
-#include "vtkMath.hh"
+#include "vtkTensorGlyph.h"
+#include "vtkTransform.h"
+#include "vtkFloatVectors.h"
+#include "vtkFloatNormals.h"
+#include "vtkMath.h"
 
 // Description
 // Construct object with scaling on and scale factor 1.0. Eigenvalues are 

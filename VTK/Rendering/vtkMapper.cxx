@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:57:43 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1996-08-21 20:53:31 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkMapper.hh"
+#include "vtkMapper.h"
 
 // Description:
 // Construct with initial range (0,1).

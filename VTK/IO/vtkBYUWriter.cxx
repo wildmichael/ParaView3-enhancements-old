@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:55:02 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1996-08-21 20:50:46 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkBYUWriter.hh"
+#include "vtkBYUWriter.h"
 
 // Description:
 // Create object so that it writes displacement, scalar, and texture files

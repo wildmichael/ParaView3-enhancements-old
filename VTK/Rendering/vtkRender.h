@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRender.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:57:46 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1996-08-21 20:54:54 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,8 +38,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#ifndef __Render_hh
-#define __Render_hh
+#ifndef __Render_h
+#define __Render_h
 
 // shading models
 #define VTK_FLAT    0

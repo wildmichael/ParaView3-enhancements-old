@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitTextureCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:57:02 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1996-08-21 20:53:17 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkImplicitTextureCoords.hh"
+#include "vtkImplicitTextureCoords.h"
 
 // Description:
 // Create object with texture dimension=2 and no r-s-t implicit functions

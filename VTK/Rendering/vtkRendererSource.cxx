@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRendererSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:59:34 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1996-08-21 20:55:05 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,9 +38,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkRendererSource.hh"
-#include "vtkRenderWindow.hh"
-#include "vtkPixmap.hh"
+#include "vtkRendererSource.h"
+#include "vtkRenderWindow.h"
+#include "vtkPixmap.h"
 
 vtkRendererSource::vtkRendererSource()
 {

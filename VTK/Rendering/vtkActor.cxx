@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:54:54 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 1996-08-21 20:50:28 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,9 +41,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <stdlib.h>
 #include <math.h>
 
-#include "vtkActor.hh"
-#include "vtkActorDevice.hh"
-#include "vtkRenderWindow.hh"
+#include "vtkActor.h"
+#include "vtkActorDevice.h"
+#include "vtkRenderWindow.h"
 
 // Description:
 // Creates an actor with the following defaults: origin(0,0,0) 

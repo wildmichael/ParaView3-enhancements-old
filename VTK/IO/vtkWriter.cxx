@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 20:01:57 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1996-08-21 20:57:33 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkWriter.hh"
+#include "vtkWriter.h"
 
 // Description:
 // Construct with no start and end write methods or arguments.

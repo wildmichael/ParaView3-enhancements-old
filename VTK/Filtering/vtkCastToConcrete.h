@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCastToConcrete.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:53:53 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1996-08-21 20:51:03 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,14 +61,14 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .SECTION See Also
 // vtkDataSetToDataSetFilter vtkPointSetToPointSetFilter
 
-#ifndef __vtkCastToConcrete_hh
-#define __vtkCastToConcrete_hh
+#ifndef __vtkCastToConcrete_h
+#define __vtkCastToConcrete_h
 
-#include "vtkDataSetFilter.hh"
-#include "vtkPolyData.hh"
-#include "vtkStructuredGrid.hh"
-#include "vtkStructuredPoints.hh"
-#include "vtkUnstructuredGrid.hh"
+#include "vtkDataSetFilter.h"
+#include "vtkPolyData.h"
+#include "vtkStructuredGrid.h"
+#include "vtkStructuredPoints.h"
+#include "vtkUnstructuredGrid.h"
 
 class vtkCastToConcrete : public vtkDataSetFilter
 {

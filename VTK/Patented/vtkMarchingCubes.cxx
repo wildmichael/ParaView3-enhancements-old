@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:57:44 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1996-08-21 20:53:33 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,15 +38,15 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkMarchingCubes.hh"
-#include "vtkMarchingCubesCases.hh"
-#include "vtkMergePoints.hh"
-#include "vtkStructuredPoints.hh"
-#include "vtkMath.hh"
-#include "vtkUnsignedCharScalars.hh"
-#include "vtkShortScalars.hh"
-#include "vtkFloatScalars.hh"
-#include "vtkIntScalars.hh"
+#include "vtkMarchingCubes.h"
+#include "vtkMarchingCubesCases.h"
+#include "vtkMergePoints.h"
+#include "vtkStructuredPoints.h"
+#include "vtkMath.h"
+#include "vtkUnsignedCharScalars.h"
+#include "vtkShortScalars.h"
+#include "vtkFloatScalars.h"
+#include "vtkIntScalars.h"
 
 // Description:
 // Construct object with initial range (0,1) and single contour value

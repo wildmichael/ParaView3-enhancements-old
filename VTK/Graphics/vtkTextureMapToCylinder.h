@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToCylinder.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:59:37 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1996-08-21 20:56:32 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,7 +69,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkTextureMapToCylinder_h
 #define __vtkTextureMapToCylinder_h
 
-#include "vtkDataSetToDataSetFilter.hh"
+#include "vtkDataSetToDataSetFilter.h"
 
 class vtkTextureMapToCylinder : public vtkDataSetToDataSetFilter 
 {

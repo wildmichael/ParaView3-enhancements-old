@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:56:14 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1996-08-21 20:52:25 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkExtractGrid.hh"
+#include "vtkExtractGrid.h"
 
 // Description:
 // Construct object to extract all of the input data.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCone.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:55:24 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1996-08-21 20:51:10 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,8 +38,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkCone.hh"
-#include "vtkMath.hh"
+#include "vtkCone.h"
+#include "vtkMath.h"
 
 // Description
 // Construct cone with angle of 45 degrees.

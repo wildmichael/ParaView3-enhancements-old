@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractGrid.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:55:01 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1996-08-21 20:52:26 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,7 +63,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkExtractGrid_h
 #define __vtkExtractGrid_h
 
-#include "vtkStructuredGridToStructuredGridFilter.hh"
+#include "vtkStructuredGridToStructuredGridFilter.h"
 
 class vtkExtractGrid : public vtkStructuredGridToStructuredGridFilter
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEarthSource.h,v $
   Language:  C++
-  Date:      $Date: 1996-07-19 13:04:07 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1996-08-21 20:52:13 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to Tom Johnson at Johnson Scientific International who
              developed and contributed this class.
 
@@ -47,10 +47,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // of the sphere at which the continents are placed. Obtains data from
 // an imbeded array of coordinates.
 
-#ifndef __vtkEarthSource_hh
-#define __vtkEarthSource_hh
+#ifndef __vtkEarthSource_h
+#define __vtkEarthSource_h
 
-#include "vtkPolySource.hh"
+#include "vtkPolySource.h"
 
 class vtkEarthSource : public vtkPolySource 
 {

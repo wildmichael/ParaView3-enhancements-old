@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:54:20 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1996-08-21 20:51:22 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,8 +49,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkCutter_h
 #define __vtkCutter_h
 
-#include "vtkDataSetToPolyFilter.hh"
-#include "vtkImplicitFunction.hh"
+#include "vtkDataSetToPolyFilter.h"
+#include "vtkImplicitFunction.h"
 
 class vtkCutter : public vtkDataSetToPolyFilter
 {

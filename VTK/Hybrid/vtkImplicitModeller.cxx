@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitModeller.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-15 22:01:22 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1996-08-21 20:53:15 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,8 +39,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include <math.h>
-#include "vtkImplicitModeller.hh"
-#include "vtkFloatScalars.hh"
+#include "vtkImplicitModeller.h"
+#include "vtkFloatScalars.h"
 
 // Description:
 // Construct with sample dimensions=(50,50,50), and so that model bounds are

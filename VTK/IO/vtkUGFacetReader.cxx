@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUGFacetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 20:01:20 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1996-08-21 20:56:56 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkUGFacetReader.hh"
+#include "vtkUGFacetReader.h"
 
 vtkUGFacetReader::vtkUGFacetReader()
 {

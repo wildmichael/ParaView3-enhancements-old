@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexture.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:59:30 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1996-08-21 20:56:28 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,13 +60,13 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .SECTION See Also
 // vtkActor vtkRenderer vtkTextureDevice
 
-#ifndef __vtkTexture_hh
-#define __vtkTexture_hh
+#ifndef __vtkTexture_h
+#define __vtkTexture_h
 
-#include "vtkObject.hh"
-#include "vtkStructuredPoints.hh"
-#include "vtkLookupTable.hh"
-#include "vtkColorScalars.hh"
+#include "vtkObject.h"
+#include "vtkStructuredPoints.h"
+#include "vtkLookupTable.h"
+#include "vtkColorScalars.h"
 
 class vtkRenderer;
 class vtkTextureDevice;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSliceCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 20:00:06 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1996-08-21 20:55:36 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,15 +38,15 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkSliceCubes.hh"
+#include "vtkSliceCubes.h"
 #include <stdio.h>
-#include "vtkMarchingCubesCases.hh"
-#include "vtkMath.hh"
-#include "vtkUnsignedCharScalars.hh"
-#include "vtkShortScalars.hh"
-#include "vtkIntScalars.hh"
-#include "vtkFloatScalars.hh"
-#include "vtkByteSwap.hh"
+#include "vtkMarchingCubesCases.h"
+#include "vtkMath.h"
+#include "vtkUnsignedCharScalars.h"
+#include "vtkShortScalars.h"
+#include "vtkIntScalars.h"
+#include "vtkFloatScalars.h"
+#include "vtkByteSwap.h"
 
 // Description:
 // Construct with NULL reader, output filename specification, and limits 

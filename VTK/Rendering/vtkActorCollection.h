@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActorCollection.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:53:28 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1996-08-21 20:50:31 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,10 +47,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .SECTION see also
 // vtkActor vtkCollection 
 
-#ifndef __vtkActorC_hh
-#define __vtkActorC_hh
+#ifndef __vtkActorC_h
+#define __vtkActorC_h
 
-#include "vtkCollection.hh"
+#include "vtkCollection.h"
 class vtkActor;
 
 class vtkActorCollection : public vtkCollection

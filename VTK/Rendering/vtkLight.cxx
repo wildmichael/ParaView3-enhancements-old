@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLight.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:57:22 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1996-08-21 20:53:20 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,10 +40,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include <stdlib.h>
 #include <iostream.h>
-#include "vtkLight.hh"
-#include "vtkRenderer.hh"
-#include "vtkRenderWindow.hh"
-#include "vtkLightDevice.hh"
+#include "vtkLight.h"
+#include "vtkRenderer.h"
+#include "vtkRenderWindow.h"
+#include "vtkLightDevice.h"
 
 // Description:
 // Create a light with the focal point at the origin and its position

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 20:00:29 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1996-08-21 20:55:55 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkStructuredGridGeometryFilter.hh"
+#include "vtkStructuredGridGeometryFilter.h"
 
 // Description:
 // Construct with initial extent (0,100, 0,100, 0,0) (i.e., a k-plane).

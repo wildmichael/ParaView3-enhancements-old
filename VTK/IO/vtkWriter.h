@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWriter.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 20:00:45 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1996-08-21 20:57:33 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,11 +54,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .SECTION See Also
 // vtkBYUWriter vtkDataWriter vtkSTLWriter vtkVoxelWriter vtkMCubesWriter
 
-#ifndef __vtkWriter_hh
-#define __vtkWriter_hh
+#ifndef __vtkWriter_h
+#define __vtkWriter_h
 
-#include "vtkObject.hh"
-#include "vtkDataSet.hh"
+#include "vtkObject.h"
+#include "vtkDataSet.h"
 
 #define VTK_ASCII 1
 #define VTK_BINARY 2

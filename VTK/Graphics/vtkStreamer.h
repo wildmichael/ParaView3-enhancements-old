@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamer.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:58:47 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1996-08-21 20:55:50 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,7 +75,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkStreamer_h
 #define __vtkStreamer_h
 
-#include "vtkDataSetToPolyFilter.hh"
+#include "vtkDataSetToPolyFilter.h"
 
 #define VTK_INTEGRATE_FORWARD 0
 #define VTK_INTEGRATE_BACKWARD 1

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCleanPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:55:20 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1996-08-21 20:51:08 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,8 +38,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkCleanPolyData.hh"
-#include "vtkMergePoints.hh"
+#include "vtkCleanPolyData.h"
+#include "vtkMergePoints.h"
 
 // Description:
 // Construct object with initial tolerance of 0.0.

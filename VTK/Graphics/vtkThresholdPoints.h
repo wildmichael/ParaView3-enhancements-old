@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThresholdPoints.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:59:43 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1996-08-21 20:56:42 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,7 +50,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkThresholdPoints_h
 #define __vtkThresholdPoints_h
 
-#include "vtkDataSetToPolyFilter.hh"
+#include "vtkDataSetToPolyFilter.h"
 
 class vtkThresholdPoints : public vtkDataSetToPolyFilter
 {

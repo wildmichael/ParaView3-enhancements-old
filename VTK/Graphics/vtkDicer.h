@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDicer.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:54:47 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1996-08-21 20:52:05 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,8 +63,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkDicer_h
 #define __vtkDicer_h
 
-#include "vtkDataSetToDataSetFilter.hh"
-#include "vtkOBBTree.hh"
+#include "vtkDataSetToDataSetFilter.h"
+#include "vtkOBBTree.h"
 
 class vtkDicer : public vtkDataSetToDataSetFilter 
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:56:11 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1996-08-21 20:52:18 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkExporter.hh"
+#include "vtkExporter.h"
 
 // Description:
 // Construct with no start and end write methods or arguments.

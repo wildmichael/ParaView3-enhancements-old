@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 20:00:29 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1996-08-21 20:57:15 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,13 +49,13 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .SECTION see also
 // vtkActor vtkVolumeCollection vtkVolumeRenderer
 
-#ifndef __vtkVolume_hh
-#define __vtkVolume_hh
+#ifndef __vtkVolume_h
+#define __vtkVolume_h
 
-#include "vtkObject.hh"
-#include "vtkTransform.hh"
-#include "vtkStructuredPoints.hh"
-#include "vtkLookupTable.hh"
+#include "vtkObject.h"
+#include "vtkTransform.h"
+#include "vtkStructuredPoints.h"
+#include "vtkLookupTable.h"
 
 class vtkRenderer;
 

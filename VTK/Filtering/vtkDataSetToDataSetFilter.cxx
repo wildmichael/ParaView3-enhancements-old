@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToDataSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:55:43 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1996-08-21 20:51:41 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkDataSetToDataSetFilter.hh"
+#include "vtkDataSetToDataSetFilter.h"
 
 // Description:
 // Specify the input data or filter.

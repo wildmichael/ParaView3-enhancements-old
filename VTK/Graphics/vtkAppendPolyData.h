@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:53:31 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1996-08-21 20:50:37 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,9 +52,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkAppendPolyData_h
 #define __vtkAppendPolyData_h
 
-#include "vtkPolyData.hh"
-#include "vtkFilter.hh"
-#include "vtkPolyDataCollection.hh"
+#include "vtkPolyData.h"
+#include "vtkFilter.h"
+#include "vtkPolyDataCollection.h"
 
 class vtkAppendPolyData : public vtkFilter
 {

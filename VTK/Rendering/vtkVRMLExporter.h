@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLExporter.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 20:00:18 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1996-08-21 20:57:05 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,7 +52,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkVRMLExporter_h
 
 #include <stdio.h>
-#include "vtkExporter.hh"
+#include "vtkExporter.h"
 
 class vtkVRMLExporter : public vtkExporter
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:53:27 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 1996-08-21 20:50:30 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,15 +53,15 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // vtkProperty vtkTexture vtkMapper vtkActorDevice
 // vtkAssembly vtkFollower vtkLODActor
 
-#ifndef __vtkActor_hh
-#define __vtkActor_hh
+#ifndef __vtkActor_h
+#define __vtkActor_h
 
-#include "vtkObject.hh"
-#include "vtkProperty.hh"
-#include "vtkTexture.hh"
-#include "vtkMapper.hh"
-#include "vtkTransform.hh"
-#include "vtkAssemblyPaths.hh"
+#include "vtkObject.h"
+#include "vtkProperty.h"
+#include "vtkTexture.h"
+#include "vtkMapper.h"
+#include "vtkTransform.h"
+#include "vtkAssemblyPaths.h"
 
 class vtkRenderer;
 class vtkActorDevice;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThresholdTextureCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 20:01:05 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1996-08-21 20:56:43 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkThresholdTextureCoords.hh"
+#include "vtkThresholdTextureCoords.h"
 
 // Construct with lower threshold=0, upper threshold=1, threshold 
 // function=upper, and texture dimension = 2. The "out" texture coordinate

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLOT3DReader.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:56:34 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1996-08-21 20:54:10 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -97,9 +97,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkPLOT3DReader_h
 
 #include <stdio.h>
-#include "vtkStructuredGridSource.hh"
-#include "vtkFloatScalars.hh"
-#include "vtkFloatVectors.hh"
+#include "vtkStructuredGridSource.h"
+#include "vtkFloatScalars.h"
+#include "vtkFloatVectors.h"
 
 // file formats
 #define VTK_WHOLE_SINGLE_GRID_NO_IBLANKING 0

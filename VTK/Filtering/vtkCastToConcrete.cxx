@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCastToConcrete.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:55:13 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1996-08-21 20:51:02 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkCastToConcrete.hh"
+#include "vtkCastToConcrete.h"
 
 // Description:
 // Construct object.

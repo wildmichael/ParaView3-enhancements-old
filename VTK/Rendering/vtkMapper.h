@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:56:07 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1996-08-21 20:53:32 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,12 +50,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .SECTION See Also
 // vtkDataSetMapper vtkPolyMapper
 
-#ifndef __vtkMapper_hh
-#define __vtkMapper_hh
+#ifndef __vtkMapper_h
+#define __vtkMapper_h
 
-#include "vtkObject.hh"
-#include "vtkLookupTable.hh"
-#include "vtkDataSet.hh"
+#include "vtkObject.h"
+#include "vtkLookupTable.h"
+#include "vtkDataSet.h"
 
 class vtkRenderer;
 class vtkActor;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGaussianSplatter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:56:30 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1996-08-21 20:52:40 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,8 +39,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include <math.h>
-#include "vtkGaussianSplatter.hh"
-#include "vtkFloatScalars.hh"
+#include "vtkGaussianSplatter.h"
+#include "vtkFloatScalars.h"
 
 // Description:
 // Construct object with dimensions=(50,50,50); automatic computation of 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHedgeHog.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:55:33 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1996-08-21 20:53:07 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,7 +47,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkHedgeHog_h
 #define __vtkHedgeHog_h
 
-#include "vtkDataSetToPolyFilter.hh"
+#include "vtkDataSetToPolyFilter.h"
 
 class vtkHedgeHog : public vtkDataSetToPolyFilter
 {

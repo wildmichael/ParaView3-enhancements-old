@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGaussianSplatter.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:55:18 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1996-08-21 20:52:44 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,7 +50,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkGaussianSplatter_h
 #define __vtkGaussianSplatter_h
 
-#include "vtkDataSetToStructuredPointsFilter.hh"
+#include "vtkDataSetToStructuredPointsFilter.h"
 
 class vtkGaussianSplatter : public vtkDataSetToStructuredPointsFilter 
 {

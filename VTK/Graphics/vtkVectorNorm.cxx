@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorNorm.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 20:01:31 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1996-08-21 20:57:07 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,8 +39,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include <math.h>
-#include "vtkVectorNorm.hh"
-#include "vtkFloatScalars.hh"
+#include "vtkVectorNorm.h"
+#include "vtkFloatScalars.h"
 
 // Description:
 // Construct with normalize flag off.

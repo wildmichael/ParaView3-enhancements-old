@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:55:20 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1996-08-21 20:52:47 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,7 +65,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkGeometryFilter_h
 #define __vtkGeometryFilter_h
 
-#include "vtkDataSetToPolyFilter.hh"
+#include "vtkDataSetToPolyFilter.h"
 
 class vtkGeometryFilter : public vtkDataSetToPolyFilter
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetReader.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:54:31 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1996-08-21 20:51:40 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,8 +51,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkDataSetReader_h
 #define __vtkDataSetReader_h
 
-#include "vtkSource.hh"
-#include "vtkDataReader.hh"
+#include "vtkSource.h"
+#include "vtkDataReader.h"
 
 class vtkDataSetReader : public vtkSource
 {

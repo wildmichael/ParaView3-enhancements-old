@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamLine.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:58:43 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1996-08-21 20:55:46 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,7 +70,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkStreamLine_h
 #define __vtkStreamLine_h
 
-#include "vtkStreamer.hh"
+#include "vtkStreamer.h"
 
 class vtkStreamLine : public vtkStreamer
 {

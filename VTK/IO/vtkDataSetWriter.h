@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetWriter.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:54:38 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1996-08-21 20:51:53 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,10 +44,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // data to disk (or into a communications port). The input to this object is
 // a dataset of any type.
 
-#ifndef __vtkDataSetWriter_hh
-#define __vtkDataSetWriter_hh
+#ifndef __vtkDataSetWriter_h
+#define __vtkDataSetWriter_h
 
-#include "vtkDataWriter.hh"
+#include "vtkDataWriter.h"
 
 class vtkDataSetWriter : public vtkDataWriter
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractVectorComponents.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:56:16 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1996-08-21 20:52:29 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkExtractVectorComponents.hh"
+#include "vtkExtractVectorComponents.h"
 
 vtkExtractVectorComponents::vtkExtractVectorComponents()
 {

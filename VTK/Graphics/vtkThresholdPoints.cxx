@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThresholdPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 20:01:03 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1996-08-21 20:56:41 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkThresholdPoints.hh"
+#include "vtkThresholdPoints.h"
 
 // Construct with lower threshold=0, upper threshold=1, and threshold 
 // function=upper.

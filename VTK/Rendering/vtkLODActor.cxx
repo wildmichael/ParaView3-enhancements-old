@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:57:18 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1996-08-21 20:53:18 $
+  Version:   $Revision: 1.11 $
   
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -48,9 +48,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <sys/time.h>
 #endif
 
-#include "vtkLODActor.hh"
-#include "vtkActorDevice.hh"
-#include "vtkRenderWindow.hh"
+#include "vtkLODActor.h"
+#include "vtkActorDevice.h"
+#include "vtkRenderWindow.h"
 
 // Description:
 // Creates a vtkLODActor with the following defaults: origin(0,0,0) 

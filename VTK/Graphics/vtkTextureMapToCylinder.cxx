@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToCylinder.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-15 22:01:36 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1996-08-21 20:56:32 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,10 +38,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkTextureMapToCylinder.hh"
-#include "vtkMath.hh"
-#include "vtkLine.hh"
-#include "vtkOBBTree.hh"
+#include "vtkTextureMapToCylinder.h"
+#include "vtkMath.h"
+#include "vtkLine.h"
+#include "vtkOBBTree.h"
 
 // Description:
 // Create object with cylinder axis parallel to z-axis (points (0,0,-0.5) 

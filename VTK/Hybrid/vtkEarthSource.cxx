@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEarthSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:56:03 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1996-08-21 20:52:11 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to Tom Johnson at Johnson Scientific International who
              developed and contributed this class.
 
@@ -40,10 +40,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include <math.h>
-#include "vtkEarthSource.hh"
-#include "vtkFloatPoints.hh"
-#include "vtkFloatNormals.hh"
-#include "vtkMath.hh"
+#include "vtkEarthSource.h"
+#include "vtkFloatPoints.h"
+#include "vtkFloatNormals.h"
+#include "vtkMath.h"
 
 // Description:
 // Construct an Earth with radius = 1.0 and OnRatio set at 10. The outlines are drawn

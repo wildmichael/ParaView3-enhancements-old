@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 20:01:08 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1996-08-21 20:56:45 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,9 +38,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkTransformFilter.hh"
-#include "vtkFloatNormals.hh"
-#include "vtkFloatVectors.hh"
+#include "vtkTransformFilter.h"
+#include "vtkFloatNormals.h"
+#include "vtkFloatVectors.h"
 
 void vtkTransformFilter::Execute()
 {

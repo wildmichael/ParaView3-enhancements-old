@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:56:31 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1996-08-21 20:52:46 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkGeometryFilter.hh"
+#include "vtkGeometryFilter.h"
 
 // Description:
 // Construct with all types of clipping turned off.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUWriter.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:53:36 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1996-08-21 20:50:47 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,8 +51,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkBYUWriter_h
 
 #include <stdio.h>
-#include "vtkPolyWriter.hh"
-#include "vtkPolyData.hh"
+#include "vtkPolyWriter.h"
+#include "vtkPolyData.h"
 
 class vtkBYUWriter : public vtkPolyWriter
 {

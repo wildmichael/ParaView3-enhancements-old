@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxelModeller.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 20:00:36 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1996-08-21 20:57:23 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,10 +48,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .SECTION see also
 // vtkBitScalars vtkImplicitModeller
 
-#ifndef __vtkVoxelModeller_hh
-#define __vtkVoxelModeller_hh
+#ifndef __vtkVoxelModeller_h
+#define __vtkVoxelModeller_h
 
-#include "vtkDataSetToStructuredPointsFilter.hh"
+#include "vtkDataSetToStructuredPointsFilter.h"
 
 class vtkVoxelModeller : public vtkDataSetToStructuredPointsFilter 
 {

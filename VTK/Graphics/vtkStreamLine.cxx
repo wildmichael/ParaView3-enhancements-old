@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamLine.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 20:00:19 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1996-08-21 20:55:46 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkStreamLine.hh"
+#include "vtkStreamLine.h"
 
 // Description:
 // Construct object with step size set to 1.0.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingCubes.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:56:08 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1996-08-21 20:53:34 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,7 +56,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkMarchingCubes_h
 #define __vtkMarchingCubes_h
 
-#include "vtkStructuredPointsToPolyDataFilter.hh"
+#include "vtkStructuredPointsToPolyDataFilter.h"
 
 #define VTK_MAX_CONTOURS 256
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridWriter.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:59:04 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1996-08-21 20:56:07 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,11 +45,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .SECTION Caveats
 // Binary files written on one system may not be readable on other systems.
 
-#ifndef __vtkStructuredGridWriter_hh
-#define __vtkStructuredGridWriter_hh
+#ifndef __vtkStructuredGridWriter_h
+#define __vtkStructuredGridWriter_h
 
-#include "vtkDataWriter.hh"
-#include "vtkStructuredGrid.hh"
+#include "vtkDataWriter.h"
+#include "vtkStructuredGrid.h"
 
 class vtkStructuredGridWriter : public vtkDataWriter
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBooleanTexture.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:53:44 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1996-08-21 20:50:53 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,7 +65,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkBooleanTexture_h
 #define __vtkBooleanTexture_h
 
-#include "vtkStructuredPointsSource.hh"
+#include "vtkStructuredPointsSource.h"
 
 class vtkBooleanTexture : public vtkStructuredPointsSource
 {

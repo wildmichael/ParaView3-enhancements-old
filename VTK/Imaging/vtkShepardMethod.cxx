@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShepardMethod.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-19 14:24:06 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1996-08-21 20:55:29 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,8 +38,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkShepardMethod.hh"
-#include "vtkMath.hh"
+#include "vtkShepardMethod.h"
+#include "vtkMath.h"
 
 // Description:
 // Construct with sample dimensions=(50,50,50) and so that model bounds are

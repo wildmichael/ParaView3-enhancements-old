@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridReader.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 20:00:13 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1996-08-21 20:57:00 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,8 +48,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkUnstructuredGridReader_h
 #define __vtkUnstructuredGridReader_h
 
-#include "vtkUnstructuredGridSource.hh"
-#include "vtkDataReader.hh"
+#include "vtkUnstructuredGridSource.h"
+#include "vtkDataReader.h"
 
 class vtkUnstructuredGridReader : public vtkUnstructuredGridSource
 {

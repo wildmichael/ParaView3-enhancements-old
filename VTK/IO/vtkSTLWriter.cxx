@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-15 22:01:34 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1996-08-21 20:55:12 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,9 +38,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkSTLWriter.hh"
-#include "vtkTriangle.hh"
-#include "vtkByteSwap.hh"
+#include "vtkSTLWriter.h"
+#include "vtkTriangle.h"
+#include "vtkByteSwap.h"
 
 vtkSTLWriter::vtkSTLWriter()
 {

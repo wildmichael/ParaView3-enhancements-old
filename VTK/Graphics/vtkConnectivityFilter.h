@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConnectivityFilter.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-15 22:03:49 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1996-08-21 20:51:15 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,7 +67,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkConnectivityFilter_h
 #define __vtkConnectivityFilter_h
 
-#include "vtkDataSetToUnstructuredGridFilter.hh"
+#include "vtkDataSetToUnstructuredGridFilter.h"
 
 #define VTK_EXTRACT_POINT_SEEDED_REGIONS 1
 #define VTK_EXTRACT_CELL_SEEDED_REGIONS 2

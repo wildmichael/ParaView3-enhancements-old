@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimate.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-15 22:01:15 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1996-08-21 20:51:58 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkDecimate.hh"
+#include "vtkDecimate.h"
 
 #define VTK_TOLERANCE 1.0e-05
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlaneSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:58:39 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1996-08-21 20:54:16 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,12 +38,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkPlaneSource.hh"
-#include "vtkFloatPoints.hh"
-#include "vtkFloatNormals.hh"
-#include "vtkFloatTCoords.hh"
-#include "vtkMath.hh"
-#include "vtkTransform.hh"
+#include "vtkPlaneSource.h"
+#include "vtkFloatPoints.h"
+#include "vtkFloatNormals.h"
+#include "vtkFloatTCoords.h"
+#include "vtkMath.h"
+#include "vtkTransform.h"
 
 
 // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimate.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:54:43 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1996-08-21 20:51:59 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -82,12 +82,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkDecimate_h
 #define __vtkDecimate_h
 
-#include "vtkPolyToPolyFilter.hh"
-#include "vtkMath.hh"
-#include "vtkTriangle.hh"
-#include "vtkPlane.hh"
-#include "vtkPolygon.hh"
-#include "vtkLine.hh"
+#include "vtkPolyToPolyFilter.h"
+#include "vtkMath.h"
+#include "vtkTriangle.h"
+#include "vtkPlane.h"
+#include "vtkPolygon.h"
+#include "vtkLine.h"
 
 #define VTK_NUMBER_STATISTICS 12
 

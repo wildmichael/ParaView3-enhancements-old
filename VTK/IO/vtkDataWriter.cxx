@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:55:51 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1996-08-21 20:51:55 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,24 +38,24 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkDataWriter.hh"
-#include "vtkBitScalars.hh"
-#include "vtkUnsignedCharScalars.hh"
-#include "vtkFloatScalars.hh"
-#include "vtkShortScalars.hh"
-#include "vtkIntScalars.hh"
-#include "vtkFloatPoints.hh"
-#include "vtkIntPoints.hh"
-#include "vtkFloatNormals.hh"
-#include "vtkFloatTensors.hh"
-#include "vtkFloatTCoords.hh"
-#include "vtkGraymap.hh"
-#include "vtkAGraymap.hh"
-#include "vtkPixmap.hh"
-#include "vtkAPixmap.hh"
-#include "vtkLookupTable.hh"
-#include "vtkCellArray.hh"
-#include "vtkByteSwap.hh"
+#include "vtkDataWriter.h"
+#include "vtkBitScalars.h"
+#include "vtkUnsignedCharScalars.h"
+#include "vtkFloatScalars.h"
+#include "vtkShortScalars.h"
+#include "vtkIntScalars.h"
+#include "vtkFloatPoints.h"
+#include "vtkIntPoints.h"
+#include "vtkFloatNormals.h"
+#include "vtkFloatTensors.h"
+#include "vtkFloatTCoords.h"
+#include "vtkGraymap.h"
+#include "vtkAGraymap.h"
+#include "vtkPixmap.h"
+#include "vtkAPixmap.h"
+#include "vtkLookupTable.h"
+#include "vtkCellArray.h"
+#include "vtkByteSwap.h"
 
 // Description:
 // Created object with default header, ASCII format, and default names for 

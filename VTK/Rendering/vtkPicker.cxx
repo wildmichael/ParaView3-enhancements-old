@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:58:29 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1996-08-21 20:54:15 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,11 +38,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkPicker.hh"
-#include "vtkCamera.hh"
-#include "vtkMath.hh"
-#include "vtkVertex.hh"
-#include "vtkRenderWindow.hh"
+#include "vtkPicker.h"
+#include "vtkCamera.h"
+#include "vtkMath.h"
+#include "vtkVertex.h"
+#include "vtkRenderWindow.h"
 
 // Description:
 // Construct object with initial tolerance of 1/40th of window.

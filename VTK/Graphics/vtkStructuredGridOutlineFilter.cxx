@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridOutlineFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 20:00:30 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1996-08-21 20:55:57 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkStructuredGridOutlineFilter.hh"
+#include "vtkStructuredGridOutlineFilter.h"
 
 void vtkStructuredGridOutlineFilter::Execute()
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShepardMethod.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:58:17 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1996-08-21 20:55:30 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,7 +60,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkShepardMethod_h
 #define __vtkShepardMethod_h
 
-#include "vtkDataSetToStructuredPointsFilter.hh"
+#include "vtkDataSetToStructuredPointsFilter.h"
 
 class vtkShepardMethod : public vtkDataSetToStructuredPointsFilter 
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxelModeller.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 20:01:50 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1996-08-21 20:57:22 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,8 +40,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include <math.h>
 #include <stdio.h>
-#include "vtkVoxelModeller.hh"
-#include "vtkBitScalars.hh"
+#include "vtkVoxelModeller.h"
+#include "vtkBitScalars.h"
 
 // Description:
 // Construct an instance of vtkVoxelModeller with its sample dimensions

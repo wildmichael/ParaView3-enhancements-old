@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBooleanTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:55:08 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1996-08-21 20:50:52 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,8 +38,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkBooleanTexture.hh"
-#include "vtkAGraymap.hh"
+#include "vtkBooleanTexture.h"
+#include "vtkAGraymap.h"
 
 vtkBooleanTexture::vtkBooleanTexture()
 {

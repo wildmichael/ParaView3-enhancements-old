@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-15 21:51:02 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1996-08-21 20:50:58 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,11 +50,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .SECTION see also
 // vtkCameraDevice
 
-#ifndef __vtkCamera_hh
-#define __vtkCamera_hh
+#ifndef __vtkCamera_h
+#define __vtkCamera_h
 
-#include "vtkObject.hh"
-#include "vtkTransform.hh"
+#include "vtkObject.h"
+#include "vtkTransform.h"
 
 class vtkRenderer;
 class vtkCameraDevice;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractGeometry.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:56:13 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1996-08-21 20:52:23 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkExtractGeometry.hh"
+#include "vtkExtractGeometry.h"
 
 // Description:
 // Construct object with ExtractInside turned on.

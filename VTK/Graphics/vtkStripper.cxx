@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStripper.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 20:00:23 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1996-08-21 20:55:51 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkStripper.hh"
+#include "vtkStripper.h"
 
 // Description:
 // Construct object with vertex and line passing turned on.

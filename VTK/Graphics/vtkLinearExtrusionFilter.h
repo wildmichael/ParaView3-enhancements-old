@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearExtrusionFilter.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:55:57 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1996-08-21 20:53:26 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,7 +72,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkLinearExtrusionFilter_h
 #define __vtkLinearExtrusionFilter_h
 
-#include "vtkPolyToPolyFilter.hh"
+#include "vtkPolyToPolyFilter.h"
 
 #define VTK_VECTOR_EXTRUSION 1
 #define VTK_NORMAL_EXTRUSION 2

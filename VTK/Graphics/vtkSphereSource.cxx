@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 20:00:15 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1996-08-21 20:55:43 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,10 +39,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include <math.h>
-#include "vtkSphereSource.hh"
-#include "vtkFloatPoints.hh"
-#include "vtkFloatNormals.hh"
-#include "vtkMath.hh"
+#include "vtkSphereSource.h"
+#include "vtkFloatPoints.h"
+#include "vtkFloatNormals.h"
+#include "vtkMath.h"
 
 // Description:
 // Construct sphere with radius=0.5 and default resolution 8 in both Phi

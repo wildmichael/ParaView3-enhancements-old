@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorNorm.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 20:00:21 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1996-08-21 20:57:08 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,7 +47,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkVectorNorm_h
 #define __vtkVectorNorm_h
 
-#include "vtkDataSetToDataSetFilter.hh"
+#include "vtkDataSetToDataSetFilter.h"
 
 class vtkVectorNorm : public vtkDataSetToDataSetFilter 
 {

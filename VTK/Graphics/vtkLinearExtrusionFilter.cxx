@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearExtrusionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:57:33 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1996-08-21 20:53:25 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkLinearExtrusionFilter.hh"
+#include "vtkLinearExtrusionFilter.h"
 
 // Description:
 // Create object with normal extrusion type, capping on, scale factor=1.0,

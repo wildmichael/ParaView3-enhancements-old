@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShrinkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:58:22 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1996-08-21 20:55:35 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,7 +54,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkShrinkPolyData_h
 #define __vtkShrinkPolyData_h
 
-#include "vtkPolyToPolyFilter.hh"
+#include "vtkPolyToPolyFilter.h"
 
 class vtkShrinkPolyData : public vtkPolyToPolyFilter 
 {

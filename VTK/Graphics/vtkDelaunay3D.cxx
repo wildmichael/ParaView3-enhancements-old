@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-15 22:01:18 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1996-08-21 20:52:03 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,12 +38,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkDelaunay3D.hh"
-#include "vtkMath.hh"
-#include "vtkTetra.hh"
-#include "vtkTriangle.hh"
-#include "vtkEdgeTable.hh"
-#include "vtkPolyData.hh"
+#include "vtkDelaunay3D.h"
+#include "vtkMath.h"
+#include "vtkTetra.h"
+#include "vtkTriangle.h"
+#include "vtkEdgeTable.h"
+#include "vtkPolyData.h"
 
 // Description:
 // Construct object with Alpha = 0.0; Tolerance = 0.001; Offset = 1.25;

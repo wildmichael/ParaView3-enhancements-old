@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMaskPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:56:11 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1996-08-21 20:53:42 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,7 +46,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkMaskPolyData_h
 #define __vtkMaskPolyData_h
 
-#include "vtkPolyToPolyFilter.hh"
+#include "vtkPolyToPolyFilter.h"
 
 class vtkMaskPolyData : public vtkPolyToPolyFilter
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:59:40 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1996-08-21 20:55:11 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,9 +39,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include <ctype.h>
-#include "vtkSTLReader.hh"
-#include "vtkByteSwap.hh"
-#include "vtkMergePoints.hh"
+#include "vtkSTLReader.h"
+#include "vtkByteSwap.h"
+#include "vtkMergePoints.h"
 
 #define ASCII 0
 #define BINARY 1

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProbeFilter.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:57:33 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1996-08-21 20:54:47 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,7 +50,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkProbeFilter_h
 #define __vtkProbeFilter_h
 
-#include "vtkDataSetToDataSetFilter.hh"
+#include "vtkDataSetToDataSetFilter.h"
 
 class vtkProbeFilter : public vtkDataSetToDataSetFilter
 {

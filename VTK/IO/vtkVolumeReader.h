@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeReader.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 20:00:32 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1996-08-21 20:57:19 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,7 +69,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkVolumeReader_h
 
 #include <stdio.h>
-#include "vtkStructuredPointsSource.hh"
+#include "vtkStructuredPointsSource.h"
 
 class vtkVolumeReader : public vtkStructuredPointsSource
 {

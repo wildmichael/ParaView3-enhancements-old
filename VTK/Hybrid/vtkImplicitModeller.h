@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitModeller.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-15 22:03:51 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1996-08-21 20:53:16 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,7 +56,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkImplicitModeller_h
 #define __vtkImplicitModeller_h
 
-#include "vtkDataSetToStructuredPointsFilter.hh"
+#include "vtkDataSetToStructuredPointsFilter.h"
 
 class vtkImplicitModeller : public vtkDataSetToStructuredPointsFilter 
 {

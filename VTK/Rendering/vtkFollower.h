@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFollower.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:55:16 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1996-08-21 20:52:39 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,10 +52,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .SECTION see also
 // vtkActor vtkCamera
 
-#ifndef __vtkFollower_hh
-#define __vtkFollower_hh
+#ifndef __vtkFollower_h
+#define __vtkFollower_h
 
-#include "vtkActor.hh"
+#include "vtkActor.h"
 class vtkCamera;
 
 class vtkFollower : public vtkActor

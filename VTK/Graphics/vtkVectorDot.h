@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorDot.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 20:00:19 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1996-08-21 20:57:06 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,7 +49,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkVectorDot_h
 #define __vtkVectorDot_h
 
-#include "vtkDataSetToDataSetFilter.hh"
+#include "vtkDataSetToDataSetFilter.h"
 
 class vtkVectorDot : public vtkDataSetToDataSetFilter 
 {

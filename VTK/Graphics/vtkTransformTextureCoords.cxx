@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformTextureCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 20:01:11 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1996-08-21 20:56:50 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,8 +38,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkTransformTextureCoords.hh"
-#include "vtkTransform.hh"
+#include "vtkTransformTextureCoords.h"
+#include "vtkTransform.h"
 
 // Description:
 // Create instance with Origin (0.5,0.5,0.5); Position (0,0,0); and Scale

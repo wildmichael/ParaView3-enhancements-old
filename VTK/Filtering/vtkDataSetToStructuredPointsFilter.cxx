@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToStructuredPointsFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:55:48 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1996-08-21 20:51:48 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkDataSetToStructuredPointsFilter.hh"
+#include "vtkDataSetToStructuredPointsFilter.h"
 
 vtkDataSetToStructuredPointsFilter::vtkDataSetToStructuredPointsFilter()
 {

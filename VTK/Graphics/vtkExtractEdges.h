@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractEdges.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:54:59 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1996-08-21 20:52:22 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,7 +48,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkExtractEdges_h
 #define __vtkExtractEdges_h
 
-#include "vtkDataSetToPolyFilter.hh"
+#include "vtkDataSetToPolyFilter.h"
 
 class vtkExtractEdges : public vtkDataSetToPolyFilter
 {

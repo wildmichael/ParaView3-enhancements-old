@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBBTree.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-15 22:01:26 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1996-08-21 20:53:48 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,10 +38,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkOBBTree.hh"
-#include "vtkMath.hh"
-#include "vtkLine.hh"
-#include "vtkPolyData.hh"
+#include "vtkOBBTree.h"
+#include "vtkMath.h"
+#include "vtkLine.h"
+#include "vtkPolyData.h"
 
 vtkOBBNode::vtkOBBNode()
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCursor3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:55:30 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1996-08-21 20:51:20 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,7 +39,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include <math.h>
-#include "vtkCursor3D.hh"
+#include "vtkCursor3D.h"
 
 // Description:
 // Construct with model bounds = (-1,1,-1,1,-1,1), focal point = (0,0,0),

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:55:18 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1996-08-21 20:51:04 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,9 +40,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include <stdlib.h>
 #include <math.h>
-#include "vtkCellLocator.hh"
-#include "vtkVoxel.hh"
-#include "vtkPolyData.hh"
+#include "vtkCellLocator.h"
+#include "vtkVoxel.h"
+#include "vtkPolyData.h"
 
 #define OUTSIDE 0
 #define INSIDE 1

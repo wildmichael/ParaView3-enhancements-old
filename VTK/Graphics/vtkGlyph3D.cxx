@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:56:45 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1996-08-21 20:53:04 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,11 +38,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkGlyph3D.hh"
-#include "vtkTransform.hh"
-#include "vtkFloatVectors.hh"
-#include "vtkFloatNormals.hh"
-#include "vtkMath.hh"
+#include "vtkGlyph3D.h"
+#include "vtkTransform.h"
+#include "vtkFloatVectors.h"
+#include "vtkFloatNormals.h"
+#include "vtkMath.h"
 
 // Description
 // Construct object with scaling on, scaling mode is by scalar value, 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexturedSphereSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 20:01:01 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1996-08-21 20:56:37 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,10 +38,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkTexturedSphereSource.hh"
-#include "vtkFloatPoints.hh"
-#include "vtkFloatNormals.hh"
-#include "vtkMath.hh"
+#include "vtkTexturedSphereSource.h"
+#include "vtkFloatPoints.h"
+#include "vtkFloatNormals.h"
+#include "vtkMath.h"
 
 // Description:
 // Construct sphere with radius=0.5 and default resolution 8 in both Phi
