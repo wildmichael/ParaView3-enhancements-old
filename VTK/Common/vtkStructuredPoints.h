@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredPoints.h,v $
   Language:  C++
-  Date:      $Date: 1994-03-31 11:14:44 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-04-05 07:42:03 $
+  Version:   $Revision: 1.5 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -36,6 +36,7 @@ public:
   float *GetPoint(int ptId);
   vlCell *GetCell(int cellId);
   vlMapper *MakeMapper() {return (vlMapper *)0;};
+  void Initialize();
 
   vlSetVector3Macro(AspectRatio,float);
   vlGetVectorMacro(AspectRatio,float);

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredData.h,v $
   Language:  C++
-  Date:      $Date: 1994-03-31 11:13:44 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-04-05 07:42:01 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -22,6 +22,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #define __vlStructuredDataSet_h
 
 #include "DataSet.hh"
+#include "CArray.hh"
 
 #define SINGLE_POINT 0
 #define X_LINE 1
@@ -43,14 +44,25 @@ public:
   // dataset interface
   int GetNumberOfCells();
   int GetNumberOfPoints(); 
+  void Initialize();
 
   void SetDimensions(int i, int j, int k);
   void SetDimensions(int dim[3]);
   vlGetVectorMacro(Dimensions,int);
 
+  void BlankingOn();
+  void BlankingOff();
+  int GetBlanking() {return this->Blanking;};
+  void BlankPoint(int ptId);
+  void UnBlankPoint(int ptId);
+  int IsPointVisible(int ptId) {if (!this->Blanking) return 1; 
+                                else return this->PointVisibility->GetValue(ptId);} 
+
 protected:
   int Dimensions[3];
   int DataDescription;
+  int Blanking;
+  vlCharArray *PointVisibility;
 };
 
 #endif

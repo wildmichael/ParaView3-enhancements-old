@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-03-31 11:14:42 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1994-04-05 07:42:04 $
+  Version:   $Revision: 1.6 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -220,3 +220,10 @@ void vlStructuredPoints::PrintSelf(ostream& os, vlIndent indent)
     }
 }
 
+void vlStructuredPoints::Initialize()
+{
+  vlStructuredDataSet::Initialize();
+
+  this->SetAspectRatio(1,1,1);
+  this->SetOrigin(0,0,0);
+}
