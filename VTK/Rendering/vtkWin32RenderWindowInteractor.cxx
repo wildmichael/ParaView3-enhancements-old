@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32RenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-19 19:48:52 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1998-05-20 14:19:34 $
+  Version:   $Revision: 1.20 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -383,6 +383,14 @@ LRESULT CALLBACK vtkHandleMessage(HWND hWnd,UINT uMsg, WPARAM wParam, LPARAM lPa
       break;
 	    
     case WM_MOUSEMOVE: lastPos = lParam; break;
+
+    case WM_CLOSE:
+      if (me->ExitMethod)
+	(*me->ExitMethod)(me->ExitMethodArg);
+      else if (me->ClassExitMethod)
+	(*me->ClassExitMethod)(me->ClassExitMethodArg);
+      else PostQuitMessage(0); 
+      break;
 	    
     case WM_CHAR:
       switch (wParam)
