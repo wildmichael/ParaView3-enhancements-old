@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangle.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-09 16:44:43 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1995-10-29 16:14:26 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -344,6 +344,15 @@ int vtkTriangle::Triangulate(int index, vtkFloatPoints &pts)
 void vtkTriangle::Derivatives(int subId, float pcoords[3], float *values, 
                               int dim, float *derivs)
 {
+  int i, idx;
 
+  // The following code is incorrect. Will be fixed in future release.
+  for (i=0; i<dim; i++)
+    {
+    idx = i*dim;
+    derivs[idx] = 0.0;
+    derivs[idx+1] = 0.0;
+    derivs[idx+2] = 0.0;
+    }
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxel.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-09 16:43:33 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1995-10-29 16:14:20 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,7 +45,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkCellArray.hh"
 
 static vtkMath math;  
-static vtkLine line;
 
 // Description:
 // Deep copy of cell.
@@ -266,7 +265,8 @@ void vtkVoxel::Contour(float value, vtkFloatScalars *cellScalars,
 vtkCell *vtkVoxel::GetEdge(int edgeId)
 {
   int *verts;
-
+  static vtkLine line;
+  
   verts = edges[edgeId];
 
   // load point id's

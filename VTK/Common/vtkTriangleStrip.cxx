@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleStrip.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-09 16:45:06 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1995-10-29 16:14:29 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -211,6 +211,12 @@ int vtkTriangleStrip::Triangulate(int index, vtkFloatPoints &pts)
 void vtkTriangleStrip::Derivatives(int subId, float pcoords[3], float *values, 
                                    int dim, float *derivs)
 {
+  static vtkTriangle tri;
 
+  tri.Points.SetPoint(0,this->Points.GetPoint(subId));
+  tri.Points.SetPoint(1,this->Points.GetPoint(subId+1));
+  tri.Points.SetPoint(2,this->Points.GetPoint(subId+2));
+
+  tri.Derivatives(0, pcoords, values, dim, derivs);
 }
 

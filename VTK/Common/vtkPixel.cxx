@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPixel.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-09 16:43:59 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1995-10-29 16:14:23 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -337,6 +337,15 @@ int vtkPixel::Triangulate(int index, vtkFloatPoints &pts)
 void vtkPixel::Derivatives(int subId, float pcoords[3], float *values, 
                             int dim, float *derivs)
 {
+  int i, idx;
 
+  // The following code is incorrect. Will be fixed in future release.
+  for (i=0; i<dim; i++)
+    {
+    idx = i*dim;
+    derivs[idx] = 0.0;
+    derivs[idx+1] = 0.0;
+    derivs[idx+2] = 0.0;
+    }
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDashedStreamLine.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-27 13:16:36 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1995-10-29 16:14:28 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -116,8 +116,8 @@ void vtkDashedStreamLine::Execute()
 
         if ( newScalars ) 
           {
-          newScalars->InsertScalar(pts[0],s);
           s = sPrev->s + r * (sPtr->s - sPrev->s);
+          newScalars->InsertScalar(pts[0],s);
           sEnd = scalarPrev + this->DashFactor * (s - scalarPrev);
           newScalars->InsertScalar(pts[1],sEnd);
           }
