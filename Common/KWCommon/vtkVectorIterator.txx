@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorIterator.txx,v $
   Language:  C++
-  Date:      $Date: 2002-06-16 23:03:29 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-06-18 19:04:53 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,6 +24,15 @@
 #include "vtkVectorIterator.h"
 #include "vtkAbstractIterator.txx"
 #include "vtkVector.h"
+
+template <class DType>
+vtkVectorIterator<DType> *vtkVectorIterator<DType>::New()
+{ 
+#ifdef VTK_DEBUG_LEAKS
+  vtkDebugLeaks::ConstructClass("vtkVectorIterator");
+#endif
+  return new vtkVectorIterator<DType>(); 
+}
 
 template<class DType>
 void vtkVectorIterator<DType>::InitTraversal()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinkedListIterator.txx,v $
   Language:  C++
-  Date:      $Date: 2002-06-16 23:03:29 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-06-18 19:04:53 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,6 +24,15 @@
 #include "vtkLinkedListIterator.h"
 #include "vtkAbstractIterator.txx"
 #include "vtkLinkedList.h"
+
+template <class DType>
+vtkLinkedListIterator<DType> *vtkLinkedListIterator<DType>::New()
+{ 
+#ifdef VTK_DEBUG_LEAKS
+  vtkDebugLeaks::ConstructClass("vtkLinkedListIterator");
+#endif
+  return new vtkLinkedListIterator<DType>(); 
+}
 
 template<class DType>
 void vtkLinkedListIterator<DType>::InitTraversal()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVector.txx,v $
   Language:  C++
-  Date:      $Date: 2002-06-16 23:03:29 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-06-18 19:04:53 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,6 +23,15 @@
 #include "vtkVector.h"
 #include "vtkAbstractList.txx"
 #include "vtkVectorIterator.txx"
+
+template <class DType>
+vtkVector<DType> *vtkVector<DType>::New()
+{ 
+#ifdef VTK_DEBUG_LEAKS
+  vtkDebugLeaks::ConstructClass("vtkVector");
+#endif
+  return new vtkVector<DType>(); 
+}
 
 // Description:
 // Append an Item to the end of the vector

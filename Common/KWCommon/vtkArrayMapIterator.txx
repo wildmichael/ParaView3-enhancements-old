@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArrayMapIterator.txx,v $
   Language:  C++
-  Date:      $Date: 2002-06-16 23:03:29 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-06-18 19:04:53 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,6 +24,15 @@
 #include "vtkArrayMapIterator.h"
 #include "vtkAbstractIterator.txx"
 #include "vtkArrayMap.h"
+
+template <class KeyType,class DataType>
+vtkArrayMapIterator<KeyType,DataType> *vtkArrayMapIterator<KeyType,DataType>::New()
+{ 
+#ifdef VTK_DEBUG_LEAKS
+  vtkDebugLeaks::ConstructClass("vtkArrayMapIterator");
+#endif
+  return new vtkArrayMapIterator<KeyType,DataType>(); 
+}
 
 template<class KeyType,class DataType>
 void vtkArrayMapIterator<KeyType,DataType>::InitTraversal()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVector.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-16 23:03:29 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-06-18 19:04:53 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,7 +57,7 @@ public:
   typedef vtkAbstractList<DType> Superclass;
   typedef vtkVectorIterator<DType> IteratorType;
   
-  static vtkVector<DType> *New() { return new vtkVector<DType>(); }  
+  static vtkVector<DType> *New();
   virtual const char* GetClassName() const { return "vtkVector"; }
 
   // Description:

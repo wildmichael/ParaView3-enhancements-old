@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorIterator.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-16 23:03:29 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-06-18 19:04:53 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -98,8 +98,7 @@ public:
   int GoToLastItem();
 
 protected:
-  static vtkVectorIterator<DType> *New() 
-    { return new vtkVectorIterator<DType>(); }  
+  static vtkVectorIterator<DType> *New(); 
 
   vtkVectorIterator() {
     this->Index = 0; 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArrayMap.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-16 23:03:29 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-06-18 19:04:53 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -74,8 +74,7 @@ public:
 
   virtual const char *GetClassName() const {return "vtkArrayMap";} 
 
-  static vtkArrayMap<KeyType,DataType> *New() 
-    { return new vtkArrayMap<KeyType,DataType>(); }  
+  static vtkArrayMap<KeyType,DataType> *New(); 
 
   // Description:
   // Return an iterator to the list. This iterator is allocated using

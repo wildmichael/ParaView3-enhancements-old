@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinkedListIterator.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-16 23:03:29 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-06-18 19:04:53 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -99,8 +99,7 @@ public:
   int GoToLastItem();
 
 protected:
-  static vtkLinkedListIterator<DType> *New() 
-    { return new vtkLinkedListIterator<DType>(); }  
+  static vtkLinkedListIterator<DType> *New();
 
   vtkLinkedListIterator() {
     this->Pointer = 0; 
