@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMCubesWriter.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:02 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1998-11-03 14:05:27 $
+  Version:   $Revision: 1.15 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -39,26 +39,26 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 // .NAME vtkMCubesWriter - write binary marching cubes file
 // .SECTION Description
-// vtkMCubesWriter is a writer object that writes binary marching cubes
+// vtkMCubesWriter is a polydata writer that writes binary marching cubes
 // files. (Marching cubes is an isosurfacing technique that generates many
 // triangles.) The binary format is supported by W. Lorensen's marching cubes
 // program (and the vtkSliceCubes object). Each triangle is represented by
 // three records, with each record consisting of six single precision
-// floating point numbers representing the a triangle vertex coordiante and
+// floating point numbers representing the a triangle vertex coordinate and
 // vertex normal.
 
 // .SECTION Caveats
 // Binary files are written in sun/hp/sgi (i.e., Big Endian) form.
 
 // .SECTION See Also
-// vtkMarchingCubes vtkSliceCubes vtkMCubesWriter
+// vtkMarchingCubes vtkSliceCubes vtkMCubesReader
 
 #ifndef __vtkMCubesWriter_h
 #define __vtkMCubesWriter_h
 
 #include <stdio.h>
 #include "vtkPolyDataWriter.h"
-#include "vtkNormals.h"
+
 class VTK_EXPORT vtkMCubesWriter : public vtkPolyDataWriter
 {
 public:
