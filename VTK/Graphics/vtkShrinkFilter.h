@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkShrinkFilter.h,v $
   Language:  C++
-  Date:      $Date: 1994-07-13 16:32:32 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1994-08-05 09:07:57 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -37,10 +37,10 @@ public:
   char *GetClassName() {return "vlShrinkFilter";};
   void PrintSelf(ostream& os, vlIndent indent);
 
-  // Description:
+  // Macro Description:
   // Set the fraction of shrink for each cell.
   vlSetClampMacro(ShrinkFactor,float,0.0,1.0);
-  // Description:
+  // Macro Description:
   // Get the fraction of shrink for each cell.
   vlGetMacro(ShrinkFactor,float);
 

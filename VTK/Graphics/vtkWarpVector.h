@@ -3,11 +3,9 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkWarpVector.h,v $
   Language:  C++
-  Date:      $Date: 1994-07-21 17:00:15 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-08-05 09:07:58 $
+  Version:   $Revision: 1.4 $
 
-Description:
----------------------------------------------------------------------------
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
 without the express written consent of the authors.
@@ -34,6 +32,8 @@ public:
   char *GetClassName() {return "vlWarpVector";};
   void PrintSelf(ostream& os, vlIndent indent);
 
+  // Description:
+  // Specify value to scale displacement.
   vlSetMacro(ScaleFactor,float);
   vlGetMacro(ScaleFactor,float);
 
