@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldDataToAttributeDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-12-02 21:34:17 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-12-11 17:44:31 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -107,7 +107,7 @@ public:
   vtkGetMacro(InputField,int);
   void SetInputFieldToDataObjectField() {this->SetInputField(VTK_DATA_OBJECT_FIELD);};
   void SetInputFieldToPointDataField() {this->SetInputField(VTK_POINT_DATA_FIELD);};
-  void SetInputFieldToCellDataFiled() {this->SetInputField(VTK_CELL_DATA_FIELD);};
+  void SetInputFieldToCellDataField() {this->SetInputField(VTK_CELL_DATA_FIELD);};
   
   // Description:
   // Specify which attribute data to output: point or cell data attributes.
