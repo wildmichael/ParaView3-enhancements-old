@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-18 20:54:11 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-03-19 20:27:47 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -179,7 +179,7 @@ void vtkImageMapper::Render(vtkViewport* viewport, vtkActor2D* actor)
   if (pos[1] < 0) 
     {
     this->PositionAdjustment[1] = -1*pos[1];
-    displayExtent[2] -= pos[0];
+    displayExtent[2] -= pos[1];
     }
   if ((pos[1] + wholeExtent[3] - wholeExtent[2] + 1) > 
       (winSize[1] - 1)*(vpt[YMAX]-vpt[YMIN])) 
