@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLegendBoxActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:24 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-03-15 17:06:09 $
+  Version:   $Revision: 1.14 $
   Thanks:    Tim Smith who sponsored and encouraged the development
              of this class.
 
@@ -481,7 +481,7 @@ int vtkLegendBoxActor::RenderOpaqueGeometry(vtkViewport *viewport)
     size[1] = (int)((p2[1] - p1[1] - 2.0*this->Padding)/this->NumberOfEntries);
 
     // while the size is too small increase it
-    while ( tempi[0] < size[0] && tempi[1] < size[1] )
+    while ( tempi[0] < size[0] && tempi[1] < size[1] && fontSize < 100)
       {
       fontSize++;
       this->TextMapper[maxTextMapper]->SetFontSize(fontSize);
