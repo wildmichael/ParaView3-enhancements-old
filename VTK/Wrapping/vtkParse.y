@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParse.y,v $
   Language:  C++
-  Date:      $Date: 2003-01-20 16:23:05 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2003-02-20 18:40:08 $
+  Version:   $Revision: 1.41 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -866,7 +866,7 @@ macro:
      currentFunction->ArgTypes[0] = 309;
      currentFunction->ArgCounts[0] = 1;
      currentFunction->ArgClasses[0] = vtkstrdup("vtkObject");
-     currentFunction->ReturnType = 309;
+     currentFunction->ReturnType = 2309;
      currentFunction->ReturnClass = vtkstrdup($<str>3);
      output_function();
      }
