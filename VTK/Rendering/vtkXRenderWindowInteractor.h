@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 2003-04-21 13:54:49 $
-  Version:   $Revision: 1.67 $
+  Date:      $Date: 2003-04-21 13:56:37 $
+  Version:   $Revision: 1.68 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -42,9 +42,11 @@
 
 class vtkCallbackCommand;
 
+//BTX
 // Forward declare internal friend functions.
 void vtkXRenderWindowInteractorCallback(Widget,XtPointer, XEvent *,Boolean *);
 void vtkXRenderWindowInteractorTimer(XtPointer,XtIntervalId *);
+//ETX
 
 class VTK_RENDERING_EXPORT vtkXRenderWindowInteractor : public vtkRenderWindowInteractor
 {
