@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadraticHexahedron.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-27 13:07:51 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-05-31 19:02:49 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -106,8 +106,8 @@ protected:
   ~vtkQuadraticHexahedron();
 
   vtkQuadraticEdge *Edge;
-  vtkQuadraticQuad *Face;
-  vtkHexahedron    *Region;
+  vtkQuadraticQuad *Quad;
+  vtkHexahedron    *Hex;
   vtkPointData     *PointData;
   vtkCellData      *CellData;
   vtkFloatArray    *Scalars;

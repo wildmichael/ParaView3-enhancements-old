@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadraticEdge.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-28 16:04:15 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-05-31 19:02:49 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkQuadraticEdge, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkQuadraticEdge, "$Revision: 1.13 $");
 vtkStandardNewMacro(vtkQuadraticEdge);
 
 // Construct the line with two points.
@@ -37,12 +37,8 @@ vtkQuadraticEdge::vtkQuadraticEdge()
   for (i = 0; i < 3; i++)
     {
     this->Points->SetPoint(i, 0.0, 0.0, 0.0);
-    }
-  for (i = 0; i < 3; i++)
-    {
     this->PointIds->SetId(i,0);
     }
-  
 }
 
 vtkQuadraticEdge::~vtkQuadraticEdge()

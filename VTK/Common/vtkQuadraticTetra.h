@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadraticTetra.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-27 13:07:51 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-05-31 19:02:49 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -109,7 +109,7 @@ protected:
 
   vtkQuadraticEdge *Edge;
   vtkQuadraticTriangle *Face;
-  vtkTetra *Region;
+  vtkTetra *Tetra;
   vtkFloatArray *Scalars; //used to avoid New/Delete in contouring/clipping
 
 private:
