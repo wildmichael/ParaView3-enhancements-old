@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer2.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-17 13:23:56 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-12-07 16:20:30 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -41,14 +41,15 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 // .NAME vtkImageViewer - Display a 2d image.
 // .SECTION Description
-// vtkImageViewer is a convenience class for displaying a 2d image.  It
-// packages up the functionality found in vtkRenderWindow, vtkImager,
-// vtkActor2D and vtkImageMapper into a single easy to use class.  Behind the
-// scenes these four classes are actually used to to provide the required
-// functionality. vtkImageViewer is simply a wrapper around them.
+// vtkImageViewer2 is a convenience class for displaying a 2d image.  It
+// packages up the functionality found in vtkRenderWindow, vtkRenderer,
+// vtkImageActor and vtkImageMapToWindowLevelColors into a single easy to use
+// class.  Behind the scenes these four classes are actually used to to
+// provide the required functionality. vtkImageViewer2 is simply a wrapper
+// around them.
 
 // .SECTION See Also
-// vtkRenderWindow vtkImager vtkImageMapper vtkActor2D
+// vtkRenderWindow vtkRenderer vtkImageActor vtkImageMapToWindowLevelColors
 
 #ifndef __vtkImageViewer2_h
 #define __vtkImageViewer2_h
