@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLookupTable.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-04 16:53:59 $
-  Version:   $Revision: 1.88 $
+  Date:      $Date: 2002-10-04 17:19:56 $
+  Version:   $Revision: 1.89 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkLookupTable, "$Revision: 1.88 $");
+vtkCxxRevisionMacro(vtkLookupTable, "$Revision: 1.89 $");
 vtkStandardNewMacro(vtkLookupTable);
 
 // Construct with range=(0,1); and hsv ranges set up for rainbow color table 
@@ -467,37 +467,6 @@ unsigned char *vtkLookupTable::MapValue(float v)
                          shift, scale); 
 }
 
-// Although this is a relatively expensive calculation,
-// it is only done on the first render. Colors are cached
-// for subsequent renders.
-template<class T>
-void vtkLookupTableMapMag(vtkLookupTable *self, T *input, 
-                          unsigned char *output, int length, 
-                          int inIncr, int outFormat)
-{
-  double tmp, sum;
-  double *mag;
-  int i, j;
-
-  mag = new double[length];
-  for (i = 0; i < length; ++i)
-    {
-    sum = 0;
-    for (j = 0; j < inIncr; ++j)
-      {
-      tmp = (double)(*input);  
-      sum += (tmp * tmp);
-      ++input;
-      }
-    mag[i] = sqrt(sum);
-    }
-
-  vtkLookupTableMapData(self, mag, output, length, 1, outFormat);
-
-  delete [] mag;
-}
-
-
 // accelerate the mapping by copying the data in 32-bit chunks instead
 // of 8-bit chunks
 template<class T>
@@ -775,6 +744,37 @@ void vtkLookupTableMapData(vtkLookupTable *self, T *input,
       }//no log scale
     }//alpha blending
 }
+
+// Although this is a relatively expensive calculation,
+// it is only done on the first render. Colors are cached
+// for subsequent renders.
+template<class T>
+void vtkLookupTableMapMag(vtkLookupTable *self, T *input, 
+                          unsigned char *output, int length, 
+                          int inIncr, int outFormat)
+{
+  double tmp, sum;
+  double *mag;
+  int i, j;
+
+  mag = new double[length];
+  for (i = 0; i < length; ++i)
+    {
+    sum = 0;
+    for (j = 0; j < inIncr; ++j)
+      {
+      tmp = (double)(*input);  
+      sum += (tmp * tmp);
+      ++input;
+      }
+    mag[i] = sqrt(sum);
+    }
+
+  vtkLookupTableMapData(self, mag, output, length, 1, outFormat);
+
+  delete [] mag;
+}
+
 
 void vtkLookupTable::MapScalarsThroughTable2(void *input, 
                                              unsigned char *output,
