@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadraticEdge.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-08 16:50:22 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-03-08 16:56:13 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkLine.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkQuadraticEdge, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkQuadraticEdge, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkQuadraticEdge);
 
 // Construct the line with two points.
@@ -304,6 +304,14 @@ void vtkQuadraticEdge::Tesselate(vtkIdType cellId,
     outputLines->InsertCellPoint(p1);
     outCD->CopyData(inCD,cellId,newCellId);
     }
+}
+
+// The second Tesselate() method is empty (intended only for 3D cells).
+void vtkQuadraticEdge::Tesselate(vtkIdType vtkNotUsed(cellId),
+                                 vtkDataSet* vtkNotUsed(input),
+                                 vtkUnstructuredGrid* vtkNotUsed(output),
+                                 vtkPointLocator* vtkNotUsed(locator))
+{
 }
 
 void vtkQuadraticEdge::InternalTesselate()
