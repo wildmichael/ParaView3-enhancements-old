@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeFields.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-26 12:07:14 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-12-10 19:07:57 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkMergeFields, "$Revision: 1.13 $");
+vtkCxxRevisionMacro(vtkMergeFields, "$Revision: 1.14 $");
 vtkStandardNewMacro(vtkMergeFields);
 
 char vtkMergeFields::FieldLocationNames[3][12] 
@@ -410,4 +410,26 @@ void vtkMergeFields::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "NumberOfComponents: " << this->NumberOfComponents << endl;
   os << indent << "Components: " << endl;
   this->PrintAllComponents(os, indent.GetNextIndent());
+}
+
+void vtkMergeFields::PrintComponent(Component* op, ostream& os, vtkIndent indent)
+{
+  os << indent << "Field name: " << op->FieldName << endl;
+  os << indent << "Component index: " << op->Index << endl;
+  os << indent << "Source component index: " << op->SourceIndex << endl;
+}
+
+void vtkMergeFields::PrintAllComponents(ostream& os, vtkIndent indent)
+{
+  Component* cur = this->GetFirst();
+  if (!cur) { return; }
+  Component* before;
+  do
+    {
+    before = cur;
+    cur = cur->Next;
+    os << endl;
+    this->PrintComponent(before, os, indent);
+    } 
+  while (cur);
 }

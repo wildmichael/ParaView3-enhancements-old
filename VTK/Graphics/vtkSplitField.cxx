@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSplitField.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 18:32:04 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-12-10 19:07:57 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkDataSetAttributes.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkSplitField, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkSplitField, "$Revision: 1.13 $");
 vtkStandardNewMacro(vtkSplitField);
 
 char vtkSplitField::FieldLocationNames[3][12] 
@@ -374,4 +374,26 @@ void vtkSplitField::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Linked list tail: " << this->Tail << endl;
   os << indent << "Components: " << endl;
   this->PrintAllComponents(os, indent.GetNextIndent());
+}
+
+void vtkSplitField::PrintComponent(Component* op, ostream& os,
+                                   vtkIndent indent)
+{
+  os << indent << "Field name: " << op->FieldName << endl;
+  os << indent << "Component index: " << op->Index << endl;
+}
+
+void vtkSplitField::PrintAllComponents(ostream& os, vtkIndent indent)
+{
+  Component* cur = this->GetFirst();
+  if (!cur) { return; }
+  Component* before;
+  do
+    {
+    before = cur;
+    cur = cur->Next;
+    os << endl;
+    this->PrintComponent(before, os, indent);
+    } 
+  while (cur);
 }

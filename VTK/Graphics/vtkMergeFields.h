@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeFields.h,v $
   Language:  C++
-  Date:      $Date: 2002-09-26 12:07:14 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-12-10 19:07:57 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -149,27 +149,8 @@ protected:
   Component* FindComponent(int index);
   void DeleteAllComponents();
 
-  void PrintComponent(Component* op, ostream& os, vtkIndent indent)
-    {
-      os << indent << "Field name: " << op->FieldName << endl;
-      os << indent << "Component index: " << op->Index << endl;
-      os << indent << "Source component index: " << op->SourceIndex << endl;
-    }
-
-  void PrintAllComponents(ostream& os, vtkIndent indent)
-    {
-      Component* cur = this->GetFirst();
-      if (!cur) { return; }
-      Component* before;
-      do
-        {
-        before = cur;
-        cur = cur->Next;
-        os << endl;
-        this->PrintComponent(before, os, indent);
-        } 
-      while (cur);
-    }
+  void PrintComponent(Component* op, ostream& os, vtkIndent indent);
+  void PrintAllComponents(ostream& os, vtkIndent indent);
 private:
   vtkMergeFields(const vtkMergeFields&);  // Not implemented.
   void operator=(const vtkMergeFields&);  // Not implemented.
