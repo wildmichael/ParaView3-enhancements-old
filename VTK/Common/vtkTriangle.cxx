@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangle.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-07-19 04:16:48 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 1996-07-19 17:01:17 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,7 +67,7 @@ int vtkTriangle::EvaluatePosition(float x[3], float closestPoint[3],
   float rhs[2], c1[2], c2[2];
   float det;
   float maxComponent;
-  int idx, indices[2];
+  int idx=0, indices[2];
 
   subId = 0;
   pcoords[0] = pcoords[1] = pcoords[2] = 0.0;
