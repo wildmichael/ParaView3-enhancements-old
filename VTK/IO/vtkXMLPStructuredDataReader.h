@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLPStructuredDataReader.h,v $
   Language:  C++
-  Date:      $Date: 2003-05-08 15:45:33 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-07-01 20:31:46 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,6 +29,7 @@
 
 #include "vtkXMLPDataReader.h"
 
+class vtkExtentSplitter;
 class vtkExtentTranslator;
 class vtkTableExtentTranslator;
 class vtkXMLStructuredDataReader;
@@ -73,8 +74,10 @@ protected:
                      int* outExtent, int* outDimensions, int* outIncrements,
                      int* subExtent, int* subDimensions,
                      vtkDataArray* inArray, vtkDataArray* outArray);
+  int ComputePieceSubExtents();
   
   vtkTableExtentTranslator* ExtentTranslator;
+  vtkExtentSplitter* ExtentSplitter;
   
   // The extent to be updated in the output.
   int UpdateExtent[6];
