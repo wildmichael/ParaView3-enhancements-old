@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPushPipeline.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-12 14:47:39 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-08-22 13:47:09 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -103,7 +103,7 @@ public:
   vtkPushPipeline *PushPipeline;
 };
 
-vtkCxxRevisionMacro(vtkPushPipeline, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkPushPipeline, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkPushPipeline);
 
 vtkPushPipeline::vtkPushPipeline()
@@ -284,15 +284,12 @@ void vtkPushPipeline::Trace(vtkProcessObject *po)
     int numOut = src->GetNumberOfOutputs();
     vtkDataObject **outs = src->GetOutputs();
     int i;
-    if (numOut)
-      {
-      src->UpdateInformation();
-      outs[0]->SetUpdateExtent(outs[0]->GetWholeExtent());
-      }
+    src->UpdateInformation();
     for (i = 0; i < numOut; i++)
       {
       if (outs[i])
         {
+        outs[i]->SetUpdateExtent(outs[i]->GetWholeExtent());
         this->Trace(outs[i]);
         }
       }
