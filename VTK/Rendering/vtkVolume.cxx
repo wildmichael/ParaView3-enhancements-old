@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-15 13:45:27 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1998-10-26 14:22:03 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,6 +42,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <math.h>
 
 #include "vtkVolume.h"
+#include "vtkVolumeMapper.h"
 
 // Creates a Volume with the following defaults: origin(0,0,0) 
 // position=(0,0,0) scale=1 visibility=1 pickable=1 dragable=1
@@ -57,6 +58,8 @@ vtkVolume::vtkVolume()
 // Destruct a volume
 vtkVolume::~vtkVolume()
 {
+  this->SetVolumeMapper(NULL);
+  
   if (this->VolumeProperty )
     {
     this->VolumeProperty->UnRegister(this);
@@ -298,6 +301,20 @@ unsigned long int vtkVolume::GetMTime()
 
   return mTime;
 }
+
+void vtkVolume::SetVolumeMapper(vtkVolumeMapper *mapper)
+{
+  if (this->VolumeMapper != mapper)
+    {
+    if (this->VolumeMapper != NULL) {this->VolumeMapper->UnRegister(this);}
+    this->VolumeMapper = mapper;
+    if (this->VolumeMapper != NULL) {this->VolumeMapper->Register(this);}
+    this->Modified();
+    }
+}
+
+
+
 
 void vtkVolume::PrintSelf(ostream& os, vtkIndent indent)
 {

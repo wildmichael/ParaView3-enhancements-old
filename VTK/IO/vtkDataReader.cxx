@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:40:57 $
-  Version:   $Revision: 1.63 $
+  Date:      $Date: 1998-10-26 14:21:46 $
+  Version:   $Revision: 1.64 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -91,6 +91,17 @@ vtkDataReader::~vtkDataReader()
   if (this->InputString) delete [] this->InputString;
 }
 
+// no reference counting
+void vtkDataReader::SetSource(vtkSource *source)
+{
+  if (this->Source != source)
+    {
+    this->Source = source;
+    this->Modified();
+    }
+}
+
+  
 void vtkDataReader::SetInputString(char* _arg, int len)
 { 
   if (this->Debug)

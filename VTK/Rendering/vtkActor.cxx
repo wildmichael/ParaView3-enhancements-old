@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:25:06 $
-  Version:   $Revision: 1.73 $
+  Date:      $Date: 1998-10-26 14:21:44 $
+  Version:   $Revision: 1.74 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -89,6 +89,7 @@ vtkActor::~vtkActor()
     this->Mapper->UnRegister(this);
     this->Mapper = NULL;
     }
+  this->SetTexture(NULL);
 }
 
 // Shallow copy of an actor.

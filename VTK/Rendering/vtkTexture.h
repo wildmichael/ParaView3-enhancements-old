@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexture.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-15 13:45:27 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1998-10-26 14:22:01 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -121,7 +121,7 @@ public:
 
   // Description:
   // Specify the data for the texture map.
-  vtkSetReferenceCountedObjectMacro(Input,vtkStructuredPoints);
+  vtkSetObjectMacro(Input,vtkStructuredPoints);
   vtkGetObjectMacro(Input,vtkStructuredPoints);
   void SetInput(vtkImageCache *cache)
     {this->SetInput(cache->GetImageToStructuredPoints()->GetOutput());}  

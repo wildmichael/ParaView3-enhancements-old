@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagerCollection.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-16 21:09:18 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-10-26 14:22:08 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,15 +70,11 @@ class VTK_EXPORT vtkImagerCollection : public vtkCollection
 inline void vtkImagerCollection::AddItem(vtkImager *a) 
 {
   this->vtkCollection::AddItem((vtkObject *)a);
-  // Needed for convenience functions
-  // a->Register(this);
 }
 
 inline void vtkImagerCollection::RemoveItem(vtkImager *a) 
 {
   this->vtkCollection::RemoveItem((vtkObject *)a);
-  // Needed for convenience functions
-  // a->UnRegister(this);
 }
 
 inline int vtkImagerCollection::IsItemPresent(vtkImager *a) 

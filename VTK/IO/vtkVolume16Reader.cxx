@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume16Reader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:36 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1998-10-26 14:22:03 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,6 +51,11 @@ vtkVolume16Reader::vtkVolume16Reader()
   this->SwapBytes = 0;
   this->DataDimensions[0] = this->DataDimensions[1] = 0;
   this->Transform = NULL;
+}
+
+vtkVolume16Reader::~vtkVolume16Reader()
+{
+  this->SetTransform(NULL);
 }
 
 void vtkVolume16Reader::SetDataByteOrderToBigEndian()

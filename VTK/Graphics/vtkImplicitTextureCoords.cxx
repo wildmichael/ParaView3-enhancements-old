@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitTextureCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:07 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1998-10-26 14:21:50 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,6 +50,14 @@ vtkImplicitTextureCoords::vtkImplicitTextureCoords()
 
   this->FlipTexture = 0;
 }
+
+vtkImplicitTextureCoords::~vtkImplicitTextureCoords()
+{
+  this->SetRFunction(NULL);
+  this->SetSFunction(NULL);
+  this->SetTFunction(NULL);
+}
+
 
 void vtkImplicitTextureCoords::Execute()
 {

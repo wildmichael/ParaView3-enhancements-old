@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEncodedGradientEstimator.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:44:42 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-10-26 14:21:47 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,6 +63,7 @@ vtkEncodedGradientEstimator::vtkEncodedGradientEstimator()
 // Destruct a vtkEncodedGradientEstimator - free up any memory used
 vtkEncodedGradientEstimator::~vtkEncodedGradientEstimator()
 {
+  this->SetScalarInput(NULL);
   this->Threader->Delete();
   this->Threader = NULL;
   
@@ -82,9 +83,9 @@ vtkEncodedGradientEstimator::~vtkEncodedGradientEstimator()
     }
 }
 
-void vtkEncodedGradientEstimator::SetDirectionEncoder( vtkDirectionEncoder *direnc )
+void 
+vtkEncodedGradientEstimator::SetDirectionEncoder(vtkDirectionEncoder *direnc)
 {
-
   // If we are setting it to its current value, don't do anything
   if ( this->DirectionEncoder == direnc )
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:14 $
-  Version:   $Revision: 1.67 $
+  Date:      $Date: 1998-10-26 14:21:57 $
+  Version:   $Revision: 1.68 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -112,7 +112,8 @@ public:
   vtkLightCollection *GetLights();
   
   // Description:
-  // Return the collection of actors.
+  // Set / get the collection of actors.
+  vtkSetObjectMacro(Actors, vtkActorCollection);
   vtkActorCollection *GetActors();
   
   // Description:
@@ -272,6 +273,11 @@ public:
   // Get the time required, in seconds, for the last Render call.
   vtkGetMacro( LastRenderTimeInSeconds, float );
 
+  // Description:
+  // Detects reference loop renderer<->rayCaster
+  void UnRegister(vtkObject *o);
+  
+  
 protected:
 
   vtkRayCaster *RayCaster;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:48:16 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-10-26 14:22:09 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,6 +69,8 @@ vtkPolyDataMapper2D::~vtkPolyDataMapper2D()
     {
     this->Colors->Delete();
     }
+  
+  this->SetInput(NULL);
 }
 
 vtkPolyDataMapper2D *vtkPolyDataMapper2D::New()

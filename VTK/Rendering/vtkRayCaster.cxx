@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRayCaster.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:44:59 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1998-10-26 14:21:54 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -223,6 +223,8 @@ vtkRayCaster::~vtkRayCaster()
     this->ViewRays[i]->Delete();
     this->ViewRays[i] = NULL;
     }
+  
+  this->SetRenderer(NULL);
 }
 
 // Set the scale factor for a given level. This is used during multi-

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImager.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:48:16 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-10-26 14:22:08 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -92,9 +92,27 @@ void vtkImager::Render()
     (*this->EndRenderMethod)(this->EndRenderMethodArg);
     }
   
-  return;
-  
+  return; 
 }
 
+// Do not reference count.  
+// It is to hard to detect win<->imager reference loop.
+void vtkImager::SetImageWindow(vtkImageWindow* win)
+{
+  if (win != this->VTKWindow)
+    {
+    this->VTKWindow = (vtkWindow*) win;
+    this->Modified();
+    }
+}
 
-
+// Do not reference count.  
+// It is to hard to detect win<->imager reference loop.
+void vtkImager::SetVTKWindow(vtkWindow* win) 
+{
+  if (win != this->VTKWindow)
+    {
+    this->VTKWindow = (vtkWindow*) win;
+    this->Modified();
+    }
+}

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMarchingCubes.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:48:24 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1998-10-26 14:22:10 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -90,7 +90,7 @@ public:
   
   // Description:
   // Set/Get the source for the scalar data to contour.
-  vtkSetReferenceCountedObjectMacro(Input, vtkImageCache);
+  vtkSetObjectMacro(Input, vtkImageCache);
   vtkGetObjectMacro(Input, vtkImageCache);
   void SetInput(vtkStructuredPoints *spts)
     {this->SetInput(spts->GetStructuredPointsToImage()->GetOutput());}

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSliceCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-08-20 11:44:37 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1998-10-26 14:22:11 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,6 +75,11 @@ vtkSliceCubes::vtkSliceCubes()
   this->FileName = NULL;
   this->LimitsFileName = NULL;
   this->Value = 0.0;
+}
+
+vtkSliceCubes::~vtkSliceCubes()
+{
+  this->SetReader(NULL);
 }
 
 // Description:

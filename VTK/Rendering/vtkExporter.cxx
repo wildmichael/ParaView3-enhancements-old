@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:45:43 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1998-10-26 14:21:48 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,6 +54,8 @@ vtkExporter::vtkExporter()
 
 vtkExporter::~vtkExporter()
 {
+  this->SetRenderWindow(NULL);
+  
   if ((this->StartWriteArg)&&(this->StartWriteArgDelete))
     {
     (*this->StartWriteArgDelete)(this->StartWriteArg);

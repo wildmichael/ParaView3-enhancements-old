@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSetGet.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:24:55 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 1998-10-26 14:21:41 $
+  Version:   $Revision: 1.53 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -186,27 +186,24 @@ void Set##name (type _arg) \
   } 
 
 //
-// Set pointer to object. Creates method Set"name"() (e.g., SetPoints()).
+// Set pointer to object; uses vtkObject reference counting methodology.
+// Creates method Set"name"() (e.g., SetPoints()).
 //
 #define vtkSetObjectMacro(name,type) \
 void Set##name (type* _arg) \
   { \
-  vtkDebugMacro(<< this->GetClassName() << " (" << this << "): setting " << #name " to " << _arg); \
+  vtkDebugMacro(<< this->GetClassName() << " (" << this << "): setting " << #name " to " << _arg ); \
   if (this->name != _arg) \
     { \
+    if (this->name != NULL) { this->name->UnRegister(this); }\
     this->name = _arg; \
+    if (this->name != NULL) { this->name->Register(this); } \
     this->Modified(); \
     } \
-  } \
-void Set##name (type& _arg) \
-  { \
-  this->Set##name (&_arg);\
   } 
-// ^^^ legacy do not use ^^^
 
 //
-// Set pointer to object; uses vtkObject reference counting methodology.
-// Creates method Set"name"() (e.g., SetPoints()).
+// Identical to vtkSetObjectMacro. Left in for legacy compatibility.
 //
 #define vtkSetReferenceCountedObjectMacro(name,type) \
 void Set##name (type* _arg) \

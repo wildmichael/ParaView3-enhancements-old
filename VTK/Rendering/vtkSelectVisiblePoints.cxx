@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSelectVisiblePoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:22 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-10-26 14:21:59 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,6 +51,11 @@ vtkSelectVisiblePoints::vtkSelectVisiblePoints()
   this->Selection[1] = this->Selection[3] = 1600;
   this->Tolerance = 0.01;
   this->SelectInvisible = 0;
+}
+
+vtkSelectVisiblePoints::~vtkSelectVisiblePoints()
+{
+  this->SetRenderer(NULL);
 }
 
 void vtkSelectVisiblePoints::Execute()

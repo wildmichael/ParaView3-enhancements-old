@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:25:11 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1998-10-26 14:21:46 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,11 +52,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include "vtkDataSetToPolyDataFilter.h"
 #include "vtkContourValues.h"
+#include "vtkImplicitFunction.h"
 
 #define VTK_SORT_BY_VALUE 0
 #define VTK_SORT_BY_CELL 1
 
-class vtkImplicitFunction;
 
 class VTK_EXPORT vtkCutter : public vtkDataSetToPolyDataFilter
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRendererSource.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:15 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1998-10-26 14:21:58 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,7 +71,7 @@ public:
 
   // Description:
   // Indicates what renderer to get the pixel data from.
-  vtkSetReferenceCountedObjectMacro(Input,vtkRenderer);
+  vtkSetObjectMacro(Input,vtkRenderer);
 
   // Description:
   // Returns which renderer is being used as the source for the pixel data.

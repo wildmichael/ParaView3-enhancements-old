@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:25:07 $
-  Version:   $Revision: 1.62 $
+  Date:      $Date: 1998-10-26 14:21:44 $
+  Version:   $Revision: 1.63 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -121,7 +121,7 @@ class VTK_EXPORT vtkActor : public vtkProp
   // visualization pipeline, i.e. the mapper. This should be a subclass
   // of vtkMapper. Typically vtkPolyDataMapper and vtkDataSetMapper will
   // be used.
-  vtkSetReferenceCountedObjectMacro(Mapper,vtkMapper);
+  vtkSetObjectMacro(Mapper,vtkMapper);
 
   // Description:
   // Returns the Mapper that this actor is getting its data from.

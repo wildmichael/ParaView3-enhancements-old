@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSelectVisiblePoints.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:17 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-10-26 14:21:59 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,12 +69,13 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkSelectVisiblePoints_h
 
 #include "vtkDataSetToPolyDataFilter.h"
-class vtkRenderer;
+#include "vtkRenderer.h"
 
 class VTK_EXPORT vtkSelectVisiblePoints : public vtkDataSetToPolyDataFilter
 {
 public:
   vtkSelectVisiblePoints();
+  ~vtkSelectVisiblePoints();
   const char *GetClassName() {return "vtkSelectVisiblePoints";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLabeledDataMapper.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-16 21:09:19 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-10-26 14:22:08 $
+  Version:   $Revision: 1.5 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -72,6 +72,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include "vtkMapper2D.h"
 #include "vtkTextMapper.h"
+#include "vtkDataSet.h"
 
 #define VTK_LABEL_IDS        0
 #define VTK_LABEL_SCALARS    1
@@ -80,8 +81,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define VTK_LABEL_TCOORDS    4
 #define VTK_LABEL_TENSORS    5
 #define VTK_LABEL_FIELD_DATA 6
-
-class vtkDataSet;
 
 class VTK_EXPORT vtkLabeledDataMapper : public vtkMapper2D
 {
@@ -104,8 +103,8 @@ public:
 
   // Description:
   // Set the input dataset to the mapper.  
-  vtkGetObjectMacro(Input, vtkDataSet);
   vtkSetObjectMacro(Input, vtkDataSet);
+  vtkGetObjectMacro(Input, vtkDataSet);
 
   // Description:
   // Set/Get the font family for the annotation text. Three font types 

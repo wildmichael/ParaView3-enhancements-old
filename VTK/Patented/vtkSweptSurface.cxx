@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSweptSurface.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:25:33 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1998-10-26 14:22:12 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -92,6 +92,7 @@ vtkSweptSurface::~vtkSweptSurface()
   this->IdList->Delete();
   this->VoxelScalars->Delete();
   this->T->Delete();
+  this->SetTransforms(NULL);
 }
 
 void vtkSweptSurface::SetModelBounds(float xmin, float xmax, float ymin, 

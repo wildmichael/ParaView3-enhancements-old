@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:14 $
-  Version:   $Revision: 1.73 $
+  Date:      $Date: 1998-10-26 14:21:55 $
+  Version:   $Revision: 1.74 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -300,6 +300,11 @@ public:
   vtkGetObjectMacro(Interactor,vtkRenderWindowInteractor);
   void SetInteractor(vtkRenderWindowInteractor *);
 
+  // Description:
+  // This Method detects loops of RenderWindow<->Interactor,
+  // so objects are freed properly.
+  void UnRegister(vtkObject *o);
+  
   // Description:
   // Dummy stubs for vtkWindow API.
   virtual void SetDisplayId(void *) {};

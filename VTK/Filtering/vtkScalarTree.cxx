@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarTree.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:25:25 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-10-26 14:21:58 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,6 +54,7 @@ vtkScalarTree::vtkScalarTree()
 
 vtkScalarTree::~vtkScalarTree()
 {
+  this->SetDataSet(NULL);
   if ( this->Tree ) delete [] this->Tree;
 }
 

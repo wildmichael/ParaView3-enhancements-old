@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapper.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-16 21:09:12 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-10-26 14:22:06 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -82,7 +82,7 @@ public:
   // Description:
   // Set/Get the input for the image mapper.  The input can be either a
   // vtkImageCache or a vtkStructuredPoints data set.
-  vtkSetReferenceCountedObjectMacro(Input, vtkImageCache);
+  vtkSetObjectMacro(Input, vtkImageCache);
   vtkGetObjectMacro(Input,vtkImageCache);
   void SetInput(vtkStructuredPoints *spts)
     {this->SetInput(spts->GetStructuredPointsToImage()->GetOutput());}

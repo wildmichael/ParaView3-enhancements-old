@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:36 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-10-26 14:22:04 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,6 +45,11 @@ vtkVolumeMapper::vtkVolumeMapper()
 {
   this->ScalarInput = NULL;
   this->Clipping = 0;
+}
+
+vtkVolumeMapper::~vtkVolumeMapper()
+{
+  this->SetScalarInput((vtkStructuredPoints *)NULL);
 }
 
 void vtkVolumeMapper::Update()

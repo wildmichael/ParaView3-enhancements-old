@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensorGlyph.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:45:12 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1998-10-26 14:22:00 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,6 +56,11 @@ vtkTensorGlyph::vtkTensorGlyph()
   this->ColorGlyphs = 1;
   this->ClampScaling = 0;
   this->MaxScaleFactor = 100;
+}
+
+vtkTensorGlyph::~vtkTensorGlyph()
+{
+  this->SetSource(NULL);
 }
 
 void vtkTensorGlyph::Execute()

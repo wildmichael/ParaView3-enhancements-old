@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:25:10 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1998-10-26 14:21:45 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -85,6 +85,7 @@ vtkClipVolume::~vtkClipVolume()
     }
   this->MeshLocator->UnRegister(this);
   this->Triangulator->Delete();
+  this->SetClipFunction(NULL);
 }
 
 // Overload standard modified time function. If Clip functions is modified,

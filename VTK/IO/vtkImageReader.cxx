@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:48:12 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 1998-10-26 14:22:06 $
+  Version:   $Revision: 1.46 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -111,6 +111,8 @@ vtkImageReader::~vtkImageReader()
     delete [] this->InternalFileName;
     this->InternalFileName = NULL;
     }
+  
+  this->SetTransform(NULL);
 }
 
 //----------------------------------------------------------------------------

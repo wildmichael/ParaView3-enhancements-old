@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarBarActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:48:16 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-10-26 14:22:09 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to Kitware & RPI/SCOREC who supported the development
              of this class.
 
@@ -109,6 +109,8 @@ vtkScalarBarActor::~vtkScalarBarActor()
     delete [] this->Title;
     this->Title = NULL;
     }
+  
+  this->SetLookupTable(NULL);
 }
 
 void vtkScalarBarActor::Render(vtkViewport *viewport)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewRays.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:29 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1998-10-26 14:22:02 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -95,8 +95,9 @@ class VTK_EXPORT vtkViewRays :public vtkObject
   // Specify the vtkRenderer whose camera will be used to to calculate 
   // the view rays. The type of camera (parallel, perspective) will
   // determine which type of view ray information is calculated.
+  // Note: this does not increase the reference count of the renderer.
+  void SetRenderer(vtkRenderer *ren);
   vtkGetObjectMacro(Renderer,vtkRenderer);
-  vtkSetObjectMacro(Renderer,vtkRenderer);
 
   // Description:
   // Set the image size for the view rays.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCanvasSource2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:47:41 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-10-26 14:22:06 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,7 +47,10 @@ vtkImageCanvasSource2D::vtkImageCanvasSource2D()
 {
   int idx;
   
+  // A little odd, but lets be consistent with reference counting.
   this->ImageData = this;
+  this->Register(this);
+  
   for (idx = 0; idx < 4; ++idx)
     {
     this->DrawColor[idx] = 0.0;
@@ -57,11 +60,17 @@ vtkImageCanvasSource2D::vtkImageCanvasSource2D()
 
 
 //----------------------------------------------------------------------------
-// Destructor: Deleting a vtkImageCanvasSource2D automatically deletes the associated
+// Destructor: Deleting a vtkImageCanvasSource2D automatically 
+// deletes the associated
 // vtkImageData.  However, since the data is reference counted, it may not 
 // actually be deleted.
 vtkImageCanvasSource2D::~vtkImageCanvasSource2D()
 {
+  if (this->ImageData != NULL)
+    {
+    this->ImageData->UnRegister(this);
+    }
+  
   this->ReleaseData();
 }
 

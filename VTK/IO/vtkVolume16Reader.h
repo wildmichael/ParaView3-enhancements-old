@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume16Reader.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:30 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1998-10-26 14:22:04 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -82,6 +82,7 @@ class VTK_EXPORT vtkVolume16Reader : public vtkVolumeReader
 {
 public:
   vtkVolume16Reader();
+  ~vtkVolume16Reader();
   const char *GetClassName() {return "vtkVolume16Reader";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:25:30 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1998-10-26 14:22:04 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -77,6 +77,9 @@ vtkVolumeRayCastMapper::vtkVolumeRayCastMapper()
 // Destruct a vtkVolumeRayCastMapper - clean up any memory used
 vtkVolumeRayCastMapper::~vtkVolumeRayCastMapper()
 {
+  this->SetRayBounder(NULL);
+  this->SetVolumeRayCastFunction(NULL);
+  
   this->ViewRaysTransform->Delete();
   this->ViewRaysTransform = NULL;
 

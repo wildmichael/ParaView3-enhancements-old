@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProbeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:44:57 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1998-10-26 14:21:53 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,6 +43,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 vtkProbeFilter::vtkProbeFilter()
 {
   this->Source = NULL;
+}
+
+vtkProbeFilter::~vtkProbeFilter()
+{
+  this->SetSource((vtkDataSet *)NULL);
 }
 
 void vtkProbeFilter::Execute()

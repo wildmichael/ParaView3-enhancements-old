@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:45:01 $
-  Version:   $Revision: 1.73 $
+  Date:      $Date: 1998-10-26 14:21:54 $
+  Version:   $Revision: 1.74 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -81,6 +81,8 @@ vtkRenderWindow::vtkRenderWindow()
 
 vtkRenderWindow::~vtkRenderWindow()
 {
+  this->SetInteractor(NULL);
+  
   if (this->FileName)
     {
     delete [] this->FileName;
@@ -217,10 +219,20 @@ vtkRenderWindowInteractor *vtkRenderWindow::MakeRenderWindowInteractor()
 // Set the interactor that will work with this renderer.
 void vtkRenderWindow::SetInteractor(vtkRenderWindowInteractor *rwi)
 {
-  this->Interactor = rwi;
-  if (this->Interactor->GetRenderWindow() != this)
+  if (this->Interactor != rwi)
     {
-    this->Interactor->SetRenderWindow(this);
+    // to avoid destructor recursion
+    vtkRenderWindowInteractor *temp = this->Interactor;
+    this->Interactor = rwi;    
+    if (temp != NULL) {temp->UnRegister(this);}
+    if (this->Interactor != NULL) 
+      {
+      this->Interactor->Register(this);
+      if (this->Interactor->GetRenderWindow() != this)
+	{
+	this->Interactor->SetRenderWindow(this);
+	}
+      }
     }
 }
 
@@ -968,3 +980,23 @@ int vtkRenderWindow::GetRemapWindow(void)
     }
   return 0;
 }
+
+
+// treat renderWindow and interactor as one object.
+// it might be easier if the GetReference count method were redefined.
+void vtkRenderWindow::UnRegister(vtkObject *o)
+{
+  if (this->Interactor && this->Interactor->GetRenderWindow() == this &&
+      this->Interactor != o)
+    {
+    if (this->GetReferenceCount() + this->Interactor->GetReferenceCount() == 3)
+      {
+      this->Interactor->SetRenderWindow(NULL);
+      this->SetInteractor(NULL);
+      }
+    }
+  
+  this->vtkObject::UnRegister(o);
+}
+
+      

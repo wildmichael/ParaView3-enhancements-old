@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-15 13:45:28 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1998-10-26 14:22:03 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,10 +56,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include "vtkProp.h"
 #include "vtkTransform.h"
-#include "vtkVolumeMapper.h"
 #include "vtkVolumeProperty.h"
 
 class vtkRenderer;
+class vtkVolumeMapper;
 
 class VTK_EXPORT vtkVolume : public vtkProp
 {
@@ -110,7 +110,7 @@ public:
 
   // Description:
   // Set/Get the volume mapper.
-  vtkSetObjectMacro(VolumeMapper,vtkVolumeMapper);
+  void SetVolumeMapper(vtkVolumeMapper *mapper);
   vtkGetObjectMacro(VolumeMapper,vtkVolumeMapper);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamer.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-06 14:43:24 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1998-10-26 14:21:59 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -98,6 +98,7 @@ vtkStreamer::vtkStreamer()
 vtkStreamer::~vtkStreamer()
 {
   if ( this->Streamers ) delete [] this->Streamers;
+  this->SetSource(NULL);
 }
 
 

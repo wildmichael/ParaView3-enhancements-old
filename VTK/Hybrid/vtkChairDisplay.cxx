@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkChairDisplay.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 04:33:15 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-10-26 14:21:42 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -62,6 +62,7 @@ vtkChairDisplay::~vtkChairDisplay()
     this->Scalars->Delete();
     this->Scalars = NULL;
     }
+  this->SetInput(NULL);
 }
 
 void vtkChairDisplay::Update()

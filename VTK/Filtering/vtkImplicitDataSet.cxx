@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:44:48 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-10-26 14:21:49 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,6 +58,7 @@ vtkImplicitDataSet::vtkImplicitDataSet()
 
 vtkImplicitDataSet::~vtkImplicitDataSet()
 {
+  this->SetDataSet(NULL);
   if ( this->Weights ) delete [] this->Weights;
 }
 

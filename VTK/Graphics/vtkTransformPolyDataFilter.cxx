@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-15 16:41:10 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-10-26 14:22:02 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,6 +41,16 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkTransformPolyDataFilter.h"
 #include "vtkNormals.h"
 #include "vtkVectors.h"
+
+vtkTransformPolyDataFilter::vtkTransformPolyDataFilter()
+{
+  this->Transform = NULL;
+}
+
+vtkTransformPolyDataFilter::~vtkTransformPolyDataFilter()
+{
+  this->SetTransform(NULL);
+}
 
 void vtkTransformPolyDataFilter::Execute()
 {

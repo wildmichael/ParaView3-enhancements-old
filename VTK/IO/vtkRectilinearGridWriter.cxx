@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:19 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-10-26 14:21:54 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,7 +46,9 @@ void vtkRectilinearGridWriter::SetInput(vtkRectilinearGrid *input)
   if ( this->Input != input )
     {
     vtkDebugMacro(<<" setting Input to " << (void *)input);
+    if (this->Input) {this->Input->UnRegister(this);}
     this->Input = (vtkDataSet *) input;
+    if (this->Input) {this->Input->Register(this);}
     this->Modified();
     }
 }
@@ -61,9 +63,9 @@ void vtkRectilinearGridWriter::WriteData()
 
   if ( !(fp=this->OpenVTKFile()) || !this->WriteHeader(fp) )
       return;
-//
-// Write rectilinear grid specific stuff
-//
+  //
+  // Write rectilinear grid specific stuff
+  //
   fprintf(fp,"DATASET RECTILINEAR_GRID\n");
 
   input->GetDimensions(dim);

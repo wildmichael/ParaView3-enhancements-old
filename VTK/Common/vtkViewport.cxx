@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewport.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-16 15:58:20 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1998-10-26 14:21:42 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,6 +51,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // turned off.
 vtkViewport::vtkViewport()
 {
+  this->VTKWindow = NULL;
+  
   this->Background[0] = 0;
   this->Background[1] = 0;
   this->Background[2] = 0;
@@ -104,6 +106,14 @@ vtkViewport::~vtkViewport()
   if ((this->EndRenderMethodArg)&&(this->EndRenderMethodArgDelete))
     {
     (*this->EndRenderMethodArgDelete)(this->EndRenderMethodArg);
+    }
+  
+  if (this->VTKWindow != NULL)
+    {
+    // renderer never reference counted the window.
+    // loop is too hard to detect.
+    // this->VTKWindow->UnRegister(this);
+    this->VTKWindow = NULL;
     }
 }
 

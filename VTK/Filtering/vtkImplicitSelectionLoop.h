@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitSelectionLoop.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:00 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-10-26 14:21:49 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -97,7 +97,7 @@ public:
   // Description:
   // Set/Get the array of point coordinates defining the loop. There must
   // be at least three points used to define a loop.
-  vtkSetReferenceCountedObjectMacro(Loop,vtkPoints);
+  vtkSetObjectMacro(Loop,vtkPoints);
   vtkGetObjectMacro(Loop,vtkPoints);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCoordinate.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-16 15:58:15 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-10-26 14:21:38 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -100,7 +100,7 @@ public:
   // If this coordinate is relative to another coordinate,
   // then specify that coordinate as the ReferenceCoordinate.
   // If this is NULL the coordinate is assumed to be absolute.
-  vtkSetReferenceCountedObjectMacro(ReferenceCoordinate,vtkCoordinate);
+  vtkSetObjectMacro(ReferenceCoordinate,vtkCoordinate);
   vtkGetObjectMacro(ReferenceCoordinate,vtkCoordinate);
 
   // Description:

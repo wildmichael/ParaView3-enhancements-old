@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:25:09 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1998-10-26 14:21:44 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,6 +67,7 @@ vtkClipPolyData::~vtkClipPolyData()
     this->Locator->UnRegister(this);
     this->Locator = NULL;
     }
+  this->SetClipFunction(NULL);
 }
 
 // Overload standard modified time function. If Clip functions is modified,

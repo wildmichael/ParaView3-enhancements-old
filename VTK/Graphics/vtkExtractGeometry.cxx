@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractGeometry.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:25:14 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1998-10-26 14:21:48 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,7 +44,17 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 vtkExtractGeometry::vtkExtractGeometry(vtkImplicitFunction *f)
 {
   this->ImplicitFunction = f;
+  if (this->ImplicitFunction)
+    {
+    this->ImplicitFunction->Register(this);
+    }
+    
   this->ExtractInside = 1;
+}
+
+vtkExtractGeometry::~vtkExtractGeometry()
+{
+  this->SetImplicitFunction(NULL);
 }
 
 // Overload standard modified time function. If implicit function is modified,

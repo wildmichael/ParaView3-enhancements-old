@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-24 12:58:41 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 1998-10-26 14:21:56 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -276,6 +276,11 @@ public:
   virtual void StartUniformScale() {};
   virtual void EndUniformScale() {};
 
+  // Description:
+  // This Method detects loops of RenderWindow<->Interactor,
+  // so objects are freed properly.
+  void UnRegister(vtkObject *o);
+  
   // Description:
   // For legacy compatibiltiy. Do not use.
   void SetPicker(vtkPicker& picker) {this->SetPicker(&picker);};

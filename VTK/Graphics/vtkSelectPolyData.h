@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSelectPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-06 15:17:12 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-10-26 14:21:58 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -141,7 +141,7 @@ public:
   // Description:
   // Set/Get the array of point coordinates defining the loop. There must
   // be at least three points used to define a loop.
-  vtkSetReferenceCountedObjectMacro(Loop,vtkPoints);
+  vtkSetObjectMacro(Loop,vtkPoints);
   vtkGetObjectMacro(Loop,vtkPoints);
 
   // Description:
