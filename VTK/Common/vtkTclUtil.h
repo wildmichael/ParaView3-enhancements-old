@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTclUtil.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:09:31 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2001-11-14 21:00:20 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -87,8 +87,6 @@ void vtkTclCreateNew(Tcl_Interp *interp, const char *cname,
 class vtkTclCommand : public vtkCommand
 {
 public:
-  vtkTclCommand();
-  ~vtkTclCommand(); 
   static vtkTclCommand *New() { return new vtkTclCommand; };
 
   void SetStringCommand(const char *arg);
@@ -98,6 +96,9 @@ public:
 
   char *StringCommand;
   Tcl_Interp *Interp;
+protected:
+  vtkTclCommand();
+  ~vtkTclCommand(); 
 };
 
 typedef struct _vtkTclVoidFuncArg 

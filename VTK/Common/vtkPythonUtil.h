@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPythonUtil.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:09:29 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2001-11-14 21:00:20 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -143,14 +143,15 @@ extern VTK_PYTHON_EXPORT void vtkPythonVoidFuncArgDelete(void *);
 class vtkPythonCommand : public vtkCommand
 {
 public:
-  vtkPythonCommand();
-  ~vtkPythonCommand(); 
   static vtkPythonCommand *New() { return new vtkPythonCommand; };
 
   void SetObject(PyObject *o);
   void Execute(vtkObject *ptr, unsigned long eventtype, void *);
  
   PyObject *obj;
+protected:
+  vtkPythonCommand();
+  ~vtkPythonCommand(); 
 };
 
 

@@ -3,8 +3,8 @@
  Program:   Visualization Toolkit
  Module:    $RCSfile: vtkProcessObject.cxx,v $
  Language:  C++
- Date:      $Date: 2001-08-28 20:12:47 $
- Version:   $Revision: 1.23 $
+ Date:      $Date: 2001-11-14 21:00:23 $
+ Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -41,7 +41,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 #include "vtkProcessObject.h"
 #include "vtkObjectFactory.h"
-#include "vtkCommand.h"
+#include "vtkOldStyleCallbackCommand.h"
 
 //-------------------------------------------------------------------------
 vtkProcessObject* vtkProcessObject::New()
@@ -303,31 +303,34 @@ void vtkProcessObject::UpdateProgress(float amount)
 // Specify function to be called before object executes.
 void vtkProcessObject::SetStartMethod(void (*f)(void *), void *arg)
 {
-  vtkOldStyleCallbackCommand *cbc = new vtkOldStyleCallbackCommand;
+  vtkOldStyleCallbackCommand *cbc = vtkOldStyleCallbackCommand::New();
   cbc->Callback = f;
   cbc->ClientData = arg;
   this->RemoveObserver(this->StartTag);
   this->StartTag = this->AddObserver(vtkCommand::StartEvent,cbc);
+  cbc->Delete();
 }
 
 // Specify function to be called to show progress of filter
 void vtkProcessObject::SetProgressMethod(void (*f)(void *), void *arg)
 {
-  vtkOldStyleCallbackCommand *cbc = new vtkOldStyleCallbackCommand;
+  vtkOldStyleCallbackCommand *cbc = vtkOldStyleCallbackCommand::New();
   cbc->Callback = f;
   cbc->ClientData = arg;
   this->RemoveObserver(this->ProgressTag);
   this->ProgressTag = this->AddObserver(vtkCommand::ProgressEvent,cbc);
+  cbc->Delete();
 }
 
 // Specify function to be called after object executes.
 void vtkProcessObject::SetEndMethod(void (*f)(void *), void *arg)
 {
-  vtkOldStyleCallbackCommand *cbc = new vtkOldStyleCallbackCommand;
+  vtkOldStyleCallbackCommand *cbc = vtkOldStyleCallbackCommand::New();
   cbc->Callback = f;
   cbc->ClientData = arg;
   this->RemoveObserver(this->EndTag);
   this->EndTag = this->AddObserver(vtkCommand::EndEvent,cbc);
+  cbc->Delete();
 }
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:16 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-11-14 21:00:23 $
+  Version:   $Revision: 1.18 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -41,7 +41,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkProp.h"
 #include "vtkObjectFactory.h"
 #include "vtkAssemblyPaths.h"
-#include "vtkCommand.h"
+#include "vtkOldStyleCallbackCommand.h"
 
 
 //----------------------------------------------------------------------------
@@ -85,11 +85,12 @@ vtkProp::~vtkProp()
 // e.g., vtkActor) is picked by vtkPicker.
 void vtkProp::SetPickMethod(void (*f)(void *), void *arg)
 {
-  vtkOldStyleCallbackCommand *cbc = new vtkOldStyleCallbackCommand;
+  vtkOldStyleCallbackCommand *cbc = vtkOldStyleCallbackCommand::New();
   cbc->Callback = f;
   cbc->ClientData = arg;
   this->RemoveObserver(this->PickTag);
   this->PickTag = this->AddObserver(vtkCommand::PickEvent,cbc);
+  cbc->Delete();
 }
 
 // Set a method to delete user arguments for PickMethod.
