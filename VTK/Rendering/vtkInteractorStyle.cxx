@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-06 17:28:38 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2000-10-03 15:40:09 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -118,6 +118,12 @@ vtkInteractorStyle::~vtkInteractorStyle()
     }
   this->Outline->Delete();
   this->Outline = NULL;
+
+  if ( this->CurrentRenderer)
+    {
+    this->CurrentRenderer->UnRegister(this);
+    this->CurrentRenderer = NULL;
+    }
 
   if ((this->LeftButtonPressMethodArg)&&(this->LeftButtonPressMethodArgDelete))
     {
