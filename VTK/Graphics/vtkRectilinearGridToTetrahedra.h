@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridToTetrahedra.h,v $
   Language:  C++
-  Date:      $Date: 2003-07-15 17:53:17 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-07-15 19:10:19 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -114,13 +114,17 @@ public:
 
 protected:
   vtkRectilinearGridToTetrahedra();
-  vtkRectilinearGridToTetrahedra(const vtkRectilinearGridToTetrahedra&) {};
-  void operator=(const vtkRectilinearGridToTetrahedra&) {};
+  ~vtkRectilinearGridToTetrahedra() {};
 
   void Execute();
 
   int RememberVoxelId;
   int TetraPerCell;
+
+ private:
+  vtkRectilinearGridToTetrahedra(const vtkRectilinearGridToTetrahedra&); // Not implemented.
+
+  void operator=(const vtkRectilinearGridToTetrahedra&); // Not implemented.
 
 //BTX
   // Description:
