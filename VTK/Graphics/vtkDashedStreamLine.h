@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDashedStreamLine.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 17:56:29 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1997-04-18 19:28:23 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,6 +63,7 @@ class VTK_EXPORT vtkDashedStreamLine : public vtkStreamLine
 {
 public:
   vtkDashedStreamLine();
+  vtkDashedStreamLine *New() {return new vtkDashedStreamLine;};
   char *GetClassName() {return "vtkDashedStreamLine";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

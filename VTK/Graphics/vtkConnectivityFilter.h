@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConnectivityFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-14 20:21:57 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1997-04-18 19:28:15 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,6 +79,7 @@ class VTK_EXPORT vtkConnectivityFilter : public vtkDataSetToUnstructuredGridFilt
 public:
   vtkConnectivityFilter();
   ~vtkConnectivityFilter();
+  vtkConnectivityFilter *New() {return new vtkConnectivityFilter;};
   char *GetClassName() {return "vtkConnectivityFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCursor3D.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 17:56:25 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1997-04-18 19:28:18 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,6 +60,7 @@ class VTK_EXPORT vtkCursor3D : public vtkPolySource
 public:
   vtkCursor3D();
   ~vtkCursor3D();
+  vtkCursor3D *New() {return new vtkCursor3D;};
   char *GetClassName() {return "vtkCursor3D";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
