@@ -8,7 +8,7 @@
  * of authorship are reproduced on all copies.
  */
 
-/* $Id: ice-t_config.h.in,v 1.3 2004-08-30 23:04:26 kmorel Exp $ */
+/* $Id: ice-t_config.h.in,v 1.4 2004-08-31 20:41:38 kmorel Exp $ */
 
 #ifndef _ICET_CONFIG_H_
 #define _ICET_CONFIG_H_
@@ -49,12 +49,5 @@
 #define ICET_MINOR_VERSION	@ICET_MINOR_VERSION@
 #define ICET_PATCH_VERSION	@ICET_PATCH_VERSION@
 #define ICET_VERSION		"@ICET_VERSION@"
-
-/* Used to prevent compiler warnings about unused parameters. */
-#ifdef __GNUC__
-#define icetNotUsed(x)	x __attribute__((unused))
-#else
-#define icetNotUsed(x)
-#endif
 
 #endif /*_ICET_CONFIG_H_*/
