@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-29 09:51:01 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2000-07-04 09:53:51 $
+  Version:   $Revision: 1.13 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -165,6 +165,20 @@ void vtkProp::BuildPaths(vtkAssemblyPaths *paths, vtkAssemblyPath *path)
   // We can add this path to the list of paths
   paths->AddItem(childPath);
   childPath->Delete(); //okay, reference counting
+}
+
+void vtkProp::Delete()
+{
+  // Always delete paths because we can always rebuild them. Paths
+  // is set to NULL to avoid recursive deletes.
+  if ( this->Paths )
+    {
+    vtkAssemblyPaths *paths = this->Paths;
+    this->Paths = NULL;
+    paths->Delete();
+    }
+
+  this->vtkObject::Delete();
 }
 
 void vtkProp::PrintSelf(ostream& os, vtkIndent indent)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssemblyPaths.h,v $
   Language:  C++
-  Date:      $Date: 2000-06-08 09:11:03 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-07-04 09:53:51 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -54,7 +54,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkCollection.h"
 #include "vtkAssemblyPath.h"
 
-class vtkActor;
+class vtkProp;
 
 class VTK_EXPORT vtkAssemblyPaths : public vtkCollection
 {

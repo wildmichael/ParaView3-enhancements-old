@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssemblyPaths.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-08 09:11:03 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-07-04 09:53:51 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -71,6 +71,8 @@ unsigned long vtkAssemblyPaths::GetMTime()
     }
   return mtime;
 }
+
+
 
 
 
