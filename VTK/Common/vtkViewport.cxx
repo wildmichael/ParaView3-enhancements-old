@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewport.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-08 12:46:41 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2000-03-18 15:06:57 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -221,16 +221,23 @@ void vtkViewport::WorldToView()
 // Return the size of the viewport in display coordinates.
 int *vtkViewport::GetSize()
 {  
-  // Get the window size
-  int* winSize = this->VTKWindow->GetSize();
+  if ( this->VTKWindow )
+    {
+    // Get the window size
+    int* winSize = this->VTKWindow->GetSize();
 
-  // Calculate a width and height for the viewport 
-  float vptWidth = this->Viewport[2] - this->Viewport[0];
-  float vptHeight = this->Viewport[3] - this->Viewport[1];
+    // Calculate a width and height for the viewport 
+    float vptWidth = this->Viewport[2] - this->Viewport[0];
+    float vptHeight = this->Viewport[3] - this->Viewport[1];
 
-  // Round the size up
-  this->Size[0] = (int) (vptWidth * (float) winSize[0] + 0.5);
-  this->Size[1] = (int) (vptHeight * (float) winSize[1] + 0.5);
+    // Round the size up
+    this->Size[0] = (int) (vptWidth * (float) winSize[0] + 0.5);
+    this->Size[1] = (int) (vptHeight * (float) winSize[1] + 0.5);
+    }
+  else
+    {
+    this->Size[0] = this->Size[1] = 0;
+    }
 
   return this->Size;
 }
