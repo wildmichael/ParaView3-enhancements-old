@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArrayCalculator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-05 14:33:26 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-04-06 13:11:08 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -817,4 +817,8 @@ void vtkArrayCalculator::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Result Array Name: "
      << (this->ResultArrayName ? this->ResultArrayName : "(none)") << endl;
   os << indent << "Attribute Mode: " << this->GetAttributeModeAsString() << endl;
+  os << indent << "Number Of Scalar Arrays: " << this->NumberOfScalarArrays
+     << endl;
+  os << indent << "Number Of Vector Arrays: " << this->NumberOfVectorArrays
+     << endl;
 }
