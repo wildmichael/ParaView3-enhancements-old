@@ -26,7 +26,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkConeSource, "$Revision: 1.69 $");
+vtkCxxRevisionMacro(vtkConeSource, "$Revision: 1.70 $");
 vtkStandardNewMacro(vtkConeSource);
 
 //----------------------------------------------------------------------------
@@ -56,7 +56,7 @@ int vtkConeSource::RequestData(
   vtkInformation *vtkNotUsed(request),
   vtkInformationVector **vtkNotUsed(inputVector),
   vtkInformationVector *outputVector)
-  {
+{
   // get the info objects
   vtkInformation *outInfo = outputVector->GetInformationObject(0);
 
