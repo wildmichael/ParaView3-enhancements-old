@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-26 21:51:19 $
-  Version:   $Revision: 1.90 $
+  Date:      $Date: 2002-04-30 05:22:01 $
+  Version:   $Revision: 1.91 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkMath.h"
 #include "vtkOldStyleCallbackCommand.h"
 
-vtkCxxRevisionMacro(vtkRenderWindowInteractor, "$Revision: 1.90 $");
+vtkCxxRevisionMacro(vtkRenderWindowInteractor, "$Revision: 1.91 $");
 
 // Construct object so that light follows camera motion.
 vtkRenderWindowInteractor::vtkRenderWindowInteractor()
@@ -48,8 +48,8 @@ vtkRenderWindowInteractor::vtkRenderWindowInteractor()
   this->UserTag = 0;
   this->ExitTag = 0;
 
-  this->EventPosition[0] = 0;
-  this->EventPosition[1] = 0;
+  this->EventPosition[0] = this->LastEventPosition[0] = 0;
+  this->EventPosition[1] = this->LastEventPosition[1] = 0;
 
   this->EventSize[0] = 0;
   this->EventSize[1] = 0;
@@ -472,6 +472,8 @@ void vtkRenderWindowInteractor::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Enabled: " << this->Enabled << "\n";
   os << indent << "EventPosition: " << "( " << this->EventPosition[0] <<
     ", " << this->EventPosition[1] << " )\n";
+  os << indent << "LastEventPosition: " << "( " << this->LastEventPosition[0] 
+     << ", " << this->LastEventPosition[1] << " )\n";
   os << indent << "EventSize: " << "( " << this->EventSize[0] <<
     ", " << this->EventSize[1] << " )\n";
   os << indent << "Viewport Size: " << "( " << this->Size[0] <<
@@ -485,14 +487,3 @@ void vtkRenderWindowInteractor::PrintSelf(ostream& os, vtkIndent indent)
      << "\n";
   os << indent << "RepeatCount: " << this->RepeatCount << "\n";
 }
-
-
-
-
-
-
-
-
-
-
-
