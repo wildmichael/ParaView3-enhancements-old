@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyLinesToImage.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-24 15:53:35 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-07-24 19:21:36 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,7 +54,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkImageSource.h"
 #include "vtkImageCanvasSource2D.h"
 
-class vtkPolyLinesToImage : public vtkImageSource
+class VTK_EXPORT vtkPolyLinesToImage : public vtkImageSource
 {
 public:
   vtkPolyLinesToImage();
