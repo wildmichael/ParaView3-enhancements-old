@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPythonUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-30 17:16:08 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-04-30 17:58:27 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -282,9 +282,13 @@ void *vtkPythonGetPointerFromObject(PyObject *obj, char *result_type)
     }
   else
     {
+    char error_string[256];
 #ifdef VTKPYTHONDEBUG
     vtkGenericWarningMacro("vtk bad argument, type conversion failed.");
-#endif  
+#endif
+    sprintf(error_string,"method requires a %s object, a %s object was provided.",
+	    result_type,((vtkObject *)ptr)->GetClassName());
+    PyErr_SetString(PyExc_ValueError,error_string);
     return NULL;
     }
 }
