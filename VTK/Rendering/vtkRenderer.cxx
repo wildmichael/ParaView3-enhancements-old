@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-11 18:19:57 $
-  Version:   $Revision: 1.104 $
+  Date:      $Date: 1999-03-15 18:33:25 $
+  Version:   $Revision: 1.105 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -296,8 +296,6 @@ int vtkRenderer::UpdateVolumes()
 	  break;
 	case VTK_FRAMEBUFFER_VOLUME_MAPPER:
 	  visibleFrameBufferVolumeCount++; 
-	  ((vtkVolume *)aProp)->GetVolumeMapper()->
-	   Render( (vtkRenderer *)this, ((vtkVolume *)aProp) );
 	  break;
 	}
       }
