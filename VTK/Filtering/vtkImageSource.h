@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-09 17:04:46 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 2002-11-21 16:12:32 $
+  Version:   $Revision: 1.59 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -55,10 +55,6 @@ protected:
   // passed into it and returns it as an image data
   virtual vtkImageData *AllocateOutputData(vtkDataObject *out);
 
-  void ComputeRequiredInputUpdateExtent( int *vtkNotUsed(in), 
-                                         int *vtkNotUsed(out) ) 
-    {VTK_LEGACY_METHOD(ComputeRequiredInputUpdateExtent,"3.2");}
-  
 private:
   vtkImageSource(const vtkImageSource&);  // Not implemented.
   void operator=(const vtkImageSource&);  // Not implemented.
