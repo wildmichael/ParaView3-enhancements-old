@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorObserver.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-06 11:02:55 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-04-10 15:37:03 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkCallbackCommand.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkInteractorObserver, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkInteractorObserver, "$Revision: 1.8 $");
 
 vtkInteractorObserver::vtkInteractorObserver()
 {
@@ -126,11 +126,47 @@ void vtkInteractorObserver::ComputeDisplayToWorld(double x, double y,
     }
 }
 
+void vtkInteractorObserver::ComputeDisplayToWorld(double x, double y,
+                                               double z, float *worldPt)
+{
+  if ( !this->CurrentRenderer ) 
+    {
+    return;
+    }
+  
+  this->CurrentRenderer->SetDisplayPoint(x, y, z);
+  this->CurrentRenderer->DisplayToWorld();
+  this->CurrentRenderer->GetWorldPoint(worldPt);
+  if (worldPt[3])
+    {
+    worldPt[0] /= worldPt[3];
+    worldPt[1] /= worldPt[3];
+    worldPt[2] /= worldPt[3];
+    worldPt[3] = 1.0;
+    }
+}
+
 // Description:
 // Transform from world to display coordinates.
 // displayPt has to be allocated as 3 vector
 void vtkInteractorObserver::ComputeWorldToDisplay(double x, double y,
-                                         double z, double *displayPt)
+                                                  double z, double *displayPt)
+{
+  if ( !this->CurrentRenderer ) 
+    {
+    return;
+    }
+  
+  this->CurrentRenderer->SetWorldPoint(x, y, z, 1.0);
+  this->CurrentRenderer->WorldToDisplay();
+  this->CurrentRenderer->GetDisplayPoint(displayPt);
+}
+
+// Description:
+// transform from world to display coordinates.
+// displayPt has to be allocated as 3 vector
+void vtkInteractorObserver::ComputeWorldToDisplay(double x, double y,
+                                               double z, float *displayPt)
 {
   if ( !this->CurrentRenderer ) 
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorObserver.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-08 13:36:56 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-04-10 15:37:03 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -49,7 +49,7 @@
 
 class vtkCallbackCommand;
 
-class VTK_HYBRID_EXPORT vtkInteractorObserver : public vtkObject
+class VTK_RENDERING_EXPORT vtkInteractorObserver : public vtkObject
 {
 public:
   vtkTypeRevisionMacro(vtkInteractorObserver,vtkObject);
@@ -121,7 +121,9 @@ protected:
   
   // helper method for subclasses
   void ComputeDisplayToWorld(double x, double y, double z, double *worldPt);
+  void ComputeDisplayToWorld(double x, double y, double z, float *worldPt);
   void ComputeWorldToDisplay(double x, double y, double z, double *displayPt);
+  void ComputeWorldToDisplay(double x, double y, double z, float *displayPt);
     
   // The state of the widget, whether on or off (observing events or not)
   int Enabled;
