@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNGWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-15 19:08:49 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-04-18 20:31:20 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 
 #include <png.h>
 
-vtkCxxRevisionMacro(vtkPNGWriter, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkPNGWriter, "$Revision: 1.10 $");
 vtkStandardNewMacro(vtkPNGWriter);
 
 vtkPNGWriter::vtkPNGWriter()
@@ -102,7 +102,8 @@ void vtkPNGWriter::Write()
   this->InternalFileName = NULL;
 }
 
-void vtkPNGWriteInit(png_structp png_ptr, png_bytep, png_size_t sizeToWrite)
+void vtkPNGWriteInit(png_structp png_ptr, png_bytep data, 
+                     png_size_t sizeToWrite)
 {
   vtkPNGWriter *self = 
     vtkPNGWriter::SafeDownCast(static_cast<vtkObject *>
@@ -110,16 +111,9 @@ void vtkPNGWriteInit(png_structp png_ptr, png_bytep, png_size_t sizeToWrite)
   if (self)
     {
       vtkUnsignedCharArray *uc = self->GetResult();
-      if (!uc || uc->GetReferenceCount() > 1)
-        {
-          uc = vtkUnsignedCharArray::New();
-          self->SetResult(uc);
-          uc->Delete();
-          // start out with 10K as a guess for the image size
-          uc->Allocate(10000);
-        }
       // write to the uc array
-      uc->WritePointer(uc->GetMaxId()+1,sizeToWrite);
+      unsigned char *ptr = uc->WritePointer(uc->GetMaxId()+1,sizeToWrite);
+      memcpy(ptr, data, sizeToWrite);
     }
 }
 
@@ -165,8 +159,17 @@ void vtkPNGWriter::WriteSlice(vtkImageData *data)
   FILE *fp = 0;
   if (this->WriteToMemory)
     {
-      png_set_write_fn(png_ptr, static_cast<png_voidp>(this), 
-                       vtkPNGWriteInit, vtkPNGWriteFlush);
+    vtkUnsignedCharArray *uc = this->GetResult();
+    if (!uc || uc->GetReferenceCount() > 1)
+      {
+      uc = vtkUnsignedCharArray::New();
+      this->SetResult(uc);
+      uc->Delete();
+      }
+    // start out with 10K as a guess for the image size
+    uc->Allocate(10000);
+    png_set_write_fn(png_ptr, static_cast<png_voidp>(this), 
+                     vtkPNGWriteInit, vtkPNGWriteFlush);
     }
   else
     {
