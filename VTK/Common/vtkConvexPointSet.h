@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConvexPointSet.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-19 17:16:39 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-06-19 17:55:19 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -66,11 +66,6 @@ public:
   virtual int GetNumberOfFaces();
   virtual vtkCell *GetFace(int faceId);
 
-  // Description:
-  // Convex point sets require triangulation for processing. Therefore this
-  // cell is considered nonlinear. See the vtkCell API for more information.
-  virtual int IsLinear() {return 0;}
-  
   // Description:
   // Satisfy the vtkCell API. This method contours by triangulating the
   // cell and then contouring the resulting tetrahedra.
