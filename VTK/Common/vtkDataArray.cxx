@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-20 20:06:09 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2003-07-02 14:24:03 $
+  Version:   $Revision: 1.55 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,7 +33,7 @@
 #include "vtkIdList.h"
 #include "vtkMath.h"
 
-vtkCxxRevisionMacro(vtkDataArray, "$Revision: 1.54 $");
+vtkCxxRevisionMacro(vtkDataArray, "$Revision: 1.55 $");
 
 // Construct object with default tuple dimension (number of components) of 1.
 vtkDataArray::vtkDataArray(vtkIdType numComp)
@@ -140,6 +140,13 @@ void vtkDataArray::DeepCopy(vtkDataArray *da)
 
       default:
         vtkErrorMacro(<<"Unsupported data type!");
+      }
+
+    this->SetLookupTable(0);
+    if (da->LookupTable)
+      {
+      this->LookupTable = da->LookupTable->NewInstance();
+      this->LookupTable->DeepCopy(da->LookupTable);
       }
     }
 }
