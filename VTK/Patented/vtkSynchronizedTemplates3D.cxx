@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-13 22:12:27 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2000-08-15 10:44:07 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -241,7 +241,7 @@ static void ContourImage(vtkSynchronizedTemplates3D *self, int *exExt,
 			 vtkImageData *data, vtkPoints *newPts, 
 			 vtkScalars *newScalars, vtkCellArray *polys, 
 			 vtkNormals *newNormals, vtkVectors *newGradients, 
-			 T *ptr)
+			 T *ptr, int threadId)
 {
   int xdim = exExt[1] - exExt[0] + 1;
   int ydim = exExt[3] - exExt[2] + 1;
@@ -326,6 +326,11 @@ static void ContourImage(vtkSynchronizedTemplates3D *self, int *exExt,
     //==================================================================
     for (k = zMin; k <= zMax; k++)
       {
+      if (!threadId)
+        {
+        self->UpdateProgress((float)vidx/numContours + 
+                             (k-zMin)/((zMax - zMin+1.0)*numContours));
+        }
       z = origin[2] + spacing[2]*k;
       x[2] = z;
 
@@ -534,8 +539,9 @@ void vtkSynchronizedTemplates3D::ThreadedExecute(vtkImageData *data,
     ptr = data->GetScalarPointerForExtent(exExt);
     switch (data->GetScalarType())
       {
-      vtkTemplateMacro9(ContourImage, this, exExt, data, newPts, newScalars, 
-                        newPolys, newNormals, newGradients,(VTK_TT *)ptr);
+      vtkTemplateMacro10(ContourImage, this, exExt, data, newPts, newScalars, 
+                         newPolys, newNormals, newGradients,(VTK_TT *)ptr,
+                         threadId);
       }
     }
   else //multiple components - have to convert
