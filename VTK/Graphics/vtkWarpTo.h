@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpTo.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 17:59:41 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1997-04-09 13:25:22 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,7 +51,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkWarpTo : public vtkPointSetToPointSetFilter
 {
 public:
-  vtkWarpTo() {this->ScaleFactor = 0.5; this->Absolute = 0;};
+  vtkWarpTo() {this->ScaleFactor = 0.5; this->Absolute = 0;
+	       this->Position[0] = this->Position[1] = this->Position[2] = 0.0;};
   char *GetClassName() {return "vtkWarpTo";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
