@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-30 18:42:49 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2001-04-30 19:04:56 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1291,18 +1291,18 @@ int vtkDataSetAttributes::SetActiveAttribute(int index, int attributeType)
     }
 }
 
-int vtkDataSetAttributes::NumberOfAttributeComponents[NUM_ATTRIBUTES] = { 4, 
+int vtkDataSetAttributes::NumberOfAttributeComponents[vtkDataSetAttributes::NUM_ATTRIBUTES] = { 4, 
 									  3, 
 									  3, 
 									  3, 
 									  9};
-int vtkDataSetAttributes::AttributeLimits[NUM_ATTRIBUTES] = { MAX, 
+int vtkDataSetAttributes::AttributeLimits[vtkDataSetAttributes::NUM_ATTRIBUTES] = { MAX, 
 							      EXACT, 
 							      EXACT, 
 							      MAX,
 							      EXACT };
 
-char vtkDataSetAttributes::AttributeNames[NUM_ATTRIBUTES][10] = { "Scalars",
+char vtkDataSetAttributes::AttributeNames[vtkDataSetAttributes::NUM_ATTRIBUTES][10] = { "Scalars",
 								  "Vectors",
 								  "Normals",
 								  "TCoords",
