@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-17 15:30:10 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1999-08-23 18:36:40 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -151,6 +151,7 @@ void vtkDataObject::InternalUpdate()
   
   // Clip has to be before the Update check because:  If the update extent
   // after clipping is larger than current extent, then data is released ...
+  // We might need another method here, but for now, this works.
   this->ClipUpdateExtentWithWholeExtent();
   if (this->UpdateTime >= this->PipelineMTime && ! this->DataReleased)
     {
