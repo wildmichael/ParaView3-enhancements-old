@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLookupTable.h,v $
   Language:  C++
-  Date:      $Date: 1999-05-20 20:38:13 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 1999-06-24 00:56:19 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,19 +61,17 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkLookupTable_h
 #define __vtkLookupTable_h
 
-#include "vtkObject.h"
-#include "vtkUnsignedCharArray.h"
+#include "vtkScalarsToColors.h"
 
 class vtkScalars;
 
-class VTK_EXPORT vtkLookupTable : public vtkObject
+class VTK_EXPORT vtkLookupTable : public vtkScalarsToColors
 {
 public:
   // Description:
   // Construct with range=(0,1); and hsv ranges set up for rainbow color table 
   // (from red to blue).
   vtkLookupTable(int sze=256, int ext=256);
-
   ~vtkLookupTable();
   
   // Description:
@@ -135,10 +133,9 @@ public:
 
   // Description:
   // map a set of scalars through the lookup table
-  virtual void MapScalarsThroughTable(void *input, unsigned char *output,
+  virtual void MapScalarsThroughTable2(void *input, unsigned char *output,
 				      int inputDataType, int numberOfValues,
 				      int inputIncrement);
-  void MapScalarsThroughTable(vtkScalars *scalars, unsigned char *output);
     
   // Description:
   // Specify the number of values (i.e., colors) in the lookup
@@ -178,6 +175,11 @@ public:
   // by number (and memory allocated if necessary). Id is the location you 
   // wish to write into; number is the number of rgba values to write.
   unsigned char *WritePointer(const int id, const int number);
+
+  // Description:
+  // Sets/Gets the range of scalars which will eb mapped.
+  virtual float *GetRange() {return this->GetTableRange();};
+  virtual void SetRange(float min, float max) {this->SetTableRange(min,max);};
 
 protected:
   int NumberOfColors;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalars.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:38:16 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1999-06-24 00:56:38 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -225,7 +225,7 @@ double vtkScalars::GetDataTypeMax()
     }
 }
 
-int vtkScalars::InitColorTraversal(float alpha, vtkLookupTable *lut,
+int vtkScalars::InitColorTraversal(float alpha, vtkScalarsToColors *lut,
                                    int colorMode)
 {
   int numComp=this->GetNumberOfComponents();
