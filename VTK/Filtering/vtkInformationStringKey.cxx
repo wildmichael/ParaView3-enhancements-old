@@ -16,7 +16,7 @@
 
 #include <vtkstd/string>
 
-vtkCxxRevisionMacro(vtkInformationStringKey, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkInformationStringKey, "$Revision: 1.6 $");
 
 //----------------------------------------------------------------------------
 vtkInformationStringKey::vtkInformationStringKey(const char* name, const char* location):
@@ -78,7 +78,7 @@ int vtkInformationStringKey::Has(vtkInformation* info)
 }
 
 //----------------------------------------------------------------------------
-void vtkInformationStringKey::Copy(vtkInformation* from, vtkInformation* to)
+void vtkInformationStringKey::ShallowCopy(vtkInformation* from, vtkInformation* to)
 {
   this->Set(to, this->Get(from));
 }
