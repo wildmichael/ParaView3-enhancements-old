@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEdgeTable.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-03-20 21:50:38 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1996-05-08 13:51:21 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,6 +49,9 @@ vtkEdgeTable::vtkEdgeTable(int numPoints)
   this->Table = new vtkIdList *[numPoints];
   for (int i=0; i < numPoints; i++) this->Table[i] = NULL;
   this->TableSize = numPoints;
+
+  this->Position[0] = 0;
+  this->Position[1] = -1;
 }
 
 vtkEdgeTable::~vtkEdgeTable()
@@ -117,4 +120,33 @@ void vtkEdgeTable::InsertEdge(int p1, int p2)
     }
 
   this->Table[index]->InsertNextId(search);
+}
+
+// Description:
+// Intialize traversal of edges in table.
+void vtkEdgeTable::InitTraversal()
+{
+  this->Position[0] = 0;
+  this->Position[1] = -1;
+}
+
+// Description:
+// Traverse list of edges in table. Return the edge as (p1,p2), where p1 and p2
+// are point id's. Method return value is zero if list is exhausted; non-zero
+// otherwise. The value of p1 is guaranteed to be <= p2.
+int vtkEdgeTable::GetNextEdge(int &p1, int &p2)
+{
+  for ( ; this->Position[0] < this->TableSize; 
+  this->Position[0]++, this->Position[1]=(-1) )
+    {
+    if ( this->Table[this->Position[0]] != NULL && 
+    ++this->Position[1] < this->Table[this->Position[0]]->GetNumberOfIds() )
+      {
+      p1 = this->Position[0];
+      p2 = this->Position[1];
+      return 1;
+      }
+    }
+
+  return 0;
 }
