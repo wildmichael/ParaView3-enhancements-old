@@ -1,10 +1,10 @@
 /*=========================================================================
 
   Program:   Visualization Toolkit
-  Module:    $$
+  Module:    $RCSfile: vtkExtractEdges.h,v $
   Language:  C++
-  Date:      $$
-  Version:   $$
+  Date:      $Date: 1996-04-26 16:23:22 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
