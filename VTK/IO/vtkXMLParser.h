@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLParser.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-30 19:11:49 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-06-03 13:30:41 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,6 +22,7 @@
 // the StartElement method.  Each element end tag is sent to the
 // EndElement method.  Subclasses should replace these methods to actually
 // use the tags.
+// ToDo: Add commands for parsing in Tcl.
 
 #ifndef __vtkXMLParser_h
 #define __vtkXMLParser_h
