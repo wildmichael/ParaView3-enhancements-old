@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlaneSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-09-03 19:31:42 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1997-11-06 13:10:59 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -304,11 +304,7 @@ void vtkPlaneSource::SetPoint1(float pnt[3])
       }
 
     // set plane normal
-    vtkMath::Cross(v1,v2,this->Normal);
-    if ( vtkMath::Normalize(this->Normal) == 0.0 )
-      {
-      vtkErrorMacro(<<"Bad plane coordinate system");
-      }
+    this->UpdatePlane(v1,v2);
     this->Modified();
     }
 }
@@ -333,11 +329,7 @@ void vtkPlaneSource::SetPoint2(float pnt[3])
       v2[i] = this->Point2[i] - this->Origin[i];
       }
     // set plane normal
-    vtkMath::Cross(v1,v2,this->Normal);
-    if ( vtkMath::Normalize(this->Normal) == 0.0 )
-      {
-      vtkErrorMacro(<<"Bad plane coordinate system");
-      }
+    this->UpdatePlane(v1,v2);
     this->Modified();
     }
 }
@@ -364,11 +356,19 @@ void vtkPlaneSource::Push(float distance)
 {
   if ( distance == 0.0 ) return;
 
-  for ( int i=0; i < 3; i++ )
+  int i;
+  
+  for (i=0; i < 3; i++ )
     {
     this->Origin[i] += distance * this->Normal[i];
     this->Point1[i] += distance * this->Normal[i];
     this->Point2[i] += distance * this->Normal[i];
+    }
+  // set the new center
+  for ( i=0; i < 3; i++ )
+    {
+    this->Center[i] = this->Point1[i] + this->Point2[i] - 
+      2.0*this->Origin[i];
     }
 
   this->Modified();
