@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSetToPointSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:07:15 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 1999-11-10 14:02:08 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -164,8 +164,19 @@ void vtkPointSetToPointSetFilter::InternalUpdate(vtkDataObject *output)
       {
       (*this->EndMethod)(this->EndMethodArg);
       }
+    
+    // Tell the outputs they have valid data.
+    for (idx = 0; idx < this->NumberOfOutputs; ++idx)
+      {
+      ds = (vtkDataSet*)(this->Outputs[idx]);
+      if (ds)
+	{
+	ds->DataHasBeenGenerated();
+	}  
+      }  
     }
 
+  
   // clean up (release data)
   for (idx = 0; idx < this->NumberOfInputs; ++idx)
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObjectToDataSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:06:08 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1999-11-10 14:02:06 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,7 +50,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 
-//------------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 vtkDataObjectToDataSetFilter* vtkDataObjectToDataSetFilter::New()
 {
   // First try to create the object from the vtkObjectFactory
@@ -75,6 +75,9 @@ vtkDataObjectToDataSetFilter::vtkDataObjectToDataSetFilter()
 
   this->DataSetType = VTK_POLY_DATA;
   this->vtkSource::SetOutput(0,vtkPolyData::New());
+  // Releasing data for pipeline parallism.
+  // Filters will know it is empty. 
+  this->Outputs[0]->ReleaseData();
   this->Outputs[0]->Delete();
   
   for (i=0; i < 3; i++)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableDataObjectSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:07:24 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-11-10 14:02:09 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,7 +43,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 
-//------------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 vtkProgrammableDataObjectSource* vtkProgrammableDataObjectSource::New()
 {
   // First try to create the object from the vtkObjectFactory
@@ -66,6 +66,9 @@ vtkProgrammableDataObjectSource::vtkProgrammableDataObjectSource()
   this->ExecuteMethodArg = NULL;
 
   this->vtkSource::SetOutput(0,vtkDataObject::New());
+  // Releasing data for pipeline parallism.
+  // Filters will know it is empty. 
+  this->Outputs[0]->ReleaseData();
   this->Outputs[0]->Delete();
 }
 

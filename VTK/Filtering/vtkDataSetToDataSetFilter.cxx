@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToDataSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:06:14 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 1999-11-10 14:02:08 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -150,6 +150,16 @@ void vtkDataSetToDataSetFilter::InternalUpdate(vtkDataObject *output)
     if ( this->EndMethod )
       {
       (*this->EndMethod)(this->EndMethodArg);
+      }
+  
+    // Tell the outputs they have valid data.
+    for (idx = 0; idx < this->NumberOfOutputs; ++idx)
+      {
+      ds = (vtkDataSet*)(this->Outputs[idx]);
+      if (ds)
+	{
+	ds->DataHasBeenGenerated();
+	}  
       }
     }
 

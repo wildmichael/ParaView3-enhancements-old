@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:06:10 $
-  Version:   $Revision: 1.82 $
+  Date:      $Date: 1999-11-10 14:02:07 $
+  Version:   $Revision: 1.83 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,7 +60,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 
-//------------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 vtkDataReader* vtkDataReader::New()
 {
   // First try to create the object from the vtkObjectFactory

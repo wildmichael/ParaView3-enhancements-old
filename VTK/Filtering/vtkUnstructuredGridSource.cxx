@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:14 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-11-10 14:02:10 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,7 +43,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 
-//------------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 vtkUnstructuredGridSource* vtkUnstructuredGridSource::New()
 {
   // First try to create the object from the vtkObjectFactory
@@ -63,6 +63,9 @@ vtkUnstructuredGridSource* vtkUnstructuredGridSource::New()
 vtkUnstructuredGridSource::vtkUnstructuredGridSource()
 {
   this->vtkSource::SetOutput(0, vtkUnstructuredGrid::New());
+  // Releasing data for pipeline parallism.
+  // Filters will know it is empty. 
+  this->Outputs[0]->ReleaseData();
   this->Outputs[0]->Delete();
 }
 

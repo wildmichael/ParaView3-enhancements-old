@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:07:54 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1999-11-10 14:02:09 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,7 +43,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 
-//------------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 vtkStructuredGridSource* vtkStructuredGridSource::New()
 {
   // First try to create the object from the vtkObjectFactory
@@ -63,6 +63,9 @@ vtkStructuredGridSource* vtkStructuredGridSource::New()
 vtkStructuredGridSource::vtkStructuredGridSource()
 {
   this->vtkSource::SetOutput(0, vtkStructuredGrid::New());
+  // Releasing data for pipeline parallism.
+  // Filters will know it is empty. 
+  this->Outputs[0]->ReleaseData();
   this->Outputs[0]->Delete();
   this->ExecuteExtent[0] = this->ExecuteExtent[2] = this->ExecuteExtent[4] = 0;
   this->ExecuteExtent[1] = this->ExecuteExtent[3] = this->ExecuteExtent[5] = 0;
