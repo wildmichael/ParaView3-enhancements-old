@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 20:35:28 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1998-08-17 12:03:33 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -334,7 +334,6 @@ void vtkXImageWindow::EraseWindow()
     XGCValues vals;
     XGetGCValues(this->DisplayId, this->Gc, GCForeground, &vals);
     unsigned long oldForeground = vals.foreground;
-    unsigned long background = vals.background;
 
     // Set the foreground color to the background so the rectangle
     // matches the background color
