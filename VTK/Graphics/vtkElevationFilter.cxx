@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkElevationFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-04 14:25:20 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2002-01-14 13:55:11 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,7 +44,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkElevationFilter, "$Revision: 1.47 $");
+vtkCxxRevisionMacro(vtkElevationFilter, "$Revision: 1.48 $");
 vtkStandardNewMacro(vtkElevationFilter);
 
 // Construct object with LowPoint=(0,0,0) and HighPoint=(0,0,1). Scalar
@@ -132,7 +132,7 @@ void vtkElevationFilter::Execute()
 
   // Update self
   //
-  this->GetOutput()->GetPointData()->CopyScalarsOff();
+  this->GetInput()->GetPointData()->CopyScalarsOff();
   this->GetOutput()->GetPointData()->PassData(input->GetPointData());
 
   this->GetOutput()->GetCellData()->PassData(input->GetCellData());
