@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourGrid.h,v $
   Language:  C++
-  Date:      $Date: 2000-06-28 08:18:41 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-06-28 09:46:32 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -80,6 +80,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkContourValues.h"
 
 class vtkScalarTree;
+class vtkEdgeTable;
 
 class VTK_EXPORT vtkContourGrid : public vtkDataSetToPolyDataFilter
 {
