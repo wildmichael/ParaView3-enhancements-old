@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTclUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-04 16:53:59 $
-  Version:   $Revision: 1.79 $
+  Date:      $Date: 2003-09-23 14:59:35 $
+  Version:   $Revision: 1.80 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -139,7 +139,7 @@ VTKTCL_EXPORT void vtkTclGenericDeleteObject(ClientData cd)
     }
 }
 
-int vtkCommand(ClientData vtkNotUsed(cd), Tcl_Interp *interp, int argc, char *argv[])
+int vtkCreateCommand(ClientData vtkNotUsed(cd), Tcl_Interp *interp, int argc, char *argv[])
 {
   Tcl_HashEntry *entry;
   Tcl_HashSearch search;
