@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkGlyph3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-07-15 13:18:40 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-07-19 08:05:01 $
+  Version:   $Revision: 1.7 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -227,7 +227,7 @@ void vlGlyph3D::Execute()
     if ( scaleSource )
       {
       scale *= this->ScaleFactor;
-      if ( scale == 0,0 ) scale = 1.0e-10;
+      if ( scale == 0.0 ) scale = 1.0e-10;
       trans.Scale(scale,scale,scale);
       }
 
