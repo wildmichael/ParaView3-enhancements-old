@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkScalars.h,v $
   Language:  C++
-  Date:      $Date: 1995-01-11 15:19:32 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1995-01-23 21:15:19 $
+  Version:   $Revision: 1.20 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -81,10 +81,10 @@ public:
   virtual void Squeeze() = 0;
 
   // Description:
-  // Get data as pointer to unsigned char. Used for high performance texture
-  // and color manipulation. Not supported for all scalar types: check for
-  // NULL return value. 
-  virtual unsigned char *GetUCharPtr() {return NULL;};
+  // Get data as pointer to unsigned char at specified location.  Used for 
+  // high performance texture and color manipulation. Not supported for 
+  // all scalar types: check for NULL return value. 
+  virtual unsigned char *GetPtr(const int id) {return NULL;};
 
   void GetScalars(vlIdList& ptId, vlFloatScalars& fs);
   virtual void ComputeRange();
