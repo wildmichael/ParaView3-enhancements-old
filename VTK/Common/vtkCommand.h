@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCommand.h,v $
   Language:  C++
-  Date:      $Date: 2000-10-20 17:39:36 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-10-20 20:22:25 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -55,6 +55,7 @@ class vtkObject;
 class vtkCommand
 {
 public:
+  virtual ~vtkCommand() {};
   void Delete() {delete this;};
   virtual void Execute(vtkObject *caller, void *callData) = 0;
 
