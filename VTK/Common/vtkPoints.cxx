@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-12 21:22:41 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1994-09-14 14:55:00 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -21,6 +21,12 @@ vlPoints::vlPoints()
 {
   this->Bounds[0] = this->Bounds[2] = this->Bounds[4] = 0.0;
   this->Bounds[1] = this->Bounds[3] = this->Bounds[5] = 1.0;
+}
+
+void vlPoints::GetPoint(int id, float x[3])
+{
+  float *xp = this->GetPoint(id);
+  for (int i=0; i<3; i++) x[i] = xp[i];
 }
 
 // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-12 21:22:55 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1994-09-14 14:55:03 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -16,6 +16,12 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #include "TCoords.hh"
 #include "IdList.hh"
 #include "FTCoords.hh"
+
+void vlTCoords::GetTCoord(int id, float tc[3])
+{
+  float *tcp = this->GetTCoord(id);
+  for (int i=0; i<this->Dimension; i++) tc[i] = tcp[i];
+}
 
 // Description:
 // Construct object whose texture coordinates are of specified dimension.

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkVectors.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-12 21:22:57 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1994-09-14 14:55:06 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -21,6 +21,12 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 vlVectors::vlVectors()
 {
   this->MaxNorm = 0.0;
+}
+
+void vlVectors::GetVector(int id, float v[3])
+{
+  float *vp = this->GetVector(id);
+  for (int i=0; i<3; i++) v[i] = vp[i];
 }
 
 // Description:

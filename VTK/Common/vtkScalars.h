@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkScalars.h,v $
   Language:  C++
-  Date:      $Date: 1994-09-12 21:22:49 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1994-09-14 14:55:02 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -46,16 +46,16 @@ public:
 
   // Description:
   // Return a float scalar value for a particular point id.
-  virtual float GetScalar(int i) = 0;
+  virtual float GetScalar(int id) = 0;
 
   // Description:
   // Insert scalar into array. No range checking performed (fast!).
-  virtual void SetScalar(int i, float s) = 0;
+  virtual void SetScalar(int id, float s) = 0;
 
   // Description:
   // Insert scalar into array. Range checking performed and memory
   // allocated as necessary.
-  virtual void InsertScalar(int i, float s) = 0;
+  virtual void InsertScalar(int id, float s) = 0;
 
   // Description:
   // Insert scalar into next available slot. Returns point id of slot.

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkNormals.h,v $
   Language:  C++
-  Date:      $Date: 1994-09-12 21:22:38 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1994-09-14 14:54:59 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -47,16 +47,21 @@ public:
 
   // Description:
   // Return a float normal n[3] for a particular point id.
-  virtual float *GetNormal(int i) = 0;
+  virtual float *GetNormal(int id) = 0;
+
+  // Description:
+  // Copy normal components into user provided array n[3] for specified
+  // point id.
+  virtual void GetNormal(int id, float n[3]);
 
   // Description:
   // Insert normal into object. No range checking performed (fast!).
-  virtual void SetNormal(int i,float n[3]) = 0;
+  virtual void SetNormal(int id, float n[3]) = 0;
 
   // Description:
   // Insert normal into object. Range checking performed and memory
   // allocated as necessary.
-  virtual void InsertNormal(int i, float n[3]) = 0;
+  virtual void InsertNormal(int id, float n[3]) = 0;
 
   // Description:
   // Insert normal into next available slot. Returns point id of slot.
