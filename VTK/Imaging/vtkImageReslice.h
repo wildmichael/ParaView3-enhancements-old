@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReslice.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-25 20:16:18 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-10-02 21:10:10 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -88,7 +88,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define VTK_RESLICE_LINEAR 1
 #define VTK_RESLICE_CUBIC 3
 
-class VTK_EXPORT vtkImageReslice : public vtkImageToImageFilter
+class VTK_IMAGING_EXPORT vtkImageReslice : public vtkImageToImageFilter
 {
 public:
   static vtkImageReslice *New();

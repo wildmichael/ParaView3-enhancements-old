@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSampleFunction.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:01:25 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2001-10-02 21:10:24 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,7 +57,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkStructuredPointsSource.h"
 #include "vtkImplicitFunction.h"
 
-class VTK_EXPORT vtkSampleFunction : public vtkStructuredPointsSource
+class VTK_IMAGING_EXPORT vtkSampleFunction : public vtkStructuredPointsSource
 {
 public:
   vtkTypeMacro(vtkSampleFunction,vtkStructuredPointsSource);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitFunctionToImageStencil.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:52 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-10-02 21:10:23 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -54,7 +54,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkImageStencilSource.h"
 #include "vtkImplicitFunction.h"
 
-class VTK_EXPORT vtkImplicitFunctionToImageStencil 
+class VTK_IMAGING_EXPORT vtkImplicitFunctionToImageStencil 
   : public vtkImageStencilSource
 {
 public:

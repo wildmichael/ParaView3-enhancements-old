@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToImageStencil.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-28 02:24:30 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-10-02 21:10:20 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -54,7 +54,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkImageStencilSource.h"
 #include "vtkImageData.h"
 
-class VTK_EXPORT vtkImageToImageStencil : public vtkImageStencilSource
+class VTK_IMAGING_EXPORT vtkImageToImageStencil : public vtkImageStencilSource
 {
 public:
   static vtkImageToImageStencil *New();

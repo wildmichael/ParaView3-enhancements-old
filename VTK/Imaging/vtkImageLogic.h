@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageLogic.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:51 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-10-02 21:09:59 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -63,7 +63,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkImageTwoInputFilter.h"
 
-class VTK_EXPORT vtkImageLogic : public vtkImageTwoInputFilter
+class VTK_IMAGING_EXPORT vtkImageLogic : public vtkImageTwoInputFilter
 {
 public:
   static vtkImageLogic *New();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageBlend.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:51 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-10-02 21:09:40 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to David G. Gobbi and Sebastien Barre who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -96,7 +96,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define VTK_IMAGE_BLEND_MODE_NORMAL    0
 #define VTK_IMAGE_BLEND_MODE_COMPOUND 1
 
-class VTK_EXPORT vtkImageBlend : public vtkImageMultipleInputFilter
+class VTK_IMAGING_EXPORT vtkImageBlend : public vtkImageMultipleInputFilter
 {
 public:
   static vtkImageBlend *New();

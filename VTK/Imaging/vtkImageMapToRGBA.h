@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapToRGBA.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:51 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-10-02 21:10:01 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -53,7 +53,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkImageMapToColors.h"
 
-class VTK_EXPORT vtkImageMapToRGBA : public vtkImageMapToColors
+class VTK_IMAGING_EXPORT vtkImageMapToRGBA : public vtkImageMapToColors
 {
 public:
   static vtkImageMapToRGBA *New();

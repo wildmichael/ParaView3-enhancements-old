@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCheckerboard.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-09 00:13:52 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-10-02 21:09:43 $
+  Version:   $Revision: 1.2 $
   Thanks:    This work was supported by PHS Research Grant No. 1 P41 RR13218-01
              from the National Center for Research Resources
 
@@ -53,7 +53,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkImageTwoInputFilter.h"
 
-class VTK_EXPORT vtkImageCheckerboard : public vtkImageTwoInputFilter
+class VTK_IMAGING_EXPORT vtkImageCheckerboard : public vtkImageTwoInputFilter
 {
 public:
   static vtkImageCheckerboard *New();

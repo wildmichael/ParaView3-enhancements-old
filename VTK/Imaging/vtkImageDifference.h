@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDifference.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:51 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2001-10-02 21:09:49 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -51,7 +51,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkImageTwoInputFilter.h"
 
-class VTK_EXPORT vtkImageDifference : public vtkImageTwoInputFilter
+class VTK_IMAGING_EXPORT vtkImageDifference : public vtkImageTwoInputFilter
 {
 public:
   static vtkImageDifference *New();

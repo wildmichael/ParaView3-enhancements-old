@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFourierCenter.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:51 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-10-02 21:09:53 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -53,7 +53,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkImageDecomposeFilter.h"
 
-class VTK_EXPORT vtkImageFourierCenter : public vtkImageDecomposeFilter
+class VTK_IMAGING_EXPORT vtkImageFourierCenter : public vtkImageDecomposeFilter
 {
 public:
   static vtkImageFourierCenter *New();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageClip.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:51 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2001-10-02 21:09:44 $
+  Version:   $Revision: 1.31 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -56,7 +56,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // to the data.
 #include "vtkImageToImageFilter.h"
 
-class VTK_EXPORT vtkImageClip : public vtkImageToImageFilter
+class VTK_IMAGING_EXPORT vtkImageClip : public vtkImageToImageFilter
 {
 public:
   static vtkImageClip *New();

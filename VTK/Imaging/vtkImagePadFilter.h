@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePadFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:52 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2001-10-02 21:10:05 $
+  Version:   $Revision: 1.29 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -52,7 +52,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkImageToImageFilter.h"
 
-class VTK_EXPORT vtkImagePadFilter : public vtkImageToImageFilter
+class VTK_IMAGING_EXPORT vtkImagePadFilter : public vtkImageToImageFilter
 {
 public:
   static vtkImagePadFilter *New();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapToColors.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:51 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-10-02 21:10:00 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,7 +57,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkImageToImageFilter.h"
 #include "vtkScalarsToColors.h"
 
-class VTK_EXPORT vtkImageMapToColors : public vtkImageToImageFilter
+class VTK_IMAGING_EXPORT vtkImageMapToColors : public vtkImageToImageFilter
 {
 public:
   static vtkImageMapToColors *New();
