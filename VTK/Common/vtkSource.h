@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSource.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-18 19:03:26 $
-  Version:   $Revision: 1.68 $
+  Date:      $Date: 2002-11-25 14:12:28 $
+  Version:   $Revision: 1.69 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -119,15 +119,6 @@ public:
   // does not match any of the outputs
   int GetOutputIndex(vtkDataObject *out);
   
-  // Description:
-  // Legacy method.  This method was used by inmaging filters to change the 
-  // UpdateExtent of their input so that the vtkImmageToImageFilter superclass
-  // would allocate a larger volume.  Changing the UpdateExtent of your input is 
-  // no longer allowed.  The alternative method is to write your own "Execute()" 
-  // method and allocate your own data.
-  virtual void EnlargeOutputUpdateExtents(vtkDataObject *output);
-  int LegacyHack;
-
   // Description:
   // The reader should set this code at the end of the update.
   // The error code contains a possible error that occured while
