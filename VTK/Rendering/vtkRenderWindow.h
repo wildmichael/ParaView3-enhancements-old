@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-08 14:39:39 $
-  Version:   $Revision: 1.115 $
+  Date:      $Date: 2002-01-08 16:47:29 $
+  Version:   $Revision: 1.116 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -300,7 +300,7 @@ public:
   // Description:
   // Are we rendering at the moment 
   virtual int CheckInRenderStatus() { return this->InRender; }
-  virtual int ClearInRenderStatus() { this->InRender = 0; }
+  virtual int ClearInRenderStatus() { return (this->InRender = 0); }
 
   // Description:
   // Specify a function to be called to check and see if an abort
