@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangle.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-01-09 21:47:53 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1996-01-31 09:27:55 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -325,9 +325,12 @@ int vtkTriangle::IntersectWithLine(float p1[3], float p2[3], float tol,
 //
 // Evaluate position
 //
-  if ( this->EvaluatePosition(x, closestPoint, subId, pcoords, dist2, weights) )
+  if (this->EvaluatePosition(x, closestPoint, subId, pcoords, dist2, weights)
+      >= 0)
+    {
     if ( dist2 <= tol2 ) return 1;
-
+    }
+  
   return 0;
 }
 
