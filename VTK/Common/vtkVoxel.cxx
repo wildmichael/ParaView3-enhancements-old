@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxel.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-02-06 03:25:50 $
-  Version:   $Revision: 1.78 $
+  Date:      $Date: 2003-06-18 10:52:46 $
+  Version:   $Revision: 1.79 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,8 +26,9 @@
 #include "vtkPointData.h"
 #include "vtkPointLocator.h"
 #include "vtkPoints.h"
+#include "vtkBox.h"
 
-vtkCxxRevisionMacro(vtkVoxel, "$Revision: 1.78 $");
+vtkCxxRevisionMacro(vtkVoxel, "$Revision: 1.79 $");
 vtkStandardNewMacro(vtkVoxel);
 
 // Construct the voxel with eight points.
@@ -413,7 +414,7 @@ int vtkVoxel::IntersectWithLine(float p1[3], float p2[3], float vtkNotUsed(tol),
     bounds[2*i+1] = maxPt[i];
     }
 
-  if ( ! vtkCell::HitBBox(bounds, p1, p21, x, t) )
+  if ( ! vtkBox::IntersectBox(bounds, p1, p21, x, t) )
     {
     return 0;
     }
