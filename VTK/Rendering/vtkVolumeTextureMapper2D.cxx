@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeTextureMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-03 15:21:01 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-09-03 16:17:19 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -397,7 +397,7 @@ VolumeTextureMapper2D_YMajorDirection( T *data_ptr,
   v[5] = origin[2];
 
   v[6] = spacing[0] * size[0] + origin[0];
-  v[8] = spacing[2] * size[2] + origin[1];
+  v[8] = spacing[2] * size[2] + origin[2];
 
   v[9] = origin[0];
   v[11] = spacing[2] * size[2] + origin[2];
