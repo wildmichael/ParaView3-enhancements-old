@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-09 16:44:50 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-10-28 12:40:27 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -95,7 +95,7 @@ void vtkBYUReader::ReadGeometryFile(FILE *geomFile, int &numPts)
   vtkCellArray *newPolys;
   float x[3];
   vtkIdList pts(VTK_CELL_SIZE);
-  int id, polyId, pt;
+  int polyId, pt;
   vtkPolyData *output = this->GetOutput();
   
   //
