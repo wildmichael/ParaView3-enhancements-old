@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp3D.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:07:00 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2001-08-15 20:39:15 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -236,11 +236,16 @@ public:
   // the documentation for vtkProp.
   void InitPathTraversal();
 
+  
+  // Description:
+  // Generate the matrix based on ivars
+  virtual void ComputeMatrix();
+
   // Description:
   // Get a pointer to an internal vtkMatrix4x4. that represents
   vtkMatrix4x4 *GetMatrix() 
     { 
-      this->GetMatrix(this->Matrix);
+      this->ComputeMatrix();
       return this->Matrix; 
     }
 
