@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindowToImageFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-11 20:09:18 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-01-14 14:50:48 $
+  Version:   $Revision: 1.5 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -45,7 +45,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkRenderWindow.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkWindowToImageFilter, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkWindowToImageFilter, "$Revision: 1.5 $");
 vtkStandardNewMacro(vtkWindowToImageFilter);
 
 //----------------------------------------------------------------------------
@@ -170,18 +170,26 @@ void vtkWindowToImageFilter::ExecuteData(vtkDataObject *vtkNotUsed(data))
   // for each renderer
   viewAngles = new float [numRenderers];
   windowCenters = new double [numRenderers*2];
+  double *parallelScale = new double [numRenderers];
   rc->InitTraversal();
   for (i = 0; i < numRenderers; ++i)
     {
     aren = rc->GetNextItem();
-    // store the old view angle & set the new
     cam = aren->GetActiveCamera();
     cam->GetWindowCenter(windowCenters+i*2);
     viewAngles[i] = cam->GetViewAngle();
+    parallelScale[i] = cam->GetParallelScale();
+    }
+  // these two loops are on purpose
+  rc->InitTraversal();
+  for (i = 0; i < numRenderers; ++i)
+    {
+    aren = rc->GetNextItem();
+    cam = aren->GetActiveCamera();
     cam->SetViewAngle(asin(sin(viewAngles[i]*3.1415926/360.0)/
                            this->Magnification) 
                       * 360.0 / 3.1415926);
-    cam->SetParallelScale(cam->GetParallelScale()/this->Magnification);
+    cam->SetParallelScale(parallelScale[i]/this->Magnification);
     }
   
   // render each of the tiles required to fill this request
@@ -274,10 +282,11 @@ void vtkWindowToImageFilter::ExecuteData(vtkDataObject *vtkNotUsed(data))
     cam = aren->GetActiveCamera();
     cam->SetWindowCenter(windowCenters[i*2],windowCenters[i*2+1]);
     cam->SetViewAngle(viewAngles[i]);
-    cam->SetParallelScale(cam->GetParallelScale()*this->Magnification);
+    cam->SetParallelScale(parallelScale[i]*this->Magnification);
     }
   delete [] viewAngles;
   delete [] windowCenters;
+  delete [] parallelScale;
   
   // render each of the tiles required to fill this request
   this->Input->SetTileScale(1);
