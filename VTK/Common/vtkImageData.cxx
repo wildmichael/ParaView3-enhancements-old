@@ -3,8 +3,8 @@
 
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-12-22 14:57:45 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1997-12-23 20:26:39 $
+  Version:   $Revision: 1.35 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -250,7 +250,10 @@ void *vtkImageData::GetScalarPointer(int coordinates[3])
       {
       vtkErrorMacro(<< "GetScalarPointer: Pixel (" << coordinates[0] << ", " 
       << coordinates[1] << ", "
-      << coordinates[2] << ") not in memory.");
+      << coordinates[2] << ") not in memory.\n Current extent= ("
+      << this->Extent[0] << ", " << this->Extent[1] << ", "
+      << this->Extent[2] << ", " << this->Extent[3] << ", "
+      << this->Extent[4] << ", " << this->Extent[5] << ")");
       return NULL;
       }
     }
