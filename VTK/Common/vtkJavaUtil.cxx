@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJavaUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:12 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2000-07-10 13:26:10 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -479,6 +479,31 @@ JNIEXPORT jarray vtkJavaMakeJArrayOfIntFromInt(JNIEnv *env, int *ptr, int size)
     }
   
   env->ReleaseIntArrayElements(ret,array,0);
+  return ret;
+}
+
+JNIEXPORT jarray vtkJavaMakeJArrayOfByteFromUnsignedChar(JNIEnv *env, unsigned char *ptr, int size)
+{
+  jbyteArray ret;
+  int i;
+  jbyte *array;
+
+  ret = env->NewByteArray(size);
+  if (ret == 0)
+    {
+    // should throw an exception here
+    return 0;
+    }
+
+  array = env->GetByteArrayElements(ret,NULL);
+
+  // copy the data
+  for (i = 0; i < size; i++)
+    {
+    array[i] = ptr[i];
+    }
+  
+  env->ReleaseByteArrayElements(ret,array,0);
   return ret;
 }
 
