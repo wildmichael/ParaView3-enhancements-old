@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLTexture.h,v $
   Language:  C++
-  Date:      $Date: 1999-03-01 19:42:27 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-05-03 01:15:12 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,7 +68,10 @@ public:
   // resources to release.
   void ReleaseGraphicsResources(vtkWindow *);
 
- protected:
+protected:
+  unsigned char *ResampleToPowerOfTwo(int &xsize, int &ysize, 
+                                      unsigned char *dptr, int bpp);
+
   vtkTimeStamp   LoadTime;
   long          Index;
   static   long GlobalIndex;
