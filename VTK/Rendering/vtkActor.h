@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.h,v $
   Language:  C++
-  Date:      $Date: 1996-01-15 09:26:55 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1996-01-20 12:28:25 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,6 +61,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkTexture.hh"
 #include "vtkMapper.hh"
 #include "vtkTransform.hh"
+#include "vtkActorCollection.hh"
 
 class vtkRenderer;
 class vtkActorDevice;
@@ -159,10 +160,20 @@ class vtkActor : public vtkObject
   vtkGetMacro(Dragable,int);
   vtkBooleanMacro(Dragable,int);
 
+  // Description:
+  // Subclasses of vtkActor can be composed of one or more parts. A part is an
+  // actor or subclass of actor(e.g., assembly). To support this, we return a
+  // list of all parts that compose this actor. (This differs from the
+  // vtkAssembly::GetParts() method, which returns a list of the parts that
+  // form the first level of a hierarchy of actors.)
+  virtual vtkActorCollection *GetComposingParts();
+  virtual void AddComposingParts(vtkActorCollection &);
+
   vtkMatrix4x4& GetMatrix();
   virtual void GetMatrix(vtkMatrix4x4& m);
 
-  float *GetBounds();
+  virtual float *GetBounds();
+  void GetBounds(float bounds[6]);
   float *GetCenter();
   float *GetXRange();
   float *GetYRange();
@@ -196,6 +207,12 @@ protected:
   int SelfCreatedProperty;
   float Center[3];
   vtkActorDevice *Device;
+  vtkActorCollection ComposingParts;
+};
+
+inline vtkActorCollection *vtkActor::GetComposingParts() 
+{
+  return &(this->ComposingParts);
 };
 
 #endif

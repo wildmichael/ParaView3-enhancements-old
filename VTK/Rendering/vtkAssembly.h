@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssembly.h,v $
   Language:  C++
-  Date:      $Date: 1996-01-15 09:27:04 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1996-01-20 12:28:29 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -76,7 +76,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkAssembly_h
 
 #include "vtkActor.hh"
-#include "vtkActorCollection.hh"
 
 class vtkAssembly : public vtkActor
 {
@@ -113,12 +112,16 @@ public:
   virtual void ApplyTransformation();
   virtual void ApplyProperties();
 
+  vtkActorCollection *GetComposingParts();
+  float *GetBounds();
+
 protected:
   vtkActorCollection Parts;
   int ApplyTransform;
   int ApplyProperty;
   vtkTimeStamp RenderTime;
 
+  void AddComposingParts(vtkActorCollection &);
 };
 
 // Description:
