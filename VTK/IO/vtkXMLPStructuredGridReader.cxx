@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLPStructuredGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-22 20:48:59 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-11-22 20:52:59 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,14 +17,13 @@
 =========================================================================*/
 #include "vtkXMLPStructuredGridReader.h"
 
-#include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 #include "vtkPoints.h"
 #include "vtkStructuredGrid.h"
 #include "vtkXMLDataElement.h"
 #include "vtkXMLStructuredGridReader.h"
 
-vtkCxxRevisionMacro(vtkXMLPStructuredGridReader, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkXMLPStructuredGridReader, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkXMLPStructuredGridReader);
 
 //----------------------------------------------------------------------------
