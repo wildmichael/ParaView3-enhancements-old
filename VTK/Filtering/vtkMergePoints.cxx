@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergePoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-08-19 13:19:25 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1998-07-29 11:21:35 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,77 +39,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkMergePoints.h"
-
-// Description:
-// Merge points together if they are exactly coincident. Return a list 
-// that maps unmerged point ids into new point ids. User is responsible 
-// for freeing list (use delete []). Make sure you've provided a dataset
-// before invoking this method.
-int *vtkMergePoints::MergePoints()
-{
-  int ptId, i, j;
-  int numPts;
-  int *index;
-  int newPtId;
-  float *pt, *p;
-  int ijk[3];
-  int cno;
-  vtkIdList *ptIds;
-
-  vtkDebugMacro(<<"Merging points");
-
-  if ( this->DataSet == NULL || 
-  (numPts=this->DataSet->GetNumberOfPoints()) < 1 ) return NULL;
-
-  this->BuildLocator(); // subdivides if necessary
-
-  index = new int[numPts];
-  for (i=0; i < numPts; i++) index[i] = -1;
-
-  newPtId = 0; // renumbering points
-//
-//  Traverse each point, find bucket that point is in, check the list of
-//  points in that bucket for merging.  Also need to search all
-//  neighboring buckets within the tolerance.  The number and level of
-//  neighbors to search depends upon the tolerance and the bucket width.
-//
-  for ( i=0; i < numPts; i++ ) //loop over all points
-    {
-    // Only try to merge the point if it hasn't yet been merged.
-    if ( index[i] == -1 ) 
-      {
-      p = this->DataSet->GetPoint(i);
-      index[i] = newPtId;
-
-      for (j=0; j<3; j++)
-	{
-        ijk[j] = (int) ((float)((p[j] - this->Bounds[2*j]) / 
-              (this->Bounds[2*j+1] - this->Bounds[2*j])) * (this->Divisions[j] - 1));
-	}
-
-      cno = ijk[0] + ijk[1]*this->Divisions[0] + 
-            ijk[2]*this->Divisions[0]*this->Divisions[1];
-
-      if ( (ptIds = this->HashTable[cno]) != NULL )
-        {
-        for (j=0; j < ptIds->GetNumberOfIds(); j++) 
-          {
-          ptId = ptIds->GetId(j);
-          pt = this->DataSet->GetPoint(ptId);
-
-          if ( index[ptId] == -1 && pt[0] == p[0] && pt[1] == p[1]
-          && pt[2] == p[2] )
-            {
-            index[ptId] = newPtId;
-            }
-          }
-        }
-      newPtId++;
-      } // if point hasn't been merged
-    } // for all points
-
-  return index;
-}
 
 // Description:
 // Determine whether point given by x[3] has been inserted into points list.
