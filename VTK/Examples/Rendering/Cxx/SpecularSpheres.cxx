@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: SpecularSpheres.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-26 01:57:47 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-11-26 02:38:44 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -148,7 +148,7 @@ int main(int argc, char *argv[])
   //
   vtkLight *light = vtkLight::New();
   light->SetFocalPoint(1.875,0.6125,0);
-  light->SetPosition(-0.875,1.6125,1);
+  light->SetPosition(0.875,1.6125,1);
   ren1->AddLight(light);
 
   // We want to eliminate perspective effects on the apparent lighting.
