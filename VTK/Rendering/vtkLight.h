@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLight.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-15 17:17:47 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-09-12 07:56:44 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,9 +42,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .SECTION Description
 // vtkLight is a virtual light for 3D rendering. It provides methods to locate
 // and point the light, turn it on and off, and set its brightness and color.
-// In addition to the basic infinite distance point light source atrributes,
+// In addition to the basic infinite distance point light source attributes,
 // you can also specify the light attenuation values and cone angle.
-// These attrributes are only used if the light is a positional light.
+// These attributes are only used if the light is a positional light.
 // The default is a directional light (e.g. infinite point light source)
 
 // .SECTION see also
