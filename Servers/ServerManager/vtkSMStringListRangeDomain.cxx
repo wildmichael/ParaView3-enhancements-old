@@ -22,7 +22,7 @@
 #include "vtkSMStringVectorProperty.h"
 
 vtkStandardNewMacro(vtkSMStringListRangeDomain);
-vtkCxxRevisionMacro(vtkSMStringListRangeDomain, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkSMStringListRangeDomain, "$Revision: 1.5 $");
 
 //---------------------------------------------------------------------------
 vtkSMStringListRangeDomain::vtkSMStringListRangeDomain()
@@ -82,7 +82,7 @@ int vtkSMStringListRangeDomain::IsInDomain(vtkSMProperty* property)
         }
       }
     }
-  return 0;
+  return 1;
 }
 
 //---------------------------------------------------------------------------
