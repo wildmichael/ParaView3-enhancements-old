@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:34:05 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-08-31 21:25:09 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -199,7 +199,6 @@ void vtkMarchingCubes::Execute()
   vtkPolyData *output = this->GetOutput();
   
   vtkDebugMacro(<< "Executing marching cubes");
-  output->Initialize();
 //
 // Initialize and check input
 //

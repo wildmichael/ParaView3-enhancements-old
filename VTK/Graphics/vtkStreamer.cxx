@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamer.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 16:40:28 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1995-08-31 21:23:45 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -180,7 +180,7 @@ void vtkStreamer::Update()
   // make sure input is available
   if ( this->Input == NULL )
     {
-    vtkErrorMacro(<< "No input!");
+    vtkErrorMacro(<< "No input...can't execute!");
     return;
     }
 
@@ -197,6 +197,7 @@ void vtkStreamer::Update()
   this->GetMTime() > this->ExecuteTime || this->GetDataReleased() )
     {
     if ( this->StartMethod ) (*this->StartMethod)(this->StartMethodArg);
+    this->Output->Initialize(); //clear output
     this->Execute();
     this->ExecuteTime.Modified();
     this->SetDataReleased(0);
@@ -230,7 +231,6 @@ void vtkStreamer::Integrate()
   cellScalars.ReferenceCountingOff();
   
   vtkDebugMacro(<<"Generating streamers");
-  this->Output->Initialize();
   this->NumberOfStreamers = 0;
 
   if ( ! (inVectors=pd->GetVectors()) )

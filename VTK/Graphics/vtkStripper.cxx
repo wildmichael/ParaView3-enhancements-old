@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStripper.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:33:42 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1995-08-31 21:24:03 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,7 +67,6 @@ void vtkStripper::Execute()
 
   vtkDebugMacro(<<"Executing triangle strip filter");
 
-  output->Initialize();
 
   // build cell structure.  Only operate with polygons and triangle strips.
   Mesh.SetPoints(input->GetPoints());

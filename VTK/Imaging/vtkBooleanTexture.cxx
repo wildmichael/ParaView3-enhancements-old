@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBooleanTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:32:59 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-08-31 21:22:15 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,8 +65,6 @@ void vtkBooleanTexture::Execute()
   int midILower, midJLower, midIUpper, midJUpper;
   vtkStructuredPoints *output = this->GetOutput();
   
-  output->Initialize();
-
   if ( (numPts = this->XSize * this->YSize) < 1 )
     {
     vtkErrorMacro(<<"Bad texture (xsize,ysize) specification!");

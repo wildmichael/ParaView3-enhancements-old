@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearExtrusionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:33:20 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1995-08-31 21:23:10 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -109,7 +109,6 @@ void vtkLinearExtrusionFilter::Execute()
   // Initialize / check input
   //
   vtkDebugMacro(<<"Linearly extruding data");
-  output->Initialize();
 
   if ( (numPts=input->GetNumberOfPoints()) < 1 || 
   (numCells=input->GetNumberOfCells()) < 1 )

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLOT3DReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:34:01 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-08-31 21:25:00 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -99,7 +99,6 @@ void vtkPLOT3DReader::Execute()
   //
   // Initialize output and read geometry
   //
-  output->Initialize();
 
   if ( this->XYZFilename == NULL )
     {

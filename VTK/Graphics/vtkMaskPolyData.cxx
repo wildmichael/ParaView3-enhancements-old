@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMaskPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:33:21 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-08-31 21:23:15 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,7 +66,6 @@ void vtkMaskPolyData::Execute()
   //
   // Check input / pass data through
   //
-  output->Initialize();
 
   inVerts = input->GetVerts();
   numVerts = inVerts->GetNumberOfCells();

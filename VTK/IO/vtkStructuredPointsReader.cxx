@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:33:52 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1995-08-31 21:24:36 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -153,7 +153,6 @@ void vtkStructuredPointsReader::Execute()
   
 
   vtkDebugMacro(<<"Reading vtk structured points file...");
-  output->Initialize();
   if ( this->Debug ) this->Reader.DebugOn();
   else this->Reader.DebugOff();
 

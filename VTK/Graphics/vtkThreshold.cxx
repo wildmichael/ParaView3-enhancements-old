@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreshold.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:33:46 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1995-08-31 21:24:15 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -102,7 +102,6 @@ void vtkThreshold::Execute()
   vtkUnstructuredGrid *output=(vtkUnstructuredGrid *)this->Output;
 
   vtkDebugMacro(<< "Executing threshold filter");
-  output->Initialize();
 
   if ( ! (inScalars = this->Input->GetPointData()->GetScalars()) )
     {

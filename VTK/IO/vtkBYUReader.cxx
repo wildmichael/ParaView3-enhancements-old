@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:33:54 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1995-08-31 21:24:42 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,10 +70,6 @@ void vtkBYUReader::Execute()
 {
   FILE *geomFp;
   int numPts;
-//
-// Initialize
-//
-  this->Output->Initialize();
 
   if ((geomFp = fopen(this->GeometryFilename, "r")) == NULL)
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWriter.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:39:06 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1995-08-31 21:21:28 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,7 +57,6 @@ class vtkWriter : public vtkObject
 {
 public:
   vtkWriter();
-  ~vtkWriter() {};
   char *GetClassName() {return "vtkWriter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

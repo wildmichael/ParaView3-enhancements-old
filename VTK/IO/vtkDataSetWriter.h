@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetWriter.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:35:46 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-08-31 21:21:30 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,7 +52,6 @@ class vtkDataSetWriter : public vtkDataWriter
 {
 public:
   vtkDataSetWriter() {};
-  ~vtkDataSetWriter() {};
   char *GetClassName() {return "vtkDataSetWriter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTensorGlyph.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 16:40:28 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-08-31 21:24:10 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -94,7 +94,6 @@ void vtkTensorGlyph::Execute()
   v[0] = v0; v[1] = v1; v[2] = v2; 
 
   vtkDebugMacro(<<"Generating tensor glyphs");
-  output->Initialize();
 
   pd = this->Input->GetPointData();
   outPD = output->GetPointData();
@@ -298,7 +297,7 @@ void vtkTensorGlyph::Update()
   // make sure input is available
   if ( this->Input == NULL || this->Source == NULL )
     {
-    vtkErrorMacro(<< "No input!");
+    vtkErrorMacro(<< "No input...can't execute!");
     return;
     }
 
@@ -315,6 +314,7 @@ void vtkTensorGlyph::Update()
   this->GetMTime() > this->ExecuteTime || this->GetDataReleased() )
     {
     if ( this->StartMethod ) (*this->StartMethod)(this->StartMethodArg);
+    this->Output->Initialize(); //clear output
     this->Execute();
     this->ExecuteTime.Modified();
     this->SetDataReleased(0);

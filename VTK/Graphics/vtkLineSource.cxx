@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLineSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:33:08 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1995-08-31 21:22:42 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,7 +69,6 @@ void vtkLineSource::Execute()
   vtkPolyData *output = this->GetOutput();
   
   vtkDebugMacro(<<"Creating line");
-  output->Initialize();
 
   newPoints = new vtkFloatPoints(numPts);
   newTCoords = new vtkFloatTCoords(numPts,2);

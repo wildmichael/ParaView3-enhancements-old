@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:33:28 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1995-08-31 21:23:34 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,7 +72,6 @@ void vtkSTLReader::Execute()
 //
 // Initialize
 //
-  output->Initialize();
 
   if ((fp = fopen(this->Filename, "r")) == NULL)
     {

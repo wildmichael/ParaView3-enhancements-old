@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkSweptSurface.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:33:41 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-08-31 21:24:00 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,8 +63,6 @@ vtkSweptSurface::vtkSweptSurface()
   this->FillValue = LARGE_FLOAT;
   this->Transforms = NULL;
   this->Capping = 1;
-
-  this->Output = new vtkStructuredPoints;
 }
 
 void vtkSweptSurface::SetModelBounds(float xmin, float xmax, float ymin, 
@@ -101,7 +99,6 @@ void vtkSweptSurface::Execute()
   vtkStructuredPoints *output=(vtkStructuredPoints *)this->Output;
 
   vtkDebugMacro(<<"Creating swept surface");
-  output->Initialize();
 
   // make sure there is input
   pd = this->Input->GetPointData();

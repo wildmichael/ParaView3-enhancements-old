@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:33:40 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-08-31 21:23:53 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,7 +69,6 @@ void vtkSphereSource::Execute()
 //
 // Set things up; allocate memory
 //
-  output->Initialize();
 
   numPts = (this->PhiResolution - 1) * this->ThetaResolution + 2;
   // creating triangles

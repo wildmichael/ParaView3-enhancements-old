@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDividingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:33:57 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1995-08-31 21:24:53 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,7 +75,6 @@ void vtkDividingCubes::Execute()
 //
 // Initialize self; check input; create output objects
 //
-  output->Initialize();
   this->Count = 0;
 
   // make sure we have scalar data

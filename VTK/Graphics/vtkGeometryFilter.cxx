@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:33:16 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1995-08-31 21:23:01 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -116,7 +116,6 @@ void vtkGeometryFilter::Execute()
   vtkPolyData *output = this->GetOutput();
   vtkPointData *outputPD = output->GetPointData();
   
-  output->Initialize();
 
   if ( (!this->CellClipping) && (!this->PointClipping) && 
   (!this->ExtentClipping) )

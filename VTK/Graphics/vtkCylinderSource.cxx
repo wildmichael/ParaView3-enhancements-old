@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCylinderSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:33:06 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1995-08-31 21:22:40 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,7 +69,6 @@ void vtkCylinderSource::Execute()
 //
 // Set things up; allocate memory
 //
-  output->Initialize();
 
   if ( this->Capping )
     {

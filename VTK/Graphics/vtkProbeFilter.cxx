@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProbeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 16:40:27 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1995-08-31 21:23:07 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,7 +58,6 @@ void vtkProbeFilter::Execute()
   vtkDataSet *output=this->Output;
 
   vtkDebugMacro(<<"Probing data");
-  output->Initialize();
 
   pd = input->GetPointData();
   numPts = source->GetNumberOfPoints();
@@ -101,7 +100,7 @@ void vtkProbeFilter::Update()
   // make sure input is available
   if ( this->Input == NULL || this->Source == NULL )
     {
-    vtkErrorMacro(<< "No input!");
+    vtkErrorMacro(<< "No input...can't execute!");
     return;
     }
 
@@ -118,6 +117,7 @@ void vtkProbeFilter::Update()
   this->GetMTime() > this->ExecuteTime || this->GetDataReleased() )
     {
     if ( this->StartMethod ) (*this->StartMethod)(this->StartMethodArg);
+    this->Output->Initialize(); //clear output
     this->Execute();
     this->ExecuteTime.Modified();
     this->SetDataReleased(0);

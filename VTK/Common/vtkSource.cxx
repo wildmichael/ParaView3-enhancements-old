@@ -3,8 +3,8 @@
  Program:   Visualization Toolkit
  Module:    $RCSfile: vtkSource.cxx,v $
  Language:  C++
- Date:      $Date: 1995-08-30 12:33:24 $
- Version:   $Revision: 1.19 $
+ Date:      $Date: 1995-08-31 21:23:05 $
+ Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -104,6 +104,7 @@ void vtkSource::Update()
   if (this->GetMTime() > this->ExecuteTime || this->GetDataReleased())
     {
     if ( this->StartMethod ) (*this->StartMethod)(this->StartMethodArg);
+    this->Output->Initialize(); //clear output
     this->Execute();
     this->ExecuteTime.Modified();
     this->SetDataReleased(0);

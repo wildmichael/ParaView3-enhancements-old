@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkSweptSurface.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:31:51 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1995-08-31 21:21:15 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,7 +50,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // generate a polygonal representation of swept surface you will have to 
 // use a contouring filter (e.g., vtkMarchingCubes). (You may also wish to
 // use vtkDecimate to reduce mesh size).
-//    The swept surface algorithm can be summarized as follows. A geometry 
+//
+// The swept surface algorithm can be summarized as follows. A geometry 
 // (i.e. the input) is swept along a path (list of transforms). At each point
 // on the path the input is re-sampled into a volume using a union operation.
 // (Union means that the minumum scalar value is retained - minimum distance

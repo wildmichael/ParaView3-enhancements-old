@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGaussianSplatter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:33:38 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1995-08-31 21:23:49 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -111,7 +111,6 @@ void vtkGaussianSplatter::Execute()
   float origin[3], ar[3];
   
   vtkDebugMacro(<< "Splatting data");
-  output->Initialize();
 //
 //  Make sure points are available
 //

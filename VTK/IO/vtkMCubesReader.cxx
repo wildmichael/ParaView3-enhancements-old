@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMCubesReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:33:20 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-08-31 21:23:12 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -84,7 +84,6 @@ void vtkMCubesReader::Execute()
   //
   // Initialize
   //
-  output->Initialize();
 
   if ( this->Filename == NULL )
     {

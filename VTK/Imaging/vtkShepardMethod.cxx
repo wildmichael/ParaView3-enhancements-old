@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkShepardMethod.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:33:37 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1995-08-31 21:23:47 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,7 +61,6 @@ vtkShepardMethod::vtkShepardMethod()
   this->SampleDimensions[2] = 50;
 
   this->NullValue = 0.0;
-  this->Output = new vtkStructuredPoints;
 }
 
 void vtkShepardMethod::SetModelBounds(float xmin, float xmax, float ymin, float ymax, float zmin, float zmax)
@@ -143,7 +142,6 @@ void vtkShepardMethod::Execute()
   vtkStructuredPoints *output=(vtkStructuredPoints *)this->Output;
 
   vtkDebugMacro(<< "Executing Shepard method");
-  output->Initialize();
 //
 // Check input
 //

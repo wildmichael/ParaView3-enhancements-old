@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDiskSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:33:11 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-08-31 21:22:48 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,7 +65,6 @@ void vtkDiskSource::Execute()
   //
   // Set things up; allocate memory
   //
-  output->Initialize();
 
   numPts = (this->RadialResolution + 1) * 
            (this->CircumferentialResolution + 1);

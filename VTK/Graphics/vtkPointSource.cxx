@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:33:24 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1995-08-31 21:23:25 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,7 +62,6 @@ void vtkPointSource::Execute()
   vtkPolyData *output = (vtkPolyData *)this->Output;
   
   vtkDebugMacro(<< "Generating random cloud of points...");
-  output->Initialize();
 
   newPoints = new vtkFloatPoints(this->NumberOfPoints);
   newVerts = new vtkCellArray;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEdgePoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:33:11 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-08-31 21:22:50 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,7 +68,6 @@ void vtkEdgePoints::Execute()
   //
   // Initialize and check input
   //
-  output->Initialize();
 
   if ( ! (inScalars = this->Input->GetPointData()->GetScalars()) )
     {

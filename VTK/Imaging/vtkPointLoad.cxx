@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointLoad.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:33:26 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1995-08-31 21:23:29 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -129,7 +129,6 @@ void vtkPointLoad::Execute()
 //
 // Initialize self; create output objects
 //
-  output->Initialize();
 
   numPts = this->SampleDimensions[0] * this->SampleDimensions[1] 
            * this->SampleDimensions[2];

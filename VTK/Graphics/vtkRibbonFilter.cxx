@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRibbonFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:33:30 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1995-08-31 21:23:37 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -83,7 +83,6 @@ void vtkRibbonFilter::Execute()
 // Initialize
 //
   vtkDebugMacro(<<"Creating ribbon");
-  output->Initialize();
 
   if ( !(inPts=input->GetPoints()) || 
   (numNewPts=inPts->GetNumberOfPoints()*2) < 1 ||

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToPlane.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:33:44 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1995-08-31 21:24:08 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,7 +74,6 @@ void vtkTextureMapToPlane::Execute()
   vtkDataSet *output=this->Output;
 
   vtkDebugMacro(<<"Generating texture coordinates!");
-  output->Initialize();
   if ( (numPts=this->Input->GetNumberOfPoints()) < 3 )
     {
     vtkErrorMacro(<< "Not enough points to map with\n");

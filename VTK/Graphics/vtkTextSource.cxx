@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:33:35 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-08-31 21:23:41 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -183,7 +183,6 @@ void vtkTextSource::Execute()
   vtkPolyData *output=(vtkPolyData *)this->Output;
 
   // Set things up; allocate memory
-  output->Initialize();
   x[2] = 0;
 
   newPoints = new vtkFloatPoints();

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRecursiveDividingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:33:28 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1995-08-31 21:23:31 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,7 +74,6 @@ void vtkRecursiveDividingCubes::Execute()
 //
 // Initialize self; check input; create output objects
 //
-  output->Initialize();
   this->Count = 0;
 
   // make sure we have scalar data

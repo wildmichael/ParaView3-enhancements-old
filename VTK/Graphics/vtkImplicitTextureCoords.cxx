@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitTextureCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:32:56 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-08-31 21:22:02 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,7 +61,6 @@ void vtkImplicitTextureCoords::Execute()
   // Initialize
   //
   vtkDebugMacro(<<"Generating texture coordinates from implicit functions...");
-  this->Output->Initialize();
 
   if ( ((numPts=input->GetNumberOfPoints()) < 1) )
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:33:45 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1995-08-31 21:24:13 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,7 +56,6 @@ void vtkTransformFilter::Execute()
   vtkPointSet *output=(vtkPointSet *)this->Output;
 
   vtkDebugMacro(<<"Executing transformation");
-  output->Initialize();
 //
 // Check input
 //

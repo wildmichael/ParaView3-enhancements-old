@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimate.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:33:10 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1995-08-31 21:22:45 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -127,7 +127,6 @@ void vtkDecimate::Execute()
   static vtkTriArray TriangleArray(MAX_TRIS_PER_VERTEX+1);
 
   vtkDebugMacro(<<"Decimating mesh...");
-  this->Output->Initialize();
   V = &VertexArray;
   T = &TriangleArray;
 //

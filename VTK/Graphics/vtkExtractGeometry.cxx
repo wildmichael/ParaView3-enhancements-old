@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractGeometry.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:33:12 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1995-08-31 21:22:52 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -83,7 +83,6 @@ void vtkExtractGeometry::Execute()
   
   
   vtkDebugMacro(<< "Extracting geometry");
-  output->Initialize();
 
   if ( ! this->ImplicitFunction )
     {

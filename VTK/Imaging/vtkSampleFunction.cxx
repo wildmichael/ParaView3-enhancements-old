@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSampleFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:33:32 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1995-08-31 21:23:39 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -126,7 +126,6 @@ void vtkSampleFunction::Execute()
 //
 // Initialize self; create output objects
 //
-  output->Initialize();
 
   if ( !this->ImplicitFunction )
     {

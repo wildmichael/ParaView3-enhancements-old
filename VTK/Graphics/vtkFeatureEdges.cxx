@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFeatureEdges.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:33:13 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1995-08-31 21:22:53 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,7 +79,6 @@ void vtkFeatureEdges::Execute()
   vtkPolyData *output = this->GetOutput();
   
   vtkDebugMacro(<<"Executing feature edges");
-  output->Initialize();
 //
 //  Check input
 //

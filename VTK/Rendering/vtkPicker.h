@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPicker.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:37:27 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-08-31 21:20:58 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,10 +41,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .NAME vtkPicker - select an actor by shooting a ray into graphics window
 // .SECTION Description
 // vtkPicker is used to select actors by shooting a ray into graphics window
-// and intersecting with actor's bounding box. The ray is defined from a 
+// and intersecting with the actor's bounding box. The ray is defined from a 
 // point defined in window (or pixel) coordinates, and a point located from 
 // the camera's position.
-//    vtkPicker may return more than one actor, since more than one bounding 
+//
+// vtkPicker may return more than one actor, since more than one bounding 
 // box may be intersected. VlPicker returns the list of actors that were hit, 
 // the pick coordinates in world and untransformed mapper space, and the 
 // actor and mapper that are "closest" to the camera. The closest actor is 
@@ -71,7 +72,6 @@ class vtkPicker : public vtkObject
 {
 public:
   vtkPicker();
-  ~vtkPicker() {};
   char *GetClassName() {return "vtkPicker";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
