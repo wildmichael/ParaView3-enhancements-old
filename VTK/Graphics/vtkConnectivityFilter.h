@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConnectivityFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:24 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1999-10-11 15:06:01 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -90,7 +90,7 @@ public:
 
   // Description:
   // Construct with default extraction mode to extract largest regions.
-  static vtkConnectivityFilter *New() {return new vtkConnectivityFilter;};
+  static vtkConnectivityFilter *New();
 
   // Description:
   // Turn on/off connectivity based on scalar value. If on, cells are connected

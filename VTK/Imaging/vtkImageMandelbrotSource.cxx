@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMandelbrotSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 11:56:34 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-10-11 15:09:02 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkImageData.h"
 #include "vtkImageMandelbrotSource.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkImageMandelbrotSource* vtkImageMandelbrotSource::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageMandelbrotSource");
+  if(ret)
+    {
+    return (vtkImageMandelbrotSource*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkImageMandelbrotSource;
+}
+
+
+
 
 //----------------------------------------------------------------------------
 vtkImageMandelbrotSource::vtkImageMandelbrotSource()

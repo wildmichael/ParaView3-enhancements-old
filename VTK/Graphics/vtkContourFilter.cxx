@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-08 15:11:24 $
-  Version:   $Revision: 1.69 $
+  Date:      $Date: 1999-10-11 15:06:02 $
+  Version:   $Revision: 1.70 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,6 +45,26 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkMergePoints.h"
 #include "vtkContourValues.h"
 #include "vtkScalarTree.h"
+#include "vtkObjectFactory.h"
+
+
+
+
+//------------------------------------------------------------------------------
+vtkContourFilter* vtkContourFilter::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkContourFilter");
+  if(ret)
+    {
+    return (vtkContourFilter*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkContourFilter;
+}
+
+
+
 
 // Construct object with initial range (0,1) and single contour value
 // of 0.0.

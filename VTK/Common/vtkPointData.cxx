@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointData.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:38:10 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 1999-10-11 15:04:55 $
+  Version:   $Revision: 1.56 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkPointData.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkPointData* vtkPointData::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkPointData");
+  if(ret)
+    {
+    return (vtkPointData*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkPointData;
+}
+
+
+
 
 void vtkPointData::NullPoint (int ptId)
 {

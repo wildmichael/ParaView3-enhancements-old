@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPropAssembly.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-30 15:11:36 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-10-11 15:05:03 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -77,7 +77,7 @@ public:
 
   // Description:
   // Create with an empty parts list.
-  static vtkPropAssembly *New() {return new vtkPropAssembly;};
+  static vtkPropAssembly *New();
 
   // Description:
   // Add a part to the list of parts.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalars.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-06 18:42:13 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 1999-10-11 15:05:07 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,6 +40,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkScalars.h"
 #include "vtkLookupTable.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkScalars* vtkScalars::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkScalars");
+  if(ret)
+    {
+    return (vtkScalars*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkScalars;
+}
+
+
+
 
 vtkScalars::vtkScalars() 
 {
@@ -57,7 +76,7 @@ vtkScalars::vtkScalars()
 
 vtkScalars *vtkScalars::New(int dataType, int numComp)
 {
-  vtkScalars *res = new vtkScalars();
+  vtkScalars *res = vtkScalars::New();
   res->SetDataType(dataType);
   res->SetNumberOfComponents(numComp);
   return res;

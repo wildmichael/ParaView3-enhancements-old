@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStripper.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:04 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1999-10-11 15:07:51 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,7 +71,7 @@ public:
   
   // Description:
   // Construct object with MaximumLength set to 1000.
-  static vtkStripper *New() {return new vtkStripper;};
+  static vtkStripper *New();
 
   // Description:
   // Specify the maximum number of triangles in a triangle strip,

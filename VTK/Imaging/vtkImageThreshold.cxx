@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageThreshold.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-23 18:49:23 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1999-10-11 15:09:18 $
+  Version:   $Revision: 1.25 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkImageThreshold.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkImageThreshold* vtkImageThreshold::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageThreshold");
+  if(ret)
+    {
+    return (vtkImageThreshold*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkImageThreshold;
+}
+
+
+
 
 
 

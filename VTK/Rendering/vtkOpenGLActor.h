@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLActor.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:46 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-10-11 15:06:59 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,7 +55,7 @@ class VTK_EXPORT vtkOpenGLActor : public vtkActor
 protected:
   
 public:
-  static vtkOpenGLActor *New() {return new vtkOpenGLActor;};
+  static vtkOpenGLActor *New();
   const char *GetClassName() {return "vtkOpenGLActor";};
 
   // Description:

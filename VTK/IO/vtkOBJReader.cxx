@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBJReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-21 14:04:48 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-10-11 15:05:36 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkOBJReader.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkOBJReader* vtkOBJReader::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkOBJReader");
+  if(ret)
+    {
+    return (vtkOBJReader*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkOBJReader;
+}
+
+
+
 
 // Description:
 // Instantiate object with NULL filename.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageShrink3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-06 13:48:56 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1999-10-11 15:09:15 $
+  Version:   $Revision: 1.40 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,6 +41,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <math.h>
 
 #include "vtkImageShrink3D.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkImageShrink3D* vtkImageShrink3D::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageShrink3D");
+  if(ret)
+    {
+    return (vtkImageShrink3D*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkImageShrink3D;
+}
+
+
+
 
 
 //----------------------------------------------------------------------------

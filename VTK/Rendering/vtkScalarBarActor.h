@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarBarActor.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:41 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1999-10-11 15:09:28 $
+  Version:   $Revision: 1.18 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -91,7 +91,7 @@ public:
   // of font Arial (bolding, italic, shadows on); %%-#6.3g label
   // format, no title, and vertical orientation. The initial scalar bar
   // size is (0.05 x 0.8) of the viewport size.
-  static vtkScalarBarActor *New() {return new vtkScalarBarActor;};
+  static vtkScalarBarActor *New();
   
   // Description:
   // Access the Position2 instance variable. This variable controls

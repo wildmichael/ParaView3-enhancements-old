@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorDot.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-25 16:07:21 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-10-11 15:08:16 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,6 +40,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkVectorDot.h"
 #include "vtkMath.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkVectorDot* vtkVectorDot::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkVectorDot");
+  if(ret)
+    {
+    return (vtkVectorDot*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkVectorDot;
+}
+
+
+
 
 // Construct object with scalar range is (-1,1).
 vtkVectorDot::vtkVectorDot()

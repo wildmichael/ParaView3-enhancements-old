@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMagnify.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-23 18:49:14 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1999-10-11 15:09:01 $
+  Version:   $Revision: 1.26 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkImageMagnify.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkImageMagnify* vtkImageMagnify::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageMagnify");
+  if(ret)
+    {
+    return (vtkImageMagnify*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkImageMagnify;
+}
+
+
+
 
 
 

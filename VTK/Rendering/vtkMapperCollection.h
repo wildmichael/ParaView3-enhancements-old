@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapperCollection.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-05 17:15:37 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-10-11 15:06:53 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,7 +56,7 @@ class vtkMapper;
 class VTK_EXPORT vtkMapperCollection : public vtkCollection
 {
  public:
-  static vtkMapperCollection *New() {return new vtkMapperCollection;};
+  static vtkMapperCollection *New();
   const char *GetClassName() {return "vtkMapperCollection";};
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGaussianSplatter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-04 12:34:29 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1999-10-11 15:06:32 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,6 +41,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <math.h>
 #include "vtkGaussianSplatter.h"
 #include "vtkScalars.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkGaussianSplatter* vtkGaussianSplatter::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkGaussianSplatter");
+  if(ret)
+    {
+    return (vtkGaussianSplatter*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkGaussianSplatter;
+}
+
+
+
 
 // Construct object with dimensions=(50,50,50); automatic computation of 
 // bounds; a splat radius of 0.1; an exponent factor of -5; and normal and 

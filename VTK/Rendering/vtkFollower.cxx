@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFollower.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-26 15:37:40 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1999-10-11 15:06:31 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,6 +43,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkMath.h"
 #include "vtkFollower.h"
 #include "vtkCamera.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkFollower* vtkFollower::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkFollower");
+  if(ret)
+    {
+    return (vtkFollower*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkFollower;
+}
+
+
+
 
 // Creates a follower with no camera set
 vtkFollower::vtkFollower()

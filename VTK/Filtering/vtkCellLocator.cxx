@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-04 17:46:34 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 1999-10-11 15:05:56 $
+  Version:   $Revision: 1.52 $
   
     
   Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,6 +43,25 @@
 #include "vtkCellLocator.h"
 #include "vtkPolyData.h"
 #include "vtkMath.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkCellLocator* vtkCellLocator::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkCellLocator");
+  if(ret)
+    {
+    return (vtkCellLocator*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkCellLocator;
+}
+
+
+
 
 #define VTK_CELL_OUTSIDE 0
 #define VTK_CELL_INSIDE 1

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCollection.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-05 17:13:39 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1999-10-11 15:04:30 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,7 +74,7 @@ public:
 
   // Description:
   // Construct with empty list.
-  static vtkCollection *New() {return new vtkCollection;};
+  static vtkCollection *New();
 
   // Description:
   // Add an object to the list. Does not prevent duplicate entries.

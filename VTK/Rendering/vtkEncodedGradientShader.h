@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEncodedGradientShader.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:32 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-10-11 15:06:24 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,8 +67,7 @@ class vtkEncodedGradientEstimator;
 class VTK_EXPORT vtkEncodedGradientShader : public vtkObject
 {
 public:
-  static vtkEncodedGradientShader *New() {
-    return new vtkEncodedGradientShader;};
+  static vtkEncodedGradientShader *New();
   const char *GetClassName() {return "vtkEncodedGradientShader";};
 
   // Description:

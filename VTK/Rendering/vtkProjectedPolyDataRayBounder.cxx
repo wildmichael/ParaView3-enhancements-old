@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProjectedPolyDataRayBounder.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-31 14:08:40 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-10-11 15:07:26 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to Lisa Sobierajski Avila who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,6 +40,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkProjectedPolyDataRayBounder.h"
 #include "vtkRenderWindow.h"
+#include "vtkObjectFactory.h"
 
 #ifdef VTK_USE_OGLR
 #include "vtkOpenGLProjectedPolyDataRayBounder.h"
@@ -76,7 +77,15 @@ vtkProjectedPolyDataRayBounder::~vtkProjectedPolyDataRayBounder()
 // New method for the class which will return the correct type of 
 // ProjectPolyDataRayBounder
 vtkProjectedPolyDataRayBounder *vtkProjectedPolyDataRayBounder::New()
-{
+{  
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkProjectedPolyDataRayBounder");
+  if(ret)
+    {
+    return (vtkProjectedPolyDataRayBounder*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+
   char *temp = vtkRenderWindow::GetRenderLibrary();
   
 #ifdef VTK_USE_OGLR

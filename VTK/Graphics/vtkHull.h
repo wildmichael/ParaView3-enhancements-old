@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHull.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:37 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-10-11 15:06:36 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,7 +59,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkHull : public vtkPolyDataToPolyDataFilter
 {
 public:
-  static vtkHull *New() {return new vtkHull;};
+  static vtkHull *New();
   const char *GetClassName() {return "vtkHull";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:29 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-10-11 15:06:15 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,8 +59,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkDataSetToPolyDataFilter : public vtkPolyDataSource
 {
 public:
-  static vtkDataSetToPolyDataFilter *New() {
-    return new vtkDataSetToPolyDataFilter;};
+  static vtkDataSetToPolyDataFilter *New();
   const char *GetClassName() {return "vtkDataSetToPolyDataFilter";};
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-23 14:07:29 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 1999-10-11 15:08:13 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,6 +40,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkUnstructuredGridReader.h"
 #include "vtkByteSwap.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkUnstructuredGridReader* vtkUnstructuredGridReader::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkUnstructuredGridReader");
+  if(ret)
+    {
+    return (vtkUnstructuredGridReader*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkUnstructuredGridReader;
+}
+
+
+
 
 #ifdef read
 #undef read

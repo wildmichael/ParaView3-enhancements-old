@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:06 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1999-10-11 15:05:58 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,6 +43,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkMergePoints.h"
 #include "vtkVoxel.h"
 #include "vtkDelaunay3D.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkClipVolume* vtkClipVolume::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkClipVolume");
+  if(ret)
+    {
+    return (vtkClipVolume*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkClipVolume;
+}
+
+
+
 
 // Construct with user-specified implicit function; InsideOut turned off; value
 // set to 0.0; and generate clip scalars turned off. The merge tolerance is set

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphere.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:02 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1999-10-11 15:07:48 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,7 +56,7 @@ public:
 
   // Description
   // Construct sphere with center at (0,0,0) and radius=0.5.
-  static vtkSphere *New() {return new vtkSphere;};
+  static vtkSphere *New();
 
   // Description
   // Evaluate sphere equation ((x-x0)^2 + (y-y0)^2 + (z-z0)^2) - R^2.

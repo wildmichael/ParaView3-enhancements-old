@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCanvasSource2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:23 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-10-11 15:08:41 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,7 +60,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class vtkImageCanvasSource2DPixel { //;prevent man page generation
 public:
   static vtkImageCanvasSource2DPixel *New() 
-    {return new vtkImageCanvasSource2DPixel;};
+    { return new vtkImageCanvasSource2DPixel ;}
   int X;
   int Y;
   void *Pointer;
@@ -75,7 +75,7 @@ class VTK_EXPORT vtkImageCanvasSource2D : public vtkStructuredPoints
 public:
   // Description:
   // Construct an instance of vtkImageCanvasSource2D with no data.
-  static vtkImageCanvasSource2D *New() {return new vtkImageCanvasSource2D;};
+  static vtkImageCanvasSource2D *New();
 
   const char *GetClassName() {return "vtkImageCanvasSource2D";};
   void PrintSelf(ostream& os, vtkIndent indent);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRecursiveSphereDirectionEncoder.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-06 19:20:59 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-10-11 15:07:32 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,6 +40,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include <math.h>
 #include "vtkRecursiveSphereDirectionEncoder.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkRecursiveSphereDirectionEncoder* vtkRecursiveSphereDirectionEncoder::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkRecursiveSphereDirectionEncoder");
+  if(ret)
+    {
+    return (vtkRecursiveSphereDirectionEncoder*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkRecursiveSphereDirectionEncoder;
+}
+
+
+
 
 
 // Construct the object. Initialize the index table which will be

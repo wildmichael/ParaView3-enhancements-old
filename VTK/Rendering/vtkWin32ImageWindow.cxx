@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32ImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-19 19:35:18 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-10-11 15:09:30 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,6 +40,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 
 #include "vtkWin32ImageWindow.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkWin32ImageWindow* vtkWin32ImageWindow::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkWin32ImageWindow");
+  if(ret)
+    {
+    return (vtkWin32ImageWindow*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkWin32ImageWindow;
+}
+
+
+
 
 
 unsigned char *vtkWin32ImageWindow::GetPixelData(int x1, int y1, 

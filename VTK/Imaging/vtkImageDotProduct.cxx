@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDotProduct.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-23 18:49:09 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-10-11 15:08:48 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,6 +40,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 
 #include "vtkImageDotProduct.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkImageDotProduct* vtkImageDotProduct::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageDotProduct");
+  if(ret)
+    {
+    return (vtkImageDotProduct*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkImageDotProduct;
+}
+
+
+
 
 
 //----------------------------------------------------------------------------

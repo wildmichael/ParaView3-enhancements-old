@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCleanPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-17 00:17:42 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 1999-10-11 15:05:57 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,6 +40,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkCleanPolyData.h"
 #include "vtkMergePoints.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkCleanPolyData* vtkCleanPolyData::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkCleanPolyData");
+  if(ret)
+    {
+    return (vtkCleanPolyData*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkCleanPolyData;
+}
+
+
+
 
 // Construct object with initial tolerance of 0.0.
 vtkCleanPolyData::vtkCleanPolyData()

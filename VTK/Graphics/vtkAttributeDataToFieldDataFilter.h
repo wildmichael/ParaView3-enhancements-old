@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAttributeDataToFieldDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:20 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-10-11 15:05:50 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,8 +74,7 @@ public:
 
   // Description:
   // Construct this object.
-  static vtkAttributeDataToFieldDataFilter *New() {
-    return new vtkAttributeDataToFieldDataFilter;};
+  static vtkAttributeDataToFieldDataFilter *New();
 
   // Description:
   // Turn on/off the passing of point and cell non-field attribute data to the

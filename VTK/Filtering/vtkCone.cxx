@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCone.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:40:55 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1999-10-11 15:06:00 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,6 +40,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkCone.h"
 #include "vtkMath.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkCone* vtkCone::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkCone");
+  if(ret)
+    {
+    return (vtkCone*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkCone;
+}
+
+
+
 
 // Construct cone with angle of 45 degrees.
 vtkCone::vtkCone()

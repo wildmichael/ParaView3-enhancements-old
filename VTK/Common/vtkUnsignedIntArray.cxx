@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedIntArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:05 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-10-11 15:05:18 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkUnsignedIntArray.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkUnsignedIntArray* vtkUnsignedIntArray::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkUnsignedIntArray");
+  if(ret)
+    {
+    return (vtkUnsignedIntArray*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkUnsignedIntArray;
+}
+
+
+
 
 // Instantiate object.
 vtkUnsignedIntArray::vtkUnsignedIntArray(int numComp)

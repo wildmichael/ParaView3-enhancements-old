@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:41 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 1999-10-11 15:06:04 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,6 +43,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkMergePoints.h"
 #include "vtkImplicitFunction.h"
 #include "vtkContourValues.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkCutter* vtkCutter::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkCutter");
+  if(ret)
+    {
+    return (vtkCutter*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkCutter;
+}
+
+
+
 
 // Construct with user-specified implicit function; initial value of 0.0; and
 // generating cut scalars turned off.

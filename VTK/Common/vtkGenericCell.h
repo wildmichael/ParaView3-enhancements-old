@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericCell.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-16 12:07:58 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-10-11 15:04:41 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,7 +57,7 @@ class VTK_EXPORT vtkGenericCell : public vtkCell
 public:
   // Description:
   // Create handle to any type of cell; by default a vtkEmptyCell.
-  static vtkGenericCell *New() {return new vtkGenericCell;};
+  static vtkGenericCell *New();
 
   const char *GetClassName() {return "vtkGenericCell";};
 

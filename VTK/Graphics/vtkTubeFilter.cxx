@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTubeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-25 16:07:20 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1999-10-11 15:08:12 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,6 +41,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkTubeFilter.h"
 #include "vtkPolyLine.h"
 #include "vtkMath.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkTubeFilter* vtkTubeFilter::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkTubeFilter");
+  if(ret)
+    {
+    return (vtkTubeFilter*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkTubeFilter;
+}
+
+
+
 
 // Construct object with radius 0.5, radius variation turned off, the number 
 // of sides set to 3, and radius factor of 10.

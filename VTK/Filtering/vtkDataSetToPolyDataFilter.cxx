@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:47 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-10-11 15:06:15 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkDataSetToPolyDataFilter.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkDataSetToPolyDataFilter* vtkDataSetToPolyDataFilter::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkDataSetToPolyDataFilter");
+  if(ret)
+    {
+    return (vtkDataSetToPolyDataFilter*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkDataSetToPolyDataFilter;
+}
+
+
+
 
 //----------------------------------------------------------------------------
 // Specify the input data or filter.

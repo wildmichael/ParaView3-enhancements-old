@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitModeller.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:38 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 1999-10-11 15:06:39 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -113,7 +113,7 @@ public:
   // Construct with sample dimensions=(50,50,50), and so that model bounds are
   // automatically computed from the input. Capping is turned on with CapValue
   // equal to a large positive number.
-  static vtkImplicitModeller *New() {return new vtkImplicitModeller;};
+  static vtkImplicitModeller *New();
 
   // Description:
   // Compute ModelBounds from input geometry. If input is not specified, the input

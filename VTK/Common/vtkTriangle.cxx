@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangle.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-31 20:47:11 $
-  Version:   $Revision: 1.75 $
+  Date:      $Date: 1999-10-11 15:05:16 $
+  Version:   $Revision: 1.76 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,6 +45,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkCellArray.h"
 #include "vtkLine.h"
 #include "vtkPointLocator.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkTriangle* vtkTriangle::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkTriangle");
+  if(ret)
+    {
+    return (vtkTriangle*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkTriangle;
+}
+
+
+
 
 // Construct the triangle with three points.
 vtkTriangle::vtkTriangle()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:40 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-10-11 15:09:26 $
+  Version:   $Revision: 1.4 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -55,8 +55,7 @@ class VTK_EXPORT vtkOpenGLPolyDataMapper2D : public vtkPolyDataMapper2D
 {
 public:
   const char *GetClassName() {return "vtkOpenGLPolyDataMapper2D";};
-  static vtkOpenGLPolyDataMapper2D *New() 
-    {return new vtkOpenGLPolyDataMapper2D;};
+  static vtkOpenGLPolyDataMapper2D *New();
 
   // Description:
   // Actually draw the poly data.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-25 16:07:19 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1999-10-11 15:08:11 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,6 +41,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkTriangleFilter.h"
 #include "vtkPolygon.h"
 #include "vtkTriangleStrip.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkTriangleFilter* vtkTriangleFilter::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkTriangleFilter");
+  if(ret)
+    {
+    return (vtkTriangleFilter*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkTriangleFilter;
+}
+
+
+
 
 void vtkTriangleFilter::Execute()
 {

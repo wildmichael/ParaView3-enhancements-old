@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAsynchronousBuffer.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:10 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-10-11 15:05:26 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,7 +67,7 @@ class VTK_EXPORT vtkAsynchronousBuffer : public vtkDataSetToDataSetFilter
 public:
   const char *GetClassName() {return "vtkAsynchronousBuffer";};
   void PrintSelf(ostream& os, vtkIndent indent);
-  static vtkAsynchronousBuffer *New() {return new vtkAsynchronousBuffer;}
+  static vtkAsynchronousBuffer *New();
 
   // Description:
   // A flag to change the behavior of the standard "Update" call.  When blocking

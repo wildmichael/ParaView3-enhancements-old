@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpVector.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:18 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1999-10-11 15:08:28 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,7 +55,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkWarpVector : public vtkPointSetToPointSetFilter
 {
 public:
-  static vtkWarpVector *New() {return new vtkWarpVector;};
+  static vtkWarpVector *New();
   const char *GetClassName() {return "vtkWarpVector";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

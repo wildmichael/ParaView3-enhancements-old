@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSmoothPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-01 20:06:59 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-10-11 15:07:46 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,6 +43,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkTriangleFilter.h"
 #include "vtkPolygon.h"
 #include "vtkCellLocator.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkSmoothPolyDataFilter* vtkSmoothPolyDataFilter::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkSmoothPolyDataFilter");
+  if(ret)
+    {
+    return (vtkSmoothPolyDataFilter*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkSmoothPolyDataFilter;
+}
+
+
+
 
 // The following code defines a helper class for performing mesh smoothing
 // across the surface of another mesh.

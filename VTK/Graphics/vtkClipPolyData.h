@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:23 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1999-10-11 15:05:58 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -94,7 +94,7 @@ public:
   // Description:
   // Construct with user-specified implicit function; InsideOut turned off;
   // value set to 0.0; and generate clip scalars turned off.
-  static vtkClipPolyData *New() {return new vtkClipPolyData;};
+  static vtkClipPolyData *New();
 
   // Description:
   // Set the clipping value of the implicit function (if clipping with

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-17 19:43:14 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-10-11 15:04:32 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,6 +52,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkUnsignedLongArray.h"
 #include "vtkFloatArray.h"
 #include "vtkDoubleArray.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkDataSetAttributes* vtkDataSetAttributes::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkDataSetAttributes");
+  if(ret)
+    {
+    return (vtkDataSetAttributes*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkDataSetAttributes;
+}
+
+
+
 
 // Construct object with copying turned on for all data.
 vtkDataSetAttributes::vtkDataSetAttributes()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:03 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 1999-10-11 15:05:15 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,7 +74,7 @@ class VTK_EXPORT vtkTransform : public vtkObject
   // Constructs a transform and sets the following defaults
   // preMultiplyFlag = 1 stackSize = 10. It then
   // creates an identity matrix as the top matrix on the stack.
-  static vtkTransform *New() {return new vtkTransform;};
+  static vtkTransform *New();
 
   const char *GetClassName () {return "vtkTransform";};
   void PrintSelf (ostream& os, vtkIndent indent);

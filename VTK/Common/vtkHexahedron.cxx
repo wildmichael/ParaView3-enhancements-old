@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHexahedron.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-06 15:07:45 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 1999-10-11 15:04:42 $
+  Version:   $Revision: 1.58 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -363,6 +363,25 @@ static int faces[6][4] = { {0,4,7,3}, {1,2,6,5},
 // Marching cubes case table
 //
 #include "vtkMarchingCubesCases.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkHexahedron* vtkHexahedron::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkHexahedron");
+  if(ret)
+    {
+    return (vtkHexahedron*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkHexahedron;
+}
+
+
+
 
 void vtkHexahedron::Contour(float value, vtkScalars *cellScalars, 
 			    vtkPointLocator *locator,

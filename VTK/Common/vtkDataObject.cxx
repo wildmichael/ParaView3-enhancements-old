@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-17 20:04:00 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1999-10-11 15:04:31 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,6 +43,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkSource.h"
 #include "vtkExtent.h"
 #include "vtkDataInformation.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkDataObject* vtkDataObject::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkDataObject");
+  if(ret)
+    {
+    return (vtkDataObject*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkDataObject;
+}
+
+
+
 
 // Initialize static member that controls global data release after use by filter
 static int vtkDataObjectGlobalReleaseDataFlag = 0;

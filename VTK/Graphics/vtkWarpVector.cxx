@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpVector.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-26 17:18:03 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1999-10-11 15:08:28 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkWarpVector.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkWarpVector* vtkWarpVector::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkWarpVector");
+  if(ret)
+    {
+    return (vtkWarpVector*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkWarpVector;
+}
+
+
+
 
 
 vtkWarpVector::vtkWarpVector()

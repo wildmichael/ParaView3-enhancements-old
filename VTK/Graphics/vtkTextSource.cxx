@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-25 16:07:17 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1999-10-11 15:08:04 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,6 +41,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkTextSource.h"
 #include "vtkPoints.h"
 #include "vtkUnsignedCharArray.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkTextSource* vtkTextSource::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkTextSource");
+  if(ret)
+    {
+    return (vtkTextSource*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkTextSource;
+}
+
+
+
 
 #define vtkfont_width 9
 #define vtkfont_row_width 864

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFiniteDifferenceGradientEstimator.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-22 14:14:15 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-10-11 15:06:30 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,6 +49,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkUnsignedLongArray.h"
 #include "vtkFloatArray.h"
 #include "vtkDoubleArray.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkFiniteDifferenceGradientEstimator* vtkFiniteDifferenceGradientEstimator::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkFiniteDifferenceGradientEstimator");
+  if(ret)
+    {
+    return (vtkFiniteDifferenceGradientEstimator*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkFiniteDifferenceGradientEstimator;
+}
+
+
+
 
 // This is the templated function that actually computes the EncodedNormal
 // and the GradientMagnitude

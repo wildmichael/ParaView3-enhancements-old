@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLightCollection.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-05 17:16:07 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-10-11 15:06:47 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,6 +42,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <math.h>
 
 #include "vtkLightCollection.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkLightCollection* vtkLightCollection::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkLightCollection");
+  if(ret)
+    {
+    return (vtkLightCollection*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkLightCollection;
+}
+
+
+
 
 // Add a light to the list.
 void vtkLightCollection::AddItem(vtkLight *a) 

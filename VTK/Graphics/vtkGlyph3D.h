@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:37 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1999-10-11 15:06:34 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -120,7 +120,7 @@ public:
   // scale factor = 1.0, the range is (0,1), orient geometry is on, and
   // orientation is by vector. Clamping and indexing are turned off. No
   // initial sources are defined.
-  static vtkGlyph3D *New() {return new vtkGlyph3D;};
+  static vtkGlyph3D *New();
 
   // Description:
   // Get the number of source objects used to define the glyph

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLLight.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:46 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-10-11 15:07:00 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,7 +53,7 @@ class vtkOpenGLRenderer;
 class VTK_EXPORT vtkOpenGLLight : public vtkLight
 {
 public:
-  static vtkOpenGLLight *New() {return new vtkOpenGLLight;};
+  static vtkOpenGLLight *New();
   const char *GetClassName() {return "vtkOpenGLLight";};
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-27 20:05:37 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1999-10-11 15:08:29 $
+  Version:   $Revision: 1.39 $
   Thanks:    to Horst Schreiber for developing this MFC code
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,6 +52,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkOpenGLActor.h"
 #include "vtkOpenGLLight.h"
 #include "vtkOpenGLPolyDataMapper.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkWin32OpenGLRenderWindow* vtkWin32OpenGLRenderWindow::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkWin32OpenGLRenderWindow");
+  if(ret)
+    {
+    return (vtkWin32OpenGLRenderWindow*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkWin32OpenGLRenderWindow;
+}
+
+
+
 
 #define VTK_MAX_LIGHTS 8
 

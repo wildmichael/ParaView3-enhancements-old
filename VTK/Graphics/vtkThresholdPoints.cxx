@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThresholdPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-25 16:07:18 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-10-11 15:08:08 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkThresholdPoints.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkThresholdPoints* vtkThresholdPoints::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkThresholdPoints");
+  if(ret)
+    {
+    return (vtkThresholdPoints*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkThresholdPoints;
+}
+
+
+
 
 // Construct with lower threshold=0, upper threshold=1, and threshold 
 // function=upper.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractGeometry.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:33 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1999-10-11 15:06:25 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,7 +63,7 @@ public:
 
   // Description:
   // Construct object with ExtractInside turned on.
-  static vtkExtractGeometry *New() {return new vtkExtractGeometry;};
+  static vtkExtractGeometry *New();
 
   // Description:
   // Return the MTime taking into account changes to the implicit function

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTimerLog.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 16:49:44 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-10-11 15:05:14 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,6 +59,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include <sys/types.h>
 #include <time.h>
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkTimerLog* vtkTimerLog::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkTimerLog");
+  if(ret)
+    {
+    return (vtkTimerLog*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkTimerLog;
+}
+
+
+
 
 // initialze the class variables
 int vtkTimerLog::MaxEntries = 100;

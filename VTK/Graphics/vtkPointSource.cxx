@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-17 15:19:34 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1999-10-11 15:07:16 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,6 +40,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkPointSource.h"
 #include "vtkMath.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkPointSource* vtkPointSource::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkPointSource");
+  if(ret)
+    {
+    return (vtkPointSource*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkPointSource;
+}
+
+
+
 
 //----------------------------------------------------------------------------
 vtkPointSource::vtkPointSource(int numPts)

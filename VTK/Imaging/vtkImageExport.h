@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageExport.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:26 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-10-11 15:08:50 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 
@@ -58,7 +58,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImageExport : public vtkProcessObject
 {
 public:
-  static vtkImageExport *New() {return new vtkImageExport;};
+  static vtkImageExport *New();
   const char *GetClassName() {return "vtkImageExport";};
   void PrintSelf(ostream& os, vtkIndent indent);
   

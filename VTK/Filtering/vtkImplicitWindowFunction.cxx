@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitWindowFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-05 13:11:36 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-10-11 15:06:42 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkImplicitWindowFunction.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkImplicitWindowFunction* vtkImplicitWindowFunction::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImplicitWindowFunction");
+  if(ret)
+    {
+    return (vtkImplicitWindowFunction*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkImplicitWindowFunction;
+}
+
+
+
 
 // Construct object with window range (0,1) and window values (0,1).
 vtkImplicitWindowFunction::vtkImplicitWindowFunction()

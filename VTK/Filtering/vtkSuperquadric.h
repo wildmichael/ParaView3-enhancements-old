@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSuperquadric.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:15 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-10-11 15:05:41 $
+  Version:   $Revision: 1.6 $
   Thanks:    Mike Halle, Brigham and Women's Hospital
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,7 +75,7 @@ public:
   // Description
   // Construct with superquadric radius of 0.5, toroidal off, center at 0.0,
   // scale (1,1,1), size 0.5, phi roundness 1.0, and theta roundness 0.0.
-  static vtkSuperquadric *New() {return new vtkSuperquadric;};
+  static vtkSuperquadric *New();
 
   const char *GetClassName() {return "vtkSuperquadric";};
   void PrintSelf(ostream& os, vtkIndent indent);

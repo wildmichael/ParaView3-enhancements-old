@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSLCReader.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:00 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1999-10-11 15:07:39 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,7 +54,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkSLCReader : public vtkStructuredPointsSource 
 {
 public:
-  static vtkSLCReader *New() {return new vtkSLCReader;};
+  static vtkSLCReader *New();
   const char *GetClassName() {return "vtkSLCReader";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssembly.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-30 15:14:16 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1999-10-11 15:05:49 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,6 +40,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkAssembly.h"
 #include "vtkRenderWindow.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkAssembly* vtkAssembly::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkAssembly");
+  if(ret)
+    {
+    return (vtkAssembly*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkAssembly;
+}
+
+
+
 
 // Construct object with no children.
 vtkAssembly::vtkAssembly()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMaskPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-17 15:19:34 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1999-10-11 15:06:54 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,6 +40,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkMaskPoints.h"
 #include "vtkMath.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkMaskPoints* vtkMaskPoints::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkMaskPoints");
+  if(ret)
+    {
+    return (vtkMaskPoints*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkMaskPoints;
+}
+
+
+
 
 //----------------------------------------------------------------------------
 vtkMaskPoints::vtkMaskPoints()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarTree.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:01 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-10-11 15:07:42 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -77,7 +77,7 @@ public:
   // Description:
   // Instantiate scalar tree with maximum level of 20 and branching
   // factor of 5.
-  static vtkScalarTree *New() {return new vtkScalarTree;};
+  static vtkScalarTree *New();
 
   // Description:
   // Build the tree from the points/cells defining this dataset.

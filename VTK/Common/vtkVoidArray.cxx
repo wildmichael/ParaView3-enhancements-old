@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoidArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:08 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1999-10-11 15:05:23 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkVoidArray.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkVoidArray* vtkVoidArray::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkVoidArray");
+  if(ret)
+    {
+    return (vtkVoidArray*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkVoidArray;
+}
+
+
+
 
 typedef void *voidPtr;
 

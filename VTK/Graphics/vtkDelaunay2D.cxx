@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-04 12:34:28 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1999-10-11 15:06:19 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,6 +44,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkPolygon.h"
 #include "vtkPlane.h"
 #include "vtkDoubleArray.h" 
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkDelaunay2D* vtkDelaunay2D::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkDelaunay2D");
+  if(ret)
+    {
+    return (vtkDelaunay2D*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkDelaunay2D;
+}
+
+
+
 
 // Construct object with Alpha = 0.0; Tolerance = 0.00001; Offset = 1.25;
 // BoundingTriangulation turned off.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-04 13:29:36 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1999-10-11 15:04:44 $
+  Version:   $Revision: 1.39 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkImageSource.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkImageSource* vtkImageSource::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageSource");
+  if(ret)
+    {
+    return (vtkImageSource*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkImageSource;
+}
+
+
+
 
 //----------------------------------------------------------------------------
 vtkImageSource::vtkImageSource()

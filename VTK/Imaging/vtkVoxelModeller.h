@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxelModeller.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:18 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1999-10-11 15:08:26 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,7 +65,7 @@ public:
   // automatically computed from its input. The maximum distance is set to 
   // examine the whole grid. This could be made much faster, and probably
   // will be in the future.
-  static vtkVoxelModeller *New() {return new vtkVoxelModeller;};
+  static vtkVoxelModeller *New();
 
   // Description:
   // Compute the ModelBounds based on the input geometry.

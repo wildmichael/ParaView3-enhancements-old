@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapToRGBA.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-01 21:23:18 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-10-11 15:09:03 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkImageMapToRGBA.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkImageMapToRGBA* vtkImageMapToRGBA::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageMapToRGBA");
+  if(ret)
+    {
+    return (vtkImageMapToRGBA*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkImageMapToRGBA;
+}
+
+
+
 
 
 

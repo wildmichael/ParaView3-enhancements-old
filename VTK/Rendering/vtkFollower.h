@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFollower.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:36 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1999-10-11 15:06:31 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,7 +66,7 @@ class VTK_EXPORT vtkFollower : public vtkActor
 
   // Description:
   // Creates a follower with no camera set
-  static vtkFollower *New() {return new vtkFollower;};
+  static vtkFollower *New();
 
   // Description:
   // This causes the actor to be rendered. It in turn will render the actor's

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDoubleArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-14 14:50:53 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1999-10-11 15:04:33 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkDoubleArray.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkDoubleArray* vtkDoubleArray::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkDoubleArray");
+  if(ret)
+    {
+    return (vtkDoubleArray*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkDoubleArray;
+}
+
+
+
 
 // Instantiate object.
 vtkDoubleArray::vtkDoubleArray(int numComp)

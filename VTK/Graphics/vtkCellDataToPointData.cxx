@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellDataToPointData.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-25 15:59:58 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-10-11 15:05:55 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkCellDataToPointData.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkCellDataToPointData* vtkCellDataToPointData::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkCellDataToPointData");
+  if(ret)
+    {
+    return (vtkCellDataToPointData*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkCellDataToPointData;
+}
+
+
+
 
 // Instantiate object so that cell data is not passed to output.
 vtkCellDataToPointData::vtkCellDataToPointData()

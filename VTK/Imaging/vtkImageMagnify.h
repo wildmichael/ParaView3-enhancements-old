@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMagnify.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:31 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1999-10-11 15:09:02 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,7 +53,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImageMagnify : public vtkImageToImageFilter
 {
 public:
-  static vtkImageMagnify *New() {return new vtkImageMagnify;};
+  static vtkImageMagnify *New();
   const char *GetClassName() {return "vtkImageMagnify";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

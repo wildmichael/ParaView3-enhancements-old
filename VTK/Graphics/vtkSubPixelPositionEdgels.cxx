@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSubPixelPositionEdgels.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:16 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1999-10-11 15:08:03 $
+  Version:   $Revision: 1.23 $
 
 Copyright (c) 1993-1997 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -40,6 +40,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkMath.h"
 #include "vtkSubPixelPositionEdgels.h"
 #include "vtkFloatArray.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkSubPixelPositionEdgels* vtkSubPixelPositionEdgels::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkSubPixelPositionEdgels");
+  if(ret)
+    {
+    return (vtkSubPixelPositionEdgels*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkSubPixelPositionEdgels;
+}
+
+
+
 
 vtkSubPixelPositionEdgels::vtkSubPixelPositionEdgels()
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellCenters.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:40:53 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-10-11 15:05:55 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkCellCenters.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkCellCenters* vtkCellCenters::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkCellCenters");
+  if(ret)
+    {
+    return (vtkCellCenters*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkCellCenters;
+}
+
+
+
 
 // Construct object with vertex cell generation turned off.
 vtkCellCenters::vtkCellCenters()

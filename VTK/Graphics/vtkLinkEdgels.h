@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinkEdgels.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:43 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-10-11 15:06:50 $
+  Version:   $Revision: 1.13 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -81,7 +81,7 @@ public:
   // Description:
   // Construct instance of vtkLinkEdgels with GradientThreshold set to 
   // 0.1, PhiThreshold set to 90 degrees and LinkThreshold set to 90 degrees.
-  static vtkLinkEdgels *New() {return new vtkLinkEdgels;};
+  static vtkLinkEdgels *New();
 
   // Description:
   // Set/Get the threshold for Phi vs. Alpha link thresholding.

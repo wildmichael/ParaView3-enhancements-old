@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLocator.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-04 17:46:34 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1999-10-11 15:05:56 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,7 +74,7 @@ public:
   // Description:
   // Construct with automatic computation of divisions, averaging
   // 25 cells per bucket.
-  static vtkCellLocator *New() {return new vtkCellLocator;};
+  static vtkCellLocator *New();
 
   // Description:
   // Specify the average number of cells in each octant.

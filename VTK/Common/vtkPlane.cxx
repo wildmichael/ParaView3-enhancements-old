@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlane.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-31 20:47:07 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1999-10-11 15:04:54 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,6 +40,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkPlane.h"
 #include "vtkMath.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkPlane* vtkPlane::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkPlane");
+  if(ret)
+    {
+    return (vtkPlane*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkPlane;
+}
+
+
+
 
 
 // Construct plane passing through origin and normal to z-axis.

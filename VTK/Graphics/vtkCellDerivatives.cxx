@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellDerivatives.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-01 18:47:27 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-10-11 15:05:26 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,6 +41,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <math.h>
 #include "vtkCellDerivatives.h"
 #include "vtkFloatArray.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkCellDerivatives* vtkCellDerivatives::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkCellDerivatives");
+  if(ret)
+    {
+    return (vtkCellDerivatives*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkCellDerivatives;
+}
+
+
+
 
 vtkCellDerivatives::vtkCellDerivatives()
 {

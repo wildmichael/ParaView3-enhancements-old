@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitBoolean.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:38 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1999-10-11 15:06:38 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,7 +74,7 @@ public:
 
   // Description:
   // Default boolean method is union.
-  static vtkImplicitBoolean *New() {return new vtkImplicitBoolean;};
+  static vtkImplicitBoolean *New();
 
   // Description:
   // Evaluate boolean combinations of implicit function using current operator.

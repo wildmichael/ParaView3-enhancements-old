@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-25 16:00:06 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 1999-10-11 15:07:40 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,6 +42,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkSTLReader.h"
 #include "vtkByteSwap.h"
 #include "vtkMergePoints.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkSTLReader* vtkSTLReader::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkSTLReader");
+  if(ret)
+    {
+    return (vtkSTLReader*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkSTLReader;
+}
+
+
+
 
 #define VTK_ASCII 0
 #define VTK_BINARY 1

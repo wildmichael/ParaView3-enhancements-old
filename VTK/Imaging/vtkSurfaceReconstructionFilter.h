@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSurfaceReconstructionFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:15 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-10-11 15:05:42 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to Tim Hutton (MINORI Project, Dental and Medical
              Informatics, Eastman Dental Institute, London, UK) who
              developed and contributed this class.
@@ -64,8 +64,7 @@ public:
 
   // Description:
   // Construct with NeighborhoodSize=20.
-  static vtkSurfaceReconstructionFilter* New() 
-    { return new vtkSurfaceReconstructionFilter; }
+  static vtkSurfaceReconstructionFilter* New();
 
   // Description: 
   // Specify the number of neighbors each point has, used for estimating the

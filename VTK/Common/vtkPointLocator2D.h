@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-17 19:44:21 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-10-11 15:04:57 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -77,7 +77,7 @@ public:
   // Description:
   // Construct with automatic computation of divisions, averaging
   // 25 points per bucket.
-  static vtkPointLocator2D *New() {return new vtkPointLocator2D;};
+  static vtkPointLocator2D *New();
 
   const char *GetClassName() {return "vtkPointLocator2D";};
   void PrintSelf(ostream& os, vtkIndent indent);

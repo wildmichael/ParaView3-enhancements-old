@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVertex.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-06 15:07:49 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 1999-10-11 15:05:23 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,6 +42,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkMath.h"
 #include "vtkCellArray.h"
 #include "vtkPointLocator.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkVertex* vtkVertex::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkVertex");
+  if(ret)
+    {
+    return (vtkVertex*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkVertex;
+}
+
+
+
 
 // Construct the vertex with a single point.
 vtkVertex::vtkVertex()

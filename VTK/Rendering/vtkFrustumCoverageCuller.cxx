@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFrustumCoverageCuller.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-05 15:50:44 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-10-11 15:06:32 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,6 +41,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkFrustumCoverageCuller.h"
 #include "vtkProp.h"
 #include "vtkRenderer.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkFrustumCoverageCuller* vtkFrustumCoverageCuller::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkFrustumCoverageCuller");
+  if(ret)
+    {
+    return (vtkFrustumCoverageCuller*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkFrustumCoverageCuller;
+}
+
+
+
 
 // Create a frustum coverage culler with default values
 vtkFrustumCoverageCuller::vtkFrustumCoverageCuller()

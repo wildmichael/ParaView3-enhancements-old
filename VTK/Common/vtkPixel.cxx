@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPixel.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-31 20:47:07 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 1999-10-11 15:04:53 $
+  Version:   $Revision: 1.53 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -211,6 +211,25 @@ int vtkPixel::CellBoundary(int vtkNotUsed(subId), float pcoords[3], vtkIdList *p
 // Marching squares
 //
 #include "vtkMarchingSquaresCases.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkPixel* vtkPixel::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkPixel");
+  if(ret)
+    {
+    return (vtkPixel*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkPixel;
+}
+
+
+
 
 static int edges[4][2] = { {0,1}, {1,3}, {3,2}, {2,0} };
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-27 17:45:09 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1999-10-11 15:07:03 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,6 +52,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkIdList.h"
 #include "GL/gl.h"
 #include "GL/glu.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkOpenGLRenderWindow* vtkOpenGLRenderWindow::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkOpenGLRenderWindow");
+  if(ret)
+    {
+    return (vtkOpenGLRenderWindow*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkOpenGLRenderWindow;
+}
+
+
+
 
 #define MAX_LIGHTS 8
 

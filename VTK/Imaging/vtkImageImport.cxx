@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageImport.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-10 12:28:28 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1999-10-11 15:08:57 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,6 +42,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <string.h>
 #include "vtkByteSwap.h"
 #include "vtkImageImport.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkImageImport* vtkImageImport::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageImport");
+  if(ret)
+    {
+    return (vtkImageImport*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkImageImport;
+}
+
+
+
 
 //----------------------------------------------------------------------------
 vtkImageImport::vtkImageImport()

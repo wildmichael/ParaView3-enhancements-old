@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindowedSincPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:19 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-10-11 15:08:31 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -168,8 +168,7 @@ public:
   // angle 45 degrees; edge angle 15 degrees; and boundary smoothing turned 
   // on. Error scalars and vectors are not generated (by default). The 
   // convergence criterion is 0.0 of the bounding box diagonal.
-  static vtkWindowedSincPolyDataFilter *New() {
-    return new vtkWindowedSincPolyDataFilter;};
+  static vtkWindowedSincPolyDataFilter *New();
 
   // Description:
   // Specify the number of iterations (or degree of the polynomial

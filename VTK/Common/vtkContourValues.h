@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourValues.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:20:41 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-10-11 15:04:30 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,7 +60,7 @@ class VTK_EXPORT vtkContourValues : public vtkObject
 public:
   // Description:
   // Construct object with a single contour value at 0.0.
-  static vtkContourValues *New() {return new vtkContourValues;};
+  static vtkContourValues *New();
 
   const char *GetClassName() {return "vtkContourValues";};
   void PrintSelf(ostream& os, vtkIndent indent);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMathematics.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-23 18:49:15 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1999-10-11 15:09:05 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,6 +41,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkImageData.h"
 #include "vtkImageMathematics.h"
 #include <math.h>
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkImageMathematics* vtkImageMathematics::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageMathematics");
+  if(ret)
+    {
+    return (vtkImageMathematics*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkImageMathematics;
+}
+
+
+
 
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindowToImageFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:10 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-10-11 15:05:25 $
+  Version:   $Revision: 1.8 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -57,7 +57,7 @@ class vtkWindow;
 class VTK_EXPORT vtkWindowToImageFilter : public vtkImageSource
 {
 public:
-  static vtkWindowToImageFilter *New() {return new vtkWindowToImageFilter;};
+  static vtkWindowToImageFilter *New();
 
   const char *GetClassName() {return "vtkWindowToImageFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);   

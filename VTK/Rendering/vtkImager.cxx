@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImager.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-16 13:27:45 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-10-11 15:09:22 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,6 +41,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include "vtkImager.h"
 #include "vtkImageWindow.h"
+#include "vtkObjectFactory.h"
 
 #ifdef _WIN32
   #include "vtkOpenGLImager.h"
@@ -51,6 +52,14 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 vtkImager* vtkImager::New()
 {
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImager");
+  if(ret)
+    {
+    return (vtkImager*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+
 #ifdef _WIN32
 #ifndef VTK_USE_NATIVE_IMAGING
   return vtkOpenGLImager::New();

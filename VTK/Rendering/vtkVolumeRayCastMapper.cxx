@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-22 16:29:48 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 1999-10-11 15:08:24 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,6 +49,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkVolumeRayCastFunction.h"
 #include "vtkFiniteDifferenceGradientEstimator.h"
 #include "vtkPlaneCollection.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkVolumeRayCastMapper* vtkVolumeRayCastMapper::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkVolumeRayCastMapper");
+  if(ret)
+    {
+    return (vtkVolumeRayCastMapper*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkVolumeRayCastMapper;
+}
+
+
+
 
 #define vtkRayCastMatrixMultiplyPointMacro( A, B, M ) \
   B[0] = A[0]*M[0]  + A[1]*M[1]  + A[2]*M[2]  + M[3]; \

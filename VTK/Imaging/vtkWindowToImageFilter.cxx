@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindowToImageFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:29 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-10-11 15:05:25 $
+  Version:   $Revision: 1.6 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
 
@@ -41,6 +41,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <string.h>
 #include "vtkWindowToImageFilter.h"
 #include "vtkWindow.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkWindowToImageFilter* vtkWindowToImageFilter::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkWindowToImageFilter");
+  if(ret)
+    {
+    return (vtkWindowToImageFilter*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkWindowToImageFilter;
+}
+
+
+
 
 //----------------------------------------------------------------------------
 vtkWindowToImageFilter::vtkWindowToImageFilter()

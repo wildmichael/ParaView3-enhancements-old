@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStack.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:38:44 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-10-11 15:05:09 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkStack.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkStack* vtkStack::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkStack");
+  if(ret)
+    {
+    return (vtkStack*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkStack;
+}
+
+
+
 
 // Construct with empty stack.
 vtkStack::vtkStack()

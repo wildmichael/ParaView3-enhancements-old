@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGaussianSmooth.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:28 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1999-10-11 15:08:54 $
+  Version:   $Revision: 1.23 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,7 +59,7 @@ public:
   // Creates an instance of vtkImageGaussianSmmoth with the following
   // defaults: Dimensioonality 3, StandardDeviations( 2, 2, 2), 
   // Radius Factors ( 1.5, 1.5, 1.5)
-  static vtkImageGaussianSmooth *New() {return new vtkImageGaussianSmooth;};
+  static vtkImageGaussianSmooth *New();
   
   
   // Description:

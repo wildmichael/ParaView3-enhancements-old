@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedShortArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:06 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1999-10-11 15:05:19 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkUnsignedShortArray.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkUnsignedShortArray* vtkUnsignedShortArray::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkUnsignedShortArray");
+  if(ret)
+    {
+    return (vtkUnsignedShortArray*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkUnsignedShortArray;
+}
+
+
+
 
 // Instantiate object.
 vtkUnsignedShortArray::vtkUnsignedShortArray(int numComp)

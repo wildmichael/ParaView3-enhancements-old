@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGaussianSplatter.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:36 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1999-10-11 15:06:33 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,7 +62,7 @@ public:
   // Construct object with dimensions=(50,50,50); automatic computation of 
   // bounds; a splat radius of 0.1; an exponent factor of -5; and normal and 
   // scalar warping turned on.
-  static vtkGaussianSplatter *New() {return new vtkGaussianSplatter;};
+  static vtkGaussianSplatter *New();
 
   // Description:
   // Compute the size of the sample bounding box automatically from the

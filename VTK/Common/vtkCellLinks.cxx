@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLinks.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-17 19:42:09 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-10-11 15:04:28 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,6 +40,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkCellLinks.h"
 #include "vtkDataSet.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkCellLinks* vtkCellLinks::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkCellLinks");
+  if(ret)
+    {
+    return (vtkCellLinks*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkCellLinks;
+}
+
+
+
 
 void vtkCellLinks::Allocate(int sz, int ext)
 {

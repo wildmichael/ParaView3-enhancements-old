@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-30 19:05:41 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-10-11 15:04:50 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,7 +58,7 @@ class vtkActor2D;
 class VTK_EXPORT vtkMapper2D : public vtkAbstractMapper
 {
 public:
-  static vtkMapper2D* New() {return new vtkMapper2D;};
+  static vtkMapper2D* New();
 
   const char *GetClassName() {return "vtkMapper2D";};
   void PrintSelf(ostream& os, vtkIndent indent);

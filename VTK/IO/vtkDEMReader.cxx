@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDEMReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-23 18:43:02 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-10-11 15:05:29 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,6 +40,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkImageData.h"
 #include "vtkDEMReader.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkDEMReader* vtkDEMReader::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkDEMReader");
+  if(ret)
+    {
+    return (vtkDEMReader*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkDEMReader;
+}
+
+
+
 
 #define VTK_SW	0
 #define VTK_NW	1

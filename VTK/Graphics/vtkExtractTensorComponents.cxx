@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractTensorComponents.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-25 16:00:01 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-10-11 15:06:26 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,6 +44,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkVectors.h"
 #include "vtkNormals.h"
 #include "vtkTCoords.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkExtractTensorComponents* vtkExtractTensorComponents::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkExtractTensorComponents");
+  if(ret)
+    {
+    return (vtkExtractTensorComponents*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkExtractTensorComponents;
+}
+
+
+
 
 // Construct object to extract nothing and to not pass tensor data
 // through the pipeline.

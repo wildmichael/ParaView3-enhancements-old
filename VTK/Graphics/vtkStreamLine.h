@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamLine.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:03 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1999-10-11 15:07:49 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -81,7 +81,7 @@ public:
 
   // Description:
   // Construct object with step size set to 1.0.
-  static vtkStreamLine *New() {return new vtkStreamLine;};
+  static vtkStreamLine *New();
 
   // Description:
   // Specify the length of a line segment. The length is expressed in terms of

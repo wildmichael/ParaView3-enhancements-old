@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamer.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:04 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1999-10-11 15:07:50 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -145,7 +145,7 @@ public:
   // Construct object to start from position (0,0,0); integrate forward;
   // terminal speed 0.0; vorticity computation off; integrations step length
   // 0.2; and maximum propagation time 100.0.
-  static vtkStreamer *New() {return new vtkStreamer;};
+  static vtkStreamer *New();
   
   // Description:
   // Specify the start of the streamline in the cell coordinate system. That

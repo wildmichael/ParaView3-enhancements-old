@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMutexLock.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:01:38 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-10-11 15:04:52 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkMutexLock.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkMutexLock* vtkMutexLock::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkMutexLock");
+  if(ret)
+    {
+    return (vtkMutexLock*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkMutexLock;
+}
+
+
+
 
 // Construct a new vtkMutexLock 
 vtkSimpleMutexLock::vtkSimpleMutexLock()

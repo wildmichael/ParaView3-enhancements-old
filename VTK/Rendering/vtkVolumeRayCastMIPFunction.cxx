@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMIPFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-18 13:05:27 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-10-11 15:08:23 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,6 +42,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include "vtkVolumeRayCastMIPFunction.h"
 #include "vtkVolume.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkVolumeRayCastMIPFunction* vtkVolumeRayCastMIPFunction::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkVolumeRayCastMIPFunction");
+  if(ret)
+    {
+    return (vtkVolumeRayCastMIPFunction*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkVolumeRayCastMIPFunction;
+}
+
+
+
 
 #define vtkRoundFuncMacro(x)   (int)((x)+0.5)
 

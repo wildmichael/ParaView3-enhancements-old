@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-31 20:47:08 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-10-11 15:04:57 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,6 +42,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkMath.h"
 #include "vtkIntArray.h"
 #include "vtkPolyData.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkPointLocator2D* vtkPointLocator2D::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkPointLocator2D");
+  if(ret)
+    {
+    return (vtkPointLocator2D*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkPointLocator2D;
+}
+
+
+
 
 class vtkNeighborPoints
 {

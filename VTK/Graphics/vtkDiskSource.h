@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDiskSource.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:31 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1999-10-11 15:06:22 $
+  Version:   $Revision: 1.24 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -55,7 +55,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkDiskSource : public vtkPolyDataSource 
 {
 public:
-  static vtkDiskSource *New() {return new vtkDiskSource;};
+  static vtkDiskSource *New();
   const char *GetClassName() {return "vtkDiskSource";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

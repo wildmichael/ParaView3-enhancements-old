@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToStructuredPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-30 12:05:20 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1999-10-11 15:04:45 $
+  Version:   $Revision: 1.31 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -43,6 +43,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkImageToStructuredPoints.h"
 #include "vtkScalars.h"
 #include "vtkStructuredPoints.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkImageToStructuredPoints* vtkImageToStructuredPoints::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageToStructuredPoints");
+  if(ret)
+    {
+    return (vtkImageToStructuredPoints*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkImageToStructuredPoints;
+}
+
+
+
 
 //----------------------------------------------------------------------------
 vtkImageToStructuredPoints::vtkImageToStructuredPoints()

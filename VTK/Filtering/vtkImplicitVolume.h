@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitVolume.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:39 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-10-11 15:06:41 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,7 +74,7 @@ public:
   // Description
   // Construct an vtkImplicitVolume with no initial volume; the OutValue
   // set to a large negative number; and the OutGradient set to (0,0,1).
-  static vtkImplicitVolume *New() {return new vtkImplicitVolume;}
+  static vtkImplicitVolume *New();
 
   // Description:
   // Returns the mtime also considering the volume.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastIsosurfaceFunction.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:16 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-10-11 15:08:23 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,8 +66,7 @@ public:
 
   // Description:
   // Construct a new vtkVolumeRayCastIsosurfaceFunction
-  static vtkVolumeRayCastIsosurfaceFunction *New() {
-    return new vtkVolumeRayCastIsosurfaceFunction;};
+  static vtkVolumeRayCastIsosurfaceFunction *New();
 
   // Description:
   // Get the scalar value below which all scalar values have 0 opacity

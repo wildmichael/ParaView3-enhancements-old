@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-17 19:56:08 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 1999-10-11 15:05:20 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,7 +72,7 @@ class vtkPyramid;
 
 class VTK_EXPORT vtkUnstructuredGrid : public vtkPointSet {
 public:
-  static vtkUnstructuredGrid *New() {return new vtkUnstructuredGrid;};
+  static vtkUnstructuredGrid *New();
 
   const char *GetClassName() {return "vtkUnstructuredGrid";};
   void PrintSelf(ostream& os, vtkIndent indent);

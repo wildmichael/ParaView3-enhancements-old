@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeAxesActor2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:11 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-10-11 15:05:28 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thorsten Dowe who modified and improved this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -82,7 +82,7 @@ public:
   // Instantiate object with bold, italic, and shadow enabled; font family
   // set to Arial; and label format "6.3g". The number of labels per axis
   // is set to 3.
-  static vtkCubeAxesActor2D *New() {return new vtkCubeAxesActor2D;};
+  static vtkCubeAxesActor2D *New();
   
   // Description:
   // Draw the axes as per the vtkProp superclass' API.

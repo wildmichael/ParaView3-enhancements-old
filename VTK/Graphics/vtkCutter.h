@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:26 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1999-10-11 15:06:05 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,7 +67,7 @@ public:
   // Description:
   // Construct with user-specified implicit function; initial value of 0.0; and
   // generating cut scalars turned off.
-  static vtkCutter *New() {return new vtkCutter;};
+  static vtkCutter *New();
 
   // Description:
   // Set a particular contour value at contour number i. The index i ranges 

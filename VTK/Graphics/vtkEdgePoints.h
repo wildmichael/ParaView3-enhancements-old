@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEdgePoints.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:31 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1999-10-11 15:06:23 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,7 +64,7 @@ public:
 
   // Description:
   // Construct object with contour value of 0.0.
-  static vtkEdgePoints *New() {return new vtkEdgePoints;};
+  static vtkEdgePoints *New();
 
   // Description:
   // Set/get the contour value.

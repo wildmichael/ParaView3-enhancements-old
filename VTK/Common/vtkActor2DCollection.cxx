@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor2DCollection.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-23 13:55:35 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-10-11 15:04:25 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,6 +42,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkCollection.h"
 #include "vtkActor2D.h"
 #include "vtkActor2DCollection.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkActor2DCollection* vtkActor2DCollection::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkActor2DCollection");
+  if(ret)
+    {
+    return (vtkActor2DCollection*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkActor2DCollection;
+}
+
+
+
 
 // protected function to delete an element. Internal use only.
 void vtkActor2DCollection::DeleteElement(vtkCollectionElement *e)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEarthSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:30 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-10-11 15:05:30 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to Tom Johnson at Johnson Scientific International who
              developed and contributed this class.
 
@@ -44,6 +44,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkPoints.h"
 #include "vtkNormals.h"
 #include "vtkMath.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkEarthSource* vtkEarthSource::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkEarthSource");
+  if(ret)
+    {
+    return (vtkEarthSource*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkEarthSource;
+}
+
+
+
 
 // Description:
 // Construct an Earth with radius = 1.0 and OnRatio set at 10. The outlines are drawn

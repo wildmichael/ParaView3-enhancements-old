@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageQuantizeRGBToIndex.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:34 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-10-11 15:09:10 $
+  Version:   $Revision: 1.10 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -59,7 +59,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImageQuantizeRGBToIndex : public vtkImageToImageFilter
 {
 public:
-  static vtkImageQuantizeRGBToIndex *New() {return new vtkImageQuantizeRGBToIndex;};
+  static vtkImageQuantizeRGBToIndex *New();
   const char *GetClassName() {return "vtkImageQuantizeRGBToIndex";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

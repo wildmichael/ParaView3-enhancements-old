@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMCubesReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-21 14:07:53 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 1999-10-11 15:06:50 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,6 +43,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkMCubesReader.h"
 #include "vtkMergePoints.h"
 #include "vtkByteSwap.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkMCubesReader* vtkMCubesReader::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkMCubesReader");
+  if(ret)
+    {
+    return (vtkMCubesReader*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkMCubesReader;
+}
+
+
+
 
 // Construct object with FlipNormals turned off and Normals set to true.
 vtkMCubesReader::vtkMCubesReader()

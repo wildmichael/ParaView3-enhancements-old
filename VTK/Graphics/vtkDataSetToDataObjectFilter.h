@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToDataObjectFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:28 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-10-11 15:06:14 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -81,8 +81,7 @@ public:
 
   // Description:
   // Instantiate the object to transform all data into a data object.
-  static vtkDataSetToDataObjectFilter *New() {
-    return new vtkDataSetToDataObjectFilter;};
+  static vtkDataSetToDataObjectFilter *New();
 
   // Description:
   // Turn on/off the conversion of dataset geometry to a data object.

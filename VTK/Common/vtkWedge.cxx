@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWedge.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-08 18:32:14 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-10-11 15:05:24 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,6 +43,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkCellArray.h"
 #include "vtkPointLocator.h"
 #include "vtkUnstructuredGrid.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkWedge* vtkWedge::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkWedge");
+  if(ret)
+    {
+    return (vtkWedge*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkWedge;
+}
+
+
+
 
 // Construct the wedge with six points.
 vtkWedge::vtkWedge()

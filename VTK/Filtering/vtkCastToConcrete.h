@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCastToConcrete.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:22 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1999-10-11 15:05:54 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,7 +70,7 @@ class VTK_EXPORT vtkCastToConcrete : public vtkDataSetToDataSetFilter
 {
 
 public:
-  static vtkCastToConcrete *New() {return new vtkCastToConcrete;};
+  static vtkCastToConcrete *New();
   const char *GetClassName() {return "vtkCastToConcrete";};
 
 protected:

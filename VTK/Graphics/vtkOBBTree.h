@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBBTree.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-06 12:59:27 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1999-10-11 15:06:58 $
+  Version:   $Revision: 1.25 $
   Thanks:    Thanks to Peter C. Everett <pce@world.std.com> for
              improvements and enhancements to vtkOBBTree class.
 
@@ -108,7 +108,7 @@ public:
   // Description:
   // Construct with automatic computation of divisions, averaging
   // 25 cells per octant.
-  static vtkOBBTree *New() {return new vtkOBBTree;};
+  static vtkOBBTree *New();
 
   // Description:
   // Compute an OBB from the list of points given. Return the corner point

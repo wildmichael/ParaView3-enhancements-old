@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-25 16:00:02 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 1999-10-11 15:06:33 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,6 +40,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkGeometryFilter.h"
 #include "vtkMergePoints.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkGeometryFilter* vtkGeometryFilter::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkGeometryFilter");
+  if(ret)
+    {
+    return (vtkGeometryFilter*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkGeometryFilter;
+}
+
+
+
 
 // Construct with all types of clipping turned off.
 vtkGeometryFilter::vtkGeometryFilter()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-05 23:47:19 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-10-11 15:07:02 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,6 +42,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkOpenGLRenderer.h"
 #include "vtkOpenGLProperty.h"
 #include <GL/gl.h>
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkOpenGLProperty* vtkOpenGLProperty::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkOpenGLProperty");
+  if(ret)
+    {
+    return (vtkOpenGLProperty*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkOpenGLProperty;
+}
+
+
+
 
 // Implement base class method.
 void vtkOpenGLProperty::Render(vtkActor *vtkNotUsed(anActor),

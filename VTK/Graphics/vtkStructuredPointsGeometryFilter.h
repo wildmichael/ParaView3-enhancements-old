@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:06 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1999-10-11 15:08:00 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,8 +71,7 @@ public:
   
   // Description:
   // Construct with initial extent of all the data
-  static vtkStructuredPointsGeometryFilter *New() {
-    return new vtkStructuredPointsGeometryFilter;};
+  static vtkStructuredPointsGeometryFilter *New();
 
   
   // Description:

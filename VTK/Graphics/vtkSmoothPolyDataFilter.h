@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSmoothPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:02 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-10-11 15:07:46 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -132,7 +132,7 @@ public:
   // angle 45 degrees; edge angle 15 degrees; and boundary smoothing turned 
   // on. Error scalars and vectors are not generated (by default). The 
   // convergence criterion is 0.0 of the bounding box diagonal.
-  static vtkSmoothPolyDataFilter *New() {return new vtkSmoothPolyDataFilter;};
+  static vtkSmoothPolyDataFilter *New();
 
   // Description:
   // Specify a convergence criterion for the iteration

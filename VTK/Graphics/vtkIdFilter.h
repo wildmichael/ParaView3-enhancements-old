@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:38 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-10-11 15:06:37 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,7 +64,7 @@ public:
   // Description:
   // Construct object with PointIds and CellIds on; and ids being generated
   // as scalars.
-  static vtkIdFilter *New() {return new vtkIdFilter;};
+  static vtkIdFilter *New();
 
   // Description:
   // Enable/disable the generation of point ids.

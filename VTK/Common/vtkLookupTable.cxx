@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLookupTable.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-07 15:54:40 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 1999-10-11 15:04:49 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,6 +41,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <math.h>
 #include "vtkLookupTable.h"
 #include "vtkScalars.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkLookupTable* vtkLookupTable::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkLookupTable");
+  if(ret)
+    {
+    return (vtkLookupTable*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkLookupTable;
+}
+
+
+
 
 // Construct with range=(0,1); and hsv ranges set up for rainbow color table 
 // (from red to blue).

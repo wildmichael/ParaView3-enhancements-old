@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProjectedTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-27 19:37:42 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-10-11 15:05:37 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,6 +41,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkProjectedTexture.h"
 #include "vtkMath.h"
 #include "vtkTCoords.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkProjectedTexture* vtkProjectedTexture::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkProjectedTexture");
+  if(ret)
+    {
+    return (vtkProjectedTexture*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkProjectedTexture;
+}
+
+
+
 
 // Description:
 // Initialize the projected texture filter with a position of (0, 0, 1),

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXPolyDataMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:44 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-10-11 15:09:35 $
+  Version:   $Revision: 1.8 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -55,8 +55,7 @@ class VTK_EXPORT vtkXPolyDataMapper2D : public vtkPolyDataMapper2D
 {
 public:
   const char *GetClassName() {return "vtkXPolyDataMapper2D";};
-  static vtkXPolyDataMapper2D *New() 
-    {return new vtkXPolyDataMapper2D;};
+  static vtkXPolyDataMapper2D *New();
 
   // Description:
   // Actually draw the poly data.

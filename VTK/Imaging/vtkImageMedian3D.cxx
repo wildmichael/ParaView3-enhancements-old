@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMedian3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-18 12:56:08 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-10-11 15:09:05 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkImageMedian3D.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkImageMedian3D* vtkImageMedian3D::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageMedian3D");
+  if(ret)
+    {
+    return (vtkImageMedian3D*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkImageMedian3D;
+}
+
+
+
 
 
 

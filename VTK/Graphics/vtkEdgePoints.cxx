@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEdgePoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-25 16:00:00 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1999-10-11 15:06:22 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkEdgePoints.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkEdgePoints* vtkEdgePoints::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkEdgePoints");
+  if(ret)
+    {
+    return (vtkEdgePoints*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkEdgePoints;
+}
+
+
+
 
 // Construct object with contour value of 0.0.
 vtkEdgePoints::vtkEdgePoints()

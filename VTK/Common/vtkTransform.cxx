@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-06 12:30:44 $
-  Version:   $Revision: 1.68 $
+  Date:      $Date: 1999-10-11 15:05:15 $
+  Version:   $Revision: 1.69 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,6 +41,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <stdlib.h>
 #include "vtkTransform.h"
 #include "vtkMath.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkTransform* vtkTransform::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkTransform");
+  if(ret)
+    {
+    return (vtkTransform*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkTransform;
+}
+
+
+
 
 // Useful for viewing a double[16] as a double[4][4]
 typedef double (*SqMatPtr)[4];

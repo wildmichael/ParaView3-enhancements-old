@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScaledTextActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-21 00:50:26 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-10-11 15:09:28 $
+  Version:   $Revision: 1.9 $
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -38,6 +38,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkScaledTextActor.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkScaledTextActor* vtkScaledTextActor::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkScaledTextActor");
+  if(ret)
+    {
+    return (vtkScaledTextActor*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkScaledTextActor;
+}
+
+
+
 
 vtkScaledTextActor::vtkScaledTextActor()
 {

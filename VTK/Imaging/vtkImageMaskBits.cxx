@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMaskBits.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:45 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-10-11 15:09:04 $
+  Version:   $Revision: 1.4 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -40,6 +40,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <math.h>
 
 #include "vtkImageMaskBits.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkImageMaskBits* vtkImageMaskBits::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageMaskBits");
+  if(ret)
+    {
+    return (vtkImageMaskBits*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkImageMaskBits;
+}
+
+
+
 
 vtkImageMaskBits::vtkImageMaskBits()
 {

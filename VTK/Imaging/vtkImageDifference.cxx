@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDifference.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-23 18:49:08 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1999-10-11 15:08:47 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,6 +40,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkImageDifference.h"
 #include "stdlib.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkImageDifference* vtkImageDifference::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageDifference");
+  if(ret)
+    {
+    return (vtkImageDifference*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkImageDifference;
+}
+
+
+
 
 // Construct object to extract all of the input data.
 vtkImageDifference::vtkImageDifference()

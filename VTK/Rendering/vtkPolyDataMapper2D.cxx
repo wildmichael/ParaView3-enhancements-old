@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-24 00:59:13 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-10-11 15:09:27 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkPolyDataMapper2D.h"
+#include "vtkObjectFactory.h"
 
 #ifdef _WIN32
   #include "vtkOpenGLPolyDataMapper2D.h"
@@ -87,6 +88,14 @@ vtkPolyDataMapper2D::~vtkPolyDataMapper2D()
 
 vtkPolyDataMapper2D *vtkPolyDataMapper2D::New()
 {
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkPolyDataMapper2D");
+  if(ret)
+    {
+    return (vtkPolyDataMapper2D*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+
 #ifdef _WIN32
 #ifndef VTK_USE_NATIVE_IMAGING
     return vtkOpenGLPolyDataMapper2D::New();

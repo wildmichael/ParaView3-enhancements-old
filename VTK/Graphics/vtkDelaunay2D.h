@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:30 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-10-11 15:06:20 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -135,7 +135,7 @@ public:
   // Description:
   // Construct object with Alpha = 0.0; Tolerance = 0.001; Offset = 1.25;
   // BoundingTriangulation turned off.
-  static vtkDelaunay2D *New() {return new vtkDelaunay2D;};
+  static vtkDelaunay2D *New();
 
   // Description:
   // Specify the source object used to specify constrained edges and loops.

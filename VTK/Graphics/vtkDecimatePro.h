@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimatePro.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-23 12:52:14 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1999-10-11 15:06:19 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -184,7 +184,7 @@ public:
   // boundary vertices is on, and the maximum error is set to
   // VTK_LARGE_FLOAT. The inflection point ratio is 10 and the vertex
   // degree is 25. Error accumulation is turned off.
-  static vtkDecimatePro *New() {return new vtkDecimatePro;};
+  static vtkDecimatePro *New();
 
   // Description:
   // Specify the desired reduction in the total number of polygons. Because

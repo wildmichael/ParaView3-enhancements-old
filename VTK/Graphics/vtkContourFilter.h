@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-08 15:59:46 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 1999-10-11 15:06:02 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -89,7 +89,7 @@ public:
   // Description:
   // Construct object with initial range (0,1) and single contour value
   // of 0.0.
-  static vtkContourFilter *New() {return new vtkContourFilter;};
+  static vtkContourFilter *New();
 
   // Description:
   // Methods to set / get contour values.

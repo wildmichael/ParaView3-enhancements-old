@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSLCReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:59 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1999-10-11 15:07:39 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,6 +41,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <ctype.h>
 
 #include "vtkSLCReader.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkSLCReader* vtkSLCReader::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkSLCReader");
+  if(ret)
+    {
+    return (vtkSLCReader*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkSLCReader;
+}
+
+
+
 
 // Constructor for a vtkSLCReader.
 vtkSLCReader::vtkSLCReader()

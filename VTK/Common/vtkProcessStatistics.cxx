@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProcessStatistics.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-11-02 15:05:32 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-10-11 15:05:02 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,6 +45,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <sys/types.h>
 #include <unistd.h>
 #include <fcntl.h>
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkProcessStatistics* vtkProcessStatistics::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkProcessStatistics");
+  if(ret)
+    {
+    return (vtkProcessStatistics*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkProcessStatistics;
+}
+
+
+
 
 
 /* This mess was copied from the GNU getpagesize.h.  */

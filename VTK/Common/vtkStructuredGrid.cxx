@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 13:08:34 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 1999-10-11 15:05:10 $
+  Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,6 +45,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkHexahedron.h"
 #include "vtkStructuredExtent.h"
 #include "vtkStructuredInformation.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkStructuredGrid* vtkStructuredGrid::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkStructuredGrid");
+  if(ret)
+    {
+    return (vtkStructuredGrid*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkStructuredGrid;
+}
+
+
+
 
 #define vtkAdjustBoundsMacro( A, B ) \
   A[0] = (B[0] < A[0] ? B[0] : A[0]);   A[1] = (B[0] > A[1] ? B[0] : A[1]); \

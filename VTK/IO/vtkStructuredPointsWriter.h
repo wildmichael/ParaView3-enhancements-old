@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsWriter.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:08 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1999-10-11 15:08:03 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,8 +55,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkStructuredPointsWriter : public vtkDataWriter
 {
 public:
-  static vtkStructuredPointsWriter *New() {
-    return new vtkStructuredPointsWriter;};
+  static vtkStructuredPointsWriter *New();
   const char *GetClassName() {return "vtkStructuredPointsWriter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

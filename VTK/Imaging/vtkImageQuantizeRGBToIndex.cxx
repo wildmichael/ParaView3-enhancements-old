@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageQuantizeRGBToIndex.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-27 19:42:00 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-10-11 15:09:10 $
+  Version:   $Revision: 1.11 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -41,6 +41,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkTimerLog.h"
 #include <math.h>
 #include <stdlib.h>
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkImageQuantizeRGBToIndex* vtkImageQuantizeRGBToIndex::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageQuantizeRGBToIndex");
+  if(ret)
+    {
+    return (vtkImageQuantizeRGBToIndex*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkImageQuantizeRGBToIndex;
+}
+
+
+
 
 class vtkColorQuantizeNode
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-25 16:00:07 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1999-10-11 15:07:40 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,6 +41,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkSTLWriter.h"
 #include "vtkTriangle.h"
 #include "vtkByteSwap.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkSTLWriter* vtkSTLWriter::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkSTLWriter");
+  if(ret)
+    {
+    return (vtkSTLWriter*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkSTLWriter;
+}
+
+
+
 
 vtkSTLWriter::vtkSTLWriter()
 {

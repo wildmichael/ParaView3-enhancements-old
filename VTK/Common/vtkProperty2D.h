@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:20:57 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-10-11 15:05:04 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,7 +62,7 @@ public:
   // Description:
   // Creates a vtkProperty2D with the following default values:
   // Opacity 1, Color (1,1,1)
-  static vtkProperty2D *New() {return new vtkProperty2D;};
+  static vtkProperty2D *New();
 
   // Description:
   // Set/Get the RGB color of this property.

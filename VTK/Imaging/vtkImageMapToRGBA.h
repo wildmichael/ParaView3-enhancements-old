@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapToRGBA.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:32 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-10-11 15:09:03 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,7 +57,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImageMapToRGBA : public vtkImageToImageFilter
 {
 public:
-  static vtkImageMapToRGBA *New() {return new vtkImageMapToRGBA;};
+  static vtkImageMapToRGBA *New();
   const char *GetClassName() {return "vtkImageMapToRGBA";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

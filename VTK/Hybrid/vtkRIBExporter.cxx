@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-06 15:48:56 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1999-10-11 15:05:38 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,6 +48,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkImageConstantPad.h"
 #include "vtkImageExtractComponents.h"
 #include "vtkImageAppendComponents.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkRIBExporter* vtkRIBExporter::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkRIBExporter");
+  if(ret)
+    {
+    return (vtkRIBExporter*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkRIBExporter;
+}
+
+
+
 
 typedef float RtColor[3];
 typedef float RtPoint[3];

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAxisActor2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:21 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-10-11 15:08:35 $
+  Version:   $Revision: 1.7 $
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -85,7 +85,7 @@ public:
 
   // Description:
   // Instantiate object.
-  static vtkAxisActor2D *New() {return new vtkAxisActor2D;};
+  static vtkAxisActor2D *New();
   
   // Description:
   // Specify the position of the first point defining the axis.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-17 19:55:07 $
-  Version:   $Revision: 1.82 $
+  Date:      $Date: 1999-10-11 15:04:58 $
+  Version:   $Revision: 1.83 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -83,7 +83,7 @@ class vtkUnstructuredInformation;
 class VTK_EXPORT vtkPolyData : public vtkPointSet 
 {
 public:
-  static vtkPolyData *New() {return new vtkPolyData;};
+  static vtkPolyData *New();
 
   const char *GetClassName() {return "vtkPolyData";};
   void PrintSelf(ostream& os, vtkIndent indent);

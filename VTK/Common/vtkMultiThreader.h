@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiThreader.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:20:52 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1999-10-11 15:04:52 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -146,7 +146,7 @@ struct ThreadInfoStruct
 class VTK_EXPORT vtkMultiThreader : public vtkObject 
 {
 public:
-  static vtkMultiThreader *New() {return new vtkMultiThreader;};
+  static vtkMultiThreader *New();
 
   const char *GetClassName() {return "vtkMultiThreader";};
   void PrintSelf(ostream& os, vtkIndent indent);

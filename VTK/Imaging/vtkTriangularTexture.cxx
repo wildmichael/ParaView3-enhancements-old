@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangularTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-29 14:53:37 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-10-11 15:08:12 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,6 +41,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkTriangularTexture.h"
 #include "vtkMath.h"
 #include "vtkUnsignedCharArray.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkTriangularTexture* vtkTriangularTexture::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkTriangularTexture");
+  if(ret)
+    {
+    return (vtkTriangularTexture*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkTriangularTexture;
+}
+
+
+
 
 // Instantiate object with XSize and YSize = 64; the texture pattern =1
 // (opaque at centroid); and the scale factor set to 1.0.

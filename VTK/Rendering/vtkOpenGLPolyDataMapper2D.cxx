@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-02 20:04:22 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-10-11 15:09:25 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,6 +42,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <math.h>
 #include "vtkOpenGLPolyDataMapper2D.h"
 #include <GL/gl.h>
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkOpenGLPolyDataMapper2D* vtkOpenGLPolyDataMapper2D::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkOpenGLPolyDataMapper2D");
+  if(ret)
+    {
+    return (vtkOpenGLPolyDataMapper2D*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkOpenGLPolyDataMapper2D;
+}
+
+
+
 
 void vtkOpenGLPolyDataMapper2D::RenderOpaqueGeometry(vtkViewport* viewport,
 						     vtkActor2D* actor)

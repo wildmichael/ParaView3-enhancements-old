@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastCompositeFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-22 14:14:34 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1999-10-11 15:08:22 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,6 +44,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkVolumeProperty.h"
 #include "vtkVolumeRayCastMapper.h"
 #include "vtkVolume.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkVolumeRayCastCompositeFunction* vtkVolumeRayCastCompositeFunction::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkVolumeRayCastCompositeFunction");
+  if(ret)
+    {
+    return (vtkVolumeRayCastCompositeFunction*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkVolumeRayCastCompositeFunction;
+}
+
+
+
 
 #define VTK_REMAINING_OPACITY		0.02
 

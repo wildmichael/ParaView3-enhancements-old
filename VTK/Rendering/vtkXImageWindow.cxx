@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-11 12:33:57 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1999-10-11 15:09:33 $
+  Version:   $Revision: 1.24 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkXImageWindow.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkXImageWindow* vtkXImageWindow::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkXImageWindow");
+  if(ret)
+    {
+    return (vtkXImageWindow*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkXImageWindow;
+}
+
+
+
 
 
 void vtkXImageWindow::GetShiftsScalesAndMasks(int &rshift, int &gshift, 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEarthSource.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:12 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-10-11 15:05:32 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to Tom Johnson at Johnson Scientific International who
              developed and contributed this class.
 
@@ -55,7 +55,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkEarthSource : public vtkPolyDataSource 
 {
 public:
-  static vtkEarthSource *New() {return new vtkEarthSource;};
+  static vtkEarthSource *New();
   const char *GetClassName() {return "vtkEarthSource";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

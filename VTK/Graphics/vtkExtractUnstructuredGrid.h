@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractUnstructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:34 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-10-11 15:06:27 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,8 +68,7 @@ public:
 
   // Description:
   // Construct with all types of clipping turned off.
-  static vtkExtractUnstructuredGrid *New() {
-    return new vtkExtractUnstructuredGrid;};
+  static vtkExtractUnstructuredGrid *New();
 
   // Description:
   // Turn on/off selection of geometry by point id.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRibbonFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:59 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1999-10-11 15:07:38 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,7 +68,7 @@ public:
   // Description:
   // Construct ribbon so that width is 0.1, the width does 
   // not vary with scalar values, and the width factor is 2.0.
-  static vtkRibbonFilter *New() {return new vtkRibbonFilter;};
+  static vtkRibbonFilter *New();
 
   // Description:
   // Set the "half" width of the ribbon. If the width is allowed to vary, 

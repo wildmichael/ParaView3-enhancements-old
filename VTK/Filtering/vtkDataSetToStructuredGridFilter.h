@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToStructuredGridFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-29 00:43:45 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-10-11 15:06:15 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,8 +53,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkDataSetToStructuredGridFilter : public vtkStructuredGridSource
 {
 public:
-  static vtkDataSetToStructuredGridFilter *New() {
-    return new vtkDataSetToStructuredGridFilter;};
+  static vtkDataSetToStructuredGridFilter *New();
   const char *GetClassName() {return "vtkDataSetToStructuredGridFilter";};
 
   // Description:

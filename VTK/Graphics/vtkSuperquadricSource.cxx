@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSuperquadricSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:35 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-10-11 15:05:41 $
+  Version:   $Revision: 1.6 $
   Thanks:    Mike Halle, Brigham and Women's Hospital
 
 
@@ -50,6 +50,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkPoints.h"
 #include "vtkNormals.h"
 #include "vtkMath.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkSuperquadricSource* vtkSuperquadricSource::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkSuperquadricSource");
+  if(ret)
+    {
+    return (vtkSuperquadricSource*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkSuperquadricSource;
+}
+
+
+
 
 static void evalSuperquadric(float u, float v, 
 			     float du, float dv,

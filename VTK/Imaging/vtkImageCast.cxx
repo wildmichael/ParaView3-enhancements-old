@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCast.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-23 18:49:07 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1999-10-11 15:08:42 $
+  Version:   $Revision: 1.29 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,6 +40,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 
 #include "vtkImageCast.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkImageCast* vtkImageCast::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageCast");
+  if(ret)
+    {
+    return (vtkImageCast*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkImageCast;
+}
+
+
+
 
 
 

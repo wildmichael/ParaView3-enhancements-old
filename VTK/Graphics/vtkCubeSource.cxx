@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:40:56 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1999-10-11 15:06:02 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,6 +42,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkCubeSource.h"
 #include "vtkPoints.h"
 #include "vtkNormals.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkCubeSource* vtkCubeSource::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkCubeSource");
+  if(ret)
+    {
+    return (vtkCubeSource*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkCubeSource;
+}
+
+
+
 
 vtkCubeSource::vtkCubeSource(float xL, float yL, float zL)
 {

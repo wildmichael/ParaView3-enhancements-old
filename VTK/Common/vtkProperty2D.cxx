@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-11 17:40:31 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-10-11 15:05:04 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,6 +40,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 
 #include "vtkProperty2D.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkProperty2D* vtkProperty2D::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkProperty2D");
+  if(ret)
+    {
+    return (vtkProperty2D*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkProperty2D;
+}
+
+
+
 
 // Creates a vtkProperty2D with the following default values:
 // Opacity 1, Color (1,0,0), CompositingOperator VTK_SRC

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCorrelation.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-23 18:49:08 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-10-11 15:08:45 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,6 +40,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 
 #include "vtkImageCorrelation.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkImageCorrelation* vtkImageCorrelation::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageCorrelation");
+  if(ret)
+    {
+    return (vtkImageCorrelation*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkImageCorrelation;
+}
+
+
+
 
 
 

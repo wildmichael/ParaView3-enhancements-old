@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShepardMethod.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:09 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1999-10-11 15:07:44 $
+  Version:   $Revision: 1.27 $
   Thanks:    Paul A, Hsieh for bug fixes
 
 
@@ -41,6 +41,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkShepardMethod.h"
 #include "vtkMath.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkShepardMethod* vtkShepardMethod::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkShepardMethod");
+  if(ret)
+    {
+    return (vtkShepardMethod*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkShepardMethod;
+}
+
+
+
 
 // Construct with sample dimensions=(50,50,50) and so that model bounds are
 // automatically computed from input. Null value for each unvisited output 

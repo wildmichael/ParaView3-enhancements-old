@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCast.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:23 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1999-10-11 15:08:42 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,7 +57,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImageCast : public vtkImageToImageFilter
 {
 public:
-  static vtkImageCast *New() {return new vtkImageCast;};
+  static vtkImageCast *New();
   const char *GetClassName() {return "vtkImageCast";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

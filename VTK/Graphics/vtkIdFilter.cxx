@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:06 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-10-11 15:06:37 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkIdFilter.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkIdFilter* vtkIdFilter::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkIdFilter");
+  if(ret)
+    {
+    return (vtkIdFilter*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkIdFilter;
+}
+
+
+
 
 // Construct object with PointIds and CellIds on; and ids being generated
 // as scalars.

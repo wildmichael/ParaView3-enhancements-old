@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformTextureCoords.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:11 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-10-11 15:08:10 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,8 +69,7 @@ public:
   // Description:
   // Create instance with Origin (0.5,0.5,0.5); Position (0,0,0); and Scale
   // set to (1,1,1). Rotation of the texture coordinates is turned off.
-  static vtkTransformTextureCoords *New() {
-    return new vtkTransformTextureCoords;};
+  static vtkTransformTextureCoords *New();
 
   // Description:
   // Set/Get the position of the texture map. Setting the position translates

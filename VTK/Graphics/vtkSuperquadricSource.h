@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSuperquadricSource.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:15 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-10-11 15:05:41 $
+  Version:   $Revision: 1.5 $
   Thanks:    Mike Halle, Brigham and Women's Hospital
 
 
@@ -84,7 +84,7 @@ public:
   // Description:
   // Create a default superquadric with a radius of 0.5, non-toroidal, 
   // spherical, and centered at the origin.
-  static vtkSuperquadricSource *New() {return new vtkSuperquadricSource;};
+  static vtkSuperquadricSource *New();
 
   const char *GetClassName() {return "vtkSuperquadricSource";};
   void PrintSelf(ostream& os, vtkIndent indent);

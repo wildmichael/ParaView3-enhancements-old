@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageExport.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-09 20:15:44 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-10-11 15:08:50 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 
@@ -42,6 +42,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <ctype.h>
 #include <string.h>
 #include "vtkImageExport.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkImageExport* vtkImageExport::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageExport");
+  if(ret)
+    {
+    return (vtkImageExport*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkImageExport;
+}
+
+
+
 
 
 

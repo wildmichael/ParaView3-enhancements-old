@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay3D.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:31 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1999-10-11 15:06:21 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -122,7 +122,7 @@ public:
   // Description:
   // Construct object with Alpha = 0.0; Tolerance = 0.001; Offset = 2.5;
   // BoundingTriangulation turned off.
-  static vtkDelaunay3D *New() {return new vtkDelaunay3D;};
+  static vtkDelaunay3D *New();
 
   // Description:
   // Specify alpha (or distance) value to control output of this filter.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-15 21:12:03 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-10-11 15:05:44 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -211,6 +211,13 @@ vtkVolumeProMapper::~vtkVolumeProMapper()
 // Simplified version - just assume the mapper type
 vtkVolumeProMapper *vtkVolumeProMapper::New()
 {
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkVolumeProMapper");
+  if(ret)
+    {
+    return (vtkVolumeProMapper*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
   return vtkVolumeProVG500Mapper::New();
 }
 

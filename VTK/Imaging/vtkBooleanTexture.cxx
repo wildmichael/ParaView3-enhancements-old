@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBooleanTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-23 19:12:51 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1999-10-11 15:05:52 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,6 +40,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkBooleanTexture.h"
 #include "vtkUnsignedCharArray.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkBooleanTexture* vtkBooleanTexture::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkBooleanTexture");
+  if(ret)
+    {
+    return (vtkBooleanTexture*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkBooleanTexture;
+}
+
+
+
 
 vtkBooleanTexture::vtkBooleanTexture()
 {

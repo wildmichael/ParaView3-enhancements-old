@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-30 18:57:54 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1999-10-11 15:09:24 $
+  Version:   $Revision: 1.21 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -45,6 +45,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkActor2D.h"
 #include <GL/gl.h>
 #include <limits.h>
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkOpenGLImageMapper* vtkOpenGLImageMapper::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkOpenGLImageMapper");
+  if(ret)
+    {
+    return (vtkOpenGLImageMapper*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkOpenGLImageMapper;
+}
+
+
+
 
 vtkOpenGLImageMapper::vtkOpenGLImageMapper()
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkChairDisplay.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:29 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-10-11 15:05:27 $
+  Version:   $Revision: 1.6 $
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include <math.h>
 #include "vtkChairDisplay.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkChairDisplay* vtkChairDisplay::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkChairDisplay");
+  if(ret)
+    {
+    return (vtkChairDisplay*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkChairDisplay;
+}
+
+
+
 
 // Description:
 // Construct object with initial range (0,1) and single contour value of

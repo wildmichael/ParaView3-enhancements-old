@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIdealLowPass.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:39 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-10-11 15:08:57 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,6 +41,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <math.h>
 #include "vtkImageData.h"
 #include "vtkImageIdealLowPass.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkImageIdealLowPass* vtkImageIdealLowPass::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageIdealLowPass");
+  if(ret)
+    {
+    return (vtkImageIdealLowPass*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkImageIdealLowPass;
+}
+
+
+
 
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-04 20:54:35 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1999-10-11 15:09:35 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkXTextMapper.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkXTextMapper* vtkXTextMapper::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkXTextMapper");
+  if(ret)
+    {
+    return (vtkXTextMapper*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkXTextMapper;
+}
+
+
+
 
 void vtkXTextMapper::SetFontSize(int size)
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalars.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-06 18:42:13 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 1999-10-11 15:05:07 $
+  Version:   $Revision: 1.60 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -78,7 +78,7 @@ class vtkScalarsToColors;
 class VTK_EXPORT vtkScalars : public vtkAttributeData
 {
 public:
-  static vtkScalars *New() {return new vtkScalars;};
+  static vtkScalars *New();
   static vtkScalars *New(int dataType, int numComp=1);
 
   const char *GetClassName() {return "vtkScalars";};

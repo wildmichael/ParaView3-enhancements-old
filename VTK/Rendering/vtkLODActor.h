@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODActor.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:41 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1999-10-11 15:06:45 $
+  Version:   $Revision: 1.29 $
   
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -78,7 +78,7 @@ public:
   // Creates a vtkLODActor with the following defaults: origin(0,0,0) 
   // position=(0,0,0) scale=(1,1,1) visibility=1 pickable=1 dragable=1
   // orientation=(0,0,0). NumberOfCloudPoints is set to 150.
-  static vtkLODActor *New() {return new vtkLODActor;};
+  static vtkLODActor *New();
 
   // Description:
   // This causes the actor to be rendered. It, in turn, will render the actor's

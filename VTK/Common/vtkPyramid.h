@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPyramid.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:20:58 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-10-11 15:05:05 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,7 +61,7 @@ public:
 
   // Description:
   // Create an instance of this class.
-  static vtkPyramid *New() {return new vtkPyramid;};
+  static vtkPyramid *New();
 
   // Description:
   // See the vtkCell API for descriptions of these methods.

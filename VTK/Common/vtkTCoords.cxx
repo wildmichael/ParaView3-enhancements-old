@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-06 18:42:15 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1999-10-11 15:05:12 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,10 +39,29 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkTCoords.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkTCoords* vtkTCoords::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkTCoords");
+  if(ret)
+    {
+    return (vtkTCoords*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkTCoords;
+}
+
+
+
 
 vtkTCoords *vtkTCoords::New(int dataType, int numComp)
 {
-  vtkTCoords *res = new vtkTCoords();
+  vtkTCoords *res = vtkTCoords::New();
   res->SetDataType(dataType);
   res->SetNumberOfComponents(numComp);
   return res;

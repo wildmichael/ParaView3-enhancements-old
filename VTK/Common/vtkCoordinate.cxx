@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCoordinate.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-23 13:40:29 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-10-11 15:04:30 $
+  Version:   $Revision: 1.11 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -40,6 +40,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include "vtkCoordinate.h"
 #include "vtkViewport.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkCoordinate* vtkCoordinate::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkCoordinate");
+  if(ret)
+    {
+    return (vtkCoordinate*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkCoordinate;
+}
+
+
+
 
 #define VTK_RINT(x) ((x > 0.0) ? (int)(x + 0.5) : (int)(x - 0.5))
 

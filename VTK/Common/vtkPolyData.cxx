@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-17 19:55:07 $
-  Version:   $Revision: 1.104 $
+  Date:      $Date: 1999-10-11 15:04:58 $
+  Version:   $Revision: 1.105 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,6 +50,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkEmptyCell.h"
 #include "vtkUnstructuredExtent.h"
 #include "vtkUnstructuredInformation.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkPolyData* vtkPolyData::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkPolyData");
+  if(ret)
+    {
+    return (vtkPolyData*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkPolyData;
+}
+
+
+
 
 //----------------------------------------------------------------------------
 // Initialize static member.  This member is used to simplify traversal

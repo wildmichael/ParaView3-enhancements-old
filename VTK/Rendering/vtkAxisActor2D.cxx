@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAxisActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-19 11:40:36 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-10-11 15:08:35 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to Kitware & RPI/SCOREC who supported the development
              of this class.
 
@@ -40,6 +40,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkAxisActor2D.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkAxisActor2D* vtkAxisActor2D::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkAxisActor2D");
+  if(ret)
+    {
+    return (vtkAxisActor2D*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkAxisActor2D;
+}
+
+
+
 
 // Instantiate this object.
 vtkAxisActor2D::vtkAxisActor2D()

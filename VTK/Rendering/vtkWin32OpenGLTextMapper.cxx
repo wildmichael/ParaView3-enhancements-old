@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-02 19:46:35 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-10-11 15:09:31 $
+  Version:   $Revision: 1.12 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkWin32OpenGLTextMapper.h"
 #include <GL/gl.h>
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkWin32OpenGLTextMapper* vtkWin32OpenGLTextMapper::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkWin32OpenGLTextMapper");
+  if(ret)
+    {
+    return (vtkWin32OpenGLTextMapper*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkWin32OpenGLTextMapper;
+}
+
+
+
 
 struct vtkFontStruct
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToBox.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:15 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-10-11 15:05:42 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,7 +65,7 @@ public:
 
   // Description:
   // Construct with r-s-t range=(0,1) and automatic box generation turned on.
-  static vtkTextureMapToBox *New() {return new vtkTextureMapToBox;};
+  static vtkTextureMapToBox *New();
   
   // Description:
   // Specify the bounding box to map into.

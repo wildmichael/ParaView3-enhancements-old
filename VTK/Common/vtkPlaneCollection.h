@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlaneCollection.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-05 17:13:39 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-10-11 15:04:55 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,8 +55,7 @@ class VTK_EXPORT vtkPlaneCollection : public vtkCollection
 {
 public:
   const char *GetClassName() {return "vtkPlaneCollection";};
-  static vtkPlaneCollection *New() 
-    {return new vtkPlaneCollection;};
+  static vtkPlaneCollection *New();
 
   // Description:
   // Add a plane to the list.

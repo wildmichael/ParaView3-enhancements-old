@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellCenters.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:22 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-10-11 15:05:55 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,7 +68,7 @@ public:
 
   // Description:
   // Construct object with vertex cell generation turned off.
-  static vtkCellCenters *New() {return new vtkCellCenters;};
+  static vtkCellCenters *New();
 
   // Description:
   // Enable/disable the generation of vertex cells.

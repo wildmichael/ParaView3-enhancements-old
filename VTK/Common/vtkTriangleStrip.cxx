@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleStrip.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-11-06 13:53:58 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 1999-10-11 15:05:17 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,6 +41,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkTriangleStrip.h"
 #include "vtkCellArray.h"
 #include "vtkLine.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkTriangleStrip* vtkTriangleStrip::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkTriangleStrip");
+  if(ret)
+    {
+    return (vtkTriangleStrip*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkTriangleStrip;
+}
+
+
+
 
 
 vtkTriangleStrip::vtkTriangleStrip()

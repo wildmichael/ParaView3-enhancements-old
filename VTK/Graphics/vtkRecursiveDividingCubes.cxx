@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRecursiveDividingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-25 16:00:05 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1999-10-11 15:07:32 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,6 +42,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkMath.h"
 #include "vtkVoxel.h"
 #include "vtkFloatArray.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkRecursiveDividingCubes* vtkRecursiveDividingCubes::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkRecursiveDividingCubes");
+  if(ret)
+    {
+    return (vtkRecursiveDividingCubes*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkRecursiveDividingCubes;
+}
+
+
+
 
 vtkRecursiveDividingCubes::vtkRecursiveDividingCubes()
 {

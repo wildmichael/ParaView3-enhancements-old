@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkReverseSense.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:43 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-10-11 15:07:37 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkReverseSense.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkReverseSense* vtkReverseSense::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkReverseSense");
+  if(ret)
+    {
+    return (vtkReverseSense*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkReverseSense;
+}
+
+
+
 
 // Construct object so that behavior is to reverse cell ordering and
 // leave normal orientation as is.

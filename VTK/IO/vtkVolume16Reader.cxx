@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume16Reader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-31 20:48:01 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1999-10-11 15:08:20 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,6 +40,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkVolume16Reader.h"
 #include "vtkUnsignedShortArray.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkVolume16Reader* vtkVolume16Reader::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkVolume16Reader");
+  if(ret)
+    {
+    return (vtkVolume16Reader*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkVolume16Reader;
+}
+
+
+
 
 // Construct object with NULL file prefix; file pattern "%s.%d"; image range 
 // set to (1,1); data origin (0,0,0); data spacing (1,1,1); no data mask;

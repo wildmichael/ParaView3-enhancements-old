@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIVExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-06 15:48:58 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-10-11 15:06:36 $
+  Version:   $Revision: 1.20 $
   Thanks:    to Jon A. Webb of Visual Interface Inc.
 
 
@@ -43,6 +43,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkGeometryFilter.h"
 #include "vtkPolyDataMapper.h"
 #include "vtkMath.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkIVExporter* vtkIVExporter::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkIVExporter");
+  if(ret)
+    {
+    return (vtkIVExporter*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkIVExporter;
+}
+
+
+
 
 vtkIVExporter::vtkIVExporter()
 {

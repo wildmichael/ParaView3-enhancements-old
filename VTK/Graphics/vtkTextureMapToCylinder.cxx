@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToCylinder.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-25 16:07:17 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-10-11 15:08:05 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,6 +42,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkMath.h"
 #include "vtkLine.h"
 #include "vtkOBBTree.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkTextureMapToCylinder* vtkTextureMapToCylinder::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkTextureMapToCylinder");
+  if(ret)
+    {
+    return (vtkTextureMapToCylinder*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkTextureMapToCylinder;
+}
+
+
+
 
 // Create object with cylinder axis parallel to z-axis (points (0,0,-0.5) 
 // and (0,0,0.5)). The PreventSeam ivar is set to true. The cylinder is 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToCylinder.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:09 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-10-11 15:08:06 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -81,7 +81,7 @@ public:
   // Create object with cylinder axis parallel to z-axis (points (0,0,-0.5) 
   // and (0,0,0.5)). The PreventSeam ivar is set to true. The cylinder is 
   // automatically generated.
-  static vtkTextureMapToCylinder *New() {return new vtkTextureMapToCylinder;};
+  static vtkTextureMapToCylinder *New();
 
   // Description:
   // Specify the first point defining the cylinder axis,

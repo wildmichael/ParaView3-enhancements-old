@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32PolyDataMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-19 19:35:18 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-10-11 15:09:32 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,6 +42,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <math.h>
 #include "vtkWin32PolyDataMapper2D.h"
 #include "vtkWin32ImageWindow.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkWin32PolyDataMapper2D* vtkWin32PolyDataMapper2D::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkWin32PolyDataMapper2D");
+  if(ret)
+    {
+    return (vtkWin32PolyDataMapper2D*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkWin32PolyDataMapper2D;
+}
+
+
+
 
 void vtkWin32PolyDataMapper2D::RenderOverlay(vtkViewport* viewport, 
 					     vtkActor2D* actor)

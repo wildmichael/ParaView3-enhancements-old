@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTetra.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:02 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 1999-10-11 15:05:14 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,7 +55,7 @@ class vtkUnstructuredGrid;
 class VTK_EXPORT vtkTetra : public vtkCell
 {
 public:
-  static vtkTetra *New() {return new vtkTetra;};
+  static vtkTetra *New();
   const char *GetClassName() {return "vtkTetra";};
 
   // Description:

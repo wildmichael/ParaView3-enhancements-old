@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLineSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-05 13:12:49 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1999-10-11 15:06:48 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,6 +42,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkLineSource.h"
 #include "vtkPoints.h"
 #include "vtkTCoords.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkLineSource* vtkLineSource::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkLineSource");
+  if(ret)
+    {
+    return (vtkLineSource*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkLineSource;
+}
+
+
+
 
 vtkLineSource::vtkLineSource(int res)
 {

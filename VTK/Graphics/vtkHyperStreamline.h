@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHyperStreamline.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-21 15:01:56 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1999-10-11 15:06:36 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -90,7 +90,7 @@ public:
   // step length 0.2; step length 0.01; forward integration; terminal
   // eigenvalue 0.0; number of sides 6; radius 0.5; and logarithmic scaling
   // off.
-  static vtkHyperStreamline *New() {return new vtkHyperStreamline;};
+  static vtkHyperStreamline *New();
 
   // Description:
   // Specify the start of the hyperstreamline in the cell coordinate system. 

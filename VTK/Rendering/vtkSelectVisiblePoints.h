@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSelectVisiblePoints.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:01 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-10-11 15:07:43 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,7 +80,7 @@ public:
   // Description:
   // Instantiate object with no renderer; window selection turned off; 
   // tolerance set to 0.01; and select invisible off.
-  static vtkSelectVisiblePoints *New() {return new vtkSelectVisiblePoints;};
+  static vtkSelectVisiblePoints *New();
 
   // Description:
   // Specify the renderer in which the visibility computation is to be

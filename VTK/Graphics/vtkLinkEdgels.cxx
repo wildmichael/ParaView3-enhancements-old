@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinkEdgels.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-18 13:04:36 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1999-10-11 15:06:50 $
+  Version:   $Revision: 1.19 $
 
 Copyright (c) 1993-1997 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -41,6 +41,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkLinkEdgels.h"
 #include "vtkMath.h"
 #include "vtkFloatArray.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkLinkEdgels* vtkLinkEdgels::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkLinkEdgels");
+  if(ret)
+    {
+    return (vtkLinkEdgels*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkLinkEdgels;
+}
+
+
+
 
 // Construct instance of vtkLinkEdgels with GradientThreshold set to 
 // 0.1, PhiThreshold set to 90 degrees and LinkThreshold set to 90 degrees.

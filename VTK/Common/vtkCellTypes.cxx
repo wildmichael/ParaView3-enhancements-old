@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellTypes.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-17 19:42:23 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-10-11 15:04:28 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkCellTypes.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkCellTypes* vtkCellTypes::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkCellTypes");
+  if(ret)
+    {
+    return (vtkCellTypes*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkCellTypes;
+}
+
+
+
 
 vtkCellTypes::~vtkCellTypes()
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKochanekSpline.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:40 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-10-11 15:06:45 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -81,7 +81,7 @@ public:
   // Description:
   // Construct a KochanekSpline wth the following defaults: DefaultBias = 0,
   // DefaultTension = 0, DefaultContinuity = 0.
-  static vtkKochanekSpline *New() {return new vtkKochanekSpline;};
+  static vtkKochanekSpline *New();
 
   // Description:
   // Compute Kochanek Spline coefficients.

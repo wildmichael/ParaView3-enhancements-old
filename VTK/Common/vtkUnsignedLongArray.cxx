@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedLongArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:06 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-10-11 15:05:19 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkUnsignedLongArray.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkUnsignedLongArray* vtkUnsignedLongArray::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkUnsignedLongArray");
+  if(ret)
+    {
+    return (vtkUnsignedLongArray*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkUnsignedLongArray;
+}
+
+
+
 
 // Instantiate object.
 vtkUnsignedLongArray::vtkUnsignedLongArray(int numComp)

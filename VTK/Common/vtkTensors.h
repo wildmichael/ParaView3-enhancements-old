@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensors.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-06 18:42:15 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1999-10-11 15:05:13 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,7 +56,7 @@ class VTK_EXPORT vtkTensors : public vtkAttributeData
 {
 public:
   static vtkTensors *New(int dataType);
-  static vtkTensors *New() {return new vtkTensors;};
+  static vtkTensors *New();
 
   const char *GetClassName() {return "vtkTensors";};
   void PrintSelf(ostream& os, vtkIndent indent);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitTextureCoords.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:39 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1999-10-11 15:06:41 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -84,8 +84,7 @@ public:
   // Description:
   // Create object with texture dimension=2 and no r-s-t implicit functions
   // defined and FlipTexture turned off.
-  static vtkImplicitTextureCoords *New() {
-    return new vtkImplicitTextureCoords;};
+  static vtkImplicitTextureCoords *New();
   
   // Description:
   // Specify an implicit function to compute the r texture coordinate.

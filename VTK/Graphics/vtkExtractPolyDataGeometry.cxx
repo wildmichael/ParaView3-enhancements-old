@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractPolyDataGeometry.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-05-04 16:12:44 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-10-11 15:06:26 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkExtractPolyDataGeometry.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkExtractPolyDataGeometry* vtkExtractPolyDataGeometry::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkExtractPolyDataGeometry");
+  if(ret)
+    {
+    return (vtkExtractPolyDataGeometry*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkExtractPolyDataGeometry;
+}
+
+
+
 
 // Construct object with ExtractInside turned on.
 vtkExtractPolyDataGeometry::vtkExtractPolyDataGeometry(vtkImplicitFunction *f)

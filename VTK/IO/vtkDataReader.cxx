@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-01 17:22:48 $
-  Version:   $Revision: 1.81 $
+  Date:      $Date: 1999-10-11 15:06:10 $
+  Version:   $Revision: 1.82 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,6 +56,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkUnsignedLongArray.h"
 #include "vtkDoubleArray.h"
 #include "vtkFloatArray.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkDataReader* vtkDataReader::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkDataReader");
+  if(ret)
+    {
+    return (vtkDataReader*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkDataReader;
+}
+
+
+
 
 
 // this undef is required on the hp. vtkMutexLock ends up including

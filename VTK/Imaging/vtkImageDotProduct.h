@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDotProduct.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:26 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-10-11 15:08:49 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,7 +53,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImageDotProduct : public vtkImageTwoInputFilter
 {
 public:
-  static vtkImageDotProduct *New() {return new vtkImageDotProduct;};
+  static vtkImageDotProduct *New();
   const char *GetClassName() {return "vtkImageDotProduct";};
 
 protected:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageShiftScale.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-23 18:49:21 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1999-10-11 15:09:14 $
+  Version:   $Revision: 1.30 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkImageShiftScale.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkImageShiftScale* vtkImageShiftScale::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageShiftScale");
+  if(ret)
+    {
+    return (vtkImageShiftScale*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkImageShiftScale;
+}
+
+
+
 
 
 

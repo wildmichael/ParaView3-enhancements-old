@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkElevationFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:32 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1999-10-11 15:06:23 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,7 +60,7 @@ public:
   // Description:
   // Construct object with LowPoint=(0,0,0) and HighPoint=(0,0,1). Scalar
   // range is (0,1).
-  static vtkElevationFilter *New() {return new vtkElevationFilter;};
+  static vtkElevationFilter *New();
 
   // Description:
   // Define one end of the line (small scalar values).

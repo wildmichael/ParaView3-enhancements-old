@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeDataObjectFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:57 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-10-11 15:06:55 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkMergeDataObjectFilter.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkMergeDataObjectFilter* vtkMergeDataObjectFilter::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkMergeDataObjectFilter");
+  if(ret)
+    {
+    return (vtkMergeDataObjectFilter*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkMergeDataObjectFilter;
+}
+
+
+
 
 //----------------------------------------------------------------------------
 // Create object with no input or output.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageVariance3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-23 18:49:25 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-10-11 15:09:20 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,6 +42,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include "vtkImageVariance3D.h"
 #include "vtkImageEllipsoidSource.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkImageVariance3D* vtkImageVariance3D::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageVariance3D");
+  if(ret)
+    {
+    return (vtkImageVariance3D*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkImageVariance3D;
+}
+
+
+
 
 
 //----------------------------------------------------------------------------

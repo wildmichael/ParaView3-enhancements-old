@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRendererCollection.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-24 17:36:17 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-10-11 15:07:36 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,6 +40,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include <stdlib.h>
 #include "vtkRendererCollection.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkRendererCollection* vtkRendererCollection::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkRendererCollection");
+  if(ret)
+    {
+    return (vtkRendererCollection*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkRendererCollection;
+}
+
+
+
 
 // Forward the Render() method to each renderer in the list.
 void vtkRendererCollection::Render()

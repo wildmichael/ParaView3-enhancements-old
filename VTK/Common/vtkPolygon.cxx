@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolygon.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:01:42 $
-  Version:   $Revision: 1.68 $
+  Date:      $Date: 1999-10-11 15:05:00 $
+  Version:   $Revision: 1.69 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,6 +46,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkCellArray.h"
 #include "vtkPriorityQueue.h"
 #include "vtkFloatArray.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkPolygon* vtkPolygon::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkPolygon");
+  if(ret)
+    {
+    return (vtkPolygon*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkPolygon;
+}
+
+
+
 
 // Instantiate polygon.
 vtkPolygon::vtkPolygon()

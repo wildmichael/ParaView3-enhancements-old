@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:24 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-10-11 15:06:41 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,6 +40,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkImplicitVolume.h"
 #include "vtkVoxel.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkImplicitVolume* vtkImplicitVolume::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImplicitVolume");
+  if(ret)
+    {
+    return (vtkImplicitVolume*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkImplicitVolume;
+}
+
+
+
 
 // Construct an vtkImplicitVolume with no initial volume; the OutValue
 // set to a large negative number; and the OutGradient set to (0,0,1).

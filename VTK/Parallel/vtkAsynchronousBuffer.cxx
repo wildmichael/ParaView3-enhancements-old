@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAsynchronousBuffer.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-16 16:50:39 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-10-11 15:05:26 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,6 +41,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 //#include <unistd.h>
 #include "vtkAsynchronousBuffer.h"
 #include "vtkDataInformation.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkAsynchronousBuffer* vtkAsynchronousBuffer::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkAsynchronousBuffer");
+  if(ret)
+    {
+    return (vtkAsynchronousBuffer*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkAsynchronousBuffer;
+}
+
+
+
 
 //----------------------------------------------------------------------------
 vtkAsynchronousBuffer::vtkAsynchronousBuffer()

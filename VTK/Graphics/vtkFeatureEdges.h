@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFeatureEdges.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:34 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1999-10-11 15:06:29 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,7 +72,7 @@ public:
   // Description:
   // Construct object with feature angle = 30; all types of edges extracted
   // and colored.
-  static vtkFeatureEdges *New() {return new vtkFeatureEdges;};
+  static vtkFeatureEdges *New();
 
   // Description:
   // Turn on/off the extraction of boundary edges.

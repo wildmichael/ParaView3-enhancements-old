@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataConnectivityFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:51 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-10-11 15:07:18 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -84,8 +84,7 @@ public:
 
   // Description:
   // Construct with default extraction mode to extract largest regions.
-  static vtkPolyDataConnectivityFilter *New() {
-    return new vtkPolyDataConnectivityFilter;};
+  static vtkPolyDataConnectivityFilter *New();
 
   // Description:
   // Turn on/off connectivity based on scalar value. If on, cells are connected

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMCubesWriter.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:43 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-10-11 15:06:51 $
+  Version:   $Revision: 1.20 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -62,7 +62,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkMCubesWriter : public vtkPolyDataWriter
 {
 public:
-  static vtkMCubesWriter *New() {return new vtkMCubesWriter;};
+  static vtkMCubesWriter *New();
   const char *GetClassName() {return "vtkMCubesWriter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

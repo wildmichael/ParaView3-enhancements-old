@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLoad.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:50 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1999-10-11 15:07:14 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,7 +64,7 @@ public:
   // Description:
   // Construct with ModelBounds=(-1,1,-1,1,-1,1), SampleDimensions=(50,50,50),
   // and LoadValue = 1.
-  static vtkPointLoad *New() {return new vtkPointLoad;};
+  static vtkPointLoad *New();
 
   // Description:
   // Set/Get value of applied load.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarTree.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-19 15:29:42 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-10-11 15:07:42 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,6 +40,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkScalarTree.h"
 #include "vtkFloatArray.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkScalarTree* vtkScalarTree::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkScalarTree");
+  if(ret)
+    {
+    return (vtkScalarTree*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkScalarTree;
+}
+
+
+
 
 // Instantiate scalar tree with maximum level of 20 and branching
 // factor of 5.

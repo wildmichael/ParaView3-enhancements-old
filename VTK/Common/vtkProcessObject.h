@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProcessObject.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:20:56 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-10-11 15:05:01 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,7 +79,7 @@ class VTK_EXPORT vtkProcessObject : public vtkObject
 public:
   // Description:
   // Instantiate object with no start, end, or progress methods.
-  static vtkProcessObject *New() {return new vtkProcessObject;};
+  static vtkProcessObject *New();
 
   const char *GetClassName() {return "vtkProcessObject";};
   void PrintSelf(ostream& os, vtkIndent indent);

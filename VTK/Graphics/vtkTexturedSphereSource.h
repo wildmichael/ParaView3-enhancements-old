@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexturedSphereSource.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:09 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-10-11 15:08:07 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,7 +62,7 @@ public:
   // Description:
   // Construct sphere with radius=0.5 and default resolution 8 in both Phi
   // and Theta directions.
-  static vtkTexturedSphereSource *New() {return new vtkTexturedSphereSource;};
+  static vtkTexturedSphereSource *New();
 
   // Description:
   // Set radius of sphere.

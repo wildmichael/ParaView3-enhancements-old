@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShepardMethod.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:01 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1999-10-11 15:07:44 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,7 +72,7 @@ public:
   // Construct with sample dimensions=(50,50,50) and so that model bounds are
   // automatically computed from input. Null value for each unvisited output 
   // point is 0.0. Maximum distance is 0.25.
-  static vtkShepardMethod *New() {return new vtkShepardMethod;};
+  static vtkShepardMethod *New();
   
   // Description:
   // Compute ModelBounds from input geometry.

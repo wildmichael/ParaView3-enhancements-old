@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkReverseSense.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:59 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-10-11 15:07:37 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,7 +63,7 @@ public:
   // Description:
   // Construct object so that behavior is to reverse cell ordering and
   // leave normal orientation as is.
-  static vtkReverseSense *New() {return new vtkReverseSense;};
+  static vtkReverseSense *New();
 
   // Description:
   // Flag controls whether to reverse cell ordering.

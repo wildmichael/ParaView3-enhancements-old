@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShrinkFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-25 16:00:07 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 1999-10-11 15:07:45 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkShrinkFilter.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkShrinkFilter* vtkShrinkFilter::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkShrinkFilter");
+  if(ret)
+    {
+    return (vtkShrinkFilter*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkShrinkFilter;
+}
+
+
+
 
 vtkShrinkFilter::vtkShrinkFilter(float sf)
 {

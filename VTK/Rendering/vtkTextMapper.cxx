@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-22 12:58:11 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-10-11 15:09:29 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkTextMapper.h"
+#include "vtkObjectFactory.h"
 
 #ifdef _WIN32
   #include "vtkWin32OpenGLTextMapper.h"
@@ -72,6 +73,14 @@ vtkTextMapper::vtkTextMapper()
 
 vtkTextMapper *vtkTextMapper::New()
 {
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkTextMapper");
+  if(ret)
+    {
+    return (vtkTextMapper*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+
 #ifdef _WIN32
 #ifndef VTK_USE_NATIVE_IMAGING
   return vtkWin32OpenGLTextMapper::New();

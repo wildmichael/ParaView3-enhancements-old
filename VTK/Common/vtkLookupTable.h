@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLookupTable.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:20:51 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 1999-10-11 15:04:49 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,7 +71,7 @@ public:
   // Description:
   // Construct with range=(0,1); and hsv ranges set up for rainbow color table 
   // (from red to blue).
-  static vtkLookupTable *New() {return new vtkLookupTable;};
+  static vtkLookupTable *New();
   
   const char *GetClassName() {return "vtkLookupTable";};
   void PrintSelf(ostream& os, vtkIndent indent);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBMPReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-23 14:06:27 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1999-10-11 15:08:35 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,6 +42,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkBMPReader.h"
 #include "vtkByteSwap.h"
 #include <stdio.h>
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkBMPReader* vtkBMPReader::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkBMPReader");
+  if(ret)
+    {
+    return (vtkBMPReader*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkBMPReader;
+}
+
+
+
 
 #ifdef read
 #undef read

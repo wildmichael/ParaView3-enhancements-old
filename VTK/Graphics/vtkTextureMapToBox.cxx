@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToBox.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-17 20:55:53 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-10-11 15:05:42 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,6 +40,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkTextureMapToBox.h"
 #include "vtkTCoords.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkTextureMapToBox* vtkTextureMapToBox::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkTextureMapToBox");
+  if(ret)
+    {
+    return (vtkTextureMapToBox*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkTextureMapToBox;
+}
+
+
+
 
 // Construct with r-s-t range=(0,1) and automatic box generation turned on.
 vtkTextureMapToBox::vtkTextureMapToBox()

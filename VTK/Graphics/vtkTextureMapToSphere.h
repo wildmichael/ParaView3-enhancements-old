@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToSphere.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:09 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-10-11 15:08:07 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -78,7 +78,7 @@ public:
   // Description:
   // Create object with Center (0,0,0) and the PreventSeam ivar is set to
   // true. The sphere center is automatically computed.
-  static vtkTextureMapToSphere *New() {return new vtkTextureMapToSphere;};
+  static vtkTextureMapToSphere *New();
 
   // Description:
   // Specify a point defining the center of the sphere.

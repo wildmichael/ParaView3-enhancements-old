@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageRGBToHSV.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:50 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-10-11 15:09:11 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,6 +40,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include <math.h>
 #include "vtkImageRGBToHSV.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkImageRGBToHSV* vtkImageRGBToHSV::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageRGBToHSV");
+  if(ret)
+    {
+    return (vtkImageRGBToHSV*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkImageRGBToHSV;
+}
+
+
+
 
 
 

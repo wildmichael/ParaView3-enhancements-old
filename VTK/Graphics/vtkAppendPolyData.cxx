@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-01 14:15:34 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 1999-10-11 15:05:48 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkAppendPolyData.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkAppendPolyData* vtkAppendPolyData::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkAppendPolyData");
+  if(ret)
+    {
+    return (vtkAppendPolyData*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkAppendPolyData;
+}
+
+
+
 
 //----------------------------------------------------------------------------
 vtkAppendPolyData::vtkAppendPolyData()

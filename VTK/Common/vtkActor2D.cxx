@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-02 20:27:40 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1999-10-11 15:04:24 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,6 +42,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkProperty2D.h"
 #include "vtkMapper2D.h"
 #include "vtkPropCollection.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkActor2D* vtkActor2D::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkActor2D");
+  if(ret)
+    {
+    return (vtkActor2D*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkActor2D;
+}
+
+
+
 
 // Creates an actor2D with the following defaults: 
 // position -1, -1 (view coordinates)

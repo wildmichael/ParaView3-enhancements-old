@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeAxesActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-05 15:50:41 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-10-11 15:05:28 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thorsten Dowe who modified and improved this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,6 +41,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkCubeAxesActor2D.h"
 #include "vtkAxisActor2D.h"
 #include "vtkMath.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkCubeAxesActor2D* vtkCubeAxesActor2D::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkCubeAxesActor2D");
+  if(ret)
+    {
+    return (vtkCubeAxesActor2D*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkCubeAxesActor2D;
+}
+
+
+
 
 // Instantiate this object.
 vtkCubeAxesActor2D::vtkCubeAxesActor2D()

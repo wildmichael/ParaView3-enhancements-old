@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-25 16:07:19 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-10-11 15:08:10 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,6 +41,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkTransformPolyDataFilter.h"
 #include "vtkNormals.h"
 #include "vtkVectors.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkTransformPolyDataFilter* vtkTransformPolyDataFilter::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkTransformPolyDataFilter");
+  if(ret)
+    {
+    return (vtkTransformPolyDataFilter*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkTransformPolyDataFilter;
+}
+
+
+
 
 vtkTransformPolyDataFilter::vtkTransformPolyDataFilter()
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-30 15:20:20 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 1999-10-11 15:06:11 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,7 +64,7 @@ class vtkRectilinearGrid;
 class VTK_EXPORT vtkDataReader : public vtkObject
 {
 public:
-  static vtkDataReader *New() {return new vtkDataReader;};
+  static vtkDataReader *New();
   const char *GetClassName() {return "vtkDataReader";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

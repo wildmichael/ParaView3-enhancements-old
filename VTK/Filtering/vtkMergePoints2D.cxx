@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergePoints2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-31 20:47:07 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-10-11 15:04:51 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkMergePoints2D.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkMergePoints2D* vtkMergePoints2D::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkMergePoints2D");
+  if(ret)
+    {
+    return (vtkMergePoints2D*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkMergePoints2D;
+}
+
+
+
 
 // Determine whether point given by x[2] has been inserted into points list.
 // Return id of previously inserted point if this is true, otherwise return

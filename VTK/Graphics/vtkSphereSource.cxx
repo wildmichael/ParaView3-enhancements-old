@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-17 15:19:34 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1999-10-11 15:07:48 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,6 +43,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkPoints.h"
 #include "vtkNormals.h"
 #include "vtkMath.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkSphereSource* vtkSphereSource::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkSphereSource");
+  if(ret)
+    {
+    return (vtkSphereSource*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkSphereSource;
+}
+
+
+
 
 //----------------------------------------------------------------------------
 // Construct sphere with radius=0.5 and default resolution 8 in both Phi

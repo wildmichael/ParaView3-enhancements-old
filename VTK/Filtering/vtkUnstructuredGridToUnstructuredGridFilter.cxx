@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridToUnstructuredGridFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:19 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-10-11 15:08:14 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkUnstructuredGridToUnstructuredGridFilter.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkUnstructuredGridToUnstructuredGridFilter* vtkUnstructuredGridToUnstructuredGridFilter::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkUnstructuredGridToUnstructuredGridFilter");
+  if(ret)
+    {
+    return (vtkUnstructuredGridToUnstructuredGridFilter*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkUnstructuredGridToUnstructuredGridFilter;
+}
+
+
+
 
 //----------------------------------------------------------------------------
 // Specify the input data or filter.

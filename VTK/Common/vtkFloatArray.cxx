@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFloatArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:20:44 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1999-10-11 15:04:36 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkFloatArray.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkFloatArray* vtkFloatArray::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkFloatArray");
+  if(ret)
+    {
+    return (vtkFloatArray*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkFloatArray;
+}
+
+
+
 
 // Instantiate object with 1 components.
 vtkFloatArray::vtkFloatArray(int numComp)

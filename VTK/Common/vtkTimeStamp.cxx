@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTimeStamp.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-05 19:18:39 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-10-11 15:05:14 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,6 +43,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 //
 #include "vtkTimeStamp.h"
 #include "vtkMutexLock.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkTimeStamp* vtkTimeStamp::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkTimeStamp");
+  if(ret)
+    {
+    return (vtkTimeStamp*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkTimeStamp;
+}
+
+
+
 
 
 static vtkSimpleMutexLock TimeStampMutex;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImager.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-30 13:11:17 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-10-11 15:09:25 $
+  Version:   $Revision: 1.5 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -41,6 +41,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkOpenGLImager.h"
 #include "vtkImageWindow.h"
 #include <GL/gl.h>
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkOpenGLImager* vtkOpenGLImager::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkOpenGLImager");
+  if(ret)
+    {
+    return (vtkOpenGLImager*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkOpenGLImager;
+}
+
+
+
 
 int vtkOpenGLImager::RenderOpaqueGeometry()
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractPolyDataGeometry.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:33 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-10-11 15:06:26 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,8 +67,7 @@ public:
 
   // Description:
   // Construct object with ExtractInside turned on.
-  static vtkExtractPolyDataGeometry *New() 
-    {return new vtkExtractPolyDataGeometry;};
+  static vtkExtractPolyDataGeometry *New();
 
   // Description:
   // Return the MTime taking into account changes to the implicit function

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32TextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-04 20:54:35 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1999-10-11 15:09:32 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,6 +40,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkWin32TextMapper.h"
 #include "vtkWin32ImageWindow.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkWin32TextMapper* vtkWin32TextMapper::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkWin32TextMapper");
+  if(ret)
+    {
+    return (vtkWin32TextMapper*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkWin32TextMapper;
+}
+
+
+
 
 vtkWin32TextMapper::vtkWin32TextMapper()
 {

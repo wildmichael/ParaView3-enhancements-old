@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellDerivatives.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:10 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-10-11 15:05:27 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -82,7 +82,7 @@ public:
 
   // Description:
   // Construct to compute the gradient of the scalars and vectors.
-  static vtkCellDerivatives *New() {return new vtkCellDerivatives;};
+  static vtkCellDerivatives *New();
 
   // Description:
   // Control how the filter works to generate vector cell data. You

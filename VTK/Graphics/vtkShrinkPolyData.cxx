@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShrinkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-25 16:00:08 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 1999-10-11 15:07:45 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkShrinkPolyData.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkShrinkPolyData* vtkShrinkPolyData::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkShrinkPolyData");
+  if(ret)
+    {
+    return (vtkShrinkPolyData*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkShrinkPolyData;
+}
+
+
+
 
 
 vtkShrinkPolyData::vtkShrinkPolyData(float sf)

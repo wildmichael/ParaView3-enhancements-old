@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:54 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1999-10-11 15:07:26 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,6 +43,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkRenderer.h"
 #include "vtkRenderWindow.h"
 #include "vtkActor.h"
+#include "vtkObjectFactory.h"
 
 // Construct object with object color, ambient color, diffuse color,
 // specular color, and edge color white; ambient coefficient=0; diffuse 
@@ -108,7 +109,15 @@ void vtkProperty::DeepCopy(vtkProperty *p)
 #endif
 // return the correct type of Property 
 vtkProperty *vtkProperty::New()
-{
+{ 
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkProperty");
+  if(ret)
+    {
+    return (vtkProperty*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+
   char *temp = vtkRenderWindow::GetRenderLibrary();
   
 #ifdef VTK_USE_OGLR

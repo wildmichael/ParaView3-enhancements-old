@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageContinuousDilate3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-05 19:22:09 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-10-11 15:08:44 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,6 +42,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include "vtkImageContinuousDilate3D.h"
 #include "vtkImageEllipsoidSource.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkImageContinuousDilate3D* vtkImageContinuousDilate3D::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageContinuousDilate3D");
+  if(ret)
+    {
+    return (vtkImageContinuousDilate3D*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkImageContinuousDilate3D;
+}
+
+
+
 
 
 //----------------------------------------------------------------------------

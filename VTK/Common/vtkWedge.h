@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWedge.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:09 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-10-11 15:05:25 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,7 +57,7 @@ class vtkUnstructuredGrid;
 class VTK_EXPORT vtkWedge : public vtkCell
 {
 public:
-  static vtkWedge *New() {return new vtkWedge;};
+  static vtkWedge *New();
   const char *GetClassName() {return "vtkWedge";};
 
   // Description:

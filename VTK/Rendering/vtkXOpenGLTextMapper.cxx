@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-05 20:49:49 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-10-11 15:09:34 $
+  Version:   $Revision: 1.7 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -40,6 +40,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkXOpenGLTextMapper.h"
 #include <GL/gl.h>
 #include <GL/glx.h>
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkXOpenGLTextMapper* vtkXOpenGLTextMapper::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkXOpenGLTextMapper");
+  if(ret)
+    {
+    return (vtkXOpenGLTextMapper*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkXOpenGLTextMapper;
+}
+
+
+
 
 struct vtkFontStruct
 {

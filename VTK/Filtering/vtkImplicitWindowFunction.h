@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitWindowFunction.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:39 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-10-11 15:06:42 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,8 +67,7 @@ public:
 
   // Description:
   // Construct object with window range (0,1) and window values (0,1).
-  static vtkImplicitWindowFunction *New() {
-    return new vtkImplicitWindowFunction;};
+  static vtkImplicitWindowFunction *New();
 
   // Description
   // Evaluate window function.

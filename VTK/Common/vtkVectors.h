@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectors.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-06 18:42:14 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 1999-10-11 15:05:21 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,7 +55,7 @@ class VTK_EXPORT vtkVectors : public vtkAttributeData
 {
 public:
   static vtkVectors *New(int dataType);
-  static vtkVectors *New() {return new vtkVectors;};
+  static vtkVectors *New();
 
 
   const char *GetClassName() {return "vtkVectors";};

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleTrackball.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:40 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-10-11 15:06:43 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,7 +57,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkInteractorStyleTrackball : public vtkInteractorStyle 
 {
 public:
-  static vtkInteractorStyleTrackball *New() {return new vtkInteractorStyleTrackball;}
+  static vtkInteractorStyleTrackball *New();
   const char *GetClassName() {return "vtkInteractorStyleTrackball";};
   void PrintSelf(ostream& os, vtkIndent indent);
   

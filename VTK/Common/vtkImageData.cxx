@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-17 19:55:06 $
-  Version:   $Revision: 1.69 $
+  Date:      $Date: 1999-10-11 15:04:43 $
+  Version:   $Revision: 1.70 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -45,6 +45,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkImageToStructuredPoints.h"
 #include "vtkStructuredExtent.h"
 #include "vtkImageInformation.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkImageData* vtkImageData::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageData");
+  if(ret)
+    {
+    return (vtkImageData*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkImageData;
+}
+
+
+
 
 //----------------------------------------------------------------------------
 vtkImageData::vtkImageData()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphere.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:23 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1999-10-11 15:07:47 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkSphere.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkSphere* vtkSphere::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkSphere");
+  if(ret)
+    {
+    return (vtkSphere*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkSphere;
+}
+
+
+
 
 // Construct sphere with center at (0,0,0) and radius=0.5.
 vtkSphere::vtkSphere()

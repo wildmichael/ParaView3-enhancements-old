@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAxes.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:02 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1999-10-11 15:05:50 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,6 +41,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkAxes.h"
 #include "vtkScalars.h"
 #include "vtkNormals.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkAxes* vtkAxes::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkAxes");
+  if(ret)
+    {
+    return (vtkAxes*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkAxes;
+}
+
+
+
 
 // Construct with origin=(0,0,0) and scale factor=1.
 vtkAxes::vtkAxes()

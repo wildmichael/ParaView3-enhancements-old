@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:18 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 1999-10-11 15:05:47 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkAppendFilter.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkAppendFilter* vtkAppendFilter::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkAppendFilter");
+  if(ret)
+    {
+    return (vtkAppendFilter*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkAppendFilter;
+}
+
+
+
 
 //----------------------------------------------------------------------------
 vtkAppendFilter::vtkAppendFilter()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewRays.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:14 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-10-11 15:08:19 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -85,7 +85,7 @@ class vtkRenderer;
 class VTK_EXPORT vtkViewRays :public vtkObject
   {
 public:
-  static vtkViewRays *New() {return new vtkViewRays;};
+  static vtkViewRays *New();
   const char *GetClassName() {return "vtkViewRays";};
   void PrintSelf(ostream& os,vtkIndent indent);
 

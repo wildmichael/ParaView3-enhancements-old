@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-15 21:16:57 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1999-10-11 15:08:25 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -82,7 +82,7 @@ class vtkPlaneCollection;
 class VTK_EXPORT vtkVolumeRayCastMapper : public vtkVolumeMapper
 {
 public:
-  static vtkVolumeRayCastMapper *New() {return new vtkVolumeRayCastMapper;};
+  static vtkVolumeRayCastMapper *New();
   const char *GetClassName() {return "vtkVolumeRayCastMapper";};
   void PrintSelf( ostream& os, vtkIndent index );
 

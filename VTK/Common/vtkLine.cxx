@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLine.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-31 20:47:06 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 1999-10-11 15:04:47 $
+  Version:   $Revision: 1.59 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,6 +42,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkMath.h"
 #include "vtkCellArray.h"
 #include "vtkPointLocator.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkLine* vtkLine::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkLine");
+  if(ret)
+    {
+    return (vtkLine*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkLine;
+}
+
+
+
 
 // Construct the line with two points.
 vtkLine::vtkLine()

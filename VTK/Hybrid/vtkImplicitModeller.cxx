@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitModeller.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-13 17:14:20 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 1999-10-11 15:06:39 $
+  Version:   $Revision: 1.60 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,6 +50,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkStructuredGrid.h"
 #include "vtkUnstructuredGrid.h"
 #include "vtkRectilinearGrid.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkImplicitModeller* vtkImplicitModeller::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImplicitModeller");
+  if(ret)
+    {
+    return (vtkImplicitModeller*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkImplicitModeller;
+}
+
+
+
 
 struct vtkImplicitModellerAppendInfo
 {

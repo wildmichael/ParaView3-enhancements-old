@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCursor3D.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:25 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-10-11 15:08:46 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,7 +50,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImageCursor3D : public vtkImageInPlaceFilter
 {
 public:
-  static vtkImageCursor3D *New() {return new vtkImageCursor3D;};
+  static vtkImageCursor3D *New();
   const char *GetClassName() {return "vtkImageCursor3D";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectors.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-06 18:42:14 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1999-10-11 15:05:21 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,10 +40,29 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkVectors.h"
 #include "vtkMath.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkVectors* vtkVectors::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkVectors");
+  if(ret)
+    {
+    return (vtkVectors*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkVectors;
+}
+
+
+
 
 vtkVectors *vtkVectors::New(int dataType)
 {
-  vtkVectors *res = new vtkVectors();
+  vtkVectors *res = vtkVectors::New();
   res->SetDataType(dataType);
   res->GetData()->SetNumberOfComponents(3);
   return res;

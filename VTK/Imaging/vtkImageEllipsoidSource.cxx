@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageEllipsoidSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-16 16:04:49 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-10-11 15:08:49 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -40,6 +40,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkImageData.h"
 
 #include "vtkImageEllipsoidSource.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkImageEllipsoidSource* vtkImageEllipsoidSource::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageEllipsoidSource");
+  if(ret)
+    {
+    return (vtkImageEllipsoidSource*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkImageEllipsoidSource;
+}
+
+
+
 
 //----------------------------------------------------------------------------
 vtkImageEllipsoidSource::vtkImageEllipsoidSource()

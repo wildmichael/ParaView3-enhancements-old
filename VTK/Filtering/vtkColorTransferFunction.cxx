@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkColorTransferFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-30 13:57:34 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-10-11 15:05:59 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,6 +40,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 
 #include "vtkColorTransferFunction.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkColorTransferFunction* vtkColorTransferFunction::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkColorTransferFunction");
+  if(ret)
+    {
+    return (vtkColorTransferFunction*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkColorTransferFunction;
+}
+
+
+
 
 // Construct a new vtkColorTransferFunction with default values
 vtkColorTransferFunction::vtkColorTransferFunction()

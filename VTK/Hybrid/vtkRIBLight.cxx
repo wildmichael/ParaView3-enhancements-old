@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBLight.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:14 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-10-11 15:05:39 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkRIBLight.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkRIBLight* vtkRIBLight::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkRIBLight");
+  if(ret)
+    {
+    return (vtkRIBLight*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkRIBLight;
+}
+
+
+
 
 vtkRIBLight::vtkRIBLight ()
 {

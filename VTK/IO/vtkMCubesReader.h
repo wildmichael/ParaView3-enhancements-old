@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMCubesReader.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:43 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1999-10-11 15:06:51 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -86,7 +86,7 @@ public:
 
   // Description:
   // Construct object with FlipNormals turned off and Normals set to true.
-  static vtkMCubesReader *New() {return new vtkMCubesReader;};
+  static vtkMCubesReader *New();
 
   // Description:
   // Specify file name of marching cubes file.

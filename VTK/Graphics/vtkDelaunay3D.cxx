@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:15 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1999-10-11 15:06:20 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,6 +44,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkTriangle.h"
 #include "vtkEdgeTable.h"
 #include "vtkPolyData.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkDelaunay3D* vtkDelaunay3D::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkDelaunay3D");
+  if(ret)
+    {
+    return (vtkDelaunay3D*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkDelaunay3D;
+}
+
+
+
 
 //----------------------------------------------------------------------------
 // Specify the input data or filter.

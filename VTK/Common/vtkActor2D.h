@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:20:38 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1999-10-11 15:04:25 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,7 +67,7 @@ public:
   // Creates an actor2D with the following defaults: 
   // position -1, -1 (view coordinates)
   // orientation 0, scale (1,1), layer 0, visibility on
-  static vtkActor2D* New() {return new vtkActor2D;};
+  static vtkActor2D* New();
   
   // Description:
   // Support the standard render methods.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScaledTextActor.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-21 00:50:25 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-10-11 15:09:28 $
+  Version:   $Revision: 1.7 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -61,7 +61,7 @@ public:
   // Description:
   // Instantiate object with a rectangle in normaled view coordinates
   // of (0.2,0.85, 0.8, 0.95).
-  static vtkScaledTextActor *New() {return new vtkScaledTextActor;};
+  static vtkScaledTextActor *New();
   
   // Description:
   // Access the Position2 instance variable. This variable controls

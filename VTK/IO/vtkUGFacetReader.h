@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUGFacetReader.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:12 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1999-10-11 15:08:13 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,7 +60,7 @@ public:
   // Description:
   // Construct object to extract all parts, and with point merging
   // turned on.
-  static vtkUGFacetReader *New() {return new vtkUGFacetReader;};
+  static vtkUGFacetReader *New();
 
   // Description:
   // Overload standard modified time function. If locator is modified,

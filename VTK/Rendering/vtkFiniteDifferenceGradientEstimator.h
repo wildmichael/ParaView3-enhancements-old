@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFiniteDifferenceGradientEstimator.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:35 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-10-11 15:06:31 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -73,8 +73,7 @@ public:
   // Description:
   // Construct a vtkFiniteDifferenceGradientEstimator with
   // a SampleSpacingInVoxels of 1.
-  static vtkFiniteDifferenceGradientEstimator *New() {
-    return new vtkFiniteDifferenceGradientEstimator;};
+  static vtkFiniteDifferenceGradientEstimator *New();
 
   // Description:
   // Set/Get the spacing between samples for the finite differences

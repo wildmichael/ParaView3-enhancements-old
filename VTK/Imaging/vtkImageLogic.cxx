@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageLogic.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-18 12:56:07 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-10-11 15:09:00 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,6 +40,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkImageLogic.h"
 #include <math.h>
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkImageLogic* vtkImageLogic::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageLogic");
+  if(ret)
+    {
+    return (vtkImageLogic*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkImageLogic;
+}
+
+
+
 
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlaneSource.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:49 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1999-10-11 15:07:12 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,7 +80,7 @@ public:
   // Description:
   // Construct plane perpendicular to z-axis, resolution 1x1, width
   // and height 1.0, and centered at the origin.
-  static vtkPlaneSource *New() {return new vtkPlaneSource;};
+  static vtkPlaneSource *New();
 
   // Description:
   // Specify the resolution of the plane along the first axes.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTubeFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:12 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1999-10-11 15:08:12 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -78,7 +78,7 @@ public:
   // Description:
   // Construct object with radius 0.5, radius variation turned off, the number 
   // of sides set to 3, and radius factor of 10.
-  static vtkTubeFilter *New() {return new vtkTubeFilter;};
+  static vtkTubeFilter *New();
 
   // Description:
   // Set the minimum tube radius (minimum because the tube radius may vary).

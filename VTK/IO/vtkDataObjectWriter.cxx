@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObjectWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:43 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-10-11 15:06:09 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkDataObjectWriter.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkDataObjectWriter* vtkDataObjectWriter::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkDataObjectWriter");
+  if(ret)
+    {
+    return (vtkDataObjectWriter*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkDataObjectWriter;
+}
+
+
+
 
 vtkDataObjectWriter::vtkDataObjectWriter()
 {

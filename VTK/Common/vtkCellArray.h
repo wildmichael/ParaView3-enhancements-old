@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellArray.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-17 19:42:01 $
-  Version:   $Revision: 1.67 $
+  Date:      $Date: 1999-10-11 15:04:27 $
+  Version:   $Revision: 1.68 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,7 +68,7 @@ public:
 
   // Description:
   // Instantiate cell array (connectivity list).
-  static vtkCellArray *New() {return new vtkCellArray;};
+  static vtkCellArray *New();
 
   // Description:
   // Allocate memory and set the size to extend by.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:56 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-10-11 15:07:29 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,8 +71,7 @@ public:
 
   // Description:
   // Construct with initial extent (0,100, 0,100, 0,0) (i.e., a k-plane).
-  static vtkRectilinearGridGeometryFilter *New() {
-    return new vtkRectilinearGridGeometryFilter;};
+  static vtkRectilinearGridGeometryFilter *New();
 
   // Description:
   // Get the extent in topological coordinate range (imin,imax, jmin,jmax,

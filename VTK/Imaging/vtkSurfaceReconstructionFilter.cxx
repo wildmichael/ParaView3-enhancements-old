@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSurfaceReconstructionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-16 00:01:48 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-10-11 15:05:41 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to Tim Hutton (MINORI Project, Dental and Medical
              Informatics, Eastman Dental Institute, London, UK) who
              developed and contributed this class.
@@ -44,6 +44,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkScalars.h"
 #include "vtkPointLocator.h"
 #include "vtkMath.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkSurfaceReconstructionFilter* vtkSurfaceReconstructionFilter::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkSurfaceReconstructionFilter");
+  if(ret)
+    {
+    return (vtkSurfaceReconstructionFilter*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkSurfaceReconstructionFilter;
+}
+
+
+
 
 vtkSurfaceReconstructionFilter::vtkSurfaceReconstructionFilter()
 {

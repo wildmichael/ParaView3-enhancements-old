@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractTensorComponents.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:33 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-10-11 15:06:27 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -81,8 +81,7 @@ public:
   // Description:
   // Construct object to extract nothing and to not pass tensor data
   // through the pipeline.
-  static vtkExtractTensorComponents *New() {
-    return new vtkExtractTensorComponents;};
+  static vtkExtractTensorComponents *New();
 
   // Description:
   // Boolean controls whether tensor data is passed through to output.

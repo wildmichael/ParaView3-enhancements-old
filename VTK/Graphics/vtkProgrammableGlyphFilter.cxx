@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableGlyphFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-18 13:04:38 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-10-11 15:07:25 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,6 +43,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkVectors.h"
 #include "vtkNormals.h"
 #include "vtkMath.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkProgrammableGlyphFilter* vtkProgrammableGlyphFilter::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkProgrammableGlyphFilter");
+  if(ret)
+    {
+    return (vtkProgrammableGlyphFilter*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkProgrammableGlyphFilter;
+}
+
+
+
 
 // Construct object with scaling on, scaling mode is by scalar value, 
 // scale factor = 1.0, the range is (0,1), orient geometry is on, and

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-25 16:00:05 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-10-11 15:07:29 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkRectilinearGridGeometryFilter.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkRectilinearGridGeometryFilter* vtkRectilinearGridGeometryFilter::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkRectilinearGridGeometryFilter");
+  if(ret)
+    {
+    return (vtkRectilinearGridGeometryFilter*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkRectilinearGridGeometryFilter;
+}
+
+
+
 
 // Construct with initial extent (0,100, 0,100, 0,0) (i.e., a k-plane).
 vtkRectilinearGridGeometryFilter::vtkRectilinearGridGeometryFilter()

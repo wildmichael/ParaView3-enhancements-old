@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorNorm.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-28 12:54:08 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1999-10-11 15:08:16 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,6 +40,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include <math.h>
 #include "vtkVectorNorm.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkVectorNorm* vtkVectorNorm::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkVectorNorm");
+  if(ret)
+    {
+    return (vtkVectorNorm*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkVectorNorm;
+}
+
+
+
 
 // Construct with normalize flag off.
 vtkVectorNorm::vtkVectorNorm()

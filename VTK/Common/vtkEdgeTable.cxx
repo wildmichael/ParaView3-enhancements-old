@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEdgeTable.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-30 15:09:19 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-10-11 15:04:34 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,6 +40,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkEdgeTable.h"
 #include "vtkPoints.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkEdgeTable* vtkEdgeTable::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkEdgeTable");
+  if(ret)
+    {
+    return (vtkEdgeTable*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkEdgeTable;
+}
+
+
+
 
 // Instantiate object based on maximum point id.
 vtkEdgeTable::vtkEdgeTable()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToPlane.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:09 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1999-10-11 15:08:06 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -73,7 +73,7 @@ public:
 
   // Description:
   // Construct with s,t range=(0,1) and automatic plane generation turned on.
-  static vtkTextureMapToPlane *New() {return new vtkTextureMapToPlane;};
+  static vtkTextureMapToPlane *New();
 
   // Description:
   // Specify a point defining the origin of the plane. Used in conjunction with

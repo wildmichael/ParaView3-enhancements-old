@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitSelectionLoop.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:39 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-10-11 15:06:40 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -82,7 +82,7 @@ public:
 
   // Description:
   // Instantiate object with no initial loop.
-  static vtkImplicitSelectionLoop *New() {return new vtkImplicitSelectionLoop;}
+  static vtkImplicitSelectionLoop *New();
 
   // Description:
   // Evaluate selection loop returning a signed distance.

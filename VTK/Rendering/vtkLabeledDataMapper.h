@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLabeledDataMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:40 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-10-11 15:09:24 $
+  Version:   $Revision: 1.15 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -89,7 +89,7 @@ public:
   // Instantiate object with font size 12 of font Arial (bolding,
   // italic, shadows on) and %%-#6.3g label format. By default, point ids
   // are labeled.
-  static vtkLabeledDataMapper *New() {return new vtkLabeledDataMapper;};
+  static vtkLabeledDataMapper *New();
 
   const char *GetClassName() {return "vtkLabeledDataMapper";};
   void PrintSelf(ostream& os, vtkIndent indent);

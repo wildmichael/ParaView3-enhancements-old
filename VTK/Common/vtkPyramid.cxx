@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPyramid.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-08 18:32:15 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-10-11 15:05:04 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,6 +43,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkCellArray.h"
 #include "vtkPointLocator.h"
 #include "vtkUnstructuredGrid.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkPyramid* vtkPyramid::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkPyramid");
+  if(ret)
+    {
+    return (vtkPyramid*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkPyramid;
+}
+
+
+
 
 // Construct the pyramid with five points.
 vtkPyramid::vtkPyramid()

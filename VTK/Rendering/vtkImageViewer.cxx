@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:57 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1999-10-11 15:09:21 $
+  Version:   $Revision: 1.27 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -40,6 +40,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkImageViewer.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkImageViewer* vtkImageViewer::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageViewer");
+  if(ret)
+    {
+    return (vtkImageViewer*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkImageViewer;
+}
+
+
+
 
 //----------------------------------------------------------------------------
 vtkImageViewer::vtkImageViewer()

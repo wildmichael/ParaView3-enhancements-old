@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageButterworthHighPass.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:27 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-10-11 15:08:39 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,6 +40,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include <math.h>
 #include "vtkImageButterworthHighPass.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkImageButterworthHighPass* vtkImageButterworthHighPass::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageButterworthHighPass");
+  if(ret)
+    {
+    return (vtkImageButterworthHighPass*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkImageButterworthHighPass;
+}
+
+
+
 
 
 

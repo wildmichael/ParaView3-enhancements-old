@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageOpenClose3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-03 10:41:06 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-10-11 15:09:09 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,6 +42,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkImageData.h"
 
 #include "vtkImageOpenClose3D.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkImageOpenClose3D* vtkImageOpenClose3D::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageOpenClose3D");
+  if(ret)
+    {
+    return (vtkImageOpenClose3D*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkImageOpenClose3D;
+}
+
+
+
 
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEmptyCell.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:24:45 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-10-11 15:04:34 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,6 +42,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkMath.h"
 #include "vtkCellArray.h"
 #include "vtkPointLocator.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkEmptyCell* vtkEmptyCell::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkEmptyCell");
+  if(ret)
+    {
+    return (vtkEmptyCell*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkEmptyCell;
+}
+
+
+
 
 // Deep copy of cell.
 vtkEmptyCell::vtkEmptyCell(const vtkEmptyCell& vtkNotUsed(p))

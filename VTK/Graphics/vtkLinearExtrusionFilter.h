@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearExtrusionFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:42 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1999-10-11 15:06:49 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -89,8 +89,7 @@ public:
   // Description:
   // Create object with normal extrusion type, capping on, scale factor=1.0,
   // vector (0,0,1), and extrusion point (0,0,0).
-  static vtkLinearExtrusionFilter *New() {
-    return new vtkLinearExtrusionFilter;};
+  static vtkLinearExtrusionFilter *New();
 
   // Description:
   // Set/Get the type of extrusion.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-30 15:20:21 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1999-10-11 15:06:18 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,7 +74,7 @@ public:
   // Description:
   // Created object with default header, ASCII format, and default names for 
   // scalars, vectors, tensors, normals, and texture coordinates.
-  static vtkDataWriter *New() {return new vtkDataWriter;};
+  static vtkDataWriter *New();
 
   // Description:
   // Specify file name of vtk polygon data file to write.

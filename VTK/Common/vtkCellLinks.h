@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLinks.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-17 19:42:16 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-10-11 15:04:28 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,7 +62,7 @@ struct _vtkLink_s {
 class VTK_EXPORT vtkCellLinks : public vtkObject 
 {
 public:
-  static vtkCellLinks *New() {return new vtkCellLinks;};
+  static vtkCellLinks *New();
   const char *GetClassName() {return "vtkCellLinks";};
 
   // Description:

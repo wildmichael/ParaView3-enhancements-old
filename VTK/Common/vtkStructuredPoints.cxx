@@ -3,8 +3,8 @@
 
   Module:    $RCSfile: vtkStructuredPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-07 15:47:35 $
-  Version:   $Revision: 1.77 $
+  Date:      $Date: 1999-10-11 15:05:11 $
+  Version:   $Revision: 1.78 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -41,6 +41,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkStructuredPoints.h"
 #include "vtkImageToStructuredPoints.h"
 #include "vtkStructuredExtent.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkStructuredPoints* vtkStructuredPoints::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkStructuredPoints");
+  if(ret)
+    {
+    return (vtkStructuredPoints*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkStructuredPoints;
+}
+
+
+
 
 vtkStructuredPoints::vtkStructuredPoints()
 {

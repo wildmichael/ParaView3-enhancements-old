@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridToStructuredGridFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:13 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-10-11 15:07:56 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkStructuredGridToStructuredGridFilter.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkStructuredGridToStructuredGridFilter* vtkStructuredGridToStructuredGridFilter::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkStructuredGridToStructuredGridFilter");
+  if(ret)
+    {
+    return (vtkStructuredGridToStructuredGridFilter*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkStructuredGridToStructuredGridFilter;
+}
+
+
+
 
 //----------------------------------------------------------------------------
 // Specify the input data or filter.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObjectToDataSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-19 11:51:54 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1999-10-11 15:06:08 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,6 +46,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkRectilinearGrid.h"
 #include "vtkUnstructuredGrid.h"
 #include "vtkCellArray.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkDataObjectToDataSetFilter* vtkDataObjectToDataSetFilter::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkDataObjectToDataSetFilter");
+  if(ret)
+    {
+    return (vtkDataObjectToDataSetFilter*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkDataObjectToDataSetFilter;
+}
+
+
+
 
 //----------------------------------------------------------------------------
 // Instantiate object with no input and no defined output.

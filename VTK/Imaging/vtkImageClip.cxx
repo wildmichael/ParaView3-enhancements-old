@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageClip.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 11:56:34 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1999-10-11 15:08:43 $
+  Version:   $Revision: 1.25 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,6 +40,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 
 #include "vtkImageClip.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkImageClip* vtkImageClip::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageClip");
+  if(ret)
+    {
+    return (vtkImageClip*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkImageClip;
+}
+
+
+
 
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-16 13:32:10 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-10-11 15:09:31 $
+  Version:   $Revision: 1.10 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -43,6 +43,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <stdio.h>
 #include <GL/glaux.h>
 #include "vtkWin32OpenGLImageWindow.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkWin32OpenGLImageWindow* vtkWin32OpenGLImageWindow::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkWin32OpenGLImageWindow");
+  if(ret)
+    {
+    return (vtkWin32OpenGLImageWindow*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkWin32OpenGLImageWindow;
+}
+
+
+
 
 vtkWin32OpenGLImageWindow *vtkWin32OpenGLImageWindow::TempPointerToThis;
 vtkMutexLock *vtkWin32OpenGLImageWindow::WindowMutex = vtkMutexLock::New();

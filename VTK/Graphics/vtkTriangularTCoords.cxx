@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangularTCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-25 16:07:20 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-10-11 15:08:11 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,6 +41,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkTriangularTCoords.h"
 #include "vtkTCoords.h"
 #include <math.h>
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkTriangularTCoords* vtkTriangularTCoords::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkTriangularTCoords");
+  if(ret)
+    {
+    return (vtkTriangularTCoords*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkTriangularTCoords;
+}
+
+
+
 
 void vtkTriangularTCoords::Execute()
 {

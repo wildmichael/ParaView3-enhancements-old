@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtk3DSImporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-15 11:18:33 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-10-11 15:05:45 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,6 +43,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkPolyDataMapper.h"
 #include "vtkPolyDataNormals.h"
 #include "vtkStripper.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtk3DSImporter* vtk3DSImporter::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtk3DSImporter");
+  if(ret)
+    {
+    return (vtk3DSImporter*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtk3DSImporter;
+}
+
+
+
 
 static Colour Black = {0.0, 0.0, 0.0};
 static char   obj_name[80] = "";

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-25 15:59:57 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1999-10-11 15:05:51 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkBYUWriter.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkBYUWriter* vtkBYUWriter::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkBYUWriter");
+  if(ret)
+    {
+    return (vtkBYUWriter*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkBYUWriter;
+}
+
+
+
 
 // Create object so that it writes displacement, scalar, and texture files
 // (if data is available).

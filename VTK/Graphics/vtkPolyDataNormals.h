@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataNormals.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-06 22:41:04 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-10-11 15:07:19 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -73,7 +73,7 @@ public:
   // Construct with feature angle=30, splitting and consistency turned on, 
   // flipNormals turned off, and non-manifold traversal turned on.
   // ComputePointNormals is on and ComputeCellNormals is off.
-  static vtkPolyDataNormals *New() {return new vtkPolyDataNormals;};
+  static vtkPolyDataNormals *New();
 
   // Description:
   // Specify the angle that defines a sharp edge. If the difference in

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamPoints.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:03 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1999-10-11 15:07:49 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,7 +61,7 @@ public:
 
   // Description:
   // Construct object with time increment set to 1.0.
-  static vtkStreamPoints *New() {return new vtkStreamPoints;};
+  static vtkStreamPoints *New();
 
   // Description:
   // Specify the separation of points in terms of absolute time.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-25 16:00:08 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1999-10-11 15:07:49 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkStreamPoints.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkStreamPoints* vtkStreamPoints::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkStreamPoints");
+  if(ret)
+    {
+    return (vtkStreamPoints*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkStreamPoints;
+}
+
+
+
 
 // Construct object with time increment set to 1.0.
 vtkStreamPoints::vtkStreamPoints()

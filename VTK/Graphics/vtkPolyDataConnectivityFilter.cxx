@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataConnectivityFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-21 16:15:04 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-10-11 15:07:17 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,6 +40,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkPolyDataConnectivityFilter.h"
 #include "vtkMath.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkPolyDataConnectivityFilter* vtkPolyDataConnectivityFilter::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkPolyDataConnectivityFilter");
+  if(ret)
+    {
+    return (vtkPolyDataConnectivityFilter*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkPolyDataConnectivityFilter;
+}
+
+
+
 
 // Construct with default extraction mode to extract largest regions.
 vtkPolyDataConnectivityFilter::vtkPolyDataConnectivityFilter()

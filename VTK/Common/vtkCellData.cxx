@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellData.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:37:59 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-10-11 15:04:27 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkCellData.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkCellData* vtkCellData::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkCellData");
+  if(ret)
+    {
+    return (vtkCellData*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkCellData;
+}
+
+
+
 
 void vtkCellData::NullCell (int ptId)
 {

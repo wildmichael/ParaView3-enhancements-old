@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSinusoidSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-10 12:28:31 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1999-10-11 15:09:15 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -40,6 +40,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <math.h>
 
 #include "vtkImageSinusoidSource.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkImageSinusoidSource* vtkImageSinusoidSource::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageSinusoidSource");
+  if(ret)
+    {
+    return (vtkImageSinusoidSource*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkImageSinusoidSource;
+}
+
+
+
 
 //----------------------------------------------------------------------------
 vtkImageSinusoidSource::vtkImageSinusoidSource()

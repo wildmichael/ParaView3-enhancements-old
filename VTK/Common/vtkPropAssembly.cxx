@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPropAssembly.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-30 15:11:37 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-10-11 15:05:03 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,6 +40,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkPropAssembly.h"
 #include "vtkViewport.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkPropAssembly* vtkPropAssembly::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkPropAssembly");
+  if(ret)
+    {
+    return (vtkPropAssembly*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkPropAssembly;
+}
+
+
+
 
 // Construct object with no children.
 vtkPropAssembly::vtkPropAssembly()

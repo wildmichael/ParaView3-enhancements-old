@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-17 14:56:10 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1999-10-11 15:08:05 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,6 +42,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkTexture.h"
 #include "vtkRenderer.h"
 #include "vtkRenderWindow.h"
+#include "vtkObjectFactory.h"
 
 // Construct object and initialize.
 vtkTexture::vtkTexture()
@@ -83,7 +84,15 @@ vtkTexture::~vtkTexture()
 #endif
 // return the correct type of Texture 
 vtkTexture *vtkTexture::New()
-{
+{  
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkTexture");
+  if(ret)
+    {
+    return (vtkTexture*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+
   char *temp = vtkRenderWindow::GetRenderLibrary();
   
 #ifdef VTK_USE_OGLR

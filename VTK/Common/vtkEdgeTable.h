@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEdgeTable.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-30 15:09:19 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1999-10-11 15:04:34 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,7 +57,7 @@ class VTK_EXPORT vtkEdgeTable : public vtkObject
 public:
   // Description:
   // Instantiate object assuming that 1000 edges are to be inserted.
-  static vtkEdgeTable *New() {return new vtkEdgeTable;};
+  static vtkEdgeTable *New();
 
   const char *GetClassName() {return "vtkEdgeTable";};
   void PrintSelf(ostream& os, vtkIndent indent);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageHybridMedian2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-05 19:22:14 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-10-11 15:08:56 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkImageHybridMedian2D.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkImageHybridMedian2D* vtkImageHybridMedian2D::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageHybridMedian2D");
+  if(ret)
+    {
+    return (vtkImageHybridMedian2D*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkImageHybridMedian2D;
+}
+
+
+
 
 
 

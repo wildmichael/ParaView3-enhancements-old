@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDoubleArray.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:20:43 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1999-10-11 15:04:34 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,7 +52,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkDoubleArray : public vtkDataArray 
 {
 public:
-  static vtkDoubleArray *New() {return new vtkDoubleArray;};
+  static vtkDoubleArray *New();
 
   const char *GetClassName() {return "vtkDoubleArray";};
   void PrintSelf(ostream& os, vtkIndent indent);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIndent.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:20:49 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1999-10-11 15:04:46 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,7 +56,7 @@ class VTK_EXPORT vtkIndent
 public:
   void Delete() {delete this;};
   vtkIndent(int ind=0) {this->Indent=ind;};
-  static vtkIndent *New() {return new vtkIndent;};
+  static vtkIndent *New();
 
   // Description:
   // Determine the next indentation level. Keep indenting by two until the 

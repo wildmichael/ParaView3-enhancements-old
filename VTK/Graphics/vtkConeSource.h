@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConeSource.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:24 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1999-10-11 15:06:00 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,7 +63,7 @@ public:
   // Description:
   // Construct with default resolution 6, height 1.0, radius 0.5, and
   // capping on.
-  static vtkConeSource *New() {return new vtkConeSource;};
+  static vtkConeSource *New();
 
   // Description:
   // Set the height of the cone.

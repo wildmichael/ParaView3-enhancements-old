@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCylinder.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:26 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1999-10-11 15:06:05 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,7 +64,7 @@ public:
 
   // Description
   // Construct cylinder radius of 0.5.
-  static vtkCylinder *New() {return new vtkCylinder;};
+  static vtkCylinder *New();
 
   // Description
   // Evaluate cylinder equation F(x,y,z) = (x-x0)^2 + (z-z0)^2 - R^2.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextSource.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:08 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1999-10-11 15:08:05 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,7 +69,7 @@ public:
 
   // Description:
   // Construct object with no string set and backing enabled.
-  static vtkTextSource *New() {return new vtkTextSource;};
+  static vtkTextSource *New();
 
   // Description:
   // Set/Get the text to be drawn.

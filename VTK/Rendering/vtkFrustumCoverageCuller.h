@@ -4,8 +4,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFrustumCoverageCuller.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:36 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-10-11 15:06:32 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,8 +72,7 @@ class vtkRenderer;
 class VTK_EXPORT vtkFrustumCoverageCuller : public vtkCuller
 {
 public:
-  static vtkFrustumCoverageCuller *New() {
-    return new vtkFrustumCoverageCuller;};
+  static vtkFrustumCoverageCuller *New();
   const char *GetClassName() {return "vtkFrustumCoverageCuller";};
   void PrintSelf(ostream& os,vtkIndent indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarBarActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-02 20:04:22 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-10-11 15:09:27 $
+  Version:   $Revision: 1.20 $
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -38,6 +38,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkScalarBarActor.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkScalarBarActor* vtkScalarBarActor::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkScalarBarActor");
+  if(ret)
+    {
+    return (vtkScalarBarActor*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkScalarBarActor;
+}
+
+
+
 
 // Instantiate object with 64 maximum colors; 5 labels; font size 12
 // of font Arial (bolding, italic, shadows on); %%-#6.3g label

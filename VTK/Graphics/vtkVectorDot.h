@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorDot.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:13 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1999-10-11 15:08:16 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,7 +59,7 @@ public:
 
   // Description:
   // Construct object with scalar range is (-1,1).
-  static vtkVectorDot *New() {return new vtkVectorDot;};
+  static vtkVectorDot *New();
 
   // Description:
   // Specify range to map scalars into.

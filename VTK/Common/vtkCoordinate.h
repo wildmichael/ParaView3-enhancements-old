@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCoordinate.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:20:42 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-10-11 15:04:31 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -90,7 +90,7 @@ public:
   // Description:
   // Creates an instance of this class with the following defaults: 
   // value of  (0,0,0) in world  coordinates.
-  static vtkCoordinate* New() {return new vtkCoordinate;};
+  static vtkCoordinate* New();
 
   // Description:
   // Set/get the coordinate system which this coordinate

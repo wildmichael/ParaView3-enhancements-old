@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume16Reader.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:15 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1999-10-11 15:08:20 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -88,7 +88,7 @@ public:
   // Construct object with NULL file prefix; file pattern "%s.%d"; image range 
   // set to (1,1); data origin (0,0,0); data spacing (1,1,1); no data mask;
   // header size 0; and byte swapping turned off.
-  static vtkVolume16Reader *New() {return new vtkVolume16Reader;};
+  static vtkVolume16Reader *New();
 
   // Description:
   // Specify the dimensions for the data.

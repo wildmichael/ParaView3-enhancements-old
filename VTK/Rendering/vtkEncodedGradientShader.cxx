@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEncodedGradientShader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-22 14:14:14 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-10-11 15:06:23 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,6 +43,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkVolume.h"
 #include "vtkRenderer.h"
 #include "vtkEncodedGradientEstimator.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkEncodedGradientShader* vtkEncodedGradientShader::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkEncodedGradientShader");
+  if(ret)
+    {
+    return (vtkEncodedGradientShader*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkEncodedGradientShader;
+}
+
+
+
 
 vtkEncodedGradientShader::vtkEncodedGradientShader()
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:46 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-10-11 15:07:01 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,7 +58,7 @@ class vtkOpenGLRenderer;
 class VTK_EXPORT vtkOpenGLPolyDataMapper : public vtkPolyDataMapper
 {
 public:
-  static vtkOpenGLPolyDataMapper *New() {return new vtkOpenGLPolyDataMapper;};
+  static vtkOpenGLPolyDataMapper *New();
   const char *GetClassName() {return "vtkOpenGLPolyDataMapper";};
 
   // Description:

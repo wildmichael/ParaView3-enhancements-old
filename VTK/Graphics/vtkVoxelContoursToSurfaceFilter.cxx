@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxelContoursToSurfaceFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-16 14:29:13 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-10-11 15:08:25 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,6 +42,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkStructuredPoints.h"
 #include "vtkContourFilter.h"
 #include "vtkAppendPolyData.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkVoxelContoursToSurfaceFilter* vtkVoxelContoursToSurfaceFilter::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkVoxelContoursToSurfaceFilter");
+  if(ret)
+    {
+    return (vtkVoxelContoursToSurfaceFilter*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkVoxelContoursToSurfaceFilter;
+}
+
+
+
 
 vtkVoxelContoursToSurfaceFilter::vtkVoxelContoursToSurfaceFilter()
 {

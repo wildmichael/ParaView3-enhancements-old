@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageExtractComponents.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-23 18:49:09 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-10-11 15:08:50 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,6 +41,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <math.h>
 
 #include "vtkImageExtractComponents.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkImageExtractComponents* vtkImageExtractComponents::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageExtractComponents");
+  if(ret)
+    {
+    return (vtkImageExtractComponents*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkImageExtractComponents;
+}
+
+
+
 
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRotationalExtrusionFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:59 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1999-10-11 15:07:39 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -92,8 +92,7 @@ public:
   // Create object with capping on, angle of 360 degrees, resolution = 12, and
   // no translation along z-axis.
   // vector (0,0,1), and point (0,0,0).
-  static vtkRotationalExtrusionFilter *New() {
-    return new vtkRotationalExtrusionFilter;};
+  static vtkRotationalExtrusionFilter *New();
 
   // Description:
   // Set/Get resolution of sweep operation. Resolution controls the number

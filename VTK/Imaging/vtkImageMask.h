@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMask.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:32 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1999-10-11 15:09:04 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,7 +60,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImageMask : public vtkImageTwoInputFilter
 {
 public:
-  static vtkImageMask *New() {return new vtkImageMask;};
+  static vtkImageMask *New();
   const char *GetClassName() {return "vtkImageMask";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellTypes.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-17 19:42:30 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-10-11 15:04:29 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,7 +70,7 @@ struct _vtkCell_s {
 class VTK_EXPORT vtkCellTypes : public vtkObject 
 {
 public:
-  static vtkCellTypes *New() {return new vtkCellTypes;};
+  static vtkCellTypes *New();
   const char *GetClassName() {return "vtkCellTypes";};
 
   // Description:

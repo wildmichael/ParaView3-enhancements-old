@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-18 13:04:37 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 1999-10-11 15:06:55 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,6 +44,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkStructuredPoints.h"
 #include "vtkUnstructuredGrid.h"
 #include "vtkRectilinearGrid.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkMergeFilter* vtkMergeFilter::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkMergeFilter");
+  if(ret)
+    {
+    return (vtkMergeFilter*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkMergeFilter;
+}
+
+
+
 
 // Create object with no input or output.
 vtkMergeFilter::vtkMergeFilter()

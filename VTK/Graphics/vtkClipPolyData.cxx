@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-13 17:14:21 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1999-10-11 15:05:58 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,6 +43,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkMergePoints.h"
 #include "vtkLine.h"
 #include "vtkTriangle.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkClipPolyData* vtkClipPolyData::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkClipPolyData");
+  if(ret)
+    {
+    return (vtkClipPolyData*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkClipPolyData;
+}
+
+
+
 
 //----------------------------------------------------------------------------
 // Construct with user-specified implicit function; InsideOut turned off; value

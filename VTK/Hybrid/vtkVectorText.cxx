@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorText.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-21 06:42:31 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-10-11 15:08:17 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,6 +43,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkTransformPolyDataFilter.h"
 #include "vtkPolyDataReader.h"
 #include <stdlib.h>
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkVectorText* vtkVectorText::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkVectorText");
+  if(ret)
+    {
+    return (vtkVectorText*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkVectorText;
+}
+
+
+
 
 char *VTK_VECTOR_TEXT_33 = "11 0.438482 "
 "0.28000 -0.07186 0.43164 -0.07143 0.27689 0.07714 0.43472 0.07714 0.32000 0.20134 "

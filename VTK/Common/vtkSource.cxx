@@ -3,8 +3,8 @@
  Program:   Visualization Toolkit
  Module:    $RCSfile: vtkSource.cxx,v $
  Language:  C++
- Date:      $Date: 1999-10-06 20:09:28 $
- Version:   $Revision: 1.50 $
+ Date:      $Date: 1999-10-11 15:05:08 $
+ Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,6 +41,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkSource.h"
 #include "vtkDataObject.h"
 #include "vtkDataInformation.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkSource* vtkSource::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkSource");
+  if(ret)
+    {
+    return (vtkSource*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkSource;
+}
+
+
+
 
 #ifndef NULL
 #define NULL 0

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldDataToAttributeDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:52 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-10-11 15:06:29 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkFieldDataToAttributeDataFilter.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkFieldDataToAttributeDataFilter* vtkFieldDataToAttributeDataFilter::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkFieldDataToAttributeDataFilter");
+  if(ret)
+    {
+    return (vtkFieldDataToAttributeDataFilter*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkFieldDataToAttributeDataFilter;
+}
+
+
+
 
 // Instantiate object with no input and no defined output.
 vtkFieldDataToAttributeDataFilter::vtkFieldDataToAttributeDataFilter()

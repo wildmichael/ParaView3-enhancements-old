@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-30 20:21:30 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-10-11 15:04:24 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,7 +62,7 @@ public:
 
   // Description:
   // Instantiate object.
-  static vtkAbstractMapper *New() {return new vtkAbstractMapper;};
+  static vtkAbstractMapper *New();
 
   // Description:
   // Release any graphics resources that are being consumed by this mapper.

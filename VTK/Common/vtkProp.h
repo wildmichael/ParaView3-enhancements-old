@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-30 15:11:07 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-10-11 15:05:02 $
+  Version:   $Revision: 1.13 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -63,7 +63,7 @@ public:
   // Description:
   // Creates an instance with visibility=1, pickable=1,
   // and dragable=1.
-  static vtkProp* New() {return new vtkProp;};
+  static vtkProp* New();
 
   const char *GetClassName() {return "vtkProp";};
   void PrintSelf(ostream& os, vtkIndent indent);

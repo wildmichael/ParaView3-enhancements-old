@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLoad.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-25 16:00:04 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1999-10-11 15:07:13 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,6 +41,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkPointLoad.h"
 #include "vtkMath.h"
 #include "vtkTensors.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkPointLoad* vtkPointLoad::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkPointLoad");
+  if(ret)
+    {
+    return (vtkPointLoad*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkPointLoad;
+}
+
+
+
 
 // Construct with ModelBounds=(-1,1,-1,1,-1,1), SampleDimensions=(50,50,50),
 // and LoadValue = 1.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderLargeImage.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:35 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-10-11 15:05:40 $
+  Version:   $Revision: 1.7 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
 
@@ -41,6 +41,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <string.h>
 #include "vtkRenderLargeImage.h"
 #include "vtkRenderWindow.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkRenderLargeImage* vtkRenderLargeImage::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkRenderLargeImage");
+  if(ret)
+    {
+    return (vtkRenderLargeImage*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkRenderLargeImage;
+}
+
+
+
 
 //----------------------------------------------------------------------------
 vtkRenderLargeImage::vtkRenderLargeImage()

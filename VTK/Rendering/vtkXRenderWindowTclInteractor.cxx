@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowTclInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-05 20:28:02 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-10-11 15:08:34 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,6 +52,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "tk.h"
 #include "vtkActorCollection.h"
 #include "vtkPoints.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkXRenderWindowTclInteractor* vtkXRenderWindowTclInteractor::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkXRenderWindowTclInteractor");
+  if(ret)
+    {
+    return (vtkXRenderWindowTclInteractor*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkXRenderWindowTclInteractor;
+}
+
+
+
 
 // steal the first two elements of the TkMainInfo stuct
 // we don't care about the rest of the elements.

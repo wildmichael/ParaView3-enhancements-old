@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCursor3D.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:25 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1999-10-11 15:06:04 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,7 +64,7 @@ public:
   // Description:
   // Construct with model bounds = (-1,1,-1,1,-1,1), focal point = (0,0,0),
   // all parts of cursor visible, and wrapping off.
-  static vtkCursor3D *New() {return new vtkCursor3D;};
+  static vtkCursor3D *New();
 
   // Description:
   // Set / get the boundary of the 3D cursor.

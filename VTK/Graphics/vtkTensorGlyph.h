@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensorGlyph.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:08 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1999-10-11 15:08:04 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -84,7 +84,7 @@ public:
   // Construct object with scaling on and scale factor 1.0. Eigenvalues are 
   // extracted, glyphs are colored with input scalar data, and logarithmic
   // scaling is turned off.
-  static vtkTensorGlyph *New() {return new vtkTensorGlyph;};
+  static vtkTensorGlyph *New();
 
   // Description:
   // Override update method because execution can branch two ways (via Input 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageBlockReader.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-06 12:39:53 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-10-11 15:05:33 $
+  Version:   $Revision: 1.4 $
   
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -54,7 +54,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImageBlockReader : public vtkImageSource
 {
 public:
-  static vtkImageBlockReader *New() {return new vtkImageBlockReader;};
+  static vtkImageBlockReader *New();
   const char *GetClassName() {return "vtkImageBlockReader";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

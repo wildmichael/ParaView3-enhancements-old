@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitDataSet.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:38 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-10-11 15:06:39 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,7 +75,7 @@ public:
   // Description
   // Construct an vtkImplicitDataSet with no initial dataset; the OutValue
   // set to a large negative number; and the OutGradient set to (0,0,1).
-  static vtkImplicitDataSet *New() {return new vtkImplicitDataSet;};
+  static vtkImplicitDataSet *New();
 
   // Description:
   // Return the MTime also considering the DataSet dependency.

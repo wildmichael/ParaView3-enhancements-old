@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointData.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:20:54 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 1999-10-11 15:04:56 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,7 +53,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkPointData : public vtkDataSetAttributes
 {
 public:
-  static vtkPointData *New() {return new vtkPointData;};
+  static vtkPointData *New();
 
   const char *GetClassName() {return "vtkPointData";};
   void PrintSelf(ostream& os, vtkIndent indent);

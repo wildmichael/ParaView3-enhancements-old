@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractVOI.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:34 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-10-11 15:06:28 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,7 +72,7 @@ public:
 
   // Description:
   // Construct object to extract all of the input data.
-  static vtkExtractVOI *New() {return new vtkExtractVOI;};
+  static vtkExtractVOI *New();
 
   // Description:
   // Specify i-j-k (min,max) pairs to extract. The resulting structured points

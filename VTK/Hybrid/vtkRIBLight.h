@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBLight.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:14 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-10-11 15:05:39 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,7 +57,7 @@ class vtkRIBRenderer;
 class VTK_EXPORT vtkRIBLight : public vtkLight
 {
 public:
-  static vtkRIBLight *New() {return new vtkRIBLight;};
+  static vtkRIBLight *New();
   const char *GetClassName() {return "vtkRIBLight";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

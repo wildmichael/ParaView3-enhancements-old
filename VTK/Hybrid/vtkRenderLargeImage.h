@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderLargeImage.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:14 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-10-11 15:05:40 $
+  Version:   $Revision: 1.8 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -53,7 +53,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkRenderLargeImage : public vtkImageSource
 {
 public:
-  static vtkRenderLargeImage *New() {return new vtkRenderLargeImage;};
+  static vtkRenderLargeImage *New();
   const char *GetClassName() {return "vtkRenderLargeImage";};
   void PrintSelf(ostream& os, vtkIndent indent);   
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourValues.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:38:32 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-10-11 15:04:30 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,6 +40,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkContourValues.h"
 #include "vtkFloatArray.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkContourValues* vtkContourValues::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkContourValues");
+  if(ret)
+    {
+    return (vtkContourValues*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkContourValues;
+}
+
+
+
 
 // Construct object with a single contour value at 0.0.
 vtkContourValues::vtkContourValues()

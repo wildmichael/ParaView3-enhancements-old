@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorNorm.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:14 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1999-10-11 15:08:17 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,7 +67,7 @@ public:
 
   // Description:
   // Construct with normalize flag off.
-  static vtkVectorNorm *New() {return new vtkVectorNorm;};
+  static vtkVectorNorm *New();
 
   // Description:
   // Specify whether to normalize scalar values.

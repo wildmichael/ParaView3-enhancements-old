@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageRFFT.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:35 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-10-11 15:09:11 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,7 +57,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImageRFFT : public vtkImageFourierFilter
 {
 public:
-  static vtkImageRFFT *New() {return new vtkImageRFFT;};
+  static vtkImageRFFT *New();
   const char *GetClassName() {return "vtkImageRFFT";};
 
   
