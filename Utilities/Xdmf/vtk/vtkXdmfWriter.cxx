@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2005-02-09 19:23:24 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2005-03-11 21:26:23 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -107,7 +107,7 @@ struct vtkXdmfWriterInternal
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkXdmfWriter);
-vtkCxxRevisionMacro(vtkXdmfWriter, "$Revision: 1.17 $");
+vtkCxxRevisionMacro(vtkXdmfWriter, "$Revision: 1.18 $");
 
 //----------------------------------------------------------------------------
 vtkXdmfWriter::vtkXdmfWriter()
@@ -554,6 +554,7 @@ vtkIdType vtkXdmfWriterWriteXMLScalar(vtkXdmfWriter* self, ostream& ost,
     //cout << "Data type: " << type << endl;
     Data.SetShape(nh5dims, h5dims);
 
+    /*  This is too slow
     vtkIdType jj, kk;
     vtkIdType pos = 0;
     for ( jj = 0; jj < array->GetNumberOfTuples(); jj ++ )
@@ -564,6 +565,8 @@ vtkIdType vtkXdmfWriterWriteXMLScalar(vtkXdmfWriter* self, ostream& ost,
         pos ++;
         }
       }
+    */
+    Data.SetValues(0, array->GetPointer(0), array->GetNumberOfTuples() * array->GetNumberOfComponents());
     H5.CopyType( &Data );
     H5.CopyShape( &Data );
 
@@ -1130,7 +1133,8 @@ void vtkXdmfWriterInternal::DetermineCellTypes(vtkPointSet * t, vtkXdmfWriterInt
           vtkSmartPointer<vtkIdList>(l))).first;
       l->Delete();
       }
-    it->second->InsertUniqueId(cc);;
+    // it->second->InsertUniqueId(cc);;
+    it->second->InsertNextId(cc);;
     }
   cell->Delete();
 }
