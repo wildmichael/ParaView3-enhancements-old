@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLDataElement.h,v $
   Language:  C++
-  Date:      $Date: 2003-03-31 15:32:43 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2003-04-18 19:08:13 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -116,9 +116,17 @@ public:
   const char* GetAttributeName(int idx);
 
   // Description:
+  // Remove all attributes.
+  virtual void RemoveAllAttributes();
+
+  // Description:
   // Set/Get the parent of this element.
   vtkXMLDataElement* GetParent();
   void SetParent(vtkXMLDataElement* parent);
+  
+  // Description:
+  // Get root of the XML tree this element is part of.
+  virtual vtkXMLDataElement* GetRoot();
   
   // Description:
   // Get the number of elements nested in this one.
@@ -131,6 +139,14 @@ public:
   // Description:
   // Add nested element
   void AddNestedElement(vtkXMLDataElement* element);
+
+  // Description:
+  // Remove nested element.
+  virtual void RemoveNestedElement(vtkXMLDataElement *);
+  
+  // Description:
+  // Remove all nested elements.
+  virtual void RemoveAllNestedElements();
 
   // Description:
   // Find a nested element with the given id, given name, or given name and id.
@@ -150,6 +166,20 @@ public:
   vtkGetMacro(XMLByteIndex, unsigned long);
   vtkSetMacro(XMLByteIndex, unsigned long);
   
+  // Description:
+  // Check if the instance has the same name, attributes and nested elements
+  // contents than the given element (this method is applied recursively
+  // on the nested elements, and they must be stored in the same order).
+  // Warning: Id, Parent, XMLByteIndex are ignored.
+  virtual int IsEqualTo(vtkXMLDataElement *elem);
+
+  // Description:
+  // Copy this element from another of the same type (elem), recursively.
+  // Old attributes and nested elements are removed, new ones are created
+  // given the contents of 'elem'.
+  // Warning: Parent is ignored.
+  virtual void DeepCopy(vtkXMLDataElement *elem);
+
 protected:
   vtkXMLDataElement();
   ~vtkXMLDataElement();  
