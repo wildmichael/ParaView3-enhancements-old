@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractList.txx,v $
   Language:  C++
-  Date:      $Date: 2002-04-09 17:36:03 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-04-10 11:59:28 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -45,24 +45,6 @@ static int vtkAbstractListDefaultCompareFunction(const DType& k1,
 // we do not have to do anyting on deletion, this function is empty.
 template<class DType>
 static void vtkAbstractListDefaultDeleteFunction(DType&) {};
-
-
-// Since auxilary functions are static, we have to assign them
-// default values.
-template<class DataType>
-vtkAbstractList<DataType>::CreateFunctionType
-vtkAbstractList<DataType>::CreateFunction
-= &vtkAbstractListDefaultCreateFunction;
-
-template<class DataType>
-vtkAbstractList<DataType>::CompareFunctionType
-vtkAbstractList<DataType>::CompareFunction
-= &vtkAbstractListDefaultCompareFunction;
-
-template<class DataType>
-vtkAbstractList<DataType>::DeleteFunctionType
-vtkAbstractList<DataType>::DeleteFunction
-= &vtkAbstractListDefaultDeleteFunction;
 
 // Description:
 // This is a comparison function for C string keys or data.
@@ -114,12 +96,11 @@ static void vtkAbstractListReferenceCountedCreateFunction(DType& k1,
 // If the key is C string, we assign the auxilary function pointers 
 // to string functions.
 template<class DataType>
-void vtkAbstractListDataIsString(const vtkAbstractList<DataType>*)
+void vtkAbstractListDataIsString(vtkAbstractList<DataType>* me)
 {
-  typedef vtkAbstractList<DataType> Superclass;
-  Superclass::SetCompareFunction(vtkAbstractListStringCompareFunction);
-  Superclass::SetDeleteFunction(vtkAbstractListStringDeleteFunction);
-  Superclass::SetCreateFunction(vtkAbstractListStringCreateFunction); 
+  me->SetCompareFunction(vtkAbstractListStringCompareFunction);
+  me->SetDeleteFunction(vtkAbstractListStringDeleteFunction);
+  me->SetCreateFunction(vtkAbstractListStringCreateFunction); 
 }
  
 // Description:
@@ -128,13 +109,18 @@ void vtkAbstractListDataIsString(const vtkAbstractList<DataType>*)
 // Note that we can mostly compare pointers as integers, so we do not
 // have to set the compare function.
 template<class DataType>
-void vtkAbstractListDataIsReferenceCounted(
-  const vtkAbstractList<DataType>*)
+void vtkAbstractListDataIsReferenceCounted(vtkAbstractList<DataType>* me)
 {
-  typedef vtkAbstractList<DataType> Superclass;
-  Superclass::SetDeleteFunction(
-    vtkAbstractListReferenceCountedDeleteFunction);
-  Superclass::SetCreateFunction(
-    vtkAbstractListReferenceCountedCreateFunction); 
+  me->SetDeleteFunction(vtkAbstractListReferenceCountedDeleteFunction);
+  me->SetCreateFunction(vtkAbstractListReferenceCountedCreateFunction); 
 }
+
+template<class DataType>
+vtkAbstractList<DataType>::vtkAbstractList()
+{
+  this->CompareFunction = vtkAbstractListDefaultCompareFunction;
+  this->DeleteFunction  = vtkAbstractListDefaultDeleteFunction;
+  this->CreateFunction  = vtkAbstractListDefaultCreateFunction;
+}
+
 #endif
