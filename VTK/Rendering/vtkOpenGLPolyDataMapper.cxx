@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:05:58 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2000-02-15 19:22:45 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -2711,4 +2711,11 @@ void vtkOpenGLPolyDataMapper::Draw(vtkRenderer *aren, vtkActor *act)
   aPrim = prims[3];
   aGlFunction = glFunction[3];
   draw3(aPrim, aGlFunction, cellNum, p, n, c, t, ren, noAbort);
+
+  // enable lighting again if necessary
+  if (!n && rep == VTK_POINTS)
+    {
+    glEnable( GL_LIGHTING);
+    }
 }
+
