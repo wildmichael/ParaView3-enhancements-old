@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadricDecimation.h,v $
   Language:  C++
-  Date:      $Date: 2000-11-29 14:49:34 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-12-08 02:54:05 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -81,6 +81,10 @@ public:
   // Set/Get the maximum number of edges to collapse.
   vtkSetMacro(MaximumCollapsedEdges, int);
   vtkGetMacro(MaximumCollapsedEdges, int);
+
+  // Description:
+  // For debuggin: the last edge / triangles that were collapsed.
+  vtkPolyData *GetTestOutput() {return this->GetOutput(1);}
   
 protected:
   vtkQuadricDecimation();
