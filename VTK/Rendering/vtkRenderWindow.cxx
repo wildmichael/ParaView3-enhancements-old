@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-11-02 18:33:22 $
-  Version:   $Revision: 1.108 $
+  Date:      $Date: 2000-11-08 12:02:58 $
+  Version:   $Revision: 1.109 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -983,9 +983,8 @@ void vtkRenderWindow::StereoRenderComplete(void)
       unsigned char *buff;
       unsigned char *p1, *p2, *p3;
       unsigned char* result;
-      int *size, line;
+      int *size;
       int x,y;
-      float t1, t2, t3;
       
       // get the size
       size = this->GetSize();
@@ -993,7 +992,6 @@ void vtkRenderWindow::StereoRenderComplete(void)
       buff = this->GetPixelData(0,0,size[0]-1,size[1]-1,!this->DoubleBuffer);
       p1 = this->StereoBuffer;
       p2 = buff;
-      line = size[0] * 3;
       
       // allocate the result
       result = new unsigned char [size[0]*size[1]*3];
