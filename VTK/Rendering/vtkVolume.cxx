@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-13 16:15:37 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 2000-12-06 14:57:47 $
+  Version:   $Revision: 1.57 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -162,7 +162,6 @@ float vtkVolume::ComputeScreenCoverage( vtkViewport *vp )
   if ( ren )
     {
     vtkCamera *cam = ren->GetActiveCamera();
-    vtkRenderWindow *renWin = ren->GetRenderWindow();
     ren->ComputeAspect();
     float *aspect = ren->GetAspect();
     vtkMatrix4x4 *mat = 

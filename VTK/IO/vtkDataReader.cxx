@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-04 16:29:10 $
-  Version:   $Revision: 1.99 $
+  Date:      $Date: 2000-12-06 14:57:47 $
+  Version:   $Revision: 1.100 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -2221,7 +2221,6 @@ void vtkDataReader::PrintSelf(ostream& os, vtkIndent indent)
 
 int vtkDataReader::ReadDataSetData(vtkDataSet *vtkNotUsed(ds))
 {
-  vtkFieldData* fd = this->ReadFieldData();
   return 0;
 }
 

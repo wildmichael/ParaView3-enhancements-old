@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutlineFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:06:03 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2000-12-06 14:57:47 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -95,7 +95,6 @@ void vtkOutlineFilter::Execute()
 
 void vtkOutlineFilter::ExecuteInformation()
 {
-  vtkPolyData *output = this->GetOutput();
   
   vtkDebugMacro(<< "Creating dataset outline");
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFeatureEdges.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-22 11:20:43 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2000-12-06 14:57:47 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -107,7 +107,6 @@ void vtkFeatureEdges::Execute()
   vtkPolyData *output = this->GetOutput();
   vtkPointData *pd=input->GetPointData(), *outPD=output->GetPointData();
   vtkCellData *cd=input->GetCellData(), *outCD=output->GetCellData();
-  int ghostLevel = input->GetUpdateGhostLevel();
   
   vtkDebugMacro(<<"Executing feature edges");
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLOT3DReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-11-18 21:05:02 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 2000-12-06 14:57:47 $
+  Version:   $Revision: 1.56 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -165,8 +165,6 @@ void vtkPLOT3DReader::Execute()
   vtkStructuredGrid *output = this->GetOutput();
   vtkPointData *outputPD = output->GetPointData();
   
-  int *extent = output->GetExtent();
-
   //
   // Initialize output and read geometry
   //

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIVExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-08 09:11:03 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2000-12-06 14:57:47 $
+  Version:   $Revision: 1.29 $
   Thanks:    to Jon A. Webb of Visual Interface Inc.
 
 
@@ -192,7 +192,7 @@ void vtkIVExporter::WriteData()
   vtkAssemblyPath *apath;
   for (ac->InitTraversal(); (anActor = ac->GetNextActor()); )
     {
-    for (anActor->InitPathTraversal(); apath=anActor->GetNextPath(); )
+    for (anActor->InitPathTraversal(); (apath=anActor->GetNextPath()); )
       {
       aPart=(vtkActor *)apath->GetLastNode()->GetProp();
       this->WriteAnActor(aPart, fp);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-08 09:11:05 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2000-12-06 14:57:47 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -189,7 +189,7 @@ void vtkVRMLExporter::WriteData()
   vtkAssemblyPath *apath;
   for (ac->InitTraversal(); (anActor = ac->GetNextActor()); )
     {
-    for (anActor->InitPathTraversal(); apath=anActor->GetNextPath(); )
+    for (anActor->InitPathTraversal(); (apath=anActor->GetNextPath()); )
       {
       aPart=(vtkActor *)apath->GetLastNode()->GetProp();
       this->WriteAnActor(aPart, fp);
