@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:24:21 $
-  Version:   $Revision: 1.143 $
+  Date:      $Date: 2003-06-03 14:06:59 $
+  Version:   $Revision: 1.144 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -40,7 +40,7 @@
 #include "vtkVertex.h"
 #include "vtkVoxel.h"
 
-vtkCxxRevisionMacro(vtkImageData, "$Revision: 1.143 $");
+vtkCxxRevisionMacro(vtkImageData, "$Revision: 1.144 $");
 vtkStandardNewMacro(vtkImageData);
 
 //----------------------------------------------------------------------------
@@ -1965,9 +1965,9 @@ double vtkImageData::GetScalarTypeMin()
     case VTK_FLOAT:
       return (double)(VTK_FLOAT_MIN);
     case VTK_LONG:
-      return (double)(VTK_LONG);
+      return (double)(VTK_LONG_MIN);
     case VTK_UNSIGNED_LONG:
-      return (double)(VTK_UNSIGNED_LONG);
+      return (double)(VTK_UNSIGNED_LONG_MIN);
     case VTK_INT:
       return (double)(VTK_INT_MIN);
     case VTK_UNSIGNED_INT:
@@ -1975,11 +1975,11 @@ double vtkImageData::GetScalarTypeMin()
     case VTK_SHORT:
       return (double)(VTK_SHORT_MIN);
     case VTK_UNSIGNED_SHORT:
-      return (double)(0.0);
+      return (double)(VTK_UNSIGNED_SHORT_MIN);
     case VTK_CHAR:
       return (double)(VTK_CHAR_MIN);
     case VTK_UNSIGNED_CHAR:
-      return (double)(0.0);
+      return (double)(VTK_UNSIGNED_CHAR_MIN);
     default:
       vtkErrorMacro("Cannot handle scalar type " << this->ScalarType);
       return 0.0;
