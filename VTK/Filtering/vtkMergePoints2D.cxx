@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergePoints2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-08 00:28:44 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2003-02-19 13:57:10 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,11 +21,11 @@
 #include "vtkIdList.h"
 #include "vtkPoints.h"
 
-vtkCxxRevisionMacro(vtkMergePoints2D, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkMergePoints2D, "$Revision: 1.13 $");
 
 vtkMergePoints2D* vtkMergePoints2D::New() 
 { 
-  vtkGenericWarningMacro("MergePoints2D is being deprecated in VTK 4.1. There is no replacement for it.");
+  vtkGenericWarningMacro("MergePoints2D is being deprecated in VTK 4.2. There is no replacement for it.");
   vtkObject* ret = vtkObjectFactory::CreateInstance("vtkMergePoints2D"); 
   if(ret) 
       { 

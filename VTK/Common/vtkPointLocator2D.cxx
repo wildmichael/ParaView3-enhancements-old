@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-07 22:27:32 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2003-02-19 13:57:10 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,12 +21,12 @@
 #include "vtkPolyData.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkPointLocator2D, "$Revision: 1.23 $");
+vtkCxxRevisionMacro(vtkPointLocator2D, "$Revision: 1.24 $");
 vtkCxxSetObjectMacro(vtkPointLocator2D,Points,vtkPoints);
 
 vtkPointLocator2D* vtkPointLocator2D::New() 
 { 
-  vtkGenericWarningMacro("PointLocator2D is being deprecated in VTK 4.1. There is no replacement for it.");
+  vtkGenericWarningMacro("PointLocator2D is being deprecated in VTK 4.2. There is no replacement for it.");
   vtkObject* ret = vtkObjectFactory::CreateInstance("vtkPointLocator2D"); 
   if(ret) 
       { 
