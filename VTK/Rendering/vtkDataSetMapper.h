@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataSetMapper.h,v $
   Language:  C++
-  Date:      $Date: 1994-03-06 18:11:57 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-07-09 06:47:53 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -19,7 +19,8 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #ifndef __vlDataSetMapper_h
 #define __vlDataSetMapper_h
 
-#include "Mapper.hh"
+#include "GeomF.hh"
+#include "PolyMap.hh"
 #include "DataSet.hh"
 #include "Renderer.hh"
 
@@ -36,9 +37,9 @@ public:
   virtual vlDataSet* GetInput();
 
 protected:
-  int CreateMapper();
   vlDataSet *Input;
-  vlMapper *Mapper;
+  vlGeometryFilter *GeometryExtractor;
+  vlPolyMapper *PolyMapper;
 };
 
 #endif
