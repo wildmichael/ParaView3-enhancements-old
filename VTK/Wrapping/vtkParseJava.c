@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParseJava.c,v $
   Language:  C++
-  Date:      $Date: 1998-05-05 20:18:18 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-07-17 12:20:25 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -352,6 +352,12 @@ void vtkParseOutput(FILE *fp, FileInfo *data)
     {
     fprintf(fp,"  public native void   VTKInit();\n");
     }
+
+  if (!strcmp("vtkObject",data->ClassName))
+    {
+    fprintf(fp,"  public native String Print();\n");
+    }
+  
   fprintf(fp,"}\n");
 }
 

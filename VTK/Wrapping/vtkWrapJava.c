@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapJava.c,v $
   Language:  C++
-  Date:      $Date: 1998-07-15 19:39:30 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-07-17 12:20:23 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -621,6 +621,23 @@ void vtkParseOutput(FILE *fp, FileInfo *data)
       fprintf(fp,"void vtk_%s_NoCPP()\n",data->ClassName);
       fprintf(fp,"{\n  vtk_%s_NoCPP();\n}\n\n",data->SuperClasses[0]);
       }
+    }
+
+  if (!strcmp("vtkObject",data->ClassName))
+    {
+    fprintf(fp,"\nextern \"C\" JNIEXPORT jstring JNICALL Java_vtk_vtkObject_Print(JNIEnv *env,jobject obj)\n");
+    fprintf(fp,"{\n  vtkObject *op;\n");
+    fprintf(fp,"  jstring tmp;\n\n");
+    fprintf(fp,"  op = (vtkObject *)vtkJavaGetPointerFromObject(env,obj,\"vtkObject\");\n");
+    
+    fprintf(fp,"  ostrstream buf;\n");
+    fprintf(fp,"  op->Print(buf);\n");
+    fprintf(fp,"  buf.put('\\0');\n");
+    fprintf(fp,"  tmp = vtkJavaMakeJavaString(env,buf.str());\n");
+    fprintf(fp,"  delete buf.str();\n");
+
+    fprintf(fp,"  return tmp;\n");
+    fprintf(fp,"}\n");
     }
 }
 
