@@ -3,11 +3,9 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkImplicitFunction.h,v $
   Language:  C++
-  Date:      $Date: 1994-07-13 21:45:56 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-08-12 08:32:35 $
+  Version:   $Revision: 1.3 $
 
-Description:
----------------------------------------------------------------------------
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
 without the express written consent of the authors.
@@ -19,6 +17,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 // .SECTION Description
 // vlImplicitFunction specifies an abstract interface for implicit 
 // functions. Implicit functions are of the form F(x,y,z) = 0.
+
 #ifndef __vlImplicitFunction_h
 #define __vlImplicitFunction_h
 
