@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPythonUtil.h,v $
   Language:  C++
-  Date:      $Date: 2003-05-13 14:38:41 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2003-06-24 20:24:39 $
+  Version:   $Revision: 1.30 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -15,6 +15,8 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
+#ifndef __vtkPythonUtil_h
+#define __vtkPythonUtil_h
 #undef _POSIX_THREADS
 #include "Python.h"
 #include "vtkCommand.h"
@@ -173,4 +175,4 @@ protected:
   ~vtkPythonCommand(); 
 };
 
-
+#endif
