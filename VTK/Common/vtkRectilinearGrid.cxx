@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-17 21:45:13 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-04-01 12:48:46 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -522,6 +522,7 @@ int vtkRectilinearGrid::FindPoint(float x[3])
 	  loc[j] = i;
 	  }
         }
+      xPrev = xNext;
       }
     }
 //
@@ -703,6 +704,7 @@ int vtkRectilinearGrid::ComputeStructuredCoordinates(float x[3], int ijk[3],
         pcoords[j] = 1.0;
         break;
         }
+      xPrev = xNext;
       }
     }
 
