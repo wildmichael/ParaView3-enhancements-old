@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightGoldReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-20 16:35:48 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-02-21 12:14:02 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
