@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-22 16:25:58 $
-  Version:   $Revision: 1.66 $
+  Date:      $Date: 2003-04-21 13:54:49 $
+  Version:   $Revision: 1.67 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -41,6 +41,10 @@
 #include <X11/Intrinsic.h> // Needed for X types in the public interface
 
 class vtkCallbackCommand;
+
+// Forward declare internal friend functions.
+void vtkXRenderWindowInteractorCallback(Widget,XtPointer, XEvent *,Boolean *);
+void vtkXRenderWindowInteractorTimer(XtPointer,XtIntervalId *);
 
 class VTK_RENDERING_EXPORT vtkXRenderWindowInteractor : public vtkRenderWindowInteractor
 {
