@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutlineSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:07:07 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2000-01-07 09:13:42 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -143,13 +143,6 @@ void vtkOutlineSource::Execute()
   newLines->Delete();
 }
 
-
-//----------------------------------------------------------------------------
-void vtkOutlineSource::ExecuteInformation()
-{
-  // an outline is always less than 1k
-  this->GetOutput()->SetEstimatedWholeMemorySize(1);
-}
 
 //----------------------------------------------------------------------------
 void vtkOutlineSource::PrintSelf(ostream& os, vtkIndent indent)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAttributeDataToFieldDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:50 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-01-07 09:13:30 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,6 +80,9 @@ void vtkAttributeDataToFieldDataFilter::Execute()
   int arrayNum=0;
   
   vtkDebugMacro(<<"Generating field data from attribute data");
+
+  // Start by copying input to output
+  output->CopyStructure( input );
 
   if ( inPD->GetScalars() || inPD->GetVectors() || inPD->GetTensors() ||
        inPD->GetNormals() || inPD->GetTCoords() || inPD->GetFieldData() )

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:56:43 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2000-01-07 09:13:49 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkStructuredInformation.h"
 #include "vtkStructuredGridReader.h"
 #include "vtkObjectFactory.h"
 
@@ -237,7 +236,7 @@ void vtkStructuredGridReader::ExecuteInformation()
 	--ext[1];
 	--ext[3];
 	--ext[5];
-        output->GetStructuredInformation()->SetWholeExtent(ext);
+        output->SetWholeExtent(ext);
 	// That is all we wanted !!!!!!!!!!!!!!!
 	this->Reader->CloseVTKFile();
 	return;

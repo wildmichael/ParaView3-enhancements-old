@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsToStructuredPointsFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-12-19 22:13:05 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2000-01-07 09:13:51 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -93,32 +93,8 @@ void vtkStructuredPointsToStructuredPointsFilter::ExecuteInformation()
     }
   
   output->SetWholeExtent(input->GetWholeExtent());
-  // Now should Origin and Spacing really be part of information?
-  // How about xyx arrays in RectilinearGrid of Points in StructuredGrid?
   output->SetSpacing(input->GetSpacing());
   output->SetOrigin(input->GetOrigin());
 }
 
-//----------------------------------------------------------------------------
-int vtkStructuredPointsToStructuredPointsFilter::ComputeInputUpdateExtents(
-                                                         vtkDataObject *data)
-{
-  vtkStructuredPoints *output = (vtkStructuredPoints*)data;
-  vtkStructuredPoints *input = this->GetInput();
-  
-  if (this->NumberOfInputs > 1)
-    {
-    vtkErrorMacro("Subclass did not implement ComputeInputUpdateExtent");
-    return 0;
-    }
-  
-  if (input == NULL)
-    {
-    vtkErrorMacro(<<"Input is NULL");
-    return 0;
-    }
-
-  input->CopyUpdateExtent(output);
-  return 1;
-}
 

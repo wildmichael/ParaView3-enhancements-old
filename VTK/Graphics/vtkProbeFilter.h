@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProbeFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:07:22 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2000-01-07 09:13:46 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,8 +75,6 @@ protected:
   void operator=(const vtkProbeFilter&) {};
 
   void Execute();
-  // This filter takes more than one input, so it needs this method.
-  int ComputeInputUpdateExtents(vtkDataObject *output);
 };
 
 #endif

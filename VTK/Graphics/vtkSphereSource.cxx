@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:07:48 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2000-01-07 09:13:48 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -276,5 +276,4 @@ void vtkSphereSource::ExecuteInformation()
   // convert to kilobytes
   size = (size / 1000) + 1;
   
-  this->GetOutput()->SetEstimatedWholeMemorySize(size);
 }

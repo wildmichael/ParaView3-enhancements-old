@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMaskPoints.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:06:54 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2000-01-07 09:13:40 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -87,7 +87,6 @@ protected:
   void operator=(const vtkMaskPoints&) {};
 
   void Execute();
-  void ExecuteInformation();
 
   int OnRatio;     // every OnRatio point is on; all others are off.
   int Offset;      // offset (or starting point id)

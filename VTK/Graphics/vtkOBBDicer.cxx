@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBBDicer.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:06:57 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-01-07 09:13:41 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -157,6 +157,9 @@ void vtkOBBDicer::Execute()
   vtkDataSet *output= this->GetOutput();
 
   vtkDebugMacro(<<"Dicing object");
+
+  // First, copy the input to the output as a starting point
+  output->CopyStructure( input );
 
   if ( (numPts = input->GetNumberOfPoints()) < 1 )
     {

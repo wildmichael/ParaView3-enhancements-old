@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldDataToAttributeDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:56:29 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2000-01-07 09:13:36 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -168,6 +168,9 @@ void vtkFieldDataToAttributeDataFilter::Execute()
   vtkDataSet *output = this->GetOutput();
 
   vtkDebugMacro(<<"Generating attribute data from field data");
+
+  // First, copy the input to the output as a starting point
+  output->CopyStructure( input );
 
   if ( this->OutputAttributeData == VTK_CELL_DATA )
     {

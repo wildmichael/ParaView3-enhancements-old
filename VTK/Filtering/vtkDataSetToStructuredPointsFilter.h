@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToStructuredPointsFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:06:16 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2000-01-07 09:13:35 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,7 +74,7 @@ protected:
   void operator=(const vtkDataSetToStructuredPointsFilter&) {};
 
   // All the DataSetToStructuredPointsFilters require all their input.
-  int ComputeInputUpdateExtents(vtkDataObject *output);
+  void ComputeInputUpdateExtents(vtkDataObject *output);
 };
 
 #endif

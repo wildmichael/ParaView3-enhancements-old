@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:07:24 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2000-01-07 09:13:46 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -145,6 +145,9 @@ void vtkProgrammableFilter::SetExecuteMethodArgDelete(void (*f)(void *))
 void vtkProgrammableFilter::Execute()
 {
   vtkDebugMacro(<<"Executing programmable filter");
+
+  // First, copy the input to the output as a starting point
+  this->GetOutput()->CopyStructure( this->GetInput() );
 
   // Now invoke the procedure, if specified.
   if ( this->ExecuteMethod != NULL )

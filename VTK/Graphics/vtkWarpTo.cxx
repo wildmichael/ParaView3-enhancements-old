@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpTo.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:27 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2000-01-07 09:13:55 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,6 +79,9 @@ void vtkWarpTo::Execute()
   float minMag = 0;
   
   vtkDebugMacro(<<"Warping data to a point");
+
+  // First, copy the input to the output as a starting point
+  output->CopyStructure( input );
 
   inPts = input->GetPoints();
   numPts = inPts->GetNumberOfPoints();

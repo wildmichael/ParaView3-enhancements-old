@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProbeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:56:39 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2000-01-07 09:13:45 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -87,18 +87,6 @@ vtkDataSet *vtkProbeFilter::GetSource()
   return (vtkDataSet *)(this->Inputs[1]);
 }
 
-//----------------------------------------------------------------------------
-int vtkProbeFilter::ComputeInputUpdateExtents(vtkDataObject *output)
-{
-  // this input has to be the same type as output.
-  this->GetInput()->CopyUpdateExtent(output);
-  
-  // we always need the whole source.
-  this->GetSource()->SetUpdateExtent(0, 1);
-  
-  return 1;
-}
-
 
 //----------------------------------------------------------------------------
 void vtkProbeFilter::Execute()
@@ -114,6 +102,9 @@ void vtkProbeFilter::Execute()
   float pcoords[3], *weights=new float[source->GetMaxCellSize()];
 
   vtkDebugMacro(<<"Probing data");
+
+  // First, copy the input to the output as a starting point
+  output->CopyStructure( input );
 
   pd = source->GetPointData();
   numPts = input->GetNumberOfPoints();

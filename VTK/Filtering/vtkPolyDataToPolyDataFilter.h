@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataToPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:07:20 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2000-01-07 09:13:45 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,10 +66,6 @@ public:
   // Set / get the input data or filter.
   virtual void SetInput(vtkPolyData *input);
   vtkPolyData *GetInput();
-  
-  // Since input0 and output are both polydata, we can have default behavior
-  // that copies information for in[0] to out.
-  void ExecuteInformation();
   
 protected:  
   vtkPolyDataToPolyDataFilter() {};

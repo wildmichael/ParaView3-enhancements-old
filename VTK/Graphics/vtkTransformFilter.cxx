@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:09 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2000-01-07 09:13:52 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -87,6 +87,9 @@ void vtkTransformFilter::Execute()
   vtkCellData *cd=input->GetCellData(), *outCD=output->GetCellData();
 
   vtkDebugMacro(<<"Executing transform filter");
+
+  // First, copy the input to the output as a starting point
+  output->CopyStructure( input );
 
   // Check input
   //

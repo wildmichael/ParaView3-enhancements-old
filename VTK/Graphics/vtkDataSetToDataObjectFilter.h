@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToDataObjectFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:06:14 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2000-01-07 09:13:33 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -125,7 +125,7 @@ protected:
   void operator=(const vtkDataSetToDataObjectFilter&) {};
 
   void Execute(); //generate output data
-  int ComputeInputUpdateExtents(vtkDataObject *output);
+  void ComputeInputUpdateExtents(vtkDataObject *output);
   
   int Geometry;
   int Topology;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridToStructuredGridFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:56:44 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-01-07 09:13:50 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -76,37 +76,5 @@ vtkStructuredGrid *vtkStructuredGridToStructuredGridFilter::GetInput()
     }
   
   return (vtkStructuredGrid *)(this->Inputs[0]);
-}
-
-
-//----------------------------------------------------------------------------
-// just copy WholeExtent fropm the first input.
-void vtkStructuredGridToStructuredGridFilter::ExecuteInformation()
-{
-  vtkStructuredGrid *input = this->GetInput();
-  vtkStructuredGrid *output = this->GetOutput();
-  
-  if (output == NULL || input == NULL)
-    {
-    return;
-    }
-  
-  output->SetWholeExtent(input->GetWholeExtent());
-}
-
-//----------------------------------------------------------------------------
-int vtkStructuredGridToStructuredGridFilter::ComputeInputUpdateExtents(
-                                                           vtkDataObject *data)
-{
-  vtkStructuredGrid *output = (vtkStructuredGrid *)data;
-  
-  if (this->NumberOfInputs > 1)
-    {
-    vtkErrorMacro("Subclass did not implement ComputeInputUpdateExtent");
-    return 0;
-    }
-  
-  this->GetInput()->CopyUpdateExtent(output);
-  return 1;
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractMapper3D.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-06 13:17:21 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-01-07 09:13:29 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,7 +56,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkAbstractMapper3D_h
 
 #include "vtkAbstractMapper.h"
-#include "vtkImageToStructuredPoints.h"
 #include "vtkPlaneCollection.h"
 #include "vtkPlane.h"
 

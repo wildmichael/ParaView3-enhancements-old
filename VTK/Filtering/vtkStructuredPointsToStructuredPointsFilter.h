@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsToStructuredPointsFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:02 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2000-01-07 09:13:51 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,21 +68,17 @@ public:
     this->SetInput(tmp->GetOutput()); tmp->Delete();}
   vtkStructuredPoints *GetInput();
 
-  // Since input[0] and output are of same type, we can create this
-  // method that defaults to just copying information.
-  void ExecuteInformation();
-
 protected:
   vtkStructuredPointsToStructuredPointsFilter() {};
   ~vtkStructuredPointsToStructuredPointsFilter() {};
   vtkStructuredPointsToStructuredPointsFilter(const vtkStructuredPointsToStructuredPointsFilter&) {};
   void operator=(const vtkStructuredPointsToStructuredPointsFilter&) {};
-  
-  // Since we know Inputs[0] is the same type as Outputs[0] we can
-  // use CopyUpdateExtent of the data object to propagate extents.
-  // It the filter has more than one input, all bets are off.
-  // It is then up to the subclass to implement this method.
-  int ComputeInputUpdateExtents(vtkDataObject *output);
+
+  // Since input[0] and output are of same type, we can create this
+  // method that defaults to just copying information.
+  void ExecuteInformation();
+
+
 };
 
 #endif

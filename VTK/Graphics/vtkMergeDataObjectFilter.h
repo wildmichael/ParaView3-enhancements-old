@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeDataObjectFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:06:55 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2000-01-07 09:13:40 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -100,9 +100,6 @@ protected:
   // Usual data generation method
   void Execute();
 
-  // What do we need from the input and data object?
-  int ComputeInputUpdateExtents(vtkDataObject *output);
-  
   int OutputField; // which output field
 
 };

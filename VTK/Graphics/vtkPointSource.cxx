@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:07:16 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2000-01-07 09:13:44 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -113,14 +113,6 @@ void vtkPointSource::Execute()
 //----------------------------------------------------------------------------
 void vtkPointSource::ExecuteInformation()
 {
-  unsigned long size;
-  
-  // points and verts.
-  size = this->NumberOfPoints * 3 * sizeof(float) + sizeof(int);
-  // convert to KBytes
-  size = 1 + size / 1000;
-  
-  this->GetOutput()->SetEstimatedWholeMemorySize(size);
 }
 
 

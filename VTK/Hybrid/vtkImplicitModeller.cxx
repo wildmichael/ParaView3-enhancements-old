@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitModeller.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:06:39 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 2000-01-07 09:13:37 $
+  Version:   $Revision: 1.61 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -118,6 +118,20 @@ vtkImplicitModeller::~vtkImplicitModeller()
     {
     this->Threader->Delete();
     }
+}
+
+//----------------------------------------------------------------------------
+
+void vtkImplicitModeller::UpdateData(vtkDataObject *output)
+{
+  if (this->GetInput() == NULL)
+    {
+    // we do not want to release the data because user might
+    // have called Append ...
+    return;
+    }
+
+  this->vtkDataSetToStructuredPointsFilter::UpdateData( output );
 }
 
 //----------------------------------------------------------------------------
@@ -726,6 +740,13 @@ void vtkImplicitModeller::Execute()
 {
   vtkDebugMacro(<< "Executing implicit model");
 
+  if (this->GetInput() == NULL)
+    {
+    // we do not want to release the data because user might
+    // have called Append ...
+    return;
+    }
+
   this->StartAppend();
   this->Append(this->GetInput());
   this->EndAppend();
@@ -925,29 +946,6 @@ void vtkImplicitModeller::Cap(vtkScalars *s)
       s->SetScalar(idx+i+k*d01, this->CapValue);
       }
     }
-}
-
-//----------------------------------------------------------------------------
-void vtkImplicitModeller::StreamExecuteStart()
-{
-  int idx;
-  
-  if (this->GetInput() == NULL)
-    {
-    // we do not want to release the data because user might
-    // have called Append ...
-    return;
-    }
-  
-  // clear output (why isn't this ReleaseData.  Does it allocate data too?)
-  // Should it be done if StreamExecuteStart?
-  for (idx = 0; idx < this->NumberOfOutputs; idx++)
-    {
-    if (this->Outputs[idx])
-      {
-      this->Outputs[idx]->Initialize(); 
-      }
-    }  
 }
 
 //----------------------------------------------------------------------------

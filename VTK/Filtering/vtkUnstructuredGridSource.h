@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridSource.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:56:17 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2000-01-07 09:13:53 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,7 +74,7 @@ protected:
   // Since the Outputs[0] has the same UpdateExtent format
   // as the generic DataObject we can copy the UpdateExtent
   // as a default behavior.
-  int ComputeInputUpdateExtents(vtkDataObject *output);
+  void ComputeInputUpdateExtents(vtkDataObject *output);
   
 };
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMaskPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:06:54 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2000-01-07 09:13:40 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -152,26 +152,6 @@ void vtkMaskPoints::Execute()
   output->Squeeze();
 
   vtkDebugMacro(<<"Masked " << numPts << " original points to " << id+1 << " points");
-}
-
-//----------------------------------------------------------------------------
-void vtkMaskPoints::ExecuteInformation()
-{
-  unsigned long numPts, size;
-  
-  // estimate the number of points in the input.
-  numPts = this->GetInput()->GetEstimatedWholeMemorySize() * 1000 / 24;
-  // adjust
-  numPts = (numPts - this->Offset) * this->OnRatio;
-  if (numPts > this->MaximumNumberOfPoints)
-    {
-    numPts = this->MaximumNumberOfPoints;
-    }
-  
-  // Guess at size per point (convert to KBytes)
-  size = 1 + numPts * 24 / 1000;
-  
-  this->GetOutput()->SetEstimatedWholeMemorySize(size);
 }
 
 

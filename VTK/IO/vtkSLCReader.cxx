@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSLCReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:56:41 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2000-01-07 09:13:47 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -122,7 +122,7 @@ unsigned char* vtkSLCReader::Decode8BitData( unsigned char *in_ptr,
 
 
 // This will be needed when we make this an imaging filter.
-void vtkSLCReader::ExecuteInformation2()
+void vtkSLCReader::ExecuteInformation()
 {
   FILE *fp;
   int   temp;

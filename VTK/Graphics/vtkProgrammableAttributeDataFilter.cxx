@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableAttributeDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:07:22 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-01-07 09:13:46 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -195,6 +195,9 @@ void vtkProgrammableAttributeDataFilter::Execute()
   vtkDataSet *output = this->GetOutput();
 
   vtkDebugMacro(<<"Executing programmable point data filter");
+
+  // First, copy the input to the output as a starting point
+  output->CopyStructure( input );
 
   // Output data is the same as input data by default.
   output->GetCellData()->PassData(input->GetCellData());

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformTextureCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:10 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-01-07 09:13:53 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -104,6 +104,9 @@ void vtkTransformTextureCoords::Execute()
   float *TC, newTC[3];
 
   vtkDebugMacro(<<"Transforming texture coordinates...");
+
+  // First, copy the input to the output as a starting point
+  output->CopyStructure( input );
 
   if ( inTCoords == NULL || numPts < 1 )
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInterpolateDataSetAttributes.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:06:44 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-01-07 09:13:39 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -123,6 +123,7 @@ void vtkInterpolateDataSetAttributes::Execute()
   vtkCellData *inputCD, *input2CD;
   float t;
   
+
   if ( inputList->GetNumberOfItems() < 2 )
     {
     vtkErrorMacro(<< "Need at least two inputs to interpolate!");
@@ -255,27 +256,6 @@ void vtkInterpolateDataSetAttributes::Execute()
 
     outputCD->InterpolateTime(inputCD, input2CD, i, t);
     }
-}
-
-//----------------------------------------------------------------------------
-int 
-vtkInterpolateDataSetAttributes::ComputeInputUpdateExtents(vtkDataObject *data)
-{
-  vtkDataSet *output = (vtkDataSet*)data;
-  vtkDataSet *input;
-  int idx;
-  
-  // I do not like the InputList implementation, so ...
-  for (idx = 0; idx < this->NumberOfInputs; ++idx)
-    {
-    input = (vtkDataSet*)(this->Inputs[idx]);
-    if (input != NULL)
-      {
-      input->CopyUpdateExtent(output);
-      }
-    }
-  
-  return 1;
 }
 
 

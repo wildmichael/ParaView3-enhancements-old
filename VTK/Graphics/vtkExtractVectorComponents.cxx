@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractVectorComponents.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:56:28 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2000-01-07 09:13:35 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -238,17 +238,6 @@ vtkDataSet *vtkExtractVectorComponents::GetInput()
     }
   
   return (vtkDataSet *)(this->Inputs[0]);
-}
-
-
-
-//----------------------------------------------------------------------------
-// copy Update extent from output passed in to input.
-int 
-vtkExtractVectorComponents::ComputeInputUpdateExtents(vtkDataObject *output)
-{
-  this->GetInput()->CopyUpdateExtent(output);
-  return 1;  
 }
 
 

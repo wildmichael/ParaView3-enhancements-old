@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-19 21:02:32 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2000-01-07 09:13:37 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -87,6 +87,10 @@ void vtkIdFilter::Execute()
   // Initialize
   //
   vtkDebugMacro(<<"Generating ids!");
+
+  // First, copy the input to the output as a starting point
+  output->CopyStructure( input );
+
   numPts = input->GetNumberOfPoints();
   numCells = input->GetNumberOfCells();
 

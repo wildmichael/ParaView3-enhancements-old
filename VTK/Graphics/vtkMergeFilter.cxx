@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:56:33 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2000-01-07 09:13:41 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -343,8 +343,8 @@ void vtkMergeFilter::Execute()
 // (structured/unstructured), but the points/cells match up.
 // Output/Geometry may be structured while ScalarInput may be 
 // unstructured (but really have same triagulation/topology as geometry).
-// Just request al the input. Always generate all of the output (todo).
-int vtkMergeFilter::ComputeInputUpdateExtents(vtkDataObject *vtkNotUsed(data))
+// Just request all the input. Always generate all of the output (todo).
+void vtkMergeFilter::ComputeInputUpdateExtents(vtkDataObject *vtkNotUsed(data))
 {
   vtkDataSet *input;
   int idx;
@@ -357,8 +357,6 @@ int vtkMergeFilter::ComputeInputUpdateExtents(vtkDataObject *vtkNotUsed(data))
       input->SetUpdateExtent(0, 1);
       }
     }
-  
-  return 1;
 }
 
 void vtkMergeFilter::PrintSelf(ostream& os, vtkIndent indent)

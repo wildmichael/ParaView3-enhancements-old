@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:56:24 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2000-01-07 09:13:33 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -412,11 +412,6 @@ void vtkDataSetReader::Update()
   if (this->GetOutput())
     {
     this->GetOutput()->Update();
-    }
-  else
-    {
-    // execute creates an output
-    this->InternalUpdate(NULL);
     }
 }
 

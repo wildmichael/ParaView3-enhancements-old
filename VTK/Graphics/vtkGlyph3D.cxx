@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:56:29 $
-  Version:   $Revision: 1.67 $
+  Date:      $Date: 2000-01-07 09:13:37 $
+  Version:   $Revision: 1.68 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -470,22 +470,11 @@ void vtkGlyph3D::Execute()
 // should average the size of the sources instead of using 0).
 void vtkGlyph3D::ExecuteInformation()
 {
-  unsigned long numPts, size;
-  
   if (this->GetInput() == NULL || this->GetSource(0) == NULL)
     {
     vtkErrorMacro("Missing input or source");
     return;
     }
-  
-  // How many points in the input?
-  // Assume 24 bytes per point
-  numPts = this->GetInput()->GetEstimatedWholeMemorySize() * 1000 / 24;
-
-  // size already in kilobytes
-  size = numPts * this->GetSource(0)->GetEstimatedWholeMemorySize();
-  
-  this->GetOutput()->SetEstimatedWholeMemorySize(size);
 }
 
 

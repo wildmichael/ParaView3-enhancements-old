@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObjectToDataSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-12-28 19:00:54 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2000-01-07 09:13:31 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -405,15 +405,14 @@ vtkRectilinearGrid *vtkDataObjectToDataSetFilter::GetRectilinearGridOutput()
 }
 
 //----------------------------------------------------------------------------
-int 
-vtkDataObjectToDataSetFilter::ComputeInputUpdateExtents(vtkDataObject *vtkNotUsed(output))
+void vtkDataObjectToDataSetFilter::ComputeInputUpdateExtents( 
+				       vtkDataObject *vtkNotUsed(output))
 {
   // what should we do here?
   if (this->GetInput()->GetDataObjectType() != VTK_DATA_OBJECT)
     {
     this->GetInput()->SetUpdateExtent(0, 1);
     }
-  return 1;  
 }
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorDot.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:16 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2000-01-07 09:13:54 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -84,6 +84,9 @@ void vtkVectorDot::Execute()
 // Initialize
 //
   vtkDebugMacro(<<"Generating vector/normal dot product!");
+
+  // First, copy the input to the output as a starting point
+  output->CopyStructure( input );
 
   if ( (numPts=input->GetNumberOfPoints()) < 1 )
     {

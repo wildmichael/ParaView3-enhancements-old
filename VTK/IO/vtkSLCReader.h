@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSLCReader.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:07:39 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2000-01-07 09:13:48 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,7 +79,7 @@ protected:
   // imaging filter.
   // Sets WholeExtent, Origin, Spacing, ScalarType 
   // and NumberOfComponents of output.
-  void ExecuteInformation2();
+  void ExecuteInformation();
   
   // Decodes an array of eight bit run-length encoded data.
   unsigned char *Decode8BitData( unsigned char *in_ptr, int size );

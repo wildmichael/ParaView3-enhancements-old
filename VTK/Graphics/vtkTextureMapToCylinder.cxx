@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToCylinder.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:05 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-01-07 09:13:51 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -90,6 +90,9 @@ void vtkTextureMapToCylinder::Execute()
   float axis[3], vP[3], vec[3];
 
   vtkDebugMacro(<<"Generating Cylindrical Texture Coordinates");
+
+  // First, copy the input to the output as a starting point
+  output->CopyStructure( input );
 
   if ( numPts < 1 )
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:56:04 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2000-01-07 09:13:30 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -89,19 +89,20 @@ public:
   vtkGetMacro(ParallelStreaming, int); 
   vtkBooleanMacro(ParallelStreaming, int); 
 
+
 protected:
   vtkAppendPolyData();
   ~vtkAppendPolyData();
   vtkAppendPolyData(const vtkAppendPolyData&) {};
   void operator=(const vtkAppendPolyData&) {};
 
-  // Flag for selecting parallel streaming bejhavior
+  // Flag for selecting parallel streaming behavior
   int ParallelStreaming;
 
   // Usual data generation method
   void Execute();
-  // Support for streaming (parallel)
-  int ComputeInputUpdateExtents(vtkDataObject *output);
+
+  void ComputeInputUpdateExtents(vtkDataObject *output);
 
   // An efficient way to append data/cells.
   void AppendData(vtkDataArray *dest, vtkDataArray *src, int offset);

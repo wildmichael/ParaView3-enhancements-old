@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpLens.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:26 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-01-07 09:13:54 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,6 +79,9 @@ void vtkWarpLens::Execute()
   float offset;
   
   vtkDebugMacro(<<"Warping data to a point");
+
+  // First, copy the input to the output as a starting point
+  output->CopyStructure( input );
 
   r = this->Center[0]*this->Center[0];
   offset = this->Center[0]*(1.0 + this->Kappa*r);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToStructuredPointsFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:56:26 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-01-07 09:13:34 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,8 +80,8 @@ vtkDataSet *vtkDataSetToStructuredPointsFilter::GetInput()
 
 //----------------------------------------------------------------------------
 // All the DataSetToStructuredPointsFilters require all their input.
-int vtkDataSetToStructuredPointsFilter::ComputeInputUpdateExtents(
-                                                           vtkDataObject *data)
+void vtkDataSetToStructuredPointsFilter::ComputeInputUpdateExtents(
+                                                         vtkDataObject *data)
 {
   vtkStructuredPoints *output = (vtkStructuredPoints*)data;
   vtkDataSet *input = this->GetInput();
@@ -89,18 +89,17 @@ int vtkDataSetToStructuredPointsFilter::ComputeInputUpdateExtents(
   
   if (input == NULL)
     {
-    return 0;
+    return;
     }
   
   // Lets just check to see if the outputs UpdateExtent is valid.
   ext = output->GetUpdateExtent();
   if (ext[0] > ext[1] || ext[2] > ext[3] || ext[4] > ext[5])
     {
-    return 0;
+    return;
     }
   
   input->SetUpdateExtent(0, 1);
-  return 1;
 }
 
     

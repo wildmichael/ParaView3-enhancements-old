@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorNorm.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:16 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2000-01-07 09:13:54 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,6 +80,9 @@ void vtkVectorNorm::Execute()
 
   // Initialize
   vtkDebugMacro(<<"Computing norm of vectors!");
+
+  // First, copy the input to the output as a starting point
+  output->CopyStructure( input );
 
   ptVectors = pd->GetVectors();
   cellVectors = cd->GetVectors();
