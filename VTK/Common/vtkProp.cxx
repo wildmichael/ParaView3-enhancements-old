@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-08 09:11:03 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-06-29 09:51:01 $
+  Version:   $Revision: 1.12 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -43,7 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkAssemblyPaths.h"
 
 
-//-----------------------------------------------------------------------------
+
+//----------------------------------------------------------------------------
 vtkProp* vtkProp::New()
 {
   // First try to create the object from the vtkObjectFactory
