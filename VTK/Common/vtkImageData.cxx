@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-06-03 13:18:08 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1996-06-07 13:55:08 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -76,8 +76,9 @@ int vtkImageData::Allocated()
 
 //----------------------------------------------------------------------------
 // Description:
-// This method allocates memory for the outImageData data.  
-// Returns 1 if sucessful, 0 if not.
+// This method allocates memory for the vtkImageData data.  The size of
+// the data object should be set before this method is called.
+// The method returns 1 if the allocation was sucessful, 0 if not.
 int vtkImageData::Allocate()
 {
   int idx, inc = 1;
@@ -116,7 +117,9 @@ int vtkImageData::Allocate()
 
 //----------------------------------------------------------------------------
 // Description:
-// This Method returns a pointer at a location in the outImageData.
+// This Method returns a pointer to a location in the vtkImageData.
+// Coordinates are in pixel units and are relative to the whole
+// image origin.
 float *vtkImageData::GetPointer(int coordinates[3])
 {
   return this->Data 

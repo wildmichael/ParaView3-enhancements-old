@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.h,v $
   Language:  C++
-  Date:      $Date: 1996-06-03 13:18:19 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1996-06-07 13:55:09 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -37,11 +37,15 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkImageData - Generic array of data.
+// .NAME vtkImageData - Holds an array of floats represtion a piece of the 
+// image.
 // .SECTION Description
 // vtkImageData holds a reference counted 3d array of floats that is the basic
 // data object of the Tile Image Pipeline.  It is not directly accessed, but
-// is referenced through tile objects.  The memory of outImageData can be accessed
+// is referenced through vtkImageRegion objects.  
+// vtkImageCache objects are the only other class that uses vtkImageData
+// objects directly.
+// The memory of outImageData can be accessed 
 // quickly through pointer arithmatic.
 
 #ifndef __vtkImageData_h
@@ -58,17 +62,17 @@ public:
   char *GetClassName() {return "vtkImageData";};
 
   // Description:
-  // Set/Get the size (width, height, depth, ...) of the outImageData data.
+  // Set/Get the offset and size of the data array.
+  // The size should be set before the Allocate method is called.
   vtkSetVector3Macro(Size,int);
   vtkGetVector3Macro(Size,int);
-
-  // Description:
-  // Set/Get the offset of the outImageData data.
   vtkSetVector3Macro(Offset,int);
   vtkGetVector3Macro(Offset,int);
 
   // Description:
-  // Gets the array which can be used to step through the memory.
+  // Gets the increments between columns, rows, and images.  These
+  // Values are computed from the size of the data array, and allow the
+  // user to step through memory using pointer arithmatic.
   vtkGetVector3Macro(Inc,int);
 
   int Allocated();
