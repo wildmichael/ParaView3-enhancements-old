@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-20 21:08:47 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2000-03-22 15:28:52 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -90,7 +90,19 @@ void vtkProperty2D::PrintSelf(ostream& os, vtkIndent indent)
      << this->Color[2] << ")\n";
   os << indent << "Point size: " << this->PointSize << "\n";
   os << indent << "Line width: " << this->LineWidth << "\n";
-  
+  switch ( this->DisplayLocation )
+    {
+    case VTK_FOREGROUND_LOCATION:
+      os << indent << "Display location: foreground\n";
+      break;
+    case VTK_BACKGROUND_LOCATION:
+      os << indent << "Display location: background\n";
+      break;
+    default:
+      os << indent << "Display location: invalid\n";
+      break;      
+    }
+    
 }
 
 
