@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkHyperStreamline.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-26 10:40:02 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1995-10-27 12:04:03 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -397,6 +397,13 @@ void vtkHyperStreamline::Execute()
     math.Jacobi(m, sPtr->w, sPtr->v);
     FixVectors(NULL, sPtr->v, iv, ix, iy);
 
+    if ( inScalars ) 
+      {
+      inScalars->GetScalars(cell->PointIds,cellScalars);
+      for (sPtr->s=0, i=0; i < cell->GetNumberOfPoints(); i++)
+        sPtr->s += cellScalars.GetScalar(i) * w[i];
+      }
+
     if ( this->IntegrationDirection == VTK_INTEGRATE_BOTH_DIRECTIONS )
       {
       this->Streamers[1].Direction = -1.0;
@@ -406,13 +413,6 @@ void vtkHyperStreamline::Execute()
     else if ( this->IntegrationDirection == VTK_INTEGRATE_BACKWARD )
       {
       this->Streamers[0].Direction = -1.0;
-      }
-
-    if ( inScalars ) 
-      {
-      inScalars->GetScalars(cell->PointIds,cellScalars);
-      for (sPtr->s=0, i=0; i < cell->GetNumberOfPoints(); i++)
-        sPtr->s += cellScalars.GetScalar(i) * w[i];
       }
     } //for hyperstreamline in dataset
 //
@@ -586,7 +586,7 @@ void vtkHyperStreamline::BuildTube()
 
     dOffset = sPrev->d;
 
-    for ( npts=0, i=1, sPtr=sPrev; i < numIntPts && sPtr->cellId >= 0;
+    for ( npts=0, i=1; i < numIntPts && sPtr->cellId >= 0;
     i++, sPrev=sPtr, sPtr=this->Streamers[ptId].GetHyperPoint(i) )
       {
 //
