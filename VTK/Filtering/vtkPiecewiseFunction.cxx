@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPiecewiseFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-03 20:33:18 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-06-15 21:39:59 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -351,30 +351,35 @@ void vtkPiecewiseFunction::MovePoints( int index, int down )
 
   i = index;
 
-  if( down && ((i+1) < this->FunctionSize))
+  // Moving down
+  if( down )
     {
-    // Move points down (i+1) = i
-    swap1_x = this->Function[(2*i)];
-    swap1_y = this->Function[(2*i+1)];
-
-    i = i + 1;
-
-    // Move following points down
-    while( i < this->FunctionSize )
+    // If it is the last point we don't need to move anything
+    if ( (i+1) < this->FunctionSize )
       {
-      swap2_x = this->Function[(2*i)];
-      swap2_y = this->Function[(2*i+1)];
-      
-      this->Function[(2*i)] = swap1_x;
-      this->Function[(2*i+1)] = swap1_y;
+      // Move points down (i+1) = i
+      swap1_x = this->Function[(2*i)];
+      swap1_y = this->Function[(2*i+1)];
 
-      swap1_x = swap2_x;
-      swap1_y = swap2_y;
+      i = i + 1;
 
-      i++;
+      // Move following points down
+      while( i < this->FunctionSize )
+	{
+	swap2_x = this->Function[(2*i)];
+	swap2_y = this->Function[(2*i+1)];
+	
+	this->Function[(2*i)] = swap1_x;
+	this->Function[(2*i+1)] = swap1_y;
+	
+	swap1_x = swap2_x;
+	swap1_y = swap2_y;
+	
+	i++;
+	}
       }
-
     }
+  // Moving up
   else 
     {
     // Move points up (i = i+1)
@@ -596,8 +601,15 @@ void vtkPiecewiseFunction::IncreaseArraySize()
   // Copy points from old array to new array
   for( i=0; i<old_size; i++ )
     {
-      this->Function[(2*i)]   = old_function[(2*i)];
-      this->Function[(2*i)+1] = old_function[(2*i)+1];
+    this->Function[(2*i)]   = old_function[(2*i)];
+    this->Function[(2*i)+1] = old_function[(2*i)+1];
+    }
+
+  // Initialize the rest of the memory to avoid purify problems
+  for ( ; i < this->ArraySize; i++ )
+    {
+    this->Function[(2*i)]   = 0;
+    this->Function[(2*i)+1] = 0;
     }
 
   delete [] old_function;

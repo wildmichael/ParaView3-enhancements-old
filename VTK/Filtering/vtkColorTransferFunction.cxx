@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkColorTransferFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-29 14:58:23 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-06-15 21:39:59 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,6 +54,8 @@ vtkColorTransferFunction::vtkColorTransferFunction()
 
   this->Range[0] = 0;
   this->Range[1] = 0;
+
+  this->Clamping = 0;
 }
 
 // Destruct a vtkColorTransferFunction
