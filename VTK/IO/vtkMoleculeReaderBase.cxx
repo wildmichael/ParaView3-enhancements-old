@@ -3,8 +3,8 @@
 Program:   Visualization Toolkit
 Module:    $RCSfile: vtkMoleculeReaderBase.cxx,v $
 Language:  C++
-Date:      $Date: 2003-05-14 14:16:45 $
-Version:   $Revision: 1.4 $
+Date:      $Date: 2003-05-14 14:23:16 $
+Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -52,7 +52,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include <ctype.h>
 
-vtkCxxRevisionMacro(vtkMoleculeReaderBase, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkMoleculeReaderBase, "$Revision: 1.5 $");
 
 static float vtkMoleculeReaderBaseCovRadius[103] = {
 0.32 , 1.6 , 0.68 , 0.352 , 0.832 , 0.72 ,
@@ -214,10 +214,18 @@ int vtkMoleculeReaderBase::ReadMolecule(FILE *fp)
     {
     this->AtomType = vtkIdTypeArray::New();
     }
+  else
+    {
+    this->AtomType->Reset();
+    }
 
   if ( !this->Points )
     {
     this->Points = vtkPoints::New();
+    }
+  else
+    {
+    this->Points->Reset();
     }
 
   newBonds = vtkCellArray::New();
