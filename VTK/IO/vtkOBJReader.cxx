@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBJReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-18 20:50:01 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-06-21 14:04:48 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,8 +39,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkOBJReader.h"
-
-vtkSafeSetStringMacro2(FileName, vtkOBJReader);
 
 // Description:
 // Instantiate object with NULL filename.

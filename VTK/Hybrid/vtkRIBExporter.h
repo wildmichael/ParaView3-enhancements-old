@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBExporter.h,v $
   Language:  C++
-  Date:      $Date: 1999-06-18 20:50:02 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-06-21 14:04:49 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -102,12 +102,12 @@ public:
   // Description:
   // Specify the prefix of the files to write out. The resulting file names
   // will have .RIB appended to them.
-  vtkSafeSetStringMacro(FilePrefix);
+  vtkSetStringMacro(FilePrefix);
   vtkGetStringMacro(FilePrefix);
 
   // Description:
   // Specify the prefix of any generated texture files.
-  vtkSafeSetStringMacro(TexturePrefix);
+  vtkSetStringMacro(TexturePrefix);
   vtkGetStringMacro(TexturePrefix);
 
   // Description:

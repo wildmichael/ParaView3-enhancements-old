@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeAxesActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-18 20:50:00 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-06-21 14:04:47 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thorsten Dowe who modified and improved this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,12 +42,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkAxisActor2D.h"
 #include "vtkMath.h"
 
-vtkSafeSetStringMacro2(XLabel,vtkCubeAxesActor2D);
-vtkSafeSetStringMacro2(YLabel,vtkCubeAxesActor2D);
-vtkSafeSetStringMacro2(ZLabel,vtkCubeAxesActor2D);
-vtkSafeSetStringMacro2(LabelFormat,vtkCubeAxesActor2D);
-
-  
 // Instantiate this object.
 vtkCubeAxesActor2D::vtkCubeAxesActor2D()
 {
