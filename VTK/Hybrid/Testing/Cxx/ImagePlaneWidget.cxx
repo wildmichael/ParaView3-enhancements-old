@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: ImagePlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-12-11 19:10:50 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2003-12-16 14:48:31 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -429,7 +429,7 @@ int ImagePlaneWidget( int argc, char *argv[] )
     planeWidgetZ->DisplayTextOn();
     planeWidgetZ->On();
 
-  float wl[2];
+  double wl[2];
   planeWidgetZ->GetWindowLevel(wl);
 
   // Add a 2D image to test the GetReslice method

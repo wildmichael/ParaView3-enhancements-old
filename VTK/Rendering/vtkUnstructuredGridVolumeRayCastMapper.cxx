@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridVolumeRayCastMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-12-12 19:57:24 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2003-12-16 14:48:17 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -40,7 +40,7 @@
 VTK_THREAD_RETURN_TYPE UnstructuredGridVolumeRayCastMapper_CastRays( void *arg );
 
 
-vtkCxxRevisionMacro(vtkUnstructuredGridVolumeRayCastMapper, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkUnstructuredGridVolumeRayCastMapper, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkUnstructuredGridVolumeRayCastMapper);
 
 
@@ -484,10 +484,10 @@ void vtkUnstructuredGridVolumeRayCastMapper::CastRays( int threadID, int threadC
     }
 }
 
-float vtkUnstructuredGridVolumeRayCastMapper::
+double vtkUnstructuredGridVolumeRayCastMapper::
 GetMinimumBoundsDepth( vtkRenderer *ren, vtkVolume   *vol )
 {
-  float bounds[6];
+  double bounds[6];
   vol->GetBounds( bounds );
   
   vtkTransform *perspectiveTransform = vtkTransform::New();
@@ -505,7 +505,7 @@ GetMinimumBoundsDepth( vtkRenderer *ren, vtkVolume   *vol )
   perspectiveTransform->Concatenate(cam->GetViewTransformMatrix());
   perspectiveMatrix->DeepCopy(perspectiveTransform->GetMatrix());
   
-  float minZ = 1.0;
+  double minZ = 1.0;
   
   for ( int k = 0; k < 2; k++ )
     {
@@ -513,15 +513,15 @@ GetMinimumBoundsDepth( vtkRenderer *ren, vtkVolume   *vol )
       {
       for ( int i = 0; i < 2; i++ )
         {
-        float inPoint[4];
+        double inPoint[4];
         inPoint[0] = bounds[  i];
         inPoint[1] = bounds[2+j];
         inPoint[2] = bounds[4+k];
         inPoint[3] = 1.0;
         
-        float outPoint[4];
+        double outPoint[4];
         perspectiveMatrix->MultiplyPoint( inPoint, outPoint );
-        float testZ = outPoint[2] / outPoint[3];
+        double testZ = outPoint[2] / outPoint[3];
         minZ = ( testZ < minZ ) ? (testZ) : (minZ);
         }
       }
@@ -533,7 +533,7 @@ GetMinimumBoundsDepth( vtkRenderer *ren, vtkVolume   *vol )
   return minZ;
 }
 
-float vtkUnstructuredGridVolumeRayCastMapper::GetZBufferValue(int x, int y)
+double vtkUnstructuredGridVolumeRayCastMapper::GetZBufferValue(int x, int y)
 {
   int xPos, yPos;
   

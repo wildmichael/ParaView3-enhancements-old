@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractVolumeMapper.h,v $
   Language:  C++
-  Date:      $Date: 2003-11-26 03:55:28 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-12-16 14:48:17 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -50,10 +50,10 @@ public:
   vtkDataSet *GetDataSetInput();
 
   // Description:
-  // Return bounding box (array of six floats) of data expressed as
+  // Return bounding box (array of six doubles) of data expressed as
   // (xmin,xmax, ymin,ymax, zmin,zmax).
-  virtual float *GetBounds();
-  virtual void GetBounds(float bounds[6])
+  virtual double *GetBounds();
+  virtual void GetBounds(double bounds[6])
     { this->vtkAbstractMapper3D::GetBounds(bounds); };
   
 //BTX

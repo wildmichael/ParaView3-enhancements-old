@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridVolumeRayCastMapper.h,v $
   Language:  C++
-  Date:      $Date: 2003-11-25 06:06:45 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-12-16 14:48:17 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -158,9 +158,9 @@ protected:
   // Get the ZBuffer value corresponding to location (x,y) where (x,y)
   // are indexing into the ImageInUse image. This must be converted to
   // the zbuffer image coordinates. Nearest neighbor value is returned.
-  float         GetZBufferValue( int x, int y );
+  double         GetZBufferValue( int x, int y );
 
-  float         GetMinimumBoundsDepth( vtkRenderer *ren,
+  double         GetMinimumBoundsDepth( vtkRenderer *ren,
                                        vtkVolume   *vol );
   
   vtkUnstructuredGridBunykRayCastFunction *BunykFunction;
