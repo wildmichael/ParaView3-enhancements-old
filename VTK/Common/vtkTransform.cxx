@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-09 19:56:16 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-01-02 11:46:56 $
+  Version:   $Revision: 1.17 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -38,6 +38,9 @@ vlTransform::vlTransform ()
   this->StackBottom = this->Stack;
   // initialize current matrix to identity
   this->Identity ();
+
+  this->Point[0] = this->Point[1] = this->Point[2] = this->Point[3] = 0.0;
+  this->Orientation[0] = this->Orientation[1] = this->Orientation[2] = 0.0;
 
   this->Modified ();
 }
