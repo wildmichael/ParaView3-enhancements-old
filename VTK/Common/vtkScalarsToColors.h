@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarsToColors.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-21 19:05:38 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-08-07 23:12:43 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,14 +33,6 @@
 
 #include "vtkObject.h"
 #include "vtkUnsignedCharArray.h"
-
-#define VTK_LUMINANCE       1
-#define VTK_LUMINANCE_ALPHA 2
-#define VTK_RGB             3
-#define VTK_RGBA            4
-
-#define VTK_COLOR_MODE_DEFAULT 0
-#define VTK_COLOR_MODE_MAP_SCALARS 1
 
 class vtkDataArray;
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSystemIncludes.h,v $
   Language:  C++
-  Date:      $Date: 2002-07-15 19:07:32 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-08-07 23:12:43 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -207,6 +207,14 @@ typedef int vtkIdType;
 #define VTK_TEXT_GLOBAL_ANTIALIASING_SOME 0
 #define VTK_TEXT_GLOBAL_ANTIALIASING_NONE 1
 #define VTK_TEXT_GLOBAL_ANTIALIASING_ALL 2
+
+#define VTK_LUMINANCE       1
+#define VTK_LUMINANCE_ALPHA 2
+#define VTK_RGB             3
+#define VTK_RGBA            4
+
+#define VTK_COLOR_MODE_DEFAULT 0
+#define VTK_COLOR_MODE_MAP_SCALARS 1
 
 // 
 
