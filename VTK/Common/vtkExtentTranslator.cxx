@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtentTranslator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:22 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-11-12 16:37:44 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkLargeInteger.h"
 
-vtkCxxRevisionMacro(vtkExtentTranslator, "$Revision: 1.19 $");
+vtkCxxRevisionMacro(vtkExtentTranslator, "$Revision: 1.20 $");
 vtkStandardNewMacro(vtkExtentTranslator);
 
 //----------------------------------------------------------------------------
@@ -135,6 +135,11 @@ int vtkExtentTranslator::SplitExtent(int piece, int numPieces, int *ext,
   int splitAxis;
   vtkLargeInteger mid;
   
+  if (piece >= numPieces || piece < 0)
+    {
+    return 0;
+    }
+
   // keep splitting until we have only one piece.
   // piece and numPieces will always be relative to the current ext. 
   while (numPieces > 1)
