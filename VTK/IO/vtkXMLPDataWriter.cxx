@@ -18,7 +18,7 @@
 #include "vtkDataSet.h"
 #include "vtkErrorCode.h"
 
-vtkCxxRevisionMacro(vtkXMLPDataWriter, "$Revision: 1.13 $");
+vtkCxxRevisionMacro(vtkXMLPDataWriter, "$Revision: 1.14 $");
 
 //----------------------------------------------------------------------------
 vtkXMLPDataWriter::vtkXMLPDataWriter()
@@ -80,11 +80,7 @@ int vtkXMLPDataWriter::WriteInternal()
 {
   // Prepare the file name.
   this->SplitFileName();
-  
-  // Make sure our input's information is up to date.
-  vtkDataSet* input = this->GetInputAsDataSet();  
-  input->UpdateInformation();
-  
+
   // Write the pieces now so the data are up to date.
   int result = this->WritePieces();
   if (!result)
