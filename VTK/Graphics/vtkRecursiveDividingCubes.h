@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRecursiveDividingCubes.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-12 12:41:26 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-10-09 16:42:53 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -88,7 +88,6 @@ public:
 protected:
   void Execute();
   void SubDivide(float origin[3], float h[3], float values[8]);
-  void AddPoint(float x[3]);
 
   float Value;
   float Distance;
