@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:36 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2000-04-21 18:55:32 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,7 +43,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 
 //----------------------------------------------------------------------------
-vtkPoints* vtkPoints::New()
+vtkPoints* vtkPoints::New(int dataType)
 {
   // First try to create the object from the vtkObjectFactory
   vtkObject* ret = vtkObjectFactory::CreateInstance("vtkPoints");
@@ -52,7 +52,7 @@ vtkPoints* vtkPoints::New()
     return (vtkPoints*)ret;
     }
   // If the factory was unable to create the object, then create it here.
-  return new vtkPoints;
+  return new vtkPoints(dataType);
 }
 
 vtkAttributeData *vtkPoints::MakeObject()
