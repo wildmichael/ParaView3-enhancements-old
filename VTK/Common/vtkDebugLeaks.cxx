@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDebugLeaks.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:09 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-07-25 20:03:19 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,6 +44,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkOutputWindow.h"
 #include "vtkCriticalSection.h"
+
+int vtkDebugLeaks::PromptUser = 1;
 
 // A singleton that prints out the table, and deletes the table.
 class vtkPrintLeaksAtExit
@@ -298,7 +300,6 @@ void vtkDebugLeaks::DestructClass(const char* p)
     DebugLeaksCritSec.Unlock();
     }
 }
-
 void vtkDebugLeaks::PrintCurrentLeaks()
 {
   if(!vtkDebugLeaks::MemoryTable)
@@ -309,7 +310,14 @@ void vtkDebugLeaks::PrintCurrentLeaks()
     {
     return;
     }
-  vtkOutputWindow::GetInstance()->PromptUserOn();
+  if ( vtkDebugLeaks::PromptUser)
+    {
+    vtkOutputWindow::GetInstance()->PromptUserOn();
+    }
+  else
+    {
+    vtkOutputWindow::GetInstance()->PromptUserOff();
+    }
   vtkGenericWarningMacro("vtkDebugLeaks has detected LEAKS!\n ");
   vtkObjectFactory::UnRegisterAllFactories();
   vtkDebugLeaks::MemoryTable->PrintTable();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDebugLeaks.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-26 15:01:08 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-07-25 20:03:19 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -80,11 +80,18 @@ public:
   // Clean up the table memory.
   static void DeleteTable();
 
+  // Description:
+  // Turn prompt at exit on/off.
+  static void PromptUserOn()  { PromptUser = 1; }
+  static void PromptUserOff() { PromptUser = 0; }
+
 protected:
   vtkDebugLeaks(){}; 
   virtual ~vtkDebugLeaks(){}; 
   vtkDebugLeaks(const vtkDebugLeaks&) {};
   void operator=(const vtkDebugLeaks&) {};
+
+  static int PromptUser;
 
 private:
   static vtkDebugLeaksHashTable* MemoryTable;
