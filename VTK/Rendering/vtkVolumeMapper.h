@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-19 19:21:07 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1999-10-21 20:00:52 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -163,13 +163,13 @@ public:
   // able to get the image
   virtual float *GetRGBAPixelData() {return NULL;};
 
-//ETX
-
   // Description:
   // WARNING: INTERNAL METHOD - NOT INTENDED FOR GENERAL USE
   // Return the type of this mapper. This helps the volume
   // determine which rendering methods the mapper will respont to.
   virtual int GetMapperType()=0;
+
+//ETX
 
 
 protected:

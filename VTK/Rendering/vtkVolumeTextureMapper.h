@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeTextureMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-19 20:05:42 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-10-21 20:00:52 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -104,13 +104,15 @@ public:
   vtkGetObjectMacro( RenderWindow, vtkRenderWindow );
   vtkGetVectorMacro( DataOrigin, float, 3 );
   vtkGetVectorMacro( DataSpacing, float, 3 );
-//ETX
 
   // Description:
   // WARNING: INTERNAL METHOD - NOT INTENDED FOR GENERAL USE
   // DO NOT USE THIS METHOD OUTSIDE OF THE RENDERING PROCESS
   // Render the volume
   virtual void Render(vtkRenderer *ren, vtkVolume *vol)=0;
+
+//ETX
+
 
 
 protected:
