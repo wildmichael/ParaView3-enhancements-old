@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLPVAnimationWriter.h,v $
   Language:  C++
-  Date:      $Date: 2003-07-22 22:23:05 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-07-29 19:28:24 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -70,6 +70,12 @@ protected:
   
   // Internal implementation details.
   vtkXMLPVAnimationWriterInternals* Internal;
+
+  char **FileNamesCreated;
+  int NumberOfFileNamesCreated;
+  void AddFileName(const char *fileName);
+  void DeleteFileNames();
+  void DeleteFiles();
   
 private:
   vtkXMLPVAnimationWriter(const vtkXMLPVAnimationWriter&);  // Not implemented.
