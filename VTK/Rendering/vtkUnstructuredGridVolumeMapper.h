@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridVolumeMapper.h,v $
   Language:  C++
-  Date:      $Date: 2003-11-24 20:05:46 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-11-24 23:09:39 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -39,7 +39,7 @@ class vtkWindow;
 class VTK_RENDERING_EXPORT vtkUnstructuredGridVolumeMapper : public vtkAbstractVolumeMapper
 {
 public:
-  vtkTypeRevisionMacro(vtkUnstructuredGridVolumeMapper,vtkAbstractMapper3D);
+  vtkTypeRevisionMacro(vtkUnstructuredGridVolumeMapper,vtkAbstractVolumeMapper);
   void PrintSelf( ostream& os, vtkIndent indent );
 
   // Description:
