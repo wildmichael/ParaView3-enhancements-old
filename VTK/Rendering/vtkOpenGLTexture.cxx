@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-14 15:04:35 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2001-08-18 16:08:41 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -210,7 +210,7 @@ void vtkOpenGLTexture::Load(vtkRenderer *ren)
       {
       resampleNeeded = 1;
       }
-    int maxDimGL;
+    GLint maxDimGL;
     glGetIntegerv(GL_MAX_TEXTURE_SIZE,&maxDimGL);
     // if larger than permitted by the graphics library then must resample
     if ( xsize > maxDimGL || ysize > maxDimGL )
@@ -390,7 +390,7 @@ static int FindPowerOfTwo(int i)
   // [these lines added by Tim Hutton (implementing Joris Vanden Wyngaerd's suggestions)]
   // limit the size of the texture to the maximum allowed by OpenGL
   // (slightly more graceful than texture failing but not ideal)
-  int maxDimGL;
+  GLint maxDimGL;
   glGetIntegerv(GL_MAX_TEXTURE_SIZE,&maxDimGL);
   if ( size > maxDimGL )
     {
