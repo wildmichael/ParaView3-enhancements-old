@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTreeComposite.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-24 11:30:14 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2002-11-21 16:18:21 $
+  Version:   $Revision: 1.30 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,27 +18,24 @@
 #include "vtkTreeComposite.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkTreeComposite, "$Revision: 1.29 $");
+vtkCxxRevisionMacro(vtkTreeComposite, "$Revision: 1.30 $");
 vtkStandardNewMacro(vtkTreeComposite);
 
 //-------------------------------------------------------------------------
 vtkTreeComposite::vtkTreeComposite()
 {
-  vtkWarningMacro("vtkTreeComposite is a legacy class.  Please use vtkCompositeManager instead." <<
+  vtkWarningMacro("vtkTreeComposite is a legacy class and is deprecated in VTK 4.2.  "
+                  "Please use vtkCompositeManager instead.  "
                   "The new class defaults to using vtkTreeCompositer, but can use any compositer.");
 }
-
   
 //-------------------------------------------------------------------------
 vtkTreeComposite::~vtkTreeComposite()
 {
 }
 
-
+//-------------------------------------------------------------------------
 void vtkTreeComposite::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->vtkCompositeManager::PrintSelf(os, indent);
 }
-
-
-
