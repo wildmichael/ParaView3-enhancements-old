@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredGridOutlineFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-28 23:04:37 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-12-09 18:35:53 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -22,7 +22,7 @@ void vlStructuredGridOutlineFilter::Execute()
   int i, j, k;
   int idx, gridIdx;
   vlPointData *pd;
-  int *dim, *pts;
+  int *dim, pts[2];
   vlFloatPoints *newPts;
   vlCellArray *newLines;
 
