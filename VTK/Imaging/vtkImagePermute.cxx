@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePermute.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-01-05 21:49:39 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-01-18 17:12:18 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,6 +40,14 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkImageCache.h"
 #include "vtkImagePermute.h"
+
+//----------------------------------------------------------------------------
+vtkImagePermute::vtkImagePermute()
+{
+  this->FilteredAxes[0] = 0;
+  this->FilteredAxes[1] = 1;
+  this->FilteredAxes[2] = 2;
+}
 
 //----------------------------------------------------------------------------
 void vtkImagePermute::ExecuteImageInformation() 

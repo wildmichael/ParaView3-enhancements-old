@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageExtractComponents.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-12-23 19:32:36 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-01-18 17:12:14 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,7 +49,6 @@ vtkImageExtractComponents::vtkImageExtractComponents()
   this->Components[0] = 0;
   this->Components[1] = 1;
   this->Components[2] = 2;
-  this->Components[3] = 3;
   this->NumberOfComponents = 1;
 }
 
