@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimatePro.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-21 08:54:03 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2000-11-02 13:45:03 $
+  Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1098,6 +1098,7 @@ int vtkDecimatePro::FindSplit (int type, int fedges[2], int& pt1, int& pt2,
   float dist2, e2dist2;
   int numVerts=this->V->MaxId+1;
 
+  pt2 = -1;
   CollapseTris->SetNumberOfIds(2);
   this->EdgeLengths->Reset();
 
