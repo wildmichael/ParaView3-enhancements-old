@@ -3,8 +3,8 @@
   Program: 
   Module:    $RCSfile: otherColorTransferFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-28 17:44:07 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-12-28 18:19:06 $
+  Version:   $Revision: 1.4 $
 
   ==========================================================================*/
 
@@ -90,7 +90,8 @@ void Test(ostream& strm)
   float *fData = new float[128];
   double *dData = new double[128];
 
-  for (int k = 0; k < 128; k++)
+  int k;
+  for (k = 0; k < 128; k++)
     {
     *(cData+k) = static_cast<char>(static_cast<float>(k)/255.0);
     *(ucData+k) = static_cast<unsigned char>(static_cast<float>(k)/255.0);
