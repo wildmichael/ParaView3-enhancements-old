@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkRenderWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-01 08:28:30 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2000-09-29 13:43:18 $
+  Version:   $Revision: 1.46 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -308,6 +308,10 @@ static void vtkTkRenderWidget_Destroy(char *memPtr)
 
   if (self->RenderWindow)
     {
+    if (self->RenderWindow->GetReferenceCount() > 1)
+      {
+      vtkGenericWarningMacro("A TkRenderWidget is being destroyed before it associated vtkRenderWindow is destroyed. This is very bad and usually due to the order in which objects are being destroyed. Always destroy the vtkRenderWindow before destroying the user interface components.");
+      }
     self->RenderWindow->UnRegister(NULL);
     self->RenderWindow = NULL;
     ckfree (self->RW);
