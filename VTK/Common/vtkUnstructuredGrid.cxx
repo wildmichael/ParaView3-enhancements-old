@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-19 21:53:00 $
-  Version:   $Revision: 1.90 $
+  Date:      $Date: 2001-03-21 13:39:27 $
+  Version:   $Revision: 1.91 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -883,15 +883,6 @@ void vtkUnstructuredGrid::GetCellNeighbors(int cellId, vtkIdList *ptIds,
         }
       }//if not the reference cell
     }//for all candidate cells attached to point
-}
-
-// fills types with list of unique cell types
-void vtkUnstructuredGrid::GetCellTypes(vtkCellTypes *types)
-{
-
-  types->Allocate(this->GetNumberOfCells(),1000);
-  vtkDataSet::GetCellTypes(types);
-
 }
 
 // Fills uniqueTypes with list of unique cell types (same as above).

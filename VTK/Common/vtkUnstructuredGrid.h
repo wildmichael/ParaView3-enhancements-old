@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 2001-03-19 21:53:00 $
-  Version:   $Revision: 1.71 $
+  Date:      $Date: 2001-03-21 13:39:27 $
+  Version:   $Revision: 1.72 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -168,13 +168,6 @@ public:
   // method traverses all cells and, for each unique cell type it encounters,
   // inserts the type into the container.
   void GetListOfUniqueCellTypes(vtkUnsignedCharArray *uniqueTypes);
-
-  // Description:
-  // Fill vtkCellTypes container with list of unique cell types (uses vtkDataSet interface).
-  // This method traverses all cells and, for each unique cell type it encounters,
-  // inserts the type into the container.  Memory is allocated for the container prior
-  // to calling vtkDataSet::GetCellTypes
-  virtual void GetCellTypes(vtkCellTypes *types);
 
   // Description:
   // Fill vtkIntArray container with list of cell Ids.  This
