@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCommand.h,v $
   Language:  C++
-  Date:      $Date: 2000-10-20 20:22:25 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2000-11-10 18:07:15 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -69,7 +69,10 @@ public:
     EndEvent,
     ProgressEvent,
     PickEvent,
+    StartPickEvent,
+    EndPickEvent,
     AbortCheckEvent,
+    ExitEvent,
     UserEvent = 1000
   };
     

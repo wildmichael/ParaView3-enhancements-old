@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewport.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-01 07:24:06 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2000-11-10 18:07:15 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -293,12 +293,9 @@ protected:
   float Viewport[4];
   float Aspect[2];
   float Center[2];
-  void (*StartRenderMethod)(void *);
-  void (*StartRenderMethodArgDelete)(void *);
-  void *StartRenderMethodArg;
-  void (*EndRenderMethod)(void *);
-  void (*EndRenderMethodArgDelete)(void *);
-  void *EndRenderMethodArg;
+
+  unsigned long StartTag;
+  unsigned long EndTag;
 
   int Size[2];
   int Origin[2];
