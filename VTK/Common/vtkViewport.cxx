@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewport.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:24:22 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 2003-04-17 15:00:28 $
+  Version:   $Revision: 1.53 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkPropCollection.h"
 #include "vtkWindow.h"
 
-vtkCxxRevisionMacro(vtkViewport, "$Revision: 1.52 $");
+vtkCxxRevisionMacro(vtkViewport, "$Revision: 1.53 $");
 
 // Create a vtkViewport with a black background, a white ambient light, 
 // two-sided lighting turned on, a viewport of (0,0,1,1), and backface culling
@@ -108,9 +108,14 @@ void vtkViewport::RemoveActor2D(vtkProp* p)
   this->RemoveProp(p);
 }
 
+int vtkViewport::HasProp(vtkProp *p)
+{
+  return (p && this->Props->IsItemPresent(p));
+}
+
 void vtkViewport::AddProp(vtkProp *p)
 {
-  if (!this->Props->IsItemPresent(p))
+  if (p && !this->HasProp(p))
     {
     this->Props->AddItem(p);
     p->AddConsumer(this);
@@ -119,7 +124,7 @@ void vtkViewport::AddProp(vtkProp *p)
 
 void vtkViewport::RemoveProp(vtkProp *p)
 {
-  if (p && this->Props->IsItemPresent(p))
+  if (p && this->HasProp(p))
     {
     p->ReleaseGraphicsResources(this->VTKWindow);
     p->RemoveConsumer(this);

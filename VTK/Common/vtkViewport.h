@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewport.h,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:24:22 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2003-04-17 15:00:28 $
+  Version:   $Revision: 1.41 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -54,6 +54,10 @@ public:
   // Description:
   // Return any props in this viewport.
   vtkPropCollection *GetProps() {return this->Props;};
+
+  // Description:
+  // Query if a prop is in the list of props.
+  int HasProp(vtkProp *);
 
   // Description:
   // Remove an actor from the list of actors.
