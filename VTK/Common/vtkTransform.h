@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.h,v $
   Language:  C++
-  Date:      $Date: 1995-12-27 10:57:38 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1996-05-27 20:26:43 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,6 +75,8 @@ class vtkTransform : public vtkObject
   ~vtkTransform ();
   char *GetClassName () {return "vtkTransform";};
   void PrintSelf (ostream& os, vtkIndent indent);
+  vtkTransform &operator=(const vtkTransform &t);
+
   void Identity ();
   void Pop ();
   void PostMultiply ();

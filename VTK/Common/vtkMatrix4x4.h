@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMatrix4x4.h,v $
   Language:  C++
-  Date:      $Date: 1995-12-27 10:57:14 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1996-05-27 20:26:42 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,7 +63,7 @@ class vtkMatrix4x4 : public vtkObject
   void PrintSelf (ostream& os, vtkIndent indent);
 
   void operator= (float element);
-  void operator= (vtkMatrix4x4& source);
+  vtkMatrix4x4& operator= (const vtkMatrix4x4& source);
   float *operator[](const unsigned int i) {return &(Element[i][0]);};
 
   void Invert (vtkMatrix4x4 in,vtkMatrix4x4 & out);
