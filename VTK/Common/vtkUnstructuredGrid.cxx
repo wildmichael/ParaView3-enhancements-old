@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-24 08:58:42 $
-  Version:   $Revision: 1.79 $
+  Date:      $Date: 2000-10-09 20:48:04 $
+  Version:   $Revision: 1.80 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -265,6 +265,11 @@ vtkCell *vtkUnstructuredGrid::GetCell(int cellId)
     case VTK_PYRAMID:
       cell = this->Pyramid;
       break;
+    }
+
+  if( !cell )
+    {
+    return NULL;
     }
 
   loc = this->Cells->GetCellLocation(cellId);
