@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPushImageReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-07-30 14:15:43 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-07-31 17:21:51 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -35,6 +35,7 @@ class VTK_HYBRID_EXPORT vtkPushImageReader : public vtkImageReader2
 public:
   static vtkPushImageReader *New();
   vtkTypeRevisionMacro(vtkPushImageReader,vtkImageReader2);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // What is the current slice of this reader

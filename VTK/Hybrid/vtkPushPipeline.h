@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPushPipeline.h,v $
   Language:  C++
-  Date:      $Date: 2002-07-30 14:13:44 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-07-31 17:21:51 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -47,6 +47,7 @@ class VTK_HYBRID_EXPORT vtkPushPipeline : public vtkObject
 public:
   static vtkPushPipeline *New();
   vtkTypeRevisionMacro(vtkPushPipeline,vtkObject);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Add a Pusher object to the pipeline

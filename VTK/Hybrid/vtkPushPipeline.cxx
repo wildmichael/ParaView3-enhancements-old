@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPushPipeline.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-30 14:13:44 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-07-31 17:21:51 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -103,7 +103,7 @@ public:
   vtkPushPipeline *PushPipeline;
 };
 
-vtkCxxRevisionMacro(vtkPushPipeline, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkPushPipeline, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkPushPipeline);
 
 vtkPushPipeline::vtkPushPipeline()
@@ -876,4 +876,11 @@ void vtkPushPipeline::SetupRenderer(vtkRenderer *ren)
         }
       }
     }
+}
+
+void vtkPushPipeline::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
+  
+  os << indent << "RunState: " << this->RunState << "\n";
 }

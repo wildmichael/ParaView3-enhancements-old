@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPushImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-30 14:15:43 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-07-31 17:21:51 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -53,7 +53,7 @@ public:
     }
 };
 
-vtkCxxRevisionMacro(vtkPushImageReader, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkPushImageReader, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkPushImageReader);
 
 vtkPushImageReader::vtkPushImageReader()
@@ -215,4 +215,12 @@ void vtkPushImageReader::Run()
     this->PushPipeline = vtkPushPipeline::New();
     }
   this->PushPipeline->Run(this);
+}
+
+void vtkPushImageReader::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
+  
+  os << indent << "CurrentSlice: " << this->CurrentSlice << "\n";
+  os << indent << "PushPipeline: " << this->PushPipeline << "\n";
 }
