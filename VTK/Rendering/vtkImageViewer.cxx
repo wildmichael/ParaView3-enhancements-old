@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-03 16:47:52 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2002-06-07 17:07:49 $
+  Version:   $Revision: 1.44 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkRenderWindowInteractor.h"
 #include "vtkRenderer.h"
 
-vtkCxxRevisionMacro(vtkImageViewer, "$Revision: 1.43 $");
+vtkCxxRevisionMacro(vtkImageViewer, "$Revision: 1.44 $");
 vtkStandardNewMacro(vtkImageViewer);
 
 //----------------------------------------------------------------------------
@@ -249,4 +249,24 @@ void vtkImageViewer::Render()
     }
 
   this->RenderWindow->Render();
+}
+
+void vtkImageViewer::SetOffScreenRendering(int i)
+{
+  this->RenderWindow->SetOffScreenRendering(i);
+}
+
+int vtkImageViewer::GetOffScreenRendering(int i)
+{
+  return this->RenderWindow->GetOffScreenRendering();
+}
+
+void vtkImageViewer::OffScreenRenderingOn()
+{
+  this->SetOffScreenRendering(1);
+}
+
+void vtkImageViewer::OffScreenRenderingOff()
+{
+  this->SetOffScreenRendering(0);
 }

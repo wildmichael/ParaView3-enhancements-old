@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer2.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-28 03:33:50 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-06-07 17:07:49 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -104,6 +104,15 @@ public:
   // Description:
   // Create and attach an interactor for this window
   void SetupInteractor(vtkRenderWindowInteractor *);
+  
+  // Description:  
+  // Create a window in memory instead of on the screen. This may not
+  // be supported for every type of window and on some windows you may
+  // need to invoke this prior to the first render.
+  void SetOffScreenRendering(int);
+  int GetOffScreenRendering(int);
+  void OffScreenRenderingOn();
+  void OffScreenRenderingOff();
 
 protected:
   vtkImageViewer2();
