@@ -1,8 +1,8 @@
 /************************************************************************
   Module:    $RCSfile: otherArrays.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-30 13:24:28 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-12-30 13:29:21 $
+  Version:   $Revision: 1.9 $
  ************************************************************************/
 
 #include "vtkDebugLeaks.h"
@@ -185,9 +185,8 @@ static int doArrayTest (ostream& strm, T *ptr, A *array, V value, int size)
     strm << "FAILED" << endl;
     }
 
-  strm << "\tInsertValue(i, value)...";
-  ptr->InsertValue (500, value);
-  if (ptr->GetValue (500) == value) strm << "OK" << endl;
+  strm << "\tInsertNextValue(value)...";
+  if (ptr->GetValue (ptr->InsertNextValue (22.0)) == 22.0) strm << "OK" << endl;
   else
     {
     errors++;
