@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpatialRepresentationFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-26 17:17:13 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-07-29 13:11:54 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,8 +45,6 @@ vtkSpatialRepresentationFilter::vtkSpatialRepresentationFilter()
   this->SpatialRepresentation = NULL;
   this->Level = 0;
   this->TerminalNodesRequested = 0;
-
-  this->vtkSource::SetOutput(0, vtkPolyData::New());
 }
 
 vtkSpatialRepresentationFilter::~vtkSpatialRepresentationFilter()
