@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTIFFWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:14:01 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-07-23 14:06:28 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,14 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkTIFFWriter.h"
+
+#ifdef write
+#undef write
+#endif
+
+#ifdef close
+#undef close
+#endif
 
 /*
  * Tag Image File Format (TIFF)

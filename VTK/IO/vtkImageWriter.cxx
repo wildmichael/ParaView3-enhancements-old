@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:59 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1999-07-23 14:06:27 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -44,6 +44,13 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <string.h>
 #include "vtkImageWriter.h"
 
+#ifdef write
+#undef write
+#endif
+
+#ifdef close
+#undef close
+#endif
 
 
 //----------------------------------------------------------------------------

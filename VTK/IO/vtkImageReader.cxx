@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:50 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 1999-07-23 14:06:27 $
+  Version:   $Revision: 1.52 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -43,6 +43,14 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkByteSwap.h"
 
 #include "vtkImageReader.h"
+
+#ifdef read
+#undef read
+#endif
+
+#ifdef close
+#undef close
+#endif
 
 //----------------------------------------------------------------------------
 vtkImageReader::vtkImageReader()
