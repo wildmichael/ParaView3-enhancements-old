@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensor.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:38:42 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-09-07 09:31:57 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,7 +51,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkTensor_h
 #define __vtkTensor_h
 
-#define MAXDIM 3
+#define VTK_TENSOR_MAXDIM 3
 
 class vtkTensor
 {
@@ -71,7 +71,7 @@ public:
 
 protected: 
   int Dimension;
-  float Storage[MAXDIM*MAXDIM];
+  float Storage[VTK_TENSOR_MAXDIM*VTK_TENSOR_MAXDIM];
 };
 
 // Description:
@@ -89,7 +89,7 @@ inline vtkTensor::vtkTensor(int dim)
 // Set the dimensions of the tensor.
 inline void vtkTensor::SetDimension(int dim)
 {
-  this->Dimension = (dim < 1 ? 1 : (dim > MAXDIM ? MAXDIM : dim));
+  this->Dimension = (dim < 1 ? 1 : (dim > VTK_TENSOR_MAXDIM ? VTK_TENSOR_MAXDIM : dim));
 }
 
 // Description:
