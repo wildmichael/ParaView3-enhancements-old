@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCommand.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-21 15:47:42 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2002-06-24 17:02:49 $
+  Version:   $Revision: 1.36 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -162,6 +162,10 @@ protected:
     { this->AbortFlag = f; }
 
   friend class vtkSubjectHelper;
+//BTX
+  vtkCommand(const vtkCommand&) {}
+  void operator=(const vtkCommand&) {}
+//ETX
 };
 
 #endif /* __vtkCommand_h */

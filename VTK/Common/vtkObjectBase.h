@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObjectBase.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-21 15:47:42 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-06-24 17:02:49 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -121,8 +121,10 @@ private:
   //ETX
 
 private:
-  vtkObjectBase(const vtkObjectBase&);  // Not implemented.
-  void operator=(const vtkObjectBase&);  // Not implemented.
+//BTX
+  vtkObjectBase(const vtkObjectBase&) {}
+  void operator=(const vtkObjectBase&) {}
+//ETX
 };
 
 #endif
