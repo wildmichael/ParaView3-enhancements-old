@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPropPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-12-27 19:54:49 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-12-30 14:35:06 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -145,6 +145,20 @@ int vtkPropPicker::PickProp(float selectionX, float selectionY,
 void vtkPropPicker::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->vtkWorldPointPicker::PrintSelf(os, indent);
-  os << indent << "Prop:    " << this->Prop << endl;
-  os << indent << "PickFrom List: " << this->PickFromProps << endl;
+  if (this->Prop)
+    {
+    os << indent << "Prop:    " << this->Prop << endl;
+    }
+  else
+    {
+    os << indent << "Prop:    (none)" << endl;    
+    }
+  if (this->PickFromProps)
+    {
+    os << indent << "PickFrom List: " << this->PickFromProps << endl;
+    }
+  else
+    {
+    os << indent << "PickFrom List: (none)" << endl;
+    }
 }
