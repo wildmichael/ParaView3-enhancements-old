@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-11-15 17:01:37 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1996-11-18 20:57:52 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -147,9 +147,11 @@ Window vtkXRenderWindow::GetWindowId()
   return this->WindowId;
 }
 
-void vtkXRenderWindow::SetPosition(int x,int y)
+// Description:
+// Move the window to a new position on the display.
+void vtkXRenderWindow::SetPosition(int x, int y)
 {
-  // if we arent mappen then just set the ivars
+  // if we aren't mapped then just set the ivars
   if (!this->Mapped)
     {
     if ((this->Position[0] != x)||(this->Position[1] != y))
@@ -174,6 +176,7 @@ void vtkXRenderWindow::SetWindowId(Window arg)
 
   this->WindowId = arg;
 }
+
 void vtkXRenderWindow::SetWindowId(void *arg)
 {
   this->SetWindowId((Window)arg);
@@ -186,11 +189,11 @@ void vtkXRenderWindow::SetWindowName(char * name)
 
   XTextProperty win_name_text_prop;
   
-  if( XStringListToTextProperty( &name, 1, &win_name_text_prop ) == 0 ){
-    
-     vtkWarningMacro(<< "Can't rename window.\n"); 
-     return;
-  }
+  if( XStringListToTextProperty( &name, 1, &win_name_text_prop ) == 0 )
+    {
+    vtkWarningMacro(<< "Can't rename window"); 
+    return;
+    }
 
   XSetWMName( this->DisplayId, this->WindowId, &win_name_text_prop );
   XSetWMIconName( this->DisplayId, this->WindowId, &win_name_text_prop );
@@ -242,4 +245,3 @@ void vtkXRenderWindow::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Next Window Id: " << this->NextWindowId << "\n";
   os << indent << "Window Id: " << this->GetWindowId() << "\n";
 }
-
