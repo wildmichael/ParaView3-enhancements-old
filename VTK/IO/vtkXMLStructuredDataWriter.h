@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLStructuredDataWriter.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-16 18:23:07 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-05-05 20:13:55 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -75,6 +75,7 @@ protected:
   virtual void WriteInlineMode(vtkIndent indent);
   unsigned int GetStartTuple(int* extent, int* increments,
                              int i, int j, int k);
+  void CalculatePieceFractions(float* fractions);
   
   // Define utility methods required by vtkXMLWriter.
   vtkDataArray* CreateArrayForPoints(vtkDataArray* inArray);

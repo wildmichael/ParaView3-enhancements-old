@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLPDataWriter.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-16 18:23:06 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-05-05 20:13:55 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,6 +27,7 @@
 
 #include "vtkXMLWriter.h"
 
+class vtkCallbackCommand;
 class vtkDataSet;
 
 class VTK_IO_EXPORT vtkXMLPDataWriter : public vtkXMLWriter
@@ -60,12 +61,12 @@ public:
   vtkGetMacro(WriteSummaryFile, int);
   vtkBooleanMacro(WriteSummaryFile, int);  
   
-  // Description:
-  // Invoke the writer.  Returns 1 for success, 0 for failure.
-  int Write();
 protected:
   vtkXMLPDataWriter();
   ~vtkXMLPDataWriter();
+  
+  // Override writing method from superclass.
+  virtual int WriteInternal();
   
   virtual vtkXMLWriter* CreatePieceWriter(int index)=0;
   
@@ -79,6 +80,12 @@ protected:
   int WritePieces();
   int WritePiece(int index);
   
+  // Callback registered with the ProgressObserver.
+  static void ProgressCallbackFunction(vtkObject*, unsigned long, void*,
+                                       void*);
+  // Progress callback from internal writer.
+  virtual void ProgressCallback(vtkProcessObject* w);
+  
   int StartPiece;
   int EndPiece;
   int NumberOfPieces;
@@ -90,6 +97,9 @@ protected:
   char* FileNameBase;
   char* FileNameExtension;
   char* PieceFileNameExtension;
+  
+  // The observer to report progress from the internal writer.
+  vtkCallbackCommand* ProgressObserver;  
   
 private:
   vtkXMLPDataWriter(const vtkXMLPDataWriter&);  // Not implemented.

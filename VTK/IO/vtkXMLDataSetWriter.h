@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLDataSetWriter.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-16 18:23:06 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-05-05 20:13:55 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,6 +31,8 @@
 
 #include "vtkXMLWriter.h"
 
+class vtkCallbackCommand;
+
 class VTK_IO_EXPORT vtkXMLDataSetWriter : public vtkXMLWriter
 {
 public:
@@ -43,18 +45,26 @@ public:
   void SetInput(vtkDataSet* input);
   vtkDataSet* GetInput();
   
-  // Description:
-  // Invoke the writer.  Returns 1 for success, 0 for failure.
-  virtual int Write();
-  
 protected:
   vtkXMLDataSetWriter();
   ~vtkXMLDataSetWriter();
+  
+  // Override writing method from superclass.
+  virtual int WriteInternal();
   
   // Dummies to satisfy pure virtuals from superclass.
   int WriteData();
   const char* GetDataSetName();
   const char* GetDefaultFileExtension();
+  
+  // Callback registered with the ProgressObserver.
+  static void ProgressCallbackFunction(vtkObject*, unsigned long, void*,
+                                       void*);
+  // Progress callback from internal writer.
+  virtual void ProgressCallback(vtkProcessObject* w);
+  
+  // The observer to report progress from the internal writer.
+  vtkCallbackCommand* ProgressObserver;  
   
 private:
   vtkXMLDataSetWriter(const vtkXMLDataSetWriter&);  // Not implemented.

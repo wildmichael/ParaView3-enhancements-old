@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLRectilinearGridWriter.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-16 18:23:07 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-05-05 20:13:55 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -60,6 +60,7 @@ protected:
   void GetInputExtent(int* extent);
   const char* GetDataSetName();
   vtkDataArray* CreateExactCoordinates(vtkDataArray* a, int xyz);
+  void CalculateSuperclassFraction(float* fractions);
   
   // Coordinate array appended data positions.
   unsigned long** CoordinatePositions;

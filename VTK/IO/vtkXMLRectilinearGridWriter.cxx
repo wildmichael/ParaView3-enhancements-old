@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLRectilinearGridWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-27 00:16:05 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-05-05 20:13:55 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,12 +16,15 @@
 
 =========================================================================*/
 #include "vtkXMLRectilinearGridWriter.h"
-#include "vtkObjectFactory.h"
-#include "vtkRectilinearGrid.h"
+
+#include "vtkCellData.h"
 #include "vtkExtentTranslator.h"
 #include "vtkFloatArray.h"
+#include "vtkObjectFactory.h"
+#include "vtkPointData.h"
+#include "vtkRectilinearGrid.h"
 
-vtkCxxRevisionMacro(vtkXMLRectilinearGridWriter, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkXMLRectilinearGridWriter, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkXMLRectilinearGridWriter);
 
 //----------------------------------------------------------------------------
@@ -149,7 +152,23 @@ void vtkXMLRectilinearGridWriter::WriteAppendedPiece(int index,
 //----------------------------------------------------------------------------
 void vtkXMLRectilinearGridWriter::WriteAppendedPieceData(int index)
 {
+  // Split progress range by the approximate fractions of data written
+  // by each step in this method.
+  float progressRange[2] = {0,0};
+  this->GetProgressRange(progressRange);
+  float fractions[3];
+  this->CalculateSuperclassFraction(fractions);
+  
+  // Set the range of progress for the superclass.
+  this->SetProgressRange(progressRange, 0, fractions);
+  
+  // Let the superclass write its data.
   this->Superclass::WriteAppendedPieceData(index);
+  
+  // Set the range of progress for the coordinates arrays.
+  this->SetProgressRange(progressRange, 1, fractions);
+  
+  // Write the coordinates arrays.
   this->WriteCoordinatesAppendedData(this->GetInput()->GetXCoordinates(),
                                      this->GetInput()->GetYCoordinates(),
                                      this->GetInput()->GetZCoordinates(),
@@ -160,9 +179,52 @@ void vtkXMLRectilinearGridWriter::WriteAppendedPieceData(int index)
 //----------------------------------------------------------------------------
 void vtkXMLRectilinearGridWriter::WriteInlinePiece(int index, vtkIndent indent)
 {
+  // Split progress range by the approximate fractions of data written
+  // by each step in this method.
+  float progressRange[2] = {0,0};
+  this->GetProgressRange(progressRange);
+  float fractions[3];
+  this->CalculateSuperclassFraction(fractions);
+  
+  // Set the range of progress for the superclass.
+  this->SetProgressRange(progressRange, 0, fractions);
+  
+  // Let the superclass write its data.
   this->Superclass::WriteInlinePiece(index, indent);
+  
+  // Set the range of progress for the coordinates arrays.
+  this->SetProgressRange(progressRange, 1, fractions);
+  
+  // Write the coordinates arrays.
   this->WriteCoordinatesInline(this->GetInput()->GetXCoordinates(),
                                this->GetInput()->GetYCoordinates(),
                                this->GetInput()->GetZCoordinates(),
                                indent);
+}
+
+//----------------------------------------------------------------------------
+void vtkXMLRectilinearGridWriter::CalculateSuperclassFraction(float* fractions)
+{
+  int extent[6];
+  this->ExtentTranslator->GetExtent(extent);
+  int dims[3] = {extent[1]-extent[0]+1,
+                 extent[3]-extent[2]+1,
+                 extent[5]-extent[4]+1};
+  
+  // The amount of data written by the superclass comes from the
+  // point/cell data arrays.
+  vtkIdType superclassPieceSize = 
+    (this->GetInput()->GetPointData()->GetNumberOfArrays()*dims[0]*dims[1]*dims[2]+
+     this->GetInput()->GetCellData()->GetNumberOfArrays()*(dims[0]-1)*(dims[1]-1)*(dims[2]-1));
+  
+  // The total data written includes the coordinate arrays.
+  vtkIdType totalPieceSize =
+    superclassPieceSize + dims[0] + dims[1] + dims[2];
+  if(totalPieceSize == 0)
+    {
+    totalPieceSize = 1;
+    }
+  fractions[0] = 0;
+  fractions[1] = fractions[0] + float(superclassPieceSize)/totalPieceSize;
+  fractions[2] = 1;
 }

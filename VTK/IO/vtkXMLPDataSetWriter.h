@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLPDataSetWriter.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-16 18:23:06 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-05-05 20:13:55 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -43,18 +43,17 @@ public:
   void SetInput(vtkDataSet* input);
   vtkDataSet* GetInput();
   
-  // Description:
-  // Invoke the writer.  Returns 1 for success, 0 for failure.
-  virtual int Write();
-  
 protected:
   vtkXMLPDataSetWriter();
   ~vtkXMLPDataSetWriter();
   
+  // Override writing method from superclass.
+  virtual int WriteInternal();
+  
   // Dummies to satisfy pure virtuals from superclass.
   const char* GetDataSetName();
   const char* GetDefaultFileExtension();
-  vtkXMLWriter* CreatePieceWriter(int index);
+  vtkXMLWriter* CreatePieceWriter(int index);  
   
 private:
   vtkXMLPDataSetWriter(const vtkXMLPDataSetWriter&);  // Not implemented.

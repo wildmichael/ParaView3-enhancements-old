@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLUnstructuredDataWriter.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-16 18:23:07 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-05-05 20:13:55 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -81,6 +81,13 @@ protected:
   void WriteCellsAppendedData(vtkCellArray* cells, vtkDataArray* types,
                               unsigned long* positions);
   void ConvertCells(vtkCellArray* cells);
+  
+  // Get the number of points/cells.  Valid after Update has been
+  // invoked on the input.
+  virtual vtkIdType GetNumberOfInputPoints();
+  virtual vtkIdType GetNumberOfInputCells()=0;
+  void CalculateDataFractions(float* fractions);
+  void CalculateCellFractions(float* fractions, vtkIdType typesSize);
   
   // Number of pieces used for streaming.
   int NumberOfPieces;

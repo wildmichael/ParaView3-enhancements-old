@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLPolyDataWriter.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-16 18:23:07 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-05-05 20:13:55 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -64,6 +64,9 @@ protected:
   void WriteAppendedPieceAttributes(int index);
   void WriteAppendedPiece(int index, vtkIndent indent);
   void WriteAppendedPieceData(int index);
+
+  virtual vtkIdType GetNumberOfInputCells();
+  void CalculateSuperclassFraction(float* fractions);
 
   // Positions of attributes for each piece.
   unsigned long* NumberOfVertsPositions;
