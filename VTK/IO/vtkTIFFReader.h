@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTIFFReader.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:09:07 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-03-29 13:50:12 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -62,14 +62,23 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <stdio.h>
 #include "vtkImageReader.h"
 
+//BTX
+#if (_MIPS_SZLONG == 64)
+typedef int vtkTiffLong;
+typedef unsigned int vtkTiffUnsignedLong;
+#else
+typedef long vtkTiffLong;
+typedef unsigned long vtkTiffUnsignedLong;
+#endif
+
 struct _vtkTifTag
 {
   short TagId;
   short DataType;
-  long  DataCount;
-  long  DataOffset;
+  vtkTiffLong  DataCount;
+  vtkTiffLong  DataOffset;
 };
-
+//ETX
 class VTK_EXPORT vtkTIFFReader : public vtkImageReader
 {
 public:
@@ -83,11 +92,16 @@ protected:
   void operator=(const vtkTIFFReader&) {};
 
   virtual void ExecuteInformation();
+
+  //BTX
+#if (!(_MIPS_SZLONG == 64))
   void Swap4(int *stmp);
-  void Swap4(long *stmp);
+#endif
+  void Swap4(vtkTiffLong *stmp);
   void Swap2(short *stmp);
   void ReadTag(_vtkTifTag *tag, FILE *fp);
-  long ReadTagLong(_vtkTifTag *tag, FILE *fp);
+  vtkTiffLong ReadTagLong(_vtkTifTag *tag, FILE *fp);
+  //ETX
 };
 
 #endif
