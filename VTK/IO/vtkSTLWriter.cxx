@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-06-26 21:13:38 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1996-07-08 20:02:42 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,17 +53,6 @@ vtkSTLWriter::~vtkSTLWriter()
   if ( this->Filename ) delete [] this->Filename;
 }
 
-// Description:
-// Specify the input data or filter.
-void vtkSTLWriter::SetInput(vtkPolyData *input)
-{
-  if ( this->Input != input )
-    {
-    vtkDebugMacro(<<" setting Input to " << (void *)input);
-    this->Input = (vtkDataSet *) input;
-    this->Modified();
-    }
-}
 
 void vtkSTLWriter::WriteData()
 {
