@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLine.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-29 16:14:19 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1995-10-31 17:12:25 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,7 +61,6 @@ int vtkLine::EvaluatePosition(float x[3], float closestPoint[3],
                              float& dist2, float *weights)
 {
   float *a1, *a2;
-  int i;
 
   subId = 0;
   pcoords[1] = pcoords[2] = 0.0;
@@ -180,11 +179,11 @@ typedef struct {
   VERT_LIST verts[2];
 } LINE_CASES;
 
-static LINE_CASES lineCases[]= {
-  {-1,-1},
-  {1,0},
-  {0,1},
-  {-1,-1}};
+static LINE_CASES lineCases[4]= {
+  {{-1,-1}},
+  {{1,0}},
+  {{0,1}},
+  {{-1,-1}}};
 
 void vtkLine::Contour(float value, vtkFloatScalars *cellScalars, 
                      vtkFloatPoints *points,
@@ -197,7 +196,7 @@ void vtkLine::Contour(float value, vtkFloatScalars *cellScalars,
   VERT_LIST *vert;
   float t, x[3], *x1, *x2;
   int pts[1];
-  lines; polys;
+
 //
 // Build the case table
 //
