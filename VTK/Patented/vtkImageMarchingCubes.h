@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMarchingCubes.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 19:58:21 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1997-07-09 21:20:43 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,6 +75,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include "vtkImageCache.h"
 #include "vtkPolyDataSource.h"
+#include "vtkStructuredPoints.h"
 #include "vtkStructuredPointsToImage.h"
 #include "vtkContourValues.h"
 
