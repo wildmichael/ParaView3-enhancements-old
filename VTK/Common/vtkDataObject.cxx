@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-15 18:44:07 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-04-16 19:47:57 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -172,9 +172,7 @@ void vtkDataObject::UnRegister(vtkObject *o)
   // If we have two references and one of them is my data
   // and I am not being unregistered by my data, break the loop.
   if (this->ReferenceCount == 2 && this->Source != NULL &&
-      this->Source->GetOutputAsDataObject() == this && 
-      o != this->Source &&
-      this->Source->GetReferenceCount() == 1)
+      o != this->Source && this->Source->InRegisterLoop(this))
     {
     this->SetSource(NULL);
     }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSource.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-14 14:00:20 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1999-04-16 19:47:57 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -107,6 +107,9 @@ public:
   // Get the output as a DataObject, useful highlevel get output method.
   vtkDataObject *GetOutputAsDataObject() {return this->Output;};
   
+  // Description:
+  // Test to see if this object is in a reference counting loop.
+  virtual int InRegisterLoop(vtkObject *);
   
 protected:
   virtual void Execute();

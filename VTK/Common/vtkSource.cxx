@@ -3,8 +3,8 @@
  Program:   Visualization Toolkit
  Module:    $RCSfile: vtkSource.cxx,v $
  Language:  C++
- Date:      $Date: 1999-04-14 14:00:21 $
- Version:   $Revision: 1.34 $
+ Date:      $Date: 1999-04-16 19:47:57 $
+ Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -155,6 +155,16 @@ void vtkSource::PrintSelf(ostream& os, vtkIndent indent)
     }
 }
 
+int vtkSource::InRegisterLoop(vtkObject *o)
+{
+  if (this->ReferenceCount == 2 &&
+    this->Output == o)
+    {
+    return 1;
+    }
+  return 0;
+}
+                           
 void vtkSource::UnRegister(vtkObject *o)
 {
   // detect the circular loop source <-> data
