@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTetra.h,v $
   Language:  C++
-  Date:      $Date: 2001-04-27 19:27:24 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 2001-05-21 20:07:50 $
+  Version:   $Revision: 1.59 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -77,6 +77,11 @@ public:
                vtkCellArray *lines, vtkCellArray *polys,
                vtkPointData *inPd, vtkPointData *outPd,
                vtkCellData *inCd, int cellId, vtkCellData *outCd);
+  void Clip(float value, vtkScalars *cellScalars, 
+            vtkPointLocator *locator, vtkCellArray *connectivity,
+            vtkPointData *inPd, vtkPointData *outPd,
+            vtkCellData *inCd, int cellId, vtkCellData *outCd, 
+            int insideOut);
   int EvaluatePosition(float x[3], float* closestPoint,
                        int& subId, float pcoords[3],
                        float& dist2, float *weights);

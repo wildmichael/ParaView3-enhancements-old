@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell3D.h,v $
   Language:  C++
-  Date:      $Date: 2001-04-30 20:24:39 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-05-21 20:07:50 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -53,6 +53,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkCell.h"
 
+class vtkOrderedTriangulator;
+
 class VTK_EXPORT vtkCell3D : public vtkCell
 {
 public:
@@ -97,12 +99,13 @@ public:
   virtual int GetCellDimension() {return 3;}
 
 protected:
-  vtkCell3D() {}
-  ~vtkCell3D() {}
+  vtkCell3D():Triangulator(NULL) {}
+  ~vtkCell3D();
   vtkCell3D(const vtkCell3D&) {}
   void operator=(const vtkCell3D&) {};
   
-
+  vtkOrderedTriangulator *Triangulator;
+  
 };
 
 #endif
