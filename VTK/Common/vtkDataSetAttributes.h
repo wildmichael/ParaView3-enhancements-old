@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.h,v $
   Language:  C++
-  Date:      $Date: 2001-04-19 20:33:14 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2001-04-20 13:45:00 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -276,6 +276,15 @@ public:
   // Return an attribute given the attribute type
   // (see vtkDataSetAttributes::AttributeTypes).
   vtkDataArray* GetActiveAttribute(int attributeType);
+
+  // Description:
+  // Remove an array (with the given name) from the list of arrays.
+  virtual void RemoveArray(const char *name)
+    {
+      int i;
+      this->GetArray(name, i);
+      this->RemoveArray(i);
+    }
 
 //BTX
   // Always keep NUM_ATTRIBUTES as the last entry

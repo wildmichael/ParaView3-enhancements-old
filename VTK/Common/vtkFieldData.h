@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldData.h,v $
   Language:  C++
-  Date:      $Date: 2001-04-19 20:33:14 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2001-04-20 13:45:00 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -116,7 +116,7 @@ public:
 
   // Description:
   // Remove an array (with the given name) from the list of arrays.
-  void RemoveArray(const char *name)
+  virtual void RemoveArray(const char *name)
     {
       int i;
       this->GetArray(name, i);
