@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 21:01:56 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1997-02-19 17:48:06 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,6 +54,8 @@ Points(VTK_CELL_SIZE), PointIds(VTK_CELL_SIZE)
 void vtkCell::Initialize(int npts, int *pts, vtkPoints *p)
 {
   this->PointIds.Reset();
+  this->Points.Reset();
+
   for (int i=0; i<npts; i++)
     {
     this->PointIds.InsertId(i,pts[i]);
