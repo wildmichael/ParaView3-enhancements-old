@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-03 14:17:34 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1995-08-23 16:35:30 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -220,7 +220,7 @@ int vtkDataReader::ReadPointData(FILE *fp, vtkDataSet *ds, int numPts)
 //
     else if ( ! strncmp(line, "lookup_table", 12) )
       {
-      if ( ! this->ReadLutData(fp, ds, numPts) ) return 0;
+      if ( ! this->ReadLutData(fp, ds) ) return 0;
       }
 
     else
@@ -953,7 +953,7 @@ int vtkDataReader::ReadTCoordsData(FILE *fp, vtkDataSet *ds, int numPts)
 
 // Description:
 // Read lookup table. Return 0 if error.
-int vtkDataReader::ReadLutData(FILE *fp, vtkDataSet *ds, int numPts)
+int vtkDataReader::ReadLutData(FILE *fp, vtkDataSet *ds)
 {
   int retStat, i, size, skipTable;
   vtkLookupTable *lut;
