@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShrinkFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:31:50 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1995-09-13 07:01:26 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,7 +43,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // vtkShrinkFilter shrinks cells composing an arbitrary data set 
 // towards their centroid. The centroid of a cell is computed as 
 // the average position of the cell points. Shrinking results in 
-// disconencting the cells from one another.
+// disconnecting the cells from one another.
 // .SECTION Caveats
 // It is possible to turn cells inside out or cause self intersection
 // in special cases.
