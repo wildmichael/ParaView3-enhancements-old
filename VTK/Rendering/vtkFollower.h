@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFollower.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:37 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2001-05-28 06:00:02 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -95,13 +95,6 @@ class VTK_EXPORT vtkFollower : public vtkActor
   // Shallow copy of a follower. Overloads the virtual vtkProp method.
   void ShallowCopy(vtkProp *prop);
 
-#ifndef VTK_REMOVE_LEGACY_CODE
-  // Description:
-  // For legacy compatibility. Do not use.
-  void GetMatrix(vtkMatrix4x4 &m) 
-    {VTK_LEGACY_METHOD(GetMatrix,"3.2"); this->GetMatrix(&m);}
-#endif
-  
 protected:
   vtkFollower();
   ~vtkFollower();

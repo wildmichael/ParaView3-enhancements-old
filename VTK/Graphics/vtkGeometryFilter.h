@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-03-16 15:06:02 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2001-05-28 05:59:45 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -150,13 +150,6 @@ public:
   // Return the MTime also considering the locator.
   unsigned long GetMTime();
 
-#ifndef VTK_REMOVE_LEGACY_CODE
-  // Description:
-  // For legacy compatibility. Do not use.
-  void SetLocator(vtkPointLocator& locator) 
-    {VTK_LEGACY_METHOD(SetLocator,"3.2"); this->SetLocator(&locator);}
-#endif
-  
 protected:
   vtkGeometryFilter();
   ~vtkGeometryFilter();
