@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-17 19:37:49 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1995-09-24 08:01:09 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -168,7 +168,7 @@ void vtkXRenderWindow::SetNextWindowId(Window arg)
 }
 
 // Description:
-// Set the X display id for this RenderWindow to use to a pre-exisiting 
+// Set the X display id for this RenderWindow to use to a pre-existing 
 // X display id.
 void vtkXRenderWindow::SetDisplayId(Display  *arg)
 {

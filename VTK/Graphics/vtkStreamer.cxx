@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamer.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-13 07:10:48 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-09-24 08:01:07 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -137,7 +137,7 @@ int vtkStreamer::GetStartLocation(int& subId, float pcoords[3])
 
 // Description:
 // Specify the start of the streamline in the global coordinate system. Search
-// must be performed to find initial cell to strart integration from.
+// must be performed to find initial cell to start integration from.
 void vtkStreamer::SetStartPosition(float x[3])
 {
   if ( x[0] != this->StartPosition[0] || x[1] != this->StartPosition[1] || 
@@ -154,7 +154,7 @@ void vtkStreamer::SetStartPosition(float x[3])
 
 // Description:
 // Specify the start of the streamline in the global coordinate system. Search
-// must be performed to find initial cell to strart integration from.
+// must be performed to find initial cell to start integration from.
 void vtkStreamer::SetStartPosition(float x, float y, float z)
 {
   float pos[3];

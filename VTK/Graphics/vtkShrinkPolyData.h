@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShrinkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-13 07:02:38 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1995-09-24 08:01:10 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,7 +43,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // vtkShrinkPolyData shrinks cells composing a polygonal dataset (e.g., 
 // vertices, lines, polygons, and triangle strips) towards their centroid. 
 // The centroid of a cell is computed as the average position of the
-// cell points. Shrinking results in disconencting the cells from
+// cell points. Shrinking results in disconnecting the cells from
 // one another.
 // .SECTION Caveats
 // It is possible to turn cells inside out or cause self intersection
