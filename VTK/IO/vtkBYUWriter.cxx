@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-22 22:32:16 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1998-07-02 12:21:35 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -203,7 +203,7 @@ void vtkBYUWriter::WriteScalarFile(int numPts)
   for (i=0; i < numPts; i++)
     {
     s = inScalars->GetScalar(i);
-    fprintf(scalarFp, "%e", s);
+    fprintf(scalarFp, "%e ", s);
     if ( i != 0 && !(i % 6) ) fprintf (scalarFp, "\n");
     }
 
