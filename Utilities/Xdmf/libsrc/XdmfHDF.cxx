@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfHDF.cxx,v 1.19 2004-07-28 14:40:06 andy Exp $  */
-/*  Date : $Date: 2004-07-28 14:40:06 $ */
-/*  Version : $Revision: 1.19 $ */
+/*  Id : $Id: XdmfHDF.cxx,v 1.20 2004-08-18 15:40:21 andy Exp $  */
+/*  Date : $Date: 2004-08-18 15:40:21 $ */
+/*  Version : $Revision: 1.20 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -139,8 +139,12 @@ H5E_BEGIN_TRY {
       &StatusBuffer );
 } H5E_END_TRY;
 
-if( ( Status >= 0 )  && ( StatusBuffer.type < H5G_NTYPES ) ){
+if( ( Status >= 0 ) )
+{
+  if ( StatusBuffer.type == H5G_GROUP || StatusBuffer.type == H5G_DATASET )
+    {
     return( StatusBuffer.type );
+    }
 }
 
 return( H5G_UNKNOWN );
