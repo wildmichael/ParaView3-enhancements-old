@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-07 22:36:33 $
-  Version:   $Revision: 1.62 $
+  Date:      $Date: 2000-08-09 07:38:02 $
+  Version:   $Revision: 1.63 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -988,3 +988,4 @@ void vtkGeometryFilter::ExecuteInformation()
   //                    this->GetInput()->GetMaximumNumberOfPieces());
   this->GetOutput()->SetMaximumNumberOfPieces(1000);
 }
+
