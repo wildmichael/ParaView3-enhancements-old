@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMandelbrotSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-13 18:23:39 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2000-11-10 18:31:30 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -202,8 +202,6 @@ void vtkImageMandelbrotSource::ExecuteInformation()
       {
       origin[idx] = this->OriginCX[axis];
       spacing[idx] = this->SampleCX[axis];
-      // I want unevent sampling not Sample.
-      spacing[idx] = 1.0;
       }
     else
       {
