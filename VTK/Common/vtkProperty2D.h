@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-03-11 17:40:30 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-04-30 14:58:27 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,6 +59,7 @@ public:
   vtkProperty2D();
   ~vtkProperty2D();
   void PrintSelf(ostream& os, vtkIndent indent);
+  const char *GetClassName() {return "vtkProperty2D";};
 
   // Description:
   // Creates a vtkProperty2D with the following default values:
