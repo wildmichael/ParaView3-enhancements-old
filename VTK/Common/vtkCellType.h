@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellType.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:39:51 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1997-11-06 22:19:01 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,6 +62,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define VTK_TETRA 10
 #define VTK_VOXEL 11
 #define VTK_HEXAHEDRON 12
+
+#define VTK_PARAMETRIC_CURVE 51
+#define VTK_PARAMETRIC_SURFACE 52
 
 #endif
 
