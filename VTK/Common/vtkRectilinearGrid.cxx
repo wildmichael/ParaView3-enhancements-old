@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-02 13:46:12 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2000-08-17 15:34:59 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -711,6 +711,14 @@ void vtkRectilinearGrid::ComputeBounds()
 {
   float tmp;
 
+  if (this->XCoordinates == NULL || this->YCoordinates == NULL || 
+      this->ZCoordinates == NULL)
+    {
+    this->Bounds[0] = this->Bounds[1] = this->Bounds[2] = this->Bounds[3]
+      = this->Bounds[4] = this->Bounds[5] = 0.0;
+    return;
+    }
+  
   this->Bounds[0] = this->XCoordinates->GetScalar(0);
   this->Bounds[2] = this->YCoordinates->GetScalar(0);
   this->Bounds[4] = this->ZCoordinates->GetScalar(0);
