@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-28 20:30:09 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-10-21 14:05:05 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -196,6 +196,12 @@ vtkDataArray *vtkAbstractMapper::GetScalars(vtkDataSet *input,
   return scalars;
 }
 
+
+// Shallow copy of vtkProp.
+void vtkAbstractMapper::ShallowCopy(vtkAbstractMapper *mapper)
+{
+  this->SetClippingPlanes( mapper->GetClippingPlanes() );
+}
 
 void vtkAbstractMapper::PrintSelf(ostream& os, vtkIndent indent)
 {
