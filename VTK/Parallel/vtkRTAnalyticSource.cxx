@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRTAnalyticSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-08 20:21:37 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-10-25 14:20:22 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -131,14 +131,14 @@ void vtkRTAnalyticSource::ExecuteInformation()
   vtkImageData *output = this->GetOutput();
   
   output->SetWholeExtent(this->WholeExtent);
-  output->SetScalarType(VTK_DOUBLE);
+  output->SetScalarType(VTK_FLOAT);
   output->SetNumberOfScalarComponents(1);
 }
 
 void vtkRTAnalyticSource::ExecuteData(vtkDataObject *output)
 {
   vtkImageData *data = this->AllocateOutputData(output);
-  double *outPtr;
+  float *outPtr;
   int idxX, idxY, idxZ;
   int maxX, maxY, maxZ;
   int outIncX, outIncY, outIncZ;
@@ -149,9 +149,10 @@ void vtkRTAnalyticSource::ExecuteData(vtkDataObject *output)
   unsigned long count = 0;
   unsigned long target;
   
-  if (data->GetScalarType() != VTK_DOUBLE)
+  if (data->GetScalarType() != VTK_FLOAT)
     {
     vtkErrorMacro("Execute: This source only outputs doubles");
+    return;
     }
   
   outExt = data->GetExtent();
@@ -164,7 +165,7 @@ void vtkRTAnalyticSource::ExecuteData(vtkDataObject *output)
   
   // Get increments to march through data 
   data->GetContinuousIncrements(outExt, outIncX, outIncY, outIncZ);
-  outPtr = (double *) data->GetScalarPointer(outExt[0],outExt[2],outExt[4]);
+  outPtr = (float *) data->GetScalarPointer(outExt[0],outExt[2],outExt[4]);
   
   target = (unsigned long)((maxZ+1)*(maxY+1)/50.0);
   target++;
