@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:56 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-03-25 01:28:40 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,7 +32,7 @@
 
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkXOpenGLRenderWindow, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkXOpenGLRenderWindow, "$Revision: 1.13 $");
 vtkStandardNewMacro(vtkXOpenGLRenderWindow);
 #endif
 
@@ -724,7 +724,7 @@ int vtkXOpenGLRenderWindow::GetDesiredDepth()
 Visual *vtkXOpenGLRenderWindow::GetDesiredVisual ()
 {
   XVisualInfo *v;
-  Visual *vis;
+  Visual *vis=0;
   
   // get the default visual to use 
   v = this->GetDesiredVisualInfo();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:49 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2002-03-25 01:28:39 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "GL/gl.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkOpenGLImageWindow, "$Revision: 1.22 $");
+vtkCxxRevisionMacro(vtkOpenGLImageWindow, "$Revision: 1.23 $");
 vtkStandardNewMacro(vtkOpenGLImageWindow);
 
 XVisualInfo *vtkOpenGLImageWindowTryForVisual(Display *DisplayId,
@@ -298,7 +298,7 @@ int vtkOpenGLImageWindow::GetDesiredDepth()
 Visual *vtkOpenGLImageWindow::GetDesiredVisual ()
 {
   XVisualInfo *v;
-  Visual *vis;
+  Visual *vis=0;
   
   // get the default visual to use 
   v = this->GetDesiredVisualInfo();
