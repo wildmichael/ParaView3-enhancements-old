@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimatePro.h,v $
   Language:  C++
-  Date:      $Date: 1997-01-09 20:12:32 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-01-15 15:19:18 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -157,9 +157,11 @@ public:
   // without changing modified time. This means that you can execute the
   // filter at a certain reduction level (say 90%), and then grab output
   // at reduction levels <= 90% without re-execution.
-  void GetOutput(vtkPolyData &pd, float reduction); //copy data into pd
-  void WriteProgressiveMesh(char *filename); //write data
-  void ProcessDeferredSplits(int numPts, int numPops);
+  // ****Commented out temporarily
+  //***void GetOutput(vtkPolyData &pd, float reduction); //copy data into pd
+  //***void WriteProgressiveMesh(char *filename); //write data
+
+  void ProcessDeferredSplits(int numPops);
 
 protected:
   void Execute();
