@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtk3DWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-28 15:21:16 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-06-26 15:51:25 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkProp3D.h"
 #include "vtkDataSet.h"
 
-vtkCxxRevisionMacro(vtk3DWidget, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtk3DWidget, "$Revision: 1.11 $");
 
 vtkCxxSetObjectMacro(vtk3DWidget,Prop3D,vtkProp3D);
 vtkCxxSetObjectMacro(vtk3DWidget,Input,vtkDataSet);
@@ -75,6 +75,7 @@ void vtk3DWidget::PlaceWidget()
     }
   
   this->PlaceWidget(bounds);
+  this->InvokeEvent(vtkCommand::PlaceWidgetEvent,NULL);  
 }
 
 void vtk3DWidget::PlaceWidget(float xmin, float xmax, float ymin, float ymax, 

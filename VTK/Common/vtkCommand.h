@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCommand.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-24 19:51:05 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2002-06-26 15:51:25 $
+  Version:   $Revision: 1.38 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -148,6 +148,7 @@ public:
     DisableEvent,
     CreateTimerEvent,
     DestroyTimerEvent,
+    PlaceWidgetEvent,
     UserEvent = 1000
   };
 //ETX
