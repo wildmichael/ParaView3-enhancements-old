@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuartzRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:17:27 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-12-11 03:58:43 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -53,26 +53,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkMutexLock.h"
 #include <OpenGL/gl.h>
 #endif
-
-
-
-//------------------------------------------------------------------------------
-// A bunch of routines that can be called using C conventions which make up the
-// C++ side of the ObjC-C++ bridge. (called from MyNSWindow.m)
-//------------------------------------------------------------------------------
-#ifdef __cplusplus
-  extern "C" {
-#endif
-
-void VBDestroyWindow(void *vtkClass);
-void VBResizeWindow(void *vtkClass, int xPos, int yPos, int xSize, int ySize);
-void VBRedrawWindow(void *vtkClass);
-#ifdef __cplusplus
-  };
-#endif
-
-
-
 
 class vtkIdList;
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuartzRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:17:28 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-12-11 03:58:43 $
+  Version:   $Revision: 1.7 $
   
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -60,12 +60,12 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 extern "C" {
 #endif
 
-int DrawSomeGL();
-void VBTimerEvent(void *vtkClass);
-void DoMouseMoved(void *vtkClass, int shiftDown, int controlDown, int altDown, int commandDown, float xLoc, float yLoc);
-void DoMouseDragged(void *vtkClass, int shiftDown, int controlDown, int altDown, int commandDown, float xLoc, float yLoc);
-void DoMouseUp(void *vtkClass, int shiftDown, int controlDown, int altDown, int commandDown, float xLoc, float yLoc);
-void DoMouseDown(void *vtkClass, int shiftDown, int controlDown, int altDown, int commandDown, float xLoc, float yLoc);
+//int DrawSomeGL();
+//void VBTimerEvent(void *vtkClass);
+//void DoMouseMoved(void *vtkClass, int shiftDown, int controlDown, int altDown, int commandDown, float xLoc, float yLoc);
+//void DoMouseDragged(void *vtkClass, int shiftDown, int controlDown, int altDown, int commandDown, float xLoc, float yLoc);
+//void DoMouseUp(void *vtkClass, int shiftDown, int controlDown, int altDown, int commandDown, float xLoc, float yLoc);
+//void DoMouseDown(void *vtkClass, int shiftDown, int controlDown, int altDown, int commandDown, float xLoc, float yLoc);
 
 #ifdef __cplusplus
 };
