@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEncodedGradientShader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-28 19:01:17 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-12-04 21:32:18 $
+  Version:   $Revision: 1.27 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,7 +31,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkEncodedGradientShader, "$Revision: 1.26 $");
+vtkCxxRevisionMacro(vtkEncodedGradientShader, "$Revision: 1.27 $");
 vtkStandardNewMacro(vtkEncodedGradientShader);
 
 vtkEncodedGradientShader::vtkEncodedGradientShader()
@@ -306,10 +306,15 @@ void vtkEncodedGradientShader::UpdateShadingTable( vtkRenderer *ren,
   // regardless of what they really are
   while ( (light = lightCollection->GetNextItem()) != NULL  )
     { 
+    if ( ! light->GetSwitch() )
+      {
+      continue;
+      }
+    
     // Get the light color, position, focal point, and intensity
     light->GetColor( lightColor );
-    light->GetPosition( lightPosition );
-    light->GetFocalPoint( lightFocalPoint );
+    light->GetTransformedPosition( lightPosition );
+    light->GetTransformedFocalPoint( lightFocalPoint );
     lightIntensity = light->GetIntensity( );
     
 
