@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 18:07:32 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 1998-08-19 18:11:16 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -206,11 +206,20 @@ static void ContourVolume(vtkMarchingCubes *self,T *scalars, int dims[3],
 //
 // Get min/max contour values
 //
-  if ( numValues < 1 ) return;
+  if ( numValues < 1 )
+    {
+    return;
+    }
   for ( min=max=values[0], i=1; i < numValues; i++)
     {
-    if ( values[i] < min ) min = values[i];
-    if ( values[i] > max ) max = values[i];
+    if ( values[i] < min )
+      {
+      min = values[i];
+      }
+    if ( values[i] > max )
+      {
+      max = values[i];
+      }
     }
 //
 // Traverse all voxel cells, generating triangles and point gradients
@@ -220,8 +229,10 @@ static void ContourVolume(vtkMarchingCubes *self,T *scalars, int dims[3],
   for ( k=0; k < (dims[2]-1); k++)
     {
     self->UpdateProgress ((float) k / ((float) dims[2] - 1));
-    if (self->GetAbortExecute()) break;
-
+    if (self->GetAbortExecute())
+      {
+      break;
+      }
     kOffset = k*sliceSize;
     pts[0][2] = origin[2] + k*Spacing[2];
     zp = origin[2] + (k+1)*Spacing[2];
