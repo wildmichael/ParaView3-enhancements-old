@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTreeComposite.h,v $
   Language:  C++
-  Date:      $Date: 2001-04-18 18:08:09 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-04-27 13:01:27 $
+  Version:   $Revision: 1.6 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -169,6 +169,11 @@ public:
     BOUNDS_TAG=94135
   };
 
+  // Description:
+  // Used by call backs.  Not intended to be called by the user.
+  // Empty methods that can be used by the subclass to interupt a parallel render.
+  virtual void CheckForAbortRender() {}
+  virtual int CheckForAbortComposite() {return 0;}  
 //ETX
 
 protected:
@@ -210,10 +215,12 @@ protected:
   // Reduction factor (For fast interactive compositing).
   int ReductionFactor;
   
+  // This cause me a head ache while trying to debug a lockup.
+  // I am taking it out in retaliation.  I do not think nested
+  // RMI's can occur anyway.
   // This flag stops nested RMIs from occuring.  Some rmis send and receive information.
   // Nesting them can lock up the processes.
-  int Lock;
-  
+  //int Lock;
   
   void SetWindowSize(int x, int y);
   
