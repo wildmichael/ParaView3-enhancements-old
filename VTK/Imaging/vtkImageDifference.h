@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDifference.h,v $
   Language:  C++
-  Date:      $Date: 1998-08-04 14:56:00 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-08-07 13:55:59 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -89,16 +89,25 @@ public:
   // between input images will be used to determine the difference.
   // Otherwise, the difference is computed directly between pixels
   // of identical row/column values.
-
   vtkSetMacro(AllowShift,int);
   vtkGetMacro(AllowShift,int);
   vtkBooleanMacro(AllowShift,int);
+
+  // Description:
+  // Specify whether the comparison will include comparison of
+  // averaged 3x3 data between the images. For graphics renderings
+  // you normally would leave this on. For imaging operations it
+  // should be off.
+  vtkSetMacro(Averaging,int);
+  vtkGetMacro(Averaging,int);
+  vtkBooleanMacro(Averaging,int);
 
 protected:
   float Error;
   float ThresholdedError;
   int AllowShift;
   int Threshold;
+  int Averaging;
   
   void ExecuteImageInformation(); 
   void ComputeRequiredInputUpdateExtent(int inExt[6], int outExt[6],
