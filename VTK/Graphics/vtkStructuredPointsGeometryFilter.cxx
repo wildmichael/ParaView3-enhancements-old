@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:54 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2001-01-22 12:48:07 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -86,7 +86,7 @@ void vtkStructuredPointsGeometryFilter::Execute()
   float *x;
   vtkPointData *pd, *outPD;
   vtkCellData *cd, *outCD;
-  vtkStructuredPoints *input = this->GetInput();
+  vtkImageData *input = this->GetInput();
   vtkPolyData *output = this->GetOutput();
 
   vtkDebugMacro(<< "Extracting structured points geometry");

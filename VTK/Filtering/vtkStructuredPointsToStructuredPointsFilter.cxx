@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsToStructuredPointsFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:54 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-01-22 12:48:07 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,14 +44,14 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //----------------------------------------------------------------------------
 // Specify the input data or filter.
 void vtkStructuredPointsToStructuredPointsFilter::SetInput(
-                                                   vtkStructuredPoints *input)
+                                                   vtkImageData *input)
 {
   this->vtkProcessObject::SetNthInput(0, input);
 }
 
 //----------------------------------------------------------------------------
 // Specify the input data or filter.
-vtkStructuredPoints *vtkStructuredPointsToStructuredPointsFilter::GetInput()
+vtkImageData *vtkStructuredPointsToStructuredPointsFilter::GetInput()
 {
   if (this->NumberOfInputs < 1)
     {
@@ -66,7 +66,7 @@ vtkStructuredPoints *vtkStructuredPointsToStructuredPointsFilter::GetInput()
 // Copy WholeExtent, Spacing and Origin.
 void vtkStructuredPointsToStructuredPointsFilter::ExecuteInformation()
 {
-  vtkStructuredPoints *input = this->GetInput();
+  vtkImageData *input = this->GetInput();
   vtkStructuredPoints *output = this->GetOutput();
   
   if (output == NULL || input == NULL)
@@ -80,3 +80,12 @@ void vtkStructuredPointsToStructuredPointsFilter::ExecuteInformation()
 }
 
 
+//----------------------------------------------------------------------------
+void vtkStructuredPointsToStructuredPointsFilter::ComputeInputUpdateExtents( 
+                                                        vtkDataObject *output)
+{
+  this->vtkStructuredPointsSource::ComputeInputUpdateExtents(output);
+
+  // assume that we cannot handle more than the requested extent.
+  this->GetInput()->RequestExactExtentOn();
+}

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:24 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-01-22 12:48:07 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -75,7 +75,7 @@ vtkImageToPolyDataFilter::~vtkImageToPolyDataFilter()
 
 void vtkImageToPolyDataFilter::Execute()
 {
-  vtkStructuredPoints *input=this->GetInput();
+  vtkImageData *input=this->GetInput();
   vtkPolyData *output=this->GetOutput();
   vtkPolyData *tmpOutput=vtkPolyData::New();
   vtkPolyData *tmpInput=vtkPolyData::New();

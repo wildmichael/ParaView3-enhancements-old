@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:55 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2001-01-22 12:48:07 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -187,6 +187,11 @@ void vtkTexture::Render(vtkRenderer *ren)
 {
   if (this->Input) //load texture map
     {
+	// We do not want more than requested.
+	this->Input->RequestExactExtentOn();
+	// Updating the whole extent may not be necessary.
+    this->Input->UpdateInformation();
+    this->Input->SetUpdateExtentToWholeExtent();
     this->Input->Update();
     this->Load(ren);
     }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinkEdgels.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:42 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-01-22 12:48:07 $
+  Version:   $Revision: 1.25 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -78,7 +78,7 @@ void vtkLinkEdgels::Execute()
   vtkCellArray *newLines=0;
   vtkScalars *inScalars;
   vtkScalars *outScalars;
-  vtkStructuredPoints *input = this->GetInput();
+  vtkImageData *input = this->GetInput();
   vtkVectors *outVectors;
   vtkPolyData *output = this->GetOutput();
   int *dimensions;

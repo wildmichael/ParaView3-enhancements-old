@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:16 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-01-22 12:48:07 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -56,6 +56,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <math.h>
 #include "vtkMarchingContourFilter.h"
 #include "vtkScalars.h"
+#include "vtkStructuredPoints.h"
 #include "vtkCell.h"
 #include "vtkMergePoints.h"
 #include "vtkContourValues.h"
@@ -169,11 +170,11 @@ void vtkMarchingContourFilter::Execute()
       int dim = input->GetCell(0)->GetCellDimension();
       
       if ( input->GetCell(0)->GetCellDimension() >= 2 ) 
-	{
-	vtkDebugMacro(<< "Structured Points");
-	this->StructuredPointsContour(dim);
-	return;
-	}
+        {
+        vtkDebugMacro(<< "Structured Points");
+        this->StructuredPointsContour(dim);
+        return;
+        }
       }
     }
   
@@ -209,7 +210,7 @@ void vtkMarchingContourFilter::StructuredPointsContour(int dim)
     int i;
     
     msquares = vtkMarchingSquares::New();
-    msquares->SetInput((vtkStructuredPoints *)this->GetInput());
+    msquares->SetInput((vtkImageData *)this->GetInput());
     msquares->SetDebug(this->Debug);
     msquares->SetNumberOfContours(numContours);
     for (i=0; i < numContours; i++)
@@ -229,7 +230,7 @@ void vtkMarchingContourFilter::StructuredPointsContour(int dim)
     int i;
     
     mcubes = vtkMarchingCubes::New();
-    mcubes->SetInput((vtkStructuredPoints *)this->GetInput());
+    mcubes->SetInput((vtkImageData *)this->GetInput());
     mcubes->SetComputeNormals (this->ComputeNormals);
     mcubes->SetComputeGradients (this->ComputeGradients);
     mcubes->SetComputeScalars (this->ComputeScalars);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:16 $
-  Version:   $Revision: 1.67 $
+  Date:      $Date: 2001-01-22 12:48:07 $
+  Version:   $Revision: 1.68 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -409,7 +409,7 @@ void vtkMarchingCubes::Execute()
   vtkScalars *newScalars;
   vtkNormals *newNormals;
   vtkVectors *newGradients;
-  vtkStructuredPoints *input = this->GetInput();
+  vtkImageData *input = this->GetInput();
   vtkPointData *pd;
   vtkScalars *inScalars;
   int dims[3];

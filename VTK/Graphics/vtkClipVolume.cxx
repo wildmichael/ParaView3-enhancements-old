@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:32 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2001-01-22 12:48:07 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -145,7 +145,7 @@ unsigned long vtkClipVolume::GetMTime()
 //
 void vtkClipVolume::Execute()
 {
-  vtkStructuredPoints *input = this->GetInput();
+  vtkImageData *input = this->GetInput();
   vtkUnstructuredGrid *output = this->GetOutput();
   vtkUnstructuredGrid *clippedOutput = this->GetClippedOutput();
   vtkUnstructuredGrid *outputPtr;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageClip.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:04 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2001-01-22 12:48:07 $
+  Version:   $Revision: 1.28 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -102,11 +102,14 @@ protected:
   void ExecuteInformation(){this->vtkImageToImageFilter::ExecuteInformation();};
   void CopyData(vtkImageData *inData, vtkImageData *outData, int *ext);
 
-  void Execute(vtkImageData *inData, vtkImageData *outData);
-  void Execute() { this->vtkImageToImageFilter::Execute(); };
+  int SplitExtentTmp(int piece, int numPieces, int *ext);
+
+  void Execute();
+  // To avoid warnings.
+  void Execute(vtkImageData *in, vtkImageData *out)
+   { this->vtkImageToImageFilter::Execute(in, out); };
   void Execute(vtkImageData *output)
     { this->vtkImageToImageFilter::Execute(output); };
-  int SplitExtentTmp(int piece, int numPieces, int *ext);
 };
 
 

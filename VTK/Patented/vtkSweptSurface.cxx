@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSweptSurface.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:17 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 2001-01-22 12:48:07 $
+  Version:   $Revision: 1.61 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -142,7 +142,7 @@ void vtkSweptSurface::Execute()
   float position[3], position1[3], position2[4]; 
   float orient1[3], orient2[3], orientation[3];
   float origin[3], spacing[3], bbox[24];
-  vtkStructuredPoints *input = this->GetInput();
+  vtkImageData *input = this->GetInput();
   vtkStructuredPoints *output = this->GetOutput();
 
   vtkDebugMacro(<<"Creating swept surface");
@@ -512,7 +512,7 @@ void vtkSweptSurface::ComputeBounds(float origin[3], float spacing[3], float bbo
   int i, j, k, ii, idx, dim;
   float *bounds;
   float xmin[3], xmax[3], x[4], xTrans[4], h;
-  vtkStructuredPoints *input = this->GetInput();
+  vtkImageData *input = this->GetInput();
 
   // Compute eight points of bounding box (used later)
   bounds = input->GetBounds();

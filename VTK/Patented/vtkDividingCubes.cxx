@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDividingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:15 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2001-01-22 12:48:07 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -116,7 +116,7 @@ void vtkDividingCubes::Execute()
   float origin[3], x[3], ar[3], h[3];
   int dim[3], jOffset, kOffset, sliceSize;
   int above, below, vertNum, n[3];
-  vtkStructuredPoints *input = this->GetInput();
+  vtkImageData *input = this->GetInput();
   vtkPolyData *output = this->GetOutput();
   
   vtkDebugMacro(<< "Executing dividing cubes...");
