@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.h,v $
   Language:  C++
-  Date:      $Date: 2003-01-06 20:36:14 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2003-04-18 19:49:35 $
+  Version:   $Revision: 1.58 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -79,6 +79,9 @@ inline int vtkRoundFuncMacro(double x)
         t0  = t00 + (y)*(t01-t00);  \
         t1  = t10 + (y)*(t11-t10);  \
         v   =  t0 + (z)*(t1-t0);
+
+// Forward declaration needed for use by friend declaration below.
+VTK_THREAD_RETURN_TYPE VolumeRayCastMapper_CastRays( void *arg );
 
 class VTK_RENDERING_EXPORT vtkVolumeRayCastMapper : public vtkVolumeMapper
 {
