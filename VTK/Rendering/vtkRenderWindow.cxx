@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-23 18:58:27 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 1997-04-30 13:07:23 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,7 +64,8 @@ vtkRenderWindow::vtkRenderWindow()
   this->StereoType = VTK_STEREO_RED_BLUE;
   this->StereoStatus = 0;
   this->Interactor = NULL;
-  this->WindowName = strdup( "Visualization Toolkit" );
+  this->WindowName = new char[strlen("Visualization Toolkit")+1];
+    strcpy( this->WindowName, "Visualization Toolkit" );
   this->AAFrames = 0;
   this->FDFrames = 0;
   this->SubFrames = 0;
