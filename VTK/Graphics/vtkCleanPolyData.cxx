@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCleanPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-07 19:41:54 $
-  Version:   $Revision: 1.67 $
+  Date:      $Date: 2002-02-27 12:33:24 $
+  Version:   $Revision: 1.68 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkMergePoints.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkCleanPolyData, "$Revision: 1.67 $");
+vtkCxxRevisionMacro(vtkCleanPolyData, "$Revision: 1.68 $");
 vtkStandardNewMacro(vtkCleanPolyData);
 
 //---------------------------------------------------------------------------
@@ -610,10 +610,14 @@ void vtkCleanPolyData::CreateDefaultLocator()
     if (tol==0.0) 
       {
       this->Locator = vtkMergePoints::New();
+      this->Locator->Register(this);
+      this->Locator->Delete();
       } 
     else 
       {
       this->Locator = vtkPointLocator::New();
+      this->Locator->Register(this);
+      this->Locator->Delete();
       }
     } 
   else 
@@ -623,6 +627,8 @@ void vtkCleanPolyData::CreateDefaultLocator()
       {
       this->ReleaseLocator();
       this->Locator = vtkPointLocator::New();
+      this->Locator->Register(this);
+      this->Locator->Delete();
       }
     }
 }
