@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:37:54 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1995-09-01 10:04:00 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -78,22 +78,39 @@ void vtkUnstructuredGrid::Allocate (int numCells, int extSize)
 
 // Description:
 // Shallow construction of object.
-vtkUnstructuredGrid::vtkUnstructuredGrid(const vtkUnstructuredGrid& pd) :
-vtkPointSet(pd)
+vtkUnstructuredGrid::vtkUnstructuredGrid(const vtkUnstructuredGrid& ug) :
+vtkPointSet(ug)
 {
-  this->Connectivity = pd.Connectivity;
+  this->Connectivity = ug.Connectivity;
   if (this->Connectivity) this->Connectivity->Register(this);
 
-  this->Cells = pd.Cells;
+  this->Cells = ug.Cells;
   if (this->Cells) this->Cells->Register(this);
 
-  this->Links = pd.Links;
+  this->Links = ug.Links;
   if (this->Links) this->Links->Register(this);
 }
 
 vtkUnstructuredGrid::~vtkUnstructuredGrid()
 {
   vtkUnstructuredGrid::Initialize();
+}
+
+// Description:
+// Copy the geometric and topological structure of an input unstructured grid.
+void vtkUnstructuredGrid::CopyStructure(vtkDataSet *ds)
+{
+  vtkUnstructuredGrid *ug=(vtkUnstructuredGrid *)ds;
+  vtkPointSet::CopyStructure(ds);
+
+  this->Connectivity = ug->Connectivity;
+  if (this->Connectivity) this->Connectivity->Register(this);
+
+  this->Cells = ug->Cells;
+  if (this->Cells) this->Cells->Register(this);
+
+  this->Links = ug->Links;
+  if (this->Links) this->Links->Register(this);
 }
 
 void vtkUnstructuredGrid::Initialize()
