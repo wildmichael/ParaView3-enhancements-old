@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagingFactory.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-31 13:19:34 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-05-31 17:04:07 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -54,8 +54,8 @@
 static vtkSimpleCriticalSection vtkUseMesaClassesCriticalSection;
 int vtkImagingFactory::UseMesaClasses = 0;
 
-vtkCxxRevisionMacro(vtkImagingFactory, "$Revision: 1.23 $");
-
+vtkCxxRevisionMacro(vtkImagingFactory, "$Revision: 1.24 $");
+vtkStandardNewMacro(vtkImagingFactory);
 
 const char *vtkImagingFactoryGetRenderLibrary()
 {
@@ -127,9 +127,9 @@ vtkObject* vtkImagingFactory::CreateInstance(const char* vtkclassname )
       {
 #if defined(VTK_MANGLE_MESA)
       if ( vtkImagingFactory::UseMesaClasses )
-	{
-	return vtkXMesaTextMapper::New();
-	}
+        {
+        return vtkXMesaTextMapper::New();
+        }
 #endif
       return vtkXOpenGLTextMapper::New();
       }
@@ -137,9 +137,9 @@ vtkObject* vtkImagingFactory::CreateInstance(const char* vtkclassname )
       {
 #if defined(VTK_MANGLE_MESA)
       if ( vtkImagingFactory::UseMesaClasses )
-	{
-	return vtkMesaImageMapper::New();
-	}
+        {
+        return vtkMesaImageMapper::New();
+        }
 #endif
       return vtkOpenGLImageMapper::New();
       }
@@ -147,9 +147,9 @@ vtkObject* vtkImagingFactory::CreateInstance(const char* vtkclassname )
       {
 #if defined(VTK_MANGLE_MESA)
       if ( vtkImagingFactory::UseMesaClasses )
-	{
-	return vtkMesaPolyDataMapper2D::New();
-	}
+        {
+        return vtkMesaPolyDataMapper2D::New();
+        }
 #endif
       return vtkOpenGLPolyDataMapper2D::New();
       }
