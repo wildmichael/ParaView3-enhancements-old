@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:57:36 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1996-09-09 19:27:11 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -249,11 +249,13 @@ void  vtkXRenderWindowInteractor::StartRotate()
 {
   if (this->State != VTKXI_START) return;
   this->State = VTKXI_ROTATE;
+  this->RenderWindow->SetDesiredUpdateRate(this->DesiredUpdateRate);
   XtAppAddTimeOut(this->App,10,vtkXRenderWindowInteractorTimer,(XtPointer)this);
 }
 void  vtkXRenderWindowInteractor::EndRotate()
 {
   if (this->State != VTKXI_ROTATE) return;
+  this->RenderWindow->SetDesiredUpdateRate(this->StillUpdateRate);
   this->State = VTKXI_START;
 }
 
@@ -261,11 +263,13 @@ void  vtkXRenderWindowInteractor::StartZoom()
 {
   if (this->State != VTKXI_START) return;
   this->State = VTKXI_ZOOM;
+  this->RenderWindow->SetDesiredUpdateRate(this->DesiredUpdateRate);
   XtAppAddTimeOut(this->App,10,vtkXRenderWindowInteractorTimer,(XtPointer)this);
 }
 void  vtkXRenderWindowInteractor::EndZoom()
 {
   if (this->State != VTKXI_ZOOM) return;
+  this->RenderWindow->SetDesiredUpdateRate(this->StillUpdateRate);
   this->State = VTKXI_START;
 }
 
@@ -277,6 +281,7 @@ void  vtkXRenderWindowInteractor::StartPan()
   if (this->State != VTKXI_START) return;
 
   this->State = VTKXI_PAN;
+  this->RenderWindow->SetDesiredUpdateRate(this->DesiredUpdateRate);
 
   // calculate the focal depth since we'll be using it a lot
   FocalPoint = this->CurrentCamera->GetFocalPoint();
@@ -292,6 +297,7 @@ void  vtkXRenderWindowInteractor::StartPan()
 void  vtkXRenderWindowInteractor::EndPan()
 {
   if (this->State != VTKXI_PAN) return;
+  this->RenderWindow->SetDesiredUpdateRate(this->StillUpdateRate);
   this->State = VTKXI_START;
 }
 
