@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-28 14:51:03 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-05-28 16:40:17 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,7 +60,7 @@ void vtkOpenGLProperty::Render(vtkActor *vtkNotUsed(anActor),
   glDisable(GL_TEXTURE_2D);
 
   // disable alpha testing (this may have been enabled
-  // by another actor in OglrTexture)
+  // by another actor in OpenGLTexture)
   glDisable (GL_ALPHA_TEST);
 
   glDisable(GL_COLOR_MATERIAL);

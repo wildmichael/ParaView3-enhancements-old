@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkRenderWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-28 15:15:09 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1997-05-28 16:40:19 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -46,7 +46,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkTkRenderWidget.h"
 
 #ifdef _WIN32
-#include "vtkWin32OglrRenderWindow.h"
+#include "vtkWin32OpenGLRenderWindow.h"
 #else
 #include "vtkXRenderWindow.h"
 #endif
@@ -393,7 +393,7 @@ static int vtkTkRenderWidget_MakeRenderWindow(struct vtkTkRenderWidget *self)
   TkWindow *winPtr2;
   Tcl_HashEntry *hPtr;
   int new_flag;
-  vtkWin32OglrRenderWindow *renderWindow;
+  vtkWin32OpenGLRenderWindow *renderWindow;
   TkWinDrawable *twdPtr;
   HWND parentWin;
 
@@ -411,7 +411,7 @@ static int vtkTkRenderWidget_MakeRenderWindow(struct vtkTkRenderWidget *self)
     {
     // Make the Render window.
     self->RenderWindow = vtkRenderWindow::New();
-    renderWindow = (vtkWin32OglrRenderWindow *)(self->RenderWindow);
+    renderWindow = (vtkWin32OpenGLRenderWindow *)(self->RenderWindow);
     vtkTclGetObjectFromPointer(self->Interp, self->RenderWindow,
 			       vtkRenderWindowCommand);
     self->RW = strdup(self->Interp->result);
@@ -421,7 +421,7 @@ static int vtkTkRenderWidget_MakeRenderWindow(struct vtkTkRenderWidget *self)
     {
     self->RenderWindow = (vtkRenderWindow *)vtkTclGetPointerFromObject(
 				  self->RW, "vtkRenderWindow", self->Interp);
-    renderWindow = (vtkWin32OglrRenderWindow *)(self->RenderWindow);
+    renderWindow = (vtkWin32OpenGLRenderWindow *)(self->RenderWindow);
     }
   
   // Set the size

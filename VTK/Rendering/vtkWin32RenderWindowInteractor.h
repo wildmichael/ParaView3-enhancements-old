@@ -1,11 +1,10 @@
 /*=========================================================================
 
   Program:   Visualization Toolkit
-  Module:    %M%
+  Module:    $RCSfile: vtkWin32RenderWindowInteractor.h,v $
   Language:  C++
-  Date:      %G%
-  Version:   %I%
-
+  Date:      $Date: 1997-05-28 16:40:26 $
+  Version:   $Revision: 1.6 $
   
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -47,7 +46,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // specific subclasses of vtkRenderWindowInteractor.
 
 // .SECTION see also
-// vtkRenderWindowInteractor vtkWin32OglrRenderWindow
+// vtkRenderWindowInteractor vtkWin32OpenGLRenderWindow
 
 // .SECTION Event Bindings
 // Mouse bindings: Button 1 - rotate, Button 2 - pan, Button 3 - zoom
