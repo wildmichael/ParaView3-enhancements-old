@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeAxesActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:30:25 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2002-02-07 13:54:43 $
+  Version:   $Revision: 1.30 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkCubeAxesActor2D, "$Revision: 1.29 $");
+vtkCxxRevisionMacro(vtkCubeAxesActor2D, "$Revision: 1.30 $");
 vtkStandardNewMacro(vtkCubeAxesActor2D);
 
 // Instantiate this object.
@@ -91,7 +91,7 @@ void vtkCubeAxesActor2D::ShallowCopy(vtkCubeAxesActor2D *actor)
   this->SetLabelFormat(actor->GetLabelFormat());
   this->SetFontFactor(actor->GetFontFactor());
   this->SetCornerOffset(actor->GetCornerOffset());
-  this->SetInertia(actor->GetInertia());
+  this->SetInertia(static_cast<int>(actor->GetInertia()));
   this->SetXLabel(actor->GetXLabel());
   this->SetYLabel(actor->GetYLabel());
   this->SetZLabel(actor->GetZLabel());

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-28 19:35:02 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2002-02-07 13:54:44 $
+  Version:   $Revision: 1.51 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,7 +30,7 @@
 #include "vtkgluPickMatrix.h"
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkOpenGLCamera, "$Revision: 1.50 $");
+vtkCxxRevisionMacro(vtkOpenGLCamera, "$Revision: 1.51 $");
 vtkStandardNewMacro(vtkOpenGLCamera);
 #endif
 
@@ -67,7 +67,8 @@ void vtkOpenGLCamera::Render(vtkRenderer *ren)
   vport = ren->GetViewport();
 
   float *tileViewPort = ren->GetVTKWindow()->GetTileViewport();
-  int scale = ren->GetVTKWindow()->GetTileScale();
+  //int scale = 
+  ren->GetVTKWindow()->GetTileScale();
   
   float vpu, vpv;
   vpu = (vport[0] - tileViewPort[0]);
@@ -204,7 +205,8 @@ void vtkOpenGLCamera::UpdateViewport(vtkRenderer *ren)
   vport = ren->GetViewport();
 
   float *tileViewPort = ren->GetVTKWindow()->GetTileViewport();
-  int scale = ren->GetVTKWindow()->GetTileScale();
+  //int scale = 
+  ren->GetVTKWindow()->GetTileScale();
   
   float vpu, vpv;
   vpu = (vport[0] - tileViewPort[0]);

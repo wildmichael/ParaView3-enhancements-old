@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: otherArrays.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:26:49 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-02-07 13:54:42 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -197,7 +197,7 @@ static int doArrayTest (ostream& strm, T *ptr, A *array, V value, int size)
     }
 
   strm << "\tInsertNextValue(value)...";
-  if (ptr->GetValue (ptr->InsertNextValue (22.0)) == 22.0) strm << "OK" << endl;
+  if (ptr->GetValue (ptr->InsertNextValue (static_cast<char>(22.0))) == 22.0) strm << "OK" << endl;
   else
     {
     errors++;

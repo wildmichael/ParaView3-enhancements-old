@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleFlight.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:35 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-02-07 13:54:44 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkRenderWindowInteractor.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyleFlight, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkInteractorStyleFlight, "$Revision: 1.16 $");
 vtkStandardNewMacro(vtkInteractorStyleFlight);
 
 //---------------------------------------------------------------------------
@@ -298,7 +298,8 @@ void vtkInteractorStyleFlight::OnTimer(void) {
         else 
           {
             // Make sure CurrentCamera variable is initialized
-            this->FindPokedCamera(this->OldX, this->OldY);
+            this->FindPokedCamera(static_cast<int>(this->OldX), 
+                                  static_cast<int>(this->OldY));
             this->SetupMotionVars();
             // What sort of motion do we want
             if (this->AzimuthScanning) 

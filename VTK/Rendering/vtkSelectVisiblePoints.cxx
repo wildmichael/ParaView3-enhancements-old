@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSelectVisiblePoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:24 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-02-07 13:54:44 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkRenderWindow.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkSelectVisiblePoints, "$Revision: 1.23 $");
+vtkCxxRevisionMacro(vtkSelectVisiblePoints, "$Revision: 1.24 $");
 vtkStandardNewMacro(vtkSelectVisiblePoints);
 
 // Instantiate object with no renderer; window selection turned off; 
@@ -150,7 +150,8 @@ void vtkSelectVisiblePoints::Execute()
         }
       else
         {
-        z = this->Renderer->GetZ(dx[0], dx[1]);
+        z = this->Renderer->GetZ(static_cast<int>(dx[0]), 
+                                 static_cast<int>(dx[1]));
         }
       diff = fabs(z-dx[2]);
       if ( diff <= this->Tolerance )

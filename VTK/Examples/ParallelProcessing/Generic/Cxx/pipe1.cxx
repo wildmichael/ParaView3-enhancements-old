@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: pipe1.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:27:36 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-02-07 13:54:42 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -34,11 +34,12 @@ void IncrementXFreq(void* sr)
 void pipe1(vtkMultiProcessController* controller, void* arg)
 {
   double extent = 20;
+  int iextent = static_cast<int>(extent);
 
   // Synthetic image source.
   vtkRTAnalyticSource* source1 = vtkRTAnalyticSource::New();
-  source1->SetWholeExtent (-1*extent, extent, -1*extent, extent, 
-          -1*extent ,extent );
+  source1->SetWholeExtent (-1*iextent, iextent, -1*iextent, iextent, 
+                           -1*iextent, iextent );
   source1->SetCenter(0, 0, 0);
   source1->SetStandardDeviation( 0.5 );
   source1->SetMaximum( 255.0 );

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAxisActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:28 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2002-02-07 13:54:44 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkAxisActor2D.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkAxisActor2D, "$Revision: 1.22 $");
+vtkCxxRevisionMacro(vtkAxisActor2D, "$Revision: 1.23 $");
 vtkStandardNewMacro(vtkAxisActor2D);
 
 // Instantiate this object.
@@ -410,7 +410,8 @@ void vtkAxisActor2D::BuildAxis(vtkViewport *viewport)
           maxHeight = (fontSize[1] > maxHeight ? fontSize[1] : maxHeight);
           this->LabelActors[i]->SetProperty(this->GetProperty());
           pts->GetPoint(2*i+1, xTick);
-          this->SetOffsetPosition(xTick, theta, maxWidth, maxHeight, 
+          this->SetOffsetPosition(xTick, theta, static_cast<int>(maxWidth), 
+                                  static_cast<int>(maxHeight), 
                                   this->TickOffset, this->LabelActors[i]);
         }
     }// if labels visible
@@ -446,7 +447,7 @@ void vtkAxisActor2D::BuildAxis(vtkViewport *viewport)
         }
 
       this->SetOffsetPosition(xTick, theta, fontSize[0], fontSize[1], 
-                              offset, this->TitleActor);
+                              static_cast<int>(offset), this->TitleActor);
     } //if title visible
 
   this->BuildTime.Modified();
