@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSweptSurface.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-01 19:17:10 $
-  Version:   $Revision: 1.74 $
+  Date:      $Date: 2002-07-12 14:43:27 $
+  Version:   $Revision: 1.75 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -36,7 +36,7 @@
 #include "vtkTransformCollection.h"
 #include "vtkVoxel.h"
 
-vtkCxxRevisionMacro(vtkSweptSurface, "$Revision: 1.74 $");
+vtkCxxRevisionMacro(vtkSweptSurface, "$Revision: 1.75 $");
 vtkStandardNewMacro(vtkSweptSurface);
 
 vtkCxxSetObjectMacro(vtkSweptSurface,Transforms, vtkTransformCollection);
@@ -144,7 +144,7 @@ void vtkSweptSurface::ExecuteInformation(vtkImageData *input,
 void vtkSweptSurface::ExecuteData(vtkDataObject *)
 {
   vtkIdType i, numOutPts;
-  vtkPointData *pd, *outPD;
+  vtkPointData *pd;
   vtkDataArray *inScalars, *newScalars;
   float inSpacing[3], inOrigin[3];
   int inDim[3];
@@ -172,7 +172,6 @@ void vtkSweptSurface::ExecuteData(vtkDataObject *)
     return;
     }
   pd = input->GetPointData();
-  outPD = output->GetPointData();
   
   inScalars = pd->GetScalars();
   if ( input->GetNumberOfPoints() < 1 ||
