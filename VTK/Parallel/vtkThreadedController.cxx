@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreadedController.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-04 21:26:47 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-11-05 02:34:20 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -70,9 +70,9 @@ private:
   void operator=(const vtkThreadedControllerOutputWindow&);
 };
 
-vtkCxxRevisionMacro(vtkThreadedControllerOutputWindow, "$Revision: 1.19 $");
+vtkCxxRevisionMacro(vtkThreadedControllerOutputWindow, "$Revision: 1.20 $");
 
-vtkCxxRevisionMacro(vtkThreadedController, "$Revision: 1.19 $");
+vtkCxxRevisionMacro(vtkThreadedController, "$Revision: 1.20 $");
 vtkStandardNewMacro(vtkThreadedController);
 
 void vtkThreadedController::CreateOutputWindow()
@@ -145,6 +145,7 @@ void vtkThreadedController::PrintSelf(ostream& os, vtkIndent indent)
 void vtkThreadedController::Initialize(int* vtkNotUsed(argc), 
                                        char*** vtkNotUsed(argv))
 {
+#ifndef VTK_USE_WIN32_THREADS
   if ( !vtkThreadedController::BarrierLock )
     {
     vtkThreadedController::BarrierLock = new vtkSimpleCriticalSection(1);
@@ -153,10 +154,12 @@ void vtkThreadedController::Initialize(int* vtkNotUsed(argc),
     {
     vtkThreadedController::BarrierInProgress = new vtkSimpleCriticalSection;
     }
+#endif
 }
 
 void vtkThreadedController::Finalize()
 {
+#ifndef VTK_USE_WIN32_THREADS
   if (vtkThreadedController::BarrierLock)
     {
     vtkThreadedController::BarrierLock->Unlock();
@@ -165,6 +168,7 @@ void vtkThreadedController::Finalize()
   vtkThreadedController::BarrierLock = 0;
   delete vtkThreadedController::BarrierInProgress;
   vtkThreadedController::BarrierInProgress = 0;
+#endif
 }
   
 void vtkThreadedController::ResetControllers()
