@@ -3,8 +3,8 @@
  Program:   Visualization Toolkit
  Module:    $RCSfile: vtkSource.cxx,v $
  Language:  C++
- Date:      $Date: 2001-09-14 18:24:51 $
- Version:   $Revision: 1.83 $
+ Date:      $Date: 2001-09-21 13:55:35 $
+ Version:   $Revision: 1.84 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -669,7 +669,10 @@ void vtkSource::ExecuteInformation()
         // Since most unstructured filters in VTK generate all their data once,
         // make it the default.
         // protected: if ( output->GetExtentType() == VTK_PIECES_EXTENT )
-        output->SetMaximumNumberOfPieces(1);
+        if (output->IsA("vtkPolyData") || output->IsA("vtkUnstructuredGrid"))
+          {
+          output->SetMaximumNumberOfPieces(1);
+          }
         }
       }
     }

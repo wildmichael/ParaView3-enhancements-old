@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-17 13:57:10 $
-  Version:   $Revision: 1.71 $
+  Date:      $Date: 2001-09-21 13:55:34 $
+  Version:   $Revision: 1.72 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -740,6 +740,7 @@ void vtkDataObject::InternalDataObjectCopy(vtkDataObject *src)
     }
   this->Piece = src->Piece;
   this->NumberOfPieces = src->NumberOfPieces;
+  this->MaximumNumberOfPieces = src->MaximumNumberOfPieces;
   this->UpdateNumberOfPieces = src->UpdateNumberOfPieces;
   this->UpdatePiece = src->UpdatePiece;
   this->UpdateGhostLevel = src->UpdateGhostLevel;
