@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:40:02 $
-  Version:   $Revision: 1.64 $
+  Date:      $Date: 1997-12-17 01:23:53 $
+  Version:   $Revision: 1.65 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -192,10 +192,10 @@ public:
   // Description:
   // Turn on/off flag to control whether every object releases its data
   // after being used by a filter.
-  void SetGlobalReleaseDataFlag(int val);
+  static void SetGlobalReleaseDataFlag(int val);
   void GlobalReleaseDataFlagOn() {this->SetGlobalReleaseDataFlag(1);};
   void GlobalReleaseDataFlagOff() {this->SetGlobalReleaseDataFlag(0);};
-  int  GetGlobalReleaseDataFlag();
+  static int  GetGlobalReleaseDataFlag();
 
   // return pointer to this dataset's point data
   vtkPointData *GetPointData() {return &this->PointData;};

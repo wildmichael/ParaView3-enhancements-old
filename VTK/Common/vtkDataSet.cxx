@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:40:01 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 1997-12-17 01:23:52 $
+  Version:   $Revision: 1.53 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -87,8 +87,6 @@ void vtkDataSet::SetGlobalReleaseDataFlag(int val)
 {
   if (val == vtkDataSetGlobalReleaseDataFlag) return;
   vtkDataSetGlobalReleaseDataFlag = val;
-  vtkDebugMacro( << "setting GlobalReleaseDataFlag to " << val );
-  this->Modified(); 
 }
 
 int vtkDataSet::GetGlobalReleaseDataFlag()

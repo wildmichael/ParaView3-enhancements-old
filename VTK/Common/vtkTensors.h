@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensors.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:41:41 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1997-12-17 01:24:13 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,9 +66,10 @@ public:
   virtual vtkTensors *MakeObject(int sze, int d=3, int ext=1000) = 0;
 
   // Description:
-  // Return data type. One of "bit", "unsigned char", "short", "int", "float", or
-  // "double".
-  virtual char *GetDataType() = 0;
+  // Return data type. An integer data type as follows:
+  // VTK_FLOAT = 1 VTK_INT = 2 VTK_SHORT = 3 VTK_UNSIGNED_SHORT = 4
+  // VTK_UNSIGNED_CHAR = 5 VTK_BIT = 6
+  virtual int GetDataType() = 0;
 
   // Description:
   // Return number of tensors in array.
