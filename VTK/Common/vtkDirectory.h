@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDirectory.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-20 21:07:26 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2003-01-24 21:41:42 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -69,6 +69,9 @@ public:
   static int CreateDirectory(const char* dir);
 
 protected:
+  // delete the Files and Path ivars and set
+  // NumberOfFiles to 0
+  void CleanUpFilesAndPath();
   vtkDirectory();
   ~vtkDirectory() ;
 private:
