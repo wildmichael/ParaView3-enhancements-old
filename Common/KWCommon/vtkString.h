@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkString.h,v $
   Language:  C++
-  Date:      $Date: 2003-03-03 21:38:55 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2003-03-04 19:06:17 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -105,12 +105,6 @@ public:
   // Description:
   // Return the number of occurence of a char.
   static unsigned int CountChar(char* str, char c);
-
-  // Description:
-  // Find the path to a given filename (i.e. its directory path) and 
-  // write it to 'path'.
-  // Return a pointer to the path (i.e. 'path').
-  static const char* GetFilenamePath(const char *filename, char *path);
 
 protected:
   vtkString() {};

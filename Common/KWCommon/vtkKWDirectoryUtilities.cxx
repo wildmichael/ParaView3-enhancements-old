@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKWDirectoryUtilities.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-29 20:49:42 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-03-04 19:06:17 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -85,7 +85,7 @@ static inline int Chdir(const char* dir)
 }
 #endif
 
-vtkCxxRevisionMacro(vtkKWDirectoryUtilities, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkKWDirectoryUtilities, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkKWDirectoryUtilities);
 
 //----------------------------------------------------------------------------
@@ -493,4 +493,23 @@ const char* vtkKWDirectoryUtilities::FindSelfPath(const char* argv0)
   this->SelfPath = vtkString::Duplicate(this->ConvertToUnixSlashes(selfPath));
   delete [] selfPath;
   return this->SelfPath;
+}
+
+//----------------------------------------------------------------------------
+const char* vtkKWDirectoryUtilities::GetFilenamePath(const char *filename, char *path)
+{
+  const char *ptr = filename + strlen(filename) - 1;
+  while (ptr > filename && *ptr != '/' && *ptr != '\\')
+    {
+    ptr--;
+    }
+
+  size_t length = ptr - filename;
+  if (length)
+    {
+    strncpy(path, filename, length);
+    }
+  path[length] = '\0';
+  
+  return path;
 }
