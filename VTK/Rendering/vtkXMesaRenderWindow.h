@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMesaRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-05 12:38:28 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-08-09 14:17:48 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -157,6 +157,10 @@ public:
   void ShowCursor();
 
   // Description:
+  // Change the shape of the cursor
+  virtual void SetCurrentCursor(int);
+
+  // Description:
   // Get the properties available at runtime that would result in 
   // the best Xwindow for 3D rendering.
   virtual  int GetEventPending();
@@ -194,6 +198,16 @@ protected:
   int      ScreenSize[2];
   int      CursorHidden;
   int      ForceMakeCurrent;
+
+  // we must keep track of the cursors we are using
+  Cursor XCArrow;
+  Cursor XCSizeAll;
+  Cursor XCSizeNS;
+  Cursor XCSizeWE;
+  Cursor XCSizeNE;
+  Cursor XCSizeNW;
+  Cursor XCSizeSE;
+  Cursor XCSizeSW;
 
 private:
   vtkXMesaRenderWindow(const vtkXMesaRenderWindow&);  // Not implemented.
