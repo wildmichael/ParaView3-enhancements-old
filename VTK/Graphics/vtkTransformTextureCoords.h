@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformTextureCoords.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:48:48 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1998-06-29 19:07:58 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,9 +38,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkTransformTexture - transform (scale, rotate, translate) texture coordinates
+// .NAME vtkTransformTextureCoords - transform (scale, rotate, translate) texture coordinates
 // .SECTION Description
-// vtkTransformTexture is a filter that operates on texture coordinates. It ingests
+// vtkTransformTextureCoords is a filter that operates on texture coordinates. It ingests
 // any type of dataset, and outputs a dataset of the same type. The filter lets
 // you scale, translate, and rotate texture coordinates. For example, by using the
 // the Scale ivar, you can shift texture coordinates that range from (0->1) to
