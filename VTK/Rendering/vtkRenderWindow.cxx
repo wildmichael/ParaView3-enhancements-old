@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-27 23:51:42 $
-  Version:   $Revision: 1.81 $
+  Date:      $Date: 1999-04-29 17:51:15 $
+  Version:   $Revision: 1.82 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,7 +48,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 // Construct an instance of  vtkRenderWindow with its screen size 
 // set to 300x300, borders turned on, positioned at (0,0), double 
-// buffering turned on.
+// buffering turned on, stereo capable off.
 vtkRenderWindow::vtkRenderWindow()
 {
   this->Borders = 1;
@@ -60,6 +60,7 @@ vtkRenderWindow::vtkRenderWindow()
   this->StereoRender = 0;
   this->StereoType = VTK_STEREO_RED_BLUE;
   this->StereoStatus = 0;
+  this->StereoCapableWindow = 0;
   this->Interactor = NULL;
   this->AAFrames = 0;
   this->FDFrames = 0;
@@ -276,6 +277,42 @@ void vtkRenderWindow::SetDesiredUpdateRate(float rate)
     this->Modified();
     }
 }
+
+
+//
+// Set the variable that indicates that we want a stereo capable window
+// be created. This method can only be called before a window is realized.
+//
+void vtkRenderWindow::SetStereoCapableWindow(int capable)
+{
+  if (this->StereoCapableWindow != capable)
+    {
+    this->StereoCapableWindow = capable;
+    this->Modified();
+    }
+}
+
+// Turn on stereo rendering
+void vtkRenderWindow::SetStereoRender(int stereo)
+{
+  if (this->StereoCapableWindow ||
+      (!this->StereoCapableWindow
+       && this->StereoType != VTK_STEREO_CRYSTAL_EYES))
+    {
+    if (stereo != this->StereoRender)
+      {
+      this->StereoRender = stereo;
+      this->Modified();
+      }
+    }
+  else
+    {
+    vtkWarningMacro(<< "Adjusting stereo mode on a window that does not "
+    << "support stereo type " << this->GetStereoTypeAsString()
+    << " is not possible.");
+    }
+}
+
 
 
 // Ask each renderer owned by this RenderWindow to render its image and 
@@ -738,6 +775,8 @@ void vtkRenderWindow::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Full Screen: " << (this->FullScreen ? "On\n":"Off\n");
   os << indent << "Renderers:\n";
   this->Renderers->PrintSelf(os,indent.GetNextIndent());
+  os << indent << "Stereo Capable Window Requested: " 
+     << (this->StereoCapableWindow ? "Yes\n":"No\n");
   os << indent << "Stereo Render: " 
      << (this->StereoRender ? "On\n":"Off\n");
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-23 13:01:55 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-04-29 17:51:15 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -125,6 +125,13 @@ public:
   // Description:
   // Update system if needed due to stereo rendering.
   virtual void StereoUpdate();
+
+  // Description:
+  // Prescribe that the window be created in a stereo-capable mode. This
+  // method must be called before the window is realized. This method
+  // overrrides the superclass method since this class can actually check
+  // whether the window has been realized yet.
+  virtual void SetStereoCapableWindow(int capable);
 
   // Description:
   // Set/Get the pixel data of an image, transmitted as RGBRGB... 
