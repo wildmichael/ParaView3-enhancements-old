@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKochanekSpline.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-09-05 19:09:40 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-02-26 12:34:16 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -106,7 +106,7 @@ void vtkKochanekSpline::Compute ()
   size = this->PiecewiseFunction->GetSize ();
 
   // copy the independent variables
-  if (this->Intervals) delete this->Intervals;
+  if (this->Intervals) delete [] this->Intervals;
   this->Intervals = new float[size];
   ts = this->PiecewiseFunction->GetDataPointer ();  
   for (i = 0; i < size; i++)
@@ -115,7 +115,7 @@ void vtkKochanekSpline::Compute ()
     }
 
   // allocate memory for coefficients
-  if (this->Coefficients) delete this->Coefficients;
+  if (this->Coefficients) delete [] this->Coefficients;
   this->Coefficients = new float [4 * size];
 
   // allocate memory for dependent variables
@@ -140,7 +140,7 @@ void vtkKochanekSpline::Compute ()
 		 this->RightConstraint, this->RightValue);
 
   // free the dependent variable storage
-  delete dependent;
+  delete [] dependent;
 
   // update compute time
   this->ComputeTime = this->GetMTime();
