@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:46 $
-  Version:   $Revision: 1.81 $
+  Date:      $Date: 2002-04-09 17:13:12 $
+  Version:   $Revision: 1.82 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -36,7 +36,7 @@
 #include "vtkOpenGLPolyDataMapper.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkWin32OpenGLRenderWindow, "$Revision: 1.81 $");
+vtkCxxRevisionMacro(vtkWin32OpenGLRenderWindow, "$Revision: 1.82 $");
 vtkStandardNewMacro(vtkWin32OpenGLRenderWindow);
 
 #define VTK_MAX_LIGHTS 8
@@ -62,6 +62,11 @@ vtkWin32OpenGLRenderWindow::~vtkWin32OpenGLRenderWindow()
   if (this->CursorHidden)
     {
     this->ShowCursor();
+    }
+
+  if (this->OffScreenRendering)
+    {
+    this->CleanUpOffScreenRendering();
     }
 
   if (this->WindowId && this->OwnWindow)
