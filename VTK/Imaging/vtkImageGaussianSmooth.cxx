@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGaussianSmooth.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-15 17:17:37 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2003-04-04 19:37:28 $
+  Version:   $Revision: 1.37 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageGaussianSmooth, "$Revision: 1.36 $");
+vtkCxxRevisionMacro(vtkImageGaussianSmooth, "$Revision: 1.37 $");
 vtkStandardNewMacro(vtkImageGaussianSmooth);
 
 //----------------------------------------------------------------------------
@@ -179,7 +179,7 @@ vtkImageGaussianSmoothExecute(vtkImageGaussianSmooth *self, int axis,
     {
     inPtr1 = inPtrC;
     outPtr1 = outPtrC;    
-    for (idx1 = 0; idx1 < max1; ++idx1)
+    for (idx1 = 0; !self->AbortExecute && idx1 < max1; ++idx1)
       {
       inPtr0 = inPtr1;
       outPtr0 = outPtr1;    
