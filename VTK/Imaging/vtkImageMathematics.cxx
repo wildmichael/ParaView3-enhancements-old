@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMathematics.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-14 18:22:21 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2003-10-17 17:59:55 $
+  Version:   $Revision: 1.43 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageMathematics, "$Revision: 1.42 $");
+vtkCxxRevisionMacro(vtkImageMathematics, "$Revision: 1.43 $");
 vtkStandardNewMacro(vtkImageMathematics);
 
 //----------------------------------------------------------------------------
@@ -31,6 +31,7 @@ vtkImageMathematics::vtkImageMathematics()
   this->ConstantK = 1.0;
   this->ConstantC = 0.0;
   this->DivideByZeroToC = 0;
+  this->NumberOfRequiredInputs = 1;
 }
 
 
