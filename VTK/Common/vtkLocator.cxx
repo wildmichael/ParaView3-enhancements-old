@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:25:53 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1995-07-25 15:38:25 $
+  Version:   $Revision: 1.16 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -15,7 +15,6 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 =========================================================================*/
 #include "Locator.hh"
 #include "vtkMath.hh"
-
 #include "IntArray.hh"
 
 class vtkNeighborPoints
@@ -88,7 +87,7 @@ void vtkLocator::FreeSearchStructure()
     {
     for (i=0; i<this->NumberOfBuckets; i++)
       {
-      if ( (ptIds = this->HashTable[i]) ) delete ptIds;
+      if ( (ptIds = this->HashTable[i]) ) ptIds->Delete();
       }
     delete [] this->HashTable;
     this->HashTable = NULL;
