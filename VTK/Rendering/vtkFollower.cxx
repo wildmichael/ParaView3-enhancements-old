@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFollower.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-26 14:56:34 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1999-04-27 19:09:49 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,7 +64,7 @@ vtkFollower::~vtkFollower()
 // Copy the follower's composite 4x4 matrix into the matrix provided.
 void vtkFollower::GetMatrix(vtkMatrix4x4 *result)
 {
-  float *pos;
+  double *pos;
   vtkMatrix4x4 *matrix = vtkMatrix4x4::New();
 
   this->GetOrientation();
@@ -92,13 +92,13 @@ void vtkFollower::GetMatrix(vtkMatrix4x4 *result)
   // add the rotation to follow the camera
   if (this->Camera)
     {
-    float distance, distance_old;
-    float *vup;
-    float twist = 0;
-    float v1[3], v2[3], y_axis[3];
+    double distance, distance_old;
+    double *vup;
+    double twist = 0;
+    double v1[3], v2[3], y_axis[3];
     double theta, dot, mag;
     double cosang;
-    float vn[3];
+    double vn[3];
 
     // calc the direction
     pos = this->Camera->GetPosition();
