@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-26 21:13:04 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1999-04-30 14:03:46 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -492,6 +492,32 @@ unsigned long int vtkVolume::GetRedrawMTime()
       {
       this->GetMapper()->GetInput()->Update();
       time = this->Mapper->GetInput()->GetMTime();
+      mTime = ( time > mTime ? time : mTime );
+      }
+    }
+
+  if ( this->Property != NULL )
+    {
+    time = this->Property->GetMTime();
+    mTime = ( time > mTime ? time : mTime );
+    if ( this->Property->GetGrayTransferFunction() != NULL )
+      {
+      time = this->Property->GetGrayTransferFunction()->GetMTime();
+      mTime = ( time > mTime ? time : mTime );
+      }
+    if ( this->Property->GetRGBTransferFunction() != NULL )
+      {
+      time = this->Property->GetRGBTransferFunction()->GetMTime();
+      mTime = ( time > mTime ? time : mTime );
+      }
+    if ( this->Property->GetScalarOpacity() != NULL )
+      {
+      time = this->Property->GetScalarOpacity()->GetMTime();
+      mTime = ( time > mTime ? time : mTime );
+      }
+    if ( this->Property->GetGradientOpacity() != NULL )
+      {
+      time = this->Property->GetGradientOpacity()->GetMTime();
       mTime = ( time > mTime ? time : mTime );
       }
     }
