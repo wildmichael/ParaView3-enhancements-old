@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkBitArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-30 18:30:43 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1994-11-09 19:47:34 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -120,15 +120,12 @@ vlBitArray& vlBitArray::operator+=(const vlBitArray& ia)
 
 void vlBitArray::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlBitArray::GetClassName()))
-    {
-    vlObject::PrintSelf(os,indent);
+  vlObject::PrintSelf(os,indent);
 
-    os << indent << "Array: " << this->Array << "\n";
-    os << indent << "Size: " << this->Size << "\n";
-    os << indent << "MaxId: " << this->MaxId << "\n";
-    os << indent << "Extend size: " << this->Extend << "\n";
-    }
+  os << indent << "Array: " << this->Array << "\n";
+  os << indent << "Size: " << this->Size << "\n";
+  os << indent << "MaxId: " << this->MaxId << "\n";
+  os << indent << "Extend size: " << this->Extend << "\n";
 }
 
 //

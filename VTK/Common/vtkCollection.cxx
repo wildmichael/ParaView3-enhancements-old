@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCollection.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-01 23:09:03 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-11-09 19:47:46 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -150,10 +150,7 @@ int vlCollection::GetNumberOfItems()
 
 void vlCollection::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlCollection::GetClassName()))
-    {
-    vlObject::PrintSelf(os,indent);
-    
-    os << indent << "Number Of Items: " << this->NumberOfItems << "\n";
-    }
+  vlObject::PrintSelf(os,indent);
+
+  os << indent << "Number Of Items: " << this->NumberOfItems << "\n";
 }
