@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeTextureMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:59 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-08-09 20:32:49 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -171,6 +171,8 @@ void vtkVolumeTextureMapper::InitializeRender( vtkRenderer *ren,
     GArray = vol->GetGrayArray();
     for ( i=0, j=0; i < size; i++ )
       {
+      this->RGBAArray[j++] = (unsigned char) (0.5 + (GArray[i]*255.0));
+      this->RGBAArray[j++] = (unsigned char) (0.5 + (GArray[i]*255.0));
       this->RGBAArray[j++] = (unsigned char) (0.5 + (GArray[i]*255.0));
       this->RGBAArray[j++] = (unsigned char) (0.5 + AArray[i]*255.0*gradientOpacityConstant);
       }
