@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-17 19:34:48 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2001-09-25 18:28:48 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -722,7 +722,16 @@ void vtkDataArray::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkObject::PrintSelf(os,indent);
 
-  os << indent << "Name: " << this->GetName() << "\n";
+  os << indent << "Name: " ;
+  char* name = this->GetName();
+  if (name)
+    {
+    os << name << endl;
+    }
+  else
+    {
+    os << "(none)" << endl;
+    }
   os << indent << "Number Of Components: " << this->NumberOfComponents << "\n";
   os << indent << "Number Of Tuples: " << this->GetNumberOfTuples() << "\n";
   os << indent << "Size: " << this->Size << "\n";
