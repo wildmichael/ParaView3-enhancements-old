@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiProcessController.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-08 18:14:37 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2003-01-27 18:26:04 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,6 +17,7 @@
 =========================================================================*/
 // This will be the default.
 #include "vtkMultiProcessController.h"
+#include "vtkDummyController.h"
 #include "vtkThreadedController.h"
 #include "vtkToolkits.h"
 
@@ -53,10 +54,10 @@ protected:
   void operator=(const vtkMultiProcessControllerRMI&);
 };
 
-vtkCxxRevisionMacro(vtkMultiProcessControllerRMI, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkMultiProcessControllerRMI, "$Revision: 1.16 $");
 vtkStandardNewMacro(vtkMultiProcessControllerRMI);
 
-vtkCxxRevisionMacro(vtkMultiProcessController, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkMultiProcessController, "$Revision: 1.16 $");
 
 //----------------------------------------------------------------------------
 // An RMI function that will break the "ProcessRMIs" loop.
@@ -153,8 +154,8 @@ vtkMultiProcessController *vtkMultiProcessController::New()
 #endif
 
   vtkGenericWarningMacro("No valid parallel library was found. "
-                         "Can not create controller.");
-  return NULL;
+                         "Creating dummy controller.");
+  return vtkDummyController::New();
 }
 
 
