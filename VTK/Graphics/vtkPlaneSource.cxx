@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlaneSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:46:11 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1997-09-03 19:31:42 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -224,6 +224,7 @@ void vtkPlaneSource::SetNormal(float N[3])
   transform.GetPoint(p);
   for (i=0; i < 3; i++) this->Point2[i] = p[i] / p[3];
 
+  for (i=0; i < 3; i++) this->Normal[i] = n[i];
   this->Modified();
 }
 
