@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:40 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-10-08 20:58:33 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,6 +65,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define VTKIS_DOLLY  5
 #define VTKIS_USCALE 6
 #define VTKIS_TIMER  7 
+#define VTKIS_ANIM_OFF 0
+#define VTKIS_ANIM_ON  1
 
 class vtkPolyDataMapper;
 class vtkOutlineSource;
@@ -166,7 +168,9 @@ protected:
   virtual void StartState(int newstate);
   virtual void StopState();
 
-  // Interaction mode entry points used internally.
+  // Interaction mode entry points used internally.  
+  virtual void StartAnimate();  
+  virtual void StopAnimate();  
   virtual void StartRotate();
   virtual void EndRotate();
   virtual void StartZoom();
@@ -196,7 +200,8 @@ protected:
   int   CtrlKey;
   int   ShiftKey;
   int   LastPos[2];
-  int   State;
+  int   State;  
+  int   AnimState;  
   float FocalDepth;  
 
   // for picking actors
