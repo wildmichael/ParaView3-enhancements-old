@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPolygon.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-22 19:06:07 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-03-03 20:03:14 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -78,4 +78,10 @@ void vlPolygon::ComputeNormal(float *v1, float *v2, float *v3, float *n)
         n[1] /= length;
         n[2] /= length;
     }
+}
+
+float vlPolygon::DistanceToPoint(float *x)
+{
+
+  return 1.0;
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataSetToStructuredPointsFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-03-02 08:59:13 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-03-03 20:03:06 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -15,21 +15,21 @@ without the express written consent of the authors.
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-#include "P2SPtsF.hh"
+#include "DS2SPtsF.hh"
 
-void vlPolyToStructuredPointsFilter::Update()
+void vlDataSetToStructuredPointsFilter::Update()
 {
-  vlPolyFilter::Update();
+  vlDataSetFilter::Update();
 }
 
-void vlPolyToStructuredPointsFilter::PrintSelf(ostream& os, vlIndent indent)
+void vlDataSetToStructuredPointsFilter::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlPolyToStructuredPointsFilter::GetClassName()))
+  if (this->ShouldIPrint(vlDataSetToStructuredPointsFilter::GetClassName()))
     {
     this->PrintWatchOn(); // watch for multiple inheritance
     
     vlStructuredPoints::PrintSelf(os,indent);
-    vlPolyFilter::PrintSelf(os,indent);
+    vlDataSetFilter::PrintSelf(os,indent);
     
     this->PrintWatchOff(); // stop worrying about it now
     }

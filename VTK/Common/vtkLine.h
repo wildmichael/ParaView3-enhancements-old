@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkLine.h,v $
   Language:  C++
-  Date:      $Date: 1994-02-22 19:05:13 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-03-03 20:03:11 $
+  Version:   $Revision: 1.3 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -21,20 +21,15 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #ifndef __vlLine_h
 #define __vlLine_h
 
-#include "Object.hh"
-#include "Points.hh"
-#include "CellArr.hh"
-#include "FNormals.hh"
+#include "Cell.hh"
 
-#define MAX_RESOLUTION MAX_VERTS
-
-class vlLine : public vlObject
+class vlLine : public vlCell
 {
 public:
   vlLine() {};
   char *GetClassName() {return "vlLine";};
 
-  int GenerateNormals(vlPoints *, vlCellArray *, vlFloatNormals *);
+  float DistanceToPoint(float *x);
 
 };
 

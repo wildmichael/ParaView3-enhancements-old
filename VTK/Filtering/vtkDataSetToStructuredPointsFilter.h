@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataSetToStructuredPointsFilter.h,v $
   Language:  C++
-  Date:      $Date: 1994-03-02 08:59:14 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-03-03 20:03:07 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -16,20 +16,20 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 
 =========================================================================*/
 //
-// PolyToStructuredPointsFilter are filters that take PolyData in and 
+// DataSetToStructuredPointsFilter are filters that take DataSets in and 
 // generate StructuredPoints data
 //
-#ifndef __vlPolyToStructuredPointsFilter_h
-#define __vlPolyToStructuredPointsFilter_h
+#ifndef __vlDataSetToStructuredPointsFilter_h
+#define __vlDataSetToStructuredPointsFilter_h
 
-#include "PolyF.hh"
+#include "DataSetF.hh"
 #include "SPoints.hh"
 
-class vlPolyToStructuredPointsFilter : public vlStructuredPoints, public vlPolyFilter
+class vlDataSetToStructuredPointsFilter : public vlStructuredPoints, public vlDataSetFilter
 {
 public:
   void Update();
-  char *GetClassName() {return "vlPolyToStructuredPointsFilter";};
+  char *GetClassName() {return "vlDataSetToStructuredPointsFilter";};
   void PrintSelf(ostream& os, vlIndent indent);
 };
 

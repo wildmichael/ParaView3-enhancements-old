@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRibbonFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-03-01 22:23:06 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-03-03 20:03:16 $
+  Version:   $Revision: 1.4 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -19,7 +19,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #include "RibbonF.hh"
 #include "FPoints.hh"
 #include "FNormals.hh"
-#include "Line.hh"
+#include "PolyLine.hh"
 
 vlRibbonFilter::vlRibbonFilter()
 {
@@ -63,8 +63,8 @@ void vlRibbonFilter::Execute()
 
   if ( !(inNormals=pd->GetNormals()) )
     {
+    vlPolyLine lineNormalGenerator;
     deleteNormals = 1;
-    vlLine lineNormalGenerator;
     inNormals = new vlFloatNormals(inPts->NumberOfPoints());
     if ( !lineNormalGenerator.GenerateNormals(inPts,inLines,(vlFloatNormals*)inNormals) )
       {

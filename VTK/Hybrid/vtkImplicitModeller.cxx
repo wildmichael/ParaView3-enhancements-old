@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkImplicitModeller.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-03-02 08:59:12 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-03-03 20:03:08 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -37,7 +37,7 @@ void vlImplicitModeller::PrintSelf(ostream& os, vlIndent indent)
 {
   if (this->ShouldIPrint(vlImplicitModeller::GetClassName()))
     {
-    vlPolyToStructuredPointsFilter::PrintSelf(os,indent);
+    vlDataSetToStructuredPointsFilter::PrintSelf(os,indent);
 
     os << indent << "Maximum Distance: " << this->MaximumDistance << "\n";
     os << indent << "ModelBounds: \n";

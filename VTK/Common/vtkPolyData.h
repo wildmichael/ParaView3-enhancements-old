@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1994-02-07 17:14:52 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1994-03-03 20:03:14 $
+  Version:   $Revision: 1.17 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -23,8 +23,6 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #include "DataSet.hh"
 #include "FPoints.hh"
 #include "CellArr.hh"
-#include "CellList.hh"
-#include "LinkList.hh"
 
 #define MAX_VERTS MAX_CELL_SIZE
 
@@ -77,13 +75,8 @@ private:
   vlCellArray *Lines;
   vlCellArray *Polys;
   vlCellArray *Strips;
-  vlCellList Cells;
-  vlLinkList Links;
   // dummy static member below used as a trick to simplify traversal
   static vlCellArray *Dummy;
-
-  void BuildCells();
-  void BuildLinks();
 };
 
 #endif

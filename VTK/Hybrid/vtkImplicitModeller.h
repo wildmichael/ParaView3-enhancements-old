@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkImplicitModeller.h,v $
   Language:  C++
-  Date:      $Date: 1994-03-02 08:59:13 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-03-03 20:03:09 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -21,9 +21,9 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #ifndef __vlImplicitModeller_h
 #define __vlImplicitModeller_h
 
-#include "P2SPtsF.hh"
+#include "DS2SPtsF.hh"
 
-class vlImplicitModeller : public vlPolyToStructuredPointsFilter 
+class vlImplicitModeller : public vlDataSetToStructuredPointsFilter 
 {
 public:
   vlImplicitModeller();
