@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfHDF.cxx,v 1.9 2003-10-31 15:57:53 clarke Exp $  */
-/*  Date : $Date: 2003-10-31 15:57:53 $ */
-/*  Version : $Revision: 1.9 $ */
+/*  Id : $Id: XdmfHDF.cxx,v 1.10 2003-11-20 17:46:39 clarke Exp $  */
+/*  Date : $Date: 2003-11-20 17:46:39 $ */
+/*  Version : $Revision: 1.10 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -34,7 +34,6 @@ extern "C" {
 #else
 #define XDMF_HDF5_SIZE_T        hsize_t
 #endif
-
 
 
 XdmfHDF::XdmfHDF() {
@@ -635,7 +634,20 @@ XdmfDebug("Using Domain " << this->Domain );
 #endif
     } else if( STRCASECMP( this->Domain, "GASS" ) == 0 ) {
     } else {
-      XdmfDebug("Using File Interface, Path = " << this->GetWorkingDirectory() );
+// Check for Parallel HDF5 ... MPI must already be initialized
+#if H5_HAVE_PARALLEL && (H5_VERS_MAJOR >= 1) && (H5_VERS_MINOR >= 6)
+    if( STRCASECMP( this->Domain, "SERIAL" ) != 0 ) {
+      XdmfDebug("Using Parallel File Interface, Path = " << this->GetWorkingDirectory() );
+
+	this->AccessPlist = H5Pcreate( H5P_FILE_ACCESS );
+	H5Pset_fapl_mpio(this->AccessPlist, MPI_COMM_WORLD, MPI_INFO_NULL);
+    }else{
+      XdmfDebug("Using Serial File Interface, Path = " << this->GetWorkingDirectory() );
+	}
+	
+#else
+      XdmfDebug("Using Serial File Interface, Path = " << this->GetWorkingDirectory() );
+#endif
       if( ( strlen( this->GetWorkingDirectory() ) > 0 ) && 
         ( this->FileName[0] != '/' ) ){
         FullFileName << this->GetWorkingDirectory() << "/";

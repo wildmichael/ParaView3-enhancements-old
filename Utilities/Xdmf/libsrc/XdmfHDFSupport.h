@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfHDFSupport.h,v 1.2 2003-06-26 18:02:26 andy Exp $  */
-/*  Date : $Date: 2003-06-26 18:02:26 $ */
-/*  Version : $Revision: 1.2 $ */
+/*  Id : $Id: XdmfHDFSupport.h,v 1.3 2003-11-20 17:46:39 clarke Exp $  */
+/*  Date : $Date: 2003-11-20 17:46:39 $ */
+/*  Version : $Revision: 1.3 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -27,10 +27,17 @@
 
 #ifndef SWIG
 #include "XdmfObject.h"
+#include "H5public.h"
+
+#if (H5_VERS_MAJOR >= 1) && (H5_VERS_MINOR >= 6)
+#include "hdf5.h"
+#else
 extern "C" {
 #include "hdf5.h"
 }
 #endif
+
+#endif /* SWIG */
 
 extern XDMF_EXPORT hid_t    XdmfTypeToHDF5Type( XdmfInt32 XdmfType );
 extern XDMF_EXPORT XdmfInt32  HDF5TypeToXdmfType( hid_t HDF5Type );
