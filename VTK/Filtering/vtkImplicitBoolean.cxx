@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitBoolean.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-30 11:11:57 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1996-05-30 13:54:11 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -93,7 +93,8 @@ void vtkImplicitBoolean::RemoveFunction(vtkImplicitFunction *f)
 // Evaluate boolean combinations of implicit function using current operator.
 float vtkImplicitBoolean::EvaluateFunction(float x[3])
 {
-  float value, v;
+  float value = 0;
+  float v;
   vtkImplicitFunction *f;
 
   if ( this->OperationType == VTK_UNION )
@@ -147,7 +148,8 @@ float vtkImplicitBoolean::EvaluateFunction(float x[3])
 // Evaluate gradient of boolean combination.
 void vtkImplicitBoolean::EvaluateGradient(float x[3], float g[3])
 {
-  float value, v;
+  float value = 0;
+  float v;
   vtkImplicitFunction *f;
 
   if ( this->OperationType == VTK_UNION )

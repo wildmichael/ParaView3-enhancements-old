@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMath.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-05-30 01:49:20 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1996-05-30 13:54:18 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -182,7 +182,8 @@ int vtkMath::LUFactorLinearSystem(double **A, int *index, int size)
 {
   static double *scale = NULL;
   static maxSize=0;
-  int i, maxI, j, k;
+  int i, j, k;
+  int maxI = 0;
   double largest, temp1, temp2, sum;
 //
 // Check on allocation of working vectors
@@ -466,7 +467,8 @@ int vtkMath::Jacobi(float **a, float *w, float **v)
 // only: see Conte and de Boor, Elementary Numerical Analysis.)
 double vtkMath::EstimateMatrixCondition(double **A, int size)
 {
-  int i, j;
+  int i;
+  int j = 0;
   double min=VTK_LARGE_FLOAT, max=(-VTK_LARGE_FLOAT);
 
   // find the maximum value

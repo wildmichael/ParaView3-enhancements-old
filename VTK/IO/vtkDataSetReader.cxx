@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-01-25 13:26:18 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1996-05-30 13:53:51 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -143,7 +143,7 @@ char *vtkDataSetReader::GetLookupTableName()
 void vtkDataSetReader::Execute()
 {
   char line[256];
-  vtkDataSet *output;
+  vtkDataSet *output = NULL;
   
   vtkDebugMacro(<<"Reading vtk dataset...");
   if ( this->Debug ) this->Reader.DebugOn();

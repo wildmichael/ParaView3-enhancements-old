@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractEdges.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-05-17 21:14:52 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1996-05-30 13:53:56 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,7 +55,8 @@ void vtkExtractEdges::Execute()
   vtkFloatPoints *newPts;
   vtkCellArray *newLines;
   int numCells, cellNum, numEdges, edgeNum, numEdgePts, numCellEdges;
-  int numPts, numNewPts, i, pts[2], pt1, pt2;
+  int numPts, numNewPts, i, pts[2], pt2;
+  int pt1 = 0;
   vtkEdgeTable *edgeTable;
   vtkCell *cell, *edge;
 
@@ -63,8 +64,8 @@ void vtkExtractEdges::Execute()
   //
   //  Check input
   //
-  if ( (numCells=input->GetNumberOfCells()) < 1 || 
-  (numPts=input->GetNumberOfPoints()) < 1 )
+  numPts=input->GetNumberOfPoints();
+  if ( (numCells=input->GetNumberOfCells()) < 1 || numPts < 1 )
     {
     vtkErrorMacro(<<"No input data!");
     return;

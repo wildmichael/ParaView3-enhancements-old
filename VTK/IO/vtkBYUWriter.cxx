@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-11-27 11:29:57 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1996-05-30 13:53:44 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -113,11 +113,11 @@ void vtkBYUWriter::WriteGeometryFile(FILE *geomFile, int numPts)
   vtkPoints *inPts;
   vtkCellArray *inPolys;
   vtkPolyData *input=(vtkPolyData *)this->Input;
-//
-// Check input
-//
-  if ( (inPts=input->GetPoints()) == NULL ||
-  (inPolys=input->GetPolys()) == NULL )
+  //
+  // Check input
+  //
+  inPolys=input->GetPolys();
+  if ( (inPts=input->GetPoints()) == NULL || inPolys == NULL )
     {
     vtkErrorMacro(<<"No data to write!");
     return;

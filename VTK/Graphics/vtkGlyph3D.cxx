@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-04-24 19:41:18 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1996-05-30 13:54:10 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -86,7 +86,8 @@ void vtkGlyph3D::Execute()
   int npts;
   vtkIdList pts(VTK_CELL_SIZE);
   int orient, scaleSource, ptIncr, cellId;
-  float scale, den;
+  float scale = 1;
+  float den;
   vtkMath math;
   vtkPolyData *output = this->GetOutput();
   vtkPointData *outputPD = output->GetPointData();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-05-22 20:54:26 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1996-05-30 13:53:48 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,11 +57,13 @@ void vtkCellPicker::IntersectWithLine(float p1[3], float p2[3], float tol,
   vtkDataSet *input=m->GetInput();
 
   if ( (numCells = input->GetNumberOfCells()) < 1 ) return;
-//
-//  Intersect each cell with ray.  Keep track of one closest to 
-//  the eye (and within the clipping range).
-//
-  for (minCellId=(-1),tMin=VTK_LARGE_FLOAT,cellId=0; cellId<numCells; cellId++) 
+  //
+  //  Intersect each cell with ray.  Keep track of one closest to 
+  //  the eye (and within the clipping range).
+  //
+  minCellId = -1;
+  minSubId = -1;
+  for (tMin=VTK_LARGE_FLOAT,cellId=0; cellId<numCells; cellId++) 
     {
     cell = input->GetCell(cellId);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-12-29 13:48:58 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1996-05-30 13:53:52 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -270,7 +270,7 @@ int vtkDataWriter::WritePoints(FILE *fp, vtkPoints *points)
 
 int vtkDataWriter::WriteScalarData(FILE *fp, vtkScalars *scalars, int numPts)
 {
-  int i, size;
+  int i, size = 0;
   char *type, *name;
   vtkLookupTable *lut;
 

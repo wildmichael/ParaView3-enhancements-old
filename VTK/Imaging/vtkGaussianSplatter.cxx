@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGaussianSplatter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-31 17:11:19 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1996-05-30 13:54:01 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -110,19 +110,23 @@ void vtkGaussianSplatter::Execute()
   vtkStructuredPoints *output = this->GetOutput();
   
   vtkDebugMacro(<< "Splatting data");
-//
-//  Make sure points are available
-//
+  // init a couple variables to prevent compiler warnings
+  jp = 0;
+  kp = 0;
+  
+  //
+  //  Make sure points are available
+  //
   if ( (numSplatPts=this->Input->GetNumberOfPoints()) < 1 )
     {
     vtkErrorMacro(<<"No points to splat!");
     return;
     }
-//
-//  Compute the radius of influence of the points.  If an
-//  automatically generated bounding box has been generated, increase
-//  its size slightly to acoomodate the radius of influence.
-//
+  //
+  //  Compute the radius of influence of the points.  If an
+  //  automatically generated bounding box has been generated, increase
+  //  its size slightly to acoomodate the radius of influence.
+  //
   Eccentricity2 = this->Eccentricity * this->Eccentricity;
 
   numPts = this->SampleDimensions[0] * this->SampleDimensions[1] 

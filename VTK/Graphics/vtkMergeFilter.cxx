@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-04-24 19:41:20 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1996-05-30 13:54:19 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -177,12 +177,12 @@ void vtkMergeFilter::Execute()
   int numPts, numScalars=0, numVectors=0, numNormals=0, numTCoords=0;
   int numTensors=0, numUserDefined=0;
   vtkPointData *pd;
-  vtkScalars *scalars;
-  vtkVectors *vectors;
-  vtkNormals *normals;
-  vtkTCoords *tcoords;
-  vtkTensors *tensors;
-  vtkUserDefined *ud;
+  vtkScalars *scalars = NULL;
+  vtkVectors *vectors = NULL;
+  vtkNormals *normals = NULL;
+  vtkTCoords *tcoords = NULL;
+  vtkTensors *tensors = NULL;
+  vtkUserDefined *ud  = NULL;
   vtkPointData *outputPD = this->Output->GetPointData();
   
   vtkDebugMacro(<<"Merging data!");

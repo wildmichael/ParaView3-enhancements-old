@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-03-20 21:50:36 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1996-05-30 13:53:55 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -219,7 +219,7 @@ void vtkDelaunay2D::Execute()
   vtkIdList neighbors(2), cells(64);
   float center[3], radius, tol;
   vtkMath math;
-  char *triUse;
+  char *triUse = NULL;
 
   vtkDebugMacro(<<"Generating 2D Delaunay triangulation");
 //

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-11-16 22:26:26 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1996-05-30 13:54:34 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,8 +71,9 @@ void vtkSTLWriter::WriteData()
   vtkCellArray *polys;
   vtkPolyData *input=(vtkPolyData *)this->Input;
 
-  if ( (pts = input->GetPoints()) == NULL ||
-  (polys = input->GetPolys()) == NULL )
+  polys = input->GetPolys();
+  pts = input->GetPoints();
+  if (pts == NULL || polys == NULL )
     {
     vtkErrorMacro(<<"No data to write!");
     return;

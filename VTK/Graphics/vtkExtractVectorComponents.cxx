@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractVectorComponents.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-04-24 19:41:16 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1996-05-30 13:53:57 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -176,7 +176,7 @@ void vtkExtractVectorComponents::Update()
 
 void vtkExtractVectorComponents::Execute()
 {
-  int i, numVectors;
+  int i, numVectors = 0;
   float *v;
   vtkVectors *vectors;
   vtkFloatScalars *vx, *vy, *vz;

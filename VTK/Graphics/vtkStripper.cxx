@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStripper.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-09 16:44:33 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1996-05-30 13:54:42 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,7 +58,7 @@ void vtkStripper::Execute()
   int numTriPts, *triPts;
   vtkIdList cellIds(VTK_CELL_SIZE);
   int pts[VTK_CELL_SIZE];
-  int neighbor;
+  int neighbor = 0;
   vtkPolyData Mesh;
   char *visited;
   int numStripPts, *stripPts;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConnectivityFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-11-03 13:12:49 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1996-05-30 13:53:49 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,7 +65,8 @@ void vtkConnectivityFilter::Execute()
   vtkIdList cellIds(VTK_CELL_SIZE), ptIds(VTK_CELL_SIZE);
   vtkPointData *pd;
   int id;
-  int maxCellsInRegion, largestRegionId;
+  int maxCellsInRegion;
+  int largestRegionId = 0;
   vtkUnstructuredGrid *output = this->GetOutput();
   vtkPointData *outputPD = output->GetPointData();
   
@@ -73,8 +74,8 @@ void vtkConnectivityFilter::Execute()
   //
   //  Check input/allocate storage
   //
-  if ( (numPts=this->Input->GetNumberOfPoints()) < 1 ||
-  (numCells=this->Input->GetNumberOfCells()) < 1 )
+  numCells=this->Input->GetNumberOfCells();
+  if ( (numPts=this->Input->GetNumberOfPoints()) < 1 || numCells < 1 )
     {
     vtkDebugMacro(<<"No data to connect!");
     return;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpTo.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-04-22 18:34:40 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1996-05-30 13:54:49 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,7 +51,8 @@ void vtkWarpTo::Execute()
   vtkPointSet *input=(vtkPointSet *)this->Input;
   vtkPointSet *output=(vtkPointSet *)this->Output;
   static vtkMath math;
-  float mag, minMag;
+  float mag;
+  float minMag = 0;
   
   vtkDebugMacro(<<"Warping data to a point");
 

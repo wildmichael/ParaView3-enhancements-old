@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShrinkFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-09 16:43:04 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1996-05-30 13:54:39 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,8 +57,9 @@ void vtkShrinkFilter::Execute()
 
   vtkDebugMacro(<<"Shrinking cells");
 
-  if ( (numCells=this->Input->GetNumberOfCells()) < 1 ||
-  (numPts = this->Input->GetNumberOfPoints()) < 1 )
+  numCells=this->Input->GetNumberOfCells();
+  numPts = this->Input->GetNumberOfPoints();
+  if (numCells < 1 || numPts < 1)
     {
     vtkErrorMacro(<<"No data to shrink!");
     return;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-03-25 14:01:26 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1996-05-30 13:54:48 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -156,7 +156,7 @@ vtkCell *vtkUnstructuredGrid::GetCell(int cellId)
   static vtkVoxel voxel;
   static vtkHexahedron hexa;
   int i, loc, numPts, *pts;
-  vtkCell *cell;
+  vtkCell *cell = NULL;
 
   switch (this->Cells->GetCellType(cellId))
     {

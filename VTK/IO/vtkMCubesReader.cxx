@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMCubesReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-05-09 20:07:08 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1996-05-30 13:54:15 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,10 +65,11 @@ vtkMCubesReader::~vtkMCubesReader()
 
 void vtkMCubesReader::Execute()
 {
-  FILE *fp, *limitp;
+  FILE *fp;
+  FILE *limitp = NULL;
   vtkFloatPoints *newPts;
   vtkCellArray *newPolys;
-  vtkFloatNormals *newNormals;
+  vtkFloatNormals *newNormals = NULL;
   float bounds[6];
   int i, j, k, numPts, numTris;
   typedef struct {float x[3], n[3];} pointType;

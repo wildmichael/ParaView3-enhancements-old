@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-03-05 21:18:08 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 1996-05-30 13:54:26 $
+  Version:   $Revision: 1.61 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -134,7 +134,7 @@ vtkCell *vtkPolyData::GetCell(int cellId)
   static vtkPolygon poly;
   static vtkQuad quad;
   int i, loc, numPts, *pts;
-  vtkCell *cell;
+  vtkCell *cell = NULL;
   unsigned char type;
 
   if ( !this->Cells ) this->BuildCells();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRibbonFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-03-26 21:56:50 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1996-05-30 13:54:31 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,7 +62,7 @@ void vtkRibbonFilter::Execute()
   vtkNormals *inNormals;
   vtkPointData *pd, *outPD;
   vtkCellArray *inLines;
-  int numNewPts;
+  int numNewPts = 0;
   vtkFloatPoints *newPts;
   vtkFloatNormals *newNormals;
   vtkCellArray *newStrips;
@@ -84,9 +84,11 @@ void vtkRibbonFilter::Execute()
 //
   vtkDebugMacro(<<"Creating ribbon");
 
-  if ( !(inPts=input->GetPoints()) || 
-  (numNewPts=inPts->GetNumberOfPoints()*2) < 1 ||
-  !(inLines = input->GetLines()) || inLines->GetNumberOfCells() < 1 )
+  inPts=input->GetPoints();
+  inLines = input->GetLines();
+  if ( !inPts || 
+       (numNewPts=inPts->GetNumberOfPoints()*2) < 1 ||
+       !inLines || inLines->GetNumberOfCells() < 1 )
     {
     vtkErrorMacro(<< ": No input data!\n");
     return;

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointLoad.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-25 23:45:18 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1996-05-30 13:54:24 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -117,7 +117,7 @@ void vtkPointLoad::Execute()
   int i, j, k;
   vtkFloatTensors *newTensors;
   vtkTensor tensor;
-  vtkFloatScalars *newScalars;
+  vtkFloatScalars *newScalars = NULL;
   int numPts;
   vtkMath math;
   float P, twoPi, xP[3], rho, rho2, rho3, rho5, nu;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-12 11:25:50 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1996-05-30 13:54:41 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,7 +54,8 @@ void vtkStreamPoints::Execute()
   vtkFloatVectors *newVectors;
   vtkFloatScalars *newScalars=NULL;
   vtkCellArray *newVerts;
-  int i, ptId, j, id, npts;
+  int i, ptId, j, id;
+  int npts = 0;
   float tOffset, x[3], v[3], s, r;
   vtkPolyData *output=(vtkPolyData *)this->Output;
 

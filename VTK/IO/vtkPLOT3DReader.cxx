@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLOT3DReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-05-30 01:49:23 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1996-05-30 13:54:23 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -92,7 +92,7 @@ vtkPLOT3DReader::~vtkPLOT3DReader()
 void vtkPLOT3DReader::Execute()
 {
   FILE *xyzFp, *QFp, *funcFp;
-  int error;
+  int error = 0;
   vtkStructuredGrid *output = this->GetOutput();
   vtkPointData *outputPD = output->GetPointData();
   
@@ -299,7 +299,7 @@ int vtkPLOT3DReader::ReadBinarySolution(FILE *fp,vtkStructuredGrid *output)
   int dim[3];
   int i, gridFound, offset, gridSize, maxGridSize;
   float m[3], params[4];
-  int numGrids, numPts;
+  int numGrids, numPts = 0;
   vtkByteSwap swapper;
 
   if ( this->FileFormat == VTK_WHOLE_MULTI_GRID_NO_IBLANKING )
