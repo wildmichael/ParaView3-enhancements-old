@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSurfaceReconstructionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-12 13:52:53 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-04-16 00:01:48 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to Tim Hutton (MINORI Project, Dental and Medical
              Informatics, Eastman Dental Institute, London, UK) who
              developed and contributed this class.
@@ -405,7 +405,8 @@ void vtkSurfaceReconstructionFilter::Execute()
   // initialise the output volume
   output->SetDimensions(dim[0],dim[1],dim[2]);
   output->SetSpacing(this->SampleSpacing,this->SampleSpacing,this->SampleSpacing);
-
+  output->SetOrigin(topleft);
+  
   // initialise the point locator (have to use point insertion because we
   // need to set our own bounds, slightly larger than the dataset to allow
   // for sampling around the edge)
@@ -414,7 +415,7 @@ void vtkSurfaceReconstructionFilter::Execute()
   locator->InitPointInsertion(newPts,bounds,COUNT);
   for(i=0;i<COUNT;i++)
     {
-    locator->InsertPoint(i,surfacePoints[i].o);
+    locator->InsertPoint(i,surfacePoints[i].loc);
     }
 
   // go through the array probing the values
@@ -444,7 +445,7 @@ void vtkSurfaceReconstructionFilter::Execute()
           return;
           }
         CopyBToA(temp,point);
-        SubtractBFromA(temp,surfacePoints[iClosestPoint].o);
+        SubtractBFromA(temp,surfacePoints[iClosestPoint].loc);
         probeValue = vtkMath::Dot(temp,surfacePoints[iClosestPoint].n);
         volScalars->InsertScalar(offset,probeValue);
         }
