@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePlaneWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-21 19:19:05 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-08-23 17:52:18 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -239,6 +239,11 @@ public:
   // EndInteraction events are invoked. The user provides the vtkPolyData and
   // the points and polyplane are added to it.
   void GetPolyData(vtkPolyData *pd);
+
+  // Description:
+  // Convenience method to get the texture used by this widget.  This can be
+  // used in external slice viewers.
+  vtkTexture *GetTexture();
 
   // Description:
   // Get the plane properties. The properties of the plane when selected
