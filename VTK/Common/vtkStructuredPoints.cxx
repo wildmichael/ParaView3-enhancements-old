@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:50:33 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 1998-04-21 13:34:52 $
+  Version:   $Revision: 1.56 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -578,10 +578,11 @@ void vtkStructuredPoints::SetDimensions(int dim[3])
 {
   int returnStatus=vtkStructuredData::SetDimensions(dim,this->Dimensions);
 
-  if ( returnStatus > 0 ) 
+  if ( returnStatus > 0 )
     {
     this->DataDescription = returnStatus;
-    this->Modified();
+    if (returnStatus != VTK_UNCHANGED)
+      this->Modified();
     }
    else if ( returnStatus < 0 ) //improperly specified
     {
