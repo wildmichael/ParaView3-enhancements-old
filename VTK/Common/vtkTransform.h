@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-24 00:51:46 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2000-01-24 22:45:40 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -82,10 +82,8 @@ class VTK_EXPORT vtkTransform : public vtkGeneralTransform
   // Description:
   // Linear transformations (the perspective portion of
   // the 4x4 matrix is ignored).
-//BTX
   void TransformPoint(const float in[3], float out[3]);
   void TransformPoint(const double in[3], double out[3]);
-//ETX
   void TransformPoints(vtkPoints *inPts, vtkPoints *outPts);
   void TransformNormals(vtkPoints *inPts, vtkPoints *outPts,
 			vtkNormals *inNms, vtkNormals *outNms);

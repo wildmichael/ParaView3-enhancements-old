@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeneralTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-24 00:51:44 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-01-24 22:45:40 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,13 +66,15 @@ void vtkGeneralTransform::TransformPoint(const double in[3], double out[3])
 }
 
 //----------------------------------------------------------------------------
-float *vtkGeneralTransform::TransformPoint(float x, float y, float z)
+float *vtkGeneralTransform::TransformFloatPoint(float x, 
+						float y, 
+						float z)
 {
-  this->InternalPoint[0] = x;
-  this->InternalPoint[1] = y;
-  this->InternalPoint[2] = z;
-  this->TransformPoint(this->InternalPoint,this->InternalPoint);
-  return this->InternalPoint;
+  this->InternalFloatPoint[0] = x;
+  this->InternalFloatPoint[1] = y;
+  this->InternalFloatPoint[2] = z;
+  this->TransformPoint(this->InternalFloatPoint,this->InternalFloatPoint);
+  return this->InternalFloatPoint;
 }
 
 //----------------------------------------------------------------------------
