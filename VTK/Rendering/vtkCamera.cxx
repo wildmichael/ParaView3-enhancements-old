@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-03-03 18:33:34 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1994-03-08 12:24:46 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -441,7 +441,8 @@ void vlCamera::CalcPerspectiveTransform ()
   float   view_ratio;
   float   distance, distance_old;
   float   twist;
-  
+  float *temp;
+
   this->PerspectiveTransform.PostMultiply();  
   this->PerspectiveTransform.Identity();
 
@@ -531,9 +532,10 @@ void vlCamera::CalcPerspectiveTransform ()
   this->PerspectiveTransform.Concatenate(matrix);
 
   // now set the orientation
-  this->PerspectiveTransform.GetOrientation(this->Orientation[0],
-					    this->Orientation[1],
-					    this->Orientation[2]);
+  temp = this->PerspectiveTransform.GetOrientation();
+  this->Orientation[0] = temp[0];
+  this->Orientation[1] = temp[1];
+  this->Orientation[2] = temp[2];
 
   view_ratio   = tan ((fabs (this->ViewAngle) / 2.0) * 
 		      (3.1415926 / 180.0));
