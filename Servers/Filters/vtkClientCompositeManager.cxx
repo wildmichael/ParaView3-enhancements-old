@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClientCompositeManager.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-04 15:54:30 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-11-06 20:43:20 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -46,7 +46,7 @@
  #include <mpi.h>
 #endif
 
-vtkCxxRevisionMacro(vtkClientCompositeManager, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkClientCompositeManager, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkClientCompositeManager);
 
 vtkCxxSetObjectMacro(vtkClientCompositeManager,Compositer,vtkCompositer);
@@ -118,6 +118,9 @@ vtkClientCompositeManager::vtkClientCompositeManager()
 
   this->Compositer = vtkCompressCompositer::New();
   //this->Compositer = vtkTreeCompositer::New();
+
+  this->UseChar = 1;
+  this->UseRGB = 1;
 }
 
   
