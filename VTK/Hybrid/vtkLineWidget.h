@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLineWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-28 13:03:32 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-03-28 20:30:22 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -93,10 +93,8 @@ public:
 
   // Description:
   // Methods that satisfy the superclass' API.
-  virtual void On();
-  virtual void Off();
+  virtual void SetEnabled(int);
   virtual void PlaceWidget(float bounds[6]);
-  virtual void SetInteractor(vtkRenderWindowInteractor *interactor);
 
   // Description:
   // Set/Get the resolution (number of subdivisions) of the line.
@@ -168,6 +166,17 @@ protected:
   vtkLineWidget();
   ~vtkLineWidget();
 
+//BTX - manage the state of the widget
+  int State;
+  enum WidgetState
+  {
+    Start=0,
+    Moving,
+    Scaling,
+    Outside
+  };
+//ETX
+    
   //handles the events
   static void ProcessEvents(vtkObject* object, unsigned long event,
                             void* clientdata, void* calldata);

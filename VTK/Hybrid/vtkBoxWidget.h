@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBoxWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-28 12:19:54 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-03-28 20:30:22 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -95,10 +95,8 @@ public:
 
   // Description:
   // Methods that satisfy the superclass' API.
-  virtual void On();
-  virtual void Off();
+  virtual void SetEnabled(int);
   virtual void PlaceWidget(float bounds[6]);
-  virtual void SetInteractor(vtkRenderWindowInteractor *interactor);
 
   // Description:
   // Get the planes describing the implicit function defined by the box
@@ -175,20 +173,31 @@ public:
   // Description:
   // Control the behavior of the widget. Translation, rotation, and
   // scaling can all be enabled and disabled.
-  vtkSetMacro(Translation,int);
-  vtkGetMacro(Translation,int);
-  vtkBooleanMacro(Translation,int);
-  vtkSetMacro(Scaling,int);
-  vtkGetMacro(Scaling,int);
-  vtkBooleanMacro(Scaling,int);
-  vtkSetMacro(Rotation,int);
-  vtkGetMacro(Rotation,int);
-  vtkBooleanMacro(Rotation,int);
+  vtkSetMacro(TranslationEnabled,int);
+  vtkGetMacro(TranslationEnabled,int);
+  vtkBooleanMacro(TranslationEnabled,int);
+  vtkSetMacro(ScalingEnabled,int);
+  vtkGetMacro(ScalingEnabled,int);
+  vtkBooleanMacro(ScalingEnabled,int);
+  vtkSetMacro(RotationEnabled,int);
+  vtkGetMacro(RotationEnabled,int);
+  vtkBooleanMacro(RotationEnabled,int);
 
 protected:
   vtkBoxWidget();
   ~vtkBoxWidget();
 
+//BTX - manage the state of the widget
+  int State;
+  enum WidgetState
+  {
+    Start=0,
+    Moving,
+    Scaling,
+    Outside
+  };
+//ETX
+    
   //handles the events
   static void ProcessEvents(vtkObject* object, unsigned long event,
                             void* clientdata, void* calldata);
@@ -276,9 +285,9 @@ protected:
   void GenerateOutline();
   
   // Control whether scaling, rotation, and translation are supported
-  int Translation;
-  int Scaling;
-  int Rotation;
+  int TranslationEnabled;
+  int ScalingEnabled;
+  int RotationEnabled;
   
 private:
   vtkBoxWidget(const vtkBoxWidget&);  //Not implemented
