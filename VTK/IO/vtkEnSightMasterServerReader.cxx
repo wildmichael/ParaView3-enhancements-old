@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightMasterServerReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-18 18:57:10 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2003-07-22 19:27:45 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include <vtkstd/string>
 
 //----------------------------------------------------------------------------
-vtkCxxRevisionMacro(vtkEnSightMasterServerReader, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkEnSightMasterServerReader, "$Revision: 1.9 $");
 vtkStandardNewMacro(vtkEnSightMasterServerReader);
 
 static int vtkEnSightMasterServerReaderStartsWith(const char* str1, const char* str2)
@@ -53,7 +53,7 @@ void vtkEnSightMasterServerReader::Execute()
 {
   if ( !this->MaxNumberOfPieces )
     {
-    vtkErrorMacro("No pices to read");
+    vtkErrorMacro("No pieces to read");
     return;
     }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLPStructuredDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-18 12:24:59 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2003-07-22 19:27:45 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkXMLDataElement.h"
 #include "vtkXMLStructuredDataReader.h"
 
-vtkCxxRevisionMacro(vtkXMLPStructuredDataReader, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkXMLPStructuredDataReader, "$Revision: 1.12 $");
 
 //----------------------------------------------------------------------------
 vtkXMLPStructuredDataReader::vtkXMLPStructuredDataReader()
@@ -389,7 +389,11 @@ int vtkXMLPStructuredDataReader::ComputePieceSubExtents()
     {
     if(this->CanReadPiece(i))
       {
-      this->ExtentSplitter->AddExtentSource(i, 0, this->PieceExtents + i*6);
+      // Add the exact extent provided by the piece to the splitter.
+      int extent[6];
+      this->PieceReaders[i]->UpdateInformation();
+      this->PieceReaders[i]->GetOutputAsDataSet()->GetWholeExtent(extent);
+      this->ExtentSplitter->AddExtentSource(i, 0, extent);
       }
     }
   
@@ -424,3 +428,4 @@ int vtkXMLPStructuredDataReader::ComputePieceSubExtents()
   
   return 1;
 }
+

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLStructuredGridWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-05 20:13:55 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-07-22 19:27:45 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkPointData.h"
 #include "vtkStructuredGrid.h"
 
-vtkCxxRevisionMacro(vtkXMLStructuredGridWriter, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkXMLStructuredGridWriter, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkXMLStructuredGridWriter);
 
 //----------------------------------------------------------------------------
@@ -79,12 +79,13 @@ const char* vtkXMLStructuredGridWriter::GetDefaultFileExtension()
 }
 
 //----------------------------------------------------------------------------
-void vtkXMLStructuredGridWriter::WriteAppendedMode(vtkIndent indent)
+int vtkXMLStructuredGridWriter::WriteAppendedMode(vtkIndent indent)
 {
   this->PointsPosition = new unsigned long[this->NumberOfPieces];
-  this->Superclass::WriteAppendedMode(indent);
+  int result = this->Superclass::WriteAppendedMode(indent);
   delete [] this->PointsPosition;
   this->PointsPosition = 0;
+  return result;
 }
 
 //----------------------------------------------------------------------------

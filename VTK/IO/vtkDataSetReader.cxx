@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-18 19:07:28 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 2003-07-22 19:27:45 $
+  Version:   $Revision: 1.62 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,7 +29,7 @@
 #include "vtkUnstructuredGrid.h"
 #include "vtkUnstructuredGridReader.h"
 
-vtkCxxRevisionMacro(vtkDataSetReader, "$Revision: 1.61 $");
+vtkCxxRevisionMacro(vtkDataSetReader, "$Revision: 1.62 $");
 vtkStandardNewMacro(vtkDataSetReader);
 
 vtkDataSetReader::vtkDataSetReader()
@@ -102,7 +102,11 @@ void vtkDataSetReader::Execute()
         }
       else
         {
+        // Hack to make sure that the object is not modified
+        // with SetNthOutput. Otherwise, extra executions occur.
+        vtkTimeStamp ts = this->MTime;
         this->SetNthOutput(0, preader->GetOutput());
+        this->MTime = ts;
         }
       preader->Delete();
       return;
@@ -131,7 +135,11 @@ void vtkDataSetReader::Execute()
         }
       else
         {
+        // Hack to make sure that the object is not modified
+        // with SetNthOutput. Otherwise, extra executions occur.
+        vtkTimeStamp ts = this->MTime;
         this->SetNthOutput(0, preader->GetOutput());
+        this->MTime = ts;
         }
       preader->Delete();
       return;
@@ -160,7 +168,11 @@ void vtkDataSetReader::Execute()
         }
       else
         {
+        // Hack to make sure that the object is not modified
+        // with SetNthOutput. Otherwise, extra executions occur.
+        vtkTimeStamp ts = this->MTime;
         this->SetNthOutput(0, preader->GetOutput());
+        this->MTime = ts;
         }
       preader->Delete();
       return;
@@ -189,7 +201,11 @@ void vtkDataSetReader::Execute()
         }
       else
         {
+        // Hack to make sure that the object is not modified
+        // with SetNthOutput. Otherwise, extra executions occur.
+        vtkTimeStamp ts = this->MTime;
         this->SetNthOutput(0, preader->GetOutput());
+        this->MTime = ts;
         }
       preader->Delete();
       return;
@@ -218,7 +234,11 @@ void vtkDataSetReader::Execute()
         }
       else
         {
+        // Hack to make sure that the object is not modified
+        // with SetNthOutput. Otherwise, extra executions occur.
+        vtkTimeStamp ts = this->MTime;
         this->SetNthOutput(0, preader->GetOutput());
+        this->MTime = ts;
         }
       preader->Delete();
       return;

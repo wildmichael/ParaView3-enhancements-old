@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLStructuredGridWriter.h,v $
   Language:  C++
-  Date:      $Date: 2003-05-05 20:13:55 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-07-22 19:27:45 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -53,7 +53,7 @@ protected:
   vtkXMLStructuredGridWriter();
   ~vtkXMLStructuredGridWriter();  
   
-  void WriteAppendedMode(vtkIndent indent);
+  int WriteAppendedMode(vtkIndent indent);
   void WriteAppendedPiece(int index, vtkIndent indent);
   void WriteAppendedPieceData(int index);
   void WriteInlinePiece(int index, vtkIndent indent);

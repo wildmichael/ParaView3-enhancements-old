@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLWriter.h,v $
   Language:  C++
-  Date:      $Date: 2003-06-16 17:59:34 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2003-07-22 19:27:45 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -221,10 +221,12 @@ protected:
   virtual int GetDataSetMinorVersion();
   
   // Utility methods for subclasses.
-  vtkDataSet* GetInputAsDataSet();  
+  vtkDataSet* GetInputAsDataSet();
   void StartFile();
   virtual void WriteFileAttributes();
   void EndFile();
+  void DeleteFile();
+  void DeleteFile(const char* name);
   void StartAppendedData();
   void EndAppendedData();
   unsigned long ReserveAttributeSpace(const char* attr=0);

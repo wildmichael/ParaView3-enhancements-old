@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLPDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-08 14:57:02 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2003-07-22 19:27:45 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkCallbackCommand.h"
 #include "vtkDataSet.h"
 
-vtkCxxRevisionMacro(vtkXMLPDataWriter, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkXMLPDataWriter, "$Revision: 1.7 $");
 
 //----------------------------------------------------------------------------
 vtkXMLPDataWriter::vtkXMLPDataWriter()
@@ -88,7 +88,7 @@ int vtkXMLPDataWriter::WriteInternal()
   input->UpdateInformation();
   
   // Write the pieces now so the data are up to date.
-  this->WritePieces();
+  int result = this->WritePieces();
   
   // Decide whether to write the summary file.
   int writeSummary = 0;
@@ -102,12 +102,12 @@ int vtkXMLPDataWriter::WriteInternal()
     }
   
   // Write the summary file if requested.
-  if(writeSummary)
+  if(result && writeSummary)
     {
     if(!this->Superclass::WriteInternal()) { return 0; }
     }
   
-  return 1;
+  return result;
 }
 
 //----------------------------------------------------------------------------
@@ -252,6 +252,14 @@ int vtkXMLPDataWriter::WritePieces()
                            this->EndPiece-this->StartPiece+1);
     if(!this->WritePiece(i))
       {
+      // Writing a piece failed.  Delete files for previous pieces and
+      // abort.
+      for(int j=this->StartPiece; j < i; ++j)
+        {
+        char* fileName = this->CreatePieceFileName(j, this->PathName);
+        this->DeleteFile(fileName);
+        delete [] fileName;
+        }
       return 0;
       }
     }

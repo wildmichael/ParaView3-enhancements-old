@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-18 15:48:20 $
-  Version:   $Revision: 1.92 $
+  Date:      $Date: 2003-07-22 19:27:55 $
+  Version:   $Revision: 1.93 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkSource.h"
 
-vtkCxxRevisionMacro(vtkDataObject, "$Revision: 1.92 $");
+vtkCxxRevisionMacro(vtkDataObject, "$Revision: 1.93 $");
 vtkStandardNewMacro(vtkDataObject);
 
 vtkCxxSetObjectMacro(vtkDataObject,FieldData,vtkFieldData);
@@ -683,9 +683,12 @@ void vtkDataObject::InternalDataObjectCopy(vtkDataObject *src)
   //this->UpdatePiece = src->UpdatePiece;
   //this->UpdateGhostLevel = src->UpdateGhostLevel;
   this->ReleaseDataFlag = src->ReleaseDataFlag;
-  this->PipelineMTime = src->PipelineMTime;
-  this->UpdateTime = src->UpdateTime;
-  this->Locality = src->Locality;
+  // This also caused a pipeline problem.
+  // An input pipelineMTime was copied to output.  Pipeline did not execute...
+  // We do not copy MTime of object, so why should we copy these.
+  //this->PipelineMTime = src->PipelineMTime;
+  //this->UpdateTime = src->UpdateTime;
+  //this->Locality = src->Locality;
 }
 
 //----------------------------------------------------------------------------

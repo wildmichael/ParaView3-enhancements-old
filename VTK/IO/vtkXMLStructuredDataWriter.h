@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLStructuredDataWriter.h,v $
   Language:  C++
-  Date:      $Date: 2003-05-05 20:13:55 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-07-22 19:27:45 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -69,10 +69,10 @@ protected:
   // The actual writing driver required by vtkXMLWriter.
   int WriteData();
   void SetupExtentTranslator();
-  virtual void WriteAppendedMode(vtkIndent indent);
+  virtual int WriteAppendedMode(vtkIndent indent);
   vtkDataArray* CreateExactExtent(vtkDataArray* array, int* inExtent,
                                   int* outExtent, int isPoint);
-  virtual void WriteInlineMode(vtkIndent indent);
+  virtual int WriteInlineMode(vtkIndent indent);
   unsigned int GetStartTuple(int* extent, int* increments,
                              int i, int j, int k);
   void CalculatePieceFractions(float* fractions);

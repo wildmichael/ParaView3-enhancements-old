@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericEnSightReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-06-17 13:16:16 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2003-07-22 19:27:45 $
+  Version:   $Revision: 1.46 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,7 +30,7 @@
 
 #include <vtkstd/string>
 
-vtkCxxRevisionMacro(vtkGenericEnSightReader, "$Revision: 1.45 $");
+vtkCxxRevisionMacro(vtkGenericEnSightReader, "$Revision: 1.46 $");
 vtkStandardNewMacro(vtkGenericEnSightReader);
 
 vtkCxxSetObjectMacro(vtkGenericEnSightReader,TimeSets, 
@@ -1230,7 +1230,7 @@ void vtkGenericEnSightReader::SetDataArraySelectionSetsFromVariables()
                        this->NumberOfComplexVectorsPerElement);
   
   char** pointNames = this->CreateStringArray(numPointArrays);
-  char** cellNames = this->CreateStringArray(numPointArrays);
+  char** cellNames = this->CreateStringArray(numCellArrays);
   int pointArrayCount = 0;
   int cellArrayCount = 0;
   

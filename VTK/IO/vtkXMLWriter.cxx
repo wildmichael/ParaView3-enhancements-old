@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-06-11 13:52:18 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2003-07-22 19:27:45 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,11 @@
 #include "vtkUnsignedCharArray.h"
 #include "vtkZLibDataCompressor.h"
 
-vtkCxxRevisionMacro(vtkXMLWriter, "$Revision: 1.22 $");
+#ifndef _WIN32
+# include <unistd.h> /* unlink */
+#endif
+
+vtkCxxRevisionMacro(vtkXMLWriter, "$Revision: 1.23 $");
 vtkCxxSetObjectMacro(vtkXMLWriter, Compressor, vtkDataCompressor);
 
 //----------------------------------------------------------------------------
@@ -249,10 +253,16 @@ int vtkXMLWriter::Write()
   float wholeProgressRange[2] = {0,1};
   this->SetProgressRange(wholeProgressRange, 0, 1);
   
-  // Call the real writing code.
+  // Check input validity and call the real writing code.
   int result = this->WriteInternal();
   
-  // We have finished reading.
+  // If writing failed, delete the file.
+  if(!result)
+    {
+    this->DeleteFile();
+    }
+  
+  // We have finished writing.
   this->UpdateProgressDiscrete(1);
   
   return result;
@@ -296,7 +306,7 @@ int vtkXMLWriter::WriteInternal()
     {
     // We opened a file.  Close it.
     delete outFile;
-    this->Stream = 0;
+    this->Stream = 0;    
     }
   
   return result;
@@ -383,6 +393,21 @@ void vtkXMLWriter::EndFile()
   
   // Close the document-level element.
   os << "</VTKFile>\n";
+}
+
+//----------------------------------------------------------------------------
+void vtkXMLWriter::DeleteFile()
+{
+  if(!this->Stream && this->FileName)
+    {
+    this->DeleteFile(this->FileName);
+    }
+}
+
+//----------------------------------------------------------------------------
+void vtkXMLWriter::DeleteFile(const char* name)
+{
+  unlink(name);
 }
 
 //----------------------------------------------------------------------------
@@ -669,9 +694,9 @@ int vtkXMLWriter::WriteBinaryDataBlock(unsigned char* in_data, int numWords,
     if(data != this->ByteSwapBuffer)
       {
       memcpy(this->ByteSwapBuffer, data, numWords*wordSize);
-      this->PerformByteSwap(this->ByteSwapBuffer, numWords, wordSize);
       data = this->ByteSwapBuffer;
       }
+    this->PerformByteSwap(this->ByteSwapBuffer, numWords, wordSize);
     }
   
   // Now pass the data to the next write phase.
