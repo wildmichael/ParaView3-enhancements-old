@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMarchingCubes.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:07:13 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1998-10-01 17:48:24 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -83,14 +83,14 @@ class VTK_EXPORT vtkImageMarchingCubes : public vtkPolyDataSource
 {
 public:
   vtkImageMarchingCubes();
-  static vtkImageMarchingCubes *New() {return new vtkImageMarchingCubes;};
   ~vtkImageMarchingCubes();
+  static vtkImageMarchingCubes *New() {return new vtkImageMarchingCubes;};
   const char *GetClassName() {return "vtkImageMarchingCubes";};
   void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:
   // Set/Get the source for the scalar data to contour.
-  vtkSetObjectMacro(Input, vtkImageCache);
+  vtkSetReferenceCountedObjectMacro(Input, vtkImageCache);
   vtkGetObjectMacro(Input, vtkImageCache);
   void SetInput(vtkStructuredPoints *spts)
     {this->SetInput(spts->GetStructuredPointsToImage()->GetOutput());}

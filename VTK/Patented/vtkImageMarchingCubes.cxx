@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMarchingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-08-21 11:30:13 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1998-10-01 17:48:24 $
+  Version:   $Revision: 1.18 $
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -73,6 +73,11 @@ vtkImageMarchingCubes::vtkImageMarchingCubes()
 vtkImageMarchingCubes::~vtkImageMarchingCubes()
 {
   this->ContourValues->Delete();
+  if (this->Input)
+    {
+    this->Input->UnRegister(this);
+    this->Input = NULL;
+    }
 }
 
 // Description:
