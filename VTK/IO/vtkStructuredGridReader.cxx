@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-30 16:32:38 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1999-01-04 14:35:25 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -194,7 +194,7 @@ void vtkStructuredGridReader::Execute()
       return;
       } 
 
-    if ( strncmp(this->Reader->LowerCase(line),"structured_grid",17) )
+    if ( strncmp(this->Reader->LowerCase(line),"structured_grid",15) )
       {
       vtkErrorMacro(<< "Cannot read dataset type: " << line);
       this->Reader->CloseVTKFile ();

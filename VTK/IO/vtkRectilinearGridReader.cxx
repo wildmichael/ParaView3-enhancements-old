@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-31 14:08:43 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-01-04 14:35:24 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -194,7 +194,7 @@ void vtkRectilinearGridReader::Execute()
       return;
       } 
 
-    if ( strncmp(this->Reader->LowerCase(line),"rectilinear_grid",17) )
+    if ( strncmp(this->Reader->LowerCase(line),"rectilinear_grid",16) )
       {
       vtkErrorMacro(<< "Cannot read dataset type: " << line);
       this->Reader->CloseVTKFile ();

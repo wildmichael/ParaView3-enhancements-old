@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-29 14:53:33 $
-  Version:   $Revision: 1.69 $
+  Date:      $Date: 1999-01-04 14:35:24 $
+  Version:   $Revision: 1.70 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -442,6 +442,46 @@ int vtkDataReader::ReadHeader()
     }
   
   return 1;
+}
+
+int vtkDataReader::IsFileValid(const char *dstype)
+{
+  char line[1024];
+  
+  if (!dstype)
+    {
+    return 0;
+    }
+  
+  if (!this->OpenVTKFile() || !this->ReadHeader())
+      return 0;
+
+  if (!this->ReadString(line))
+    {
+    vtkErrorMacro(<<"Data file ends prematurely!");
+    this->CloseVTKFile ();
+    return 0;
+    }
+
+  if ( !strncmp(this->LowerCase(line),"dataset",(unsigned long)7) )
+    {
+    if (!this->ReadString(line))
+      {
+      vtkErrorMacro(<<"Data file ends prematurely!");
+      this->CloseVTKFile ();
+      return 0;
+      } 
+    if (strncmp(this->LowerCase(line),dstype,strlen(dstype)))
+      {
+      this->CloseVTKFile ();
+      return 0;
+      }
+    // everything looks good
+    this->CloseVTKFile();
+    return 1;
+    }
+  
+  return 0;
 }
 
 // Read the cell data of a vtk data file. The number of cells (from the 
