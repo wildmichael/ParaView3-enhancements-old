@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-16 21:41:54 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1997-04-17 21:34:05 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -62,6 +62,10 @@ public:
   ~vtkImageViewer();
   char *GetClassName() {return "vtkImageViewer";};
   void PrintSelf(ostream& os, vtkIndent indent);
+
+  // Description:
+  // Get name of rendering window
+  vtkGetStringMacro(WindowName);
 
   // Description:
   // Object factory for this class.
@@ -146,12 +150,23 @@ public:
   virtual void SetDisplayId(void *) = 0;
   virtual void SetWindowId(void *) = 0;
   
+  // Description:
+  // Keep track of whether the rendering window has been mapped to screen.
+  vtkSetMacro(Mapped,int);
+  vtkGetMacro(Mapped,int);
+  vtkBooleanMacro(Mapped,int);
+
+  // Description:
+  // Set/Get the size of the window in screen coordinates.
+  virtual int *GetSize() {return (int *)NULL;};
+  virtual void SetSize(int,int) {};
+  virtual void SetSize(int a[2]);
+
 protected:
   // location of upper left corner in window.
   int                  XOffset;
   int                  YOffset;
-  
-  
+  int Mapped;
   vtkImageSource *Input;
   int WholeImage;
   // Contains the extent of the region to be displayed.
@@ -166,6 +181,8 @@ protected:
   int Red;
   int Green;
   int Blue;
+  char *WindowName;
+  int Size[2];
 };
 
 #endif
