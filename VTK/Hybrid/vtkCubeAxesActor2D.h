@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeAxesActor2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-06-21 14:04:47 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-07-13 20:22:53 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thorsten Dowe who modified and improved this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -111,7 +111,10 @@ public:
   // are specified according to (xmin,xmax, ymin,ymax, zmin,zmax), making
   // usre that the min's are less than the max's.
   vtkSetVector6Macro(Bounds,float);
-  vtkGetVectorMacro(Bounds,float,6);
+  float *GetBounds();
+  void GetBounds(float& xmin, float& xmax, float& ymin, float& ymax, 
+                 float& zmin, float& zmax);
+  void GetBounds(float bounds[6]);
 
   // Description:
   // Set/Get the camera to perform scaling and translation of the 
@@ -213,7 +216,7 @@ public:
 
 protected:
   vtkDataSet *Input;    //Define bounds from input data, or
-  vtkProp   *Prop;     //Define bounds from actor/assembly, or
+  vtkProp    *Prop;     //Define bounds from actor/assembly, or
   float      Bounds[6]; //Define bounds explicitly
 
   vtkCamera *Camera;
@@ -241,7 +244,6 @@ protected:
   float FontFactor;
   float CornerOffset;
 
-  vtkTimeStamp  BuildTime;
   int RenderSomething;
   
   // various helper methods

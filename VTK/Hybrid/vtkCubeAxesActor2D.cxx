@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeAxesActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-21 14:04:47 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-07-13 20:22:53 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thorsten Dowe who modified and improved this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -171,8 +171,7 @@ int vtkCubeAxesActor2D::RenderOverlay(vtkViewport *viewport)
 // with the boundary of the viewport (minus borders).
 int vtkCubeAxesActor2D::RenderOpaqueGeometry(vtkViewport *viewport)
 {
-  unsigned long mtime;
-  float bounds[6], *propBounds, x[3], slope, minSlope, num, den;
+  float bounds[6], x[3], slope, minSlope, num, den;
   float pts[8][3], lleft[2], d2, d2Min, min, max;
   int needsRebuild=0, *p;
   int i, j, k, idx, idx2;
@@ -191,27 +190,8 @@ int vtkCubeAxesActor2D::RenderOpaqueGeometry(vtkViewport *viewport)
   this->RenderSomething = 1;
 
   // determine the bounds to use
-  if ( this->Input )
-    {
-    this->Input->Update();
-    this->Input->GetBounds(bounds);
-    }
-  else if ( this->Prop && 
-  ((propBounds = this->Prop->GetBounds()) && propBounds != NULL) )
-    {
-    for (i=0; i< 6; i++)
-      {
-      bounds[i] = propBounds[i];
-      }
-    }
-  else
-    {
-    for (i=0; i< 6; i++)
-      {
-      bounds[i] = this->Bounds[i];
-      }
-    }
-  
+  this->GetBounds(bounds);
+
   // Build the axes (almost always needed so we don't check mtime)
   // Transform all points into display coordinates
   this->TransformBounds(viewport, bounds, pts);
@@ -504,6 +484,63 @@ void vtkCubeAxesActor2D::ReleaseGraphicsResources(vtkWindow *win)
   this->YAxis->ReleaseGraphicsResources(win);
   this->ZAxis->ReleaseGraphicsResources(win);
 }
+
+// Compute the bounds
+void vtkCubeAxesActor2D::GetBounds(float bounds[6])
+{
+  float *propBounds;
+  int i;
+
+  if ( this->Input )
+    {
+    this->Input->Update();
+    this->Input->GetBounds(bounds);
+    for (i=0; i< 6; i++)
+      {
+      this->Bounds[i] = bounds[i];
+      }
+    }
+
+  else if ( this->Prop && 
+  ((propBounds = this->Prop->GetBounds()) && propBounds != NULL) )
+    {
+    for (i=0; i< 6; i++)
+      {
+      bounds[i] = this->Bounds[i] = propBounds[i];
+      }
+    }
+  else
+    {
+    for (i=0; i< 6; i++)
+      {
+      bounds[i] = this->Bounds[i];
+      }
+    }
+}
+
+// Compute the bounds
+void vtkCubeAxesActor2D::GetBounds(float& xmin, float& xmax, 
+                                   float& ymin, float& ymax,
+                                   float& zmin, float& zmax)
+{
+  float bounds[6];
+  this->GetBounds(bounds);
+  xmin = bounds[0];
+  xmax = bounds[1];
+  ymin = bounds[2];
+  ymax = bounds[3];
+  zmin = bounds[4];
+  zmin = bounds[5];
+}
+
+// Compute the bounds
+float *vtkCubeAxesActor2D::GetBounds()
+{
+  float bounds[6];
+  this->GetBounds(bounds);
+  return this->Bounds;
+}
+
 
 void vtkCubeAxesActor2D::PrintSelf(ostream& os, vtkIndent indent)
 {
