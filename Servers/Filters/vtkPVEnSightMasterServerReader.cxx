@@ -41,7 +41,7 @@
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkPVEnSightMasterServerReader);
-vtkCxxRevisionMacro(vtkPVEnSightMasterServerReader, "$Revision: 1.23 $");
+vtkCxxRevisionMacro(vtkPVEnSightMasterServerReader, "$Revision: 1.24 $");
 
 vtkCxxSetObjectMacro(vtkPVEnSightMasterServerReader, Controller,
                      vtkMultiProcessController);
@@ -466,7 +466,6 @@ void vtkPVEnSightMasterServerReader::Execute()
     {
     this->Balance();
     }
-
   // This reader can produce any number of pieces.  The superclass
   // sets the output max pieces to 1 during Execute so we must change
   // it back to -1 here.
