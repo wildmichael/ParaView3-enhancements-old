@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-24 20:00:13 $
-  Version:   $Revision: 1.78 $
+  Date:      $Date: 1999-02-25 20:53:27 $
+  Version:   $Revision: 1.79 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -100,7 +100,7 @@ vtkActor& vtkActor::operator=(const vtkActor& actor)
   this->SetBackfaceProperty(actor.BackfaceProperty);
   this->SetTexture(actor.Texture);
 
-  *((vtkProp *)this) = actor;
+  *((vtkProp3D *)this) = actor;
 
   for (i=0; i < 3; i++) 
     {
