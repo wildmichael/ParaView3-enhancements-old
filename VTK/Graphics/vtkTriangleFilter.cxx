@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-11-20 21:24:13 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1998-11-24 20:21:34 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -106,6 +106,7 @@ void vtkTriangleFilter::Execute()
   // Update output
   output->SetPoints(input->GetPoints());
   output->GetPointData()->PassData(input->GetPointData());
+  output->Squeeze();
 
   vtkDebugMacro(<<"Converted " << input->GetNumberOfCells()
                 << "input cells to "
