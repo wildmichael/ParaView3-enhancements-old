@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-26 18:52:40 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1999-08-27 17:45:09 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -215,10 +215,17 @@ vtkOpenGLRenderWindow::~vtkOpenGLRenderWindow()
     for (int i = 1; i < this->TextureResourceIds->GetNumberOfIds(); i++)
       {
       id = (GLuint) this->TextureResourceIds->GetId(i);
+#ifdef GL_VERSION_1_1
       if (glIsTexture(id))
 	{
 	glDeleteTextures(1, &id);
 	}
+#else
+      if (glIsList(id))
+        {
+        glDeleteLists(id,1);
+        }
+#endif
       }
 
     // tell each of the renderers that this render window/graphics context
