@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-26 15:37:41 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 1999-08-27 12:53:42 $
+  Version:   $Revision: 1.58 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -127,8 +127,8 @@ public:
   // as Win32 uses repeating timers, whereas X uses One shot more timer
   // if flag==VTKXI_TIMER_FIRST Win32 and X should createtimer
   // otherwise Win32 should exit and X should perform AddTimeOut()
-  virtual bool CreateTimer(int timerflag)  { return true; };
-  virtual bool DestroyTimer()              { return true; };
+  virtual int CreateTimer(int timerflag)  { return 1; };
+  virtual int DestroyTimer()              { return 1; };
 
   // Description:
   // This function is called on 'q','e' keypress if exitmethod is not

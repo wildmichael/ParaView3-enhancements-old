@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowTclInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-26 20:52:43 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-08-27 12:53:43 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -152,8 +152,8 @@ public:
 
     // Description:
   // X timer methods
-  bool CreateTimer(int timertype);
-  bool DestroyTimer(void);
+  int CreateTimer(int timertype);
+  int DestroyTimer(void);
 
   // Description:
   // X Tcl specific application terminate. 

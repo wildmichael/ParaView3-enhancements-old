@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32RenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-26 20:58:52 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 1999-08-27 12:53:44 $
+  Version:   $Revision: 1.46 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -211,16 +211,16 @@ void vtkWin32RenderWindowInteractor::TerminateApp(void)
   PostQuitMessage(0);
 }
 
-bool vtkWin32RenderWindowInteractor::CreateTimer(int timertype) 
+int vtkWin32RenderWindowInteractor::CreateTimer(int timertype) 
 {
   if (timertype==VTKI_TIMER_FIRST) 
     {
     return SetTimer(this->WindowId,this->TimerId,10,NULL);
     }
-  return true;
+  return 1;
 }
 
-bool vtkWin32RenderWindowInteractor::DestroyTimer(void) 
+int vtkWin32RenderWindowInteractor::DestroyTimer(void) 
 {
   return KillTimer(this->WindowId,this->TimerId);
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-26 20:52:42 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 1999-08-27 12:53:42 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -85,8 +85,8 @@ public:
 
   // Description:
   // X timer methods
-  bool CreateTimer(int timertype);
-  bool DestroyTimer(void);
+  int CreateTimer(int timertype);
+  int DestroyTimer(void);
 
   // Description: 
   // Initializes the event handlers using an XtAppContext that you have
