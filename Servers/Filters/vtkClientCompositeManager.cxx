@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClientCompositeManager.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-03-24 19:20:54 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2003-04-18 18:49:25 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -15,6 +15,10 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
+
+#ifdef VTK_USE_MPI
+ #include <mpi.h>
+#endif
 
 #include "vtkClientCompositeManager.h"
 #include "vtkCompositeManager.h"
@@ -46,11 +50,8 @@
 #include "vtkMesaRenderWindow.h"
 #endif
 
-#ifdef VTK_USE_MPI
- #include <mpi.h>
-#endif
 
-vtkCxxRevisionMacro(vtkClientCompositeManager, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkClientCompositeManager, "$Revision: 1.10 $");
 vtkStandardNewMacro(vtkClientCompositeManager);
 
 vtkCxxSetObjectMacro(vtkClientCompositeManager,Compositer,vtkCompositer);
