@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataNormals.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-31 19:47:45 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2000-11-01 20:03:51 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -269,6 +269,10 @@ void vtkPolyDataNormals::Execute()
     if ((cellId % 1000) == 0)
       {
       this->UpdateProgress (0.333 + 0.333 * (float) cellId / (float) numPolys);
+      if (this->GetAbortExecute())
+	{
+	  break; 
+	}
       }
     poly->ComputeNormal(inPts, npts, pts, n);
     PolyNormals->SetNormal(cellId,n);
