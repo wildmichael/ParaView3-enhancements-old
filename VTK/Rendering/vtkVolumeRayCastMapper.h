@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-22 14:14:38 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1999-05-19 14:33:29 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -167,7 +167,8 @@ protected:
   float                        *DepthRangeBufferPointer;
 
 //BTX
-  int                          ClipRayAgainstVolume( VTKRayCastRayInfo *rayInfo );
+  int                          ClipRayAgainstVolume( VTKRayCastRayInfo *rayInfo,
+						     VTKRayCastVolumeInfo *volumeInfo );
 //ETX
   void                         GeneralImageInitialization( vtkRenderer *ren, 
 							   vtkVolume *vol );
