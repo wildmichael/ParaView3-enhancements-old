@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeAxesActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-07 21:27:32 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2001-12-06 01:47:22 $
+  Version:   $Revision: 1.26 $
   Thanks:    Thorsten Dowe who modified and improved this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -731,6 +731,11 @@ void vtkCubeAxesActor2D::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Font Factor: " << this->FontFactor << "\n";
   os << indent << "Inertia: " << this->Inertia << "\n";
   os << indent << "Corner Offset: " << this->CornerOffset << "\n";
+  os << indent << "UseRanges: " << (this->UseRanges ? "On" : "Off") << "\n";
+  os << indent << "Ranges: "
+     << this->Ranges[0] << ", " << this->Ranges[1] << ", "
+     << this->Ranges[2] << ", " << this->Ranges[3] << ", "
+     << this->Ranges[4] << ", " << this->Ranges[5] << "\n";
 }
 
 static int IsInBounds(float x[3], float bounds[6]);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:09:37 $
-  Version:   $Revision: 1.76 $
+  Date:      $Date: 2001-12-06 01:47:22 $
+  Version:   $Revision: 1.77 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -846,4 +846,5 @@ void vtkDataObject::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Locality: " << this->Locality << endl;
   os << indent << "NumberOfConsumers: " << this->NumberOfConsumers << endl;
   os << indent << "ExtentTranslator: (" << this->ExtentTranslator << ")\n";
+  os << indent << "MaximumNumberOfPieces: " << this->MaximumNumberOfPieces << endl;
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-29 20:52:44 $
-  Version:   $Revision: 1.88 $
+  Date:      $Date: 2001-12-06 01:47:22 $
+  Version:   $Revision: 1.89 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -374,6 +374,8 @@ void vtkImageReader::PrintSelf(ostream& os, vtkIndent indent)
     (this->FilePrefix ? this->FilePrefix : "(none)") << "\n";
   os << indent << "FilePattern: " << 
     (this->FilePattern ? this->FilePattern : "(none)") << "\n";
+  os << indent << "FileNameSliceOffset: " << this->FileNameSliceOffset << "\n";
+  os << indent << "FileNameSliceSpacing: " << this->FileNameSliceSpacing << "\n";
 
   os << indent << "DataScalarType: " 
      << vtkImageScalarTypeNameMacro(this->DataScalarType) << "\n";
