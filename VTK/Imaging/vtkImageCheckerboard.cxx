@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCheckerboard.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-30 21:16:30 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2003-05-15 18:56:52 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkImageData.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageCheckerboard, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkImageCheckerboard, "$Revision: 1.10 $");
 vtkStandardNewMacro(vtkImageCheckerboard);
 
 //----------------------------------------------------------------------------
@@ -174,6 +174,12 @@ void vtkImageCheckerboard::ThreadedExecute(vtkImageData **inData,
     return;
     }
   in1Ptr = inData[0]->GetScalarPointerForExtent(outExt);
+  if (!in1Ptr)
+    {
+    vtkErrorMacro(<< "Input " << 0 << " cannot be empty.");
+    return;
+    }
+
   outPtr = outData->GetScalarPointerForExtent(outExt);
   
   // this filter expects that input is the same type as output.
@@ -191,6 +197,11 @@ void vtkImageCheckerboard::ThreadedExecute(vtkImageData **inData,
     return;
     }
   in2Ptr = inData[1]->GetScalarPointerForExtent(outExt);
+  if (!in2Ptr)
+    {
+    vtkErrorMacro(<< "Input " << 1 << " cannot be empty.");
+    return;
+    }
 
   // this filter expects that inputs that have the same number of components
   if (inData[0]->GetNumberOfScalarComponents() != 
