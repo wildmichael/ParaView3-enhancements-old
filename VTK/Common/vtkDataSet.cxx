@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-05-23 22:28:12 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1994-06-10 08:36:39 $
+  Version:   $Revision: 1.21 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -27,8 +27,6 @@ vlDataSet::vlDataSet ()
   this->Bounds[3] = 1.0;
   this->Bounds[4] = 0.0;
   this->Bounds[5] = 1.0;
-
-  this->Mapper = NULL;
 }
 
 void vlDataSet::Initialize()

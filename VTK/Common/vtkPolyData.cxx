@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-05-31 14:22:28 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1994-06-10 08:36:30 $
+  Version:   $Revision: 1.31 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -14,7 +14,6 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 
 =========================================================================*/
 #include "PolyData.hh"
-#include "PolyMap.hh"
 #include "Point.hh"
 #include "PolyPts.hh"
 #include "Line.hh"
@@ -293,19 +292,6 @@ int vlPolyData::GetNumberOfPolys()
 int vlPolyData::GetNumberOfStrips() 
 {
   return (this->Strips ? this->Strips->GetNumberOfCells() : 0);
-}
-
-vlMapper *vlPolyData::MakeMapper()
-{
-  vlPolyMapper *mapper;
-
-  if ( this->Mapper == NULL  )
-    {
-    this->Mapper = mapper = new vlPolyMapper;
-    this->Mapper->Register(this);
-    mapper->SetInput(this);
-    }
-  return this->Mapper;
 }
 
 void vlPolyData::PrintSelf(ostream& os, vlIndent indent)
