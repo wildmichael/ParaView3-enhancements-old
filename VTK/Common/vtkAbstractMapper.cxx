@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-05 23:36:32 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-03-07 20:23:41 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -48,6 +48,13 @@ vtkAbstractMapper::vtkAbstractMapper()
 {
   this->TimeToDraw = 0.0;
   this->LastWindow = NULL;
+  this->Timer = vtkTimerLog::New();
+}
+
+// Construct object.
+vtkAbstractMapper::~vtkAbstractMapper()
+{
+  this->Timer->Delete();
 }
 
 void vtkAbstractMapper::PrintSelf(ostream& os, vtkIndent indent)
@@ -55,7 +62,6 @@ void vtkAbstractMapper::PrintSelf(ostream& os, vtkIndent indent)
   this->vtkProcessObject::PrintSelf(os,indent);
 
   os << indent << "TimeToDraw: " << this->TimeToDraw << "\n";
-
 }
 
 
