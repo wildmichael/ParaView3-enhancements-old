@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkLookupTable.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-07 17:28:43 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1994-04-12 08:34:48 $
+  Version:   $Revision: 1.14 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -57,7 +57,7 @@ void  vlLookupTable::SetTableRange(float min, float max)
 
 void vlLookupTable::Build()
 {
-  int i, hueCase, indx;
+  int i, hueCase;
   float hue, sat, val, lx, ly, lz, frac, hinc, sinc, vinc;
   float rgb[3];
 
@@ -136,7 +136,7 @@ float *vlLookupTable::MapValue(float v)
 {
   int indx;
 
-  indx = (v-this->TableRange[0])/(this->TableRange[1]-this->TableRange[0]) * this->NumberOfColors;
+  indx = (int)((v-this->TableRange[0])/(this->TableRange[1]-this->TableRange[0]) * this->NumberOfColors);
   indx = (indx < 0 ? 0 : (indx >= this->NumberOfColors ? this->NumberOfColors-1 : indx));
 
   return this->Table.GetColor(indx);
