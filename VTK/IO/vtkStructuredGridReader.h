@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredGridReader.h,v $
   Language:  C++
-  Date:      $Date: 1995-02-15 09:27:27 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1995-05-01 21:07:49 $
+  Version:   $Revision: 1.2 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -26,13 +26,16 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #include "SGridSrc.hh"
 #include "vlDataR.hh"
 
-class vlStructuredGridReader : public vlStructuredGridSource, public vlDataReader
+class vlStructuredGridReader : public vlStructuredGridSource
 {
 public:
   vlStructuredGridReader();
   ~vlStructuredGridReader();
   char *GetClassName() {return "vlStructuredGridReader";};
   void PrintSelf(ostream& os, vlIndent indent);
+
+  // overload because of vlDataReader ivar
+  unsigned long int GetMTime();
 
   // Description:
   // Specify file name of vl structured grid data file to read.
@@ -42,6 +45,7 @@ public:
 protected:
   void Execute();
   char *Filename;
+  vlDataReader Reader;
 
 };
 
