@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkLineSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-05 13:03:42 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-02-06 09:46:13 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -63,7 +63,7 @@ void vlLineSource::Execute()
   for (i=0; i<numPts; i++) 
     {
     tc[0] = ((float)i/this->Resolution);
-    for (j=0; j<3; j++) x[i] = this->Pt1[j] + tc[0]*v[j];
+    for (j=0; j<3; j++) x[j] = this->Pt1[j] + tc[0]*v[j];
     newPoints->InsertPoint(i,x);
     newTCoords->InsertTCoord(i,tc);
     }
