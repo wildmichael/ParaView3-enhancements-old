@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLWriter.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-22 20:51:52 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-12-06 02:31:26 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -291,6 +291,7 @@ protected:
   
   char** CreateStringArray(int numStrings);
   void DestroyStringArray(int numStrings, char** strings);
+  virtual int IsSafeToWrite();
   
 private:
   vtkXMLWriter(const vtkXMLWriter&);  // Not implemented.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-27 00:16:05 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-12-06 02:31:26 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #include "vtkPoints.h"
 #include "vtkUnsignedCharArray.h"
 
-vtkCxxRevisionMacro(vtkXMLWriter, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkXMLWriter, "$Revision: 1.7 $");
 vtkCxxSetObjectMacro(vtkXMLWriter, Compressor, vtkDataCompressor);
 
 //----------------------------------------------------------------------------
@@ -181,17 +181,9 @@ void vtkXMLWriter::SetDataModeToAppended()
 //----------------------------------------------------------------------------
 int vtkXMLWriter::Write()
 {
-  // Make sure we have input.
-  if(!this->Inputs || !this->Inputs[0])
+  // Make sure there are enough settings to write (Input, FileName, etc).
+  if(!this->IsSafeToWrite())
     {
-    vtkErrorMacro("No input provided!");
-    return 0;
-    }
-  
-  // Make sure we have a file to write.
-  if(!this->FileName)
-    {
-    vtkErrorMacro("Write() called with no FileName set.");
     return 0;
     }
   
@@ -1429,4 +1421,23 @@ void vtkXMLWriter::DestroyStringArray(int numStrings, char** strings)
       }
     }
   delete strings;
+}
+
+//----------------------------------------------------------------------------
+int vtkXMLWriter::IsSafeToWrite()
+{
+  // Make sure we have input.
+  if(!this->Inputs || !this->Inputs[0])
+    {
+    vtkErrorMacro("No input provided!");
+    return 0;
+    }
+  
+  // Make sure we have a file to write.
+  if(!this->FileName)
+    {
+    vtkErrorMacro("Write() called with no FileName set.");
+    return 0;
+    }
+  return 1;
 }
