@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.h,v $
   Language:  C++
-  Date:      $Date: 2000-06-13 12:12:00 $
-  Version:   $Revision: 1.84 $
+  Date:      $Date: 2000-09-01 16:26:26 $
+  Version:   $Revision: 1.85 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -179,7 +179,7 @@ public:
   virtual unsigned long GetRedrawMTime();
 
   // Description:
-  // The following methods are for compaibility. The methods will be deprecated
+  // The following methods are for compatibility. The methods will be deprecated
   // in the near future. Use vtkProp::GetNextPath() (and related functionality)
   // to get the parts in an assembly (or more correctly, the paths in the
   // assembly).

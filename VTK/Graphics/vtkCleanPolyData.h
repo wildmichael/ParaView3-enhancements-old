@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCleanPolyData.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:11:13 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2000-09-01 16:26:45 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen
@@ -69,7 +69,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // Merging points can alter topology, including introducing non-manifold
 // forms. Tolerance should be chosen carefully to avoid these problems.
 // Subclasses should handle OperateOnBounds as well as OperateOnPoint
-// to ensure locator is correcly initialized (i.e. all modified points must
+// to ensure locator is correctly initialized (i.e. all modified points must
 // lie inside modified bounds).
 //
 // .SECTION See Also

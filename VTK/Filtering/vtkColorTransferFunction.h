@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkColorTransferFunction.h,v $
   Language:  C++
-  Date:      $Date: 2000-07-12 23:57:04 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2000-09-01 16:26:59 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,7 +43,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 // .SECTION Description
 // vtkColorTransferFunction encapsulates three vtkPiecewiseFunction instances
-// to provide a full RGB transfer funciton.
+// to provide a full RGB transfer function.
 
 // .SECTION see also
 // vtkPiecewiseFunction
@@ -145,7 +145,7 @@ public:
 
   // **********************************************************
   // **********************************************************
-  // These are all depricated functions - do not use!
+  // These are all deprecated functions - do not use!
   // **********************************************************
   // **********************************************************
   

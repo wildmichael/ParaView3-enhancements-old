@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObjectToDataSetFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-07-27 08:58:45 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-09-01 16:27:10 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -70,7 +70,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // Make sure that the data you extract is consistent. That is, if you have N
 // points, extract N x, y, and z components. Also, all the information
 // necessary to define a dataset must be given. For example, vtkPolyData
-// requires points at a minumum; vtkStructuredPoints requires setting the
+// requires points at a minimum; vtkStructuredPoints requires setting the
 // dimensions; vtkStructuredGrid requires defining points and dimensions;
 // vtkUnstructuredGrid requires setting points; and vtkRectilinearGrid
 // requires that you define the x, y, and z-coordinate arrays (by specifying

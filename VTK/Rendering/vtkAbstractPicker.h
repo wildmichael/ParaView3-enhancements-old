@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractPicker.h,v $
   Language:  C++
-  Date:      $Date: 2000-06-08 09:11:03 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-09-01 16:26:19 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -145,7 +145,7 @@ public:
   // Description:
   // Use these methods to control whether to limit the picking to this list
   // (rather than renderer's actors). Make sure that the pick list contains 
-  // actors that refered to by the picker's renderer.
+  // actors that referred to by the picker's renderer.
   vtkSetMacro(PickFromList,int);
   vtkGetMacro(PickFromList,int);
   vtkBooleanMacro(PickFromList,int);

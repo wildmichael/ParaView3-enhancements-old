@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractGrid.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:11:36 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2000-09-01 16:27:36 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,7 +44,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // .SECTION Description
 // vtkExtractGrid is a filter that selects a portion of an input structured
 // grid dataset, or subsamples an input dataset. (The selected portion of
-// interested is referred toas the Volume Of Interest, or VOI.) The output of
+// interested is referred to as the Volume Of Interest, or VOI.) The output of
 // this filter is a structured grid dataset. The filter treats input data of
 // any topological dimension (i.e., point, line, image, or volume) and can
 // generate output data of any topological dimension.

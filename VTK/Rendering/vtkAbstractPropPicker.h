@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractPropPicker.h,v $
   Language:  C++
-  Date:      $Date: 2000-07-05 12:00:22 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-09-01 16:26:24 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,7 +45,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // subclass of this class), cannot identify the prop that is
 // picked. Subclasses of vtkAbstractPropPicker return a prop in the form of a
 // vtkAssemblyPath when a pick is invoked. Note that an vtkAssemblyPath
-// containts a list of vtkAssemblyNodes, each of which in turn contains a
+// contain a list of vtkAssemblyNodes, each of which in turn contains a
 // reference to a vtkProp and a 4x4 transformation matrix. The path fully
 // describes the entire pick path, so you can pick assemblies or portions of
 // assemblies, or just grab the tail end of the vtkAssemblyPath (which is the

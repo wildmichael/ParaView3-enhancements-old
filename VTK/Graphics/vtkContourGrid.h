@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourGrid.h,v $
   Language:  C++
-  Date:      $Date: 2000-06-28 09:46:32 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-09-01 16:27:04 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -109,7 +109,7 @@ public:
   unsigned long GetMTime();
 
   // Description:
-  // Set/Get the computation of normals. Normal computation is failrly
+  // Set/Get the computation of normals. Normal computation is fairly
   // expensive in both time and storage. If the output data will be
   // processed by filters that modify topology or geometry, it may be
   // wise to turn Normals and Gradients off.

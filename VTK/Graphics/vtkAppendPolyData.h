@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendPolyData.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:11:02 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2000-09-01 16:26:32 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -104,7 +104,7 @@ public:
   // then the output of this append filter is the whole dataset
   // pieced back together.  Duplicate points are create 
   // along the seams.  The purpose of this feature is to get 
-  // data parallism at a course scale.  Each of the inputs
+  // data parallelism at a course scale.  Each of the inputs
   // can be generated in a different process at the same time.
   vtkSetMacro(ParallelStreaming, int); 
   vtkGetMacro(ParallelStreaming, int); 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay3D.h,v $
   Language:  C++
-  Date:      $Date: 2000-08-28 11:45:56 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2000-09-01 16:27:27 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -171,7 +171,7 @@ public:
   // tetrahedronalizations of points. Its purpose is construct an initial
   // Delaunay triangulation into which to inject other points. You must
   // specify the center of a cubical bounding box and its length, as well
-  // as the numer of points to insert. The method returns a pointer to
+  // as the number of points to insert. The method returns a pointer to
   // an unstructured grid. Use this pointer to manipulate the mesh as
   // necessary. You must delete (with Delete()) the mesh when done.
   // Note: This initialization method places points forming bounding octahedron
@@ -192,7 +192,7 @@ public:
   // necessary. You must delete (with Delete()) the mesh when done.
   // Note: The points you insert using InsertPoint() will range from
   // (0,numPtsToInsert-1). Make sure that numPtsToInsert is large enough to
-  // accomodate this.
+  // accommodate this.
   vtkUnstructuredGrid *InitPointInsertion(int numPtsToInsert,  int numTetra,
                           vtkPoints *boundingTetraPts, float bounds[6],
                           vtkPoints* &pts);

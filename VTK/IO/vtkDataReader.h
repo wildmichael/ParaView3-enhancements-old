@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.h,v $
   Language:  C++
-  Date:      $Date: 2000-07-11 09:11:19 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2000-09-01 16:27:15 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -191,7 +191,7 @@ public:
   int ReadCells(int size, int *data);
 
   // Description:
-  // Read a piece of the cells (for streaming complience)
+  // Read a piece of the cells (for streaming compliance)
   int ReadCells(int size, int *data, int skip1, int read2, int skip3);
 
   // Description:
@@ -235,7 +235,7 @@ public:
   char *LowerCase(char *);
   
   // Description:
-  // Internal function used to consume whitespace when reading in
+  // Internal function used to consume white space when reading in
   // an InputString.
   void EatWhiteSpace();
 

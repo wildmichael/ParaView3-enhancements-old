@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLocator.h,v $
   Language:  C++
-  Date:      $Date: 2000-05-26 06:21:34 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2000-09-01 16:26:40 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -127,7 +127,7 @@ public:
   // to avoid allocating and deallocating the cell.  This is much faster than
   // the version which does not take a *cell, especially when this function is
   // called many times in a row such as by a for loop, where the allocation and
-  // dellaoction can be done only once outside the for loop.  If a cell is
+  // deallocation can be done only once outside the for loop.  If a cell is
   // found, "cell" contains the points and ptIds for the cell "cellId" upon
   // exit.
   void FindClosestPoint(float x[3], float closestPoint[3],
@@ -188,7 +188,7 @@ public:
   virtual vtkIdList *GetCells(int bucket);
 
   // Description:
-  // Return number of buckets availabe : Ensure Locator has been built
+  // Return number of buckets available : Ensure Locator has been built
   // before attempting to access (octants)buckets
   virtual int GetNumberOfBuckets(void);
 

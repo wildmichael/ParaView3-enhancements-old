@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssembly.h,v $
   Language:  C++
-  Date:      $Date: 2000-07-04 09:54:30 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2000-09-01 16:26:34 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -69,7 +69,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // make that there are no cycles (e.g., parent->child->parent), this will
 // cause program failure.
 //
-// If you wish to create assemblies without any transormation (using the 
+// If you wish to create assemblies without any transformation (using the 
 // assembly strictly as a grouping mechanism), then you may wish to
 // consider using vtkPropAssembly.
  
