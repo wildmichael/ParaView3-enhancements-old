@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKWIcon.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-07 12:36:41 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-08-09 16:03:50 $
+  Version:   $Revision: 1.6 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -63,8 +63,11 @@ public:
 
   // Description:
   // Set image data.
-  void SetImageData(const unsigned char* data, int width, int height);
   void SetImageData(vtkImageData*);
+
+  // Description:
+  // Select an icon based on the icon name.
+  void SetImageData(int image);
 
 //BTX
   // Description:
@@ -94,10 +97,6 @@ public:
     LAST_ICON
   };
 //ETX
-
-  // Description:
-  // Select an icon based on the icon name.
-  void SetImageData(int image);
 
   // Description:
   // Set icon to the custom data.
