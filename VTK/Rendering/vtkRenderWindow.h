@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-12-02 14:59:36 $
-  Version:   $Revision: 1.132 $
+  Date:      $Date: 2002-12-13 22:27:33 $
+  Version:   $Revision: 1.133 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -82,7 +82,7 @@ public:
 
   // Description:
   // Add a renderer to the list of renderers.
-  void AddRenderer(vtkRenderer *);
+  virtual void AddRenderer(vtkRenderer *);
 
   // Description:
   // Remove a renderer from the list of renderers.
