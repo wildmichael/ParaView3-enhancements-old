@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarsToColors.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-02 23:22:58 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-12-04 00:12:50 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -81,7 +81,7 @@ public:
   // Higher level than MapValue:  return the color as 
   // for the scalar value as floats in range [0,1].
   float *GetColor(float value) {
-    this->GetColor(value,this->RGBA); return this->RGBA; };
+    this->GetColor(value,(float *)this->RGBA); return this->RGBA; };
   void GetColor(float value, float color[4]);
 
   // Description:
