@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimate.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:25:32 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1998-10-23 21:19:51 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -288,6 +288,8 @@ protected:
   int MaximumNumberOfSquawks; //control number of error messages
   int PreserveTopology; //control whether mesh topology is preserved
   vtkIdList *Neighbors; // to replace static
+  vtkVertexArray *V; //to replace static
+  vtkTriArray *T; //to replace static
   
   void CreateOutput(int numPts, int numTris, int numEliminated, 
                     vtkPointData *pd, vtkPoints *inPts);
