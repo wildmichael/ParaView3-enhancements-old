@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfNDGM.cxx,v 1.5 2003-10-21 15:12:48 andy Exp $  */
-/*  Date : $Date: 2003-10-21 15:12:48 $ */
-/*  Version : $Revision: 1.5 $ */
+/*  Id : $Id: XdmfNDGM.cxx,v 1.6 2004-07-28 14:40:30 andy Exp $  */
+/*  Date : $Date: 2004-07-28 14:40:30 $ */
+/*  Version : $Revision: 1.6 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -35,6 +35,9 @@ extern "C" {
   XdmfNDGMErrorCallback( NDGM_NODE *node,
           NDGM_32_INT     reason,
           NDGM_PTR        user_data) {
+    (void)node;
+    (void)reason;
+    (void)user_data;
     return(NDGM_SUCCESS); /* Device Close and Free Lower Data Structs */
     }
 #else
