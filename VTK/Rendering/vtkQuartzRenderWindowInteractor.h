@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuartzRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:22 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-10-13 01:38:32 $
+  Version:   $Revision: 1.5 $
   
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -73,9 +73,6 @@ void DoMouseDown(void *vtkClass, int shiftDown, int controlDown, int altDown, in
 
 
 
-private:
-vtkQuartzRenderWindowInteractor(const vtkQuartzRenderWindowInteractor&);  // Not implemented.
-void operator=(const vtkQuartzRenderWindowInteractor&);  // Not implemented.
 class VTK_RENDERING_EXPORT vtkQuartzRenderWindowInteractor : public vtkRenderWindowInteractor {
 public:
   // Description:
@@ -178,6 +175,10 @@ protected:
   static void (*ClassExitMethodArgDelete)(void *);
   static void *ClassExitMethodArg;
   //ETX
+  
+private:
+  vtkQuartzRenderWindowInteractor(const vtkQuartzRenderWindowInteractor&);  // Not implemented.
+  void operator=(const vtkQuartzRenderWindowInteractor&);  // Not implemented.
 };
 
 #endif
