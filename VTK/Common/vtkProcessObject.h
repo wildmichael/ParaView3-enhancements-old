@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProcessObject.h,v $
   Language:  C++
-  Date:      $Date: 1998-04-16 21:06:43 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-09-10 20:59:36 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -104,6 +104,9 @@ public:
   // Update the progress of the process object. If a ProgressMethod exists, executes it. 
   // Then set the Progress ivar to amount. The parameter amount should range between (0,1).
   void UpdateProgress(float amount);
+  
+  // left public for performance since it is used in inner loops
+  int AbortExecute;
 
 protected:
   void (*StartMethod)(void *);
@@ -116,7 +119,6 @@ protected:
   void (*EndMethodArgDelete)(void *);
   void *EndMethodArg;
   float Progress;
-  int AbortExecute;
 };
 
 #endif
