@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMaskPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-21 15:21:52 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2001-06-29 17:14:46 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -66,14 +66,14 @@ vtkMaskPolyData::vtkMaskPolyData()
 //
 void vtkMaskPolyData::Execute()
 {
-  int numVerts, numLines, numPolys, numStrips;
+  vtkIdType numVerts, numLines, numPolys, numStrips;
   vtkCellArray *inVerts,*inLines,*inPolys,*inStrips;
-  int numNewVerts, numNewLines, numNewPolys, numNewStrips;
+  vtkIdType numNewVerts, numNewLines, numNewPolys, numNewStrips;
   vtkCellArray *newVerts=NULL, *newLines=NULL;
   vtkCellArray *newPolys=NULL, *newStrips=NULL;
-  int id, interval;
+  vtkIdType id, interval;
   vtkPointData *pd;
-  int numCells;
+  vtkIdType numCells;
   vtkIdType *pts, npts;
   vtkPolyData *input= this->GetInput();
   vtkPolyData *output = this->GetOutput();
@@ -171,7 +171,8 @@ void vtkMaskPolyData::Execute()
 
   if ( newStrips )
     {
-    for (id=0, inStrips->InitTraversal(); inStrips->GetNextCell(npts,pts); id++)
+    for (id=0, inStrips->InitTraversal(); inStrips->GetNextCell(npts,pts);
+         id++)
       {
       if ( ! (id % interval) )
         {

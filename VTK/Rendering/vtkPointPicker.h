@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointPicker.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:46 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2001-06-29 17:14:46 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -63,7 +63,7 @@ public:
 
   // Description:
   // Get the id of the picked point. If PointId = -1, nothing was picked.
-  vtkGetMacro(PointId,int);
+  vtkGetMacro(PointId, vtkIdType);
 
 protected:
   vtkPointPicker();
@@ -71,7 +71,7 @@ protected:
   vtkPointPicker(const vtkPointPicker&) {};
   void operator=(const vtkPointPicker&) {};
 
-  int PointId; //picked point
+  vtkIdType PointId; //picked point
 
   float IntersectWithLine(float p1[3], float p2[3], float tol, 
                           vtkAssemblyPath *path, vtkProp3D *p, 

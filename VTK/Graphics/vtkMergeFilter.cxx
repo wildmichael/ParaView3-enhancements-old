@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-26 15:03:35 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 2001-06-29 17:14:46 $
+  Version:   $Revision: 1.60 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -258,10 +258,10 @@ void vtkMergeFilter::AddField(const char* name, vtkDataSet* input)
 
 void vtkMergeFilter::Execute()
 {
-  int numPts, numScalars=0, numVectors=0, numNormals=0, numTCoords=0;
-  int numTensors=0;
-  int numCells, numCellScalars=0, numCellVectors=0, numCellNormals=0;
-  int numCellTCoords=0, numCellTensors=0;
+  vtkIdType numPts, numScalars=0, numVectors=0, numNormals=0, numTCoords=0;
+  vtkIdType numTensors=0;
+  vtkIdType numCells, numCellScalars=0, numCellVectors=0, numCellNormals=0;
+  vtkIdType numCellTCoords=0, numCellTensors=0;
   vtkPointData *pd;
   vtkDataArray *scalars = NULL;
   vtkDataArray *vectors = NULL;
@@ -417,7 +417,7 @@ void vtkMergeFilter::Execute()
   vtkFieldListIterator it(this->FieldList);
   vtkDataArray* da;
   const char* name;
-  int num;
+  vtkIdType num;
   for(it.Begin(); !it.End() ; it.Next())
     {
     pd = it.Get()->Ptr->GetPointData();

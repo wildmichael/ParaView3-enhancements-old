@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProbeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-18 16:13:03 $
-  Version:   $Revision: 1.62 $
+  Date:      $Date: 2001-06-29 17:14:46 $
+  Version:   $Revision: 1.63 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -89,11 +89,11 @@ vtkDataSet *vtkProbeFilter::GetSource()
 //----------------------------------------------------------------------------
 void vtkProbeFilter::Execute()
 {
-  int ptId;
+  vtkIdType ptId, numPts;
   float *x, tol2;
   vtkCell *cell;
   vtkPointData *pd, *outPD;
-  int numPts, subId;
+  int subId;
   vtkDataSet *source = this->GetSource();
   vtkDataSet *input = this->GetInput();
   vtkDataSet *output= this->GetOutput();
@@ -144,7 +144,7 @@ void vtkProbeFilter::Execute()
   // Loop over all input points, interpolating source data
   //
   int abort=0;
-  int progressInterval=numPts/20 + 1;
+  vtkIdType progressInterval=numPts/20 + 1;
   for (ptId=0; ptId < numPts && !abort; ptId++)
     {
     if ( !(ptId % progressInterval) )

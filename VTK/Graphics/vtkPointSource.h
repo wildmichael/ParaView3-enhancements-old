@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-28 13:33:50 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2001-06-29 17:14:46 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -89,7 +89,7 @@ public:
   vtkGetMacro(Distribution,int);
 
 protected:
-  vtkPointSource(int numPts=10);
+  vtkPointSource(vtkIdType numPts=10);
   ~vtkPointSource() {};
   vtkPointSource(const vtkPointSource&) {};
   void operator=(const vtkPointSource&) {};

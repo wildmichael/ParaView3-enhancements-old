@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataConnectivityFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-28 05:58:26 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-06-29 17:14:46 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -173,7 +173,7 @@ protected:
   int ExtractionMode; //how to extract regions
   vtkIdList *Seeds; //id's of points or cells used to seed regions
   vtkIdList *SpecifiedRegionIds; //regions specified for extraction
-  vtkIntArray *RegionSizes; //size (in cells) of each region extracted
+  vtkIdTypeArray *RegionSizes; //size (in cells) of each region extracted
 
   float ClosestPoint[3];
 
@@ -187,11 +187,11 @@ private:
   vtkScalars *CellScalars;
   vtkIdList *NeighborCellPointIds;
   int *Visited;
-  int *PointMap;
+  vtkIdType *PointMap;
   vtkScalars *NewScalars;
   int RegionNumber;
-  int PointNumber;    
-  int NumCellsInRegion;
+  vtkIdType PointNumber;    
+  vtkIdType NumCellsInRegion;
   vtkScalars *InScalars;
   vtkPolyData *Mesh;
   vtkIdList *Wave;
@@ -232,5 +232,3 @@ inline const char *vtkPolyDataConnectivityFilter::GetExtractionModeAsString(void
 
 
 #endif
-
-

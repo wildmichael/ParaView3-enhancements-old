@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataNormals.h,v $
   Language:  C++
-  Date:      $Date: 2001-02-21 13:09:33 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-06-29 17:14:46 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -174,7 +174,7 @@ private:
   // Check the point id give to see whether it lies on a feature
   // edge. If so, split the point (i.e., duplicate it) to topologically
   // separate the mesh.
-  void MarkAndSplit(int ptId);
+  void MarkAndSplit(vtkIdType ptId);
 
 };
 

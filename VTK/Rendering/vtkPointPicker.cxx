@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:46 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-06-29 17:14:46 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -67,8 +67,9 @@ float vtkPointPicker::IntersectWithLine(float p1[3], float p2[3], float tol,
                                         vtkAssemblyPath *path, vtkProp3D *p, 
                                         vtkAbstractMapper3D *m)
 {
-  int numPts;
-  int ptId, i, minPtId;
+  vtkIdType numPts;
+  vtkIdType ptId, minPtId;
+  int i;
   float ray[3], rayFactor, tMin, x[3], t, projXYZ[3], minXYZ[3];
   vtkDataSet *input;
   vtkMapper *mapper;
