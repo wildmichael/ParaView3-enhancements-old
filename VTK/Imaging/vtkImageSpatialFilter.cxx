@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSpatialFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-09-18 16:25:19 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1996-09-18 16:38:00 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -302,13 +302,16 @@ void vtkImageSpatialFilter::ExecuteCenter(int axisIdx,
 					  vtkImageRegion *outRegion)
 {
   int coordinate, min, max;
-  int inExtent[axisIdx*2], outExtent[axisIdx*2];
+  int *inExtent = new int[axisIdx*2];
+  int *outExtent = new int[axisIdx*2];
   
 
   // Terminate recursion?
   if (axisIdx <= this->NumberOfAxes)
     {
     this->ExecuteCenter(inRegion, outRegion);
+    delete [] inExtent;
+    delete [] outExtent;    
     return;
     }
   
@@ -322,6 +325,8 @@ void vtkImageSpatialFilter::ExecuteCenter(int axisIdx,
   if (min != outExtent[axisIdx*2 - 2] || max != outExtent[axisIdx*2 - 1]) 
     {
     vtkErrorMacro(<< "ExecuteCenter: Extent mismatch.");
+    delete [] inExtent;
+    delete [] outExtent;    
     return;
     }
   
@@ -342,6 +347,8 @@ void vtkImageSpatialFilter::ExecuteCenter(int axisIdx,
   outExtent[axisIdx*2 - 1] = max; 
   inRegion->SetExtent(inExtent, axisIdx);
   outRegion->SetExtent(outExtent, axisIdx);
+  delete [] inExtent;
+  delete [] outExtent;    
 }
 
 
