@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConnectivityFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:11:17 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2000-10-09 18:39:36 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -160,17 +160,18 @@ public:
   int GetNumberOfExtractedRegions();
 
   // Description:
-  // The connectivity extraction algorithm works recursively. In some systems 
-  // the stack depth is limited. This methods specifies the maximum recursion 
-  // depth.
-  vtkSetClampMacro(MaxRecursionDepth,int,10,VTK_LARGE_INTEGER);
-  vtkGetMacro(MaxRecursionDepth,int);
-
-  // Description:
   // Turn on/off the coloring of connected regions.
   vtkSetMacro(ColorRegions,int);
   vtkGetMacro(ColorRegions,int);
   vtkBooleanMacro(ColorRegions,int);
+
+  // Description:
+  // FOR LEGACY COMPATIBILITY ONLY, DO NOT USE.
+  // The connectivity extraction algorithm works recursively. In some systems 
+  // the stack depth is limited. This methods specifies the maximum recursion 
+  // depth.
+  void SetMaxRecursionDepth(int);
+  int GetMaxRecursionDepth();
 
 protected:
   vtkConnectivityFilter();
@@ -184,7 +185,6 @@ protected:
   int ColorRegions; //boolean turns on/off scalar gen for separate regions
   int ExtractionMode; //how to extract regions
   vtkIdList *Seeds; //id's of points or cells used to seed regions
-  int MaxRecursionDepth; //prevent excessive recursion
   vtkIdList *SpecifiedRegionIds; //regions specified for extraction
   vtkIntArray *RegionSizes; //size (in cells) of each region extracted
 
@@ -193,22 +193,23 @@ protected:
   int ScalarConnectivity;
   float ScalarRange[2];
 
-  void TraverseAndMark(int cellId);
+  void TraverseAndMark();
 
 private:
   // used to support algorithm execution
   vtkScalars *CellScalars;
   vtkIdList *NeighborCellPointIds;
-  int NumExceededMaxDepth;
   int *Visited;
   int *PointMap;
   vtkScalars *NewScalars;
-  int RecursionDepth;
   int RegionNumber;
   int PointNumber;    
   int NumCellsInRegion;
-  vtkIdList *RecursionSeeds;
   vtkScalars *InScalars;
+  vtkIdList *Wave;
+  vtkIdList *Wave2;
+  vtkIdList *PointIds;
+  vtkIdList *CellIds;
 };
 
 // Description:
