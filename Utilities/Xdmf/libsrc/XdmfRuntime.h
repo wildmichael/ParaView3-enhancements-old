@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfRuntime.h,v 1.6 2003-11-07 19:19:58 clarke Exp $  */
-/*  Date : $Date: 2003-11-07 19:19:58 $ */
-/*  Version : $Revision: 1.6 $ */
+/*  Id : $Id: XdmfRuntime.h,v 1.7 2004-01-15 21:43:56 andy Exp $  */
+/*  Date : $Date: 2004-01-15 21:43:56 $ */
+/*  Version : $Revision: 1.7 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -116,6 +116,8 @@ next Frequency multiple
     XdmfDebug("Status = " << Status << endl );
     return( Status );
 #else
+    (void)Barrier;
+    (void)Mode;
     // This allows for ICE Aware Applications without NDGM
     return(XDMF_SUCCESS);
 #endif

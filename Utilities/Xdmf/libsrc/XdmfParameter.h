@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfParameter.h,v 1.5 2003-11-06 21:57:03 clarke Exp $  */
-/*  Date : $Date: 2003-11-06 21:57:03 $ */
-/*  Version : $Revision: 1.5 $ */
+/*  Id : $Id: XdmfParameter.h,v 1.6 2004-01-15 21:43:56 andy Exp $  */
+/*  Date : $Date: 2004-01-15 21:43:56 $ */
+/*  Version : $Revision: 1.6 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -131,7 +131,7 @@ public:
 //! Get the type of Parameter : XDMF_PARAMETER_RANGE_TYPE | XDMF_PARAMETER_LIST_TYPE
   XdmfGetValueMacro(ParameterType, XdmfInt32);
 //! Get the type of Parameter as a String
-  XdmfString GetParameterTypeAsString( void ) {
+  XdmfConstString GetParameterTypeAsString( void ) {
     if( this->ParameterType == XDMF_PARAMETER_RANGE_TYPE ) {
       return("XDMF_PARAMETER_RANGE_TYPE");
     }

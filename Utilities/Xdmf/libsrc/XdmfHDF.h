@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfHDF.h,v 1.10 2004-01-15 13:46:37 andy Exp $  */
-/*  Date : $Date: 2004-01-15 13:46:37 $ */
-/*  Version : $Revision: 1.10 $ */
+/*  Id : $Id: XdmfHDF.h,v 1.11 2004-01-15 21:43:56 andy Exp $  */
+/*  Date : $Date: 2004-01-15 21:43:56 $ */
+/*  Version : $Revision: 1.11 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -117,7 +117,7 @@ public:
 //! Get the number of members in the current HDF5 Group
   XdmfGetValueMacro( NumberOfChildren, XdmfInt64);
 //! Get the n'th child in the current group
-  XdmfString GetChild( XdmfInt64 Index ) {
+  XdmfConstString GetChild( XdmfInt64 Index ) {
     if ( Index >= this->NumberOfChildren ) {
       return( "" );
     }

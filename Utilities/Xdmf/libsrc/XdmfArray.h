@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfArray.h,v 1.7 2004-01-06 23:52:58 andy Exp $  */
-/*  Date : $Date: 2004-01-06 23:52:58 $ */
-/*  Version : $Revision: 1.7 $ */
+/*  Id : $Id: XdmfArray.h,v 1.8 2004-01-15 21:43:56 andy Exp $  */
+/*  Date : $Date: 2004-01-15 21:43:56 $ */
+/*  Version : $Revision: 1.8 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -65,7 +65,7 @@ public:
   XdmfInt32  Allocate( void );
 //! Overloaded SetShape to Allocate space
   XdmfInt32       SetShape( XdmfInt32 Rank, XdmfInt64 *Dimensions );
-  XdmfInt32       SetShapeFromString( XdmfString Dimensions );
+  XdmfInt32       SetShapeFromString( XdmfConstString Dimensions );
   XdmfInt32  SetNumberOfElements( XdmfInt64 Length ) { 
         return( this->SetShape( 1, &Length ) );
         };

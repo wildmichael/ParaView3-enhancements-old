@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfHDFSupport.cxx,v 1.2 2004-01-06 23:52:58 andy Exp $  */
-/*  Date : $Date: 2004-01-06 23:52:58 $ */
-/*  Version : $Revision: 1.2 $ */
+/*  Id : $Id: XdmfHDFSupport.cxx,v 1.3 2004-01-15 21:43:56 andy Exp $  */
+/*  Date : $Date: 2004-01-15 21:43:56 $ */
+/*  Version : $Revision: 1.3 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -24,7 +24,7 @@
 /*******************************************************************/
 #include "XdmfHDFSupport.h"
 
-XdmfString
+XdmfConstString
 XdmfTypeToClassString( XdmfInt32 XdmfType ) {
   switch( XdmfType ){
     case XDMF_INT8_TYPE :
@@ -46,7 +46,7 @@ return( "Compound" );
 }
 
 XdmfInt32
-StringToXdmfType( XdmfString TypeName ) {
+StringToXdmfType( XdmfConstString TypeName ) {
 
 if( STRCASECMP( TypeName, "XDMF_UINT8_TYPE" ) == 0 ) return( XDMF_UINT8_TYPE );
 if( STRCASECMP( TypeName, "XDMF_UINT16_TYPE" ) == 0 ) return( XDMF_UINT16_TYPE );
@@ -61,7 +61,7 @@ if( STRCASECMP( TypeName, "XDMF_COMPOUND_TYPE" ) == 0 ) return( XDMF_COMPOUND_TY
 return( XDMF_FAIL );
 }
 
-XdmfString
+XdmfConstString
 XdmfTypeToString( XdmfInt32 XdmfType ) {
   switch( XdmfType ){
     case XDMF_UINT8_TYPE :

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfAttribute.cxx,v 1.5 2004-01-13 22:59:52 andy Exp $  */
-/*  Date : $Date: 2004-01-13 22:59:52 $ */
-/*  Version : $Revision: 1.5 $ */
+/*  Id : $Id: XdmfAttribute.cxx,v 1.6 2004-01-15 21:43:56 andy Exp $  */
+/*  Date : $Date: 2004-01-15 21:43:56 $ */
+/*  Version : $Revision: 1.6 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -42,7 +42,7 @@ XdmfAttribute::~XdmfAttribute() {
   delete this->ShapeDesc;
   }
 
-XdmfString
+XdmfConstString
 XdmfAttribute::GetAttributeTypeAsString( void ){
   switch ( this->AttributeType ){
     case XDMF_ATTRIBUTE_TYPE_SCALAR :
@@ -86,7 +86,7 @@ if( XDMF_WORD_CMP( attributeType, "Scalar" ) ) {
 return( XDMF_SUCCESS );
 }
 
-XdmfString
+XdmfConstString
 XdmfAttribute::GetAttributeCenterAsString( void ){
   switch ( this->AttributeCenter ){
     case XDMF_ATTRIBUTE_CENTER_GRID :

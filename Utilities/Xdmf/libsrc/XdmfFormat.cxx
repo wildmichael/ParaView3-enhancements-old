@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfFormat.cxx,v 1.7 2004-01-13 22:59:52 andy Exp $  */
-/*  Date : $Date: 2004-01-13 22:59:52 $ */
-/*  Version : $Revision: 1.7 $ */
+/*  Id : $Id: XdmfFormat.cxx,v 1.8 2004-01-15 21:43:56 andy Exp $  */
+/*  Date : $Date: 2004-01-15 21:43:56 $ */
+/*  Version : $Revision: 1.8 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -40,7 +40,7 @@ XdmfXNode *
 XdmfFormat::DataDescToElement( XdmfDataDesc *Desc, XdmfXNode *Element ) {
 
 XdmfInt32  j, i, Rank;
-XdmfString  Type;
+XdmfConstString  Type;
 char    Attribute[ XDMF_MAX_STRING_LENGTH  ];
 XdmfInt64  Dimensions[ XDMF_MAX_DIMENSION ];
 ostrstream  Value( Attribute, XDMF_MAX_STRING_LENGTH );

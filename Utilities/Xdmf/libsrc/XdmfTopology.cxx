@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfTopology.cxx,v 1.6 2004-01-13 22:59:52 andy Exp $  */
-/*  Date : $Date: 2004-01-13 22:59:52 $ */
-/*  Version : $Revision: 1.6 $ */
+/*  Id : $Id: XdmfTopology.cxx,v 1.7 2004-01-15 21:43:56 andy Exp $  */
+/*  Date : $Date: 2004-01-15 21:43:56 $ */
+/*  Version : $Revision: 1.7 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -117,7 +117,7 @@ if( newTopologyType != XDMF_NOTOPOLOGY ){
 return( XDMF_FAIL );
 }
 
-XdmfString
+XdmfConstString
 XdmfTopology::GetTopologyTypeAsString( void ) {
 
 
@@ -225,7 +225,7 @@ XdmfTopology::GetOrder( void ){
   return( this->Order );
 }
 
-XdmfString
+XdmfConstString
 XdmfTopology::GetOrderAsString( void ) {
 static char    Value[ 80 ];
 ostrstream  OutStream( Value, 80 );

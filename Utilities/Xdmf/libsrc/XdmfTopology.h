@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfTopology.h,v 1.6 2003-11-06 21:57:03 clarke Exp $  */
-/*  Date : $Date: 2003-11-06 21:57:03 $ */
-/*  Version : $Revision: 1.6 $ */
+/*  Id : $Id: XdmfTopology.h,v 1.7 2004-01-15 21:43:56 andy Exp $  */
+/*  Date : $Date: 2004-01-15 21:43:56 $ */
+/*  Version : $Revision: 1.7 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -120,7 +120,7 @@ public:
     return( XDMF_STRUCTURED );
     };
 //! Get the General TopologyType as a String
-  XdmfString GetClassAsString( void ) {
+  XdmfConstString GetClassAsString( void ) {
     if( this->GetClass() == XDMF_STRUCTURED ){ 
       return( "XDMF_STRUCTURED" );
     }
@@ -143,7 +143,7 @@ public:
 	Returns Topology Type as a String with the first letter
 	capitalized (i.e. Hexahedron). 
 */
-  XdmfString GetTopologyTypeAsString( void );
+  XdmfConstString GetTopologyTypeAsString( void );
 
 //! Set Node Ordering
 /*!
@@ -179,7 +179,7 @@ public:
 */
   XdmfInt32  *GetOrder( void );
 //! Return the Order as a SPACE separated string
-  XdmfString  GetOrderAsString( void );
+  XdmfConstString  GetOrderAsString( void );
 //! Set the Order from a SPACE separated String
   XdmfInt32  SetOrderFromString( XdmfConstString Order );
 //! Set the Order from Integers

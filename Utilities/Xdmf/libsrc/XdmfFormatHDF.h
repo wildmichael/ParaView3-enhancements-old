@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfFormatHDF.h,v 1.5 2003-11-07 19:19:58 clarke Exp $  */
-/*  Date : $Date: 2003-11-07 19:19:58 $ */
-/*  Version : $Revision: 1.5 $ */
+/*  Id : $Id: XdmfFormatHDF.h,v 1.6 2004-01-15 21:43:56 andy Exp $  */
+/*  Date : $Date: 2004-01-15 21:43:56 $ */
+/*  Version : $Revision: 1.6 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -63,7 +63,7 @@ public :
             XdmfArray *Array = NULL );
 //! Write an Array. The Shape of the Array is overridden by the Optional Desc.
   XdmfXNode    *ArrayToElement( XdmfArray *Array,
-        XdmfString HeavyDataset = NULL,
+        XdmfConstString HeavyDataset = NULL,
         XdmfXNode *Element = NULL,
         XdmfDataDesc *Desc = NULL );
 

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfAttribute.h,v 1.5 2003-11-07 19:19:58 clarke Exp $  */
-/*  Date : $Date: 2003-11-07 19:19:58 $ */
-/*  Version : $Revision: 1.5 $ */
+/*  Id : $Id: XdmfAttribute.h,v 1.6 2004-01-15 21:43:56 andy Exp $  */
+/*  Date : $Date: 2004-01-15 21:43:56 $ */
+/*  Version : $Revision: 1.6 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -74,10 +74,10 @@ public:
 //! Set the type using a String
   XdmfInt32 SetAttributeTypeFromString( XdmfConstString AttributeType );
 //! Get the Type as a String
-  XdmfString GetAttributeTypeAsString( void );
+  XdmfConstString GetAttributeTypeAsString( void );
 
   XdmfInt32 SetAttributeCenterFromString( XdmfConstString AttributeCenter );
-  XdmfString GetAttributeCenterAsString( void );
+  XdmfConstString GetAttributeCenterAsString( void );
 
 //! Set the Center
 /*!

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfFormatHDF.cxx,v 1.5 2003-10-21 15:12:48 andy Exp $  */
-/*  Date : $Date: 2003-10-21 15:12:48 $ */
-/*  Version : $Revision: 1.5 $ */
+/*  Id : $Id: XdmfFormatHDF.cxx,v 1.6 2004-01-15 21:43:56 andy Exp $  */
+/*  Date : $Date: 2004-01-15 21:43:56 $ */
+/*  Version : $Revision: 1.6 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -146,7 +146,7 @@ return( Array );
 
 XdmfXNode *
 XdmfFormatHDF::ArrayToElement( XdmfArray *Array,
-      XdmfString HeavyDataset,
+      XdmfConstString HeavyDataset,
       XdmfXNode *Element,
       XdmfDataDesc *Desc ) {
 
@@ -165,24 +165,29 @@ if( Element == NULL ) {
   XdmfErrorMessage("DataDescToElement returned NULL Element");
   return( NULL );
   }
-Element->Set("CData", HeavyDataset );
-XDMF_WORD_TRIM( HeavyDataset );
-if( H5.Open( HeavyDataset, "rw" ) == XDMF_FAIL ){
+char* heavyDataset = new char [ strlen(HeavyDataset) + 1 ];
+strcpy(heavyDataset, HeavyDataset);
+Element->Set("CData", heavyDataset );
+XDMF_WORD_TRIM( heavyDataset );
+if( H5.Open( heavyDataset, "rw" ) == XDMF_FAIL ){
   // Create it
   H5.CopyType( Desc );
   H5.CopyShape( Desc );
-  if( H5.CreateDataset( HeavyDataset ) == XDMF_FAIL ){
-    XdmfErrorMessage("Can't Open or Create Dataset " << HeavyDataset );
+  if( H5.CreateDataset( heavyDataset ) == XDMF_FAIL ){
+    XdmfErrorMessage("Can't Open or Create Dataset " << heavyDataset );
+    delete[] heavyDataset;
     return( NULL );
     }
   }
 H5.CopySelection( Desc );
 if( H5.Write( Array ) == NULL ) {
-  XdmfErrorMessage("Can't Write Dataset " << HeavyDataset );
+  XdmfErrorMessage("Can't Write Dataset " << heavyDataset );
   H5.Close();
+  delete[] heavyDataset;
   return( NULL );
   }
 H5.Close();
+delete[] heavyDataset;
 return( Element );
 }
 

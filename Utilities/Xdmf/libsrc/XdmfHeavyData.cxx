@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfHeavyData.cxx,v 1.4 2003-10-21 18:37:37 andy Exp $  */
-/*  Date : $Date: 2003-10-21 18:37:37 $ */
-/*  Version : $Revision: 1.4 $ */
+/*  Id : $Id: XdmfHeavyData.cxx,v 1.5 2004-01-15 21:43:56 andy Exp $  */
+/*  Date : $Date: 2004-01-15 21:43:56 $ */
+/*  Version : $Revision: 1.5 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -65,7 +65,7 @@ void XdmfHeavyData::SetWorkingDirectory( XdmfConstString String )
     }
 }
 
-void XdmfHeavyData::SetFileName( XdmfString String )
+void XdmfHeavyData::SetFileName( XdmfConstString String )
 {
   if ( String == this->FileName )
     {

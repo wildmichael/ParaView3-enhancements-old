@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfObject.cxx,v 1.7 2003-10-21 18:37:37 andy Exp $  */
-/*  Date : $Date: 2003-10-21 18:37:37 $ */
-/*  Version : $Revision: 1.7 $ */
+/*  Id : $Id: XdmfObject.cxx,v 1.8 2004-01-15 21:43:56 andy Exp $  */
+/*  Date : $Date: 2004-01-15 21:43:56 $ */
+/*  Version : $Revision: 1.8 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -66,7 +66,7 @@ SetGlobalDebugOff(){
 }
 
 
-XdmfString GetUnique( XdmfString Pattern ) {
+XdmfString GetUnique( XdmfConstString Pattern ) {
 static char  ReturnName[80];
 ostrstream  String(ReturnName,80);
 

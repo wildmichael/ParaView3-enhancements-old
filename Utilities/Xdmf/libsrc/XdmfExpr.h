@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfExpr.h,v 1.1 2002-12-02 17:11:03 clarke Exp $  */
-/*  Date : $Date: 2002-12-02 17:11:03 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfExpr.h,v 1.2 2004-01-15 21:43:56 andy Exp $  */
+/*  Date : $Date: 2004-01-15 21:43:56 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -57,7 +57,7 @@ extern void     XdmfExprOutput( int c );
 #define YY_INPUT(buf, result, maxlen) { result = XdmfExprFlexInput( (buf), (maxlen)); }
 
 
-extern XdmfExprSymbol *XdmfExprSymbolLookup( char *Name );
+extern XdmfExprSymbol *XdmfExprSymbolLookup( const char *Name );
 
 #ifdef __cplusplus
 }

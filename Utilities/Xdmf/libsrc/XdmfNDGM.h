@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfNDGM.h,v 1.6 2003-11-07 19:19:58 clarke Exp $  */
-/*  Date : $Date: 2003-11-07 19:19:58 $ */
-/*  Version : $Revision: 1.6 $ */
+/*  Id : $Id: XdmfNDGM.h,v 1.7 2004-01-15 21:43:56 andy Exp $  */
+/*  Date : $Date: 2004-01-15 21:43:56 $ */
+/*  Version : $Revision: 1.7 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -138,33 +138,38 @@ Open a connection
 #ifdef HAVE_NDGM
       return( ndgm_barrier_init( Barrier, Value ));
 #else
+      (void)Barrier;
+      (void)Value;
       return(-1);
 #endif
       }
 //! Wait in a Barrier
   XdmfInt32  BarrierWait( XdmfInt32  Barrier ) {
 #ifdef HAVE_NDGM
-        return( ndgm_barrier_wait( Barrier ) );
+      return( ndgm_barrier_wait( Barrier ) );
 #else
+      (void)Barrier;
       return(-1);
 #endif
         }
 //! Wait in a Barrier without effecting count
   XdmfInt32  BarrierAudit( XdmfInt32  Barrier ) {
 #ifdef HAVE_NDGM
-        return( ndgm_barrier_audit( Barrier ) );
+      return( ndgm_barrier_audit( Barrier ) );
 #else
+      (void)Barrier;
       return(-1);
 #endif
-        }
+      }
 
   XdmfInt32  BarrierPoll( XdmfInt32  Barrier ) {
 #ifdef HAVE_NDGM
-        return( ndgm_barrier_poll( Barrier ) );
+      return( ndgm_barrier_poll( Barrier ) );
 #else
+      (void)Barrier;
       return(-1);
 #endif
-        }
+      }
 
 
 protected:

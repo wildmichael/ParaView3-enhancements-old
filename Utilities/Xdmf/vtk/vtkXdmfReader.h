@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.h,v $
   Language:  C++
-  Date:      $Date: 2003-11-05 15:31:47 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2004-01-15 21:43:56 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -93,15 +93,15 @@ public:
   // Get Parameter Type
   int GetParameterType(int index);
   int GetParameterType(const char *Name);
-  char *GetParameterTypeAsString(int index);
-  char *GetParameterTypeAsString(const char *Name);
+  const char *GetParameterTypeAsString(int index);
+  const char *GetParameterTypeAsString(const char *Name);
 
   // Description:
   // Get start, stride, count
   int GetParameterRange(int index, int Shape[3]);
   int GetParameterRange(const char *Name, int Shape[3]);
-  char *GetParameterRangeAsString(int index);
-  char *GetParameterRangeAsString(const char *Name);
+  const char *GetParameterRangeAsString(int index);
+  const char *GetParameterRangeAsString(const char *Name);
 
   // Description:
   // Get Parameter Name
