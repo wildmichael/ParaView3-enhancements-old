@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActorCollection.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:54:49 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1998-10-07 13:10:58 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,44 +59,48 @@ class VTK_EXPORT vtkActorCollection : public vtkCollection
   static vtkActorCollection *New() {return new vtkActorCollection;};
   const char *GetClassName() {return "vtkActorCollection";};
 
+  // Description:
+  // Add an actor to the list.
   void AddItem(vtkActor *a);
+
+  // Description:
+  // Remove an actor from the list.
   void RemoveItem(vtkActor *a);
+
+  // Description:
+  // Determine whether a particular actor is present. Returns its position
+  // in the list.
   int IsItemPresent(vtkActor *a);
+
+  // Description:
+  // Get the next actor in the list.
   vtkActor *GetNextItem();
+
+  // Description:
+  // Get the last actor in the list.
   vtkActor *GetLastItem();
 };
 
-// Description:
-// Add an actor to the list.
 inline void vtkActorCollection::AddItem(vtkActor *a) 
 {
   this->vtkCollection::AddItem((vtkObject *)a);
 }
 
-// Description:
-// Remove an actor from the list.
 inline void vtkActorCollection::RemoveItem(vtkActor *a) 
 {
   this->vtkCollection::RemoveItem((vtkObject *)a);
 }
 
-// Description:
-// Determine whether a particular actor is present. Returns its position
-// in the list.
 inline int vtkActorCollection::IsItemPresent(vtkActor *a) 
 {
   return this->vtkCollection::IsItemPresent((vtkObject *)a);
 }
 
-// Description:
-// Get the next actor in the list.
 inline vtkActor *vtkActorCollection::GetNextItem() 
 { 
   return (vtkActor *)(this->GetNextItemAsObject());
 }
 
-// Description:
-// Get the last actor in the list.
 inline vtkActor *vtkActorCollection::GetLastItem() 
 { 
   if ( this->Bottom == NULL )

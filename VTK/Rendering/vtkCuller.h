@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCuller.h,v $
   Language:  C++
-  Date:      $Date: 1998-07-02 16:13:09 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-10-07 13:11:04 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-
 // .NAME vtkCuller - a superclass for actor cullers
 // .SECTION Description
 // A culler has two methods called by the vtkRenderer - OuterCullMethod

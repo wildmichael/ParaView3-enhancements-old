@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetMapper.h,v $
   Language:  C++
-  Date:      $Date: 1998-04-21 19:01:47 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1998-10-07 13:11:06 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,6 +79,8 @@ public:
   // Get the internal poly data mapper used to map data set to graphics system.
   vtkGetObjectMacro(PolyDataMapper, vtkPolyDataMapper);
 
+  // Description:
+  // Get the mtime also considering the lookup table.
   unsigned long GetMTime();
 
 protected:

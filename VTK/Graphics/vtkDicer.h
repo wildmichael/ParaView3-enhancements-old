@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDicer.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:21:33 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1998-10-07 13:11:09 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,14 +69,13 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkDicer : public vtkDataSetToDataSetFilter 
 {
 public:
-
-// Description:
-// Create object with 5000 points per piece.
   vtkDicer();
-
-  static vtkDicer *New() {return new vtkDicer;};
   const char *GetClassName() {return "vtkDicer";};
   void PrintSelf(ostream& os, vtkIndent indent);
+
+  // Description:
+  // Create object with 5000 points per piece.
+  static vtkDicer *New() {return new vtkDicer;};
 
   // Description:
   // Specify the number of cells per group (i.e., piece).

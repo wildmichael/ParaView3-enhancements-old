@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtk3DSImporter.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-21 18:17:22 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-10-07 13:10:58 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,6 +41,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .NAME vtk3DSImporter - imports 3D Studio files.
 // .SECTION Description
 // vtk3DSImporter imports 3D Studio files into vtk.
+
 // .SECTION See Also
 // vtkImporter
 

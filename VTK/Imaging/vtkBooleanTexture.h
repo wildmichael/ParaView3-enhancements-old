@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBooleanTexture.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:43:12 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1998-10-07 13:11:00 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 // .NAME vtkBooleanTexture - generate 2D texture map based on combinations of inside, outside, and on region boundary
+
 // .SECTION Description
 // vtkBooleanTexture is a filter to generate a 2D texture map based on 
 // combinations of inside, outside, and on region boundary. The "region" is
@@ -59,6 +60,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // and/or opacity use the value 255. A minimum value of 0 results in
 // a black region (for intensity) and a fully transparent region (for
 // transparency).
+
 // .SECTION See Also
 // vtkImplicitTextureCoords vtkThresholdTextureCoords
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUReader.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:43:07 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1998-10-07 13:11:00 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -82,23 +82,25 @@ public:
 
   // Description:
   // Turn on/off the reading of the displacement file.
-  vtkSetMacro(ReadDisplacement,int)
-  vtkGetMacro(ReadDisplacement,int)
-  vtkBooleanMacro(ReadDisplacement,int)
+  vtkSetMacro(ReadDisplacement,int);
+  vtkGetMacro(ReadDisplacement,int);
+  vtkBooleanMacro(ReadDisplacement,int);
   
   // Description:
   // Turn on/off the reading of the scalar file.
-  vtkSetMacro(ReadScalar,int)
-  vtkGetMacro(ReadScalar,int)
-  vtkBooleanMacro(ReadScalar,int)
+  vtkSetMacro(ReadScalar,int);
+  vtkGetMacro(ReadScalar,int);
+  vtkBooleanMacro(ReadScalar,int);
   
   // Description:
   // Turn on/off the reading of the texture coordinate file.
   // Specify name of geometry FileName.
-  vtkSetMacro(ReadTexture,int)
-  vtkGetMacro(ReadTexture,int)
-  vtkBooleanMacro(ReadTexture,int)
+  vtkSetMacro(ReadTexture,int);
+  vtkGetMacro(ReadTexture,int);
+  vtkBooleanMacro(ReadTexture,int);
 
+  // Description:
+  // Set/Get the part number to be read.
   vtkSetClampMacro(PartNumber,int,1,VTK_LARGE_INTEGER);
   vtkGetMacro(PartNumber,int);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCardinalSpline.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:21:28 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-10-07 13:11:01 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,9 +40,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 // .NAME vtkCardinalSpline - computes an interpolating spline using a
 // a Cardinal basis.
+
 // .SECTION Description
 // vtkCardinalSpline is a concrete implementation of vtkSpline using a
 // Cardinal basis.
+
 // .SECTION See Also
 // vtkSpline vtkKochanekSpline
 
@@ -55,20 +57,14 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkCardinalSpline : public vtkSpline
 {
 public:
-
-// Description:
-// Construct a Cardinal Spline.
   vtkCardinalSpline();
-
   static vtkCardinalSpline *New() {return new vtkCardinalSpline;};
   const char *GetClassName() {return "vtkCardinalSpline";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
-
-// Description
-// Compute Cardinal Splines for each dependent variable
+  // Description
+  // Compute Cardinal Splines for each dependent variable
   void Compute ();
-
 
   // Description:
   // Evaluate a 1D cardinal spline.

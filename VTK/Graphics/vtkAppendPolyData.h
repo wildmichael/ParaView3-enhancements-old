@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:44:32 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1998-10-07 13:10:59 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,6 +46,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // and appended only if all datasets have the point attributes available.
 // (For example, if one dataset has scalars but another does not, scalars 
 // will not be appended.)
+
 // .SECTION See Also
 // vtkAppendFilter
 
@@ -68,17 +69,20 @@ public:
   // Description:
   // Add a dataset to the list of data to append.
   void AddInput(vtkPolyData *);
-
   void AddInput(vtkPolyData& in) {this->AddInput(&in);};
 
   // Description:
   // Remove a dataset from the list of data to append.
   void RemoveInput(vtkPolyData *);
-
   void RemoveInput(vtkPolyData& in) {this->RemoveInput(&in);};
+
+  // Description
+  // Return the list of inputs to this filter.
   vtkPolyDataCollection *GetInput() {return this->InputList;};
 
-  // filter interface
+  // Description:
+  // Override the default Update method since this filter has multiple
+  // inputs.
   void Update();
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDashedStreamLine.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:43:46 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1998-10-07 13:11:06 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,6 +51,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // create the dashes. DashFactor is the percentage of the StepLength line 
 // segment that is visible. Thus, if the DashFactor=0.75, the dashes will be 
 // "three-quarters on" and "one-quarter off".
+
 // .SECTION See Also
 // vtkStreamer vtkStreamLine vtkStreamPoints
 
