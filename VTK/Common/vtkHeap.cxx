@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHeap.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-06-20 17:24:47 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2003-07-04 11:57:06 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkHeap.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkHeap, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtkHeap, "$Revision: 1.11 $");
 vtkStandardNewMacro(vtkHeap);
 
 struct vtkTestAlignLong
@@ -168,5 +168,7 @@ void vtkHeap::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Block Size: " << this->BlockSize << "\n";
   os << indent << "Number of Blocks: " << this->NumberOfBlocks << "\n";
   os << indent << "Number of Allocations: " << this->NumberOfAllocations << "\n";
+  os << indent << "Current bytes allocated: " 
+     << ((this->NumberOfBlocks-1)*this->BlockSize + this->Position) << "\n";
 }
 
