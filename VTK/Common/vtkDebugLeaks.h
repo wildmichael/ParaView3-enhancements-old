@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDebugLeaks.h,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:24:21 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-12-31 19:34:53 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,6 +31,7 @@
 
 #include "vtkObject.h"
 
+#include "vtkToolkits.h" // Needed for VTK_DEBUG_LEAKS macro setting.
 #include "vtkDebugLeaksManager.h" // Needed for proper singleton initialization
 
 class vtkDebugLeaksHashTable;
