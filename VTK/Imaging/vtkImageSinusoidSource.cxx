@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSinusoidSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-15 16:15:44 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1997-08-21 15:37:46 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -160,7 +160,7 @@ void vtkImageSinusoidSource::Execute(vtkImageRegion *region)
       }
     
     *ptr = this->Amplitude * 
-      cos((6.2831853 * sum / this->Period) + this->Phase);
+      cos((6.2831853 * sum / this->Period) - this->Phase);
     
     ptr += inc;
     }
