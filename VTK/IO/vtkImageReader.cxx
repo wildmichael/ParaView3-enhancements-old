@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-30 16:30:39 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 1999-05-14 11:47:36 $
+  Version:   $Revision: 1.49 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -697,7 +697,8 @@ static void vtkImageReaderUpdate2(vtkImageReader *self, vtkImageData *data,
       // handle swapping
       if (self->GetSwapBytes())
 	{
-	vtkByteSwap::SwapVoidRange(buf, pixelRead, sizeof(IT));
+	// pixelSkip is the number of components in data
+	vtkByteSwap::SwapVoidRange(buf, pixelRead*pixelSkip, sizeof(IT));
 	}
       
       // copy the bytes into the typed data
