@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellCenters.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:04:43 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2000-03-20 10:18:59 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -77,15 +77,14 @@ void vtkCellCenters::Execute()
   vtkPoints *newPts;
   vtkCell *cell;
   float x[3], pcoords[3];
-  float *weights = new float [input->GetMaxCellSize()];
-  
-  vtkDebugMacro(<<"Generating cell center points");
-
   if (input == NULL)
     {
     vtkErrorMacro(<<"Input is NULL");
     return;
     }
+  float *weights = new float [input->GetMaxCellSize()];
+
+  vtkDebugMacro(<<"Generating cell center points");
 
   inCD=input->GetCellData();
   outPD=output->GetPointData();
