@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkLightCollection.h,v $
   Language:  C++
-  Date:      $Date: 1994-02-06 17:57:01 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-06-02 17:07:28 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -16,32 +16,21 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #ifndef __vlLightC_hh
 #define __vlLightC_hh
 
+#include "Collect.hh"
 #include "Light.hh"
 
-class vlLightListElement
+class vlLightCollection : public vlCollection
 {
  public:
-  vlLight *Light;
-  vlLightListElement *Next;
-
-};
-
-class vlLightCollection : public vlObject
-{
- public:
-  int NumberOfItems;
-
- private:
-  vlLightListElement *Top;
-  vlLightListElement *Bottom;
-
- public:
-  vlLightCollection();
+  void AddItem(vlLight *a) {this->vlCollection::AddItem((vlObject *)a);};
+  void RemoveItem(vlLight *a) 
+    {this->vlCollection::RemoveItem((vlObject *)a);};
+  int IsItemPresent(vlLight *a) 
+    {return this->vlCollection::IsItemPresent((vlObject *)a);};
+  vlLight *GetItem(int num) 
+    { return (vlLight *)(this->vlCollection::GetItem(num));};
   char *GetClassName() {return "vlLightCollection";};
-  void AddMember(vlLight *);
-  int  GetNumberOfMembers();
-  vlLight *GetMember(int num);
-  void PrintSelf(ostream& os, vlIndent indent);
 };
 
 #endif
+
