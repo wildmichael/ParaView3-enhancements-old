@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.h,v $
   Language:  C++
-  Date:      $Date: 1999-02-24 19:27:45 $
-  Version:   $Revision: 1.66 $
+  Date:      $Date: 1999-02-25 21:47:13 $
+  Version:   $Revision: 1.67 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -89,8 +89,8 @@ class VTK_EXPORT vtkActor : public vtkProp3D
 
   // Description:
   // Support the standard render methods.
-  virtual void RenderOpaqueGeometry(vtkViewport *viewport);
-  virtual void RenderTranslucentGeometry(vtkViewport *viewport);
+  virtual int RenderOpaqueGeometry(vtkViewport *viewport);
+  virtual int RenderTranslucentGeometry(vtkViewport *viewport);
 
   // Description:
   // This causes the actor to be rendered. It in turn will render the actor's

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImager.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-24 17:43:30 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-02-25 21:47:16 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,9 +58,10 @@ vtkImager::vtkImager()
   this->Viewport[3] = 1.0; // max y
 }
 
-void vtkImager::RenderOpaqueGeometry()
+int vtkImager::RenderOpaqueGeometry()
 {
-  vtkProp* tempActor;
+  int       renderedSomething = 0;
+  vtkProp*  tempActor;
 
   vtkDebugMacro (<< "vtkImager::RenderOpaque");
   
@@ -75,15 +76,19 @@ void vtkImager::RenderOpaqueGeometry()
     // Make sure that the actor is visible before rendering
     if (tempActor->GetVisibility() == 1)
       {
-      tempActor->RenderOpaqueGeometry(this);
+      renderedSomething += tempActor->RenderOpaqueGeometry(this);
       }
     }
-  return; 
+
+  renderedSomething = (renderedSomething > 0)?(1):(0);
+
+  return renderedSomething; 
 }
 
-void vtkImager::RenderTranslucentGeometry()
+int vtkImager::RenderTranslucentGeometry()
 {
-  vtkProp* tempActor;
+  int       renderedSomething = 0;
+  vtkProp*  tempActor;
 
   vtkDebugMacro (<< "vtkImager::RenderTranslucent");
   
@@ -93,16 +98,19 @@ void vtkImager::RenderTranslucentGeometry()
     // Make sure that the actor is visible before rendering
     if (tempActor->GetVisibility() == 1)
       {
-      tempActor->RenderTranslucentGeometry(this);
+      renderedSomething += tempActor->RenderTranslucentGeometry(this);
       }
     }
   
-  return; 
+  renderedSomething = (renderedSomething > 0)?(1):(0);
+
+  return renderedSomething; 
 }
 
-void vtkImager::RenderOverlay()
+int vtkImager::RenderOverlay()
 {
-  vtkProp *tempActor;
+  int       renderedSomething = 0;
+  vtkProp  *tempActor;
 
   vtkDebugMacro (<< "vtkImager::RenderOverlay");
   
@@ -112,7 +120,7 @@ void vtkImager::RenderOverlay()
     // Make sure that the actor is visible before rendering
     if (tempActor->GetVisibility() == 1)
       {
-      tempActor->RenderOverlay(this);
+      renderedSomething += tempActor->RenderOverlay(this);
       }
     }
   
@@ -121,7 +129,9 @@ void vtkImager::RenderOverlay()
     (*this->EndRenderMethod)(this->EndRenderMethodArg);
     }
   
-  return; 
+  renderedSomething = (renderedSomething > 0)?(1):(0);
+
+  return renderedSomething; 
 }
 
 // Do not reference count.  

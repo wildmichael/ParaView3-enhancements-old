@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-02-24 17:27:22 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-02-25 21:47:12 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,9 +65,9 @@ public:
 
   // Description:
   // Support the standard render methods.
-  virtual void RenderOverlay(vtkViewport *viewport);
-  virtual void RenderOpaqueGeometry(vtkViewport *viewport);
-  virtual void RenderTranslucentGeometry(vtkViewport *viewport);
+  virtual int RenderOverlay(vtkViewport *viewport);
+  virtual int RenderOpaqueGeometry(vtkViewport *viewport);
+  virtual int RenderTranslucentGeometry(vtkViewport *viewport);
 
   // Description:
   // Creates an actor2D with the following defaults: 

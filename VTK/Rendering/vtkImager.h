@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImager.h,v $
   Language:  C++
-  Date:      $Date: 1999-02-24 17:43:30 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-02-25 21:47:16 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,9 +68,9 @@ public:
   // Description:
   // Renders an imager.  Passes Render message on the 
   // the imager's actor2D collection.
-  virtual void RenderOpaqueGeometry();
-  virtual void RenderTranslucentGeometry();
-  virtual void RenderOverlay();
+  virtual int RenderOpaqueGeometry();
+  virtual int RenderTranslucentGeometry();
+  virtual int RenderOverlay();
 
   // Description:
   // Get the image window that an imager is attached to.

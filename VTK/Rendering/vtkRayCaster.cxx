@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRayCaster.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-03 18:11:11 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1999-02-25 21:47:14 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -648,16 +648,9 @@ void vtkRayCaster::InitializeRenderBuffers(vtkRenderer *ren)
 				 renWinSize[1]*(viewport[3] - viewport[1]));
 
 
-  // Check how many visible actors we have - if there are any, assume that
-  // they have been rendered and are in the frame buffer.
-  for (ren->GetActors()->InitTraversal();
-       (anActor = ren->GetActors()->GetNextItem()); )
+  if ( ren->GetNumberOfPropsRenderedAsGeometry() > 0 )
     {
-    if (anActor->GetVisibility())
-      {
-      something_in_framebuffer = 1;
-      break;
-      }
+    something_in_framebuffer = 1;
     }
 
   // If we haven't found any actors in the frame buffer, check for

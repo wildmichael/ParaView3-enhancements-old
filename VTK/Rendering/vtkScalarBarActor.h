@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarBarActor.h,v $
   Language:  C++
-  Date:      $Date: 1999-02-24 17:44:05 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-02-25 21:47:17 $
+  Version:   $Revision: 1.9 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -103,9 +103,9 @@ public:
   
   // Description:
   // Draw the scalar bar and annotation text to the screen.
-  void RenderOpaqueGeometry(vtkViewport* viewport);
-  void RenderTranslucentGeometry(vtkViewport* viewport) {};
-  void RenderOverlay(vtkViewport* viewport);
+  int RenderOpaqueGeometry(vtkViewport* viewport);
+  int RenderTranslucentGeometry(vtkViewport* viewport) { return 0; };
+  int RenderOverlay(vtkViewport* viewport);
 
   // Description:
   // Set/Get the vtkLookupTable to use. The lookup table specifies the number
