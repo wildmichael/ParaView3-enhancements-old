@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-31 20:48:45 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-08-30 14:48:20 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -668,24 +668,6 @@ void vtkOpenGLImageWindow::MakeCurrent()
     glXMakeCurrent(this->DisplayId,this->WindowId,this->ContextId);
     }
 }
-
-void vtkOpenGLImageWindow::SetBackgroundColor(float r, float g, float b)
-{
-  vtkDebugMacro(<<"vtkImageWindow::SetBackgroundColor");
-  
-  this->MakeCurrent();
-  glClearColor( ((GLclampf)(r)),
-                ((GLclampf)(g)),
-                ((GLclampf)(b)),
-                ((GLclampf)(1.0)) );
-}
-
-void vtkOpenGLImageWindow::EraseWindow()
-{
-  vtkDebugMacro(<< "glClear\n");
-  glClear((GLbitfield)GL_COLOR_BUFFER_BIT);
-}
-
 
 // Set the X display id for this RenderWindow to use to a pre-existing 
 // X display id.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:03:24 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-08-30 14:48:20 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,14 +74,6 @@ public:
   // Description:
   // Draw the contents of the window
   void Render();
-
-  // Description:
-  // Set the desired background color for the window.
-  void SetBackgroundColor(float r, float g, float b);
-
-  // Description:
-  // Erase the window. Normally nor called by the user.
-  void EraseWindow();
 
   // Description:
   // Xwindow get set functions

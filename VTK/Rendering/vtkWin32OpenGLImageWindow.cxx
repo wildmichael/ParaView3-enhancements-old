@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-05-27 18:43:40 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-08-30 14:48:21 $
+  Version:   $Revision: 1.8 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -906,25 +906,6 @@ void vtkWin32OpenGLImageWindow::SetRGBAPixelData(int x1, int y1,
     }    
 
 }
-
-
-void vtkWin32OpenGLImageWindow::SetBackgroundColor(float r, float g, float b)
-{
-  vtkDebugMacro(<<"vtkWin32ImageWindow::SetBackgroundColor");
-  
-  this->MakeCurrent();
-  glClearColor( ((GLclampf)(r)),
-                ((GLclampf)(g)),
-                ((GLclampf)(b)),
-                ((GLclampf)(1.0)) );
-}
-
-void vtkWin32OpenGLImageWindow::EraseWindow()
-{
-  vtkDebugMacro(<< "glClear\n");
-  glClear((GLbitfield)GL_COLOR_BUFFER_BIT);
-}
-
 
 
 
