@@ -3,8 +3,8 @@
 
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-12-23 20:26:39 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1998-01-08 18:48:10 $
+  Version:   $Revision: 1.36 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -301,7 +301,14 @@ void vtkImageData::AllocateScalars()
     }
   
   // if the current type matches the new type then ignore
-  if (vtkGetScalarType(this) == this->ScalarType) return;
+  if (vtkGetScalarType(this) == this->ScalarType) 
+    {
+    this->PointData.GetScalars()->
+      SetNumberOfScalars((this->Extent[1] - this->Extent[0] + 1)*
+			 (this->Extent[3] - this->Extent[2] + 1)*
+			 (this->Extent[5] - this->Extent[4] + 1));
+    return;
+    }
   
   // otherwise delete the old data (if any) 
   if (this->PointData.GetScalars())
