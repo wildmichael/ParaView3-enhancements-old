@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-24 14:03:59 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 1998-06-29 18:07:32 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -413,7 +413,7 @@ void vtkMarchingCubes::Execute()
     bounds[2*i+1] = origin[i] + (dims[i]-1) * Spacing[i];
     }
   if ( this->Locator == NULL ) this->CreateDefaultLocator();
-  this->Locator->InitPointInsertion (newPts, bounds);
+  this->Locator->InitPointInsertion (newPts, bounds, estimatedSize);
 
   if (this->ComputeNormals)
     {
