@@ -4,8 +4,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDICOMImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-11-07 15:17:23 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2003-11-07 20:33:36 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -29,7 +29,7 @@
 #include <vtkstd/vector>
 #include <vtkstd/string>
 
-vtkCxxRevisionMacro(vtkDICOMImageReader, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkDICOMImageReader, "$Revision: 1.13 $");
 vtkStandardNewMacro(vtkDICOMImageReader);
 
 class vtkDICOMImageReaderVector : public vtkstd::vector<vtkstd::string>
@@ -417,3 +417,27 @@ const char* vtkDICOMImageReader::GetTransferSyntaxUID()
   return this->AppHelper->GetTransferSyntaxUID().c_str();
 }
 
+float vtkDICOMImageReader::GetRescaleSlope()
+{
+  return this->AppHelper->GetRescaleSlope();
+}
+
+float vtkDICOMImageReader::GetRescaleOffset()
+{
+  return this->AppHelper->GetRescaleOffset();
+}
+
+const char* vtkDICOMImageReader::GetPatientName()
+{
+  return this->AppHelper->GetPatientName().c_str();
+}
+
+const char* vtkDICOMImageReader::GetStudyUID()
+{
+  return this->AppHelper->GetStudyUID().c_str();
+}
+
+float vtkDICOMImageReader::GetGantryAngle()
+{
+  return this->AppHelper->GetGantryAngle();
+}

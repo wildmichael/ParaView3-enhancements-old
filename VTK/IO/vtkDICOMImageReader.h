@@ -4,8 +4,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDICOMImageReader.h,v $
   Language:  C++
-  Date:      $Date: 2003-11-07 15:17:23 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2003-11-07 20:33:36 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -111,6 +111,26 @@ class VTK_IO_EXPORT vtkDICOMImageReader : public vtkImageReader2
   // Description:
   // Get the transfer syntax UID for the last image processed.
   const char* GetTransferSyntaxUID();
+
+  // Description:
+  // Get the rescale slope for the pixel data.
+  float GetRescaleSlope();
+
+  // Description:
+  // Get the rescale offset for the pixel data.
+  float GetRescaleOffset();
+
+  // Description:
+  // Get the patient name for the last image processed.
+  const char* GetPatientName();
+
+  // Description:
+  // Get the study uid for the last image processed.
+  const char* GetStudyUID();
+
+  // Description:
+  // Get the gantry angle for the last image processed.
+  float GetGantryAngle();
 
 protected:
   //
