@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVGlyphFilter.h,v $
   Language:  C++
-  Date:      $Date: 2003-09-26 15:24:25 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-10-01 20:55:53 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -63,8 +63,7 @@ public:
   virtual void SetInput(vtkDataSet *input);
   
   // Description:
-  // Set/get the number of processes used to run this filter.
-  vtkSetMacro(NumberOfProcesses, int);
+  // Get the number of processes used to run this filter.
   vtkGetMacro(NumberOfProcesses, int);
   
   // Description:
