@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-22 19:27:45 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2003-07-23 13:13:10 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,11 +28,11 @@
 #include "vtkUnsignedCharArray.h"
 #include "vtkZLibDataCompressor.h"
 
-#ifndef _WIN32
+#if !defined(_WIN32) || defined(__CYGWIN__)
 # include <unistd.h> /* unlink */
 #endif
 
-vtkCxxRevisionMacro(vtkXMLWriter, "$Revision: 1.23 $");
+vtkCxxRevisionMacro(vtkXMLWriter, "$Revision: 1.24 $");
 vtkCxxSetObjectMacro(vtkXMLWriter, Compressor, vtkDataCompressor);
 
 //----------------------------------------------------------------------------
