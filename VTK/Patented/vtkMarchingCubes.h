@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingCubes.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:16 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2001-05-28 05:54:03 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -128,13 +128,6 @@ public:
   // specified. The locator is used to merge coincident points.
   void CreateDefaultLocator();
 
-#ifndef VTK_REMOVE_LEGACY_CODE
-  // Description:
-  // Obsolete method for legacy compatibility. Do not use.
-  void SetLocator(vtkPointLocator& locator) 
-    {VTK_LEGACY_METHOD(SetLocator,"3.2"); this->SetLocator(&locator);}
-#endif
-  
 protected:
   vtkMarchingCubes();
   ~vtkMarchingCubes();
