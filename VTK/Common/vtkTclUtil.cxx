@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTclUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-29 13:51:24 $
-  Version:   $Revision: 1.64 $
+  Date:      $Date: 2001-11-12 19:24:21 $
+  Version:   $Revision: 1.65 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -583,7 +583,14 @@ vtkTclCommand::vtkTclCommand()
 
 vtkTclCommand::~vtkTclCommand() 
 { 
-  delete [] this->StringCommand;
+  if(this->StringCommand) { delete [] this->StringCommand; }
+}
+
+void vtkTclCommand::SetStringCommand(const char *arg)
+{
+  if(this->StringCommand) { delete [] this->StringCommand; }
+  this->StringCommand = new char[strlen(arg)+1];
+  strcpy(this->StringCommand, arg);
 }
   
 void vtkTclCommand::Execute(vtkObject *, unsigned long, void *)
