@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdList.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:49:49 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 1998-03-26 23:35:52 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -73,7 +73,6 @@ class VTK_EXPORT vtkIdList : public vtkObject
   void Squeeze() {this->Ia->Squeeze();};
   void ShallowCopy(vtkIdList& ids);
   void DeepCopy(vtkIdList& ids);
-  vtkIdList &operator=(const vtkIdList& ids) {vtkErrorMacro(<<"operator="); return *this;};
 
   // special set operations
   void DeleteId(int Id);
