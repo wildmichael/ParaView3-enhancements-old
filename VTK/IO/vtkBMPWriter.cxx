@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBMPWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:25 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-08-19 11:40:37 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,14 +48,12 @@ vtkBMPWriter::vtkBMPWriter()
 void vtkBMPWriter::WriteFileHeader(ofstream *file, vtkImageData *cache)
 {
   int min0, max0, min1, max1, min2, max2;
-  int bpp;
   long temp;
   int width, height, dataWidth;
   int row;
   
   // Find the length of the rows to write.
   cache->GetWholeExtent(min0, max0, min1, max1, min2, max2);
-  bpp = cache->GetNumberOfScalarComponents();
   width = (max0 - min0 + 1);
   height = (max1 - min1 + 1);
   

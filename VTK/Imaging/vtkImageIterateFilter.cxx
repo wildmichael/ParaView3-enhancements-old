@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIterateFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-05 19:22:14 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-08-19 11:40:37 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -197,7 +197,7 @@ int vtkImageIterateFilter::ComputeDivisionExtents(vtkDataObject *output,
 						  int division, int numDivisions)
 {
   vtkImageData *in, *out = (vtkImageData*)output;
-  int inExt[6], *outExt, idx;
+  int inExt[6], idx;
   
   // For now, lets disable streaming on iteration filters.  To be truly 
   // streaming (FFT) each iteration needs to break up it processing.  

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAxisActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-21 14:05:40 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-08-19 11:40:36 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to Kitware & RPI/SCOREC who supported the development
              of this class.
 
@@ -275,7 +275,7 @@ void vtkAxisActor2D::BuildAxis(vtkViewport *viewport)
   int i, *x, ptIds[2], needToBuildFont;
   float p1[3], p2[3], offset, maxWidth=0.0, maxHeight=0.0;
   int numLabels;
-  float outRange[2], interval, deltaX, deltaY, xTick[3], *p;
+  float outRange[2], interval, deltaX, deltaY, xTick[3];
   float theta, val;
   int *size, fontSize[2], stringWidth, stringHeight;
   char string[512];
@@ -471,7 +471,7 @@ void vtkAxisActor2D::ComputeRange(float inRange[2], float outRange[2],
   float range = fabs(inRange[1]-inRange[0]), sRange[2];
   float logFactor = (float)pow(10.0, floor(log10(range)));
   float lastInterval;
-  int i, j;
+  int j;
 
   // Handle the range
   if ( inRange[0] <= inRange[1] )

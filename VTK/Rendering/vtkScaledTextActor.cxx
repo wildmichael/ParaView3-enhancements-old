@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScaledTextActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-04 20:55:18 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-08-19 11:40:38 $
+  Version:   $Revision: 1.5 $
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -92,8 +92,6 @@ float vtkScaledTextActor::GetHeight()
 
 int vtkScaledTextActor::RenderOverlay(vtkViewport *viewport)
 {
-  int renderedSomething = 0;
-  
   // Everything is built, just have to render
   this->TextActor->RenderOverlay(viewport);
   return 1;

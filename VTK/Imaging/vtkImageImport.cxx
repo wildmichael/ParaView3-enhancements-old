@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageImport.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-02 20:34:45 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-08-19 11:40:37 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -142,7 +142,6 @@ static void vtkImageImportExecute(vtkImageImport *self, vtkImageData *data, T *i
 
   int inExtX = inputExtent[1]-inputExtent[0]+1;
   int inExtY = inputExtent[3]-inputExtent[2]+1;
-  int inExtZ = inputExtent[5]-inputExtent[4]+1;
 
   int outExtX = outputExtent[1]-outputExtent[0]+1;
   int outExtY = outputExtent[3]-outputExtent[2]+1;
