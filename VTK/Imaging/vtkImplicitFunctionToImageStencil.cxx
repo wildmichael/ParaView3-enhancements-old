@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitFunctionToImageStencil.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:33:41 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-12-11 14:26:22 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,12 +16,16 @@
 
 =========================================================================*/
 #include "vtkImplicitFunctionToImageStencil.h"
+
+#include "vtkImageStencilData.h"
+#include "vtkImplicitFunction.h"
 #include "vtkObjectFactory.h"
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImplicitFunctionToImageStencil, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkImplicitFunctionToImageStencil, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkImplicitFunctionToImageStencil);
+vtkCxxSetObjectMacro(vtkImplicitFunctionToImageStencil,Input, vtkImplicitFunction);
 
 //----------------------------------------------------------------------------
 vtkImplicitFunctionToImageStencil::vtkImplicitFunctionToImageStencil()

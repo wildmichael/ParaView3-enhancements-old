@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageQuantizeRGBToIndex.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:33:15 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-12-11 14:26:22 $
+  Version:   $Revision: 1.27 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,7 +32,8 @@
 #define __vtkImageQuantizeRGBToIndex_h
 
 #include "vtkImageToImageFilter.h"
-#include "vtkLookupTable.h"
+
+class vtkLookupTable;
 
 class VTK_IMAGING_EXPORT vtkImageQuantizeRGBToIndex : public vtkImageToImageFilter
 {

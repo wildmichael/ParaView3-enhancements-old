@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSampleFunction.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-12 18:29:54 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2002-12-11 14:26:22 $
+  Version:   $Revision: 1.45 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,7 +31,9 @@
 #define __vtkSampleFunction_h
 
 #include "vtkImageSource.h"
-#include "vtkImplicitFunction.h"
+
+class vtkImplicitFunction;
+class vtkDataArray;
 
 class VTK_IMAGING_EXPORT vtkSampleFunction : public vtkImageSource
 {
@@ -46,7 +48,7 @@ public:
 
   // Description:
   // Specify the implicit function to use to generate data.
-  vtkSetObjectMacro(ImplicitFunction,vtkImplicitFunction);
+  virtual void SetImplicitFunction(vtkImplicitFunction*);
   vtkGetObjectMacro(ImplicitFunction,vtkImplicitFunction);
 
   // Description:
@@ -78,13 +80,7 @@ public:
   // Control the type of the scalars object by explicitly providing a scalar
   // object.  THIS IS DEPRECATED, although it still works!!! Please use
   // SetOutputScalarType instead.
-  virtual void SetScalars(vtkDataArray *da)
-    {
-      if (da)
-        {
-        this->SetOutputScalarType(da->GetDataType());
-        }
-    }    
+  virtual void SetScalars(vtkDataArray *da);
 
   // Description:
   // Specify the dimensions of the data on which to sample.

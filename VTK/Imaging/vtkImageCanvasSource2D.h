@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCanvasSource2D.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-08 18:56:27 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2002-12-11 14:26:22 $
+  Version:   $Revision: 1.31 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,6 @@
 #ifndef __vtkImageCanvasSource2D_h
 #define __vtkImageCanvasSource2D_h
 
-#include <math.h>
 #include "vtkStructuredPoints.h"
 
 //

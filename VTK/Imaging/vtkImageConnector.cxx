@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageConnector.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:32:03 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-12-11 14:26:22 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,11 @@
 
 =========================================================================*/
 #include "vtkImageConnector.h"
+
+#include "vtkImageData.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageConnector, "$Revision: 1.17 $");
+vtkCxxRevisionMacro(vtkImageConnector, "$Revision: 1.18 $");
 vtkStandardNewMacro(vtkImageConnector);
 
 //----------------------------------------------------------------------------

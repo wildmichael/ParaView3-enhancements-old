@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDataStreamer.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:32:15 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-12-11 14:26:22 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,8 @@
 #define __vtkImageDataStreamer_h
 
 #include "vtkImageToImageFilter.h"
-#include "vtkExtentTranslator.h"
+
+class vtkExtentTranslator;
 
 class VTK_IMAGING_EXPORT vtkImageDataStreamer : public vtkImageToImageFilter
 {
@@ -47,8 +48,8 @@ public:
 
   // Description:
   // Get the extent translator that will be used to split the requests
+  virtual void SetExtentTranslator(vtkExtentTranslator*);
   vtkGetObjectMacro(ExtentTranslator,vtkExtentTranslator);
-  vtkSetObjectMacro(ExtentTranslator,vtkExtentTranslator);
   
 protected:
   vtkImageDataStreamer();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDataStreamer.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:32:15 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-12-11 14:26:22 $
+  Version:   $Revision: 1.27 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,12 +16,15 @@
 
 =========================================================================*/
 #include "vtkImageDataStreamer.h"
+
+#include "vtkCommand.h"
+#include "vtkExtentTranslator.h"
 #include "vtkImageData.h"
 #include "vtkObjectFactory.h"
-#include "vtkCommand.h"
 
-vtkCxxRevisionMacro(vtkImageDataStreamer, "$Revision: 1.26 $");
+vtkCxxRevisionMacro(vtkImageDataStreamer, "$Revision: 1.27 $");
 vtkStandardNewMacro(vtkImageDataStreamer);
+vtkCxxSetObjectMacro(vtkImageDataStreamer,ExtentTranslator,vtkExtentTranslator);
 
 //----------------------------------------------------------------------------
 vtkImageDataStreamer::vtkImageDataStreamer()

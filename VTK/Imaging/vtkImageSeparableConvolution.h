@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSeparableConvolution.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:33:24 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-12-11 14:26:22 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,7 +31,8 @@
 
 
 #include "vtkImageDecomposeFilter.h"
-#include "vtkFloatArray.h"
+
+class vtkFloatArray;
 
 class VTK_IMAGING_EXPORT vtkImageSeparableConvolution : public vtkImageDecomposeFilter
 {
@@ -42,17 +43,17 @@ public:
 
   // Set the X convolution kernel, a null value indicates no convolution to be done.
   // The kernel must be of odd length
-  vtkSetObjectMacro ( XKernel, vtkFloatArray );
+  virtual void SetXKernel(vtkFloatArray*);
   vtkGetObjectMacro ( XKernel, vtkFloatArray );
 
   // Set the Y convolution kernel, a null value indicates no convolution to be done
   // The kernel must be of odd length
-  vtkSetObjectMacro ( YKernel, vtkFloatArray );
+  virtual void SetYKernel(vtkFloatArray*);
   vtkGetObjectMacro ( YKernel, vtkFloatArray );
 
   // Set the Z convolution kernel, a null value indicates no convolution to be done
   // The kernel must be of odd length
-  vtkSetObjectMacro ( ZKernel, vtkFloatArray );
+  virtual void SetZKernel(vtkFloatArray*);
   vtkGetObjectMacro ( ZKernel, vtkFloatArray );
 
   void PrintSelf(ostream& os, vtkIndent indent);

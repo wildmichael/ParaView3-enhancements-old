@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageImport.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:32:47 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2002-12-11 14:26:22 $
+  Version:   $Revision: 1.36 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,7 +32,7 @@
 #define __vtkImageImport_h
 
 #include "vtkImageSource.h"
-#include "vtkTransform.h"
+//#include "vtkTransform.h"
 
 class VTK_IMAGING_EXPORT vtkImageImport : public vtkImageSource
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageStencil.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:33:33 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-12-11 14:26:22 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,8 @@
 #define __vtkImageStencil_h
 
 #include "vtkImageToImageFilter.h"
-#include "vtkImageStencilData.h"
+
+class vtkImageStencilData;
 
 class VTK_IMAGING_EXPORT vtkImageStencil : public vtkImageToImageFilter
 {

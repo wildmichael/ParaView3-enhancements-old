@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageBlend.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:31:52 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-12-11 14:26:22 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -76,7 +76,8 @@
 
 
 #include "vtkImageMultipleInputFilter.h"
-#include "vtkImageStencilData.h"
+
+class vtkImageStencilData;
 
 #define VTK_IMAGE_BLEND_MODE_NORMAL    0
 #define VTK_IMAGE_BLEND_MODE_COMPOUND 1
@@ -96,7 +97,7 @@ public:
 
   // Description:
   // Set a stencil to apply when blending the data.
-  vtkSetObjectMacro(Stencil, vtkImageStencilData);
+  virtual void SetStencil(vtkImageStencilData*);
   vtkGetObjectMacro(Stencil, vtkImageStencilData);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReslice.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-17 15:23:03 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2002-12-11 14:26:22 $
+  Version:   $Revision: 1.32 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,14 +21,18 @@
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
 #include "vtkTransform.h"
+#include "vtkImageStencilData.h"
 
 #include <limits.h>
 #include <float.h>
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageReslice, "$Revision: 1.31 $");
+vtkCxxRevisionMacro(vtkImageReslice, "$Revision: 1.32 $");
 vtkStandardNewMacro(vtkImageReslice);
 vtkCxxSetObjectMacro(vtkImageReslice, InformationInput, vtkImageData);
+vtkCxxSetObjectMacro(vtkImageReslice,ResliceAxes,vtkMatrix4x4);
+vtkCxxSetObjectMacro(vtkImageReslice,ResliceTransform,vtkAbstractTransform);
+
 
 //----------------------------------------------------------------------------
 vtkImageReslice::vtkImageReslice()

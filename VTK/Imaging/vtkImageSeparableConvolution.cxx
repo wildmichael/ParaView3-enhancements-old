@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSeparableConvolution.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-25 23:31:10 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-12-11 14:26:22 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,9 +19,14 @@
 
 #include "vtkImageData.h"
 #include "vtkObjectFactory.h"
+#include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkImageSeparableConvolution, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkImageSeparableConvolution, "$Revision: 1.12 $");
 vtkStandardNewMacro(vtkImageSeparableConvolution);
+vtkCxxSetObjectMacro(vtkImageSeparableConvolution,XKernel,vtkFloatArray);
+vtkCxxSetObjectMacro(vtkImageSeparableConvolution,YKernel,vtkFloatArray);
+vtkCxxSetObjectMacro(vtkImageSeparableConvolution,ZKernel,vtkFloatArray);
+
 
 // Actually do the convolution
 void ExecuteConvolve ( float* kernel, int kernelSize, float* image, float* outImage, int imageSize )

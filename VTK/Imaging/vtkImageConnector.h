@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageConnector.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:32:03 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-12-11 14:26:22 $
+  Version:   $Revision: 1.22 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,7 +31,8 @@
 #define __vtkImageConnector_h
 
 #include "vtkObject.h"
-#include "vtkImageData.h"
+
+class vtkImageData;
 
 //
 // Special classes for manipulating data

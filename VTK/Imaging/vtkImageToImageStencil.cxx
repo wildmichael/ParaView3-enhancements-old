@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToImageStencil.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:33:37 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-12-11 14:26:22 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,12 +16,15 @@
 
 =========================================================================*/
 #include "vtkImageToImageStencil.h"
-#include "vtkPolyData.h"
+
+#include "vtkImageData.h"
+#include "vtkImageStencilData.h"
 #include "vtkObjectFactory.h"
+#include "vtkPolyData.h"
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageToImageStencil, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkImageToImageStencil, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkImageToImageStencil);
 
 //----------------------------------------------------------------------------

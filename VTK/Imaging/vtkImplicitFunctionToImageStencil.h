@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitFunctionToImageStencil.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-07 21:11:36 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-12-11 14:26:22 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,8 @@
 
 
 #include "vtkImageStencilSource.h"
-#include "vtkImplicitFunction.h"
+
+class vtkImplicitFunction;
 
 class VTK_IMAGING_EXPORT vtkImplicitFunctionToImageStencil : public vtkImageStencilSource
 {
@@ -39,7 +40,7 @@ public:
 
   // Description:
   // Specify the implicit function to convert into a stencil.
-  vtkSetObjectMacro(Input, vtkImplicitFunction);
+  virtual void SetInput(vtkImplicitFunction*);
   vtkGetObjectMacro(Input, vtkImplicitFunction);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageStencilSource.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:33:36 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-12-11 14:26:22 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -34,7 +34,8 @@
 
 
 #include "vtkSource.h"
-#include "vtkImageStencilData.h"
+
+class vtkImageStencilData;
 
 class VTK_IMAGING_EXPORT vtkImageStencilSource : public vtkSource
 {

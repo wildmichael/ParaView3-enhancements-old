@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapToColors.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:33:00 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-12-11 14:26:22 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,7 +31,8 @@
 
 
 #include "vtkImageToImageFilter.h"
-#include "vtkScalarsToColors.h"
+
+class vtkScalarsToColors;
 
 class VTK_IMAGING_EXPORT vtkImageMapToColors : public vtkImageToImageFilter
 {
@@ -42,7 +43,7 @@ public:
 
   // Description:
   // Set the lookup table.
-  vtkSetObjectMacro(LookupTable,vtkScalarsToColors);
+  virtual void SetLookupTable(vtkScalarsToColors*);
   vtkGetObjectMacro(LookupTable,vtkScalarsToColors);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageStencilSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:33:35 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-12-11 14:26:22 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,11 +16,13 @@
 
 =========================================================================*/
 #include "vtkImageStencilSource.h"
+
+#include "vtkImageStencilData.h"
 #include "vtkObjectFactory.h"
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageStencilSource, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkImageStencilSource, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkImageStencilSource);
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSampleFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-25 23:31:10 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 2002-12-11 14:26:22 $
+  Version:   $Revision: 1.61 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,11 +19,13 @@
 
 #include "vtkFloatArray.h"
 #include "vtkImageData.h"
+#include "vtkImplicitFunction.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkSampleFunction, "$Revision: 1.60 $");
+vtkCxxRevisionMacro(vtkSampleFunction, "$Revision: 1.61 $");
 vtkStandardNewMacro(vtkSampleFunction);
+vtkCxxSetObjectMacro(vtkSampleFunction,ImplicitFunction,vtkImplicitFunction);
 
 // Construct with ModelBounds=(-1,1,-1,1,-1,1), SampleDimensions=(50,50,50),
 // Capping turned off, and normal generation on.
@@ -268,6 +270,13 @@ void vtkSampleFunction::Cap(vtkDataArray *s)
     }
 }
 
+void vtkSampleFunction::SetScalars(vtkDataArray *da)
+{
+  if (da)
+    {
+    this->SetOutputScalarType(da->GetDataType());
+    }
+}    
 
 void vtkSampleFunction::PrintSelf(ostream& os, vtkIndent indent)
 {

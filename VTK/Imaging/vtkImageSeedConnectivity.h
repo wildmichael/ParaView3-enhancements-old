@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSeedConnectivity.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:33:23 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2002-12-11 14:26:22 $
+  Version:   $Revision: 1.30 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,9 +31,10 @@
 #ifndef __vtkImageSeedConnectivity_h
 #define __vtkImageSeedConnectivity_h
 
-
-#include "vtkImageConnector.h"
 #include "vtkImageToImageFilter.h"
+
+class vtkImageConnector;
+class vtkImageConnectorSeed;
 
 class VTK_IMAGING_EXPORT vtkImageSeedConnectivity : public vtkImageToImageFilter
 {
