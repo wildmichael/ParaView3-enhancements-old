@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssembly.h,v $
   Language:  C++
-  Date:      $Date: 1999-02-19 21:53:14 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1999-02-24 17:34:44 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -111,7 +111,8 @@ public:
   // will be drawn for this assembly. This allows you to create "logical"
   // assemblies; that is, assemblies that only serve to group and transform
   // its parts.
-  void Render(vtkRenderer *ren);
+  void RenderOpaqueGeometry(vtkViewport *ren);
+  void RenderTranslucentGeometry(vtkViewport *ren);
 
   // Description:
   // Release any graphics resources that are being consumed by this actor.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCuller.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-07 13:11:04 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-02-24 17:34:45 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,7 +59,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include "vtkObject.h"
 
-class vtkActor;
+class vtkProp;
 class vtkRenderer;
 
 class VTK_EXPORT vtkCuller : public vtkObject
@@ -69,12 +69,12 @@ public:
 
   // Description:
   // This is called outside the render loop
-  virtual float OuterCullMethod( vtkRenderer *ren, vtkActor **actorList,
+  virtual float OuterCullMethod( vtkRenderer *ren, vtkProp **actorList,
 				 int& listLength, int& initialized )=0;
 
   // Description:
   // This is called inside the render loop
-  virtual int   InnerCullMethod( vtkRenderer *ren, vtkActor *act )=0;
+  virtual int   InnerCullMethod( vtkRenderer *ren, vtkProp *act )=0;
 
 protected:
 };

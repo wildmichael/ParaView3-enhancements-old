@@ -4,8 +4,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFrustumCoverageCuller.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:41:57 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-02-24 17:34:45 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -76,12 +76,12 @@ public:
 
   // Description:
   // This class implements an outer cull method
-  float OuterCullMethod( vtkRenderer *ren, vtkActor **actorList,
+  float OuterCullMethod( vtkRenderer *ren, vtkProp **actorList,
 			 int& listLength, int& initialized );
 
   // Description:
   // Every actor passes the inner cull method (the actor is not culled)
-  int   InnerCullMethod( vtkRenderer *, vtkActor *) { return 1; };
+  int   InnerCullMethod( vtkRenderer *, vtkProp *) { return 1; };
   
   // Description:
   // Set/Get the minimum coverage - actors with less coverage than this
