@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTIFFReader.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-16 21:09:19 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-04-28 14:28:13 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -77,6 +77,7 @@ public:
   
 protected:
   virtual void UpdateImageInformation();
+  void Swap4(int *stmp);
   void Swap4(long *stmp);
   void Swap2(short *stmp);
   void ReadTag(_vtkTifTag *tag, FILE *fp);
