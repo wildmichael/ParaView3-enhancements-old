@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCylindricalTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-25 21:18:15 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-06-13 15:23:27 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include <math.h>
 #include <stdlib.h>
 
-vtkCxxRevisionMacro(vtkCylindricalTransform, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkCylindricalTransform, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkCylindricalTransform);
 
 //----------------------------------------------------------------------------
@@ -61,7 +61,7 @@ vtkAbstractTransform *vtkCylindricalTransform::MakeTransform()
 }
 
 template<class T>
-static void vtkCylindricalToRectangular(const T inPoint[3], T outPoint[3],
+void vtkCylindricalToRectangular(const T inPoint[3], T outPoint[3],
                                         T derivative[3][3])
 {
   T r = inPoint[0];
@@ -90,7 +90,7 @@ static void vtkCylindricalToRectangular(const T inPoint[3], T outPoint[3],
 }
 
 template<class T>
-static void vtkRectangularToCylindrical(const T inPoint[3], T outPoint[3])
+void vtkRectangularToCylindrical(const T inPoint[3], T outPoint[3])
 {
   T x = inPoint[0];
   T y = inPoint[1];
