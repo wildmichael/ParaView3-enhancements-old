@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-01-16 21:22:01 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1998-02-13 12:29:32 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,6 +43,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 vtkMergeFilter::vtkMergeFilter()
 {
+  this->Geometry = NULL;
   this->Scalars = NULL;
   this->Vectors = NULL;
   this->Normals = NULL;
@@ -270,8 +271,13 @@ void vtkMergeFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkFilter::PrintSelf(os,indent);
 
-  os << indent << "Geometry: (" << this->Geometry << ")\n";
-  os << indent << "Geometry type: " << this->Geometry->GetClassName() << "\n";
+  if ( this->Geometry )
+    {
+    os << indent << "Geometry: (" << this->Geometry << ")\n";
+    os << indent << "Geometry type: " << this->Geometry->GetClassName() << "\n";
+    }
+  else
+    os << indent << "Geometry: (none)\n";
 
   if ( this->Scalars )
     os << indent << "Scalars: (" << this->Scalars << ")\n";
