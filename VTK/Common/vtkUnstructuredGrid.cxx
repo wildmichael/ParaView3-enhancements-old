@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-19 17:16:39 $
-  Version:   $Revision: 1.107 $
+  Date:      $Date: 2002-06-20 12:10:51 $
+  Version:   $Revision: 1.108 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -38,7 +38,7 @@
 #include "vtkConvexPointSet.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkUnstructuredGrid, "$Revision: 1.107 $");
+vtkCxxRevisionMacro(vtkUnstructuredGrid, "$Revision: 1.108 $");
 vtkStandardNewMacro(vtkUnstructuredGrid);
 
 vtkUnstructuredGrid::vtkUnstructuredGrid ()
@@ -313,6 +313,11 @@ vtkCell *vtkUnstructuredGrid::GetCell(vtkIdType cellId)
     cell->Points->SetPoint(i,this->Points->GetPoint(pts[i]));
     }
 
+  if ( cell->RequiresInitialization() )
+    {
+    cell->Initialize(); //hack to make sure it retriangulates
+    }
+
   return cell;
 }
 
@@ -336,6 +341,11 @@ void vtkUnstructuredGrid::GetCell(vtkIdType cellId, vtkGenericCell *cell)
     cell->PointIds->SetId(i,pts[i]);
     this->Points->GetPoint(pts[i], x);
     cell->Points->SetPoint(i, x);
+    }
+
+  if ( cell->RequiresInitialization() )
+    {
+    cell->Initialize(); //hack to make sure it retriangulates
     }
 }
 

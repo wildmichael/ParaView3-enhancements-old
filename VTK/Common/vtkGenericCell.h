@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericCell.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-19 17:16:39 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-06-20 12:10:51 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -49,6 +49,8 @@ public:
   int GetCellType();
   int GetCellDimension();
   int IsLinear();
+  int RequiresInitialization();
+  void Initialize();
   int GetNumberOfEdges();
   int GetNumberOfFaces();
   vtkCell *GetEdge(int edgeId);

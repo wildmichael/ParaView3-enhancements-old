@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConvexPointSet.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-19 17:55:19 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-06-20 12:10:51 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -51,6 +51,11 @@ public:
   // See the vtkCell API for descriptions of these methods.
   virtual vtkCell *MakeObject();
   virtual int GetCellType() {return VTK_CONVEX_POINT_SET;}
+
+  // Description:
+  // This cell requires that it be initialized prior to access.
+  virtual int RequiresInitialization() {return 1;}
+  virtual void Initialize();
 
   // Description:
   // A convex point set has no explicit cell edge or faces; however

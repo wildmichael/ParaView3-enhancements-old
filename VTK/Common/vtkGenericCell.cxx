@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericCell.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-19 17:16:39 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-06-20 12:10:51 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -39,7 +39,7 @@
 #include "vtkConvexPointSet.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkGenericCell, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkGenericCell, "$Revision: 1.16 $");
 vtkStandardNewMacro(vtkGenericCell);
 
 // Construct cell.
@@ -83,6 +83,16 @@ int vtkGenericCell::GetCellDimension()
 int vtkGenericCell::IsLinear()
 {
   return this->Cell->IsLinear();
+}
+
+int vtkGenericCell::RequiresInitialization()
+{
+  return this->Cell->RequiresInitialization();
+}
+
+void vtkGenericCell::Initialize()
+{
+  this->Cell->Initialize();
 }
 
 int vtkGenericCell::GetNumberOfEdges()
@@ -252,7 +262,7 @@ void vtkGenericCell::SetCellType(int cellType)
     this->Points->Register(this);
     this->PointIds = this->Cell->PointIds;
     this->PointIds->Register(this);
-    }
+    }//need to change cell type
 }
 
 
