@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMyXdmfReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-07 13:59:44 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-04-14 17:16:42 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -69,7 +69,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <vector>
 
 vtkStandardNewMacro(vtkMyXdmfReader);
-vtkCxxRevisionMacro(vtkMyXdmfReader, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkMyXdmfReader, "$Revision: 1.5 $");
 
 #if defined(_WIN32) && (defined(_MSC_VER) || defined(__BORLANDC__))
 #  include <direct.h>
@@ -565,8 +565,10 @@ void vtkMyXdmfReader::Execute()
       XdmfArray *values = this->FormatMulti->ElementToArray( 
         dataNode, this->DataDescription );
       */
-    if( !XDMF_WORD_CMP(NodeType, "DataTransform") &&
-        ( this->Grid->GetTopologyType() == XDMF_3DRECTMESH ) ){
+    // if( !XDMF_WORD_CMP(NodeType, "DataTransform") &&
+    //   ( this->Grid->GetTopologyType() == XDMF_3DRECTMESH ) ){
+    if( XDMF_WORD_CMP(NodeType, "DataStructure") &&
+	( this->Grid->GetTopologyType() == XDMF_3DRECTMESH )){
 	// Only works for the CTH-like special case
         values = this->FormatMulti->ElementToArray(dataNode, this->DataDescription);
     } else {
