@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCTHOutlineFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-09-19 15:54:58 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-12-05 22:05:20 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,7 +30,7 @@
 
 
 
-vtkCxxRevisionMacro(vtkCTHOutlineFilter, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkCTHOutlineFilter, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkCTHOutlineFilter);
 
 //----------------------------------------------------------------------------
@@ -50,9 +50,9 @@ void vtkCTHOutlineFilter::Execute()
   vtkCTHData* input = this->GetInput();
   vtkOutlineSource* outlineSource;
   vtkAppendPolyData *append = vtkAppendPolyData::New();  
-  float bounds[6];
-  float *origin;
-  float *spacing;
+  double bounds[6];
+  double *origin;
+  double *spacing;
   int *dimensions;
   int ghostLevels;
   

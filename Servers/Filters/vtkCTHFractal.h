@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCTHFractal.h,v $
   Language:  C++
-  Date:      $Date: 2003-09-19 15:54:58 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-12-05 22:05:20 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -71,11 +71,11 @@ protected:
                 int x0, int y0, int z0);
 
   int LineTest2(float x0, float y0, float z0, 
-               float x1, float y1, float z1,
-               float bds[6]); 
+                float x1, float y1, float z1,
+                double bds[6]); 
   int LineTest(float x0, float y0, float z0, 
                float x1, float y1, float z1,
-               float bds[6], int level, int target); 
+               double bds[6], int level, int target); 
 
   void SetBlockInfo(int blockId, int level,
                     int x0, int y0, int z0);

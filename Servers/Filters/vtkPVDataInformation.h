@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVDataInformation.h,v $
   Language:  C++
-  Date:      $Date: 2003-12-02 18:28:10 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2003-12-05 22:05:20 $
+  Version:   $Revision: 1.13 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -91,7 +91,6 @@ public:
   vtkGetMacro(NumberOfCells, vtkIdType);
   vtkGetMacro(MemorySize, int);
   vtkGetVector6Macro(Bounds, double);
-  void GetBounds(float* bds);
 
   // Description:
   // Of course Extent is only valid for structured data sets.
