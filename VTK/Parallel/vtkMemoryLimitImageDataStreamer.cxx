@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMemoryLimitImageDataStreamer.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-01 19:51:14 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-02-06 12:40:30 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -139,4 +139,6 @@ void vtkMemoryLimitImageDataStreamer::UpdateData(vtkDataObject *out)
   
   // now call the superclass
   this->vtkImageDataStreamer::UpdateData(out);
+
+  sizer->Delete();
 }
