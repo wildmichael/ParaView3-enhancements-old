@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 2000-07-07 16:21:33 $
-  Version:   $Revision: 1.70 $
+  Date:      $Date: 2000-07-17 01:55:20 $
+  Version:   $Revision: 1.71 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -227,6 +227,10 @@ public:
   virtual void StartPickCallback();
   virtual void EndPickCallback();
   
+  // Description:
+  // Get the current position of the mouse.
+  virtual void GetMousePosition(int *x, int *y) { *x = 0 ; *y = 0; };
+
   // Description:
   // Render the scene. Just pass the render call on to the 
   // associated vtkRenderWindow.
