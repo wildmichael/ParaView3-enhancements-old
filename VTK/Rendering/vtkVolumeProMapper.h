@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:28 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2001-11-01 14:51:15 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -72,7 +72,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define __vtkVolumeProMapper_h
 
 #include "vtkVolumeMapper.h"
-
+#include "vtkToolkits.h"
 //BTX
 class VLIContext;
 class VLIVolume;
