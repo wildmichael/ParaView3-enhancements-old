@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapJava.c,v $
   Language:  C++
-  Date:      $Date: 1998-05-05 20:18:18 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-05-21 16:42:49 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -104,7 +104,7 @@ void output_proto_vars(FILE *fp, int i)
 void use_hints(FILE *fp)
 {
   /* use the hint */
-  switch (currentFunction->ReturnType)
+  switch (currentFunction->ReturnType%1000)
     {
     case 301:
       fprintf(fp,"    return vtkJavaMakeJArrayOfDoubleFromFloat(env,temp%i,%i);\n",
