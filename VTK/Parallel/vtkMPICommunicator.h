@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPICommunicator.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-26 17:22:29 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-07-18 21:13:35 $
+  Version:   $Revision: 1.22 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -165,6 +165,7 @@ public:
   int Broadcast(unsigned long* data, int length, int root);
   int Broadcast(char* data         , int length, int root);
   int Broadcast(float* data        , int length, int root);
+  int Broadcast(double* data        , int length, int root);
 
   
   // Description:
@@ -174,6 +175,7 @@ public:
   int Gather(unsigned long* data, unsigned long* to, int length, int root);
   int Gather(char* data         , char* to         , int length, int root);
   int Gather(float* data        , float* to        , int length, int root);
+  int Gather(double* data       , double* to       , int length, int root);
 
 //BTX
 
