@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-09 17:13:12 $
-  Version:   $Revision: 1.82 $
+  Date:      $Date: 2002-04-25 14:26:13 $
+  Version:   $Revision: 1.83 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -36,7 +36,7 @@
 #include "vtkOpenGLPolyDataMapper.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkWin32OpenGLRenderWindow, "$Revision: 1.82 $");
+vtkCxxRevisionMacro(vtkWin32OpenGLRenderWindow, "$Revision: 1.83 $");
 vtkStandardNewMacro(vtkWin32OpenGLRenderWindow);
 
 #define VTK_MAX_LIGHTS 8
@@ -908,7 +908,9 @@ void vtkWin32OpenGLRenderWindow::CreateOffScreenDC(int xsize, int ysize,
   this->MemoryDataHeader.bmiHeader.biClrUsed = 0;
   this->MemoryDataHeader.bmiHeader.biClrImportant = 0;
   this->MemoryDataHeader.bmiHeader.biSizeImage = dataWidth*ysize;
-
+  this->MemoryDataHeader.bmiHeader.biXPelsPerMeter = 10000;
+  this->MemoryDataHeader.bmiHeader.biYPelsPerMeter = 10000;
+  
   HBITMAP dib = CreateDIBSection(aHdc,
                      &this->MemoryDataHeader, DIB_RGB_COLORS,
                      (void **)(&(this->MemoryData)),  NULL, 0);
