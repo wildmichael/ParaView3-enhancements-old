@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:34:42 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1995-08-03 14:17:32 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -308,7 +308,7 @@ int vtkDataWriter::WriteScalarData(FILE *fp, vtkScalars *scalars, int numPts)
 
     else if ( !strcmp(type,"unsigned char") )
       {
-      fprintf (fp, "%s char\nLOOKUP_TABLE %s\n", this->ScalarsName, name);
+      fprintf (fp, "%s unsigned_char\nLOOKUP_TABLE %s\n", this->ScalarsName, name);
       if ( this->FileType == ASCII )
         {
         unsigned char s;

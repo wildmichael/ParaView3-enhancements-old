@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:34:36 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1995-08-03 14:17:34 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -380,7 +380,7 @@ int vtkDataReader::ReadScalarData(FILE *fp, vtkDataSet *ds, int numPts)
     scalars->Delete();
     }
 
-  else if ( ! strncmp(line, "unsigned char", 13) )
+  else if ( ! strncmp(line, "unsigned_char", 13) )
     {
     vtkUnsignedCharScalars *scalars = new vtkUnsignedCharScalars(numPts);
     unsigned char *ptr = scalars->WritePtr(0,numPts);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDividingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:34:43 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1995-08-03 14:17:36 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,6 +68,7 @@ void vtkDividingCubes::Execute()
   int above, below, vertNum;
   vtkStructuredPoints *input=(vtkStructuredPoints *)this->Input;
   vtkMath math;
+  voxelScalars.ReferenceCountingOff();
 
   vtkDebugMacro(<< "Executing dividing cubes...");
 //
