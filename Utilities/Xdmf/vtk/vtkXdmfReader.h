@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.h,v $
   Language:  C++
-  Date:      $Date: 2005-01-10 18:31:11 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2005-01-27 14:27:19 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -201,6 +201,8 @@ protected:
   vtkXdmfReader();
   ~vtkXdmfReader();   
 
+  virtual int ProcessRequest(vtkInformation *, vtkInformationVector **,
+                             vtkInformationVector *);
   virtual int RequestData(vtkInformation *, vtkInformationVector **,
                           vtkInformationVector *);
   virtual int RequestInformation(vtkInformation *, vtkInformationVector **,
