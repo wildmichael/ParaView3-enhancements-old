@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkNormals.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-11 16:44:22 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1995-07-13 22:13:38 $
+  Version:   $Revision: 1.15 $
 
 This file is part of the Visualization Toolkit. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -67,10 +67,12 @@ public:
   // Insert normal into object. Range checking performed and memory
   // allocated as necessary.
   virtual void InsertNormal(int id, float n[3]) = 0;
+  void InsertNormal(int id, float nx, float ny, float nz);
 
   // Description:
   // Insert normal into next available slot. Returns point id of slot.
   virtual int InsertNextNormal(float n[3]) = 0;
+  int InsertNextNormal(float nx, float ny, float nz);
 
   // Description:
   // Reclaim any extra memory.

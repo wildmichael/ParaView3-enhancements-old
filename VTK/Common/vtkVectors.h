@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectors.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-11 16:44:40 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-07-13 22:13:37 $
+  Version:   $Revision: 1.17 $
 
 This file is part of the Visualization Toolkit. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -66,10 +66,12 @@ public:
   // Insert vector into object. Range checking performed and memory
   // allocated as necessary.
   virtual void InsertVector(int id, float v[3]) = 0;
+  void InsertVector(int id, float vx, float vy, float vz);
 
   // Description:
   // Insert vector into next available slot. Returns point id of slot.
   virtual int InsertNextVector(float v[3]) = 0;
+  int InsertNextVector(float vx, float vy, float vz);
 
   // Description:
   // Reclaim any extra memory.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPoints.h,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:28:50 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1995-07-13 22:13:33 $
+  Version:   $Revision: 1.18 $
 
 This file is part of the Visualization Toolkit. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -66,10 +66,12 @@ public:
   // Insert point into object. Range checking performed and memory
   // allocated as necessary.
   virtual void InsertPoint(int id, float x[3]) = 0;
+  void InsertPoint(int id, float x, float y, float z);
 
   // Description:
   // Insert point into next available slot. Returns point id of slot.
   virtual int InsertNextPoint(float x[3]) = 0;
+  int InsertNextPoint(float x, float y, float z);
 
   // Description:
   // Reclaim any extra memory.

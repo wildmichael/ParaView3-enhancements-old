@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTCoords.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-11 16:44:33 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-07-13 22:13:34 $
+  Version:   $Revision: 1.17 $
 
 This file is part of the Visualization Toolkit. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -68,11 +68,13 @@ public:
   // Insert texture coordinate into object. Range checking performed and 
   // memory allocated as necessary.
   virtual void InsertTCoord(int id, float *tc) = 0;
+  void InsertTCoord(int id, float tc1, float tc2, float tc3);
 
   // Description:
   // Insert texture coordinate into next available slot. Returns point
   // id of slot.
   virtual int InsertNextTCoord(float *tc) = 0;
+  int InsertNextTCoord(float tc1, float tc2, float tc3);
 
   // Description:
   // Reclaim any extra memory.
