@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 15:55:03 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-04-26 12:55:41 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -47,7 +47,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 vtkAbstractMapper::vtkAbstractMapper()
 {
   this->TimeToDraw = 0.0;
-  this->Window = NULL;
+  this->LastWindow = NULL;
 }
 
 void vtkAbstractMapper::PrintSelf(vtkOstream& os, vtkIndent indent)

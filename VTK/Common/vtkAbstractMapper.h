@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractMapper.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 15:55:03 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-04-26 12:55:40 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -78,7 +78,7 @@ protected:
   void operator=(const vtkAbstractMapper&) {};
 
   float TimeToDraw;
-  vtkWindow *Window;   // Window used for the previous render
+  vtkWindow *LastWindow;   // Window used for the previous render
 };
 
 #endif
