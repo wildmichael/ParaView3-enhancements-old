@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLargeInteger.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-16 16:15:12 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-01-18 16:52:53 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -57,6 +57,7 @@ public:
   short to_short(void) const;
   int to_int(void) const;
   long to_long(void) const;
+  unsigned long to_unsigned_long(void) const;
   
   int even(void) const;
   int odd(void) const;
