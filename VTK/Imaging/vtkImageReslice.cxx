@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReslice.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-07 21:11:36 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-06-06 21:19:48 $
+  Version:   $Revision: 1.22 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include <float.h>
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageReslice, "$Revision: 1.21 $");
+vtkCxxRevisionMacro(vtkImageReslice, "$Revision: 1.22 $");
 vtkStandardNewMacro(vtkImageReslice);
 
 //----------------------------------------------------------------------------
@@ -597,7 +597,7 @@ void vtkImageReslice::ExecuteInformation(vtkImageData *input,
     else
       {
       s = inSpacing[i];
-      d = (inWholeExt[2*i+1] - e)*s;
+      d = (inWholeExt[2*i+1] - inWholeExt[2*i])*s;
       e = inWholeExt[2*i];
       }
 
