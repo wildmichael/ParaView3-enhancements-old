@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:26:47 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-07-13 22:12:43 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Toolkit. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -21,6 +21,34 @@ void vtkTCoords::GetTCoord(int id, float tc[3])
 {
   float *tcp = this->GetTCoord(id);
   for (int i=0; i<this->Dimension; i++) tc[i] = tcp[i];
+}
+
+// Description:
+// Insert texture coordinate into position indicated. Although up to three
+// texture components may be specified (i.e., tc1, tc2, tc3), if the texture
+// coordinates are less than 3 dimensions the extra components will be ignored.
+void vtkTCoords::InsertTCoord(int id, float tc1, float tc2, float tc3)
+{
+  float tc[3];
+
+  tc[0] = tc1;
+  tc[1] = tc2;
+  tc[2] = tc3;
+  this->InsertTCoord(id,tc);
+}
+
+// Description:
+// Insert texture coordinate into position indicated. Although up to three
+// texture components may be specified (i.e., tc1, tc2, tc3), if the texture
+// coordinates are less than 3 dimensions the extra components will be ignored.
+int vtkTCoords::InsertNextTCoord(float tc1, float tc2, float tc3)
+{
+  float tc[3];
+
+  tc[0] = tc1;
+  tc[1] = tc2;
+  tc[2] = tc3;
+  return this->InsertNextTCoord(tc);
 }
 
 // Description:

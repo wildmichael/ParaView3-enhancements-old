@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:26:07 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1995-07-13 22:12:41 $
+  Version:   $Revision: 1.16 $
 
 This file is part of the Visualization Toolkit. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -19,6 +19,30 @@ vtkPoints::vtkPoints()
 {
   this->Bounds[0] = this->Bounds[2] = this->Bounds[4] = 0.0;
   this->Bounds[1] = this->Bounds[3] = this->Bounds[5] = 1.0;
+}
+
+// Description:
+// Insert point into position indicated.
+void vtkPoints::InsertPoint(int id, float x, float y, float z)
+{
+  float X[3];
+
+  X[0] = x;
+  X[1] = y;
+  X[2] = z;
+  this->InsertPoint(id,X);
+}
+
+// Description:
+// Insert point into position indicated.
+int vtkPoints::InsertNextPoint(float x, float y, float z)
+{
+  float X[3];
+
+  X[0] = x;
+  X[1] = y;
+  X[2] = z;
+  return this->InsertNextPoint(X);
 }
 
 void vtkPoints::GetPoint(int id, float x[3])

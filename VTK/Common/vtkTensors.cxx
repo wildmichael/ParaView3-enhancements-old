@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensors.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:26:49 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1995-07-13 22:12:44 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -24,6 +24,42 @@ void vtkTensors::GetTensor(int id, vtkTensor &ft)
 {
   vtkTensor& t = this->GetTensor(id);
   ft = t;
+}
+
+void vtkTensors::InsertTensor(int id, float t11, float t12, float t13, 
+                              float t21, float t22, float t23, 
+                              float t31, float t32, float t33)
+{
+  vtkTensor t;
+  t.SetComponent(0,0,t11);
+  t.SetComponent(0,1,t12);
+  t.SetComponent(0,2,t13);
+  t.SetComponent(1,0,t21);
+  t.SetComponent(1,1,t22);
+  t.SetComponent(1,2,t23);
+  t.SetComponent(2,0,t31);
+  t.SetComponent(2,1,t32);
+  t.SetComponent(2,2,t33);
+
+  this->InsertTensor(id,t);
+}
+
+int vtkTensors::InsertNextTensor(float t11, float t12, float t13, 
+                                 float t21, float t22, float t23, 
+                                 float t31, float t32, float t33)
+{
+  vtkTensor t;
+  t.SetComponent(0,0,t11);
+  t.SetComponent(0,1,t12);
+  t.SetComponent(0,2,t13);
+  t.SetComponent(1,0,t21);
+  t.SetComponent(1,1,t22);
+  t.SetComponent(1,2,t23);
+  t.SetComponent(2,0,t31);
+  t.SetComponent(2,1,t32);
+  t.SetComponent(2,2,t33);
+
+  return this->InsertNextTensor(t);
 }
 
 // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkNormals.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:25:59 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-07-13 22:12:46 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Toolkit. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -21,6 +21,30 @@ void vtkNormals::GetNormal(int id, float n[3])
 {
   float *np = this->GetNormal(id);
   for (int i=0; i<3; i++) n[i] = np[i];
+}
+
+// Description:
+// Insert normal into position indicated.
+void vtkNormals::InsertNormal(int id, float nx, float ny, float nz)
+{
+  float n[3];
+
+  n[0] = nx;
+  n[1] = ny;
+  n[2] = nz;
+  this->InsertNormal(id,n);
+}
+
+// Description:
+// Insert normal into position indicated.
+int vtkNormals::InsertNextNormal(float nx, float ny, float nz)
+{
+  float n[3];
+
+  n[0] = nx;
+  n[1] = ny;
+  n[2] = nz;
+  return this->InsertNextNormal(n);
 }
 
 // Description:

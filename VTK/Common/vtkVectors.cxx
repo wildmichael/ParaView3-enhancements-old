@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectors.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:27:04 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1995-07-13 22:12:45 $
+  Version:   $Revision: 1.15 $
 
 This file is part of the Visualization Toolkit. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -27,6 +27,30 @@ void vtkVectors::GetVector(int id, float v[3])
 {
   float *vp = this->GetVector(id);
   for (int i=0; i<3; i++) v[i] = vp[i];
+}
+
+// Description:
+// Insert vector into position indicated.
+void vtkVectors::InsertVector(int id, float vx, float vy, float vz)
+{
+  float v[3];
+
+  v[0] = vx;
+  v[1] = vy;
+  v[2] = vz;
+  this->InsertVector(id,v);
+}
+
+// Description:
+// Insert vector into position indicated.
+int vtkVectors::InsertNextVector(float vx, float vy, float vz)
+{
+  float v[3];
+
+  v[0] = vx;
+  v[1] = vy;
+  v[2] = vz;
+  return this->InsertNextVector(v);
 }
 
 // Description:
