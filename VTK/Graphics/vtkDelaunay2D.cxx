@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-06-03 18:22:59 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1996-06-03 18:27:11 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -135,10 +135,6 @@ static int FindTriangle(float x[3], int ptIds[3], int tri, vtkPolyData *Mesh,
   if ( !inside )
     {
     Mesh->GetCellEdgeNeighbors(tri,nei[0],nei[1],neighbors);
-    if ( neighbors.GetId(0) < 0 )
-      {
-      cerr << "here";
-      }
     return FindTriangle(x,ptIds,neighbors.GetId(0),Mesh,points,tol);
     }
   else //must be in this triangle if all edges test inside
