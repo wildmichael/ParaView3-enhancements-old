@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinkEdgels.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-09-26 21:03:35 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1996-10-09 15:18:06 $
+  Version:   $Revision: 1.10 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -142,7 +142,7 @@ void vtkLinkEdgels::Execute()
     
     region = new vtkImageRegion;
     region->SetScalarType(VTK_FLOAT);
-    region->SetExtent(temp->GetExtent());
+    region->SetExtent(VTK_IMAGE_DIMENSIONS, temp->GetExtent());
     region->CopyRegionData(temp);
     temp->Delete();
     }
@@ -163,13 +163,13 @@ void vtkLinkEdgels::Execute()
     {
     // Set extent to be just one slice.
     regionExtent[6] = regionExtent[7] = sliceNum;
-    region->SetExtent(regionExtent);
+    region->SetExtent(4, regionExtent);
     this->LinkEdgels(region, newLines,newPts,outScalars,outVectors, sliceNum);
     }
   // restore original extent.
   regionExtent[6] = sliceMin;
   regionExtent[7] = sliceMax;
-  region->SetExtent(regionExtent);
+  region->SetExtent(4, regionExtent);
   
   
   output->SetPoints(newPts);
