@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:30:30 $
-  Version:   $Revision: 1.112 $
+  Date:      $Date: 2001-11-15 21:29:18 $
+  Version:   $Revision: 1.113 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1030,7 +1030,7 @@ vtkDataArray *vtkDataReader::ReadArray(const char *dataType, int numTuples, int 
     if ( this->FileType == VTK_BINARY )
       {
       ReadBinaryData(this->IS, ptr, numTuples, numComp);
-      //      vtkByteSwap::Swap4BERange(ptr,numTuples*numComp);
+      vtkByteSwap::Swap8BERange(ptr,numTuples*numComp);
       }
     else 
       {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:30:31 $
-  Version:   $Revision: 1.84 $
+  Date:      $Date: 2001-11-15 21:29:19 $
+  Version:   $Revision: 1.85 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -470,21 +470,25 @@ static void WriteDataArray(ostream *fp, T *data, int fileType, const char *forma
     }
   else
     {
-    // need to byteswap ??
-    switch (sizeT)
-      {
-      case 2:
-        // typecast doesn't have to be valid here
-        vtkByteSwap::SwapWrite2BERange((short *)data,num*numComp, fp);
-        break;
-      case 4:
-        // typecast doesn't have to be valid here
-        vtkByteSwap::SwapWrite4BERange((float *)data,num*numComp, fp);
-        break;
-      default:
-        fp->write((char *)data, ( sizeof(T))*( num*numComp));
+      // need to byteswap ??
+      switch (sizeT)
+        {
+        case 2:
+          // typecast doesn't have to be valid here
+          vtkByteSwap::SwapWrite2BERange((short *)data,num*numComp, fp);
+          break;
+        case 4:
+          // typecast doesn't have to be valid here
+          vtkByteSwap::SwapWrite4BERange((float *)data,num*numComp, fp);
+          break;
+        case 8:
+          // typecast doesn't have to be valid here
+          vtkByteSwap::SwapWrite8BERange((double *)data,num*numComp, fp);
+          break;
+        default:
+          fp->write((char *)data, ( sizeof(T))*( num*numComp));
 
-      }
+        }
     }
   *fp << "\n";
 }
