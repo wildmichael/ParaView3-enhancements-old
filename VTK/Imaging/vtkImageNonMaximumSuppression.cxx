@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageNonMaximumSuppression.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-10-23 14:31:49 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1996-12-10 17:23:54 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -256,7 +256,7 @@ void vtkImageNonMaximumSuppression::Execute(vtkImageRegion *inRegion1,
 		{
 		neighborA += *incs;
 		}
-	      if (outIdx2 > *imageExtent)  // min
+	      if (*idxs > *imageExtent)  // min
 		{
 		neighborB -= *incs;
 		}
@@ -268,7 +268,7 @@ void vtkImageNonMaximumSuppression::Execute(vtkImageRegion *inRegion1,
 		{
 		neighborB += *incs;
 		}
-	      if (outIdx2 > *imageExtent)  //min
+	      if (*idxs > *imageExtent)  //min
 		{
 		neighborA -= *incs;
 		}
