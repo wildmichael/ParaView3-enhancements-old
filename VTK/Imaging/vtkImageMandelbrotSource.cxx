@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMandelbrotSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-29 22:26:29 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-03-08 13:56:41 $
+  Version:   $Revision: 1.24 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -269,8 +269,9 @@ vtkImageMandelbrotSource::CopyOriginAndSample(vtkImageMandelbrotSource *source)
   this->Modified();
 }
 //----------------------------------------------------------------------------
-void vtkImageMandelbrotSource::Execute(vtkImageData *data)
+void vtkImageMandelbrotSource::ExecuteData(vtkDataObject *output)
 {
+  vtkImageData *data = this->GetOutput();
   int *ext, a0, a1, a2;
   float *ptr;
   int min0, max0;
