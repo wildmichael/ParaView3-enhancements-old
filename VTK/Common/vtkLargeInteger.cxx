@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLargeInteger.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:33 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-03-21 21:57:26 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -44,7 +44,7 @@ long vtkpow(long a, long b)
   
   while (b1 >= 1)
     {
-    while (b & 1 == 0)
+    while ( ( b & 1 ) == 0)
       {
       b1 = b1 / 2;
       a1 = a1 * a1;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTimerLog.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:26:28 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2002-03-21 21:57:26 $
+  Version:   $Revision: 1.30 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -38,7 +38,7 @@
 #endif
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkTimerLog, "$Revision: 1.29 $");
+vtkCxxRevisionMacro(vtkTimerLog, "$Revision: 1.30 $");
 vtkStandardNewMacro(vtkTimerLog);
 
 // initialze the class variables
@@ -118,7 +118,7 @@ void vtkTimerLog::MarkEvent(char *event)
   int ticks_diff;
 
   strsize = (strlen(event)) > VTK_LOG_EVENT_LENGTH - 1
-    ? VTK_LOG_EVENT_LENGTH-1 : strlen(event);
+    ? VTK_LOG_EVENT_LENGTH-1 : static_cast<int>(strlen(event));
 
   // If this the first event we're recording, allocate the
   // internal timing table and initialize WallTime and CpuTicks
