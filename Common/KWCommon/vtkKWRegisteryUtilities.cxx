@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKWRegisteryUtilities.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-15 15:45:09 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2003-04-14 15:42:29 $
+  Version:   $Revision: 1.7 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -53,9 +53,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include <ctype.h>
 
-vtkCxxRevisionMacro(vtkKWRegisteryUtilities, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkKWRegisteryUtilities, "$Revision: 1.7 $");
 
-//-----------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 vtkKWRegisteryUtilities *vtkKWRegisteryUtilities::New()
 {
   vtkObject* ret = vtkObjectFactory::CreateInstance("vtkKWRegisteryUtilities");
@@ -71,7 +71,7 @@ vtkKWRegisteryUtilities *vtkKWRegisteryUtilities::New()
 #endif // _WIN32
 }
 
-//-----------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 vtkKWRegisteryUtilities::vtkKWRegisteryUtilities()
 {
   this->TopLevel    = 0;
@@ -82,7 +82,7 @@ vtkKWRegisteryUtilities::vtkKWRegisteryUtilities()
   this->GlobalScope = 0;
 }
 
-//-----------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 vtkKWRegisteryUtilities::~vtkKWRegisteryUtilities()
 {
   this->SetTopLevel(0);
@@ -93,7 +93,7 @@ vtkKWRegisteryUtilities::~vtkKWRegisteryUtilities()
     }
 }
 
-//-----------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 int vtkKWRegisteryUtilities::Open(const char *toplevel,
                                   const char *subkey, int readonly)
 {
@@ -159,7 +159,7 @@ int vtkKWRegisteryUtilities::Close()
   return res;
 }
 
-//-----------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 int vtkKWRegisteryUtilities::ReadValue(const char *subkey, 
                                        const char *key, 
                                        char *value)
@@ -192,7 +192,7 @@ int vtkKWRegisteryUtilities::ReadValue(const char *subkey,
   return res;
 }
 
-//-----------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 int vtkKWRegisteryUtilities::DeleteKey(const char *subkey, 
                                        const char *key)
 {
