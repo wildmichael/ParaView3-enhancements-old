@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingCubesCases.h,v $
   Language:  C++
-  Date:      $Date: 2001-07-10 18:20:31 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-07-11 15:09:38 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -45,14 +45,14 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // marching cubes case table for generating isosurfaces
 //
 typedef int EDGE_LIST;
-typedef struct {
-       EDGE_LIST edges[16];
-} TRIANGLE_CASES;
+struct VTK_TRIANGLE_CASES {
+  EDGE_LIST edges[16];
+  static VTK_TRIANGLE_CASES* GetCases();
+};
  
 //
-// Edges to intersect.  Three at a time form a triangle. Comments at end of line
-// indicate case number (0->255) and base case number (0->15).
+// Edges to intersect.  Three at a time form a triangle. Comments at 
+// end of line indicate case number (0->255) and base case number (0->15).
 //
-extern TRIANGLE_CASES VTK_MARCHING_CUBES_TRICASES[];
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHexahedron.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-10 18:20:31 $
-  Version:   $Revision: 1.71 $
+  Date:      $Date: 2001-07-11 15:09:38 $
+  Version:   $Revision: 1.72 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -410,7 +410,7 @@ void vtkHexahedron::Contour(float value, vtkScalars *cellScalars,
                             vtkCellData *outCd)
 {
   static int CASE_MASK[8] = {1,2,4,8,16,32,64,128};
-  TRIANGLE_CASES *triCase;
+  VTK_TRIANGLE_CASES *triCase;
   EDGE_LIST  *edge;
   int i, j, index, *vert;
   int e1, e2, newCellId;
@@ -426,7 +426,7 @@ void vtkHexahedron::Contour(float value, vtkScalars *cellScalars,
       }
     }
 
-  triCase = VTK_MARCHING_CUBES_TRICASES + index;
+  triCase = VTK_TRIANGLE_CASES::GetCases() + index;
   edge = triCase->edges;
 
   for ( ; edge[0] > -1; edge += 3 )
