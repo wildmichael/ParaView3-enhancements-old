@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBalancedRedistributePolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-28 18:41:18 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-07-08 16:50:40 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -74,26 +74,20 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkMultiProcessController.h"
 
-vtkBalancedRedistributePolyData* vtkBalancedRedistributePolyData::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkBalancedRedistributePolyData");
-  if(ret)
-    {
-    return (vtkBalancedRedistributePolyData*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkBalancedRedistributePolyData;
-}
+//----------------------------------------------------------------------------
+vtkStandardNewMacro(vtkBalancedRedistributePolyData);
 
+//----------------------------------------------------------------------------
 vtkBalancedRedistributePolyData::vtkBalancedRedistributePolyData()
 {
 }
 
+//----------------------------------------------------------------------------
 vtkBalancedRedistributePolyData::~vtkBalancedRedistributePolyData()
 {
 }
 
+//----------------------------------------------------------------------------
 void vtkBalancedRedistributePolyData::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->vtkWeightedRedistributePolyData::PrintSelf(os,indent);
