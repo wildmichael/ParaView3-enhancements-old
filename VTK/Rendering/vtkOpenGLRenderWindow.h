@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:06 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-03-26 16:02:52 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -103,6 +103,7 @@ public:
   // Description:
   // Specify the size of the rendering window.
   void SetSize(int,int);
+  void SetSize(int a[2]) {this->SetSize(a[0], a[1]);};
 
   // Description:
   // Get the X properties of an ideal rendering window.

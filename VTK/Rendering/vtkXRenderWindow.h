@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:35 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1999-03-26 16:02:52 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -124,7 +124,8 @@ public:
   // Description:
   // Move the window to a new position on the display.
   void     SetPosition(int,int);
-
+  void     SetPosition(int a[2]) {this->SetPosition(a[0], a[1]);};
+  
   // Description:
   // Get the properties available at runtime that would result in 
   // the best Xwindow for 3D rendering.
