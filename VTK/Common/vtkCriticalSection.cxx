@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCriticalSection.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:07 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-01-04 18:45:44 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,15 +58,12 @@ vtkCriticalSection* vtkCriticalSection::New()
 }
 
 
-
-
-// Construct a new vtkMutexLock 
-vtkSimpleCriticalSection::vtkSimpleCriticalSection()
+void vtkSimpleCriticalSection::Init()
 {
 #ifdef VTK_USE_SPROC
   init_lock( &this->CritSec );
 #endif
-
+  
 #ifdef _WIN32
   //this->MutexLock = CreateMutex( NULL, FALSE, NULL ); 
   InitializeCriticalSection(&this->CritSec);
@@ -79,8 +76,8 @@ vtkSimpleCriticalSection::vtkSimpleCriticalSection()
   pthread_mutex_init(&(this->CritSec), NULL);
 #endif
 #endif
-
 }
+
 
 // Destruct the vtkMutexVariable
 vtkSimpleCriticalSection::~vtkSimpleCriticalSection()
