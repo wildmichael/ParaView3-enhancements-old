@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBMPWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:18:50 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2003-03-26 19:28:11 $
+  Version:   $Revision: 1.22 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkPointData.h"
 
-vtkCxxRevisionMacro(vtkBMPWriter, "$Revision: 1.21 $");
+vtkCxxRevisionMacro(vtkBMPWriter, "$Revision: 1.22 $");
 vtkStandardNewMacro(vtkBMPWriter);
 
 vtkBMPWriter::vtkBMPWriter()
@@ -110,7 +110,7 @@ void vtkBMPWriter::WriteFile(ofstream *file, vtkImageData *data,
   // take into consideration the scalar type
   if (data->GetScalarType() != VTK_UNSIGNED_CHAR)
     {
-    vtkErrorMacro("PNMWriter only accepts unsigned char scalars!");
+    vtkErrorMacro("BMPWriter only accepts unsigned char scalars!");
     return; 
     }
 
