@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkVoxel.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-15 07:51:33 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1994-09-14 20:17:23 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -29,8 +29,10 @@ class vlBrick : public vlCell
 {
 public:
   vlBrick() {};
+  vlBrick(const vlBrick& b);
   char *GetClassName() {return "vlBrick";};
 
+  vlCell *MakeObject() {return new vlBrick(*this);};
   int GetCellType() {return vlBRICK;};
   int GetCellDimension() {return 3;};
   int GetNumberOfEdges() {return 12;};

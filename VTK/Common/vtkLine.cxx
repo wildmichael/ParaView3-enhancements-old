@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkLine.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-15 07:51:44 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1994-09-14 20:17:29 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -16,6 +16,14 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #include "Line.hh"
 #include "vlMath.hh"
 #include "CellArr.hh"
+
+// Description:
+// Deep copy of cell.
+vlLine::vlLine(const vlLine& l)
+{
+  this->Points = l.Points;
+  this->PointIds = l.PointIds;
+}
 
 #define NO_INTERSECTION 1
 #define INTERSECTION 2

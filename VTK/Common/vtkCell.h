@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCell.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-15 07:51:34 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1994-09-14 20:17:24 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -43,9 +43,9 @@ public:
   void Initialize(int npts, int *pts, vlPoints *p);
   char *GetClassName() {return "vlCell";};
 
-  // Because these objects (cells and derived classes) are computational 
-  // objects, and because they are used internally, do not use memory 
-  // reference counting.
+  // Description:
+  // Create concrete copy of this cell.
+  virtual vlCell *MakeObject() = 0;
 
   // Description:
   // Return the type of cell.

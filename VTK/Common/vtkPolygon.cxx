@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPolygon.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-15 07:49:29 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1994-09-14 20:17:36 $
+  Version:   $Revision: 1.15 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -13,7 +13,6 @@ without the express written consent of the authors.
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-#include <math.h>
 #include "Polygon.hh"
 #include "vlMath.hh"
 #include "Line.hh"
@@ -21,6 +20,14 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #include "DataSet.hh"
 #include "Triangle.hh"
 #include "CellArr.hh"
+
+// Description:
+// Deep copy of cell.
+vlPolygon::vlPolygon(const vlPolygon& p)
+{
+  this->Points = p.Points;
+  this->PointIds = p.PointIds;
+}
 
 #define FAILURE 0
 #define INTERSECTION 2

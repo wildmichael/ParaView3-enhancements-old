@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkLine.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-15 07:51:45 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1994-09-14 20:17:30 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -26,8 +26,10 @@ class vlLine : public vlCell
 {
 public:
   vlLine() {};
+  vlLine(const vlLine& l);
   char *GetClassName() {return "vlLine";};
 
+  vlCell *MakeObject() {return new vlLine(*this);};
   int GetCellType() {return vlLINE;};
   int GetCellDimension() {return 1;};
   int GetNumberOfEdges() {return 0;};

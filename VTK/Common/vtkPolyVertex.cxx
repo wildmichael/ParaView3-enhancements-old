@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPolyVertex.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-15 07:49:27 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1994-09-14 20:17:34 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -16,6 +16,14 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #include "PolyPts.hh"
 #include "vlMath.hh"
 #include "CellArr.hh"
+
+// Description:
+// Deep copy of cell.
+vlPolyPoints::vlPolyPoints(const vlPolyPoints& pp)
+{
+  this->Points = pp.Points;
+  this->PointIds = pp.PointIds;
+}
 
 int vlPolyPoints::EvaluatePosition(float x[3], float closestPoint[3],
                                    int& subId, float pcoords[3], 

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkVertex.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-15 07:49:19 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1994-09-14 20:17:31 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -26,8 +26,10 @@ class vlPoint : public vlCell
 {
 public:
   vlPoint() {};
+  vlPoint(const vlPoint& p);
   char *GetClassName() {return "vlPoint";};
 
+  vlCell *MakeObject() {return new vlPoint(*this);};
   int GetCellType() {return vlPOINT;};
   int GetCellDimension() {return 0;};
   int GetNumberOfEdges() {return 0;};

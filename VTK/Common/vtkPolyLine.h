@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPolyLine.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-15 07:49:26 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1994-09-14 20:17:33 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -30,10 +30,12 @@ class vlPolyLine : public vlCell
 {
 public:
   vlPolyLine() {};
+  vlPolyLine(const vlPolyLine& pl);
   char *GetClassName() {return "vlPolyLine";};
 
   int GenerateNormals(vlPoints *, vlCellArray *, vlFloatNormals *);
 
+  vlCell *MakeObject() {return new vlPolyLine(*this);};
   int GetCellType() {return vlPOLY_LINE;};
   int GetCellDimension() {return 1;};
   int GetNumberOfEdges() {return 0;};

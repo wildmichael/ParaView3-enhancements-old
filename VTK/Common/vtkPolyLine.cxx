@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPolyLine.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-15 07:49:25 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1994-09-14 20:17:32 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -17,6 +17,14 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #include "vlMath.hh"
 #include "Line.hh"
 #include "CellArr.hh"
+
+// Description:
+// Deep copy of cell.
+vlPolyLine::vlPolyLine(const vlPolyLine& pl)
+{
+  this->Points = pl.Points;
+  this->PointIds = pl.PointIds;
+}
 
 int vlPolyLine::GenerateNormals(vlPoints *pts, vlCellArray *lines, vlFloatNormals *normals)
 {

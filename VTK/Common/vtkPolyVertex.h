@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPolyVertex.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-15 07:49:28 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1994-09-14 20:17:35 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -27,8 +27,10 @@ class vlPolyPoints : public vlCell
 {
 public:
   vlPolyPoints() {};
+  vlPolyPoints(const vlPolyPoints& pp);
   char *GetClassName() {return "vlPolyPoints";};
 
+  vlCell *MakeObject() {return new vlPolyPoints(*this);};
   int GetCellType() {return vlPOLY_POINTS;};
   int GetCellDimension() {return 0;};
   int GetNumberOfEdges() {return 0;};

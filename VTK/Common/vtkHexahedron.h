@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkHexahedron.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-15 07:51:43 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-09-14 20:17:28 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -27,8 +27,10 @@ class vlHexahedron : public vlCell
 {
 public:
   vlHexahedron() {};
+  vlHexahedron(const vlHexahedron& h);
   char *GetClassName() {return "vlHexahedron";};
 
+  vlCell *MakeObject() {return new vlHexahedron(*this);};
   int GetCellType() {return vlHEXAHEDRON;};
   int GetCellDimension() {return 3;};
   int GetNumberOfEdges() {return 12;};

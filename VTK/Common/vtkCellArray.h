@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCellArray.h,v $
   Language:  C++
-  Date:      $Date: 1994-09-12 21:22:29 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1994-09-14 20:17:25 $
+  Version:   $Revision: 1.24 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -24,7 +24,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 // easy interface to external data.  However, it is totally inadequate for 
 // random access.  This functionality (when necessary) is accomplished by 
 // using the vlCellList and vlLinkList objects to extend the definition of 
-// data structure.
+// the data structure.
 
 #ifndef __vlCellArray_h
 #define __vlCellArray_h
@@ -88,7 +88,8 @@ inline void vlCellArray::InsertNextCell(int npts, int* pts)
 
 // Description:
 // Create cells by specifying count, and then adding points one at a time using
-// method InsertCellPoint()
+// method InsertCellPoint(). WARNING: it is the user's responsibility not to
+// exceed the maximum allowable points per cell (MAX_CELL_SIZE).
 inline void vlCellArray::InsertNextCell(int npts)
 {
   this->Location = this->Ia.InsertNextValue(npts) + 1;

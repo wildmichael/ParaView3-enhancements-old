@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkVoxel.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-15 07:51:32 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1994-09-14 20:17:22 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -13,16 +13,19 @@ without the express written consent of the authors.
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-#include <math.h>
 #include "Brick.hh"
 #include "vlMath.hh"
 #include "Line.hh"
 #include "Rect.hh"
 #include "CellArr.hh"
 
-//
-// Note: the ordering of the Points and PointIds is important.  See text.
-//
+// Description:
+// Deep copy of cell.
+vlBrick::vlBrick(const vlBrick& b)
+{
+  this->Points = b.Points;
+  this->PointIds = b.PointIds;
+}
 
 int vlBrick::EvaluatePosition(float x[3], float closestPoint[3],
                               int& subId, float pcoords[3], 

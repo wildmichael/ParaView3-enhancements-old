@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPolygon.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-15 07:49:30 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1994-09-14 20:17:37 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -29,12 +29,14 @@ class vlPolygon : public vlCell
 {
 public:
   vlPolygon() {};
+  vlPolygon(const vlPolygon& p);
   char *GetClassName() {return "vlPolygon";};
 
   void ComputeNormal(vlPoints *p, int numPts, int *pts, float n[3]);
   void ComputeNormal(float v1[3], float v2[3], float v3[3], float n[3]);
   void ComputeNormal(vlFloatPoints *p, float n[3]);
 
+  vlCell *MakeObject() {return new vlPolygon(*this);};
   int GetCellType() {return vlPOLYGON;};
   int GetCellDimension() {return 2;};
   int GetNumberOfEdges() {return this->GetNumberOfPoints();};
