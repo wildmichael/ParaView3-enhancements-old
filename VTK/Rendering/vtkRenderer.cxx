@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-09 19:54:12 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1994-11-23 10:44:10 $
+  Version:   $Revision: 1.24 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -330,6 +330,43 @@ void vlRenderer::WorldToView()
 		       view[1]/view[3],
 		       view[2]/view[3]);
     }
+}
+
+// Description:
+// Return center of renderer in display coordinates.
+float *vlRenderer::GetCenter()
+{
+  int *size;
+  
+  // get physical window dimensions 
+  size = this->RenderWindow->GetSize();
+
+  this->Center[0] = ((this->Viewport[2]+this->Viewport[0])
+		     /2.0*(float)size[0]);
+  this->Center[1] = ((this->Viewport[3]+this->Viewport[1])
+		     /2.0*(float)size[1]);
+
+  return this->Center;
+}
+
+// Description:
+// Is a given display point in this renderer's viewport.
+int vlRenderer::IsInViewport(int x,int y)
+{
+  int *size;
+  
+  // get physical window dimensions 
+  size = this->RenderWindow->GetSize();
+
+  if ((this->Viewport[0]*size[0] <= x)&&
+      (this->Viewport[2]*size[0] >= x)&&
+      (this->Viewport[1]*size[1] <= y)&&
+      (this->Viewport[3]*size[1] >= y))
+    {
+    return 1;
+    }
+
+  return 0;
 }
 
 void vlRenderer::PrintSelf(ostream& os, vlIndent indent)

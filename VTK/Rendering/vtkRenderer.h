@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRenderer.h,v $
   Language:  C++
-  Date:      $Date: 1994-11-09 19:54:17 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1994-11-23 10:43:46 $
+  Version:   $Revision: 1.17 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -133,8 +133,11 @@ public:
   vlSetVector4Macro(Viewport,float);
   vlGetVectorMacro(Viewport,float,4);
 
-  void DisplayToView();
-  void ViewToDisplay();
+  virtual float *GetCenter();
+
+  virtual void DisplayToView(); // these get modified in subclasses
+  virtual void ViewToDisplay(); // to handle stereo rendering
+  virtual int  IsInViewport(int x,int y); 
   void WorldToView();
   void ViewToWorld();
   void DisplayToWorld();
@@ -154,6 +157,7 @@ protected:
   float Viewport[4];
   int   Erase;
   float Aspect[2];
+  float Center[2];
 };
 
 // Description:
