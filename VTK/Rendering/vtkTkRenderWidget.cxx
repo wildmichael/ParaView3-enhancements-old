@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkRenderWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-03 14:44:01 $
-  Version:   $Revision: 1.73 $
+  Date:      $Date: 2002-09-04 14:37:26 $
+  Version:   $Revision: 1.74 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -182,7 +182,15 @@ int vtkImageDataToTkPhoto_Cmd (ClientData clientData, Tcl_Interp *interp,
       break;
     }
   Tk_PhotoSetSize ( photo, block.width, block.height );
+
+
+#if (TK_MAJOR_VERSION == 8) && (TK_MINOR_VERSION >= 4)
+  Tk_PhotoPutBlock ( photo, &block, 0, 0, block.width, block.height, 
+                     TK_PHOTO_COMPOSITE_SET );
+#else
   Tk_PhotoPutBlock ( photo, &block, 0, 0, block.width, block.height );
+#endif
+
   return TCL_OK;
 }
 }
