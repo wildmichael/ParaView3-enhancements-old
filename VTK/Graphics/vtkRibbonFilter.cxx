@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRibbonFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-02-26 10:24:56 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-02-28 17:42:07 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -170,13 +170,13 @@ void vlRibbonFilter::Execute()
         sFactor = 1.0 + ((this->WidthFactor - 1.0) * 
                   (inScalars->GetScalar(j) - range[0]) / (range[1]-range[0]));
 
-      for (i=0; i<3; i++) w[i] = p[i] + w[i] * BevelAngle * sFactor;
-      ptId = newPts->InsertNextPoint(w);
+      for (i=0; i<3; i++) s[i] = p[i] + w[i] * BevelAngle * sFactor;
+      ptId = newPts->InsertNextPoint(s);
       newNormals->InsertNormal(ptId,n);
       this->PointData.CopyData(pd,pts[j],ptId);
 
-      for (i=0; i<3; i++) w[i] = p[i] - w[i] * BevelAngle * sFactor;
-      ptId = newPts->InsertNextPoint(w);
+      for (i=0; i<3; i++) s[i] = p[i] - w[i] * BevelAngle * sFactor;
+      ptId = newPts->InsertNextPoint(s);
       newNormals->InsertNormal(ptId,n);
       this->PointData.CopyData(pd,pts[j],ptId);
       }

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTextureMapToPlane.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-09 19:52:01 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1995-02-28 17:42:09 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -33,21 +33,6 @@ vlTextureMapToPlane::vlTextureMapToPlane()
   this->TRange[1] = 1.0;
 
   this->AutomaticPlaneGeneration = 1;
-}
-
-void vlTextureMapToPlane::PrintSelf(ostream& os, vlIndent indent)
-{
-  vlDataSetToDataSetFilter::PrintSelf(os,indent);
-
-  os << indent << "S Range: (" << this->SRange[0] << ", "
-                               << this->SRange[1] << ")\n";
-  os << indent << "T Range: (" << this->TRange[0] << ", "
-                               << this->TRange[1] << ")\n";
-  os << indent << "Automatic Normal Generation: " << 
-                  (this->AutomaticPlaneGeneration ? "On\n" : "Off\n");
-  os << indent << "Normal: (" << this->Normal[0] << ", "
-                                << this->Normal[1] << ", "
-                                << this->Normal[2] << ")\n";
 }
 
 void vlTextureMapToPlane::Execute()
@@ -183,6 +168,7 @@ void vlTextureMapToPlane::ComputeNormal()
 //  normal direction (dir), construct matrices appropriately.
 //
     //  Compute 3x3 least squares matrix
+  v[0] = v[1] = v[2] = 0.0;
   for (i=0; i<9; i++) m[i] = 0.0;
 
   for (ptId=0; ptId < numPts; ptId++) 
@@ -218,3 +204,19 @@ void vlTextureMapToPlane::ComputeNormal()
 
   return;
 }
+
+void vlTextureMapToPlane::PrintSelf(ostream& os, vlIndent indent)
+{
+  vlDataSetToDataSetFilter::PrintSelf(os,indent);
+
+  os << indent << "S Range: (" << this->SRange[0] << ", "
+                               << this->SRange[1] << ")\n";
+  os << indent << "T Range: (" << this->TRange[0] << ", "
+                               << this->TRange[1] << ")\n";
+  os << indent << "Automatic Normal Generation: " << 
+                  (this->AutomaticPlaneGeneration ? "On\n" : "Off\n");
+  os << indent << "Normal: (" << this->Normal[0] << ", "
+                                << this->Normal[1] << ", "
+                                << this->Normal[2] << ")\n";
+}
+
