@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:09:06 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1999-11-17 17:57:10 $
+  Version:   $Revision: 1.38 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -98,7 +98,7 @@ void vtkImageMultipleInputFilter::AddInput(vtkImageData *input)
 // Set an Input of this filter. 
 void vtkImageMultipleInputFilter::SetInput(int idx, vtkImageData *input)
 {
-  this->vtkProcessObject::SetInput(idx, input);
+  this->vtkProcessObject::SetNthInput(idx, input);
 }
 
 //----------------------------------------------------------------------------
@@ -153,7 +153,9 @@ void vtkImageMultipleInputFilter::ExecuteInformation()
 
 
 //----------------------------------------------------------------------------
-int vtkImageMultipleInputFilter::ComputeDivisionExtents(vtkDataObject *out,
+int
+vtkImageMultipleInputFilter::ComputeDivisionExtents(
+					      vtkDataObject *vtkNotUsed(out),
 					      int division, int numDivisions)
 {
   vtkImageData *input;

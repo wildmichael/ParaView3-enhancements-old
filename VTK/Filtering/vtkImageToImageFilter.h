@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToImageFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:09:19 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-11-17 17:57:05 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -139,6 +139,8 @@ protected:
 
   // This is called by the superclass.
   void Execute();
+  // This one is not currently used
+  void Execute(vtkImageData *outData) { this->vtkImageSource::Execute(outData); };
   // This is the method you should override.
   virtual void Execute(vtkImageData *inData, vtkImageData *outData);
   // scalars are allocated here.   

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToImageFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-09 13:22:09 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1999-11-17 17:57:14 $
+  Version:   $Revision: 1.22 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -86,7 +86,7 @@ void vtkImageToImageFilter::PrintSelf(ostream& os, vtkIndent indent)
 //----------------------------------------------------------------------------
 void vtkImageToImageFilter::SetInput(vtkImageData *input)
 {
-  this->vtkProcessObject::SetInput(0, input);
+  this->vtkProcessObject::SetNthInput(0, input);
 }
 
 //----------------------------------------------------------------------------
@@ -153,8 +153,10 @@ void vtkImageToImageFilter::ExecuteInformation(
 
 
 //----------------------------------------------------------------------------
-int vtkImageToImageFilter::ComputeDivisionExtents(vtkDataObject *output,
-						  int idx, int numDivisions)
+int
+vtkImageToImageFilter::ComputeDivisionExtents(
+					    vtkDataObject *vtkNotUsed(output),
+					    int idx, int numDivisions)
 {
   vtkImageData *input = this->GetInput();
   int actualSplits;
