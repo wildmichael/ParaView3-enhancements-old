@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThresholdTextureCoords.h,v $
   Language:  C++
-  Date:      $Date: 1995-12-27 10:57:30 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1996-07-03 20:48:03 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,7 +53,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // coordinates 0<=r<0.5, and an opaque full intensity map for texture 
 // coordinates 0.5<r<=1.0. There is a small transition region for r=0.5.
 // .SECTION See Also
-// vtkThreshold vtkThresholdPoints
+// vtkThreshold vtkThresholdPoints vtkTextureMapToPlane vtkTextureMapToSphere
+// vtkTextureMapToCylinder vtkTextureMapToBox
 
 #ifndef __vtkThresholdTextureCoords_h
 #define __vtkThresholdTextureCoords_h
