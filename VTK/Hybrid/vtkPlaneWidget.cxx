@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-27 19:39:19 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-07-01 18:54:02 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -36,7 +36,7 @@
 #include "vtkSphereSource.h"
 #include "vtkPlane.h"
 
-vtkCxxRevisionMacro(vtkPlaneWidget, "$Revision: 1.20 $");
+vtkCxxRevisionMacro(vtkPlaneWidget, "$Revision: 1.21 $");
 vtkStandardNewMacro(vtkPlaneWidget);
 
 vtkCxxSetObjectMacro(vtkPlaneWidget,PlaneProperty,vtkProperty);
@@ -259,8 +259,6 @@ void vtkPlaneWidget::SetEnabled(int enabling)
 
     this->SelectRepresentation();
     this->InvokeEvent(vtkCommand::EnableEvent,NULL);
-    cout << "Plane enabled" << endl;
-    this->Print(cout);
     }
   
   else //disabling----------------------------------------------------------
