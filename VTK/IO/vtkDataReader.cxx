@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-31 13:14:47 $
-  Version:   $Revision: 1.106 $
+  Date:      $Date: 2001-05-31 18:10:50 $
+  Version:   $Revision: 1.107 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1116,11 +1116,11 @@ int vtkDataReader::ReadCoordinates(vtkRectilinearGrid *rg, int axes,
     rg->SetZCoordinates(data);
     }
 
-
-
   vtkDebugMacro(<<"Read " << data->GetNumberOfTuples() << " coordinates");
   float progress = this->GetProgress();
   this->UpdateProgress(progress + 0.5*(1.0 - progress));
+
+  data->Delete();
 
   return 1;
 }
