@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssembly.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-11 11:54:34 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2000-07-04 09:54:30 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -259,7 +259,9 @@ void vtkAssembly::UpdatePaths()
     {
     if ( this->Paths != NULL )
       {
-      this->Paths->Delete();
+      vtkAssemblyPaths *paths = this->Paths;
+      this->Paths = NULL; //avoid recursive deletes
+      paths->Delete();
       }
 
     // Create the list to hold all the paths

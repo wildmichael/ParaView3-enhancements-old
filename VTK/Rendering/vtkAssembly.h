@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssembly.h,v $
   Language:  C++
-  Date:      $Date: 2000-06-09 12:17:12 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2000-07-04 09:54:30 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -86,6 +86,7 @@ class vtkAssemblyPaths;
 class vtkProp3DCollection;
 class vtkMapper;
 class vtkProperty;
+class vtkActor;
 
 class VTK_EXPORT vtkAssembly : public vtkProp3D
 {
