@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-18 17:34:58 $
-  Version:   $Revision: 1.70 $
+  Date:      $Date: 2002-03-20 16:07:29 $
+  Version:   $Revision: 1.71 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -275,7 +275,7 @@ vtkObject *vtkObject::SafeDownCast(vtkObject *o)
 
 void vtkObject::CollectRevisions(ostream& os)
 {
-  os << "vtkObject $Revision: 1.70 $\n";
+  os << "vtkObject $Revision: 1.71 $\n";
 }
 
 //----------------------------------Command/Observer stuff-------------------
@@ -508,9 +508,10 @@ void vtkObject::RemoveObserver(vtkCommand* c)
   if (this->SubjectHelper)
     {
     unsigned long tag = this->SubjectHelper->GetTag(c);
-    if(tag)
+    while(tag)
       {
       this->SubjectHelper->RemoveObserver(tag);
+      tag = this->SubjectHelper->GetTag(c);
       }
     }
 }
