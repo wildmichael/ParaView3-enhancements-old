@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCarbonRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-22 18:39:29 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-08-28 16:44:22 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,10 +26,10 @@
 
 #include "vtkOpenGLRenderWindow.h"
 
-// Carbon and MAC specific
-#include <Carbon/Carbon.h>
-#include <OpenGL/gl.h>
-#include <AGL/agl.h>
+
+#include <Carbon/Carbon.h> // Carbon and MAC specific
+#include <OpenGL/gl.h> // Carbon and MAC specific
+#include <AGL/agl.h> // Carbon and MAC specific
 
 class vtkIdList;
 

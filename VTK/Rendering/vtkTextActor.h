@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextActor.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-30 00:02:15 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-08-28 16:44:22 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -38,9 +38,8 @@
 // We need to include vtkTextMapper here otherwise we have an ambiguous
 // case of vtkMapper2D or vtkTextMapper in SetMapper(vtkTextMapper *mapper);
 // - two members with identical prototypes!
-#include "vtkTextMapper.h"
-
 class vtkTextProperty;
+class vtkTextMapper;
 
 class VTK_RENDERING_EXPORT vtkTextActor : public vtkActor2D
 {

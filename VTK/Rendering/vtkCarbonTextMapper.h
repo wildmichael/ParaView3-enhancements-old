@@ -3,8 +3,8 @@
 Program:   Visualization Toolkit
 Module:    $RCSfile: vtkCarbonTextMapper.h,v $
 Language:  C++
-Date:      $Date: 2002-08-22 18:39:29 $
-Version:   $Revision: 1.2 $
+Date:      $Date: 2002-08-28 16:44:22 $
+Version:   $Revision: 1.3 $
 
 Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
 All rights reserved.
@@ -28,7 +28,7 @@ PURPOSE.  See the above copyright notice for more information.
 #define __vtkCarbonTextMapper_h
 
 #include "vtkTextMapper.h"
-#include <Carbon/Carbon.h>
+#include <Carbon/Carbon.h> // Needed for FontInfo
 
 class VTK_RENDERING_EXPORT vtkCarbonTextMapper : public vtkTextMapper
 {
@@ -57,7 +57,7 @@ public:
   void GetSize(vtkViewport* viewport, int size[2]);  
   
 protected:
-    vtkCarbonTextMapper();
+  vtkCarbonTextMapper();
   ~vtkCarbonTextMapper();
 
 
@@ -67,7 +67,7 @@ protected:
   short currentFontNum; // last used FontNumber (for GLList loading)
   
 private:
-    vtkCarbonTextMapper(const vtkCarbonTextMapper&);  // Not implemented.
+  vtkCarbonTextMapper(const vtkCarbonTextMapper&);  // Not implemented.
   void operator=(const vtkCarbonTextMapper&);  // Not implemented.
 };
 

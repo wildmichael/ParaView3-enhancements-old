@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCocoaRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-22 19:27:36 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-08-28 16:44:22 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #define __vtkCocoaRenderWindow_h
 
 #include "vtkOpenGLRenderWindow.h"
-#include <OpenGL/gl.h>
+#include <OpenGL/gl.h> // Needed for types used in public interface
 
 class vtkIdList;
 

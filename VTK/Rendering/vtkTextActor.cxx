@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-30 20:29:48 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-08-28 16:44:22 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,10 +18,11 @@
 #include "vtkTextActor.h"
 
 #include "vtkObjectFactory.h"
+#include "vtkTextMapper.h"
 #include "vtkTextProperty.h"
 #include "vtkViewport.h"
 
-vtkCxxRevisionMacro(vtkTextActor, "$Revision: 1.13 $");
+vtkCxxRevisionMacro(vtkTextActor, "$Revision: 1.14 $");
 vtkStandardNewMacro(vtkTextActor);
 
 vtkCxxSetObjectMacro(vtkTextActor,TextProperty,vtkTextProperty);
