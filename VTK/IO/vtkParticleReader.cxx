@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParticleReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-20 15:25:45 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-09-25 13:49:06 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -82,6 +82,7 @@ vtkParticleReader::vtkParticleReader()
 {
   this->FileName = NULL;
   this->File = NULL;
+  this->SwapBytes = 0;
 
   this->NumberOfPoints = 0;
 }
