@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHexahedron.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-01 09:01:33 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1995-08-21 22:43:20 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -158,7 +158,7 @@ int vtkHexahedron::EvaluatePosition(float x[3], float closestPoint[3],
       else if (pcoords[i] > 1.0) pc[i] = 1.0;
       else pc[i] = pcoords[i];
       }
-    this->EvaluateLocation(subId, pc, closestPoint, w);
+    this->EvaluateLocation(subId, pc, closestPoint, (float *)w);
     dist2 = math.Distance2BetweenPoints(closestPoint,x);
     return 0;
     }
