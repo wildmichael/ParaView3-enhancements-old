@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:35:35 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2002-01-22 22:02:32 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -13,6 +13,17 @@
      This software is distributed WITHOUT ANY WARRANTY; without even 
      the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR 
      PURPOSE.  See the above copyright notice for more information.
+
+     THIS CLASS IS PATENT PENDING.
+
+     Application of this software for commercial purposes requires 
+     a license grant from Kitware. Contact:
+         Ken Martin
+         Kitware
+         469 Clifton Corporate Parkway,
+         Clifton Park, NY 12065
+         Phone:1-518-371-3971 
+     for more information.
 
 =========================================================================*/
 #include <math.h>
@@ -30,7 +41,7 @@
 #include "vtkSynchronizedTemplates2D.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkSynchronizedTemplates2D, "$Revision: 1.22 $");
+vtkCxxRevisionMacro(vtkSynchronizedTemplates2D, "$Revision: 1.23 $");
 vtkStandardNewMacro(vtkSynchronizedTemplates2D);
 
 //----------------------------------------------------------------------------

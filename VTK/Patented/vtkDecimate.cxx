@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimate.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:35:21 $
-  Version:   $Revision: 1.65 $
+  Date:      $Date: 2002-01-22 22:02:15 $
+  Version:   $Revision: 1.66 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -14,12 +14,26 @@
      the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR 
      PURPOSE.  See the above copyright notice for more information.
 
+     THIS CLASS IS PATENTED UNDER UNITED STATES PATENT NUMBER 5,559,388
+     "Method for Reducting the Complexity of a Polygonal Mesh".
+     Application of this software for commercial purposes requires 
+     a license grant from GE. Contact:
+
+         Carl B. Horton
+         Sr. Counsel, Intellectual Property
+         3000 N. Grandview Blvd., W-710
+         Waukesha, WI  53188
+         Phone:  (262) 513-4022
+         E-Mail: Carl.Horton@med.ge.com
+
+     for more information.
+
 =========================================================================*/
 #include "vtkDecimate.h"
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkDecimate, "$Revision: 1.65 $");
+vtkCxxRevisionMacro(vtkDecimate, "$Revision: 1.66 $");
 vtkStandardNewMacro(vtkDecimate);
 
 #define VTK_TOLERANCE 1.0e-05
