@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-01 02:16:14 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-05-01 02:41:28 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1007,7 +1007,7 @@ void vtkRIBExporter::WriteTexture (vtkTexture *aTexture)
 
     iac1->SetInput1( anImage);
     iac1->SetInput2( anImage);
-    iac2->SetInput1(iac2->GetOutput ());
+    iac2->SetInput1(iac1->GetOutput ());
     iac2->SetInput2( anImage);
     icp->SetInput( iac2->GetOutput ());
     icp->SetConstant(255);
