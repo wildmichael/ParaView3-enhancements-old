@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: H5FDndgm.c,v 1.3 2003-10-21 18:37:37 andy Exp $  */
-/*  Date : $Date: 2003-10-21 18:37:37 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: H5FDndgm.c,v 1.4 2003-10-31 15:57:53 clarke Exp $  */
+/*  Date : $Date: 2003-10-31 15:57:53 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -35,8 +35,14 @@
 #include "stdlib.h"
 #include "Ndgm/ndgm.h"
 
-/*
+/**/
 #define HDF_IO_DEBUG    1
+/**/
+
+/*
+#ifdef XDMF_NOT_USED
+#undef XDMF_NOT_USED
+#endif
 */
 
 #ifndef FAIL
@@ -948,7 +954,7 @@ H5FD_ndgm_write(H5FD_t *_file, H5FD_mem_t type, hid_t dxpl_id/*unused*/, haddr_t
     H5FD_ndgm_t    *file = (H5FD_ndgm_t*)_file;
     herr_t    status;
 
-    //const char    *bufp = buf;
+    const char    *bufp = buf;
     
     (void)type;
     (void)dxpl_id;

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfArray.cxx,v 1.11 2003-10-24 15:50:20 clarke Exp $  */
-/*  Date : $Date: 2003-10-24 15:50:20 $ */
-/*  Version : $Revision: 1.11 $ */
+/*  Id : $Id: XdmfArray.cxx,v 1.12 2003-10-31 15:57:53 clarke Exp $  */
+/*  Date : $Date: 2003-10-31 15:57:53 $ */
+/*  Version : $Revision: 1.12 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -99,7 +99,7 @@ for( i = 0 ; i < this->ListLength ; i++ ){
   if ( this->List[ i ].Array == array ){
     memmove( &this->List[ i ],
       &this->List[ i + 1 ],
-      (this->ListIndex - i) * sizeof( XdmfArrayList ) );      
+      MAX(0,(this->ListLength - i - 1)) * sizeof( XdmfArrayList ) );      
     this->ListIndex--;
     break;
     }
