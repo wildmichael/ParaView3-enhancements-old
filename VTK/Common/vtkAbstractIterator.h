@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractIterator.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-05 15:29:28 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-05-22 19:05:17 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,7 +32,7 @@
 #define __vtkAbstractIterator_h
 
 template<class KeyType, class DataType>
-class VTK_COMMON_EXPORT vtkAbstractIterator 
+class  vtkAbstractIterator 
 {
   friend class vtkContainer;
 
