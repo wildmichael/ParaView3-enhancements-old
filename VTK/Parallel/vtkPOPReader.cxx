@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPOPReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:34:47 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-02-07 19:34:14 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkImageWrapPad.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkPOPReader, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkPOPReader, "$Revision: 1.10 $");
 vtkStandardNewMacro(vtkPOPReader);
 
 //----------------------------------------------------------------------------
@@ -396,7 +396,7 @@ vtkPoints *vtkPOPReader::ReadPoints(vtkImageData *image)
 void vtkPOPReader::ReadInformationFile()
 {
   ifstream *file;
-  int i, num;
+  int i=0, num;
   float tempf;
   char str[256];
 

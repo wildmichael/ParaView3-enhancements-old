@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGridSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 22:02:18 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 2002-02-07 19:34:09 $
+  Version:   $Revision: 1.56 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -44,7 +44,7 @@
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkGridSynchronizedTemplates3D, "$Revision: 1.55 $");
+vtkCxxRevisionMacro(vtkGridSynchronizedTemplates3D, "$Revision: 1.56 $");
 vtkStandardNewMacro(vtkGridSynchronizedTemplates3D);
 
 //----------------------------------------------------------------------------
@@ -87,7 +87,8 @@ vtkGridSynchronizedTemplates3D::~vtkGridSynchronizedTemplates3D()
 }
 
 //----------------------------------------------------------------------------
-void vtkGridSynchronizedTemplates3D::SetInputMemoryLimit(long limit)
+void vtkGridSynchronizedTemplates3D::SetInputMemoryLimit(
+  long vtkNotUsed(limit))
 {
   vtkErrorMacro( << "This filter no longer supports a memory limit." );
   vtkErrorMacro( << "This filter no longer initiates streaming." );

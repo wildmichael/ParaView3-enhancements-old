@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSocketController.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:34:57 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-02-07 19:34:16 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 
 int vtkSocketController::Initialized = 0;
 
-vtkCxxRevisionMacro(vtkSocketController, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkSocketController, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkSocketController);
 
 //----------------------------------------------------------------------------
@@ -64,7 +64,7 @@ void vtkSocketController::Initialize(int* , char***)
 
 }
 
-void vtkSocketController::SetNumberOfProcesses(int num)
+void vtkSocketController::SetNumberOfProcesses(int vtkNotUsed(num))
 {
   vtkErrorMacro("Can not change the number of processes.");
   return;

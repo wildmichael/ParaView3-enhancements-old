@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: ThreadedCommunicator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:35:07 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-02-07 19:34:19 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -45,12 +45,12 @@ struct GenericCommunicatorArgs_tmp
   char** argv;
 };
 
-void TestBarrier(vtkMultiProcessController *contr, void *arg)
+void TestBarrier(vtkMultiProcessController *contr, void* vtkNotUsed(arg))
 {
   contr->Barrier();
 }
 
-void Process1(vtkMultiProcessController *contr, void *arg)
+void Process1(vtkMultiProcessController *contr, void* vtkNotUsed(arg))
 {
   int i;
 

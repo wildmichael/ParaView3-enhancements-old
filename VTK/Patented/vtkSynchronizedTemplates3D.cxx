@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 22:02:33 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 2002-02-07 19:34:10 $
+  Version:   $Revision: 1.61 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -44,7 +44,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkExtentTranslator.h"
 
-vtkCxxRevisionMacro(vtkSynchronizedTemplates3D, "$Revision: 1.60 $");
+vtkCxxRevisionMacro(vtkSynchronizedTemplates3D, "$Revision: 1.61 $");
 vtkStandardNewMacro(vtkSynchronizedTemplates3D);
 
 //----------------------------------------------------------------------------
@@ -558,7 +558,8 @@ static void ContourImage(vtkSynchronizedTemplates3D *self, int *exExt,
 
 
 //----------------------------------------------------------------------------
-void vtkSynchronizedTemplates3D::SetInputMemoryLimit(unsigned long limit)
+void vtkSynchronizedTemplates3D::SetInputMemoryLimit(
+  unsigned long vtkNotUsed(limit) )
 {
   vtkErrorMacro( << "This filter no longer supports a memory limit." );
   vtkErrorMacro( << "This filter no longer initiates streaming." );

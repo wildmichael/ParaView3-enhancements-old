@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: GenericCommunicator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:35:04 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-02-07 19:34:17 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -57,7 +57,7 @@ static void DeleteAnArg(void*)
   return;
 }
 
-void Process1(vtkMultiProcessController *contr, void *arg)
+void Process1(vtkMultiProcessController *contr, void* vtkNotUsed(arg))
 {
   vtkCommunicator* comm = contr->GetCommunicator();
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: ParallelIso.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:35:05 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-02-07 19:34:18 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -61,8 +61,8 @@ struct ParallelIsoArgs_tmp
 };
 
 // call back to set the iso surface value.
-void SetIsoValueRMI(void *localArg, void *remoteArg, 
-                  int remoteArgLen, int id)
+void SetIsoValueRMI(void *localArg, void* vtkNotUsed(remoteArg), 
+                    int vtkNotUsed(remoteArgLen), int vtkNotUsed(id))
 { 
   float val;
 

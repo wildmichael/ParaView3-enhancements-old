@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSharedMemoryCommunicator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:34:55 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-02-07 19:34:15 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,7 +33,7 @@ public:
   vtkSharedMemoryCommunicatorMessage* Previous;
 };
 
-vtkCxxRevisionMacro(vtkSharedMemoryCommunicator, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkSharedMemoryCommunicator, "$Revision: 1.13 $");
 vtkStandardNewMacro(vtkSharedMemoryCommunicator);
 
 void vtkSharedMemoryCommunicator::PrintSelf(ostream& os, vtkIndent indent)
@@ -260,7 +260,7 @@ int vtkSharedMemoryCommunicator::Receive(vtkDataObject* object,
 }
 
 int vtkSharedMemoryCommunicator::Receive(vtkDataArray* object, 
-                                         int dataLength,
+                                         int vtkNotUsed(dataLength),
                                          int remoteThreadId, int tag)
 {
   vtkSharedMemoryCommunicatorMessage* message;
