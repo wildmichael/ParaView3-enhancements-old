@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLDataParser.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-02 19:18:08 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2003-05-05 13:44:47 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkXMLDataElement.h"
 
-vtkCxxRevisionMacro(vtkXMLDataParser, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkXMLDataParser, "$Revision: 1.12 $");
 vtkStandardNewMacro(vtkXMLDataParser);
 vtkCxxSetObjectMacro(vtkXMLDataParser, Compressor, vtkDataCompressor);
 
@@ -100,6 +100,8 @@ void vtkXMLDataParser::PrintSelf(ostream& os, vtkIndent indent)
     {
     os << indent << "Compressor: (none)\n";
     }
+  os << indent << "Progress: " << this->Progress << "\n";
+  os << indent << "Abort: " << this->Abort << "\n";
 }
 
 //----------------------------------------------------------------------------
