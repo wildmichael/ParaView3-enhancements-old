@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLogLookupTable.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-05-20 20:39:58 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-05-22 03:23:54 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -126,7 +126,7 @@ unsigned char *vtkLogLookupTable::MapValue(float v)
 }
 
 template <class T>
-void vtkLogLookupTableMapDataToRGBA(vtkLogLookupTable *self,
+static void vtkLogLookupTableMapDataToRGBA(vtkLogLookupTable *self,
 				    T *input, unsigned char *output,
 				    int i, int incr) 
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLookupTable.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-05-20 20:38:13 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 1999-05-22 03:23:55 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -216,7 +216,7 @@ unsigned char *vtkLookupTable::MapValue(float v)
 // accelerate the mapping by copying the data in 32-bit chunks instead
 // of 8-bit chunks
 template<class T>
-void vtkLookupTableMapDataToRGBA(vtkLookupTable *self, T *input, 
+static void vtkLookupTableMapDataToRGBA(vtkLookupTable *self, T *input, 
 				 unsigned char *output, int length, int incr)
 {
   float findx;
