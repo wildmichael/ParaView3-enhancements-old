@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-11-12 22:07:13 $
-  Version:   $Revision: 1.110 $
+  Date:      $Date: 2000-11-13 18:46:31 $
+  Version:   $Revision: 1.111 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -661,13 +661,6 @@ void vtkRenderWindow::DoStereoRender()
     if (this->StereoType != VTK_STEREO_LEFT)
       { // render the right eye
       this->Renderers->Render();
-      vtkRenderer *ren;
-      this->MakeCurrent();
-      for (this->Renderers->InitTraversal(); 
-	   (ren = this->Renderers->GetNextItem()); )
-	{
-	ren->Clear();
-	}
       }
     this->StereoRenderComplete();
     }
