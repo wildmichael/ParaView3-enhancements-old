@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPStreamTracer.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-15 13:29:19 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-11-16 16:52:14 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #include "vtkPolyData.h"
 #include "vtkRungeKutta2.h"
 
-vtkCxxRevisionMacro(vtkPStreamTracer, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkPStreamTracer, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkPStreamTracer);
 
 vtkCxxSetObjectMacro(vtkPStreamTracer, Controller, vtkMultiProcessController);
@@ -308,6 +308,7 @@ void vtkPStreamTracer::Execute()
   if (!this->Controller)
     {
     vtkErrorMacro("No controller assigned. Can not execute.");
+    return;
     }
 
   if (this->Controller->GetNumberOfProcesses() == 1)
@@ -366,4 +367,5 @@ void vtkPStreamTracer::Execute()
 void vtkPStreamTracer::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->Superclass::PrintSelf(os,indent);
+  os << indent << "Controller: " << this->Controller << endl;
 }
