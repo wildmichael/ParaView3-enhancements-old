@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSocketController.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-14 17:34:10 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-06-14 17:40:51 $
+  Version:   $Revision: 1.3 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -129,9 +129,13 @@ public:
       GetSwapBytesInReceivedData();
     }
 
+//BTX
+
   enum Consts {
     ENDIAN_TAG=1010580540 // 0x3c3c3c3c
   };
+
+//ETX
 
 protected:
 
