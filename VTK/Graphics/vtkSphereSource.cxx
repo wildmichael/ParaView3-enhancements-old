@@ -24,7 +24,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkSphereSource, "$Revision: 1.65 $");
+vtkCxxRevisionMacro(vtkSphereSource, "$Revision: 1.66 $");
 vtkStandardNewMacro(vtkSphereSource);
 
 //----------------------------------------------------------------------------
@@ -288,5 +288,5 @@ void vtkSphereSource::PrintSelf(ostream& os, vtkIndent indent)
 //----------------------------------------------------------------------------
 void vtkSphereSource::ExecuteInformation()
 {
-  this->GetOutput()->SetMaximumNumberOfPieces(this->ThetaResolution);
+  this->GetOutput()->SetMaximumNumberOfPieces(-1);
 }
