@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-03-25 15:52:22 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1997-05-02 15:30:11 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -164,7 +164,7 @@ int vtkDataWriter::WritePointData(FILE *fp, vtkDataSet *ds)
 
   if ( numPts <= 0 || !(scalars || vectors || normals || tcoords || tensors) )
     {
-    vtkWarningMacro(<<"No point data to write!");
+    vtkDebugMacro(<<"No point data to write!");
     return 1;
     }
 
