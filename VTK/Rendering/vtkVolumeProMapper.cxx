@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-05 19:18:21 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-11-07 19:10:41 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -140,13 +140,17 @@ vtkVolumeProMapper *vtkVolumeProMapper::New()
   
 #ifdef VTK_HAVE_VP1000
   return vtkVolumeProVP1000Mapper::New();
-#elif VTK_HAVE_VG500
+#else
+
+#ifdef VTK_HAVE_VG500
   return vtkVolumeProVG500Mapper::New();
 #else
   // if not using vli, then return the stub class, which will render
   // nothing....
   return new vtkVolumeProMapper;
-#endif  
+#endif
+  
+#endif
 }
 
 int vtkVolumeProMapper::StatusOK()
