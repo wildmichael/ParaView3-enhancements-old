@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkLookupTable.h,v $
   Language:  C++
-  Date:      $Date: 1994-02-07 17:28:45 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1994-05-15 19:24:26 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -26,7 +26,7 @@ class vlLookupTable : public vlObject
 {
 public:
   vlLookupTable(int sze=256, int ext=256);
-  int Initialize(int sz=256, int ext=256);
+  int Allocate(int sz=256, int ext=256);
   void Build();
   char *GetClassName() {return "vlLookupTable";};
   void PrintSelf(ostream& os, vlIndent indent);

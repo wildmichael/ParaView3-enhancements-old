@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkLookupTable.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-04-12 08:34:48 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1994-05-15 19:24:25 $
+  Version:   $Revision: 1.15 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -22,7 +22,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 vlLookupTable::vlLookupTable(int sze, int ext)
 {
   this->NumberOfColors = sze;
-  this->Table.Initialize(sze,ext);
+  this->Table.Allocate(sze,ext);
 
   this->TableRange[0] = 0.0;
   this->TableRange[1] = 1.0;
@@ -37,11 +37,11 @@ vlLookupTable::vlLookupTable(int sze, int ext)
   this->ValueRange[1] = 1.0;
 };
 
-int vlLookupTable::Initialize(int sz, int ext) 
+int vlLookupTable::Allocate(int sz, int ext) 
 {
   this->Modified();
   this->NumberOfColors = sz;
-  return this->Table.Initialize(this->NumberOfColors,ext);
+  return this->Table.Allocate(this->NumberOfColors,ext);
 }
 
 void  vlLookupTable::SetTableRange(float r[2])
