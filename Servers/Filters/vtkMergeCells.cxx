@@ -5,8 +5,8 @@
   Program:   Visualization Toolkit
   Module:  $RCSfile: vtkMergeCells.cxx,v $
   Language:  C++
-  Date:    $Date: 2003-11-13 18:24:03 $
-  Version:   $Revision: 1.5 $ 
+  Date:    $Date: 2003-12-05 22:04:35 $
+  Version:   $Revision: 1.6 $ 
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -53,7 +53,7 @@
 #include <stdlib.h>
 #include <algorithm>
 
-vtkCxxRevisionMacro(vtkMergeCells, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkMergeCells, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkMergeCells);
 
 vtkCxxSetObjectMacro(vtkMergeCells, UnstructuredGrid, vtkUnstructuredGrid);
@@ -475,7 +475,7 @@ vtkIdType *vtkMergeCells::MapPointsToIds(vtkDataSet *set)
 
   for (vtkIdType oldId=0; oldId<npoints; oldId++)
     {
-    float *id = globalIds->GetTuple(oldId);
+    double *id = globalIds->GetTuple(oldId);
     vtkIdType globalId = (vtkIdType)*id;
 
     vtkstd::pair<vtkstd::map<vtkIdType, vtkIdType>::iterator, bool> inserted =

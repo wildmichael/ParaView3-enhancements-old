@@ -5,9 +5,9 @@
   Program:   Visualization Toolkit
   Module:  $RCSfile: vtkPointsProjectedHull.cxx,v $
   Language:  C++
-  Date:    $Date: 2003-11-13 18:24:03 $
-  Version:   $Revision: 1.7 $
-  Date:    $Date: 2003-11-13 18:24:03 $
+  Date:    $Date: 2003-12-05 22:04:35 $
+  Version:   $Revision: 1.8 $
+  Date:    $Date: 2003-12-05 22:04:35 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -32,7 +32,7 @@
 #include "vtkPointsProjectedHull.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkPointsProjectedHull, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkPointsProjectedHull, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkPointsProjectedHull);
 
 static const int xdim=0, ydim=1, zdim=2;
@@ -145,7 +145,7 @@ VTK_GETSIZECCWHULL(Z, 2);
 #define VTK_RECTANGLEINTERSECTION(which, dim) \
 int vtkPointsProjectedHull::rectangleIntersection##which(vtkPoints *R) \
 {                                                                      \
-  float bounds[6];                                             \
+  double bounds[6];                                            \
   R->Modified();                                               \
   R->GetBounds(bounds);                                        \
   double hmin, hmax, vmin, vmax;                               \

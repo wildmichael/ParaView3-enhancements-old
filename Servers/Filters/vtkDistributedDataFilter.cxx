@@ -5,8 +5,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDistributedDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-10-16 19:04:49 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2003-12-05 22:04:35 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -92,7 +92,7 @@ static char * makeEntry(char *s)
 
 // Timing data ---------------------------------------------
 
-vtkCxxRevisionMacro(vtkDistributedDataFilter, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkDistributedDataFilter, "$Revision: 1.6 $");
 
 vtkStandardNewMacro(vtkDistributedDataFilter);
 
@@ -972,7 +972,7 @@ void vtkDistributedDataFilter::ClipCellsToSpatialRegion(vtkUnstructuredGrid *gri
   // Decompose it into convex sub-regions.  These sub-regions
   // are axis aligned boxes
   
-  float *bounds;
+  double *bounds;
   
   int numSubRegions = kd->MinimalNumberOfConvexSubRegions(
                             myRegions, &bounds);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHDF5RawImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-12-02 18:28:09 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2003-12-05 22:04:35 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -36,7 +36,7 @@
 #include <hdf5.h>
 
 //----------------------------------------------------------------------------
-vtkCxxRevisionMacro(vtkHDF5RawImageReader, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkHDF5RawImageReader, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkHDF5RawImageReader);
 
 //----------------------------------------------------------------------------
@@ -249,7 +249,7 @@ void vtkHDF5RawImageReader::ExecuteInformation()
   
   this->SetDataArraySelections(this->PointDataArraySelection);
   
-  float spacing[3] = {this->Stride[0], this->Stride[1], this->Stride[2]};
+  double spacing[3] = {this->Stride[0], this->Stride[1], this->Stride[2]};
   this->GetOutput()->SetWholeExtent(this->WholeExtent);
   this->GetOutput()->SetSpacing(spacing);
   this->InformationError = 0;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCleanUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-09-22 16:59:04 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-12-05 22:04:35 $
+  Version:   $Revision: 1.3 $
 
 =========================================================================*/
 
@@ -27,7 +27,7 @@
 #include "vtkCollection.h"
 #include "vtkPointLocator.h"
 
-vtkCxxRevisionMacro(vtkCleanUnstructuredGrid, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkCleanUnstructuredGrid, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkCleanUnstructuredGrid);
 
 vtkCleanUnstructuredGrid::vtkCleanUnstructuredGrid()
@@ -77,7 +77,7 @@ void vtkCleanUnstructuredGrid::Execute()
   vtkIdType id;
   vtkIdType newId;
   vtkIdType* ptMap = new vtkIdType[num];
-  float pt[3];
+  double pt[3];
 
   this->Locator->SetTolerance(0.00001*input->GetLength());
   this->Locator->InitPointInsertion(newPts, input->GetBounds(), num);
