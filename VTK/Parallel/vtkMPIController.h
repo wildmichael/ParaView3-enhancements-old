@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPIController.h,v $
   Language:  C++
-  Date:      $Date: 2001-04-11 17:41:43 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-06-19 17:32:26 $
+  Version:   $Revision: 1.3 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -66,10 +66,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef __vtkMPIController_h
 #define __vtkMPIController_h
 
+#include "mpi.h"
+
 #include "vtkMultiProcessController.h"
 #include "vtkMPICommunicator.h"
 
-#include "mpi.h"
 
 class VTK_EXPORT vtkMPIController : public vtkMultiProcessController
 {
