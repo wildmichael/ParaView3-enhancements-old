@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfObject.h,v 1.6 2003-06-03 11:21:26 andy Exp $  */
-/*  Date : $Date: 2003-06-03 11:21:26 $ */
-/*  Version : $Revision: 1.6 $ */
+/*  Id : $Id: XdmfObject.h,v 1.7 2003-06-16 18:45:38 andy Exp $  */
+/*  Date : $Date: 2003-06-16 18:45:38 $ */
+/*  Version : $Revision: 1.7 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -119,7 +119,7 @@ using std::hex;
 #define XDMF_MAX_DIMENSION  10
 #define XDMF_MAX_STRING_LENGTH  256
 
-// #define XDMF_LIST_KEY  ICE_LIST_KEY
+/* #define XDMF_LIST_KEY  ICE_LIST_KEY */
 #define XDMF_BIG_INT  ICE_BIG_INT
 
 #define XDMF_DEFAULT_INDEX  -1
@@ -258,7 +258,7 @@ need to make sure ....
 #endif /* MIN */
 
 
-//! Used for Parsing
+/*! Used for Parsing */
 
 #define XDMF_WORD_CMP( a, b )  ( (a) != NULL ) && ( STRCASECMP((a),(b)) == 0 )
 
