@@ -3,8 +3,8 @@
   Program:   Java Wrapper for VTK
   Module:    $RCSfile: vtkJavaUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-06-16 19:13:16 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1997-06-23 18:49:47 $
+  Version:   $Revision: 1.8 $
 
 This file's contents may be copied, reproduced or altered in any way 
 without the express written consent of the author.
@@ -41,7 +41,7 @@ mutex_t vtkGlobalMutex;
 
 int vtkJavaIdCount = 1;
 
-#define VTKJAVADEBUG
+//#define VTKJAVADEBUG
 
 class vtkHashNode 
 {
