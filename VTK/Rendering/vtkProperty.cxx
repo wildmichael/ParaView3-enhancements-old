@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-31 14:08:41 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1999-06-05 23:47:19 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -76,6 +76,8 @@ vtkProperty::vtkProperty()
   this->EdgeVisibility = 0;
   this->BackfaceCulling = 0;
   this->FrontfaceCulling = 0;
+  this->PointSize = 1.0;
+  this->LineWidth = 1.0;
 }
 
 // Assign one property to another. 
@@ -236,4 +238,6 @@ void vtkProperty::PrintSelf(ostream& os, vtkIndent indent)
      << (this->BackfaceCulling ? "On\n" : "Off\n");
   os << indent << "Frontface Culling: " 
      << (this->FrontfaceCulling ? "On\n" : "Off\n");
+  os << indent << "PointSize: " << this->PointSize << "\n";
+  os << indent << "LineWidth: " << this->LineWidth << "\n";
 }

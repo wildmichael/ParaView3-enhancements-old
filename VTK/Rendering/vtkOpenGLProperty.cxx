@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-11-17 20:04:56 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-06-05 23:47:19 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -125,6 +125,12 @@ void vtkOpenGLProperty::Render(vtkActor *vtkNotUsed(anActor),
   this->GetColor( color );
   color[3] = 1.0;
   glColor4fv( color );
+
+  // Set the PointSize
+  glPointSize (this->PointSize);
+
+  // Set the LineWidth
+  glLineWidth (this->LineWidth);
 }
 
 // Implement base class method.
