@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageHybridMedian2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-14 17:52:06 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2003-05-15 18:26:09 $
+  Version:   $Revision: 1.22 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include <vtkstd/algorithm>
 #include <vtkstd/numeric>
 
-vtkCxxRevisionMacro(vtkImageHybridMedian2D, "$Revision: 1.21 $");
+vtkCxxRevisionMacro(vtkImageHybridMedian2D, "$Revision: 1.22 $");
 vtkStandardNewMacro(vtkImageHybridMedian2D);
 
 //----------------------------------------------------------------------------
@@ -252,9 +252,7 @@ void vtkImageHybridMedian2D::ThreadedExecute(vtkImageData *inData,
                                        vtkImageData *outData,
                                        int outExt[6], int id)
 {
-  int inExt[6];
-  this->ComputeInputUpdateExtent(inExt,outExt);
-  void *inPtr = inData->GetScalarPointerForExtent(inExt);
+  void *inPtr = inData->GetScalarPointerForExtent(outExt);
   void *outPtr = outData->GetScalarPointerForExtent(outExt);
 
   // this filter expects the output type to be same as input
