@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-11-18 20:54:00 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 1997-02-18 17:55:07 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -548,8 +548,16 @@ int vtkStructuredPoints::ComputeStructuredCoordinates(float x[3], int ijk[3],
 
     else //if ( d == ((this->Dimensions[i]-1)*this->AspectRatio[i]) ) 
       {
-      ijk[i] = this->Dimensions[i] - 2;
-      pcoords[i] = 1.0;
+      if (this->Dimensions[i] == 1)
+        {
+        ijk[i] = 0;
+        pcoords[i] = 0.0;
+        }
+      else
+        {
+        ijk[i] = this->Dimensions[i] - 2;
+        pcoords[i] = 1.0;
+        }
       }
 
     }
