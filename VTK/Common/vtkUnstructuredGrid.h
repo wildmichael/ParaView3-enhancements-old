@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 2003-09-05 20:33:37 $
-  Version:   $Revision: 1.92 $
+  Date:      $Date: 2003-11-05 14:45:14 $
+  Version:   $Revision: 1.93 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,6 +30,7 @@
 class vtkCellArray;
 class vtkCellLinks;
 class vtkConvexPointSet;
+class vtkEmptyCell;
 class vtkHexahedron;
 class vtkIdList;
 class vtkIntArray;
@@ -197,6 +198,7 @@ protected:
   vtkQuadraticTetra      *QuadraticTetra;
   vtkQuadraticHexahedron *QuadraticHexahedron;
   vtkConvexPointSet      *ConvexPointSet;
+  vtkEmptyCell *EmptyCell;
   
   // points inherited
   // point data (i.e., scalars, vectors, normals, tcoords) inherited

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-09-05 20:33:37 $
-  Version:   $Revision: 1.112 $
+  Date:      $Date: 2003-11-05 14:45:15 $
+  Version:   $Revision: 1.113 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,6 +21,7 @@
 #include "vtkCellData.h"
 #include "vtkCellLinks.h"
 #include "vtkConvexPointSet.h"
+#include "vtkEmptyCell.h"
 #include "vtkGenericCell.h"
 #include "vtkHexahedron.h"
 #include "vtkIntArray.h"
@@ -46,7 +47,7 @@
 #include "vtkVoxel.h"
 #include "vtkWedge.h"
 
-vtkCxxRevisionMacro(vtkUnstructuredGrid, "$Revision: 1.112 $");
+vtkCxxRevisionMacro(vtkUnstructuredGrid, "$Revision: 1.113 $");
 vtkStandardNewMacro(vtkUnstructuredGrid);
 
 vtkUnstructuredGrid::vtkUnstructuredGrid ()
@@ -71,6 +72,7 @@ vtkUnstructuredGrid::vtkUnstructuredGrid ()
   this->QuadraticTetra = vtkQuadraticTetra::New();
   this->QuadraticHexahedron = vtkQuadraticHexahedron::New();
   this->ConvexPointSet = vtkConvexPointSet::New();
+  this->EmptyCell = vtkEmptyCell::New();
 
   this->Connectivity = NULL;
   this->Links = NULL;
@@ -144,6 +146,7 @@ vtkUnstructuredGrid::~vtkUnstructuredGrid()
   this->QuadraticTetra->Delete();
   this->QuadraticHexahedron->Delete();
   this->ConvexPointSet->Delete();
+  this->EmptyCell->Delete();
 }
 
 // Copy the geometric and topological structure of an input unstructured grid.
@@ -300,6 +303,10 @@ vtkCell *vtkUnstructuredGrid::GetCell(vtkIdType cellId)
 
     case VTK_CONVEX_POINT_SET:
       cell = this->ConvexPointSet;
+      break;
+
+    case VTK_EMPTY_CELL:
+      cell = this->EmptyCell;
       break;
     }
 
