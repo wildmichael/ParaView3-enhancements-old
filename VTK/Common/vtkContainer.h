@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContainer.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-17 21:48:22 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-04-19 18:12:15 $
+  Version:   $Revision: 1.11 $
 
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,7 +43,7 @@
 //
 #define vtkContainerTypeMacro(thisClass,superclass) \
   typedef superclass Superclass; \
-  virtual const char *GetClassName() {return #thisClass;} \
+  virtual const char *GetClassName() const {return #thisClass;} \
   static int IsTypeOf(const char *type) \
   { \
     if ( !strcmp(#thisClass,type) ) \

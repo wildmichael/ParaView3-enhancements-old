@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractMap.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-17 21:48:22 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-04-19 18:12:15 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -83,7 +83,7 @@ public:
   //virtual vtkAbstractIterator<KeyType,DataType> *NewIterator() = 0;
 
   typedef vtkContainer Superclass; 
-  virtual const char *GetClassName() 
+  virtual const char *GetClassName() const
     {return "vtkAbstractMap";} 
   static int IsTypeOf(const char *type) 
   { 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractIterator.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-17 21:48:22 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-04-19 18:12:15 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -72,6 +72,10 @@ public:
   // Description:
   // Set the container for this iterator.
   void SetContainer(vtkContainer*);
+
+  // Description:
+  // Get the associated container.
+  vtkContainer *GetContainer() { return this->Container; }
 
   // Description:
   // Initialize the traversal of the container. 
