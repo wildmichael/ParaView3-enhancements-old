@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-04 18:53:07 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-04-04 18:55:29 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 #include "vtkCallbackCommand.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkSphereWidget, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkSphereWidget, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkSphereWidget);
 
 vtkSphereWidget::vtkSphereWidget()
@@ -629,7 +629,7 @@ void vtkSphereWidget::PlaceWidget(float bds[6])
                              (bounds[3]-bounds[2])*(bounds[3]-bounds[2]) +
                              (bounds[5]-bounds[4])*(bounds[5]-bounds[4]));
 
-  this->HandleSource->SetRadius(0. 01*this->InitialLength);
+  this->HandleSource->SetRadius(0.01*this->InitialLength);
 }
 
 void vtkSphereWidget::PlaceHandle(float *center, float radius)
