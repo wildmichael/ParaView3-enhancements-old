@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpTo.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:00 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2001-07-02 18:08:08 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,9 +43,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 vtkWarpTo* vtkWarpTo::New()
 {
   // First try to create the object from the vtkObjectFactory
@@ -58,9 +56,6 @@ vtkWarpTo* vtkWarpTo::New()
   return new vtkWarpTo;
 }
 
-
-
-
 vtkWarpTo::vtkWarpTo() 
 {
   this->ScaleFactor = 0.5; 
@@ -72,7 +67,8 @@ void vtkWarpTo::Execute()
 {
   vtkPoints *inPts;
   vtkPoints *newPts;
-  int i, ptId, numPts;
+  vtkIdType ptId, numPts;
+  int i;
   float *x, newX[3];
   vtkPointSet *input = this->GetInput();
   vtkPointSet *output = this->GetOutput();

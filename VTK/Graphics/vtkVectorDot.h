@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorDot.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:57 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2001-07-02 18:08:08 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -81,5 +81,3 @@ protected:
 };
 
 #endif
-
-

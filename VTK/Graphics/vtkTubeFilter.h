@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTubeFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:56 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2001-07-02 18:08:08 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -188,5 +188,3 @@ inline const char *vtkTubeFilter::GetVaryRadiusAsString(void)
 
 
 #endif
-
-

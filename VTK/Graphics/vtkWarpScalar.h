@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpScalar.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:00 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2001-07-02 18:08:08 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -112,13 +112,11 @@ protected:
   int XYPlane;
 
   //BTX
-  float *(vtkWarpScalar::*PointNormal)(int id, vtkNormals *normals);
-  float *DataNormal(int id, vtkNormals *normals=NULL);
-  float *InstanceNormal(int id, vtkNormals *normals=NULL);
-  float *ZNormal(int id, vtkNormals *normals=NULL);
+  float *(vtkWarpScalar::*PointNormal)(vtkIdType id, vtkNormals *normals);
+  float *DataNormal(vtkIdType id, vtkNormals *normals=NULL);
+  float *InstanceNormal(vtkIdType id, vtkNormals *normals=NULL);
+  float *ZNormal(vtkIdType id, vtkNormals *normals=NULL);
   //ETX
 };
 
 #endif
-
-

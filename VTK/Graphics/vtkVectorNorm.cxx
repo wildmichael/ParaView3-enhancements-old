@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorNorm.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-18 11:11:49 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2001-07-02 18:08:08 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -65,7 +65,8 @@ vtkVectorNorm::vtkVectorNorm()
 
 void vtkVectorNorm::Execute()
 {
-  int i, numVectors, computePtScalars=1, computeCellScalars=1;
+  vtkIdType numVectors, i;
+  int computePtScalars=1, computeCellScalars=1;
   vtkScalars *newScalars;
   float *v, s, maxScalar;
   vtkVectors *ptVectors, *cellVectors;
@@ -100,7 +101,7 @@ void vtkVectorNorm::Execute()
 
   // Allocate / operate on point data
   int abort=0;
-  int progressInterval;
+  vtkIdType progressInterval;
   if ( computePtScalars )
     {
     numVectors = ptVectors->GetNumberOfVectors();
@@ -211,4 +212,3 @@ void vtkVectorNorm::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Attribute Mode: " << this->GetAttributeModeAsString() 
      << endl;
 }
-

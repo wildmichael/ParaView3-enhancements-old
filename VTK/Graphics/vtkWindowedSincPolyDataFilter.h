@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindowedSincPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:01 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-07-02 18:08:08 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -216,7 +216,6 @@ public:
   vtkSetMacro(GenerateErrorVectors,int);
   vtkGetMacro(GenerateErrorVectors,int);
   vtkBooleanMacro(GenerateErrorVectors,int);
-
   
  protected:
   vtkWindowedSincPolyDataFilter();
@@ -234,7 +233,6 @@ public:
   int BoundarySmoothing;
   int GenerateErrorScalars;
   int GenerateErrorVectors;
-
 };
 
 #endif 

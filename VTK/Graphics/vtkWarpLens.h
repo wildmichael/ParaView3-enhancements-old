@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpLens.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-11 11:18:53 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-07-02 18:08:08 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -122,5 +122,3 @@ protected:
 };
 
 #endif
-
-
