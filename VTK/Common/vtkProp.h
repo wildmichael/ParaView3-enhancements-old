@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-13 16:15:36 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2000-09-14 17:15:04 $
+  Version:   $Revision: 1.24 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -249,7 +249,7 @@ public:
   // really a modification to the object. (For example, we don't want
   // to rebuild matrices at every render because the estimated render time
   // is changing)
-  virtual void AddEstimatedRenderTime(float t, vtkViewport *vp)
+  virtual void AddEstimatedRenderTime(float t, vtkViewport *vtkNotUsed(vp))
     {this->EstimatedRenderTime+=t;};
 
   // Description:
@@ -261,7 +261,7 @@ public:
   // A side effect of this method is to reset the EstimatedRenderTime to
   // 0.0. This way, each of the ways that this prop may be rendered can
   // be timed and added together into this value.
-  virtual void SetAllocatedRenderTime(float t, vtkViewport *v) {
+  virtual void SetAllocatedRenderTime(float t, vtkViewport *vtkNotUsed(v)) {
     this->AllocatedRenderTime = t;
     this->SavedEstimatedRenderTime = this->EstimatedRenderTime;
     this->EstimatedRenderTime = 0.0;
