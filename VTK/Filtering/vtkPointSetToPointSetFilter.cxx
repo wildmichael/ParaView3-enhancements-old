@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSetToPointSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 21:25:19 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1995-09-01 10:00:41 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -95,7 +95,7 @@ void vtkPointSetToPointSetFilter::Update()
     if ( this->StartMethod ) (*this->StartMethod)(this->StartMethodArg);
     // clear points and point data output 
     ((vtkPointSet *)this->Output)->SetPoints(NULL);
-    this->Output->GetPointData()->Initialize();
+    this->Output->CopyStructure(this->Input);
     this->Execute();
     this->ExecuteTime.Modified();
     this->SetDataReleased(0);

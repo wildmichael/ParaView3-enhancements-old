@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:37:13 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-09-01 10:00:13 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,6 +63,19 @@ unsigned long vtkStructuredGrid::GetMtime()
   unsigned long dtime = this->vtkPointSet::GetMTime();
   unsigned long ftime = this->vtkStructuredData::_GetMTime();
   return (dtime > ftime ? dtime : ftime);
+}
+
+// Description:
+// Copy the geometric and topological structure of an input structured grid.
+void vtkStructuredGrid::CopyStructure(vtkDataSet *ds)
+{
+  vtkStructuredGrid *sg=(vtkStructuredGrid *)ds;
+  vtkPointSet::CopyStructure(ds);
+
+  for (int i=0; i<3; i++)
+    {
+    this->Dimensions[i] = sg->Dimensions[i];
+    }
 }
 
 void vtkStructuredGrid::Initialize()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:36:18 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 1995-09-01 09:59:56 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -95,6 +95,26 @@ vtkPointSet(pd)
 vtkPolyData::~vtkPolyData()
 {
   vtkPolyData::Initialize();
+}
+
+// Description:
+// Copy the geometric and topological structure of an input poly data object.
+void vtkPolyData::CopyStructure(vtkDataSet *ds)
+{
+  vtkPolyData *pd=(vtkPolyData *)ds;
+  vtkPointSet::CopyStructure(ds);
+
+  this->Verts = pd->Verts;
+  if (this->Verts) this->Verts->Register(this);
+
+  this->Lines = pd->Lines;
+  if (this->Lines) this->Lines->Register(this);
+
+  this->Polys = pd->Polys;
+  if (this->Polys) this->Polys->Register(this);
+
+  this->Strips = pd->Strips;
+  if (this->Strips) this->Strips->Register(this);
 }
 
 int vtkPolyData::GetCellType(int cellId)

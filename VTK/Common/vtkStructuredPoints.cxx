@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:37:21 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1995-09-01 10:00:04 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,6 +70,22 @@ vtkStructuredData(v)
 vtkStructuredPoints::~vtkStructuredPoints()
 {
 }
+
+// Description:
+// Copy the geometric and topological structure of an input structured points 
+// object.
+void vtkStructuredPoints::CopyStructure(vtkDataSet *ds)
+{
+  vtkStructuredPoints *sPts=(vtkStructuredPoints *)ds;
+  this->Initialize();
+
+  for (int i=0; i<3; i++)
+    {
+    this->Dimensions[i] = sPts->Dimensions[i];
+    this->Origin[i] = sPts->Origin[i];
+    this->AspectRatio[i] = sPts->AspectRatio[i];
+    }
+ }
 
 vtkCell *vtkStructuredPoints::GetCell(int cellId)
 {
