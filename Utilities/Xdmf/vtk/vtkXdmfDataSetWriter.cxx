@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: vtkXdmfDataSetWriter.cxx,v 1.2 2003-03-04 15:24:32 andy Exp $  */
-/*  Date : $Date: 2003-03-04 15:24:32 $ */
-/*  Version : $Revision: 1.2 $ */
+/*  Id : $Id: vtkXdmfDataSetWriter.cxx,v 1.3 2003-04-09 19:57:47 andy Exp $  */
+/*  Date : $Date: 2003-04-09 19:57:47 $ */
+/*  Version : $Revision: 1.3 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -88,10 +88,12 @@ char *vtkXdmfDataSetWriter::GetXML( void ) {
   }
 int
 vtkXdmfDataSetWriter::WriteHead( void ){
+return 0;
 }
 
 int
 vtkXdmfDataSetWriter::WriteTail( void ){
+return 0;
 }
 
 int
