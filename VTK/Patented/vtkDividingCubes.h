@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDividingCubes.h,v $
   Language:  C++
-  Date:      $Date: 1995-02-26 10:24:53 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1995-06-14 14:27:22 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -65,17 +65,6 @@ protected:
   vlFloatPoints *NewPts;
   vlCellArray *NewVerts;
 };
-
-
-inline void vlDividingCubes::AddPoint(float x[3])
-{
-  if ( ! (this->Count++ % this->Increment) )
-    {
-    int pts[1];
-    pts[0] = this->NewPts->InsertNextPoint(x);
-    this->NewVerts->InsertNextCell(1,pts);
-    }
-}
 
 #endif
 
