@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadricClustering.h,v $
   Language:  C++
-  Date:      $Date: 2003-08-30 14:33:11 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2003-08-31 10:40:41 $
+  Version:   $Revision: 1.36 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -278,7 +278,7 @@ protected:
   //BTX
   struct PointQuadric 
   {
-    PointQuadric():Dimension(255),VertexId(-1) {}
+    PointQuadric():VertexId(-1),Dimension(255) {}
     
     vtkIdType VertexId;
     // Dimension is supposed to be a flag representing the dimension of the
