@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssembly.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-28 06:03:39 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2001-08-27 16:20:31 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -241,7 +241,14 @@ void vtkAssembly::InitPathTraversal()
 // returns a properly transformed and updated actor.
 vtkAssemblyPath *vtkAssembly::GetNextPath()
 {
-  return this->Paths->GetNextItem();
+  if ( this->Paths )
+    {
+    return this->Paths->GetNextItem();
+    }
+  else
+    {
+    return NULL;
+    }
 }
 
 int vtkAssembly::GetNumberOfPaths()
