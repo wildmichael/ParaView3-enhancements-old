@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPiecewiseFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-02 14:50:38 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-02-09 04:39:27 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -585,7 +585,7 @@ void vtkPiecewiseFunction::PrintSelf(ostream& os, vtkIndent indent)
 {
   int i;
 
-  vtkObject::PrintSelf(os, indent);
+  vtkDataObject::PrintSelf(os, indent);
 
   os << indent << "Clamping: " << this->Clamping << "\n";
   os << indent << "Function Points: " << this->GetSize() << "\n";
