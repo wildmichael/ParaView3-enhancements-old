@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMassProperties.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:10:48 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-10-20 13:59:39 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -41,7 +41,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 #include "vtkMassProperties.h"
 #include "vtkObjectFactory.h"
-
+#include "vtkCommand.h"
 
 
 //------------------------------------------------------------------------------
@@ -123,10 +123,7 @@ void vtkMassProperties::Update()
       {
       input->Update();
       }
-    if ( this->StartMethod )
-      {
-      (*this->StartMethod)(this->StartMethodArg);
-      }
+    this->InvokeEvent(vtkCommand::StartEvent,NULL);
 
     // reset Abort flag
     this->AbortExecute = 0;
@@ -138,10 +135,7 @@ void vtkMassProperties::Update()
       this->UpdateProgress(1.0);
       }
 
-    if ( this->EndMethod )
-      {
-      (*this->EndMethod)(this->EndMethodArg);
-      }
+    this->InvokeEvent(vtkCommand::EndEvent,NULL);
     }
   if ( input->ShouldIReleaseData() )
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:10:52 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2000-10-20 13:59:39 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -102,7 +102,7 @@ void vtkRIBProperty::Render(vtkActor *anActor, vtkRenderer *ren)
   // Copy this property's ivars into the property to be rendered
   ref = this->Property->GetReferenceCount();
   this->Property->DeepCopy(this);
-  this->Property->SetDeleteMethod(NULL);
+  //this->Property->SetDeleteMethod(NULL);
   this->Property->SetReferenceCount(ref);
   
   // Render the property
