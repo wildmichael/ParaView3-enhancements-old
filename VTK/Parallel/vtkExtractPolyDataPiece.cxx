@@ -24,7 +24,7 @@
 #include "vtkPolyData.h"
 #include "vtkUnsignedCharArray.h"
 
-vtkCxxRevisionMacro(vtkExtractPolyDataPiece, "$Revision: 1.18 $");
+vtkCxxRevisionMacro(vtkExtractPolyDataPiece, "$Revision: 1.19 $");
 vtkStandardNewMacro(vtkExtractPolyDataPiece);
 
 //=============================================================================
@@ -250,6 +250,7 @@ void vtkExtractPolyDataPiece::Execute()
           {
           pointGhostLevels->InsertNextValue(0);
           }
+        outPD->CopyData(pd,idx,newId);
         }
       }
     }
