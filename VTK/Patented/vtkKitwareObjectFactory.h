@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKitwareObjectFactory.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:16 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-08-10 22:07:05 $
+  Version:   $Revision: 1.8 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -61,6 +61,9 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);  
   virtual const char* GetVTKSourceVersion();
 protected:
+  vtkKitwareObjectFactory() {};
+  vtkKitwareObjectFactory(const vtkKitwareObjectFactory&);
+  void operator=(const vtkKitwareObjectFactory&);
   virtual vtkObject* CreateObject(const char* vtkclassname );
 };
 
