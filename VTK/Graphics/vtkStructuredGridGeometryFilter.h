@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-04-02 20:52:42 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2001-04-04 16:19:38 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -97,6 +97,7 @@ protected:
   void operator=(const vtkStructuredGridGeometryFilter&) {}
 
   void Execute();
+  void ComputeInputUpdateExtents( vtkDataObject *output );
   int Extent[6];
 };
 
