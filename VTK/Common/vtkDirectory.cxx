@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDirectory.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-25 14:41:02 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-09-26 15:49:23 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 
 #include "vtkDebugLeaks.h"
 
-vtkCxxRevisionMacro(vtkDirectory, "$Revision: 1.16 $");
+vtkCxxRevisionMacro(vtkDirectory, "$Revision: 1.17 $");
 
 //----------------------------------------------------------------------------
 // Needed when we don't use the vtkStandardNewMacro.
@@ -72,9 +72,9 @@ void vtkDirectory::PrintSelf(ostream& os, vtkIndent indent)
 }
 
 
-// First microsoft compilers
+// First microsoft and borland compilers
 
-#ifdef _MSC_VER
+#if defined(_MSC_VER) || defined(__BORLANDC__)
 #include <windows.h>
 #include <io.h>
 #include <ctype.h>
