@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLOT3DReader.h,v $
   Language:  C++
-  Date:      $Date: 2003-05-14 19:54:31 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2003-10-28 21:10:40 $
+  Version:   $Revision: 1.55 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -77,7 +77,9 @@
 
 #include "vtkStructuredGridSource.h"
 
+class vtkUnsignedCharArray;
 class vtkIntArray;
+class vtkFloatArray;
 class vtkStructuredGrid;
 
 class VTK_IO_EXPORT vtkPLOT3DReader : public vtkStructuredGridSource 
@@ -91,7 +93,7 @@ public:
   // Set/Get the PLOT3D geometry filename.
   void SetFileName(const char* name) { this->SetXYZFileName(name); }
   const char* GetFileName() { return this->GetXYZFileName(); }
-  vtkSetStringMacro(XYZFileName);
+  virtual void SetXYZFileName( const char* );
   vtkGetStringMacro(XYZFileName);
 
   // Description:
@@ -278,6 +280,10 @@ protected:
   void ComputeVorticity(vtkStructuredGrid* output);
   void ComputePressureGradient(vtkStructuredGrid* output);
 
+  // Delete references to any existing vtkPoints and
+  // I-blank arrays. The next Update() will (re)read
+  // the XYZ file.
+  void ClearGeometryCache();
 
   //plot3d FileNames
   char *XYZFileName;
@@ -306,6 +312,10 @@ protected:
 
   int ScalarFunctionNumber;
   int VectorFunctionNumber;
+
+  // Cache of geometry
+  vtkFloatArray** PointCache;
+  vtkUnsignedCharArray** IBlankCache;
 
 private:
   vtkPLOT3DReader(const vtkPLOT3DReader&);  // Not implemented.
