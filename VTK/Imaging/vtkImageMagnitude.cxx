@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMagnitude.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-01-03 14:57:15 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-02-26 14:26:05 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -130,7 +130,7 @@ void vtkImageMagnitudeExecute(vtkImageMagnitude *self,
       // Compute magnitude along last axis.
       inPtr0 = inPtr1;
       sum = 0.0;
-      for (idx0 = min1; idx0 <= max0; ++idx0)
+      for (idx0 = min0; idx0 <= max0; ++idx0)
 	{
 	sum += (float)(*inPtr0 * *inPtr0);
 	inPtr0 += inInc0;
