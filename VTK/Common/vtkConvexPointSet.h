@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConvexPointSet.h,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:24:21 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2003-07-09 18:51:54 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -40,6 +40,10 @@ class VTK_COMMON_EXPORT vtkConvexPointSet : public vtkCell3D
 public:
   static vtkConvexPointSet *New();
   vtkTypeRevisionMacro(vtkConvexPointSet,vtkCell3D);
+
+  // Description:
+  // See vtkCell3D API for description of this method.
+  virtual int HasFixedTopology() {return 0;}
 
   // Description:
   // See vtkCell3D API for description of these methods.
