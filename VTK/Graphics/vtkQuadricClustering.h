@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadricClustering.h,v $
   Language:  C++
-  Date:      $Date: 2000-11-28 16:46:39 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-11-29 15:03:02 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -180,8 +180,26 @@ protected:
 				  float point[3]);
 
   // Description:
-  // Adds the triangle to the quadric array and to the geometry.
-  void AddTriangle(float *p0, float *p1, float *p2);
+  // Add triangles to the quadric array.  If geometry flag is on then
+  // triangles are added to the output.
+  void AddTriangles(vtkCellArray *edges, vtkPoints *points,
+                int geometryFlag);
+  void AddTriangle(int *binIds, float *pt0, float *pt1, float *pt2,
+                int geometeryFlag);
+
+  // Description:
+  // Add edges to the quadric array.  If geometry flag is on then
+  // edges are added to the output.
+  void AddEdges(vtkCellArray *edges, vtkPoints *points,
+                int geometryFlag);
+  void AddEdge(int *binIds, float *pt0, float *pt1, int geometeryFlag);
+
+  // Description:
+  // Add verticies to the quadric array.  If geometry flag is on then
+  // verticies are added to the output.
+  void AddVerticies(vtkCellArray *verts, vtkPoints *points,
+                int geometryFlag);
+  void AddVertex(int binId, float *pt, int geometeryFlag);
 
   // Description:
   // Initialize the quadric matrix to 0's.
@@ -199,7 +217,6 @@ protected:
 
   // Unfinished option to handle boundary edges differently.
   void AppendBoundaryQuadrics(vtkPolyData *pd);
-  void AddEdgeQuadric(int *binIds, float *pt0, float *pt1);
   int MatchBoundaries;
 
   int NumberOfXDivisions;
@@ -224,6 +241,8 @@ protected:
   // Have to make these instance variables if we are going to allow
   // the algorithm to be driven by the Append methods.
   vtkCellArray *OutputTriangleArray;
+  vtkCellArray *OutputLines;
+  vtkCellArray *OutputVerts;
 };
 
 #endif
