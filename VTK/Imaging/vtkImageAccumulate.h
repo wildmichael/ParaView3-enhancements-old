@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAccumulate.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-19 19:58:04 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2001-03-13 19:37:45 $
+  Version:   $Revision: 1.22 $
   Thanks:    Thanks to C. Charles Law who developed this class
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -91,9 +91,7 @@ protected:
   void ExecuteInformation(vtkImageData *input, vtkImageData *output);
   void ComputeInputUpdateExtent(int inExt[6], int outExt[6]);
   void ExecuteInformation(){this->vtkImageToImageFilter::ExecuteInformation();};
-  void Execute();
-  void Execute(vtkImageData *vtkNotUsed(outData)) {};
-  void Execute(vtkImageData *vtkNotUsed(inData), vtkImageData *vtkNotUsed(outData)) {}
+  void ExecuteData(vtkDataObject *out);
 };
 
 #endif
