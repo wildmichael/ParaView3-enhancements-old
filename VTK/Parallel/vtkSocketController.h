@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSocketController.h,v $
   Language:  C++
-  Date:      $Date: 2001-12-19 17:00:23 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-12-20 20:28:34 $
+  Version:   $Revision: 1.13 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -51,7 +51,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef __vtkSocketController_h
 #define __vtkSocketController_h
 
-#if !defined(_WIN32)
+#if !defined(_WIN32) || defined(__CYGWIN__)
  #include <sys/types.h>
  #include <sys/socket.h>
  #include <netinet/in.h>
