@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-31 00:01:53 $
-  Version:   $Revision: 1.73 $
+  Date:      $Date: 2000-11-07 17:43:40 $
+  Version:   $Revision: 1.74 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -222,7 +222,7 @@ void vtkImageReader::SetFileName(const char *name)
 //----------------------------------------------------------------------------
 // This function sets the prefix of the file name. "image" would be the
 // name of a series: image.1, image.2 ...
-void vtkImageReader::SetFilePrefix(char *prefix)
+void vtkImageReader::SetFilePrefix(const char *prefix)
 {
   if ( this->FilePrefix && prefix && (!strcmp(this->FilePrefix,prefix)))
     {
@@ -250,7 +250,7 @@ void vtkImageReader::SetFilePrefix(char *prefix)
 // This function sets the pattern of the file name which turn a prefix
 // into a file name. "%s.%3d" would be the
 // pattern of a series: image.001, image.002 ...
-void vtkImageReader::SetFilePattern(char *pattern)
+void vtkImageReader::SetFilePattern(const char *pattern)
 {
   if ( this->FilePattern && pattern && 
        (!strcmp(this->FilePattern,pattern)))

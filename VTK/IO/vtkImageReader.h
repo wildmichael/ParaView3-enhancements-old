@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-03 14:10:26 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2000-11-07 17:43:40 $
+  Version:   $Revision: 1.51 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -73,12 +73,12 @@ public:
   // Specify file prefix for the image file(s).You should specify either
   // a FileName or FilePrefix. Use FilePrefix if the data is stored
   // in multiple files.
-  void SetFilePrefix(char *);
+  void SetFilePrefix(const char *);
   vtkGetStringMacro(FilePrefix);
 
   // Description:
   // The sprintf format used to build filename from FilePrefix and number.
-  void SetFilePattern(char *);
+  void SetFilePattern(const char *);
   vtkGetStringMacro(FilePattern);
 
   // Description:
