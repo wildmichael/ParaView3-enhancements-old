@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConnectivityFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:32 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2001-05-28 06:02:30 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -165,18 +165,6 @@ public:
   vtkGetMacro(ColorRegions,int);
   vtkBooleanMacro(ColorRegions,int);
 
-#ifndef VTK_REMOVE_LEGACY_CODE
-  // Description:
-  // FOR LEGACY COMPATIBILITY ONLY, DO NOT USE.
-  // The connectivity extraction algorithm works recursively. In some systems 
-  // the stack depth is limited. This methods specifies the maximum recursion 
-  // depth.
-  void SetMaxRecursionDepth(int) 
-    {VTK_LEGACY_METHOD(SetMaxRecursionDepth,"3.2");}
-  int GetMaxRecursionDepth()
-    {VTK_LEGACY_METHOD(GetMaxRecursionDepth,"3.2"); return 0;}
-#endif
-  
 protected:
   vtkConnectivityFilter();
   ~vtkConnectivityFilter();

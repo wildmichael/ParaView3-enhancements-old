@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourGrid.h,v $
   Language:  C++
-  Date:      $Date: 2001-02-26 14:56:38 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-05-28 06:01:57 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -151,13 +151,6 @@ public:
   // specified. The locator is used to merge coincident points.
   void CreateDefaultLocator();
 
-#ifndef VTK_REMOVE_LEGACY_CODE
-  // Description:
-  // For legacy compatibility. Do not use.
-  void SetLocator(vtkPointLocator& locator) 
-    {VTK_LEGACY_METHOD(SetLocator,"3.2"); this->SetLocator(&locator);}
-#endif
-  
 protected:
   vtkContourGrid();
   ~vtkContourGrid();

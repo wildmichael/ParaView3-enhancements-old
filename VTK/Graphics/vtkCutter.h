@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.h,v $
   Language:  C++
-  Date:      $Date: 2001-02-26 14:49:54 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2001-05-28 06:01:40 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -176,13 +176,6 @@ public:
   // Create default locator. Used to create one when none is specified. The 
   // locator is used to merge coincident points.
   void CreateDefaultLocator();
-
-#ifndef VTK_REMOVE_LEGACY_CODE
-  // Description:
-  // For legacy compatibility. Do not use.
-  void SetLocator(vtkPointLocator& locator) 
-    {VTK_LEGACY_METHOD(SetLocator,"3.2"); this->SetLocator(&locator);}
-#endif
 
 protected:
   vtkCutter(vtkImplicitFunction *cf=NULL);
