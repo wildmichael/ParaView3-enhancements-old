@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArraySelection.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-15 19:02:33 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-10-15 19:05:41 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkVector.txx"
 
-vtkCxxRevisionMacro(vtkDataArraySelection, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkDataArraySelection, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkDataArraySelection);
 
 //----------------------------------------------------------------------------
@@ -104,7 +104,6 @@ int vtkDataArraySelection::ArrayExists(const char* name)
 {
   // Check if there is a specific entry for this array.
   vtkIdType pos=0;
-  int result=0;
   if( this->ArrayNames->FindItem(name, pos) == VTK_OK )
     {
     return 1;
