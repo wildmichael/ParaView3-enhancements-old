@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArrayMapIterator.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-18 11:28:05 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-04-19 19:20:54 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -55,27 +55,27 @@ public:
   // Description:
   // Retrieve the index of the element.
   // This method returns VTK_OK if key was retrieved correctly.
-  virtual int GetKey(KeyType&);
+  int GetKey(KeyType&);
 
   // Description:
   // Retrieve the data from the iterator. 
   // This method returns VTK_OK if key was retrieved correctly.
-  virtual int GetData(DataType&);
+  int GetData(DataType&);
 
   // Description:
   // Initialize the traversal of the container. 
   // Set the iterator to the "beginning" of the container.
-  virtual void InitTraversal();
+  void InitTraversal();
 
   // Description:
   // Check if the iterator is at the end of the container. Return 
   // VTK_OK if it is.
-  virtual int IsDoneWithTraversal();
+  int IsDoneWithTraversal();
 
   // Description:
   // Increment the iterator to the next location.
   // Return VTK_OK if everything is ok.
-  virtual int GoToNextItem();
+  int GoToNextItem();
 
 
 protected:
