@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArrayMapIterator.txx,v $
   Language:  C++
-  Date:      $Date: 2002-04-12 22:06:28 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-04-18 14:06:59 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -45,7 +45,7 @@ int vtkArrayMapIterator<KeyType,DataType>::GetKey(KeyType& key)
   vtkArrayMap<KeyType,DataType> *lmap 
     = static_cast<vtkArrayMap<KeyType,DataType>*>(this->Container);
   vtkAbstractMapItem<KeyType,DataType> *item = 0;
-  if ( lmap->Array->GetItem(this->Index, item) != VTK_OK )
+  if ( !lmap || lmap->Array->GetItem(this->Index, item) != VTK_OK )
     {
     return VTK_ERROR;
     }
@@ -62,7 +62,7 @@ int vtkArrayMapIterator<KeyType,DataType>::GetData(DataType& data)
   vtkArrayMap<KeyType,DataType> *lmap 
     = static_cast<vtkArrayMap<KeyType,DataType>*>(this->Container);
   vtkAbstractMapItem<KeyType,DataType> *item = 0;
-  if ( lmap->Array->GetItem(this->Index, item) != VTK_OK )
+  if ( !lmap || lmap->Array->GetItem(this->Index, item) != VTK_OK )
     {
     return VTK_ERROR;
     }
@@ -78,7 +78,7 @@ int vtkArrayMapIterator<KeyType,DataType>::IsDoneWithTraversal()
 {
   vtkArrayMap<KeyType,DataType> *lmap 
     = static_cast<vtkArrayMap<KeyType,DataType>*>(this->Container);
-  if ( this->Index >= lmap->GetNumberOfItems() )
+  if ( !lmap || this->Index >= lmap->GetNumberOfItems() )
     {
     return VTK_OK;
     }
@@ -93,7 +93,7 @@ int vtkArrayMapIterator<KeyType,DataType>::GoToNextItem()
 {
   vtkArrayMap<KeyType,DataType> *lmap 
     = static_cast<vtkArrayMap<KeyType,DataType>*>(this->Container);
-  if ( this->Index >= lmap->GetNumberOfItems() )
+  if ( !lmap || this->Index >= lmap->GetNumberOfItems() )
     {
     return VTK_ERROR;
     }
