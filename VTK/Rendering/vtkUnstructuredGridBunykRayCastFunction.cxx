@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridBunykRayCastFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-11-24 20:05:46 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-11-24 20:33:39 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -34,7 +34,7 @@
 #include "vtkColorTransferFunction.h"
 #include "vtkVolumeProperty.h"
 
-vtkCxxRevisionMacro(vtkUnstructuredGridBunykRayCastFunction, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkUnstructuredGridBunykRayCastFunction, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkUnstructuredGridBunykRayCastFunction);
 
 #define VTK_BUNYKRCF_NUMLISTS 100000
@@ -204,7 +204,8 @@ void *vtkUnstructuredGridBunykRayCastFunction::NewIntersection()
 {
   // Look for the first buffer that has enough space, or the
   // first one that has not yet been allocated
-  for ( int i = 0; i < VTK_BUNYKRCF_MAX_ARRAYS; i++ )
+  int i;
+  for ( i = 0; i < VTK_BUNYKRCF_MAX_ARRAYS; i++ )
     {
     if ( !this->IntersectionBuffer[i] ||
          this->IntersectionBufferCount[i] < VTK_BUNYKRCF_ARRAY_SIZE ) 
