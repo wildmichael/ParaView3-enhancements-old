@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:45:09 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1998-10-29 21:33:39 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -231,7 +231,7 @@ void vtkStructuredGridReader::Execute()
 
       else if ( ! strncmp(line, "cell_data", 9) )
         {
-        if (!this->Reader->Read(&numCells))
+        if (!this->Reader->Read(&nCells))
           {
           vtkErrorMacro(<<"Cannot read cell data!");
           this->Reader->CloseVTKFile ();
