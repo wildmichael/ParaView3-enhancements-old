@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkColorTransferFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-27 19:12:29 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2002-06-13 15:30:14 $
+  Version:   $Revision: 1.42 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkColorTransferFunction.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkColorTransferFunction, "$Revision: 1.41 $");
+vtkCxxRevisionMacro(vtkColorTransferFunction, "$Revision: 1.42 $");
 vtkStandardNewMacro(vtkColorTransferFunction);
 
 // Construct a new vtkColorTransferFunction with default values
@@ -827,7 +827,7 @@ void vtkColorTransferFunction::DeepCopy( vtkColorTransferFunction *f )
 // accelerate the mapping by copying the data in 32-bit chunks instead
 // of 8-bit chunks
 template <class T>
-static void 
+void 
 vtkColorTransferFunctionMapData(vtkColorTransferFunction *self, 
                                 T *input, 
                                 unsigned char *output, 
@@ -871,7 +871,7 @@ vtkColorTransferFunctionMapData(vtkColorTransferFunction *self,
 
 
 
-static void 
+void 
 vtkColorTransferFunctionMapUnsignedCharData(vtkColorTransferFunction *self, 
                                             unsigned char *input, 
                                             unsigned char *output, 
@@ -933,7 +933,7 @@ vtkColorTransferFunctionMapUnsignedCharData(vtkColorTransferFunction *self,
     }  
 }
 
-static void 
+void 
 vtkColorTransferFunctionMapUnsignedShortData(vtkColorTransferFunction *self, 
                                              unsigned short *input, 
                                              unsigned char *output, 
