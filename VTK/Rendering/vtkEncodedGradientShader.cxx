@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEncodedGradientShader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-29 11:17:24 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2003-06-06 13:28:29 $
+  Version:   $Revision: 1.29 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,7 +31,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkEncodedGradientShader, "$Revision: 1.28 $");
+vtkCxxRevisionMacro(vtkEncodedGradientShader, "$Revision: 1.29 $");
 vtkStandardNewMacro(vtkEncodedGradientShader);
 
 vtkEncodedGradientShader::vtkEncodedGradientShader()
@@ -50,6 +50,7 @@ vtkEncodedGradientShader::vtkEncodedGradientShader()
 
   this->ZeroNormalDiffuseIntensity  = 0.0;
   this->ZeroNormalSpecularIntensity = 0.0;
+  this->ActiveComponent             = 0;
 }
 
 vtkEncodedGradientShader::~vtkEncodedGradientShader()
@@ -250,10 +251,10 @@ void vtkEncodedGradientShader::UpdateShadingTable( vtkRenderer *ren,
   
   property = vol->GetProperty();
 
-  material[0] = property->GetAmbient();
-  material[1] = property->GetDiffuse();
-  material[2] = property->GetSpecular();
-  material[3] = property->GetSpecularPower();
+  material[0] = property->GetAmbient(this->ActiveComponent);
+  material[1] = property->GetDiffuse(this->ActiveComponent);
+  material[2] = property->GetSpecular(this->ActiveComponent);
+  material[3] = property->GetSpecularPower(this->ActiveComponent);
 
   // Set up the lights for traversal
   lightCollection = ren->GetLights();

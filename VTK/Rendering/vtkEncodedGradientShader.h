@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEncodedGradientShader.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-22 18:39:30 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2003-06-06 13:28:29 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -73,6 +73,13 @@ public:
   float *GetGreenSpecularShadingTable( vtkVolume *vol );
   float *GetBlueSpecularShadingTable(  vtkVolume *vol );
 
+  // Description:
+  // Set the active component for shading. This component's 
+  // ambient / diffuse / specular / specular power values will
+  // be used to create the shading table. The default is 1.0
+  vtkSetClampMacro( ActiveComponent, int, 0, 3 );
+  vtkGetMacro( ActiveComponent, int );
+  
 protected:
   vtkEncodedGradientShader();
   ~vtkEncodedGradientShader();
@@ -109,6 +116,8 @@ protected:
   vtkVolume                    *ShadingTableVolume[VTK_MAX_SHADING_TABLES];
   int                          ShadingTableSize[VTK_MAX_SHADING_TABLES];
 
+  int                          ActiveComponent;
+  
   // The intensity of light used for the zero normals, since it
   // can not be computed from the normal angles. Defaults to 0.0.
   float    ZeroNormalDiffuseIntensity;
