@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataDesc.cxx,v 1.20 2004-01-28 16:07:09 andy Exp $  */
-/*  Date : $Date: 2004-01-28 16:07:09 $ */
-/*  Version : $Revision: 1.20 $ */
+/*  Id : $Id: XdmfDataDesc.cxx,v 1.21 2004-05-27 19:12:26 martink Exp $  */
+/*  Date : $Date: 2004-05-27 19:12:26 $ */
+/*  Version : $Revision: 1.21 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -96,7 +96,6 @@ Result = new char[ strlen( Ptr ) + 2 ];
 strcpy( Result, Ptr );
 delete [] Ptr;
 return( Result );
-return(NULL);
 }
 
 XdmfInt32
