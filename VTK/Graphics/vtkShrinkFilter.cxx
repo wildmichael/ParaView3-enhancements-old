@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkShrinkFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-05-31 14:16:09 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1994-06-02 19:02:21 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -79,7 +79,11 @@ void vlShrinkFilter::Execute()
 //
 // Update ourselves
 //
+  
+  newPts->Squeeze();
   this->SetPoints(newPts);
+
+  this->PointData.Squeeze();
 }
 
 void vlShrinkFilter::PrintSelf(ostream& os, vlIndent indent)
