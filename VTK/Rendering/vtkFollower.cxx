@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFollower.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:52:38 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1997-04-30 21:24:08 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,10 +49,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 vtkFollower::vtkFollower()
 {
   this->Camera = NULL;
+  this->Device = vtkActor::New();
 }
 
 vtkFollower::~vtkFollower()
 {
+  this->Device->Delete();
 }
 
 // Description:
@@ -255,3 +257,29 @@ void vtkFollower::PrintSelf(ostream& os, vtkIndent indent)
     }
 }
 
+// Description:
+// This causes the actor to be rendered. It, in turn, will render the actor's
+// property and then mapper.  
+void vtkFollower::Render(vtkRenderer *ren)
+{
+  vtkMatrix4x4 *matrix = new vtkMatrix4x4;
+  
+  /* render the property */
+  if (!this->Property)
+    {
+    // force creation of a property
+    this->GetProperty();
+    }
+  this->Property->Render(this, ren);
+
+  /* render the texture */
+  if (this->Texture) this->Texture->Render(ren);
+    
+  // make sure the device has the same matrix
+  this->GetMatrix(*matrix);
+  this->Device->SetUserMatrix(matrix);
+  
+  this->Device->Render(ren,this->Mapper);
+
+  delete matrix;
+}
