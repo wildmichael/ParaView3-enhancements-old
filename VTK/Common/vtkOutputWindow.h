@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutputWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:51 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-07-02 14:58:17 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,17 +31,11 @@
 
 class VTK_COMMON_EXPORT vtkOutputWindow;
 
-class VTK_COMMON_EXPORT vtkOutputWindowSmartPointer
+class VTK_COMMON_EXPORT vtkOutputWindowCleanup
 {
 public:
-  vtkOutputWindowSmartPointer(vtkOutputWindow* p) { this->Pointer=p; };
-  void SetPointer(vtkOutputWindow* obj)
-    {
-      this->Pointer = obj;
-    }
-  ~vtkOutputWindowSmartPointer();
-private:
-  vtkOutputWindow* Pointer;
+  vtkOutputWindowCleanup();
+  ~vtkOutputWindowCleanup();
 };
 //ETX
 
@@ -88,7 +82,7 @@ public:
   // use this as a way of memory management when the
   // program exits the SmartPointer will be deleted which
   // will delete the Instance singleton
-  static vtkOutputWindowSmartPointer SmartPointer;
+  static vtkOutputWindowCleanup Cleanup;
 //ETX
 protected:
   vtkOutputWindow();
