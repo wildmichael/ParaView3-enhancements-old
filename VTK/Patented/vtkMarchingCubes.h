@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingCubes.h,v $
   Language:  C++
-  Date:      $Date: 2001-12-17 15:28:22 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2001-12-17 17:14:07 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -121,6 +121,9 @@ public:
   vtkGetMacro(ComputeScalars,int);
   vtkBooleanMacro(ComputeScalars,int);
 
+  // Description:
+  // Overide the default locator.  Useful for changing the number of
+  // bins.
   void SetLocator(vtkPointLocator *locator);
   vtkGetObjectMacro(Locator,vtkPointLocator);
 
