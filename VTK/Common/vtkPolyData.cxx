@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-02 09:09:50 $
-  Version:   $Revision: 1.153 $
+  Date:      $Date: 2003-04-15 08:16:55 $
+  Version:   $Revision: 1.154 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -34,7 +34,7 @@
 #include "vtkTriangleStrip.h"
 #include "vtkVertex.h"
 
-vtkCxxRevisionMacro(vtkPolyData, "$Revision: 1.153 $");
+vtkCxxRevisionMacro(vtkPolyData, "$Revision: 1.154 $");
 vtkStandardNewMacro(vtkPolyData);
 
 //----------------------------------------------------------------------------
@@ -1786,6 +1786,11 @@ void vtkPolyData::ShallowCopy(vtkDataObject *dataObject)
 //----------------------------------------------------------------------------
 void vtkPolyData::DeepCopy(vtkDataObject *dataObject)
 {
+  // Do superclass
+  // We have to do this BEFORE we call BuildLinks, else there are no points
+  // to build the links on (the parent DeepCopy copies the points)
+  this->vtkPointSet::DeepCopy(dataObject);
+
   vtkPolyData *polyData = vtkPolyData::SafeDownCast(dataObject);
 
   if ( polyData != NULL )
@@ -1831,9 +1836,6 @@ void vtkPolyData::DeepCopy(vtkDataObject *dataObject)
       this->BuildLinks();
       }
     }
-
-  // Do superclass
-  this->vtkPointSet::DeepCopy(dataObject);
 }
 
 void vtkPolyData::Crop()
