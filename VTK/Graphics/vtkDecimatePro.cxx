@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimatePro.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-05 18:12:05 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1997-04-08 22:03:15 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -377,7 +377,7 @@ int vtkDecimatePro::EvaluateVertex(int ptId, unsigned short int numTris, int *tr
   int numVerts, numNei, numFEdges;
   static vtkIdList nei(VTK_MAX_TRIS_PER_VERTEX);
   vtkLocalTri t;
-  vtkLocalVertex sn;
+  vtkProLocalVertex sn;
   int startVertex, nextVertex;
   int i, j, *verts, numNormals, vtype;
   float *x1, *x2, *normal;

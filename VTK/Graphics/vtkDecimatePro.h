@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimatePro.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-05 18:12:14 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1997-04-08 22:03:14 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -106,12 +106,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkPriorityQueue.h"
 
 // Special structures for building loops
-typedef struct _vtkLocalVertex 
+typedef struct _vtkProLocalVertex 
   {
   int     id;
   float   x[3];
   float   FAngle;
-  } vtkLocalVertex, *vtkLocalVertexPtr;
+  } vtkProLocalVertex, *vtkProLocalVertexPtr;
     
 typedef struct _vtkLocalTri
   {
@@ -129,15 +129,15 @@ typedef struct _vtkLocalTri
 class vtkVertexArray { //;prevent man page generation
 public:
   vtkVertexArray(const int sz) 
-    {this->MaxId = -1; this->Array = new vtkLocalVertex[sz];};
+    {this->MaxId = -1; this->Array = new vtkProLocalVertex[sz];};
   ~vtkVertexArray() {if (this->Array) delete [] this->Array;};
   int GetNumberOfVertices() {return this->MaxId + 1;};
-  void InsertNextVertex(vtkLocalVertex& v) 
+  void InsertNextVertex(vtkProLocalVertex& v) 
     {this->MaxId++; this->Array[this->MaxId] = v;};
-  vtkLocalVertex& GetVertex(int i) {return this->Array[i];};
+  vtkProLocalVertex& GetVertex(int i) {return this->Array[i];};
   void Reset() {this->MaxId = -1;};
 
-  vtkLocalVertex *Array; // pointer to data
+  vtkProLocalVertex *Array; // pointer to data
   int MaxId;             // maximum index inserted thus far
 };
 
