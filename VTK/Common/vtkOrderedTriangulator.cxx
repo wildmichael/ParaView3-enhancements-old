@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOrderedTriangulator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-19 17:16:39 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2002-06-21 16:01:07 $
+  Version:   $Revision: 1.40 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkEdgeTable.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkOrderedTriangulator, "$Revision: 1.39 $");
+vtkCxxRevisionMacro(vtkOrderedTriangulator, "$Revision: 1.40 $");
 vtkStandardNewMacro(vtkOrderedTriangulator);
 
 #ifdef _WIN32_WCE
@@ -1189,6 +1189,47 @@ vtkIdType vtkOrderedTriangulator::AddTriangles(vtkCellArray *tris)
         tris->InsertCellPoint(face.Points[0]->Id);
         tris->InsertCellPoint(face.Points[1]->Id);
         tris->InsertCellPoint(face.Points[2]->Id);
+        }
+      }
+    }//for all tetras
+
+  return numTris;
+}
+
+vtkIdType vtkOrderedTriangulator::AddTriangles(vtkIdType id, vtkCellArray *tris)
+{
+  vtkIdType numTris=0;
+  int i;
+
+  // Loop over all tetras examining each unvisited face. Faces whose
+  // points are all classified "boundary" are added to the list of
+  // faces.
+  vtkOTLinkedList<vtkOTTetra*>::Iterator tptr;
+  vtkOTTetra *tetra;
+  vtkOTFace face;
+
+  // loop over all tetras getting the faces classified on the boundary
+  for (tptr=this->Mesh->Tetras.Begin(); 
+       tptr != this->Mesh->Tetras.End(); ++tptr)
+    {
+    tetra = *tptr;
+    tetra->CurrentPointId = VTK_LARGE_INTEGER; //mark visited
+    for (i=0; i<4; i++)
+      {
+      if ( tetra->Neighbors[i] &&
+           tetra->Neighbors[i]->CurrentPointId != VTK_LARGE_INTEGER &&
+           tetra->GetType() != tetra->Neighbors[i]->GetType() )
+        {//face not yet visited
+        tetra->GetFacePoints(i,&face);
+        if ( face.Points[0]->Id == id || face.Points[1]->Id == id ||
+             face.Points[2]->Id == id )
+          {
+          numTris++;
+          tris->InsertNextCell(3);
+          tris->InsertCellPoint(face.Points[0]->Id);
+          tris->InsertCellPoint(face.Points[1]->Id);
+          tris->InsertCellPoint(face.Points[2]->Id);
+          }
         }
       }
     }//for all tetras
