@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThresholdPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 21:24:17 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1996-06-10 15:20:25 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -82,7 +82,7 @@ void vtkThresholdPoints::ThresholdBetween(float lower, float upper)
     {
     this->LowerThreshold = lower; 
     this->UpperThreshold = upper;
-    this->ThresholdFunction = vtkThresholdPoints::Between;
+    this->ThresholdFunction = &vtkThresholdPoints::Between;
     this->Modified();
     }
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThresholdTextureCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-16 17:06:47 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1996-06-10 15:20:26 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -92,7 +92,7 @@ void vtkThresholdTextureCoords::ThresholdBetween(float lower, float upper)
     {
     this->LowerThreshold = lower; 
     this->UpperThreshold = upper;
-    this->ThresholdFunction = vtkThresholdTextureCoords::Between;
+    this->ThresholdFunction = &vtkThresholdTextureCoords::Between;
     this->Modified();
     }
 }
