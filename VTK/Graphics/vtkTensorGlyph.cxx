@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTensorGlyph.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:33:44 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-08-30 16:40:28 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -310,8 +310,8 @@ void vtkTensorGlyph::Update()
   this->Source->Update();
   this->Updating = 0;
 
-  if (this->Input->GetMTime() > this->GetMTime() || 
-  this->Source->GetMTime() > this->GetMTime() || 
+  if (this->Input->GetMTime() > this->ExecuteTime || 
+  this->Source->GetMTime() > this->ExecuteTime || 
   this->GetMTime() > this->ExecuteTime || this->GetDataReleased() )
     {
     if ( this->StartMethod ) (*this->StartMethod)(this->StartMethodArg);
