@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp3D.h,v $
   Language:  C++
-  Date:      $Date: 2000-06-08 09:11:04 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-07-13 10:52:07 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -204,6 +204,7 @@ public:
   // same matrix is RotateZ, RotateX, and finally RotateY. See also 
   // SetOrientation.
   float *GetOrientation();
+  void GetOrientation(float o[3]);
 
   // Description:
   // Returns the WXYZ orientation of the Prop3D. 
