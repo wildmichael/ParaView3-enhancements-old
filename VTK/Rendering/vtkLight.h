@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLight.h,v $
   Language:  C++
-  Date:      $Date: 1995-12-27 10:56:17 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1996-04-22 18:34:55 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -113,6 +113,8 @@ public:
 
   // Description:
   // Set/Get the lighting cone angle of a positional light in degrees.
+  // A value of 180 indicates that you want no spot lighting effects
+  // just a positional light.
   vtkSetMacro(ConeAngle,float);
   vtkGetMacro(ConeAngle,float);
 
