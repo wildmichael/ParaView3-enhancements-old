@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-14 16:29:53 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2000-08-15 11:11:57 $
+  Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -159,7 +159,9 @@ int vtkVolume::RequiresRayCasting()
 
   retval = 0;
 
-  if ( this->Mapper )
+  // We must have a mapper, and the mapper must have input. If so,
+  // ask the mapper if it needs ray casting
+  if ( this->Mapper && this->Mapper->GetInput() )
     {
     retval = this->Mapper->IsARayCastMapper();
     }
@@ -338,6 +340,12 @@ int vtkVolume::RenderTranslucentGeometry( vtkViewport *vp )
     return 0;
     }
 
+  // If we don't have any input return silently
+  if ( !this->Mapper->GetInput() )
+    {
+    return 0;
+    }
+  
   // Force the creation of a property
   if( !this->Property )
     {
