@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMIPFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:18:12 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-12-13 15:59:20 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -524,6 +524,10 @@ void vtkVolumeRayCastMIPFunction::CastRay( VTKVRCDynamicInfo *dynamicInfo,
         break;
       case VTK_UNSIGNED_SHORT:
         CastMaxScalarValueRay( (unsigned short *)data_ptr, dynamicInfo, staticInfo );
+        break;
+      default:
+        vtkWarningMacro ( << "Unsigned char and unsigned short are the only supported datatypes for rendering" );
+        break;
       }  
     }
   else
@@ -535,6 +539,10 @@ void vtkVolumeRayCastMIPFunction::CastRay( VTKVRCDynamicInfo *dynamicInfo,
         break;
       case VTK_UNSIGNED_SHORT:
         CastMaxOpacityRay( (unsigned short *)data_ptr, dynamicInfo, staticInfo );
+        break;
+      default:
+        vtkWarningMacro ( << "Unsigned char and unsigned short are the only supported datatypes for rendering" );
+        break;
       }  
     }
 }
