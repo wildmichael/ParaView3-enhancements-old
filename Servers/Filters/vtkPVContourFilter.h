@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVContourFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-10-12 20:16:54 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2000-10-18 16:08:35 $
+  Version:   $Revision: 1.13 $
 
 Copyright (c) 1998-1999 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -30,9 +30,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkPVContourFilter_h
 
 #include "vtkPVDataSetToPolyDataFilter.h"
-
-class vtkKitwareContourFilter;
-
+class vtkSingleContourFilter;
 
 class VTK_EXPORT vtkPVContourFilter : public vtkPVDataSetToPolyDataFilter
 {
@@ -45,17 +43,15 @@ public:
   void CreateProperties();
 
   // Description:
-  // Add value would not work.  We need a simple interface.
-  void SetValue(float val);
-  float GetValue();
+  // Returns the countour VTK filter for this object.
+  // This should allow the filter to be changed from C++ easily.
+  vtkSingleContourFilter *GetContour();
 
 protected:
   vtkPVContourFilter();
   ~vtkPVContourFilter() {};
   vtkPVContourFilter(const vtkPVContourFilter&) {};
   void operator=(const vtkPVContourFilter&) {};
-
-  vtkKitwareContourFilter *GetContour();
 };
 
 #endif

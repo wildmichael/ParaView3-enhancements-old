@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-12 20:16:54 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2000-10-18 16:08:35 $
+  Version:   $Revision: 1.21 $
 
 Copyright (c) 1998-2000 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -27,7 +27,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 
 #include "vtkPVContourFilter.h"
-#include "vtkKitwareContourFilter.h"
+#include "vtkSingleContourFilter.h"
 
 
 int vtkPVContourFilterCommand(ClientData cd, Tcl_Interp *interp,
@@ -38,7 +38,7 @@ vtkPVContourFilter::vtkPVContourFilter()
 {
   this->CommandFunction = vtkPVContourFilterCommand;
     
-  vtkKitwareContourFilter *c = vtkKitwareContourFilter::New();
+  vtkSingleContourFilter *c = vtkSingleContourFilter::New();
   this->SetVTKSource(c);
   c->Delete();
 }
@@ -54,27 +54,14 @@ void vtkPVContourFilter::CreateProperties()
 {
   this->vtkPVSource::CreateProperties();
   
-  this->AddLabeledEntry("Value:","SetValue","GetValue",this);
+  this->AddLabeledEntry("Value:","SetFirstValue","GetFirstValue");
 
   this->UpdateParameterWidgets();
 }
 
-
 //----------------------------------------------------------------------------
-vtkKitwareContourFilter *vtkPVContourFilter::GetContour()
+vtkSingleContourFilter *vtkPVContourFilter::GetContour()
 {
-  return vtkKitwareContourFilter::SafeDownCast(this->GetVTKSource());
-}
-
-//----------------------------------------------------------------------------
-void vtkPVContourFilter::SetValue(float val)
-{  
-  this->GetContour()->SetValue(0, val);
-}
-
-//----------------------------------------------------------------------------
-float vtkPVContourFilter::GetValue()
-{  
-  return this->GetContour()->GetValue(0);
+  return vtkSingleContourFilter::SafeDownCast(this->GetVTKSource());
 }
 
