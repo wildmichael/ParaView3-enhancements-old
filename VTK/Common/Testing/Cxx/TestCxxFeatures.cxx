@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestCxxFeatures.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-08 18:04:27 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-07-10 13:41:16 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -71,6 +71,8 @@ int TestFullySpecializedFunction()
 
 /* Test use of standard "bool" type and values.  */
 
+#if 0
+// Fails on kulu.crd IRIX64-6.5-CC-o3 (old SGI compiler).
 bool GetFalse()
 {
   return false;
@@ -98,7 +100,7 @@ int TestBool()
     }
   return result;
 }
-
+#endif
 //----------------------------------------------------------------------------
 
 int main()
@@ -108,9 +110,12 @@ int main()
     {
     result = 1;
     }
+#if 0
+  // Fails on kulu.crd IRIX64-6.5-CC-o3 (old SGI compiler).
   if(!TestBool())
     {
     result = 1;
     }
+#endif
   return result;
 }
