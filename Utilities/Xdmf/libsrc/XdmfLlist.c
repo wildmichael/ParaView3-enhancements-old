@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfLlist.c,v 1.1 2002-12-02 17:11:03 clarke Exp $  */
-/*  Date : $Date: 2002-12-02 17:11:03 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfLlist.c,v 1.2 2003-08-29 12:08:59 andy Exp $  */
+/*  Date : $Date: 2003-08-29 12:08:59 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -33,6 +33,35 @@ static  XDMF_LIST_KEY    next_unique_key = XDMF_LIST_NDGM_LAST_KEY;
 XdmfLlist_new_key(void)
 {
 return(next_unique_key++);
+}
+
+void
+XdmfLlist_remove_anchor(XDMF_LIST_KEY key)
+{
+XdmfLlist_Anchor  *item = xdmf_master_llist;
+XdmfLlist_Anchor  *previous = xdmf_master_llist;
+
+while(item != NULL){
+  if(item->key == key){
+    break;
+    }
+  previous = item;
+  item = item->next;
+  }
+
+if ( item->key != key )
+  {
+  return;
+  }
+if ( previous == item )
+  {
+  xdmf_master_llist = item->next;
+  }
+else
+  {
+  previous->next = item->next;
+  }
+free(item);
 }
 
 XdmfLlist_Anchor *
