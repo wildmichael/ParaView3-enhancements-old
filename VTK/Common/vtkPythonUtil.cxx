@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPythonUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-03-08 18:06:50 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2003-03-09 23:09:04 $
+  Version:   $Revision: 1.55 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -109,7 +109,7 @@ static PyObject *PyVTKObject_PyString(PyVTKObject *self)
   self->vtk_ptr->Print(buf);
   buf.put('\0');
   PyObject *res = PyString_FromString(buf.str());
-  buf.freeze(0);
+  delete [] buf.str();
   return res;
 }
 
