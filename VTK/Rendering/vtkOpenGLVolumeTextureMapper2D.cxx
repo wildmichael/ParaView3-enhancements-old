@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLVolumeTextureMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-15 21:24:48 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-09-16 14:29:14 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,8 +56,6 @@ vtkOpenGLVolumeTextureMapper2D::~vtkOpenGLVolumeTextureMapper2D()
 void vtkOpenGLVolumeTextureMapper2D::Render(vtkRenderer *ren, vtkVolume *vol)
 {
   vtkMatrix4x4       *matrix = vtkMatrix4x4::New();
-  float              *bounds;
-  float              v[3];
   vtkTimerLog        *timer;
   vtkPlaneCollection *clipPlanes;
   vtkPlane           *plane;
