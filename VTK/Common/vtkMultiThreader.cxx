@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiThreader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 11:56:29 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1999-09-14 20:38:42 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -532,7 +532,6 @@ int vtkMultiThreader::SpawnThread( vtkThreadFunctionType f, void *UserData )
     if ( this->SpawnedThreadActiveFlagLock[id] == NULL )
       {
       this->SpawnedThreadActiveFlagLock[id] = vtkMutexLock::New();
-      break;
       }
     this->SpawnedThreadActiveFlagLock[id]->Lock();
     if (this->SpawnedThreadActiveFlag[id] == 0)
