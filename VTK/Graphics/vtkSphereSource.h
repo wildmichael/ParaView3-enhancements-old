@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-04-30 15:08:49 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2001-08-10 20:48:23 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -128,8 +128,8 @@ public:
 protected:
   vtkSphereSource(int res=8);
   ~vtkSphereSource() {}
-  vtkSphereSource(const vtkSphereSource&) {}
-  void operator=(const vtkSphereSource&) {}
+  vtkSphereSource(const vtkSphereSource&);
+  void operator=(const vtkSphereSource&);
 
   void Execute();
   void ExecuteInformation();
