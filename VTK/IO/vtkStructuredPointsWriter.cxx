@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:12:48 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2000-05-22 11:47:18 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,7 +44,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 
-//------------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 vtkStructuredPointsWriter* vtkStructuredPointsWriter::New()
 {
   // First try to create the object from the vtkObjectFactory
