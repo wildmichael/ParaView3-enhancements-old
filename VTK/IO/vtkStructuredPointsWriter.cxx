@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredPointsWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-05-02 18:44:18 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1995-05-24 08:35:31 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -53,6 +53,8 @@ void vlStructuredPointsWriter::WriteData()
   fprintf(fp,"ORIGIN %f %f %f\n", origin[0], origin[1], origin[2]);
 
   this->WritePointData(fp, input);
+
+  this->CloseVLFile(fp);
 }
 
 void vlStructuredPointsWriter::PrintSelf(ostream& os, vlIndent indent)
