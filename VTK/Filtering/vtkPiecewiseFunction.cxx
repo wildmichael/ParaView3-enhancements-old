@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPiecewiseFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:07:10 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1999-11-29 15:33:29 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -449,6 +449,15 @@ void vtkPiecewiseFunction::RemovePoint( float x )
 
       this->FunctionSize--;
 
+      if (this->FunctionSize > 0)
+	{
+	this->FunctionRange[0] = this->Function[0];
+	this->FunctionRange[1] = this->Function[2*(this->FunctionSize-1)];
+	}
+      else
+	{
+	this->FunctionRange[0] = this->FunctionRange[1] = 0.0;
+	}
       this->Modified();
       }
     }
