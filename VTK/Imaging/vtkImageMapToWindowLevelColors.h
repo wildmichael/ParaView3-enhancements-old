@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapToWindowLevelColors.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:08 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-06-08 20:33:41 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -65,8 +65,6 @@ public:
   vtkTypeMacro(vtkImageMapToWindowLevelColors,vtkImageToImageFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
-  void UpdateData(vtkDataObject *output);
-
   // Description:
   // Set / Get the Window to use -> modulation will be performed on the 
   // color based on (S - (L - W/2))/W where S is the scalar value, L is
@@ -91,6 +89,7 @@ protected:
   void ExecuteInformation(){this->vtkImageMapToColors::ExecuteInformation();};
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
 		       int extent[6], int id);
+  void ExecuteData(vtkDataObject *output);
   
   float Window;
   float Level;

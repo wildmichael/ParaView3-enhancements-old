@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapToColors.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-18 11:11:49 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-06-08 20:33:41 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -96,39 +96,30 @@ unsigned long vtkImageMapToColors::GetMTime()
 
 //----------------------------------------------------------------------------
 // This method checks to see if we can simply reference the input data
-void vtkImageMapToColors::UpdateData(vtkDataObject *outObject)
+void vtkImageMapToColors::ExecuteData(vtkDataObject *output)
 {
-  vtkImageData *outData = (vtkImageData *)(outObject);
+  vtkImageData *outData = (vtkImageData *)(output);
   vtkImageData *inData = this->GetInput();
  
   // If LookupTable is null, just pass the data
   if (this->LookupTable == NULL)
     {
-    vtkDebugMacro("UpdateData: LookupTable not set, passing input to output.");
+    vtkDebugMacro("ExecuteData: LookupTable not set, "\
+		  "passing input to output.");
 
-    // Make sure the Input has been set.
-    if (inData == NULL)
-      {
-      vtkErrorMacro("UpdateData: Input is not set.");
-      return;
-      }
-
-    inData->SetUpdateExtent(outData->GetUpdateExtent());
-    inData->Update();
     outData->SetExtent(inData->GetExtent());
     outData->GetPointData()->PassData(inData->GetPointData());
-    outData->DataHasBeenGenerated();
     this->DataWasPassed = 1;
     }
   else // normal behaviour
     {
-    if ( this->DataWasPassed )
+    if (this->DataWasPassed)
       {
       outData->GetPointData()->SetScalars((vtkScalars*)NULL);
       this->DataWasPassed = 0;
       }
     
-    this->vtkImageToImageFilter::UpdateData(outObject);
+    this->vtkImageToImageFilter::ExecuteData(output);
     }
 }
 

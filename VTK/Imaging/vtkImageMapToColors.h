@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapToColors.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-29 23:14:21 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-06-08 20:33:41 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -93,7 +93,6 @@ public:
   // Description:
   // We need to check the modified time of the lookup table too.
   unsigned long GetMTime();
-  void UpdateData(vtkDataObject *output);
 
 protected:
   vtkImageMapToColors();
@@ -101,17 +100,20 @@ protected:
   vtkImageMapToColors(const vtkImageMapToColors&) {};
   void operator=(const vtkImageMapToColors&) {};
 
+  void ExecuteInformation(vtkImageData *inData, vtkImageData *outData);
+  void ExecuteInformation() {
+    this->vtkImageToImageFilter::ExecuteInformation(); };
+  void ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
+		       int extent[6], int id);
+  
+  void ExecuteData(vtkDataObject *output);
+
   vtkScalarsToColors *LookupTable;
   int OutputFormat;
   
   int ActiveComponent;
   int PassAlphaToOutput;
 
-  void ExecuteInformation(vtkImageData *inData, vtkImageData *outData);
-  void ExecuteInformation(){this->vtkImageToImageFilter::ExecuteInformation();};
-  void ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
-		       int extent[6], int id);
-  
   int DataWasPassed;
 };
 

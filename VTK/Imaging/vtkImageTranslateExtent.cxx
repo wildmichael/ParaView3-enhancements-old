@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageTranslateExtent.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:11 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-06-08 20:33:41 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -112,50 +112,24 @@ void vtkImageTranslateExtent::ExecuteInformation(vtkImageData *inData,
   outData->SetOrigin(origin);
 }
 
-
 //----------------------------------------------------------------------------
 // This method simply copies by reference the input data to the output.
-void vtkImageTranslateExtent::UpdateData(vtkDataObject *data)
+void vtkImageTranslateExtent::ExecuteData(vtkDataObject *data)
 {
-  vtkImageData *inData, *outData = (vtkImageData*)(data);
-  int extent[6], idx;
+  vtkImageData *inData = this->GetInput();
+  vtkImageData *outData = (vtkImageData *)(data);
+  int extent[6];
   
-  // Make sure the Input has been set.
-  if ( ! this->GetInput())
-    {
-    vtkErrorMacro(<< "Input is not set.");
-    return;
-    }
-
-  this->GetOutput()->GetUpdateExtent(extent);
-  for (idx = 0; idx < 3; ++idx)
-    {
-    extent[idx*2] -= this->Translation[idx];
-    extent[idx*2+1] -= this->Translation[idx];
-    }
-  
-  this->GetInput()->SetUpdateExtent(extent);
-
-  this->GetInput()->Update();
-  inData = this->GetInput();
   // since inData can be larger than update extent.
   inData->GetExtent(extent);
-  for (idx = 0; idx < 3; ++idx)
+  for (int i = 0; i < 3; ++i)
     {
-    extent[idx*2] += this->Translation[idx];
-    extent[idx*2+1] += this->Translation[idx];
+    extent[i*2] += this->Translation[i];
+    extent[i*2+1] += this->Translation[i];
     }
   outData->SetExtent(extent);
   outData->GetPointData()->PassData(inData->GetPointData());
-  outData->DataHasBeenGenerated();
-  
-  // release input data
-  if (this->GetInput()->ShouldIReleaseData())
-    {
-    this->GetInput()->ReleaseData();
-    }
 }
-
 
 //----------------------------------------------------------------------------
 void vtkImageTranslateExtent::ComputeInputUpdateExtent(int extent[6], 

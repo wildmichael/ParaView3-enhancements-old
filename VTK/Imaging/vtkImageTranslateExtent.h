@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageTranslateExtent.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:11 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-06-08 20:33:41 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -61,11 +61,6 @@ public:
   vtkSetVector3Macro(Translation, int);
   vtkGetVector3Macro(Translation, int);
 
-
-  // Description:
-  // This method simply copies by reference the input data to the output.
-  void UpdateData(vtkDataObject *data);
-
 protected:
   vtkImageTranslateExtent();
   ~vtkImageTranslateExtent() {};
@@ -76,10 +71,10 @@ protected:
   
   void ComputeInputUpdateExtent(int extent[6], int wholeExtent[6]);
   void ExecuteInformation(vtkImageData *inData, vtkImageData *outData);
-  void ExecuteInformation(){this->vtkImageToImageFilter::ExecuteInformation();};
+  void ExecuteInformation() {
+    this->vtkImageToImageFilter::ExecuteInformation(); };
+  void ExecuteData(vtkDataObject *data);
 };
-
-
 
 #endif
 
