@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNMReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-16 22:09:12 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-01-17 12:08:31 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,7 +44,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include <stdio.h>
 
-vtkCxxRevisionMacro(vtkPNMReader, "$Revision: 1.21 $");
+vtkCxxRevisionMacro(vtkPNMReader, "$Revision: 1.22 $");
 vtkStandardNewMacro(vtkPNMReader);
 
 char vtkPNMReaderGetChar(FILE *fp)
@@ -221,7 +221,7 @@ void vtkPNMReader::ExecuteInformation()
 }
 
 
-static inline bool iseol(int c)
+static inline int iseol(int c)
 {
   return c == 10 || c == 13;
 }
