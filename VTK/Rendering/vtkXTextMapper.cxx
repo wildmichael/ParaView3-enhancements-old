@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-25 13:44:31 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2000-12-06 16:47:41 $
+  Version:   $Revision: 1.26 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,9 +42,15 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkXTextMapper.h"
 #include "vtkObjectFactory.h"
 
+#ifndef VTK_REMOVE_LEGACY_CODE
+//mark this class for future legacy-related changes
+#endif
 //-------------------------------------------------------------------------
 vtkXTextMapper* vtkXTextMapper::New()
 {
+  vtkGenericWarningMacro(<<"Obsolete native imaging class: " 
+                         <<"use OpenGL version instead");
+
   // First try to create the object from the vtkObjectFactory
   vtkObject* ret = vtkObjectFactory::CreateInstance("vtkXTextMapper");
   if(ret)

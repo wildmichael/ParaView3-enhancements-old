@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32ImageMapper.h,v $
   Language:  C++
-  Date:      $Date: 2000-11-19 20:15:08 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-12-06 16:47:40 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,7 +39,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-// .NAME vtkWin32ImageMapper - 2D image display support for Microsoft windows
+// .NAME vtkWin32ImageMapper - (obsolete) 2D image display support for Microsoft windows
 // .SECTION Description
 // vtkWin32ImageMapper is a concrete subclass of vtkImageMapper that
 // renders images under Microsoft windows.
@@ -55,6 +55,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 class vtkImageActor2D;
 
+#ifndef VTK_REMOVE_LEGACY_CODE
 class VTK_EXPORT vtkWin32ImageMapper : public vtkImageMapper
 {
 public:
@@ -97,7 +98,7 @@ protected:
   void operator=(const vtkWin32ImageMapper&) {};
 
 };
-
+#endif
 
 #endif
 

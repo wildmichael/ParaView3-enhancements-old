@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXImageMapper.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:14:13 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-12-06 16:47:41 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -62,6 +62,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 class vtkActor2D;
 
+#ifndef VTK_REMOVE_LEGACY_CODE
 class VTK_EXPORT vtkXImageMapper : public vtkImageMapper
 {
 public:
@@ -116,7 +117,7 @@ protected:
   int             DataOutSize;
   int             NumberOfColors;
 };
-
+#endif
 
 #endif
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXPolyDataMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-09 13:13:09 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-12-06 16:47:41 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -46,6 +46,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 
 
+#ifndef VTK_REMOVE_LEGACY_CODE
 
 //------------------------------------------------------------------------------
 vtkXPolyDataMapper2D* vtkXPolyDataMapper2D::New()
@@ -261,6 +262,4 @@ void vtkXPolyDataMapper2D::RenderOverlay(vtkViewport* viewport, vtkActor2D* acto
     p->Delete();
     }
 }
-
-
-  
+#endif

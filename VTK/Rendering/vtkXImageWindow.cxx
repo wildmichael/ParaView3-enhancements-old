@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:14:13 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2000-12-06 16:47:41 $
+  Version:   $Revision: 1.38 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,10 +43,16 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 
 
+#ifndef VTK_REMOVE_LEGACY_CODE
+//mark this class for future legacy-related changes
+#endif
 
-//------------------------------------------------------------------------------
+//--------------------------------------------------------------------------
 vtkXImageWindow* vtkXImageWindow::New()
 {
+  vtkGenericWarningMacro(<<"Obsolete native imaging class: " 
+                         <<"use OpenGL version instead");
+
   // First try to create the object from the vtkObjectFactory
   vtkObject* ret = vtkObjectFactory::CreateInstance("vtkXImageWindow");
   if(ret)
@@ -56,10 +62,6 @@ vtkXImageWindow* vtkXImageWindow::New()
   // If the factory was unable to create the object, then create it here.
   return new vtkXImageWindow;
 }
-
-
-
-
 
 void vtkXImageWindow::GetShiftsScalesAndMasks(int &rshift, int &gshift, 
 					      int &bshift,

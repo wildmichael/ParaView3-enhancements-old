@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXPolyDataMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:09:14 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-12-06 16:47:41 $
+  Version:   $Revision: 1.12 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -52,6 +52,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkPolyDataMapper2D.h"
 
+#ifndef VTK_REMOVE_LEGACY_CODE
 class VTK_EXPORT vtkXPolyDataMapper2D : public vtkPolyDataMapper2D
 {
 public:
@@ -69,7 +70,7 @@ protected:
   void operator=(const vtkXPolyDataMapper2D&) {};
   
 };
-
+#endif
 
 #endif
 

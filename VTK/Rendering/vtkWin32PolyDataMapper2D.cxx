@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32PolyDataMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-11 11:58:52 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-12-06 16:47:40 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -45,11 +45,13 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkWin32ImageWindow.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
+#ifndef VTK_REMOVE_LEGACY_CODE
+//-------------------------------------------------------------------------
 vtkWin32PolyDataMapper2D* vtkWin32PolyDataMapper2D::New()
 {
+  vtkGenericWarningMacro(<<"Obsolete native imaging class: " 
+                         <<"use OpenGL version instead");
+
   // First try to create the object from the vtkObjectFactory
   vtkObject* ret = vtkObjectFactory::CreateInstance("vtkWin32PolyDataMapper2D");
   if(ret)
@@ -59,8 +61,6 @@ vtkWin32PolyDataMapper2D* vtkWin32PolyDataMapper2D::New()
   // If the factory was unable to create the object, then create it here.
   return new vtkWin32PolyDataMapper2D;
 }
-
-
 
 
 void vtkWin32PolyDataMapper2D::RenderOverlay(vtkViewport* viewport, 
@@ -265,5 +265,5 @@ void vtkWin32PolyDataMapper2D::RenderOverlay(vtkViewport* viewport,
   DeleteObject(brush);
 }
 
-
+#endif
   

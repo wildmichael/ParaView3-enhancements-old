@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32ImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:14:11 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2000-12-06 16:47:40 $
+  Version:   $Revision: 1.22 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,10 +44,14 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 
 
+#ifndef VTK_REMOVE_LEGACY_CODE
 
-//------------------------------------------------------------------------------
+//--------------------------------------------------------------------------
 vtkWin32ImageWindow* vtkWin32ImageWindow::New()
 {
+  vtkGenericWarningMacro(<<"Obsolete native imaging class: " 
+                         <<"use OpenGL version instead");
+
   // First try to create the object from the vtkObjectFactory
   vtkObject* ret = vtkObjectFactory::CreateInstance("vtkWin32ImageWindow");
   if(ret)
@@ -860,3 +864,4 @@ void vtkWin32ImageWindow::ResumeScreenRendering()
   this->Size[1] = this->ScreenWindowSize[1];
   this->DeviceContext = this->ScreenDeviceContext;
 }
+#endif
