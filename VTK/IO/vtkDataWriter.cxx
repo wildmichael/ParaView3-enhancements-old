@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-05-24 08:28:14 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1995-06-01 11:22:31 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -239,6 +239,8 @@ int vlDataWriter::WritePoints(FILE *fp, vlPoints *points)
     vlErrorMacro(<<"Point type: " << type << " currently not supported");
     return 0;
     }
+
+  return 1;
 }
 
 int vlDataWriter::WriteScalarData(FILE *fp, vlScalars *scalars, int numPts)
@@ -456,6 +458,8 @@ int vlDataWriter::WriteScalarData(FILE *fp, vlScalars *scalars, int numPts)
       }
     fprintf (fp, "\n");
     }
+
+  return 1;
 }
 
 int vlDataWriter::WriteVectorData(FILE *fp, vlVectors *vectors, int numPts)
@@ -493,6 +497,8 @@ int vlDataWriter::WriteVectorData(FILE *fp, vlVectors *vectors, int numPts)
     vlErrorMacro(<<"Vector type: " << type << " currently not supported");
     return 0;
     }
+
+  return 1;
 }
 
 int vlDataWriter::WriteNormalData(FILE *fp, vlNormals *normals, int numPts)
@@ -530,6 +536,8 @@ int vlDataWriter::WriteNormalData(FILE *fp, vlNormals *normals, int numPts)
     vlErrorMacro(<<"Normal type: " << type << " currently not supported");
     return 0;
     }
+
+  return 1;
 }
 
 int vlDataWriter::WriteTCoordData(FILE *fp, vlTCoords *tcoords, int numPts)
@@ -568,6 +576,8 @@ int vlDataWriter::WriteTCoordData(FILE *fp, vlTCoords *tcoords, int numPts)
     vlErrorMacro(<<"Texture coord type: " << type << " currently not supported");
     return 0;
     }
+
+  return 1;
 }
 
 int vlDataWriter::WriteTensorData(FILE *fp, vlTensors *tensors, int numPts)
