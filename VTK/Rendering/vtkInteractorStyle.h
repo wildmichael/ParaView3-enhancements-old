@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:35 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2002-03-21 21:27:34 $
+  Version:   $Revision: 1.31 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -98,6 +98,8 @@
 
 class vtkPolyDataMapper;
 class vtkOutlineSource;
+class vtkCallbackCommand;
+
 
 class VTK_RENDERING_EXPORT vtkInteractorStyle : public vtkObject 
 {
@@ -248,6 +250,9 @@ protected:
   virtual void StartTimer();
   virtual void EndTimer();
 
+  static void ProcessEvents(vtkObject* object, unsigned long event,
+                            void* clientdata, void* calldata);
+  
   // Data we need to maintain internally
   vtkRenderWindowInteractor *Interactor;
   //
@@ -274,6 +279,7 @@ protected:
   int                PropPicked;          // boolean: prop picked?
   float              PickColor[3];        // support 2D picking
   vtkActor2D         *PickedActor2D;
+  vtkCallbackCommand* EventCallbackCommand;
 
   unsigned long LeftButtonPressTag;
   unsigned long LeftButtonReleaseTag;
