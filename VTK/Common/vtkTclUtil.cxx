@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTclUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-11-22 17:54:58 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 2000-12-01 22:13:43 $
+  Version:   $Revision: 1.62 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -84,7 +84,7 @@ VTKTCL_EXPORT void vtkTclDeleteObjectFromHash(vtkObject *obj, unsigned long vtkN
 }
 
 // we do no error checking in this.  We assume that if we were called
-// then tcl must have been able to find the command function and object
+// then tcl must have been able to find the command function and object.
 VTKTCL_EXPORT void vtkTclGenericDeleteObject(ClientData cd)
 {
   char temps[80];
