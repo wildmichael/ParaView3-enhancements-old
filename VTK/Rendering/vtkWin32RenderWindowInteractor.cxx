@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32RenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-10-28 20:53:51 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1998-05-05 20:14:01 $
+  Version:   $Revision: 1.17 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -347,7 +347,7 @@ LRESULT CALLBACK vtkHandleMessage(HWND hWnd,UINT uMsg, WPARAM wParam, LPARAM lPa
 	{
 	case 'e': 
 	  if (me->ExitMethod) (*me->ExitMethod)(me->ExitMethodArg);
-	  else PostQuitMessage(0);
+	  else exit(0);  //PostQuitMessage(0);
 	  break;
 	case 'u':
 	  if (me->UserMethod) (*me->UserMethod)(me->UserMethodArg);
