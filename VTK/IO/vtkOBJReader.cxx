@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBJReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-10 10:57:34 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2003-07-10 11:49:39 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkPointData.h"
 #include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkOBJReader, "$Revision: 1.24 $");
+vtkCxxRevisionMacro(vtkOBJReader, "$Revision: 1.25 $");
 vtkStandardNewMacro(vtkOBJReader);
 
 // Description:
@@ -318,10 +318,10 @@ void vtkOBJReader::Execute()
       tcoord_polys->InitTraversal();
       normal_polys->InitTraversal();
       int i,j;
-      int dummy_warning_prevention_mechanism[1];
-      int n_pts=-1,*pts=dummy_warning_prevention_mechanism;
-      int n_tcoord_pts=-1,*tcoord_pts=dummy_warning_prevention_mechanism;
-      int n_normal_pts=-1,*normal_pts=dummy_warning_prevention_mechanism;
+      vtkIdType dummy_warning_prevention_mechanism[1];
+      vtkIdType n_pts=-1,*pts=dummy_warning_prevention_mechanism;
+      vtkIdType n_tcoord_pts=-1,*tcoord_pts=dummy_warning_prevention_mechanism;
+      vtkIdType n_normal_pts=-1,*normal_pts=dummy_warning_prevention_mechanism;
       for (i=0;i<polys->GetNumberOfCells();i++) 
         {
         polys->GetNextCell(n_pts,pts); 
