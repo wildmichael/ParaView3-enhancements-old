@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-16 20:29:26 $
-  Version:   $Revision: 1.85 $
+  Date:      $Date: 2001-03-17 21:43:38 $
+  Version:   $Revision: 1.86 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -829,8 +829,10 @@ void vtkUnstructuredGrid::GetCellNeighbors(int cellId, vtkIdList *ptIds,
                                            vtkIdList *cellIds)
 {
   int i, j, k;
-  int numPts, minNumCells, *minCells, ptId, numCells, *cells, *pts;
-  int match, minPtId;
+  int numPts, minNumCells, ptId, numCells, *cells, *pts;
+  int *minCells = NULL;
+  int match;
+  int minPtId = 0;
   int npts, *cellPts;
   
   if ( ! this->Links )

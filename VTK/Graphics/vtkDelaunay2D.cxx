@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:35 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2001-03-17 21:43:38 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -311,8 +311,11 @@ void vtkDelaunay2D::CheckEdge(int ptId, double x[3], int p1, int p2, int tri)
 // 
 void vtkDelaunay2D::Execute()
 {
-  int numPoints, numTriangles, i;
-  int ptId, tri[4], nei[3], p1, p2;
+  int numPoints, i;
+  int numTriangles = 0;
+  int ptId, tri[4], nei[3];
+  int p1 = 0;
+  int p2 = 0;
   vtkPoints *inPoints;
   vtkPoints *points;
   vtkCellArray *triangles;

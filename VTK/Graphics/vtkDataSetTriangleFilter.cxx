@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetTriangleFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-19 19:58:03 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-03-17 21:43:38 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -146,6 +146,7 @@ void vtkDataSetTriangleFilter::StructuredExecute()
 	
 	numPts = cellPtIds->GetNumberOfIds();
 	numSimplices = numPts / dim;
+	type = 0;
 	switch (dim)
 	  {
 	  case 1:
@@ -217,6 +218,7 @@ void vtkDataSetTriangleFilter::UnstructuredExecute()
     
     numPts = cellPtIds->GetNumberOfIds();
     numSimplices = numPts / dim;
+    type = 0;
     switch (dim)
       {
       case 1:
