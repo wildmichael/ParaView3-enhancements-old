@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:03:32 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1998-05-27 20:23:35 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,6 +49,20 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 vtkDataSetReader::vtkDataSetReader()
 {
   this->Reader.SetSource(this);
+}
+
+
+unsigned long int vtkDataSetReader::GetMTime()
+{
+  unsigned long int t1, t2;
+  
+  t1 = this->vtkSource::GetMTime();
+  t2 = this->Reader.GetMTime();
+  if (t2 > t1)
+    {
+    t1 = t2;
+    }
+  return t1;
 }
 
 // Description:

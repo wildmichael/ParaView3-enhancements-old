@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageOpenClose3D.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-12 14:41:20 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-05-27 20:24:00 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,6 +67,8 @@ public:
   const char *GetClassName() {return "vtkImageOpenClose3D";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
+  unsigned long int GetMTime();
+  
   // Forward Object messages to filter0 and fitler1
   void DebugOn();
   void Modified();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetReader.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:03:33 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1998-05-27 20:23:37 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,6 +62,8 @@ public:
   const char *GetClassName() {return "vtkDataSetReader";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
+  unsigned long int GetMTime();
+  
   void SetFileName(char *name);
   char *GetFileName();
 

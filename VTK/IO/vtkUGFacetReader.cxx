@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUGFacetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-27 16:58:46 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1998-05-27 20:23:42 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,10 +69,14 @@ vtkUGFacetReader::~vtkUGFacetReader()
 unsigned long vtkUGFacetReader::GetMTime()
 {
   unsigned long mTime1=this->vtkPolyDataSource::GetMTime();
-  unsigned long mTime2=this->Locator->GetMTime();
-
-  mTime1 = ( mTime1 > mTime2 ? mTime1 : mTime2 );
-
+  unsigned long mTime2;
+  
+  if (this->Locator)
+    {
+    mTime2 = this->Locator->GetMTime();
+    mTime1 = ( mTime1 > mTime2 ? mTime1 : mTime2 );
+    }
+  
   return mTime1;
 }
 

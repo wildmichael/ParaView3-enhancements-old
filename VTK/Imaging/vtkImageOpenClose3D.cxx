@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageOpenClose3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-26 20:02:28 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-05-27 20:23:59 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -183,6 +183,38 @@ vtkImageCache *vtkImageOpenClose3D::GetCache()
   return cache;
 }
   
+
+//----------------------------------------------------------------------------
+// Description:
+// This method considers the sub filters MTimes when computing this objects
+// MTime
+unsigned long int vtkImageOpenClose3D::GetMTime()
+{
+  unsigned long int t1, t2;
+  
+  t1 = this->vtkImageFilter::GetMTime();
+  if (this->Filter0)
+    {
+    t2 = this->Filter0->GetMTime();
+    if (t2 > t1)
+      {
+      t1 = t2;
+      }
+    }
+  if (this->Filter1)
+    {
+    t2 = this->Filter1->GetMTime();
+    if (t2 > t1)
+      {
+      t1 = t2;
+      }
+    }
+  
+  return t1;
+}
+
+  
+
 
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-27 16:58:44 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1998-05-27 20:23:41 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,9 +68,13 @@ vtkSTLReader::~vtkSTLReader()
 unsigned long vtkSTLReader::GetMTime()
 {
   unsigned long mTime1=this->vtkPolyDataSource::GetMTime();
-  unsigned long mTime2=this->Locator->GetMTime();
-
-  mTime1 = ( mTime1 > mTime2 ? mTime1 : mTime2 );
+  unsigned long mTime2;
+  
+  if (this->Locator)
+    {
+    mTime2 = this->Locator->GetMTime();
+    mTime1 = ( mTime1 > mTime2 ? mTime1 : mTime2 );
+    }
 
   return mTime1;
 }
