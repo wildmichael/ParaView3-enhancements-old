@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1996-07-12 14:10:31 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1996-07-23 20:02:45 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -240,6 +240,12 @@ public:
   // and from bottom to top.
   virtual unsigned char *GetPixelData(int x,int y,int x2,int y2,int front) = 0;
   virtual void SetPixelData(int x,int y,int x2,int y2,unsigned char *,int front) = 0;
+
+  // Description:
+  // Same as Get/SetPixelData except that the image also contains an alpha
+  // component. The image is now transmitted as RGBARGBARGBA...
+  virtual unsigned char *GetRGBAPixelData(int x,int y,int x2,int y2,int front) = 0;
+  virtual void SetRGBAPixelData(int x,int y,int x2,int y2,unsigned char *,int front) = 0;
 
   // Description:
   // Set/Get the zbuffer data from the frame buffer.
