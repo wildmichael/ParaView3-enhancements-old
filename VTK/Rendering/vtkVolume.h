@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-19 17:25:04 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 1999-11-09 16:55:55 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -127,17 +127,17 @@ public:
   // For legacy compatibility. Do not use.
   // This method will disappear after vtk 3.0.
   void SetVolumeProperty(vtkVolumeProperty *property) 
-    {vtkErrorMacro(<<"Obsolete method. Use SetProperty instead");};
+    {vtkErrorMacro(<<"Obsolete method. Change SetVolumeProperty to SetProperty");this->SetProperty (property);};
   vtkVolumeProperty *GetVolumeProperty() 
-    {vtkErrorMacro(<<"Obsolete method. Use GetProperty instead"); return NULL;};
+    {vtkErrorMacro(<<"Obsolete method. Change GetVolumeProperty to GetProperty "); return this->GetProperty();};
 
   // Description:
   // For legacy compatibility. Do not use.
   // This method will disappear after vtk 3.0.
   vtkVolumeMapper *GetVolumeMapper()
-    {vtkErrorMacro(<<"Obsolete method. Use GetMapper instead"); return NULL;};
+    {vtkErrorMacro(<<"Obsolete method. Change GetVolumeMapper to GetMapper."); return this->GetMapper();};
   void SetVolumeMapper(vtkVolumeMapper *mapper) 
-    {vtkErrorMacro(<<"Obsolete method. Use SetMapper instead");};
+    {vtkErrorMacro(<<"Obsolete method. Change SetVolumeMapper to SetMapper.");this->SetMapper (mapper);};
 
   // Description:
   // For legacy compatibility. Do not use.
