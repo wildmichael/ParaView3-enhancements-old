@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-01 07:22:20 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2000-10-09 01:01:04 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -311,6 +311,13 @@ public:
   virtual void ShallowCopy(vtkDataObject *src);  
   virtual void DeepCopy(vtkDataObject *src);
 
+  // Description:
+  // Locality is used internally by the pipeline update mechanism.
+  // It is used to get parralel execution when a filter has multiple
+  // inputs with ports upstream.
+  vtkSetMacro(Locality, int);
+  vtkGetMacro(Locality, int);
+
 protected:
 
   vtkDataObject();
@@ -400,8 +407,11 @@ protected:
   // Was the update extent propagated down the pipeline
   int LastUpdateExtentWasOutsideOfTheExtent;
   
-  // How many upstream filters are local to the process.
-  // This will have to change to a float for Kens definition of locality.
+  // A value indicating whether we have a port upstream and how
+  // many filters removed it is.  
+  // 0.0 : no ports.
+  // 1.0 : my source is a port.
+  // 0.5 : the next upstream filter is a port ...
   float Locality;  
 
 private:

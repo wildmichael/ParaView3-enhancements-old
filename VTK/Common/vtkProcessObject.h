@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProcessObject.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-21 15:48:08 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2000-10-09 01:01:04 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -180,6 +180,17 @@ protected:
   int NumberOfInputs;
   int NumberOfRequiredInputs;
   vtkDataObject **Inputs;     //An array of the inputs to the filter
+  // Temporary arrays used internally.  
+  // It is only valid after SortInputsByLocality is called.
+  vtkDataObject **SortedInputs;   // Inputs sorted by locality
+  // We need a second array for an effficeint search.  
+  // This array is never valid.
+  vtkDataObject **SortedInputs2;   
+  void SortInputsByLocality();
+  // A helper method for quicksort.
+  void SortMerge(vtkDataObject **a1, int l1,
+                 vtkDataObject **a2, int l2,
+                 vtkDataObject **results);
 
   // Called to allocate the input array.  Copies old inputs.
   void SetNumberOfInputs(int num);

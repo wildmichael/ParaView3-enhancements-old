@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-18 11:07:16 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2000-10-09 01:01:04 $
+  Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -106,6 +106,8 @@ vtkDataObject::vtkDataObject()
 
   // First update, the update extent will be set to the whole extent.
   this->UpdateExtentInitialized = 0;
+
+  this->Locality = 0.0;
 }
 
 //----------------------------------------------------------------------------
