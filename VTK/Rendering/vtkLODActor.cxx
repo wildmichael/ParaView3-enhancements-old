@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-06-06 12:44:43 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1997-07-01 16:09:44 $
+  Version:   $Revision: 1.17 $
   
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -127,7 +127,8 @@ void vtkLODActor::Render(vtkRenderer *ren)
     this->GetProperty();
     }
   this->Property->Render(this, ren);
-
+  this->Device->SetProperty(this->Property);
+  
   /* render the texture */
   if (this->Texture) this->Texture->Render(ren);
     
