@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLookupTable.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-30 13:59:00 $
-  Version:   $Revision: 1.67 $
+  Date:      $Date: 2002-08-09 19:47:57 $
+  Version:   $Revision: 1.68 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,6 +33,7 @@
 
 #define VTK_RAMP_LINEAR 0
 #define VTK_RAMP_SCURVE 1
+#define VTK_RAMP_SQRT 2
 #define VTK_SCALE_LINEAR 0
 #define VTK_SCALE_LOG10 1
 
@@ -71,9 +72,11 @@ public:
   // while the equation for the linear ramp is simply y = x.  For an
   // S-curve greyscale ramp, you should set NumberOfTableValues to 402 
   // (which is 256*pi/2) to provide room for the tails of the ramp.
+  // The equation for the SQRT is y = sqrt(x).  
   vtkSetMacro(Ramp,int);
   void SetRampToLinear() { this->SetRamp(VTK_RAMP_LINEAR); };
   void SetRampToSCurve() { this->SetRamp(VTK_RAMP_SCURVE); };
+  void SetRampToSQRT() { this->SetRamp(VTK_RAMP_SQRT); };
   vtkGetMacro(Ramp,int);
 
   // Description:
