@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-26 20:44:04 $
-  Version:   $Revision: 1.110 $
+  Date:      $Date: 2001-01-28 14:49:23 $
+  Version:   $Revision: 1.111 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -1108,7 +1108,7 @@ void vtkImageData::UpdateData()
      this->NumberOfPieces != this->UpdateNumberOfPieces ||
      this->GhostLevel != this->UpdateGhostLevel ||
      this->PointData->GetFieldData() == NULL ||
-     this->PointData->GetFieldData()->GetArray("vtkGhostLevels"))
+     !this->PointData->GetFieldData()->GetArray("vtkGhostLevels"))
     { // Create ghost levels for cells and points.
     vtkUnsignedCharArray *levels;
     int zeroExt[6], extent[6];
