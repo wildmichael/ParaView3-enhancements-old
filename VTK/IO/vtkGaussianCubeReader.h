@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGaussianCubeReader.h,v $
   Language:  C++
-  Date:      $Date: 2003-05-12 18:08:05 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-05-13 14:49:43 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,6 +44,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // vtkGaussianCubeReader is a source object that reads ASCII files following
 // the description in http://www.gaussian.com/00000430.htm
 // The FileName must be specified
+//
+// .SECTION Thanks
+// Dr. Jean M. Favre who developed and contributed this class
 
 #ifndef __vtkGaussianCubeReader_h
 #define __vtkGaussianCubeReader_h

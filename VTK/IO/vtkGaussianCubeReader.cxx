@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGaussianCubeReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-12 18:37:50 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-05-13 14:49:43 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -51,7 +51,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include <ctype.h>
 
-vtkCxxRevisionMacro(vtkGaussianCubeReader, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkGaussianCubeReader, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkGaussianCubeReader);
 
 // Construct object with merging set to true.
@@ -84,9 +84,8 @@ void vtkGaussianCubeReader::Execute()
   char Title[256];
   char data_name[256];
   double elements[16];
-  int JN1, N1N2, n1, n2, n3, nt_atom, i, j, k, iatom;
+  int JN1, N1N2, n1, n2, n3, i, j, k;
   float tmp, *Cube_data;
-  float chg, x, y, z;
 
   // Output 0 (the default is the polydata)
   // Output 1 will be the gridded Image data

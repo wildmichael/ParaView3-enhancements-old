@@ -3,8 +3,8 @@
 Program:   Visualization Toolkit
 Module:    $RCSfile: vtkMoleculeReaderBase.cxx,v $
 Language:  C++
-Date:      $Date: 2003-05-12 18:01:54 $
-Version:   $Revision: 1.1 $
+Date:      $Date: 2003-05-13 14:49:43 $
+Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -52,7 +52,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include <ctype.h>
 
-vtkCxxRevisionMacro(vtkMoleculeReaderBase, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkMoleculeReaderBase, "$Revision: 1.2 $");
 
 static float vtkMoleculeReaderBaseCovRadius[103] = {
 0.32 , 1.6 , 0.68 , 0.352 , 0.832 , 0.72 ,
@@ -189,17 +189,14 @@ void vtkMoleculeReaderBase::Execute()
     }
   vtkDebugMacro(<<  this->NumberOfAtoms);
 
-  if(this->NumberOfAtoms == 0) 
+  if ((fp = fopen(this->FileName, "r")) == NULL) 
     {
-    if ((fp = fopen(this->FileName, "r")) == NULL) 
-      {
-      vtkErrorMacro(<< "File " << this->FileName << " not found");
-      return;
-      }
-    vtkDebugMacro(<< "opening base file " << this->FileName);
-    this->ReadMolecule(fp);
-    fclose(fp);
-    } 
+    vtkErrorMacro(<< "File " << this->FileName << " not found");
+    return;
+    }
+  vtkDebugMacro(<< "opening base file " << this->FileName);
+  this->ReadMolecule(fp);
+  fclose(fp);
 
   this->GetOutput()->Squeeze();
 }
@@ -500,8 +497,10 @@ void vtkMoleculeReaderBase::PrintSelf(ostream& os, vtkIndent indent)
   this->Superclass::PrintSelf(os,indent);
 
   os << indent << "File Name: " 
-    << (this->FileName ? this->FileName : "(none)") << "\n"
-    << indent << "NumberOfAtoms: " << this->NumberOfAtoms  << "\n";  
+    << (this->FileName ? this->FileName : "(none)") << endl;
+  os << indent << "NumberOfAtoms: " << this->NumberOfAtoms  << endl;
+  os << indent << "HBScale: " << this->HBScale << endl;
+  os << indent << "BScale: " << this->BScale << endl;
 }
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMoleculeReaderBase.h,v $
   Language:  C++
-  Date:      $Date: 2003-05-12 18:01:54 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-05-13 14:49:43 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,6 +43,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // .SECTION Description
 // vtkMoleculeReaderBase is a source object that reads Molecule files
 // The FileName must be specified
+//
+// .SECTION Thanks
+// Dr. Jean M. Favre who developed and contributed this class
 
 #ifndef __vtkMoleculeReaderBase_h
 #define __vtkMoleculeReaderBase_h
