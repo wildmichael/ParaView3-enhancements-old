@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapToColors.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-05-10 18:46:35 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-06-30 13:15:47 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -63,6 +63,7 @@ vtkImageMapToColors::vtkImageMapToColors()
 {
   this->OutputFormat = 4;
   this->LookupTable = NULL;
+  this->DataWasPassed = 0;
 }
 
 
@@ -95,14 +96,14 @@ unsigned long vtkImageMapToColors::GetMTime()
 // This method checks to see if we can simply reference the input data
 void vtkImageMapToColors::UpdateData(vtkDataObject *outObject)
 {
+  vtkImageData *outData = (vtkImageData *)(outObject);
+  vtkImageData *inData = this->GetInput();
+ 
   // If LookupTable is null, just pass the data
   if (this->LookupTable == NULL)
     {
     vtkDebugMacro("UpdateData: LookupTable not set, passing input to output.");
 
-    vtkImageData *outData = (vtkImageData *)(outObject);
-    vtkImageData *inData = this->GetInput();
- 
     // Make sure the Input has been set.
     if (inData == NULL)
       {
@@ -115,9 +116,16 @@ void vtkImageMapToColors::UpdateData(vtkDataObject *outObject)
     outData->SetExtent(inData->GetExtent());
     outData->GetPointData()->PassData(inData->GetPointData());
     outData->DataHasBeenGenerated();
+    this->DataWasPassed = 1;
     }
   else // normal behaviour
     {
+    if ( this->DataWasPassed )
+      {
+      outData->GetPointData()->SetScalars(NULL);
+      this->DataWasPassed = 0;
+      }
+    
     this->vtkImageToImageFilter::UpdateData(outObject);
     }
 }
