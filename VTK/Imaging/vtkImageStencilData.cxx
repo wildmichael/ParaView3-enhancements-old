@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageStencilData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:33:00 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-12-04 21:41:27 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to David G Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -85,6 +85,14 @@ vtkImageStencilData::~vtkImageStencilData()
 void vtkImageStencilData::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkDataObject::PrintSelf(os,indent);
+
+  os << indent << "Extent: (" 
+     << this->Extent[0] << ", "
+     << this->Extent[1] << ", "
+     << this->Extent[2] << ", "
+     << this->Extent[3] << ", "
+     << this->Extent[4] << ", "
+     << this->Extent[5] << ")\n";
 
   os << indent << "Spacing: (" 
      << this->Spacing[0] << ", "
