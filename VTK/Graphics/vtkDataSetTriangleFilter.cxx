@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetTriangleFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-03 12:52:23 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-09-13 13:12:08 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkStructuredPoints.h"
 #include "vtkUnstructuredGrid.h"
 
-vtkCxxRevisionMacro(vtkDataSetTriangleFilter, "$Revision: 1.14 $");
+vtkCxxRevisionMacro(vtkDataSetTriangleFilter, "$Revision: 1.15 $");
 vtkStandardNewMacro(vtkDataSetTriangleFilter);
 
 vtkDataSetTriangleFilter::~vtkDataSetTriangleFilter()
@@ -209,7 +209,7 @@ void vtkDataSetTriangleFilter::UnstructuredExecute()
         {
         ptId = cell->PointIds->GetId(j);
         xPtr = cell->Points->GetPoint(j);
-        this->Triangulator->InsertPoint(ptId, xPtr, 0);
+        this->Triangulator->InsertPoint(ptId, xPtr, xPtr, 0);
         }//for all cell points
       this->Triangulator->Triangulate();
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-03 12:52:22 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2002-09-13 13:12:08 $
+  Version:   $Revision: 1.49 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkUnstructuredGrid.h"
 #include "vtkVoxel.h"
 
-vtkCxxRevisionMacro(vtkClipVolume, "$Revision: 1.48 $");
+vtkCxxRevisionMacro(vtkClipVolume, "$Revision: 1.49 $");
 vtkStandardNewMacro(vtkClipVolume);
 
 // Construct with user-specified implicit function; InsideOut turned off; value
@@ -441,7 +441,7 @@ void vtkClipVolume::ClipVoxel(float value, vtkDataArray *cellScalars,
       {
       outPD->CopyData(inPD, cellIds->GetId(ptId), id);
       }
-    internalId[ptId] = this->Triangulator->InsertPoint(id, xPtr, type);
+    internalId[ptId] = this->Triangulator->InsertPoint(id, xPtr, xPtr, type);
     }//for eight voxel corner points
   
   // For each edge intersection point, insert into triangulation. Edge
@@ -486,7 +486,7 @@ void vtkClipVolume::ClipVoxel(float value, vtkDataArray *cellScalars,
         }
 
       //Insert into Delaunay triangulation
-      this->Triangulator->InsertPoint(ptId,x,2);
+      this->Triangulator->InsertPoint(ptId,x,x,2);
 
       }//if edge intersects value
     }//for all edges
