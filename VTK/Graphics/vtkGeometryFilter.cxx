@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-08 12:47:09 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1995-10-04 09:05:53 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -150,7 +150,7 @@ void vtkGeometryFilter::Execute()
           x = this->Input->GetPoint(ptId);
 
           if ( (this->PointClipping && (ptId < this->PointMinimum ||
-          ptId > this->PointMaximum) ) &&
+          ptId > this->PointMaximum) ) ||
           (this->ExtentClipping && 
           (x[0] < this->Extent[0] || x[0] > this->Extent[1] ||
           x[1] < this->Extent[2] || x[1] > this->Extent[3] ||
