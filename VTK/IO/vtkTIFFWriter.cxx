@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTIFFWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-10-06 00:58:48 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2003-10-06 12:03:05 $
+  Version:   $Revision: 1.28 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkErrorCode.h"
 #include <tiffio.h>
 
-vtkCxxRevisionMacro(vtkTIFFWriter, "$Revision: 1.27 $");
+vtkCxxRevisionMacro(vtkTIFFWriter, "$Revision: 1.28 $");
 vtkStandardNewMacro(vtkTIFFWriter);
 
 //----------------------------------------------------------------------------
@@ -51,28 +51,20 @@ public:
   static toff_t TIFFSeek(thandle_t fd, toff_t off, int whence) 
     {
     ostream *out = reinterpret_cast<ostream *>(fd);
-
-    streampos dir;
-    //ios::seekdir dir;
     switch (whence) 
       {
-    case SEEK_SET:
-      dir = ios::beg;
-      break;
-
-    case SEEK_END:
-      dir = ios::end;
-      break;
-
-    case SEEK_CUR:
-      dir = ios::cur;
-      break;
-
-    default:
-      return out->tellp();
+      case SEEK_SET:
+        out->seekp(off, ios::beg);
+        break;
+      case SEEK_END:
+        out->seekp(off, ios::end);
+        break;
+      case SEEK_CUR:
+        out->seekp(off, ios::cur);
+        break;
+      default:
+        return out->tellp();
       }
-
-    out->seekp(off, dir);
     return out->tellp();
     }
 
