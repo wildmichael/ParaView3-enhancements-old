@@ -3,8 +3,8 @@
 Program:   Visualization Toolkit
 Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
 Language:  C++
-Date:      $Date: 2003-07-23 12:39:34 $
-Version:   $Revision: 1.114 $
+Date:      $Date: 2003-07-23 14:15:44 $
+Version:   $Revision: 1.115 $
 
 Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -38,7 +38,7 @@ PURPOSE.  See the above copyright notice for more information.
 #include <GL/gl.h>
 #endif
 
-vtkCxxRevisionMacro(vtkWin32OpenGLRenderWindow, "$Revision: 1.114 $");
+vtkCxxRevisionMacro(vtkWin32OpenGLRenderWindow, "$Revision: 1.115 $");
 vtkStandardNewMacro(vtkWin32OpenGLRenderWindow);
 
 #define VTK_MAX_LIGHTS 8
@@ -71,7 +71,7 @@ vtkWin32OpenGLRenderWindow::vtkWin32OpenGLRenderWindow()
 
 vtkWin32OpenGLRenderWindow::~vtkWin32OpenGLRenderWindow()
 {
-  this->Deinitialize();
+  this->Finalize();
   delete[] this->Capabilities;
 }
 
@@ -778,7 +778,7 @@ void vtkWin32OpenGLRenderWindow::Initialize (void)
     }
 }
 
-void vtkWin32OpenGLRenderWindow::Deinitialize (void)
+void vtkWin32OpenGLRenderWindow::Finalize (void)
 {
   if (this->CursorHidden)
     {
@@ -936,7 +936,7 @@ void vtkWin32OpenGLRenderWindow::PrefFullScreen()
 void vtkWin32OpenGLRenderWindow::WindowRemap()
 {
   // close everything down
-  this->Deinitialize();
+  this->Finalize();
   
   // set the default windowid 
   this->WindowId = this->NextWindowId;

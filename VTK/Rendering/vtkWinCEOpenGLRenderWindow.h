@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWinCEOpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2003-07-23 12:39:34 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2003-07-23 14:15:44 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -51,16 +51,16 @@ public:
 
   // Description:
   // Initialize the rendering window.  This will setup all system-specific
-  // resources.  This method nad Deinitialize() must be symmetric and it
+  // resources.  This method and Finalize() must be symmetric and it
   // should be possible to call them multiple times, even changing WindowId
   // in-between.  This is what WindowRemap does.
   virtual void Initialize(void);
 
   // Description:
-  // Deinitialize the rendering window.  This will shutdown all system-specific
+  // Finalize the rendering window.  This will shutdown all system-specific
   // resources.  After having called this, it should be possible to destroy
   // a window that was used for a SetWindowId() call without any ill effects.
-  virtual void Deinitialize(void);
+  virtual void Finalize(void);
 
   // Description:
   // Change the window to fill the entire screen.

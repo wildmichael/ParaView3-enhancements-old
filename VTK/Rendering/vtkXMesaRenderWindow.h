@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMesaRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2003-07-23 13:48:57 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2003-07-23 14:15:44 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -56,8 +56,8 @@ public:
   virtual void Initialize(void);
 
   // Description:
-  // Deinitialize the rendering window.
-  virtual void Deinitialize(void);
+  // Shut-down all resources initialized by Initialize()
+  virtual void Finalize(void);
 
   // Description:
   // Change the window to fill the entire screen.

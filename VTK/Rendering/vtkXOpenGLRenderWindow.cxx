@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-23 12:39:34 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2003-07-23 14:15:44 $
+  Version:   $Revision: 1.44 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -87,7 +87,7 @@ vtkXOpenGLRenderWindowInternal::vtkXOpenGLRenderWindowInternal(
 
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkXOpenGLRenderWindow, "$Revision: 1.43 $");
+vtkCxxRevisionMacro(vtkXOpenGLRenderWindow, "$Revision: 1.44 $");
 vtkStandardNewMacro(vtkXOpenGLRenderWindow);
 #endif
 
@@ -250,7 +250,7 @@ vtkXOpenGLRenderWindow::vtkXOpenGLRenderWindow()
 vtkXOpenGLRenderWindow::~vtkXOpenGLRenderWindow()
 {
   // close-down all system-specific drawing resources
-  this->Deinitialize();
+  this->Finalize();
 
   delete this->Internal;
 
@@ -462,7 +462,7 @@ void vtkXOpenGLRenderWindow::Initialize (void)
   this->WindowInitialize();
 }
 
-void vtkXOpenGLRenderWindow::Deinitialize (void)
+void vtkXOpenGLRenderWindow::Finalize (void)
 {
   vtkRenderer *ren;
   GLuint id;
@@ -696,7 +696,7 @@ void vtkXOpenGLRenderWindow::PrefFullScreen()
 void vtkXOpenGLRenderWindow::WindowRemap()
 {
   // shut everything down
-  this->Deinitialize();
+  this->Finalize();
 
   // set the default windowid 
   this->WindowId = this->NextWindowId;

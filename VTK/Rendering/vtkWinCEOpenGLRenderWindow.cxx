@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWinCEOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-23 12:39:34 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2003-07-23 14:15:44 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,7 +31,7 @@
 #include "vtkOpenGLPolyDataMapper.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkWinCEOpenGLRenderWindow, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkWinCEOpenGLRenderWindow, "$Revision: 1.9 $");
 vtkStandardNewMacro(vtkWinCEOpenGLRenderWindow);
 
 #define VTK_MAX_LIGHTS 8
@@ -63,7 +63,7 @@ vtkWinCEOpenGLRenderWindow::vtkWinCEOpenGLRenderWindow()
 
 vtkWinCEOpenGLRenderWindow::~vtkWinCEOpenGLRenderWindow()
 {
-  this->Deinitialize();
+  this->Finalize();
 }
 
 void vtkWinCEOpenGLRenderWindow::Clean()
@@ -476,7 +476,7 @@ void vtkWinCEOpenGLRenderWindow::Initialize (void)
   this->WindowInitialize();
 }
 
-void vtkWinCEOpenGLRenderWindow::Deinitialize (void)
+void vtkWinCEOpenGLRenderWindow::Finalize (void)
 {
   if (this->CursorHidden)
     {
@@ -628,7 +628,7 @@ void vtkWinCEOpenGLRenderWindow::PrefFullScreen()
 // Remap the window.
 void vtkWinCEOpenGLRenderWindow::WindowRemap()
 {
-  this->Deinitialize();
+  this->Finalize();
 
   // set the default windowid 
   this->WindowId = this->NextWindowId;
