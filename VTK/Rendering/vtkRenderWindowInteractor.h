@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1998-11-13 00:05:17 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 1998-12-21 14:59:16 $
+  Version:   $Revision: 1.53 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -411,14 +411,14 @@ public:
 
   // Description:
   // External switching between actor and camera mode.
-  void SetActorModeToCamera();
-  void SetActorModeToActor();
+  virtual void SetActorModeToCamera();
+  virtual void SetActorModeToActor();
   vtkGetMacro(ActorMode, int);
   
   // Description:
   // External switching between joystick and trackball mode.
-  void SetTrackballModeToTrackball();
-  void SetTrackballModeToJoystick();
+  virtual void SetTrackballModeToTrackball();
+  virtual void SetTrackballModeToJoystick();
   vtkGetMacro(TrackballMode, int);
   
   // Description:
