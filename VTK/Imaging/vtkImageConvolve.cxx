@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageConvolve.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-30 15:07:46 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-09-11 20:27:50 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to Z. F. Knops who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -190,7 +190,7 @@ void vtkImageConvolve::SetKernel(const float* kernel,
 
   for (int idx = 0; idx < kernelLength; idx++)
     {
-    if ( this->Kernel[idx] =! kernel[idx] )
+    if ( this->Kernel[idx] != kernel[idx] )
       {
       modified = 1;
       this->Kernel[idx] = kernel[idx];
