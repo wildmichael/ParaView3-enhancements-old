@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThinPlateSplineTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-29 00:15:25 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-01-29 14:05:41 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to David G. Gobbi who developed this class 
              based on code from vtkThinPlateSplineMeshWarp.cxx
 	     written Tim Hutton.
@@ -93,6 +93,11 @@ public:
   // Description:
   // Apply the transformation.
   void TransformPoint(const float in[3], float out[3]);
+  void TransformPoint(const double in[3], double out[3])
+    {
+    vtkGeneralTransform::TransformPoint(in, out);  
+    }
+  ;
 
   // Description:
   // Apply the transform to a series of points.
