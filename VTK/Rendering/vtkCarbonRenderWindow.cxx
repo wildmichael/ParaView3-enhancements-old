@@ -3,8 +3,8 @@
 Program:   Visualization Toolkit
 Module:    $RCSfile: vtkCarbonRenderWindow.cxx,v $
 Language:  C++
-Date:      $Date: 2002-05-24 19:48:56 $
-Version:   $Revision: 1.6 $
+Date:      $Date: 2002-05-30 17:11:20 $
+Version:   $Revision: 1.7 $
 Thanks:    to Yves Starreveld for developing this class
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
@@ -32,7 +32,7 @@ Thanks:    to Yves Starreveld for developing this class
 #include "vtkObjectFactory.h"
 
 
-vtkCxxRevisionMacro(vtkCarbonRenderWindow, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkCarbonRenderWindow, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkCarbonRenderWindow);
 
 
@@ -480,9 +480,27 @@ void vtkCarbonRenderWindow::SetSize(int x, int y)
     if (this->Mapped)
       {
       if (!resizing)
-{
+        {
         resizing = 1;
-        SizeWindow(this->WindowId, x, y, TRUE);
+        if (this->ParentId)
+          {
+          GLint bufRect[4];
+          Rect windowRect;
+          GetWindowBounds(this->WindowId, kWindowContentRgn, &windowRect);
+
+          bufRect[0] = this->Position[0];
+          bufRect[1] = (int) (windowRect.bottom-windowRect.top)
+            - (this->Position[1]+this->Size[1]);
+          bufRect[2] = this->Size[0];
+          bufRect[3] = this->Size[1];
+          aglEnable(this->ContextId, AGL_BUFFER_RECT);
+          aglSetInteger(this->ContextId, AGL_BUFFER_RECT, bufRect);
+          }
+        else
+          {
+          SizeWindow(this->WindowId, x, y, TRUE);
+          }
+
         resizing = 0;
         }
       }
