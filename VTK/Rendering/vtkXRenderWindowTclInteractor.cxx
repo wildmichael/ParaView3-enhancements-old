@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowTclInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-21 21:27:35 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2002-05-01 13:00:38 $
+  Version:   $Revision: 1.35 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,7 +31,7 @@
 #include "vtkOldStyleCallbackCommand.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkXRenderWindowTclInteractor, "$Revision: 1.34 $");
+vtkCxxRevisionMacro(vtkXRenderWindowTclInteractor, "$Revision: 1.35 $");
 vtkStandardNewMacro(vtkXRenderWindowTclInteractor);
 
 // steal the first three elements of the TkMainInfo stuct
@@ -418,16 +418,6 @@ void vtkXRenderWindowTclInteractorCallback(Widget vtkNotUsed(w),
 
     case KeyPress:
       {
-      int ctrl = 0;
-      if ((reinterpret_cast<XKeyEvent *>(event))->state & ControlMask)
-        {
-        ctrl = 1;
-        }
-      int shift = 0;
-      if ((reinterpret_cast<XKeyEvent *>(event))->state & ShiftMask)
-        {
-        shift = 1;
-        }
       KeySym ks;
       static char buffer[20];
       buffer[0] = '\0';
