@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageLaplacian.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:57:39 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1997-06-13 20:14:44 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,9 +67,12 @@ public:
   // Determines how the input is interpreted (set of 2d slices ...)
   // and cannot be more than 3.
   vtkSetMacro(Dimensionality, int);
+  vtkGetMacro(Dimensionality, int);
   
   
 protected:
+  int Dimensionality;
+  
   void ComputeRequiredInputRegionExtent(vtkImageRegion *outRegion, 
 					vtkImageRegion *inRegion);
   void Execute(vtkImageRegion *inRegion, vtkImageRegion *outRegion);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageNonMaximumSuppression.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-23 20:39:34 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1997-06-13 20:14:57 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include <math.h>
+#include "vtkImageRegion.h"
 #include "vtkImageNonMaximumSuppression.h"
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGradientMagnitude.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:57:35 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1997-06-13 20:14:32 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,10 +69,14 @@ public:
   vtkGetMacro(HandleBoundaries, int);
   vtkBooleanMacro(HandleBoundaries, int);
 
+  // Description:
+  // Determines how the input is interpreted (set of 2d slices ...)
   vtkSetMacro(Dimensionality, int);
+  vtkGetMacro(Dimensionality, int);
   
 protected:
   int HandleBoundaries;
+  int Dimensionality;
   
   void ComputeOutputImageInformation(vtkImageRegion *inRegion,
 				     vtkImageRegion *outRegion);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageShiftScale.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-01 19:04:02 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1997-06-13 20:15:12 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,6 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
+#include "vtkImageRegion.h"
 #include "vtkImageShiftScale.h"
 
 
@@ -53,8 +54,6 @@ vtkImageShiftScale::vtkImageShiftScale()
 
   // For better performance, the execute function was written as a 2d.
   this->ExecuteDimensionality = 2;
-  // Pixel operation.
-  this->Dimensionality = 0;
 }
 
 

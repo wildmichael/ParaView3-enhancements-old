@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMirrorPad.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-01 19:03:54 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-06-13 20:14:53 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,6 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
+#include "vtkImageRegion.h"
 #include "vtkImageMirrorPad.h"
 
 
@@ -49,8 +50,6 @@ vtkImageMirrorPad::vtkImageMirrorPad()
 {
   // execute function handles four axes.
   this->ExecuteDimensionality = 4;
-  // Not used
-  this->Dimensionality = 4;
 }
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDotProduct.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-01 19:00:02 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-06-13 20:14:14 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,6 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
+#include "vtkImageRegion.h"
 #include "vtkImageDotProduct.h"
 
 
@@ -48,8 +49,6 @@ vtkImageDotProduct::vtkImageDotProduct()
   this->SetAxes(VTK_IMAGE_COMPONENT_AXIS);
 
   this->ExecuteDimensionality = 2;
-  // not used. Operation is line by line (vector by vector)
-  this->Dimensionality = 0;
 }
 
 

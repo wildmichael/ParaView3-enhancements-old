@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGradient.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:57:33 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1997-06-13 20:14:29 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -84,10 +84,12 @@ public:
   // and the number of components in the output vectors.
   // (Input can not use the component axis).
   vtkSetMacro(Dimensionality, int);
+  vtkGetMacro(Dimensionality, int);
   
   
 protected:
   int HandleBoundaries;
+  int Dimensionality;
   
   void ComputeOutputImageInformation(vtkImageRegion *inRegion,
 				     vtkImageRegion *outRegion);

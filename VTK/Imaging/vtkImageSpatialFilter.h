@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSpatialFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-04 12:55:34 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1997-06-13 20:15:21 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -123,7 +123,8 @@ protected:
   void ComputeRequiredInputRegionExtent(vtkImageRegion *outRegion, 
 					vtkImageRegion *inRegion);
   
-  void Execute(int dim, vtkImageRegion *inRegion, vtkImageRegion *outRegion);
+  void RecursiveLoopExecute(int dim, vtkImageRegion *inRegion, 
+			    vtkImageRegion *outRegion);
   // For breaking up into center and boundary ...
   void ExecuteCenter(int dim, vtkImageRegion *inRegion,
 		     vtkImageRegion *outRegion);  

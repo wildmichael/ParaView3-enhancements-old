@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageExport.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-14 20:00:32 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-06-13 20:14:16 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -221,7 +221,7 @@ void vtkImageExport::UpdateMemory(void *ptr)
 
   // Note: This may produce a copy warning.  We should disable
   // this warning in some way.
-  this->Input->UpdateRegion(region);
+  this->Input->Update(region);
   
   // check to see if the cache gave us the data the way we wanted.
   needToCopy = 0;

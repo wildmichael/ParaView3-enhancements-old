@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMask.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-01 19:02:10 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-06-13 20:14:48 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,6 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
+#include "vtkImageRegion.h"
 #include "vtkImageMask.h"
 
 
@@ -49,8 +50,6 @@ vtkImageMask::vtkImageMask()
   this->MaskedValue = 0.0;
   
   this->ExecuteDimensionality = 2;
-  // not used. Operation is pixel by pixel.
-  this->Dimensionality = 0;
 }
 
 

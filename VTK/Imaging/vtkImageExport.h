@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageExport.h,v $
   Language:  C++
-  Date:      $Date: 1997-05-23 11:56:33 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-06-13 20:14:17 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -50,7 +50,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkImageExport_h
 
 #include "vtkObject.h"
-#include "vtkImageSource.h"
+#include "vtkImageCache.h"
 #include "vtkImageRegion.h"
 
 
@@ -65,8 +65,8 @@ public:
   
   // Description:
   // Set/Get the scalar input object from the image pipeline.
-  vtkSetObjectMacro(Input,vtkImageSource);
-  vtkGetObjectMacro(Input,vtkImageSource);
+  vtkSetObjectMacro(Input,vtkImageCache);
+  vtkGetObjectMacro(Input,vtkImageCache);
 
   // Description:
   // This method will specify the data type the memory wanted.
@@ -110,7 +110,7 @@ public:
   
   
 protected:
-  vtkImageSource *Input;
+  vtkImageCache *Input;
   int ScalarType;
   int Extent[VTK_IMAGE_EXTENT_DIMENSIONS];
   int Axes[VTK_IMAGE_DIMENSIONS];

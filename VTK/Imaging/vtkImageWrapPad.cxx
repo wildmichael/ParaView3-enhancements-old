@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWrapPad.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-01 19:05:16 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-06-13 20:15:32 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,6 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
+#include "vtkImageRegion.h"
 #include "vtkImageWrapPad.h"
 
 
@@ -49,8 +50,6 @@ vtkImageWrapPad::vtkImageWrapPad()
 {
   // execute function handles four axes.
   this->ExecuteDimensionality = 4;
-  // Not used
-  this->Dimensionality = 4;
 }
 
 
@@ -88,7 +87,7 @@ vtkImageWrapPad::ComputeRequiredInputRegionExtent(vtkImageRegion *outRegion,
     min += imageMin;
     max = min + width - 1;
     // if request region wraps, we need the whole input 
-    // (unless we make multiple requests! Write UpdateRegion instead??)
+    // (unless we make multiple requests! Write Update instead??)
     if (max > imageMax)
       {
       max = imageMax;

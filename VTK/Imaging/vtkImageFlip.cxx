@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFlip.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-14 22:14:26 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-06-13 20:14:24 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,6 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
+#include "vtkImageRegion.h"
 #include "vtkImageFlip.h"
 
 
@@ -46,7 +47,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 vtkImageFlip::vtkImageFlip()
 {
   this->SetAxes(VTK_IMAGE_X_AXIS);
-  this->Dimensionality = 1;
   this->ExecuteDimensionality = 2;
   this->PreserveImageExtent = 0;
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCast.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-06-13 19:52:16 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1997-06-13 20:14:03 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,6 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
+#include "vtkImageRegion.h"
 #include "vtkImageCast.h"
 
 //----------------------------------------------------------------------------
@@ -46,7 +47,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 vtkImageCast::vtkImageCast()
 {
   this->SetAxes(VTK_IMAGE_X_AXIS, VTK_IMAGE_Y_AXIS);
-  this->Dimensionality = 1;
   this->ExecuteDimensionality = 2;
 }
 

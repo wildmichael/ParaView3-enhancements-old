@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageClip.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-06-09 12:48:55 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1997-06-13 20:14:04 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,6 +38,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
+#include "vtkImageCache.h"
+#include "vtkImageRegion.h"
 #include "vtkImageClip.h"
 
 
@@ -54,6 +56,7 @@ vtkImageClip::vtkImageClip()
     {
     this->OutputImageExtent[idx] = 0;
     }
+  this->ExecuteDimensionality = VTK_IMAGE_DIMENSIONS;
 }
 
 

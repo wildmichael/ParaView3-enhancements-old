@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageNonMaximumSuppression.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:57:49 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1997-06-13 20:14:58 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,9 +67,9 @@ public:
 
   // Description:
   // Rename the inputs.
-  void SetMagnitudeInput(vtkImageSource *input) {this->SetInput1(input);};
+  void SetMagnitudeInput(vtkImageCache *input) {this->SetInput1(input);};
   void SetMagnitudeInput(vtkStructuredPoints *input) {this->SetInput1(input);};
-  void SetVectorInput(vtkImageSource *input) {this->SetInput2(input);};
+  void SetVectorInput(vtkImageCache *input) {this->SetInput2(input);};
   void SetVectorInput(vtkStructuredPoints *input) {this->SetInput2(input);};
   
   // Description:
@@ -82,6 +82,7 @@ public:
   
 protected:
   int HandleBoundaries;
+  int Dimensionality;
 
   void ComputeOutputImageInformation(vtkImageRegion *inRegion1,
 				     vtkImageRegion *inRegion2,

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIslandRemoval2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-01 19:02:02 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1997-06-13 20:14:42 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,6 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
+#include "vtkImageRegion.h"
 #include "vtkImageIslandRemoval2D.h"
 #include "vtkImageCache.h"
 
@@ -59,7 +60,6 @@ vtkImageIslandRemoval2D::vtkImageIslandRemoval2D()
   this->SetIslandValue(0);
 
   this->ExecuteDimensionality = 2;
-  this->Dimensionality = 2;
 }
 
 //----------------------------------------------------------------------------
@@ -82,7 +82,7 @@ void vtkImageIslandRemoval2D::PrintSelf(ostream& os, vtkIndent indent)
 
 //----------------------------------------------------------------------------
 // Description:
-// Intercepts the caches UpdateRegion to make the region larger than requested.
+// Intercepts the caches Update to make the region larger than requested.
 // The whole image is generated when any region is requested.
 void vtkImageIslandRemoval2D::InterceptCacheUpdate(vtkImageRegion *region)
 {
