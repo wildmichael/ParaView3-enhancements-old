@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:13 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1998-10-01 19:15:07 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -162,7 +162,7 @@ int vtkPicker::Pick(float selectionX, float selectionY, float selectionZ,
   float ray[3], rayLength;
   int pickable;
   float windowLowerLeft[4], windowUpperRight[4];
-  float *bounds, tol;
+  float bounds[6], tol;
   float tF, tB;
   float hitPosition[3];
   float cameraDOP[3];
@@ -316,7 +316,10 @@ int vtkPicker::Pick(float selectionX, float selectionY, float selectionZ,
         //  Get the bounding box of the modeller.  Note that the tolerance is
         //  added to the bounding box to make sure things on the edge of the
         //  bounding box are picked correctly.
-        bounds = mapper->GetBounds();
+        mapper->GetBounds(bounds);
+        bounds[0] -= tol; bounds[1] += tol; 
+        bounds[2] -= tol; bounds[3] += tol; 
+        bounds[4] -= tol; bounds[5] += tol; 
         if ( vtkCell::HitBBox(bounds, (float *)p1Mapper, ray, hitPosition, t) )
           {
           picked = 1;

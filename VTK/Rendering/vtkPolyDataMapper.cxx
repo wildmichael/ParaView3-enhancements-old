@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:44:56 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-10-01 19:15:07 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -91,15 +91,13 @@ void vtkPolyDataMapper::SetInput(vtkPolyData *in)
 //
 float *vtkPolyDataMapper::GetBounds()
 {
-  static float bounds[] = {-1.0,1.0, -1.0,1.0, -1.0,1.0};
-
-  if ( ! this->Input ) 
-    return bounds;
-  else
+  if ( this->Input ) 
     {
     this->Input->Update();
-    return this->Input->GetBounds();
+    this->Input->GetBounds(this->Bounds);
     }
+
+  return this->Bounds;
 }
 
 
