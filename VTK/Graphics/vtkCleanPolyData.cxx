@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCleanPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-05-17 16:05:12 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2000-11-19 00:50:47 $
+  Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -387,6 +387,7 @@ void vtkCleanPolyData::Execute()
   }
   //
   output->SetPoints(newPts);
+  newPts->Squeeze();
   newPts->Delete();
   if (newVerts) {
       newVerts->Squeeze();

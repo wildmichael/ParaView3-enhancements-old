@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-30 14:28:24 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2000-11-19 00:50:47 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -314,6 +314,7 @@ void vtkSphereSource::Execute()
   //
   // Update ourselves and release memeory
   //
+  newPoints->Squeeze();
   output->SetPoints(newPoints);
   newPoints->Delete();
 
