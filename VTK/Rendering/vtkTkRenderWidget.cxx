@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkRenderWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-07 13:43:08 $
-  Version:   $Revision: 1.85 $
+  Date:      $Date: 2002-11-12 18:52:43 $
+  Version:   $Revision: 1.86 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -165,7 +165,8 @@ extern "C" {
     void *ptr;
     char typeCheck[128];
     sscanf ( argv[1], "_%lx_%s", (long *)&ptr, typeCheck);
-    if ( strcmp ( "vtkImageData", typeCheck ) != 0 )
+    if ( strcmp ( "vtkImageData", typeCheck ) != 0
+         && strcmp ( "vtkStructuredPoints", typeCheck ) != 0 )
       {
       // bad type
       ptr = NULL;
