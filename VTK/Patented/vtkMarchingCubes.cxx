@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-01 18:43:13 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1997-05-14 20:01:45 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -608,5 +608,12 @@ void vtkMarchingCubes::PrintSelf(ostream& os, vtkIndent indent)
     os << indent << "Locator: (none)\n";
     }
 }
+
+
+
+
+
+
+
 
 
