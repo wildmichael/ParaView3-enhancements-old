@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty.h,v $
   Language:  C++
-  Date:      $Date: 1995-06-29 17:54:31 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-06-30 16:08:28 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Toolkit. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -98,6 +98,12 @@ public:
   vtkGetMacro(EdgeVisibility,int);
   vtkSetMacro(EdgeVisibility,int);
   vtkBooleanMacro(EdgeVisibility,int);
+
+  // Description:
+  // Turn backface properties on and off. (not implemented yet)
+  vtkGetMacro(Backface,int);
+  vtkSetMacro(Backface,int);
+  vtkBooleanMacro(Backface,int);
 
   // Description:
   // Set the ambient light color.
