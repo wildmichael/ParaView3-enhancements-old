@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEdgeTable.h,v $
   Language:  C++
-  Date:      $Date: 2003-07-23 13:31:47 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2003-07-23 14:34:15 $
+  Version:   $Revision: 1.35 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -138,7 +138,7 @@ public:
   // Description: 
   // Similar to above, but fills a void* pointer if InitEdgeInsertion()
   // has been called with storeAttributes==2. A NULL pointer value
-  // is filled otherwise.  Returns -1 if edge does not exist.
+  // is filled otherwise.  Returns 0 if list is exhausted.
   int GetNextEdge(vtkIdType &p1, vtkIdType &p2, void* &ptr);
 
   // Description:
