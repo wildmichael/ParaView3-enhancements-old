@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-28 20:32:07 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2001-10-02 12:33:30 $
+  Version:   $Revision: 1.29 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -63,8 +63,8 @@ vtkPolyDataMapper2D::vtkPolyDataMapper2D()
 
   strcpy(this->ArrayName, "");
   this->ArrayId = -1;
-  this->ArrayComponent = -1;
-  this->ArrayAccessMode = -1;
+  this->ArrayComponent = 0;
+  this->ArrayAccessMode = VTK_GET_ARRAY_BY_ID;
 }
 
 void vtkPolyDataMapper2D::ShallowCopy(vtkPolyDataMapper2D *m)
