@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageShrink3D.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-05 19:22:19 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-08-20 23:17:36 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,20 +68,39 @@ public:
   vtkGetVector3Macro(Shift,int);
 
   // Description:
-  // Choose Averaging or sub sampling. The averaging neighborhood
-  // currently implemented is not centered on the sampled pixel.
+  // Choose Mean, Minimum, Maximum, Median or sub sampling.
+  // The neighborhood operations are not centered on the sampled pixel.
   // This may cause a half pixel shift in your output image.
-  // You can changed "Shift to get arround this, or use
+  // You can changed "Shift" to get around this.
   // vtkImageGaussianSmooth or vtkImageMean with strides.
-  vtkSetMacro(Averaging,int);
-  vtkGetMacro(Averaging,int);
+  void SetAveraging(int);
+  int GetAveraging() {return this->GetMean();};
   vtkBooleanMacro(Averaging,int);
+  
+  void SetMean(int);
+  vtkGetMacro(Mean,int);
+  vtkBooleanMacro(Mean,int);
+  
+  void SetMinimum(int);
+  vtkGetMacro(Minimum,int);
+  vtkBooleanMacro(Minimum,int);
+  
+  void SetMaximum(int);
+  vtkGetMacro(Maximum,int);
+  vtkBooleanMacro(Maximum,int);
+  
+  void SetMedian(int);
+  vtkGetMacro(Median,int);
+  vtkBooleanMacro(Median,int);
   
   
 protected:
   int ShrinkFactors[3];
   int Shift[3];
-  int Averaging;
+  int Mean;
+  int Minimum;
+  int Maximum;
+  int Median;
 
   void ExecuteInformation();
   void ComputeRequiredInputUpdateExtent(int inExt[6], int outExt[6]);
