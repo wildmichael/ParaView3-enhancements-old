@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOrderedTriangulator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-06 20:11:29 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-06-06 21:40:31 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -47,10 +47,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 // TO DO:
 // + In place new to avoid new/delete
-// + Clean up interface to classes
 // + Avoid copying face into face list
-// + AssignNeighbors() needs to use mask to quickly determine face
-//   and reduce code size
+// + Delete tetra's directly rather than traversing the entire list
+//   (in CreateInsertionCavity().
+// + Clean up interface to classes
 
 // Begin be defining a class for managing a linked list ---------------------
 //
