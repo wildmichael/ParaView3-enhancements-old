@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-12 07:14:27 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1995-09-17 19:54:57 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -153,6 +153,7 @@ class vtkCamera : public vtkObject
   float GetRoll();
 
   void Zoom(float);
+  void Dolly(float);
   void Azimuth(float);
   void Yaw(float);
   void Elevation(float);
