@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArray.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:49:27 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-04-16 13:23:09 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -170,9 +170,10 @@ public:
 
   // special operators
   virtual void Squeeze() = 0;
-  void Reset() {this->MaxId = -1;};
-  int GetSize() {return this->Size;};
-  int GetMaxId() {return this->MaxId;};
+  void Reset() {this->MaxId = -1;}
+  int GetSize() {return this->Size;}
+  int GetMaxId() {return this->MaxId;}
+  int GetExtend() {return this->Extend;}
 
 protected:
   int Size;      // allocated size of data
@@ -180,7 +181,5 @@ protected:
   int Extend;    // grow array by this amount
   int NumberOfComponents; // the number of components per tuple
 };
-
-#include "vtkFloatArray.h"
 
 #endif

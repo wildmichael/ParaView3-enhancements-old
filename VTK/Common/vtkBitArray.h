@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBitArray.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:49:17 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1998-04-16 13:23:06 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -81,7 +81,7 @@ public:
   unsigned char *GetPointer(const int id) {return this->Array + id/8;}
   unsigned char *WritePointer(const int id, const int number);
   void *GetVoidPointer(const int id) {return (void *)this->GetPointer(id);};
-  void DeepCopy(vtkBitArray& ia);
+  void DeepCopy(vtkDataArray &da);
 
 private:
   unsigned char *Array;   // pointer to data

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:49:26 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-04-16 13:23:09 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkDataArray.h"
+#include "vtkFloatArray.h"
 
 // Description:
 // Construct object with default tuple dimension (number of components) of 1.

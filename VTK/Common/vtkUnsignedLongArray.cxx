@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedLongArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:50:48 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-04-16 13:23:19 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -89,21 +89,26 @@ void vtkUnsignedLongArray::Initialize()
 
 // Description:
 // Deep copy of another unsigned long array.
-void vtkUnsignedLongArray::DeepCopy(vtkUnsignedLongArray& sa)
+void vtkUnsignedLongArray::DeepCopy(vtkDataArray& sa)
 {
-  int i;
+  if ( sa.GetDataType() != VTK_UNSIGNED_LONG )
+    {
+    vtkDataArray::DeepCopy(sa);
+    return;
+    }
 
   if ( this != &sa )
     {
-    delete [] this->Array;
+    if (this->Array) delete [] this->Array;
 
-    this->NumberOfComponents = sa.NumberOfComponents;
-    this->MaxId = sa.MaxId;
-    this->Size = sa.Size;
-    this->Extend = sa.Extend;
+    this->NumberOfComponents = sa.GetNumberOfComponents();
+    this->MaxId = sa.GetMaxId();
+    this->Size = sa.GetSize();
+    this->Extend = sa.GetExtend();
 
     this->Array = new unsigned long[this->Size];
-    for (i=0; i<=this->MaxId; i++) this->Array[i] = sa.Array[i];
+    memcpy(this->Array, (unsigned long *)sa.GetVoidPointer(0), 
+	   this->Size*sizeof(unsigned long));
     }
 }
 

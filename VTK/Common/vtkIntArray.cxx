@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIntArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:49:55 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1998-04-16 13:23:13 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -89,21 +89,25 @@ void vtkIntArray::Initialize()
 
 // Description:
 // Deep copy of another integer array.
-void vtkIntArray::DeepCopy(vtkIntArray& ia)
+void vtkIntArray::DeepCopy(vtkDataArray& ia)
 {
-  int i;
+  if ( ia.GetDataType() != VTK_INT )
+    {
+    vtkDataArray::DeepCopy(ia);
+    return;
+    }
 
   if ( this != &ia )
     {
-    delete [] this->Array;
+    if (this->Array) delete [] this->Array;
 
-    this->NumberOfComponents = ia.NumberOfComponents;
-    this->MaxId = ia.MaxId;
-    this->Size = ia.Size;
-    this->Extend = ia.Extend;
+    this->NumberOfComponents = ia.GetNumberOfComponents();
+    this->MaxId = ia.GetMaxId();
+    this->Size = ia.GetSize();
+    this->Extend = ia.GetExtend();
 
     this->Array = new int[this->Size];
-    for (i=0; i<=this->MaxId; i++) this->Array[i] = ia.Array[i];
+    memcpy(this->Array, (int *)ia.GetVoidPointer(0), this->Size*sizeof(int));
     }
 }
 

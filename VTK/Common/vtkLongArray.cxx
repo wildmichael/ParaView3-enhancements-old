@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLongArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:50:02 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-04-16 13:23:14 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -89,21 +89,25 @@ void vtkLongArray::Initialize()
 
 // Description:
 // Deep copy of another long array.
-void vtkLongArray::DeepCopy(vtkLongArray& sa)
+void vtkLongArray::DeepCopy(vtkDataArray& sa)
 {
-  int i;
+  if ( sa.GetDataType() != VTK_LONG )
+    {
+    vtkDataArray::DeepCopy(sa);
+    return;
+    }
 
   if ( this != &sa )
     {
-    delete [] this->Array;
+    if (this->Array) delete [] this->Array;
 
-    this->NumberOfComponents = sa.NumberOfComponents;
-    this->MaxId = sa.MaxId;
-    this->Size = sa.Size;
-    this->Extend = sa.Extend;
+    this->NumberOfComponents = sa.GetNumberOfComponents();
+    this->MaxId = sa.GetMaxId();
+    this->Size = sa.GetSize();
+    this->Extend = sa.GetExtend();
 
     this->Array = new long[this->Size];
-    for (i=0; i<=this->MaxId; i++) this->Array[i] = sa.Array[i];
+    memcpy(this->Array, (long *)sa.GetVoidPointer(0), this->Size*sizeof(long));
     }
 }
 

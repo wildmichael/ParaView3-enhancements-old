@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedIntArray.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:50:48 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-04-16 13:23:19 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,7 +80,7 @@ public:
   unsigned int *GetPointer(const int id) {return this->Array + id;}
   unsigned int *WritePointer(const int id, const int number);
   void *GetVoidPointer(const int id) {return (void *)this->GetPointer(id);};
-  void DeepCopy(vtkUnsignedIntArray& ia);
+  void DeepCopy(vtkDataArray &da);
 
 private:
   unsigned int *Array;   // pointer to data

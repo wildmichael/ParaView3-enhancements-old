@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDoubleArray.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:49:33 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1998-04-16 13:23:11 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,7 +80,7 @@ public:
   double *GetPointer(const int id) {return this->Array + id;}
   double *WritePointer(const int id, const int number);
   void *GetVoidPointer(const int id) {return (void *)this->GetPointer(id);};
-  void DeepCopy(vtkDoubleArray& fa);
+  void DeepCopy(vtkDataArray &da);
 
 private:
   double *Array;   // pointer to data

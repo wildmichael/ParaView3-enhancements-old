@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFloatArray.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:49:37 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1998-04-16 13:23:12 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -85,7 +85,7 @@ public:
   float *GetPointer(const int id) {return this->Array + id;}
   float *WritePointer(const int id, const int number);
   void *GetVoidPointer(const int id) {return (void *)this->GetPointer(id);};
-  void DeepCopy(vtkFloatArray& fa);
+  void DeepCopy(vtkDataArray &da);
 
 private:
   float *Array;  // pointer to data

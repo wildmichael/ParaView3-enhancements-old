@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShortArray.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:50:27 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1998-04-16 13:23:16 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -85,7 +85,7 @@ public:
   short *GetPointer(const int id) {return this->Array + id;}
   short *WritePointer(const int id, const int number);
   void *GetVoidPointer(const int id) {return (void *)this->GetPointer(id);};
-  void DeepCopy(vtkShortArray& ia);
+  void DeepCopy(vtkDataArray &da);
 
 private:
   short *Array;   // pointer to data

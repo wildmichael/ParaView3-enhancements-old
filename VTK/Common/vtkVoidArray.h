@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoidArray.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:50:57 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1998-04-16 13:23:23 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,7 +80,7 @@ public:
   void** GetPointer(const int id) {return this->Array + id;}
   void** WritePointer(const int id, const int number);
   void *GetVoidPointer(const int id) {return this->GetPointer(id);};
-  void DeepCopy(vtkVoidArray& va);
+  void DeepCopy(vtkDataArray &da);
 
 private:
   void** Array;  // pointer to data

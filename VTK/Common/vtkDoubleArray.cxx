@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDoubleArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:49:32 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1998-04-16 13:23:10 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -89,21 +89,25 @@ void vtkDoubleArray::Initialize()
 
 // Description:
 // Deep copy of another double array.
-void vtkDoubleArray::DeepCopy(vtkDoubleArray& fa)
+void vtkDoubleArray::DeepCopy(vtkDataArray& da)
 {
-  int i;
-
-  if ( this != &fa )
+  if ( da.GetDataType() != VTK_DOUBLE )
     {
-    delete [] this->Array;
+    vtkDataArray::DeepCopy(da);
+    return;
+    }
 
-    this->NumberOfComponents = fa.NumberOfComponents;
-    this->MaxId = fa.MaxId;
-    this->Size = fa.Size;
-    this->Extend = fa.Extend;
+  if ( this != &da )
+    {
+    if (this->Array) delete [] this->Array;
+
+    this->NumberOfComponents = da.GetNumberOfComponents();
+    this->MaxId = da.GetMaxId();
+    this->Size = da.GetSize();
+    this->Extend = da.GetExtend();
 
     this->Array = new double[this->Size];
-    for (i=0; i<=this->MaxId; i++) this->Array[i] = fa.Array[i];
+    memcpy(this->Array, (double *)da.GetVoidPointer(0), this->Size*sizeof(double));
     }
 }
 

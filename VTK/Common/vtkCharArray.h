@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCharArray.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:49:23 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1998-04-16 13:23:08 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -86,7 +86,7 @@ public:
 
   char *WritePointer(const int id, const int number);
   void *GetVoidPointer(const int id) {return (void *)this->GetPointer(id);};
-  void DeepCopy(vtkCharArray& ia);
+  void DeepCopy(vtkDataArray &da);
 
 private:
   char *Array;    // pointer to data

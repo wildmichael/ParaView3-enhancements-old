@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFloatArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:49:36 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1998-04-16 13:23:11 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -86,21 +86,25 @@ void vtkFloatArray::Initialize()
 
 // Description:
 // Deep copy of another float array.
-void vtkFloatArray::DeepCopy(vtkFloatArray& fa)
+void vtkFloatArray::DeepCopy(vtkDataArray& fa)
 {
-  int i;
-
+  if ( fa.GetDataType() != VTK_FLOAT )
+    {
+    vtkDataArray::DeepCopy(fa);
+    return;
+    }
+  
   if ( this != &fa )
     {
-    delete [] this->Array;
+    if (this->Array) delete [] this->Array;
 
-    this->NumberOfComponents = fa.NumberOfComponents;
-    this->MaxId = fa.MaxId;
-    this->Size = fa.Size;
-    this->Extend = fa.Extend;
+    this->NumberOfComponents = fa.GetNumberOfComponents();
+    this->MaxId = fa.GetMaxId();
+    this->Size = fa.GetSize();
+    this->Extend = fa.GetExtend();
 
     this->Array = new float[this->Size];
-    for (i=0; i<=this->MaxId; i++) this->Array[i] = fa.Array[i];
+    memcpy(this->Array, (float *)fa.GetVoidPointer(0), this->Size*sizeof(float));
     }
 }
 
