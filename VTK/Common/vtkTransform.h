@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTransform.h,v $
   Language:  C++
-  Date:      $Date: 1994-05-01 15:54:44 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1994-05-08 08:55:48 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -55,6 +55,8 @@ class vlTransform : public vlObject
   //  stackSize = 10
   //  creates an identity matrix as the top matrix on the stack
   //  
+  vlTransform (const vlTransform& t);
+  // copy constructor
   ~vlTransform ();
   //  Delete any matrices on the stack.
   void Identity ();

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMatrix4x4.h,v $
   Language:  C++
-  Date:      $Date: 1994-04-14 14:43:00 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1994-05-08 08:55:43 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -24,6 +24,7 @@ class vlMatrix4x4 : public vlObject
   float Element[4][4];
   //  A 4 x 4 matrix.
   vlMatrix4x4 ();
+  vlMatrix4x4 (const vlMatrix4x4& m);
   void operator= (float element);
   void operator= (vlMatrix4x4& source);
   float *operator[](const unsigned int i) {return &(Element[i][0]);};

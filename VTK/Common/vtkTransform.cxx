@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-04-12 08:37:01 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-05-08 08:55:45 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -34,6 +34,24 @@ vlTransform::vlTransform ()
   this->Identity ();
 
   this->Modified ();
+}
+
+vlTransform::vlTransform (const vlTransform& t)
+{
+  int i;
+  vlMatrix4x4 *stack;
+
+  this->PreMultiplyFlag = t.PreMultiplyFlag;
+  this->StackSize = t.StackSize;
+  this->Stack = new vlMatrix4x4 *[this->StackSize];
+
+  // now copy each matrix in the stack
+  for (stack = *this->Stack, i = 0; i < this->StackSize; i++)
+    {
+    this->Stack[i] = new vlMatrix4x4(*(t.Stack[i]));
+    }
+
+  this->StackBottom = this->Stack + (this->StackSize - 1);
 }
 
 void vlTransform::Pop ()
