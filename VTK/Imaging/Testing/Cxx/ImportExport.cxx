@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: ImportExport.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:33:51 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-08-08 13:54:44 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 
 #include "vtkRegressionTestImage.h"
 
-int main( int argc, char *argv[] )
+int ImportExport( int argc, char *argv[] )
 {
  int i,j,k;
  
