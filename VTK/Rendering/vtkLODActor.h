@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODActor.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:32:22 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1995-09-06 18:01:06 $
+  Version:   $Revision: 1.4 $
   
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -37,7 +37,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkLODActor - a subclass of actor that supports Levels Of Detail
+// .NAME vtkLODActor - an actor that supports multiple levels of detail
 // .SECTION Description
 // vtkLODActor is an actor that stores multiple Levels of Detail and can
 // automatically switch between them. It selects which level of detail
