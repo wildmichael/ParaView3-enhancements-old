@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataSet.h,v $
   Language:  C++
-  Date:      $Date: 1994-05-28 06:49:55 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1994-06-07 10:59:11 $
+  Version:   $Revision: 1.22 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -62,8 +62,10 @@ public:
 
   // Locate cell based on global coordinate x and tolerance squared.  If cell 
   // is non-Null, then search starts from this cell and looks at 
-  // immediate neighbors. Returns cellId >= 0 if inside, < 0 otherwise.
-  virtual int FindCell(float x[3], vlCell *cell, float tol2) = 0;
+  // immediate neighbors. Returns cellId >= 0 if inside, < 0 otherwise.  The
+  // parametric coords are provided in pcoords[3].
+  virtual int FindCell(float x[3], vlCell *cell, float tol2, 
+                       int& subId, float pcoords[3]) = 0;
 
   // some data sets are composite objects and need to check each part for MTime
   unsigned long int GetMTime();
