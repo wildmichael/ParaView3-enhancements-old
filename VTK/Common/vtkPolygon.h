@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolygon.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:48:05 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1997-06-07 11:46:29 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -110,7 +110,8 @@ public:
 
   static int IntersectPolygonWithPolygon(int npts, float *pts, float bounds[6],
                                          int npts2, float *pts2, 
-                                         float bounds2[3], float tol);
+                                         float bounds2[3], float tol,
+                                         float x[3]);
 
 };
 

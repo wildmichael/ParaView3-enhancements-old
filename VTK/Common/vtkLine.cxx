@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLine.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-29 14:57:17 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 1997-06-07 11:46:26 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,9 +59,9 @@ vtkLine::vtkLine(const vtkLine& l)
   this->PointIds = l.PointIds;
 }
 
-#define NO_INTERSECTION 1
+#define NO_INTERSECTION 0
 #define INTERSECTION 2
-#define ON_LINE 6
+#define ON_LINE 3
 
 int vtkLine::EvaluatePosition(float x[3], float closestPoint[3], 
                              int& subId, float pcoords[3],
