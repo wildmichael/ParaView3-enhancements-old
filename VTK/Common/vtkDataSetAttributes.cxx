@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-15 12:11:38 $
-  Version:   $Revision: 1.64 $
+  Date:      $Date: 2002-10-15 20:36:37 $
+  Version:   $Revision: 1.65 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,7 +33,7 @@
 #include "vtkIdTypeArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkDataSetAttributes, "$Revision: 1.64 $");
+vtkCxxRevisionMacro(vtkDataSetAttributes, "$Revision: 1.65 $");
 vtkStandardNewMacro(vtkDataSetAttributes);
 
 //--------------------------------------------------------------------------
@@ -360,7 +360,21 @@ void vtkDataSetAttributes::CopyStructuredData(vtkDataSetAttributes *fromPd,
       outExt[2] < inExt[2] || outExt[3] > inExt[3] ||
       outExt[4] < inExt[4] || outExt[5] > inExt[5])
     {
-    vtkErrorMacro("Output must be a sub extent of input.");
+    vtkErrorMacro("Output must be a sub extent of input." << endl
+                  << "    inExt: "
+                  << inExt[0] << ", "
+                  << inExt[1] << ", "
+                  << inExt[2] << ", "
+                  << inExt[3] << ", "
+                  << inExt[4] << ", "
+                  << inExt[5] << endl
+                  << "    outExt: "
+                  << outExt[0] << ", "
+                  << outExt[1] << ", "
+                  << outExt[2] << ", "
+                  << outExt[3] << ", "
+                  << outExt[4] << ", "
+                  << outExt[5]);
     return;
     }
 
