@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensors.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:50:38 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1998-06-29 17:28:31 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkVectors - represent and manipulate 3x3 tensors
+// .NAME vtkTensors - represent and manipulate 3x3 tensors
 // .SECTION Description
 // vtkTensors represents 3x3 tensors. The data model for vtkTensors is an 
 // array of 3x3 matrices accessible by (point or cell) id.

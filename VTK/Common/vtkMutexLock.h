@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMutexLock.h,v $
   Language:  C++
-  Date:      $Date: 1998-01-07 22:40:36 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-06-29 17:28:45 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,6 +38,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
+// .NAME vtkMutexLock - mutual exclusion locking class
+// .SECTION Description
+// vtkMutexLock allows the locking of variables which are accessed 
+// through different threads
 
 #ifndef __vtkMutexVariable_h
 #define __vtkMutexVariable_h
