@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-06 09:39:12 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2000-07-10 11:12:52 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -134,7 +134,7 @@ static void vtkContourGridExecute(vtkContourGrid *self,
   vtkScalars *cellScalars;
   vtkUnstructuredGrid *grid = (vtkUnstructuredGrid *)input;
   //In this case, we know that the input is an unstructured grid.
-  int numPoints, needCell = 0, *pointList, *cellArrayPtr, cellArrayIt = 0;
+  int numPoints, needCell = 0, *cellArrayPtr, cellArrayIt = 0;
   T tempScalar;
 
   numCells = input->GetNumberOfCells();
