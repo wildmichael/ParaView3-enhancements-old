@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-03-03 18:34:30 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-03-08 12:24:07 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -329,11 +329,12 @@ void vlTransform::GetInverse ( vlMatrix4x4& inverse)
   inverse.Invert (**this->Stack, inverse);
 }
 
-void vlTransform::GetOrientation ( float & x, float & y, float & z)
+float *vlTransform::GetOrientation ()
 {
 #define AXIS_EPSILON .01
 	float	scale_x, scale_y, scale_z;
 	vlMatrix4x4  temp;
+	float   x,y,z;
 	float   d;
 	float   d1;
 	float   d2;
@@ -423,6 +424,12 @@ void vlTransform::GetOrientation ( float & x, float & y, float & z)
   alpha = atan2 (sin_alpha, cos_alpha);
 
   z = - alpha / RADIANS_PER_DEGREE;
+
+  this->Orientation[0] = x;
+  this->Orientation[1] = y;
+  this->Orientation[2] = z;
+
+  return this->Orientation;
 }
 
 void vlTransform::GetPosition (float & x,float & y,float & z)
