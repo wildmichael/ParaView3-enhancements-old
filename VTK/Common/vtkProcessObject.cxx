@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProcessObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-11 22:47:41 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2003-02-25 20:56:20 $
+  Version:   $Revision: 1.30 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkOldStyleCallbackCommand.h"
 #include "vtkDataObject.h"
 
-vtkCxxRevisionMacro(vtkProcessObject, "$Revision: 1.29 $");
+vtkCxxRevisionMacro(vtkProcessObject, "$Revision: 1.30 $");
 
 // Instantiate object with no start, end, or progress methods.
 vtkProcessObject::vtkProcessObject()
@@ -48,6 +48,7 @@ vtkProcessObject::~vtkProcessObject()
     {
     if (this->Inputs[idx])
       {
+      this->Inputs[idx]->RemoveConsumer(this);
       this->Inputs[idx]->UnRegister(this);
       this->Inputs[idx] = NULL;
       this->SortedInputs[idx] = NULL;
