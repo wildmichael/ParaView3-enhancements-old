@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-31 19:37:39 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2002-06-13 15:11:20 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -38,7 +38,7 @@
 #include "vtkTextureMapToPlane.h"
 #include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.25 $");
+vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.26 $");
 vtkStandardNewMacro(vtkImagePlaneWidget);
 
 vtkCxxSetObjectMacro(vtkImagePlaneWidget, PlaneProperty,vtkProperty);
@@ -224,6 +224,11 @@ void vtkImagePlaneWidget::SetEnabled(int enabling)
 
     this->SetRepresentation();
 
+    if ( this->PlanePicker )
+      {
+      this->PlaneActor->PickableOn();
+      }
+
     this->InvokeEvent(vtkCommand::EnableEvent,0);
 
     }
@@ -248,18 +253,23 @@ void vtkImagePlaneWidget::SetEnabled(int enabling)
     //turn off the texture plane
     this->CurrentRenderer->RemoveActor(this->TexturePlaneActor);
 
+    if ( this->PlanePicker )
+      {
+      this->PlaneActor->PickableOn();
+      }
+
     this->InvokeEvent(vtkCommand::DisableEvent,0);
     }
 
   this->Interactor->Render();
 }
 
-void vtkImagePlaneWidget::ProcessEvents(vtkObject* vtkNotUsed(object), 
+void vtkImagePlaneWidget::ProcessEvents(vtkObject* vtkNotUsed(object),
                                         unsigned long event,
-                                        void* clientdata, 
+                                        void* clientdata,
                                         void* vtkNotUsed(calldata))
 {
-  vtkImagePlaneWidget* self = 
+  vtkImagePlaneWidget* self =
     reinterpret_cast<vtkImagePlaneWidget *>( clientdata );
 
   //okay, let's do the right thing
@@ -813,6 +823,7 @@ void vtkImagePlaneWidget::GenerateTexturePlane()
   this->TexturePlaneActor->SetMapper(this->TexturePlaneMapper);
   this->TexturePlaneActor->GetProperty()->SetAmbient(0.5);
   this->TexturePlaneActor->SetTexture(this->Texture);
+  this->TexturePlaneActor->PickableOff();
 }
 
 void vtkImagePlaneWidget::SetInput(vtkDataSet* input)
