@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-11 20:19:45 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2001-01-07 15:32:29 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -318,6 +318,7 @@ void vtkSphereSource::Execute()
   output->SetPoints(newPoints);
   newPoints->Delete();
 
+  newNormals->Squeeze();
   output->GetPointData()->SetNormals(newNormals);
   newNormals->Delete();
 
