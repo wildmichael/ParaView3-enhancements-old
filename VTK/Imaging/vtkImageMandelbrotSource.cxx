@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMandelbrotSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-08 15:50:47 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2001-04-25 14:51:11 $
+  Version:   $Revision: 1.26 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -337,6 +337,9 @@ void vtkImageMandelbrotSource::ExecuteData(vtkDataObject *output)
       }
     ptr += inc2;
     }
+  
+  // Name the array appropriately.
+  data->GetPointData()->GetScalars()->GetData()->SetName("Iterations");
 }
 
 //----------------------------------------------------------------------------
