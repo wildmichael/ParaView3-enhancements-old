@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-10-17 15:01:13 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1997-04-01 18:42:15 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,7 +65,7 @@ vtkImageData::vtkImageData()
 //----------------------------------------------------------------------------
 // A templated function to print different types of pointData.
 template <class T>
-void vtkImageDataPrintScalars(vtkImageData *self, T *ptr,
+static void vtkImageDataPrintScalars(vtkImageData *self, T *ptr,
 				ostream& os, vtkIndent indent)
 {
   int precisionSave = os.precision();
@@ -760,7 +760,7 @@ float *vtkImageData::GetVectorPointer()
 // This should be a recursive call to avoid many nested loops, and
 // make the code independant of VTK_IMAGE_DIMENSIONS.
 template <class IT, class OT>
-void vtkImageDataCopyData2(vtkImageData *outData, OT *outPtr,
+static void vtkImageDataCopyData2(vtkImageData *outData, OT *outPtr,
 			   vtkImageData *inData, IT *inPtr, int *b)
 {
   IT *inPtr0, *inPtr1, *inPtr2, *inPtr3, *inPtr4;
@@ -822,7 +822,7 @@ void vtkImageDataCopyData2(vtkImageData *outData, OT *outPtr,
 //----------------------------------------------------------------------------
 // First templated function for copying.
 template <class T>
-void vtkImageDataCopyData(vtkImageData *self, void *outPtr, 
+static void vtkImageDataCopyData(vtkImageData *self, void *outPtr, 
 			  vtkImageData *inData, T *inPtr, int *extent)
 {
   switch (self->GetScalarType())
