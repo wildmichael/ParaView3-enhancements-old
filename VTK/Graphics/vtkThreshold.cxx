@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreshold.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 21:24:15 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1995-09-05 16:24:20 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -99,7 +99,7 @@ void vtkThreshold::Execute()
   vtkPointData *pd, *outPD;
   int i, ptId, newId, numPts, numCellPts;
   float *x;
-  vtkUnstructuredGrid *output=(vtkUnstructuredGrid *)this->Output;
+  vtkUnstructuredGrid *output= this->GetOutput();
 
   vtkDebugMacro(<< "Executing threshold filter");
 
@@ -114,6 +114,7 @@ void vtkThreshold::Execute()
   output->Allocate(this->Input->GetNumberOfCells());
   newPoints = new vtkFloatPoints(numPts);
   pd = this->Input->GetPointData();
+  outPD = output->GetPointData();
   outPD->CopyAllocate(pd);
 
   pointMap = new vtkIdList(numPts); // maps old point ids into new
