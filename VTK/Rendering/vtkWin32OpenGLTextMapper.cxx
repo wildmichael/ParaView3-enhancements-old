@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-07 16:01:05 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2001-12-28 14:15:08 $
+  Version:   $Revision: 1.33 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -411,8 +411,9 @@ vtkDebugMacro (<< "RenderOpaqueGeometry");
   glCallLists (strlen(this->Input), GL_UNSIGNED_BYTE, this->Input);  
 
   glFlush();
+#ifndef _WIN32_WCE
   GdiFlush();
-  
+#endif  
   glMatrixMode( GL_PROJECTION);
   glPopMatrix();
   glMatrixMode( GL_MODELVIEW);
