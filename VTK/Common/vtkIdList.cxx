@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdList.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:00 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2001-06-20 15:58:14 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -210,7 +210,7 @@ vtkIdType *vtkIdList::Resize(const vtkIdType sz)
   if (this->Ids)
     {
     memcpy(newIds, this->Ids,
-           (sz < this->Size ? sz : this->Size) * sizeof(int));
+           (sz < this->Size ? sz : this->Size) * sizeof(vtkIdType));
     delete [] this->Ids;
     }
 
