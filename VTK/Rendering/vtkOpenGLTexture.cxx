@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-21 13:07:35 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1997-11-05 17:34:09 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,6 +72,7 @@ void vtkOpenGLTexture::Load(vtkRenderer *vtkNotUsed(ren))
     unsigned char *resultData;
     int xsize, ysize;
     unsigned short xs,ys;
+    unsigned int tempIndex;
 
     // get some info
     size = this->Input->GetDimensions();
@@ -172,13 +173,24 @@ void vtkOpenGLTexture::Load(vtkRenderer *vtkNotUsed(ren))
     // free any old display lists
     if (this->Index)
       {
+#ifdef GL_VERSION_1_1
+      tempIndex = this->Index;
+      glDeleteTextures(1, &tempIndex);
+#else
       glDeleteLists(this->Index,1);
+#endif
       this->Index = 0;
       }
     // get a unique display list id
+#ifdef GL_VERSION_1_1
+    glGenTextures(1, &tempIndex);
+    this->Index = tempIndex;
+    glBindTexture(GL_TEXTURE_2D, this->Index);
+#else
     this->Index = glGenLists(1);
     glDeleteLists ((GLuint) this->Index, (GLsizei) 0);
     glNewList ((GLuint) this->Index, GL_COMPILE);
+#endif
     if (this->Interpolate)
       {
       glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER,
@@ -211,7 +223,9 @@ void vtkOpenGLTexture::Load(vtkRenderer *vtkNotUsed(ren))
     glTexImage2D( GL_TEXTURE_2D, 0 , bytesPerPixel,
 		  xsize, ysize, 0, format, 
 		  GL_UNSIGNED_BYTE, (const GLvoid *)resultData );
+#ifndef GL_VERSION_1_1
     glEndList ();
+#endif
     // modify the load time to the current time
     this->LoadTime.Modified();
     
@@ -223,8 +237,12 @@ void vtkOpenGLTexture::Load(vtkRenderer *vtkNotUsed(ren))
     }
 
   // execute the display list that uses creates the texture
+#ifdef GL_VERSION_1_1
+  glBindTexture(GL_TEXTURE_2D, Index);
+#else
   glCallList ((GLuint) this->Index);
-
+#endif
+  
   // if we're doing texture, assume blending must be on.
   glEnable(GL_BLEND);
 
