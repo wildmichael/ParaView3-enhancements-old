@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpline.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:24 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-10-06 20:26:33 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -111,4 +111,6 @@ void vtkSpline::PrintSelf(ostream& os, vtkIndent indent)
 
   os << indent << "Piecewise Function:\n";
   this->PiecewiseFunction->PrintSelf(os,indent.GetNextIndent());
+
+  os << indent << "Closed: " << (this->Closed ? "On\n" : "Off\n");
 }
