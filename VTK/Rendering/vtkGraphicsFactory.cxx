@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGraphicsFactory.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-04 17:00:45 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-11-10 15:00:07 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -114,9 +114,12 @@ const char *vtkGraphicsFactory::GetRenderLibrary()
   //  does not have opengl but they do have mesa, then use it
 #ifndef VTK_USE_OGLR
 #ifdef VTK_USE_MESA
-  if (!strcmp("OpenGL",temp))
+  if ( temp != NULL )
     {
-    temp = "Mesa";
+    if (!strcmp("OpenGL",temp))
+      {
+       temp = "Mesa";
+      }
     }
 #endif
 #endif
