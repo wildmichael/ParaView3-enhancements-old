@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-31 18:09:51 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2000-08-04 18:35:32 $
+  Version:   $Revision: 1.7 $
 
 Copyright (c) 1998-2000 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -30,6 +30,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkPVApplication.h"
 #include "vtkPVRenderView.h"
 #include "vtkPVPolyData.h"
+#include "vtkPVWindow.h"
 
 int vtkPVContourFilterCommand(ClientData cd, Tcl_Interp *interp,
 			      int argc, char *argv[]);
@@ -141,12 +142,33 @@ void vtkPVContourFilter::SetValue(int contour, float val)
 
 //----------------------------------------------------------------------------
 void vtkPVContourFilter::ContourValueChanged()
-{  
+{
+  vtkPVApplication *pvApp = (vtkPVApplication *)this->Application;
+  vtkPVWindow *window = this->GetWindow();
+  vtkPVPolyData *pvd;
+  vtkPVAssignment *a;
+  vtkPVActorComposite *ac;
+  
+  pvd = vtkPVPolyData::New();
+  pvd->Clone(pvApp);
+  
+  this->SetOutput(pvd);
+  a = window->GetPreviousSource()->GetPVData()->GetAssignment();
+  this->SetAssignment(a);
+  
   this->SetValue(0, this->ContourValueEntry->GetValueAsFloat());
   this->Contour->Modified();
   this->Contour->Update();
   
+  window->GetPreviousSource()->GetPVData()->GetActorComposite()->VisibilityOff();
+  
   this->GetView()->Render();
+  
+  this->CreateDataPage();
+  
+  ac = this->GetPVData()->GetActorComposite();
+  window->GetMainView()->AddComposite(ac);
+  window->GetMainView()->SetSelectedComposite(ac);
 }
 
 
