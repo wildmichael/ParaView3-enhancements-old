@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-23 15:05:52 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 1998-06-08 13:53:37 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -189,6 +189,8 @@ void vtkXRenderWindowInteractor::Initialize()
   ren->SetDisplayId(this->DisplayId);
 
   size    = ren->GetSize();
+  size[0] = ((size[0] > 0) ? size[0] : 300);
+  size[1] = ((size[1] > 0) ? size[1] : 300);
   if (!this->top)
     {
     depth   = ren->GetDesiredDepth();
