@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVTreeComposite.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-28 14:12:25 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-08-28 14:18:52 $
+  Version:   $Revision: 1.16 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -262,6 +262,7 @@ void vtkPVTreeComposite::RootAbortCheck()
 
   if (!this->RenderView)
     {
+    vtkWarningMacro("No RenderView: Poosible lock up condition.");
     return;
     }
 
