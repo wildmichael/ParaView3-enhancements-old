@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOStreamWrapper.h,v $
   Language:  C++
-  Date:      $Date: 2002-12-22 02:38:25 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2003-01-07 15:52:50 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -34,6 +34,7 @@ Do_not_include_vtkOStreamWrapper_directly__vtkSystemIncludes_includes_it;
 class vtkIndent;
 class vtkObjectBase;
 class vtkLargeInteger;
+class vtkSmartPointerBase;
 
 class VTK_COMMON_EXPORT vtkOStreamWrapper
 {
@@ -54,6 +55,7 @@ public:
   vtkOStreamWrapper& operator << (const vtkIndent&);
   vtkOStreamWrapper& operator << (vtkObjectBase&);
   vtkOStreamWrapper& operator << (const vtkLargeInteger&);
+  vtkOStreamWrapper& operator << (const vtkSmartPointerBase&);
   vtkOStreamWrapper& operator << (ostream&);
   vtkOStreamWrapper& operator << (const char*);
   vtkOStreamWrapper& operator << (void*);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSystemIncludes.h,v $
   Language:  C++
-  Date:      $Date: 2002-12-10 19:10:39 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2003-01-07 15:52:51 $
+  Version:   $Revision: 1.27 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,6 +32,12 @@
 #define __VTK_SYSTEM_INCLUDES__INSIDE
 #include "vtkWin32Header.h"
 #undef __VTK_SYSTEM_INCLUDES__INSIDE
+
+#ifndef VTK_NO_STD_NAMESPACE
+# define vtkstd std
+#else
+# define vtkstd
+#endif
 
 // The language wrapper files do not need the real streams.  They
 // define VTK_STREAMS_FWD_ONLY so that the streams are only

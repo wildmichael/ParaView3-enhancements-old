@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArraySelection.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-16 13:11:30 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-01-07 15:52:50 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,10 +27,6 @@
 #define __vtkDataArraySelection_h
 
 #include "vtkObject.h"
-
-//BTX
-template <class DType> class vtkVector;
-//ETX
 
 class VTK_COMMON_EXPORT vtkDataArraySelection : public vtkObject
 {
@@ -108,8 +104,8 @@ protected:
   ~vtkDataArraySelection();
   
   //BTX
-  typedef vtkVector<const char*> ArrayNamesType;
-  typedef vtkVector<int> ArraySettingsType;
+  class ArrayNamesType;
+  class ArraySettingsType;
   //ETX
   
   // The list of array names.

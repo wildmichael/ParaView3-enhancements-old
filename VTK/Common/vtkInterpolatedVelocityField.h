@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInterpolatedVelocityField.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-06 20:11:34 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2003-01-07 15:52:50 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -45,11 +45,6 @@
 
 class vtkDataSet;
 class vtkGenericCell;
-
-//BTX
-template <class value>
-class vtkVector;
-//ETX
 
 class VTK_COMMON_EXPORT vtkInterpolatedVelocityField : public vtkFunctionSet
 {
@@ -129,9 +124,10 @@ protected:
   vtkSetStringMacro(VectorsSelection);
   char *VectorsSelection;
 
-//BTX
-  vtkVector<vtkDataSet*>* DataSets;
-//ETX
+  //BTX
+  class DataSetsType;
+  DataSetsType* DataSets;
+  //ETX
 
   int FunctionValues(vtkDataSet* ds, float* x, float* f);
 

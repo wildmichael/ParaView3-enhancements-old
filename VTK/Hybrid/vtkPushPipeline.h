@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPushPipeline.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-02 16:08:31 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-01-07 15:52:51 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -38,10 +38,6 @@ class vtkRenderer;
 class vtkPushPipelineProcessInfo;
 class vtkPushPipelineDataInfo;
 
-//BTX
-template <class T> class vtkVector;
-template <class K, class D> class vtkArrayMap;
-//ETX
 class VTK_HYBRID_EXPORT vtkPushPipeline : public vtkObject
 {
 public:
@@ -87,9 +83,12 @@ protected:
   friend class vtkPushPipelineDataInfo;
   friend class vtkPushPipelineConsumeCommand;
   
-  vtkVector<vtkRenderWindow *> *Windows;
-  vtkArrayMap<vtkProcessObject *, vtkPushPipelineProcessInfo *> *ProcessMap;
-  vtkArrayMap<vtkDataObject *, vtkPushPipelineDataInfo *> *DataMap;
+  class WindowsType;
+  class ProcessMapType;
+  class DataMapType;
+  WindowsType* Windows;
+  ProcessMapType* ProcessMap;
+  DataMapType* DataMap;
   //ETX
   
   vtkPushPipelineDataInfo *GetPushDataInfo(vtkDataObject *);
