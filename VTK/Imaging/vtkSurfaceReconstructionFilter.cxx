@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSurfaceReconstructionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-09 11:10:28 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-04-12 13:52:53 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to Tim Hutton (MINORI Project, Dental and Medical
              Informatics, Eastman Dental Institute, London, UK) who
              developed and contributed this class.
@@ -307,7 +307,7 @@ void vtkSurfaceReconstructionFilter::Execute()
           iNeighbor = surfacePoints[iNearby].neighbors->GetId(j);
           if(surfacePoints[iNeighbor].isVisited)
             {
-            cost = surfacePoints[iNeighbor].costs[j];
+            cost = surfacePoints[iNearby].costs[j];
             // pick lowest cost for this nearby point
             if(cost<lowestCost) 
               {
