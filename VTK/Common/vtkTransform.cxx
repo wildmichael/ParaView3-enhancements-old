@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-13 07:23:04 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1995-10-10 23:55:39 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -686,13 +686,11 @@ float *vtkTransform::GetPoint()
 {
   if (this->PreMultiplyFlag)
     {
-    this->Stack[0]->Transpose();
     this->Stack[0]->PointMultiply(this->Point,this->Point);
-    this->Stack[0]->Transpose();
     }
   else
     {
-    this->Stack[0]->PointMultiply(this->Point,this->Point);
+    this->Stack[0]->MultiplyPoint(this->Point,this->Point);
     }
   return this->Point;
 }
