@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleUser.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-01 04:56:53 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2002-05-02 13:47:17 $
+  Version:   $Revision: 1.29 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkOldStyleCallbackCommand.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyleUser, "$Revision: 1.28 $");
+vtkCxxRevisionMacro(vtkInteractorStyleUser, "$Revision: 1.29 $");
 vtkStandardNewMacro(vtkInteractorStyleUser);
 
 //----------------------------------------------------------------------------
@@ -41,7 +41,10 @@ vtkInteractorStyleUser::vtkInteractorStyleUser()
   // Tell the parent class not to handle observers
   // that has to be done here
   this->HandleObserversOff();
+  this->LastPos[0] = this->LastPos[1] = 0;
   this->OldPos[0] = this->OldPos[1] = 0;
+  this->ShiftKey = 0;
+  this->CtrlKey = 0;
   this->Char = '\0';
   this->KeySym = (char *) "";
   this->Button = 0;
