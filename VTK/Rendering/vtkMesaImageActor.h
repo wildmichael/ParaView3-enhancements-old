@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaImageActor.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-22 18:39:30 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2003-09-06 21:47:46 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -51,7 +51,8 @@ protected:
   vtkMesaImageActor();
   ~vtkMesaImageActor();
 
-  unsigned char *MakeDataSuitable(int &xsize, int &ysize, int &release);
+  unsigned char *MakeDataSuitable(int &xsize, int &ysize,
+                                  int &release, int &reuseTexture);
 
   vtkTimeStamp   LoadTime;
   long          Index;
