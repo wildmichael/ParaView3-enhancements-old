@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergePoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-09-18 11:00:28 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1996-11-20 17:50:15 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -83,7 +83,7 @@ int *vtkMergePoints::MergePoints()
 
       for (j=0; j<3; j++)
 	{
-        ijk[j] = (int) ((float)((p[j] - this->Bounds[2*j])*0.999 / 
+        ijk[j] = (int) ((float)((p[j] - this->Bounds[2*j]) / 
               (this->Bounds[2*j+1] - this->Bounds[2*j])) * (this->Divisions[j] - 1));
 	}
 
@@ -125,7 +125,7 @@ int vtkMergePoints::IsInsertedPoint(float x[3])
 //
   for (i=0; i<3; i++) 
     {
-    ijk[i] = (int) ((float) ((x[i] - this->Bounds[2*i])*0.999 / 
+    ijk[i] = (int) ((float) ((x[i] - this->Bounds[2*i]) / 
              (this->Bounds[2*i+1] - this->Bounds[2*i])) * (this->Divisions[i] - 1));
     }
 
