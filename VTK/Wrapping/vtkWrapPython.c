@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapPython.c,v $
   Language:  C++
-  Date:      $Date: 2001-11-14 21:03:18 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2001-11-30 12:49:50 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -465,12 +465,18 @@ void get_python_signature()
    maxlen must be at least 32 chars)*/
 static const char *quote_string(const char *comment, int maxlen)
 {
-  static char result[4096];
+  static char *result = 0;
+  static int oldmaxlen = 0;
   int i, j, n;
 
-  if (maxlen > 4096)
+  if (maxlen > oldmaxlen)
     {
-    maxlen = 4096;
+    if (result)
+      {
+      free(result);
+      }
+    result = (char *)malloc(maxlen);
+    oldmaxlen = maxlen;
     }
 
   if (comment == NULL)
@@ -771,6 +777,21 @@ void outputFunction2(FILE *fp, FileInfo *data)
                       methodname);
               }
             fprintf(fp,"      }\n");
+            }
+
+          for (i = 0; i < currentFunction->NumberOfArguments; i++)
+            {
+            if (currentFunction->ArgCounts[i] &&  /* array */
+                currentFunction->ArgTypes[i] % 10 != 0 && /* not a special type */
+                currentFunction->ArgTypes[i] % 10 != 9 && /* not class pointer */
+                currentFunction->ArgTypes[i] % 10 != 8 && 
+                currentFunction->ArgTypes[i] % 10 != 2 && /* not void pointer */
+                (currentFunction->ArgTypes[i] % 2000 < 1000)) /* not const */
+              {
+              fprintf(fp,"    if (vtkPythonCheckArray(args,%d,temp%d,%d)) {\n"
+                         "      return 0;\n"
+                         "      }\n", i, i, currentFunction->ArgCounts[i]);
+              }
             }
           do_return(fp);
           fprintf(fp,"    }\n  }\n");

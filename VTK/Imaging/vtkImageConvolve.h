@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageConvolve.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:40 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-11-30 12:49:49 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to Z. F. Knops who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -67,31 +67,39 @@ public:
   // Set the kernel to be a given 3x3 or 5x5 or 7x7 kernel.
   void SetKernel3x3(const float kernel[9]);
   void SetKernel5x5(const float kernel[25]);
+//BTX
   void SetKernel7x7(float kernel[49]);
+//ETX
 
   // Description:
   // Return an array that contains the kernel.
   float* GetKernel3x3(); 
-  float* GetKernel5x5(); 
-  float* GetKernel7x7(); 
   void GetKernel3x3(float kernel[9]);
+  float* GetKernel5x5(); 
   void GetKernel5x5(float kernel[25]);
+//BTX
+  float* GetKernel7x7(); 
   void GetKernel7x7(float kernel[49]);
+//ETX
 
   // Description:
   // Set the kernel to be a 3x3x3 or 5x5x5 or 7x7x7 kernel.
   void SetKernel3x3x3(const float kernel[27]);
+//BTX
   void SetKernel5x5x5(float kernel[125]);
   void SetKernel7x7x7(float kernel[343]);
+//ETX
 
   // Description:
   // Return an array that contains the kernel
   float* GetKernel3x3x3(); 
-  float* GetKernel5x5x5(); 
-  float* GetKernel7x7x7(); 
   void GetKernel3x3x3(float kernel[27]);
+//BTX
+  float* GetKernel5x5x5(); 
   void GetKernel5x5x5(float kernel[125]);
+  float* GetKernel7x7x7(); 
   void GetKernel7x7x7(float kernel[343]);
+//ETX
 
 protected:
   vtkImageConvolve();

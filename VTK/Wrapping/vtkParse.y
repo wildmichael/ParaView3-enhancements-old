@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParse.y,v $
   Language:  C++
-  Date:      $Date: 2001-09-14 20:34:20 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2001-11-30 12:49:50 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -275,10 +275,6 @@ arg: type
 	$<integer>2 / 10000; 
       currentFunction->ArgTypes[currentFunction->NumberOfArguments] = 
 	$<integer>1 + $<integer>2 % 10000;
-      /* fail if array is not const */
-      if ((($<integer>2 % 10000)/100) % 10 != 0 
-	  && ($<integer>1 / 1000) != 1 ) {
-	currentFunction->ArrayFailure = 1;
       }
     } opt_var_assign
   | VAR_FUNCTION 

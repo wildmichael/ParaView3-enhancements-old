@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:29 $
-  Version:   $Revision: 1.64 $
+  Date:      $Date: 2001-11-30 12:49:50 $
+  Version:   $Revision: 1.65 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -246,6 +246,7 @@ public:
   // Close the vtk file.
   void CloseVTKFile();
 
+//BTX
   // Description:
   // Internal function to read in a line up to 256 characters.
   // Returns zero if there was an error.
@@ -263,6 +264,7 @@ public:
   // Description:
   // Return the istream being used to read in the data.
   istream *GetIStream() {return this->IS;};
+//ETX
 
 protected:
   vtkDataReader();

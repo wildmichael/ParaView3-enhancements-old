@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpTransform.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:09:32 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-11-30 12:49:48 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -87,6 +87,7 @@ public:
   vtkSetMacro(InverseIterations,int);
   vtkGetMacro(InverseIterations,int);
 
+//BTX
   // Description:
   // This will calculate the transformation without calling Update.
   // Meant for use only within other VTK classes.
@@ -102,7 +103,6 @@ public:
   void InternalTransformDerivative(const double in[3], double out[3],
                                    double derivative[3][3]);
 
-  //BTX
   // Description:
   // Do not use these methods.  They exists only as a work-around for
   // internal templated functions (I really didn't want to make the
@@ -128,7 +128,7 @@ public:
   void TemplateTransformInverse(const double in[3], double out[3],
                                 double derivative[3][3]) {
     this->InverseTransformDerivative(in,out,derivative); }; 
-  //ETX
+//ETX
 
 protected:
   vtkWarpTransform();

@@ -3,10 +3,10 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldDataToAttributeDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:13:49 $
-  Version:   $Revision: 1.25 $
-  Date:      $Date: 2001-11-13 14:13:49 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2001-11-30 12:49:49 $
+  Version:   $Revision: 1.26 $
+  Date:      $Date: 2001-11-30 12:49:49 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -236,10 +236,12 @@ public:
   // Specify an array name for one of the components.
   static void SetArrayName(vtkObject *self, char* &name, const char *newName);
   
+//BTX
   // Description:
   // Update the maximum and minimum component range values. Returns a flag
   // indicating whether the range was updated.
   static int UpdateComponentRange(vtkDataArray *da, vtkIdType compRange[2]);
+//ETX
 
   // Description:
   // If output does not need exact extent, the I do not either.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearTransform.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:09:26 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2001-11-30 12:49:48 $
+  Version:   $Revision: 1.30 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -178,6 +178,7 @@ public:
   vtkLinearTransform *GetLinearInverse() { 
     return (vtkLinearTransform *)this->GetInverse(); }; 
 
+//BTX
   // Description:
   // This will calculate the transformation without calling Update.
   // Meant for use only within other VTK classes.
@@ -204,7 +205,7 @@ public:
                                    float derivative[3][3]);
   void InternalTransformDerivative(const double in[3], double out[3],
                                    double derivative[3][3]);
-
+//ETX
 protected:
   vtkLinearTransform() {};
   ~vtkLinearTransform() {};
