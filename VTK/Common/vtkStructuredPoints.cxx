@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-05-13 08:06:56 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1994-05-13 12:58:45 $
+  Version:   $Revision: 1.10 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -192,8 +192,7 @@ float *vlStructuredPoints::GetPoint(int ptId)
 
     case XYZ_GRID:
       loc[0] = ptId % this->Dimensions[0];
-      loc[1] = (ptId % (this->Dimensions[0]*this->Dimensions[1]))
-                    / this->Dimensions[0];
+      loc[1] = (ptId / this->Dimensions[0]) % this->Dimensions[1];
       loc[2] = ptId / (this->Dimensions[0]*this->Dimensions[1]);
       break;
     }
