@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArraySelection.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-15 20:44:08 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-10-16 13:11:30 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -59,10 +59,6 @@ public:
   int ArrayExists(const char* name);
 
   // Description:
-  // Add array without calling modified.
-  int AddArray(const char* name);
-
-  // Description:
   // Enable all arrays that currently have an entry.
   void EnableAllArrays();
   
@@ -88,10 +84,19 @@ public:
   
   //BTX
   // Description:
+  // Add to the list of arrays that have entries.  For arrays that
+  // already have entries, the settings are untouched.  For arrays
+  // that don't already have an entry, they are assumed to be enabled.
+  // This method should be called only by the filter owning this
+  // object.
+  int AddArray(const char* name);
+
+  // Description:
   // Set the list of arrays that have entries.  For arrays that
   // already have entries, the settings are copied.  For arrays that
   // don't already have an entry, they are assumed to be enabled.
-  // There will be no more entries than the names given.
+  // There will be no more entries than the names given.  This method
+  // should be called only by the filter owning this object.
   void SetArrays(const char* const* names, int numArrays);
   //ETX
   
