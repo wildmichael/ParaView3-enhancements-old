@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMathematics.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-01-07 21:38:17 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-01-09 20:33:54 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -102,25 +102,25 @@ static void vtkImageMathematicsExecute1(vtkImageMathematics *self,
 	    *outPtr = (T)(1.0 / *in1Ptr);
 	    break;
 	  case VTK_SIN:
-	    *outPtr = (T)(sin(*in1Ptr));
+	    *outPtr = (T)(sin((double)*in1Ptr));
 	    break;
 	  case VTK_COS:
-	    *outPtr = (T)(cos(*in1Ptr));
+	    *outPtr = (T)(cos((double)*in1Ptr));
 	    break;
 	  case VTK_EXP:
-	    *outPtr = (T)(exp(*in1Ptr));
+	    *outPtr = (T)(exp((double)*in1Ptr));
 	    break;
 	  case VTK_LOG:
-	    *outPtr = (T)(log(*in1Ptr));
+	    *outPtr = (T)(log((double)*in1Ptr));
 	    break;
 	  case VTK_ABS:
-	    *outPtr = (T)(fabs(*in1Ptr));
+	    *outPtr = (T)(fabs((double)*in1Ptr));
 	    break;
 	  case VTK_SQR:
 	    *outPtr = *in1Ptr * *in1Ptr;
 	    break;
 	  case VTK_SQRT:
-	    *outPtr = (T)(sqrt(*in1Ptr));
+	    *outPtr = (T)(sqrt((double)*in1Ptr));
 	    break;
 	  }
 	outPtr++;
