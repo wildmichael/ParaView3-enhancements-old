@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkIndent.h,v $
   Language:  C++
-  Date:      $Date: 1994-02-04 12:40:48 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-07-13 16:30:31 $
+  Version:   $Revision: 1.2 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -13,6 +13,11 @@ written consent of the authors.
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
+
+// .NAME vlIndent - control print indentation
+// .SECTION Description
+// vlIndent is used to control indentation during the chaining print 
+// process.
 
 #ifndef __vlIndent_h
 #define __vlIndent_h

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkObject.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-07-11 22:45:54 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1994-07-13 16:30:33 $
+  Version:   $Revision: 1.15 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -57,6 +57,13 @@ void vlObject::UnRegister(vlObject* o)
   vlDebugMacro(<< "UnRegistered by " << o->GetClassName() << " (" << 0 << ")");
 
   if (--this->RefCount <= 0) delete this;
+}
+
+// Description:
+// Return the modification for this object.
+unsigned long int vlObject::GetMTime() 
+{
+  return this->MTime.GetMTime();
 }
 
 void vlObject::Print(ostream& os)

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkIndent.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-07 17:30:33 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-07-13 16:30:29 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -19,6 +19,8 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 
 static char blanks[NumberOfBlanks+1]="                                        ";
 
+// Description:
+// Determine the next indentation level.
 vlIndent vlIndent::GetNextIndent()
 {
   int indent = this->Indent + vlStdIndent;
@@ -26,6 +28,8 @@ vlIndent vlIndent::GetNextIndent()
   return indent;
 }
 
+// Description:
+// Print out the indentation.
 ostream& operator<<(ostream& os, vlIndent& ind)
 {
   os << blanks + (NumberOfBlanks-ind.Indent) ;
