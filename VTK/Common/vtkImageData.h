@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-24 08:58:41 $
-  Version:   $Revision: 1.75 $
+  Date:      $Date: 2000-09-25 07:47:35 $
+  Version:   $Revision: 1.76 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -327,7 +327,7 @@ public:
 protected:
   vtkImageData();
   ~vtkImageData();
-  vtkImageData(const vtkImageData& v) {};
+  vtkImageData(const vtkImageData&) {};
   void operator=(const vtkImageData&) {};
 
   vtkImageToStructuredPoints *ImageToStructuredPoints;
