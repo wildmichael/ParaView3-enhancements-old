@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSpatialFilter.h,v $
   Language:  C++
-  Date:      $Date: 1996-10-03 12:06:08 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1996-10-15 17:21:57 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,13 +80,13 @@ public:
   vtkGetMacro(UseExecuteCenter,int);
   vtkBooleanMacro(UseExecuteCenter,int);
   
-  
-protected:
+  // users shouldn't access these directly but templated functions need to
   int   KernelSize[VTK_IMAGE_DIMENSIONS];
   int   KernelMiddle[VTK_IMAGE_DIMENSIONS];      // Index of kernel origin
   int   HandleBoundaries;     // Shrink kernel at boundaries?
   int   UseExecuteCenter;     // Will the subclass have special execute method.
 
+protected:
   void ComputeOutputImageInformation(vtkImageRegion *inRegion,
 				     vtkImageRegion *outRegion);
   void ComputeRequiredInputRegionExtent(vtkImageRegion *outRegion, 
