@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-02 19:34:41 $
-  Version:   $Revision: 1.68 $
+  Date:      $Date: 1998-09-04 21:44:14 $
+  Version:   $Revision: 1.69 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -204,7 +204,8 @@ protected:
   vtkPointData PointData;   // Scalars, vectors, etc. associated w/ each point
   vtkTimeStamp ComputeTime; // Time at which bounds, center, etc. computed
   float Bounds[6];  // (xmin,xmax, ymin,ymax, zmin,zmax) geometric bounds
-
+  float ScalarRange[2];
+  float Center[3];
 };
 
 inline void vtkDataSet::GetPoint(int id, float x[3])
