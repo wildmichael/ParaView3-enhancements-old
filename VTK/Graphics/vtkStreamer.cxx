@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamer.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:10 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 1999-07-26 17:18:04 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -619,6 +619,7 @@ void vtkStreamer::PrintSelf(ostream& os, vtkIndent indent)
 
   os << indent << "Speed Scalars: " << (this->SpeedScalars ? "On\n" : "Off\n");
 
+  os << indent << "Number Of Streamers: " << this->NumberOfStreamers << "\n";
   os << indent << "Number Of Threads: " << this->NumberOfThreads << "\n";
 }
 

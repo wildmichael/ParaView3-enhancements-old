@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpVector.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:22 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1999-07-26 17:18:03 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -188,5 +188,6 @@ void vtkWarpVector::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkPointSetToPointSetFilter::PrintSelf(os,indent);
 
+  os << indent << "Number Of Threads: " << this->NumberOfThreads << "\n";
   os << indent << "Scale Factor: " << this->ScaleFactor << "\n";
 }

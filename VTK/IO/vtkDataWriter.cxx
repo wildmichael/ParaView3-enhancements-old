@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 21:08:43 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 1999-07-26 17:18:03 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -871,6 +871,10 @@ void vtkDataWriter::PrintSelf(ostream& os, vtkIndent indent)
     {
     os << indent << "Header: (None)\n";
     }
+  
+  os << indent << "Output String Length: " << this->OutputStringLength << "\n";
+  os << indent << "Output String (addr): " << ((void *)this->OutputString) << "\n";
+  os << indent << "WriteToOutputString: " << (this->WriteToOutputString ? "On\n" : "Off\n");
 
   if ( this->ScalarsName )
     {
