@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAnisotropicDiffusion3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-10-17 15:08:52 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1997-01-03 14:53:29 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,6 +58,9 @@ vtkImageAnisotropicDiffusion3D::vtkImageAnisotropicDiffusion3D()
   this->EdgesOn();
   this->CornersOn();
   this->GradientMagnitudeThresholdOff();
+
+  this->ExecuteDimensionality = 3;
+  this->Dimensionality = 3;
 }
 
 
