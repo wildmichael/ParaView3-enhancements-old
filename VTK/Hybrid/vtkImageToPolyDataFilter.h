@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-30 21:06:20 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2003-10-31 14:21:48 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -144,6 +144,9 @@ public:
   
   // Description:
   // Specify the error to use for decimation (if decimation is on).
+  // The error is an absolute number--the image spacing and
+  // dimensions are used to create points so the error should be
+  // consistent with the image size.
   vtkSetClampMacro(DecimationError,float,0.0,VTK_LARGE_FLOAT);
   vtkGetMacro(DecimationError,float);
   
