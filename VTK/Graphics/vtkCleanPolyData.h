@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCleanPolyData.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:31 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2001-01-02 20:27:55 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen
@@ -48,7 +48,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // into line if two points of triangle are merged). Conversion of
 // degenerate forms is controlled by the flags
 // ConvertLinesToPoints, ConvertPolysToLines, ConvertStripsToPolys
-// which act cumulatively such that a degenerate strip may become a poly
+// which act cumulatively such that a degenerate strip may become a poly.
 // The full set is
 // Line with 1 points -> Vert (if ConvertLinesToPoints)
 // Poly with 2 points -> Line (if ConvertPolysToLines)
@@ -63,7 +63,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // slower vtkPointLocator is used.
 // Before inserting points into the point locator, this class calls
 // a function OperateOnPoint which can be used (in subclasses) to further
-// refine the cleaning process. See vtkQuantizePolyDataPoints
+// refine the cleaning process. See vtkQuantizePolyDataPoints.
 
 // .SECTION Caveats
 // Merging points can alter topology, including introducing non-manifold
