@@ -1,4 +1,4 @@
-/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_open.c,v 1.1 2002-01-29 22:38:22 andy Exp $ */
+/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_open.c,v 1.2 2002-01-30 14:16:09 andy Exp $ */
 
 /*
  * Copyright (c) 1988-1997 Sam Leffler
@@ -31,7 +31,7 @@
 
 void _TIFFSetDefaultCompressionState(TIFF* tif);
 
-static const long typemask[13] = {
+static const unsigned long typemask[13] = {
         0L,             /* TIFF_NOTYPE */
         0x000000ffL,    /* TIFF_BYTE */
         0xffffffffL,    /* TIFF_ASCII */

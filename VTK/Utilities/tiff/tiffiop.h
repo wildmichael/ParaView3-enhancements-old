@@ -1,4 +1,4 @@
-/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tiffiop.h,v 1.1 2002-01-29 22:38:26 andy Exp $ */
+/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tiffiop.h,v 1.2 2002-01-30 14:16:10 andy Exp $ */
 
 /*
  * Copyright (c) 1988-1997 Sam Leffler
@@ -93,7 +93,7 @@ struct tiff {
         TIFFHeader      tif_header;     /* file's header block */
         tidata_t        tif_clientdir;  /* client TIFF directory */
         const int*      tif_typeshift;  /* data type shift counts */
-        const long*     tif_typemask;   /* data type masks */
+        const unsigned long*     tif_typemask;   /* data type masks */
         uint32          tif_row;        /* current scanline */
         tdir_t          tif_curdir;     /* current directory (index) */
         tstrip_t        tif_curstrip;   /* current strip for read/write */
