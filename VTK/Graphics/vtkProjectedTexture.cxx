@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProjectedTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:34 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-08-27 19:37:42 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,7 +40,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkProjectedTexture.h"
 #include "vtkMath.h"
-#include "vtkFloatTCoords.h"
+#include "vtkTCoords.h"
 
 // Description:
 // Initialize the projected texture filter with a position of (0, 0, 1),
@@ -95,7 +95,7 @@ void vtkProjectedTexture::Execute()
 {
   float tcoords[2];
   int numPts;
-  vtkFloatTCoords *newTCoords;
+  vtkTCoords *newTCoords;
   int i, j;
   float proj;
   float rightv[3], upv[3], diff[3];
@@ -111,7 +111,7 @@ void vtkProjectedTexture::Execute()
   //  Allocate texture data
   //
 
-  newTCoords = vtkFloatTCoords::New();
+  newTCoords = vtkTCoords::New();
   newTCoords->SetNumberOfTCoords(numPts);
 
   vtkMath::Normalize (this->Orientation);
