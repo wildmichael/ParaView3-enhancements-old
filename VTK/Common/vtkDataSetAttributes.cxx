@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:00 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2001-06-21 12:53:55 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1292,15 +1292,16 @@ int vtkDataSetAttributes::SetActiveAttribute(int index, int attributeType)
     }
 }
 
+// Scalars set to NOLIMIT and 1024 (limit is arbitrary, so make it big.)
 int vtkDataSetAttributes::NumberOfAttributeComponents[vtkDataSetAttributes::NUM_ATTRIBUTES] 
-= { 4, 
+= { 1024, 
     3, 
     3, 
     3, 
     9};
 
 int vtkDataSetAttributes::AttributeLimits[vtkDataSetAttributes::NUM_ATTRIBUTES]
-= { MAX, 
+= { NOLIMIT, 
     EXACT, 
     EXACT, 
     MAX,

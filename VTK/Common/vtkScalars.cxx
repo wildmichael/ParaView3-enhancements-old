@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalars.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-12 13:18:59 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2001-06-21 12:53:55 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -101,11 +101,6 @@ void vtkScalars::SetData(vtkDataArray *data)
 {
   if ( data != this->Data && data != NULL )
     {
-    if (data->GetNumberOfComponents() > 4 )
-      {
-      vtkErrorMacro(<<"Tuple dimension for scalars must be <= 4");
-      return;
-      }
     this->Data->UnRegister(this);
     this->Data = data;
     this->Data->Register(this);
