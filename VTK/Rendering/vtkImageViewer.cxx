@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 13:45:41 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1997-04-24 20:47:04 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -56,6 +56,7 @@ vtkImageViewer::vtkImageViewer()
   this->Coordinate2 = 0;
   this->Coordinate3 = 0;
   this->Mapped = 0;
+  this->WindowName = NULL;
   
   this->ColorWindow = 255.0;
   this->ColorLevel = 127.0;
