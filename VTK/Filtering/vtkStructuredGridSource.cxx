@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-03 15:59:39 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2002-09-03 20:33:58 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,11 @@
 
 =========================================================================*/
 #include "vtkStructuredGridSource.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkStructuredGridSource, "$Revision: 1.25 $");
+#include "vtkObjectFactory.h"
+#include "vtkStructuredGrid.h"
+
+vtkCxxRevisionMacro(vtkStructuredGridSource, "$Revision: 1.26 $");
 
 //----------------------------------------------------------------------------
 vtkStructuredGridSource::vtkStructuredGridSource()
@@ -41,6 +43,11 @@ vtkStructuredGrid *vtkStructuredGridSource::GetOutput()
   return (vtkStructuredGrid *)(this->Outputs[0]);
 }
 
+//----------------------------------------------------------------------------
+vtkStructuredGrid *vtkStructuredGridSource::GetOutput(int idx)
+{
+  return static_cast<vtkStructuredGrid *>( this->vtkSource::GetOutput(idx) ); 
+}
 
 //----------------------------------------------------------------------------
 void vtkStructuredGridSource::SetOutput(vtkStructuredGrid *output)

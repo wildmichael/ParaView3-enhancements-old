@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkColorTransferFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-13 15:30:14 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2002-09-03 20:33:58 $
+  Version:   $Revision: 1.43 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,11 @@
 
 =========================================================================*/
 #include "vtkColorTransferFunction.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkColorTransferFunction, "$Revision: 1.42 $");
+#include "vtkObjectFactory.h"
+#include "vtkPiecewiseFunction.h"
+
+vtkCxxRevisionMacro(vtkColorTransferFunction, "$Revision: 1.43 $");
 vtkStandardNewMacro(vtkColorTransferFunction);
 
 // Construct a new vtkColorTransferFunction with default values

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSimpleScalarTree.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:28:12 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-09-03 20:33:58 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,10 +16,12 @@
 
 =========================================================================*/
 #include "vtkSimpleScalarTree.h"
+
+#include "vtkDataSet.h"
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkSimpleScalarTree, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkSimpleScalarTree, "$Revision: 1.5 $");
 vtkStandardNewMacro(vtkSimpleScalarTree);
 
 class vtkScalarNode {};

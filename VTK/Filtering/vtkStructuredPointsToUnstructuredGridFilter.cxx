@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsToUnstructuredGridFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:28:15 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-09-03 20:33:58 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,7 +17,10 @@
 =========================================================================*/
 #include "vtkStructuredPointsToUnstructuredGridFilter.h"
 
-vtkCxxRevisionMacro(vtkStructuredPointsToUnstructuredGridFilter, "$Revision: 1.12 $");
+#include "vtkImageData.h"
+#include "vtkStructuredPoints.h"
+
+vtkCxxRevisionMacro(vtkStructuredPointsToUnstructuredGridFilter, "$Revision: 1.13 $");
 
 //----------------------------------------------------------------------------
 // Specify the input data or filter.
@@ -35,7 +38,7 @@ vtkImageData *vtkStructuredPointsToUnstructuredGridFilter::GetInput()
     return NULL;
     }
   
-  return (vtkStructuredPoints *)(this->Inputs[0]);
+  return static_cast<vtkStructuredPoints *>(this->Inputs[0]);
 }
 
 //----------------------------------------------------------------------------

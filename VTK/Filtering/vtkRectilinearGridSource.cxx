@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-03 15:59:39 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-09-03 20:33:58 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,11 @@
 
 =========================================================================*/
 #include "vtkRectilinearGridSource.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkRectilinearGridSource, "$Revision: 1.15 $");
+#include "vtkObjectFactory.h"
+#include "vtkRectilinearGrid.h"
+
+vtkCxxRevisionMacro(vtkRectilinearGridSource, "$Revision: 1.16 $");
 
 //----------------------------------------------------------------------------
 vtkRectilinearGridSource::vtkRectilinearGridSource()
@@ -28,6 +30,12 @@ vtkRectilinearGridSource::vtkRectilinearGridSource()
   // Filters will know it is empty. 
   this->Outputs[0]->ReleaseData();
   this->Outputs[0]->Delete();
+}
+
+//----------------------------------------------------------------------------
+vtkRectilinearGrid *vtkRectilinearGridSource::GetOutput(int idx)
+{
+  return (vtkRectilinearGrid *) this->vtkSource::GetOutput(idx); 
 }
 
 //----------------------------------------------------------------------------

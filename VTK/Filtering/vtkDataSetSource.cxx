@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-03 15:59:39 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-09-03 20:33:58 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,11 @@
 
 =========================================================================*/
 #include "vtkDataSetSource.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkDataSetSource, "$Revision: 1.10 $");
+#include "vtkObjectFactory.h"
+#include "vtkDataSet.h"
+
+vtkCxxRevisionMacro(vtkDataSetSource, "$Revision: 1.11 $");
 
 vtkDataSetSource::vtkDataSetSource()
 {
@@ -42,3 +44,7 @@ void vtkDataSetSource::SetOutput(vtkDataSet *output)
   this->vtkSource::SetNthOutput(0, output);
 }
 
+vtkDataSet *vtkDataSetSource::GetOutput(int idx)
+{
+  return static_cast<vtkDataSet *>( this->vtkSource::GetOutput(idx) ); 
+}

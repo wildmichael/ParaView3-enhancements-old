@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-03 15:59:39 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-09-03 20:33:58 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,11 @@
 
 =========================================================================*/
 #include "vtkUnstructuredGridSource.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkUnstructuredGridSource, "$Revision: 1.24 $");
+#include "vtkObjectFactory.h"
+#include "vtkUnstructuredGrid.h"
+
+vtkCxxRevisionMacro(vtkUnstructuredGridSource, "$Revision: 1.25 $");
 
 //----------------------------------------------------------------------------
 vtkUnstructuredGridSource::vtkUnstructuredGridSource()
@@ -73,3 +75,7 @@ void vtkUnstructuredGridSource::ComputeInputUpdateExtents(vtkDataObject *data)
     }
 }
 
+vtkUnstructuredGrid *vtkUnstructuredGridSource::GetOutput(int idx)
+{
+  return static_cast<vtkUnstructuredGrid *>( this->vtkSource::GetOutput(idx) ); 
+}
