@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:09:26 $
-  Version:   $Revision: 1.93 $
+  Date:      $Date: 2001-12-10 21:21:11 $
+  Version:   $Revision: 1.94 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -225,7 +225,7 @@ public:
   
   // Description:
   // Access the native pointer for the scalar data
-  void *GetScalarPointerForExtent(int coordinates[6]);
+  void *GetScalarPointerForExtent(int extent[6]);
   void *GetScalarPointer(int coordinates[3]);
   void *GetScalarPointer(int x, int y, int z);
   void *GetScalarPointer();
@@ -314,6 +314,23 @@ public:
   // Shallow and Deep copy.
   void ShallowCopy(vtkDataObject *src);  
   void DeepCopy(vtkDataObject *src);
+
+  //--------------------------------------------------------------------------
+  // Methods that apply to any array (not just scalars).
+  // I am starting to experiment with generalizing imaging fitlers
+  // to operate on more than just scalars.
+
+  // Description:
+  // These are convienence methods for getting a pointer
+  // from any filed array.  It is a start at expanding image filters
+  // to process any array (not just scalars).
+  void *GetArrayPointerForExtent(vtkDataArray* array, int extent[6]);
+  void *GetArrayPointer(vtkDataArray* array, int coordinates[3]);
+
+  // Description:
+  // Since various arrays have different number of components,
+  // the will have different increments.
+  void GetArrayIncrements(vtkDataArray *array, int increments[3]);
 
 protected:
   vtkImageData();
