@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-20 19:49:08 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-04-09 17:45:23 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -160,19 +160,19 @@ void vtkImageMapper::Render(vtkViewport* viewport, vtkActor2D* actor)
     {
     displayExtent[0] = -pos[0];
     }
-  if ((pos[0]+wholeExtent[1]) >= 
+  if ((pos[0]+wholeExtent[1]) > 
       (winSize[0] - 1)*(vpt[XMAX]-vpt[XMIN])) 
     {
-    displayExtent[1] = (winSize[0] - 1)*(vpt[XMAX]-vpt[XMIN]) - pos[0] - 1;
+    displayExtent[1] = (winSize[0] - 1)*(vpt[XMAX]-vpt[XMIN]) - pos[0];
     }
   if (pos[1] + wholeExtent[2] < 0) 
     {
     displayExtent[2] = -pos[1];
     }
-  if ((pos[1]+wholeExtent[3]) >= 
+  if ((pos[1]+wholeExtent[3]) > 
       (winSize[1] - 1)*(vpt[YMAX]-vpt[YMIN])) 
     {
-    displayExtent[3] = (winSize[1] - 1)*(vpt[YMAX]-vpt[YMIN]) - pos[1] - 1;
+    displayExtent[3] = (winSize[1] - 1)*(vpt[YMAX]-vpt[YMIN]) - pos[1];
     }
 
   this->Input->SetUpdateExtent(displayExtent);
