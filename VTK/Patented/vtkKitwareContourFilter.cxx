@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKitwareContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-28 17:37:16 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-06-19 17:36:47 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -177,7 +177,7 @@ void vtkKitwareContourFilter::Execute()
   inScalars = input->GetPointData()->GetScalars();
   if ( ! inScalars || numCells < 1 )
     {
-    vtkErrorMacro(<<"No data to contour");
+    // vtkErrorMacro(<<"No data to contour");
     return;
     }
 
