@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataDesc.cxx,v 1.10 2004-01-05 02:28:31 andy Exp $  */
-/*  Date : $Date: 2004-01-05 02:28:31 $ */
-/*  Version : $Revision: 1.10 $ */
+/*  Id : $Id: XdmfDataDesc.cxx,v 1.11 2004-01-08 21:03:55 martink Exp $  */
+/*  Date : $Date: 2004-01-08 21:03:55 $ */
+/*  Version : $Revision: 1.11 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -148,9 +148,9 @@ return( XDMF_SUCCESS );
 XdmfInt32
 XdmfDataDesc::CopyShape( hid_t DataSpace ) {
 
-hsize_t      HRank;
+hsize_t      i, HRank;
 hsize_t      HDimension[ XDMF_MAX_DIMENSION ];
-XdmfInt64    i, Dimensions[ XDMF_MAX_DIMENSION ];
+XdmfInt64    Dimensions[ XDMF_MAX_DIMENSION ];
 XdmfInt32    Status;
 
 HRank = H5Sget_simple_extent_ndims( DataSpace );
@@ -168,9 +168,8 @@ return( XDMF_FAIL );
 
 XdmfInt32
 XdmfDataDesc::GetShape( XdmfInt64 *Dimensions ) {
-hsize_t      HRank;
+hsize_t      i, HRank;
 hsize_t      HDimension[ XDMF_MAX_DIMENSION ];
-XdmfInt64    i;
 
 HRank = H5Sget_simple_extent_ndims( DataSpace );
 H5Sget_simple_extent_dims( DataSpace, HDimension, NULL );
@@ -760,7 +759,7 @@ if( this->SelectionType == XDMF_COORDINATES ){
     hsize_t *Coords = new hsize_t[ Nelements * Rank ];
     hsize_t j, *Cp = Coords;
     H5Sget_select_elem_pointlist( this->DataSpace, Start, Nelements, Coords );
-    for( i = 0 ; i < Nelements ; i++ ){
+    for( i = 0 ; i < (hsize_t)Nelements ; i++ ){
       for( j = 0 ; j < (hsize_t)Rank ; j++ ){
         StringOutput << (int)*Cp++ << " ";
         }

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGrid.cxx,v 1.6 2003-11-06 21:57:03 clarke Exp $  */
-/*  Date : $Date: 2003-11-06 21:57:03 $ */
-/*  Version : $Revision: 1.6 $ */
+/*  Id : $Id: XdmfGrid.cxx,v 1.7 2004-01-08 21:03:55 martink Exp $  */
+/*  Date : $Date: 2004-01-08 21:03:55 $ */
+/*  Version : $Revision: 1.7 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -63,7 +63,7 @@ XdmfGrid::~XdmfGrid() {
 
 XdmfInt32
 XdmfGrid::AssignAttribute( XdmfAttribute *Attribute ){
-XdmfInt32 Status;
+XdmfInt32 Status = 0;
 
 if( Attribute ){
   Attribute->Update();
