@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVTreeComposite.h,v $
   Language:  C++
-  Date:      $Date: 2003-10-06 21:58:01 $
-  Version:   $Revision: 1.20 $  
+  Date:      $Date: 2003-11-13 14:32:43 $
+  Version:   $Revision: 1.21 $  
   
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -99,6 +99,9 @@ public:
   // Public because it is an RMI.  
   void CheckForDataRMI();
 
+  virtual void SetRenderWindow(vtkRenderWindow *renWin);
+  virtual void Composite();
+  
 protected:
   vtkPVTreeComposite();
   ~vtkPVTreeComposite();
@@ -106,6 +109,8 @@ protected:
   int  CheckForData();
   int  ShouldIComposite();
 
+  void InternalStartRender();
+  
 //BTX
 
   enum Tags {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCTHData.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-09-23 19:35:38 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2003-11-13 14:32:42 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -41,7 +41,7 @@
 #include "vtkVoxel.h"
 #include "vtkImageData.h"
 
-vtkCxxRevisionMacro(vtkCTHData, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkCTHData, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkCTHData);
 
 //----------------------------------------------------------------------------
@@ -1294,7 +1294,6 @@ void vtkCTHData::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "TopLevelOrigin: (" << this->TopLevelOrigin[0] << ", "
                                   << this->TopLevelOrigin[1] << ", "
                                   << this->TopLevelOrigin[2] << ")\n";
-  os << indent << "NumberOfGhostLevels: " << this->NumberOfGhostLevels << endl;
 
   os << indent << "NumberOfBlocks: "  << numBlocks << endl;
   for (idx = 0; idx < numBlocks; ++idx)
@@ -1312,6 +1311,8 @@ void vtkCTHData::PrintSelf(ostream& os, vtkIndent indent)
     os << "\tCellExt: (" << e[0] << ", " << e[1] << ", " << e[2]
        << e[3] << ", " << e[4] << ", " << e[5] << ")\n";
     }
+  os << indent << "NumberOfGhostLevels: " << this->NumberOfGhostLevels
+     << endl;
 }
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCTHFractal.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-09-23 19:35:38 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2003-11-13 14:32:42 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,7 +29,7 @@
 
 
 
-vtkCxxRevisionMacro(vtkCTHFractal, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkCTHFractal, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkCTHFractal);
 
 //----------------------------------------------------------------------------

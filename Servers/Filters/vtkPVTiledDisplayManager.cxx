@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVTiledDisplayManager.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-09-10 19:41:55 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2003-11-13 14:32:43 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -43,7 +43,7 @@
  #include <mpi.h>
 #endif
 
-vtkCxxRevisionMacro(vtkPVTiledDisplayManager, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkPVTiledDisplayManager, "$Revision: 1.12 $");
 vtkStandardNewMacro(vtkPVTiledDisplayManager);
 
 vtkCxxSetObjectMacro(vtkPVTiledDisplayManager, RenderView, vtkObject);
@@ -1071,7 +1071,7 @@ void vtkPVTiledDisplayManager::SatelliteStartRender()
     lc->InitTraversal();
     light = lc->GetNextItem();
 
-    // Setup tile independant stuff
+    // Setup tile independent stuff
     cam->SetViewAngle(asin(sin(renInfo.CameraViewAngle*3.1415926/360.0)/(double)(this->TileDimensions[0])) * 360.0 / 3.1415926);
     cam->SetPosition(renInfo.CameraPosition);
     cam->SetFocalPoint(renInfo.CameraFocalPoint);

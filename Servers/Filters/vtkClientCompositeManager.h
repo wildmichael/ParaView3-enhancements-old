@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClientCompositeManager.h,v $
   Language:  C++
-  Date:      $Date: 2003-09-10 19:41:54 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2003-11-13 14:32:42 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -39,6 +39,7 @@ class vtkRenderer;
 class vtkDataArray;
 class vtkFloatArray;
 class vtkUnsignedCharArray;
+class vtkImageData;
 
 class VTK_EXPORT vtkClientCompositeManager : public vtkObject
 {
@@ -60,6 +61,7 @@ public:
   // Description:
   // Callbacks that initialize and finish the compositing.
   virtual void StartRender();
+  virtual void EndRender();
   void RenderRMI();
   
   // Description:
@@ -167,12 +169,13 @@ protected:
   vtkSocketController* ClientController;
   vtkCompositer *Compositer;
 
+  vtkRenderWindow *RenWin;
+  
   int Tiled;
   int TiledDimensions[2];
 
   int ClientFlag;
   unsigned long StartTag;
-  //unsigned long EndTag;
   
   void SetPDataSize(int x, int y);
   void ReallocPDataArrays();
@@ -180,7 +183,7 @@ protected:
   virtual void SatelliteStartRender();
   virtual void SatelliteEndRender();
 
-
+  vtkImageData *CompositeData;
 
   // Same method that is in vtkComposite manager.
   // We should find a way to shar this method. !!!!

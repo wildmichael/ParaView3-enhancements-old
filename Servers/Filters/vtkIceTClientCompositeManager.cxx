@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIceTClientCompositeManager.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-10-06 20:49:14 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-11-13 14:32:42 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -51,7 +51,7 @@
 #endif
 
 
-vtkCxxRevisionMacro(vtkIceTClientCompositeManager, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkIceTClientCompositeManager, "$Revision: 1.5 $");
 vtkStandardNewMacro(vtkIceTClientCompositeManager);
 
 vtkCxxSetObjectMacro(vtkIceTClientCompositeManager,IceTManager,vtkIceTRenderManager);
@@ -255,7 +255,8 @@ void vtkIceTClientCompositeManager::StartRender()
   winInfo.Size[1] = size[1]/this->ImageReductionFactor;
   winInfo.ImageReductionFactor = this->ImageReductionFactor;
   winInfo.UseCompositing = this->UseCompositing;
-  winInfo.NumberOfRenderers = rens->GetNumberOfItems();
+//  winInfo.NumberOfRenderers = rens->GetNumberOfItems();
+  winInfo.NumberOfRenderers = 1;
   
   controller->TriggerRMI(1, vtkIceTClientCompositeManager::RENDER_RMI_TAG);
 
@@ -271,8 +272,9 @@ void vtkIceTClientCompositeManager::StartRender()
   // Note: This will lockup unless every process has the same number
   // of renderers.
   rens->InitTraversal();
-  while ( (ren = rens->GetNextItem()) )
-    {
+//  while ( (ren = rens->GetNextItem()) )
+//    {
+  ren = rens->GetNextItem();
     cam = ren->GetActiveCamera();
     lc = ren->GetLights();
     lc->InitTraversal();
@@ -303,7 +305,7 @@ void vtkIceTClientCompositeManager::StartRender()
     // Let the socket controller deal with byte swapping.
     controller->Send((float*)(&renInfo), 22, 1,
                      vtkCompositeManager::REN_INFO_TAG);
-    }
+//    }
   int i = 0;
   controller->Receive(&i, 1, 1, vtkIceTClientCompositeManager::ACKNOWLEDGE_RMI);
 }

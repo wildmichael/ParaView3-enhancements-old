@@ -5,8 +5,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDesktopDeliveryClient.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-11-11 19:25:02 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2003-11-13 14:32:42 $
+  Version:   $Revision: 1.6 $
 
 =========================================================================*/
 
@@ -29,7 +29,7 @@
 
 //#include <vtkRef.h>
 
-vtkCxxRevisionMacro(vtkDesktopDeliveryClient, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkDesktopDeliveryClient, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkDesktopDeliveryClient);
 
 vtkDesktopDeliveryClient::vtkDesktopDeliveryClient()
@@ -218,7 +218,7 @@ void vtkDesktopDeliveryClient::PostRenderProcessing()
       else
         {
         this->ReadReducedImage();
-        //this->SetRenderWindowPixelData(this->ReducedImage, this->ReducedImageSize);
+        this->SetRenderWindowPixelData(this->ReducedImage, this->ReducedImageSize);
         }
       this->RenderWindowImageUpToDate = true;
       }
