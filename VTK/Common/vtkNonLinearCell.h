@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkNonLinearCell.h,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:24:21 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-01-06 20:36:14 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -54,7 +54,7 @@ public:
   // Description:
   // Set/Get the normalized error measure used to control the 
   // tessellation of the cell.
-  vtkSetClampMacro(Error,float,0.001,1.0);
+  vtkSetClampMacro(Error,float,0.001f,1.0f);
   vtkGetMacro(Error,float);
 
   // Description:

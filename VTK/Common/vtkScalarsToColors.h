@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarsToColors.h,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:24:22 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2003-01-06 20:36:14 $
+  Version:   $Revision: 1.28 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -82,7 +82,7 @@ public:
   // Returns the luminance value for the specified scalar value.
   float GetLuminance(float x) 
     {float rgb[3]; this->GetColor(x,rgb);
-    return rgb[0]*0.30 + rgb[1]*0.59 + rgb[2]*0.11;}
+    return static_cast<float>(rgb[0]*0.30 + rgb[1]*0.59 + rgb[2]*0.11);}
 
   // Description:
   // Specify an additional opacity (alpha) value to blend with. Values

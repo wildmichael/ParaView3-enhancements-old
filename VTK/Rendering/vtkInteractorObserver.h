@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorObserver.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-29 18:25:35 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2003-01-06 20:36:14 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -88,7 +88,7 @@ public:
   // changing the priority does not effect event processing. You will have
   // to SetInteractor(NULL), change priority, and then SetInteractor(iren)
   // to have the priority take effect.)
-  vtkSetClampMacro(Priority,float,0.0,1.0);
+  vtkSetClampMacro(Priority,float,0.0f,1.0f);
   vtkGetMacro(Priority,float);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-22 16:27:05 $
-  Version:   $Revision: 1.99 $
+  Date:      $Date: 2003-01-06 20:36:14 $
+  Version:   $Revision: 1.100 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -125,13 +125,13 @@ public:
   // them how quickly they need to render.  This update is in effect only
   // when the camera is being rotated, or zoomed.  When the interactor is
   // still, the StillUpdateRate is used instead.
-  vtkSetClampMacro(DesiredUpdateRate,float,0.0001,VTK_LARGE_FLOAT);
+  vtkSetClampMacro(DesiredUpdateRate,float,0.0001f,VTK_LARGE_FLOAT);
   vtkGetMacro(DesiredUpdateRate,float);
 
   // Description:
   // Set/Get the desired update rate when movement has stopped.
   // See the SetDesiredUpdateRate method.
-  vtkSetClampMacro(StillUpdateRate,float,0.0001,VTK_LARGE_FLOAT);
+  vtkSetClampMacro(StillUpdateRate,float,0.0001f,VTK_LARGE_FLOAT);
   vtkGetMacro(StillUpdateRate,float);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlane.h,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:24:21 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2003-01-06 20:36:14 $
+  Version:   $Revision: 1.50 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -119,8 +119,8 @@ inline float vtkPlane::Evaluate(float normal[3], float origin[3], float x[3])
 }
 inline float vtkPlane::Evaluate(double normal[3], double origin[3],double x[3])
 {
-  return normal[0]*(x[0]-origin[0]) + normal[1]*(x[1]-origin[1]) + 
-         normal[2]*(x[2]-origin[2]);
+  return static_cast<float> (normal[0]*(x[0]-origin[0]) + normal[1]*(x[1]-origin[1]) + 
+         normal[2]*(x[2]-origin[2]));
 }
 
 inline float vtkPlane::DistanceToPlane(float x[3], float n[3], float p0[3])

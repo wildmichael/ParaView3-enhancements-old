@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProcessObject.h,v $
   Language:  C++
-  Date:      $Date: 2002-12-11 22:47:41 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2003-01-06 20:36:14 $
+  Version:   $Revision: 1.34 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -92,7 +92,7 @@ public:
 
   // Description:
   // Set/Get the execution progress of a process object.
-  vtkSetClampMacro(Progress,float,0.0,1.0);
+  vtkSetClampMacro(Progress,float,0.0f,1.0f);
   vtkGetMacro(Progress,float);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHexahedron.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:24:21 $
-  Version:   $Revision: 1.85 $
+  Date:      $Date: 2003-01-06 20:36:14 $
+  Version:   $Revision: 1.86 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #include "vtkPoints.h"
 #include "vtkQuad.h"
 
-vtkCxxRevisionMacro(vtkHexahedron, "$Revision: 1.85 $");
+vtkCxxRevisionMacro(vtkHexahedron, "$Revision: 1.86 $");
 vtkStandardNewMacro(vtkHexahedron);
 
 static const float VTK_DIVERGED = 1.e6;
@@ -62,7 +62,7 @@ vtkHexahedron::~vtkHexahedron()
 //  linear hexahedron element from global coordinates.
 //
 static const int VTK_HEX_MAX_ITERATION=10;
-static const float VTK_HEX_CONVERGED=1.e-03;
+static const float VTK_HEX_CONVERGED=1.e-03f;
 
 int vtkHexahedron::EvaluatePosition(float x[3], float* closestPoint,
                                    int& subId, float pcoords[3], 

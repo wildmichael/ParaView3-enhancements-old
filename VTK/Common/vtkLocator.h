@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLocator.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-08 00:28:44 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2003-01-06 20:36:14 $
+  Version:   $Revision: 1.49 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -92,7 +92,7 @@ public:
   // Description:
   // Specify absolute tolerance (in world coordinates) for performing
   // geometric operations.
-  vtkSetClampMacro(Tolerance,float,0.0,VTK_LARGE_FLOAT);
+  vtkSetClampMacro(Tolerance,float,0.0f,VTK_LARGE_FLOAT);
   vtkGetMacro(Tolerance,float);
 
   // Description:

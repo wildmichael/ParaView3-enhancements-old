@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSuperquadric.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:28:15 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2003-01-06 20:36:14 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -77,7 +77,7 @@ public:
   // Set/Get Superquadric ring thickness (toroids only).
   // Changing thickness maintains the outside diameter of the toroid.
   vtkGetMacro(Thickness,float);
-  vtkSetClampMacro(Thickness,float,VTK_MIN_SUPERQUADRIC_THICKNESS,1.0);
+  vtkSetClampMacro(Thickness,float,VTK_MIN_SUPERQUADRIC_THICKNESS,1.0f);
 
   // Description:
   // Set/Get Superquadric north/south roundness. 

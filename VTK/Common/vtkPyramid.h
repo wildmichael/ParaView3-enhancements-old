@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPyramid.h,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:24:21 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2003-01-06 20:36:14 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -103,8 +103,8 @@ private:
 
 inline int vtkPyramid::GetParametricCenter(float pcoords[3])
 {
-  pcoords[0] = pcoords[1] = 0.5;
-  pcoords[2] = 0.333333;
+  pcoords[0] = pcoords[1] = 0.5f;
+  pcoords[2] = 0.333333f;
   return 0;
 }
 

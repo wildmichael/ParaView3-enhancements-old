@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCone.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:28:02 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2003-01-06 20:36:14 $
+  Version:   $Revision: 1.38 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -55,7 +55,7 @@ public:
 
   // Description:
   // Set/Get the cone angle (expressed in degrees).
-  vtkSetClampMacro(Angle,float,0,89.0);
+  vtkSetClampMacro(Angle,float,0.0f,89.0f);
   vtkGetMacro(Angle,float);
 
 protected:
