@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOrderedTriangulator.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-09-23 15:02:07 $
-  Version:   $Revision: 1.65 $
+  Date:      $Date: 2003-11-07 14:03:43 $
+  Version:   $Revision: 1.66 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,7 +32,7 @@
 #include <vtkstd/stack>
 #include <vtkstd/map>
 
-vtkCxxRevisionMacro(vtkOrderedTriangulator, "$Revision: 1.65 $");
+vtkCxxRevisionMacro(vtkOrderedTriangulator, "$Revision: 1.66 $");
 vtkStandardNewMacro(vtkOrderedTriangulator);
 
 #ifdef _WIN32_WCE
@@ -981,7 +981,7 @@ void vtkOTMesh::DumpInsertionCavity(double x[3])
   cout << "DATASET POLYDATA\n";
 
   //write out points
-  int numFaces = this->CavityFaces.size();
+  int numFaces = (int)this->CavityFaces.size();
   cout << "POINTS " << 3*numFaces+1 << " float\n";
   
   for (fptr=this->CavityFaces.begin(); 
