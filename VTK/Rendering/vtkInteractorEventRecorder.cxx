@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorEventRecorder.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-05 18:13:32 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-08-08 14:47:23 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -20,14 +20,14 @@
 #include "vtkObjectFactory.h"
 #include "vtkRenderWindowInteractor.h"
 
-vtkCxxRevisionMacro(vtkInteractorEventRecorder, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkInteractorEventRecorder, "$Revision: 1.5 $");
 vtkStandardNewMacro(vtkInteractorEventRecorder);
 
 float vtkInteractorEventRecorder::StreamVersion = 1.0;
 
 vtkInteractorEventRecorder::vtkInteractorEventRecorder()
 {
-  // take over the processing of delete and keypress events from the superclass
+  //take over the processing of delete and keypress events from the superclass
   this->KeyPressCallbackCommand->SetCallback(
     vtkInteractorEventRecorder::ProcessCharEvent);
 
@@ -35,7 +35,7 @@ vtkInteractorEventRecorder::vtkInteractorEventRecorder()
   this->EventCallbackCommand->SetCallback(
     vtkInteractorEventRecorder::ProcessEvents);
 
-  this->FileName = 0;
+  this->FileName = NULL;
 
   this->State = vtkInteractorEventRecorder::Start;
   this->InputStream = NULL;
@@ -62,6 +62,12 @@ vtkInteractorEventRecorder::~vtkInteractorEventRecorder()
     {
     delete this->OutputStream;
     this->OutputStream = NULL;
+    }
+  
+  if ( this->InputString )
+    {
+    delete [] this->InputString;
+    this->InputString = NULL;
     }
 }
 
