@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLYReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-14 20:00:02 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-09-17 19:16:28 $
+  Version:   $Revision: 1.7 $
   Thanks:    Mike Dresser MD/PhD
              Director of Core Facility for Imaging
              Program in Molecular and Cell Biology
@@ -261,8 +261,11 @@ void vtkPLYReader::Execute()
       output->SetPolys(polys);
       polys->Delete();
       }//if face
+
+    free(elist[i]); //allocated by ply_open_for_reading
     
     }//for all elements of the PLY file
+  free(elist); //allocated by ply_open_for_reading
   
   vtkDebugMacro( <<"Read: " << numPts << " points, " 
                  << numPolys << " polygons");
