@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLightKit.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-07 09:25:12 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2000-09-08 23:25:44 $
+  Version:   $Revision: 1.4 $
   Thanks:    Michael Halle, Brigham and Women's Hospital
 
 
@@ -65,13 +65,8 @@ vtkLightKit* vtkLightKit::New() {
 vtkLightKit::vtkLightKit() {
   // create members
   this->KeyLight = vtkLight::New();
-  this->KeyLight->Register(this);
-
   this->FillLight = vtkLight::New();
-  this->FillLight->Register(this);
-
   this->Headlight = vtkLight::New();
-  this->Headlight->Register(this);
 
   for(int i = 0; i < 4; i++) {
     this->WarmthFunction[i] = vtkPiecewiseFunction::New();
