@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSharedMemoryCommunicator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-08 01:08:03 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-11-12 19:57:46 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -37,7 +37,7 @@ public:
   vtkSharedMemoryCommunicatorMessage* Previous;
 };
 
-vtkCxxRevisionMacro(vtkSharedMemoryCommunicator, "$Revision: 1.16 $");
+vtkCxxRevisionMacro(vtkSharedMemoryCommunicator, "$Revision: 1.17 $");
 vtkStandardNewMacro(vtkSharedMemoryCommunicator);
 
 void vtkSharedMemoryCommunicator::PrintSelf(ostream& os, vtkIndent indent)
@@ -322,7 +322,7 @@ vtkSharedMemoryCommunicatorMessage
 
   if (object)
     {
-    message->Object = object->MakeObject();
+    message->Object = object->NewInstance();
     if (this->ForceDeepCopy)
       {
       message->Object->DeepCopy(object);
@@ -358,7 +358,7 @@ vtkSharedMemoryCommunicatorMessage
 
   if (object)
     {
-    message->Array = object->MakeObject();
+    message->Array = object->NewInstance();
     if (this->ForceDeepCopy)
       {
       message->Array->DeepCopy(object);
