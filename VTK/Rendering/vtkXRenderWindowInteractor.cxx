@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-21 21:27:35 $
-  Version:   $Revision: 1.104 $
+  Date:      $Date: 2002-04-25 14:24:31 $
+  Version:   $Revision: 1.105 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,7 +29,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkCommand.h"
 
-vtkCxxRevisionMacro(vtkXRenderWindowInteractor, "$Revision: 1.104 $");
+vtkCxxRevisionMacro(vtkXRenderWindowInteractor, "$Revision: 1.105 $");
 vtkStandardNewMacro(vtkXRenderWindowInteractor);
 
 typedef struct
@@ -572,9 +572,8 @@ void vtkXRenderWindowInteractorCallback(Widget vtkNotUsed(w),
         }
       KeySym ks;
       static char buffer[20];
-      int n;
       buffer[0] = '\0';
-      n = XLookupString(reinterpret_cast<XKeyEvent *>(event),buffer,20,&ks,NULL);
+      XLookupString(reinterpret_cast<XKeyEvent *>(event),buffer,20,&ks,NULL);
       xp = (reinterpret_cast<XKeyEvent *>(event))->x;
       yp = me->Size[1] - (reinterpret_cast<XKeyEvent *>(event))->y - 1;
       if (!me->Enabled) return; 
