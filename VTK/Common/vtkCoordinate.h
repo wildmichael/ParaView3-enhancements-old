@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCoordinate.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:03 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-03-01 16:33:21 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -109,6 +109,8 @@ public:
   void SetCoordinateSystemToView() {this->SetCoordinateSystem(VTK_VIEW);}
   void SetCoordinateSystemToWorld() {this->SetCoordinateSystem(VTK_WORLD);}
     
+  const char *GetCoordinateSystemAsString ();
+
   // Description:
   // Set/get the value of this coordinate. This can be thought of as
   // the position of this coordinate in its coordinate system.
