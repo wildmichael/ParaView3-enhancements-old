@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThinPlateSplineTransform.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:30:39 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2003-10-07 10:25:59 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,6 +22,10 @@
 // source landmark will be moved to a place close to the corresponding target
 // landmark. The points in between are interpolated smoothly using
 // Bookstein's Thin Plate Spline algorithm.
+//
+// To obtain a correct TPS warp, use the R2LogR kernel if your data is 2D, and
+// the R kernel if your data is 3D. Or you can specify your own RBF. (Hence this
+// class is more general than a pure TPS transform.) 
 // .SECTION Caveats
 // 1) The inverse transform is calculated using an iterative method,
 // and is several times more expensive than the forward transform.
