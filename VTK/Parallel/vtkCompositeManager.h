@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCompositeManager.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-30 13:59:00 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-05-13 14:26:15 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -70,8 +70,8 @@ public:
   // Callbacks that initialize and finish the compositing.
   void StartInteractor();
   void ExitInteractor();
-  void StartRender();
-  void EndRender();
+  virtual void StartRender();
+  virtual void EndRender();
   void RenderRMI();
   void ResetCamera(vtkRenderer *ren);
   void ResetCameraClippingRange(vtkRenderer *ren);
@@ -80,7 +80,7 @@ public:
   // Description:
   // If the user wants to handle the event loop, then they must call this
   // method to initialize the RMIs.
-  void InitializeRMIs();
+  virtual void InitializeRMIs();
   
   // Description:
   // The reduction facor makes the transfered images smaller to decrease 
@@ -164,6 +164,11 @@ public:
   vtkBooleanMacro(Manual, int);
   void Composite();
 
+  // Description:
+  // This methods allows the user to select different compositing algorithms.
+  // A vtkTreeCompositer is created as a default value.
+  vtkSetObjectMacro(Compositer, vtkCompositer);
+  vtkGetObjectMacro(Compositer, vtkCompositer);
 
 protected:
   vtkCompositeManager();
