@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-07 18:47:23 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-08-08 15:37:20 $
+  Version:   $Revision: 1.11 $
 
 Copyright (c) 1998-2000 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -42,12 +42,14 @@ vtkPVContourFilter::vtkPVContourFilter()
 {
   this->CommandFunction = vtkPVContourFilterCommand;
   
-  this->Accept = vtkKWWidget::New();
+  this->Accept = vtkKWPushButton::New();
   this->Accept->SetParent(this->Properties);
   this->ContourValueEntry = vtkKWEntry::New();
   this->ContourValueEntry->SetParent(this->Properties);
   this->ContourValueLabel = vtkKWLabel::New();
   this->ContourValueLabel->SetParent(this->Properties);
+  this->SourceButton = vtkKWPushButton::New();
+  this->SourceButton->SetParent(this->Properties);
   
   this->Contour = vtkContourFilter::New();  
 }
@@ -62,6 +64,9 @@ vtkPVContourFilter::~vtkPVContourFilter()
   this->ContourValueEntry = NULL;
   this->ContourValueLabel->Delete();
   this->ContourValueLabel = NULL;
+  
+  this->SourceButton->Delete();
+  this->SourceButton = NULL;
   
   this->Contour->Delete();
   this->Contour = NULL;
@@ -78,12 +83,16 @@ void vtkPVContourFilter::CreateProperties()
 {
   this->vtkPVSource::CreateProperties();
   
+  this->SourceButton->Create(this->Application, "-text GetSource");
+  this->SourceButton->SetCommand(this, "GetSource");
+  this->Script("pack %s", this->SourceButton->GetWidgetName());
+
   this->ContourValueLabel->Create(this->Application, "");
   this->ContourValueLabel->SetLabel("Contour Value:");
   this->ContourValueEntry->Create(this->Application, "");
   this->ContourValueEntry->SetValue(this->GetContour()->GetValue(0), 2);
   
-  this->Accept->Create(this->Application, "button", "-text Accept");
+  this->Accept->Create(this->Application, "-text Accept");
   this->Accept->SetCommand(this, "ContourValueChanged");
   this->Script("pack %s", this->Accept->GetWidgetName());
   this->Script("pack %s %s -side left -anchor w",
@@ -159,7 +168,6 @@ void vtkPVContourFilter::ContourValueChanged()
     this->SetOutput(pvd);
     a = window->GetPreviousSource()->GetPVData()->GetAssignment();
     pvd->SetAssignment(a);
-//    window->GetPreviousSource()->GetPVData()->GetActorComposite()->VisibilityOff(); 
     this->GetInput()->GetActorComposite()->VisibilityOff();
     this->CreateDataPage();
     ac = this->GetPVData()->GetActorComposite();
@@ -168,6 +176,16 @@ void vtkPVContourFilter::ContourValueChanged()
   window->GetMainView()->SetSelectedComposite(this);
 
   this->GetView()->Render();
+  window->GetMainView()->ResetCamera();
 }
 
-
+//----------------------------------------------------------------------------
+void vtkPVContourFilter::GetSource()
+{
+  this->GetPVData()->GetActorComposite()->VisibilityOff();
+  this->GetWindow()->GetMainView()->
+    SetSelectedComposite(this->GetInput()->GetPVSource());
+  this->GetInput()->GetActorComposite()->VisibilityOn();
+  this->GetView()->Render();
+  this->GetWindow()->GetMainView()->ResetCamera();
+}
