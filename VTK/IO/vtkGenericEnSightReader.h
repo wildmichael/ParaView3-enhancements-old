@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericEnSightReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-13 20:46:33 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-06-25 20:03:57 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -118,6 +118,11 @@ public:
   vtkSetMacro(TimeValue, float);
   vtkGetMacro(TimeValue, float);
 
+  // Description:
+  // Get the minimum or maximum time value for this data set.
+  vtkGetMacro(MinimumTimeValue, float);
+  vtkGetMacro(MaximumTimeValue, float);
+  
 protected:
   vtkGenericEnSightReader();
   ~vtkGenericEnSightReader();
@@ -200,6 +205,8 @@ protected:
   int NumberOfComplexVectorsPerElement;
   
   float TimeValue;
+  float MinimumTimeValue;
+  float MaximumTimeValue;
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericEnSightReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-21 15:59:12 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-06-25 20:03:57 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -185,7 +185,9 @@ void vtkGenericEnSightReader::Execute()
   this->Reader->SetFilePath(this->GetFilePath());
   this->Reader->SetTimeValue(this->GetTimeValue());
   this->Reader->Update();
-  
+
+  this->MinimumTimeValue = this->Reader->GetMinimumTimeValue();
+  this->MaximumTimeValue = this->Reader->GetMaximumTimeValue();
   this->NumberOfScalarsPerNode = this->Reader->GetNumberOfScalarsPerNode();
   this->NumberOfVectorsPerNode = this->Reader->GetNumberOfVectorsPerNode();
   this->NumberOfTensorsSymmPerNode = this->Reader->GetNumberOfTensorsSymmPerNode();
