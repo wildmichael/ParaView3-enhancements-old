@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-31 03:30:41 $
-  Version:   $Revision: 1.149 $
+  Date:      $Date: 2000-07-31 03:32:54 $
+  Version:   $Revision: 1.150 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -575,7 +575,7 @@ void vtkRenderer::CreateLight(void)
   this->CreatedLight->SetFocalPoint(this->ActiveCamera->GetFocalPoint());
 }
 
-// Compute the bounds of the visibile props
+// Compute the bounds of the visible props
 void vtkRenderer::ComputeVisiblePropBounds( float allBounds[6] )
 {
   vtkProp    *prop;
