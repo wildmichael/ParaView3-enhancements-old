@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:24:22 $
-  Version:   $Revision: 1.93 $
+  Date:      $Date: 2003-04-24 18:15:45 $
+  Version:   $Revision: 1.94 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,7 @@
 #include "vtkQuad.h"
 #include "vtkVertex.h"
 
-vtkCxxRevisionMacro(vtkStructuredGrid, "$Revision: 1.93 $");
+vtkCxxRevisionMacro(vtkStructuredGrid, "$Revision: 1.94 $");
 vtkStandardNewMacro(vtkStructuredGrid);
 
 #define vtkAdjustBoundsMacro( A, B ) \
@@ -1008,6 +1008,7 @@ void vtkStructuredGrid::InternalStructuredGridCopy(vtkStructuredGrid *src)
 
   this->DataDescription = src->DataDescription;
   this->Blanking = src->Blanking;
+  this->SetPointVisibility(src->PointVisibility);
 
   // Update dimensions
   this->GetDimensions();
