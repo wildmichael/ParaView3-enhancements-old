@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCylinder.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:51:28 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1996-12-19 11:56:57 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,7 +42,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .SECTION Description
 // vtkCylinder computes the implicit function and function gradient for 
 // a cylinder. vtkCylinder is a concrete implementation of vtkImplicitFunction.
-// Cylinder is centered at origin and axes of rotation is along z-axis. (Use 
+// Cylinder is centered at Center and axes of rotation is along the y-axis. (Use 
 // the superclass' vtkImplicitFunction transformation matrix if necessary to
 // reposition.)
 // .SECTION Caveats
@@ -71,8 +71,13 @@ public:
   vtkSetMacro(Radius,float);
   vtkGetMacro(Radius,float);
 
+  // Description:
+  // Set/Get cylinder center
+  vtkSetVector3Macro(Center,float);
+  vtkGetVectorMacro(Center,float,3);
 protected:
   float Radius;
+  float Center[3];
 
 };
 
