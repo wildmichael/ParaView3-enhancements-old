@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-24 17:44:55 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1999-03-03 21:06:51 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,7 +43,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkImageCache.h"
 
 #ifdef _WIN32
-  #include "vtkWin32ImageMapper.h"
+#include "vtkOpenGLImageMapper.h"
+#include "vtkWin32ImageMapper.h"
 #else
   #include "vtkXImageMapper.h"
 #endif
@@ -92,11 +93,12 @@ void vtkImageMapper::PrintSelf(ostream& os, vtkIndent indent)
 
 vtkImageMapper* vtkImageMapper::New()
 {
-  #ifdef _WIN32
-    return vtkWin32ImageMapper::New();
-  #else
-    return vtkXImageMapper::New();
-  #endif
+#ifdef _WIN32
+  return vtkOpenGLImageMapper::New();
+  return vtkWin32ImageMapper::New();
+#else
+  return vtkXImageMapper::New();
+#endif
 
 }
 
@@ -110,7 +112,7 @@ float vtkImageMapper::GetColorScale()
   return 255.0 / this->ColorWindow;
 }
 
-void vtkImageMapper::RenderOverlay(vtkViewport* viewport, vtkActor2D* actor)
+void vtkImageMapper::RenderStart(vtkViewport* viewport, vtkActor2D* actor)
 {
   vtkDebugMacro(<< "vtkImageMapper::RenderOverlay");
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-02 16:48:11 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-03-03 21:06:52 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -140,7 +140,7 @@ void vtkOpenGLPolyDataMapper2D::RenderOpaqueGeometry(vtkViewport* viewport,
   glDisable( GL_DEPTH_TEST );
   glDisable( GL_LIGHTING);
   glOrtho(-actorPos[0],-actorPos[0] + size[0] - 1,
-	  -actorPos[1], -actorPos[1] +size[1] -1, -1, 1);
+	  -actorPos[1], -actorPos[1] +size[1] -1, 0, 1);
   
   aPrim = input->GetPolys();
   for (aPrim->InitTraversal(); aPrim->GetNextCell(npts,pts); cellNum++)

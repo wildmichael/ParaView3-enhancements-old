@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 1999-02-02 18:21:07 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-03-03 21:06:52 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -138,7 +138,7 @@ public:
   
   // Description:
   // Draw the contents of the window
-  void Render();
+  virtual void Render();
 
   // Description:
   // Erase the window contents 
