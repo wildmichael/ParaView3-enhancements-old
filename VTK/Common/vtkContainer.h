@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContainer.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-19 13:20:07 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-06-19 18:40:07 $
+  Version:   $Revision: 1.20 $
 
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -112,8 +112,8 @@ static inline int vtkContainerCompareMethod(float d1, float d2)
 { return vtkContainerDefaultCompare(d1,d2); }
 static inline int vtkContainerCompareMethod(double d1, double d2)
 { return vtkContainerDefaultCompare(d1,d2); }
-int vtkContainerCompareMethod(const char* d1, const char* d2);
- int vtkContainerCompareMethod(char* d1, char* d2);
+VTK_COMMON_EXPORT int vtkContainerCompareMethod(const char* d1, const char* d2);
+VTK_COMMON_EXPORT int vtkContainerCompareMethod(char* d1, char* d2);
 static inline int vtkContainerCompareMethod(void* d1, void* d2)
 { return vtkContainerDefaultCompare(d1,d2); }
 
@@ -142,8 +142,8 @@ static inline float vtkContainerCreateMethod(float d1)
 { return vtkContainerDefaultCreate(d1); }
 static inline double vtkContainerCreateMethod(double d1)
 { return vtkContainerDefaultCreate(d1); }
-const char* vtkContainerCreateMethod(const char* d1);
-char* vtkContainerCreateMethod(char* d1);
+VTK_COMMON_EXPORT const char  * vtkContainerCreateMethod(const char* d1);
+VTK_COMMON_EXPORT char* vtkContainerCreateMethod(char* d1);
 static inline void* vtkContainerCreateMethod(void* d1)
 { return vtkContainerDefaultCreate(d1); }
 
