@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageExtractComponents.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:08:20 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-03-06 15:26:09 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,7 +68,8 @@ public:
   vtkGetVector3Macro(Components,int);
   
   // Description:
-  // Get the number of componets. This is set implicitly by the SetComponents method.
+  // Get the number of components to extract. This is set implicitly by the 
+  // SetComponents() method.
   vtkGetMacro(NumberOfComponents,int);
 
 protected:
