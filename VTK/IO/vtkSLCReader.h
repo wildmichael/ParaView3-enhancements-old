@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSLCReader.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:04:47 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1998-08-26 12:10:24 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -76,7 +76,7 @@ protected:
   
   // Description:
   // Decodes an array of eight bit run-length encoded data.
-  unsigned char *Decode_8bit_data( unsigned char *in_ptr, int size );
+  unsigned char *Decode8BitData( unsigned char *in_ptr, int size );
 };
 
 #endif
