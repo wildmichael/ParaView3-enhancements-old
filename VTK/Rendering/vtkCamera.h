@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCamera.h,v $
   Language:  C++
-  Date:      $Date: 1994-03-03 18:33:48 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1994-03-14 12:29:53 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -77,6 +77,8 @@ class vlCamera : public vlObject
   vlBooleanMacro(Switch,int);
 
   float GetTwist();
+  void SetViewPlaneNormal(float a[3]);
+  void SetViewPlaneNormal(float x,float y,float z);
   void CalcViewPlaneNormal();
   void CalcDistance();
   void CalcPerspectiveTransform();
