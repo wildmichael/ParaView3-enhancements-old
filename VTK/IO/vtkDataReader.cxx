@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-02-01 14:23:51 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1996-03-01 22:14:42 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -88,6 +88,26 @@ vtkDataReader::~vtkDataReader()
   if (this->ScalarLut) delete [] this->ScalarLut;
   if (this->InputString) delete [] this->InputString;
 }
+
+void vtkDataReader::SetInputString(char* _arg, int len)
+{ 
+  if (this->Debug)
+    {
+    cerr << "Debug: In " __FILE__ << ", line " << __LINE__ << "\n" << this->GetClassName() << " (" << this << "): setting InputString to " << _arg << "\n\n"; 
+    }
+
+  if (this->InputString) delete [] this->InputString; 
+  if (_arg) 
+    { 
+    this->InputString = new char[len]; 
+    memcpy(this->InputString,_arg,len); 
+    } 
+   else 
+    { 
+    this->InputString = NULL; 
+    } 
+  this->Modified(); 
+} 
 
 // Description:
 // Internal function used to consume whitespace when reading in

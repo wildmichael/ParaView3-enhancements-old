@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-12-27 10:53:38 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1996-03-01 22:14:45 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,6 +79,8 @@ vtkRenderWindow::vtkRenderWindow()
 
 vtkRenderWindow::~vtkRenderWindow()
 {
+  vtkRenderer *aren;
+
   if (this->AccumulationBuffer) 
     {
     delete [] this->AccumulationBuffer;
@@ -88,6 +90,13 @@ vtkRenderWindow::~vtkRenderWindow()
     {
     delete [] this->ResultFrame;
     this->ResultFrame = NULL;
+    }
+
+  // we also free all of our renderers
+  for (this->Renderers.InitTraversal(); 
+       (aren = this->Renderers.GetNextItem()); )
+    {
+    delete aren;
     }
 }
 
