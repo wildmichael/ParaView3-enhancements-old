@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointData.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-07-08 20:26:13 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 1996-07-13 21:10:38 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -364,7 +364,9 @@ void vtkPointData::InterpolatePoint(vtkPointData *fromPd, int toId, vtkIdList *p
     if ( this->Scalars->GetNumberOfValuesPerScalar() == 1 ) //single-valued scalar
       {
       fromPd->Scalars->GetScalars(*ptIds, *cellScalars);
-      for (s=0.0, i=0; i < ptIds->GetNumberOfIds(); i++)
+
+      int NumberOfIds = ptIds->GetNumberOfIds();
+      for (s=0.0, i=0; i < NumberOfIds; i++)
         {
         s += cellScalars->GetScalar(i) * weights[i];
         }
