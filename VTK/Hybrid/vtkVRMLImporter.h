@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLImporter.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-01 14:21:22 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2000-10-25 11:45:22 $
+  Version:   $Revision: 1.5 $
   Thanks:    Tom Citriniti who implemented and contributed this class
 
 
@@ -97,8 +97,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkImporter.h"
 #include "vtkPolyDataMapper.h"
-#include "vtkFloatNormals.h"
-#include "vtkFloatPoints.h"
+#include "vtkNormals.h"
+#include "vtkPoints.h"
 
 class VTK_EXPORT vtkVRMLImporter : public vtkImporter
 {
@@ -144,8 +144,8 @@ private:
   vtkLight             *CurrentLight;
   vtkTransform         *CurrentTransform;
   vtkSource            *CurrentSource;
-  vtkFloatPoints       *CurrentPoints;
-  vtkFloatNormals      *CurrentNormals;
+  vtkPoints            *CurrentPoints;
+  vtkNormals           *CurrentNormals;
   vtkLookupTable       *CurrentLut;
   vtkScalars           *CurrentScalars;
   vtkPolyDataMapper    *CurrentMapper;
