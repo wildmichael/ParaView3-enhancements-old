@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUGFacetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-09-09 19:27:01 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1997-04-16 15:16:41 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,7 +51,7 @@ vtkUGFacetReader::vtkUGFacetReader()
 vtkUGFacetReader::~vtkUGFacetReader()
 {
   if ( this->Filename ) delete [] this->Filename;
-  if ( this->PartColors ) delete this->PartColors;
+  if ( this->PartColors ) this->PartColors->Delete();
 }
 
 void vtkUGFacetReader::Execute()
