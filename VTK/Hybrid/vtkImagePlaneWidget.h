@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePlaneWidget.h,v $
   Language:  C++
-  Date:      $Date: 2003-03-04 14:23:54 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2003-05-12 16:31:06 $
+  Version:   $Revision: 1.33 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -338,7 +338,9 @@ public:
   vtkGetObjectMacro(TexturePlaneProperty,vtkProperty);
 
   // Description:
-  // Get the current window and level values.
+  // Set/Get the current window and level values.  Set should
+  // only be called after SetInput.
+  void SetWindowLevel(float window, float level);
   void GetWindowLevel(float wl[2]);
 
   // Description:
