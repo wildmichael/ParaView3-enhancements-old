@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredCacheFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-22 22:23:05 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-10-21 18:11:29 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,20 +17,21 @@
 =========================================================================*/
 #include "vtkStructuredCacheFilter.h"
 
+#include "vtkCellData.h"
+#include "vtkExtentSplitter.h"
+#include "vtkFloatArray.h"
 #include "vtkImageData.h"
-#include "vtkStructuredGrid.h"
-#include "vtkRectilinearGrid.h"
+#include "vtkMultiProcessController.h"
 #include "vtkObjectFactory.h"
 #include "vtkPointData.h"
-#include "vtkMultiProcessController.h"
-#include "vtkTableExtentTranslator.h"
-#include "vtkExtentSplitter.h"
 #include "vtkPointData.h"
-#include "vtkCellData.h"
-#include "vtkFloatArray.h"
+#include "vtkRectilinearGrid.h"
+#include "vtkStructuredGrid.h"
+#include "vtkUnsignedCharArray.h"
+#include "vtkTableExtentTranslator.h"
 #include "vtkTimerLog.h"
 
-vtkCxxRevisionMacro(vtkStructuredCacheFilter, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkStructuredCacheFilter, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkStructuredCacheFilter);
 
 //----------------------------------------------------------------------------
