@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkRenderWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-05 15:07:32 $
-  Version:   $Revision: 1.76 $
+  Date:      $Date: 2002-09-06 13:25:17 $
+  Version:   $Revision: 1.77 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -330,14 +330,7 @@ extern "C" {
         break;
       }
     Tk_PhotoSetSize ( photo, block.width, block.height );
-
-    // I don't know exactly what this means...
-#if (TK_MAJOR_VERSION == 8) && (TK_MINOR_VERSION >= 4)
-    Tk_PhotoPutBlock ( photo, &block, 0, 0, block.width, block.height, 
-                       TK_PHOTO_COMPOSITE_SET );
-#else
     Tk_PhotoPutBlock ( photo, &block, 0, 0, block.width, block.height );
-#endif
     delete[] photobuffer;
     return TCL_OK;
   }
