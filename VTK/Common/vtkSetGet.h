@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSetGet.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-26 14:21:41 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 1999-06-18 20:42:40 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -135,6 +135,34 @@ void Set##name (type _arg) \
 type Get##name () { \
   vtkDebugMacro(<< this->GetClassName() << " (" << this << "): returning " << #name " of " << this->name ); \
   return this->name; \
+  } 
+
+//
+// Set character string.  Creates member Set"name"() 
+// (e.g., SetFilename(char *)); 
+// This method is designed to help avoid problems in allocating a string
+// in one dll and freeing it in another. The regular SetStringMacro
+// is succeptible to this problem.
+//
+#define vtkSafeSetStringMacro(name) \
+void Set##name (char* _arg);
+
+#define vtkSafeSetStringMacro2(name,cname) \
+void cname##::Set##name (char* _arg) \
+  { \
+  vtkDebugMacro(<< this->GetClassName() << " (" << this << "): setting " << #name " to " << _arg ); \
+  if ( this->name && _arg && (!strcmp(this->name,_arg))) { return;} \
+  if (this->name) { delete [] this->name; } \
+  if (_arg) \
+    { \
+    this->name = new char[strlen(_arg)+1]; \
+    strcpy(this->name,_arg); \
+    } \
+   else \
+    { \
+    this->name = NULL; \
+    } \
+  this->Modified(); \
   } 
 
 //
