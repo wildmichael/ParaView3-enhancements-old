@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMeshQuality.h,v $
   Language:  C++
-  Date:      $Date: 2002-09-06 20:28:09 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-10-22 16:02:39 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,8 +23,11 @@
 // <p> The minumum (and ideal) quality ratio is 1.0 for regular tetrahedra,
 // i.e. all sides of equal length.  Larger values indicate poorer mesh
 // quality.  The resulting quality values (and the tetrahedron volumes)
-// are set as the Scalars of the FieldData of the output.  This class was
-// developed by Leila Baghdadi at the John P. Robarts Research Institute.
+// are set as the Scalars of the FieldData of the output.  
+
+// .SECTION Thanks
+// This class was developed by Leila Baghdadi, Hanif Ladak, and
+// David Steinman at the Imaging Research Labs, Robarts Research Institute.
 
 #ifndef __vtkMeshQuality_h
 #define __vtkMeshQuality_h
