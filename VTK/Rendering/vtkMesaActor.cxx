@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-19 18:54:33 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2001-09-19 19:12:17 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -79,7 +79,7 @@ vtkMesaActor* vtkMesaActor::New()
   return new vtkMesaActor;
 }
 
-vtkProperty* MakeProperty()
+vtkProperty* vtkMesaActor::MakeProperty()
 {
   return vtkMesaProperty::New();
 }
