@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-28 20:10:04 $
-  Version:   $Revision: 1.69 $
+  Date:      $Date: 2001-08-30 15:45:54 $
+  Version:   $Revision: 1.70 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -390,6 +390,7 @@ void vtkVolumeRayCastMapper::Render( vtkRenderer *ren, vtkVolume *vol )
   if ( this->ComputeRowBounds( vol, ren ) )
     {
     VTKVRCStaticInfo *staticInfo = new VTKVRCStaticInfo;
+    staticInfo->ClippingPlane = NULL;
     staticInfo->Volume = vol;
     staticInfo->Renderer = ren;
     staticInfo->ScalarDataPointer = 
@@ -523,6 +524,10 @@ void vtkVolumeRayCastMapper::Render( vtkRenderer *ren, vtkVolume *vol )
       this->ImageSampleDistance = oldImageSampleDistance;
       }
     
+    if ( staticInfo->ClippingPlane )
+      {
+      delete staticInfo->ClippingPlane;
+      }
     delete staticInfo;
 
     if ( this->ZBuffer )
