@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-22 15:05:54 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1995-09-12 12:47:25 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -722,7 +722,7 @@ void vtkRenderWindow::CopyResultFrame(void)
 
 // Description:
 // This method indicates if a StereoOn/Off will require the window to 
-// be remapped. Soe types of stereo rendering require a new window
+// be remapped. Some types of stereo rendering require a new window
 // to be created.
 int vtkRenderWindow::GetRemapWindow(void)
 {
