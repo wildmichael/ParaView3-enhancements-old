@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2000-06-12 09:52:39 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-07-25 11:34:16 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -63,6 +63,15 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "GL/gl.h"
 #include "GL/glx.h"
 #endif
+
+// version 3.2 and newer do not #define MESA, so 
+// look for the only #define in gl.h that is unique to 
+// mesa, and if defined, then define MESA
+#ifdef GL_MESA_window_pos
+#define MESA
+#endif
+
+
 // if we really have the mesa headers then include off screen rendering
 #ifdef MESA
 #include "GL/osmesa.h"
@@ -73,8 +82,13 @@ class vtkIdList;
 class VTK_EXPORT vtkMesaRenderWindow : public vtkXRenderWindow
 {
 protected:
+// If mesa is not defined it means that vtk was configured with-mesa
+// but found non-mesa header files, so define OffScreenContextId as
+// a void*, so this class will compile anyway.
 #ifdef MESA
   OSMesaContext OffScreenContextId;
+#else
+  void* OffScreenContextId;
 #endif
   GLXContext ContextId;
 
