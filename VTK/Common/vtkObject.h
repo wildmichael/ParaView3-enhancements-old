@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.h,v $
   Language:  C++
-  Date:      $Date: 1998-11-13 14:04:08 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 1998-11-13 15:08:32 $
+  Version:   $Revision: 1.58 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -156,7 +156,11 @@ public:
 
   // Description: 
   // Return the version of vtk this object is a part of.
-  static const char *GetVTKVersion() {return "2.2";};
+  // A variety of methods are included.
+  static const char *GetVTKVersion() {return "2.2.2";};
+  static int GetVTKMajorVersion() {return 2;};
+  static int GetVTKMinorVersion() {return 2;};
+  static int GetVTKBuildVersion() {return 2;};
   
   // Description:
   // Increase the reference count (mark as used by another object).
