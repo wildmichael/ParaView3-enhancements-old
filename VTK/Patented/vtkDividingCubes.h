@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDividingCubes.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:35:52 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1995-08-15 14:38:46 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,7 +44,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // of constant scalar value (i.e., an iso-surface). Dense point clouds (i.e.,
 // at screen resolution) will appear as a surface. Less dense clouds can be 
 // used as a source to generate streamlines or to generate "transparent"
-// surfaces.
+// surfaces. This filter is based on the generate program written by
+// H. Cline, S. Ludke and W. Lorensen.
 
 #ifndef __vtkDividingCubes_h
 #define __vtkDividingCubes_h
