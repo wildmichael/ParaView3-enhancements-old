@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader2.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-15 14:20:21 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-01-02 23:00:12 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -98,10 +98,14 @@ vtkImageReader2::vtkImageReader2()
   this->HeaderSize = 0;
   this->ManualHeaderSize = 0;
   
+  this->FileNameSliceOffset = 0;
+  this->FileNameSliceSpacing = 1;
   // Left over from short reader
   this->SwapBytes = 0;
   this->FileLowerLeft = 0;
   this->FileDimensionality = 2;
+  
+
 }
 
 //----------------------------------------------------------------------------
@@ -161,17 +165,20 @@ void vtkImageReader2::ComputeInternalFileName(int slice)
     }
   else 
     {
+    int slicenum = 
+      slice * this->FileNameSliceSpacing
+      + this->FileNameSliceOffset;
     if (this->FilePrefix)
       {
       this->InternalFileName = new char [strlen(this->FilePrefix) +
                                         strlen(this->FilePattern) + 10];
       sprintf (this->InternalFileName, this->FilePattern, 
-               this->FilePrefix, slice);
+               this->FilePrefix, slicenum);
       }
     else
       {
       this->InternalFileName = new char [strlen(this->FilePattern) + 10];
-      sprintf (this->InternalFileName, this->FilePattern, "", slice);
+      sprintf (this->InternalFileName, this->FilePattern, "", slicenum);
       }
     }
 }
@@ -359,6 +366,11 @@ void vtkImageReader2::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "FilePattern: " << 
     (this->FilePattern ? this->FilePattern : "(none)") << "\n";
 
+  os << indent << "FileNameSliceOffset: " 
+     << this->FileNameSliceOffset << "\n";
+  os << indent << "FileNameSliceSpacing: " 
+     << this->FileNameSliceSpacing << "\n";
+
   os << indent << "DataScalarType: " 
      << vtkImageScalarTypeNameMacro(this->DataScalarType) << "\n";
   os << indent << "NumberOfScalarComponents: " 
@@ -429,7 +441,7 @@ void vtkImageReader2::ExecuteInformation()
 
 //----------------------------------------------------------------------------
 // Manual initialization.
-void vtkImageReader2::SetHeaderSize(int size)
+void vtkImageReader2::SetHeaderSize(unsigned long size)
 {
   if (size != this->HeaderSize)
     {
@@ -519,12 +531,12 @@ void vtkImageReader2::OpenFile()
 }
 
 
-int vtkImageReader2::GetHeaderSize()
+unsigned long vtkImageReader2::GetHeaderSize()
 {
   return this->GetHeaderSize(this->DataExtent[4]);
 }
 
-int vtkImageReader2::GetHeaderSize(int idx)
+unsigned long vtkImageReader2::GetHeaderSize(unsigned long idx)
 {
   if (!this->FileName && !this->FilePattern)
     {
