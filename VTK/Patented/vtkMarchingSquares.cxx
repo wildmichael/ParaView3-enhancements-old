@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingSquares.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:53:35 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1996-09-20 19:43:17 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -227,7 +227,12 @@ void ContourImage(T *scalars, vtkScalars *newScalars, int roi[6], int dir[3],
               newScalars->InsertScalar(ptIds[ii],value);
               }
             }
-          lines->InsertNextCell(2,ptIds);
+          
+          if ( ptIds[0] != ptIds[1] ) //check for degenerate line
+            {
+            lines->InsertNextCell(2,ptIds);
+            }
+
           }//for each line
         }//for all contours
       }//for i
