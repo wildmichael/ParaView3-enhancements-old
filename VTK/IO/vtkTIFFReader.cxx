@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTIFFReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-30 20:36:05 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2003-03-04 18:51:47 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -52,7 +52,7 @@ extern "C" {
 
 //-------------------------------------------------------------------------
 vtkStandardNewMacro(vtkTIFFReader);
-vtkCxxRevisionMacro(vtkTIFFReader, "$Revision: 1.37 $");
+vtkCxxRevisionMacro(vtkTIFFReader, "$Revision: 1.38 $");
 
 class vtkTIFFReaderInternal
 {
@@ -643,7 +643,11 @@ int vtkTIFFReader::CanReadFile(const char* fname)
   vtkTIFFReaderInternal tf;
   int res = tf.Open(fname);
   tf.Clean();
-  return res;
+  if (res)
+    {
+    return 3;
+    }
+  return 0;
 }
 
 //----------------------------------------------------------------------------
