@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32TextMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-03-11 18:31:59 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-04-02 13:18:45 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,7 +66,7 @@ public:
   // Description:
   // What is the size of the rectangle required to draw this
   // mapper ?
-  void GetSize(vtkViewport* viewport, int *size);
+  void GetSize(vtkViewport* viewport, int size[2]);
 
 protected:
   vtkTimeStamp  BuildTime;
