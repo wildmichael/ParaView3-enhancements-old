@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOrderedTriangulator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-22 11:44:22 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-05-23 11:47:28 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -836,34 +836,6 @@ void vtkOrderedTriangulator::Triangulate()
 }
 
 
-//------------------------------------------------------------------------
-int vtkOrderedTriangulator::GetTetras(int classification, 
-                                       vtkCellArray *outConnectivity)
-{
-  vtkOTLinkedList<vtkOTTetra*>::Iterator tptr;
-  vtkOTTetra::TetraClassification type; //inside, outside
-  int numTetras=0;
-
-  // loop over all tetras getting the ones with the classification requested
-  for (tptr=this->Mesh->Tetras.Begin(); 
-       tptr != this->Mesh->Tetras.End(); ++tptr)
-    {
-    type = (*tptr)->GetType();
-
-    if ( type == classification || classification == vtkOTTetra::All)
-      {
-      numTetras++;
-      outConnectivity->InsertNextCell(4);
-      outConnectivity->InsertCellPoint((*tptr)->Points[0]->Id);
-      outConnectivity->InsertCellPoint((*tptr)->Points[1]->Id);
-      outConnectivity->InsertCellPoint((*tptr)->Points[2]->Id);
-      outConnectivity->InsertCellPoint((*tptr)->Points[3]->Id);
-      }
-    }//for all tetras
-
-  return numTetras;
-}
-
 int vtkOrderedTriangulator::GetTetras(int classification, 
                                        vtkUnstructuredGrid *ugrid)
 {
@@ -902,6 +874,34 @@ int vtkOrderedTriangulator::GetTetras(int classification,
       }
     }//for all tetras
   
+  return numTetras;
+}
+
+//------------------------------------------------------------------------
+int vtkOrderedTriangulator::AddTetras(int classification, 
+                                       vtkCellArray *outConnectivity)
+{
+  vtkOTLinkedList<vtkOTTetra*>::Iterator tptr;
+  vtkOTTetra::TetraClassification type; //inside, outside
+  int numTetras=0;
+
+  // loop over all tetras getting the ones with the classification requested
+  for (tptr=this->Mesh->Tetras.Begin(); 
+       tptr != this->Mesh->Tetras.End(); ++tptr)
+    {
+    type = (*tptr)->GetType();
+
+    if ( type == classification || classification == vtkOTTetra::All)
+      {
+      numTetras++;
+      outConnectivity->InsertNextCell(4);
+      outConnectivity->InsertCellPoint((*tptr)->Points[0]->Id);
+      outConnectivity->InsertCellPoint((*tptr)->Points[1]->Id);
+      outConnectivity->InsertCellPoint((*tptr)->Points[2]->Id);
+      outConnectivity->InsertCellPoint((*tptr)->Points[3]->Id);
+      }
+    }//for all tetras
+
   return numTetras;
 }
 
