@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-30 22:51:13 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-04-09 01:50:11 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -336,10 +336,14 @@ void vtkOpenGLImageActor::Load(vtkRenderer *ren)
     glNewList ((GLuint) this->Index, GL_COMPILE);
 #endif
 
-#ifdef _WIN32
-    ((vtkWin32OpenGLRenderWindow *)(ren->GetRenderWindow()))->RegisterTextureResource( this->Index );
+#ifdef VTK_USE_QUARTZ
+    ((vtkQuartzRenderWindow *)(ren->GetRenderWindow()))->RegisterTextureResource( this->Index );
 #else
+  #ifdef _WIN32
+    ((vtkWin32OpenGLRenderWindow *)(ren->GetRenderWindow()))->RegisterTextureResource( this->Index );
+  #else
     ((vtkOpenGLRenderWindow *)(ren->GetRenderWindow()))->RegisterTextureResource( this->Index );
+  #endif
 #endif
     
     if (this->Interpolate)
