@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-02 03:37:52 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2000-03-03 15:36:48 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -150,14 +150,14 @@ void vtkTransformPolyDataFilter::Execute()
       newCellVectors = vtkVectors::New();
       newCellVectors->Allocate(numCells);
       ((vtkLinearTransform *)this->Transform)->
-	TransformNormals(inCellNormals,newCellNormals);
+	TransformVectors(inCellVectors,newCellVectors);
       }
     if ( inCellNormals ) 
       {
       newCellNormals = vtkNormals::New();
       newCellNormals->Allocate(numCells);
       ((vtkLinearTransform *)this->Transform)->
-       TransformVectors(inCellVectors,newCellVectors);
+       TransformNormals(inCellNormals,newCellNormals);
       }
     }
 
