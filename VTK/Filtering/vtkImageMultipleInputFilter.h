@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-01-05 21:49:37 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1998-03-06 22:55:26 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -121,7 +121,7 @@ protected:
   virtual void ExecuteImageInformation();
   virtual void ComputeRequiredInputUpdateExtent(int inExt[6], int outExt[6],
 						int whichInput);
-  void RecursiveStreamUpdate(vtkImageData *outData, int axis);
+  virtual void RecursiveStreamUpdate(vtkImageData *outData);
   virtual void Execute(vtkImageData **inDatas, vtkImageData *outData);
 };
 
