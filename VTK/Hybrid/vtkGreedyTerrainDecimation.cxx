@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGreedyTerrainDecimation.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-09-03 13:59:51 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2003-11-11 18:41:11 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,7 @@
 
 #include <vtkstd/vector>
 
-vtkCxxRevisionMacro(vtkGreedyTerrainDecimation, "$Revision: 1.14 $");
+vtkCxxRevisionMacro(vtkGreedyTerrainDecimation, "$Revision: 1.15 $");
 vtkStandardNewMacro(vtkGreedyTerrainDecimation);
 
 // Define some constants describing vertices
@@ -291,10 +291,11 @@ vtkIdType vtkGreedyTerrainDecimation::FindTriangle(double x[3], vtkIdType ptIds[
     this->GetPoint(ptIds[i], p[i]);
     }
 
-  // Randomization (of find edge neighbora) avoids walking in 
+  // Randomization (of find edge neighbors) avoids walking in 
   // circles in certain weird cases
   srand(tri);
   ir = rand() % 3;
+  
   // evaluate in/out of each edge
   for (inside=1, minProj=VTK_DEL2D_TOLERANCE, ic=0; ic<3; ic++)
     {
