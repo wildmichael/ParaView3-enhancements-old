@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleSwitch.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-26 11:34:19 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2000-11-30 19:28:47 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -41,6 +41,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 #include "vtkInteractorStyleSwitch.h"
 #include "vtkObjectFactory.h"
+#include "vtkCommand.h"
 
 //----------------------------------------------------------------------------
 vtkInteractorStyleSwitch *vtkInteractorStyleSwitch::New() 
@@ -144,9 +145,9 @@ void vtkInteractorStyleSwitch::OnMouseMove(int ctrl, int shift, int x, int y)
 void vtkInteractorStyleSwitch::OnLeftButtonDown(int ctrl, int shift, 
 						int x, int y) 
 {
-  if (this->LeftButtonPressMethod) 
+  if (this->HasObserver(vtkCommand::LeftButtonPressEvent)) 
     {
-    (*this->LeftButtonPressMethod)(this->LeftButtonPressMethodArg);
+    this->InvokeEvent(vtkCommand::LeftButtonPressEvent,NULL);
     return;
     }
 
@@ -176,9 +177,9 @@ void vtkInteractorStyleSwitch::OnLeftButtonDown(int ctrl, int shift,
 void vtkInteractorStyleSwitch::OnLeftButtonUp(int ctrl, int shift,
 					      int x, int y) 
 {
-  if (this->LeftButtonReleaseMethod) 
+  if (this->HasObserver(vtkCommand::LeftButtonReleaseEvent)) 
     {
-    (*this->LeftButtonReleaseMethod)(this->LeftButtonReleaseMethodArg);
+    this->InvokeEvent(vtkCommand::LeftButtonReleaseEvent,NULL);
     return;
     }
 
@@ -208,9 +209,9 @@ void vtkInteractorStyleSwitch::OnLeftButtonUp(int ctrl, int shift,
 void vtkInteractorStyleSwitch::OnMiddleButtonDown(int ctrl, int shift, 
 						  int x, int y) 
 {
-  if (this->MiddleButtonPressMethod) 
+  if (this->HasObserver(vtkCommand::MiddleButtonPressEvent)) 
     {
-    (*this->MiddleButtonPressMethod)(this->MiddleButtonPressMethodArg);
+    this->InvokeEvent(vtkCommand::MiddleButtonPressEvent,NULL);
     return;
     }
 
@@ -239,9 +240,9 @@ void vtkInteractorStyleSwitch::OnMiddleButtonDown(int ctrl, int shift,
 void vtkInteractorStyleSwitch::OnMiddleButtonUp(int ctrl, int shift, 
 						int x, int y) 
 {
-  if (this->MiddleButtonReleaseMethod) 
+  if (this->HasObserver(vtkCommand::MiddleButtonReleaseEvent)) 
     {
-    (*this->MiddleButtonReleaseMethod)(this->MiddleButtonReleaseMethodArg);
+    this->InvokeEvent(vtkCommand::MiddleButtonReleaseEvent,NULL);
     return;
     }
 
@@ -271,9 +272,9 @@ void vtkInteractorStyleSwitch::OnMiddleButtonUp(int ctrl, int shift,
 void vtkInteractorStyleSwitch::OnRightButtonDown(int ctrl, int shift,
 						 int x, int y)
 {
-  if (this->RightButtonPressMethod) 
+  if (this->HasObserver(vtkCommand::RightButtonPressEvent)) 
     {
-    (*this->RightButtonPressMethod)(this->RightButtonPressMethodArg);
+    this->InvokeEvent(vtkCommand::RightButtonPressEvent,NULL);
     return;
     }
 
@@ -302,9 +303,9 @@ void vtkInteractorStyleSwitch::OnRightButtonDown(int ctrl, int shift,
 void vtkInteractorStyleSwitch::OnRightButtonUp(int ctrl, int shift,
 					       int x, int y)
 {
-  if (this->RightButtonReleaseMethod) 
+  if (this->HasObserver(vtkCommand::RightButtonReleaseEvent)) 
     {
-    (*this->RightButtonReleaseMethod)(this->RightButtonReleaseMethodArg);
+    this->InvokeEvent(vtkCommand::RightButtonReleaseEvent,NULL);
     return;
     }
 

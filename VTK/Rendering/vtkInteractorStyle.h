@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.h,v $
   Language:  C++
-  Date:      $Date: 2000-10-05 06:44:34 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2000-11-30 19:28:46 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -285,26 +285,12 @@ protected:
   float              PickColor[3];        // support 2D picking
   vtkActor2D         *PickedActor2D;
 
-  void (*LeftButtonPressMethod)(void *);
-  void (*LeftButtonPressMethodArgDelete)(void *);
-  void *LeftButtonPressMethodArg;
-  void (*LeftButtonReleaseMethod)(void *);
-  void (*LeftButtonReleaseMethodArgDelete)(void *);
-  void *LeftButtonReleaseMethodArg;
-
-  void (*MiddleButtonPressMethod)(void *);
-  void (*MiddleButtonPressMethodArgDelete)(void *);
-  void *MiddleButtonPressMethodArg;
-  void (*MiddleButtonReleaseMethod)(void *);
-  void (*MiddleButtonReleaseMethodArgDelete)(void *);
-  void *MiddleButtonReleaseMethodArg;
-
-  void (*RightButtonPressMethod)(void *);
-  void (*RightButtonPressMethodArgDelete)(void *);
-  void *RightButtonPressMethodArg;
-  void (*RightButtonReleaseMethod)(void *);
-  void (*RightButtonReleaseMethodArgDelete)(void *);
-  void *RightButtonReleaseMethodArg;
+  unsigned long LeftButtonPressTag;
+  unsigned long LeftButtonReleaseTag;
+  unsigned long MiddleButtonPressTag;
+  unsigned long MiddleButtonReleaseTag;
+  unsigned long RightButtonPressTag;
+  unsigned long RightButtonReleaseTag;
 };
 
 #endif
