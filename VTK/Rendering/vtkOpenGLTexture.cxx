@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:45 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2001-03-30 22:51:14 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,15 +43,22 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <string.h>
 
 #include "vtkRenderWindow.h"
+#ifdef VTK_USE_QUARTZ
+#include <OpenGL/gl.h>
+#include "vtkQuartzRenderWindow.h"
+#else
 #ifdef _WIN32
 #include "vtkWin32OpenGLRenderWindow.h"
 #else
 #include "vtkOpenGLRenderWindow.h"
 #endif
+#endif
 #include "vtkOpenGLRenderer.h"
 #include "vtkOpenGLTexture.h"
 #ifndef VTK_IMPLEMENT_MESA_CXX
+#ifndef VTK_USE_QUARTZ
 #include <GL/gl.h>
+#endif
 #endif
 #include "vtkObjectFactory.h"
 

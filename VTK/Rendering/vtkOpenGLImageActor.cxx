@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:44 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-03-30 22:51:13 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,15 +43,23 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <string.h>
 
 #include "vtkRenderWindow.h"
+#ifdef VTK_USE_QUARTZ
+#include "vtkQuartzRenderWindow.h"
+#else
 #ifdef _WIN32
 #include "vtkWin32OpenGLRenderWindow.h"
 #else
 #include "vtkOpenGLRenderWindow.h"
 #endif
+#endif
 #include "vtkOpenGLRenderer.h"
 #include "vtkOpenGLImageActor.h"
 #ifndef VTK_IMPLEMENT_MESA_CXX
+#ifdef VTK_USE_QUARTZ
+#include <OpenGL/gl.h>
+#else
 #include <GL/gl.h>
+#endif
 #endif
 #include "vtkObjectFactory.h"
 
