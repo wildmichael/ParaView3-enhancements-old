@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1997-09-05 13:49:33 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 1997-10-16 18:47:21 $
+  Version:   $Revision: 1.62 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -125,12 +125,6 @@ public:
   vtkSetMacro(Borders,int);
   vtkGetMacro(Borders,int);
   vtkBooleanMacro(Borders,int);
-
-  // Description:
-  // Turn on/off double buffering.
-  vtkSetMacro(DoubleBuffer,int);
-  vtkGetMacro(DoubleBuffer,int);
-  vtkBooleanMacro(DoubleBuffer,int);
 
   // Description:
   // Turn on/off stereo rendering.
@@ -259,6 +253,7 @@ public:
   virtual void *GetGenericWindowId() {return NULL;};
   virtual void *GetGenericParentId() {return NULL;};
   virtual void *GetGenericContext() {return NULL;};
+  virtual void *GetGenericDrawable() {return NULL;};
   virtual void SetWindowInfo(char *) {};
 
 protected:
@@ -270,7 +265,6 @@ protected:
   int Borders;
   int FullScreen;
   int OldScreen[5];
-  int DoubleBuffer;
   int StereoRender;
   int StereoType;
   int StereoStatus; // used for keeping track of what's going on
