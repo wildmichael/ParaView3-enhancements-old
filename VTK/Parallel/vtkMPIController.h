@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPIController.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-17 01:50:34 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-05-17 14:10:09 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -45,6 +45,10 @@
 
 #include "mpi.h"
 #include "vtkMultiProcessController.h"
+// Do not remove this header file. This class contains methods
+// which take arguments defined in  vtkMPICommunicator.h by
+// reference.
+#include "vtkMPICommunicator.h"
 
 class vtkMPICommunicator;
 
