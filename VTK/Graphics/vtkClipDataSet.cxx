@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-30 11:18:49 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2003-09-19 11:29:51 $
+  Version:   $Revision: 1.30 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,7 +33,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkClipDataSet, "$Revision: 1.29 $");
+vtkCxxRevisionMacro(vtkClipDataSet, "$Revision: 1.30 $");
 vtkStandardNewMacro(vtkClipDataSet);
 vtkCxxSetObjectMacro(vtkClipDataSet,ClipFunction,vtkImplicitFunction);
 
@@ -321,11 +321,11 @@ void vtkClipDataSet::Execute()
         //For each new cell added, got to set the type of the cell
         switch ( cell->GetCellDimension() )
           {
-          case 0: //points are generated-------------------------------
+          case 0: //points are generated--------------------------------
             cellType = (npts > 1 ? VTK_POLY_VERTEX : VTK_VERTEX);
             break;
 
-          case 1: //lines are generated----------------------------------
+          case 1: //lines are generated---------------------------------
             cellType = (npts > 2 ? VTK_POLY_LINE : VTK_LINE);
             break;
 
@@ -334,7 +334,7 @@ void vtkClipDataSet::Execute()
                         (npts == 4 ? VTK_QUAD : VTK_POLYGON));
             break;
 
-          case 3: //tetrahedra or wedges are generated------------------------------
+          case 3: //tetrahedra or wedges are generated------------------
             cellType = (npts == 4 ? VTK_TETRA : VTK_WEDGE);
             break;
           } //switch
