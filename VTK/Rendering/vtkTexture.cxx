@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:07:11 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2000-03-04 22:28:56 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -50,6 +50,7 @@ vtkTexture::vtkTexture()
 {
   this->Repeat = 1;
   this->Interpolate = 0;
+  this->Quality = VTK_TEXTURE_QUALITY_DEFAULT;
 
   this->Input = NULL;
   this->LookupTable = NULL;
@@ -102,6 +103,19 @@ void vtkTexture::PrintSelf(ostream& os, vtkIndent indent)
 
   os << indent << "Interpolate: " << (this->Interpolate ? "On\n" : "Off\n");
   os << indent << "Repeat:      " << (this->Repeat ? "On\n" : "Off\n");
+  os << indent << "Quality:     ";
+  switch (this->Quality)
+    {
+    case VTK_TEXTURE_QUALITY_DEFAULT:
+      os << "Default\n";
+      break;
+    case VTK_TEXTURE_QUALITY_16BIT:
+      os << "16Bit\n";
+      break;
+    case VTK_TEXTURE_QUALITY_32BIT:
+      os << "32Bit\n";
+      break;
+    }
   os << indent << "MapColorScalarsThroughLookupTable: " << (this->MapColorScalarsThroughLookupTable  ? "On\n" : "Off\n");
 
   if ( this->Input )
