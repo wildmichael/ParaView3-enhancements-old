@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLookupTable.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:25:54 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1995-07-25 20:42:36 $
+  Version:   $Revision: 1.24 $
 
 This file is part of the Visualization Toolkit. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -38,6 +38,7 @@ vtkLookupTable::vtkLookupTable(int sze, int ext)
   this->AlphaRange[0] = 1.0;
   this->AlphaRange[1] = 1.0;
 
+  this->Table.ReferenceCountingOff();
 };
 
 // Description:
