@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActorCollection.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:18 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1999-10-05 17:15:36 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,15 +64,6 @@ public:
   void AddItem(vtkActor *a);
 
   // Description:
-  // Remove an actor from the list.
-  void RemoveItem(vtkActor *a);
-
-  // Description:
-  // Determine whether a particular actor is present. Returns its position
-  // in the list.
-  int IsItemPresent(vtkActor *a);
-
-  // Description:
   // Get the next actor in the list.
   vtkActor *GetNextActor();
 
@@ -98,16 +89,6 @@ protected:
 inline void vtkActorCollection::AddItem(vtkActor *a) 
 {
   this->vtkCollection::AddItem((vtkObject *)a);
-}
-
-inline void vtkActorCollection::RemoveItem(vtkActor *a) 
-{
-  this->vtkCollection::RemoveItem((vtkObject *)a);
-}
-
-inline int vtkActorCollection::IsItemPresent(vtkActor *a) 
-{
-  return this->vtkCollection::IsItemPresent((vtkObject *)a);
 }
 
 inline vtkActor *vtkActorCollection::GetNextActor() 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:58 $
-  Version:   $Revision: 1.77 $
+  Date:      $Date: 1999-10-05 17:15:36 $
+  Version:   $Revision: 1.78 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -93,8 +93,8 @@ public:
   // They are here for convinience and backwards compatability.
   void AddActor(vtkProp *p) {this->AddProp(p);};
   void AddVolume(vtkProp *p) {this->AddProp(p);};
-  void RemoveActor(vtkProp *p) {this->Actors->RemoveItem((vtkActor *) p);this->RemoveProp(p);};
-  void RemoveVolume(vtkProp *p) {this->Volumes->RemoveItem((vtkVolume *) p);this->RemoveProp(p);};
+  void RemoveActor(vtkProp *p) {this->Actors->RemoveItem(p);this->RemoveProp(p);};
+  void RemoveVolume(vtkProp *p) {this->Volumes->RemoveItem(p);this->RemoveProp(p);};
 
   // Description:
   // Remove a light from the list of lights.

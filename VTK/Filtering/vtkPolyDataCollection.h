@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataCollection.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:51 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1999-10-05 17:15:37 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,17 +62,6 @@ public:
   // Add a poly data to the list.
   void AddItem(vtkPolyData *pd) {
     this->vtkCollection::AddItem((vtkObject *)pd);};
-
-  // Description:
-  // Remove an poly data from the list.
-  void RemoveItem(vtkPolyData *pd) {
-    this->vtkCollection::RemoveItem((vtkObject *)pd);};
-
-  // Description:
-  // Determine whether a particular poly data is present. Returns its position
-  // in the list.
-  int IsItemPresent(vtkPolyData *pd) {
-    return this->vtkCollection::IsItemPresent((vtkObject *)pd);};
 
   // Description:
   // Get the next poly data in the list.

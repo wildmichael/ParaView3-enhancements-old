@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLightCollection.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:42 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1999-10-05 17:15:37 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,15 +62,6 @@ class VTK_EXPORT vtkLightCollection : public vtkCollection
   // Description:
   // Add a light to the list.
   void AddItem(vtkLight *a);
-
-  // Description:
-  // Remove a light from the list.
-  void RemoveItem(vtkLight *a);
-
-  // Description:
-  // Determine whether a particular light is present. Returns its position
-  // in the list.
-  int IsItemPresent(vtkLight *a);
 
   // Description:
   // Get the next light in the list. NULL is returned when the collection is 

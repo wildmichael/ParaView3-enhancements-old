@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowCollection.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:57 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-10-05 17:15:37 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,17 +64,6 @@ class VTK_EXPORT vtkRenderWindowCollection : public vtkCollection
   // Add a RenderWindow to the list.
   void AddItem(vtkRenderWindow *a) {
     this->vtkCollection::AddItem((vtkObject *)a);};
-  
-  // Description:
-  // Remove a RenderWindow from the list.
-  void RemoveItem(vtkRenderWindow *a) {
-    this->vtkCollection::RemoveItem((vtkObject *)a);};
-  
-  // Description:
-  // Determine whether a particular RenderWindow is present. Returns its
-  // position in the list.
-  int IsItemPresent(vtkRenderWindow *a) {
-    return this->vtkCollection::IsItemPresent((vtkObject *)a);};
   
   // Description:
   // Get the next RenderWindow in the list. Return NULL when at the end of the 

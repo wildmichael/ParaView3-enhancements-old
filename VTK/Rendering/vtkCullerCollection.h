@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCullerCollection.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:25 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-10-05 17:15:36 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,17 +64,6 @@ class VTK_EXPORT vtkCullerCollection : public vtkCollection
   void AddItem(vtkCuller *a) {
     this->vtkCollection::AddItem((vtkObject *)a);};
 
-  // Description:
-  // Remove an Culler from the list.
-  void RemoveItem(vtkCuller *a) {
-    this->vtkCollection::RemoveItem((vtkObject *)a);};
-  
-  // Description:
-  // Determine whether a particular Culler is present. Returns its position
-  // in the list.
-  int IsItemPresent(vtkCuller *a) {
-    return this->vtkCollection::IsItemPresent((vtkObject *)a);};
-  
   // Description:
   // Get the next Culler in the list.
   vtkCuller *GetNextItem() { 

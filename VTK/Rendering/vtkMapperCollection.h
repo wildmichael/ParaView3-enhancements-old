@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapperCollection.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:44 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-10-05 17:15:37 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,17 +63,6 @@ class VTK_EXPORT vtkMapperCollection : public vtkCollection
   // Add an mapper to the list.
   void AddItem(vtkMapper *a) {
     this->vtkCollection::AddItem((vtkObject *)a);};
-  
-  // Description:
-  // Remove an mapper from the list.
-  void RemoveItem(vtkMapper *a) {
-    this->vtkCollection::RemoveItem((vtkObject *)a);};
-
-  // Description:
-  // Determine whether a particular mapper is present. Returns its position
-  // in the list.
-  int IsItemPresent(vtkMapper *a) {
-    return this->vtkCollection::IsItemPresent((vtkObject *)a);};
   
   // Description:
   // Get the next mapper in the list.
