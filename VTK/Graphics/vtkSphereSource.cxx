@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-12 16:09:07 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 2001-09-14 19:27:31 $
+  Version:   $Revision: 1.56 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -303,16 +303,5 @@ void vtkSphereSource::PrintSelf(ostream& os, vtkIndent indent)
 //----------------------------------------------------------------------------
 void vtkSphereSource::ExecuteInformation()
 {
-  int numTris, numPts;
-  unsigned long size;
-  
-  // ignore poles
-  numPts = this->ThetaResolution * (this->PhiResolution + 1);
-  numTris = this->ThetaResolution * this->PhiResolution * 2;
-  size = numPts * 3 * sizeof(float);
-  size += numTris * 4 * sizeof(int);
-  
-  // convert to kilobytes
-  size = (size / 1000) + 1;
-  
+  this->GetOutput()->SetMaximumNumberOfPieces(this->ThetaResolution);
 }

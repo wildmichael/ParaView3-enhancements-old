@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConeSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:02 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2001-09-14 19:27:31 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -268,21 +268,7 @@ void vtkConeSource::Execute()
 //----------------------------------------------------------------------------
 void vtkConeSource::ExecuteInformation()
 {
-  int numTris, numPts;
-  unsigned long size;
-  
-  numPts = this->Resolution + 1;
-  numTris = this->Resolution;
-  size = numPts * 3 * sizeof(float);
-  size += numTris * 4 * sizeof(int);
-  // one more polygon if capping
-  if (this->Capping)
-    {
-    size += (this->Resolution + 1) * sizeof(int);
-    }
-  
-  // convert to kilobytes
-  size = (size / 1000) + 1;
+  this->GetOutput()->SetMaximumNumberOfPieces(this->Resolution);
 }
 
 
