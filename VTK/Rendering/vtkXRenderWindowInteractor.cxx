@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkXRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-12-14 16:38:11 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-02-20 15:43:34 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -284,7 +284,9 @@ void vlXRenderWindowInteractorCallback(Widget w,XtPointer client_data,
       switch (ks)
 	{
 	case XK_e : exit(1); break;
-
+	case XK_u :
+	  if (me->UserMethod) (*me->UserMethod)(me->UserMethodArg);
+	  break;
 	case XK_r : //reset
 	  {
           me->FindPokedRenderer(((XKeyEvent*)event)->x,
@@ -552,3 +554,4 @@ void vlXRenderWindowInteractor::FinishSettingUpNewWindow()
   this->Size[0] = size[0];
   this->Size[1] = size[1];
 }
+
