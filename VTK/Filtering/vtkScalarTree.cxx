@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarTree.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-06 14:43:24 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-10-10 19:04:23 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -165,6 +165,7 @@ void vtkScalarTree::BuildTree()
     }
 
   this->BuildTime.Modified();
+  cellScalars->Delete();
 }
 
 // Begin to traverse the cells based on a scalar value. Returned cells
