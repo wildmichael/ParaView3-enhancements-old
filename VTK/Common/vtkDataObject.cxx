@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:49:27 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-04-02 18:39:17 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -103,6 +103,11 @@ void vtkDataObject::ForceUpdate()
     this->Source->Modified();
     this->Source->Update();
     }
+}
+
+void vtkDataObject::SetFieldData(vtkFieldData *fd)
+{
+  this->FieldData.ShallowCopy(*fd);
 }
 
 void vtkDataObject::PrintSelf(ostream& os, vtkIndent indent)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:49:28 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-04-02 18:39:17 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -118,7 +118,10 @@ public:
   void GlobalReleaseDataFlagOff() {this->SetGlobalReleaseDataFlag(0);};
   static int GetGlobalReleaseDataFlag();
 
-  // return pointer to this data object's generic field data
+  // Description:
+  // Assign or retrieve field data to this data object.
+  void SetFieldData(vtkFieldData *fd);
+  void SetFieldData(vtkFieldData &fd) {this->SetFieldData(&fd);}
   vtkFieldData *GetFieldData() {return &this->FieldData;};
 
 protected:
