@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellType.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-06 15:39:59 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-05-17 10:45:02 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -34,30 +34,39 @@
 // (example scripts) to reflect the new cell addition.
 
 // Linear cells
-#define VTK_EMPTY_CELL 0
-#define VTK_VERTEX 1
-#define VTK_POLY_VERTEX 2
-#define VTK_LINE 3
-#define VTK_POLY_LINE 4
-#define VTK_TRIANGLE 5
+#define VTK_EMPTY_CELL     0
+#define VTK_VERTEX         1
+#define VTK_POLY_VERTEX    2
+#define VTK_LINE           3
+#define VTK_POLY_LINE      4
+#define VTK_TRIANGLE       5
 #define VTK_TRIANGLE_STRIP 6
-#define VTK_POLYGON 7
-#define VTK_PIXEL 8
-#define VTK_QUAD 9
-#define VTK_TETRA 10
-#define VTK_VOXEL 11
-#define VTK_HEXAHEDRON 12
-#define VTK_WEDGE 13
-#define VTK_PYRAMID 14
+#define VTK_POLYGON        7
+#define VTK_PIXEL          8
+#define VTK_QUAD           9
+#define VTK_TETRA         10
+#define VTK_VOXEL         11
+#define VTK_HEXAHEDRON    12
+#define VTK_WEDGE         13
+#define VTK_PYRAMID       14
 
-// Higher order, isoparametric cells
-#define VTK_QUADRATIC_EDGE     21
-#define VTK_QUADRATIC_TRIANGLE 22
-#define VTK_QUADRATIC_TETRA    23
+// Quadratic, isoparametric cells
+#define VTK_QUADRATIC_EDGE       21
+#define VTK_QUADRATIC_TRIANGLE   22
+#define VTK_QUADRATIC_QUAD       23
+#define VTK_QUADRATIC_TETRA      24
+#define VTK_QUADRATIC_HEXAHEDRON 25
 
-// Parametric splines and such
-#define VTK_PARAMETRIC_CURVE 51
-#define VTK_PARAMETRIC_SURFACE 52
+// Special class of cells formed by convex group of points
+#define VTK_CONVEX_POINT_SET 41
+
+// Higher order cells in parametric form
+#define VTK_PARAMETRIC_CURVE        51
+#define VTK_PARAMETRIC_SURFACE      52
+#define VTK_PARAMETRIC_TRI_SURFACE  53
+#define VTK_PARAMETRIC_QUAD_SURFACE 54
+#define VTK_PARAMETRIC_TETRA_REGION 55
+#define VTK_PARAMETRIC_HEX_REGION   56
 
 #endif
 
