@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCompressCompositer.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-02 20:14:33 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-07-03 13:58:04 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -56,7 +56,7 @@
 
 #include "vtkTimerLog.h"
 
-vtkCxxRevisionMacro(vtkCompressCompositer, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkCompressCompositer, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkCompressCompositer);
 
 
@@ -575,7 +575,7 @@ void vtkCompressCompositer::CompositeBuffer(vtkDataArray *pBuf,
       }
     this->InternalZData = vtkFloatArray::New();
     vtkCompositeManager::ResizeFloatArray(
-                             static_cast<vtkFloatArray*>(this->InternalPData),
+                             static_cast<vtkFloatArray*>(this->InternalZData),
                              1, zBuf->GetSize());
     }
 
