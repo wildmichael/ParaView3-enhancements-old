@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-26 11:41:34 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2000-07-26 15:56:06 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -84,8 +84,8 @@ vtkDataObject::vtkDataObject()
   this->Extent[0] = this->Extent[2] = this->Extent[4] =  0;
   this->Extent[1] = this->Extent[3] = this->Extent[5] = -1;
 
-  this->UpdateExtent[0] = this->UpdateExtent[2] = this->UpdateExtent[4] =  0;
-  this->UpdateExtent[1] = this->UpdateExtent[3] = this->UpdateExtent[5] = -1;
+  this->UpdateExtent[0] = this->UpdateExtent[2] = this->UpdateExtent[4] = 0;
+  this->UpdateExtent[1] = this->UpdateExtent[3] = this->UpdateExtent[5] = 0;
 
   // If we used pieces instead of 3D extent, then assume this object was
   // created by the user and this is piece 0 of 1 pieces.
