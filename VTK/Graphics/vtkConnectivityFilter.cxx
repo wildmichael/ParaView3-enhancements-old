@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConnectivityFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-22 12:39:55 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1997-10-14 11:28:52 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -300,6 +300,14 @@ void vtkConnectivityFilter::Execute()
   delete [] PointMap;
   output->Squeeze();
 
+  int num = this->GetNumberOfExtractedRegions();
+  int count = 0;
+
+  for (int ii = 0; ii < num; ii++)
+    {
+    count += this->RegionSizes->GetValue (ii);
+    }
+  vtkDebugMacro (<< "Total # of cells accounted for: " << count);
   vtkDebugMacro (<<"Extracted " << output->GetNumberOfCells() << " cells");
 
   return;
@@ -315,7 +323,6 @@ void vtkConnectivityFilter::TraverseAndMark (int cellId)
   vtkIdList ptIds(8,VTK_CELL_SIZE), cellIds(8,VTK_CELL_SIZE);
 
   Visited[cellId] = RegionNumber;
-  NumCellsInRegion++;
 
   if ( RecursionDepth++ > this->MaxRecursionDepth ) 
     {
@@ -324,6 +331,7 @@ void vtkConnectivityFilter::TraverseAndMark (int cellId)
     return;
     }
 
+  NumCellsInRegion++;
   this->Input->GetCellPoints(cellId, ptIds);
 
   numPts = ptIds.GetNumberOfIds();
