@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-09 13:46:10 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1999-02-10 18:00:03 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -238,7 +238,7 @@ struct idsort
   float dist;
 };
 
-int idsortcompare(const void *arg1, const void *arg2)
+static int idsortcompare(const void *arg1, const void *arg2)
 {
   idsort *v1 = (idsort *)arg1;
   idsort *v2 = (idsort *)arg2;
@@ -264,7 +264,7 @@ void vtkPointLocator::FindDistributedPoints(int N, float x,
   this->FindDistributedPoints(N,p,result, M);
 }
 
-int GetOctent(float *x,float *pt)
+static int GetOctent(float *x,float *pt)
 {
   float tmp[3];
   int res = 0;
@@ -289,7 +289,7 @@ int GetOctent(float *x,float *pt)
   return res;
 }
 
-int GetMin(int *foo)
+static int GetMin(int *foo)
 {
   int result = foo[0];
   int i;
@@ -304,7 +304,7 @@ int GetMin(int *foo)
   return result;
 }
 
-float GetMax(float *foo)
+static float GetMax(float *foo)
 {
   float result = foo[0];
   int i;
