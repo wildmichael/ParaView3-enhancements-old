@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-22 14:14:32 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1999-04-26 21:13:04 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -182,6 +182,14 @@ public:
   // a structure that will later be passed into the mapper when
   // each ray is cast.
   virtual int InitializeRayCasting( vtkViewport *viewport);
+
+  // Description:
+  // WARNING: INTERNAL METHOD - NOT INTENDED FOR GENERAL USE
+  // DO NOT USE THIS METHOD OUTSIDE OF THE RENDERING PROCESS
+  // Support for texture mapping if the mapper requires it -
+  // currently this only initializes transfer functions
+  virtual void InitializeTextureMapping( vtkViewport *viewport, 
+		float sampleDistance );
 
   // Description:
   // WARNING: INTERNAL METHOD - NOT INTENDED FOR GENERAL USE
