@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-06 12:32:03 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1999-01-28 18:18:45 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -273,7 +273,8 @@ int vtkPicker::Pick(float selectionX, float selectionY, float selectionZ,
 
   for (tol=0.0,i=0; i<3; i++) 
     {
-    tol += (windowUpperRight[i] - windowLowerLeft[i])*(windowUpperRight[i] - windowLowerLeft[i]);
+    tol += (windowUpperRight[i] - windowLowerLeft[i]) *
+              (windowUpperRight[i] - windowLowerLeft[i]);
     }
   
   tol = sqrt (tol) * this->Tolerance;
@@ -296,7 +297,11 @@ int vtkPicker::Pick(float selectionX, float selectionY, float selectionZ,
     {
     for ( actor->InitPartTraversal(); (part=actor->GetNextPart()); )
       {
-      pickable = part->GetPickable();
+      pickable = part->GetPickable() & part->GetVisibility();
+      if ( part->GetProperty()->GetOpacity() <= 0.0 )
+	{
+	pickable = 0;
+	}
 
       //  If actor can be picked, get its composite matrix, invert it, and
       //  use the inverted matrix to transform the ray points into mapper
