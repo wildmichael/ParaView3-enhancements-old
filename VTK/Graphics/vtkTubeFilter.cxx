@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTubeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-08 19:20:50 $
-  Version:   $Revision: 1.63 $
+  Date:      $Date: 2002-08-09 11:08:40 $
+  Version:   $Revision: 1.64 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkTubeFilter, "$Revision: 1.63 $");
+vtkCxxRevisionMacro(vtkTubeFilter, "$Revision: 1.64 $");
 vtkStandardNewMacro(vtkTubeFilter);
 
 // Construct object with radius 0.5, radius variation turned off, the number 
@@ -465,7 +465,8 @@ int vtkTubeFilter::GeneratePoints(vtkIdType offset,
 }
 
 void vtkTubeFilter::GenerateStrips(vtkIdType offset, vtkIdType npts, 
-                                   vtkIdType *pts, vtkIdType inCellId,
+                                   vtkIdType* vtkNotUsed(pts), 
+                                   vtkIdType inCellId,
                                    vtkCellData *cd, vtkCellData *outCD,
                                    vtkCellArray *newStrips)
 {
