@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-28 17:08:11 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-03-22 22:37:07 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -239,7 +239,7 @@ void vtkRIBExporter::WriteHeader (vtkRenderer *aRen)
 		this->PixelSamples[0],
 		this->PixelSamples[1]);
 	
-  delete imageFileName;
+  delete [] imageFileName;
 
 }
 
