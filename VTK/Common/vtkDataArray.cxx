@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-27 18:09:50 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2001-07-05 13:21:58 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -430,7 +430,17 @@ void vtkDataArray::GetTuples(vtkIdList *ptIds, vtkDataArray *da)
     {
     vtkTemplateMacro3(CopyTuples1, (VTK_TT *)this->GetVoidPointer(0), da,
 		      ptIds );
-
+    // This is not supported by the template macro.
+    // Switch to using the float interface.
+    case VTK_BIT:
+      {
+      vtkIdType num=ptIds->GetNumberOfIds();
+      for (vtkIdType i=0; i<num; i++)
+        {
+        da->SetTuple(i,this->GetTuple(ptIds->GetId(i)));
+        }
+      }
+      break;
     default:
       vtkErrorMacro(<<"Sanity check failed: Unsupported data type.");
       return;
