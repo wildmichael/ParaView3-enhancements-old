@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCylinderSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:03:27 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1998-06-23 19:12:59 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -206,5 +206,7 @@ void vtkCylinderSource::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Resolution: " << this->Resolution << "\n";
   os << indent << "Height: " << this->Height << "\n";
   os << indent << "Radius: " << this->Radius << "\n";
+  os << indent << "Center: (" << this->Center[0] << ", "
+     << this->Center[1] << ", " << this->Center[2] << " )\n";
   os << indent << "Capping: " << (this->Capping ? "On\n" : "Off\n");
 }

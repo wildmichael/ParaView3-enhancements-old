@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSubPixelPositionEdgels.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-31 13:19:28 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1998-06-23 19:13:32 $
+  Version:   $Revision: 1.16 $
 
 Copyright (c) 1993-1997 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -373,5 +373,21 @@ void vtkSubPixelPositionEdgels::Update()
 
   if ( this->Input->ShouldIReleaseData() ) this->Input->ReleaseData();
   if ( this->GradMaps->ShouldIReleaseData() ) this->GradMaps->ReleaseData();
+}
+
+// Description:
+// Print the state of the class.
+void vtkSubPixelPositionEdgels::PrintSelf(ostream& os, vtkIndent indent)
+{
+  vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
+
+  if ( this->GradMaps )
+    {
+    os << indent << "Gradient Data: " << this->GradMaps << "\n";
+    }
+  else
+    {
+    os << indent << "Gradient Data: (none)\n";
+    }
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-26 20:04:12 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 1998-06-23 19:13:01 $
+  Version:   $Revision: 1.58 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1352,6 +1352,27 @@ void vtkDataReader::PrintSelf(ostream& os, vtkIndent indent)
     os << indent << "File Type: BINARY\n";
   else
     os << indent << "File Type: ASCII\n";
+
+  os << indent << "Read From Input String: " << 
+     (this->ReadFromInputString ? "On\n" : "Off\n");
+
+  if ( this->InputString )
+    {
+    os << indent << "Input String: " << this->InputString << "\n";
+    }
+  else
+    {
+    os << indent << "Input String: (none)\n";
+    }
+
+  if ( this->Source )
+    {
+    os << indent << "Source: " << this->Source << "\n";
+    }
+  else
+    {
+    os << indent << "Source: (none)\n";
+    }
 
   if ( this->ScalarsName )
     os << indent << "Scalars Name: " << this->ScalarsName << "\n";

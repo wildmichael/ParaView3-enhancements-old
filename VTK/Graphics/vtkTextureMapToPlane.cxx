@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToPlane.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-27 11:24:10 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1998-06-23 19:13:37 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -283,6 +283,15 @@ void vtkTextureMapToPlane::ComputeNormal()
 void vtkTextureMapToPlane::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkDataSetToDataSetFilter::PrintSelf(os,indent);
+
+  os << indent << "Origin: (" << this->Origin[0] << ", "
+     << this->Origin[1] << ", " << this->Origin[2] << " )\n";
+
+  os << indent << "Axis Point 1: (" << this->Point1[0] << ", "
+     << this->Point1[1] << ", " << this->Point1[2] << " )\n";
+
+  os << indent << "Axis Point 2: (" << this->Point2[0] << ", "
+     << this->Point2[1] << ", " << this->Point2[2] << " )\n";
 
   os << indent << "S Range: (" << this->SRange[0] << ", "
                                << this->SRange[1] << ")\n";

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShepardMethod.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:04:51 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1998-06-23 19:13:27 $
+  Version:   $Revision: 1.22 $
   Thanks:    Paul A, Hsieh for bug fixes
 
 
@@ -301,7 +301,7 @@ void vtkShepardMethod::SetSampleDimensions(int dim[3])
 
 void vtkShepardMethod::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataSetFilter::PrintSelf(os,indent);
+  vtkDataSetToStructuredPointsFilter::PrintSelf(os,indent);
 
   os << indent << "Maximum Distance: " << this->MaximumDistance << "\n";
 

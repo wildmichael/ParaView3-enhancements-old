@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:45:06 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-06-23 19:13:09 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -175,4 +175,13 @@ void vtkImplicitDataSet::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Out Value: " << this->OutValue << "\n";
   os << indent << "Out Gradient: (" << this->OutGradient[0] << ", " 
      << this->OutGradient[1] << ", " << this->OutGradient[2] << ")\n";
+
+  if ( this->DataSet )
+    {
+    os << indent << "Data Set: " << this->DataSet << "\n";
+    }
+  else
+    {
+    os << indent << "Data Set: (none)\n";
+    }
 }

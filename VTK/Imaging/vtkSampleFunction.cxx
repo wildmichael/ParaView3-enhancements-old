@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSampleFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-01 19:35:48 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1998-06-23 19:13:26 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -284,6 +284,15 @@ void vtkSampleFunction::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "  Xmin,Xmax: (" << this->ModelBounds[0] << ", " << this->ModelBounds[1] << ")\n";
   os << indent << "  Ymin,Ymax: (" << this->ModelBounds[2] << ", " << this->ModelBounds[3] << ")\n";
   os << indent << "  Zmin,Zmax: (" << this->ModelBounds[4] << ", " << this->ModelBounds[5] << ")\n";
+
+  if ( this->Scalars )
+    {
+    os << indent << "Scalars: " << this->Scalars << "\n";
+    }
+  else
+    {
+    os << indent << "Scalars: (none)\n";
+    }
 
   if ( this->ImplicitFunction )
     os << indent << "Implicit Function: " << this->ImplicitFunction << "\n";

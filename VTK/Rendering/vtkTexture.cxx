@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-16 21:11:11 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1998-06-23 19:13:35 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -127,6 +127,8 @@ void vtkTexture::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Interpolate: " << (this->Interpolate ? "On\n" : "Off\n");
   os << indent << "Repeat:      " << (this->Repeat ? "On\n" : "Off\n");
   os << indent << "SelfCreatedLookupTable:      " << (this->SelfCreatedLookupTable ? "On\n" : "Off\n");
+  os << indent << "MapColorScalarsThroughLookupTable: " << (this->MapColorScalarsThroughLookupTable  ? "On\n" : "Off\n");
+
   if ( this->Input )
     {
     os << indent << "Input: (" << (void *)this->Input << ")\n";
@@ -143,6 +145,15 @@ void vtkTexture::PrintSelf(ostream& os, vtkIndent indent)
   else
     {
     os << indent << "LookupTable: (none)\n";
+    }
+
+  if ( this->MappedScalars )
+    {
+    os << indent << "Mapped Scalars: " << this->MappedScalars << "\n";
+    }
+  else
+    {
+    os << indent << "Mapped Scalars: (none)\n";
     }
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-29 17:41:53 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 1998-06-23 19:12:56 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -310,6 +310,8 @@ void vtkCutter::PrintSelf(ostream& os, vtkIndent indent)
   vtkDataSetToPolyDataFilter::PrintSelf(os,indent);
 
   os << indent << "Cut Function: " << this->CutFunction << "\n";
+
+  os << indent << "Sort By: " << this->GetSortByAsString() << "\n";
 
   if ( this->Locator )
     {

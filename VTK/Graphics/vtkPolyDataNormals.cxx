@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataNormals.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-06 19:14:34 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-06-23 19:13:18 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -474,5 +474,7 @@ void vtkPolyDataNormals::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Consistency: " << (this->Consistency ? "On\n" : "Off\n"); 
   os << indent << "Flip Normals: " << (this->FlipNormals ? "On\n" : "Off\n");
   os << indent << "Maximum Recursion Depth: " << this->MaxRecursionDepth << "\n";
+  os << indent << "Non-manifold Traversal: " << 
+    (this->NonManifoldTraversal ? "On\n" : "Off\n");
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLOT3DReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-16 21:08:19 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1998-06-23 19:13:14 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1421,8 +1421,21 @@ void vtkPLOT3DReader::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Function File Name: " << 
     (this->FunctionFileName ? this->FunctionFileName : "(none)") << "\n";
 
+  os << indent << "File Format: " << this->FileFormat << "\n";
+
   os << indent << "Grid Number: " << this->GridNumber << "\n";
   os << indent << "Scalar Function Number: " << this->ScalarFunctionNumber << "\n";
+
+  if ( this->VectorFunctionFileName )
+    {
+    os << indent << "Vector Function Filename: " <<
+          this->VectorFunctionFileName << "\n";
+    }
+  else
+    {
+    os << indent << "Vector Function Filename: (none)\n";
+    }
+
   os << indent << "Vector Function Number: " << this->VectorFunctionNumber << "\n";
   os << indent << "Function Number: " << this->FunctionFileFunctionNumber << "\n";
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMCubesReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-29 17:42:03 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1998-06-23 19:13:12 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -261,6 +261,15 @@ void vtkMCubesReader::PrintSelf(ostream& os, vtkIndent indent)
      << (this->LimitsFileName ? this->LimitsFileName : "(none)") << "\n";
   os << indent << "Normals: " << (this->Normals ? "On\n" : "Off\n");
   os << indent << "FlipNormals: " << (this->FlipNormals ? "On\n" : "Off\n");
+
+  if ( this->Locator )
+    {
+    os << indent << "Locator: " << this->Locator << "\n";
+    }
+  else
+    {
+    os << indent << "Locator: (none)\n";
+    }
 }
 
 unsigned long int vtkMCubesReader::GetMTime()

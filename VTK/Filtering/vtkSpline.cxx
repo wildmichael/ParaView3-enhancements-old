@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpline.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-02-26 12:34:16 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-06-23 19:13:30 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -105,7 +105,13 @@ unsigned long vtkSpline::GetMTime()
 void vtkSpline::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkObject::PrintSelf(os,indent);
+
   os << indent << "ClampValue: " << (this->ClampValue ? "On\n" : "Off\n");
+  os << indent << "Left Constraint: " << this->LeftConstraint << "\n";
+  os << indent << "Right Constraint: " << this->RightConstraint << "\n";
+  os << indent << "Left Value: " << this->LeftValue << "\n";
+  os << indent << "Right Value: " << this->RightValue << "\n";
+
   os << indent << "Piecewise Function:\n";
   this->PiecewiseFunction->PrintSelf(os,indent.GetNextIndent());
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-02-26 19:07:35 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-06-23 19:13:41 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -333,5 +333,12 @@ void vtkVolumeProperty::PrintSelf(ostream& os, vtkIndent indent)
     os << indent << indent << "Specular: " << this->Specular << "\n";
     os << indent << indent << "SpecularPower: " << this->SpecularPower << "\n";
     }
+
+  // These variables should not be printed to the user:
+  // this->GradientOpacityMTime
+  // this->GrayTransferFunctionMTime
+  // this->RGBTransferFunctionMTime
+  // this->ScalarOpacityMTime
+
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-10-16 18:23:10 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1998-06-23 19:13:11 $
+  Version:   $Revision: 1.21 $
   
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -186,6 +186,9 @@ void vtkLODActor::Render(vtkRenderer *ren)
 void vtkLODActor::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkActor::PrintSelf(os,indent);
+
+  os << indent << "Cloud Points: " << this->NumberOfCloudPoints << "\n";
+
   os << indent << "Timings: (" << this->Timings[0] << ", " 
      << this->Timings[1] << ", " << this->Timings[2] << ")\n";
 }

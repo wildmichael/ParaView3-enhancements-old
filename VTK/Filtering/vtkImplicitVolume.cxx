@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:04:10 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-06-23 19:13:10 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -155,4 +155,13 @@ void vtkImplicitVolume::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Out Value: " << this->OutValue << "\n";
   os << indent << "Out Gradient: (" << this->OutGradient[0] << ", " 
      << this->OutGradient[1] << ", " << this->OutGradient[2] << ")\n";
+
+  if ( this->Volume )
+    {
+    os << indent << "Volume: " << this->Volume << "\n";
+    }
+  else
+    {
+    os << indent << "Volume: (none)\n";
+    }
 }

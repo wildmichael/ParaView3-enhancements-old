@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCleanPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-29 17:41:42 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1998-06-23 19:12:54 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -305,6 +305,15 @@ void vtkCleanPolyData::PrintSelf(ostream& os, vtkIndent indent)
   vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
 
   os << indent << "Tolerance: " << this->Tolerance << "\n";
+
+  if ( this->Locator )
+    {
+    os << indent << "Locator: " << this->Locator << "\n";
+    }
+  else
+    {
+    os << indent << "Locator: (none)\n";
+    }
 }
 
 unsigned long int vtkCleanPolyData::GetMTime()

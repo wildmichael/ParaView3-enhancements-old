@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-19 17:10:39 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1998-06-23 19:13:48 $
+  Version:   $Revision: 1.22 $
   Thanks:    to Horst Schreiber for developing this MFC code
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -678,6 +678,7 @@ void vtkWin32OpenGLRenderWindow::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "ContextId: " << this->ContextId << "\n";
   os << indent << "Next Window Id: " << this->NextWindowId << "\n";
   os << indent << "Window Id: " << this->WindowId << "\n";
+  os << indent << "MultiSamples: " << this->MultiSamples << "\n";
 }
 
 

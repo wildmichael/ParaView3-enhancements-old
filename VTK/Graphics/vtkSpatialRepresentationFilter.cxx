@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpatialRepresentationFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-29 17:42:08 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1998-06-23 19:13:29 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -209,4 +209,14 @@ void vtkSpatialRepresentationFilter::PrintSelf(ostream& os, vtkIndent indent)
   vtkDataSetFilter::PrintSelf(os,indent);
 
   os << indent << "Level: " << this->Level << "\n";
+
+  if ( this->SpatialRepresentation )
+    {
+    os << indent << "Spatial Representation: " << this->SpatialRepresentation
+       << "\n";
+    }
+  else
+    {
+    os << indent << "Spatial Representation: (none)\n";
+    }
 }

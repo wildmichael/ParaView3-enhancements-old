@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:03:12 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1998-06-23 19:12:49 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -294,6 +294,7 @@ void vtkBYUReader::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Read Displacement: " << (this->ReadDisplacement ? "On\n" : "Off\n");
   os << indent << "Displacement File Name: " 
      << (this->DisplacementFileName ? this->DisplacementFileName : "(none)") << "\n";
+  os << indent << "Part Number: " << this->PartNumber << "\n";
   os << indent << "Read Scalar: " << (this->ReadScalar ? "On\n" : "Off\n");
   os << indent << "Scalar File Name: " 
      << (this->ScalarFileName ? this->ScalarFileName : "(none)") << "\n";

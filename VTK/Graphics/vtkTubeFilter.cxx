@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTubeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:05:20 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1998-06-23 19:13:39 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -325,6 +325,12 @@ void vtkTubeFilter::PrintSelf(ostream& os, vtkIndent indent)
 
   os << indent << "Radius: " << this->Radius << "\n";
   os << indent << "Vary Radius: " << (this->VaryRadius ? "On\n" : "Off\n");
+  os << indent << "Radius Factor: " << this->RadiusFactor << "\n";
   os << indent << "Number Of Sides: " << this->NumberOfSides << "\n";
+
+  os << indent << "Use Default Normal: " << (this->UseDefaultNormal ? "On\n" : "Off\n");
+  os << indent << "Default Normal: " << "( " << this->DefaultNormal[0] <<
+     ", " << this->DefaultNormal[1] << ", " << this->DefaultNormal[2] <<
+     " )\n";
 }
 

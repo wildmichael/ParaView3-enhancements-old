@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMIPFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-02-11 15:40:52 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-06-23 19:13:44 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -521,5 +521,8 @@ void vtkVolumeRayCastMIPFunction::SpecificFunctionInitialize(
 // Print method for vtkVolumeRayCastMIPFunction
 void vtkVolumeRayCastMIPFunction::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkObject::PrintSelf(os,indent);
+  vtkVolumeRayCastFunction::PrintSelf(os,indent);
+
+  os << indent << "Maximize Method: " << this->GetMaximizeMethodAsString()
+     << "\n";
 }

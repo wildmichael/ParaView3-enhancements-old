@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-12 19:11:45 $
-  Version:   $Revision: 1.81 $
+  Date:      $Date: 1998-06-23 19:13:23 $
+  Version:   $Revision: 1.82 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -606,7 +606,7 @@ void vtkRenderer::WorldToView(float &x, float &y, float &z)
 
 void vtkRenderer::PrintSelf(ostream& os, vtkIndent indent)
 {
-  this->vtkObject::PrintSelf(os,indent);
+  this->vtkViewport::PrintSelf(os,indent);
 
   os << indent << "Actors:\n";
   this->Actors.PrintSelf(os,indent.GetNextIndent());
@@ -625,6 +625,17 @@ void vtkRenderer::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Two-sided Lighting: " 
      << (this->TwoSidedLighting ? "On\n" : "Off\n");
 
+  if ( this->RayCaster )
+    {
+    os << indent << "Ray Caster: " << this->RayCaster << "\n";
+    }
+  else
+    {
+    os << indent << "Ray Caster: (none)\n";
+    }
+
+  os << indent << "Allocated Render Time: " << this->AllocatedRenderTime
+     << "\n";
 }
 
 int vtkRenderer::VisibleActorCount()

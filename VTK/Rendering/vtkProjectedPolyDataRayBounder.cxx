@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProjectedPolyDataRayBounder.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-21 19:02:01 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-06-23 19:13:19 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to Lisa Sobierajski Avila who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -176,6 +176,8 @@ float *vtkProjectedPolyDataRayBounder::Draw( vtkRenderer *vtkNotUsed(ren),
 // build time.
 void vtkProjectedPolyDataRayBounder::PrintSelf(ostream& os, vtkIndent indent)
 {
+  vtkRayBounder::PrintSelf(os, indent);
+
   if ( this->PolyData )
     {
     os << indent << "PolyData: (" << this->PolyData << ")\n";
@@ -197,8 +199,6 @@ void vtkProjectedPolyDataRayBounder::PrintSelf(ostream& os, vtkIndent indent)
     }
 
   os << indent << "Build Time: " <<this->BuildTime.GetMTime() << "\n";
-
-  vtkObject::PrintSelf(os, indent);
 }
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpTo.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:05:35 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1998-06-23 19:13:47 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -118,6 +118,8 @@ void vtkWarpTo::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkPointSetToPointSetFilter::PrintSelf(os,indent);
   
+  os << indent << "Absolute: " << (this->Absolute ? "On\n" : "Off\n");
+
   os << indent << "Position: (" << this->Position[0] << ", " 
     << this->Position[1] << ", " << this->Position[2] << ")\n";
   os << indent << "Scale Factor: " << this->ScaleFactor << "\n";

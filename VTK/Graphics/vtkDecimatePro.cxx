@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimatePro.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:03:37 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1998-06-23 19:13:03 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1436,6 +1436,8 @@ void vtkDecimatePro::PrintSelf(ostream& os, vtkIndent indent)
 
   os << indent << "Preserve Topology: "  << (this->PreserveTopology ? "On\n" : "Off\n");
   os << indent << "Maximum Error: " << this->MaximumError << "\n";
+
+  os << indent << "Accumulate Error: " << (this->AccumulateError ? "On\n" : "Off\n");
 
   os << indent << "Boundary Vertex Deletion: "  << (this->BoundaryVertexDeletion ? "On\n" : "Off\n");
 

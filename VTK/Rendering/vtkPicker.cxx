@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-19 20:37:36 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1998-06-23 19:13:15 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -514,6 +514,15 @@ void vtkPicker::PrintSelf(ostream& os, vtkIndent indent)
 
   if ( this->EndPickMethod ) os << indent << "End PickMethod defined\n";
   else os << indent << "No End PickMethod\n";
+
+  if ( this->DataSet )
+    {
+    os << indent << "DataSet: " << this->DataSet << "\n";
+    }
+  else
+    {
+    os << indent << "DataSet: (none)";
+    }
 
   os << indent << "Renderer: " << this->Renderer << "\n";
 

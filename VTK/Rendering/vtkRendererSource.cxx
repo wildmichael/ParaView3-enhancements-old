@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRendererSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:04:44 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1998-06-23 19:13:24 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -110,6 +110,8 @@ void vtkRendererSource::Execute()
 void vtkRendererSource::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkStructuredPointsSource::PrintSelf(os,indent);
+
+  os << indent << "Whole Window: " << (this->WholeWindow ? "On\n" : "Off\n");
 
   if ( this->Input )
     {

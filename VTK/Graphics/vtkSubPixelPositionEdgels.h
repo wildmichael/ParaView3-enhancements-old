@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSubPixelPositionEdgels.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-27 15:34:35 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1998-06-23 19:13:33 $
+  Version:   $Revision: 1.9 $
 
 Copyright (c) 1993-1997 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -68,6 +68,7 @@ public:
   vtkSubPixelPositionEdgels();
   static vtkSubPixelPositionEdgels *New() {return new vtkSubPixelPositionEdgels;};
   const char *GetClassName() {return "vtkSubPixelPositionEdgels";};
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   void Update();
 
