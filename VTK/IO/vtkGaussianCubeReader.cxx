@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGaussianCubeReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-12 18:08:05 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-05-12 18:37:50 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -51,7 +51,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include <ctype.h>
 
-vtkCxxRevisionMacro(vtkGaussianCubeReader, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkGaussianCubeReader, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkGaussianCubeReader);
 
 // Construct object with merging set to true.
@@ -59,6 +59,13 @@ vtkGaussianCubeReader::vtkGaussianCubeReader()
 {
   this->FileName = NULL;
   this->Transform = vtkTransform::New();
+  // Add the second output for the grid data
+ 
+  vtkImageData *grid;
+  grid = vtkImageData::New();
+  grid->ReleaseData();
+  this->AddOutput(grid);
+  grid->Delete();
 }
 
 vtkGaussianCubeReader::~vtkGaussianCubeReader()
@@ -80,17 +87,12 @@ void vtkGaussianCubeReader::Execute()
   int JN1, N1N2, n1, n2, n3, nt_atom, i, j, k, iatom;
   float tmp, *Cube_data;
   float chg, x, y, z;
-  vtkImageData *grid;
 
   // Output 0 (the default is the polydata)
   // Output 1 will be the gridded Image data
 
-  // Add the second output for the grid data
-  grid = vtkImageData::New();
-  grid->ReleaseData();
-  this->AddOutput(grid);
-  grid->Delete();
- 
+  vtkImageData *grid = this->GetGridOutput();
+
   if (!this->FileName)
     {
     return;
