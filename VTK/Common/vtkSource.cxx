@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-10 17:09:31 $
-  Version:   $Revision: 1.98 $
+  Date:      $Date: 2002-11-13 14:10:43 $
+  Version:   $Revision: 1.99 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkFieldData.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkSource, "$Revision: 1.98 $");
+vtkCxxRevisionMacro(vtkSource, "$Revision: 1.99 $");
 
 #ifndef NULL
 #define NULL 0
@@ -237,7 +237,7 @@ void vtkSource::PropagateUpdateExtent(vtkDataObject *output)
   int idx;
 
   // Check flag to avoid executing forever if there is a loop.
-  if (this->Updating)
+  if (this->Updating || this->NumberOfInputs == 0)
     {
     return;
     }
