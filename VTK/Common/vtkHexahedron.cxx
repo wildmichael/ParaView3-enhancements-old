@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkHexahedron.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-04-30 16:29:10 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1995-05-29 12:47:30 $
+  Version:   $Revision: 1.16 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -18,10 +18,6 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #include "Line.hh"
 #include "Quad.hh"
 #include "CellArr.hh"
-
-static vlMath math;
-static vlLine line;
-static vlQuad theQuad; // using "quad" bothers IBM xlc compiler!
 
 // Description:
 // Deep copy of cell.
@@ -48,6 +44,7 @@ int vlHexahedron::EvaluatePosition(float x[3], float closestPoint[3],
   int i, j;
   float  d, *pt;
   float derivs[24];
+  static vlMath math;
 //
 //  set initial position for Newton's method
 //
@@ -342,6 +339,7 @@ void vlHexahedron::Contour(float value, vlFloatScalars *cellScalars,
 vlCell *vlHexahedron::GetEdge(int edgeId)
 {
   int *verts;
+  static vlLine line;
 
   verts = edges[edgeId];
 
@@ -359,6 +357,7 @@ vlCell *vlHexahedron::GetEdge(int edgeId)
 vlCell *vlHexahedron::GetFace(int faceId)
 {
   int *verts, i;
+  static vlQuad theQuad; // using "quad" bothers IBM xlc compiler!
 
   verts = faces[faceId];
 
@@ -382,6 +381,7 @@ int vlHexahedron::IntersectWithLine(float p1[3], float p2[3], float tol,
   float tTemp;
   float pc[3], xTemp[3];
   int faceNum;
+  static vlQuad theQuad; // using "quad" bothers IBM xlc compiler!
 
   t = LARGE_FLOAT;
   for (faceNum=0; faceNum<6; faceNum++)
