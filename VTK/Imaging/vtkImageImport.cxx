@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageImport.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:43 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2000-12-06 14:50:48 $
+  Version:   $Revision: 1.26 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -88,7 +88,7 @@ vtkImageImport::~vtkImageImport()
 { 
   if ((this->ImportVoidPointer) && (!this->SaveUserArray))
     {
-    delete [] this->ImportVoidPointer;
+    delete [] (char *)this->ImportVoidPointer;
     }
 }
 
@@ -200,7 +200,7 @@ void vtkImageImport::SetImportVoidPointer(void *ptr, int save)
     if ((this->ImportVoidPointer) && (!this->SaveUserArray))
       {
       vtkDebugMacro (<< "Deleting the array...");
-      delete [] this->ImportVoidPointer;
+      delete [] (char *)this->ImportVoidPointer;
       }
     else 
       {

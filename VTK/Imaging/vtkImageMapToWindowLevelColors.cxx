@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapToWindowLevelColors.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-12 15:01:53 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-12-06 14:50:48 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -274,7 +274,6 @@ static void vtkImageMapToWindowLevelColorsExecute(vtkImageMapToWindowLevelColors
   unsigned long count = 0;
   unsigned long target;
   int dataType = inData->GetScalarType();
-  int scalarSize = inData->GetScalarSize();
   int numberOfComponents,numberOfOutputComponents,outputFormat;
   int rowLength;
   vtkScalarsToColors *lookupTable = self->GetLookupTable();
