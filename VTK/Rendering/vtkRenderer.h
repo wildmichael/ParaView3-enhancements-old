@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:38:02 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1995-08-13 16:36:26 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -105,6 +105,12 @@ public:
   vtkBooleanMacro(BackLight,int);
 
   // Description:
+  // Set/Get the amoun of time this renderer is allowed to spend
+  // rendering its scene. Zero indicates an infinite amount of time.
+  vtkSetMacro(AllocatedRenderTime,float);
+  vtkGetMacro(AllocatedRenderTime,float);
+
+  // Description:
   // Create an image.
   virtual void Render() = 0;
 
@@ -188,6 +194,7 @@ protected:
   float Center[2];
   int   SelfCreatedCamera;
   int   SelfCreatedLight;
+  float AllocatedRenderTime;
   
   void (*StartRenderMethod)(void *);
   void (*StartRenderMethodArgDelete)(void *);
