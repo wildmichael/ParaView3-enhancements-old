@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   $RCSfile: vtkMILVideoSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-12-14 00:50:22 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-12-16 18:38:11 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -120,6 +120,8 @@ void vtkMILVideoSource::PrintSelf(ostream& os, vtkIndent indent)
   
   vtkVideoSource::PrintSelf(os,indent);
   
+  os << indent << "VideoChannel: " << this->VideoChannel << "\n";
+
   os << indent << "ContrastLevel: " << this->ContrastLevel << "\n";
 
   os << indent << "BrightnessLevel: " << this->BrightnessLevel << "\n";
@@ -669,6 +671,7 @@ void vtkMILVideoSource::SetMILErrorMessages(int yesno)
     }
 
   this->MILErrorMessages = yesno;
+  this->Modified();
 
   if (this->Initialized)
     {
