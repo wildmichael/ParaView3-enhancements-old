@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-13 14:35:10 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2001-08-13 15:54:49 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -502,7 +502,7 @@ void vtkDataArray::CopyComponent(const int j, vtkDataArray *from,
 float vtkDataArray::GetMaxNorm()
 {
   vtkIdType i;
-  float *v, norm, maxNorm;
+  float norm, maxNorm;
   int nComponents = this->GetNumberOfComponents();
 
   maxNorm = 0.0;
