@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:37:58 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1998-10-06 20:21:03 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -194,12 +194,12 @@ char vtkCell::HitBBox (float bounds[6], float origin[3], float dir[3],
 float *vtkCell::GetBounds ()
 {
   float *x;
-  int i, j;
+  int i, j, numPts=this->Points->GetNumberOfPoints();
 
   this->Bounds[0] = this->Bounds[2] = this->Bounds[4] =  VTK_LARGE_FLOAT;
   this->Bounds[1] = this->Bounds[3] = this->Bounds[5] = -VTK_LARGE_FLOAT;
 
-  for (i=0; i<this->Points->GetNumberOfPoints(); i++)
+  for (i=0; i<numPts; i++)
     {
     x = this->Points->GetPoint(i);
     for (j=0; j<3; j++)
