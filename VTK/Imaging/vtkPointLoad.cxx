@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointLoad.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-19 16:49:36 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1995-07-21 14:45:32 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -152,8 +152,7 @@ void vtkPointLoad::Execute()
       for (i=0; i<this->Dimensions[0]; i++)
         {
         x = (this->Origin[0] + i*this->AspectRatio[0]) - xP[0];
-        rho = sqrt((x-xP[0])*(x-xP[0]) + (y-xP[1])*(y-xP[1]) + 
-                   (z-xP[2])*(z-xP[2]));
+        rho = sqrt(x*x + y*y + z*z);//in local coordinates
         if ( rho < 1.0e-10 )
           {
           vtkWarningMacro(<<"Attempting to set singularity, resetting");
