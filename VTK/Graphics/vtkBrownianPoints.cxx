@@ -1,10 +1,10 @@
 /*=========================================================================
 
   Program:   Visualization Toolkit
-  Module:    BrownPts.cc
+  Module:    $RCSfile: vtkBrownianPoints.cxx,v $
   Language:  C++
-  Date:      9/14/94
-  Version:   1.1
+  Date:      $Date: 2000-02-29 12:28:15 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
