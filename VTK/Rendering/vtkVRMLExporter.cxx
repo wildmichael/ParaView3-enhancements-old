@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-11-25 13:33:04 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1996-12-05 20:09:43 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -245,6 +245,7 @@ void vtkVRMLExporter::WriteAnActor(vtkActor *anActor, FILE *fp)
     {
     gf = new vtkGeometryFilter;
     gf->SetInput(ds);
+    gf->Update();
     pd = gf->GetOutput();
     }
   else

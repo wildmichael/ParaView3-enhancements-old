@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBJExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-09-23 18:17:20 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1996-12-05 20:09:42 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -160,6 +160,7 @@ void vtkOBJExporter::WriteAnActor(vtkActor *anActor, FILE *fpObj, FILE *fpMtl,
     {
     gf = new vtkGeometryFilter;
     gf->SetInput(ds);
+    gf->Update();
     pd = gf->GetOutput();
     }
   else
@@ -341,6 +342,7 @@ void vtkOBJExporter::WriteAnActor(vtkActor *anActor, FILE *fpObj, FILE *fpMtl,
   idStart = idNext;
   trans->Delete();
   if (normals) normals->Delete();
+  if (gf) gf->Delete();
 }
 
 
