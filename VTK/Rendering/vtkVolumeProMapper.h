@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:07:01 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-08-27 15:18:38 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -106,11 +106,6 @@ public:
   // Render the image using the hardware and place it in the frame buffer
   virtual void Render( vtkRenderer *, vtkVolume * ) {}
   
-  // Description:
-  // The Renderer and RayCaster rely on the information to compose
-  // images from various volume renderers
-  int GetMapperType() { return VTK_FRAMEBUFFER_VOLUME_MAPPER; };
-
   // Description:
   // Set the blend mode
   vtkSetClampMacro( BlendMode, int,

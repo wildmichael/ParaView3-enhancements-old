@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODProp3D.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:59 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2001-08-27 15:18:37 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -90,14 +90,6 @@ public:
   float *GetBounds();
   void GetBounds(float bounds[6]) { this->vtkProp3D::GetBounds( bounds ); };
 
-  // Description:
-  // Do we need to ray cast this prop?
-  int RequiresRayCasting();
-
-  // Description:
-  // Does this prop render into an image?
-  int RequiresRenderingIntoImage();
- 
   // Description:
   // Add a level of detail with a given mapper, property, backface property, 
   // texture, and guess of rendering time.  The property and texture fields 
@@ -240,9 +232,6 @@ public:
   // Support the standard render methods.
   int RenderOpaqueGeometry(vtkViewport *viewport);
   int RenderTranslucentGeometry(vtkViewport *viewport);
-  int RenderIntoImage(vtkViewport *viewport);
-  int CastViewRay( VTKRayCastRayInfo *rayInfo );
-  int InitializeRayCasting( vtkViewport *viewport);
 
   // Description:
   // Release any graphics resources that are being consumed by this actor.
@@ -257,10 +246,10 @@ public:
   void SetAllocatedRenderTime( float t, vtkViewport *vp );
 
   // Description:
-  // Used when the render process is aborted to restore the previous estimated render
-  // time. Overridden here to allow previous time for a particular LOD to be restored -
-  // otherwise the time for the last rendered LOD will be copied into the currently
-  // selected LOD.
+  // Used when the render process is aborted to restore the previous 
+  // estimated render time. Overridden here to allow previous time for a 
+  // particular LOD to be restored - otherwise the time for the last rendered 
+  // LOD will be copied into the currently selected LOD.
   void RestoreEstimatedRenderTime( );
   
   // Description:

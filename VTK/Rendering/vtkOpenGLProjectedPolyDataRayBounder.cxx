@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLProjectedPolyDataRayBounder.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-21 15:21:52 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2001-08-27 15:18:37 $
+  Version:   $Revision: 1.32 $
   Thanks:    Thanks to Lisa Sobierajski Avila who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -41,7 +41,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 #include "vtkOpenGLProjectedPolyDataRayBounder.h"
 #include "vtkRenderer.h"
-#include "vtkRayCaster.h"
 #include "vtkObjectFactory.h"
 
 
@@ -176,7 +175,6 @@ float *vtkOpenGLProjectedPolyDataRayBounder::Draw( vtkRenderer *ren,
   float                  *ray_ptr;
   float                  *near_ptr, *far_ptr;
   float                  *range_ptr;
-  vtkRayCaster           *ray_caster;
   float                  z_numerator, z_denom_mult, z_denom_add;
   float                  zbias;
   float                  zscale;
@@ -184,14 +182,14 @@ float *vtkOpenGLProjectedPolyDataRayBounder::Draw( vtkRenderer *ren,
   GLint                  current_viewport[4];
 
 
-  ray_caster = ren->GetRayCaster();
-
   // Create some objects that we will need later
   transform       = vtkTransform::New();
   matrix          = vtkMatrix4x4::New();
 
   // The size of the view rays is the size of the image we are creating
-  ren->GetRayCaster()->GetViewRaysSize( size );
+  size[0] = 100;
+  size[1] = 100;
+  
 
   // This should be fixed - I should not be off in someone else's viewport
   // if there are more than one of them...
@@ -357,7 +355,7 @@ float *vtkOpenGLProjectedPolyDataRayBounder::Draw( vtkRenderer *ren,
     z_denom_mult   = matrix->Element[3][2];
     z_denom_add    = matrix->Element[3][3];
 
-    ray_ptr = ray_caster->GetPerspectiveViewRays();
+    ray_ptr = NULL;
     ray_ptr += 2;
 
     for ( j = 0; j < size[1]; j++ )

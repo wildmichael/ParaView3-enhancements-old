@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLVolumeTextureMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-14 04:21:42 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2001-08-27 15:18:37 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -189,7 +189,7 @@ void vtkOpenGLVolumeTextureMapper2D::RenderQuads( int numQuads,
                                                   float *v, 
                                                   float *t,
                                                   unsigned char *texture,
-                                                  int size[2])
+                                                  int size[2], int reverseFlag )
 {
 #ifdef GL_VERSION_1_1
   glTexImage2D( GL_TEXTURE_2D, 0, GL_RGBA8, size[0], size[1], 
@@ -201,15 +201,35 @@ void vtkOpenGLVolumeTextureMapper2D::RenderQuads( int numQuads,
 
   glBegin( GL_QUADS );
 
-  float *tptr = t, *vptr = v;
+  float *tptr, *vptr;
+  int i, j;
   
-  for ( int i = 0; i < numQuads*4; i++ )
+  if ( reverseFlag )
     {
-    glTexCoord2fv( tptr );
-    glVertex3fv(   vptr );
-    
-    tptr += 2;
-    vptr += 3;
+    for ( i = 0; i < numQuads; i++ )
+      {
+      tptr = t+2*4*(numQuads-i-1);
+      vptr = v+3*4*(numQuads-i-1);    
+      for ( j = 0; j < 4; j++ )
+        {
+        glTexCoord2fv( tptr );
+        glVertex3fv(   vptr );
+        tptr += 2;
+        vptr += 3;
+        }
+      }
+    }
+  else
+    {
+    tptr = t; 
+    vptr = v;    
+    for ( i = 0; i < numQuads*4; i++ )
+      {
+      glTexCoord2fv( tptr );
+      glVertex3fv(   vptr );
+      tptr += 2;
+      vptr += 3;
+      }
     }
   
   glEnd();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-22 18:58:11 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2001-08-27 15:18:38 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -107,7 +107,20 @@ public:
   // Description:
   // Get / Set the ray bounder. This is used to clip the rays during
   // ray casting.
-  vtkSetObjectMacro( RayBounder, vtkRayBounder );
+  void SetRayBounder( vtkRayBounder *bounder )
+    {
+      VTK_LEGACY_METHOD(SetRayBounder,"4.0");
+      if (bounder!=this->RayBounder)
+        {
+        if ( this->RayBounder )
+          {
+          this->RayBounder->UnRegister(this);
+          }
+        this->RayBounder = bounder;
+        bounder->Register(this);
+        }
+    };
+  
   vtkGetObjectMacro( RayBounder, vtkRayBounder );
 
   // Description:
@@ -186,10 +199,6 @@ public:
 
   // Description:
   // WARNING: INTERNAL METHOD - NOT INTENDED FOR GENERAL USE
-  virtual int GetMapperType() {return VTK_FRAMEBUFFER_VOLUME_MAPPER;};
-
-  // Description:
-  // WARNING: INTERNAL METHOD - NOT INTENDED FOR GENERAL USE
   // Values needed by the volume
   virtual float GetGradientMagnitudeScale();
   virtual float GetGradientMagnitudeBias();
@@ -216,7 +225,6 @@ protected:
   float                        WorldSampleDistance;
   int                          ScalarDataType;
   void                         *ScalarDataPointer;
-  float                        *DepthRangeBufferPointer;
 
   void                         UpdateShadingTables( vtkRenderer *ren, 
 						    vtkVolume *vol );

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaPolyDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:43 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-08-27 15:18:37 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -48,7 +48,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkMesaProperty.h"
 #include "vtkMesaCamera.h"
 #include "vtkMesaLight.h"
-#include "vtkRayCaster.h"
 #include "vtkCuller.h"
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeTextureMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:52:59 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-08-27 15:18:38 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -79,11 +79,6 @@ public:
   vtkGetObjectMacro( GradientShader, vtkEncodedGradientShader );
 
 //BTX
-
-  // Description:
-  // WARNING: INTERNAL METHOD - NOT INTENDED FOR GENERAL USE
-  virtual int GetMapperType() {return VTK_FRAMEBUFFER_VOLUME_MAPPER;};
-
   // Description:
   // Allow access to the arrays / variables from the templated functions in the
   // subclasses.

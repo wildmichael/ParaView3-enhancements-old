@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:07:01 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2001-08-27 15:18:37 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,10 +58,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 class vtkRenderer;
 class vtkVolume;
-
-#define VTK_RAYCAST_VOLUME_MAPPER        0
-#define VTK_FRAMEBUFFER_VOLUME_MAPPER    1
-#define VTK_SOFTWAREBUFFER_VOLUME_MAPPER 2
 
 #define VTK_CROP_SUBVOLUME              0x0002000
 #define VTK_CROP_FENCE                  0x2ebfeba
@@ -153,19 +149,6 @@ public:
   // The parameter window could be used to determine which graphic
   // resources to release.
   virtual void ReleaseGraphicsResources(vtkWindow *) {};
-
-  // Description:
-  // WARNING: INTERNAL METHOD - NOT INTENDED FOR GENERAL USE
-  // If this is a render into image mapper, then we need to be
-  // able to get the image
-  virtual float *GetRGBAPixelData() {return NULL;};
-
-  // Description:
-  // WARNING: INTERNAL METHOD - NOT INTENDED FOR GENERAL USE
-  // Return the type of this mapper. This helps the volume
-  // determine which rendering methods the mapper will respond to.
-  virtual int GetMapperType()=0;
-
 //ETX
 
 

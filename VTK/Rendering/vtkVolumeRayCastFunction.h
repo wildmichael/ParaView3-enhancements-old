@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastFunction.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-20 21:12:11 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-08-27 15:18:38 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -56,8 +56,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define __vtkVolumeRayCastFunction_h
 
 #include "vtkObject.h"
-#include "vtkRayCastStructures.h"
-#include "vtkVolumeRayCastStructures.h"
 
 class vtkRenderer;
 class vtkVolume;

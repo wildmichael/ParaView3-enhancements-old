@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-21 21:28:24 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2001-08-27 15:18:38 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,7 +42,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkVolumeProMapper.h"
 #include "vtkRenderer.h"
-#include "vtkRayCaster.h"
 #include "vtkToolkits.h"
 
 #ifdef VTK_USE_VOLUMEPRO
