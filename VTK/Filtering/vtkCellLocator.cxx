@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-28 12:47:10 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1995-12-11 10:04:30 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -440,7 +440,7 @@ void vtkCellLocator::MarkParents(void* a, int idx)
     }
   
   offset = idx - parentIdx - 1;
-  parentIdx -= prod + 1;
+  parentIdx = parentIdx - prod + 1;
   
   parentIdx = parentIdx + (offset/8);
   
