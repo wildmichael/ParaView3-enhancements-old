@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCleanPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:57 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 1999-12-20 03:09:26 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,32 +79,48 @@ vtkCleanPolyData::~vtkCleanPolyData()
 void vtkCleanPolyData::Execute()
 {
   vtkPolyData *input=this->GetInput();
-  vtkPointData *pd=input->GetPointData();
-  vtkCellData *cd=input->GetCellData();
-  int numPts=input->GetNumberOfPoints();
+  vtkPointData *pd;
+  vtkCellData *cd;
+  int numPts;
   vtkPoints *inPts;
   vtkPoints *newPts;
   int numNewPts;
-  int *updatedPts= new int[input->GetMaxCellSize()];
+  int *updatedPts;
   int cellId, newId;
   int i, ptId;
   int npts, *pts;
   float *x;
-  vtkCellArray *inVerts=input->GetVerts(), *newVerts=NULL;
-  vtkCellArray *inLines=input->GetLines(), *newLines=NULL;
-  vtkCellArray *inPolys=input->GetPolys(), *newPolys=NULL;
-  vtkCellArray *inStrips=input->GetStrips(), *newStrips=NULL;
+  vtkCellArray *inVerts, *newVerts=NULL;
+  vtkCellArray *inLines, *newLines=NULL;
+  vtkCellArray *inPolys, *newPolys=NULL;
+  vtkCellArray *inStrips, *newStrips=NULL;
   vtkPolyData *output = this->GetOutput();
   vtkPointData *outputPD = output->GetPointData();
   vtkCellData *outputCD = output->GetCellData();
   
   vtkDebugMacro(<<"Cleaning data");
 
+  if (input == NULL)
+    {
+    vtkErrorMacro(<<"Input is NULL");
+    return;
+    }
+
+  pd=input->GetPointData();
+  cd=input->GetCellData();
+  updatedPts= new int[input->GetMaxCellSize()];
+  numPts=input->GetNumberOfPoints();
+
   if ( numPts < 1 || (inPts=input->GetPoints()) == NULL )
     {
     vtkErrorMacro(<<"No data to clean!");
     return;
     }
+
+  inVerts=input->GetVerts();
+  inLines=input->GetLines();
+  inPolys=input->GetPolys();
+  inStrips=input->GetStrips();
 
   outputPD->CopyAllocate(pd);
   outputCD->CopyAllocate(cd);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:51 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1999-12-20 03:09:25 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -102,6 +102,11 @@ void vtkBYUReader::Execute()
   FILE *geomFp;
   int numPts;
 
+  if (this->GeometryFileName == NULL)
+    {
+    vtkErrorMacro(<< "No GeometryFileName specified!");
+    return;
+    }
   if ((geomFp = fopen(this->GeometryFileName, "r")) == NULL)
     {
     vtkErrorMacro(<< "Geometry file: " << this->GeometryFileName << " not found");

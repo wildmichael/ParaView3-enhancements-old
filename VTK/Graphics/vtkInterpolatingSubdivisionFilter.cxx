@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInterpolatingSubdivisionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-13 20:50:50 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-12-20 03:09:25 $
+  Version:   $Revision: 1.3 $
   Thanks:    This work was supported bt PHS Research Grant No. 1 P41 RR13218-01
              from the National Center for Research Resources
 
@@ -62,6 +62,13 @@ void vtkInterpolatingSubdivisionFilter::Execute()
   vtkIntArray *edgeData;
 
   vtkDebugMacro(<< "Generating subdivision surface using interpolating scheme");
+
+  
+  if (input == NULL)
+    {
+    vtkErrorMacro(<<"Input is NULL");
+    return;
+    }
 
   numPts=input->GetNumberOfPoints();
   numCells=input->GetNumberOfCells();
