@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:26:45 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2002-06-03 21:59:30 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,11 +17,9 @@
 =========================================================================*/
 #include "vtkWindow.h"
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
+#include "vtkString.h"
 
-vtkCxxRevisionMacro(vtkWindow, "$Revision: 1.22 $");
+vtkCxxRevisionMacro(vtkWindow, "$Revision: 1.23 $");
 
 // Construct an instance of  vtkRenderWindow with its screen size 
 // set to 300x300, borders turned on, positioned at (0,0), double 
@@ -56,7 +54,7 @@ vtkWindow::~vtkWindow()
     }
 }
 
-void vtkWindow::SetWindowName( char * _arg )
+void vtkWindow::SetWindowName( const char * _arg )
 {
   vtkDebugMacro("Debug: In " __FILE__ << ", line " << __LINE__ << "\n" 
          << this->GetClassName() << " (" << this << "): setting " 
@@ -70,15 +68,7 @@ void vtkWindow::SetWindowName( char * _arg )
     {
     delete [] this->WindowName;
     }
-  if( _arg )
-    {
-    this->WindowName = new char[strlen(_arg)+1];
-    strcpy(this->WindowName,_arg);
-    }
-  else
-    {
-    this->WindowName = NULL;
-    }
+  this->WindowName = vtkString::Duplicate(_arg);
   this->Modified();
 }
 

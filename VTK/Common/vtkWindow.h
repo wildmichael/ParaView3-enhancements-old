@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-26 15:40:03 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2002-06-03 21:59:30 $
+  Version:   $Revision: 1.28 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -87,7 +87,7 @@ public:
   // Description:
   // Get name of rendering window
   vtkGetStringMacro(WindowName);
-  virtual void SetWindowName(char * );
+  virtual void SetWindowName(const char *);
 
   // Description:
   // Ask each viewport owned by this Window to render its image and 
@@ -105,7 +105,7 @@ public:
   // and from bottom to top.
   virtual unsigned char *GetPixelData(int, int, int, int, int) = 0;
   virtual int GetPixelData(int ,int ,int ,int , int,
-			   vtkUnsignedCharArray*) = 0;
+                           vtkUnsignedCharArray*) = 0;
 
   // Description:
   // Return a best estimate to the dots per inch of the display
