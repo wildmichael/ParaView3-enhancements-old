@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamer.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-24 21:29:18 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 2000-10-26 19:39:25 $
+  Version:   $Revision: 1.59 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -327,6 +327,7 @@ static VTK_THREAD_RETURN_TYPE vtkStreamer_ThreadedIntegrate( void *arg )
 	{
         continue;
 	}
+      func->SetLastCellId(sPtr->cellId);
 
       dir = streamer->Direction;
 
@@ -353,7 +354,6 @@ static VTK_THREAD_RETURN_TYPE vtkStreamer_ThreadedIntegrate( void *arg )
 	  {
 	  break;
 	  }
-
 
 	for(i=0; i<3; i++)
 	  {
@@ -469,12 +469,12 @@ void vtkStreamer::Integrate()
   vtkStreamPoint *sNext, *sPtr;
   int i, j, ptId, offset;
   vtkCell *cell;
-  float *v, xNext[3];
+  float *v, *cellVel, derivs[9], xNext[3];
   float tol2;
   float *w=new float[input->GetMaxCellSize()];
   vtkVectors *cellVectors;
   vtkScalars *cellScalars;
-  
+
   vtkDebugMacro(<<"Generating streamers");
   this->NumberOfStreamers = 0;
   if ( this->Streamers != NULL ) // reexecuting - delete old stuff
@@ -580,6 +580,17 @@ void vtkStreamer::Integrate()
 	  sPtr->v[j] += v[j] * w[i];
 	  }
         }
+
+      if (this->GetVorticity() && inVectors)
+	{
+	inVectors->GetVectors(cell->PointIds, cellVectors);
+	cellVel = ((vtkFloatArray *)cellVectors->GetData())->GetPointer(0);
+	cell->Derivatives(0, sPtr->p, cellVel, 3, derivs);
+	sPtr->w[0] = derivs[7] - derivs[5];
+	sPtr->w[1] = derivs[2] - derivs[6];
+	sPtr->w[2] = derivs[3] - derivs[1];
+	}
+
       sPtr->speed = vtkMath::Norm(sPtr->v);
 
       if ( inScalars ) 
