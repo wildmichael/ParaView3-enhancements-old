@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTclUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-30 16:10:19 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1998-05-06 12:32:41 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -184,6 +184,17 @@ int vtkCommand(ClientData cd, Tcl_Interp *interp, int argc, char *argv[])
       }
     return TCL_OK;
     }
+  if (!strcmp(argv[1],"ListAllInstances"))
+    {
+    for (entry = Tcl_FirstHashEntry(&vtkInstanceLookup,&search); 
+	 entry != NULL; entry = Tcl_NextHashEntry(&search))
+      {
+      Tcl_AppendResult(interp,
+		       (char *)Tcl_GetHashKey(&vtkInstanceLookup,entry),NULL);
+      Tcl_AppendResult(interp,"\n",NULL);
+      }
+    return TCL_OK;
+    }
   if (!strcmp(argv[1],"DebugOn"))
     {
     vtkTclDebugOn = 1;
@@ -200,6 +211,7 @@ int vtkCommand(ClientData cd, Tcl_Interp *interp, int argc, char *argv[])
     Tcl_AppendResult(interp,"  DebugOn\n",NULL);
     Tcl_AppendResult(interp,"  DebugOff\n",NULL);
     Tcl_AppendResult(interp,"  DeleteAllObjects\n",NULL);
+    Tcl_AppendResult(interp,"  ListAllInstances\n",NULL);
     return TCL_OK;
     }
 
