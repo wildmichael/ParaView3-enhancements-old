@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-11-24 19:38:08 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 1998-12-07 15:58:24 $
+  Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -280,6 +280,14 @@ void vtkXRenderWindowInteractor::Disable()
 void vtkXRenderWindowInteractor::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkRenderWindowInteractor::PrintSelf(os,indent);
+  if (this->App)
+    {
+    os << indent << "App: " << this->App << "\n";
+    }
+  else
+    {
+    os << indent << "App: (none)\n";
+    }
 }
 
 
