@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStripper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-02 23:21:22 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2002-03-03 14:16:55 $
+  Version:   $Revision: 1.58 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkStripper.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkStripper, "$Revision: 1.57 $");
+vtkCxxRevisionMacro(vtkStripper, "$Revision: 1.58 $");
 vtkStandardNewMacro(vtkStripper);
 
 // Construct object with MaximumLength set to 1000.
@@ -57,7 +57,6 @@ void vtkStripper::Execute()
   Mesh->SetPoints(input->GetPoints());
   Mesh->SetLines(inLines);
   Mesh->SetPolys(inPolys);
-  Mesh->SetStrips(inStrips);
   Mesh->BuildLinks();
 
   // check input
@@ -116,6 +115,7 @@ void vtkStripper::Execute()
   longestStrip = 0; numStrips = 0;
   longestLine = 0; numLines = 0;
 
+  int cellType;
   int abort=0;
   vtkIdType progressInterval=numCells/20 + 1;
   for ( cellId=0; cellId < numCells && !abort; cellId++)
@@ -128,7 +128,7 @@ void vtkStripper::Execute()
     if ( ! visited[cellId] )
       {
       visited[cellId] = 1;
-      if ( Mesh->GetCellType(cellId) == VTK_TRIANGLE )
+      if ( (cellType=Mesh->GetCellType(cellId)) == VTK_TRIANGLE )
         {
         //  Got a starting point for the strip.  Initialize.  Find a neighbor
         //  to extend strip.
@@ -209,7 +209,7 @@ void vtkStripper::Execute()
           } // else continue strip
         } // if triangle
       
-      else if ( Mesh->GetCellType(cellId) == VTK_LINE )
+      else if ( cellType == VTK_LINE )
         {
         //
         //  Got a starting point for the line.  Initialize.  Find a neighbor
@@ -287,8 +287,8 @@ void vtkStripper::Execute()
           } // else continue line
         } // if line
 
-      //not line, triangle, or strip must be polygon which we pass through
-      else if ( Mesh->GetCellType(cellId) != VTK_TRIANGLE_STRIP )
+      //not line, triangle, or strip must be quad or tpolygon which we pass through
+      else if ( cellType == VTK_POLYGON || cellType == VTK_QUAD )
         {
         Mesh->GetCellPoints(cellId,numTriPts,triPts);
         newPolys->InsertNextCell(numTriPts,triPts);
@@ -325,8 +325,8 @@ void vtkStripper::Execute()
                     << " polygons");
       newPolys->Squeeze();
       output->SetPolys(newPolys);
-      newPolys->Delete();
       }
+    newPolys->Delete();
     }
 
   // output poly-lines
