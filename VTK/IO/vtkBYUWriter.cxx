@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:09 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2002-03-29 23:39:55 $
+  Version:   $Revision: 1.43 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkBYUWriter.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkBYUWriter, "$Revision: 1.42 $");
+vtkCxxRevisionMacro(vtkBYUWriter, "$Revision: 1.43 $");
 vtkStandardNewMacro(vtkBYUWriter);
 
 // Create object so that it writes displacement, scalar, and texture files
@@ -65,6 +65,12 @@ void vtkBYUWriter::WriteData()
   if ( numPts < 1 )
     {
     vtkErrorMacro(<<"No data to write!");
+    return;
+    }
+
+  if ( !this->GeometryFileName )
+    {
+    vtkErrorMacro(<< "Geometry file name was not specified");
     return;
     }
 
