@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTubeFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-08 13:58:18 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2002-08-08 18:34:17 $
+  Version:   $Revision: 1.48 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -192,6 +192,7 @@ protected:
                      float range[2], vtkDataArray *inVectors, float maxNorm, 
                      vtkDataArray *inNormals);
   void GenerateStrips(vtkIdType offset, vtkIdType npts, vtkIdType *pts, 
+                      vtkIdType inCellId, vtkCellData *cd, vtkCellData *outCD,
                       vtkCellArray *newStrips);
   void GenerateTextureCoords(vtkIdType offset, vtkIdType npts, vtkIdType *pts, 
                              vtkPoints *inPts, vtkDataArray *inScalars,
