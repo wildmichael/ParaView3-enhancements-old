@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-26 17:18:03 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 1999-07-29 18:55:12 $
+  Version:   $Revision: 1.53 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -197,7 +197,14 @@ ostream *vtkDataWriter::OpenVTKFile()
     } 
   else 
     {
-    fptr = new ofstream(this->FileName, ios::out);
+    if ( this->FileType == VTK_ASCII )
+      {
+      fptr = new ofstream(this->FileName, ios::out);
+      }
+    else
+      { 
+      fptr = new ofstream(this->FileName, ios::out | ios::bin);
+      }
     }
 
   if (fptr->fail())
