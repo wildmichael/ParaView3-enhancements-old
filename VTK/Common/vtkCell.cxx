@@ -3,11 +3,9 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCell.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-07-09 06:40:15 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1994-08-15 07:51:34 $
+  Version:   $Revision: 1.6 $
 
-Description:
----------------------------------------------------------------------------
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
 without the express written consent of the authors.
@@ -28,11 +26,10 @@ void vlCell::Initialize(int npts, int *pts, vlPoints *p)
     }
 }
  
-//
-//  Bounding box intersection modified from Graphics Gems Vol I.
-//  Note: the intersection ray is assumed normalized such that
-//  valid intersections can only occur between [0,1].
-//
+// Description:
+// Bounding box intersection modified from Graphics Gems Vol I.
+// Note: the intersection ray is assumed normalized such that
+// valid intersections can only occur between [0,1].
 #define RIGHT 0
 #define LEFT 1
 #define MIDDLE 2
@@ -114,6 +111,8 @@ char vlCell::HitBBox (float bounds[6], float origin[3], float dir[3], float coor
     return 1;
 }
 
+// Description:
+// Compute cell bounding box (xmin,xmax,ymin,ymax,zmin,zmax).
 float *vlCell::GetBounds ()
 {
   float *x;
@@ -135,6 +134,8 @@ float *vlCell::GetBounds ()
   return bounds;
 }
 
+// Description:
+// Compute Length squared of cell (i.e., bounding box diagonal squared)
 float vlCell::GetLength2 ()
 {
   float diff, l=0.0;

@@ -3,11 +3,9 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkHexahedron.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-06-28 13:23:06 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-08-15 07:51:42 $
+  Version:   $Revision: 1.7 $
 
-Description:
----------------------------------------------------------------------------
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
 without the express written consent of the authors.

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkLocator.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-05 09:04:57 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-08-15 07:51:48 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
