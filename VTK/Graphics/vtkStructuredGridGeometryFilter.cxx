@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredGridGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-07-15 13:18:42 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-07-19 08:06:00 $
+  Version:   $Revision: 1.4 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -278,5 +278,18 @@ void vlStructuredGeometryFilter::SetExtent(int *extent)
       this->Extent[2*i] = extent[2*i];
       this->Extent[2*i+1] = extent[2*i+1];
       }
+    }
+}
+
+void vlStructuredGeometryFilter::PrintSelf(ostream& os, vlIndent indent)
+{
+  if (this->ShouldIPrint(vlStructuredGeometryFilter::GetClassName()))
+    {
+    vlStructuredDataSetToPolyFilter::PrintSelf(os,indent);
+
+    os << indent << "Extent: \n";
+    os << indent << "  Imin,Imax: (" << this->Extent[0] << ", " << this->Extent[1] << ")\n";
+    os << indent << "  Jmin,Jmax: (" << this->Extent[2] << ", " << this->Extent[3] << ")\n";
+    os << indent << "  Kmin,Kmax: (" << this->Extent[4] << ", " << this->Extent[5] << ")\n";
     }
 }
