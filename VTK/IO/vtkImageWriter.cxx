@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-29 17:42:45 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-06-29 19:11:13 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -94,7 +94,7 @@ vtkImageWriter::~vtkImageWriter()
 //----------------------------------------------------------------------------
 void vtkImageWriter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkObject::PrintSelf(os,indent);
+  vtkProcessObject::PrintSelf(os,indent);
 
   os << indent << "Input: (" << this->Input << ")\n";
 
