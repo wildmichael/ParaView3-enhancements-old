@@ -3,9 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageQuantizeRGBToIndex.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 18:28:56 $
-  Version:   $Revision: 1.5 $
-  Thanks:    Thanks to C. Charles Law who developed this class.
+  Date:      $Date: 1999-07-26 17:18:46 $
+  Version:   $Revision: 1.6 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -686,6 +685,9 @@ void vtkImageQuantizeRGBToIndex::InterceptCacheUpdate()
 void vtkImageQuantizeRGBToIndex::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkImageToImageFilter::PrintSelf(os,indent);
+
+  // Input Type is internal so we dont prit it
+  //os << indent << "InputType: " << this->InputType << endl;
 
   os << indent << "Number Of Colors: " << this->NumberOfColors << endl;
   os << indent << "Lookup Table: " << endl << *this->LookupTable;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGridSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:14:05 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-07-26 17:19:07 $
+  Version:   $Revision: 1.3 $
 
 
 
@@ -1111,6 +1111,7 @@ void vtkGridSynchronizedTemplates3D::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Compute Normals: " << (this->ComputeNormals ? "On\n" : "Off\n");
   os << indent << "Compute Gradients: " << (this->ComputeGradients ? "On\n" : "Off\n");
   os << indent << "Compute Scalars: " << (this->ComputeScalars ? "On\n" : "Off\n");
+  os << indent << "Number Of Threads: " << this->NumberOfThreads << "\n";
 }
 
 //----------------------------------------------------------------------------

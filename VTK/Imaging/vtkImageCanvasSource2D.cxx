@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCanvasSource2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-16 19:38:16 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-07-26 17:18:46 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -77,7 +77,7 @@ void vtkImageCanvasSource2D::PrintSelf(ostream& os, vtkIndent indent)
 {
   int idx;
   
-  vtkImageData::PrintSelf(os,indent);
+  vtkStructuredPoints::PrintSelf(os,indent);
   os << indent << "ImageData: (" << this->ImageData << ")\n";
   os << indent << "DrawColor: (" << this->DrawColor[0];
   for (idx = 1; idx < 4; ++idx)
