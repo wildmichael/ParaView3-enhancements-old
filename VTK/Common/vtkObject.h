@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 17:54:56 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1997-03-13 02:41:35 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -86,17 +86,7 @@ protected:
 
 private:
   //BTX
-#ifdef _WIN32
-#ifdef VTKDLL
-  friend __declspec(dllexport) 
-    ostream& operator<<(ostream& os, vtkObject& o);  
-#else
-  friend __declspec(dllimport) 
-     ostream& operator<<(ostream& os, vtkObject& o);
-#endif
-#else  
-  friend ostream& operator<<(ostream& os, vtkObject& o);
-#endif 
+  friend VTK_EXPORT ostream& operator<<(ostream& os, vtkObject& o);
   //ETX
 };
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIndent.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 17:54:43 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1997-03-13 02:41:36 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,17 +59,7 @@ public:
   int Indent;
 
   //BTX
-#ifdef _WIN32
-#ifdef VTKDLL
-  friend __declspec(dllexport) 
-    ostream& operator<<(ostream& os, vtkIndent& o);  
-#else
-  friend __declspec(dllimport) 
-     ostream& operator<<(ostream& os, vtkIndent& o);
-#endif
-#else  
-  friend ostream& operator<<(ostream& os, vtkIndent& o);
-#endif 
+  friend VTK_EXPORT ostream& operator<<(ostream& os, vtkIndent& o); 
   //ETX
 };
 
