@@ -3,8 +3,8 @@
  Program:   Visualization Toolkit
  Module:    $RCSfile: vtkDataObjectSource.cxx,v $
  Language:  C++
- Date:      $Date: 1999-07-22 12:12:42 $
- Version:   $Revision: 1.2 $
+ Date:      $Date: 1999-07-29 13:29:36 $
+ Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,6 +43,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 vtkDataObjectSource::vtkDataObjectSource()
 {
   this->SetOutput(vtkDataObject::New());
+  this->Outputs[0]->Delete();
 }
 
 
