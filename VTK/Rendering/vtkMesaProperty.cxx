@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-12-21 17:38:00 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-12-22 16:24:12 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,7 +42,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define VTK_IMPLEMENT_MESA_CXX
 
 #include <math.h>
-#include "vtkMesaMesaProperty.h"
+#include "vtkMesaProperty.h"
 #include "vtkRenderWindow.h"
 #include "vtkMesaProperty.h"
 #include "vtkMesaCamera.h"
