@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorEventRecorder.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-08 14:47:23 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-08-09 10:45:32 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkRenderWindowInteractor.h"
 
-vtkCxxRevisionMacro(vtkInteractorEventRecorder, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkInteractorEventRecorder, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkInteractorEventRecorder);
 
 float vtkInteractorEventRecorder::StreamVersion = 1.0;
@@ -298,8 +298,8 @@ void vtkInteractorEventRecorder::ProcessCharEvent(vtkObject* object,
   switch(event)
     {
     case vtkCommand::DeleteEvent:
-      self->Interactor = NULL; //its going bye bye
-      self->Enabled = 0;
+      //self->Interactor = NULL; //its going bye bye
+      //self->Enabled = 0;       //can't write to a deleted object
       break;
 
     case vtkCommand::CharEvent:
