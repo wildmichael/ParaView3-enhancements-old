@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSobel3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-05 19:22:20 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-08-23 18:49:22 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,15 +65,11 @@ void vtkImageSobel3D::PrintSelf(ostream& os, vtkIndent indent)
 }
 
 //----------------------------------------------------------------------------
-void vtkImageSobel3D::ExecuteInformation()
+void vtkImageSobel3D::ExecuteInformation(vtkImageData *vtkNotUsed(inData), 
+					 vtkImageData *outData)
 {
-  this->GetOutput()->SetNumberOfScalarComponents(3);
-  this->GetOutput()->SetScalarType(VTK_FLOAT);
-
-  // Set default values
-  this->GetOutput()->SetOrigin(this->GetInput()->GetOrigin());
-  this->GetOutput()->SetSpacing(this->GetInput()->GetSpacing());
-  this->GetOutput()->SetWholeExtent(this->GetInput()->GetWholeExtent());
+  outData->SetNumberOfScalarComponents(3);
+  outData->SetScalarType(VTK_FLOAT);
 }
 
 

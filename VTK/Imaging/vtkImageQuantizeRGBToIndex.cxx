@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageQuantizeRGBToIndex.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-31 20:48:45 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-08-23 18:49:19 $
+  Version:   $Revision: 1.9 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -649,20 +649,16 @@ void vtkImageQuantizeRGBToIndex::Execute(vtkImageData *inData,
 
 
 // Change the output type and number of components
-void vtkImageQuantizeRGBToIndex::ExecuteInformation()
+void vtkImageQuantizeRGBToIndex::ExecuteInformation(
+                    vtkImageData *vtkNotUsed(inData), vtkImageData *outData)
 {
-  this->GetOutput()->SetNumberOfScalarComponents(1);
-  this->GetOutput()->SetScalarType(VTK_UNSIGNED_SHORT);
-
-  // Set default values
-  this->GetOutput()->SetOrigin(this->GetInput()->GetOrigin());
-  this->GetOutput()->SetSpacing(this->GetInput()->GetSpacing());
-  this->GetOutput()->SetWholeExtent(this->GetInput()->GetWholeExtent());
+  outData->SetNumberOfScalarComponents(1);
+  outData->SetScalarType(VTK_UNSIGNED_SHORT);
 }
 
 // Get ALL of the input.
-void vtkImageQuantizeRGBToIndex::ComputeRequiredInputUpdateExtent(int inExt[6], 
-								  int outExt[6])
+void vtkImageQuantizeRGBToIndex::ComputeRequiredInputUpdateExtent(int inExt[6],
+								 int outExt[6])
 {
   int *wholeExtent;
 
@@ -670,8 +666,7 @@ void vtkImageQuantizeRGBToIndex::ComputeRequiredInputUpdateExtent(int inExt[6],
   memcpy(inExt, wholeExtent, 6*sizeof(int));
 }
 
-// Intercepts the caches Update to make the extent larger than requested.
-void vtkImageQuantizeRGBToIndex::InterceptCacheUpdate()
+void vtkImageQuantizeRGBToIndex::ModifyOutputUpdateExtent()
 {
   int wholeExtent[8];
   

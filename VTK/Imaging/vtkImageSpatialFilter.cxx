@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSpatialFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-05 19:22:21 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1999-08-23 18:49:23 $
+  Version:   $Revision: 1.34 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -104,13 +104,17 @@ void vtkImageSpatialFilter::ExecuteInformation()
     input->GetWholeExtent(extent);
     this->ComputeOutputWholeExtent(extent, this->HandleBoundaries);
     output->SetWholeExtent(extent);
-    // Maybe the subclass is using the old style method.
-    this->ExecuteImageInformation();
+    this->ExecuteInformation(input, output);
     }
   else
     {
     output->SetWholeExtent(input->GetWholeExtent());
     }
+}
+//----------------------------------------------------------------------------
+void vtkImageSpatialFilter::ExecuteInformation(
+           vtkImageData *vtkNotUsed(inData), vtkImageData *vtkNotUsed(outData))
+{
 }
 
 //----------------------------------------------------------------------------

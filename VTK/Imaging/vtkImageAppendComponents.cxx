@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAppendComponents.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-30 18:37:43 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-08-23 18:49:06 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,23 +45,20 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 //----------------------------------------------------------------------------
 // This method tells the ouput it will have more components
-void vtkImageAppendComponents::ExecuteInformation()
+void vtkImageAppendComponents::ExecuteInformation(vtkImageData **inputs, 
+						  vtkImageData *output)
 {
   int idx1, num;
 
   num = 0;
   for (idx1 = 0; idx1 < this->NumberOfInputs; ++idx1)
     {
-    if (this->Inputs[idx1] != NULL)
+    if (inputs[idx1] != NULL)
       {
-      num += this->GetInput(idx1)->GetNumberOfScalarComponents();
+      num += inputs[idx1]->GetNumberOfScalarComponents();
       }
     }
-  this->GetOutput()->SetNumberOfScalarComponents(num);
-  this->GetOutput()->SetOrigin(this->GetInput()->GetOrigin());
-  this->GetOutput()->SetSpacing(this->GetInput()->GetSpacing());
-  this->GetOutput()->SetScalarType(this->GetInput()->GetScalarType());
-  this->GetOutput()->SetWholeExtent(this->GetInput()->GetWholeExtent());
+  output->SetNumberOfScalarComponents(num);
 }
 
 

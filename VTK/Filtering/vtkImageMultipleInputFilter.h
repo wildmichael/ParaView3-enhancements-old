@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-05 19:22:16 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1999-08-23 18:49:16 $
+  Version:   $Revision: 1.25 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -110,9 +110,6 @@ protected:
   int Bypass;
   int NumberOfThreads;
   
-  void ExecuteInformation();
-  virtual void ExecuteImageInformation() {};
-
   int ComputeDivisionExtents(vtkDataObject *out,
 			     int division, int numDivisions);
   virtual void ComputeRequiredInputUpdateExtent(int inExt[6], int outExt[6],
@@ -121,6 +118,16 @@ protected:
   void Execute();
   virtual void Execute(vtkImageData **inDatas, vtkImageData *outData);
 
+  // This one gets called by the superclass.
+  void ExecuteInformation();
+  // This is the one you should override.
+  virtual void ExecuteInformation(vtkImageData **inDatas, 
+				  vtkImageData *outData) {};
+
+  // legacy  !!!!! ------------------------
+  virtual void ExecuteImageInformation() {this->LegacyHack = 0;}
+  int LegacyHack;
+  
 };
 
 #endif

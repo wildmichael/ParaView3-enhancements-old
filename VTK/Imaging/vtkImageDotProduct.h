@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDotProduct.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:33 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-08-23 18:49:09 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,7 +57,7 @@ public:
   const char *GetClassName() {return "vtkImageDotProduct";};
 
 protected:
-  void ExecuteInformation();
+  void ExecuteInformation(vtkImageData **inDatas, vtkImageData *outData);
   void ThreadedExecute(vtkImageData **inDatas, vtkImageData *outData,
 		       int extent[6], int id);
 };

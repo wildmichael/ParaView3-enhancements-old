@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIslandRemoval2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:41 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1999-08-23 18:49:13 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -96,20 +96,19 @@ public:
   vtkSetMacro(ReplaceValue, float);
   vtkGetMacro(ReplaceValue, float);
   
-
-  // Description:
-  // Intercepts the caches Update to make the region larger than requested.
-  // The whole image is generated when any region is requested.
-  void InterceptCacheUpdate();
-
-  
 protected:
   int AreaThreshold;
   int SquareNeighborhood;
   float IslandValue;
   float ReplaceValue;
 
-  virtual void Execute(vtkImageData *inData, vtkImageData *outData);
+  void Execute(vtkImageData *inData, vtkImageData *outData);
+
+  // Description:
+  // Generate more than requested.  Called by the superclass before
+  // an execute, and before output memory is allocated.
+  void ModifyOutputUpdateExtent();
+
 };
 
 #endif

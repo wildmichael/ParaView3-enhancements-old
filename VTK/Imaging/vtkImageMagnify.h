@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMagnify.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-05 19:22:15 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-08-23 18:49:14 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -76,7 +76,7 @@ protected:
   int MagnificationFactors[3];
   int Interpolate;
   void ComputeRequiredInputUpdateExtent(int inExt[6], int outExt[6]);
-  void ExecuteInformation();
+  void ExecuteInformation(vtkImageData *inData, vtkImageData *outData);
 };
 
 #endif

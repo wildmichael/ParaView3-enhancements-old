@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageResample.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-17 19:23:30 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1999-08-23 18:49:20 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -179,12 +179,12 @@ void vtkImageResample::ComputeRequiredInputUpdateExtent(int inExt[6],
 
 //----------------------------------------------------------------------------
 // Computes any global image information associated with regions.
-void vtkImageResample::ExecuteInformation() 
+void vtkImageResample::ExecuteInformation(vtkImageData *inData, 
+					  vtkImageData *outData) 
 {
   int wholeMin, wholeMax, axis, ext[6];
   float spacing[3], factor;
-  vtkImageData *inData = this->GetInput();
-  vtkImageData *outData = this->GetOutput();
+
   inData->GetWholeExtent(ext);
   inData->GetSpacing(spacing);
   
@@ -212,13 +212,9 @@ void vtkImageResample::ExecuteInformation()
       }
     }
 
-  this->GetOutput()->SetWholeExtent(ext);
-  this->GetOutput()->SetSpacing(spacing);
+  outData->SetWholeExtent(ext);
+  outData->SetSpacing(spacing);
   
-  this->GetOutput()->SetOrigin(this->GetInput()->GetOrigin());
-  this->GetOutput()->SetScalarType(this->GetInput()->GetScalarType());
-  this->GetOutput()->SetNumberOfScalarComponents(
-    this->GetInput()->GetNumberOfScalarComponents());
 }
 
 

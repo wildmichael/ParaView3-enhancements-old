@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageResample.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-13 18:47:10 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-08-23 18:49:20 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -90,11 +90,9 @@ protected:
   float OutputSpacing[3];
   int Interpolate;
   int Dimensionality;
-  void ComputeRequiredInputUpdateExtent(int inExt[6], int outExt[6]);
-  void ExecuteInformation();
   
-  void ExecuteImageInformation(vtkImageData *inData, vtkImageData *outData);
-
+  void ComputeRequiredInputUpdateExtent(int inExt[6], int outExt[6]);
+  void ExecuteInformation(vtkImageData *inData, vtkImageData *outData);
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
 		       int extent[6], int id);
 };

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIslandRemoval2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:40 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1999-08-23 18:49:12 $
+  Version:   $Revision: 1.23 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -77,9 +77,7 @@ void vtkImageIslandRemoval2D::PrintSelf(ostream& os, vtkIndent indent)
 
 
 //----------------------------------------------------------------------------
-// Intercepts the caches Update to make the region larger than requested.
-// The whole image is generated when any region is requested.
-void vtkImageIslandRemoval2D::InterceptCacheUpdate()
+void vtkImageIslandRemoval2D::ModifyOutputUpdateExtent()
 {
   int wholeExtent[6];
   int extent[6];

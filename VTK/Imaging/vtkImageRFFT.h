@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageRFFT.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-05 19:22:18 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-08-23 18:49:19 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,7 +72,7 @@ public:
 		  int num, int total);
 
 protected:
-  void ExecuteImageInformation(vtkImageData *inData, vtkImageData *outData);
+  void ExecuteInformation(vtkImageData *inData, vtkImageData *outData);
   void ComputeRequiredInputUpdateExtent(int inExt[6], int outExt[6]);
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
 		       int outExt[6], int threadId);

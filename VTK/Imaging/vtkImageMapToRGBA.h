@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapToRGBA.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-09 17:47:39 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-08-23 18:49:15 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -73,7 +73,7 @@ public:
 protected:
   vtkScalarsToColors *LookupTable;
   
-  void ExecuteInformation();
+  void ExecuteInformation(vtkImageData *inData, vtkImageData *outData);
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
 		       int extent[6], int id);
 };

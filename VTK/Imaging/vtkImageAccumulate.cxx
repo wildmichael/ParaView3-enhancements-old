@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAccumulate.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-05 19:22:06 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-08-23 18:49:05 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -276,10 +276,9 @@ void vtkImageAccumulate::Execute(vtkImageData *inData,
 
 
 //----------------------------------------------------------------------------
-void vtkImageAccumulate::ExecuteInformation()
+void vtkImageAccumulate::ExecuteInformation(vtkImageData *vtkNotUsed(input), 
+					    vtkImageData *output)
 {
-  vtkImageData *output = this->GetOutput();
-  
   output->SetWholeExtent(this->ComponentExtent);
   output->SetOrigin(this->ComponentOrigin);
   output->SetSpacing(this->ComponentSpacing);
@@ -300,8 +299,7 @@ void vtkImageAccumulate::ComputeRequiredInputUpdateExtent(int inExt[6],
 }
 
 //----------------------------------------------------------------------------
-// Intercepts the caches Update to make the extent larger than requested.
-void vtkImageAccumulate::InterceptCacheUpdate()
+void vtkImageAccumulate:: ModifyOutputUpdateExtent()
 {
   int wholeExtent[8];
   

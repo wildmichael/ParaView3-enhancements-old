@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePadFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-05 19:22:17 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-08-23 18:49:18 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -105,27 +105,23 @@ void vtkImagePadFilter::GetOutputWholeExtent(int extent[6])
 
 //----------------------------------------------------------------------------
 // Just change the Image extent.
-void vtkImagePadFilter::ExecuteInformation()
+void vtkImagePadFilter::ExecuteInformation(vtkImageData *inData, 
+					   vtkImageData *outData)
 {
   if (this->OutputWholeExtent[0] > this->OutputWholeExtent[1])
     {
     // invalid setting, it has not been set, so default to whole Extent
-    this->GetInput()->GetWholeExtent(this->OutputWholeExtent);
+    inData->GetWholeExtent(this->OutputWholeExtent);
     }
-  this->GetOutput()->SetWholeExtent(this->OutputWholeExtent);
+  outData->SetWholeExtent(this->OutputWholeExtent);
   
   if (this->OutputNumberOfScalarComponents < 0)
     {
     // invalid setting, it has not been set, so default to input.
     this->OutputNumberOfScalarComponents 
-      = this->GetInput()->GetNumberOfScalarComponents();
+      = inData->GetNumberOfScalarComponents();
     }
-  this->GetOutput()->SetNumberOfScalarComponents(
-			    this->OutputNumberOfScalarComponents);
-  // Set default values
-  this->GetOutput()->SetOrigin(this->GetInput()->GetOrigin());
-  this->GetOutput()->SetSpacing(this->GetInput()->GetSpacing());
-  this->GetOutput()->SetScalarType(this->GetInput()->GetScalarType());
+  outData->SetNumberOfScalarComponents(this->OutputNumberOfScalarComponents);
 }
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSeedConnectivity.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:52 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-08-23 18:49:21 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -99,8 +99,6 @@ public:
   vtkSetMacro(Dimensionality,int);
   vtkGetMacro(Dimensionality,int);
   
-  void InterceptCacheUpdate();
-
 private:
   unsigned char InputConnectValue;
   unsigned char OutputConnectedValue;
@@ -110,6 +108,11 @@ private:
   int Dimensionality;
   
   void Execute(vtkImageData *inData, vtkImageData *outData);
+
+  // Description:
+  // Generate more than requested.  Called by the superclass before
+  // an execute, and before output memory is allocated.
+  void ModifyOutputUpdateExtent();
 };
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSeedConnectivity.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:52 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-08-23 18:49:20 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -117,9 +117,7 @@ void vtkImageSeedConnectivity::AddSeed(int i0, int i1)
 
 
 //----------------------------------------------------------------------------
-// Update the whole image in cache because we will be generating the whole
-// image anyway.
-void vtkImageSeedConnectivity::InterceptCacheUpdate()
+void vtkImageSeedConnectivity::ModifyOutputUpdateExtent()
 {
   // Filter superclass has no control of intercept cache update.
   // a work around

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDotProduct.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-30 18:37:44 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-08-23 18:49:09 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,14 +44,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 //----------------------------------------------------------------------------
 // Colapse the first axis
-void vtkImageDotProduct::ExecuteInformation()
+void vtkImageDotProduct::ExecuteInformation(vtkImageData **vtkNotUsed(inDatas),
+					    vtkImageData *outData)
 {
-  this->GetOutput()->SetNumberOfScalarComponents(1);
-
-  this->GetOutput()->SetOrigin(this->GetInput()->GetOrigin());
-  this->GetOutput()->SetSpacing(this->GetInput()->GetSpacing());
-  this->GetOutput()->SetWholeExtent(this->GetInput()->GetWholeExtent());
-  this->GetOutput()->SetScalarType(this->GetInput()->GetScalarType());
+  outData->SetNumberOfScalarComponents(1);
 }
 
 

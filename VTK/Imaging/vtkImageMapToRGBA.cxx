@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapToRGBA.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-09 17:47:34 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-08-23 18:49:15 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -76,18 +76,16 @@ unsigned long vtkImageMapToRGBA::GetMTime()
 }
 
 //----------------------------------------------------------------------------
-void vtkImageMapToRGBA::ExecuteInformation()
+void vtkImageMapToRGBA::ExecuteInformation(vtkImageData *vtkNotUsed(inData), 
+					   vtkImageData *outData)
 {
   if (this->LookupTable == 0)
     {
     vtkErrorMacro(<< "ExecuteInformation: No LookupTable was set!");
     }
-  this->GetOutput()->SetScalarType(VTK_UNSIGNED_CHAR);
-  this->GetOutput()->SetNumberOfScalarComponents(4);
+  outData->SetScalarType(VTK_UNSIGNED_CHAR);
+  outData->SetNumberOfScalarComponents(4);
 
-  this->GetOutput()->SetOrigin(this->GetInput()->GetOrigin());
-  this->GetOutput()->SetSpacing(this->GetInput()->GetSpacing());
-  this->GetOutput()->SetWholeExtent(this->GetInput()->GetWholeExtent());
 }
 
 //----------------------------------------------------------------------------

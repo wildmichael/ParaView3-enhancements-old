@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageClip.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:29 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-08-23 18:49:08 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,9 +41,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .NAME vtkImageClip - Reduces the image extent of the input.
 // .SECTION Description
 // vtkImageClip  will make an image smaller.  The output must have
-// an image extent which is the subset of the input.  Data is
-// not copied in this filter.  
-
+// an image extent which is the subset of the input.  The filter has two 
+// modes of operation: 
+// 1: By default, the data is not copied in this filter. 
+// Only the whole extent is modified.  
+// 2: If ClipDataOn is set, then you will get no more that the clipped
+// extent.
 #ifndef __vtkImageClip_h
 #define __vtkImageClip_h
 
@@ -71,13 +74,24 @@ public:
   void ResetOutputWholeExtent();
   void InternalUpdate(vtkDataObject *outData);
 
+  // Description:
+  // By default, ClipData is off, and only the WholeExtent is modified.
+  // the data's extent may actually be larger.  When this flag is on,
+  // the data extent will be no more than the OutputWholeExtent.
+  vtkSetMacro(ClipData, int);
+  vtkGetMacro(ClipData, int);
+  vtkBooleanMacro(ClipData, int);
+
 protected:
   // Time when OutputImageExtent was computed.
   vtkTimeStamp CTime;
   int Initialized; // Set the OutputImageExtent for the first time.
   int OutputWholeExtent[6];
+
+  int ClipData;
   
-  void ExecuteInformation();
+  void ExecuteInformation(vtkImageData *inData, vtkImageData *outData);
+  void CopyData(vtkImageData *inData, vtkImageData *outData, int *ext);
 };
 
 

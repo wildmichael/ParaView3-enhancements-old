@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMagnify.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-05 19:22:15 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1999-08-23 18:49:14 $
+  Version:   $Revision: 1.25 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,7 +58,8 @@ vtkImageMagnify::vtkImageMagnify()
 
 //----------------------------------------------------------------------------
 // Computes any global image information associated with regions.
-void vtkImageMagnify::ExecuteInformation()
+void vtkImageMagnify::ExecuteInformation(vtkImageData *inData, 
+					 vtkImageData *outData)
 {
   float *spacing;
   int idx;
@@ -66,8 +67,8 @@ void vtkImageMagnify::ExecuteInformation()
   float outSpacing[3];
   int outExt[6];
   
-  inExt = this->GetInput()->GetWholeExtent();
-  spacing = this->GetInput()->GetSpacing();
+  inExt = inData->GetWholeExtent();
+  spacing = inData->GetSpacing();
   for (idx = 0; idx < 3; idx++)
     {
     // Scale the output extent
@@ -79,13 +80,9 @@ void vtkImageMagnify::ExecuteInformation()
     outSpacing[idx] = spacing[idx] / (float)(this->MagnificationFactors[idx]);
     }
   
-  this->GetOutput()->SetWholeExtent(outExt);
-  this->GetOutput()->SetSpacing(outSpacing);
+  outData->SetWholeExtent(outExt);
+  outData->SetSpacing(outSpacing);
 
-  this->GetOutput()->SetOrigin(this->GetInput()->GetOrigin());
-  this->GetOutput()->SetScalarType(this->GetInput()->GetScalarType());
-  this->GetOutput()->SetNumberOfScalarComponents(
-                            this->GetInput()->GetNumberOfScalarComponents());
 }
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToImageFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-17 15:17:46 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-08-23 18:49:24 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -81,7 +81,6 @@ vtkImageData *vtkImageToImageFilter::GetInput()
 }
 
 
-  
 
 //----------------------------------------------------------------------------
 // This method can be overriden in a subclass to compute the output
@@ -93,13 +92,12 @@ void vtkImageToImageFilter::ExecuteInformation()
   vtkImageData *output = this->GetOutput();
 
   // Make sure the Input has been set.
-  if ( ! input)
+  if ( input == NULL || output == NULL)
     {
     vtkErrorMacro(<< "UpdateInformation: Input is not set.");
     return;
     }
 
-  // Subclass did not write a ExecuteInformation method.
   // Set the dafaults.
   // Setting defaults will modify the data if the sublcass overrides the 
   // defaults.  But this should be OK because ExecuteTime (and UpdateTime)
@@ -110,13 +108,27 @@ void vtkImageToImageFilter::ExecuteInformation()
   output->SetScalarType(input->GetScalarType());
   output->SetNumberOfScalarComponents(input->GetNumberOfScalarComponents());
 
-
-  if ( ! this->Bypass)
+  if (this->Bypass == 0)
     {
-    // Maybe the subclass is using the old style method.
+    // for legacy
+    this->LegacyHack = 1;
     this->ExecuteImageInformation();
+    if (this->LegacyHack)
+      {
+      vtkWarningMacro("ExecuteImageInformation will not be supported in the future.
+You should write an ExecuteInformation(vtkImageData*, vtkImageData*)");
+      return;
+      }
+    
+    this->ExecuteInformation(input, output);
     }
 }
+//----------------------------------------------------------------------------
+void vtkImageToImageFilter::ExecuteInformation(
+           vtkImageData *vtkNotUsed(inData), vtkImageData *vtkNotUsed(outData))
+{
+}
+
 
 //----------------------------------------------------------------------------
 int vtkImageToImageFilter::ComputeDivisionExtents(vtkDataObject *output,

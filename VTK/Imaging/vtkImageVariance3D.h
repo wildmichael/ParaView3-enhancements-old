@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageVariance3D.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:57 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-08-23 18:49:25 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,7 +74,7 @@ public:
 protected:
   vtkImageEllipsoidSource *Ellipse;
     
-  void ExecuteInformation();
+  void ExecuteInformation(vtkImageData *inData, vtkImageData *outData);
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData, 
 		       int extent[6], int id);
 };

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-05 19:22:16 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1999-08-23 18:49:16 $
+  Version:   $Revision: 1.35 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -106,17 +106,33 @@ vtkImageData *vtkImageMultipleInputFilter::GetInput(int idx)
 //----------------------------------------------------------------------------
 void vtkImageMultipleInputFilter::ExecuteInformation()
 {
+  vtkImageData *output = this->GetOutput();
+  vtkImageData *input = this->GetInput(0);
+  
+  if ( input == NULL || output == NULL)
+    {
+    return;
+    }
+  
   // Set the defaults from input1
-  this->GetOutput()->SetWholeExtent(this->GetInput(0)->GetWholeExtent());
-  this->GetOutput()->SetSpacing(this->GetInput(0)->GetSpacing());
-  this->GetOutput()->SetOrigin(this->GetInput(0)->GetOrigin());
-  this->GetOutput()->SetScalarType(this->GetInput(0)->GetScalarType());
-  this->GetOutput()->SetNumberOfScalarComponents(
-			    this->GetInput(0)->GetNumberOfScalarComponents());
+  output->SetWholeExtent(input->GetWholeExtent());
+  output->SetSpacing(input->GetSpacing());
+  output->SetOrigin(input->GetOrigin());
+  output->SetScalarType(input->GetScalarType());
+  output->SetNumberOfScalarComponents(input->GetNumberOfScalarComponents());
+
   if ( ! this->Bypass)
     {
-    // Let the subclass modify the default.
+    this->LegacyHack = 1;
     this->ExecuteImageInformation();
+    if (this->LegacyHack)
+      {
+      vtkWarningMacro("ExecuteImageInformation should be changed to ExecuteInformation(vtkImageData*, vtkImageData*)");
+      return;
+      }
+    
+    // Let the subclass modify the default.
+    this->ExecuteInformation((vtkImageData**)(this->Inputs), output);
     }
 }
 

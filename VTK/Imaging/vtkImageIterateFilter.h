@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIterateFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-05 19:22:14 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-08-23 18:49:13 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,11 +72,12 @@ public:
 protected:
 
   // Superclass API. Sets defaults, then calls 
-  // ExecuteImageInformation(vtkImageData *inData, vtkImageData *outData)
+  // ExecuteInformation(vtkImageData *inData, vtkImageData *outData)
   // for each iteration
   void ExecuteInformation();
-  // called for each iteration (differs from superclass in arguments).
-  virtual void ExecuteImageInformation(vtkImageData *inData, vtkImageData *outData);
+  // Called for each iteration (differs from superclass in arguments).
+  // You should override this method if needed.
+  virtual void ExecuteInformation(vtkImageData *inData, vtkImageData *outData);
   
   // Ends up calling ComputeRequiredInputUpdateExtent(int inExt[6],int outExt[6])
   // for each iteration.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageNonMaximumSuppression.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-05 19:22:17 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1999-08-23 18:49:17 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -85,7 +85,7 @@ protected:
   int HandleBoundaries;
   int Dimensionality;
   
-  void ExecuteInformation();
+  void ExecuteInformation(vtkImageData **inDatas, vtkImageData *outData);
   virtual void ComputeRequiredInputUpdateExtent(int inExt[6], int outExt[6],
 						int whichInput);
   void ThreadedExecute(vtkImageData **inDatas, vtkImageData *outData,

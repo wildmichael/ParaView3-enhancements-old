@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageRange3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-05 19:22:18 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-08-23 18:49:19 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -125,10 +125,10 @@ void vtkImageRange3D::SetKernelSize(int size0, int size1, int size2)
 
 //----------------------------------------------------------------------------
 // Output is always float
-void vtkImageRange3D::ExecuteInformation()
+void vtkImageRange3D::ExecuteInformation(vtkImageData *vtkNotUsed(inData), 
+					 vtkImageData *outData)
 {
-  this->vtkImageSpatialFilter::ExecuteInformation();
-  this->GetOutput()->SetScalarType(VTK_FLOAT);
+  outData->SetScalarType(VTK_FLOAT);
 }
 
 

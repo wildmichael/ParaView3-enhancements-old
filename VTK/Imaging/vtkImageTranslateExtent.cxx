@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageTranslateExtent.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-30 18:37:50 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-08-23 18:49:24 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,15 +68,17 @@ void vtkImageTranslateExtent::PrintSelf(ostream& os, vtkIndent indent)
 
 //----------------------------------------------------------------------------
 // Change the WholeExtent
-void vtkImageTranslateExtent::ExecuteInformation()
+void vtkImageTranslateExtent::ExecuteInformation(vtkImageData *inData, 
+						 vtkImageData *outData)
 {
   int idx, extent[6];
   float *spacing, origin[3];
   
-  this->GetInput()->GetWholeExtent(extent);
-  this->GetInput()->GetOrigin(origin);
-  spacing = this->GetInput()->GetSpacing();
+  inData->GetWholeExtent(extent);
+  inData->GetOrigin(origin);
+  spacing = inData->GetSpacing();
 
+  // Actually superclass handles bypass ...
   if ( ! this->Bypass)
     {
     // TranslateExtent the OutputWholeExtent with the input WholeExtent
@@ -90,15 +92,8 @@ void vtkImageTranslateExtent::ExecuteInformation()
       }
     }
   
-  this->GetOutput()->SetWholeExtent(extent);
-  this->GetOutput()->SetOrigin(origin);
-
-  // Set default values
-  this->GetOutput()->SetSpacing(this->GetInput()->GetSpacing());
-  this->GetOutput()->SetScalarType(this->GetInput()->GetScalarType());
-  this->GetOutput()->SetNumberOfScalarComponents(
-                            this->GetInput()->GetNumberOfScalarComponents());
-
+  outData->SetWholeExtent(extent);
+  outData->SetOrigin(origin);
 }
 
 

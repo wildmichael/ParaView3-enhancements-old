@@ -1,10 +1,11 @@
 /*=========================================================================
 
   Program:   Visualization Toolkit
-  Module:    $RCSfile: vtkImageLuminance.h,v $
+  Module:    $RCSfile: vtkImageNormalize.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-23 18:49:14 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-08-23 18:49:17 $
+  Version:   $Revision: 1.1 $
+  Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -37,27 +38,30 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkImageLuminance - Computes the luminace of the input
+// .NAME vtkImageNormalize - Normalizes that scalar components for each point.
 // .SECTION Description
-// vtkImageLuminance calculates luminance from an rgb input.
+// For each point, vtkImageNormalize normalizes the vector defined by the 
+// scalar components.  If the magnitude of this vector is zero, the output
+// vector is zero also.
 
-#ifndef __vtkImageLuminance_h
-#define __vtkImageLuminance_h
+
+#ifndef __vtkImageNormalize_h
+#define __vtkImageNormalize_h
 
 
 #include "vtkImageToImageFilter.h"
 
-class VTK_EXPORT vtkImageLuminance : public vtkImageToImageFilter
+class VTK_EXPORT vtkImageNormalize : public vtkImageToImageFilter
 {
 public:
-  static vtkImageLuminance *New()
-    {return new vtkImageLuminance;};
-  const char *GetClassName() {return "vtkImageLuminance";};
+  static vtkImageNormalize *New() {return new vtkImageNormalize;};
+  const char *GetClassName() {return "vtkImageNormalize";};
 
 protected:
+
   void ExecuteInformation(vtkImageData *inData, vtkImageData *outData);
-  void ThreadedExecute(vtkImageData *inData, vtkImageData *outData, 
-		       int ext[6], int id);
+  void ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
+		       int extent[6], int id);
 };
 
 #endif

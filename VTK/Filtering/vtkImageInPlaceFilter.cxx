@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageInPlaceFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-05 19:22:14 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1999-08-23 18:49:12 $
+  Version:   $Revision: 1.22 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,7 +75,7 @@ void vtkImageInPlaceFilter::InternalUpdate(vtkDataObject *data)
 
   // since cache no longer exists we must allocate the scalars here
   // This may be a bad place to allocate data (before input->update)
-  this->InterceptCacheUpdate();
+  this->ModifyOutputUpdateExtent();
   outData->SetExtent(outData->GetUpdateExtent());
   outData->AllocateScalars();  
   
@@ -162,7 +162,7 @@ void vtkImageInPlaceFilter::RecursiveStreamUpdate(vtkImageData *outData,
 					 this->GetOutput()->GetUpdateExtent());
   
   // determine the amount of memory that will be used by the input region.
-  memory = this->GetInput()->GetUpdateExtentMemorySize();
+  memory = this->GetInput()->GetEstimatedUpdateMemorySize();
   
   // Split the inRegion if we are streaming.
   if ((memory > this->GetInput()->GetMemoryLimit()))

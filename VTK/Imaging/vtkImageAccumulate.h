@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAccumulate.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-05 19:22:06 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-08-23 18:49:06 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,10 +61,6 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
-  // Intercepts the caches Update to make the extent larger than requested.
-  void InterceptCacheUpdate();
-
-  // Description:
   // Set/Get - The component spacing is the dimension of each cell.
   vtkSetVector3Macro(ComponentSpacing, float);
   vtkGetVector3Macro(ComponentSpacing, float);
@@ -87,9 +83,15 @@ protected:
   float ComponentOrigin[3];
   int ComponentExtent[6];
 
-  void ExecuteInformation();
+  void ExecuteInformation(vtkImageData *input, vtkImageData *output);
   void ComputeRequiredInputUpdateExtent(int inExt[6], int outExt[6]);
   void Execute(vtkImageData *inData, vtkImageData *outData);
+
+  // Description:
+  // Generate more than requested.  Called by the superclass before
+  // an execute, and before output memory is allocated.
+  void ModifyOutputUpdateExtent();
+
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePermute.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-05 19:22:17 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1999-08-23 18:49:18 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,7 +50,8 @@ vtkImagePermute::vtkImagePermute()
 }
 
 //----------------------------------------------------------------------------
-void vtkImagePermute::ExecuteInformation() 
+void vtkImagePermute::ExecuteInformation(vtkImageData *inData, 
+					 vtkImageData *outData) 
 {
   int idx, axis;
   int ext[6];
@@ -60,9 +61,9 @@ void vtkImagePermute::ExecuteInformation()
   float *inSpacing;
   int *inExt;
   
-  inExt = this->GetInput()->GetWholeExtent();
-  inSpacing = this->GetInput()->GetSpacing();
-  inOrigin = this->GetInput()->GetOrigin();
+  inExt = inData->GetWholeExtent();
+  inSpacing = inData->GetSpacing();
+  inOrigin = inData->GetOrigin();
   
   for (idx = 0; idx < 3; ++idx)
     {
@@ -73,14 +74,9 @@ void vtkImagePermute::ExecuteInformation()
     ext[idx*2+1] = inExt[axis*2+1];
     }
   
-  this->GetOutput()->SetWholeExtent(ext);
-  this->GetOutput()->SetSpacing(spacing);
-  this->GetOutput()->SetOrigin(origin);
-
-  // Set default values
-  this->GetOutput()->SetScalarType(this->GetInput()->GetScalarType());
-  this->GetOutput()->SetNumberOfScalarComponents(
-                            this->GetInput()->GetNumberOfScalarComponents());
+  outData->SetWholeExtent(ext);
+  outData->SetSpacing(spacing);
+  outData->SetOrigin(origin);
 }
 
 

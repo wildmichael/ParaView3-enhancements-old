@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCorrelation.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-05 19:22:09 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-08-23 18:49:08 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,19 +52,11 @@ vtkImageCorrelation::vtkImageCorrelation()
 
 //----------------------------------------------------------------------------
 // Grow the output image 
-void vtkImageCorrelation::ExecuteInformation()
+void vtkImageCorrelation::ExecuteInformation(
+                    vtkImageData **vtkNotUsed(inDatas), vtkImageData *outData)
 {
-  int extent1[6];
-  
-  this->GetInput()->GetWholeExtent(extent1);
-  
-  this->GetOutput()->SetNumberOfScalarComponents(1);
-  
-  this->GetOutput()->SetWholeExtent(extent1);
-  this->GetOutput()->SetScalarType(VTK_FLOAT);
-
-  this->GetOutput()->SetOrigin(this->GetInput()->GetOrigin());
-  this->GetOutput()->SetSpacing(this->GetInput()->GetSpacing());
+  outData->SetNumberOfScalarComponents(1);
+  outData->SetScalarType(VTK_FLOAT);
 }
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageNonMaximumSuppression.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-05 19:22:17 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1999-08-23 18:49:16 $
+  Version:   $Revision: 1.29 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,12 +55,13 @@ vtkImageNonMaximumSuppression::vtkImageNonMaximumSuppression()
 // This method is passed a region that holds the image extent of this filters
 // input, and changes the region to hold the image extent of this filters
 // output.
-void vtkImageNonMaximumSuppression::ExecuteInformation()
+void vtkImageNonMaximumSuppression::ExecuteInformation(vtkImageData **inDatas,
+						       vtkImageData *outData)
 {
   int extent[6];
   int idx;
   
-  this->GetInput(0)->GetWholeExtent(extent);
+  inDatas[0]->GetWholeExtent(extent);
   if ( ! this->HandleBoundaries)
     {
     // shrink output image extent.
@@ -72,14 +73,7 @@ void vtkImageNonMaximumSuppression::ExecuteInformation()
     }
 
   
-  this->GetOutput()->SetWholeExtent(extent);
-
-  // Set default values
-  this->GetOutput()->SetOrigin(this->GetInput()->GetOrigin());
-  this->GetOutput()->SetSpacing(this->GetInput()->GetSpacing());
-  this->GetOutput()->SetScalarType(this->GetInput()->GetScalarType());
-  this->GetOutput()->SetNumberOfScalarComponents(
-                    this->GetInput(0)->GetNumberOfScalarComponents());
+  outData->SetWholeExtent(extent);
 }
 
 

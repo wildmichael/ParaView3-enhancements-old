@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageShiftScale.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-03 17:07:50 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1999-08-23 18:49:21 $
+  Version:   $Revision: 1.29 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,11 +55,12 @@ vtkImageShiftScale::vtkImageShiftScale()
 
 
 //----------------------------------------------------------------------------
-void vtkImageShiftScale::ExecuteImageInformation()
+void vtkImageShiftScale::ExecuteInformation(vtkImageData *vtkNotUsed(inData), 
+					    vtkImageData *outData)
 {
   if (this->OutputScalarType != -1)
     {
-    this->GetOutput()->SetScalarType(this->OutputScalarType);
+    outData->SetScalarType(this->OutputScalarType);
     }
 }
 

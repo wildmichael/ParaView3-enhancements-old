@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGaussianSmooth.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-05 19:22:12 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1999-08-23 18:49:11 $
+  Version:   $Revision: 1.22 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -109,17 +109,6 @@ void vtkImageGaussianSmooth::ComputeKernel(double *kernel, int min, int max,
     }
 }
   
-
-//----------------------------------------------------------------------------
-void vtkImageGaussianSmooth::ExecuteInformation()
-{
-  this->GetOutput()->SetOrigin(this->GetInput()->GetOrigin());
-  this->GetOutput()->SetSpacing(this->GetInput()->GetSpacing());
-  this->GetOutput()->SetWholeExtent(this->GetInput()->GetWholeExtent());
-  this->GetOutput()->SetScalarType(this->GetInput()->GetScalarType());
-  this->GetOutput()->SetNumberOfScalarComponents(
-                            this->GetInput()->GetNumberOfScalarComponents());
-}
 
 //----------------------------------------------------------------------------
 void vtkImageGaussianSmooth::ComputeRequiredInputUpdateExtent(int inExt[6], 

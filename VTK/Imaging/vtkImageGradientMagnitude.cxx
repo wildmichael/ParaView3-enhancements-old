@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGradientMagnitude.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-05 19:22:13 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1999-08-23 18:49:12 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,12 +64,13 @@ void vtkImageGradientMagnitude::PrintSelf(ostream& os, vtkIndent indent)
 // This method is passed a region that holds the image extent of this filters
 // input, and changes the region to hold the image extent of this filters
 // output.
-void vtkImageGradientMagnitude::ExecuteInformation()
+void vtkImageGradientMagnitude::ExecuteInformation(vtkImageData *inData, 
+						   vtkImageData *outData)
 {  
   int extent[6];
   int idx;
 
-  this->GetInput()->GetWholeExtent(extent);
+  inData->GetWholeExtent(extent);
   if ( ! this->HandleBoundaries)
     {
     // shrink output image extent.
@@ -80,13 +81,7 @@ void vtkImageGradientMagnitude::ExecuteInformation()
       }
     }
   
-  this->GetOutput()->SetWholeExtent(extent);
-
-  this->GetOutput()->SetOrigin(this->GetInput()->GetOrigin());
-  this->GetOutput()->SetSpacing(this->GetInput()->GetSpacing());
-  this->GetOutput()->SetScalarType(this->GetInput()->GetScalarType());
-  this->GetOutput()->SetNumberOfScalarComponents(
-                            this->GetInput()->GetNumberOfScalarComponents());
+  outData->SetWholeExtent(extent);
 }
 
 
@@ -306,6 +301,15 @@ void vtkImageGradientMagnitude::ThreadedExecute(vtkImageData *inData,
       return;
     }
 }
+
+
+
+
+
+
+
+
+
 
 
 
