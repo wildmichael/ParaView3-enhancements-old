@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEncodedGradientEstimator.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:11:33 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2000-04-28 22:37:10 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -335,7 +335,7 @@ void vtkEncodedGradientEstimator::PrintSelf(ostream& os, vtkIndent indent)
      << this->GradientMagnitudeBias << endl;
 
   os << indent << "Zero Pad: " 
-     << ((this->ZeroPad)?"On":"Off") << vtkEndl;
+     << ((this->ZeroPad)?"On":"Off") << endl;
   
   os << indent << "Bounds Clip: " 
      << ((this->BoundsClip)?"On":"Off") << endl;
