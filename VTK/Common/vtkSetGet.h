@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSetGet.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-19 00:29:48 $
-  Version:   $Revision: 1.78 $
+  Date:      $Date: 2001-02-12 14:21:22 $
+  Version:   $Revision: 1.79 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -908,7 +908,7 @@ static thisClass* SafeDownCast(vtkObject *o) \
 // Use to mark methods legacy. Make sure the correct date is used to
 // keep track of when a method was made legacy, and so that it can be
 // eliminated at the right time.
-#ifdef VTK_LEAN_AND_MEAN
+#ifndef VTK_LEAN_AND_MEAN
 #define VTK_LEGACY_METHOD(oldMethod,versionStringMadeLegacy) \
   vtkErrorMacro(<< #oldMethod \
                 << " was obsoleted for version " << #versionStringMadeLegacy \
