@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-07 15:08:46 $
-  Version:   $Revision: 1.191 $
+  Date:      $Date: 2003-04-29 11:17:24 $
+  Version:   $Revision: 1.192 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -36,7 +36,7 @@
 #include "vtkTimerLog.h"
 #include "vtkVolume.h"
 
-vtkCxxRevisionMacro(vtkRenderer, "$Revision: 1.191 $");
+vtkCxxRevisionMacro(vtkRenderer, "$Revision: 1.192 $");
 
 //----------------------------------------------------------------------------
 // Needed when we don't use the vtkStandardNewMacro.
@@ -59,6 +59,7 @@ vtkRenderer::vtkRenderer()
   this->TimeFactor = 1.0;
   
   this->CreatedLight = NULL;
+  this->AutomaticLightCreation = 1;
   
   this->TwoSidedLighting        = 1;
   this->BackingStore            = 0;
@@ -585,6 +586,11 @@ vtkLight *vtkRenderer::MakeLight()
 
 void vtkRenderer::CreateLight(void)
 {
+  if ( !this->AutomaticLightCreation )
+    {
+    return;
+    }
+
   if (this->CreatedLight)
     {
     this->CreatedLight->UnRegister(this);
@@ -1093,6 +1099,9 @@ void vtkRenderer::PrintSelf(ostream& os, vtkIndent indent)
 
   os << indent << "Two Sided Lighting: " 
      << (this->TwoSidedLighting ? "On\n" : "Off\n");
+
+  os << indent << "Automatic Light Creation: " 
+     << (this->AutomaticLightCreation ? "On\n" : "Off\n");
 
   os << indent << "Layer = " << this->Layer << "\n";
   os << indent << "Interactive = " << (this->Interactive ? "On" : "Off") 

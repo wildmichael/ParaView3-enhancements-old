@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-21 16:17:09 $
-  Version:   $Revision: 1.113 $
+  Date:      $Date: 2003-04-29 11:17:24 $
+  Version:   $Revision: 1.114 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -114,6 +114,17 @@ public:
   vtkSetMacro(LightFollowCamera,int);
   vtkGetMacro(LightFollowCamera,int);
   vtkBooleanMacro(LightFollowCamera,int);
+
+  // Description:
+  // Turn on/off a flag which disables the automatic light creation capability.
+  // Normally in VTK if no lights are associated with the renderer, then a light
+  // is automatically created. However, in special circumstances this feature is
+  // undesirable, so the following boolean is provided to disable automatic
+  // light creation. (Turn AutomaticLightCreation off if you do not want lights
+  // to be created.)
+  vtkGetMacro(AutomaticLightCreation,int);
+  vtkSetMacro(AutomaticLightCreation,int);
+  vtkBooleanMacro(AutomaticLightCreation,int);
 
   // Description:
   // Ask the lights in the scene that are not in world space
@@ -336,6 +347,7 @@ protected:
   float              AllocatedRenderTime;
   float              TimeFactor;
   int                TwoSidedLighting;
+  int                AutomaticLightCreation;
   int                BackingStore;
   unsigned char      *BackingImage;
   vtkTimeStamp       RenderTime;
