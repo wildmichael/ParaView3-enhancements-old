@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTubeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-09 16:44:58 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1996-02-26 14:59:34 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -234,8 +234,8 @@ void vtkTubeFilter::Execute()
       for (i=0; i < npts; i++) 
         {
         i2 = i*this->NumberOfSides;
-        newStrips->InsertCellPoint(ptOffset+i2+k);
         newStrips->InsertCellPoint(ptOffset+i2+i1);
+        newStrips->InsertCellPoint(ptOffset+i2+k);
         }
       } //for this line
 

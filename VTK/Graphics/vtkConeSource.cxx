@@ -1,10 +1,10 @@
 /*=========================================================================
 
   Program:   Visualization Toolkit
-  Module:    $RCSfile: vtkConeSource.cxx,v $
+  Module:    vtkConeSource.cc
   Language:  C++
-  Date:      $Date: 1995-10-09 16:43:20 $
-  Version:   $Revision: 1.22 $
+  Date:      09 Oct 1995
+  Version:   1.22
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -157,7 +157,7 @@ void vtkConeSource::Execute()
 //
     if ( this->Capping )
       {
-      for (i=0; i<this->Resolution; i++) pts[i] = i+1;
+      for (i=0; i<this->Resolution; i++) pts[this->Resolution - i - 1] = i+1;
       newPolys->InsertNextCell(this->Resolution,pts);
       }
   } //switch
