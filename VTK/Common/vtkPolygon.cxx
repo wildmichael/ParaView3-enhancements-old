@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolygon.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-12 20:33:38 $
-  Version:   $Revision: 1.89 $
+  Date:      $Date: 2001-07-17 20:31:22 $
+  Version:   $Revision: 1.90 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1175,7 +1175,7 @@ int vtkPolygon::Triangulate(int vtkNotUsed(index), vtkIdList *ptIds,
 
   success = this->EarCutTriangulation();
 
-  if ( !success ) // Use slower but always successful technique.
+  if ( !success ) // Indicate possible failure
     {
     vtkErrorMacro(<<"Possible triangulation failure");
     }
