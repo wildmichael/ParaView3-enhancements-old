@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLParser.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-03 15:47:03 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-06-06 22:29:08 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,13 +21,13 @@
 #include "expat.h"
 #include <ctype.h>
 
-#ifdef VTK_USE_ANSI_STDLIB
+#if defined(VTK_USE_ANSI_STDLIB) || (defined(__GNUC__) && (__GNUC__  >= 3))
 #define VTK_IOS_NOCREATE 
 #else
 #define VTK_IOS_NOCREATE | ios::nocreate
 #endif
 
-vtkCxxRevisionMacro(vtkXMLParser, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkXMLParser, "$Revision: 1.9 $");
 vtkStandardNewMacro(vtkXMLParser);
 
 //----------------------------------------------------------------------------
