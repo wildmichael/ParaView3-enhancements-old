@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTubeFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-09 10:59:27 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2002-08-15 11:23:24 $
+  Version:   $Revision: 1.50 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -56,9 +56,10 @@
 #define VTK_VARY_RADIUS_BY_SCALAR 1
 #define VTK_VARY_RADIUS_BY_VECTOR 2
 
-#define VTK_TCOORDS_OFF 0
-#define VTK_TCOORDS_FROM_LENGTH 1
-#define VTK_TCOORDS_FROM_SCALARS 2
+#define VTK_TCOORDS_OFF                    0
+#define VTK_TCOORDS_FROM_NORMALIZED_LENGTH 1
+#define VTK_TCOORDS_FROM_LENGTH            2
+#define VTK_TCOORDS_FROM_SCALARS           3
 
 class VTK_GRAPHICS_EXPORT vtkTubeFilter : public vtkPolyDataToPolyDataFilter
 {
@@ -150,6 +151,8 @@ public:
   vtkGetMacro(GenerateTCoords,int);
   void SetGenerateTCoordsToOff()
     {this->SetGenerateTCoords(VTK_TCOORDS_OFF);}
+  void SetGenerateTCoordsToNormalizedLength()
+    {this->SetGenerateTCoords(VTK_TCOORDS_FROM_NORMALIZED_LENGTH);}
   void SetGenerateTCoordsToUseLength()
     {this->SetGenerateTCoords(VTK_TCOORDS_FROM_LENGTH);}
   void SetGenerateTCoordsToUseScalars()
