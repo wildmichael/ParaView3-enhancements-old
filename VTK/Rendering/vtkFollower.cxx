@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFollower.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:34:51 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1995-08-07 08:59:15 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,6 +66,12 @@ void vtkFollower::GetMatrix(vtkMatrix4x4& result)
   this->Transform.Push();  
   this->Transform.Identity();  
   this->Transform.PreMultiply();  
+
+  // apply user defined matrix last if there is one 
+  if (this->UserMatrix)
+    {
+    this->Transform.Concatenate(*this->UserMatrix);
+    }
 
   // first translate
   this->Transform.Translate(this->Position[0],
