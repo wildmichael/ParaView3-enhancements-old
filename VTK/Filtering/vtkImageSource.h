@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.h,v $
   Language:  C++
-  Date:      $Date: 1996-07-31 19:25:50 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1996-08-09 19:46:30 $
+  Version:   $Revision: 1.5 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -88,7 +88,10 @@ public:
   // number of pieces for the next call to suceed.  
   // If the failure is not memory related, and splitting the region
   // will not help, split factor should be set to zero.
+  // This should really be in the region object.
+  vtkSetMacro(SplitFactor,int);
   vtkGetMacro(SplitFactor,int);
+
 protected:
   int SplitFactor;
 };

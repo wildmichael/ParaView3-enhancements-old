@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-06 18:13:04 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1996-08-09 19:46:21 $
+  Version:   $Revision: 1.9 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -149,17 +149,13 @@ void vtkImageData::SetBounds(int min0, int max0, int min1, int max1,
 }
 
 
-
-
-
-
 //----------------------------------------------------------------------------
 // Description:
 // This method tells the data object to handle a specific DataType.
 // The method should be called before the data object is allocated.
 void vtkImageData::SetType(int type)
 {
-  if (this->Scalars)
+if (this->Scalars)
     {
     vtkErrorMacro(<< "SetType: Data object has already been allocated.");
     return;
