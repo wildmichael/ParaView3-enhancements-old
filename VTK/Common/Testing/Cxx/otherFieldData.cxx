@@ -1,9 +1,20 @@
-/************************************************************************
+/*=========================================================================
+
+  Program:   Visualization Toolkit
   Module:    $RCSfile: otherFieldData.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-14 15:11:16 $
-  Version:   $Revision: 1.4 $
- ************************************************************************/
+  Date:      $Date: 2002-01-22 15:26:52 $
+  Version:   $Revision: 1.5 $
+
+  Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
+  All rights reserved.
+  See Copyright.txt or http://www.kitware.com/Copyright.htm for details.
+
+     This software is distributed WITHOUT ANY WARRANTY; without even 
+     the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR 
+     PURPOSE.  See the above copyright notice for more information.
+
+=========================================================================*/
 
 #include "vtkDebugLeaks.h"
 #include "vtkFieldData.h"
