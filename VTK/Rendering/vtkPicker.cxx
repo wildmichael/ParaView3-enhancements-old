@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-28 18:18:45 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1999-02-24 17:36:15 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -308,7 +308,7 @@ int vtkPicker::Pick(float selectionX, float selectionY, float selectionZ,
       //  coordinates. 
       if (pickable && (mapper = part->GetMapper()) != NULL )
         {
-        this->Transform->SetMatrix(*(part->vtkProp::GetMatrixPointer()));
+        this->Transform->SetMatrix(*(part->vtkProp3D::GetMatrixPointer()));
         this->Transform->Push();
         this->Transform->Inverse();
 

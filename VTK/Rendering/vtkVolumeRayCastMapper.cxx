@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-19 21:53:23 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1999-02-24 17:36:18 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -468,7 +468,7 @@ void vtkVolumeRayCastMapper::GeneralImageInitialization( vtkRenderer *ren,
   viewToVolumeTransform->Inverse();
 
   // Store the matrix of the volume in a temporary transformation matrix
-  worldToVolumeTransform->SetMatrix(*( vol->vtkProp::GetMatrixPointer()) );
+  worldToVolumeTransform->SetMatrix(*( vol->vtkProp3D::GetMatrixPointer()) );
 
   // Get the origin of the data.  This translation is not accounted for in
   // the volume's matrix, so we must add it in.
