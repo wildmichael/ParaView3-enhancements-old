@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkByteSwap.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-10 21:10:24 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1997-07-11 11:38:35 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -246,7 +246,7 @@ void vtkByteSwap::Swap2LERange(char *mem_ptr1,int num)
   
 }
 #else
-void vtkByteSwap::Swap2LERange(char *mem_ptr1,int num)
+void vtkByteSwap::Swap2LERange(char *mem_ptr1,int num){}
 #endif
 
 // Description:
