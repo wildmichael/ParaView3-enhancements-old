@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyVertex.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-09 16:42:15 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1996-05-30 01:48:17 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,8 +61,8 @@ public:
   int GetCellDimension() {return 0;};
   int GetNumberOfEdges() {return 0;};
   int GetNumberOfFaces() {return 0;};
-  vtkCell *GetEdge(int edgeId) {return 0;};
-  vtkCell *GetFace(int faceId) {return 0;};
+  vtkCell *GetEdge(int vtkNotUsed(edgeId)) {return 0;};
+  vtkCell *GetFace(int vtkNotUsed(faceId)) {return 0;};
 
   int CellBoundary(int subId, float pcoords[3], vtkIdList& pts);
   void Contour(float value, vtkFloatScalars *cellScalars, 

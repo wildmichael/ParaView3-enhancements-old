@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleStrip.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-09 16:42:32 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1996-05-30 01:48:19 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,7 +66,7 @@ public:
   int GetNumberOfEdges() {return this->GetNumberOfPoints();};
   int GetNumberOfFaces() {return 0;};
   vtkCell *GetEdge(int edgeId);
-  vtkCell *GetFace(int faceId) {return 0;};
+  vtkCell *GetFace(int vtkNotUsed(faceId)) {return 0;};
 
   int CellBoundary(int subId, float pcoords[3], vtkIdList& pts);
   void Contour(float value, vtkFloatScalars *cellScalars, 

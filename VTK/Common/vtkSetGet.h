@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSetGet.h,v $
   Language:  C++
-  Date:      $Date: 1996-05-28 10:34:07 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1996-05-30 01:48:18 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -350,5 +350,13 @@ void Get##name (type data[count]) \
 //
 #define vtkErrorMacro(x) \
   cerr << "ERROR In " __FILE__ << ", line " << __LINE__ << "\n" << this->GetClassName() << " (" << this << "): " x << "\n\n"
+
+//
+// This macro is used to quiet compiler warnings about unused parameters
+// to methods. Only use it when the parameter really shouldn't be used.
+// Don't use it as a way to shut up the compiler while you take your
+// sweet time getting around to implementing the method.
+//
+#define vtkNotUsed(x)
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLOT3DReader.h,v $
   Language:  C++
-  Date:      $Date: 1995-12-27 10:56:44 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1996-05-30 01:48:15 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -234,9 +234,6 @@ protected:
   float Wvinf;
   
   //methods to read data
-  int ReadASCIIGrid(FILE *fp);
-  int ReadASCIISolution(FILE *fp);
-  int ReadASCIIFunctionFile(FILE *fp);
   int ReadBinaryGrid(FILE *fp,vtkStructuredGrid *output);
   int ReadBinarySolution(FILE *fp, vtkStructuredGrid *output);
   int ReadBinaryFunctionFile(FILE *fp);
