@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSeparableConvolution.h,v $
   Language:  C++
-  Date:      $Date: 2001-12-17 16:38:29 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-12-18 15:33:29 $
+  Version:   $Revision: 1.3 $
   Thanks:    
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -64,19 +64,27 @@ public:
   vtkTypeMacro(vtkImageSeparableConvolution,vtkImageDecomposeFilter);
 
 
-  // Set the X convolution kernel, a null value indicates no convolution to be done
+  // Set the X convolution kernel, a null value indicates no convolution to be done.
+  // The kernel must be of odd length
   vtkSetObjectMacro ( XKernel, vtkFloatArray );
   vtkGetObjectMacro ( XKernel, vtkFloatArray );
 
   // Set the Y convolution kernel, a null value indicates no convolution to be done
+  // The kernel must be of odd length
   vtkSetObjectMacro ( YKernel, vtkFloatArray );
   vtkGetObjectMacro ( YKernel, vtkFloatArray );
 
   // Set the Z convolution kernel, a null value indicates no convolution to be done
+  // The kernel must be of odd length
   vtkSetObjectMacro ( ZKernel, vtkFloatArray );
   vtkGetObjectMacro ( ZKernel, vtkFloatArray );
 
   void PrintSelf(ostream& os, vtkIndent indent);
+  
+  // Description:
+  // Overload standard modified time function. If kernel arrays are modified,
+  // then this object is modified as well.
+  unsigned long int GetMTime();
   
 protected:
   vtkImageSeparableConvolution();
