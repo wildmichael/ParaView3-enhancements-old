@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper.h,v $
   Language:  C++
-  Date:      $Date: 2000-08-08 14:22:18 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-08-09 10:15:44 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -80,7 +80,7 @@ public:
   vtkGetMacro(NumberOfPieces, int);
 
 protected:  
-  vtkPolyDataMapper() {};
+  vtkPolyDataMapper();
   ~vtkPolyDataMapper() {};
   vtkPolyDataMapper(const vtkPolyDataMapper&) {};
   void operator=(const vtkPolyDataMapper&) {};

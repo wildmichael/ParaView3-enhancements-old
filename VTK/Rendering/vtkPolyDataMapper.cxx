@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-08 14:22:18 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-08-09 10:15:43 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,6 +43,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkRenderWindow.h"
 #include "vtkGraphicsFactory.h"
 
+//----------------------------------------------------------------------------
 // return the correct type of PolyDataMapper 
 vtkPolyDataMapper *vtkPolyDataMapper::New()
 {
@@ -51,13 +52,19 @@ vtkPolyDataMapper *vtkPolyDataMapper::New()
   return (vtkPolyDataMapper*)ret;
 }
 
+
 //----------------------------------------------------------------------------
-// Specify the input data or filter.
+vtkPolyDataMapper::vtkPolyDataMapper()
+{
+  this->Piece = 0;
+  this->NumberOfPieces = 1;
+}
+
+
+//----------------------------------------------------------------------------
 void vtkPolyDataMapper::SetInput(vtkPolyData *input)
 {
   this->vtkProcessObject::SetNthInput(0, input);
-  this->Piece = 0;
-  this->NumberOfPieces = 1;
 }
 
 //----------------------------------------------------------------------------
