@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCommand.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:07 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-04-24 20:39:23 $
+  Version:   $Revision: 1.15 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -99,6 +99,7 @@ public:
     MouseMoveEvent,
     ResetCameraEvent,
     ResetCameraClippingRangeEvent,
+    ModifiedEvent,
     UserEvent = 1000
   };
 //ETX

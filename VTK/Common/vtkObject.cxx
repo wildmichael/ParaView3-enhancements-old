@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:13 $
-  Version:   $Revision: 1.62 $
+  Date:      $Date: 2001-04-24 20:39:24 $
+  Version:   $Revision: 1.63 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -92,10 +92,10 @@ ostream& operator<<(ostream& os, vtkObject& o)
 vtkObject::vtkObject()
 {
   this->Debug = 0;
-  this->Modified(); // Insures modified time > than any other time
-  // initial reference count = 1 and reference counting on.
   this->ReferenceCount = 1;
   this->SubjectHelper = NULL;
+  this->Modified(); // Insures modified time > than any other time
+  // initial reference count = 1 and reference counting on.
 }
 
 // Delete a vtk object. This method should always be used to delete an object 

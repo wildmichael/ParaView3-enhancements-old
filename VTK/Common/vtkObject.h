@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:13 $
-  Version:   $Revision: 1.74 $
+  Date:      $Date: 2001-04-24 20:39:24 $
+  Version:   $Revision: 1.75 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -67,6 +67,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkIndent.h"
 #include "vtkTimeStamp.h"
 #include "vtkSetGet.h"
+#include "vtkCommand.h"
 
 class vtkSubjectHelper;
 class vtkCommand;
@@ -229,6 +230,7 @@ private:
 inline void vtkObject::Modified()
 {
   this->MTime.Modified();
+  this->InvokeEvent(vtkCommand::ModifiedEvent,NULL);
 }
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCommand.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:07 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-04-24 20:39:23 $
+  Version:   $Revision: 1.6 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -73,6 +73,7 @@ static const char *vtkCommandEventStrings[] = {
   "MouseMoveEvent",
   "ResetCameraEvent",
   "ResetCameraClippingRangeEvent",
+  "ModifiedEvent",
   NULL
 };
 
