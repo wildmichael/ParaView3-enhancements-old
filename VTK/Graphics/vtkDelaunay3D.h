@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay3D.h,v $
   Language:  C++
-  Date:      $Date: 2000-08-25 14:40:54 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2000-08-28 11:45:56 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -264,8 +264,8 @@ protected:
   int *References;
 
   int FindEnclosingFaces(float x[3], vtkUnstructuredGrid *Mesh,
-                         vtkPoints *points, vtkIdList *tetras, 
-                         vtkIdList *faces, vtkPointLocator *Locator);
+                         vtkIdList *tetras, vtkIdList *faces, 
+                         vtkPointLocator *Locator);
   
 private: //members added for performance
   vtkIdList *Tetras; //used in InsertPoint
