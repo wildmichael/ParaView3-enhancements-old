@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLUtilities.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-08-13 17:55:45 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-08-13 18:59:36 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,7 +30,7 @@
 typedef vtkstd::vector<vtkXMLDataElement*> vtkXMLUtilitiesDataElementContainer;
 
 vtkStandardNewMacro(vtkXMLUtilities);
-vtkCxxRevisionMacro(vtkXMLUtilities, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkXMLUtilities, "$Revision: 1.2 $");
 
 #define  VTK_XML_UTILITIES_FACTORED_POOL_NAME "FactoredPool"
 #define  VTK_XML_UTILITIES_FACTORED_NAME      "Factored"
@@ -359,9 +359,9 @@ vtkXMLUtilities::ReadElementFromStream(istream &is, int encoding)
   if (xml_parser->Parse())
     {
     res = xml_parser->GetRootElement();
-    // WARNING, this will be (must have been) fixed by Brad at some point
-    // in the main tree
-    // res->SetReferenceCount(res->GetReferenceCount() + 1);
+    // Bump up the ref count since we are going to delete the parser
+    // which actually owns the element
+    res->SetReferenceCount(res->GetReferenceCount() + 1);
     vtkXMLUtilities::UnFactorElements(res);
     }
 
