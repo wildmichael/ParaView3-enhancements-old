@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-05-13 08:06:44 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-05-13 08:29:20 $
+  Version:   $Revision: 1.4 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -119,7 +119,6 @@ vlCell *vlStructuredGrid::GetCell(int cellId)
       kMin = cellId / ((this->Dimensions[0] - 1) * (this->Dimensions[1] - 1));
       kMax = kMin + 1;
       cell = &hexa;
-      }
       break;
     }
 
