@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-16 14:13:39 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2001-04-16 15:08:08 $
+  Version:   $Revision: 1.34 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -66,7 +66,7 @@ vtkTextMapper::vtkTextMapper()
 void vtkTextMapper::ShallowCopy(vtkTextMapper *tm)
 {
   this->SetInput(tm->GetInput());
-  this->SetClippingPlanes(m->GetClippingPlanes());
+  this->SetClippingPlanes(tm->GetClippingPlanes());
   this->SetFontSize(tm->GetFontSize());
   this->SetBold(tm->GetBold());
   this->SetItalic(tm->GetItalic());
