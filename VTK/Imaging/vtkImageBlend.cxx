@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageBlend.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:03 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-03-24 22:02:49 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to David G. Gobbi and Sebastien Barre who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -795,7 +795,7 @@ void vtkImageBlend::ThreadedExecute(vtkImageData **inData,
 
   float opacity;
 
-  vtkImageData *tmpData;
+  vtkImageData *tmpData = NULL;
   
   // check
 
