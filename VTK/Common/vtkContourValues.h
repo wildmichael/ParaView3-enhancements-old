@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourValues.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-02 21:58:01 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-06-02 22:32:46 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,7 +68,7 @@ public:
   float *GetValues();
   void GetValues(float *contourValues);
 
-  void SetNumberOfContours(int number);
+  void SetNumberOfContours(const int number);
   int GetNumberOfContours();
 
   void GenerateValues(int numContours, float range[2]);
