@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-07 11:05:33 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1998-04-22 20:52:18 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -485,7 +485,10 @@ int vtkDataWriter::WriteScalarData(FILE *fp, vtkScalars *scalars, int num)
     char format[1024];
     fprintf (fp, "SCALARS ");
     sprintf(format,"%s %s %s\n",this->ScalarsName, "%s\nLOOKUP_TABLE", name);
-    return this->WriteArray(fp, scalars->GetDataType(), scalars->GetData(), format, num, 1);
+    if (this->WriteArray(fp, scalars->GetDataType(), scalars->GetData(), format, num, 1) == 0)
+      {
+      return 0;
+      }
     }
 
   else //color scalars
