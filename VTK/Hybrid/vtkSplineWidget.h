@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSplineWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-13 22:23:12 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-11-14 13:43:11 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -185,15 +185,13 @@ public:
   vtkGetMacro(Resolution,int);
 
   // Description:
-  // Set/Get the spline objects.  The use can supply one of currently
-  // two types of spline: vtkCardinalSpline, vtkKochanekSpline. The widget
-  // does not enforce internal consistency so that all three are the same type.
+  // Set the spline objects.  The user can supply one of currently
+  // two types of spline: vtkCardinalSpline, vtkKochanekSpline.
+  // WARNING: The widget does not enforce internal consistency so that all
+  // three are of the same type.
   void SetXSpline(vtkSpline*);
-  vtkGetObjectMacro(XSpline,vtkSpline);
   void SetYSpline(vtkSpline*);
-  vtkGetObjectMacro(YSpline,vtkSpline);
   void SetZSpline(vtkSpline*);
-  vtkGetObjectMacro(ZSpline,vtkSpline);
 
   // Description:
   // Set/Get the position of the spline handles. Call GetNumberOfHandles
