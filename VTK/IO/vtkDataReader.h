@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 19:28:24 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1997-04-18 20:51:06 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,7 +60,7 @@ class VTK_EXPORT vtkDataReader : public vtkObject
 public:
   vtkDataReader();
   ~vtkDataReader();
-  vtkDataReader *New() {return new vtkDataReader;};
+  static vtkDataReader *New() {return new vtkDataReader;};
   char *GetClassName() {return "vtkDataReader";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

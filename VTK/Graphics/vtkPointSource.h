@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSource.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 19:29:37 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1997-04-18 20:52:36 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,7 +53,7 @@ class VTK_EXPORT vtkPointSource : public vtkPolySource
 {
 public:
   vtkPointSource(int numPts=10);
-  vtkPointSource *New() {return new vtkPointSource;};
+  static vtkPointSource *New() {return new vtkPointSource;};
   char *GetClassName() {return "vtkPointSource";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

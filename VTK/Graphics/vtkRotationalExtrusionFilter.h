@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRotationalExtrusionFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 19:29:55 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1997-04-18 20:53:02 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -85,7 +85,7 @@ class VTK_EXPORT vtkRotationalExtrusionFilter : public vtkPolyToPolyFilter
 {
 public:
   vtkRotationalExtrusionFilter();
-  vtkRotationalExtrusionFilter *New() {return new vtkRotationalExtrusionFilter;};
+  static vtkRotationalExtrusionFilter *New() {return new vtkRotationalExtrusionFilter;};
   char *GetClassName() {return "vtkRotationalExtrusionFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutlineFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 19:29:27 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1997-04-18 20:52:25 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,7 +52,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkOutlineFilter : public vtkDataSetToPolyFilter
 {
 public:
-  vtkOutlineFilter *New() {return new vtkOutlineFilter;};
+  static vtkOutlineFilter *New() {return new vtkOutlineFilter;};
   char *GetClassName() {return "vtkOutlineFilter";};
 
 protected:

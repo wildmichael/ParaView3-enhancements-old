@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextSource.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 19:30:31 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1997-04-18 20:53:58 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,7 +53,7 @@ class VTK_EXPORT vtkTextSource : public vtkPolySource
 {
 public:
   vtkTextSource();
-  vtkTextSource *New() {return new vtkTextSource;};
+  static vtkTextSource *New() {return new vtkTextSource;};
   char *GetClassName() {return "vtkTextSource";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

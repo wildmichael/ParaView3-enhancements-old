@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToPlane.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 19:30:34 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1997-04-18 20:54:02 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,7 +69,7 @@ class VTK_EXPORT vtkTextureMapToPlane : public vtkDataSetToDataSetFilter
 {
 public:
   vtkTextureMapToPlane();
-  vtkTextureMapToPlane *New() {return new vtkTextureMapToPlane;};
+  static vtkTextureMapToPlane *New() {return new vtkTextureMapToPlane;};
   char *GetClassName() {return "vtkTextureMapToPlane";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

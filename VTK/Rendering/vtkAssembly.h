@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssembly.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 19:28:00 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1997-04-18 20:50:40 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -87,7 +87,7 @@ class VTK_EXPORT vtkAssembly : public vtkActor
 public:
   vtkAssembly();
   ~vtkAssembly();
-  vtkAssembly *New() {return new vtkAssembly;};
+  static vtkAssembly *New() {return new vtkAssembly;};
   char *GetClassName() {return "vtkAssembly";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

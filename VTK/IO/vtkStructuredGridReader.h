@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridReader.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 19:30:18 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1997-04-18 20:53:37 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,7 +55,7 @@ class VTK_EXPORT vtkStructuredGridReader : public vtkStructuredGridSource
 {
 public:
   vtkStructuredGridReader();
-  vtkStructuredGridReader *New() {return new vtkStructuredGridReader;};
+  static vtkStructuredGridReader *New() {return new vtkStructuredGridReader;};
   char *GetClassName() {return "vtkStructuredGridReader";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

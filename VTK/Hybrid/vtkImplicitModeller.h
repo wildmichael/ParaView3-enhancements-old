@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitModeller.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 19:29:04 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1997-04-18 20:51:54 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,7 +62,7 @@ class VTK_EXPORT vtkImplicitModeller : public vtkDataSetToStructuredPointsFilter
 {
 public:
   vtkImplicitModeller();
-  vtkImplicitModeller *New() {return new vtkImplicitModeller;};
+  static vtkImplicitModeller *New() {return new vtkImplicitModeller;};
   char *GetClassName() {return "vtkImplicitModeller";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

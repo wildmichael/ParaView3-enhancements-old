@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 19:29:17 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1997-04-18 20:52:11 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,7 +54,7 @@ class VTK_EXPORT vtkMergeFilter : public vtkFilter
 {
 public:
   vtkMergeFilter();
-  vtkMergeFilter *New() {return new vtkMergeFilter;};
+  static vtkMergeFilter *New() {return new vtkMergeFilter;};
   char *GetClassName() {return "vtkMergeFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBBTree.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 19:29:20 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1997-04-18 20:52:15 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -100,7 +100,7 @@ class VTK_EXPORT vtkOBBTree : public vtkCellLocator
 {
 public:
   vtkOBBTree();
-  vtkOBBTree *New() {return new vtkOBBTree;};
+  static vtkOBBTree *New() {return new vtkOBBTree;};
   char *GetClassName() {return "vtkOBBTree";};
 
   void ComputeOBB(vtkFloatPoints *pts, float corner[3], float max[3], 

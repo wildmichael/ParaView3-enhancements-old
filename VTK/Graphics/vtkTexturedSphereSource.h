@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexturedSphereSource.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 19:30:36 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1997-04-18 20:54:04 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,7 +57,7 @@ class VTK_EXPORT vtkTexturedSphereSource : public vtkPolySource
 {
 public:
   vtkTexturedSphereSource(int res=8);
-  vtkTexturedSphereSource *New() {return new vtkTexturedSphereSource;};
+  static vtkTexturedSphereSource *New() {return new vtkTexturedSphereSource;};
   char *GetClassName() {return "vtkTexturedSphereSource";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

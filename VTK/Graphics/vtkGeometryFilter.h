@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 19:28:51 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1997-04-18 20:51:37 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,7 +71,7 @@ class VTK_EXPORT vtkGeometryFilter : public vtkDataSetToPolyFilter
 {
 public:
   vtkGeometryFilter();
-  vtkGeometryFilter *New() {return new vtkGeometryFilter;};
+  static vtkGeometryFilter *New() {return new vtkGeometryFilter;};
   char *GetClassName() {return "vtkGeometryFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

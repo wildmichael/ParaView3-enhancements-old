@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitTextureCoords.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 19:29:05 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1997-04-18 20:51:55 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,7 +79,7 @@ class VTK_EXPORT vtkImplicitTextureCoords : public vtkDataSetToDataSetFilter
 {
 public:
   vtkImplicitTextureCoords();
-  vtkImplicitTextureCoords *New() {return new vtkImplicitTextureCoords;};
+  static vtkImplicitTextureCoords *New() {return new vtkImplicitTextureCoords;};
   char *GetClassName() {return "vtkImplicitTextureCoords";};
   void PrintSelf(ostream& os, vtkIndent indent);
   

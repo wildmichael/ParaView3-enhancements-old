@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractVectorComponents.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 19:28:46 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1997-04-18 20:51:31 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,7 +64,7 @@ class VTK_EXPORT vtkExtractVectorComponents : public vtkFilter
 {
 public:
   vtkExtractVectorComponents();
-  vtkExtractVectorComponents *New() {return new vtkExtractVectorComponents;};
+  static vtkExtractVectorComponents *New() {return new vtkExtractVectorComponents;};
   char *GetClassName() {return "vtkExtractVectorComponents";};
 
   // filter interface (need to overload because of multiple output
