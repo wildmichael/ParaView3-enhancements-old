@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:11 $
-  Version:   $Revision: 1.68 $
+  Date:      $Date: 2002-03-13 02:20:12 $
+  Version:   $Revision: 1.69 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -320,6 +320,11 @@ protected:
                 int& allocSize);
 
   vtkCharArray* InputArray;
+
+  // Description:
+  // Decode the name of array. This method is the inverse of 
+  // vtkWriter::EncodeName.
+  void DecodeArrayName(char *resname, const char* name);
 
 private:
   vtkDataReader(const vtkDataReader&);  // Not implemented.
