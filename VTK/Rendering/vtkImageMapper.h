@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapper.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:08:36 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-03-29 16:48:21 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -105,6 +105,9 @@ public:
   // Methods used internally for performing the Window/Level mapping.
   float GetColorShift();
   float GetColorScale();
+
+  // Public for templated functions.
+  int DisplayExtent[6];
 
 protected:
   vtkImageMapper();
