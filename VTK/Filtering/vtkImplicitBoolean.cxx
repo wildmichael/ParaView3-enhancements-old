@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitBoolean.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:35:14 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-09-06 17:56:11 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,7 +44,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // 
 vtkImplicitBoolean::vtkImplicitBoolean()
 {
-  this->OperationType = UNION;
+  this->OperationType = VTK_UNION;
 }
 
 vtkImplicitBoolean::~vtkImplicitBoolean()
@@ -94,7 +94,7 @@ float vtkImplicitBoolean::EvaluateFunction(float x[3])
   float value, v;
   vtkImplicitFunction *f;
 
-  if ( this->OperationType == UNION )
+  if ( this->OperationType == VTK_UNION )
     { //take minimum value
     for (value = LARGE_FLOAT, this->FunctionList.InitTraversal(); 
     f=this->FunctionList.GetNextItem(); )
@@ -103,7 +103,7 @@ float vtkImplicitBoolean::EvaluateFunction(float x[3])
       }
     }
 
-  else if ( this->OperationType == INTERSECTION )
+  else if ( this->OperationType == VTK_INTERSECTION )
     { //take maximum value
     for (value=-LARGE_FLOAT, this->FunctionList.InitTraversal(); 
     f=this->FunctionList.GetNextItem(); )
@@ -139,7 +139,7 @@ void vtkImplicitBoolean::EvaluateGradient(float x[3], float g[3])
   float value, v;
   vtkImplicitFunction *f;
 
-  if ( this->OperationType == UNION )
+  if ( this->OperationType == VTK_UNION )
     { //take minimum value
     for (value = LARGE_FLOAT, this->FunctionList.InitTraversal(); 
     f=this->FunctionList.GetNextItem(); )
@@ -152,7 +152,7 @@ void vtkImplicitBoolean::EvaluateGradient(float x[3], float g[3])
       }
     }
 
-  else if ( this->OperationType == INTERSECTION )
+  else if ( this->OperationType == VTK_INTERSECTION )
     { //take maximum value
     for (value=-LARGE_FLOAT, this->FunctionList.InitTraversal(); 
     f=this->FunctionList.GetNextItem(); )
@@ -201,7 +201,7 @@ void vtkImplicitBoolean::PrintSelf(ostream& os, vtkIndent indent)
   this->FunctionList.PrintSelf(os,indent.GetNextIndent());
 
   os << indent << "Operator Type: ";
-  if ( this->OperationType == INTERSECTION ) os << "INTERSECTION\n";
-  else if ( this->OperationType == UNION ) os << "UNION\n";
-  else os << "INTERSECTION\n";
+  if ( this->OperationType == VTK_INTERSECTION ) os << "VTK_INTERSECTION\n";
+  else if ( this->OperationType == VTK_UNION ) os << "VTK_UNION\n";
+  else os << "VTK_INTERSECTION\n";
 }
