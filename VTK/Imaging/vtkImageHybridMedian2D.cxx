@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageHybridMedian2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-27 17:21:20 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2003-05-12 14:52:10 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include <vtkstd/algorithm>
 #include <vtkstd/numeric>
 
-vtkCxxRevisionMacro(vtkImageHybridMedian2D, "$Revision: 1.19 $");
+vtkCxxRevisionMacro(vtkImageHybridMedian2D, "$Revision: 1.20 $");
 vtkStandardNewMacro(vtkImageHybridMedian2D);
 
 //----------------------------------------------------------------------------
@@ -150,7 +150,7 @@ void vtkImageHybridMedian2DExecute(vtkImageHybridMedian2D *self,
             }
 
           vtkstd::sort(array.begin(),array.end());
-          median1 = array[array.size()/2];
+          median1 = array[static_cast<unsigned int>(0.5*array.size())];
 
           // compute median of x neighborhood
           array.clear();
@@ -206,7 +206,7 @@ void vtkImageHybridMedian2DExecute(vtkImageHybridMedian2D *self,
             }
 
           vtkstd::sort(array.begin(),array.end());
-          median2 = array[array.size()/2];
+          median2 = array[static_cast<unsigned int>(0.5*array.size())];
 
           // Compute the median of the three. (med1, med2 and center)
           if (median1 > median2)
