@@ -2,11 +2,8 @@
 
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCurvatures.h,v $
-  Language:  C++
-  Date:      $Date: 2002-11-01 09:53:07 $
-  Version:   $Revision: 1.2 $
 
-  Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
+  Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
   See Copyright.txt or http://www.kitware.com/Copyright.htm for details.
 

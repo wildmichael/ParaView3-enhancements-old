@@ -2,11 +2,8 @@
 
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader2.cxx,v $
-  Language:  C++
-  Date:      $Date: 2003-11-21 18:54:15 $
-  Version:   $Revision: 1.27 $
 
-  Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
+  Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
   See Copyright.txt or http://www.kitware.com/Copyright.htm for details.
 
@@ -24,7 +21,7 @@
 
 #include <sys/stat.h>
 
-vtkCxxRevisionMacro(vtkImageReader2, "$Revision: 1.27 $");
+vtkCxxRevisionMacro(vtkImageReader2, "$Revision: 1.28 $");
 vtkStandardNewMacro(vtkImageReader2);
 
 #ifdef read

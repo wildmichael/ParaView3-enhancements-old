@@ -2,11 +2,8 @@
 
   Program:   Visualization Toolkit
   Module:    $RCSfile: ImagePlaneWidget.cxx,v $
-  Language:  C++
-  Date:      $Date: 2003-12-16 14:48:31 $
-  Version:   $Revision: 1.18 $
 
-  Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
+  Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
   See Copyright.txt or http://www.kitware.com/Copyright.htm for details.
 
