@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkLogLookupTable.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-19 08:01:24 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1995-07-19 10:20:28 $
+  Version:   $Revision: 1.2 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -20,9 +20,8 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 // or rgba into scalar values. The difference between this class and its
 // superclass vtkLookupTable is that this class performs scalar mapping based
 // on a logarithmic lookup process. (Uses log base 10).
-//    The mapping of scalar values automatically shifts the range into values
-// that are strictly positive. Thus you can use the logarithmic table to
-// map negative scalar values.
+//    If non-positive ranges are encountered, then they are converted to 
+// positive values using absolute value.
 // .SECTION See Also
 // vtkLookupTable
 
@@ -44,7 +43,7 @@ public:
 protected:
   float LogMinRange;
   float LogMaxRange;
-  float ShiftValue;
+  float UseAbsoluteValue;
 };
 
 #endif
