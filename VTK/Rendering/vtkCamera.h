@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-01 21:04:43 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 1999-10-05 15:50:43 $
+  Version:   $Revision: 1.53 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -303,7 +303,8 @@ class VTK_EXPORT vtkCamera : public vtkObject
   // The plane normals point inward. The planes array contains six
   // plane equations of the form (Ax+By+Cz+D=0), the first four
   // values are (A,B,C,D) which repeats for each of the planes.
-  void GetFrustumPlanes( float planes[24] );
+  // The aspect of the viewport is needed to correctly compute the planes
+  void GetFrustumPlanes( float aspect, float planes[24] );
 
   // Description:
   // For legacy compatibility. Do not use.
