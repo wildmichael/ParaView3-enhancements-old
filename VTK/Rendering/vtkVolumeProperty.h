@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProperty.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-16 21:45:12 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1997-09-11 21:30:25 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -133,6 +133,18 @@ public:
   vtkGetMacro(OpacityTransferFunctionMTime, vtkTimeStamp);
 
   // Description:
+  // Set the gradient magnitude transfer function. 
+  void SetGradientMagnitude( vtkPiecewiseFunction *function );
+
+  // Description:
+  // Get the magnitude of gradient transfer function.
+  vtkPiecewiseFunction *GetGradientMagnitudeTransferFunction();
+
+  // Description:
+  // Get the time that the GradientMagnitudeTransferFunction was set
+  vtkGetMacro(GradientMagnitudeTransferFunctionMTime, vtkTimeStamp);
+
+  // Description:
   // Set/Get the shading of a volume.
   vtkSetMacro(Shade,int);
   vtkGetMacro(Shade,int);
@@ -158,6 +170,16 @@ public:
   vtkSetClampMacro(SpecularPower,float,0.0,100.0);
   vtkGetMacro(SpecularPower,float);
 
+  // Description:
+  // Set/Get the gradient magnitude scale.
+  vtkSetMacro(GradientMagnitudeScale,float);
+  vtkGetMacro(GradientMagnitudeScale,float);
+
+  // Description:
+  // Set/Get the gradient magnitude bias.
+  vtkSetMacro(GradientMagnitudeBias,float);
+  vtkGetMacro(GradientMagnitudeBias,float);
+
 protected:
 
   int				InterpolationType;
@@ -176,11 +198,19 @@ protected:
   vtkTimeStamp			OpacityTransferFunctionMTime;
   int				SelfCreatedOTFun;
 
+  vtkPiecewiseFunction		*GradientMagnitudeTransferFunction;
+  vtkTimeStamp			GradientMagnitudeTransferFunctionMTime;
+  int				SelfCreatedGMTFun;
+
   int				Shade;
   float				Ambient;
   float 			Diffuse;
   float				Specular;
   float				SpecularPower;
+
+  // Constants for remapping the gradient magnitude values
+  float				GradientMagnitudeScale;
+  float				GradientMagnitudeBias;
 };
 
 // Description:
