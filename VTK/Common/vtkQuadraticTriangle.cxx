@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadraticTriangle.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-31 19:02:49 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-06-05 20:42:34 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkQuadraticTriangle, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkQuadraticTriangle, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkQuadraticTriangle);
 
 // Construct the line with two points.
@@ -253,9 +253,12 @@ int vtkQuadraticTriangle::Triangulate(int vtkNotUsed(index), vtkIdList *ptIds,
 }
 
 void vtkQuadraticTriangle::Derivatives(int vtkNotUsed(subId), 
-                                       float pcoords[3], float *values, 
-                                       int dim, float *derivs)
+                                       float pcoords[3], 
+                                       float *vtkNotUsed(values), 
+                                       int vtkNotUsed(dim), 
+                                       float *vtkNotUsed(derivs))
 {
+  pcoords[0] = pcoords[1] = pcoords[2] = 0.0;
 }
 
 
