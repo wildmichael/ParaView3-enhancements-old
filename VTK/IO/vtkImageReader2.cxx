@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader2.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:14 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-01-30 22:41:26 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include <ctype.h>
 #include <string.h>
 
-vtkCxxRevisionMacro(vtkImageReader2, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkImageReader2, "$Revision: 1.10 $");
 vtkStandardNewMacro(vtkImageReader2);
 
 #ifdef read
@@ -140,7 +140,24 @@ void vtkImageReader2::ComputeInternalFileName(int slice)
     else
       {
       this->InternalFileName = new char [strlen(this->FilePattern) + 10];
-      sprintf (this->InternalFileName, this->FilePattern, "", slicenum);
+      int len = strlen(this->FilePattern);
+      int hasPercentS = 0;
+      for(int i =0; i < len-1; ++i)
+        {
+        if(this->FilePattern[i] == '%' && this->FilePattern[i] == 's')
+          {
+          hasPercentS = 1;
+          break;
+          }
+        }
+      if(hasPercentS)
+        {
+        sprintf (this->InternalFileName, this->FilePattern, "", slicenum);
+        }
+      else
+        {
+        sprintf (this->InternalFileName, this->FilePattern, slicenum);
+        }
       }
     }
 }
