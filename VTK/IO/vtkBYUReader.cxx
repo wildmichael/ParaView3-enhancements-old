@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-18 20:47:02 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1999-06-21 14:07:52 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,11 +43,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkVectors.h"
 #include "vtkScalars.h"
 #include "vtkTCoords.h"
-
-vtkSafeSetStringMacro2(GeometryFileName,vtkBYUReader);
-vtkSafeSetStringMacro2(DisplacementFileName,vtkBYUReader);
-vtkSafeSetStringMacro2(ScalarFileName,vtkBYUReader);
-vtkSafeSetStringMacro2(TextureFileName,vtkBYUReader);
 
 vtkBYUReader::vtkBYUReader()
 {

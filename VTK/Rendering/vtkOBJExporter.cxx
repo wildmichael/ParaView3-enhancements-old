@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBJExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-18 20:47:06 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-06-21 14:07:55 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,8 +40,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkOBJExporter.h"
 #include "vtkGeometryFilter.h"
-
-vtkSafeSetStringMacro2(FilePrefix,vtkOBJExporter);
 
 vtkOBJExporter::vtkOBJExporter()
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBJExporter.h,v $
   Language:  C++
-  Date:      $Date: 1999-06-18 20:47:06 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-06-21 14:07:55 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,7 +67,7 @@ public:
   // Description:
   // Specify the prefix of the files to write out. The resulting filenames
   // will have .obj and .mtl appended to them.
-  vtkSafeSetStringMacro(FilePrefix);
+  vtkSetStringMacro(FilePrefix);
   vtkGetStringMacro(FilePrefix);
 
 protected:

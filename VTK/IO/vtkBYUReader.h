@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUReader.h,v $
   Language:  C++
-  Date:      $Date: 1999-06-18 20:47:01 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1999-06-21 14:07:53 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,22 +62,22 @@ public:
 
   // Description:
   // Specify name of geometry FileName.
-  vtkSafeSetStringMacro(GeometryFileName);
+  vtkSetStringMacro(GeometryFileName);
   vtkGetStringMacro(GeometryFileName);
 
   // Description:
   // Specify name of displacement FileName.
-  vtkSafeSetStringMacro(DisplacementFileName);
+  vtkSetStringMacro(DisplacementFileName);
   vtkGetStringMacro(DisplacementFileName);
 
   // Description:
   // Specify name of scalar FileName.
-  vtkSafeSetStringMacro(ScalarFileName);
+  vtkSetStringMacro(ScalarFileName);
   vtkGetStringMacro(ScalarFileName);
 
   // Description:
   // Specify name of texture coordinates FileName.
-  vtkSafeSetStringMacro(TextureFileName);
+  vtkSetStringMacro(TextureFileName);
   vtkGetStringMacro(TextureFileName);
 
   // Description:

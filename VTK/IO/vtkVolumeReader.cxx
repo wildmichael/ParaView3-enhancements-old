@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-18 20:47:11 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-06-21 14:08:01 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,9 +39,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkVolumeReader.h"
-
-vtkSafeSetStringMacro2(FilePrefix,vtkVolumeReader);
-vtkSafeSetStringMacro2(FilePattern,vtkVolumeReader);
 
 // Construct object with NULL file prefix; file pattern "%s.%d"; image range 
 // set to (1,1); 

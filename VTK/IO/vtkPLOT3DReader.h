@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLOT3DReader.h,v $
   Language:  C++
-  Date:      $Date: 1999-06-18 20:47:06 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1999-06-21 14:07:55 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -121,22 +121,22 @@ public:
 
   // Description:
   // Set/Get the PLOT3D geometry FileName.
-  vtkSafeSetStringMacro(XYZFileName);
+  vtkSetStringMacro(XYZFileName);
   vtkGetStringMacro(XYZFileName);
 
   // Description:
   // Set/Get the PLOT3D solution FileName.
-  vtkSafeSetStringMacro(QFileName);
+  vtkSetStringMacro(QFileName);
   vtkGetStringMacro(QFileName);
 
   // Description:
   // Set/Get the PLOT3D function FileName.
-  vtkSafeSetStringMacro(FunctionFileName);
+  vtkSetStringMacro(FunctionFileName);
   vtkGetStringMacro(FunctionFileName);
 
   // Description:
   // Set/Get the PLOT3D vector FileName.
-  vtkSafeSetStringMacro(VectorFunctionFileName);
+  vtkSetStringMacro(VectorFunctionFileName);
   vtkGetStringMacro(VectorFunctionFileName);
 
   // Description:

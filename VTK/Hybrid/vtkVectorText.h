@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorText.h,v $
   Language:  C++
-  Date:      $Date: 1999-06-18 20:47:11 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-06-21 14:08:00 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,7 +59,7 @@ public:
 
   // Description:
   // Set/Get the text to be drawn.
-  vtkSafeSetStringMacro(Text);
+  vtkSetStringMacro(Text);
   vtkGetStringMacro(Text);
 
 protected:

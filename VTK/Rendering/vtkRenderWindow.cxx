@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-18 20:47:07 $
-  Version:   $Revision: 1.86 $
+  Date:      $Date: 1999-06-21 14:07:56 $
+  Version:   $Revision: 1.87 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,8 +45,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkRenderWindowInteractor.h"
 #include "vtkTransform.h"
 #include "vtkMath.h"
-
-vtkSafeSetStringMacro2(FileName,vtkRenderWindow);
 
 // Construct an instance of  vtkRenderWindow with its screen size 
 // set to 300x300, borders turned on, positioned at (0,0), double 

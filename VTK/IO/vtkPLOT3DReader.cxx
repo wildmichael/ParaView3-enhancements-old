@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLOT3DReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-18 20:47:06 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 1999-06-21 14:07:55 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,11 +50,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define VTK_CINF 1.0
 #define VTK_PINF ((VTK_RHOINF*VTK_CINF) * (VTK_RHOINF*VTK_CINF) / this->Gamma)
 #define VTK_CV (this->R / (this->Gamma-1.0))
-
-vtkSafeSetStringMacro2(XYZFileName,vtkPLOT3DReader);
-vtkSafeSetStringMacro2(QFileName,vtkPLOT3DReader);
-vtkSafeSetStringMacro2(FunctionFileName,vtkPLOT3DReader);
-vtkSafeSetStringMacro2(VectorFunctionFileName,vtkPLOT3DReader);
 
 vtkPLOT3DReader::vtkPLOT3DReader()
 {

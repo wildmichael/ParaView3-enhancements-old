@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMCubesReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-18 20:47:05 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 1999-06-21 14:07:53 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,9 +43,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkMCubesReader.h"
 #include "vtkMergePoints.h"
 #include "vtkByteSwap.h"
-
-vtkSafeSetStringMacro2(FileName,vtkMCubesReader);
-vtkSafeSetStringMacro2(LimitsFileName,vtkMCubesReader);
 
 // Construct object with FlipNormals turned off and Normals set to true.
 vtkMCubesReader::vtkMCubesReader()
