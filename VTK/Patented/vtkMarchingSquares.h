@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingSquares.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 19:58:27 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1998-03-10 16:20:04 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -137,45 +137,45 @@ inline void vtkMarchingSquares::SetValue(int i, float value)
 // Description:
 // Get the ith contour value.
 inline float vtkMarchingSquares::GetValue(int i)
-{return this->ContourValues->GetValue(i);};
+{return this->ContourValues->GetValue(i);}
 
 // Description:
 // Get a pointer to an array of contour values. There will be
 // GetNumberOfContours() values in the list.
 inline float *vtkMarchingSquares::GetValues()
-{return this->ContourValues->GetValues();};
+{return this->ContourValues->GetValues();}
 
 // Description:
 // Fill a supplied list with contour values. There will be
 // GetNumberOfContours() values in the list. Make sure you allocate
 // enough memory to hold the list.
 inline void vtkMarchingSquares::GetValues(float *contourValues)
-{this->ContourValues->GetValues(contourValues);};
+{this->ContourValues->GetValues(contourValues);}
 
 // Description:
 // Set the number of contours to place into the list. You only really
 // need to use this method to reduce list size. The method SetValue()
 // will automatically increase list size as needed.
 inline void vtkMarchingSquares::SetNumberOfContours(int number)
-{this->ContourValues->SetNumberOfContours(number);};
+{this->ContourValues->SetNumberOfContours(number);}
 
 // Description:
 // Get the number of contours in the list of contour values.
 inline int vtkMarchingSquares::GetNumberOfContours()
-{return this->ContourValues->GetNumberOfContours();};
+{return this->ContourValues->GetNumberOfContours();}
 
 // Description:
 // Generate numContours equally spaced contour values between specified
 // range. Contour values will include min/max range values.
 inline void vtkMarchingSquares::GenerateValues(int numContours, float range[2])
-{this->ContourValues->GenerateValues(numContours, range);};
+{this->ContourValues->GenerateValues(numContours, range);}
 
 // Description:
 // Generate numContours equally spaced contour values between specified
 // range. Contour values will include min/max range values.
 inline void vtkMarchingSquares::GenerateValues(int numContours, float
                                              rangeStart, float rangeEnd)
-{this->ContourValues->GenerateValues(numContours, rangeStart, rangeEnd);};
+{this->ContourValues->GenerateValues(numContours, rangeStart, rangeEnd);}
 
 #endif
 
