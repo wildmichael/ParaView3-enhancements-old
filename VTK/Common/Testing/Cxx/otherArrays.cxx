@@ -1,8 +1,8 @@
 /************************************************************************
   Module:    $RCSfile: otherArrays.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 18:35:35 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-10-06 15:49:14 $
+  Version:   $Revision: 1.2 $
  ************************************************************************/
 
 #include "vtkDebugLeaks.h"
@@ -47,6 +47,7 @@ static int doArrayTest (ostream& strm, T *ptr, A *array, int size)
     {
     if (ptr2->GetNumberOfComponents() == 10) strm << "OK" << endl;
     else strm << "FAILED" << endl;
+    ptr2->Delete();
     }
   else
     {
