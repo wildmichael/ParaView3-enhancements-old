@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGaussianCubeReader.h,v $
   Language:  C++
-  Date:      $Date: 2003-05-12 18:01:54 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-05-12 18:08:05 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -48,10 +48,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef __vtkGaussianCubeReader_h
 #define __vtkGaussianCubeReader_h
 
-#include "vtkStructuredPointsSource.h"
-#include "vtkTransform.h"
 #include "vtkMoleculeReaderBase.h"
+
 class vtkImageData;
+class vtkTransform;
 
 class VTK_IO_EXPORT vtkGaussianCubeReader : public vtkMoleculeReaderBase 
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGaussianCubeReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-12 18:01:54 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-05-12 18:08:05 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -40,16 +40,18 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 #include "vtkGaussianCubeReader.h"
+
 #include "vtkImageData.h"
 #include "vtkPointData.h"
 #include "vtkPoints.h"
 #include "vtkFloatArray.h"
 #include "vtkIdTypeArray.h"
 #include "vtkObjectFactory.h"
+#include "vtkTransform.h"
 
 #include <ctype.h>
 
-vtkCxxRevisionMacro(vtkGaussianCubeReader, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkGaussianCubeReader, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkGaussianCubeReader);
 
 // Construct object with merging set to true.
