@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-11-18 20:53:57 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1997-05-13 20:53:23 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -78,15 +78,15 @@ void vtkPointSet::Initialize()
   vtkDataSet::Initialize();
 
   if ( this->Points ) 
-  {
+    {
     this->Points->UnRegister(this);
     this->Points = NULL;
-  }
+    }
 
   if ( this->Locator ) 
-  {
+    {
     this->Locator->Initialize();
-  }
+    }
 }
 void vtkPointSet::ComputeBounds()
 {
