@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinkEdgels.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-27 16:57:30 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1996-08-27 20:10:00 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,7 +39,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkLinkEdgels.h"
-
 
 
 //----------------------------------------------------------------------------
@@ -220,8 +219,8 @@ void vtkLinkEdgels::LinkEdgels(vtkImageRegion *region,
   linkThresh = cos(this->LinkThreshold*3.1415926/180.0);
   phiThresh = cos(this->PhiThreshold*3.1415926/180.0);
 
-  imgPtrY = (float *)region->GetVoidPointer2d();
-  region->GetIncrements2d(imgIncX,imgIncY);
+  imgPtrY = (float *)region->GetVoidPointer3d();
+  region->GetIncrements3d(imgIncX,imgIncY,imgIncVec);
   
   // first find all forward & backwards links
   for (y = 0; y < ydim; y++, imgPtrY += imgIncY)
