@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParse.y,v $
   Language:  C++
-  Date:      $Date: 1999-10-19 13:47:59 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-01-18 13:45:34 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -169,6 +169,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 %token GetVectorMacro
 %token ViewportCoordinateMacro
 %token WorldCoordinateMacro
+%token TypeMacro
 
 %%
 /*
@@ -795,6 +796,29 @@ macro:
      currentFunction->HaveHint = 1;
      currentFunction->HintSize = 3;
      output_function();
+   }
+| TypeMacro '(' any_id ',' any_id ')'
+   { 
+   currentFunction->Signature = (char *)malloc(2048);
+   sigAllocatedLength = 2048;
+   sprintf(currentFunction->Signature, "const char *GetClassName();");
+   sprintf(temps,"GetClassName"); 
+   currentFunction->Name = strdup(temps);
+   currentFunction->NumberOfArguments = 0;
+   currentFunction->ReturnType = 1303;
+   output_function();
+
+   currentFunction->Signature = (char *)malloc(2048);
+   sigAllocatedLength = 2048;
+   sprintf(currentFunction->Signature,
+           "int IsA (const char *name);");
+   sprintf(temps,"IsA"); 
+   currentFunction->Name = strdup(temps);
+   currentFunction->NumberOfArguments = 1;
+   currentFunction->ArgTypes[0] = 1303;
+   currentFunction->ArgCounts[0] = 0;
+   currentFunction->ReturnType = 4;
+   output_function();
    }
 ;
 
