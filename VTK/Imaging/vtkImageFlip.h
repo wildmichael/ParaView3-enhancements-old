@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFlip.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-17 14:29:32 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1997-08-12 19:26:41 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkImageFlip - 
+// .NAME vtkImageFlip - This flips axes of an image. Right becomes left ...
 // .SECTION Description
 // vtkImageFlip will reflect the data over all of the filtered axes.
 // The Origin and Spacing are not changed, min0 and max0 of extent are
