@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPICommunicator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-24 12:49:39 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-06-25 12:07:09 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 
 #include "vtkMPI.h"
 
-vtkCxxRevisionMacro(vtkMPICommunicator, "$Revision: 1.20 $");
+vtkCxxRevisionMacro(vtkMPICommunicator, "$Revision: 1.21 $");
 vtkStandardNewMacro(vtkMPICommunicator);
 
 vtkCxxSetObjectMacro(vtkMPICommunicator,Group,vtkMPIGroup);
@@ -579,8 +579,8 @@ int vtkMPICommunicator::Send(vtkIdType* data, int length,
   return CheckForMPIError(
     vtkMPICommunicatorSendData(reinterpret_cast<char*>(data), length, 
                                sizeof(vtkIdType), remoteProcessId, tag, 
-                               GetMPIType(), this->Comm->Handle,
-                               vtkCommunicator::UseCopy));
+                               vtkMPICommunicatorGetMPIType(), 
+                               this->Comm->Handle, vtkCommunicator::UseCopy));
 
 }
 #endif
@@ -718,8 +718,8 @@ int vtkMPICommunicator::Receive(vtkIdType* data, int length,
   return CheckForMPIError(
     vtkMPICommunicatorReceiveData(reinterpret_cast<char*>(data), length, 
                                   sizeof(vtkIdType), remoteProcessId, tag, 
-                                  GetMPIType(), this->Comm->Handle,
-                                  vtkCommunicator::UseCopy));
+                                  vtkMPICommunicatorGetMPIType(), 
+                                  this->Comm->Handle, vtkCommunicator::UseCopy));
 }
 #endif
 
