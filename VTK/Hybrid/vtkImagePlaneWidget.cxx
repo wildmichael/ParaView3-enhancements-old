@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-26 12:06:37 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-04-26 15:46:00 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -38,7 +38,7 @@
 
 #define ABS(x) ((x)<0 ? -(x) : (x))
 
-vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.12 $");
 vtkStandardNewMacro(vtkImagePlaneWidget);
 
 vtkImagePlaneWidget::vtkImagePlaneWidget()
@@ -790,7 +790,7 @@ void vtkImagePlaneWidget::SetPlaneOrientation(int i)
 
 void vtkImagePlaneWidget::GenerateTexturePlane()
 {
-  this->ImageData = (vtkImageData *) this->GetInput();
+  this->ImageData = vtkImageData::SafeDownCast(this->GetInput());
   if( ! this->ImageData )
     {
     vtkGenericWarningMacro(<<"Must call SetInput() with vtkImageData*!");
@@ -985,7 +985,7 @@ void vtkImagePlaneWidget::UpdateNormal()
   this->Reslice->SetResliceAxes(this->ResliceAxes);
   this->Reslice->SetResliceAxesOrigin(newOrigin);
 
-  this->ImageData = Reslice->GetInput();
+  this->ImageData = this->Reslice->GetInput();
   // calculate appropriate pixel spacing for the reslicing
 
   this->ImageData->UpdateInformation();
