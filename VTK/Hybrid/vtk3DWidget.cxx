@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtk3DWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-26 21:12:06 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-03-28 12:00:17 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkCallbackCommand.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtk3DWidget, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtk3DWidget, "$Revision: 1.4 $");
 
 vtk3DWidget::vtk3DWidget()
 {
@@ -49,6 +49,7 @@ vtk3DWidget::~vtk3DWidget()
     this->Input->Delete();
     this->Input = NULL;
     }
+  this->WidgetCallbackCommand->Delete();
 }
 
 void vtk3DWidget::PlaceWidget()
