@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-13 18:22:51 $
-  Version:   $Revision: 1.101 $
+  Date:      $Date: 2000-11-06 02:14:17 $
+  Version:   $Revision: 1.102 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -120,9 +120,15 @@ int vtkActor::GetIsOpaque()
 {
   if (this->Property->GetOpacity() >= 1.0)
     {
-    if (this->Texture && this->Texture->GetInput()) 
+    if (this->Texture && this->Texture->GetInput())
       {
+      this->Texture->GetInput()->UpdateInformation();
+      this->Texture->GetInput()->SetUpdateExtent(this->Texture->GetInput()->GetWholeExtent());
       this->Texture->GetInput()->Update();
+      if (this->Texture->GetInput()->GetPointData()->GetScalars() == NULL)
+        { // Handle gracefully. What should it return? 
+        return 1;
+        }
       if (this->Texture->GetInput()->GetPointData()->GetScalars()->GetNumberOfComponents()%2)
         {
         return 1;
