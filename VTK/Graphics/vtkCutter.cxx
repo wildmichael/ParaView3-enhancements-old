@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCutter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-12-09 18:35:14 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1995-05-04 15:57:00 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -44,8 +44,7 @@ unsigned long vlCutter::GetMTime()
 }
 
 //
-// Cut through data generating surface.  Point values can be determined using
-// ProbeFilter.
+// Cut through data generating surface.
 //
 void vlCutter::Execute()
 {
@@ -72,7 +71,7 @@ void vlCutter::Execute()
 //
 // Create objects to hold output of contour operation
 //
-  newPoints = new vlFloatPoints(1000,1000);
+  newPoints = new vlFloatPoints(1000,10000);
   newVerts = new vlCellArray(1000,1000);
   newLines = new vlCellArray(1000,10000);
   newPolys = new vlCellArray(1000,10000);
@@ -89,7 +88,7 @@ void vlCutter::Execute()
     for (i=0; i<cellPts->GetNumberOfPoints(); i++)
       {
       x = cellPts->GetPoint(i);
-      s = this->CutFunction->Evaluate(x[0], x[1], x[2]);
+      s = this->CutFunction->EvaluateFunction(x);
       cellScalars.SetScalar(i,s);
       }
 

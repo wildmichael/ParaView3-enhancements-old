@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkExtractGeometry.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-02-26 10:25:01 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1995-05-04 15:57:01 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -82,7 +82,7 @@ void vlExtractGeometry::Execute()
   for ( ptId=0; ptId < numPts; ptId++ )
     {
     x = this->Input->GetPoint(ptId);
-    if ( (this->ImplicitFunction->Evaluate(x[0],x[1],x[2])*multiplier) < 0.0 )
+    if ( (this->ImplicitFunction->FunctionValue(x)*multiplier) < 0.0 )
       {
       newId = newPts->InsertNextPoint(x);
       pointMap[ptId] = newId;
