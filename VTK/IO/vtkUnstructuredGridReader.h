@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridReader.h,v $
   Language:  C++
-  Date:      $Date: 1998-11-03 20:22:39 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1999-01-07 14:06:41 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -136,6 +136,10 @@ public:
 protected:
   void Execute();
   vtkDataReader *Reader;
+
+private:
+  int Recursing;
+
 };
 
 #endif
