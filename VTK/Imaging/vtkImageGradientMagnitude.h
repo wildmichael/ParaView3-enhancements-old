@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGradientMagnitude.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:32:40 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2002-03-04 16:59:54 $
+  Version:   $Revision: 1.33 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,6 @@
 // vtkImageGradientMagnitude computes the gradient magnitude of an image.
 // Setting the dimensionality determines whether the gradient is computed on
 // 2D images, or 3D volumes.  The default is two dimensional XY images.
-// OutputScalarType is always float.
 
 // .SECTION See Also
 // vtkImageGradient vtkImageMagnitude
