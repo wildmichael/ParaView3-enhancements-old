@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStripper.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:26:46 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-07-25 15:40:28 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -149,7 +149,7 @@ void vtkStripper::Execute()
       } // if not visited
     } // for all elements
 //
-// Update ourselves
+// Update ourselves and release memory
 //
   delete [] visited;
 
@@ -158,6 +158,7 @@ void vtkStripper::Execute()
 
   newStrips->Squeeze();
   this->SetStrips(newStrips);
+  newStrips->Delete();
 
   // pass through verts and lines
   this->SetVerts(input->GetVerts());

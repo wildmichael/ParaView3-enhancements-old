@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamLine.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-24 11:03:11 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-07-25 15:40:24 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -117,12 +117,21 @@ void vtkStreamLine::Execute()
                << newLines->GetNumberOfCells() << " lines");
 
   this->SetPoints(newPts);
+  newPts->Delete();
+
   this->PointData.SetVectors(newVectors);
-  if ( newScalars ) this->PointData.SetScalars(newScalars);
+  newVectors->Delete();
+
+  if ( newScalars ) 
+    {
+    this->PointData.SetScalars(newScalars);
+    newScalars->Delete();
+    }
+
   this->SetLines(newLines);
+  newLines->Delete();
 
   this->Squeeze();
-
 }
 
 void vtkStreamLine::PrintSelf(ostream& os, vtkIndent indent)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:26:45 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1995-07-25 15:40:26 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -88,8 +88,16 @@ void vtkStreamPoints::Execute()
   vtkDebugMacro(<<"Created " << newPts->GetNumberOfPoints() << " points");
 
   this->SetPoints(newPts);
+  newPts->Delete();
+
   this->PointData.SetVectors(newVectors);
-  if ( newScalars ) this->PointData.SetScalars(newScalars);
+  newVectors->Delete();
+
+  if ( newScalars ) 
+    {
+    this->PointData.SetScalars(newScalars);
+    newScalars->Delete();
+    }
 
   this->Squeeze();
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShrinkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:26:39 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1995-07-25 15:40:01 $
+  Version:   $Revision: 1.22 $
 
 This file is part of the Visualization Toolkit. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -173,13 +173,19 @@ void vtkShrinkPolyData::Execute()
       }
     }
 //
-// Update self
+// Update self and release memory
 //
   this->SetPoints(newPoints);
+  newPoints->Delete();
 
   this->SetVerts(newVerts);
+  newVerts->Delete();
+
   this->SetLines(newLines);
+  newLines->Delete();
+ 
   this->SetPolys(newPolys);
+  newPolys->Delete();
 }
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:26:41 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-07-25 15:40:04 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Toolkit. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -123,11 +123,16 @@ void vtkSphereSource::Execute()
       }
     }
 //
-// Update ourselves
+// Update ourselves and release memeory
 //
   this->SetPoints(newPoints);
+  newPoints->Delete();
+
   this->PointData.SetNormals(newNormals);
+  newNormals->Delete();
+
   this->SetPolys(newPolys);
+  newPolys->Delete();
 }
 
 void vtkSphereSource::PrintSelf(ostream& os, vtkIndent indent)
