@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-24 18:22:53 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2000-08-25 14:40:54 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -229,7 +229,7 @@ int vtkDelaunay3D::FindEnclosingFaces(float x[3], vtkUnstructuredGrid *Mesh,
                                       vtkIdList *faces,
                                       vtkPointLocator *locator)
 {
-  int tetraId, i, j, ijk[3], numTetras;
+  int tetraId, i, j, numTetras;
   int p1, p2, p3, insertFace;
   int npts, *tetraPts, nei, hasNei;
   int closestPoint;
@@ -561,7 +561,7 @@ void vtkDelaunay3D::Execute()
     for (i=0; i < numTetras; i++)
       {
       //check tetras
-      if ( tetraUse[i] == 1 )
+      if ( tetraUse[i] )
         {
         tetra = this->TetraArray->GetTetra(i);
         if ( tetra->r2 > alpha2 )
@@ -589,6 +589,7 @@ void vtkDelaunay3D::Execute()
       }//for all tetras
 
     //traverse tetras again, this time examining faces
+    //used tetras have already been output, so we look at those that haven't
     for (i=0; i < numTetras; i++)
       {
       if ( ! tetraUse[i] )
@@ -604,7 +605,7 @@ void vtkDelaunay3D::Execute()
           if ( this->BoundingTriangulation || 
           (p1 < numPoints && p2 < numPoints && p3 < numPoints) )
             {
-            hasNei = GetTetraFaceNeighbor(Mesh, tetraId, p1,p2,p3, nei);
+            hasNei = GetTetraFaceNeighbor(Mesh, i, p1,p2,p3, nei);
 
             if ( !hasNei || ( nei > i && !tetraUse[nei] ) )
               {
@@ -613,7 +614,6 @@ void vtkDelaunay3D::Execute()
               points->GetPoint(p2,x2); dx2[0]=x2[0]; dx2[1]=x2[1]; dx2[2]=x2[2];
               points->GetPoint(p3,x3); dx3[0]=x3[0]; dx3[1]=x3[1]; dx3[2]=x3[2];
               vtkTriangle::ProjectTo2D(dx1,dx2,dx3,dv1,dv2,dv3);
-              dcenter[0] = center[0]; dcenter[1] = center[1]; dcenter[2] = center[2];
               if ( vtkTriangle::Circumcircle(dv1,dv2,dv3,dcenter) <= alpha2 )
                 {
                 pts[0] = p1;
