@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSetToPointSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-27 18:20:56 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 1999-09-19 12:58:54 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -172,14 +172,7 @@ vtkPointSet *vtkPointSetToPointSetFilter::GetOutput()
     return NULL;
     }
 
-  // sanity check
-  if (this->NumberOfOutputs < 1)
-    {
-    vtkErrorMacro("Sanity check failed. We should have an output");
-    return NULL;
-    }
-
-  return (vtkPointSet *)this->Outputs[0];
+  return this->vtkPointSetSource::GetOutput();
 }
 
    
