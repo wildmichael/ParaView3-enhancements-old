@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSight6Reader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-20 16:49:40 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2002-06-26 21:37:19 $
+  Version:   $Revision: 1.32 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 
 #include <ctype.h>
 
-vtkCxxRevisionMacro(vtkEnSight6Reader, "$Revision: 1.31 $");
+vtkCxxRevisionMacro(vtkEnSight6Reader, "$Revision: 1.32 $");
 vtkStandardNewMacro(vtkEnSight6Reader);
 
 //----------------------------------------------------------------------------
@@ -1882,6 +1882,10 @@ int vtkEnSight6Reader::CreateUnstructuredGridOutput(int partId,
         }
       delete [] nodeIds;
       delete [] intIds;
+      }
+    else if (strncmp(line, "END TIME STEP", 13) == 0)
+      {
+      break;
       }
     }
 
