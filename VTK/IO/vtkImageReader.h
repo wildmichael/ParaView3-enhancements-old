@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.h,v $
   Language:  C++
-  Date:      $Date: 1998-07-10 18:19:03 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1998-08-13 19:54:31 $
+  Version:   $Revision: 1.28 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -101,14 +101,14 @@ public:
   
   // Description:
   // Get/Set the extent of the data on disk.  
-  vtkSetVectorMacro(DataExtent,int,6);
-  vtkGetVectorMacro(DataExtent,int,6);
+  vtkSetVector6Macro(DataExtent,int);
+  vtkGetVector6Macro(DataExtent,int);
   
   // Description:
   // Set/get the data VOI. You can limit the reader to only
   // read a subset of the data. 
-  vtkSetVectorMacro(DataVOI,int,6);
-  vtkGetVectorMacro(DataVOI,int,6);
+  vtkSetVector6Macro(DataVOI,int);
+  vtkGetVector6Macro(DataVOI,int);
   
   // Description:
   // The number of dimensions stored in a file. This defaults to two.
