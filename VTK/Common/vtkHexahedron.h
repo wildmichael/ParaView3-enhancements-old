@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHexahedron.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-09 16:42:04 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1995-10-25 23:49:57 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,10 +38,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkHexahedron - a cell that represents a 3D parallelepiped
+// .NAME vtkHexahedron - a cell that represents a 3D rectangular hexahedron
 // .SECTION Description
 // vtkHexahedron is a concrete implementation of vtkCell to represent a 3D
-// parallelepiped (a "cube" topology).
+// rectangular hexahedron (e.g., "brick" topology).
 
 #ifndef __vtkHexahedron_h
 #define __vtkHexahedron_h

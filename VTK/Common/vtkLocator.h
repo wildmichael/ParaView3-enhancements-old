@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLocator.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-08 12:49:15 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1995-10-25 23:50:02 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,7 +47,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // and finding the closest point.
 // .SECTION Caveats
 // Many other types of spatial locators have been developed such as 
-// octrees and k-d trees. These are often more efficient for the 
+// octrees and kd-trees. These are often more efficient for the 
 // operations described here.
 
 #ifndef __vtkLocator_h

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPixel.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-09 16:42:09 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1995-10-25 23:50:16 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,7 +42,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .SECTION Description
 // vtkPixel is a concrete implementation of vtkCell to represent a 2D
 // orthogonal quadrilateral. Unlike vtkQuad, the corners are at right angles,
-// leading to large increases in computational efficiency.
+// and aligned along x-y-z coordinate axes leading to large increases in 
+// computational efficiency. 
 
 #ifndef __vtkPixel_h
 #define __vtkPixel_h

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-09 16:41:56 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 1995-10-25 23:49:50 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,7 +65,8 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
-  // Provides opportunity for data to clean itself up before execution.
+  // Provides opportunity for data to insure internal consistency before 
+  // access.
   virtual void Update();
 
   // Description:
@@ -188,7 +189,7 @@ public:
 
   // Description:
   // Convenience method to get the range of the scalar data if there is any.
-  // otherwise it will return 0 to 1.
+  // Otherwise it will return (0,1).
   float *GetScalarRange();
   
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlane.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:37:30 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1995-10-25 23:50:19 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,9 +66,14 @@ public:
   float EvaluateFunction(float x[3]);
   void EvaluateGradient(float x[3], float g[3]);
 
+  // Description:
+  // Set/get plane normal. Plane is defined by point and normal.
   vtkSetVector3Macro(Normal,float);
   vtkGetVectorMacro(Normal,float,3);
 
+  // Description:
+  // Set/get point through which plane passes. Plane is defined by point 
+  // and normal.
   vtkSetVector3Macro(Origin,float);
   vtkGetVectorMacro(Origin,float,3);
 
