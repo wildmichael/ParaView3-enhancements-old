@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShrinkFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-03 15:43:44 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2001-07-26 19:25:40 $
+  Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -64,7 +64,7 @@ vtkShrinkFilter::vtkShrinkFilter(float sf)
 void vtkShrinkFilter::Execute()
 {
   vtkPoints *newPts;
-  int i, j, numIds;
+  int i, j, numIds, abort=0;
   vtkIdType cellId, numCells, numPts;
   vtkIdType oldId, newId;
   float center[3], *p, pt[3];
@@ -100,28 +100,20 @@ void vtkShrinkFilter::Execute()
   // Traverse all cells, obtaining node coordinates.  Compute "center" of cell,
   // then create new vertices shrunk towards center.
   //
-  tenth   = numCells / 10;
+  tenth   = numCells/10 + 1;
   decimal = 0.0;
-  if (tenth == 0)
-    {
-    tenth = 1;
-    }
 
-  for (cellId=0; cellId < numCells; cellId++)
+  for (cellId=0; cellId < numCells && !abort; cellId++)
     {
     input->GetCellPoints(cellId, ptIds);
     numIds = ptIds->GetNumberOfIds();
 
     //abort/progress methods
-  
     if (cellId % tenth == 0) 
       {
       decimal += 0.1;
       this->UpdateProgress (decimal);
-      if (this->GetAbortExecute())
-        {
-        break; //out of cell loop
-        }
+      abort = this->GetAbortExecute();
       }
 
     // get the center of the cell
