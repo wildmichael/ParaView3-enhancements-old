@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreshold.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:26:53 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-07-25 09:28:53 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -130,11 +130,12 @@ void vtkThreshold::Execute()
                << " number of cells.");
 
   // now clean up / update ourselves
-  delete pointMap;
-  this->Squeeze();
-  newPoints->Squeeze();
+  pointMap->Delete();
 
   this->SetPoints(newPoints);
+  newPoints->Delete();
+
+  this->Squeeze();
 }
 
 void vtkThreshold::PrintSelf(ostream& os, vtkIndent indent)
