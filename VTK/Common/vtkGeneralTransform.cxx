@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeneralTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-09 17:00:18 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2000-06-10 15:06:33 $
+  Version:   $Revision: 1.31 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -72,6 +72,8 @@ vtkGeneralTransform::vtkGeneralTransform()
 //----------------------------------------------------------------------------
 vtkGeneralTransform::~vtkGeneralTransform()
 {
+  this->SetInput(NULL);
+
   if (this->Concatenation)
     {
     this->Concatenation->Delete();

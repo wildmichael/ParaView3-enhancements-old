@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPerspectiveTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-06 01:24:54 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2000-06-10 15:06:33 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -72,6 +72,8 @@ vtkPerspectiveTransform::vtkPerspectiveTransform()
 //----------------------------------------------------------------------------
 vtkPerspectiveTransform::~vtkPerspectiveTransform()
 {
+  this->SetInput(NULL);
+
   if (this->Concatenation)
     {
     this->Concatenation->Delete();
