@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.h,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:24:21 $
-  Version:   $Revision: 1.102 $
+  Date:      $Date: 2003-02-28 17:19:58 $
+  Version:   $Revision: 1.103 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -319,6 +319,10 @@ public:
   // conditions) and place it in intExt
   void ComputeInternalExtent(int *intExt, int *tgtExt, int *bnds);
   
+  // Description:
+  // The extent type is a 3D extent
+  int GetExtentType() { return VTK_3D_EXTENT; };
+
 protected:
   vtkImageData();
   ~vtkImageData();
@@ -328,9 +332,6 @@ protected:
   vtkLine *Line;
   vtkPixel *Pixel;
   vtkVoxel *Voxel;
-
-  // The extent type is a 3D extent
-  int GetExtentType() { return VTK_3D_EXTENT; };
 
   // The extent of what is currently in the structured grid.
   // Dimensions is just an array to return a value.
