@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCompositeManager.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-30 12:43:41 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2002-07-30 12:44:41 $
+  Version:   $Revision: 1.40 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -44,7 +44,7 @@
  #include <mpi.h>
 #endif
 
-vtkCxxRevisionMacro(vtkCompositeManager, "$Revision: 1.39 $");
+vtkCxxRevisionMacro(vtkCompositeManager, "$Revision: 1.40 $");
 vtkStandardNewMacro(vtkCompositeManager);
 
 
@@ -96,7 +96,6 @@ vtkCompositeManager::vtkCompositeManager()
   this->RenderWindowInteractor = NULL;
   this->Controller = vtkMultiProcessController::GetGlobalController();
 
-  Sleep(15000);
   if (this->Controller)
     {
     this->Controller->Register(this);
