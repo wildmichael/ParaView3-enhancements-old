@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell3D.h,v $
   Language:  C++
-  Date:      $Date: 2002-09-13 13:10:47 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-09-30 12:31:16 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -88,7 +88,7 @@ protected:
   vtkOrderedTriangulator *Triangulator;
   
   //Some cells define templates for interior clipping
-  virtual int ClipInteriorCell(vtkCellArray *tets)
+  virtual int ClipInteriorCell(vtkCellArray *)
     {return 0;}
 
 private:
