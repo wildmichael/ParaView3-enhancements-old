@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBBDicer.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-26 12:07:14 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-11-03 22:51:55 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,10 +20,11 @@
 #include "vtkDataSet.h"
 #include "vtkIdList.h"
 #include "vtkMath.h"
+#include "vtkOBBTree.h"
 #include "vtkObjectFactory.h"
 #include "vtkShortArray.h"
 
-vtkCxxRevisionMacro(vtkOBBDicer, "$Revision: 1.14 $");
+vtkCxxRevisionMacro(vtkOBBDicer, "$Revision: 1.15 $");
 vtkStandardNewMacro(vtkOBBDicer);
 
 void vtkOBBDicer::BuildTree(vtkIdList *ptIds, vtkOBBNode *OBBptr)

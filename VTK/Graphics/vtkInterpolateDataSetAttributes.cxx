@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInterpolateDataSetAttributes.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:24 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2002-11-03 22:51:55 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,14 +16,16 @@
 
 =========================================================================*/
 #include "vtkInterpolateDataSetAttributes.h"
+
+#include "vtkDataSetCollection.h"
+#include "vtkObjectFactory.h"
 #include "vtkPolyData.h"
+#include "vtkRectilinearGrid.h"
 #include "vtkStructuredGrid.h"
 #include "vtkStructuredPoints.h"
 #include "vtkUnstructuredGrid.h"
-#include "vtkRectilinearGrid.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkInterpolateDataSetAttributes, "$Revision: 1.22 $");
+vtkCxxRevisionMacro(vtkInterpolateDataSetAttributes, "$Revision: 1.23 $");
 vtkStandardNewMacro(vtkInterpolateDataSetAttributes);
 
 // Create object with no input or output.

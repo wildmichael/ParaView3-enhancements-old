@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSplineFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-03 15:57:43 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-11-03 22:51:56 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -38,7 +38,6 @@
 #define __vtkSplineFilter_h
 
 #include "vtkPolyDataToPolyDataFilter.h"
-#include "vtkSpline.h"
 
 #define VTK_SUBDIVIDE_SPECIFIED 0
 #define VTK_SUBDIVIDE_LENGTH    1
@@ -53,6 +52,7 @@ class vtkCellData;
 class vtkFloatArray;
 class vtkPointData;
 class vtkPoints;
+class vtkSpline;
 
 class VTK_GRAPHICS_EXPORT vtkSplineFilter : public vtkPolyDataToPolyDataFilter
 {

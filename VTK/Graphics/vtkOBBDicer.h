@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBBDicer.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:30 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-11-03 22:51:55 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,8 +32,11 @@
 #define __vtkOBBDicer_h
 
 #include "vtkDicer.h"
-#include "vtkOBBTree.h"
+
+class vtkOBBNode;
 class vtkShortArray;
+class vtkIdList;
+class vtkPoints;
 
 class VTK_GRAPHICS_EXPORT vtkOBBDicer : public vtkDicer 
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpatialRepresentationFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-03 15:57:43 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2002-11-03 22:51:55 $
+  Version:   $Revision: 1.28 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -57,9 +57,11 @@
 #define __vtkSpatialRepresentationFilter_h
 
 #include "vtkPolyDataSource.h"
-#include "vtkLocator.h"
 
 #define VTK_MAX_SPATIAL_REP_LEVEL 24
+
+class vtkLocator;
+class vtkDataSet;
 
 class VTK_GRAPHICS_EXPORT vtkSpatialRepresentationFilter : public vtkPolyDataSource
 {

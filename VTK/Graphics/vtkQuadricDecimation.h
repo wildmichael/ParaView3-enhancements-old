@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadricDecimation.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-28 22:55:56 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-11-03 22:51:55 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,11 +32,11 @@
 #define __vtkQuadricDecimation_h
 
 #include "vtkPolyDataToPolyDataFilter.h"
-#include "vtkEdgeTable.h"
-#include "vtkPriorityQueue.h"
-#include "vtkIdList.h"
 
+class vtkEdgeTable;
+class vtkIdList;
 class vtkPointData;
+class vtkPriorityQueue;
 
 class VTK_GRAPHICS_EXPORT vtkQuadricDecimation : public vtkPolyDataToPolyDataFilter
 {

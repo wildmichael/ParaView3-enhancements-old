@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLoopSubdivisionFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-28 21:35:52 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-11-03 22:51:55 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -47,9 +47,11 @@
 #define __vtkLoopSubdivisionFilter_h
 
 #include "vtkApproximatingSubdivisionFilter.h"
-#include "vtkIntArray.h"
-#include "vtkIdList.h"
-#include "vtkCellArray.h"
+
+class vtkPolyData;
+class vtkIntArray;
+class vtkPoints;
+class vtkIdList;
 
 class VTK_GRAPHICS_EXPORT vtkLoopSubdivisionFilter : public vtkApproximatingSubdivisionFilter
 {

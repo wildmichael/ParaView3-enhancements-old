@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadricClustering.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-28 22:55:56 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2002-11-03 22:51:55 $
+  Version:   $Revision: 1.33 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -65,9 +65,10 @@
 #define __vtkQuadricClustering_h
 
 #include "vtkPolyDataToPolyDataFilter.h"
-#include "vtkDataSetCollection.h"
 
+class vtkCellArray;
 class vtkFeatureEdges;
+class vtkPoints;
 
 class VTK_GRAPHICS_EXPORT vtkQuadricClustering : public vtkPolyDataToPolyDataFilter
 {

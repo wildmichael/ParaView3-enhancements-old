@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeDataObjectFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-26 12:07:14 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-11-03 22:51:55 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,9 +19,10 @@
 
 #include "vtkDataSet.h"
 #include "vtkFieldData.h"
+#include "vtkFieldDataToAttributeDataFilter.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkMergeDataObjectFilter, "$Revision: 1.17 $");
+vtkCxxRevisionMacro(vtkMergeDataObjectFilter, "$Revision: 1.18 $");
 vtkStandardNewMacro(vtkMergeDataObjectFilter);
 
 //----------------------------------------------------------------------------
@@ -108,6 +109,23 @@ void vtkMergeDataObjectFilter::Execute()
     }
 }
 
+//----------------------------------------------------------------------------
+void vtkMergeDataObjectFilter::SetOutputFieldToDataObjectField() 
+{
+  this->SetOutputField(VTK_DATA_OBJECT_FIELD);
+}
+
+//----------------------------------------------------------------------------
+void vtkMergeDataObjectFilter::SetOutputFieldToPointDataField() 
+{
+  this->SetOutputField(VTK_POINT_DATA_FIELD);
+}
+
+//----------------------------------------------------------------------------
+void vtkMergeDataObjectFilter::SetOutputFieldToCellDataField() 
+{
+  this->SetOutputField(VTK_CELL_DATA_FIELD);
+}
 
 //----------------------------------------------------------------------------
 void vtkMergeDataObjectFilter::PrintSelf(ostream& os, vtkIndent indent)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToDataObjectFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:15 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-11-03 22:51:55 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -48,8 +48,8 @@
 #define __vtkDataSetToDataObjectFilter_h
 
 #include "vtkDataObjectSource.h"
-#include "vtkDataSet.h"
-#include "vtkCollection.h"
+
+class vtkDataSet;
 
 class VTK_GRAPHICS_EXPORT vtkDataSetToDataObjectFilter : public vtkDataObjectSource
 {

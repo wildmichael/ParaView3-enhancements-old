@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDiskSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-16 20:02:53 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2002-11-03 22:51:55 $
+  Version:   $Revision: 1.31 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,10 +16,14 @@
 
 =========================================================================*/
 #include "vtkDiskSource.h"
+
+#include "vtkCellArray.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
+#include "vtkPoints.h"
+#include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkDiskSource, "$Revision: 1.30 $");
+vtkCxxRevisionMacro(vtkDiskSource, "$Revision: 1.31 $");
 vtkStandardNewMacro(vtkDiskSource);
 
 vtkDiskSource::vtkDiskSource()

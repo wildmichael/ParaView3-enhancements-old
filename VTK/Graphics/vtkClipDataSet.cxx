@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-03 15:57:43 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2002-11-03 22:51:55 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,16 +17,17 @@
 =========================================================================*/
 #include "vtkClipDataSet.h"
 
+#include "vtkClipVolume.h"
 #include "vtkFloatArray.h"
+#include "vtkImageData.h"
+#include "vtkImplicitFunction.h"
 #include "vtkMergePoints.h"
 #include "vtkObjectFactory.h"
 #include "vtkUnstructuredGrid.h"
-#include "vtkClipVolume.h"
-#include "vtkImageData.h"
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkClipDataSet, "$Revision: 1.22 $");
+vtkCxxRevisionMacro(vtkClipDataSet, "$Revision: 1.23 $");
 vtkStandardNewMacro(vtkClipDataSet);
 vtkCxxSetObjectMacro(vtkClipDataSet,ClipFunction,vtkImplicitFunction);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpherePuzzleArrows.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-03 12:52:23 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-11-03 22:51:56 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,10 +20,11 @@
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
 #include "vtkPolyData.h"
+#include "vtkSpherePuzzle.h"
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkSpherePuzzleArrows, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkSpherePuzzleArrows, "$Revision: 1.9 $");
 vtkStandardNewMacro(vtkSpherePuzzleArrows);
 
 //----------------------------------------------------------------------------
@@ -191,7 +192,11 @@ void vtkSpherePuzzleArrows::AppendArrow(int id1, int id2,
   polys->InsertCellPoint(ptId3);
 }
 
-
+//----------------------------------------------------------------------------
+void vtkSpherePuzzleArrows::SetPermutation(vtkSpherePuzzle *puz) 
+{
+  this->SetPermutation(puz->GetState());
+}
 
 //----------------------------------------------------------------------------
 void vtkSpherePuzzleArrows::PrintSelf(ostream& os, vtkIndent indent)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutlineFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:32 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2002-11-03 22:51:55 $
+  Version:   $Revision: 1.33 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,6 +25,7 @@
 #define __vtkOutlineFilter_h
 
 #include "vtkDataSetToPolyDataFilter.h"
+
 class vtkOutlineSource;
 
 class VTK_GRAPHICS_EXPORT vtkOutlineFilter : public vtkDataSetToPolyDataFilter

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProbeFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-26 17:55:08 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2002-11-03 22:51:55 $
+  Version:   $Revision: 1.47 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,8 @@
 #define __vtkProbeFilter_h
 
 #include "vtkDataSetToDataSetFilter.h"
-#include "vtkIdTypeArray.h"
+
+class vtkIdTypeArray;
 
 class VTK_GRAPHICS_EXPORT vtkProbeFilter : public vtkDataSetToDataSetFilter
 {

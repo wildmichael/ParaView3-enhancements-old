@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearSubdivisionFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-28 21:35:51 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-11-03 22:51:55 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,7 +32,11 @@
 #define __vtkLinearSubdivisionFilter_h
 
 #include "vtkInterpolatingSubdivisionFilter.h"
-#include "vtkIntArray.h"
+
+class vtkIntArray;
+class vtkPointData;
+class vtkPoints;
+class vtkPolyData;
 
 class VTK_GRAPHICS_EXPORT vtkLinearSubdivisionFilter : public vtkInterpolatingSubdivisionFilter
 {
@@ -46,7 +50,10 @@ protected:
   vtkLinearSubdivisionFilter () {};
   ~vtkLinearSubdivisionFilter () {};
 
-  void GenerateSubdivisionPoints (vtkPolyData *inputDS, vtkIntArray *edgeData, vtkPoints *outputPts, vtkPointData *outputPD);
+  void GenerateSubdivisionPoints (vtkPolyData *inputDS, 
+                                  vtkIntArray *edgeData, 
+                                  vtkPoints *outputPts, 
+                                  vtkPointData *outputPD);
 
 private:
   vtkLinearSubdivisionFilter(const vtkLinearSubdivisionFilter&);  // Not implemented.

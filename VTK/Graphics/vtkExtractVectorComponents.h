@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractVectorComponents.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:20 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2002-11-03 22:51:55 $
+  Version:   $Revision: 1.37 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -35,7 +35,8 @@
 #define __vtkExtractVectorComponents_h
 
 #include "vtkSource.h"
-#include "vtkDataSet.h"
+
+class vtkDataSet;
 
 class VTK_GRAPHICS_EXPORT vtkExtractVectorComponents : public vtkSource
 {

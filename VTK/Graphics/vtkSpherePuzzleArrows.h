@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpherePuzzleArrows.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-03 15:57:43 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-11-03 22:51:56 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,10 +23,10 @@
 #define __vtkSpherePuzzleArrows_h
 
 #include "vtkPolyDataSource.h"
-#include "vtkSpherePuzzle.h"
 
-class vtkPoints;
 class vtkCellArray;
+class vtkPoints;
+class vtkSpherePuzzle;
 
 class VTK_EXPORT vtkSpherePuzzleArrows : public vtkPolyDataSource 
 {
@@ -41,8 +41,7 @@ public:
   vtkSetVectorMacro(Permutation,int,32);
   vtkGetVectorMacro(Permutation,int,32);
   void SetPermutationComponent(int comp, int val);
-  void SetPermutation(vtkSpherePuzzle *puz) 
-    {this->SetPermutation(puz->GetState());}
+  void SetPermutation(vtkSpherePuzzle *puz);
 
 protected:
   vtkSpherePuzzleArrows();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamer.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-03 15:57:43 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 2002-11-03 22:51:56 $
+  Version:   $Revision: 1.59 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -54,8 +54,8 @@
 #define __vtkStreamer_h
 
 #include "vtkDataSetToPolyDataFilter.h"
-#include "vtkInitialValueProblemSolver.h"
 
+class vtkInitialValueProblemSolver;
 class vtkMultiThreader;
 
 #define VTK_INTEGRATE_FORWARD 0

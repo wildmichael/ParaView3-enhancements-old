@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourGrid.h,v $
   Language:  C++
-  Date:      $Date: 2002-09-03 12:52:22 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-11-03 22:51:55 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -53,11 +53,12 @@
 #define __vtkContourGrid_h
 
 #include "vtkUnstructuredGridToPolyDataFilter.h"
-#include "vtkContourValues.h"
 
-class vtkScalarTree;
+#include "vtkContourValues.h" // Needed for inline methods
+
 class vtkEdgeTable;
 class vtkPointLocator;
+class vtkScalarTree;
 
 class VTK_GRAPHICS_EXPORT vtkContourGrid : public vtkUnstructuredGridToPolyDataFilter
 {

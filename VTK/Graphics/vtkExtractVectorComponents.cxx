@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractVectorComponents.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-17 14:12:01 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2002-11-03 22:51:55 $
+  Version:   $Revision: 1.43 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,12 @@
 
 =========================================================================*/
 #include "vtkExtractVectorComponents.h"
+
+#include "vtkDataObject.h"
+#include "vtkDataSet.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkExtractVectorComponents, "$Revision: 1.42 $");
+vtkCxxRevisionMacro(vtkExtractVectorComponents, "$Revision: 1.43 $");
 vtkStandardNewMacro(vtkExtractVectorComponents);
 
 vtkExtractVectorComponents::vtkExtractVectorComponents()

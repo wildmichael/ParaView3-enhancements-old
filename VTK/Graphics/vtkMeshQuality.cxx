@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMeshQuality.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-06 20:28:09 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-11-03 22:51:55 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -15,14 +15,17 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
-
 #include "vtkMeshQuality.h"
-#include "vtkMath.h"
-#include "vtkTetra.h"
-#include "vtkFloatArray.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkMeshQuality, "$Revision: 1.2 $");
+#include "vtkCellData.h"
+#include "vtkDataSet.h"
+#include "vtkFieldData.h"
+#include "vtkFloatArray.h"
+#include "vtkMath.h"
+#include "vtkObjectFactory.h"
+#include "vtkTetra.h"
+
+vtkCxxRevisionMacro(vtkMeshQuality, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkMeshQuality);
 
 //----------------------------------------------------------------------------

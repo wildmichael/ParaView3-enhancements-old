@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimatePro.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-29 14:59:15 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 2002-11-03 22:51:55 $
+  Version:   $Revision: 1.56 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -81,8 +81,9 @@
 
 #include "vtkPolyDataToPolyDataFilter.h"
 
-#include "vtkPriorityQueue.h"
 #include "vtkCell.h" // Needed for VTK_CELL_SIZE
+
+class vtkPriorityQueue;
 
 class VTK_GRAPHICS_EXPORT vtkDecimatePro : public vtkPolyDataToPolyDataFilter
 {
@@ -342,17 +343,11 @@ protected:
 
 private:
   void InitializeQueue(vtkIdType numPts);
-  void DeleteQueue()
-    {
-      if (this->Queue)
-      {
-       this->Queue->Delete();
-      }
-      this->Queue=NULL;};
+  void DeleteQueue();
   void Insert(vtkIdType id, float error= -1.0);
   int Pop(float &error);
-  float DeleteId(vtkIdType id) {return this->Queue->DeleteId(id);};
-  void Reset() {this->Queue->Reset();};
+  float DeleteId(vtkIdType id);
+  void Reset();
 
   vtkPriorityQueue *Queue;
   vtkFloatArray *VertexError;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetSurfaceFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-30 18:37:17 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-11-03 22:51:55 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,11 +29,10 @@
 #define __vtkDataSetSurfaceFilter_h
 
 #include "vtkDataSetToPolyDataFilter.h"
-#include "vtkStructuredGrid.h"
-#include "vtkImageData.h"
-#include "vtkUnstructuredGrid.h"
 
 class vtkFastGeomQuad; 
+class vtkPointData;
+class vtkPoints;
 
 class VTK_GRAPHICS_EXPORT vtkDataSetSurfaceFilter : public vtkDataSetToPolyDataFilter
 {

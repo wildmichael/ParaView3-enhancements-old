@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpherePuzzle.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-03 15:57:43 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-11-03 22:51:56 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,9 +23,10 @@
 #define __vtkSpherePuzzle_h
 
 #include "vtkPolyDataSource.h"
-#include "vtkTransform.h"
 
 #define VTK_MAX_SPHERE_RESOLUTION 1024
+
+class vtkTransform;
 
 class VTK_EXPORT vtkSpherePuzzle : public vtkPolyDataSource 
 {

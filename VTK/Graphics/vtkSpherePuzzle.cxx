@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpherePuzzle.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-03 12:52:23 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-11-03 22:51:56 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,11 +23,12 @@
 #include "vtkObjectFactory.h"
 #include "vtkPolyData.h"
 #include "vtkSphereSource.h"
+#include "vtkTransform.h"
 #include "vtkTransformFilter.h"
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkSpherePuzzle, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkSpherePuzzle, "$Revision: 1.9 $");
 vtkStandardNewMacro(vtkSpherePuzzle);
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObjectToDataSetFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:14 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2002-11-03 22:51:55 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -65,16 +65,16 @@
 #define __vtkDataObjectToDataSetFilter_h
 
 #include "vtkSource.h"
-#include "vtkFieldData.h"
-#include "vtkDataSet.h"
 
+class vtkCellArray;
+class vtkDataArray;
+class vtkDataSet;
 class vtkPointSet;
 class vtkPolyData;
-class vtkStructuredPoints;
-class vtkStructuredGrid;
 class vtkRectilinearGrid;
+class vtkStructuredGrid;
+class vtkStructuredPoints;
 class vtkUnstructuredGrid;
-class vtkCellArray;
 
 class VTK_GRAPHICS_EXPORT vtkDataObjectToDataSetFilter : public vtkSource
 {
@@ -110,8 +110,7 @@ public:
   // SetDataSetType(). Also, GetOutput() will return NULL if the filter
   // aborted due to inconsistent data.)
   vtkDataSet *GetOutput();
-  vtkDataSet *GetOutput(int idx)
-    {return static_cast<vtkDataSet *>(this->vtkSource::GetOutput(idx)); };
+  vtkDataSet *GetOutput(int idx);
   vtkPolyData *GetPolyDataOutput();
   vtkStructuredPoints *GetStructuredPointsOutput();
   vtkStructuredGrid *GetStructuredGridOutput();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMassProperties.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:29 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-11-03 22:51:55 $
+  Version:   $Revision: 1.22 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -37,7 +37,8 @@
 #define __vtkMassProperties_h
 
 #include "vtkProcessObject.h"
-#include "vtkPolyData.h"
+
+class vtkPolyData;
 
 class VTK_GRAPHICS_EXPORT vtkMassProperties : public vtkProcessObject
 {

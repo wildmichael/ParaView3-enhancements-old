@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamTracer.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-03 15:57:43 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-11-03 22:51:56 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -67,7 +67,8 @@
 #define __vtkStreamTracer_h
 
 #include "vtkDataSetToPolyDataFilter.h"
-#include "vtkInitialValueProblemSolver.h"
+
+#include "vtkInitialValueProblemSolver.h" // Needed for constants
 
 class vtkDataArray;
 class vtkFloatArray;
