@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkWidgetsInit.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-18 15:58:29 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2003-01-08 18:15:06 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #ifdef __APPLE_CC__
 extern "C"
 {
-  void oft_initRen()
+  void oft_initRenWidgets()
   {
     extern void _ZNSt8ios_base4InitC4Ev();
     _ZNSt8ios_base4InitC4Ev();
