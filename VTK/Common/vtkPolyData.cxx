@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-24 08:58:42 $
-  Version:   $Revision: 1.127 $
+  Date:      $Date: 2000-11-18 19:40:12 $
+  Version:   $Revision: 1.128 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1590,7 +1590,10 @@ void vtkPolyData::GetCellNeighbors(int cellId, vtkIdList *ptIds,
       int currid = allCells[0];
       for (i = 1; i < index; i++)
 	{
-	  if (allCells[i] == currid) continue;
+	  if (allCells[i] == currid)
+	    {
+	    continue;
+	    }
 	  cellIds->InsertNextId(currid);
 	  currid = allCells[i];
 	}

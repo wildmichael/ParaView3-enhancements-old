@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRungeKutta2.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-18 17:18:44 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-11-18 19:40:13 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -112,7 +112,7 @@ float vtkRungeKutta2::ComputeNextStep(float* xprev, float* dxprev,
   this->Vals[numVals-1] = t + delT/2.0;
 
   // Obtain the derivatives at x_i + dt/2 * dx_i
-  if (!this->FunctionSet->FunctionValues(this->Vals, Derivs))
+  if (!this->FunctionSet->FunctionValues(this->Vals, this->Derivs))
     {
     return -1;
     }
