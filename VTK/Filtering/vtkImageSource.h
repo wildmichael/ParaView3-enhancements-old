@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-07 20:31:15 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1997-04-16 21:38:38 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -97,8 +97,6 @@ protected:
 
 
 
-#include "vtkImageRegion.h"
-#include "vtkImageToStructuredPoints.h"
 
 #endif
 

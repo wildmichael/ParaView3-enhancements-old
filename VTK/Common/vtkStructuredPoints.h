@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPoints.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-07 20:31:20 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1997-04-16 21:38:40 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -177,11 +177,5 @@ inline int vtkStructuredPoints::ComputeCellId(int ijk[3])
 {
   return vtkStructuredData::ComputeCellId(this->Dimensions,ijk);
 }
-
-
-
-
-
-#include "vtkStructuredPointsToImage.h"
 
 #endif
