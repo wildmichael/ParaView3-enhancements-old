@@ -1,4 +1,4 @@
-u/*=========================================================================
+/*=========================================================================
 
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBoxClipDataSet.cxx,v $
@@ -33,7 +33,7 @@ u/*=========================================================================
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkBoxClipDataSet, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkBoxClipDataSet, "$Revision: 1.13 $");
 vtkStandardNewMacro(vtkBoxClipDataSet);
 
 //----------------------------------------------------------------------------
