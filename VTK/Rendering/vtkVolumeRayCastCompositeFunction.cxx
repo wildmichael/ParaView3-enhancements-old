@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastCompositeFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-15 21:48:27 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-07-21 14:32:34 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,6 +43,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkVolumeRayCastCompositeFunction.h"
 #include "vtkVolumeProperty.h"
 #include "vtkVolumeRayCastMapper.h"
+#include "vtkVolume.h"
 
 #define VTK_REMAINING_OPACITY		0.02
 
@@ -1120,9 +1121,11 @@ void vtkVolumeRayCastCompositeFunction::CastARay( int ray_type, void *data_ptr,
 // Description:
 // Bogus routine right now until I figure out how to get to the
 // volume's properties from here....
-float vtkVolumeRayCastCompositeFunction::GetZeroOpacityThreshold( vtkVolume *vol )
+float vtkVolumeRayCastCompositeFunction::GetZeroOpacityThreshold( vtkVolume 
+								  *vol )
 {
-  return( 1.0 );
+  return vol->GetVolumeProperty()->GetOpacityTransferFunction()->
+    GetFirstNonZeroValue();
 }
 
 // Description:
