@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangle.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:50:41 $
-  Version:   $Revision: 1.62 $
+  Date:      $Date: 1998-04-23 20:00:31 $
+  Version:   $Revision: 1.63 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,7 +57,7 @@ vtkTriangle::vtkTriangle()
 vtkCell *vtkTriangle::MakeObject()
 {
   vtkCell *cell = vtkTriangle::New();
-  cell->ShallowCopy(*this);
+  cell->DeepCopy(*this);
   return cell;
 }
 

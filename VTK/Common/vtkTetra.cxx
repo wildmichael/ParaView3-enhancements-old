@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTetra.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:50:39 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 1998-04-23 20:00:30 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,7 +57,7 @@ vtkTetra::vtkTetra()
 vtkCell *vtkTetra::MakeObject()
 {
   vtkCell *cell = vtkTetra::New();
-  cell->ShallowCopy(*this);
+  cell->DeepCopy(*this);
   return cell;
 }
 

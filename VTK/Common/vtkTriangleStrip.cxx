@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleStrip.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:50:43 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 1998-04-23 20:00:32 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,7 +45,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 vtkCell *vtkTriangleStrip::MakeObject()
 {
   vtkCell *cell = vtkTriangleStrip::New();
-  cell->ShallowCopy(*this);
+  cell->DeepCopy(*this);
   return cell;
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLine.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:49:59 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 1998-04-23 20:00:24 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,7 +54,7 @@ vtkLine::vtkLine()
 vtkCell *vtkLine::MakeObject()
 {
   vtkCell *cell = vtkLine::New();
-  cell->ShallowCopy(*this);
+  cell->DeepCopy(*this);
   return cell;
 }
 

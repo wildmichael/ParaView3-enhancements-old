@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyLine.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:50:14 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1998-04-23 20:00:26 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,7 +45,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 vtkCell *vtkPolyLine::MakeObject()
 {
   vtkCell *cell = vtkPolyLine::New();
-  cell->ShallowCopy(*this);
+  cell->DeepCopy(*this);
   return cell;
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVertex.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:50:55 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1998-04-23 20:00:34 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,7 +54,7 @@ vtkVertex::vtkVertex()
 vtkCell *vtkVertex::MakeObject()
 {
   vtkCell *cell = vtkVertex::New();
-  cell->ShallowCopy(*this);
+  cell->DeepCopy(*this);
   return cell;
 }
 

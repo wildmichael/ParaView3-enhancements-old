@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHexahedron.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:49:47 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 1998-04-23 20:00:23 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,7 +56,7 @@ vtkHexahedron::vtkHexahedron()
 vtkCell *vtkHexahedron::MakeObject()
 {
   vtkCell *cell = vtkHexahedron::New();
-  cell->ShallowCopy(*this);
+  cell->DeepCopy(*this);
   return cell;
 }
 

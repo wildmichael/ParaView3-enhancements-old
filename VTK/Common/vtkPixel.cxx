@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPixel.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:50:06 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 1998-04-23 20:00:25 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,7 +58,7 @@ vtkPixel::vtkPixel()
 vtkCell *vtkPixel::MakeObject()
 {
   vtkCell *cell = vtkPixel::New();
-  cell->ShallowCopy(*this);
+  cell->DeepCopy(*this);
   return cell;
 }
 

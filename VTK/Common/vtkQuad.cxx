@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuad.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:50:21 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 1998-04-23 20:00:29 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,7 +57,7 @@ vtkQuad::vtkQuad()
 vtkCell *vtkQuad::MakeObject()
 {
   vtkCell *cell = vtkQuad::New();
-  cell->ShallowCopy(*this);
+  cell->DeepCopy(*this);
   return cell;
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolygon.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:50:17 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 1998-04-23 20:00:28 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,7 +57,7 @@ vtkPolygon::vtkPolygon()
 vtkCell *vtkPolygon::MakeObject()
 {
   vtkCell *cell = vtkPolygon::New();
-  cell->ShallowCopy(*this);
+  cell->DeepCopy(*this);
   return cell;
 }
 
