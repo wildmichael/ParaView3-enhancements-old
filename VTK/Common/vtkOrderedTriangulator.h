@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOrderedTriangulator.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-18 19:49:14 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-05-18 20:23:03 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -113,9 +113,10 @@ public:
 
   // Description:
   // For each point to be inserted, provide an id, a position x, and
-  // whether the point is outside (outside=1) or inside (outside=0).
-  // You must call InitTriangulation() prior to invoking this method.
-  void InsertPoint(unsigned long id, float x[3], int outside);
+  // whether the point is inside (type=0), outside (type=1), or on the
+  // boundary (type=2). You must call InitTriangulation() prior to 
+  // invoking this method.
+  void InsertPoint(unsigned long id, float x[3], int type);
 
   // Description:
   // Perform the triangulation. (Complete all calls to InsertPoint() prior
