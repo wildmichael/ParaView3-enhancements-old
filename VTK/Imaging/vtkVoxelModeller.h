@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxelModeller.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-17 19:26:37 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-08-17 19:30:07 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,7 +44,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // structured point (i.e., voxel) representation. It is very similar to 
 // the ImplicitModeller except that it doesn't record distance it records
 // occupancy. As such it stores its results in the more compact form of
-// 
+
+// .SECTION see also
+// vtkBitScalars vtkImplicitModeller
 
 #ifndef __vtkVoxelModeller_hh
 #define __vtkVoxelModeller_hh
