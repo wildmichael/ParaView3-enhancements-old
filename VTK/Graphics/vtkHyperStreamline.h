@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkHyperStreamline.h,v $
   Language:  C++
-  Date:      $Date: 1995-11-05 18:44:20 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-11-06 20:27:27 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,7 +61,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // sides in the tube, and StepLength controls the length of the sub-tubes.
 //
 // Because hyperstreamlines are often created near regions of singularities, it
-// it possible to control the scaling of the tube cross section by using a 
+// is possible to control the scaling of the tube cross section by using a 
 // logarithmic scale. Use LogScalingOn to turn this capability on. The Radius 
 // value controls the initial radius of the tube.
 // .SECTION See Also

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCursor3D.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-30 14:15:27 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-11-06 20:27:23 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -112,7 +112,7 @@ public:
   vtkBooleanMacro(Wrap,int);
 
   // Description:
-  // Get the focus for this filter..
+  // Get the focus for this filter.
   vtkPolyData *GetFocus() {return (vtkPolyData *)this->Focus;};
 
 protected:

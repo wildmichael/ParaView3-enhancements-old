@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsCollection.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:38:37 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-11-06 20:27:30 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,21 +61,22 @@ public:
 };
 
 // Description:
-// Add an StructuredPoints to the list.
+// Add a pointer to a vtkStructuredPoints to the list.
 inline void vtkStructuredPointsCollection::AddItem(vtkStructuredPoints *ds) 
 {
   this->vtkCollection::AddItem((vtkObject *)ds);
 }
 
 // Description:
-// Remove an StructuredPoints from the list.
+// Remove a pointer to a vtkStructuredPoints from the list.
 inline void vtkStructuredPointsCollection::RemoveItem(vtkStructuredPoints *ds) 
 {
   this->vtkCollection::RemoveItem((vtkObject *)ds);
 }
 
 // Description:
-// Determine whether a particular StructuredPoints is present. 
+// Determine whether a particular pointer to a vtk StructuredPoints is in
+// the list.
 // Returns its position in the list.
 inline int vtkStructuredPointsCollection::IsItemPresent(vtkStructuredPoints *ds) 
 {

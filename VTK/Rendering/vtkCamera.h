@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-25 13:15:11 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1995-11-06 20:27:22 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -116,7 +116,7 @@ class vtkCamera : public vtkObject
   vtkGetMacro(EyeAngle,float);
 
   // Description:
-  // Is this camera rendering in stereo ?
+  // Is this camera rendering in stereo?
   vtkGetMacro(Stereo,int);
 
   // Description:
