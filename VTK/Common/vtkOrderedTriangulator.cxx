@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOrderedTriangulator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-16 14:12:58 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-05-16 14:52:00 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -56,7 +56,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 
 // A vector of type T to support operations.
-template <typename T>
+template <class T>
 class vtkOTVector
 {
 private:
@@ -129,7 +129,7 @@ public:
 
 
 // A linked list of type T to support operations.
-template <typename T>
+template <class T>
 class vtkOTLinkedList
 {
 private:
