@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointData.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-29 17:56:57 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1995-06-30 16:26:14 $
+  Version:   $Revision: 1.30 $
 
 This file is part of the Visualization Toolkit. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express

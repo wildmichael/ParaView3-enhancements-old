@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkNormals.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-29 17:56:43 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-06-30 16:25:59 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Toolkit. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express

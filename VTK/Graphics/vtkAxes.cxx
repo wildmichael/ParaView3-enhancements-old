@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAxes.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-29 17:55:43 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1995-06-30 16:24:51 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way

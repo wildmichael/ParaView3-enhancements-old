@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCylinderSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-29 17:55:58 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1995-06-30 16:25:09 $
+  Version:   $Revision: 1.16 $
 
 This file is part of the Visualization Toolkit. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFeatureEdges.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-29 17:56:12 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-06-30 16:25:23 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way

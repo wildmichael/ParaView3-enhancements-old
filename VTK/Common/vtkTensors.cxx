@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensors.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-29 17:57:29 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1995-06-30 16:26:49 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
