@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:43:06 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1997-07-17 21:17:49 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,6 +79,7 @@ void vtkBYUReader::Execute()
   else
     {
     this->ReadGeometryFile(geomFp,numPts);
+    fclose(geomFp);
     }
 
   this->ReadDisplacementFile(numPts);
@@ -202,6 +203,7 @@ void vtkBYUReader::ReadDisplacementFile(int numPts)
     newVectors->SetVector(i,v);
     }
 
+  fclose(dispFp);
   vtkDebugMacro(<<"Read " << numPts << " displacements");
 
   output->GetPointData()->SetVectors(newVectors);
@@ -237,6 +239,7 @@ void vtkBYUReader::ReadScalarFile(int numPts)
     newScalars->SetScalar(i,s);
     }
 
+  fclose(scalarFp);
   vtkDebugMacro(<<"Read " << numPts << " scalars");
 
   output->GetPointData()->SetScalars(newScalars);
@@ -272,6 +275,7 @@ void vtkBYUReader::ReadTextureFile(int numPts)
     newTCoords->SetTCoord(i,t);
     }
 
+  fclose(textureFp);
   vtkDebugMacro(<<"Read " << numPts << " texture coordinates");
 
   output->GetPointData()->SetTCoords(newTCoords);
