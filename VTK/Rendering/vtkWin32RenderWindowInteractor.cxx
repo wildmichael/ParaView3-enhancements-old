@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32RenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-11-17 18:40:11 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1998-12-21 15:11:54 $
+  Version:   $Revision: 1.37 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -668,7 +668,7 @@ LRESULT CALLBACK vtkHandleMessage(HWND hWnd,UINT uMsg, WPARAM wParam, LPARAM lPa
         {
         me->HighlightActor(me->InteractionActor);
         }
-      else
+      else if (me->ActorMode)
         {
         me->HighlightActor(NULL);
         }
@@ -791,7 +791,7 @@ LRESULT CALLBACK vtkHandleMessage(HWND hWnd,UINT uMsg, WPARAM wParam, LPARAM lPa
         {
         me->HighlightActor(me->InteractionActor);
         }
-      else
+      else if (me->ActorMode)
         {
         me->HighlightActor(NULL);
         }
@@ -915,7 +915,7 @@ LRESULT CALLBACK vtkHandleMessage(HWND hWnd,UINT uMsg, WPARAM wParam, LPARAM lPa
         {
         me->HighlightActor(me->InteractionActor);
         }
-      else
+      else if (me->ActorMode)
         {
         me->HighlightActor(NULL);
         }

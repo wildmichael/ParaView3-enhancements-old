@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-07 15:58:24 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 1998-12-21 15:11:53 $
+  Version:   $Revision: 1.56 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -693,7 +693,7 @@ void vtkXRenderWindowInteractorCallback(Widget vtkNotUsed(w),
           {
           me->HighlightActor(me->InteractionActor);
           }
-        else
+        else if (me->ActorMode)
           {
           me->HighlightActor(NULL);
           }
