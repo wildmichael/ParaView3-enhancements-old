@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBoxWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-30 23:42:07 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-03-31 15:24:29 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,7 @@
 #include "vtkCallbackCommand.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkBoxWidget, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkBoxWidget, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkBoxWidget);
 
 vtkBoxWidget::vtkBoxWidget()
@@ -937,7 +937,7 @@ void vtkBoxWidget::Translate(double *p1, double *p2)
 }
 
 void vtkBoxWidget::Scale(double* vtkNotUsed(p1), double* vtkNotUsed(p2), 
-                         int X, int Y)
+                         int vtkNotUsed(X), int Y)
 {
   double *pts = ((vtkDoubleArray *)this->Points->GetData())->GetPointer(0);
   double *center 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-30 23:42:08 $
-  Version:   $Revision: 1.68 $
+  Date:      $Date: 2002-03-31 15:24:29 $
+  Version:   $Revision: 1.69 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkVolume, "$Revision: 1.68 $");
+vtkCxxRevisionMacro(vtkVolume, "$Revision: 1.69 $");
 vtkStandardNewMacro(vtkVolume);
 
 // Creates a Volume with the following defaults: origin(0,0,0) 
@@ -140,7 +140,7 @@ float vtkVolume::GetGradientOpacityConstant(int index)
     {
     vtkErrorMacro("Index out of range [0-" << VTK_MAX_VRCOMP << 
                   "]: " << index );
-    return NULL;
+    return 0;
     }
   return this->GradientOpacityConstant[index];
 }
