@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLFreeTypeTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-11-08 10:47:01 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2003-11-10 14:58:09 $
+  Version:   $Revision: 1.33 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -47,7 +47,8 @@
 //----------------------------------------------------------------------------
 // GL2PS related internal helper functions.
 
-void _GetGL2PSFontName(vtkTextProperty *tprop, char *ps_font)
+void vtkOpenGLFreeTypeTextMapper_GetGL2PSFontName(vtkTextProperty *tprop, 
+                                                  char *ps_font)
 {
  // For speed we use ARIAL == 0, COURIER == 1, TIMES == 2
   static char *family[] = {"Helvetica", "Courier", "Times"};
@@ -90,7 +91,7 @@ void _GetGL2PSFontName(vtkTextProperty *tprop, char *ps_font)
 
 //----------------------------------------------------------------------------
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkOpenGLFreeTypeTextMapper, "$Revision: 1.32 $");
+vtkCxxRevisionMacro(vtkOpenGLFreeTypeTextMapper, "$Revision: 1.33 $");
 vtkStandardNewMacro(vtkOpenGLFreeTypeTextMapper);
 #endif
 
@@ -402,7 +403,7 @@ void vtkOpenGLFreeTypeTextMapper::RenderOverlay(vtkViewport* viewport,
 
 #ifdef VTK_USE_GL2PS
   char ps_font[64];
-  _GetGL2PSFontName(tprop, ps_font);
+  vtkOpenGLFreeTypeTextMapper_GetGL2PSFontName(tprop, ps_font);
 #endif // VTK_USE_GL2PS
 
   // Set up the shadow color
