@@ -50,11 +50,11 @@
 
 //-------------------------------------------------------------------------
 vtkStandardNewMacro(vtkPVTreeComposite);
-vtkCxxRevisionMacro(vtkPVTreeComposite, "$Revision: 1.57 $");
+vtkCxxRevisionMacro(vtkPVTreeComposite, "$Revision: 1.58 $");
 
 
 //=========================================================================
-// Stuff to avoid compositing if there is no data on statlite processes.
+// Stuff to avoid compositing if there is no data on satellite processes.
 
 
 //----------------------------------------------------------------------------
