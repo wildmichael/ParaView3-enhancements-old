@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPythonUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-10 13:32:27 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2002-07-10 16:43:26 $
+  Version:   $Revision: 1.45 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,10 +33,6 @@
 
 //--------------------------------------------------------------------
 // There are two hash tables associated with the Python wrappers
-static inline vtkIdType vtkHashMapHashMethod(const vtkObject *const &x)
-{
-  return reinterpret_cast<vtkIdType>(x);
-}
 
 class vtkPythonUtil
 {
