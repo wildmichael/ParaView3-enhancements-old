@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJavaUtil.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:33 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2003-04-28 20:34:45 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -36,16 +36,26 @@ extern JNIEXPORT jobject vtkJavaGetObjectFromPointer(void *ptr);
 extern JNIEXPORT char *vtkJavaUTFToChar(JNIEnv *env, jstring in);
 extern JNIEXPORT jstring vtkJavaMakeJavaString(JNIEnv *env, const char *in);
 
+extern JNIEXPORT jarray vtkJavaMakeJArrayOfFloatFromFloat(JNIEnv *env,
+             float *arr, int size);
 extern JNIEXPORT jarray vtkJavaMakeJArrayOfDoubleFromFloat(JNIEnv *env,
              float *arr, int size);
 extern JNIEXPORT jarray vtkJavaMakeJArrayOfDoubleFromDouble(JNIEnv *env, 
               double *arr, int size);
+extern JNIEXPORT jarray vtkJavaMakeJArrayOfShortFromShort(JNIEnv *env, short *arr, int size);
 extern JNIEXPORT jarray vtkJavaMakeJArrayOfIntFromInt(JNIEnv *env, int *arr, int size);
+extern JNIEXPORT jarray vtkJavaMakeJArrayOfLongFromLong(JNIEnv *env, long *arr, int size);
 extern JNIEXPORT jarray vtkJavaMakeJArrayOfByteFromUnsignedChar(JNIEnv *env, unsigned char *arr, int size);
+extern JNIEXPORT jarray vtkJavaMakeJArrayOfByteFromChar(JNIEnv *env, char *arr, int size);
+extern JNIEXPORT jarray vtkJavaMakeJArrayOfCharFromChar(JNIEnv *env, char *arr, int size);
+extern JNIEXPORT jarray vtkJavaMakeJArrayOfUnsignedCharFromUnsignedChar(JNIEnv *env, unsigned char *arr, int size);
+extern JNIEXPORT jarray vtkJavaMakeJArrayOfUnsignedIntFromUnsignedInt(JNIEnv *env, unsigned int *arr, int size);
+extern JNIEXPORT jarray vtkJavaMakeJArrayOfUnsignedLongFromUnsignedLong(JNIEnv *env, unsigned long *arr, int size);
 
 extern JNIEXPORT jobject vtkJavaCreateNewJavaStubForObject(JNIEnv *env, vtkObject* obj);
 extern JNIEXPORT jobject vtkJavaCreateNewJavaStub(JNIEnv *env,
               const char* fullclassname, void* obj);
+
 
 // this is the void pointer parameter passed to the vtk callback routines on
 // behalf of the Java interface for callbacks.
