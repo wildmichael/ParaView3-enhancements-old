@@ -1,5 +1,12 @@
 /*=========================================================================
 
+  Program:   Visualization Toolkit
+  Module:    $RCSfile: vtkProjectedTexture.h,v $
+  Language:  C++
+  Date:      $Date: 1998-10-06 20:40:43 $
+  Version:   $Revision: 1.2 $
+
+
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
@@ -33,7 +40,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 // .NAME vtkProjectedTexture - assign texture coordinates for a projected texture
 // .SECTION Description
-// vtkProjectedTexture assigns texture coordinates to a data set as if
+// vtkProjectedTexture assigns texture coordinates to a dataset as if
 // the texture was projected from a slide projected located somewhere in the
 // scene.  Methods are provided to position the projector and aim it at a 
 // location, to set the width of the projector's frustum, and to set the
