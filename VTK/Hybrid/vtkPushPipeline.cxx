@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPushPipeline.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-18 18:57:10 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2003-09-23 15:02:08 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -118,7 +118,7 @@ public:
   vtkPushPipeline *PushPipeline;
 };
 
-vtkCxxRevisionMacro(vtkPushPipeline, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkPushPipeline, "$Revision: 1.16 $");
 vtkStandardNewMacro(vtkPushPipeline);
 
 vtkPushPipeline::vtkPushPipeline()
@@ -272,7 +272,6 @@ void vtkPushPipeline::Trace(vtkProcessObject *po)
     {
     int numOut = src->GetNumberOfOutputs();
     vtkDataObject **outs = src->GetOutputs();
-    int i;
     src->UpdateInformation();
     for (i = 0; i < numOut; i++)
       {
@@ -298,7 +297,6 @@ void vtkPushPipeline::Trace(vtkProcessObject *po)
     {
     // a mappers consumers are props
     int numCon = am->GetNumberOfConsumers();
-    int i;
     for (i = 0; i < numCon; ++i)
       {
       vtkProp *prop = vtkProp::SafeDownCast(am->GetConsumer(i));

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConeSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-17 02:05:38 $
-  Version:   $Revision: 1.62 $
+  Date:      $Date: 2003-09-23 15:02:08 $
+  Version:   $Revision: 1.63 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkConeSource, "$Revision: 1.62 $");
+vtkCxxRevisionMacro(vtkConeSource, "$Revision: 1.63 $");
 vtkStandardNewMacro(vtkConeSource);
 
 //----------------------------------------------------------------------------
@@ -236,10 +236,10 @@ void vtkConeSource::Execute()
     float vMag = vtkMath::Norm(this->Direction);
     t->RotateWXYZ((float)180.0, (this->Direction[0]+vMag)/2.0,
                   this->Direction[1]/2.0, this->Direction[2]/2.0);
-    float *pts = ((vtkFloatArray *)newPoints->GetData())->GetPointer(0);
-    for (i=0; i<numPts; i++, pts+=3)
+    float *ipts = ((vtkFloatArray *)newPoints->GetData())->GetPointer(0);
+    for (i=0; i<numPts; i++, ipts+=3)
       {
-      t->TransformPoint(pts,pts);
+      t->TransformPoint(ipts,ipts);
       }
     
     t->Delete();

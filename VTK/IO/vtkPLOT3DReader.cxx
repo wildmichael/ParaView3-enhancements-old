@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLOT3DReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-14 19:54:31 $
-  Version:   $Revision: 1.74 $
+  Date:      $Date: 2003-09-23 15:02:08 $
+  Version:   $Revision: 1.75 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #include "vtkStructuredGrid.h"
 #include "vtkUnsignedCharArray.h"
 
-vtkCxxRevisionMacro(vtkPLOT3DReader, "$Revision: 1.74 $");
+vtkCxxRevisionMacro(vtkPLOT3DReader, "$Revision: 1.75 $");
 vtkStandardNewMacro(vtkPLOT3DReader);
 
 #define VTK_RHOINF 1.0
@@ -775,9 +775,9 @@ void vtkPLOT3DReader::Execute()
       if ( this->FunctionList->GetNumberOfTuples() > 0 )
         {
         int fnum;
-        for (int i=0; i < this->FunctionList->GetNumberOfTuples(); i++)
+        for (int tup=0; tup < this->FunctionList->GetNumberOfTuples(); tup++)
           {
-          if ( (fnum=this->FunctionList->GetValue(i)) >= 0 )
+          if ( (fnum=this->FunctionList->GetValue(tup)) >= 0 )
             {
             this->MapFunction(fnum, nthOutput);
             }

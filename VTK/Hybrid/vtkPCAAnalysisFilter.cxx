@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPCAAnalysisFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-07 19:39:25 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2003-09-23 15:02:08 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkMath.h"
 #include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkPCAAnalysisFilter, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkPCAAnalysisFilter, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkPCAAnalysisFilter);
 
 //------------------------------------------------------------------------
@@ -270,7 +270,7 @@ void vtkPCAAnalysisFilter::Execute()
   for (int j = 0; j < s; j++) {
     this->Evals->SetValue(j, ev[j]);
     
-    for (int i = 0; i < n; i++) {
+    for (i = 0; i < n; i++) {
       double x = evecMat2[i*3  ][j];
       double y = evecMat2[i*3+1][j];
       double z = evecMat2[i*3+2][j];

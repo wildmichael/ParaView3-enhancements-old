@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTubeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-16 20:30:37 $
-  Version:   $Revision: 1.72 $
+  Date:      $Date: 2003-09-23 15:02:08 $
+  Version:   $Revision: 1.73 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 #include "vtkPolyData.h"
 #include "vtkPolyLine.h"
 
-vtkCxxRevisionMacro(vtkTubeFilter, "$Revision: 1.72 $");
+vtkCxxRevisionMacro(vtkTubeFilter, "$Revision: 1.73 $");
 vtkStandardNewMacro(vtkTubeFilter);
 
 // Construct object with radius 0.5, radius variation turned off, the number 
@@ -654,19 +654,19 @@ void vtkTubeFilter::GenerateTextureCoords(vtkIdType offset,
   // Capping, set the endpoints as appropriate
   if ( this->Capping )
     {
-    int k;
+    int ik;
     vtkIdType startIdx = offset + npts*numSides;
 
     //start cap
-    for (k=0; k < this->NumberOfSides; k++)
+    for (ik=0; ik < this->NumberOfSides; ik++)
       {
-      newTCoords->InsertTuple2(startIdx+k,0.0,0.0);
+      newTCoords->InsertTuple2(startIdx+ik,0.0,0.0);
       }
 
     //end cap
-    for (k=0; k < this->NumberOfSides; k++)
+    for (ik=0; ik < this->NumberOfSides; ik++)
       {
-      newTCoords->InsertTuple2(startIdx+this->NumberOfSides+k,tc,0.0);
+      newTCoords->InsertTuple2(startIdx+this->NumberOfSides+ik,tc,0.0);
       }
     }
 }

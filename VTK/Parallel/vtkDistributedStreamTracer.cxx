@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDistributedStreamTracer.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-06-03 17:27:20 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-09-23 15:02:08 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,7 +29,7 @@
 #include "vtkPolyData.h"
 #include "vtkRungeKutta2.h"
 
-vtkCxxRevisionMacro(vtkDistributedStreamTracer, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkDistributedStreamTracer, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkDistributedStreamTracer);
 
 vtkDistributedStreamTracer::vtkDistributedStreamTracer()
@@ -261,7 +261,7 @@ int vtkDistributedStreamTracer::ProcessTask(float seed[3],
   // moving outside the domain, move to the next seed.
   if (numPoints == 0 || resTerm != vtkStreamTracer::OUT_OF_DOMAIN)
     {
-    int retVal = this->ProcessNextLine(currentLine);
+    retVal = this->ProcessNextLine(currentLine);
     seeds->Delete(); 
     seedIds->Delete();
     integrationDirections->Delete();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-09-19 16:59:55 $
-  Version:   $Revision: 1.65 $
+  Date:      $Date: 2003-09-23 15:02:08 $
+  Version:   $Revision: 1.66 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -44,7 +44,7 @@
 #include "vtkTextureMapToPlane.h"
 #include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.65 $");
+vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.66 $");
 vtkStandardNewMacro(vtkImagePlaneWidget);
 
 vtkCxxSetObjectMacro(vtkImagePlaneWidget, PlaneProperty, vtkProperty);
@@ -2509,7 +2509,7 @@ void vtkImagePlaneWidget::Translate(double *p1, double *p2)
     }
   else if ( this->MarginSelectMode == 0 ) // bottom left corner
     {
-    for (int i=0; i<3; i++)
+    for (i=0; i<3; i++)
       {
       origin[i] = o[i]   + vdrv*this->RadiusVector[i] + vdra*this->RotateAxis[i];
       point1[i] = pt1[i] + vdra*this->RotateAxis[i];

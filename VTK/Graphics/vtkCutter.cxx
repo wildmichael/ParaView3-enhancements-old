@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-01 11:20:39 $
-  Version:   $Revision: 1.72 $
+  Date:      $Date: 2003-09-23 15:02:08 $
+  Version:   $Revision: 1.73 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,7 +32,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkCutter, "$Revision: 1.72 $");
+vtkCxxRevisionMacro(vtkCutter, "$Revision: 1.73 $");
 vtkStandardNewMacro(vtkCutter);
 vtkCxxSetObjectMacro(vtkCutter,CutFunction,vtkImplicitFunction);
 
@@ -511,9 +511,9 @@ void vtkCutter::UnstructuredGridCutter()
         } // for all points in this cell
           
       int needCell = 0;
-      for (int i = 0; i < numContours; ++i) 
+      for (int cont = 0; cont < numContours; ++cont) 
         {
-        float val = this->ContourValues->GetValue(i);
+        float val = this->ContourValues->GetValue(cont);
         if (val >= range[0] && val <= range[1]) 
           {
           needCell = 1;

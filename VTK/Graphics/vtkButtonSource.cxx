@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkButtonSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-17 02:05:38 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2003-09-23 15:02:07 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 #include "vtkPolyData.h"
 #include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkButtonSource, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkButtonSource, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkButtonSource);
 
 // Construct 
@@ -284,17 +284,17 @@ void vtkButtonSource::Execute()
       tcoords->SetTuple(i+numPts, tcoords->GetTuple(i));
       }
     //do the polygons
-    vtkIdType *pts = 0;
+    vtkIdType *ipts = 0;
     vtkIdType opts[4];
     
     vtkIdType npts = 0;
     int numPolys=newPolys->GetNumberOfCells();
     for ( j=0, newPolys->InitTraversal(); j < numPolys; j++ )
       {
-      newPolys->GetNextCell(npts,pts);
+      newPolys->GetNextCell(npts,ipts);
       for (i=0; i<npts; i++)
         {
-        opts[i] = pts[i] + numPts;
+        opts[i] = ipts[i] + numPts;
         }
       newPolys->InsertNextCell(npts,opts);
       }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericEnSightReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-09-10 19:41:56 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2003-09-23 15:02:08 $
+  Version:   $Revision: 1.48 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,7 +30,7 @@
 
 #include <vtkstd/string>
 
-vtkCxxRevisionMacro(vtkGenericEnSightReader, "$Revision: 1.47 $");
+vtkCxxRevisionMacro(vtkGenericEnSightReader, "$Revision: 1.48 $");
 vtkStandardNewMacro(vtkGenericEnSightReader);
 
 vtkCxxSetObjectMacro(vtkGenericEnSightReader,TimeSets, 
@@ -268,7 +268,7 @@ int vtkGenericEnSightReader::DetermineEnSightVersion()
     vtkErrorMacro("A case file name must be specified.");
     return -1;
     }
-  vtkstd::string sfilename;
+  vtkstd::string sfilename = "";
   if (this->FilePath)
     {
     sfilename = this->FilePath;
@@ -348,7 +348,7 @@ int vtkGenericEnSightReader::DetermineEnSightVersion()
               // file set and fill in wildcards from there.
               this->ReplaceWildcards(fileName, timeSet, fileSet);
               }
-            vtkstd::string sfilename;
+            sfilename = "";
             if (this->FilePath)
               {
               sfilename = this->FilePath;
@@ -441,7 +441,7 @@ int vtkGenericEnSightReader::DetermineEnSightVersion()
           // wildcards from there.
           this->ReplaceWildcards(fileName, timeSet, fileSet);
           }
-        vtkstd::string sfilename;
+        sfilename = "";
         if (this->FilePath)
           {
           sfilename = this->FilePath;
