@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-14 12:56:46 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-06-15 20:42:43 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -251,7 +251,7 @@ void vtkEnSightReader::Execute()
   float newTime;
   int numSteps;
   char* fileName;
-  int wildcardPos, numWildcards, numDigits, filenameNum;
+  int filenameNum;
   
   if (!this->ReadCaseFile())
     {
