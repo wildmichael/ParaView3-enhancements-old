@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeTextureMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:12 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-06-15 16:10:08 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -61,6 +61,15 @@ public:
 
   static vtkVolumeTextureMapper2D *New();
   
+  // Description:
+  // Target size in pixels of each size of the texture for downloading. Default is
+  // 512x512 - so a 512x512 texture will be tiled with as many slices of the volume
+  // as possible, then all the quads will be rendered. This can be set to optimize
+  // for a particular architecture. This must be set with numbers that are a power
+  // of two.
+  vtkSetVector2Macro( TargetTextureSize, int );
+  vtkGetVector2Macro( TargetTextureSize, int );
+  
 //BTX
 
   // Description:
@@ -69,13 +78,10 @@ public:
   // Render the volume
   virtual void Render(vtkRenderer *, vtkVolume *) {};
 
-  virtual void RenderRectangle( float vtkNotUsed(v)[12], float vtkNotUsed(t)[8],
-				unsigned char *vtkNotUsed(texture),
-				int vtkNotUsed(size)[2]) {};
-
-  void ApplyProperties( unsigned char *texture,
-			int size[2], int tsize[2] ); 
-
+  virtual void RenderQuads( int vtkNotUsed(count),
+                            float *vtkNotUsed(v), float *vtkNotUsed(t),
+                            unsigned char *vtkNotUsed(texture),
+                            int vtkNotUsed(size)[2]) {};
 //ETX
 
 
@@ -87,9 +93,11 @@ protected:
 
   void InitializeRender( vtkRenderer *ren, vtkVolume *vol );
 
-  void GenerateTexturesAndRenderRectangles();
+  void GenerateTexturesAndRenderQuads();
 
   int  MajorDirection;
+  int  TargetTextureSize[2];
+  
 };
 
 

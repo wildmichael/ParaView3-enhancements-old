@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLVolumeTextureMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:12:09 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-06-15 16:10:08 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -69,8 +69,8 @@ public:
   // Render the volume
   virtual void Render(vtkRenderer *ren, vtkVolume *vol);
 
-  void RenderRectangle( float v[12], float t[8],
-			unsigned char *texture, int size[2]);
+  void RenderQuads( int count, float *v, float *t,
+                    unsigned char *texture, int size[2]);
 
 //ETX
 
