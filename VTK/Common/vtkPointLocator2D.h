@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator2D.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:59 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-06-07 22:27:32 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -43,8 +43,9 @@
 #define __vtkPointLocator2D_h
 
 #include "vtkLocator.h"
-#include "vtkPoints.h"
-#include "vtkIdList.h"
+
+class vtkPoints;
+class vtkIdList;
 
 class vtkNeighborPoints2D;
 
@@ -112,7 +113,7 @@ public:
 
   // Description:
   // set the points to use when looking up a coordinate
-  vtkSetObjectMacro(Points,vtkPoints);
+  virtual void SetPoints(vtkPoints*);
   vtkGetObjectMacro(Points,vtkPoints);
   
 protected:
