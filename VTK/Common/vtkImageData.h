@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-23 18:36:55 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 1999-08-24 13:24:08 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -313,7 +313,7 @@ public:
   
   // Description:
   // Legacy.  Replaced with GetEstimatedUpdateMemorySize.
-  inline long GetUpdateExtentMemorySize() 
+  long GetUpdateExtentMemorySize() 
     {
       vtkWarningMacro("Change GetUpdateExtentMemorySize to GetEstimatedUpdateMemorySize");
       return GetEstimatedUpdateMemorySize();
@@ -321,7 +321,7 @@ public:
 
   // Description:
   // Legacy.  With no cache, this method is no longer needed.
-  inline vtkImageData *UpdateAndReturnData() 
+  vtkImageData *UpdateAndReturnData() 
     {
       vtkWarningMacro("UpdateAndReturnData will no longer be supported.  Just Update, and use the data.");
       this->Update();
