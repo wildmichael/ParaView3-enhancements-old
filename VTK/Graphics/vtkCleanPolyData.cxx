@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCleanPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-01 18:23:01 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2000-03-03 14:57:42 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -364,19 +364,19 @@ void vtkCleanPolyData::Execute()
   // Cell data output
   int CombinedCellID = vertIDcounter;
   if (newLines) {
-      for (int i=0; i<lineIDcounter; i++, CombinedCellID++) {
+      for (i=0; i<lineIDcounter; i++, CombinedCellID++) {
           outputCD->CopyData(outLineData, i, CombinedCellID);
       }
       outLineData->Delete();
   }
   if (newPolys) {
-      for (int i=0; i<polyIDcounter; i++, CombinedCellID++) {
+      for (i=0; i<polyIDcounter; i++, CombinedCellID++) {
           outputCD->CopyData(outPolyData, i, CombinedCellID);
       }
       outPolyData->Delete();
   }
   if (newStrips) {
-      for (int i=0; i<strpIDcounter; i++, CombinedCellID++) {
+      for (i=0; i<strpIDcounter; i++, CombinedCellID++) {
           outputCD->CopyData(outStrpData, i, CombinedCellID);
       }
       outStrpData->Delete();
