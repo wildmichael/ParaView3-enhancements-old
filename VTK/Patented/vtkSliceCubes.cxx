@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSliceCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-09-30 16:31:38 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1997-04-01 18:43:17 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,7 +69,7 @@ void vtkSliceCubes::Update()
 // Calculate the gradient using central difference.
 // NOTE: We calculate the negative of the gradient for efficiency
 template <class T>
-void ComputePointGradient(int i, int j, int k, int dims[3], 
+static void ComputePointGradient(int i, int j, int k, int dims[3], 
                           float aspectRatio[3], float n[3],
                           T *s0, T *s1, T *s2)
 {
@@ -139,7 +139,7 @@ void ComputePointGradient(int i, int j, int k, int dims[3],
 }
 
 template <class T, class S>
-int Contour(T *slice, S *scalars, int imageRange[2], int dims[3], float origin[3],
+static int Contour(T *slice, S *scalars, int imageRange[2], int dims[3], float origin[3],
             float aspectRatio[3], float value, float xmin[3], float xmax[3],
             FILE *outFP, vtkVolumeReader *reader, int debug)
 {
