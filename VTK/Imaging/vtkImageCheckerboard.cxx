@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCheckerboard.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-09 11:34:44 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-05-10 11:03:11 $
+  Version:   $Revision: 1.3 $
   Thanks:    This work was supported by PHS Research Grant No. 1 P41 RR13218-01
              from the National Center for Research Resources
 
@@ -77,7 +77,6 @@ static void vtkImageCheckerboardExecute2(vtkImageCheckerboard *self,
 {
   int idxR, idxY, idxZ;
   int maxY, maxZ;
-  int minWholeX, minWholeY, minWholeZ;
   int dimWholeX, dimWholeY, dimWholeZ;
   int divX, divY, divZ;
   int nComp;
@@ -100,9 +99,6 @@ static void vtkImageCheckerboardExecute2(vtkImageCheckerboard *self,
   
   outData->GetWholeExtent(wholeExt);
   
-  minWholeX = wholeExt[0];
-  minWholeY = wholeExt[2];
-  minWholeZ = wholeExt[4];
   dimWholeX = wholeExt[1] - wholeExt[0] + 1;
   dimWholeY = wholeExt[3] - wholeExt[2] + 1;
   dimWholeZ = wholeExt[5] - wholeExt[4] + 1;
