@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtk3DS.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-18 17:08:03 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-07-21 18:17:22 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -233,10 +233,7 @@ static float  falloff = -1;
 static void cleanup_name (char *);
 static void list_insert (List **root, List *new_node);
 static void *list_find (List **root, char *name);
-static void list_delete (List **root, List *node);
 static void list_kill (List **root);
 static MatProp *create_mprop (void);
 static Mesh *create_mesh (char *name, int vertices, int faces);
-static void free_mesh_data (Mesh *mesh);
-static float findfov (float lens);
 
