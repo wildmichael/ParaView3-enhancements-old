@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreadedController.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-17 01:50:34 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-08-13 19:19:13 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -69,9 +69,9 @@ private:
   void operator=(const vtkThreadedControllerOutputWindow&);
 };
 
-vtkCxxRevisionMacro(vtkThreadedControllerOutputWindow, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkThreadedControllerOutputWindow, "$Revision: 1.16 $");
 
-vtkCxxRevisionMacro(vtkThreadedController, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkThreadedController, "$Revision: 1.16 $");
 vtkStandardNewMacro(vtkThreadedController);
 
 void vtkThreadedController::CreateOutputWindow()
@@ -225,6 +225,11 @@ int vtkThreadedController::IsBarrierInProgress=0;
 
 void vtkThreadedController::Barrier()
 {
+  if (this->NumberOfProcesses == 0)
+    {
+    return;
+    }
+
   vtkThreadedController::InitializeBarrier();
 
   // If there was a barrier before this one, we need to
