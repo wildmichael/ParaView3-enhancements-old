@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-17 15:59:44 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1999-04-23 12:57:17 $
+  Version:   $Revision: 1.22 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -355,6 +355,25 @@ void vtkXImageWindow::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Number Of Colors: " << this->NumberOfColors << "\n";
   os << indent << "Drawable: " << this->Drawable << "\n";
 
+}
+
+void vtkXImageWindow::SetWindowName(char* name)
+{
+  XTextProperty win_name_text_prop;
+
+  vtkImageWindow::SetWindowName(name);
+  
+  if (this->Mapped)
+    {
+    if( XStringListToTextProperty( &name, 1, &win_name_text_prop ) == 0 )
+      {
+      vtkWarningMacro(<< "Can't rename window"); 
+      return;
+      }
+    
+    XSetWMName( this->DisplayId, this->WindowId, &win_name_text_prop );
+    XSetWMIconName( this->DisplayId, this->WindowId, &win_name_text_prop );
+    }
 }
 
 

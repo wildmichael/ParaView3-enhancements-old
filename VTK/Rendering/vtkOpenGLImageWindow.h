@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 1999-03-10 23:04:16 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-04-23 12:57:18 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -93,8 +93,6 @@ public:
   virtual void *GetGenericContext();
   virtual void *GetGenericDrawable()  {return (void *)this->WindowId;};
   
-  void     SetWindowName(char *);
-
   // Description:
   // Get the X properties of an ideal rendering window.
   virtual Colormap GetDesiredColormap();
