@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-15 21:48:28 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2003-08-18 17:44:00 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkViewport.h"
 #include "vtkWindow.h"
 
-vtkCxxRevisionMacro(vtkTextActor, "$Revision: 1.18 $");
+vtkCxxRevisionMacro(vtkTextActor, "$Revision: 1.19 $");
 vtkStandardNewMacro(vtkTextActor);
 
 vtkCxxSetObjectMacro(vtkTextActor,TextProperty,vtkTextProperty);
@@ -59,6 +59,9 @@ vtkTextActor::vtkTextActor()
   this->ScaledText        = 0;
   this->AlignmentPoint    = 0;
 
+  this->FontScaleExponent = 1;
+  this->FontScaleTarget   = 10;
+
   // IMPORTANT: backward compat: the buildtime is updated here so that the 
   // TextProperty->GetMTime() is lower than BuildTime. In that case, this
   // will prevent the TextProperty to override the mapper's TextProperty
@@ -71,6 +74,18 @@ vtkTextActor::~vtkTextActor()
 {
   this->AdjustedPositionCoordinate->Delete();
   this->SetTextProperty(NULL);
+}
+
+// ----------------------------------------------------------------------------
+void vtkTextActor::SetNonLinearFontScale(double exp, int tgt)
+{
+  if (this->FontScaleExponent == exp && this->FontScaleTarget == tgt)
+    {
+    return;
+    }
+  this->FontScaleExponent = exp;
+  this->FontScaleTarget = tgt;
+  this->Modified();
 }
 
 // ----------------------------------------------------------------------------
@@ -291,10 +306,14 @@ int vtkTextActor::RenderOpaqueGeometry(vtkViewport *viewport)
           }    
         int max_height = (int)(this->MaximumLineHeight * (float)size[1]);
 
-        mapper->SetConstrainedFontSize(
+        int fsize = mapper->SetConstrainedFontSize(
           viewport, 
           size[0], 
           (size[1] < max_height ? size[1] : max_height));
+        // apply non-linear scaling
+        fsize = static_cast<int>(pow(fsize,this->FontScaleExponent)*
+          pow(this->FontScaleTarget, 1.0 - this->FontScaleExponent));
+        tpropmapper->SetFontSize(fsize);
         }
     
       // now set the position of the Text
@@ -356,4 +375,6 @@ void vtkTextActor::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "MinimumSize: " << this->MinimumSize[0] << " " << this->MinimumSize[1] << endl;
   os << indent << "ScaledText: " << this->ScaledText << endl;
   os << indent << "AlignmentPoint: " << this->AlignmentPoint << endl;
+  os << indent << "FontScaleExponent: " << this->FontScaleExponent << endl;
+  os << indent << "FontScaleTarget: " << this->FontScaleTarget << endl;
 }

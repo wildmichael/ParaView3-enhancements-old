@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextActor.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-28 16:44:22 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-08-18 17:44:00 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -115,6 +115,16 @@ public:
   virtual void SetTextProperty(vtkTextProperty *p);
   vtkGetObjectMacro(TextProperty,vtkTextProperty);
   
+  // Description:
+  // Enable non-linear scaling of font sizes. This is useful in combination
+  // with scaled text. With small windows you want to use the entire scaled
+  // text area. With larger windows you want to reduce the font size some so
+  // that the entire area is not used. These values modify the computed font 
+  // size as follows:  
+  //   newFontSize = pow(FontSize,exponent)*pow(target,1.0 - exponent)
+  // typically exponent should be around 0.7 and target should be around 10
+  virtual void SetNonLinearFontScale(double exponent, int target);
+
 //BTX
   // Description:
   // WARNING: INTERNAL METHOD - NOT INTENDED FOR GENERAL USE
@@ -143,6 +153,8 @@ protected:
 
   int   MinimumSize[2];
   float MaximumLineHeight;
+  double FontScaleExponent;
+  double FontScaleTarget;
   int   ScaledText;
   int   AlignmentPoint;
 
