@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightReader.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-22 18:59:51 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-01-09 21:42:07 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -86,14 +86,9 @@ public:
   
   // Description:
   // Set/Get the Case file name.
-  vtkSetStringMacro(CaseFileName);
+//  vtkSetStringMacro(CaseFileName);
+  void SetCaseFileName(char* fileName);
   vtkGetStringMacro(CaseFileName);
-  
-  // Description:
-  // Set/Get the path the the data files.  If specified, this reader will look
-  // in this directory for all data files.
-  vtkSetStringMacro(FilePath);
-  vtkGetStringMacro(FilePath);
   
   // Description:
   // Get the number of variables listed in the case file.
@@ -145,6 +140,12 @@ protected:
   
   void Execute();
 
+  // Description:
+  // Set/Get the path the the data files.  If specified, this reader will look
+  // in this directory for all data files.
+  vtkSetStringMacro(FilePath);
+  vtkGetStringMacro(FilePath);
+  
   // Description:
   // Read the case file.  If an error occurred, 0 is returned; otherwise 1.
   int ReadCaseFile();
