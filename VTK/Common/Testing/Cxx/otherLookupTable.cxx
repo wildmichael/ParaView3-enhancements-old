@@ -3,8 +3,8 @@
   Program: 
   Module:    $RCSfile: otherLookupTable.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-16 11:57:25 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-10-18 13:34:57 $
+  Version:   $Revision: 1.4 $
 
   ==========================================================================*/
 
@@ -20,7 +20,6 @@ void Test(ostream& strm, vtkLookupTable *lut1)
 {
   // actual test
  
-  float range[2] = {0, 1023};
   lut1->SetRange(0,1023);
   lut1->SetScaleToLinear();
   
