@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkByteSwap.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-23 18:57:25 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1997-06-04 13:35:49 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -103,6 +103,8 @@ public:
   static void SwapWrite2BERange(char *c,int num,FILE *fp);
   static void SwapWrite2BERange(short *i,int num, FILE *fp) 
   {vtkByteSwap::SwapWrite2BERange((char *)i,num,fp);};
+
+  static void SwapVoidRange(void *buffer, int numWords, int wordSize);
 };
 
 #endif
