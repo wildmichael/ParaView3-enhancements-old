@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightGoldBinaryReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-13 20:46:33 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-06-14 17:26:22 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -167,6 +167,14 @@ protected:
   // Returns zero if there was an error.
   int ReadFloatArray(float *result, int numFloats);
 
+  // Description:
+  // Read to the next time step in the geometry file.
+  void SkipTimeStep();
+  int SkipStructuredGrid(char line[256]);
+  int SkipUnstructuredGrid(char line[256]);
+  int SkipRectilinearGrid(char line[256]);
+  int SkipImageData(char line[256]);
+  
   int NodeIdsListed;
   int ElementIdsListed;
   
