@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCTHFractal.h,v $
   Language:  C++
-  Date:      $Date: 2003-09-10 15:31:04 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-09-19 15:54:58 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -68,23 +68,17 @@ protected:
 
   virtual void Execute();
   void Traverse(int &blockId, int level, vtkCTHData* output, 
-                float ox1, float oy1, float oz1,
-                float sx1, float sy1, float sz1);
+                int x0, int y0, int z0);
 
   int LineTest2(float x0, float y0, float z0, 
                float x1, float y1, float z1,
-               float ox, float oy, float oz,
-               float sx, float sy, float sz, int level, int target); 
+               float bds[6]); 
   int LineTest(float x0, float y0, float z0, 
                float x1, float y1, float z1,
-               float ox, float oy, float oz,
-               float sx, float sy, float sz, int level, int target); 
+               float bds[6], int level, int target); 
 
-
-  void SetDimensions(int xDim, int yDim, int zDim);
-  void SetBlockInfo(int blockId, 
-                    float ox, float oy, float oz,
-                    float sx, float sy, float sz);
+  void SetBlockInfo(int blockId, int level,
+                    int x0, int y0, int z0);
 
   void AddFractalArray();
   void AddBlockIdArray();

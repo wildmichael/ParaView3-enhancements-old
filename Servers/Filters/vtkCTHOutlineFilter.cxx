@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCTHOutlineFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-09-05 20:07:52 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-09-19 15:54:58 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,7 +30,7 @@
 
 
 
-vtkCxxRevisionMacro(vtkCTHOutlineFilter, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkCTHOutlineFilter, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkCTHOutlineFilter);
 
 //----------------------------------------------------------------------------
@@ -56,7 +56,8 @@ void vtkCTHOutlineFilter::Execute()
   int *dimensions;
   int ghostLevels;
   
-  dimensions = input->GetDimensions();
+  // Hack
+  dimensions = input->GetBlockPointDimensions(0);
   ghostLevels = input->GetNumberOfGhostLevels();
 
   numBlocks = input->GetNumberOfBlocks();
