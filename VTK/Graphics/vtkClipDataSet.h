@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipDataSet.h,v $
   Language:  C++
-  Date:      $Date: 2002-09-16 15:02:21 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-09-17 15:00:12 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -118,6 +118,14 @@ public:
   vtkBooleanMacro(GenerateClippedOutput,int);
 
   // Description:
+  // Set the tolerance for merging clip intersection points that are near
+  // the vertices of cells. This tolerance is used to prevent the generation
+  // of degenerate primitives. Note that only 3D cells actually use this
+  // instance variable.
+  vtkSetClampMacro(MergeTolerance,float,0.0001,0.25);
+  vtkGetMacro(MergeTolerance,float);
+  
+  // Description:
   // Return the Clipped output.
   vtkUnstructuredGrid *GetClippedOutput();
 
@@ -156,6 +164,7 @@ protected:
   int GenerateClipScalars;
 
   int GenerateClippedOutput;
+  float MergeTolerance;
 
   char *InputScalarsSelection;
   vtkSetStringMacro(InputScalarsSelection);
