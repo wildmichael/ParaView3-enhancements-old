@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeFields.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-25 21:02:43 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-09-26 02:08:14 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -112,6 +112,28 @@ public:
   };
 //ETX
 
+//BTX
+  struct Component
+  {
+    int Index;
+    int SourceIndex;
+    char* FieldName;   
+    Component* Next;   // linked list
+    void SetName(const char* name)
+      {
+	delete[] this->FieldName;
+	this->FieldName = 0;
+	if (name)
+	  {
+	  this->FieldName = new char[strlen(name)+1];
+	  strcpy(this->FieldName, name);
+	  }
+      }
+    Component() { FieldName = 0; }
+    ~Component() { delete[] FieldName; }
+  };
+//ETX
+
 protected:
 
 //BTX
@@ -136,27 +158,6 @@ protected:
 
   static char FieldLocationNames[3][12];
 
-//BTX
-  struct Component
-  {
-    int Index;
-    int SourceIndex;
-    char* FieldName;   
-    Component* Next;   // linked list
-    void SetName(const char* name)
-      {
-	delete[] this->FieldName;
-	this->FieldName = 0;
-	if (name)
-	  {
-	  this->FieldName = new char[strlen(name)+1];
-	  strcpy(this->FieldName, name);
-	  }
-      }
-    Component() { FieldName = 0; }
-    ~Component() { delete[] FieldName; }
-  };
-//ETX
 
   int MergeArray(vtkDataArray* in, vtkDataArray* out, int inComp, int outComp);
 

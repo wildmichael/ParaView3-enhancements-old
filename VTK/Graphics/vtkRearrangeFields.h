@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRearrangeFields.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-25 21:02:44 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-09-26 02:08:15 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -152,16 +152,6 @@ public:
   // Remove all operations.
   void RemoveAllOperations() { this->LastId = 0; this->DeleteAllOperations(); }
   
-
-protected:
-
-  vtkRearrangeFields();
-  virtual ~vtkRearrangeFields();
-  vtkRearrangeFields(const vtkRearrangeFields&);
-  void operator=(const vtkRearrangeFields&);
-
-  void Execute();
-
 //BTX
   enum FieldType
   {
@@ -183,6 +173,16 @@ protected:
     ~Operation() { delete[] FieldName; }
   };
 //ETX
+
+protected:
+
+  vtkRearrangeFields();
+  virtual ~vtkRearrangeFields();
+  vtkRearrangeFields(const vtkRearrangeFields&);
+  void operator=(const vtkRearrangeFields&);
+
+  void Execute();
+
 
   // Operations are stored as a linked list.
   Operation* Head;

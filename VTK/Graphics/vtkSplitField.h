@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSplitField.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-25 21:02:45 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-09-26 02:08:15 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -120,6 +120,27 @@ public:
   };
 //ETX
 
+//BTX
+  struct Component
+  {
+    int Index;
+    char* FieldName;   
+    Component* Next;   // linked list
+    void SetName(const char* name)
+      {
+	delete[] this->FieldName;
+	this->FieldName = 0;
+	if (name)
+	  {
+	  this->FieldName = new char[strlen(name)+1];
+	  strcpy(this->FieldName, name);
+	  }
+      }
+    Component() { FieldName = 0; }
+    ~Component() { delete[] FieldName; }
+  };
+//ETX
+
 protected:
 
 //BTX
@@ -147,26 +168,6 @@ protected:
 
   vtkDataArray* SplitArray(vtkDataArray* da, int component);
 
-//BTX
-  struct Component
-  {
-    int Index;
-    char* FieldName;   
-    Component* Next;   // linked list
-    void SetName(const char* name)
-      {
-	delete[] this->FieldName;
-	this->FieldName = 0;
-	if (name)
-	  {
-	  this->FieldName = new char[strlen(name)+1];
-	  strcpy(this->FieldName, name);
-	  }
-      }
-    Component() { FieldName = 0; }
-    ~Component() { delete[] FieldName; }
-  };
-//ETX
 
   // Components are stored as a linked list.
   Component* Head;
