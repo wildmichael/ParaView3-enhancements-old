@@ -6,9 +6,9 @@
  * Author:  Thomas Radke <tradke@aei-potsdam.mpg.de>
  *          Tuesday, September 12, 2000
  *
- * Purpose:	The public header file for the Stream Virtual File Driver.
+ * Purpose:     The public header file for the Stream Virtual File Driver.
  *
- * Version: $Header: /cvsroot/ParaView3/ParaView3/Utilities/hdf5/H5FDstream.h,v 1.2 2003-03-04 15:24:30 andy Exp $
+ * Version: $Header: /cvsroot/ParaView3/ParaView3/Utilities/hdf5/H5FDstream.h,v 1.3 2003-04-09 19:36:03 andy Exp $
  *
  * Modifications:
  *          Thomas Radke, Thursday, October 26, 2000
@@ -44,7 +44,7 @@
 
 #endif
 
-#define H5FD_STREAM	(H5FD_stream_init())
+#define H5FD_STREAM     (H5FD_stream_init())
 
 #ifdef __cplusplus
 extern "C" {
