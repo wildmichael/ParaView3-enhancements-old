@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAppendComponents.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 21:15:37 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-07-17 14:29:02 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,8 +62,7 @@ public:
 
 protected:
   
-  void ExecuteImageInformation(vtkImageCache *in1, vtkImageCache *in2,
-			       vtkImageCache *out);
+  void ExecuteImageInformation();
   void Execute(vtkImageRegion *inRegion1, vtkImageRegion *inRegion2, 
 	       vtkImageRegion *outRegion);
 };

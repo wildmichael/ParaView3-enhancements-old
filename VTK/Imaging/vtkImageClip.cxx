@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageClip.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-11 20:12:16 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1997-07-17 14:29:06 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -161,12 +161,11 @@ void vtkImageClip::GetOutputWholeExtent(int dim, int *extent)
 
 //----------------------------------------------------------------------------
 // Change the WholeExtent
-void vtkImageClip::ExecuteImageInformation(vtkImageCache *in, 
-					   vtkImageCache *out)
+void vtkImageClip::ExecuteImageInformation()
 {
   int idx, extent[8];
   
-  in->GetWholeExtent(extent);
+  this->Input->GetWholeExtent(extent);
   if ( ! this->Initialized)
     {
     this->SetOutputWholeExtent(4, extent);
@@ -192,7 +191,7 @@ void vtkImageClip::ExecuteImageInformation(vtkImageCache *in,
       }
     }
   
-  out->SetWholeExtent(extent);
+  this->Output->SetWholeExtent(extent);
 }
 
 

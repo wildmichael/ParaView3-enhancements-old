@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageClip.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 21:15:42 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1997-07-17 14:29:08 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -90,8 +90,7 @@ protected:
   int Initialized; // Set the OutputImageExtent for the first time.
   int OutputWholeExtent[8];
   
-  void ExecuteImageInformation(vtkImageCache *in, 
-			       vtkImageCache *out);
+  void ExecuteImageInformation();
   void ComputeOutputWholeExtent();
 };
 

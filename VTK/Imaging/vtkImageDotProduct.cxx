@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDotProduct.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 21:16:08 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1997-07-17 14:29:14 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkImageRegion.h"
+#include "vtkImageCache.h"
 #include "vtkImageDotProduct.h"
 
 
@@ -46,46 +47,17 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 //----------------------------------------------------------------------------
 vtkImageDotProduct::vtkImageDotProduct()
 {
-  this->SetAxes(VTK_IMAGE_COMPONENT_AXIS);
-
-  this->NumberOfExecutionAxes = 2;
+  this->SetExecutionAxes(VTK_IMAGE_COMPONENT_AXIS, VTK_IMAGE_X_AXIS);
 }
-
-
 
 
 //----------------------------------------------------------------------------
 // Description:
 // Colapse the first axis
-void 
-vtkImageDotProduct::ComputeOutputImageInformation(vtkImageRegion *inRegion1,
-						  vtkImageRegion *inRegion2,
-						  vtkImageRegion *outRegion)
-
+void vtkImageDotProduct::ExecuteImageInformation()
 {
-  inRegion1 = inRegion2;
-  outRegion->SetImageExtent(0, 0);
+  this->Output->SetNumberOfScalarComponents(1);
 }
-
-
-
-//----------------------------------------------------------------------------
-// Description:
-// This method computes the extent of the input region necessary to generate
-// an output region.  
-void vtkImageDotProduct::ComputeRequiredInputRegionExtent(
-					       vtkImageRegion *outRegion,
-					       vtkImageRegion *inRegion1,
-					       vtkImageRegion *inRegion2)
-{
-  outRegion = outRegion;
-  // They should both be the same.
-  inRegion1->SetExtent(1, inRegion1->GetImageExtent());
-  inRegion2->SetExtent(1, inRegion1->GetImageExtent());
-}
-
-
-
 
 
 //----------------------------------------------------------------------------

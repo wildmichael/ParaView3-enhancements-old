@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAppendComponents.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 21:15:36 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-07-17 14:29:00 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,12 +54,11 @@ vtkImageAppendComponents::vtkImageAppendComponents()
 //----------------------------------------------------------------------------
 // Description:
 // This method tells the ouput it will have more components
-void vtkImageAppendComponents::ExecuteImageInformation(vtkImageCache *in1,
-						       vtkImageCache *in2,
-						       vtkImageCache *out)
+void vtkImageAppendComponents::ExecuteImageInformation()
 {
-  out->SetNumberOfScalarComponents(in1->GetNumberOfScalarComponents() +
-				   in2->GetNumberOfScalarComponents());
+  this->Output->SetNumberOfScalarComponents(
+	    this->Inputs[0]->GetNumberOfScalarComponents() 
+	    + this->Inputs[1]->GetNumberOfScalarComponents());
 }
 
 
