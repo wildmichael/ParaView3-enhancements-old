@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-28 21:07:20 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1996-10-23 18:18:57 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,6 +54,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include "vtkObject.h"
 #include "vtkRendererCollection.h"
+#include <stdio.h>
 
 class vtkRenderWindowInteractor;
 class vtkLightDevice;
@@ -227,6 +228,9 @@ public:
   // Description:
   // Save the current image as a PPM file.
   virtual void SaveImageAsPPM();
+  virtual  int OpenPPMImageFile();
+  virtual void WritePPMImageFile();
+  virtual void ClosePPMImageFile();
 
 
   // Description:
@@ -317,6 +321,7 @@ protected:
   int   Erase;
   int   SwapBuffers;
   float DesiredUpdateRate;
+  FILE* PpmImageFilePtr;
 };
 
 #endif
