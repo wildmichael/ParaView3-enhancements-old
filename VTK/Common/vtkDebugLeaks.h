@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDebugLeaks.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-14 12:10:39 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-09-15 09:12:56 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,7 +57,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 class vtkDebugLeaksHashTable;
 
-class vtkDebugLeaks : public vtkObject
+class VTK_EXPORT vtkDebugLeaks : public vtkObject
 {
 public: 
   static vtkDebugLeaks *New();
