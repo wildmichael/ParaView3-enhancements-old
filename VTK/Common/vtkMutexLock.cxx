@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMutexLock.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-04 22:27:34 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-05-19 14:07:48 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,6 +50,11 @@ vtkMutexLock::vtkMutexLock()
 #ifdef _WIN32
   this->MutexLock = CreateMutex( NULL, FALSE, NULL ); 
 #endif
+
+#ifdef VTK_USE_PTHREADS
+  pthread_mutex_init(&(this->MutexLock), NULL);
+#endif
+
 }
 
 // Destruct the vtkMutexVariable
@@ -57,6 +62,10 @@ vtkMutexLock::~vtkMutexLock()
 {
 #ifdef _WIN32
   CloseHandle(this->MutexLock);
+#endif
+
+#ifdef VTK_USE_PTHREADS
+  pthread_mutex_destroy( &this->MutexLock);
 #endif
 }
 
@@ -70,6 +79,10 @@ void vtkMutexLock::Lock()
 #ifdef _WIN32
   WaitForSingleObject( this->MutexLock, INFINITE );
 #endif
+
+#ifdef VTK_USE_PTHREADS
+  pthread_mutex_lock( &this->MutexLock);
+#endif
 }
 
 // Unlock the vtkMutexLock
@@ -81,6 +94,10 @@ void vtkMutexLock::Unlock()
 
 #ifdef _WIN32
   ReleaseMutex( this->MutexLock );
+#endif
+
+#ifdef VTK_USE_PTHREADS
+  pthread_mutex_unlock( &this->MutexLock);
 #endif
 }
 
