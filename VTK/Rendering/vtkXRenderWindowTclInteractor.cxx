@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowTclInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-11-01 13:29:32 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2000-12-04 02:18:59 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -175,6 +175,13 @@ void vtkXRenderWindowTclInteractor::SetTopLevelShell(Widget topLevel)
 
 void  vtkXRenderWindowTclInteractor::Start()
 {
+  // Let the compositing handle the event loop if it wants to.
+  if (this->HasObserver(vtkCommand::StartEvent))
+    {
+    this->InvokeEvent(vtkCommand::StartEvent,NULL);
+    return;
+    }
+
   Tk_MainLoop();
 }
 

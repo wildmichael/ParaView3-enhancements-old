@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-11-12 22:07:14 $
-  Version:   $Revision: 1.94 $
+  Date:      $Date: 2000-12-04 02:18:59 $
+  Version:   $Revision: 1.95 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -169,6 +169,13 @@ void BreakXtLoop(void *iren)
 // application is exited.
 void vtkXRenderWindowInteractor::Start()
 {
+  // Let the compositing handle the event loop if it wants to.
+  if (this->HasObserver(vtkCommand::StartEvent))
+    {
+    this->InvokeEvent(vtkCommand::StartEvent,NULL);
+    return;
+    }
+
   if (!this->Initialized)
     {
     this->Initialize();
