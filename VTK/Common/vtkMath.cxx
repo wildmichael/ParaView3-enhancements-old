@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMath.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-06 08:07:31 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-03-08 20:47:38 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -19,10 +19,6 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #include "vlMath.hh"
 
 long vlMath::Seed = 1177; // One authors home address
-
-vlMath::vlMath()
-{
-}
 
 //
 // Generate random numbers between 0.0 and 1.0
@@ -56,7 +52,6 @@ float vlMath::Random()
     Seed += K_M;
   return ((float) this->Seed / K_M);
 }
-
 //
 // initialize seed value
 //   NOTE: Random() has the bad property that the first random

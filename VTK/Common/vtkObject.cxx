@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkObject.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-03-01 22:19:12 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1994-03-08 20:47:37 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -34,21 +34,21 @@ vlObject::~vlObject()
 {
   if (this->RefCount > 0)
     {
-    vlErrorMacro(<<": Trying to delete object with non-zero refCount\n\n");
+    vlErrorMacro(<< "Trying to delete object with non-zero refCount");
     }
 
-  vlDebugMacro(<< this <<", Destructing!\n\n");
+  vlDebugMacro(<< "Destructing!");
 }
 
 void vlObject::Register(void *p)
 {
   this->RefCount++;
-  vlDebugMacro(<< this << ", Registered by " << (void *)p << "\n\n");
+  vlDebugMacro(<< "Registered by " << (void *)p);
 }
 
 void vlObject::UnRegister(void *p)
 {
-  vlDebugMacro(<< this << ", UnRegistered by " << (void *)p << "\n\n");
+  vlDebugMacro(<< "UnRegistered by " << (void *)p);
 
   if (--this->RefCount <= 0) delete this;
 }
