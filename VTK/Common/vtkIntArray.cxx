@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIntArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-15 14:13:05 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 2001-08-21 15:06:14 $
+  Version:   $Revision: 1.56 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -394,5 +394,5 @@ vtkIdType vtkIntArray::InsertNextTuple(const double * tuple)
 void vtkIntArray::InsertComponent(const vtkIdType i, const int j, 
 				  const float c)
 {
-  this->InsertValue(i*this->NumberOfComponents + j, static_cast<int>(c));
+  this->InsertValue(i*this->NumberOfComponents + j, static_cast<const int>(c));
 }
