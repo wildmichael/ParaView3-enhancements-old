@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFloatArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-16 16:06:50 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1998-04-16 18:29:45 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,6 +55,13 @@ vtkFloatArray::~vtkFloatArray()
 
 }
 
+// Description:
+// This method lets the user specify data to be held by the array.  The 
+// array argument is a pointer to the data.  size is the size of 
+// the array supplied by the user.  Set save to 1 to keep the class
+// from deleting the array when it cleans up or reallocates memory.
+// The class uses the actual array provided; it does not copy the data 
+// from the suppled array.
 void vtkFloatArray::SetArray(float* array, int size, int save)
 {
   if ((this->Array) && (!this->SaveUserArray))
