@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-09-19 17:00:03 $
-  Version:   $Revision: 1.86 $
+  Date:      $Date: 2003-09-19 17:14:17 $
+  Version:   $Revision: 1.87 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -35,7 +35,7 @@
 #include "vtkRenderer.h"
 #include "vtkTextProperty.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyle, "$Revision: 1.86 $");
+vtkCxxRevisionMacro(vtkInteractorStyle, "$Revision: 1.87 $");
 vtkStandardNewMacro(vtkInteractorStyle);
 
 //----------------------------------------------------------------------------
@@ -56,8 +56,6 @@ vtkInteractorStyle::vtkInteractorStyle()
   // These widgets are not activated with a key
 
   this->KeyPressActivation  = 0; 
-
-  this->CurrentRenderer     = NULL;
 
   this->Outline             = vtkOutlineSource::New();
   this->OutlineActor        = NULL;
@@ -107,11 +105,7 @@ vtkInteractorStyle::~vtkInteractorStyle()
   this->Outline->Delete();
   this->Outline = NULL;
 
-  if ( this->CurrentRenderer)
-    {
-    this->CurrentRenderer->UnRegister(this);
-    this->CurrentRenderer = NULL;
-    }
+  this->SetCurrentRenderer(NULL);
 }
 
 //----------------------------------------------------------------------------
