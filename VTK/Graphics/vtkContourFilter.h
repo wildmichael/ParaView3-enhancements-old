@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourFilter.h,v $
   Language:  C++
-  Date:      $Date: 1996-06-08 13:11:48 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1996-07-10 20:03:26 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -86,12 +86,39 @@ public:
   // Return the number of contour values.
   vtkGetMacro(NumberOfContours,int);
 
+  // Description:
+  // Set/Get the computation of normals. Normal computation is failrly expensive
+  // in both time and storage. If the output data will be processed by filters
+  // that modify topology or geometry, it may be wise to turn Normals and Gradients off.
+  vtkSetMacro(ComputeNormals,int);
+  vtkGetMacro(ComputeNormals,int);
+  vtkBooleanMacro(ComputeNormals,int);
+
+  // Description:
+  // Set/Get the computation of gradients. Gradient computation is fairly expensive
+  // in both time and storage. Note that if ComputeNormals is on, gradients will
+  // have to be calculated, but will not be stored in the output dataset.
+  // If the output data will be processed by filters that modify topology or
+  // geometry, it may be wise to turn Normals and Gradients off.
+  vtkSetMacro(ComputeGradients,int);
+  vtkGetMacro(ComputeGradients,int);
+  vtkBooleanMacro(ComputeGradients,int);
+
+  // Description:
+  // Set/Get the computation of scalars.
+  vtkSetMacro(ComputeScalars,int);
+  vtkGetMacro(ComputeScalars,int);
+  vtkBooleanMacro(ComputeScalars,int);
+
   void GenerateValues(int numContours, float range[2]);
   void GenerateValues(int numContours, float range1, float range2);
 
 protected:
   void Execute();
 
+  int ComputeNormals;
+  int ComputeGradients;
+  int ComputeScalars;
   float Values[VTK_MAX_CONTOURS];
   int NumberOfContours;
   float Range[2];
