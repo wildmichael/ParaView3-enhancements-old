@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCommand.h,v $
   Language:  C++
-  Date:      $Date: 2000-11-10 18:07:15 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2000-11-10 18:12:02 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -97,6 +97,18 @@ public:
       if (!strcmp("PickEvent",event))
         {
         return vtkCommand::PickEvent;
+        }
+      if (!strcmp("ExitEvent",event))
+        {
+        return vtkCommand::PickEvent;
+        }
+      if (!strcmp("StartPickEvent",event))
+        {
+        return vtkCommand::StartPickEvent;
+        }
+      if (!strcmp("EndPickEvent",event))
+        {
+        return vtkCommand::EndPickEvent;
         }
       if (!strcmp("AbortCheckEvent",event))
         {
