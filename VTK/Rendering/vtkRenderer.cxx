@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-26 18:51:56 $
-  Version:   $Revision: 1.173 $
+  Date:      $Date: 2001-10-26 19:09:18 $
+  Version:   $Revision: 1.174 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1362,7 +1362,7 @@ void vtkRenderer::PickGeometry()
 
 int  vtkRenderer::Transparent()
 {
-  int  numLayers = this->RenderWindow->GetNumLayers();
+  int  numLayers = this->RenderWindow->GetNumberOfLayers();
 
   // If our layer is the last layer, then we are not transparent, else we are.
   return (this->Layer == numLayers-1 ? 0 : 1);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-16 12:43:57 $
-  Version:   $Revision: 1.116 $
+  Date:      $Date: 2001-10-26 19:09:18 $
+  Version:   $Revision: 1.117 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -85,7 +85,7 @@ vtkRenderWindow::vtkRenderWindow()
   this->AbortCheckMethodArg = NULL;
   this->AbortCheckMethodArgDelete = NULL;
   this->Renderers = vtkRendererCollection::New();
-  this->NumLayers = 1;
+  this->NumberOfLayers = 1;
 }
 
 vtkRenderWindow::~vtkRenderWindow()
@@ -479,7 +479,7 @@ void vtkRenderWindow::DoAARender()
 
       // draw the images
       this->DoFDRender();
-
+      
       // restore the jitter to normal
       for (this->Renderers->InitTraversal(); 
            (aren = this->Renderers->GetNextItem()); )
@@ -741,7 +741,7 @@ void vtkRenderWindow::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Motion Blur Frames: " << this->SubFrames << "\n";
   os << indent << "Swap Buffers: " << (this->SwapBuffers ? "On\n":"Off\n");
   os << indent << "Stereo Type: " << this->GetStereoTypeAsString() << "\n";
-  os << indent << "Number of Layers: " << this->NumLayers << "\n";
+  os << indent << "Number of Layers: " << this->NumberOfLayers << "\n";
   os << indent << "AccumulationBuffer Size " << this->AccumulationBufferSize << "\n";
   if ( this->AbortCheckMethod )
     {

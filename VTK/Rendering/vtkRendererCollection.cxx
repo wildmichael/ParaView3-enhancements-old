@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRendererCollection.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:50 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2001-10-26 19:09:18 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -78,7 +78,7 @@ void vtkRendererCollection::Render()
     return;
     }
   renWin = firstRen->GetRenderWindow();
-  numLayers = renWin->GetNumLayers();
+  numLayers = renWin->GetNumberOfLayers();
 
   // Only have the renderers render from back to front.  This is necessary
   // because transparent renderers clear the z-buffer before each render and
@@ -119,7 +119,7 @@ void vtkRendererCollection::RenderOverlay()
     return;
     }
   renWin = firstRen->GetRenderWindow();
-  numLayers = renWin->GetNumLayers();
+  numLayers = renWin->GetNumberOfLayers();
 
   // Only have the renderers render from back to front.  This is necessary
   // because transparent renderers clear the z-buffer before each render and

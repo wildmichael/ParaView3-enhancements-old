@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:24 $
-  Version:   $Revision: 1.111 $
+  Date:      $Date: 2001-10-26 19:09:17 $
+  Version:   $Revision: 1.112 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -322,8 +322,8 @@ public:
   // its layer set individually.  Some algorithms iterate through all layers,
   // so it is not wise to set the number of layers to be exorbitantly large
   // (say bigger than 100).
-  vtkGetMacro(NumLayers, int);
-  vtkSetClampMacro(NumLayers, int, 1, VTK_LARGE_INTEGER);
+  vtkGetMacro(NumberOfLayers, int);
+  vtkSetClampMacro(NumberOfLayers, int, 1, VTK_LARGE_INTEGER);
 
   // Description:
   // Get the interactor associated with this render window
@@ -391,7 +391,7 @@ protected:
   int   InAbortCheck;
   int   InRender;
   int   NeverRendered;
-  int   NumLayers;
+  int   NumberOfLayers;
   void (*AbortCheckMethod)(void *);
   void (*AbortCheckMethodArgDelete)(void *);
   void *AbortCheckMethodArg;
