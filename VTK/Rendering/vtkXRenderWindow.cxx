@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-09 13:51:31 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1995-07-24 09:41:54 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Toolkit. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -123,6 +123,10 @@ void vtkXRenderWindow::SetWindowId(Window arg)
 
   this->WindowId = arg;
 }
+void vtkXRenderWindow::SetWindowId(void *arg)
+{
+  this->SetWindowId((Window)arg);
+}
 
 // Description:
 // Set the window id of the new window once a WindowRemap is done.
@@ -140,6 +144,10 @@ void vtkXRenderWindow::SetDisplayId(Display  *arg)
   vtkDebugMacro(<< "Setting DisplayId to " << (void *)arg << "\n"); 
 
   this->DisplayId = arg;
+}
+void vtkXRenderWindow::SetDisplayId(void *arg)
+{
+  this->SetDisplayId((Display *)arg);
 }
 
 // Description:
