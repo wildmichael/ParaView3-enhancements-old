@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-27 15:18:37 $
-  Version:   $Revision: 1.169 $
+  Date:      $Date: 2001-08-30 14:30:58 $
+  Version:   $Revision: 1.170 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -86,6 +86,7 @@ vtkRenderer::vtkRenderer()
   this->LightFollowCamera = 1;
 
   this->NumberOfPropsToRayCast         = 0;
+  this->NumberOfPropsRenderedAsGeometry = 0;
   this->NumberOfPropsToRenderIntoImage = 0;
 
   this->PropArray                = NULL;
