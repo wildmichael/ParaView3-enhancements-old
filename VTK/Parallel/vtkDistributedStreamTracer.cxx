@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDistributedStreamTracer.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-30 15:13:41 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-06-02 12:20:20 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,7 +29,7 @@
 #include "vtkPolyData.h"
 #include "vtkRungeKutta2.h"
 
-vtkCxxRevisionMacro(vtkDistributedStreamTracer, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkDistributedStreamTracer, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkDistributedStreamTracer);
 
 vtkDistributedStreamTracer::vtkDistributedStreamTracer()
@@ -208,8 +208,6 @@ int vtkDistributedStreamTracer::ProcessTask(float seed[3],
 
   vtkIntArray* integrationDirections = vtkIntArray::New();
   integrationDirections->InsertNextValue(direction);
-
-  vtkPolyData* output = this->GetOutput();
 
   // Keep track of all streamlines by adding them to TmpOutputs.
   // They will be appended together after all the integration is done.
