@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinkedList.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-18 19:59:10 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-04-29 13:14:17 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,9 +57,8 @@ class vtkLinkedList : public vtkAbstractList<DType>
 public:
   typedef vtkLinkedListIterator<DType> IteratorType;
 
-  vtkContainerTypeMacro(vtkLinkedList<DType>, vtkAbstractList<DType>);
-  
   static vtkLinkedList<DType> *New() { return new vtkLinkedList<DType>(); }  
+  virtual const char* GetClassName() const { return "vtkLinkedList"; }
 
   // Description:
   // Return an iterator to the list. This iterator is allocated using

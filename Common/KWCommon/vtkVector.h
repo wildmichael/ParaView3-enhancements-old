@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVector.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-18 19:59:10 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-04-29 13:14:17 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -55,10 +55,9 @@ class vtkVector : public vtkAbstractList<DType>
 
 public:
   typedef vtkVectorIterator<DType> IteratorType;
-
-  vtkContainerTypeMacro(vtkVector<DType>, vtkAbstractList<DType>);
   
   static vtkVector<DType> *New() { return new vtkVector<DType>(); }  
+  virtual const char* GetClassName() const { return "vtkVector"; }
 
   // Description:
   // Return an iterator to the list. This iterator is allocated using

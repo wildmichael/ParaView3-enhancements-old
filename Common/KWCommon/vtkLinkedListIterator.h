@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinkedListIterator.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-25 16:00:39 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-04-29 13:14:17 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -55,6 +55,7 @@ class vtkLinkedListIterator : public vtkAbstractIterator<vtkIdType,DType>
   friend class vtkLinkedList<DType>;
 
 public:
+  virtual const char* GetClassName() const { return "vtkLinkedListIterator"; }
   // Description:
   // Retrieve the index of the element.
   // This method returns VTK_OK if key was retrieved correctly.

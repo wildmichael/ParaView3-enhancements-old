@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArrayMapIterator.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-25 16:00:39 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-04-29 13:14:17 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -52,6 +52,8 @@ class vtkArrayMapIterator : public vtkAbstractIterator<KeyType,DataType>
   friend class vtkArrayMap<KeyType,DataType>;
 
 public:
+  virtual const char* GetClassName() const { return "vtkArrayMapIterator"; }
+
   // Description:
   // Retrieve the index of the element.
   // This method returns VTK_OK if key was retrieved correctly.
