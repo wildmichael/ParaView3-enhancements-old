@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-07-03 19:07:01 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 1996-07-05 18:25:23 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -177,6 +177,8 @@ vtkProperty *vtkActor::GetProperty()
   return this->Property;
 }
 
+// Description:
+// Incrementally change the position of the actor.
 void vtkActor::AddPosition (float deltaX,float deltaY,float deltaZ)
 {
   float position[3];
