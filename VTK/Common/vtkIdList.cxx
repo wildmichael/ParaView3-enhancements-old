@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdList.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:24:47 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1999-07-20 19:25:17 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -102,7 +102,8 @@ void vtkIdList::DeleteId(int Id)
 // to result of intersection operation.
 void vtkIdList::IntersectWith(vtkIdList& otherIds)
 {
-  // Fast method due to Dr. Andreas Mueller of ISE Integrated Systems Engineering (CH)
+  // Fast method due to Dr. Andreas Mueller of ISE Integrated Systems 
+  // Engineering (CH).
   int thisNumIds = this->GetNumberOfIds();
 
   if (thisNumIds <= VTK_TMP_ARRAY_SIZE) 
@@ -117,7 +118,7 @@ void vtkIdList::IntersectWith(vtkIdList& otherIds)
     for (this->Reset(), i=0; i < thisNumIds; i++) 
       {
       id = thisIds[i];
-      if (otherIds.IsId(id))
+      if ( otherIds.IsId(id) != (-1) )
 	{
 	this->InsertNextId(id);
 	}
@@ -135,7 +136,7 @@ void vtkIdList::IntersectWith(vtkIdList& otherIds)
     for (this->Reset(), i=0; i < thisNumIds; i++) 
       {
       id = *(thisIds + i);
-      if (otherIds.IsId(id))
+      if ( otherIds.IsId(id) != (-1) )
 	{
 	this->InsertNextId(id);
 	}
