@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxel.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-06-11 13:53:56 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1996-06-12 13:19:34 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -463,7 +463,7 @@ void vtkVoxel::Derivatives(int vtkNotUsed(subId), float pcoords[3],
       {
       for (sum=0.0, i=0; i < 8; i++) //loop over interp. function derivatives
         {
-        sum += functionDerivs[8*j + i] * values[3*i + k];
+        sum += functionDerivs[8*j + i] * values[dim*i + k];
         }
       derivs[3*k + j] = sum / ar[j];
       }
