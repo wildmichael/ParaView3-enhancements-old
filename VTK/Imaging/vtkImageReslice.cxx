@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReslice.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-05 17:56:02 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2003-01-17 14:34:23 $
+  Version:   $Revision: 1.34 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #include <float.h>
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageReslice, "$Revision: 1.33 $");
+vtkCxxRevisionMacro(vtkImageReslice, "$Revision: 1.34 $");
 vtkStandardNewMacro(vtkImageReslice);
 vtkCxxSetObjectMacro(vtkImageReslice, InformationInput, vtkImageData);
 vtkCxxSetObjectMacro(vtkImageReslice,ResliceAxes,vtkMatrix4x4);
@@ -201,7 +201,9 @@ void vtkImageReslice::SetResliceAxesDirectionCosines(double x0, double x1,
 {
   if (!this->ResliceAxes)
     {
-    this->ResliceAxes = vtkMatrix4x4::New();
+    // consistent registers/unregisters
+    this->SetResliceAxes(vtkMatrix4x4::New());
+    this->ResliceAxes->Delete();
     this->Modified();
     }
   this->ResliceAxes->SetElement(0,0,x0);
@@ -244,7 +246,9 @@ void vtkImageReslice::SetResliceAxesOrigin(double x, double y, double z)
 {
   if (!this->ResliceAxes)
     {
-    this->ResliceAxes = vtkMatrix4x4::New();
+    // consistent registers/unregisters
+    this->SetResliceAxes(vtkMatrix4x4::New());
+    this->ResliceAxes->Delete();
     this->Modified();
     }
 
