@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHashMap.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-20 21:13:17 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-06-21 17:46:46 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -114,6 +114,13 @@ public:
   float GetMaximumLoadFactor() const;
   
   // Description:
+  // Set/Get the number of buckets currently used in the hash table.
+  // Setting the number of buckets will automatically set the
+  // MaximumLoadFactor to 0 to prevent resizing.
+  void SetNumberOfBuckets(vtkIdType n);
+  vtkIdType GetNumberOfBuckets() const;
+  
+  // Description:
   // Print information about the status of the hash table.  This can
   // be used to help test a hash function.
   void PrintHashingStatus(ostream& os, vtkIndent indent) const;
@@ -128,6 +135,10 @@ protected:
   // Check if the load factor is okay.  Increase number of buckets and
   // re-hash if necessary.
   void CheckLoadFactor();
+  
+  // Change the number of buckets to the given number and re-hash the
+  // items.
+  void RehashItems(vtkIdType newNumberOfBuckets);
   
   float MaximumLoadFactor;
   vtkIdType NumberOfItems;
