@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParticleReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-18 15:13:37 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-09-18 18:35:06 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -143,7 +143,7 @@ void vtkParticleReader::ExecuteInformation()
 {
   vtkPolyData *output = this->GetOutput();
 
-  //output->SetMaximumNumberOfPieces(-1);
+  output->SetMaximumNumberOfPieces(-1);
 }
 
 
