@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCollection.h,v $
   Language:  C++
-  Date:      $Date: 1996-02-27 17:55:26 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1996-06-26 20:38:56 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,6 +44,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // of objects. The lists are unsorted and allow duplicate entries. 
 // vtkCollection also serves as a base class for lists of specific types 
 // of objects.
+
+// .SECTION See Also
+// vtkActorCollection vtkAssemblyPaths vtkDataSetCollection vtkImplicitFunctionCollection
+// vtkLightCollection vtkPolyDataCollection vtkRenderWindowCollection vtkRendererCollection
+// vtkStructuredPointsCollection vtkTransformCollection vtkVolumeCollection
 
 #ifndef __vtkCollection_hh
 #define __vtkCollection_hh

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToStructuredPointsFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-01 16:27:13 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1996-06-26 20:39:31 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,6 +43,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // vtkDataSetToStructuredPointsFilter is an abstract filter class whose
 // subclasses take as input any dataset and generate structured points 
 // data on output.
+
+// .SECTION See Also
+// vtkGaussianSplatter vtkImplicitModeller vtkShepardMethod vtkVoxelModeller
 
 #ifndef __vtkDataSetToStructuredPointsFilter_h
 #define __vtkDataSetToStructuredPointsFilter_h

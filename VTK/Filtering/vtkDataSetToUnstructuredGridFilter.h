@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToUnstructuredGridFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:32:25 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1996-06-26 20:39:35 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,6 +43,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // vtkDataSetToUnstructuredGridFilter is an abstract filter class whose 
 // subclasses take as input any dataset and generate an unstructured
 // grid on output.
+
+// .SECTION See Also
+// vtkAppendFilter vtkConnectivityFilter vtkExtractGeometry
+// vtkShrinkFilter vtkThreshold
 
 #ifndef __vtkDataSetToUnstructuredGridFilter_h
 #define __vtkDataSetToUnstructuredGridFilter_h

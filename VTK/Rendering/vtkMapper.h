@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.h,v $
   Language:  C++
-  Date:      $Date: 1996-05-24 19:50:51 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1996-06-26 20:40:07 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,6 +46,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // interface to the graphics library. The mapping can be controlled by 
 // supplying a lookup table and specifying a scalar range to map data
 // through.
+
+// .SECTION See Also
+// vtkDataSetMapper vtkPolyMapper
 
 #ifndef __vtkMapper_hh
 #define __vtkMapper_hh

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.h,v $
   Language:  C++
-  Date:      $Date: 1995-12-27 10:58:55 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1996-06-26 20:39:44 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,6 +43,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // vtkDataWriter is a helper class that opens and writes the vtk header and 
 // point data (e.g., scalars, vectors, normals, etc.) from a vtk data file. 
 // See text for various formats.
+
+// .SECTION See Also
+// vtkDataSetWriter vtkPolyWriter vtkStructuredGridWriter
+// vtkStructuredPointsWriter vtkUnstructuredGridWriter
 
 #ifndef __vtkDataWriter_hh
 #define __vtkDataWriter_hh

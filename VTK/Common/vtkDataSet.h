@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.h,v $
   Language:  C++
-  Date:      $Date: 1996-04-24 19:40:36 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 1996-06-26 20:39:12 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,6 +44,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // data objects. (Data objects are synonymous with datasets.) vtkDataSet
 // also provides methods to provide informations about the data, such
 // as center, bounding box, and representative length.
+
+// .SECTION See Also
+// vtkPointSet vtkStructuredPoints
 
 #ifndef __vtkDataSet_h
 #define __vtkDataSet_h

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell.h,v $
   Language:  C++
-  Date:      $Date: 1995-12-27 10:56:07 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1996-06-26 20:38:43 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,6 +51,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // a general guideline for controlling object execution. This parameter is 
 // not a hard boundary: you can create cells with more points.
 
+// .SECTION See Also
+// vtkHexahedron vtkLine vtkPixel vtkPolyLine vtkPolyVertex
+// vtkPolygon vtkQuad vtkTetra vtkTriangle 
+// vtkTriangleStrip vtkVertex vtkVoxel
 #ifndef __vtkCell_h
 #define __vtkCell_h
 
