@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightGoldReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-14 21:49:14 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-12-15 14:19:40 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -2746,5 +2746,29 @@ void vtkEnSightGoldReader::PrintSelf(ostream& os, vtkIndent indent)
 
   os << indent << "CaseFileName: " << this->CaseFileName << "\n";
   os << indent << "FilePath: " << this->FilePath << "\n";
+  os << indent << "NumberOfComplexScalarsPerNode: "
+     << this->NumberOfComplexScalarsPerNode;
+  os << indent << "NumberOfVectorsPerElement :"
+     << this->NumberOfVectorsPerElement;
+  os << indent << "NumberOfTensorsSymmPerElement: "
+     << this->NumberOfTensorsSymmPerElement;
+  os << indent << "NumberOfComplexVectorsPerNode: "
+     << this->NumberOfComplexVectorsPerNode;
+  os << indent << "NumberOfScalarsPerElement: "
+     << this->NumberOfScalarsPerElement;
+  os << indent << "NumberOfComplexVectorsPerElement: "
+     << this->NumberOfComplexVectorsPerElement;
+  os << indent << "NumberOfComplexScalarsPerElement: "
+     << this->NumberOfComplexScalarsPerElement;
+  os << indent << "NumberOfTensorsSymmPerNode: "
+     << this->NumberOfTensorsSymmPerNode;
+  os << indent << "NumberOfScalarsPerMeasuredNode: "
+     << this->NumberOfScalarsPerMeasuredNode;
+  os << indent << "NumberOfVectorsPerMeasuredNode: "
+     << this->NumberOfVectorsPerMeasuredNode;
+  os << indent << "NumberOfScalarsPerNode: "
+     << this->NumberOfScalarsPerNode;
+  os << indent << "NumberOfVectorsPerNode: "
+     << this->NumberOfVectorsPerNode;
 }
 
