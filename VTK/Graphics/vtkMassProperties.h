@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMassProperties.h,v $
   Language:  C++
-  Date:      $Date: 1998-07-07 19:55:21 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-07-08 11:02:47 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -37,7 +37,7 @@ PARTICULAR PURPOSE, AND NON-INFRINGEMENT.  THIS SOFTWARE IS PROVIDED ON AN
 MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
-// .NAME vtkWriter - abstract class to write data to file(s)
+// .NAME vtkMassProperties - estimate volume, area, shape index of triangle mesh
 // .SECTION Description
 // vtkMassProperties estimates the volume, the surface area, and the
 // normalized shape index of a model.  The algorithm implemented here is
