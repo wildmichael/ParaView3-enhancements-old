@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-18 12:50:52 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-02-24 12:31:14 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,6 +63,10 @@ vtkPolyDataMapper2D::vtkPolyDataMapper2D()
 
 vtkPolyDataMapper2D::~vtkPolyDataMapper2D()
 {  
+  if (this->TransformCoordinate)
+    {
+    this->TransformCoordinate->UnRegister(this);
+    }
   if (this->LookupTable)
     {
     this->LookupTable->UnRegister(this);
