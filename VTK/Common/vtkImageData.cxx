@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-10 21:21:07 $
-  Version:   $Revision: 1.130 $
+  Date:      $Date: 2001-12-18 14:23:35 $
+  Version:   $Revision: 1.131 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -86,7 +86,7 @@ vtkImageData::vtkImageData()
   
   for (idx = 0; idx < 3; ++idx)
     {
-    this->Dimensions[0] = 0;
+    this->Dimensions[idx] = 0;
     this->Extent[idx*2] = 0;
     this->Extent[idx*2+1] = -1;    
     this->Increments[idx] = 0;
