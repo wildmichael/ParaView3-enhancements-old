@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBBTree.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-31 19:00:25 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1997-08-05 20:03:21 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -82,7 +82,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 //
 //BTX - begin tcl exclude
 //
-class VTK_EXPORT vtkOBBNode { //;prevent man page generation
+class vtkOBBNode { //;prevent man page generation
 public:
   vtkOBBNode();
   ~vtkOBBNode();
