@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMathematics.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-16 15:48:15 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2002-04-19 12:26:21 $
+  Version:   $Revision: 1.40 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageMathematics, "$Revision: 1.39 $");
+vtkCxxRevisionMacro(vtkImageMathematics, "$Revision: 1.40 $");
 vtkStandardNewMacro(vtkImageMathematics);
 
 //----------------------------------------------------------------------------
@@ -129,7 +129,7 @@ static void vtkImageMathematicsExecute1(vtkImageMathematics *self,
         switch (op)
           {
           case VTK_INVERT:
-            if (*outPtr)
+            if (*in1Ptr)
               {
               *outPtr = (T)(1.0 / *in1Ptr);
               }
@@ -279,7 +279,8 @@ static void vtkImageMathematicsExecute2(vtkImageMathematics *self,
                 }
               else
                 {
-                *outPtr = (T)(*in1Ptr / 0.00001);
+                // *outPtr = (T)(*in1Ptr / 0.00001);
+                *outPtr = (T)outData->GetScalarTypeMax();
                 }
               }
             break;
