@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContainer.h,v $
   Language:  C++
-  Date:      $Date: 2002-07-10 16:55:32 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2003-01-06 16:33:47 $
+  Version:   $Revision: 1.23 $
 
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -120,7 +120,7 @@ static inline int vtkContainerCompareMethod(void* d1, void* d2)
 { return vtkContainerDefaultCompare(d1,d2); }
 
 template<class DType>
-DType vtkContainerDefaultCreate(DType k2) { return k2; }
+DType& vtkContainerDefaultCreate(DType k2) { return k2; }
 
 static inline vtkObjectBase* vtkContainerCreateMethod(vtkObjectBase* d1)
 { if ( d1) { d1->Register(0); } return d1; }
