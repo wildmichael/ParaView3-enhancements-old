@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:50 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2002-02-28 16:58:59 $
+  Version:   $Revision: 1.29 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -56,7 +56,7 @@ public:
 
   // Description:
   // Draw method for OpenGL.
-  virtual void Draw(vtkRenderer *ren, vtkActor *a);
+  virtual int Draw(vtkRenderer *ren, vtkActor *a);
   
   //BTX  begin tcl exclude
   
