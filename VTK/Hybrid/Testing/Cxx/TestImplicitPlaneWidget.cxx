@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestImplicitPlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-05 18:02:33 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-08-05 19:36:58 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,6 +31,9 @@
 #include "vtkPlane.h"
 #include "vtkProperty.h"
 #include "vtkInteractorEventRecorder.h"
+
+#include "vtkRegressionTestImage.h"
+#include "vtkDebugLeaks.h"
 
 char eventLog[] =
 "# StreamVersion 1\n"
@@ -521,6 +524,12 @@ int main( int argc, char *argv[] )
   renWin->Render();
   recorder->Play();
 
+  int retVal = vtkRegressionTestImage( renWin );
+  if ( retVal == vtkRegressionTester::DO_INTERACTOR)
+    {
+    iren->Start();
+    }
+
   sphere->Delete();
   cone->Delete();
   glyph->Delete();
@@ -537,5 +546,5 @@ int main( int argc, char *argv[] )
   ren1->Delete();
   myCallback->Delete();
   
-  return 0;
+  return !retVal;
 }
