@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCast.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-01 18:58:29 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1997-05-05 19:52:50 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -143,8 +143,8 @@ void vtkImageCast::Execute(vtkImageRegion *inRegion,
 				vtkImageRegion *outRegion) {
   void *inPtr = inRegion->GetScalarPointer();
   
-  vtkDebugMacro(<< "Execute: inRegion = " << inRegion 
-		<< ", outRegion = " << outRegion);
+  vtkDebugMacro(<< "Execute: inRegion = " << *inRegion 
+		<< ", outRegion = " << *outRegion);
 
   switch (inRegion->GetScalarType())
     {
