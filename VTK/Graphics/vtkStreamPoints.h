@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamPoints.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-08 12:50:18 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-10-12 11:26:35 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,8 +42,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .SECTION Description
 // vtkStreamPoints is a filter that generates points along a streamer.
 // The points are separated by a constant time increment. The resulting visual
-// effect (especially when coupled with vtkGlyph3D) is an indication of particle
-// speed.
+// effect (especially when coupled with vtkGlyph3D) is an indication of 
+// particle speed.
+// .SECTION See Also
+// vtkStreamer vtkStreamLine vtkDashedStreamLine
 
 #ifndef __vtkStreamPoints_h
 #define __vtkStreamPoints_h
