@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLParser.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-09 18:49:44 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2003-01-21 20:14:42 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include <ctype.h>
 #include <sys/stat.h>
 
-vtkCxxRevisionMacro(vtkXMLParser, "$Revision: 1.14 $");
+vtkCxxRevisionMacro(vtkXMLParser, "$Revision: 1.15 $");
 vtkStandardNewMacro(vtkXMLParser);
 
 //----------------------------------------------------------------------------
@@ -243,7 +243,7 @@ int vtkXMLParser::ParseXML()
   // to not check the error condition on the fin.read() before using
   // the data, but the fin.gcount() will be zero if an error occurred.
   // Therefore, the loop should be safe everywhere.
-  while(!this->ParsingComplete() && in)
+  while(!this->ParseError && !this->ParsingComplete() && in)
     {
     in.read(buffer, bufferSize);
     if(in.gcount())
