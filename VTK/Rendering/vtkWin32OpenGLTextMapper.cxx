@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:14 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2001-02-28 23:41:34 $
+  Version:   $Revision: 1.29 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -171,6 +171,7 @@ void vtkWin32OpenGLTextMapper::ReleaseGraphicsResources(vtkWindow *win)
     {
     if (cache[i]->Window == win)
       {
+      win->MakeCurrent();
       glDeleteLists(cache[i]->ListBase,255);
       delete cache[i];
       // resort them
