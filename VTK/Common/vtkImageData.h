@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:28 $
-  Version:   $Revision: 1.97 $
+  Date:      $Date: 2002-01-30 19:13:41 $
+  Version:   $Revision: 1.98 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -275,6 +275,7 @@ public:
     {this->SetScalarType(VTK_CHAR);};
   vtkSetMacro(ScalarType, int);
   int GetScalarType();
+  const char* GetScalarTypeAsString() { return vtkImageScalarTypeNameMacro ( this->GetScalarType() ); };
 
   // Description:
   // Set/Get the number of scalar components for points.
