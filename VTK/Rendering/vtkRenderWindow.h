@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-26 14:21:55 $
-  Version:   $Revision: 1.74 $
+  Date:      $Date: 1998-11-05 14:16:30 $
+  Version:   $Revision: 1.75 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,7 +51,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // VRex projector, or the eye will be swapped.
 
 // .SECTION see also
-// vtkRenderer vtkRenderMaster vtkRenderWindowInteractor
+// vtkRenderer vtkRenderWindowInteractor
 
 #ifndef __vtkRenderWindow_h
 #define __vtkRenderWindow_h
