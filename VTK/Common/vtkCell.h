@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell.h,v $
   Language:  C++
-  Date:      $Date: 1999-01-07 14:22:35 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 1999-02-19 15:26:05 $
+  Version:   $Revision: 1.53 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,8 +67,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkPoints.h"
 #include "vtkScalars.h"
 #include "vtkIdList.h"
-#include "vtkCellTypes.h"
-#include "vtkFloatArray.h"
+
+// Include vtkCellType to include the defined cell types
+#include "vtkCellType.h"
 
 class vtkCellArray;
 class vtkPointLocator;

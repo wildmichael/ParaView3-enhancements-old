@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolygon.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-20 20:07:00 $
-  Version:   $Revision: 1.65 $
+  Date:      $Date: 1999-02-19 15:26:06 $
+  Version:   $Revision: 1.66 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,6 +45,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkDataSet.h"
 #include "vtkCellArray.h"
 #include "vtkPriorityQueue.h"
+#include "vtkFloatArray.h"
 
 // Instantiate polygon.
 vtkPolygon::vtkPolygon()
