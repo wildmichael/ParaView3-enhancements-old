@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIndent.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:11 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-10-10 14:20:45 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -51,7 +51,7 @@ vtkIndent* vtkIndent::New()
   vtkObject* ret = vtkObjectFactory::CreateInstance("vtkIndent");
   if(ret)
     {
-    return (vtkIndent*)ret;
+    return reinterpret_cast<vtkIndent*>(ret);
     }
   // If the factory was unable to create the object, then create it here.
   return new vtkIndent;

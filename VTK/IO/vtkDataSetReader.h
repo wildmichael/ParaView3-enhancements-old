@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:08:46 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2001-10-10 14:21:03 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -59,6 +59,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define __vtkDataSetReader_h
 
 #include "vtkDataReader.h"
+#include "vtkDataSet.h"
 
 class vtkPolyData;
 class vtkStructuredPoints;
@@ -79,7 +80,7 @@ public:
   // is applied.
   vtkDataSet *GetOutput();
   vtkDataSet *GetOutput(int idx)
-    {return (vtkDataSet *) this->vtkSource::GetOutput(idx); };
+    {return static_cast<vtkDataSet *>(this->vtkSource::GetOutput(idx)); };
 
   // Description:
   // Get the output as various concrete types. This method is typically used
