@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFunctionParser.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-27 03:24:27 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-03-07 12:37:28 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -870,7 +870,7 @@ void vtkFunctionParser::SetVectorVariableValue(const char* variableName,
     delete [] this->VectorVariableNames[i];
     this->VectorVariableNames[i] = NULL;
     delete [] this->VectorVariableValues[i];
-    this->VectorVariableValues = NULL;
+    this->VectorVariableValues[i] = NULL;
     }
 
   if (this->VectorVariableValues)

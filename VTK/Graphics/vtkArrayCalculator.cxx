@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArrayCalculator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-01 20:27:34 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-03-07 12:37:28 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -634,7 +634,7 @@ void vtkArrayCalculator::AddVectorVariable(const char* variableName,
     tempComponents[i][1] = this->SelectedVectorComponents[i][1];
     tempComponents[i][2] = this->SelectedVectorComponents[i][2];
     delete [] this->SelectedVectorComponents[i];
-    this->SelectedVectorComponents = NULL;
+    this->SelectedVectorComponents[i] = NULL;
     }
   
   if (this->VectorArrayNames)
