@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:45 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-03-13 18:34:48 $
+  Version:   $Revision: 1.27 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -43,7 +43,6 @@ protected:
 public:
   vtkTypeRevisionMacro(vtkMesaRenderWindow,vtkRenderWindow);
   void PrintSelf(ostream& os, vtkIndent indent);
-  static vtkMesaRenderWindow *New();
   
   // Description:
   // Set/Get the maximum number of multisamples
