@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitFunction.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:18:58 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1998-09-18 20:34:07 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,10 +62,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // transformation matrix is required.
 
 // .SECTION See Also
-// vtkTransform
-// vtkSphere vtkCylinder vtkImplicitBoolean vtkPlane vtkPlanes
-// vtkQuadric vtkImplicitVolume
-// vtkSampleFunction vtkCutter vtkClipPolyData
+// vtkTransform vtkSphere vtkCylinder vtkImplicitBoolean vtkPlane vtkPlanes
+// vtkQuadric vtkImplicitVolume vtkSampleFunction vtkCutter vtkClipPolyData
 
 #ifndef __vtkImplicitFunction_h
 #define __vtkImplicitFunction_h
@@ -80,19 +78,20 @@ public:
   const char *GetClassName() {return "vtkImplicitFunction";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
-  unsigned long int GetMTime();
+  // Description:
+  // Overload standard modified time function. If Transform is modified,
+  // then this object is modified as well.
+  unsigned long GetMTime();
 
-// Description:
-// Evaluate function at position x-y-z and return value. Point x[3] is
-// transformed through transform (if provided).
+  // Description:
+  // Evaluate function at position x-y-z and return value. Point x[3] is
+  // transformed through transform (if provided).
   float FunctionValue(float x[3]);
 
-
-// Description:
-// Evaluate function gradient at position x-y-z and pass back vector. Point
-// x[3] is transformed through transform (if provided).
+  // Description:
+  // Evaluate function gradient at position x-y-z and pass back vector. Point
+  // x[3] is transformed through transform (if provided).
   void FunctionGradient(float x[3], float g[3]);
-
 
   // Description:
   // Evaluate function at position x-y-z and return value. Must be implemented

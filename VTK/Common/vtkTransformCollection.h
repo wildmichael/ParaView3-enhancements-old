@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformCollection.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:41:49 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1998-09-18 20:34:18 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,9 +39,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 // .NAME vtkTransformCollection - maintain a list of transforms
+
 // .SECTION Description
 // vtkTransformCollection is an object that creates and manipulates lists of
 // objects of type vtkTransform.
+
 // .SECTION see also
 // vtkCollection vtkTransform
 
@@ -57,37 +59,40 @@ public:
   const char *GetClassName() {return "vtkTransformCollection";};
   static vtkTransformCollection *New() {return new vtkTransformCollection;};
 
+  // Description:
+  // Add a Transform to the list.
   void AddItem(vtkTransform *);
+
+  // Description:
+  // Remove a Transform from the list.
   void RemoveItem(vtkTransform *);
+
+  // Description:
+  // Determine whether a particular Transform is present. Returns its position
+  // in the list.
   int IsItemPresent(vtkTransform *);
+
+  // Description:
+  // Get the next Transform in the list. Return NULL when the end of the
+  // list is reached.
   vtkTransform *GetNextItem();
 };
 
-// Description:
-// Add a Transform to the list.
 inline void vtkTransformCollection::AddItem(vtkTransform *t) 
 {
   this->vtkCollection::AddItem((vtkObject *)t);
 }
 
-// Description:
-// Remove a Transform from the list.
 inline void vtkTransformCollection::RemoveItem(vtkTransform *t) 
 {
   this->vtkCollection::RemoveItem((vtkObject *)t);
 }
 
-// Description:
-// Determine whether a particular Transform is present. Returns its position
-// in the list.
 inline int vtkTransformCollection::IsItemPresent(vtkTransform *t) 
 {
   return this->vtkCollection::IsItemPresent((vtkObject *)t);
 }
 
-// Description:
-// Get the next Transform in the list. Return NULL when the end of the
-// list is reached.
 inline vtkTransform *vtkTransformCollection::GetNextItem() 
 { 
   return (vtkTransform *)(this->GetNextItemAsObject());

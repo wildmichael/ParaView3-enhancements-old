@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindowToImageFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:19:10 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-09-18 20:34:21 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -41,7 +41,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .SECTION Description
 // vtkWindowToImageFilter provides methods needed to read the data in a 
 // vtkWindow and use it as input to the imaging pipeline. This is
-// useful for saving an image to a file for example.
+// useful for saving an image to a file for example. Use this filter to
+// convert RenderWindows or ImageWindows to an image format.
 
 
 #ifndef __vtkWindowToImageFilter_h
@@ -69,11 +70,9 @@ public:
   // Returns which renderer is being used as the source for the pixel data.
   vtkGetObjectMacro(Input,vtkWindow);
 
-
-// Description:
-// This method returns the largest region that can be generated.
+  // Description:
+  // This method returns the largest region that can be generated.
   void UpdateImageInformation();
-
   
 protected:
   vtkWindow *Input;

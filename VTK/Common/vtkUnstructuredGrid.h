@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:19:09 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1998-09-18 20:34:20 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,18 +61,17 @@ public:
   ~vtkUnstructuredGrid();
   static vtkUnstructuredGrid *New() {return new vtkUnstructuredGrid;};
   const char *GetClassName() {return "vtkUnstructuredGrid";};
-  int GetDataSetType() {return VTK_UNSTRUCTURED_GRID;};
   void PrintSelf(ostream& os, vtkIndent indent);
 
-  // cell creation/manipulation methods
+  // Description:
+  // Standard vtkDataSet API methods. See vtkDataSet for more information.
+  int GetDataSetType() {return VTK_UNSTRUCTURED_GRID;};
   void Allocate(int numCells=1000, int extSize=1000);
   int InsertNextCell(int type, int npts, int *pts);
   int InsertNextCell(int type, vtkIdList& ptIds);
   void Reset();
   void SetCells(int *types, vtkCellArray *cells);
   vtkCellArray *GetCells() {return this->Connectivity;};
-
-  // dataset interface
   vtkDataObject *MakeObject() {return new vtkUnstructuredGrid;};
   void CopyStructure(vtkDataSet *ds);
   int GetNumberOfCells();
@@ -83,8 +82,6 @@ public:
   void Squeeze();
   void Initialize();
   int GetMaxCellSize();
-
-  // special cell structure methods
   void BuildLinks();
   void GetCellPoints(int cellId, int& npts, int* &pts);
   void ReplaceCell(int cellId, int npts, int *pts);

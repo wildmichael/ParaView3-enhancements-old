@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCoordinate.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:18:54 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-09-18 20:34:02 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,16 +59,13 @@ class vtkViewport;
 class VTK_EXPORT vtkCoordinate : public vtkReferenceCount
 {
 public:
-
-
-// Description:
-// Creates an Coordinate with the following defaults: 
-// value of  0, 0, 0 in world  coordinates
+  // Description:
+  // Creates an Coordinate with the following defaults: 
+  // value of  0, 0, 0 in world  coordinates
   vtkCoordinate();
 
-
-// Description:
-// Destroy a Coordinate.  
+  // Description:
+  // Destroy a Coordinate.  
   ~vtkCoordinate();
 
   static vtkCoordinate* New() {return new vtkCoordinate;};
@@ -96,7 +93,6 @@ public:
   // the position of this coordinate in its coordinate system.
   vtkSetVector3Macro(Value,float);
   vtkGetVector3Macro(Value,float);
-  
   void SetValue(float a, float b) { this->SetValue(a,b,0.0);}
   
   // Description:
@@ -113,6 +109,8 @@ public:
   vtkSetObjectMacro(Viewport,vtkViewport);
   vtkGetObjectMacro(Viewport,vtkViewport);
 
+  // Description:
+  // Return the computed value in a specified coordinate system.
   float *GetComputedWorldValue(vtkViewport *);
   int *GetComputedViewportValue(vtkViewport *);
   int *GetComputedDisplayValue(vtkViewport *);

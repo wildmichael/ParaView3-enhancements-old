@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIndent.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:18:58 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1998-09-18 20:34:08 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,18 +58,15 @@ class VTK_EXPORT vtkIndent
   vtkIndent(int ind=0) {this->Indent=ind;};
   static vtkIndent *New() {return new vtkIndent;};
 
-// Description:
-// Determine the next indentation level. Keep indenting by two until the 
-// max of forty.
+  // Description:
+  // Determine the next indentation level. Keep indenting by two until the 
+  // max of forty.
   vtkIndent GetNextIndent();
 
-  
   //BTX
-
-// Description:
-// Print out the indentation. Basically output a bunch of spaces.
+  // Description:
+  // Print out the indentation. Basically output a bunch of spaces.
   friend VTK_EXPORT ostream& operator<<(ostream& os, vtkIndent& o); 
-
   //ETX
 
  protected:

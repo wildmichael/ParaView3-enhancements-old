@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToStructuredPoints.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-29 17:41:20 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1998-09-18 20:34:07 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -41,11 +41,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 // .NAME vtkImageToStructuredPoints - Attaches image pipeline to VTK. 
 // .SECTION Description
-// vtkImageToStructuredPoints changes an image region format to
-// a structured points dataset.  The Order of the axes is fixed.
-// VTK_IMAGE_X_AXIS is always mapped to X axis of the structured points,
-// VTK_IMAGE_COMPONENT_AXIS is always mapped to Vectors.  The only use 
-// of the Axes instance variable is for specifying an extent.
+// vtkImageToStructuredPoints changes an image cache format to
+// a structured points dataset.  It takes an Input plus an optional
+// VectorInput. The VectorInput converts the RGB scalar components
+// of the VectorInput to vector pointdata attributes. This filter
+// will try to reference count the data but in some cases it must
+// make a copy.
 
 #ifndef __vtkImageToStructuredPoints_h
 #define __vtkImageToStructuredPoints_h
@@ -75,16 +76,18 @@ public:
   vtkSetReferenceCountedObjectMacro(VectorInput,vtkImageCache);
   vtkGetObjectMacro(VectorInput,vtkImageCache);
 
-    // Set/Get the extent to translate explicitely.
+  // Description:
+  // Set/Get the extent to translate explicitely.
   void SetExtent(int dim, int *extent);
   void GetExtent(int dim, int *extent);
 
+  // Description:
+  // Perform the conversion.
   void Update();
   
   // Description:
   // Get the output of this source.
-  vtkImageData *GetOutput()
-    {return (vtkImageData *)this->Output;};
+  vtkImageData *GetOutput() {return (vtkImageData *)this->Output;};
 
 protected:
   vtkImageCache *Input;

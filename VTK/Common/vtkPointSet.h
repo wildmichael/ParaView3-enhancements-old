@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSet.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:19:02 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1998-09-18 20:34:12 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,13 +64,17 @@ public:
   const char *GetClassName() {return "vtkPointSet";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
-  // dataset interface
+  // Description:
+  // Reset to an empty state and free any memory.
   void Initialize();
 
-// Description:
-// Copy the geometric structure of an input point set object.
+  // Description:
+  // Copy the geometric structure of an input point set object.
   void CopyStructure(vtkDataSet *pd);
 
+  
+  // Description:
+  // See vtkDataSet for additional information.
   int GetNumberOfPoints();
   float *GetPoint(int ptId) {return this->Points->GetPoint(ptId);};
   void GetPoint(int ptId, float x[3]) {this->Points->GetPoint(ptId,x);};
@@ -78,12 +82,16 @@ public:
   int FindCell(float x[3], vtkCell *cell, int cellId, float tol2, int& subId, 
                float pcoords[3], float *weights);
 
-  unsigned long int GetMTime();
+  // Description:
+  // Get MTime which also considers its vtkPoints MTime.
+  unsigned long GetMTime();
 
-  // compute bounds of data
+  // Description:
+  // Compute the (X, Y, Z)  bounds of the data.
   void ComputeBounds();
   
-  // reclaim memory
+  // Description:
+  // Reclaim any unused memory.
   void Squeeze();
 
   // Description:

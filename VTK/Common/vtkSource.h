@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSource.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:51:37 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1998-09-18 20:34:15 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkSource - abstract class specifies interface for visualization network source (or objects that generate output data)
+// .NAME vtkSource - abstract class specifies interface for visualization network source
 // .SECTION Description
 // vtkSource is an abstract object that specifies behavior and interface
 // of source objects. Source objects are objects that begin visualization

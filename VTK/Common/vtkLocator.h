@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLocator.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:18:59 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1998-09-18 20:34:08 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -82,12 +82,7 @@ class vtkPolyData;
 class VTK_EXPORT vtkLocator : public vtkReferenceCount
 {
 public:
-
-// Description:
-// Construct with automatic computation of divisions, averaging
-// 25 points per bucket.
   vtkLocator();
-
   ~vtkLocator();
   const char *GetClassName() {return "vtkLocator";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -155,6 +150,8 @@ public:
   // data.
   virtual void GenerateRepresentation(int level, vtkPolyData *pd) = 0;
 
+  // Description:
+  // Return the time of the last data structure build.
   vtkGetMacro(BuildTime, unsigned long);
 
 protected:

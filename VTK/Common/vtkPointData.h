@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointData.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:50:10 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1998-09-18 20:34:11 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,9 +42,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .SECTION Description
 // vtkPointData is a class that is used to represent and manipulate
 // point attribute data (e.g., scalars, vectors, normals, texture 
-// coordinates, etc.) Special methods are provided to work with filter
-// objects, such as passing data through filter, copying data from one 
-// point to another, and interpolating data given cell interpolation weights.
+// coordinates, etc.) Most of the functionality is handled by 
+// vtkDataSetAttributes
 
 #ifndef __vtkPointData_h
 #define __vtkPointData_h

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAttributeData.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:18:52 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-09-18 20:34:00 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,10 +57,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkAttributeData : public vtkReferenceCount 
 {
 public:
-
-// Description:
-// Construct object with an initial data array of type dataType (by default
-// dataType is VTK_FLOAT.
+  // Description:
+  // Construct object with an initial data array of type dataType (by default
+  // dataType is VTK_FLOAT.
   vtkAttributeData(int dataType=VTK_FLOAT);
 
   ~vtkAttributeData();

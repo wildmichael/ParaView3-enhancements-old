@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTimeStamp.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:51:46 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1998-09-18 20:34:17 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,8 +74,15 @@ public:
   // Return this object's Modified time.
   unsigned long int GetMTime() {return this->ModifiedTime;};
 
-  int operator>(vtkTimeStamp& ts) {return (this->ModifiedTime > ts.ModifiedTime);};
-  int operator<(vtkTimeStamp& ts) {return (this->ModifiedTime < ts.ModifiedTime);};
+  // Description:
+  // Support comparisons of time stamp objects directly.
+  int operator>(vtkTimeStamp& ts) {
+    return (this->ModifiedTime > ts.ModifiedTime);};
+  int operator<(vtkTimeStamp& ts) {
+    return (this->ModifiedTime < ts.ModifiedTime);};
+
+  // Description:
+  // Allow for typcasting to unsigned long.
   operator unsigned long() {return this->ModifiedTime;};
 
 private:

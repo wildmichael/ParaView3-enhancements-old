@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitFunctionCollection.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:40:26 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1998-09-18 20:34:08 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,36 +58,39 @@ public:
   static vtkImplicitFunctionCollection *New() 
     {return new vtkImplicitFunctionCollection;};
 
+  // Description:
+  // Add an implicit function to the list.
   void AddItem(vtkImplicitFunction *);
+
+  // Description:
+  // Remove an implicit function from the list.
   void RemoveItem(vtkImplicitFunction *);
+
+  // Description:
+  // Determine whether a particular implicit function is present. Returns its
+  // position in the list.
   int IsItemPresent(vtkImplicitFunction *);
+
+  // Description:
+  // Get the next implicit function in the list.
   vtkImplicitFunction *GetNextItem();
 };
 
-// Description:
-// Add an implicit function to the list.
 inline void vtkImplicitFunctionCollection::AddItem(vtkImplicitFunction *f) 
 {
   this->vtkCollection::AddItem((vtkObject *)f);
 }
 
-// Description:
-// Remove an implicit function from the list.
 inline void vtkImplicitFunctionCollection::RemoveItem(vtkImplicitFunction *f) 
 {
   this->vtkCollection::RemoveItem((vtkObject *)f);
 }
 
-// Description:
-// Determine whether a particular implicit function is present. Returns its position
-// in the list.
 inline int vtkImplicitFunctionCollection::IsItemPresent(vtkImplicitFunction *f) 
 {
   return this->vtkCollection::IsItemPresent((vtkObject *)f);
 }
 
-// Description:
-// Get the next implicit function in the list.
 inline vtkImplicitFunction *vtkImplicitFunctionCollection::GetNextItem() 
 { 
   return (vtkImplicitFunction *)(this->GetNextItemAsObject());

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleStrip.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:19:08 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1998-09-18 20:34:18 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,7 +61,8 @@ public:
   static vtkTriangleStrip *New() {return new vtkTriangleStrip;};
   const char *GetClassName() {return "vtkTriangleStrip";};
 
-  // cell methods
+  // Description:
+  // See the vtkCell API for descriptions of these methods.
   vtkCell *MakeObject();
   int GetCellType() {return VTK_TRIANGLE_STRIP;};
   int GetCellDimension() {return 2;};
@@ -69,7 +70,6 @@ public:
   int GetNumberOfFaces() {return 0;};
   vtkCell *GetEdge(int edgeId);
   vtkCell *GetFace(int vtkNotUsed(faceId)) {return 0;};
-
   int CellBoundary(int subId, float pcoords[3], vtkIdList& pts);
   void Contour(float value, vtkScalars *cellScalars, 
                vtkPointLocator *locator, vtkCellArray *verts, 
@@ -91,18 +91,14 @@ public:
   void Derivatives(int subId, float pcoords[3], float *values, 
                    int dim, float *derivs);
 
-// Description:
-// Return the center of the point cloud in parametric coordinates.
+  // Description:
+  // Return the center of the point cloud in parametric coordinates.
   int GetParametricCenter(float pcoords[3]);
 
-
-  // triangle strip specific
-
-// Description:
-// Given a list of triangle strips, decompose into a list of (triangle) 
-// polygons. The polygons are appended to the end of the list of polygons.
+  // Description:
+  // Given a list of triangle strips, decompose into a list of (triangle) 
+  // polygons. The polygons are appended to the end of the list of polygons.
   void DecomposeStrips(vtkCellArray *strips, vtkCellArray *tris);
-
   
 protected:
   vtkLine Line;
