@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageImport.h,v $
   Language:  C++
-  Date:      $Date: 1997-05-14 20:00:36 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-05-23 11:56:34 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,6 +67,11 @@ public:
   
   // Description:
   // Set/Get the data type of the imported memory.
+  void SetScalarTypeToFloat(){this->SetScalarType(VTK_FLOAT);}
+  void SetScalarTypeToInt(){this->SetScalarType(VTK_INT);}
+  void SetScalarTypeToShort(){this->SetScalarType(VTK_SHORT);}
+  void SetScalarTypeToUnsignedShort(){this->SetScalarType(VTK_UNSIGNED_SHORT);}
+  void SetScalarTypeToUnsignedChar(){this->SetScalarType(VTK_UNSIGNED_CHAR);}
   vtkSetMacro(ScalarType, int);
   vtkGetMacro(ScalarType, int);
 

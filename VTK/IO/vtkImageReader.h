@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.h,v $
   Language:  C++
-  Date:      $Date: 1997-05-20 21:25:09 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1997-05-23 11:56:35 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,6 +58,13 @@ public:
   char *GetClassName() {return "vtkImageReader";};
   void PrintSelf(ostream& os, vtkIndent indent);   
 
+  void SetDataScalarTypeToFloat(){this->SetDataScalarType(VTK_FLOAT);}
+  void SetDataScalarTypeToInt(){this->SetDataScalarType(VTK_INT);}
+  void SetDataScalarTypeToShort(){this->SetDataScalarType(VTK_SHORT);}
+  void SetDataScalarTypeToUnsignedShort()
+    {this->SetDataScalarType(VTK_UNSIGNED_SHORT);}
+  void SetDataScalarTypeToUnsignedChar()
+    {this->SetDataScalarType(VTK_UNSIGNED_CHAR);}
   void SetDataScalarType(int type);
   // Description:
   // Get the file format.  Pixels are this type in the file.
