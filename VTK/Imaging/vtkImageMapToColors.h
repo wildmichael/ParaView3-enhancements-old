@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapToColors.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:08 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2001-01-29 23:14:21 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -79,6 +79,18 @@ public:
   void SetOutputFormatToLuminance() { this->OutputFormat = VTK_LUMINANCE; };
 
   // Description:
+  // Set the component to map for multi-component images (default: 0)
+  vtkSetMacro(ActiveComponent,int);
+  vtkGetMacro(ActiveComponent,int);
+
+  // Description:
+  // Use the alpha component of the input when computing the alpha component
+  // of the output (useful when converting monochrome+alpha data to RGBA)
+  vtkSetMacro(PassAlphaToOutput,int);
+  vtkBooleanMacro(PassAlphaToOutput,int);
+  vtkGetMacro(PassAlphaToOutput,int);
+
+  // Description:
   // We need to check the modified time of the lookup table too.
   unsigned long GetMTime();
   void UpdateData(vtkDataObject *output);
@@ -92,6 +104,9 @@ protected:
   vtkScalarsToColors *LookupTable;
   int OutputFormat;
   
+  int ActiveComponent;
+  int PassAlphaToOutput;
+
   void ExecuteInformation(vtkImageData *inData, vtkImageData *outData);
   void ExecuteInformation(){this->vtkImageToImageFilter::ExecuteInformation();};
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
