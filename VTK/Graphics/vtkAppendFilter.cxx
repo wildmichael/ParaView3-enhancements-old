@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkAppendFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-16 12:53:09 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-10-27 21:39:52 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -87,7 +87,7 @@ void vlAppendFilter::Execute()
   vlFloatPoints *newPts;
   vlPointData *pd;
   vlIdList ptIds(MAX_CELL_SIZE), newPtIds(MAX_CELL_SIZE);
-  int i, j;
+  int i;
   vlDataSet *ds;
   int ptId, cellId;
 
@@ -145,8 +145,8 @@ void vlAppendFilter::Execute()
     for (cellId=0; cellId < numCells; cellId++)
       {
       ds->GetCellPoints(cellId,ptIds);
-      for (j=0; j < ptIds.GetNumberOfIds(); j++)
-        newPtIds.SetId(j,ptIds.GetId(i)+ptOffset);
+      for (i=0; i < ptIds.GetNumberOfIds(); i++)
+        newPtIds.SetId(i,ptIds.GetId(i)+ptOffset);
       this->InsertNextCell(ds->GetCellType(cellId),newPtIds);
       }
     }

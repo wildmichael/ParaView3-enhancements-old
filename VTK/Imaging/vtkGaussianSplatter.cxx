@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkGaussianSplatter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-29 14:07:56 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-10-27 21:40:00 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -157,7 +157,7 @@ void vlGaussianSplatter::Execute()
       vlDebugMacro(<< "Vertex #" << ptId);
 
     for (i=0; i<3; i++)  
-      loc[i] = (P[i] - this->Origin[i]) / this->AspectRatio[i];
+      loc[i] = (int) ((float)(P[i] - this->Origin[i]) / this->AspectRatio[i]);
 //
 //  For each of the eight corners of the cell, need to evaluate sample
 //  function and then begin recursive distribution
