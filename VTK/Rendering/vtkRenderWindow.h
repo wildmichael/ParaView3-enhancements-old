@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-10 17:10:03 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1995-07-24 09:32:34 $
+  Version:   $Revision: 1.19 $
 
 This file is part of the Visualization Toolkit. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -43,6 +43,7 @@ class vtkRenderWindow : public vtkObject
 {
 public:
   vtkRenderWindow();
+  ~vtkRenderWindow();
   char *GetClassName() {return "vtkRenderWindow";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -59,6 +60,9 @@ public:
   // Description:
   // Performed at the end of the rendering process to generate image.
   virtual void Frame() = 0;
+
+  virtual void SetDisplayId(void *) = 0;
+  virtual void SetWindowId(void *) = 0;
 
   // Description:
   // Performed at the end of the rendering process to generate image.
@@ -201,12 +205,10 @@ protected:
   int StereoStatus; // used for keeping track of what's going on
   vtkRenderWindowInteractor *Interactor;
   char *Filename;
-  unsigned char* temp_buffer;  // used for red blue stereo
-  unsigned char** AABuffer;    // used for anti aliasing
+  unsigned char* StereoBuffer; // used for red blue stereo
+  float *AccumulationBuffer;   // used for many techniques
   int AAFrames;
-  unsigned char** FDBuffer;    // used for focal depth
   int FDFrames;
-  unsigned char** SubBuffer;   // used for sub frames
   int SubFrames;               // number of sub frames
   int CurrentSubFrame;         // what one are we on
   unsigned char* ResultFrame;  // used for any non immediate rendering
