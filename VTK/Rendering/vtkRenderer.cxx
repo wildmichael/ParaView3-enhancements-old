@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-06 18:26:10 $
-  Version:   $Revision: 1.187 $
+  Date:      $Date: 2002-09-10 15:08:21 $
+  Version:   $Revision: 1.188 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -34,7 +34,7 @@
 #include "vtkTimerLog.h"
 #include "vtkVolume.h"
 
-vtkCxxRevisionMacro(vtkRenderer, "$Revision: 1.187 $");
+vtkCxxRevisionMacro(vtkRenderer, "$Revision: 1.188 $");
 
 //----------------------------------------------------------------------------
 // Needed when we don't use the vtkStandardNewMacro.
@@ -663,6 +663,12 @@ void vtkRenderer::ComputeVisiblePropBounds( float allBounds[6] )
     return;
     }
 }
+
+float *vtkRenderer::ComputeVisiblePropBounds()
+  {
+  this->ComputeVisiblePropBounds(this->ComputedVisiblePropBounds);
+  return this->ComputedVisiblePropBounds;
+  }
 
 // Automatically set up the camera based on the visible actors.
 // The camera will reposition itself to view the center point of the actors,

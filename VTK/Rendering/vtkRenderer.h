@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.h,v $
   Language:  C++
-  Date:      $Date: 2002-09-10 05:21:38 $
-  Version:   $Revision: 1.111 $
+  Date:      $Date: 2002-09-10 15:08:21 $
+  Version:   $Revision: 1.112 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -201,11 +201,7 @@ public:
 
   // Description:
   // Wrapper-friendly version of ComputeVisiblePropBounds 
-  float *ComputeVisiblePropBounds()
-    { 
-    static float bounds[6];
-    this->ComputeVisiblePropBounds(bounds);
-    return bounds;};
+  float *ComputeVisiblePropBounds();
 
   // Description:
   // Reset the camera clipping range based on the bounds of the
@@ -381,6 +377,9 @@ protected:
   // Shows what layer this renderer belongs to.  Only of interested when
   // there are layered renderers.
   int                Layer;
+
+  // Holds the result of ComputeVisiblePropBounds so that it is visible from wrapped languages
+  float              ComputedVisiblePropBounds[6];
 
   // Description:
   // Ask all props to update and draw any opaque and translucent
