@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32ImageMapper.h,v $
   Language:  C++
-  Date:      $Date: 2000-11-13 15:26:52 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-11-19 20:15:08 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -52,7 +52,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 #include "vtkImageMapper.h"
-#include "vtkLookupTable.h"
+
 class vtkImageActor2D;
 
 class VTK_EXPORT vtkWin32ImageMapper : public vtkImageMapper
@@ -73,14 +73,6 @@ public:
 		  vtkActor2D* actor);
 
   // Description:
-  // An optional lookuptable which is used to generate colours in place of
-  // a grayscale bitmap when the scalar dimension is 1. A NULL lookuptable
-  // will result in the default grayscale image. Ensure that the range of the
-  // lookuptable is {0,255} for full colour effects
-  vtkSetObjectMacro(LookupTable, vtkLookupTable);
-  vtkGetObjectMacro(LookupTable, vtkLookupTable);
-
-  // Description:
   // CreateBitmapObject and GenerateBitmapData are utility functions which
   // allow one to hook into the display routines and provide the user
   // with an easy way of converting an ImageData object into a windows
@@ -99,8 +91,6 @@ public:
   HBITMAP HBitmap;			// our handle to the DIBSection
 
 protected:
-  vtkLookupTable *LookupTable;
-
   vtkWin32ImageMapper();
   ~vtkWin32ImageMapper();
   vtkWin32ImageMapper(const vtkWin32ImageMapper&) {};
