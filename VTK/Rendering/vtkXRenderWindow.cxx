@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-01 07:08:18 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2000-09-25 12:32:15 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -210,8 +210,7 @@ void vtkXRenderWindow::SetPosition(int x, int y)
     return;
     }
 
-  XMoveResizeWindow(this->DisplayId,this->WindowId,x,y,
-                    this->Size[0], this->Size[1]);
+  XMoveWindow(this->DisplayId,this->WindowId,x,y);
   XSync(this->DisplayId,False);
 }
 
