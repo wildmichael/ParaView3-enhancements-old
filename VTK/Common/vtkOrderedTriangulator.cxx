@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOrderedTriangulator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-21 20:48:39 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-05-22 11:44:22 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -148,7 +148,6 @@ public:
   public:
     Iterator() : Container(0) {}
     Iterator(ListContainer* c) : Container(c) {}
-    Iterator(const ListContainer& c) {this->Container = c.Container;}
     Iterator& operator=(const Iterator& i) 
       {this->Container=i.Container; return *this;}
     Iterator& operator=(ListContainer *c) 
