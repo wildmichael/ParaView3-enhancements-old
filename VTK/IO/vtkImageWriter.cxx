@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:48:16 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-01-28 13:25:37 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -466,10 +466,12 @@ void vtkImageWriter::WriteFile(ofstream *file, vtkImageData *data,
   rowLength *= (extent[1] - extent[0] + 1);
 
   wExtent = this->Input->GetWholeExtent();
-  area = ((extent[5] - extent[4] + 1)*(extent[3] - extent[2] + 1)*
-	  (extent[1] - extent[0] + 1)) / 
-    ((wExtent[5] -wExtent[4] + 1)*(wExtent[3] -wExtent[2] + 1)*
-     (wExtent[1] -wExtent[0] + 1));
+  area = (float) ((extent[5] - extent[4] + 1)*
+		  (extent[3] - extent[2] + 1)*
+		  (extent[1] - extent[0] + 1)) / 
+         (float) ((wExtent[5] -wExtent[4] + 1)*
+		  (wExtent[3] -wExtent[2] + 1)*
+		  (wExtent[1] -wExtent[0] + 1));
     
   target = (unsigned long)((extent[5]-extent[4]+1)*
 			   (extent[3]-extent[2]+1)/(50.0*area));
