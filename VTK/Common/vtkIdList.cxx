@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdList.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:49:48 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1998-05-11 18:13:01 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -98,23 +98,45 @@ void vtkIdList::DeleteId(int Id)
     }
 }
 
+#define VTK_TMP_ARRAY_SIZE 500
 // Description:
 // Intersect this list with another vtkIdList. Updates current list according
 // to result of intersection operation.
 void vtkIdList::IntersectWith(vtkIdList& otherIds)
 {
-  int id, i, j;
-  int numOriginalIds=this->GetNumberOfIds();
+  // Fast method due to Dr. Andreas Mueller of ISE Integrated Systems Engineering (CH)
+  int thisNumIds = this->GetNumberOfIds();
 
-  for ( i=0; i < numOriginalIds; i++ )
-    {
-    for ( j=0; j < this->GetNumberOfIds(); j++)
+  if (thisNumIds <= VTK_TMP_ARRAY_SIZE) 
+    {//Use fast method if we can fit in temporary storage
+    int  OtherNumIds = otherIds.GetNumberOfIds();
+    int  thisIds[VTK_TMP_ARRAY_SIZE];
+    int  i, id;
+    
+    for (i=0; i < thisNumIds; i++) thisIds[i] = this->GetId(i);
+    for (this->Reset(), i=0; i < thisNumIds; i++) 
       {
-      id =  this->GetId(j);
-      if ( ! otherIds.IsId(id) ) this->DeleteId(id);
+      id = thisIds[i];
+      if (otherIds.IsId(id)) this->InsertNextId(id);
+      }
+    } 
+  else 
+    {//use slower method for extreme cases
+    int id, i, j;
+    int numOriginalIds=this->GetNumberOfIds();
+
+    for ( i=0; i < numOriginalIds; i++ ) 
+      {
+      for ( j=0; j < this->GetNumberOfIds(); j++) 
+	{
+        id =  this->GetId(j);
+        if ( ! otherIds.IsId(id) ) this->DeleteId(id);
+	}
       }
     }
 }
+#undef VTK_TMP_ARRAY_SIZE
+
 
 void vtkIdList::PrintSelf(ostream& os, vtkIndent indent)
 {
