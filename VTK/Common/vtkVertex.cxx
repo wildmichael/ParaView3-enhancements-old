@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVertex.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-10-03 00:26:43 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1997-03-12 21:09:50 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,6 +42,14 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkMath.h"
 #include "vtkCellArray.h"
 #include "vtkPointLocator.h"
+
+// Description:
+// Construct the vertex with a single point.
+vtkVertex::vtkVertex()
+{
+  this->Points.SetNumberOfPoints(1);
+  this->PointIds.SetNumberOfIds(1);
+}
 
 // Description:
 // Deep copy of cell.
@@ -94,7 +102,7 @@ int vtkVertex::CellBoundary(int vtkNotUsed(subId), float pcoords[3],
 			    vtkIdList& pts)
 {
 
-  pts.Reset();
+  pts.SetNumberOfIds(1);
   pts.SetId(0,this->PointIds.GetId(0));
 
   if ( pcoords[0] != 0.0 )  

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPixel.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-09-30 16:30:00 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1997-03-12 21:09:17 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,6 +46,14 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkCellArray.h"
 #include "vtkLine.h"
 #include "vtkPointLocator.h"
+
+// Description:
+// Construct the pixel with four points.
+vtkPixel::vtkPixel()
+{
+  this->Points.SetNumberOfPoints(4);
+  this->PointIds.SetNumberOfIds(4);
+}
 
 // Description:
 // Deep copy of cell.
@@ -136,14 +144,12 @@ void vtkPixel::EvaluateLocation(int& subId, float pcoords[3], float x[3],
   this->InterpolationFunctions(pcoords, weights);
 }
 
-int vtkPixel::CellBoundary(int subId, float pcoords[3], vtkIdList& pts)
+int vtkPixel::CellBoundary(int vtkNotUsed(subId), float pcoords[3], vtkIdList& pts)
 {
   float t1=pcoords[0]-pcoords[1];
   float t2=1.0-pcoords[0]-pcoords[1];
 
-  if (subId) vtkWarningMacro("subId should be zero");
-  
-  pts.Reset();
+  pts.SetNumberOfIds(2);
 
   // compare against two lines in parametric space that divide element
   // into four pieces.

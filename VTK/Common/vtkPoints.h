@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPoints.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 17:55:02 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1997-03-12 21:09:22 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -86,7 +86,15 @@ public:
   virtual void GetPoint(int id, float x[3]);
 
   // Description:
+  // Specify the number of points for this object to hold. Does an
+  // allocation as well as setting the MaxId ivar. Used in conjunction with
+  // SetPoint() method for fast insertion.
+  virtual void SetNumberOfPoints(int number) = 0;
+
+  // Description:
   // Insert point into object. No range checking performed (fast!).
+  // Make sure you use SetNumberOfPoints() to allocate memory prior
+  // to using SetPoint().
   virtual void SetPoint(int id, float x[3]) = 0;
 
   // Description:

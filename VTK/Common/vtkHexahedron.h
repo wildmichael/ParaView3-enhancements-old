@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHexahedron.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 17:54:34 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1997-03-12 21:09:05 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,7 +51,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkHexahedron : public vtkCell
 {
 public:
-  vtkHexahedron() {};
+  vtkHexahedron();
   vtkHexahedron(const vtkHexahedron& h);
   char *GetClassName() {return "vtkHexahedron";};
 

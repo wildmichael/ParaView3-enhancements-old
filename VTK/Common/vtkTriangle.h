@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangle.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 17:55:24 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1997-03-12 21:09:40 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,7 +52,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkTriangle : public vtkCell
 {
 public:
-  vtkTriangle() {};
+  vtkTriangle();
   vtkTriangle(const vtkTriangle& t);
   char *GetClassName() {return "vtkTriangle";};
 

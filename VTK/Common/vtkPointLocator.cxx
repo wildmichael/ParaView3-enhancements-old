@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-11-14 21:51:23 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1997-03-12 21:09:21 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,8 +63,8 @@ inline int vtkNeighborPoints::InsertNextPoint(int *x)
 {
   int id = this->P.GetMaxId() + 3;
   this->P.InsertValue(id,x[2]);
-  this->P[id-2] = x[0];
-  this->P[id-1] = x[1];
+  this->P.SetValue(id-2, x[0]);
+  this->P.SetValue(id-1, x[1]);
   return id/3;
 }
 

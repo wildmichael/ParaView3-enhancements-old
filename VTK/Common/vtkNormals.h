@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkNormals.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 17:54:55 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1997-03-12 21:09:16 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -85,7 +85,15 @@ public:
   virtual void GetNormal(int id, float n[3]);
 
   // Description:
+  // Specify the number of normals for this object to hold. Does an
+  // allocation as well as setting the MaxId ivar. Used in conjunction with
+  // SetNormal() method for fast insertion.
+  virtual void SetNumberOfNormals(int number) = 0;
+
+  // Description:
   // Insert normal into object. No range checking performed (fast!).
+  // Make sure you use SetNumberOfNormals() to allocate memory prior
+  // to using SetNormal().
   virtual void SetNormal(int id, float n[3]) = 0;
 
   // Description:

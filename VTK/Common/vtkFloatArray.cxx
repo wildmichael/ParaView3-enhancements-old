@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFloatArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 21:02:10 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1997-03-12 21:08:54 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,13 +41,17 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkFloatArray.h"
 
 // Description:
-// Allocate memory for this array. Delete old storage if present.
+// Allocate memory for this array. Delete old storage only if necessary.
 int vtkFloatArray::Allocate(const int sz, const int ext)
 {
-  if ( this->Array ) delete [] this->Array;
+  if ( sz > this->Size || this->Array == NULL )
+    {
+    delete [] this->Array;
 
-  this->Size = ( sz > 0 ? sz : 1);
-  if ( (this->Array = new float[this->Size]) == NULL ) return 0;
+    this->Size = ( sz > 0 ? sz : 1);
+    if ( (this->Array = new float[this->Size]) == NULL ) return 0;
+    }
+
   this->Extend = ( ext > 0 ? ext : 1);
   this->MaxId = -1;
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLine.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 20:18:05 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1997-03-12 21:09:12 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,6 +42,14 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkMath.h"
 #include "vtkCellArray.h"
 #include "vtkPointLocator.h"
+
+// Description:
+// Construct the line with two points.
+vtkLine::vtkLine()
+{
+  this->Points.SetNumberOfPoints(2);
+  this->PointIds.SetNumberOfIds(2);
+}
 
 // Description:
 // Deep copy of cell.
@@ -104,7 +112,6 @@ int vtkLine::Intersection (float a1[3], float a2[3], float b1[3], float b2[3],
   float a21[3], b21[3], b1a1[3];
   float sys[2][2], c[2], det;
   int i;
-  float p1[3], p2[3];
   
 //
 //  Initialize 
@@ -159,7 +166,7 @@ int vtkLine::Intersection (float a1[3], float a2[3], float b1[3], float b2[3],
 int vtkLine::CellBoundary(int vtkNotUsed(subId), float pcoords[3], 
 			  vtkIdList& pts)
 {
- pts.Reset();
+ pts.SetNumberOfIds(1);
 
   if ( pcoords[0] >= 0.5 )
     {

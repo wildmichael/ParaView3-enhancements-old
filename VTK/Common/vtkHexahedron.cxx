@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHexahedron.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-09-30 16:29:54 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1997-03-12 21:09:04 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,6 +44,14 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkQuad.h"
 #include "vtkCellArray.h"
 #include "vtkPointLocator.h"
+
+// Description:
+// Construct the hexahedron with eight points.
+vtkHexahedron::vtkHexahedron()
+{
+  this->Points.SetNumberOfPoints(8);
+  this->PointIds.SetNumberOfIds(8);
+}
 
 // Description:
 // Deep copy of cell.
@@ -252,7 +260,7 @@ int vtkHexahedron::CellBoundary(int vtkNotUsed(subId), float pcoords[3],
   float t5=pcoords[2]-pcoords[0];
   float t6=1.0-pcoords[2]-pcoords[0];
 
-  pts.Reset();
+  pts.SetNumberOfIds(4);
 
   // compare against six planes in parametric space that divide element
   // into six pieces.
@@ -376,7 +384,7 @@ vtkCell *vtkHexahedron::GetEdge(int edgeId)
 {
   int *verts;
   static vtkLine line;
-
+  
   verts = edges[edgeId];
 
   // load point id's

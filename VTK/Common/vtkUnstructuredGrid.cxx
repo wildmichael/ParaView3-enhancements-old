@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-11-14 21:50:21 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1997-03-12 21:09:47 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -301,10 +301,10 @@ void vtkUnstructuredGrid::GetCellPoints(int cellId, vtkIdList& ptIds)
 {
   int i, loc, numPts, *pts;
 
-  ptIds.Reset();
   loc = this->Cells->GetCellLocation(cellId);
   this->Connectivity->GetCell(loc,numPts,pts); 
 
+  ptIds.SetNumberOfIds(numPts);
   for (i=0; i<numPts; i++) ptIds.SetId(i,pts[i]);
 }
 

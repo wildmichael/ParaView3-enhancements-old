@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangle.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 17:55:23 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 1997-03-12 21:09:39 $
+  Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,6 +45,14 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkCellArray.h"
 #include "vtkLine.h"
 #include "vtkPointLocator.h"
+
+// Description:
+// Construct the triangle with three points.
+vtkTriangle::vtkTriangle()
+{
+  this->Points.SetNumberOfPoints(3);
+  this->PointIds.SetNumberOfIds(3);
+}
 
 // Description:
 // Deep copy of cell.
@@ -241,7 +249,7 @@ int vtkTriangle::CellBoundary(int vtkNotUsed(subId), float pcoords[3],
   float t2=0.5*(1.0-pcoords[0])-pcoords[1];
   float t3=2.0*pcoords[0]+pcoords[1]-1.0;
 
-  pts.Reset();
+  pts.SetNumberOfIds(2);
 
   // compare against three lines in parametric space that divide element
   // into three pieces

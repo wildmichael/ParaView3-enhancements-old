@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedCharArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 21:03:49 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1997-03-12 21:09:42 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,13 +41,17 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkUnsignedCharArray.h"
 
 // Description:
-// Allocate memory for this array. Delete old storage if present.
+// Allocate memory for this array. Delete old storage only if necessary.
 int vtkUnsignedCharArray::Allocate(const int sz, const int ext)
 {
-  if ( this->Array != NULL ) delete [] this->Array;
+  if ( sz > this->Size || this->Array == NULL )
+    {
+    delete [] this->Array;
 
-  this->Size = ( sz > 0 ? sz : 1);
-  if ( (this->Array = new unsigned char[this->Size]) == NULL ) return 0;
+    this->Size = ( sz > 0 ? sz : 1);
+    if ( (this->Array = new unsigned char[this->Size]) == NULL ) return 0;
+    }
+
   this->Extend = ( ext > 0 ? ext : 1);
   this->MaxId = -1;
 

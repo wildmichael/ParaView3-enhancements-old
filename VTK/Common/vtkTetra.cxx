@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTetra.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-10-17 14:00:59 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1997-03-12 21:09:36 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,6 +45,14 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkCellArray.h"
 #include "vtkPointLocator.h"
 #include "vtkUnstructuredGrid.h"
+
+// Description:
+// Construct the tetra with four points.
+vtkTetra::vtkTetra()
+{
+  this->Points.SetNumberOfPoints(4);
+  this->PointIds.SetNumberOfIds(4);
+}
 
 // Description:
 // Deep copy of cell.
@@ -160,7 +168,7 @@ int vtkTetra::CellBoundary(int vtkNotUsed(subId), float pcoords[3],
   float t5 = pcoords[0] + 2.0*pcoords[1] + pcoords[2] - 1.3333333;
   float t6 = 2.0*pcoords[0] + pcoords[1] + pcoords[2] - 1.3333333;
 
-  pts.Reset();
+  pts.SetNumberOfIds(3);
 
   // compare against three lines in parametric space that divide element
   // into three pieces

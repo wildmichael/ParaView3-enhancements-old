@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalars.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 17:55:09 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 1997-03-12 21:09:30 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -110,7 +110,15 @@ public:
   virtual float GetScalar(int id) = 0;
 
   // Description:
+  // Specify the number of scalars for this object to hold. Does an
+  // allocation as well as setting the MaxId ivar. Used in conjunction with
+  // SetScalar() method for fast insertion.
+  virtual void SetNumberOfScalars(int number) = 0;
+
+  // Description:
   // Insert scalar into array. No range checking performed (fast!).
+  // Make sure you use SetNumberOfScalars() to allocate memory prior
+  // to using SetScalar().
   virtual void SetScalar(int id, float s) = 0;
 
   // Description:

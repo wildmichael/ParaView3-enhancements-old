@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensors.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 17:55:18 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1997-03-12 21:09:35 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -82,6 +82,12 @@ public:
   // Copy float tensor into user provided tensor
   // for specified point id.
   virtual void GetTensor(int id, vtkTensor& t);
+
+  // Description:
+  // Specify the number of tensors for this object to hold. Does an
+  // allocation as well as setting the MaxId ivar. Used in conjunction with
+  // SetTensor() method for fast insertion.
+  virtual void SetNumberOfTensors(int number) = 0;
 
   // Description:
   // Insert tensor into object. No range checking performed (fast!).

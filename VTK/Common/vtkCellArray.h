@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellArray.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 17:54:21 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 1997-03-12 21:08:49 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -101,7 +101,6 @@ public:
   // miscellaneous pointer type operations (for fast read/write operations)
   int *GetPtr();
   int *WritePtr(const int ncells, const int size);
-  void WrotePtr();
 
   // reuse memory
   void Reset();
@@ -173,7 +172,7 @@ inline void vtkCellArray::InsertCellPoint(int id)
 // update the number of points defining the cell.
 inline void vtkCellArray::UpdateCellCount(int npts) 
 {
-  this->Ia[this->Location-npts-1] = npts;
+  this->Ia.SetValue(this->Location-npts-1, npts);
 }
 
 // Description:
@@ -304,17 +303,11 @@ inline int *vtkCellArray::GetPtr()
 // Get pointer to data array for purpose of direct writes of data. Size is the
 // total storage consumed by the cell array. ncells is the number of cells
 // represented in the array.
-// Use the method WrotePtr() to mark completion of write.
 inline int *vtkCellArray::WritePtr(const int ncells, const int size)
 {
   this->NumberOfCells = ncells;
   this->Location = 0;
   return this->Ia.WritePtr(0,size);
 }
-
-// Description:
-// Terminate direct write of data. Although dummy routine now, reserved for
-// future use.
-inline void vtkCellArray::WrotePtr() {}
 
 #endif
