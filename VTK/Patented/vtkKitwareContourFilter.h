@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKitwareContourFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:09:19 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2000-08-24 13:58:23 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -99,6 +99,7 @@ protected:
   void operator=(const vtkKitwareContourFilter&) {};
   
   void Execute();
+  void ExecuteInformation();
 
   //special contouring for structured points
   void StructuredPointsContour(int dim); 

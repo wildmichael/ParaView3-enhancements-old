@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKitwareContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:09:19 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2000-08-24 13:58:23 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -74,6 +74,13 @@ vtkKitwareContourFilter::~vtkKitwareContourFilter()
 {
 }
 
+
+
+void vtkKitwareContourFilter::ExecuteInformation()
+{
+  // Arbitrary to get thinks to work.
+  this->GetOutput()->SetMaximumNumberOfPieces(10000);
+}
 
 //
 // General contouring filter.  Handles arbitrary input.
@@ -171,6 +178,9 @@ void vtkKitwareContourFilter::StructuredPointsContour(int dim)
       syncTemp3D->SetValue(i,values[i]);
       }
 
+    syncTemp3D->GetOutput()->SetUpdateExtent(thisOutput->GetUpdatePiece(),
+					     thisOutput->GetUpdateNumberOfPieces(),
+					     thisOutput->GetUpdateGhostLevel());
     syncTemp3D->Update();
     output = syncTemp3D->GetOutput();
     output->Register(this);
