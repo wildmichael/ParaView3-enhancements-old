@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-03-05 21:18:11 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1996-03-25 14:01:26 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -380,7 +380,7 @@ void vtkUnstructuredGrid::AddReferenceToCell(int ptId, int cellId)
 // Description:
 // Resize the list of cells using a particular point. (This operator assumes
 // that BuildLinks() has been called.)
-inline void vtkUnstructuredGrid::ResizeCellList(int ptId, int size)
+void vtkUnstructuredGrid::ResizeCellList(int ptId, int size)
 {
   this->Links->ResizeCellList(ptId,size);
 }
