@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-05-09 20:07:07 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1996-05-10 15:57:22 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,6 +49,8 @@ vtkLocator::vtkLocator()
   this->MaxLevel = 8;
   this->Level = 8;
   this->Tolerance = 0.001;
+  this->Automatic = 1;
+  this->RetainCellLists = 1;
 }
 
 vtkLocator::~vtkLocator()
