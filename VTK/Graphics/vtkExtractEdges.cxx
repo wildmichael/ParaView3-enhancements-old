@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractEdges.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:13:53 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2001-12-26 17:26:25 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -86,7 +86,8 @@ void vtkExtractEdges::Execute()
   vtkIdType pt1 = 0, pt2;
   float *x;
   vtkEdgeTable *edgeTable;
-  vtkCell *cell, *edge;
+  vtkGenericCell *cell;
+  vtkCell *edge;
   vtkPointData *pd, *outPD;
   vtkCellData *cd, *outCD;
 
@@ -118,6 +119,8 @@ void vtkExtractEdges::Execute()
   outCD = output->GetCellData();
   outCD->CopyAllocate(cd,numCells);
   
+  cell = vtkGenericCell::New();
+  
   // Get our locator for merging points
   //
   if ( this->Locator == NULL )
@@ -139,7 +142,7 @@ void vtkExtractEdges::Execute()
         }
       }
 
-    cell = input->GetCell(cellNum);
+    input->GetCell(cellNum,cell);
     numCellEdges = cell->GetNumberOfEdges();
     for (edgeNum=0; edgeNum < numCellEdges; edgeNum++ )
       {
@@ -169,6 +172,7 @@ void vtkExtractEdges::Execute()
   //  Update ourselves.
   //
   edgeTable->Delete();
+  cell->Delete();
 
   output->SetPoints(newPts);
   newPts->Delete();
