@@ -3,8 +3,8 @@
  Program:   Visualization Toolkit
  Module:    $RCSfile: vtkSource.cxx,v $
  Language:  C++
- Date:      $Date: 2000-11-10 15:01:24 $
- Version:   $Revision: 1.71 $
+ Date:      $Date: 2000-11-27 20:07:42 $
+ Version:   $Revision: 1.72 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -715,6 +715,8 @@ void vtkSource::SetNthOutput(int idx, vtkDataObject *newOutput)
     }
   // now actually make the link that was registered previously.
   this->Outputs[idx] = newOutput;
+
+  this->Modified();
 }
 
 //----------------------------------------------------------------------------
