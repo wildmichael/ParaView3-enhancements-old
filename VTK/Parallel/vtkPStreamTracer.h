@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPStreamTracer.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-14 16:51:29 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-11-15 03:37:36 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,7 @@
 class vtkInterpolatedVelocityField;
 class vtkMultiProcessController;
 
-class VTK_GRAPHICS_EXPORT vtkPStreamTracer : public vtkStreamTracer
+class VTK_PARALLEL_EXPORT vtkPStreamTracer : public vtkStreamTracer
 {
 public:
   vtkTypeRevisionMacro(vtkPStreamTracer,vtkStreamTracer);
