@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaImageMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:12 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-08-01 19:24:49 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,6 +43,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define VTK_IMPLEMENT_MESA_CXX
 
 #include <math.h>
+#include "vtkToolkits.h"
 #include "vtkMesaImageMapper.h"
 #include "vtkRenderWindow.h"
 #include "vtkMesaProperty.h"

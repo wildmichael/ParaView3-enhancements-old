@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMesaTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-24 21:52:52 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-08-01 19:24:49 $
+  Version:   $Revision: 1.8 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -38,6 +38,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
+#include "vtkToolkits.h"
 #include "vtkXMesaTextMapper.h"
 #include "vtkObjectFactory.h"
 
@@ -49,7 +50,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "GL/gl.h"
 #include "GL/glx.h"
 #endif
-#include "GL/osmesa.h"
+#include "/opt/include/GL/osmesa.h"
 
 static void
 vtkFillBitmap (Display *dpy, Window win, GC gc,

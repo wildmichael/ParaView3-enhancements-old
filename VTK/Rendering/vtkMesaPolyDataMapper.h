@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaPolyDataMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-03-09 18:24:29 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2001-08-01 19:24:49 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -50,6 +50,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkPolyDataMapper.h"
 #include <stdlib.h>
+#include "vtkToolkits.h"
 
 #ifdef VTK_MANGLE_MESA
 #define USE_MGL_NAMESPACE
