@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPerspectiveTransform.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:53 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2002-12-15 22:21:31 $
+  Version:   $Revision: 1.29 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -140,6 +140,10 @@ class VTK_COMMON_EXPORT vtkPerspectiveTransform : public vtkHomogeneousTransform
   // transformation.
   void SetupCamera(const double position[3], const double focalpoint[3],
                    const double viewup[3]);
+
+  void SetupCamera(double p0, double p1, double p2,
+                   double fp0, double fp1, double fp2,
+                   double vup0, double vup1, double vup2);
 
   // Description:
   // Create a translation matrix and concatenate it with the current
