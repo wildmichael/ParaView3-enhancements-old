@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32TextMapper.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:15 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-05-02 13:05:54 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,10 +58,6 @@ class VTK_EXPORT vtkWin32TextMapper : public vtkTextMapper
 public:
   vtkTypeMacro(vtkWin32TextMapper,vtkTextMapper);
   static vtkWin32TextMapper *New();
-
-  // Description:
-  // Actally draw the text.
-  void RenderOverlay(vtkViewport* viewport, vtkActor2D* actor);
 
   // Description:
   // What is the size of the rectangle required to draw this
