@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-09 18:44:06 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-06-23 18:51:52 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,7 +64,6 @@ public:
   int       OwnWindow;
   int       ScreenSize[2];
   int       MultiSamples;
-
 public:
   vtkWin32OpenGLRenderWindow();
   static vtkWin32OpenGLRenderWindow *New() {return new vtkWin32OpenGLRenderWindow;};
@@ -86,9 +85,9 @@ public:
   int *GetPosition();
   //BTX
   HWND      GetWindowId();
-//  void      SetWindowId(void *foo) {this->SetWindowId((HWND)foo);};
+  void      SetWindowId(void *foo) {this->SetWindowId((HWND)foo);};
   void		SetWindowId(HWND);
-//  void    SetParentId(void *foo) {this->SetParentId((HWND)foo);};
+  void    SetParentId(void *foo) {this->SetParentId((HWND)foo);};
   void		SetParentId(HWND);
   void		SetContextId(HGLRC);	// hsr
   void		SetDeviceContext(HDC);	// hsr
