@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamer.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-08 12:48:01 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1995-09-13 07:10:48 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -125,7 +125,7 @@ void vtkStreamer::SetStartLocation(int cellId, int subId, float r, float s, floa
 }
 
 // Description:
-// Get the starting location of the streamline in the cell corrdinate system.
+// Get the starting location of the streamline in the cell coordinate system.
 int vtkStreamer::GetStartLocation(int& subId, float pcoords[3])
 {
   subId = this->StartSubId;
