@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageQuantizeRGBToIndex.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-14 03:48:35 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-07-16 16:22:11 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -39,7 +39,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 // .NAME vtkImageQuantizeRGBToIndex - Generalized histograms upto 4 dimensions.
 // .SECTION Description
-// vtkImageQuantizeRGBToIndex - This filter takes a three component RGB image as
+// vtkImageQuantizeRGBToIndex - This filter takes a 3 component RGB image as
 // input and produces a one component index image as output, along with
 // a lookup table that contains the color definitions for the index values.
 // This filter works on the entire input extent - it does not perform

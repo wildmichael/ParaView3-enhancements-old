@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageQuantizeRGBToIndex.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-14 03:48:35 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-07-16 16:22:11 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -252,6 +252,8 @@ static void vtkImageQuantizeRGBToIndexExecute(vtkImageQuantizeRGBToIndex *self,
   float                color[4];
   int                  rgb[3];
   vtkTimerLog          *timer;
+  int                  totalCount;
+  float                weight;
 
   timer = vtkTimerLog::New();
 
@@ -290,6 +292,12 @@ static void vtkImageQuantizeRGBToIndexExecute(vtkImageQuantizeRGBToIndex *self,
 
   cannotDivideFurther = 0;
 
+  totalCount = 
+    (extent[1] - extent[0] + 1) *
+    (extent[3] - extent[2] + 1) *
+    (extent[5] - extent[4] + 1);
+
+
   // Loop until we've added enough leaf nodes or we can't add any more
   while ( numLeafNodes < self->GetNumberOfColors() && !cannotDivideFurther )
     {
@@ -300,6 +308,8 @@ static void vtkImageQuantizeRGBToIndexExecute(vtkImageQuantizeRGBToIndex *self,
       for ( axis = 0; axis < 3; axis++ )
 	{
 	dev = leafNodes[leaf]->GetStdDev( axis );
+	weight = (float)(leafNodes[leaf]->GetCount())/(float)(totalCount);
+	dev *= weight;
 	if ( dev > maxdev )
 	  {
 	  maxdevAxis     = axis;
@@ -537,7 +547,6 @@ void vtkColorQuantizeNode::Divide( int axis, int nextIndex )
   this->Child2->SetBounds( newBounds );
 
   this->SplitPoint = this->Median[axis];
-  vtkGenericWarningMacro( << "Splitting on axis " << axis << " at " << this->Median[axis] );
   this->Axis = axis;
 
   this->Child1->SetIndex( this->Index );
