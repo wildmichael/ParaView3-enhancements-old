@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 18:19:50 $
-  Version:   $Revision: 1.72 $
+  Date:      $Date: 2001-11-01 16:29:26 $
+  Version:   $Revision: 1.73 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -86,7 +86,6 @@ vtkVolumeRayCastMapper::vtkVolumeRayCastMapper()
   this->MinimumImageSampleDistance =  1.0;
   this->MaximumImageSampleDistance = 10.0;
   this->AutoAdjustSampleDistances  =  1;
-  this->RayBounder                 = NULL;
   this->VolumeRayCastFunction      = NULL;
   
   this->GradientEstimator  = vtkFiniteDifferenceGradientEstimator::New();
