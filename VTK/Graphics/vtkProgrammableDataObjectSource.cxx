@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableDataObjectSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:12:20 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-10-26 19:16:04 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -65,6 +65,7 @@ vtkProgrammableDataObjectSource::vtkProgrammableDataObjectSource()
 {
   this->ExecuteMethod = NULL;
   this->ExecuteMethodArg = NULL;
+  this->ExecuteMethodArgDelete = NULL;
 
   this->vtkSource::SetNthOutput(0,vtkDataObject::New());
   // Releasing data for pipeline parallism.
