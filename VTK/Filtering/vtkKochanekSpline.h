@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKochanekSpline.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:28:08 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2002-08-14 18:53:07 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -61,6 +61,12 @@ public:
   static vtkKochanekSpline *New();
 
   // Description:
+  // Virtual constructor creates a spline of the same type as this one.
+  // Note that the created spline does not copy the data from this instance.
+  virtual vtkSpline *MakeObject() 
+    { return vtkKochanekSpline::New(); }
+
+  // Description:
   // Compute Kochanek Spline coefficients.
   void Compute ();
   
@@ -83,17 +89,22 @@ public:
   vtkSetMacro(DefaultContinuity,float);
   vtkGetMacro(DefaultContinuity,float);
 
+  // Description:
+  // Deep copy of cardinal spline data.
+  virtual void DeepCopy(vtkSpline *s);
+
 protected:
   vtkKochanekSpline();
-  ~vtkKochanekSpline() {};
+  ~vtkKochanekSpline() {}
 
-  void Fit1D (int n, float *x, float *y,
-              float tension, float bias, float continuity,
-              float coefficients[][4],
-              int leftConstraint, float leftValue, int rightConstraint, float rightValue);
+  void Fit1D (int n, float *x, float *y, float tension, float bias, 
+              float continuity, float coefficients[][4], int leftConstraint, 
+              float leftValue, int rightConstraint, float rightValue);
+
   float DefaultBias;
   float DefaultTension;
   float DefaultContinuity;
+
 private:
   vtkKochanekSpline(const vtkKochanekSpline&);  // Not implemented.
   void operator=(const vtkKochanekSpline&);  // Not implemented.

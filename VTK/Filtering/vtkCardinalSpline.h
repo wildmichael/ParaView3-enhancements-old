@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCardinalSpline.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:28:00 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-08-14 18:53:06 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -39,22 +39,35 @@ public:
   vtkTypeRevisionMacro(vtkCardinalSpline,vtkSpline);
   void PrintSelf(ostream& os, vtkIndent indent);
 
+  // Description:
+  // Virtual constructor creates a spline of the same type as this one.
+  // Note that the created spline does not copy the data from this instance.
+  virtual vtkSpline *MakeObject()
+    { return vtkCardinalSpline::New(); }
+
   // Description
   // Compute Cardinal Splines for each dependent variable
   void Compute ();
 
   // Description:
   // Evaluate a 1D cardinal spline.
-  float Evaluate (float t);
+  virtual float Evaluate (float t);
+
+  // Description:
+  // Deep copy of cardinal spline data.
+  virtual void DeepCopy(vtkSpline *s);
 
 protected:
   vtkCardinalSpline();
-  ~vtkCardinalSpline() {};
+  ~vtkCardinalSpline() {}
 
   void Fit1D (int n, float *x, float *y, float *w, float coefficients[][4],
-              int leftConstraint, float leftValue, int rightConstraint, float rightValue);
+              int leftConstraint, float leftValue, int rightConstraint, 
+              float rightValue);
+
   void FitClosed1D (int n, float *x, float *y, float *w, 
                     float coefficients[][4]);
+
 private:
   vtkCardinalSpline(const vtkCardinalSpline&);  // Not implemented.
   void operator=(const vtkCardinalSpline&);  // Not implemented.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCardinalSpline.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:28:00 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-08-14 18:53:06 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,13 +18,14 @@
 #include "vtkCardinalSpline.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkCardinalSpline, "$Revision: 1.16 $");
+vtkCxxRevisionMacro(vtkCardinalSpline, "$Revision: 1.17 $");
 vtkStandardNewMacro(vtkCardinalSpline);
 
 // Construct a Cardinal Spline.
 vtkCardinalSpline::vtkCardinalSpline ()
 {
 }
+
 
 // Evaluate a 1D Spline
 float vtkCardinalSpline::Evaluate (float t)
@@ -412,6 +413,19 @@ void vtkCardinalSpline::FitClosed1D (int size, float *x, float *y,
   coefficients[N][1] = work[N];
   coefficients[N][2] = coefficients[0][2];
   coefficients[N][3] = coefficients[0][3];
+}
+
+void vtkCardinalSpline::DeepCopy(vtkSpline *s)
+{
+  vtkCardinalSpline *spline = vtkCardinalSpline::SafeDownCast(s);
+
+  if ( spline != NULL )
+    {
+    //nothing to do
+    }
+
+  // Now do superclass
+  this->vtkSpline::DeepCopy(s);
 }
 
 void vtkCardinalSpline::PrintSelf(ostream& os, vtkIndent indent)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpline.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:28:12 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-08-14 18:53:06 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,7 +17,7 @@
 =========================================================================*/
 #include "vtkSpline.h"
 
-vtkCxxRevisionMacro(vtkSpline, "$Revision: 1.16 $");
+vtkCxxRevisionMacro(vtkSpline, "$Revision: 1.17 $");
 
 // Construct a spline wth the folloing defaults:
 // ClampValueOff
@@ -67,6 +67,22 @@ void vtkSpline::RemovePoint (float t)
 void vtkSpline::RemoveAllPoints ()
 {
   this->PiecewiseFunction->RemoveAllPoints ();
+}
+
+void vtkSpline::DeepCopy(vtkSpline *s)
+{
+  vtkSpline *spline = vtkSpline::SafeDownCast(s);
+
+  if ( spline != NULL )
+    {
+    this->ClampValue = s->ClampValue;
+    this->LeftConstraint = s->LeftConstraint;
+    this->LeftValue = s->LeftValue;
+    this->RightConstraint = s->RightConstraint;
+    this->RightValue = s->RightValue;
+    this->Closed = s->Closed;
+    this->PiecewiseFunction->DeepCopy(s->PiecewiseFunction);
+    }
 }
 
 // Overload standard modified time function. If data is modified,
