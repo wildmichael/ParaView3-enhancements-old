@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkString.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-30 20:14:16 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2003-01-31 16:46:54 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkObjectFactory.h"
 #include <ctype.h>
 
-vtkCxxRevisionMacro(vtkString, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkString, "$Revision: 1.9 $");
 vtkStandardNewMacro(vtkString);
  
 //----------------------------------------------------------------------------
@@ -232,7 +232,7 @@ char* vtkString::ReplaceChars(char* str, char *toreplace, char replacement)
 }
 
 //----------------------------------------------------------------------------
-int vtkString::CountChar(char* str, char c)
+unsigned int vtkString::CountChar(char* str, char c)
 {
   int count = 0;
 

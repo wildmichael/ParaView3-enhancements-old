@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkString.h,v $
   Language:  C++
-  Date:      $Date: 2003-01-30 20:14:16 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2003-01-31 16:46:54 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -100,7 +100,7 @@ public:
 
   // Description:
   // Return the number of occurence of a char.
-  static int CountChar(char* str, char c);
+  static unsigned int CountChar(char* str, char c);
 
 protected:
   vtkString() {};
