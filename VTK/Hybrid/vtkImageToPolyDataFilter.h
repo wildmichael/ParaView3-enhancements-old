@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-05-26 10:59:52 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-05-28 11:26:08 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -197,7 +197,7 @@ protected:
   int Smoothing;
   int NumberOfSmoothingIterations;
   int Decimation;
-  int DecimationError;
+  float DecimationError;
   int Error;
   int SubImageSize;
   vtkScalarsToColors *LookupTable;
