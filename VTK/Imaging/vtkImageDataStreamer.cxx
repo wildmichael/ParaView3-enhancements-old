@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDataStreamer.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-01 13:46:33 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2001-02-06 12:19:36 $
+  Version:   $Revision: 1.23 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -95,7 +95,7 @@ void vtkImageDataStreamer::PrintSelf(ostream& os, vtkIndent indent)
 }
 
 //----------------------------------------------------------------------------
-void vtkImageDataStreamer::UpdateData(vtkDataObject *out)
+void vtkImageDataStreamer::UpdateData(vtkDataObject *vtkNotUsed(out))
 {
   int idx;
   vtkImageData *input = this->GetInput();
