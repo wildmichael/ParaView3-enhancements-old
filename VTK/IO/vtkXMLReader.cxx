@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-05 15:29:15 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2003-05-05 20:13:41 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,7 +32,7 @@
 
 #include <sys/stat.h>
 
-vtkCxxRevisionMacro(vtkXMLReader, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkXMLReader, "$Revision: 1.13 $");
 
 //----------------------------------------------------------------------------
 vtkXMLReader::vtkXMLReader()
@@ -44,6 +44,8 @@ vtkXMLReader::vtkXMLReader()
   this->CellDataArraySelection = vtkDataArraySelection::New();
   this->InformationError = 0;
   this->DataError = 0;
+  this->ProgressRange[0] = 0;
+  this->ProgressRange[1] = 1;
   
   // Setup the selection callback to modify this object when an array
   // selection is changed.
