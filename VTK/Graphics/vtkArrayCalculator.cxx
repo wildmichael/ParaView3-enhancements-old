@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArrayCalculator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-15 16:05:04 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2001-04-05 14:33:26 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -752,6 +752,60 @@ void vtkArrayCalculator::RemoveAllVariables()
     this->SelectedVectorComponents = NULL;
     }
   this->NumberOfVectorArrays = 0;
+}
+
+char* vtkArrayCalculator::GetScalarArrayName(int i)
+{
+  if (i < this->NumberOfScalarArrays)
+    {
+    return this->ScalarArrayNames[i];
+    }
+  return NULL;
+}
+
+char* vtkArrayCalculator::GetVectorArrayName(int i)
+{
+  if (i < this->NumberOfVectorArrays)
+    {
+    return this->VectorArrayNames[i];
+    }
+  return NULL;
+}
+
+char* vtkArrayCalculator::GetScalarVariableName(int i)
+{
+  if (i < this->NumberOfScalarArrays)
+    {
+    return this->ScalarVariableNames[i];
+    }
+  return NULL;
+}
+
+char* vtkArrayCalculator::GetVectorVariableName(int i)
+{
+  if (i < this->NumberOfVectorArrays)
+    {
+    return this->VectorVariableNames[i];
+    }
+  return NULL;
+}
+
+int vtkArrayCalculator::GetSelectedScalarComponent(int i)
+{
+  if (i < this->NumberOfScalarArrays)
+    {
+    return this->SelectedScalarComponents[i];
+    }
+  return -1;
+}
+
+int* vtkArrayCalculator::GetSelectedVectorComponents(int i)
+{
+  if (i < this->NumberOfVectorArrays)
+    {
+    return this->SelectedVectorComponents[i];
+    }
+  return NULL;
 }
 
 void vtkArrayCalculator::PrintSelf(ostream& os, vtkIndent indent)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArrayCalculator.h,v $
   Language:  C++
-  Date:      $Date: 2001-03-01 20:27:34 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-04-05 14:33:26 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -120,6 +120,23 @@ public:
   // Description:
   // Remove all the variable names and their associated array names.
   void RemoveAllVariables();
+
+  // Description:
+  // Methods to get information about the current variables.
+  char** GetScalarArrayNames() { return this->ScalarArrayNames; }
+  char* GetScalarArrayName(int i);
+  char** GetVectorArrayNames() { return this->VectorArrayNames; }
+  char* GetVectorArrayName(int i);
+  char** GetScalarVariableNames() { return this->ScalarVariableNames; }
+  char* GetScalarVariableName(int i);
+  char** GetVectorVariableNames() { return this->VectorVariableNames; }
+  char* GetVectorVariableName(int i);
+  int* GetSelectedScalarComponents() { return this->SelectedScalarComponents; }
+  int GetSelectedScalarComponent(int i);
+  int** GetSelectedVectorComponents() { return this->SelectedVectorComponents;}
+  int* GetSelectedVectorComponents(int i);
+  vtkGetMacro(NumberOfScalarArrays, int);
+  vtkGetMacro(NumberOfVectorArrays, int);
   
 protected:
   vtkArrayCalculator();
