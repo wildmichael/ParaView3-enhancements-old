@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldDataToAttributeDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-12-11 17:44:31 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-12-23 18:30:57 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -130,7 +130,7 @@ public:
   int GetScalarComponentArrayComponent(int comp);
   int GetScalarComponentMinRange(int comp);
   int GetScalarComponentMaxRange(int comp);
-  int GetScalarComponentNormailzeFlag(int comp);
+  int GetScalarComponentNormalizeFlag(int comp);
   
   // Description:
   // Define the component of the field to be used for the cell vector components.
@@ -146,7 +146,7 @@ public:
   int GetVectorComponentArrayComponent(int comp);
   int GetVectorComponentMinRange(int comp);
   int GetVectorComponentMaxRange(int comp);
-  int GetVectorComponentNormailzeFlag(int comp);
+  int GetVectorComponentNormalizeFlag(int comp);
   
   // Description:
   // Define the component of the field to be used for the cell normal components.
@@ -162,7 +162,7 @@ public:
   int GetNormalComponentArrayComponent(int comp);
   int GetNormalComponentMinRange(int comp);
   int GetNormalComponentMaxRange(int comp);
-  int GetNormalComponentNormailzeFlag(int comp);
+  int GetNormalComponentNormalizeFlag(int comp);
   
   // Description:
   // Define the component of the field to be used for the cell tensor components.
@@ -178,7 +178,7 @@ public:
   int GetTensorComponentArrayComponent(int comp);
   int GetTensorComponentMinRange(int comp);
   int GetTensorComponentMaxRange(int comp);
-  int GetTensorComponentNormailzeFlag(int comp);
+  int GetTensorComponentNormalizeFlag(int comp);
   
   // Description:
   // Define the component of the field to be used for the cell texture coord components.
@@ -194,7 +194,7 @@ public:
   int GetTCoordComponentArrayComponent(int comp);
   int GetTCoordComponentMinRange(int comp);
   int GetTCoordComponentMaxRange(int comp);
-  int GetTCoordComponentNormailzeFlag(int comp);
+  int GetTCoordComponentNormalizeFlag(int comp);
   
   // Description:
   // Set the default Normalize() flag for those methods setting a default
