@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLookupTable.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 21:02:45 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1997-03-06 17:16:02 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -237,7 +237,15 @@ float *vtkLookupTable::GetTableValue (int indx)
 
   indx = (indx < 0 ? 0 : (indx >= this->NumberOfColors ? this->NumberOfColors-1 : indx));
   _rgba = this->Table.GetColor(indx);
-  for (int i=0; i<4; i++) rgba[i] = _rgba[i] / 255.0;
+
+  // For some strange reason the Sun compiler crashes on the following 
+  // line with a -O5 optimization level 
+  // for (int i=0; i<4; i++) rgba[i] = _rgba[i] / 255.0;
+
+  rgba[0] = _rgba[0] / 255.0;
+  rgba[1] = _rgba[1] / 255.0;
+  rgba[2] = _rgba[2] / 255.0;
+  rgba[3] = _rgba[3] / 255.0;
 
   return rgba;
 }
