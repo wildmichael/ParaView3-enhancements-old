@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-19 21:49:52 $
-  Version:   $Revision: 1.115 $
+  Date:      $Date: 1999-08-20 16:11:38 $
+  Version:   $Revision: 1.116 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -723,14 +723,14 @@ void vtkRenderer::ResetCameraClippingRange( float bounds[6] )
   d = -(a*position[0] + b*position[1] + c*position[2]);
 
   diagdist = 
-    sqrt( (bounds[0] - bounds[3]) * (bounds[0] - bounds[3]) +
-	  (bounds[1] - bounds[4]) * (bounds[1] - bounds[4]) +
-	  (bounds[2] - bounds[5]) * (bounds[2] - bounds[5]) );
+    sqrt( (bounds[0] - bounds[1]) * (bounds[0] - bounds[1]) +
+	  (bounds[2] - bounds[3]) * (bounds[2] - bounds[3]) +
+	  (bounds[4] - bounds[5]) * (bounds[4] - bounds[5]) );
   
   centerdist = 
-    a*(bounds[0]+bounds[3])/2.0 + 
-    b*(bounds[1]+bounds[4])/2.0 + 
-    c*(bounds[2]+bounds[5])/2.0 + 
+    a*(bounds[0]+bounds[1])/2.0 + 
+    b*(bounds[2]+bounds[3])/2.0 + 
+    c*(bounds[4]+bounds[5])/2.0 + 
     d;
 
   range[0] = centerdist - 0.5*diagdist;
