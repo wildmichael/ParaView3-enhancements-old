@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2004-01-28 16:48:49 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2004-01-28 19:15:37 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -84,11 +84,11 @@ struct vtkXdmfWriterInternal
     CellType(const CellType& ct) : VTKType(ct.VTKType), NumPoints(ct.NumPoints) {}
     vtkIdType VTKType;
     vtkIdType NumPoints;
-    int operator<(const CellType& ct) const
+    vtkstd_bool operator<(const CellType& ct) const
       {
       return this->VTKType < ct.VTKType || this->VTKType == ct.VTKType && this->NumPoints < ct.NumPoints;
       }
-    int operator==(const CellType& ct) const
+    vtkstd_bool operator==(const CellType& ct) const
       {
       return this->VTKType == ct.VTKType && this->NumPoints == ct.NumPoints;
       }
@@ -107,7 +107,7 @@ struct vtkXdmfWriterInternal
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkXdmfWriter);
-vtkCxxRevisionMacro(vtkXdmfWriter, "$Revision: 1.13 $");
+vtkCxxRevisionMacro(vtkXdmfWriter, "$Revision: 1.14 $");
 
 //----------------------------------------------------------------------------
 vtkXdmfWriter::vtkXdmfWriter()
