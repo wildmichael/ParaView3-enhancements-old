@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCollection.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-02 18:36:25 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1998-09-03 13:44:40 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -104,7 +104,6 @@ void vtkCollection::RemoveItem(vtkObject *a)
     }
 
   elem = this->Top;
-  prev = NULL;
   for (i = 0; i < this->NumberOfItems; i++)
     {
     if (elem->Item == a)
@@ -114,7 +113,6 @@ void vtkCollection::RemoveItem(vtkObject *a)
       }
     else
       {
-      prev = elem;
       elem = elem->Next;
       }
     }
