@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFlip.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:50 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2002-01-04 14:28:38 $
+  Version:   $Revision: 1.29 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,25 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkImageFlip.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkImageFlip* vtkImageFlip::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageFlip");
-  if(ret)
-    {
-    return (vtkImageFlip*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageFlip;
-}
-
-
-
-
-
+vtkCxxRevisionMacro(vtkImageFlip, "$Revision: 1.29 $");
+vtkStandardNewMacro(vtkImageFlip);
 
 //----------------------------------------------------------------------------
 vtkImageFlip::vtkImageFlip()
@@ -236,7 +219,7 @@ void vtkImageFlip::ThreadedExecute(vtkImageData *inData,
 
 void vtkImageFlip::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImageToImageFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "FilteredAxis: " << this->FilteredAxis << "\n";
 

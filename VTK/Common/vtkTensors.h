@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensors.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:26 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2002-01-04 14:22:43 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -59,7 +59,7 @@ public:
   static vtkTensors *New(int dataType);
   static vtkTensors *New();
 
-  vtkTypeMacro(vtkTensors,vtkAttributeData);
+  vtkTypeRevisionMacro(vtkTensors,vtkAttributeData);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

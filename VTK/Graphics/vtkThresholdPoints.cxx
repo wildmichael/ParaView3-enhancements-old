@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThresholdPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:42:16 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2002-01-04 14:26:42 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,18 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkThresholdPoints.h"
 #include "vtkObjectFactory.h"
 
-//--------------------------------------------------------------------------
-vtkThresholdPoints* vtkThresholdPoints::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkThresholdPoints");
-  if(ret)
-    {
-    return (vtkThresholdPoints*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkThresholdPoints;
-}
+vtkCxxRevisionMacro(vtkThresholdPoints, "$Revision: 1.31 $");
+vtkStandardNewMacro(vtkThresholdPoints);
 
 // Construct with lower threshold=0, upper threshold=1, and threshold 
 // function=upper.
@@ -164,7 +154,7 @@ void vtkThresholdPoints::Execute()
 
 void vtkThresholdPoints::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataSetToPolyDataFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Lower Threshold: " << this->LowerThreshold << "\n";;
   os << indent << "Upper Threshold: " << this->UpperThreshold << "\n";;

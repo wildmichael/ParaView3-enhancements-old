@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-28 13:23:49 $
-  Version:   $Revision: 1.132 $
+  Date:      $Date: 2002-01-04 14:20:52 $
+  Version:   $Revision: 1.133 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,19 +58,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkFloatArray.h"
 #include "vtkDoubleArray.h"
 
-
-//----------------------------------------------------------------------------
-vtkImageData* vtkImageData::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageData");
-  if (ret)
-    {
-    return (vtkImageData*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageData;
-}
+vtkCxxRevisionMacro(vtkImageData, "$Revision: 1.133 $");
+vtkStandardNewMacro(vtkImageData);
 
 //----------------------------------------------------------------------------
 vtkImageData::vtkImageData()
@@ -1038,11 +1027,11 @@ int vtkImageData::ComputeStructuredCoordinates(float x[3], int ijk[3],
 //----------------------------------------------------------------------------
 void vtkImageData::PrintSelf(ostream& os, vtkIndent indent)
 {
+  this->Superclass::PrintSelf(os,indent);
+
   int idx;
   int *dims = this->GetDimensions();
   
-  vtkDataSet::PrintSelf(os,indent);
-
   os << indent << "ScalarType: " << this->ScalarType << endl;
   os << indent << "NumberOfScalarComponents: " << 
     this->NumberOfScalarComponents << endl;

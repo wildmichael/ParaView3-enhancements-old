@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTIFFReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:34 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-01-04 14:28:01 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -83,7 +83,7 @@ class VTK_IO_EXPORT vtkTIFFReader : public vtkImageReader
 {
 public:
   static vtkTIFFReader *New();
-  vtkTypeMacro(vtkTIFFReader,vtkImageReader);
+  vtkTypeRevisionMacro(vtkTIFFReader,vtkImageReader);
   
 protected:
   vtkTIFFReader() {};

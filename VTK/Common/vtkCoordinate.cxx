@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCoordinate.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:09:37 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2002-01-04 14:20:36 $
+  Version:   $Revision: 1.26 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen
 All rights reserved.
@@ -38,25 +38,12 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-
 #include "vtkCoordinate.h"
 #include "vtkViewport.h"
 #include "vtkObjectFactory.h"
 
-//------------------------------------------------------------------------------
-vtkCoordinate* vtkCoordinate::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkCoordinate");
-  if(ret)
-    {
-    return (vtkCoordinate*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkCoordinate;
-}
-
-
+vtkCxxRevisionMacro(vtkCoordinate, "$Revision: 1.26 $");
+vtkStandardNewMacro(vtkCoordinate);
 
 #define VTK_RINT(x) ((x > 0.0) ? (int)(x + 0.5) : (int)(x - 0.5))
 
@@ -106,7 +93,7 @@ const char *vtkCoordinate::GetCoordinateSystemAsString()
 
 void vtkCoordinate::PrintSelf(ostream& os, vtkIndent indent)
 {
-  this->vtkObject::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
 
   os << indent << "Coordinate System: " << this->GetCoordinateSystemAsString() << "\n";

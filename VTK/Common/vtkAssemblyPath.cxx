@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssemblyPath.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:06 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-01-04 14:20:32 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,18 +44,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkTransform.h"
 #include "vtkObjectFactory.h"
 
-//-----------------------------------------------------------------------------
-vtkAssemblyPath* vtkAssemblyPath::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkAssemblyPath");
-  if(ret)
-    {
-    return (vtkAssemblyPath*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkAssemblyPath;
-}
+vtkCxxRevisionMacro(vtkAssemblyPath, "$Revision: 1.4 $");
+vtkStandardNewMacro(vtkAssemblyPath);
 
 vtkAssemblyPath::vtkAssemblyPath()
 {
@@ -164,7 +154,7 @@ unsigned long vtkAssemblyPath::GetMTime()
 
 void vtkAssemblyPath::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkCollection::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 }
 
 

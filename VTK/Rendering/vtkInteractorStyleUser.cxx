@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleUser.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-07 16:20:30 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-01-04 14:29:47 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -46,19 +46,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkOldStyleCallbackCommand.h"
 
-
-//----------------------------------------------------------------------------
-vtkInteractorStyleUser* vtkInteractorStyleUser::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkInteractorStyleUser");
-  if(ret)
-    {
-    return (vtkInteractorStyleUser*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkInteractorStyleUser;
-}
+vtkCxxRevisionMacro(vtkInteractorStyleUser, "$Revision: 1.21 $");
+vtkStandardNewMacro(vtkInteractorStyleUser);
 
 //----------------------------------------------------------------------------
 vtkInteractorStyleUser::vtkInteractorStyleUser()
@@ -88,7 +77,7 @@ vtkInteractorStyleUser::~vtkInteractorStyleUser()
 //----------------------------------------------------------------------------
 void vtkInteractorStyleUser::PrintSelf(ostream& os, vtkIndent indent) 
 {
-  this->vtkInteractorStyleSwitch::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "LastPos: (" << this->LastPos[0] << ", " 
                                << this->LastPos[1] << ")\n";  

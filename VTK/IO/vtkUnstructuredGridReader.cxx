@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:30:36 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 2002-01-04 14:28:02 $
+  Version:   $Revision: 1.62 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,18 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkByteSwap.h"
 #include "vtkObjectFactory.h"
 
-//---------------------------------------------------------------------------
-vtkUnstructuredGridReader* vtkUnstructuredGridReader::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkUnstructuredGridReader");
-  if(ret)
-    {
-    return (vtkUnstructuredGridReader*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkUnstructuredGridReader;
-}
+vtkCxxRevisionMacro(vtkUnstructuredGridReader, "$Revision: 1.62 $");
+vtkStandardNewMacro(vtkUnstructuredGridReader);
 
 #ifdef read
 #undef read
@@ -417,5 +407,5 @@ void vtkUnstructuredGridReader::Execute()
 
 void vtkUnstructuredGridReader::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataReader::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 }

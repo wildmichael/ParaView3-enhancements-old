@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:13:59 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2002-01-04 14:26:29 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,18 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
-//----------------------------------------------------------------------------
-vtkStreamPoints* vtkStreamPoints::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkStreamPoints");
-  if(ret)
-    {
-    return (vtkStreamPoints*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkStreamPoints;
-}
+vtkCxxRevisionMacro(vtkStreamPoints, "$Revision: 1.34 $");
+vtkStandardNewMacro(vtkStreamPoints);
 
 // Construct object with time increment set to 1.0.
 vtkStreamPoints::vtkStreamPoints()
@@ -181,7 +171,7 @@ void vtkStreamPoints::Execute()
 
 void vtkStreamPoints::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkStreamer::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Time Increment: " << this->TimeIncrement << " <<\n";
 }

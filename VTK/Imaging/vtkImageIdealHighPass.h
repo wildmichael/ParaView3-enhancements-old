@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIdealHighPass.h,v $
   Language:  C++
-  Date:      $Date: 2001-12-07 14:03:51 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-01-04 14:28:44 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -63,7 +63,7 @@ class VTK_IMAGING_EXPORT vtkImageIdealHighPass : public vtkImageToImageFilter
 {
 public:
   static vtkImageIdealHighPass *New();
-  vtkTypeMacro(vtkImageIdealHighPass,vtkImageToImageFilter);
+  vtkTypeRevisionMacro(vtkImageIdealHighPass,vtkImageToImageFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

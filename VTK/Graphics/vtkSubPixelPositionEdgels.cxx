@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSubPixelPositionEdgels.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:13:59 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2002-01-04 14:26:35 $
+  Version:   $Revision: 1.38 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -43,18 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
-//----------------------------------------------------------------------------
-vtkSubPixelPositionEdgels* vtkSubPixelPositionEdgels::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkSubPixelPositionEdgels");
-  if(ret)
-    {
-    return (vtkSubPixelPositionEdgels*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkSubPixelPositionEdgels;
-}
+vtkCxxRevisionMacro(vtkSubPixelPositionEdgels, "$Revision: 1.38 $");
+vtkStandardNewMacro(vtkSubPixelPositionEdgels);
 
 vtkSubPixelPositionEdgels::vtkSubPixelPositionEdgels()
 {
@@ -419,7 +409,7 @@ vtkStructuredPoints *vtkSubPixelPositionEdgels::GetGradMaps()
 // Print the state of the class.
 void vtkSubPixelPositionEdgels::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   if ( this->GetGradMaps() )
     {

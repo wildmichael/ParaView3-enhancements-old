@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTetra.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:10:00 $
-  Version:   $Revision: 1.68 $
+  Date:      $Date: 2002-01-04 14:22:44 $
+  Version:   $Revision: 1.69 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -48,18 +48,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkUnstructuredGrid.h"
 #include "vtkObjectFactory.h"
 
-//--------------------------------------------------------------------------
-vtkTetra* vtkTetra::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkTetra");
-  if(ret)
-    {
-    return (vtkTetra*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkTetra;
-}
+vtkCxxRevisionMacro(vtkTetra, "$Revision: 1.69 $");
+vtkStandardNewMacro(vtkTetra);
 
 // Construct the tetra with four points.
 vtkTetra::vtkTetra()

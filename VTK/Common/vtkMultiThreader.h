@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiThreader.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:17 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2002-01-04 14:21:20 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -148,7 +148,7 @@ class VTK_COMMON_EXPORT vtkMultiThreader : public vtkObject
 public:
   static vtkMultiThreader *New();
 
-  vtkTypeMacro(vtkMultiThreader,vtkObject);
+  vtkTypeRevisionMacro(vtkMultiThreader,vtkObject);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

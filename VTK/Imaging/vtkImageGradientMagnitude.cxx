@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGradientMagnitude.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:51 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2002-01-04 14:28:41 $
+  Version:   $Revision: 1.28 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,29 +39,13 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include <math.h>
-
 #include "vtkImageGradientMagnitude.h"
 #include "vtkObjectFactory.h"
 
+#include <math.h>
 
-
-//------------------------------------------------------------------------------
-vtkImageGradientMagnitude* vtkImageGradientMagnitude::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageGradientMagnitude");
-  if(ret)
-    {
-    return (vtkImageGradientMagnitude*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageGradientMagnitude;
-}
-
-
-
-
+vtkCxxRevisionMacro(vtkImageGradientMagnitude, "$Revision: 1.28 $");
+vtkStandardNewMacro(vtkImageGradientMagnitude);
 
 //----------------------------------------------------------------------------
 // Construct an instance of vtkImageGradientMagnitude fitler.
@@ -75,7 +59,7 @@ vtkImageGradientMagnitude::vtkImageGradientMagnitude()
 //----------------------------------------------------------------------------
 void vtkImageGradientMagnitude::PrintSelf(ostream& os, vtkIndent indent)
 {
-  this->vtkImageToImageFilter::PrintSelf(os, indent);
+  this->Superclass::PrintSelf(os, indent);
   os << indent << "HandleBoundaries: " << this->HandleBoundaries << "\n";
   os << indent << "Dimensionality: " << this->Dimensionality << "\n";
 }

@@ -3,8 +3,8 @@
   Program: 
   Module:    $RCSfile: otherCellPosition.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-07 16:00:06 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-01-04 14:23:22 $
+  Version:   $Revision: 1.3 $
 
   ==========================================================================*/
 
@@ -324,8 +324,8 @@ void Test(ostream& strm)
   vtkVoxel *voxel = vtkVoxel::New();
   float voxelCoords[3], voxelWeights[8], voxelPosition[3];
   float voxelPoint[9][3] = {{10, 10, 10}, {12, 10, 10}, {12, 12, 10}, {10, 12, 10},
-			    {10, 10, 12}, {12, 10, 12}, {12, 12, 12}, {10, 12, 12},
-			    {11, 11, 11}};
+                            {10, 10, 12}, {12, 10, 12}, {12, 12, 12}, {10, 12, 12},
+                            {11, 11, 11}};
   float voxelClosest[3];
 
   voxel->GetPointIds()->SetNumberOfIds(8);
@@ -365,8 +365,8 @@ void Test(ostream& strm)
   vtkHexahedron *hexahedron = vtkHexahedron::New();
   float hexahedronCoords[3], hexahedronWeights[8], hexahedronPosition[3];
   float hexahedronPoint[9][3] = {{10, 10, 10}, {12, 10, 10}, {12, 12, 10}, {10, 12, 10},
-				 {10, 10, 12}, {12, 10, 12}, {12, 12, 12}, {10, 12, 12},
-				 {11, 11, 11}};
+                                 {10, 10, 12}, {12, 10, 12}, {12, 12, 12}, {10, 12, 12},
+                                 {11, 11, 11}};
   float hexahedronClosest[3];
 
   hexahedron->GetPointIds()->SetNumberOfIds(8);

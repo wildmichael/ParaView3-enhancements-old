@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericCell.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:09:25 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-01-04 14:20:47 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,7 +60,7 @@ public:
   // Create handle to any type of cell; by default a vtkEmptyCell.
   static vtkGenericCell *New();
 
-  vtkTypeMacro(vtkGenericCell,vtkCell);
+  vtkTypeRevisionMacro(vtkGenericCell,vtkCell);
 
   // Description:
   // See the vtkCell API for descriptions of these methods.

@@ -3,8 +3,8 @@
 Program:   Visualization Toolkit
 Module:    $RCSfile: vtkPlaneCollection.cxx,v $
 Language:  C++
-Date:      $Date: 2000-12-10 20:08:14 $
-Version:   $Revision: 1.4 $
+Date:      $Date: 2002-01-04 14:21:40 $
+Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,20 +42,5 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkPlaneCollection.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkPlaneCollection* vtkPlaneCollection::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkPlaneCollection");
-  if(ret)
-    {
-    return (vtkPlaneCollection*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkPlaneCollection;
-}
-
-
-
+vtkCxxRevisionMacro(vtkPlaneCollection, "$Revision: 1.5 $");
+vtkStandardNewMacro(vtkPlaneCollection);

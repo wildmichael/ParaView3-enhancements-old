@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCGMWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:42:45 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-01-04 14:27:24 $
+  Version:   $Revision: 1.6 $
   Credit:    The origin of much of this code was from the cd package
              written by G. Edward Johnson at the National Institute 
              of Standards and Technology (US).
@@ -44,6 +44,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkCGMWriter.h"
 #include "vtkMath.h"
 #include "vtkUnsignedCharArray.h"
+
+vtkCxxRevisionMacro(vtkCGMWriter, "$Revision: 1.6 $");
 
 vtkCGMWriter::vtkCGMWriter()
 {
@@ -788,7 +790,7 @@ void vtkCGMWriter::WriteData()
 
 void vtkCGMWriter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolyDataWriter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   if ( this->Viewport )
     {

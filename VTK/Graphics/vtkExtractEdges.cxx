@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractEdges.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-27 13:38:51 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2002-01-04 14:25:21 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,18 +44,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkMergePoints.h"
 #include "vtkObjectFactory.h"
 
-//-------------------------------------------------------------------------
-vtkExtractEdges* vtkExtractEdges::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkExtractEdges");
-  if(ret)
-    {
-    return (vtkExtractEdges*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkExtractEdges;
-}
+vtkCxxRevisionMacro(vtkExtractEdges, "$Revision: 1.40 $");
+vtkStandardNewMacro(vtkExtractEdges);
 
 // Construct object.
 vtkExtractEdges::vtkExtractEdges()
@@ -212,7 +202,7 @@ void vtkExtractEdges::CreateDefaultLocator()
 
 void vtkExtractEdges::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataSetToPolyDataFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   if ( this->Locator )
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkByteSwap.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-15 21:33:56 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2002-01-04 14:20:33 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -54,7 +54,7 @@ class VTK_COMMON_EXPORT vtkByteSwap : public vtkObject
 {
 public:
   static vtkByteSwap *New();
-  vtkTypeMacro(vtkByteSwap,vtkObject);
+  vtkTypeRevisionMacro(vtkByteSwap,vtkObject);
 
   // Description:
   // Swap 2 byte word to be LE.

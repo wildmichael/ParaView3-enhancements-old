@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSocketCommunicator.h,v $
   Language:  C++
-  Date:      $Date: 2001-12-20 20:28:34 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-01-04 14:29:26 $
+  Version:   $Revision: 1.21 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -86,7 +86,7 @@ class VTK_PARALLEL_EXPORT vtkSocketCommunicator : public vtkCommunicator
 {
 public:
   static vtkSocketCommunicator *New();
-  vtkTypeMacro(vtkSocketCommunicator,vtkCommunicator);
+  vtkTypeRevisionMacro(vtkSocketCommunicator,vtkCommunicator);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

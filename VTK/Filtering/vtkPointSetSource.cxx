@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSetSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:46 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-01-04 14:24:20 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,23 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkPointSetSource.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkPointSetSource* vtkPointSetSource::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkPointSetSource");
-  if(ret)
-    {
-    return (vtkPointSetSource*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkPointSetSource;
-}
-
-
-
+vtkCxxRevisionMacro(vtkPointSetSource, "$Revision: 1.7 $");
+vtkStandardNewMacro(vtkPointSetSource);
 
 //----------------------------------------------------------------------------
 vtkPointSetSource::vtkPointSetSource()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLoad.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:33:01 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2002-01-04 14:29:14 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,23 +44,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkPointLoad* vtkPointLoad::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkPointLoad");
-  if(ret)
-    {
-    return (vtkPointLoad*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkPointLoad;
-}
-
-
-
+vtkCxxRevisionMacro(vtkPointLoad, "$Revision: 1.39 $");
+vtkStandardNewMacro(vtkPointLoad);
 
 // Construct with ModelBounds=(-1,1,-1,1,-1,1), SampleDimensions=(50,50,50),
 // and LoadValue = 1.
@@ -261,7 +246,7 @@ void vtkPointLoad::Execute()
 
 void vtkPointLoad::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkStructuredPointsSource::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Load Value: " << this->LoadValue << "\n";
   os << indent << "Sample Dimensions: (" << this->SampleDimensions[0] << ", "

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHomogeneousTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:09:44 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-01-04 14:20:49 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,9 +39,10 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-
 #include "vtkHomogeneousTransform.h"
 #include "vtkMath.h"
+
+vtkCxxRevisionMacro(vtkHomogeneousTransform, "$Revision: 1.5 $");
 
 //----------------------------------------------------------------------------
 vtkHomogeneousTransform::vtkHomogeneousTransform()
@@ -61,7 +62,7 @@ vtkHomogeneousTransform::~vtkHomogeneousTransform()
 //----------------------------------------------------------------------------
 void vtkHomogeneousTransform::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkAbstractTransform::PrintSelf(os, indent);
+  this->Superclass::PrintSelf(os, indent);
   os << indent << "Matrix: (" << this->Matrix << ")\n";
   if (this->Matrix)
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPOPReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-28 13:25:14 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-01-04 14:29:24 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -49,18 +49,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkImageWrapPad.h"
 #include "vtkObjectFactory.h"
 
-//-------------------------------------------------------------------------
-vtkPOPReader* vtkPOPReader::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkPOPReader");
-  if(ret)
-    {
-    return (vtkPOPReader*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkPOPReader;
-}
+vtkCxxRevisionMacro(vtkPOPReader, "$Revision: 1.8 $");
+vtkStandardNewMacro(vtkPOPReader);
 
 //----------------------------------------------------------------------------
 vtkPOPReader::vtkPOPReader()
@@ -943,7 +933,7 @@ void vtkPOPReader::ReadFlow()
 //----------------------------------------------------------------------------
 void vtkPOPReader::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkStructuredGridSource::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   if (this->FileName)
     {

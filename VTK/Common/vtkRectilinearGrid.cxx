@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-15 14:20:15 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2002-01-04 14:22:20 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -47,19 +47,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
-
-//----------------------------------------------------------------------------
-vtkRectilinearGrid* vtkRectilinearGrid::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkRectilinearGrid");
-  if(ret)
-    {
-    return (vtkRectilinearGrid*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkRectilinearGrid;
-}
+vtkCxxRevisionMacro(vtkRectilinearGrid, "$Revision: 1.49 $");
+vtkStandardNewMacro(vtkRectilinearGrid);
 
 //----------------------------------------------------------------------------
 vtkRectilinearGrid::vtkRectilinearGrid()
@@ -1121,7 +1110,7 @@ void vtkRectilinearGrid::Crop()
 //----------------------------------------------------------------------------
 void vtkRectilinearGrid::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataSet::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Dimensions: (" << this->Dimensions[0] << ", "
                                   << this->Dimensions[1] << ", "

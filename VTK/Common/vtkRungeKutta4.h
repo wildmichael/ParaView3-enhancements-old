@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRungeKutta4.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:09:30 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-01-04 14:22:27 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,7 +58,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class VTK_COMMON_EXPORT vtkRungeKutta4 : public vtkInitialValueProblemSolver
 {
 public:
-  vtkTypeMacro(vtkRungeKutta4,vtkInitialValueProblemSolver);
+  vtkTypeRevisionMacro(vtkRungeKutta4,vtkInitialValueProblemSolver);
   virtual void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFunctionParser.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:09:25 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-01-04 14:20:45 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -94,7 +94,7 @@ class VTK_COMMON_EXPORT vtkFunctionParser : public vtkObject
 {
 public:
   static vtkFunctionParser *New();
-  vtkTypeMacro(vtkFunctionParser, vtkObject);
+  vtkTypeRevisionMacro(vtkFunctionParser, vtkObject);
   void PrintSelf(ostream& os, vtkIndent indent);
   
   // Decription:

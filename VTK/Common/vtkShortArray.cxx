@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShortArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-03 15:02:29 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2002-01-04 14:22:32 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,18 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkShortArray.h"
 #include "vtkObjectFactory.h"
 
-//----------------------------------------------------------------------------
-vtkShortArray* vtkShortArray::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkShortArray");
-  if(ret)
-    {
-    return (vtkShortArray*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkShortArray;
-}
+vtkCxxRevisionMacro(vtkShortArray, "$Revision: 1.48 $");
+vtkStandardNewMacro(vtkShortArray);
 
 vtkDataArray *vtkShortArray::MakeObject()
 {
@@ -177,7 +167,7 @@ void vtkShortArray::DeepCopy(vtkDataArray *sa)
 
 void vtkShortArray::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataArray::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   if (this->Array)
     {

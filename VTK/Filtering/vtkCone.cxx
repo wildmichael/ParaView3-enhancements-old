@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCone.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:32 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2002-01-04 14:23:52 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,23 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkCone* vtkCone::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkCone");
-  if(ret)
-    {
-    return (vtkCone*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkCone;
-}
-
-
-
+vtkCxxRevisionMacro(vtkCone, "$Revision: 1.23 $");
+vtkStandardNewMacro(vtkCone);
 
 // Construct cone with angle of 45 degrees.
 vtkCone::vtkCone()
@@ -87,7 +72,7 @@ void vtkCone::EvaluateGradient(float x[3], float g[3])
 
 void vtkCone::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImplicitFunction::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Angle: " << this->Angle << "\n";
 }

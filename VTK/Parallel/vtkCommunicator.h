@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCommunicator.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:25:56 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-01-04 14:29:18 $
+  Version:   $Revision: 1.13 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -67,7 +67,7 @@ class VTK_PARALLEL_EXPORT vtkCommunicator : public vtkObject
 
 public:
 
-  vtkTypeMacro(vtkCommunicator, vtkObject);
+  vtkTypeRevisionMacro(vtkCommunicator, vtkObject);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

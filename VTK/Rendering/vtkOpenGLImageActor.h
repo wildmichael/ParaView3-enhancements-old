@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageActor.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:17 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-01-04 14:29:57 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,7 +57,7 @@ class VTK_RENDERING_EXPORT vtkOpenGLImageActor : public vtkImageActor
 {
 public:
   static vtkOpenGLImageActor *New();
-  vtkTypeMacro(vtkOpenGLImageActor,vtkImageActor);
+  vtkTypeRevisionMacro(vtkOpenGLImageActor,vtkImageActor);
 
   // Description:
   // Implement base class method.

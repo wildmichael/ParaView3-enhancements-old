@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCompositeManager.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-31 16:36:11 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-01-04 14:29:19 $
+  Version:   $Revision: 1.3 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -67,7 +67,7 @@ class vtkTimerLog;
 class VTK_PARALLEL_EXPORT vtkCompositeManager : public vtkObject
 {
 public:
-  vtkTypeMacro(vtkCompositeManager,vtkObject);
+  vtkTypeRevisionMacro(vtkCompositeManager,vtkObject);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

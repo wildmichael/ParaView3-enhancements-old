@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMaskPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-29 17:36:33 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2002-01-04 14:25:43 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,18 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
 
-//----------------------------------------------------------------------------
-vtkMaskPoints* vtkMaskPoints::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkMaskPoints");
-  if(ret)
-    {
-    return (vtkMaskPoints*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkMaskPoints;
-}
+vtkCxxRevisionMacro(vtkMaskPoints, "$Revision: 1.38 $");
+vtkStandardNewMacro(vtkMaskPoints);
 
 //----------------------------------------------------------------------------
 vtkMaskPoints::vtkMaskPoints()
@@ -186,7 +176,7 @@ void vtkMaskPoints::Execute()
 //----------------------------------------------------------------------------
 void vtkMaskPoints::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataSetToPolyDataFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Generate Vertices: " 
      << (this->GenerateVertices ? "On\n" : "Off\n");

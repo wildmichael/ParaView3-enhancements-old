@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageOpenClose3D.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:50 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-01-04 14:29:03 $
+  Version:   $Revision: 1.24 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,7 +68,7 @@ public:
   // Description:
   // Default open value is 0, and default close value is 255.
   static vtkImageOpenClose3D *New();
-  vtkTypeMacro(vtkImageOpenClose3D,vtkImageToImageFilter);
+  vtkTypeRevisionMacro(vtkImageOpenClose3D,vtkImageToImageFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

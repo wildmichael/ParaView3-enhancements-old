@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-16 15:08:08 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2002-01-04 14:30:13 $
+  Version:   $Revision: 1.35 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -41,6 +41,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 #include "vtkTextMapper.h"
 #include "vtkImagingFactory.h"
+
+vtkCxxRevisionMacro(vtkTextMapper, "$Revision: 1.35 $");
 
 // Creates a new text mapper with Font size 12, bold off, italic off,
 // and Arial font
@@ -105,7 +107,7 @@ vtkTextMapper::~vtkTextMapper()
 //----------------------------------------------------------------------------
 void vtkTextMapper::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkMapper2D::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Line Offset: " << this->LineOffset;
   os << indent << "Line Spacing: " << this->LineSpacing;

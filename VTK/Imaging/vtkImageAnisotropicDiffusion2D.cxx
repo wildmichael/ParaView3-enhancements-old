@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAnisotropicDiffusion2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:43 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2002-01-04 14:28:10 $
+  Version:   $Revision: 1.40 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,28 +39,13 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include <math.h>
 #include "vtkImageAnisotropicDiffusion2D.h"
 #include "vtkObjectFactory.h"
 
+#include <math.h>
 
-
-//------------------------------------------------------------------------------
-vtkImageAnisotropicDiffusion2D* vtkImageAnisotropicDiffusion2D::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageAnisotropicDiffusion2D");
-  if(ret)
-    {
-    return (vtkImageAnisotropicDiffusion2D*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageAnisotropicDiffusion2D;
-}
-
-
-
-
+vtkCxxRevisionMacro(vtkImageAnisotropicDiffusion2D, "$Revision: 1.40 $");
+vtkStandardNewMacro(vtkImageAnisotropicDiffusion2D);
 
 //----------------------------------------------------------------------------
 // Construct an instance of vtkImageAnisotropicDiffusion2D fitler.
@@ -86,7 +71,7 @@ vtkImageAnisotropicDiffusion2D::vtkImageAnisotropicDiffusion2D()
 void 
 vtkImageAnisotropicDiffusion2D::PrintSelf(ostream& os, vtkIndent indent)
 {
-  this->vtkImageSpatialFilter::PrintSelf(os, indent);
+  this->Superclass::PrintSelf(os, indent);
   os << indent << "NumberOfIterations: " << this->NumberOfIterations << "\n";
   os << indent << "DiffusionThreshold: " << this->DiffusionThreshold << "\n";
   os << indent << "DiffusionFactor: " << this->DiffusionFactor << "\n";

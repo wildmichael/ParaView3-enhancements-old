@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageStencil.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-07 21:14:23 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-01-04 14:29:11 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to David G Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -41,20 +41,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 #include "vtkImageStencil.h"
 #include "vtkObjectFactory.h"
+
 #include <math.h>
 
-//----------------------------------------------------------------------------
-vtkImageStencil* vtkImageStencil::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageStencil");
-  if(ret)
-    {
-    return (vtkImageStencil*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageStencil;
-}
+vtkCxxRevisionMacro(vtkImageStencil, "$Revision: 1.5 $");
+vtkStandardNewMacro(vtkImageStencil);
 
 //----------------------------------------------------------------------------
 vtkImageStencil::vtkImageStencil()
@@ -374,7 +365,7 @@ void vtkImageStencil::ThreadedExecute(vtkImageData *inData,
 
 void vtkImageStencil::PrintSelf(ostream& os, vtkIndent indent)
 {
-  this->vtkImageToImageFilter::PrintSelf(os, indent);
+  this->Superclass::PrintSelf(os, indent);
 
   os << indent << "Stencil: " << this->GetStencil() << "\n";
   os << indent << "ReverseStencil: " << (this->ReverseStencil ?

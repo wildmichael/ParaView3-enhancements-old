@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-26 15:45:51 $
-  Version:   $Revision: 1.99 $
+  Date:      $Date: 2002-01-04 14:22:47 $
+  Version:   $Revision: 1.100 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,23 +39,14 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS EVEN, SOFTWARE IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include <stdlib.h>
 #include "vtkTransform.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
 
-//----------------------------------------------------------------------------
-vtkTransform* vtkTransform::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkTransform");
-  if(ret)
-    {
-    return (vtkTransform*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkTransform;
-}
+#include <stdlib.h>
+
+vtkCxxRevisionMacro(vtkTransform, "$Revision: 1.100 $");
+vtkStandardNewMacro(vtkTransform);
 
 //----------------------------------------------------------------------------
 vtkTransform::vtkTransform()
@@ -97,7 +88,7 @@ void vtkTransform::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->Update();
 
-  this->vtkLinearTransform::PrintSelf(os, indent);
+  this->Superclass::PrintSelf(os, indent);
   os << indent << "Input: (" << this->Input << ")\n";
   os << indent << "InverseFlag: " << this->GetInverseFlag() << "\n";
   os << indent << "NumberOfConcatenatedTransforms: " <<

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPropCollection.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:22 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-01-04 14:22:11 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,7 +58,7 @@ class VTK_COMMON_EXPORT vtkPropCollection : public vtkCollection
 {
  public:
   static vtkPropCollection *New();
-  vtkTypeMacro(vtkPropCollection,vtkCollection);
+  vtkTypeRevisionMacro(vtkPropCollection,vtkCollection);
 
   // Description:
   // Add an Prop to the list.

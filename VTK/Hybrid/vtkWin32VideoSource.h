@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32VideoSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-16 04:21:25 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-01-04 14:27:19 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -59,7 +59,7 @@ class VTK_HYBRID_EXPORT vtkWin32VideoSource : public vtkVideoSource
 {
 public:
   static vtkWin32VideoSource *New();
-  vtkTypeMacro(vtkWin32VideoSource,vtkVideoSource);
+  vtkTypeRevisionMacro(vtkWin32VideoSource,vtkVideoSource);
   void PrintSelf(ostream& os, vtkIndent indent);   
 
   // Description:
@@ -136,7 +136,7 @@ protected:
 
   void CheckBuffer();
   void UnpackRasterLine(char *outptr, char *inptr, 
-			int start, int count);
+                        int start, int count);
 
   void DoVFWFormatSetup();
   void DoVFWFormatCheck();

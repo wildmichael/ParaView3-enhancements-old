@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJPEGReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-03 22:51:40 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-01-04 14:27:40 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -47,19 +47,8 @@ extern "C" {
 #include <setjmp.h>
 }
 
-//-------------------------------------------------------------------------
-vtkJPEGReader* vtkJPEGReader::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkJPEGReader");
-  if(ret)
-    {
-    return (vtkJPEGReader*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkJPEGReader;
-}
-
+vtkCxxRevisionMacro(vtkJPEGReader, "$Revision: 1.4 $");
+vtkStandardNewMacro(vtkJPEGReader);
 
 void vtkJPEGReader::ExecuteInformation()
 {

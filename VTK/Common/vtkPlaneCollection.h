@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlaneCollection.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:19 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-01-04 14:21:41 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -55,7 +55,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class VTK_COMMON_EXPORT vtkPlaneCollection : public vtkCollection
 {
 public:
-  vtkTypeMacro(vtkPlaneCollection,vtkCollection);
+  vtkTypeRevisionMacro(vtkPlaneCollection,vtkCollection);
   static vtkPlaneCollection *New();
 
   // Description:

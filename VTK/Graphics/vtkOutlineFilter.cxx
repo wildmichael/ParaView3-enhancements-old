@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutlineFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:45 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2002-01-04 14:25:51 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,23 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkOutlineSource.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkOutlineFilter* vtkOutlineFilter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkOutlineFilter");
-  if(ret)
-    {
-    return (vtkOutlineFilter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkOutlineFilter;
-}
-
-
-
+vtkCxxRevisionMacro(vtkOutlineFilter, "$Revision: 1.28 $");
+vtkStandardNewMacro(vtkOutlineFilter);
 
 vtkOutlineFilter::vtkOutlineFilter ()
 {

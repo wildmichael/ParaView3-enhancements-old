@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleFlight.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:11 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-01-04 14:29:44 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to John Biddiscombe of the Rutherford Appleton Laboratory
              who developed this class.
 
@@ -72,7 +72,7 @@ class VTK_RENDERING_EXPORT vtkInteractorStyleFlight : public vtkInteractorStyle
 {
 public:
   static vtkInteractorStyleFlight *New();
-  vtkTypeMacro(vtkInteractorStyleFlight,vtkInteractorStyle);
+  vtkTypeRevisionMacro(vtkInteractorStyleFlight,vtkInteractorStyle);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

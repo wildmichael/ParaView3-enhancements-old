@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorDot.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:42:23 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2002-01-04 14:26:49 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,18 +44,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
-//--------------------------------------------------------------------------
-vtkVectorDot* vtkVectorDot::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkVectorDot");
-  if(ret)
-    {
-    return (vtkVectorDot*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkVectorDot;
-}
+vtkCxxRevisionMacro(vtkVectorDot, "$Revision: 1.32 $");
+vtkStandardNewMacro(vtkVectorDot);
 
 // Construct object with scalar range is (-1,1).
 vtkVectorDot::vtkVectorDot()
@@ -161,7 +151,7 @@ void vtkVectorDot::Execute()
 
 void vtkVectorDot::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataSetToDataSetFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Scalar Range: (" << this->ScalarRange[0] << ", "
                                     << this->ScalarRange[1] << ")\n";

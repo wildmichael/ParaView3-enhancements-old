@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:30:32 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-01-04 14:27:34 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -46,7 +46,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkRectilinearGrid.h"
 #include "vtkStructuredPoints.h"
 #include "vtkFloatArray.h"
+
 #include <ctype.h>
+
+vtkCxxRevisionMacro(vtkEnSightReader, "$Revision: 1.27 $");
 
 //----------------------------------------------------------------------------
 vtkEnSightReader::vtkEnSightReader()
@@ -1935,7 +1938,7 @@ void vtkEnSightReader::ReplaceWildcards(char* filename, int num)
 
 void vtkEnSightReader::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataSetSource::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "CaseFileName: "
      << (this->CaseFileName ? this->CaseFileName : "(none)") << endl;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSimpleImageFilterExample.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:33:02 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-01-04 14:29:16 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,18 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkSimpleImageFilterExample.h"
 #include "vtkObjectFactory.h"
 
-//------------------------------------------------------------------------------
-vtkSimpleImageFilterExample* vtkSimpleImageFilterExample::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkSimpleImageFilterExample");
-  if(ret)
-    {
-    return (vtkSimpleImageFilterExample*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkSimpleImageFilterExample;
-}
+vtkCxxRevisionMacro(vtkSimpleImageFilterExample, "$Revision: 1.6 $");
+vtkStandardNewMacro(vtkSimpleImageFilterExample);
 
 // The switch statement in Execute will call this method with
 // the appropriate input type (IT). Note that this example assumes

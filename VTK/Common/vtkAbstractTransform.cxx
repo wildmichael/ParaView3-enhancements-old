@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-30 14:38:02 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-01-04 14:20:31 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -46,6 +46,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkDebugLeaks.h"
 #include "vtkCriticalSection.h"
 
+vtkCxxRevisionMacro(vtkAbstractTransform, "$Revision: 1.20 $");
+
 //----------------------------------------------------------------------------
 vtkAbstractTransform::vtkAbstractTransform()
 {
@@ -76,7 +78,7 @@ vtkAbstractTransform::~vtkAbstractTransform()
 //----------------------------------------------------------------------------
 void vtkAbstractTransform::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkObject::PrintSelf(os, indent);
+  this->Superclass::PrintSelf(os, indent);
   os << indent << "Inverse: (" << this->MyInverse << ")\n";
 }
 
@@ -388,7 +390,7 @@ void vtkAbstractTransform::UnRegister(vtkObject *o)
 class vtkSimpleTransform : public vtkHomogeneousTransform
 {
 public:
-  vtkTypeMacro(vtkSimpleTransform,vtkHomogeneousTransform);
+  vtkTypeRevisionMacro(vtkSimpleTransform,vtkHomogeneousTransform);
   static vtkSimpleTransform *New() {
 #ifdef VTK_DEBUG_LEAKS
     vtkDebugLeaks::ConstructClass("vtkSimpleTransform");
@@ -401,6 +403,8 @@ protected:
   vtkSimpleTransform(const vtkSimpleTransform&);
   void operator=(const vtkSimpleTransform&);
 };
+
+vtkCxxRevisionMacro(vtkSimpleTransform, "$Revision: 1.20 $");
 
 //----------------------------------------------------------------------------
 vtkTransformConcatenation::vtkTransformConcatenation()

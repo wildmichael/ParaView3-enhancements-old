@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInputPort.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-08 16:09:05 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-01-04 14:29:20 $
+  Version:   $Revision: 1.8 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -50,20 +50,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkCommand.h"
 
-
-//----------------------------------------------------------------------------
-vtkInputPort* vtkInputPort::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkInputPort");
-  if(ret)
-    {
-    return (vtkInputPort*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkInputPort;
-}
-
+vtkCxxRevisionMacro(vtkInputPort, "$Revision: 1.8 $");
+vtkStandardNewMacro(vtkInputPort);
 
 //----------------------------------------------------------------------------
 vtkInputPort::vtkInputPort()
@@ -92,7 +80,7 @@ vtkInputPort::~vtkInputPort()
 //----------------------------------------------------------------------------
 void vtkInputPort::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkSource::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
   os << indent << "RemoteProcessId: " << this->RemoteProcessId << endl;
   os << indent << "Tag: " << this->Tag << endl;
   os << indent << "Controller: (" << this->Controller << ")\n";

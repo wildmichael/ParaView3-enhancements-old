@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEncodedGradientEstimator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:17:40 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2002-01-04 14:29:38 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,10 +39,13 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include <math.h>
 #include "vtkEncodedGradientEstimator.h"
 #include "vtkRecursiveSphereDirectionEncoder.h"
 #include "vtkTimerLog.h"
+
+#include <math.h>
+
+vtkCxxRevisionMacro(vtkEncodedGradientEstimator, "$Revision: 1.29 $");
 
 // Construct a vtkEncodedGradientEstimator with initial values of NULL for
 // the Input, EncodedNormal, and GradientMagnitude. Also,
@@ -314,7 +317,7 @@ void vtkEncodedGradientEstimator::ComputeCircleLimits( int size )
 // Print the vtkEncodedGradientEstimator
 void vtkEncodedGradientEstimator::PrintSelf(ostream& os, vtkIndent indent)
 {
-  this->vtkObject::PrintSelf(os, indent);
+  this->Superclass::PrintSelf(os, indent);
 
   if ( this->Input )
     {

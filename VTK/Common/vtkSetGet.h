@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSetGet.h,v $
   Language:  C++
-  Date:      $Date: 2001-12-28 15:33:08 $
-  Version:   $Revision: 1.91 $
+  Date:      $Date: 2002-01-04 14:22:31 $
+  Version:   $Revision: 1.92 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -593,28 +593,55 @@ virtual float *Get##name() \
 // a subclass of the named class.
 //
 #define vtkTypeMacro(thisClass,superclass) \
-virtual const char *GetClassName() {return #thisClass;};\
-static int IsTypeOf(const char *type) \
-{ \
-  if ( !strcmp(#thisClass,type) ) \
-    { \
-    return 1; \
-    } \
-  return superclass::IsTypeOf(type); \
-} \
-virtual int IsA(const char *type) \
-{ \
-  return this->thisClass::IsTypeOf(type); \
-} \
-static thisClass* SafeDownCast(vtkObject *o) \
-{ \
-  if ( o && o->IsA(#thisClass) ) \
-    { \
-    return (thisClass *)o; \
-    } \
-  return NULL;\
-}
+  typedef superclass Superclass; \
+  virtual const char *GetClassName() {return #thisClass;} \
+  static int IsTypeOf(const char *type) \
+  { \
+    if ( !strcmp(#thisClass,type) ) \
+      { \
+      return 1; \
+      } \
+    return superclass::IsTypeOf(type); \
+  } \
+  virtual int IsA(const char *type) \
+  { \
+    return this->thisClass::IsTypeOf(type); \
+  } \
+  static thisClass* SafeDownCast(vtkObject *o) \
+  { \
+    if ( o && o->IsA(#thisClass) ) \
+      { \
+      return (thisClass *)o; \
+      } \
+    return NULL;\
+  }
 
+// Version of vtkTypeMacro that adds the CollectRevisions method.
+#define vtkTypeRevisionMacro(thisClass,superclass) \
+  vtkTypeMacro(thisClass,superclass) \
+  protected: \
+  void CollectRevisions(ostream& os); \
+  public:
+
+// Macro to implement the standard CollectRevisions method.
+#define vtkCxxRevisionMacro(thisClass, revision) \
+  void thisClass::CollectRevisions(ostream& os) \
+  { \
+    this->Superclass::CollectRevisions(os); \
+    os << #thisClass " " revision "\n"; \
+  }
+
+// Macro to implement the standard form of the New() method.
+#define vtkStandardNewMacro(thisClass) \
+  thisClass* thisClass::New() \
+  { \
+    vtkObject* ret = vtkObjectFactory::CreateInstance(#thisClass); \
+    if(ret) \
+      { \
+      return static_cast<thisClass*>(ret); \
+      } \
+    return new thisClass; \
+  }
 
 // The following macros are all just there to centralize the template 
 // switch code so that every execute method doesn't have to have the same

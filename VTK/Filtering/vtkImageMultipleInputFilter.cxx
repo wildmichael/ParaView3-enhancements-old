@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:12:59 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2002-01-04 14:24:05 $
+  Version:   $Revision: 1.55 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,24 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkImageMultipleInputFilter.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkImageMultipleInputFilter* vtkImageMultipleInputFilter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageMultipleInputFilter");
-  if(ret)
-    {
-    return (vtkImageMultipleInputFilter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageMultipleInputFilter;
-}
-
-
-
-
+vtkCxxRevisionMacro(vtkImageMultipleInputFilter, "$Revision: 1.55 $");
+vtkStandardNewMacro(vtkImageMultipleInputFilter);
 
 //----------------------------------------------------------------------------
 vtkImageMultipleInputFilter::vtkImageMultipleInputFilter()
@@ -80,7 +64,9 @@ vtkImageMultipleInputFilter::~vtkImageMultipleInputFilter()
 
 //----------------------------------------------------------------------------
 void vtkImageMultipleInputFilter::PrintSelf(ostream& os, vtkIndent indent)
-{
+{  
+  this->Superclass::PrintSelf(os,indent);
+  
   os << indent << "NumberOfThreads: " << this->NumberOfThreads << "\n";
   if ( this->Bypass )
     {
@@ -90,8 +76,6 @@ void vtkImageMultipleInputFilter::PrintSelf(ostream& os, vtkIndent indent)
     {
     os << indent << "Bypass: Off\n";
     }
-  
-  vtkImageSource::PrintSelf(os,indent);
 }
 
 

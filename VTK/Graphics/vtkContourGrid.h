@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourGrid.h,v $
   Language:  C++
-  Date:      $Date: 2001-12-10 21:27:01 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-01-04 14:25:10 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -85,7 +85,7 @@ class vtkEdgeTable;
 class VTK_GRAPHICS_EXPORT vtkContourGrid : public vtkUnstructuredGridToPolyDataFilter
 {
 public:
-  vtkTypeMacro(vtkContourGrid,vtkUnstructuredGridToPolyDataFilter);
+  vtkTypeRevisionMacro(vtkContourGrid,vtkUnstructuredGridToPolyDataFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

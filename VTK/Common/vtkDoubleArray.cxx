@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDoubleArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-03 15:02:00 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2002-01-04 14:20:40 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,20 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkDoubleArray.h"
 #include "vtkObjectFactory.h"
 
-
-
-//----------------------------------------------------------------------------
-vtkDoubleArray* vtkDoubleArray::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkDoubleArray");
-  if(ret)
-    {
-    return (vtkDoubleArray*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkDoubleArray;
-}
+vtkCxxRevisionMacro(vtkDoubleArray, "$Revision: 1.41 $");
+vtkStandardNewMacro(vtkDoubleArray);
 
 vtkDataArray *vtkDoubleArray::MakeObject()
 {
@@ -182,7 +170,7 @@ void vtkDoubleArray::DeepCopy(vtkDataArray *fa)
 
 void vtkDoubleArray::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataArray::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   if (this->Array)
     {

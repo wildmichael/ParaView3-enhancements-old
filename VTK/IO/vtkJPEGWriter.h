@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJPEGWriter.h,v $
   Language:  C++
-  Date:      $Date: 2001-12-28 13:24:48 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-01-04 14:27:41 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,7 +57,7 @@ class VTK_IO_EXPORT vtkJPEGWriter : public vtkImageWriter
 {
 public:
   static vtkJPEGWriter *New();
-  vtkTypeMacro(vtkJPEGWriter,vtkImageWriter);
+  vtkTypeRevisionMacro(vtkJPEGWriter,vtkImageWriter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:17:55 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-01-04 14:29:58 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,23 +44,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "GL/gl.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkOpenGLImageWindow* vtkOpenGLImageWindow::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkOpenGLImageWindow");
-  if(ret)
-    {
-    return (vtkOpenGLImageWindow*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkOpenGLImageWindow;
-}
-
-
-
+vtkCxxRevisionMacro(vtkOpenGLImageWindow, "$Revision: 1.21 $");
+vtkStandardNewMacro(vtkOpenGLImageWindow);
 
 XVisualInfo *vtkOpenGLImageWindowTryForVisual(Display *DisplayId,
                                               int doublebuff)
@@ -375,7 +360,7 @@ Colormap vtkOpenGLImageWindow::GetDesiredColormap ()
 
 void vtkOpenGLImageWindow::PrintSelf(ostream& os, vtkIndent indent)
 {
-  this->vtkImageWindow::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "ContextId: " << this->ContextId << "\n";
 }

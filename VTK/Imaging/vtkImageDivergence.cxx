@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDivergence.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:48 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-01-04 14:28:32 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,26 +39,13 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include <math.h>
-
 #include "vtkImageDivergence.h"
 #include "vtkObjectFactory.h"
 
+#include <math.h>
 
-
-//------------------------------------------------------------------------------
-vtkImageDivergence* vtkImageDivergence::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageDivergence");
-  if(ret)
-    {
-    return (vtkImageDivergence*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageDivergence;
-}
-
+vtkCxxRevisionMacro(vtkImageDivergence, "$Revision: 1.21 $");
+vtkStandardNewMacro(vtkImageDivergence);
 
 //----------------------------------------------------------------------------
 // This method tells the superclass that the first axis will collapse.

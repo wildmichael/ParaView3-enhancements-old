@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageStencil.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:54 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-01-04 14:29:12 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to David G Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -55,7 +55,7 @@ class VTK_IMAGING_EXPORT vtkImageStencil : public vtkImageToImageFilter
 {
 public:
   static vtkImageStencil *New();
-  vtkTypeMacro(vtkImageStencil, vtkImageToImageFilter);
+  vtkTypeRevisionMacro(vtkImageStencil, vtkImageToImageFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

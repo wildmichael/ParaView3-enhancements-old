@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:09:54 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2002-01-04 14:21:51 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -54,6 +54,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkDoubleArray.h"
 #include "vtkIdTypeArray.h"
 
+vtkCxxRevisionMacro(vtkPoints, "$Revision: 1.43 $");
 
 //----------------------------------------------------------------------------
 vtkPoints* vtkPoints::New(int dataType)
@@ -304,9 +305,9 @@ unsigned long vtkPoints::GetActualMemorySize()
 
 void vtkPoints::PrintSelf(ostream& os, vtkIndent indent)
 {
+  this->Superclass::PrintSelf(os,indent);
+  
   float *bounds;
-
-  vtkObject::PrintSelf(os,indent);
 
   os << indent << "Data: " << this->Data << "\n";
   if ( this->Data )

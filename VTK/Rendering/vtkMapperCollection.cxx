@@ -3,8 +3,8 @@
 Program:   Visualization Toolkit
 Module:    $RCSfile: vtkMapperCollection.cxx,v $
 Language:  C++
-Date:      $Date: 2000-12-10 20:08:42 $
-Version:   $Revision: 1.4 $
+Date:      $Date: 2002-01-04 14:29:50 $
+Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,20 +42,5 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkMapperCollection.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkMapperCollection* vtkMapperCollection::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkMapperCollection");
-  if(ret)
-    {
-    return (vtkMapperCollection*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkMapperCollection;
-}
-
-
-
+vtkCxxRevisionMacro(vtkMapperCollection, "$Revision: 1.5 $");
+vtkStandardNewMacro(vtkMapperCollection);

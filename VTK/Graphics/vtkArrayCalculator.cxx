@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArrayCalculator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-27 19:51:26 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-01-04 14:24:49 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,18 +44,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkDoubleArray.h"
 #include "vtkObjectFactory.h"
 
-//----------------------------------------------------------------------------
-vtkArrayCalculator* vtkArrayCalculator::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkArrayCalculator");
-  if(ret)
-    {
-    return (vtkArrayCalculator*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkArrayCalculator;
-}
+vtkCxxRevisionMacro(vtkArrayCalculator, "$Revision: 1.19 $");
+vtkStandardNewMacro(vtkArrayCalculator);
 
 vtkArrayCalculator::vtkArrayCalculator()
 {
@@ -822,7 +812,7 @@ int* vtkArrayCalculator::GetSelectedVectorComponents(int i)
 
 void vtkArrayCalculator::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataSetToDataSetFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Function: " 
      << (this->Function ? this->Function : "(none)") << endl;

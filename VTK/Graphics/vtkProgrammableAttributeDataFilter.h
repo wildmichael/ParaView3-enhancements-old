@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableAttributeDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:11 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-01-04 14:26:00 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -105,7 +105,7 @@ class VTK_GRAPHICS_EXPORT vtkProgrammableAttributeDataFilter : public vtkDataSet
 {
 public:
   static vtkProgrammableAttributeDataFilter *New();
-  vtkTypeMacro(vtkProgrammableAttributeDataFilter,vtkDataSetToDataSetFilter);
+  vtkTypeRevisionMacro(vtkProgrammableAttributeDataFilter,vtkDataSetToDataSetFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-30 13:23:57 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2002-01-04 14:20:37 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -56,6 +56,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkCriticalSection.h"
 #include "vtkIdList.h"
 #include "vtkMath.h"
+
+vtkCxxRevisionMacro(vtkDataArray, "$Revision: 1.45 $");
 
 // Construct object with default tuple dimension (number of components) of 1.
 vtkDataArray::vtkDataArray(vtkIdType numComp)
@@ -923,7 +925,7 @@ double vtkDataArray::GetDataTypeMax()
 
 void vtkDataArray::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkObject::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   const char* name = this->GetName();
   if (name)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:56 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-01-04 14:24:42 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,23 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkUnstructuredGridSource.h"
 #include "vtkObjectFactory.h"
 
-
-
-//----------------------------------------------------------------------------
-vtkUnstructuredGridSource* vtkUnstructuredGridSource::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkUnstructuredGridSource");
-  if(ret)
-    {
-    return (vtkUnstructuredGridSource*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkUnstructuredGridSource;
-}
-
-
-
+vtkCxxRevisionMacro(vtkUnstructuredGridSource, "$Revision: 1.22 $");
+vtkStandardNewMacro(vtkUnstructuredGridSource);
 
 //----------------------------------------------------------------------------
 vtkUnstructuredGridSource::vtkUnstructuredGridSource()

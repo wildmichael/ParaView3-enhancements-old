@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimatePro.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-19 14:49:39 $
-  Version:   $Revision: 1.66 $
+  Date:      $Date: 2002-01-04 14:25:14 $
+  Version:   $Revision: 1.67 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -47,19 +47,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
-
-//--------------------------------------------------------------------------
-vtkDecimatePro* vtkDecimatePro::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkDecimatePro");
-  if(ret)
-    {
-    return (vtkDecimatePro*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkDecimatePro;
-}
+vtkCxxRevisionMacro(vtkDecimatePro, "$Revision: 1.67 $");
+vtkStandardNewMacro(vtkDecimatePro);
 
 #define VTK_TOLERANCE 1.0e-05
 #define VTK_MAX_TRIS_PER_VERTEX VTK_CELL_SIZE
@@ -1675,7 +1664,7 @@ void vtkDecimatePro::DistributeError(float error)
 
 void vtkDecimatePro::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Target Reduction: " << this->TargetReduction << "\n";
   os << indent << "Feature Angle: " << this->FeatureAngle << "\n";

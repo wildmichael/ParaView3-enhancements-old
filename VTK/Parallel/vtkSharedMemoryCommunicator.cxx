@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSharedMemoryCommunicator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-15 14:20:23 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-01-04 14:29:26 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,22 +57,12 @@ public:
   vtkSharedMemoryCommunicatorMessage* Previous;
 };
 
-vtkSharedMemoryCommunicator* vtkSharedMemoryCommunicator::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkSharedMemoryCommunicator");
-  if(ret)
-    {
-    return (vtkSharedMemoryCommunicator*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkSharedMemoryCommunicator;
-}
-
+vtkCxxRevisionMacro(vtkSharedMemoryCommunicator, "$Revision: 1.11 $");
+vtkStandardNewMacro(vtkSharedMemoryCommunicator);
 
 void vtkSharedMemoryCommunicator::PrintSelf(ostream& os, vtkIndent indent)
 {
-  this->vtkCommunicator::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
   os << indent << "Number of threads: " << this->NumberOfThreads << endl;
   os << indent << "Initialized: " << (this->Initialized ? "(yes)" : "(no)")
      << endl;

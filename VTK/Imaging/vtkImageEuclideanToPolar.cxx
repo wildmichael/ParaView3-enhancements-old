@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageEuclideanToPolar.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:49 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-01-04 14:28:35 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,29 +39,13 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include <math.h>
 #include "vtkImageEuclideanToPolar.h"
 #include "vtkObjectFactory.h"
 
+#include <math.h>
 
-
-//------------------------------------------------------------------------------
-vtkImageEuclideanToPolar* vtkImageEuclideanToPolar::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageEuclideanToPolar");
-  if(ret)
-    {
-    return (vtkImageEuclideanToPolar*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageEuclideanToPolar;
-}
-
-
-
-
-
+vtkCxxRevisionMacro(vtkImageEuclideanToPolar, "$Revision: 1.20 $");
+vtkStandardNewMacro(vtkImageEuclideanToPolar);
 
 //----------------------------------------------------------------------------
 vtkImageEuclideanToPolar::vtkImageEuclideanToPolar()
@@ -184,7 +168,7 @@ void vtkImageEuclideanToPolar::ThreadedExecute(vtkImageData *inData,
 
 void vtkImageEuclideanToPolar::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImageToImageFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Maximum Angle: " << this->ThetaMaximum << "\n";
 }

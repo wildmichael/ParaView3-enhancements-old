@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:49 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-01-04 14:27:54 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,23 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkRectilinearGridWriter.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkRectilinearGridWriter* vtkRectilinearGridWriter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkRectilinearGridWriter");
-  if(ret)
-    {
-    return (vtkRectilinearGridWriter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkRectilinearGridWriter;
-}
-
-
-
+vtkCxxRevisionMacro(vtkRectilinearGridWriter, "$Revision: 1.17 $");
+vtkStandardNewMacro(vtkRectilinearGridWriter);
 
 //----------------------------------------------------------------------------
 // Specify the input data or filter.
@@ -115,5 +100,5 @@ void vtkRectilinearGridWriter::WriteData()
 
 void vtkRectilinearGridWriter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataWriter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 }

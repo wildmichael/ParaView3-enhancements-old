@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReslice.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:52 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-01-04 14:29:09 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -92,7 +92,7 @@ class VTK_IMAGING_EXPORT vtkImageReslice : public vtkImageToImageFilter
 {
 public:
   static vtkImageReslice *New();
-  vtkTypeMacro(vtkImageReslice, vtkImageToImageFilter);
+  vtkTypeRevisionMacro(vtkImageReslice, vtkImageToImageFilter);
 
   virtual void PrintSelf(ostream& os, vtkIndent indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableDataObjectSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:48 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-01-04 14:26:00 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,23 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkProgrammableDataObjectSource.h"
 #include "vtkObjectFactory.h"
 
-
-
-//----------------------------------------------------------------------------
-vtkProgrammableDataObjectSource* vtkProgrammableDataObjectSource::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkProgrammableDataObjectSource");
-  if(ret)
-    {
-    return (vtkProgrammableDataObjectSource*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkProgrammableDataObjectSource;
-}
-
-
-
+vtkCxxRevisionMacro(vtkProgrammableDataObjectSource, "$Revision: 1.13 $");
+vtkStandardNewMacro(vtkProgrammableDataObjectSource);
 
 // Construct programmable filter with empty execute method.
 vtkProgrammableDataObjectSource::vtkProgrammableDataObjectSource()
@@ -134,7 +119,7 @@ void vtkProgrammableDataObjectSource::Execute()
 
 void vtkProgrammableDataObjectSource::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkSource::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
   
   if ( this->ExecuteMethod )
     {

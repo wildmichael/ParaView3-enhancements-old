@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-15 14:20:20 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-01-04 14:27:03 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,6 +44,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkLine.h"
 #include "vtkEdgeTable.h"
 #include "vtkAppendPolyData.h"
+
+vtkCxxRevisionMacro(vtkImageToPolyDataFilter, "$Revision: 1.16 $");
 
 vtkImageToPolyDataFilter::vtkImageToPolyDataFilter()
 {
@@ -559,7 +561,7 @@ void vtkImageToPolyDataFilter::BuildTable(unsigned char *vtkNotUsed(inPixels))
 
 void vtkImageToPolyDataFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkStructuredPointsToPolyDataFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
  
   os << indent << "Output Style: ";
   if ( this->OutputStyle == VTK_STYLE_PIXELIZE )

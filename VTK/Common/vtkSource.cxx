@@ -3,8 +3,8 @@
  Program:   Visualization Toolkit
  Module:    $RCSfile: vtkSource.cxx,v $
  Language:  C++
- Date:      $Date: 2001-12-28 00:38:35 $
- Version:   $Revision: 1.89 $
+ Date:      $Date: 2002-01-04 14:22:33 $
+ Version:   $Revision: 1.90 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -45,21 +45,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkCommand.h"
 #include "vtkErrorCode.h"
 
-//----------------------------------------------------------------------------
-vtkSource* vtkSource::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkSource");
-  if(ret)
-    {
-    return (vtkSource*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkSource;
-}
-
-
-
+vtkCxxRevisionMacro(vtkSource, "$Revision: 1.90 $");
+vtkStandardNewMacro(vtkSource);
 
 #ifndef NULL
 #define NULL 0
@@ -696,7 +683,7 @@ void vtkSource::ExecuteInformation()
 //----------------------------------------------------------------------------
 void vtkSource::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkProcessObject::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   if ( this->NumberOfOutputs)
     {

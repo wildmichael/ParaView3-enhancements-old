@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericCell.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:09:43 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-01-04 14:20:47 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,23 +57,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkPyramid.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkGenericCell* vtkGenericCell::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkGenericCell");
-  if(ret)
-    {
-    return (vtkGenericCell*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkGenericCell;
-}
-
-
-
+vtkCxxRevisionMacro(vtkGenericCell, "$Revision: 1.10 $");
+vtkStandardNewMacro(vtkGenericCell);
 
 // Construct cell.
 vtkGenericCell::vtkGenericCell()

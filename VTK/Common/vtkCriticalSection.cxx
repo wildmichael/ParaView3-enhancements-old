@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCriticalSection.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-09 20:37:59 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-01-04 14:20:37 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,20 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkCriticalSection.h"
 #include "vtkObjectFactory.h"
 
-
-
-//----------------------------------------------------------------------------
-vtkCriticalSection* vtkCriticalSection::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkCriticalSection");
-  if(ret)
-    {
-    return (vtkCriticalSection*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkCriticalSection;
-}
+vtkCxxRevisionMacro(vtkCriticalSection, "$Revision: 1.8 $");
+vtkStandardNewMacro(vtkCriticalSection);
 
 // New for the SimpleCriticalSection
 vtkSimpleCriticalSection *vtkSimpleCriticalSection::New()
@@ -147,6 +135,6 @@ vtkSimpleCriticalSection *vtkSimpleCriticalSection::SafeDownCast(vtkSimpleCritic
   
 void vtkCriticalSection::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkObject::PrintSelf(os, indent);
+  this->Superclass::PrintSelf(os, indent);
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTCoords.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:26 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 2002-01-04 14:22:40 $
+  Version:   $Revision: 1.53 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -62,7 +62,7 @@ public:
   static vtkTCoords *New();
 
 
-  vtkTypeMacro(vtkTCoords,vtkAttributeData);
+  vtkTypeRevisionMacro(vtkTCoords,vtkAttributeData);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

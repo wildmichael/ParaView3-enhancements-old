@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIslandRemoval2D.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:46 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2002-01-04 14:28:47 $
+  Version:   $Revision: 1.35 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,7 +68,7 @@ public:
   // Description:
   // Constructor: Sets default filter to be identity.
   static vtkImageIslandRemoval2D *New();
-  vtkTypeMacro(vtkImageIslandRemoval2D,vtkImageToImageFilter);
+  vtkTypeRevisionMacro(vtkImageIslandRemoval2D,vtkImageToImageFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:

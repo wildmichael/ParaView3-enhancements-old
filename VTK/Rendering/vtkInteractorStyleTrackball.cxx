@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleTrackball.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-16 16:36:15 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-01-04 14:29:46 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -46,18 +46,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkCommand.h"
 
-//---------------------------------------------------------------------------
-vtkInteractorStyleTrackball* vtkInteractorStyleTrackball::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkInteractorStyleTrackball");
-  if(ret)
-    {
-    return (vtkInteractorStyleTrackball*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkInteractorStyleTrackball;
-}
+vtkCxxRevisionMacro(vtkInteractorStyleTrackball, "$Revision: 1.22 $");
+vtkStandardNewMacro(vtkInteractorStyleTrackball);
 
 vtkInteractorStyleTrackball::vtkInteractorStyleTrackball()
 {
@@ -587,7 +577,7 @@ void vtkInteractorStyleTrackball::TrackballScaleActor(int x, int y)
 
 void vtkInteractorStyleTrackball::PrintSelf(ostream& os, vtkIndent indent) 
 {
-  this->vtkInteractorStyle::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Interaction Picker: " 
      << this->InteractionPicker << endl;

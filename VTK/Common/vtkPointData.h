@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointData.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:19 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2002-01-04 14:21:44 $
+  Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -56,7 +56,7 @@ class VTK_COMMON_EXPORT vtkPointData : public vtkDataSetAttributes
 public:
   static vtkPointData *New();
 
-  vtkTypeMacro(vtkPointData,vtkDataSetAttributes);
+  vtkTypeRevisionMacro(vtkPointData,vtkDataSetAttributes);
   void PrintSelf(ostream& os, vtkIndent indent);
   void NullPoint(vtkIdType ptId);
 

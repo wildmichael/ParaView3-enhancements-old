@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates2D.h,v $
   Language:  C++
-  Date:      $Date: 2001-12-10 21:29:28 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-01-04 14:29:33 $
+  Version:   $Revision: 1.21 $
 
 
 
@@ -76,7 +76,7 @@ class VTK_PATENTED_EXPORT vtkSynchronizedTemplates2D : public vtkPolyDataSource
 {
 public:
   static vtkSynchronizedTemplates2D *New();
-  vtkTypeMacro(vtkSynchronizedTemplates2D,vtkPolyDataSource);
+  vtkTypeRevisionMacro(vtkSynchronizedTemplates2D,vtkPolyDataSource);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

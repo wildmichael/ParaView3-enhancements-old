@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGridSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:51 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-01-04 14:28:42 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,23 +39,13 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include <math.h>
-
 #include "vtkImageGridSource.h"
 #include "vtkObjectFactory.h"
 
-//----------------------------------------------------------------------------
-vtkImageGridSource* vtkImageGridSource::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageGridSource");
-  if(ret)
-    {
-    return (vtkImageGridSource*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageGridSource;
-}
+#include <math.h>
+
+vtkCxxRevisionMacro(vtkImageGridSource, "$Revision: 1.6 $");
+vtkStandardNewMacro(vtkImageGridSource);
 
 //----------------------------------------------------------------------------
 vtkImageGridSource::vtkImageGridSource()
@@ -192,7 +182,7 @@ void vtkImageGridSource::ExecuteData(vtkDataObject *output)
 //----------------------------------------------------------------------------
 void vtkImageGridSource::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImageSource::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "GridSpacing: (" << this->GridSpacing[0] << ", "
                                    << this->GridSpacing[1] << ", "

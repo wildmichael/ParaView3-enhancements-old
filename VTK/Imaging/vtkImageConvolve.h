@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageConvolve.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-30 12:49:49 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-01-04 14:28:27 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to Z. F. Knops who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -56,7 +56,7 @@ public:
   // Description:
   // Construct an instance of vtkImageConvolve filter.
   static vtkImageConvolve *New();
-  vtkTypeMacro(vtkImageConvolve,vtkImageToImageFilter);
+  vtkTypeRevisionMacro(vtkImageConvolve,vtkImageToImageFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

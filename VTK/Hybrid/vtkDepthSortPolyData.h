@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDepthSortPolyData.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:24 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-01-04 14:27:00 $
+  Version:   $Revision: 1.8 $
   Thanks:    Scott Hill for implementing this class
 
 
@@ -76,7 +76,7 @@ public:
   // Instantiate object.
   static vtkDepthSortPolyData *New();
 
-  vtkTypeMacro(vtkDepthSortPolyData,vtkPolyDataToPolyDataFilter);
+  vtkTypeRevisionMacro(vtkDepthSortPolyData,vtkPolyDataToPolyDataFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCylinderSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:02 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2002-01-04 14:25:11 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,29 +39,15 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include <math.h>
 #include "vtkCylinderSource.h"
 #include "vtkPoints.h"
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
+#include <math.h>
 
-
-//----------------------------------------------------------------------------
-vtkCylinderSource* vtkCylinderSource::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkCylinderSource");
-  if(ret)
-    {
-    return (vtkCylinderSource*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkCylinderSource;
-}
-
-
-
+vtkCxxRevisionMacro(vtkCylinderSource, "$Revision: 1.47 $");
+vtkStandardNewMacro(vtkCylinderSource);
 
 vtkCylinderSource::vtkCylinderSource (int res)
 {
@@ -226,7 +212,7 @@ void vtkCylinderSource::Execute()
 
 void vtkCylinderSource::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolyDataSource::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Resolution: " << this->Resolution << "\n";
   os << indent << "Height: " << this->Height << "\n";

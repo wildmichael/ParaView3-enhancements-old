@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarBarActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:18:05 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2002-01-04 14:30:12 $
+  Version:   $Revision: 1.38 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -41,23 +41,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkScalarBarActor.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkScalarBarActor* vtkScalarBarActor::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkScalarBarActor");
-  if(ret)
-    {
-    return (vtkScalarBarActor*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkScalarBarActor;
-}
-
-
-
+vtkCxxRevisionMacro(vtkScalarBarActor, "$Revision: 1.38 $");
+vtkStandardNewMacro(vtkScalarBarActor);
 
 // Instantiate object with 64 maximum colors; 5 labels; font size 12
 // of font Arial (bolding, italic, shadows on); %%-#6.3g label
@@ -404,7 +389,7 @@ int vtkScalarBarActor::RenderOpaqueGeometry(vtkViewport *viewport)
 
 void vtkScalarBarActor::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkActor2D::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   if ( this->LookupTable )
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageNormalize.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:39 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-01-04 14:29:03 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -56,7 +56,7 @@ class VTK_IMAGING_EXPORT vtkImageNormalize : public vtkImageToImageFilter
 {
 public:
   static vtkImageNormalize *New();
-  vtkTypeMacro(vtkImageNormalize,vtkImageToImageFilter);
+  vtkTypeRevisionMacro(vtkImageNormalize,vtkImageToImageFilter);
 
 protected:
   vtkImageNormalize() {};

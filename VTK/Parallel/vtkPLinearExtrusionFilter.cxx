@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLinearExtrusionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-28 19:32:23 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-01-04 14:29:24 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,18 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkPLinearExtrusionFilter.h"
 #include "vtkObjectFactory.h"
 
-//----------------------------------------------------------------------------
-vtkPLinearExtrusionFilter *vtkPLinearExtrusionFilter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkPLinearExtrusionFilter");
-  if(ret)
-    {
-    return (vtkPLinearExtrusionFilter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkPLinearExtrusionFilter;
-}
+vtkCxxRevisionMacro(vtkPLinearExtrusionFilter, "$Revision: 1.2 $");
+vtkStandardNewMacro(vtkPLinearExtrusionFilter);
 
 //----------------------------------------------------------------------------
 vtkPLinearExtrusionFilter::vtkPLinearExtrusionFilter()
@@ -109,7 +99,7 @@ vtkPLinearExtrusionFilter::ComputeInputUpdateExtents(vtkDataObject *output)
 //----------------------------------------------------------------------------
 void vtkPLinearExtrusionFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkLinearExtrusionFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "PieceInvariant: "
      << this->PieceInvariant << "\n";

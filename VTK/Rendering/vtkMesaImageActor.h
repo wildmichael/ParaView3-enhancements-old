@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaImageActor.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:15 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-01-04 14:29:51 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,7 +57,7 @@ class VTK_RENDERING_EXPORT vtkMesaImageActor : public vtkImageActor
 {
 public:
   static vtkMesaImageActor *New();
-  vtkTypeMacro(vtkMesaImageActor,vtkImageActor);
+  vtkTypeRevisionMacro(vtkMesaImageActor,vtkImageActor);
 
   // Description:
   // Implement base class method.

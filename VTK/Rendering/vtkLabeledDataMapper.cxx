@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLabeledDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:17:49 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-01-04 14:29:48 $
+  Version:   $Revision: 1.27 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -42,23 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkDataSet.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkLabeledDataMapper* vtkLabeledDataMapper::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkLabeledDataMapper");
-  if(ret)
-    {
-    return (vtkLabeledDataMapper*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkLabeledDataMapper;
-}
-
-
-
+vtkCxxRevisionMacro(vtkLabeledDataMapper, "$Revision: 1.27 $");
+vtkStandardNewMacro(vtkLabeledDataMapper);
 
 // Instantiate object with font size 12 of font Arial (bolding,
 // italic, shadows on) and %%-#6.3g label format. By default, point ids
@@ -309,7 +294,7 @@ void vtkLabeledDataMapper::RenderOpaqueGeometry(vtkViewport *viewport,
 
 void vtkLabeledDataMapper::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkMapper2D::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   if ( this->Input )
     {

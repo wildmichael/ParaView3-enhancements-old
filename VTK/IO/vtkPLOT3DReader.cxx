@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLOT3DReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:30:34 $
-  Version:   $Revision: 1.62 $
+  Date:      $Date: 2002-01-04 14:27:44 $
+  Version:   $Revision: 1.63 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,25 +39,16 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include <ctype.h>
-#include <math.h>
 #include "vtkPLOT3DReader.h"
 #include "vtkByteSwap.h"
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
-//-------------------------------------------------------------------------
-vtkPLOT3DReader* vtkPLOT3DReader::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkPLOT3DReader");
-  if(ret)
-    {
-    return (vtkPLOT3DReader*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkPLOT3DReader;
-}
+#include <ctype.h>
+#include <math.h>
+
+vtkCxxRevisionMacro(vtkPLOT3DReader, "$Revision: 1.63 $");
+vtkStandardNewMacro(vtkPLOT3DReader);
 
 #define VTK_BINARY 0
 #define VTK_ASCII 1
@@ -1653,7 +1644,7 @@ int vtkPLOT3DReader::GetFileType(FILE *fp)
 
 void vtkPLOT3DReader::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkStructuredGridSource::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "XYZ File Name: " << 
     (this->XYZFileName ? this->XYZFileName : "(none)") << "\n";

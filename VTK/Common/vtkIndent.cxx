@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIndent.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-10 14:20:45 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-01-04 14:20:56 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,8 +42,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkIndent.h"
 #include "vtkObjectFactory.h"
 
-
-
 //------------------------------------------------------------------------------
 vtkIndent* vtkIndent::New()
 {
@@ -56,7 +54,6 @@ vtkIndent* vtkIndent::New()
   // If the factory was unable to create the object, then create it here.
   return new vtkIndent;
 }
-
 
 
 #define VTK_STD_INDENT 2

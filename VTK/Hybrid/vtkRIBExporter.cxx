@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:42:40 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2002-01-04 14:27:09 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -53,23 +53,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkAssemblyNode.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkRIBExporter* vtkRIBExporter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkRIBExporter");
-  if(ret)
-    {
-    return (vtkRIBExporter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkRIBExporter;
-}
-
-
-
+vtkCxxRevisionMacro(vtkRIBExporter, "$Revision: 1.38 $");
+vtkStandardNewMacro(vtkRIBExporter);
 
 typedef float RtColor[3];
 typedef float RtPoint[3];
@@ -987,7 +972,7 @@ void vtkRIBExporter::WriteStrips (vtkPolyData *polyData,
 
 void vtkRIBExporter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkExporter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
  
   if (this->FilePrefix)
     {

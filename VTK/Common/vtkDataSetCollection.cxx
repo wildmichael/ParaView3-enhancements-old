@@ -3,8 +3,8 @@
 Program:   Visualization Toolkit
 Module:    $RCSfile: vtkDataSetCollection.cxx,v $
 Language:  C++
-Date:      $Date: 2000-12-10 20:08:08 $
-Version:   $Revision: 1.4 $
+Date:      $Date: 2002-01-04 14:20:39 $
+Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,20 +42,5 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkDataSetCollection.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkDataSetCollection* vtkDataSetCollection::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkDataSetCollection");
-  if(ret)
-    {
-    return (vtkDataSetCollection*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkDataSetCollection;
-}
-
-
-
+vtkCxxRevisionMacro(vtkDataSetCollection, "$Revision: 1.5 $");
+vtkStandardNewMacro(vtkDataSetCollection);

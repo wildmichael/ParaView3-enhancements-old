@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutMaterial.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-06 14:11:37 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-01-04 14:29:19 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,7 +58,7 @@ class VTK_PARALLEL_EXPORT vtkCutMaterial : public vtkDataSetToPolyDataFilter
 {
 public:
   void PrintSelf(ostream& os, vtkIndent indent);
-  vtkTypeMacro(vtkCutMaterial,vtkDataSetToPolyDataFilter);
+  vtkTypeRevisionMacro(vtkCutMaterial,vtkDataSetToPolyDataFilter);
   static vtkCutMaterial *New();
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarsToColors.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-05 14:27:16 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-01-04 14:22:30 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,9 +39,11 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include <math.h>
 #include "vtkScalarsToColors.h"
 
+#include <math.h>
+
+vtkCxxRevisionMacro(vtkScalarsToColors, "$Revision: 1.16 $");
 
 // do not use SetMacro() because we do not the table to rebuild.
 void vtkScalarsToColors::SetAlpha(float alpha)
@@ -219,7 +221,7 @@ vtkUnsignedCharArray *vtkScalarsToColors::ConvertUnsignedCharToRGBA(
 
 void vtkScalarsToColors::PrintSelf(ostream& os, vtkIndent indent)
 {
-  this->vtkObject::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Alpha: " << this->Alpha << endl;
 }

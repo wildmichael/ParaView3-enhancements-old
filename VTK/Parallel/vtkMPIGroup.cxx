@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPIGroup.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-16 16:40:01 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-01-04 14:29:21 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,21 +44,12 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkMPIController.h"
 #include "vtkObjectFactory.h"
 
-vtkMPIGroup* vtkMPIGroup::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkMPIGroup");
-  if(ret)
-    {
-    return (vtkMPIGroup*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkMPIGroup;
-}
+vtkCxxRevisionMacro(vtkMPIGroup, "$Revision: 1.2 $");
+vtkStandardNewMacro(vtkMPIGroup);
 
 void vtkMPIGroup::PrintSelf(ostream& os, vtkIndent indent)
 {
-  this->vtkObject::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
   os << indent << "Initialized : ";
   if (this->Initialized)
     {

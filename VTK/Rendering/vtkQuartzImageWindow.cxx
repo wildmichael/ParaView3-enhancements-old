@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuartzImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:18:02 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-01-04 14:30:07 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -50,23 +50,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkQuartzImageWindow.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkQuartzImageWindow* vtkQuartzImageWindow::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkQuartzImageWindow");
-  if(ret)
-    {
-    return (vtkQuartzImageWindow*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkQuartzImageWindow;
-}
-
-
-
+vtkCxxRevisionMacro(vtkQuartzImageWindow, "$Revision: 1.3 $");
+vtkStandardNewMacro(vtkQuartzImageWindow);
 
 vtkQuartzImageWindow::vtkQuartzImageWindow()
 {
@@ -284,7 +269,7 @@ int *vtkQuartzImageWindow::GetPosition(void)
 
 void vtkQuartzImageWindow::PrintSelf(ostream& os, vtkIndent indent)
 {
-  this->vtkImageWindow::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "ContextId: " << this->ContextId << "\n";
   os << indent << "Next Window Id: " << this->NextWindowId << "\n";

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinkEdgels.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:13:49 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2002-01-04 14:25:42 $
+  Version:   $Revision: 1.26 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -76,7 +76,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class VTK_GRAPHICS_EXPORT vtkLinkEdgels : public vtkStructuredPointsToPolyDataFilter
 {
 public:
-  vtkTypeMacro(vtkLinkEdgels,vtkStructuredPointsToPolyDataFilter);
+  vtkTypeRevisionMacro(vtkLinkEdgels,vtkStructuredPointsToPolyDataFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

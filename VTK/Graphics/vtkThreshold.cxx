@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreshold.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-10 21:27:57 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 2002-01-04 14:26:42 $
+  Version:   $Revision: 1.57 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,18 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkThreshold.h"
 #include "vtkObjectFactory.h"
 
-//---------------------------------------------------------------------------
-vtkThreshold* vtkThreshold::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkThreshold");
-  if(ret)
-    {
-    return (vtkThreshold*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkThreshold;
-}
+vtkCxxRevisionMacro(vtkThreshold, "$Revision: 1.57 $");
+vtkStandardNewMacro(vtkThreshold);
 
 // Construct with lower threshold=0, upper threshold=1, and threshold 
 // function=upper AllScalars=1.
@@ -290,7 +280,7 @@ const char *vtkThreshold::GetAttributeModeAsString(void)
 
 void vtkThreshold::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataSetToUnstructuredGridFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Attribute Mode: " << this->GetAttributeModeAsString() << endl;
   if (this->InputScalarsSelection)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:17:24 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-01-04 14:29:58 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,7 +60,7 @@ class VTK_RENDERING_EXPORT vtkOpenGLImageWindow : public vtkXImageWindow
 {
 public:
   static vtkOpenGLImageWindow *New();
-  vtkTypeMacro(vtkOpenGLImageWindow,vtkXImageWindow);
+  vtkTypeRevisionMacro(vtkOpenGLImageWindow,vtkXImageWindow);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

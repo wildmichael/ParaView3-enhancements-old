@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLineSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-26 15:02:52 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2002-01-04 14:25:40 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,29 +39,14 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include <math.h>
 #include "vtkLineSource.h"
 #include "vtkPoints.h"
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkLineSource* vtkLineSource::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkLineSource");
-  if(ret)
-    {
-    return (vtkLineSource*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkLineSource;
-}
-
-
-
+#include <math.h>
+vtkCxxRevisionMacro(vtkLineSource, "$Revision: 1.39 $");
+vtkStandardNewMacro(vtkLineSource);
 
 vtkLineSource::vtkLineSource(int res)
 {
@@ -140,7 +125,7 @@ void vtkLineSource::Execute()
 
 void vtkLineSource::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolyDataSource::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Resolution: " << this->Resolution << "\n";
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetTriangleFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-15 14:20:19 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-01-04 14:25:14 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -46,19 +46,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkOrderedTriangulator.h"
 #include "vtkObjectFactory.h"
 
-//------------------------------------------------------------------------
-vtkDataSetTriangleFilter* vtkDataSetTriangleFilter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret =
-    vtkObjectFactory::CreateInstance("vtkDataSetTriangleFilter");
-  if(ret)
-    {
-    return (vtkDataSetTriangleFilter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkDataSetTriangleFilter;
-}
+vtkCxxRevisionMacro(vtkDataSetTriangleFilter, "$Revision: 1.11 $");
+vtkStandardNewMacro(vtkDataSetTriangleFilter);
 
 vtkDataSetTriangleFilter::~vtkDataSetTriangleFilter()
 {
@@ -292,6 +281,6 @@ void vtkDataSetTriangleFilter::UnstructuredExecute()
 
 void vtkDataSetTriangleFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataSetToUnstructuredGridFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 }
 

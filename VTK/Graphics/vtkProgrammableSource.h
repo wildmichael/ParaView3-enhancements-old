@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:12 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-01-04 14:26:04 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -74,7 +74,7 @@ class VTK_GRAPHICS_EXPORT vtkProgrammableSource : public vtkSource
 {
 public:
   static vtkProgrammableSource *New();
-  vtkTypeMacro(vtkProgrammableSource,vtkSource);
+  vtkTypeRevisionMacro(vtkProgrammableSource,vtkSource);
 
   // Description:
   // Specify the function to use to generate the source data. Note

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRTAnalyticSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:25:57 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-01-04 14:29:26 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -54,7 +54,7 @@ class VTK_PARALLEL_EXPORT vtkRTAnalyticSource : public vtkImageSource
 {
 public:
   static vtkRTAnalyticSource *New();
-  vtkTypeMacro(vtkRTAnalyticSource,vtkImageSource);
+  vtkTypeRevisionMacro(vtkRTAnalyticSource,vtkImageSource);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

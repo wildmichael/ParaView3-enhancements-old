@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCardinalSpline.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:12:54 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-01-04 14:23:47 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,7 +60,7 @@ class VTK_FILTERING_EXPORT vtkCardinalSpline : public vtkSpline
 public:
   static vtkCardinalSpline *New();
 
-  vtkTypeMacro(vtkCardinalSpline,vtkSpline);
+  vtkTypeRevisionMacro(vtkCardinalSpline,vtkSpline);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtk3DSImporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-26 14:46:40 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-01-04 14:26:56 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -46,18 +46,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkStripper.h"
 #include "vtkObjectFactory.h"
 
-//-------------------------------------------------------------------------
-vtk3DSImporter* vtk3DSImporter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtk3DSImporter");
-  if(ret)
-    {
-    return (vtk3DSImporter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtk3DSImporter;
-}
+vtkCxxRevisionMacro(vtk3DSImporter, "$Revision: 1.25 $");
+vtkStandardNewMacro(vtk3DSImporter);
 
 static Colour Black = {0.0, 0.0, 0.0};
 static char   obj_name[80] = "";
@@ -1308,7 +1298,7 @@ vtk3DSImporter::~vtk3DSImporter()
 
 void vtk3DSImporter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImporter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
   os << indent << "File Name: " 
      << (this->FileName ? this->FileName : "(none)") << "\n";
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRuledSurfaceFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-29 15:04:57 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-01-04 14:26:16 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,18 +44,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
 
-//-----------------------------------------------------------------------
-vtkRuledSurfaceFilter* vtkRuledSurfaceFilter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkRuledSurfaceFilter");
-  if(ret)
-    {
-    return (vtkRuledSurfaceFilter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkRuledSurfaceFilter;
-}
+vtkCxxRevisionMacro(vtkRuledSurfaceFilter, "$Revision: 1.14 $");
+vtkStandardNewMacro(vtkRuledSurfaceFilter);
 
 vtkRuledSurfaceFilter::vtkRuledSurfaceFilter()
 {
@@ -504,7 +494,7 @@ const char *vtkRuledSurfaceFilter::GetRuledModeAsString(void)
 
 void vtkRuledSurfaceFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Distance Factor: " << this->DistanceFactor << "\n";
   os << indent << "On Ratio: " << this->OnRatio << "\n";

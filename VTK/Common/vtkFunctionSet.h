@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFunctionSet.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:13 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-01-04 14:20:45 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,7 +58,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class VTK_COMMON_EXPORT vtkFunctionSet : public vtkObject
 {
 public:
-  vtkTypeMacro(vtkFunctionSet,vtkObject);
+  vtkTypeRevisionMacro(vtkFunctionSet,vtkObject);
   virtual void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

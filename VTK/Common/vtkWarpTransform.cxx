@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:10:02 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-01-04 14:23:09 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,14 +39,15 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-
 #include "vtkWarpTransform.h"
 #include "vtkMath.h"
+
+vtkCxxRevisionMacro(vtkWarpTransform, "$Revision: 1.8 $");
 
 //----------------------------------------------------------------------------
 void vtkWarpTransform::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkAbstractTransform::PrintSelf(os, indent);
+  this->Superclass::PrintSelf(os, indent);
 
   os << indent << "InverseFlag: " << this->InverseFlag << "\n";
   os << indent << "InverseTolerance: " << this->InverseTolerance << "\n";

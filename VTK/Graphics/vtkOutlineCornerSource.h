@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutlineCornerSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:10 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-01-04 14:25:51 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to Sebastien Barre who developed this class.
 
 
@@ -53,7 +53,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class VTK_GRAPHICS_EXPORT vtkOutlineCornerSource : public vtkOutlineSource
 {
 public:
-  vtkTypeMacro(vtkOutlineCornerSource,vtkOutlineSource);
+  vtkTypeRevisionMacro(vtkOutlineCornerSource,vtkOutlineSource);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

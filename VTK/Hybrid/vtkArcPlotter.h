@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArcPlotter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:23 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-01-04 14:26:58 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -83,7 +83,7 @@ public:
   // VTK_SCALARS.
   static vtkArcPlotter *New() {return new vtkArcPlotter;};
 
-  vtkTypeMacro(vtkArcPlotter,vtkPolyDataToPolyDataFilter);
+  vtkTypeRevisionMacro(vtkArcPlotter,vtkPolyDataToPolyDataFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

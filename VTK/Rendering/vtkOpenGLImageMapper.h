@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:17:24 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-01-04 14:29:57 $
+  Version:   $Revision: 1.16 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -58,7 +58,7 @@ class VTK_RENDERING_EXPORT vtkOpenGLImageMapper : public vtkImageMapper
 {
 public:
   static vtkOpenGLImageMapper *New();
-  vtkTypeMacro(vtkOpenGLImageMapper,vtkImageMapper);
+  vtkTypeRevisionMacro(vtkOpenGLImageMapper,vtkImageMapper);
   
   // Description:
   // Handle the render method.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObjectFactory.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:09:27 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-01-04 14:21:26 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to William A. Hoffman who developed this class
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -128,7 +128,7 @@ public:
   // Instance methods to be used on individual instances of vtkObjectFactory
   
   // Methods from vtkObject
-  vtkTypeMacro(vtkObjectFactory,vtkObject);
+  vtkTypeRevisionMacro(vtkObjectFactory,vtkObject);
   // Description:
   // Print ObjectFactory to stream.
   virtual void PrintSelf(ostream& os, vtkIndent indent);

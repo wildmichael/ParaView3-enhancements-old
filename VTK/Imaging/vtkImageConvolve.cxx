@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageConvolve.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:46 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-01-04 14:28:26 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to Z. F. Knops who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,26 +39,13 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include "vtkImageData.h"
-
 #include "vtkImageConvolve.h"
+#include "vtkImageData.h"
 #include "vtkImageEllipsoidSource.h"
 #include "vtkObjectFactory.h"
 
-
-
-//----------------------------------------------------------------------------
-vtkImageConvolve* vtkImageConvolve::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageConvolve");
-  if(ret)
-    {
-    return (vtkImageConvolve*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageConvolve;
-}
+vtkCxxRevisionMacro(vtkImageConvolve, "$Revision: 1.10 $");
+vtkStandardNewMacro(vtkImageConvolve);
 
 //----------------------------------------------------------------------------
 // Construct an instance of vtkImageConvolve fitler.
@@ -92,7 +79,7 @@ vtkImageConvolve::~vtkImageConvolve()
 //----------------------------------------------------------------------------
 void vtkImageConvolve::PrintSelf(ostream& os, vtkIndent indent)
 {
-  this->vtkImageToImageFilter::PrintSelf(os, indent);
+  this->Superclass::PrintSelf(os, indent);
   
   os << indent << "KernelSize: (" <<
     this->KernelSize[0] << ", " <<

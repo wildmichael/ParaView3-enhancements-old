@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMassProperties.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:08 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-01-04 14:25:45 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -70,7 +70,7 @@ public:
   // Constructs with initial values of zero.
   static vtkMassProperties *New();
 
-  vtkTypeMacro(vtkMassProperties,vtkProcessObject);
+  vtkTypeRevisionMacro(vtkMassProperties,vtkProcessObject);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

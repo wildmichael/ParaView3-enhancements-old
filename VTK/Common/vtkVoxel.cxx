@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxel.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:10:02 $
-  Version:   $Revision: 1.70 $
+  Date:      $Date: 2002-01-04 14:23:07 $
+  Version:   $Revision: 1.71 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -40,11 +40,15 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 #include "vtkVoxel.h"
+#include "vtkObjectFactory.h"
 #include "vtkMath.h"
 #include "vtkLine.h"
 #include "vtkPixel.h"
 #include "vtkCellArray.h"
 #include "vtkPointLocator.h"
+
+vtkCxxRevisionMacro(vtkVoxel, "$Revision: 1.71 $");
+vtkStandardNewMacro(vtkVoxel);
 
 // Construct the voxel with eight points.
 vtkVoxel::vtkVoxel()
@@ -308,25 +312,6 @@ static int faces[6][4] = { {2,0,6,4}, {1,3,5,7},
 // Marching cubes case table
 //
 #include "vtkMarchingCubesCases.h"
-#include "vtkObjectFactory.h"
-
-
-
-//------------------------------------------------------------------------------
-vtkVoxel* vtkVoxel::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkVoxel");
-  if(ret)
-    {
-    return (vtkVoxel*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkVoxel;
-}
-
-
-
 
 void vtkVoxel::Contour(float value, vtkDataArray *cellScalars, 
                        vtkPointLocator *locator,

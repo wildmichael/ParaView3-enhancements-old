@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkButterflySubdivisionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:13:51 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-01-04 14:25:00 $
+  Version:   $Revision: 1.9 $
   Thanks:    This work was supported bt PHS Research Grant No. 1 P41 RR13218-01
              from the National Center for Research Resources
 
@@ -44,20 +44,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkEdgeTable.h"
 #include "vtkObjectFactory.h"
 
+vtkCxxRevisionMacro(vtkButterflySubdivisionFilter, "$Revision: 1.9 $");
+vtkStandardNewMacro(vtkButterflySubdivisionFilter);
+
 static float butterflyWeights[8] =
   {.5, .5, .125, .125, -.0625, -.0625, -.0625, -.0625};
-
-vtkButterflySubdivisionFilter* vtkButterflySubdivisionFilter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkButterflySubdivisionFilter");
-  if(ret)
-    {
-    return (vtkButterflySubdivisionFilter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkButterflySubdivisionFilter;
-}
 
 void vtkButterflySubdivisionFilter::GenerateSubdivisionPoints(
   vtkPolyData *inputDS, vtkIntArray *edgeData, vtkPoints *outputPts,

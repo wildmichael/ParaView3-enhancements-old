@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay2D.h,v $
   Language:  C++
-  Date:      $Date: 2001-12-12 21:22:44 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2002-01-04 14:25:15 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -156,7 +156,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class VTK_GRAPHICS_EXPORT vtkDelaunay2D : public vtkPolyDataSource
 {
 public:
-  vtkTypeMacro(vtkDelaunay2D,vtkPolyDataSource);
+  vtkTypeRevisionMacro(vtkDelaunay2D,vtkPolyDataSource);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlaneSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:10 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2002-01-04 14:25:54 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -76,7 +76,7 @@ class VTK_GRAPHICS_EXPORT vtkPlaneSource : public vtkPolyDataSource
 {
 public:
   void PrintSelf(ostream& os, vtkIndent indent);
-  vtkTypeMacro(vtkPlaneSource,vtkPolyDataSource);
+  vtkTypeRevisionMacro(vtkPlaneSource,vtkPolyDataSource);
 
   // Description:
   // Construct plane perpendicular to z-axis, resolution 1x1, width

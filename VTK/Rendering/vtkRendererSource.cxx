@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRendererSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:43:21 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2002-01-04 14:30:11 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -45,22 +45,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkUnsignedCharArray.h"
 #include "vtkObjectFactory.h"
 
-
-//----------------------------------------------------------------------------
-vtkRendererSource* vtkRendererSource::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkRendererSource");
-  if(ret)
-    {
-    return (vtkRendererSource*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkRendererSource;
-}
-
-
-
+vtkCxxRevisionMacro(vtkRendererSource, "$Revision: 1.40 $");
+vtkStandardNewMacro(vtkRendererSource);
 
 vtkRendererSource::vtkRendererSource()
 {
@@ -173,7 +159,7 @@ void vtkRendererSource::Execute()
 
 void vtkRendererSource::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkStructuredPointsSource::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "RenderFlag: " << (this->RenderFlag ? "On\n" : "Off\n");
 

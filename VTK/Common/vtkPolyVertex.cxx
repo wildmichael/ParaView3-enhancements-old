@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyVertex.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:09:55 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 2002-01-04 14:21:56 $
+  Version:   $Revision: 1.56 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -45,24 +45,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkPointLocator.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkPolyVertex* vtkPolyVertex::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkPolyVertex");
-  if(ret)
-    {
-    return (vtkPolyVertex*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkPolyVertex;
-}
-
-
-
-
+vtkCxxRevisionMacro(vtkPolyVertex, "$Revision: 1.56 $");
+vtkStandardNewMacro(vtkPolyVertex);
 
 vtkPolyVertex::vtkPolyVertex()
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGaussianSplatter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:36 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2002-01-04 14:28:09 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -102,7 +102,7 @@ class vtkFloatAray;
 class VTK_IMAGING_EXPORT vtkGaussianSplatter : public vtkDataSetToStructuredPointsFilter 
 {
 public:
-  vtkTypeMacro(vtkGaussianSplatter,vtkDataSetToStructuredPointsFilter);
+  vtkTypeRevisionMacro(vtkGaussianSplatter,vtkDataSetToStructuredPointsFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapToColors.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:54 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-01-04 14:28:53 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,20 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkImageMapToColors.h"
 #include "vtkObjectFactory.h"
 
-
-
-//----------------------------------------------------------------------------
-vtkImageMapToColors* vtkImageMapToColors::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageMapToColors");
-  if(ret)
-    {
-    return (vtkImageMapToColors*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageMapToColors;
-}
+vtkCxxRevisionMacro(vtkImageMapToColors, "$Revision: 1.16 $");
+vtkStandardNewMacro(vtkImageMapToColors);
 
 //----------------------------------------------------------------------------
 // Constructor sets default values
@@ -268,7 +256,7 @@ void vtkImageMapToColors::ThreadedExecute(vtkImageData *inData,
 
 void vtkImageMapToColors::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImageToImageFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "OutputFormat: " << 
     (this->OutputFormat == VTK_RGBA ? "RGBA" : 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaRenderer.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:16 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-01-04 14:29:54 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,7 +58,7 @@ protected:
 
 public:
   static vtkMesaRenderer *New();
-  vtkTypeMacro(vtkMesaRenderer,vtkRenderer);
+  vtkTypeRevisionMacro(vtkMesaRenderer,vtkRenderer);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

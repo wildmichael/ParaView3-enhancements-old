@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageShiftScale.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-10 23:13:43 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2002-01-04 14:29:09 $
+  Version:   $Revision: 1.40 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,25 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkImageShiftScale.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkImageShiftScale* vtkImageShiftScale::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageShiftScale");
-  if(ret)
-    {
-    return (vtkImageShiftScale*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageShiftScale;
-}
-
-
-
-
-
+vtkCxxRevisionMacro(vtkImageShiftScale, "$Revision: 1.40 $");
+vtkStandardNewMacro(vtkImageShiftScale);
 
 //----------------------------------------------------------------------------
 // Constructor sets default values
@@ -225,7 +208,7 @@ void vtkImageShiftScale::ThreadedExecute(vtkImageData *inData,
 
 void vtkImageShiftScale::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImageToImageFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Shift: " << this->Shift << "\n";
   os << indent << "Scale: " << this->Scale << "\n";

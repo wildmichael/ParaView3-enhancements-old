@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCityBlockDistance.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:45 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-01-04 14:28:22 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,23 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkImageCityBlockDistance.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkImageCityBlockDistance* vtkImageCityBlockDistance::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageCityBlockDistance");
-  if(ret)
-    {
-    return (vtkImageCityBlockDistance*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageCityBlockDistance;
-}
-
-
-
+vtkCxxRevisionMacro(vtkImageCityBlockDistance, "$Revision: 1.20 $");
+vtkStandardNewMacro(vtkImageCityBlockDistance);
 
 //----------------------------------------------------------------------------
 vtkImageCityBlockDistance::vtkImageCityBlockDistance()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkReferenceCount.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:17 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-01-04 14:22:22 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,23 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkReferenceCount.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkReferenceCount* vtkReferenceCount::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkReferenceCount");
-  if(ret)
-    {
-    return (vtkReferenceCount*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkReferenceCount;
-}
-
-
-
+vtkCxxRevisionMacro(vtkReferenceCount, "$Revision: 1.14 $");
+vtkStandardNewMacro(vtkReferenceCount);
 
 vtkReferenceCount::vtkReferenceCount() 
 {
@@ -70,5 +55,5 @@ vtkReferenceCount::~vtkReferenceCount()
 
 void vtkReferenceCount::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkObject::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 }

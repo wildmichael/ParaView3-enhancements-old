@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGaussianSplatter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:42:48 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2002-01-04 14:28:08 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,23 +39,14 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include <math.h>
 #include "vtkGaussianSplatter.h"
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
-//------------------------------------------------------------------------
-vtkGaussianSplatter* vtkGaussianSplatter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkGaussianSplatter");
-  if(ret)
-    {
-    return (vtkGaussianSplatter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkGaussianSplatter;
-}
+#include <math.h>
+
+vtkCxxRevisionMacro(vtkGaussianSplatter, "$Revision: 1.48 $");
+vtkStandardNewMacro(vtkGaussianSplatter);
 
 // Construct object with dimensions=(50,50,50); automatic computation of 
 // bounds; a splat radius of 0.1; an exponent factor of -5; and normal and 
@@ -512,7 +503,7 @@ const char *vtkGaussianSplatter::GetAccumulationModeAsString()
 
 void vtkGaussianSplatter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataSetToStructuredPointsFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Sample Dimensions: (" 
                << this->SampleDimensions[0] << ", "

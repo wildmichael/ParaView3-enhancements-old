@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:12 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-01-04 14:21:10 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,26 +44,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkActor2D.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkMapper2D* vtkMapper2D::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkMapper2D");
-  if(ret)
-    {
-    return (vtkMapper2D*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkMapper2D;
-}
-
-
-
+vtkCxxRevisionMacro(vtkMapper2D, "$Revision: 1.15 $");
+vtkStandardNewMacro(vtkMapper2D);
 
 void vtkMapper2D::PrintSelf(ostream& os, vtkIndent indent)
 {
-  this->vtkAbstractMapper::PrintSelf(os, indent);
+  this->Superclass::PrintSelf(os, indent);
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:48 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-01-04 14:26:02 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -47,23 +47,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkRectilinearGrid.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkProgrammableFilter* vtkProgrammableFilter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkProgrammableFilter");
-  if(ret)
-    {
-    return (vtkProgrammableFilter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkProgrammableFilter;
-}
-
-
-
+vtkCxxRevisionMacro(vtkProgrammableFilter, "$Revision: 1.18 $");
+vtkStandardNewMacro(vtkProgrammableFilter);
 
 // Construct programmable filter with empty execute method.
 vtkProgrammableFilter::vtkProgrammableFilter()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedCharArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-19 17:51:13 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 2002-01-04 14:22:53 $
+  Version:   $Revision: 1.53 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,18 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkUnsignedCharArray.h"
 #include "vtkObjectFactory.h"
 
-//---------------------------------------------------------------------------
-vtkUnsignedCharArray* vtkUnsignedCharArray::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkUnsignedCharArray");
-  if(ret)
-    {
-    return (vtkUnsignedCharArray*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkUnsignedCharArray;
-}
+vtkCxxRevisionMacro(vtkUnsignedCharArray, "$Revision: 1.53 $");
+vtkStandardNewMacro(vtkUnsignedCharArray);
 
 vtkDataArray *vtkUnsignedCharArray::MakeObject()
 {
@@ -181,7 +171,7 @@ void vtkUnsignedCharArray::DeepCopy(vtkDataArray *ia)
 
 void vtkUnsignedCharArray::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataArray::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   if (this->Array)
     {

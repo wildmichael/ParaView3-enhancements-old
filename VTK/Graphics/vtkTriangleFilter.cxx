@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-19 17:20:44 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2002-01-04 14:26:46 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,18 +44,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkTriangleStrip.h"
 #include "vtkObjectFactory.h"
 
-//------------------------------------------------------------------------
-vtkTriangleFilter* vtkTriangleFilter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkTriangleFilter");
-  if(ret)
-    {
-    return (vtkTriangleFilter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkTriangleFilter;
-}
+vtkCxxRevisionMacro(vtkTriangleFilter, "$Revision: 1.45 $");
+vtkStandardNewMacro(vtkTriangleFilter);
 
 void vtkTriangleFilter::Execute()
 {
@@ -252,7 +242,7 @@ void vtkTriangleFilter::Execute()
 
 void vtkTriangleFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Pass Verts: " << (this->PassVerts ? "On\n" : "Off\n");
   os << indent << "Pass Lines: " << (this->PassLines ? "On\n" : "Off\n");

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:09:53 $
-  Version:   $Revision: 1.64 $
+  Date:      $Date: 2002-01-04 14:21:43 $
+  Version:   $Revision: 1.65 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,20 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkPointData.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkPointData* vtkPointData::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkPointData");
-  if(ret)
-    {
-    return (vtkPointData*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkPointData;
-}
+vtkCxxRevisionMacro(vtkPointData, "$Revision: 1.65 $");
+vtkStandardNewMacro(vtkPointData);
 
 void vtkPointData::NullPoint (vtkIdType ptId)
 {
@@ -79,5 +67,5 @@ void vtkPointData::NullPoint (vtkIdType ptId)
 
 void vtkPointData::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataSetAttributes::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 }

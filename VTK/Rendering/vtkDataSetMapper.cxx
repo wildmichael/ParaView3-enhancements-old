@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-17 17:35:32 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 2002-01-04 14:29:37 $
+  Version:   $Revision: 1.60 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,18 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkPolyDataMapper.h"
 #include "vtkObjectFactory.h"
 
-//------------------------------------------------------------------------
-vtkDataSetMapper* vtkDataSetMapper::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkDataSetMapper");
-  if(ret)
-    {
-    return (vtkDataSetMapper*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkDataSetMapper;
-}
+vtkCxxRevisionMacro(vtkDataSetMapper, "$Revision: 1.60 $");
+vtkStandardNewMacro(vtkDataSetMapper);
 
 vtkDataSetMapper::vtkDataSetMapper()
 {
@@ -179,7 +169,7 @@ void vtkDataSetMapper::Render(vtkRenderer *ren, vtkActor *act)
 
 void vtkDataSetMapper::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkMapper::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   if ( this->PolyDataMapper )
     {

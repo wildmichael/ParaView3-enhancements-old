@@ -3,8 +3,8 @@
 Program:   Visualization Toolkit
 Module:    $RCSfile: vtkStructuredPointsCollection.cxx,v $
 Language:  C++
-Date:      $Date: 2000-12-10 20:08:54 $
-Version:   $Revision: 1.4 $
+Date:      $Date: 2002-01-04 14:24:38 $
+Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,20 +42,5 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkStructuredPointsCollection.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkStructuredPointsCollection* vtkStructuredPointsCollection::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkStructuredPointsCollection");
-  if(ret)
-    {
-    return (vtkStructuredPointsCollection*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkStructuredPointsCollection;
-}
-
-
-
+vtkCxxRevisionMacro(vtkStructuredPointsCollection, "$Revision: 1.5 $");
+vtkStandardNewMacro(vtkStructuredPointsCollection);

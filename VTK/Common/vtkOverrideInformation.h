@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOverrideInformation.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:18 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-01-04 14:21:33 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to William A. Hoffman who developed this class
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -59,7 +59,7 @@ class VTK_COMMON_EXPORT vtkOverrideInformation : public vtkObject
 {
 public: 
   static vtkOverrideInformation* New();
-  vtkTypeMacro(vtkOverrideInformation,vtkObject);
+  vtkTypeRevisionMacro(vtkOverrideInformation,vtkObject);
   // Description:
   // Print ObjectFactor to stream.
   virtual void PrintSelf(ostream& os, vtkIndent indent);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBlankStructuredGridWithImage.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-16 17:05:36 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-01-04 14:24:58 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,19 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkImageData.h"
 #include "vtkObjectFactory.h"
 
-//----------------------------------------------------------------------------
-vtkBlankStructuredGridWithImage* vtkBlankStructuredGridWithImage::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkBlankStructuredGridWithImage");
-  if(ret)
-    {
-    return (vtkBlankStructuredGridWithImage*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkBlankStructuredGridWithImage;
-}
-
+vtkCxxRevisionMacro(vtkBlankStructuredGridWithImage, "$Revision: 1.4 $");
+vtkStandardNewMacro(vtkBlankStructuredGridWithImage);
 
 //----------------------------------------------------------------------------
 // Specify the input data or filter.
@@ -120,5 +109,5 @@ void vtkBlankStructuredGridWithImage::Execute()
 //----------------------------------------------------------------------------
 void vtkBlankStructuredGridWithImage::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkStructuredGridToStructuredGridFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 }

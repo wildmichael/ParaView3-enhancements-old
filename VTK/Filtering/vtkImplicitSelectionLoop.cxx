@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitSelectionLoop.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:13:01 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-01-04 14:24:13 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -45,23 +45,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkImplicitSelectionLoop* vtkImplicitSelectionLoop::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImplicitSelectionLoop");
-  if(ret)
-    {
-    return (vtkImplicitSelectionLoop*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImplicitSelectionLoop;
-}
-
-
-
+vtkCxxRevisionMacro(vtkImplicitSelectionLoop, "$Revision: 1.13 $");
+vtkStandardNewMacro(vtkImplicitSelectionLoop);
 
 // Instantiate object with no initial loop.
 vtkImplicitSelectionLoop::vtkImplicitSelectionLoop()
@@ -218,7 +203,7 @@ unsigned long int vtkImplicitSelectionLoop::GetMTime()
 
 void vtkImplicitSelectionLoop::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImplicitFunction::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   if ( this->Loop )
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-28 13:24:33 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2002-01-04 14:27:57 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,18 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkStructuredGridReader.h"
 #include "vtkObjectFactory.h"
 
-//-------------------------------------------------------------------------
-vtkStructuredGridReader* vtkStructuredGridReader::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkStructuredGridReader");
-  if(ret)
-    {
-    return (vtkStructuredGridReader*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkStructuredGridReader;
-}
+vtkCxxRevisionMacro(vtkStructuredGridReader, "$Revision: 1.50 $");
+vtkStandardNewMacro(vtkStructuredGridReader);
 
 vtkStructuredGridReader::vtkStructuredGridReader()
 {
@@ -361,5 +351,5 @@ void vtkStructuredGridReader::Execute()
 
 void vtkStructuredGridReader::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataReader::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 }

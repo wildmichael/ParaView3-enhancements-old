@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-06 22:45:52 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2002-01-04 14:30:15 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -40,6 +40,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 #include "vtkVolumeMapper.h"
+
+vtkCxxRevisionMacro(vtkVolumeMapper, "$Revision: 1.35 $");
 
 // Construct a vtkVolumeMapper with empty scalar input and clipping off.
 vtkVolumeMapper::vtkVolumeMapper()
@@ -190,7 +192,7 @@ vtkImageData *vtkVolumeMapper::GetRGBTextureInput()
 // Print the vtkVolumeMapper
 void vtkVolumeMapper::PrintSelf(ostream& os, vtkIndent indent)
 {
-  this->vtkAbstractMapper3D::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   if ( this->GetRGBTextureInput() )
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyLine.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:09:55 $
-  Version:   $Revision: 1.67 $
+  Date:      $Date: 2002-01-04 14:21:54 $
+  Version:   $Revision: 1.68 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -45,22 +45,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
-
-//------------------------------------------------------------------------------
-vtkPolyLine* vtkPolyLine::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkPolyLine");
-  if(ret)
-    {
-    return (vtkPolyLine*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkPolyLine;
-}
-
-
-
+vtkCxxRevisionMacro(vtkPolyLine, "$Revision: 1.68 $");
+vtkStandardNewMacro(vtkPolyLine);
 
 vtkPolyLine::vtkPolyLine()
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPriorityQueue.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-19 14:49:38 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-01-04 14:22:01 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,18 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkPriorityQueue.h"
 #include "vtkObjectFactory.h"
 
-//------------------------------------------------------------------------
-vtkPriorityQueue* vtkPriorityQueue::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkPriorityQueue");
-  if(ret)
-    {
-    return (vtkPriorityQueue*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkPriorityQueue;
-}
+vtkCxxRevisionMacro(vtkPriorityQueue, "$Revision: 1.27 $");
+vtkStandardNewMacro(vtkPriorityQueue);
 
 // Instantiate priority queue with default size and extension size of 1000.
 vtkPriorityQueue::vtkPriorityQueue()
@@ -266,7 +256,7 @@ void vtkPriorityQueue::Reset()
 
 void vtkPriorityQueue::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkObject::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Number Of Entries: " << this->MaxId + 1 << "\n";
   os << indent << "Size: " << this->Size << "\n";

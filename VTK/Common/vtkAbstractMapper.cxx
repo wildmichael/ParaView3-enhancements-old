@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:40:59 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-01-04 14:20:30 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,6 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkDataSet.h"
 #include "vtkObjectFactory.h"
 #include "vtkPlanes.h"
+
+vtkCxxRevisionMacro(vtkAbstractMapper, "$Revision: 1.22 $");
 
 // Construct object.
 vtkAbstractMapper::vtkAbstractMapper()
@@ -122,7 +124,7 @@ void vtkAbstractMapper::SetClippingPlanes(vtkPlanes *planes)
 
 vtkDataArray *vtkAbstractMapper::GetScalars(vtkDataSet *input,
                                             int scalarMode,
-											int arrayAccessMode,
+                                                                                        int arrayAccessMode,
                                             int arrayId, 
                                             const char *arrayName,
                                             int& offset)
@@ -205,7 +207,7 @@ void vtkAbstractMapper::ShallowCopy(vtkAbstractMapper *mapper)
 
 void vtkAbstractMapper::PrintSelf(ostream& os, vtkIndent indent)
 {
-  this->vtkProcessObject::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "TimeToDraw: " << this->TimeToDraw << "\n";
 

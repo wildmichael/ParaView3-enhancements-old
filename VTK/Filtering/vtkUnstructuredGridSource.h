@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:40 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2002-01-04 14:24:43 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,7 +57,7 @@ class VTK_FILTERING_EXPORT vtkUnstructuredGridSource : public vtkSource
 {
 public:
   static vtkUnstructuredGridSource *New();
-  vtkTypeMacro(vtkUnstructuredGridSource,vtkSource);
+  vtkTypeRevisionMacro(vtkUnstructuredGridSource,vtkSource);
 
   // Description:
   // Get the output of this source.

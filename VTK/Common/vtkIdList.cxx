@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdList.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-20 15:58:14 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2002-01-04 14:20:50 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,17 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkIdList.h"
 #include "vtkObjectFactory.h"
 
-vtkIdList* vtkIdList::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkIdList");
-  if(ret)
-    {
-    return (vtkIdList*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkIdList;
-}
+vtkCxxRevisionMacro(vtkIdList, "$Revision: 1.41 $");
+vtkStandardNewMacro(vtkIdList);
 
 vtkIdList::vtkIdList()
 {
@@ -270,7 +261,7 @@ void vtkIdList::IntersectWith(vtkIdList& otherIds)
 
 void vtkIdList::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkObject::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Number of Ids: " << this->NumberOfIds << "\n";
 }

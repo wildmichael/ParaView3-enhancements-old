@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-18 13:35:59 $
-  Version:   $Revision: 1.93 $
+  Date:      $Date: 2002-01-04 14:29:50 $
+  Version:   $Revision: 1.94 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -41,6 +41,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 #include "vtkMapper.h"
 #include "vtkLookupTable.h"
+
+vtkCxxRevisionMacro(vtkMapper, "$Revision: 1.94 $");
 
 // Initialize static member that controls global immediate mode rendering
 static int vtkMapperGlobalImmediateModeRendering = 0;
@@ -394,7 +396,7 @@ const char *vtkMapper::GetScalarModeAsString(void)
 
 void vtkMapper::PrintSelf(ostream& os, vtkIndent indent)
 {
-  this->vtkAbstractMapper3D::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   if ( this->LookupTable )
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensorGlyph.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-15 14:20:19 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2002-01-04 14:26:37 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -45,18 +45,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
-//----------------------------------------------------------------------------
-vtkTensorGlyph* vtkTensorGlyph::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkTensorGlyph");
-  if(ret)
-    {
-    return (vtkTensorGlyph*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkTensorGlyph;
-}
+vtkCxxRevisionMacro(vtkTensorGlyph, "$Revision: 1.47 $");
+vtkStandardNewMacro(vtkTensorGlyph);
 
 // Construct object with scaling on and scale factor 1.0. Eigenvalues are 
 // extracted, glyphs are colored with input scalar data, and logarithmic
@@ -381,7 +371,7 @@ vtkPolyData *vtkTensorGlyph::GetSource()
 
 void vtkTensorGlyph::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataSetToPolyDataFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Source: " << this->GetSource() << "\n";
   os << indent << "Scaling: " << (this->Scaling ? "On\n" : "Off\n");

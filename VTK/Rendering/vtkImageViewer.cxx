@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-17 13:27:35 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2002-01-04 14:29:41 $
+  Version:   $Revision: 1.36 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -43,23 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkImageViewer.h"
 #include "vtkObjectFactory.h"
 
-
-
-//-----------------------------------------------------------------------------
-vtkImageViewer* vtkImageViewer::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageViewer");
-  if(ret)
-    {
-    return (vtkImageViewer*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageViewer;
-}
-
-
-
+vtkCxxRevisionMacro(vtkImageViewer, "$Revision: 1.36 $");
+vtkStandardNewMacro(vtkImageViewer);
 
 //----------------------------------------------------------------------------
 vtkImageViewer::vtkImageViewer()
@@ -89,7 +74,7 @@ vtkImageViewer::~vtkImageViewer()
 //----------------------------------------------------------------------------
 void vtkImageViewer::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkObject::PrintSelf(os, indent);
+  this->Superclass::PrintSelf(os, indent);
   os << indent << *this->ImageMapper << endl;
   os << indent << *this->RenderWindow << endl;
   os << indent << *this->Renderer << endl;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutlineSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:03 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-01-04 14:25:52 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,23 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkOutlineSource.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkOutlineSource* vtkOutlineSource::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkOutlineSource");
-  if(ret)
-    {
-    return (vtkOutlineSource*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkOutlineSource;
-}
-
-
-
+vtkCxxRevisionMacro(vtkOutlineSource, "$Revision: 1.27 $");
+vtkStandardNewMacro(vtkOutlineSource);
 
 //----------------------------------------------------------------------------
 vtkOutlineSource::vtkOutlineSource()
@@ -148,7 +133,7 @@ void vtkOutlineSource::Execute()
 //----------------------------------------------------------------------------
 void vtkOutlineSource::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolyDataSource::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Bounds: (" << this->Bounds[0] << ", " 
      << this->Bounds[1] << ") (" << this->Bounds[2] << ") ("

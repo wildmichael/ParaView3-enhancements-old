@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInitialValueProblemSolver.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:09:26 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-01-04 14:20:57 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -61,7 +61,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class VTK_COMMON_EXPORT vtkInitialValueProblemSolver : public vtkObject
 {
 public:
-  vtkTypeMacro(vtkInitialValueProblemSolver,vtkObject);
+  vtkTypeRevisionMacro(vtkInitialValueProblemSolver,vtkObject);
   virtual void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

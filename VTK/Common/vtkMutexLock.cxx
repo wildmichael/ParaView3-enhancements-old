@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMutexLock.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-16 21:40:49 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-01-04 14:21:21 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,21 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkMutexLock.h"
 #include "vtkObjectFactory.h"
 
-
-
-//----------------------------------------------------------------------------
-vtkMutexLock* vtkMutexLock::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkMutexLock");
-  if(ret)
-    {
-    return (vtkMutexLock*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkMutexLock;
-}
-
+vtkCxxRevisionMacro(vtkMutexLock, "$Revision: 1.20 $");
+vtkStandardNewMacro(vtkMutexLock);
 
 // New for the SimpleMutex
 vtkSimpleMutexLock *vtkSimpleMutexLock::New()
@@ -145,6 +132,6 @@ vtkSimpleMutexLock *vtkSimpleMutexLock::SafeDownCast(vtkSimpleMutexLock *o)
   
 void vtkMutexLock::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkObject::PrintSelf(os, indent);
+  this->Superclass::PrintSelf(os, indent);
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpatialRepresentationFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:16 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-01-04 14:26:23 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -89,7 +89,7 @@ class VTK_GRAPHICS_EXPORT vtkSpatialRepresentationFilter : public vtkPolyDataSou
 {
 public:
   static vtkSpatialRepresentationFilter *New();
-  vtkTypeMacro(vtkSpatialRepresentationFilter,vtkPolyDataSource);
+  vtkTypeRevisionMacro(vtkSpatialRepresentationFilter,vtkPolyDataSource);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreadedController.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:01 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-01-04 14:29:27 $
+  Version:   $Revision: 1.7 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -63,7 +63,7 @@ class VTK_PARALLEL_EXPORT vtkThreadedController : public vtkMultiProcessControll
 {
 public:
   static vtkThreadedController *New();
-  vtkTypeMacro(vtkThreadedController,vtkMultiProcessController);
+  vtkTypeRevisionMacro(vtkThreadedController,vtkMultiProcessController);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODProp3D.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:13 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2002-01-04 14:29:48 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -82,7 +82,7 @@ public:
   // Create an instance of this class.
   static vtkLODProp3D *New();
 
-  vtkTypeMacro(vtkLODProp3D,vtkProp3D);
+  vtkTypeRevisionMacro(vtkLODProp3D,vtkProp3D);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransmitPolyDataPiece.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:26:02 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-01-04 14:29:27 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,19 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkExtractPolyDataPiece.h"
 #include "vtkObjectFactory.h"
 
-
-//----------------------------------------------------------------------------
-vtkTransmitPolyDataPiece* vtkTransmitPolyDataPiece::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkTransmitPolyDataPiece");
-  if(ret)
-    {
-    return (vtkTransmitPolyDataPiece*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkTransmitPolyDataPiece;
-}
+vtkCxxRevisionMacro(vtkTransmitPolyDataPiece, "$Revision: 1.4 $");
+vtkStandardNewMacro(vtkTransmitPolyDataPiece);
 
 //----------------------------------------------------------------------------
 vtkTransmitPolyDataPiece::vtkTransmitPolyDataPiece()
@@ -273,7 +262,7 @@ void vtkTransmitPolyDataPiece::SatelliteExecute(int procId)
 //----------------------------------------------------------------------------
 void vtkTransmitPolyDataPiece::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
   
   os << indent << "Create Ghost Cells: " << (this->CreateGhostCells ? "On\n" : "Off\n");
   

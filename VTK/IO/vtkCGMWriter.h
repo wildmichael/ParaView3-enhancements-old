@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCGMWriter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:28 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-01-04 14:27:24 $
+  Version:   $Revision: 1.8 $
   Credit:    The origin of much of this code was from the cd package
              written by G. Edward Johnson at the National Institute 
              of Standards and Technology (US).
@@ -81,7 +81,7 @@ public:
   // resolution is 10,000, and the color mode is set to default.
   static vtkCGMWriter *New() {return new vtkCGMWriter;};
 
-  vtkTypeMacro(vtkCGMWriter,vtkPolyDataWriter);
+  vtkTypeRevisionMacro(vtkCGMWriter,vtkPolyDataWriter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

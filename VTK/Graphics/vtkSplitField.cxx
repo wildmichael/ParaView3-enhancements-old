@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSplitField.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-07 16:13:31 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-01-04 14:26:27 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,6 +43,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkDataSetAttributes.h"
 
+vtkCxxRevisionMacro(vtkSplitField, "$Revision: 1.7 $");
+vtkStandardNewMacro(vtkSplitField);
+
 char vtkSplitField::FieldLocationNames[3][12] 
 = { "DATA_OBJECT",
     "POINT_DATA",
@@ -56,19 +59,6 @@ char vtkSplitField::AttributeNames[vtkDataSetAttributes::NUM_ATTRIBUTES][10]
      "TENSORS" };
 
 typedef vtkSplitField::Component Component;
-
-//--------------------------------------------------------------------------
-vtkSplitField* vtkSplitField::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkSplitField");
-  if(ret)
-    {
-    return (vtkSplitField*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkSplitField;
-}
 
 vtkSplitField::vtkSplitField()
 {
@@ -389,7 +379,7 @@ void vtkSplitField::DeleteAllComponents()
 
 void vtkSplitField::PrintSelf(ostream& os, vtkIndent indent)
 {
-  this->vtkDataSetToDataSetFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
   os << indent << "Field name: ";
   if (this->FieldName)
     {

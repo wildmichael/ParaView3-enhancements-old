@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDividingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-17 15:28:21 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2002-01-04 14:29:30 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,23 +60,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkDividingCubes* vtkDividingCubes::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkDividingCubes");
-  if(ret)
-    {
-    return (vtkDividingCubes*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkDividingCubes;
-}
-
-
-
+vtkCxxRevisionMacro(vtkDividingCubes, "$Revision: 1.44 $");
+vtkStandardNewMacro(vtkDividingCubes);
 
 // Description:
 // Construct object with Value=0.0, Distance=0.1, and Increment=1.
@@ -377,7 +362,7 @@ void vtkDividingCubes::SubDivide(float origin[3], int dim[3], float h[3],
 
 void vtkDividingCubes::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkStructuredPointsToPolyDataFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Value: " << this->Value << "\n";
   os << indent << "Distance: " << this->Distance << "\n";

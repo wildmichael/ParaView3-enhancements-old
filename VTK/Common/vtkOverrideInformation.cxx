@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOverrideInformation.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-01 20:24:30 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-01-04 14:21:32 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -41,19 +41,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 #include "vtkOverrideInformation.h"
 
-
-
-vtkOverrideInformation* vtkOverrideInformation::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkOverrideInformation");
-  if(ret)
-    {
-    return (vtkOverrideInformation*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkOverrideInformation;
-}
+vtkCxxRevisionMacro(vtkOverrideInformation, "$Revision: 1.4 $");
+vtkStandardNewMacro(vtkOverrideInformation);
 
 vtkOverrideInformation::vtkOverrideInformation()
 {
@@ -78,7 +67,7 @@ vtkOverrideInformation::~vtkOverrideInformation()
 void vtkOverrideInformation::PrintSelf(ostream& os,
                                        vtkIndent indent)
 {
-  vtkObject::PrintSelf(os, indent);
+  this->Superclass::PrintSelf(os, indent);
   os << indent
      << "Override: " << this->ClassOverrideName 
      << "\nWith: " << this->ClassOverrideWithName 

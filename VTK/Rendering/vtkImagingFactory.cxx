@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagingFactory.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:17:43 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-01-04 14:29:43 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -77,6 +77,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   #include "vtkQuartzImageMapper.h"
  #endif
 #endif
+
+vtkCxxRevisionMacro(vtkImagingFactory, "$Revision: 1.18 $");
 
 const char *vtkImagingFactoryGetRenderLibrary()
 {

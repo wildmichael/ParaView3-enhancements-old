@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSelectPolyData.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:14 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-01-04 14:26:18 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -118,7 +118,7 @@ public:
   // is not generated, and the inside mode is the smallest region.
   static vtkSelectPolyData *New();
 
-  vtkTypeMacro(vtkSelectPolyData,vtkPolyDataToPolyDataFilter);
+  vtkTypeRevisionMacro(vtkSelectPolyData,vtkPolyDataToPolyDataFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

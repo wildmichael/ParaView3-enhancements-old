@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCompositeManager.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-21 20:44:23 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-01-04 14:29:19 $
+  Version:   $Revision: 1.11 $
 
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -45,12 +45,13 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkPolyDataMapper.h"
 #include "vtkToolkits.h"
 
-
 #ifdef _WIN32
 #include "vtkWin32OpenGLRenderWindow.h"
 #elif defined(VTK_USE_MESA)
 #include "vtkMesaRenderWindow.h"
 #endif
+
+vtkCxxRevisionMacro(vtkCompositeManager, "$Revision: 1.11 $");
 
 // Structures to communicate render info.
 struct vtkCompositeRenderWindowInfo 

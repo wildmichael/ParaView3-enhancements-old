@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointDataToCellData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-29 20:52:43 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-01-04 14:25:54 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,18 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkPointDataToCellData.h"
 #include "vtkObjectFactory.h"
 
-//--------------------------------------------------------------------------
-vtkPointDataToCellData* vtkPointDataToCellData::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkPointDataToCellData");
-  if(ret)
-    {
-    return (vtkPointDataToCellData*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkPointDataToCellData;
-}
+vtkCxxRevisionMacro(vtkPointDataToCellData, "$Revision: 1.20 $");
+vtkStandardNewMacro(vtkPointDataToCellData);
 
 // Instantiate object so that point data is not passed to output.
 vtkPointDataToCellData::vtkPointDataToCellData()
@@ -132,7 +122,7 @@ void vtkPointDataToCellData::Execute()
 
 void vtkPointDataToCellData::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataSetToDataSetFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Pass Point Data: " << (this->PassPointData ? "On\n" : "Off\n");
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSight6Reader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:30:32 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-01-04 14:27:32 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -47,20 +47,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkStructuredPoints.h"
 #include "vtkPolyData.h"
 #include "vtkFloatArray.h"
+
 #include <ctype.h>
 
-//----------------------------------------------------------------------------
-vtkEnSight6Reader* vtkEnSight6Reader::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkEnSight6Reader");
-  if(ret)
-    {
-    return (vtkEnSight6Reader*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkEnSight6Reader;
-}
+vtkCxxRevisionMacro(vtkEnSight6Reader, "$Revision: 1.27 $");
+vtkStandardNewMacro(vtkEnSight6Reader);
 
 //----------------------------------------------------------------------------
 vtkEnSight6Reader::vtkEnSight6Reader()

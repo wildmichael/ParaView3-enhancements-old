@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTubeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:14:01 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 2002-01-04 14:26:48 $
+  Version:   $Revision: 1.56 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -45,18 +45,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
-//--------------------------------------------------------------------------
-vtkTubeFilter* vtkTubeFilter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkTubeFilter");
-  if(ret)
-    {
-    return (vtkTubeFilter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkTubeFilter;
-}
+vtkCxxRevisionMacro(vtkTubeFilter, "$Revision: 1.56 $");
+vtkStandardNewMacro(vtkTubeFilter);
 
 // Construct object with radius 0.5, radius variation turned off, the number 
 // of sides set to 3, and radius factor of 10.
@@ -469,7 +459,7 @@ void vtkTubeFilter::Execute()
 
 void vtkTubeFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Radius: " << this->Radius << "\n";
   os << indent << "Vary Radius: " << this->GetVaryRadiusAsString() << endl;

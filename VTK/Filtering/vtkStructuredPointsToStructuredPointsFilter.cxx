@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsToStructuredPointsFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-22 12:48:07 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-01-04 14:24:40 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -40,6 +40,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 #include "vtkStructuredPointsToStructuredPointsFilter.h"
+
+vtkCxxRevisionMacro(vtkStructuredPointsToStructuredPointsFilter, "$Revision: 1.25 $");
 
 //----------------------------------------------------------------------------
 // Specify the input data or filter.

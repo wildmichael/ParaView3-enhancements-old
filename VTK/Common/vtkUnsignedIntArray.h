@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedIntArray.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-03 15:02:14 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2002-01-04 14:22:55 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -55,7 +55,7 @@ class VTK_COMMON_EXPORT vtkUnsignedIntArray : public vtkDataArray
 public:
   static vtkUnsignedIntArray *New();
 
-  vtkTypeMacro(vtkUnsignedIntArray,vtkDataArray);
+  vtkTypeRevisionMacro(vtkUnsignedIntArray,vtkDataArray);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

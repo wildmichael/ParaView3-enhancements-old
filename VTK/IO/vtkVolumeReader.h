@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:35 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-01-04 14:28:05 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -75,7 +75,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class VTK_IO_EXPORT vtkVolumeReader : public vtkStructuredPointsSource
 {
 public:
-  vtkTypeMacro(vtkVolumeReader,vtkStructuredPointsSource);
+  vtkTypeRevisionMacro(vtkVolumeReader,vtkStructuredPointsSource);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

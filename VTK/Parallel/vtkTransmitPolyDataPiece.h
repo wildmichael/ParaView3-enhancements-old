@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransmitPolyDataPiece.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-31 16:36:15 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-01-04 14:29:27 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,7 +58,7 @@ class VTK_PARALLEL_EXPORT vtkTransmitPolyDataPiece : public vtkPolyDataToPolyDat
 {
 public:
   static vtkTransmitPolyDataPiece *New();
-  vtkTypeMacro(vtkTransmitPolyDataPiece, vtkPolyDataToPolyDataFilter);
+  vtkTypeRevisionMacro(vtkTransmitPolyDataPiece, vtkPolyDataToPolyDataFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageThreshold.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:11 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2002-01-04 14:29:12 $
+  Version:   $Revision: 1.33 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,25 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkImageThreshold.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkImageThreshold* vtkImageThreshold::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageThreshold");
-  if(ret)
-    {
-    return (vtkImageThreshold*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageThreshold;
-}
-
-
-
-
-
+vtkCxxRevisionMacro(vtkImageThreshold, "$Revision: 1.33 $");
+vtkStandardNewMacro(vtkImageThreshold);
 
 //----------------------------------------------------------------------------
 // Constructor sets default values
@@ -286,7 +269,7 @@ void vtkImageThreshold::ThreadedExecute(vtkImageData *inData,
 
 void vtkImageThreshold::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImageToImageFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "OutputScalarType: " << this->OutputScalarType << "\n";
   os << indent << "InValue: " << this->InValue << "\n";

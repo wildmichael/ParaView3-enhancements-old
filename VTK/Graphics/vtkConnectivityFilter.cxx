@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConnectivityFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:13:52 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 2002-01-04 14:25:09 $
+  Version:   $Revision: 1.62 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,18 +44,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
-//--------------------------------------------------------------------------
-vtkConnectivityFilter* vtkConnectivityFilter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkConnectivityFilter");
-  if(ret)
-    {
-    return (vtkConnectivityFilter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkConnectivityFilter;
-}
+vtkCxxRevisionMacro(vtkConnectivityFilter, "$Revision: 1.62 $");
+vtkStandardNewMacro(vtkConnectivityFilter);
 
 // Construct with default extraction mode to extract largest regions.
 vtkConnectivityFilter::vtkConnectivityFilter()
@@ -515,7 +505,7 @@ void vtkConnectivityFilter::DeleteSpecifiedRegion(int id)
 
 void vtkConnectivityFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataSetToUnstructuredGridFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Extraction Mode: ";
   os << this->GetExtractionModeAsString() << "\n";

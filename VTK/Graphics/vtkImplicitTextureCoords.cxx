@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitTextureCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:13:54 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2002-01-04 14:25:36 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,22 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
-
-//------------------------------------------------------------------------------
-vtkImplicitTextureCoords* vtkImplicitTextureCoords::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImplicitTextureCoords");
-  if(ret)
-    {
-    return (vtkImplicitTextureCoords*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImplicitTextureCoords;
-}
-
-
-
+vtkCxxRevisionMacro(vtkImplicitTextureCoords, "$Revision: 1.39 $");
+vtkStandardNewMacro(vtkImplicitTextureCoords);
 
 // Create object with texture dimension=2 and no r-s-t implicit functions
 // defined and FlipTexture turned off.
@@ -225,7 +211,7 @@ void vtkImplicitTextureCoords::Execute()
 
 void vtkImplicitTextureCoords::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataSetToDataSetFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Flip Texture: " << this->FlipTexture << "\n";
 

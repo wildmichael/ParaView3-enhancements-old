@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBBDicer.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:09 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-01-04 14:25:48 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -62,7 +62,7 @@ class vtkShortArray;
 class VTK_GRAPHICS_EXPORT vtkOBBDicer : public vtkDicer 
 {
 public:
-  vtkTypeMacro(vtkOBBDicer,vtkDicer);
+  vtkTypeRevisionMacro(vtkOBBDicer,vtkDicer);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuad.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-20 15:44:19 $
-  Version:   $Revision: 1.75 $
+  Date:      $Date: 2002-01-04 14:22:16 $
+  Version:   $Revision: 1.76 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -48,20 +48,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
 
-static const float VTK_DIVERGED = 1.e6;
+vtkCxxRevisionMacro(vtkQuad, "$Revision: 1.76 $");
+vtkStandardNewMacro(vtkQuad);
 
-//------------------------------------------------------------------------
-vtkQuad* vtkQuad::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkQuad");
-  if(ret)
-    {
-    return (vtkQuad*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkQuad;
-}
+static const float VTK_DIVERGED = 1.e6;
 
 // Construct the quad with four points.
 vtkQuad::vtkQuad()
@@ -198,7 +188,7 @@ int vtkQuad::EvaluatePosition(float x[3], float* closestPoint,
       }
     // Test for bad divergence (S.Hirschberg 11.12.2001)
     else if ((fabs(pcoords[0]) > VTK_DIVERGED) || 
-	     (fabs(pcoords[1]) > VTK_DIVERGED))
+             (fabs(pcoords[1]) > VTK_DIVERGED))
       {
       return -1;
       }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeAxesActor2D.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-05 21:13:26 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-01-04 14:26:59 $
+  Version:   $Revision: 1.27 $
   Thanks:    Thorsten Dowe who modified and improved this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -76,7 +76,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class VTK_HYBRID_EXPORT vtkCubeAxesActor2D : public vtkActor2D
 {
 public:
-  vtkTypeMacro(vtkCubeAxesActor2D,vtkActor2D);
+  vtkTypeRevisionMacro(vtkCubeAxesActor2D,vtkActor2D);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

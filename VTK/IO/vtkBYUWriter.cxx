@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:42:44 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2002-01-04 14:27:23 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,23 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkBYUWriter.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkBYUWriter* vtkBYUWriter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkBYUWriter");
-  if(ret)
-    {
-    return (vtkBYUWriter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkBYUWriter;
-}
-
-
-
+vtkCxxRevisionMacro(vtkBYUWriter, "$Revision: 1.41 $");
+vtkStandardNewMacro(vtkBYUWriter);
 
 // Create object so that it writes displacement, scalar, and texture files
 // (if data is available).
@@ -304,7 +289,7 @@ void vtkBYUWriter::WriteTextureFile(int numPts)
 
 void vtkBYUWriter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolyDataWriter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Geometry File Name: " 
      << (this->GeometryFileName ? this->GeometryFileName : "(none)") << "\n";

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-18 17:53:25 $
-  Version:   $Revision: 1.80 $
+  Date:      $Date: 2002-01-04 14:29:36 $
+  Version:   $Revision: 1.81 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -63,7 +63,7 @@ class VTK_RENDERING_EXPORT vtkCamera : public vtkObject
 {
  public:
   void PrintSelf(ostream& os, vtkIndent indent);
-  vtkTypeMacro(vtkCamera,vtkObject);
+  vtkTypeRevisionMacro(vtkCamera,vtkObject);
 
   // Description:
   // Construct camera instance with its focal point at the origin, 

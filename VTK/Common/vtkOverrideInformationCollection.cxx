@@ -3,8 +3,8 @@
 Program:   Visualization Toolkit
 Module:    $RCSfile: vtkOverrideInformationCollection.cxx,v $
 Language:  C++
-Date:      $Date: 2001-01-01 22:43:33 $
-Version:   $Revision: 1.1 $
+Date:      $Date: 2002-01-04 14:21:33 $
+Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,20 +42,5 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkOverrideInformationCollection.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkOverrideInformationCollection* vtkOverrideInformationCollection::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkOverrideInformationCollection");
-  if(ret)
-    {
-    return (vtkOverrideInformationCollection*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkOverrideInformationCollection;
-}
-
-
-
+vtkCxxRevisionMacro(vtkOverrideInformationCollection, "$Revision: 1.2 $");
+vtkStandardNewMacro(vtkOverrideInformationCollection);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapToWindowLevelColors.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:54 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-01-04 14:28:55 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,22 +42,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkImageMapToWindowLevelColors.h"
 #include "vtkObjectFactory.h"
 
+vtkCxxRevisionMacro(vtkImageMapToWindowLevelColors, "$Revision: 1.9 $");
+vtkStandardNewMacro(vtkImageMapToWindowLevelColors);
 
-
-//----------------------------------------------------------------------------
-vtkImageMapToWindowLevelColors* vtkImageMapToWindowLevelColors::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageMapToWindowLevelColors");
-  if(ret)
-    {
-    return (vtkImageMapToWindowLevelColors*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageMapToWindowLevelColors;
-}
-
-//----------------------------------------------------------------------------
 // Constructor sets default values
 vtkImageMapToWindowLevelColors::vtkImageMapToWindowLevelColors()
 {
@@ -434,7 +421,7 @@ void vtkImageMapToWindowLevelColors::ThreadedExecute(vtkImageData *inData,
 
 void vtkImageMapToWindowLevelColors::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImageMapToColors::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Window: " << this->Window << endl;
   os << indent << "Level: " << this->Level << endl;

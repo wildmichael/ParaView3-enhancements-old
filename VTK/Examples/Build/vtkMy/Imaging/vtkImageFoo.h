@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFoo.h,v $
   Language:  C++
-  Date:      $Date: 2001-12-19 23:17:44 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-01-04 14:23:28 $
+  Version:   $Revision: 1.2 $
 
 =========================================================================*/
 // .NAME vtkImageFoo - foo and scale an input image
@@ -23,7 +23,7 @@ class VTK_MY_IMAGING_EXPORT vtkImageFoo : public vtkImageToImageFilter
 {
 public:
   static vtkImageFoo *New();
-  vtkTypeMacro(vtkImageFoo,vtkImageToImageFilter);
+  vtkTypeRevisionMacro(vtkImageFoo,vtkImageToImageFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

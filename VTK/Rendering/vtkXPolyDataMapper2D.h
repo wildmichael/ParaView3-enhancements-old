@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXPolyDataMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:36 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-01-04 14:30:33 $
+  Version:   $Revision: 1.17 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -56,7 +56,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class VTK_RENDERING_EXPORT vtkXPolyDataMapper2D : public vtkPolyDataMapper2D
 {
 public:
-  vtkTypeMacro(vtkXPolyDataMapper2D,vtkPolyDataMapper2D);
+  vtkTypeRevisionMacro(vtkXPolyDataMapper2D,vtkPolyDataMapper2D);
   static vtkXPolyDataMapper2D *New();
 
   // Description:

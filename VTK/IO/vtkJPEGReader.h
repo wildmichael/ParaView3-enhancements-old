@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJPEGReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-03 22:51:40 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-01-04 14:27:40 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,7 +57,7 @@ class VTK_IO_EXPORT vtkJPEGReader : public vtkImageReader2
 {
 public:
   static vtkJPEGReader *New();
-  vtkTypeMacro(vtkJPEGReader,vtkImageReader2);
+  vtkTypeRevisionMacro(vtkJPEGReader,vtkImageReader2);
 
   // Description:
   // Is the given file a JPEG file?

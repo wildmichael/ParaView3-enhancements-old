@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-07 16:20:29 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-01-04 14:29:34 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,6 +41,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkAbstractPicker.h"
 #include "vtkObjectFactory.h"
 #include "vtkOldStyleCallbackCommand.h"
+
+vtkCxxRevisionMacro(vtkAbstractPicker, "$Revision: 1.7 $");
 
 // Construct object with initial tolerance of 1/40th of window. There are no
 // pick methods and picking is performed from the renderer's actors.
@@ -195,7 +197,7 @@ void vtkAbstractPicker::DeletePickList(vtkProp *a)
 
 void vtkAbstractPicker::PrintSelf(ostream& os, vtkIndent indent)
 {
-  this->vtkObject::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   if ( this->PickFromList )
     {

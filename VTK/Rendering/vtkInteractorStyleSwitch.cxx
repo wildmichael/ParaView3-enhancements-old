@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleSwitch.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-16 16:36:14 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-01-04 14:29:46 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,19 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkCommand.h"
 
-//----------------------------------------------------------------------------
-vtkInteractorStyleSwitch *vtkInteractorStyleSwitch::New() 
-{
-// First try to create the object from the vtkObjectFactory
-  vtkObject* ret =
-    vtkObjectFactory::CreateInstance("vtkInteractorStyleSwitch");
-  if(ret)
-    {
-    return (vtkInteractorStyleSwitch*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkInteractorStyleSwitch;
-}
+vtkCxxRevisionMacro(vtkInteractorStyleSwitch, "$Revision: 1.8 $");
+vtkStandardNewMacro(vtkInteractorStyleSwitch);
 
 //----------------------------------------------------------------------------
 vtkInteractorStyleSwitch::vtkInteractorStyleSwitch() 

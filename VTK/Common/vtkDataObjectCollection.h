@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObjectCollection.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:07 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-01-04 14:20:38 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -54,7 +54,7 @@ class VTK_COMMON_EXPORT vtkDataObjectCollection : public vtkCollection
 {
 public:
   static vtkDataObjectCollection *New();
-  vtkTypeMacro(vtkDataObjectCollection,vtkCollection);
+  vtkTypeRevisionMacro(vtkDataObjectCollection,vtkCollection);
 
   // Description:
   // Add a data object to the list.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell3D.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:41:01 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-01-04 14:20:34 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,7 +58,7 @@ class vtkOrderedTriangulator;
 class VTK_COMMON_EXPORT vtkCell3D : public vtkCell
 {
 public:
-  vtkTypeMacro(vtkCell3D,vtkCell);
+  vtkTypeRevisionMacro(vtkCell3D,vtkCell);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

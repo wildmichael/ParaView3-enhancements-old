@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensor.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:26 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2002-01-04 14:22:42 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -59,7 +59,7 @@ class VTK_COMMON_EXPORT vtkTensor : public vtkObject
 {
 public:
   static vtkTensor *New();
-  vtkTypeMacro(vtkTensor,vtkObject);
+  vtkTypeRevisionMacro(vtkTensor,vtkObject);
 
   // Description:
   // Initialize tensor components to 0.0.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxelContoursToSurfaceFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:13:50 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-01-04 14:26:51 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -73,7 +73,7 @@ class VTK_GRAPHICS_EXPORT vtkVoxelContoursToSurfaceFilter : public vtkPolyDataTo
 {
 public:
   static vtkVoxelContoursToSurfaceFilter *New();
-  vtkTypeMacro(vtkVoxelContoursToSurfaceFilter,vtkPolyDataToPolyDataFilter);
+  vtkTypeRevisionMacro(vtkVoxelContoursToSurfaceFilter,vtkPolyDataToPolyDataFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

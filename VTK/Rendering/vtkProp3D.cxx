@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-06 02:53:02 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2002-01-04 14:30:05 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,14 +39,16 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include <stdlib.h>
-#include <math.h>
-
 #include "vtkProp3D.h"
 #include "vtkActor.h"
 #include "vtkMatrixToLinearTransform.h"
 
+#include <stdlib.h>
+#include <math.h>
+
 typedef double (*SqMatPtr)[4];
+
+vtkCxxRevisionMacro(vtkProp3D, "$Revision: 1.26 $");
 
 // Construct with the following defaults: origin(0,0,0) 
 // position=(0,0,0) and orientation=(0,0,0). No user defined 
@@ -551,7 +553,7 @@ void vtkProp3D::InitPathTraversal()
 
 void vtkProp3D::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkProp::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "IsIdentity: " << (this->IsIdentity ? "true" : "false") << "\n";
 

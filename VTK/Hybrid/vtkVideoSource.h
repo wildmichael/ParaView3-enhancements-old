@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVideoSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-16 04:21:24 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-01-04 14:27:17 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -64,7 +64,7 @@ class VTK_HYBRID_EXPORT vtkVideoSource : public vtkImageSource
 {
 public:
   static vtkVideoSource *New();
-  vtkTypeMacro(vtkVideoSource,vtkImageSource);
+  vtkTypeRevisionMacro(vtkVideoSource,vtkImageSource);
   void PrintSelf(ostream& os, vtkIndent indent);   
 
   // Description:
@@ -311,7 +311,7 @@ protected:
   virtual void ExecuteData(vtkDataObject *data);
   // if some component conversion is required, it is done here:
   virtual void UnpackRasterLine(char *outPtr, char *rowPtr, 
-				int start, int count);
+                                int start, int count);
 
 private:
   vtkVideoSource(const vtkVideoSource&);  // Not implemented.

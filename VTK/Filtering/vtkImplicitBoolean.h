@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitBoolean.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:35 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2002-01-04 14:24:12 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -70,7 +70,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class VTK_FILTERING_EXPORT vtkImplicitBoolean : public vtkImplicitFunction
 {
 public:
-  vtkTypeMacro(vtkImplicitBoolean,vtkImplicitFunction);
+  vtkTypeRevisionMacro(vtkImplicitBoolean,vtkImplicitFunction);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

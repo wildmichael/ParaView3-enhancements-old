@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMIPFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-13 15:59:20 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-01-04 14:30:22 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,29 +39,14 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include <math.h>
-
 #include "vtkVolumeRayCastMIPFunction.h"
 #include "vtkVolume.h"
 #include "vtkObjectFactory.h"
 
+#include <math.h>
 
-
-//------------------------------------------------------------------------------
-vtkVolumeRayCastMIPFunction* vtkVolumeRayCastMIPFunction::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkVolumeRayCastMIPFunction");
-  if(ret)
-    {
-    return (vtkVolumeRayCastMIPFunction*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkVolumeRayCastMIPFunction;
-}
-
-
-
+vtkCxxRevisionMacro(vtkVolumeRayCastMIPFunction, "$Revision: 1.25 $");
+vtkStandardNewMacro(vtkVolumeRayCastMIPFunction);
 
 #define vtkRoundFuncMacro(x)   (int)((x)+0.5)
 
@@ -587,7 +572,7 @@ const char *vtkVolumeRayCastMIPFunction::GetMaximizeMethodAsString(void)
 // Print method for vtkVolumeRayCastMIPFunction
 void vtkVolumeRayCastMIPFunction::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkVolumeRayCastFunction::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Maximize Method: " << this->GetMaximizeMethodAsString()
      << "\n";

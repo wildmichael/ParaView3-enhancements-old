@@ -3,8 +3,8 @@
 Program:   Visualization Toolkit
 Module:    $RCSfile: vtkImagerCollection.cxx,v $
 Language:  C++
-Date:      $Date: 2000-12-10 20:09:12 $
-Version:   $Revision: 1.4 $
+Date:      $Date: 2002-01-04 14:29:43 $
+Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,20 +42,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkImagerCollection.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkImagerCollection* vtkImagerCollection::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImagerCollection");
-  if(ret)
-    {
-    return (vtkImagerCollection*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImagerCollection;
-}
-
+vtkCxxRevisionMacro(vtkImagerCollection, "$Revision: 1.5 $");
+vtkStandardNewMacro(vtkImagerCollection);
 
 

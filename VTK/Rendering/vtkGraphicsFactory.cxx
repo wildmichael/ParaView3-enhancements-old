@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGraphicsFactory.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-15 21:07:00 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-01-04 14:29:40 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -78,6 +78,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkXOpenGLRenderWindow.h"
 #endif
 
+vtkCxxRevisionMacro(vtkGraphicsFactory, "$Revision: 1.24 $");
 
 const char *vtkGraphicsFactory::GetRenderLibrary()
 {

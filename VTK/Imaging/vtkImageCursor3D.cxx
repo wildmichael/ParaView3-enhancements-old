@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCursor3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:47 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-01-04 14:28:28 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,28 +42,14 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkImageCursor3D.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkImageCursor3D* vtkImageCursor3D::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageCursor3D");
-  if(ret)
-    {
-    return (vtkImageCursor3D*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageCursor3D;
-}
-
-
-
-
+vtkCxxRevisionMacro(vtkImageCursor3D, "$Revision: 1.13 $");
+vtkStandardNewMacro(vtkImageCursor3D);
 
 //----------------------------------------------------------------------------
 void vtkImageCursor3D::PrintSelf(ostream& os, vtkIndent indent)
 {
+  this->Superclass::PrintSelf(os,indent);
+  
   int idx;
   
   os << indent << "Cursor Radius: " << this->CursorRadius << "\n";
@@ -73,9 +59,7 @@ void vtkImageCursor3D::PrintSelf(ostream& os, vtkIndent indent)
     {
     os << ", " << this->CursorPosition[idx];
     }
-  os << ")\n";
-  
-  vtkImageInPlaceFilter::PrintSelf(os,indent);
+  os << ")\n";  
 }
 
 //----------------------------------------------------------------------------

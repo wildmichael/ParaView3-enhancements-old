@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableAttributeDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:47 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-01-04 14:25:59 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,22 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkProgrammableAttributeDataFilter.h"
 #include "vtkObjectFactory.h"
 
-
-//------------------------------------------------------------------------------
-vtkProgrammableAttributeDataFilter* vtkProgrammableAttributeDataFilter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkProgrammableAttributeDataFilter");
-  if(ret)
-    {
-    return (vtkProgrammableAttributeDataFilter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkProgrammableAttributeDataFilter;
-}
-
-
-
+vtkCxxRevisionMacro(vtkProgrammableAttributeDataFilter, "$Revision: 1.15 $");
+vtkStandardNewMacro(vtkProgrammableAttributeDataFilter);
 
 vtkProgrammableAttributeDataFilter::vtkProgrammableAttributeDataFilter()
 {
@@ -148,7 +134,7 @@ void vtkProgrammableAttributeDataFilter::Execute()
 
 void vtkProgrammableAttributeDataFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataSetToDataSetFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Input DataSets:\n";
   this->InputList->PrintSelf(os,indent.GetNextIndent());

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWrapPad.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:33:01 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-01-04 14:29:13 $
+  Version:   $Revision: 1.22 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,28 +39,11 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-
 #include "vtkImageWrapPad.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkImageWrapPad* vtkImageWrapPad::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageWrapPad");
-  if(ret)
-    {
-    return (vtkImageWrapPad*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageWrapPad;
-}
-
-
-
-
+vtkCxxRevisionMacro(vtkImageWrapPad, "$Revision: 1.22 $");
+vtkStandardNewMacro(vtkImageWrapPad);
 
 //----------------------------------------------------------------------------
 // Just clip the request.

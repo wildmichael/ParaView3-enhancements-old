@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageNormalize.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:56 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-01-04 14:29:02 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,29 +39,13 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include <math.h>
-
 #include "vtkImageNormalize.h"
 #include "vtkObjectFactory.h"
 
+#include <math.h>
 
-
-//------------------------------------------------------------------------------
-vtkImageNormalize* vtkImageNormalize::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageNormalize");
-  if(ret)
-    {
-    return (vtkImageNormalize*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageNormalize;
-}
-
-
-
-
+vtkCxxRevisionMacro(vtkImageNormalize, "$Revision: 1.8 $");
+vtkStandardNewMacro(vtkImageNormalize);
 
 //----------------------------------------------------------------------------
 // This method tells the superclass that the first axis will collapse.

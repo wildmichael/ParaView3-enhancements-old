@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpherePuzzleArrows.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-20 19:21:07 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-01-04 14:26:25 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,23 +39,14 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include <math.h>
 #include "vtkSpherePuzzleArrows.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
 
-//----------------------------------------------------------------------------
-vtkSpherePuzzleArrows* vtkSpherePuzzleArrows::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkSpherePuzzleArrows");
-  if(ret)
-    {
-    return (vtkSpherePuzzleArrows*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkSpherePuzzleArrows;
-}
+#include <math.h>
+
+vtkCxxRevisionMacro(vtkSpherePuzzleArrows, "$Revision: 1.5 $");
+vtkStandardNewMacro(vtkSpherePuzzleArrows);
 
 //----------------------------------------------------------------------------
 // Construct a new puzzle.
@@ -228,7 +219,7 @@ void vtkSpherePuzzleArrows::AppendArrow(int id1, int id2,
 void vtkSpherePuzzleArrows::PrintSelf(ostream& os, vtkIndent indent)
 {
   int i;
-  vtkPolyDataSource::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Permutation: ";
   for (i = 0; i < 32; ++i)

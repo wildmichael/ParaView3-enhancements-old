@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-19 17:51:12 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2002-01-04 14:20:34 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,23 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkCellArray.h"
 #include "vtkObjectFactory.h"
 
-
-
-//----------------------------------------------------------------------------
-vtkCellArray* vtkCellArray::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkCellArray");
-  if(ret)
-    {
-    return (vtkCellArray*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkCellArray;
-}
-
-
-
+vtkCxxRevisionMacro(vtkCellArray, "$Revision: 1.38 $");
+vtkStandardNewMacro(vtkCellArray);
 
 vtkCellArray::vtkCellArray()
 {

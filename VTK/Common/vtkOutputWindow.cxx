@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutputWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-18 16:03:14 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-01-04 14:21:31 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -45,6 +45,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #endif
 #include "vtkObjectFactory.h"
 #include "vtkDebugLeaks.h"
+
+vtkCxxRevisionMacro(vtkOutputWindow, "$Revision: 1.24 $");
 
 vtkOutputWindow* vtkOutputWindow::Instance = 0;
 vtkOutputWindowSmartPointer vtkOutputWindow::SmartPointer(NULL);

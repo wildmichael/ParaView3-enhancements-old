@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFunctionParser.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:09:41 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-01-04 14:20:44 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,26 +39,17 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-
 #include "vtkFunctionParser.h"
 #include "vtkObjectFactory.h"
+
 #include <ctype.h>
+
+vtkCxxRevisionMacro(vtkFunctionParser, "$Revision: 1.15 $");
+vtkStandardNewMacro(vtkFunctionParser);
 
 static double vtkParserVectorErrorResult[3] = { VTK_PARSER_ERROR_RESULT, 
                                                 VTK_PARSER_ERROR_RESULT, 
                                                 VTK_PARSER_ERROR_RESULT };
-
-vtkFunctionParser* vtkFunctionParser::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkFunctionParser");
-  if(ret)
-    {
-    return (vtkFunctionParser*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkFunctionParser;
-}
 
 vtkFunctionParser::vtkFunctionParser() 
 {
@@ -1519,9 +1510,9 @@ int vtkFunctionParser::GetOperandNumber(int currentIndex)
 
 void vtkFunctionParser::PrintSelf(ostream& os, vtkIndent indent)
 {
+  this->Superclass::PrintSelf(os,indent);
+  
   int i;
-
-  vtkObject::PrintSelf(os,indent);
 
   os << indent << "Function: "
      << (this->Function ? this->Function : "(none)") << endl;

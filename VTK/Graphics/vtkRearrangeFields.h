@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRearrangeFields.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:13:50 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-01-04 14:26:10 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -89,7 +89,7 @@ class vtkFieldData;
 class VTK_GRAPHICS_EXPORT vtkRearrangeFields : public vtkDataSetToDataSetFilter
 {
 public:
-  vtkTypeMacro(vtkRearrangeFields,vtkDataSetToDataSetFilter);
+  vtkTypeRevisionMacro(vtkRearrangeFields,vtkDataSetToDataSetFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSocketCommunicator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-07 14:03:10 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2002-01-04 14:29:26 $
+  Version:   $Revision: 1.29 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -71,18 +71,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     return 0; \
     }
 
-//------------------------------------------------------------------------------
-vtkSocketCommunicator* vtkSocketCommunicator::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkSocketCommunicator");
-  if(ret)
-    {
-    return (vtkSocketCommunicator*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkSocketCommunicator;
-}
+vtkCxxRevisionMacro(vtkSocketCommunicator, "$Revision: 1.29 $");
+vtkStandardNewMacro(vtkSocketCommunicator);
 
 //----------------------------------------------------------------------------
 vtkSocketCommunicator::vtkSocketCommunicator()
@@ -106,7 +96,7 @@ vtkSocketCommunicator::~vtkSocketCommunicator()
 //----------------------------------------------------------------------------
 void vtkSocketCommunicator::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkCommunicator::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "SwapBytesInReceivedData: " << this->SwapBytesInReceivedData
      << endl;

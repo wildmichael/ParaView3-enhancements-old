@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIVExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:17:48 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2002-01-04 14:29:40 $
+  Version:   $Revision: 1.39 $
   Thanks:    to Jon A. Webb of Visual Interface Inc.
 
 
@@ -48,18 +48,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkUnsignedCharArray.h"
 
-//----------------------------------------------------------------------------
-vtkIVExporter* vtkIVExporter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkIVExporter");
-  if(ret)
-    {
-    return (vtkIVExporter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkIVExporter;
-}
+vtkCxxRevisionMacro(vtkIVExporter, "$Revision: 1.39 $");
+vtkStandardNewMacro(vtkIVExporter);
 
 vtkIVExporter::vtkIVExporter()
 {
@@ -722,7 +712,7 @@ void vtkIVExporter::WritePointData(vtkPoints *points, vtkDataArray *normals,
 
 void vtkIVExporter::PrintSelf(ostream& os, vtkIndent ind)
 {
-  vtkExporter::PrintSelf(os,ind);
+  this->Superclass::PrintSelf(os,ind);
  
   if (this->FileName)
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSpatialFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:33:00 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2002-01-04 14:29:11 $
+  Version:   $Revision: 1.46 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,29 +39,13 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include <math.h>
-
 #include "vtkImageSpatialFilter.h"
 #include "vtkObjectFactory.h"
 
+#include <math.h>
 
-
-//------------------------------------------------------------------------------
-vtkImageSpatialFilter* vtkImageSpatialFilter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageSpatialFilter");
-  if(ret)
-    {
-    return (vtkImageSpatialFilter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageSpatialFilter;
-}
-
-
-
-
+vtkCxxRevisionMacro(vtkImageSpatialFilter, "$Revision: 1.46 $");
+vtkStandardNewMacro(vtkImageSpatialFilter);
 
 //----------------------------------------------------------------------------
 // Construct an instance of vtkImageSpatialFilter fitler.
@@ -81,10 +65,10 @@ vtkImageSpatialFilter::vtkImageSpatialFilter()
 
 //----------------------------------------------------------------------------
 void vtkImageSpatialFilter::PrintSelf(ostream& os, vtkIndent indent)
-{
-  int idx;
+{  
+  this->Superclass::PrintSelf(os, indent);
   
-  vtkImageToImageFilter::PrintSelf(os, indent);
+  int idx;
 
   os << indent << "KernelSize: (" << this->KernelSize[0];
   for (idx = 1; idx < 3; ++idx)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkErrorCode.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-27 21:09:20 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-01-04 14:20:41 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -38,10 +38,10 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
+#include "vtkErrorCode.h"
 
 #include <string.h>
 #include <ctype.h>
-#include "vtkErrorCode.h"
 
 // this list should only contain the initial, contiguous
 // set of error codes and should not include UserError

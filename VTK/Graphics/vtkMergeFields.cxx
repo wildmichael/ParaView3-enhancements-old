@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeFields.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-07 16:13:30 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-01-04 14:25:46 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,25 +44,15 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkDataSetAttributes.h"
 #include "vtkFloatArray.h"
 
+vtkCxxRevisionMacro(vtkMergeFields, "$Revision: 1.9 $");
+vtkStandardNewMacro(vtkMergeFields);
+
 char vtkMergeFields::FieldLocationNames[3][12] 
 = { "DATA_OBJECT",
     "POINT_DATA",
     "CELL_DATA" };
 
 typedef vtkMergeFields::Component Component;
-
-//--------------------------------------------------------------------------
-vtkMergeFields* vtkMergeFields::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkMergeFields");
-  if(ret)
-    {
-    return (vtkMergeFields*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkMergeFields;
-}
 
 vtkMergeFields::vtkMergeFields()
 {
@@ -427,7 +417,7 @@ void vtkMergeFields::DeleteAllComponents()
 
 void vtkMergeFields::PrintSelf(ostream& os, vtkIndent indent)
 {
-  this->vtkDataSetToDataSetFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
   os << indent << "Field name: ";
   if (this->FieldName)
     {

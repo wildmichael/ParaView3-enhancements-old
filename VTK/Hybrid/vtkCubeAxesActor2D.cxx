@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeAxesActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-06 02:52:31 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2002-01-04 14:26:59 $
+  Version:   $Revision: 1.28 $
   Thanks:    Thorsten Dowe who modified and improved this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,18 +44,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
 
-//--------------------------------------------------------------------------
-vtkCubeAxesActor2D* vtkCubeAxesActor2D::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkCubeAxesActor2D");
-  if(ret)
-    {
-    return (vtkCubeAxesActor2D*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkCubeAxesActor2D;
-}
+vtkCxxRevisionMacro(vtkCubeAxesActor2D, "$Revision: 1.28 $");
+vtkStandardNewMacro(vtkCubeAxesActor2D);
 
 // Instantiate this object.
 vtkCubeAxesActor2D::vtkCubeAxesActor2D()
@@ -652,7 +642,7 @@ float *vtkCubeAxesActor2D::GetBounds()
 
 void vtkCubeAxesActor2D::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkActor2D::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   if ( this->Input )
     {

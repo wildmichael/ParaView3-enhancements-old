@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:17:29 $
-  Version:   $Revision: 1.113 $
+  Date:      $Date: 2002-01-04 14:30:10 $
+  Version:   $Revision: 1.114 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -77,7 +77,7 @@ class vtkRenderWindowInteractor;
 class VTK_RENDERING_EXPORT vtkRenderWindow : public vtkWindow
 {
 public:
-  vtkTypeMacro(vtkRenderWindow,vtkWindow);
+  vtkTypeRevisionMacro(vtkRenderWindow,vtkWindow);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScaledTextActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:18:05 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-01-04 14:30:12 $
+  Version:   $Revision: 1.21 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -41,18 +41,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkScaledTextActor.h"
 #include "vtkObjectFactory.h"
 
-//----------------------------------------------------------------------------
-vtkScaledTextActor* vtkScaledTextActor::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkScaledTextActor");
-  if(ret)
-    {
-    return (vtkScaledTextActor*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkScaledTextActor;
-}
+vtkCxxRevisionMacro(vtkScaledTextActor, "$Revision: 1.21 $");
+vtkStandardNewMacro(vtkScaledTextActor);
 
 vtkScaledTextActor::vtkScaledTextActor()
 {
@@ -235,7 +225,7 @@ int vtkScaledTextActor::RenderOpaqueGeometry(vtkViewport *viewport)
 
 void vtkScaledTextActor::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkActor2D::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "MaximumLineHeight: " << this->MaximumLineHeight << endl;
   os << indent << "MinimumSize: " << this->MinimumSize[0] << " " << this->MinimumSize[1] << endl;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBrownianPoints.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:45 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2002-01-04 14:24:59 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,7 +57,7 @@ public:
   // Create instance with minimum speed 0.0, maximum speed 1.0.
   static vtkBrownianPoints *New();
 
-  vtkTypeMacro(vtkBrownianPoints,vtkDataSetToDataSetFilter);
+  vtkTypeRevisionMacro(vtkBrownianPoints,vtkDataSetToDataSetFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

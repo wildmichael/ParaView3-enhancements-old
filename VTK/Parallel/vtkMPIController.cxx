@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPIController.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:25:59 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-01-04 14:29:21 $
+  Version:   $Revision: 1.8 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -49,7 +49,7 @@ int vtkMPIController::Initialized = 0;
 class VTK_PARALLEL_EXPORT vtkMPIOutputWindow : public vtkOutputWindow
 {
 public:
-  vtkTypeMacro(vtkMPIOutputWindow,vtkOutputWindow);
+  vtkTypeRevisionMacro(vtkMPIOutputWindow,vtkOutputWindow);
 
   void DisplayText(const char* t)
   {
@@ -87,18 +87,8 @@ void vtkMPIController::CreateOutputWindow()
   vtkOutputWindow::SetInstance(this->OutputWindow);
 }
 
-//------------------------------------------------------------------------------
-vtkMPIController* vtkMPIController::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkMPIController");
-  if(ret)
-    {
-    return (vtkMPIController*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkMPIController;
-}
+vtkCxxRevisionMacro(vtkMPIController, "$Revision: 1.8 $");
+vtkStandardNewMacro(vtkMPIController);
 
 //----------------------------------------------------------------------------
 vtkMPIController::vtkMPIController()
@@ -130,7 +120,7 @@ vtkMPIController::~vtkMPIController()
 //----------------------------------------------------------------------------
 void vtkMPIController::PrintSelf(ostream& os, vtkIndent indent)
 {
-  this->vtkMultiProcessController::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
   os << indent << "Initialized: " << ( vtkMPIController::Initialized ? "(yes)" : "(no)" ) << endl;
 }
 

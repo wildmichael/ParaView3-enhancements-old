@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-26 17:16:46 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2002-01-04 14:30:16 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -70,7 +70,7 @@ class vtkWindow;
 class VTK_RENDERING_EXPORT vtkVolumeMapper : public vtkAbstractMapper3D
 {
 public:
-  vtkTypeMacro(vtkVolumeMapper,vtkAbstractMapper3D);
+  vtkTypeRevisionMacro(vtkVolumeMapper,vtkAbstractMapper3D);
   void PrintSelf( ostream& os, vtkIndent index );
 
   // Description:

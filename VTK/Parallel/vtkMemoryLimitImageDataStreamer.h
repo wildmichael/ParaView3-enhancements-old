@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMemoryLimitImageDataStreamer.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:59 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-01-04 14:29:22 $
+  Version:   $Revision: 1.5 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -54,7 +54,7 @@ class VTK_PARALLEL_EXPORT vtkMemoryLimitImageDataStreamer : public vtkImageDataS
 {
 public:
   static vtkMemoryLimitImageDataStreamer *New();
-  vtkTypeMacro(vtkMemoryLimitImageDataStreamer,vtkImageDataStreamer);
+  vtkTypeRevisionMacro(vtkMemoryLimitImageDataStreamer,vtkImageDataStreamer);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

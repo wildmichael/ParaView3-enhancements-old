@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp3DCollection.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:48 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-01-04 14:30:06 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,18 +42,5 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkProp3DCollection.h"
 #include "vtkObjectFactory.h"
 
-//-----------------------------------------------------------------------------
-vtkProp3DCollection* vtkProp3DCollection::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkProp3DCollection");
-  if(ret)
-    {
-    return (vtkProp3DCollection*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkProp3DCollection;
-}
-
-
-
+vtkCxxRevisionMacro(vtkProp3DCollection, "$Revision: 1.4 $");
+vtkStandardNewMacro(vtkProp3DCollection);

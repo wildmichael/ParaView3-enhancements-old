@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastFunction.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:17:33 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-01-04 14:30:21 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -167,7 +167,7 @@ typedef struct
 class VTK_RENDERING_EXPORT vtkVolumeRayCastFunction : public vtkObject
 {
 public:
-  vtkTypeMacro(vtkVolumeRayCastFunction,vtkObject);
+  vtkTypeRevisionMacro(vtkVolumeRayCastFunction,vtkObject);
 
   // Description:
   // Do the basic initialization. This includes saving the parameters

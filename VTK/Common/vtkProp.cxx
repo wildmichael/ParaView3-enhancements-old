@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-07 16:20:28 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-01-04 14:22:06 $
+  Version:   $Revision: 1.20 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -43,19 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkAssemblyPaths.h"
 #include "vtkOldStyleCallbackCommand.h"
 
-
-//----------------------------------------------------------------------------
-vtkProp* vtkProp::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkProp");
-  if(ret)
-    {
-    return (vtkProp*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkProp;
-}
+vtkCxxRevisionMacro(vtkProp, "$Revision: 1.20 $");
+vtkStandardNewMacro(vtkProp);
 
 // Creates an Prop with the following defaults: visibility on.
 vtkProp::vtkProp()
@@ -164,7 +153,7 @@ void vtkProp::BuildPaths(vtkAssemblyPaths *paths, vtkAssemblyPath *path)
 
 void vtkProp::PrintSelf(ostream& os, vtkIndent indent)
 {
-  this->vtkObject::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Dragable: " << (this->Dragable ? "On\n" : "Off\n");
   os << indent << "Pickable: " << (this->Pickable ? "On\n" : "Off\n");

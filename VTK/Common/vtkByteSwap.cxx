@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkByteSwap.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-07 14:37:26 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2002-01-04 14:20:33 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,17 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <memory.h>
 #include "vtkObjectFactory.h"
 
-vtkByteSwap* vtkByteSwap::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkByteSwap");
-  if(ret)
-    {
-      return (vtkByteSwap*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkByteSwap;
-}
+vtkCxxRevisionMacro(vtkByteSwap, "$Revision: 1.43 $");
+vtkStandardNewMacro(vtkByteSwap);
 
 // Swap 2 byte word.
 #ifdef VTK_WORDS_BIGENDIAN

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAttributeData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-25 18:49:22 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-01-04 14:20:33 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -52,6 +52,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkFloatArray.h"
 #include "vtkDoubleArray.h"
 #include "vtkIdTypeArray.h"
+
+vtkCxxRevisionMacro(vtkAttributeData, "$Revision: 1.21 $");
 
 // Construct object with an initial data array of type dataType (by default
 // dataType is VTK_FLOAT.
@@ -221,7 +223,7 @@ unsigned long vtkAttributeData::GetActualMemorySize()
 
 void vtkAttributeData::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkObject::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Data: " << this->Data << "\n";
   if ( this->Data )

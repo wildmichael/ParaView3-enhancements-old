@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInterpolateDataSetAttributes.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:13:54 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-01-04 14:25:38 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -47,19 +47,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkRectilinearGrid.h"
 #include "vtkObjectFactory.h"
 
-
-//----------------------------------------------------------------------------
-vtkInterpolateDataSetAttributes* vtkInterpolateDataSetAttributes::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkInterpolateDataSetAttributes");
-  if(ret)
-    {
-    return (vtkInterpolateDataSetAttributes*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkInterpolateDataSetAttributes;
-}
+vtkCxxRevisionMacro(vtkInterpolateDataSetAttributes, "$Revision: 1.21 $");
+vtkStandardNewMacro(vtkInterpolateDataSetAttributes);
 
 // Create object with no input or output.
 vtkInterpolateDataSetAttributes::vtkInterpolateDataSetAttributes()
@@ -261,7 +250,7 @@ void vtkInterpolateDataSetAttributes::Execute()
 
 void vtkInterpolateDataSetAttributes::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataSetToDataSetFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "T: " << this->T << endl;
 }

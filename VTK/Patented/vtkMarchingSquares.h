@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingSquares.h,v $
   Language:  C++
-  Date:      $Date: 2001-12-17 15:28:23 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2002-01-04 14:29:32 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -86,7 +86,7 @@ class VTK_PATENTED_EXPORT vtkMarchingSquares : public vtkPolyDataSource
 {
 public:
   static vtkMarchingSquares *New();
-  vtkTypeMacro(vtkMarchingSquares,vtkPolyDataSource);
+  vtkTypeRevisionMacro(vtkMarchingSquares,vtkPolyDataSource);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

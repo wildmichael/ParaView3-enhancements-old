@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuartzImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:17:27 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-01-04 14:30:07 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -56,7 +56,7 @@ class VTK_RENDERING_EXPORT vtkQuartzImageWindow : public vtkImageWindow
 {
 public:
   static vtkQuartzImageWindow *New();
-  vtkTypeMacro(vtkQuartzImageWindow,vtkImageWindow);
+  vtkTypeRevisionMacro(vtkQuartzImageWindow,vtkImageWindow);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // output to the viewer.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractUnstructuredGridPiece.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:25:59 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-01-04 14:29:19 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,18 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkUnsignedCharArray.h"
 
-//----------------------------------------------------------------------------
-vtkExtractUnstructuredGridPiece* vtkExtractUnstructuredGridPiece::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkExtractUnstructuredGridPiece");
-  if(ret)
-    {
-    return (vtkExtractUnstructuredGridPiece*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkExtractUnstructuredGridPiece;
-}
+vtkCxxRevisionMacro(vtkExtractUnstructuredGridPiece, "$Revision: 1.8 $");
+vtkStandardNewMacro(vtkExtractUnstructuredGridPiece);
 
 vtkExtractUnstructuredGridPiece::vtkExtractUnstructuredGridPiece()
 {
@@ -268,7 +258,7 @@ void vtkExtractUnstructuredGridPiece::Execute()
 
 void vtkExtractUnstructuredGridPiece::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkUnstructuredGridToUnstructuredGridFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
   
   os << indent << "Create Ghost Cells: " << (this->CreateGhostCells ? "On\n" : "Off\n");
 }

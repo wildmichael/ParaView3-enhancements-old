@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-29 20:52:42 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-01-04 14:25:25 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,19 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkMergePoints.h"
 #include "vtkObjectFactory.h"
 
-
-//--------------------------------------------------------------------------
-vtkExtractUnstructuredGrid* vtkExtractUnstructuredGrid::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkExtractUnstructuredGrid");
-  if(ret)
-    {
-    return (vtkExtractUnstructuredGrid*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkExtractUnstructuredGrid;
-}
+vtkCxxRevisionMacro(vtkExtractUnstructuredGrid, "$Revision: 1.27 $");
+vtkStandardNewMacro(vtkExtractUnstructuredGrid);
 
 // Construct with all types of clipping turned off.
 vtkExtractUnstructuredGrid::vtkExtractUnstructuredGrid()
@@ -338,7 +327,7 @@ void vtkExtractUnstructuredGrid::SetLocator(vtkPointLocator *locator)
 
 void vtkExtractUnstructuredGrid::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkUnstructuredGridToUnstructuredGridFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Point Minimum : " << this->PointMinimum << "\n";
   os << indent << "Point Maximum : " << this->PointMaximum << "\n";

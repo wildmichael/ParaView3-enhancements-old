@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractPolyDataPiece.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:25:56 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-01-04 14:29:19 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -51,7 +51,7 @@ class VTK_PARALLEL_EXPORT vtkExtractPolyDataPiece : public vtkPolyDataToPolyData
 {
 public:
   static vtkExtractPolyDataPiece *New();
-  vtkTypeMacro(vtkExtractPolyDataPiece, vtkPolyDataToPolyDataFilter);
+  vtkTypeRevisionMacro(vtkExtractPolyDataPiece, vtkPolyDataToPolyDataFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataConnectivityFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:13:56 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2002-01-04 14:25:56 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,18 +44,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
-//--------------------------------------------------------------------------
-vtkPolyDataConnectivityFilter* vtkPolyDataConnectivityFilter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkPolyDataConnectivityFilter");
-  if(ret)
-    {
-    return (vtkPolyDataConnectivityFilter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkPolyDataConnectivityFilter;
-}
+vtkCxxRevisionMacro(vtkPolyDataConnectivityFilter, "$Revision: 1.32 $");
+vtkStandardNewMacro(vtkPolyDataConnectivityFilter);
 
 // Construct with default extraction mode to extract largest regions.
 vtkPolyDataConnectivityFilter::vtkPolyDataConnectivityFilter()
@@ -566,7 +556,7 @@ void vtkPolyDataConnectivityFilter::DeleteSpecifiedRegion(int id)
 
 void vtkPolyDataConnectivityFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Extraction Mode: ";
   os << this->GetExtractionModeAsString() << "\n";

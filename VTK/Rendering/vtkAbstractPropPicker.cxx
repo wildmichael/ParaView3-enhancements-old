@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractPropPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:29 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-01-04 14:29:34 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,6 +47,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkPropAssembly.h"
 #include "vtkObjectFactory.h"
 
+vtkCxxRevisionMacro(vtkAbstractPropPicker, "$Revision: 1.3 $");
 
 vtkAbstractPropPicker::vtkAbstractPropPicker()
 {
@@ -164,7 +165,7 @@ vtkPropAssembly *vtkAbstractPropPicker::GetPropAssembly()
   
 void vtkAbstractPropPicker::PrintSelf(ostream& os, vtkIndent indent)
 {
-  this->vtkAbstractPicker::PrintSelf(os, indent);
+  this->Superclass::PrintSelf(os, indent);
 
   if ( this->Path )
     {

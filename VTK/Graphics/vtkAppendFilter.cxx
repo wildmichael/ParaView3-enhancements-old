@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-26 15:21:25 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 2002-01-04 14:24:45 $
+  Version:   $Revision: 1.57 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,18 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkAppendFilter.h"
 #include "vtkObjectFactory.h"
 
-//---------------------------------------------------------------------------
-vtkAppendFilter* vtkAppendFilter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkAppendFilter");
-  if(ret)
-    {
-    return (vtkAppendFilter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkAppendFilter;
-}
+vtkCxxRevisionMacro(vtkAppendFilter, "$Revision: 1.57 $");
+vtkStandardNewMacro(vtkAppendFilter);
 
 //----------------------------------------------------------------------------
 vtkAppendFilter::vtkAppendFilter()
@@ -273,5 +263,5 @@ void vtkAppendFilter::Execute()
 //----------------------------------------------------------------------------
 void vtkAppendFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataSetToUnstructuredGridFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 }

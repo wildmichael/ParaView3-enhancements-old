@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRotationalExtrusionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:13:58 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2002-01-04 14:26:15 $
+  Version:   $Revision: 1.43 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -43,18 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkIdList.h"
 #include "vtkObjectFactory.h"
 
-//--------------------------------------------------------------------------
-vtkRotationalExtrusionFilter* vtkRotationalExtrusionFilter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkRotationalExtrusionFilter");
-  if(ret)
-    {
-    return (vtkRotationalExtrusionFilter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkRotationalExtrusionFilter;
-}
+vtkCxxRevisionMacro(vtkRotationalExtrusionFilter, "$Revision: 1.43 $");
+vtkStandardNewMacro(vtkRotationalExtrusionFilter);
 
 // Create object with capping on, angle of 360 degrees, resolution = 12, and
 // no translation along z-axis.
@@ -349,7 +339,7 @@ void vtkRotationalExtrusionFilter::Execute()
 
 void vtkRotationalExtrusionFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Resolution: " << this->Resolution << "\n";
   os << indent << "Capping: " << (this->Capping ? "On\n" : "Off\n");

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJPEGWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:30:33 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-01-04 14:27:41 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -46,18 +46,8 @@ extern "C" {
 #include <jpeglib.h>
 }
 
-//----------------------------------------------------------------------------
-vtkJPEGWriter* vtkJPEGWriter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkJPEGWriter");
-  if(ret)
-    {
-    return (vtkJPEGWriter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkJPEGWriter;
-}
+vtkCxxRevisionMacro(vtkJPEGWriter, "$Revision: 1.4 $");
+vtkStandardNewMacro(vtkJPEGWriter);
 
 vtkJPEGWriter::vtkJPEGWriter()
 {
@@ -221,7 +211,7 @@ void vtkJPEGWriter::WriteSlice(vtkImageData *data)
 
 void vtkJPEGWriter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImageWriter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Quality: " << this->Quality << "\n";
   os << indent << "Progressive: " << (this->Progressive ? "On" : "Off") << "\n";

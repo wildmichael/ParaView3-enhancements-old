@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCharArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-19 17:51:12 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2002-01-04 14:20:35 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,20 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkCharArray.h"
 #include "vtkObjectFactory.h"
 
-
-
-//---------------------------------------------------------------------------
-vtkCharArray* vtkCharArray::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkCharArray");
-  if(ret)
-    {
-    return (vtkCharArray*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkCharArray;
-}
+vtkCxxRevisionMacro(vtkCharArray, "$Revision: 1.33 $");
+vtkStandardNewMacro(vtkCharArray);
 
 vtkDataArray *vtkCharArray::MakeObject()
 {
@@ -173,7 +161,7 @@ void vtkCharArray::DeepCopy(vtkDataArray *ia)
 
 void vtkCharArray::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataArray::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   if (this->Array)
     {

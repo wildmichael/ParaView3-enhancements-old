@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeFields.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:13:50 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-01-04 14:25:46 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -76,7 +76,7 @@ class vtkFieldData;
 class VTK_GRAPHICS_EXPORT vtkMergeFields : public vtkDataSetToDataSetFilter
 {
 public:
-  vtkTypeMacro(vtkMergeFields,vtkDataSetToDataSetFilter);
+  vtkTypeRevisionMacro(vtkMergeFields,vtkDataSetToDataSetFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

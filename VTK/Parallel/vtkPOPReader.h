@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPOPReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-31 16:36:13 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-01-04 14:29:24 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -55,7 +55,7 @@ class VTK_PARALLEL_EXPORT vtkPOPReader : public vtkStructuredGridSource
 {
 public:
   static vtkPOPReader *New();
-  vtkTypeMacro(vtkPOPReader,vtkStructuredGridSource);
+  vtkTypeRevisionMacro(vtkPOPReader,vtkStructuredGridSource);
   void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:

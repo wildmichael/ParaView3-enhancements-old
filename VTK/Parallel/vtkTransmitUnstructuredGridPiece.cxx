@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransmitUnstructuredGridPiece.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:26:02 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-01-04 14:29:28 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,19 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkExtractUnstructuredGridPiece.h"
 #include "vtkObjectFactory.h"
 
-
-//----------------------------------------------------------------------------
-vtkTransmitUnstructuredGridPiece* vtkTransmitUnstructuredGridPiece::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkTransmitUnstructuredGridPiece");
-  if(ret)
-    {
-    return (vtkTransmitUnstructuredGridPiece*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkTransmitUnstructuredGridPiece;
-}
+vtkCxxRevisionMacro(vtkTransmitUnstructuredGridPiece, "$Revision: 1.4 $");
+vtkStandardNewMacro(vtkTransmitUnstructuredGridPiece);
 
 //----------------------------------------------------------------------------
 vtkTransmitUnstructuredGridPiece::vtkTransmitUnstructuredGridPiece()
@@ -232,7 +221,7 @@ void vtkTransmitUnstructuredGridPiece::SatelliteExecute(int procId)
 //----------------------------------------------------------------------------
 void vtkTransmitUnstructuredGridPiece::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkUnstructuredGridToUnstructuredGridFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
   
   os << indent << "Create Ghost Cells: " << (this->CreateGhostCells ? "On\n" : "Off\n");
   

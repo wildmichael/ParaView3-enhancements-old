@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToStructuredPoints.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:34 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2002-01-04 14:24:10 $
+  Version:   $Revision: 1.35 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -59,7 +59,7 @@ class VTK_FILTERING_EXPORT vtkImageToStructuredPoints : public vtkSource
 {
 public:
   static vtkImageToStructuredPoints *New();
-  vtkTypeMacro(vtkImageToStructuredPoints,vtkSource);
+  vtkTypeRevisionMacro(vtkImageToStructuredPoints,vtkSource);
   void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:

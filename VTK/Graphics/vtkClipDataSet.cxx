@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-15 14:20:18 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-01-04 14:25:06 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,24 +39,15 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include <math.h>
 #include "vtkClipDataSet.h"
 #include "vtkMergePoints.h"
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
-//--------------------------------------------------------------------------
-vtkClipDataSet* vtkClipDataSet::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkClipDataSet");
-  if(ret)
-    {
-    return (vtkClipDataSet*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkClipDataSet;
-}
+#include <math.h>
+
+vtkCxxRevisionMacro(vtkClipDataSet, "$Revision: 1.12 $");
+vtkStandardNewMacro(vtkClipDataSet);
 
 //----------------------------------------------------------------------------
 // Construct with user-specified implicit function; InsideOut turned off; value
@@ -393,7 +384,7 @@ void vtkClipDataSet::CreateDefaultLocator()
 //----------------------------------------------------------------------------
 void vtkClipDataSet::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataSetToUnstructuredGridFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   if ( this->ClipFunction )
     {

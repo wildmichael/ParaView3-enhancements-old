@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAttributeDataToFieldDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-18 11:11:48 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-01-04 14:24:53 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,23 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkAttributeDataToFieldDataFilter.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkAttributeDataToFieldDataFilter* vtkAttributeDataToFieldDataFilter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkAttributeDataToFieldDataFilter");
-  if(ret)
-    {
-    return (vtkAttributeDataToFieldDataFilter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkAttributeDataToFieldDataFilter;
-}
-
-
-
+vtkCxxRevisionMacro(vtkAttributeDataToFieldDataFilter, "$Revision: 1.13 $");
+vtkStandardNewMacro(vtkAttributeDataToFieldDataFilter);
 
 // Instantiate object.
 vtkAttributeDataToFieldDataFilter::vtkAttributeDataToFieldDataFilter()
@@ -79,7 +64,7 @@ void vtkAttributeDataToFieldDataFilter::Execute()
 
 void vtkAttributeDataToFieldDataFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataSetToDataSetFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Pass Attribute Data: " << (this->PassAttributeData ? "On\n" : "Off\n");
 }

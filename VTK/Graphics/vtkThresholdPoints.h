@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThresholdPoints.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:19 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2002-01-04 14:26:43 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,7 +57,7 @@ class VTK_GRAPHICS_EXPORT vtkThresholdPoints : public vtkDataSetToPolyDataFilter
 {
 public:
   static vtkThresholdPoints *New();
-  vtkTypeMacro(vtkThresholdPoints,vtkDataSetToPolyDataFilter);
+  vtkTypeRevisionMacro(vtkThresholdPoints,vtkDataSetToPolyDataFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:

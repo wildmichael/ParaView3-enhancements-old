@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBMPReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:30:29 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2002-01-04 14:27:20 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,21 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkByteSwap.h"
 #include "vtkObjectFactory.h"
 
-//-------------------------------------------------------------------------
-vtkBMPReader* vtkBMPReader::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkBMPReader");
-  if(ret)
-    {
-    return (vtkBMPReader*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkBMPReader;
-}
-
-
-
+vtkCxxRevisionMacro(vtkBMPReader, "$Revision: 1.30 $");
+vtkStandardNewMacro(vtkBMPReader);
 
 #ifdef read
 #undef read
@@ -543,7 +530,7 @@ void vtkBMPReader::ExecuteData(vtkDataObject *output)
 
 void vtkBMPReader::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImageReader::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   // this->Colors is not printed
   os << indent << "Depth: " << this->Depth << "\n";

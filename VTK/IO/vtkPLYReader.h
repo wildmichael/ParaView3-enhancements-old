@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLYReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:32 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-01-04 14:27:45 $
+  Version:   $Revision: 1.5 $
   Thanks:    Mike Dresser MD/PhD
              Director of Core Facility for Imaging
              Program in Molecular and Cell Biology
@@ -66,7 +66,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class VTK_IO_EXPORT vtkPLYReader : public vtkPolyDataSource 
 {
 public:
-  vtkTypeMacro(vtkPLYReader,vtkPolyDataSource);
+  vtkTypeRevisionMacro(vtkPLYReader,vtkPolyDataSource);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:41:41 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2002-01-04 14:25:06 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,7 +39,6 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include <math.h>
 #include "vtkClipPolyData.h"
 #include "vtkMergePoints.h"
 #include "vtkLine.h"
@@ -47,18 +46,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
-//--------------------------------------------------------------------------
-vtkClipPolyData* vtkClipPolyData::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkClipPolyData");
-  if(ret)
-    {
-    return (vtkClipPolyData*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkClipPolyData;
-}
+#include <math.h>
+
+vtkCxxRevisionMacro(vtkClipPolyData, "$Revision: 1.47 $");
+vtkStandardNewMacro(vtkClipPolyData);
 
 //----------------------------------------------------------------------------
 // Construct with user-specified implicit function; InsideOut turned off; value
@@ -417,7 +408,7 @@ void vtkClipPolyData::CreateDefaultLocator()
 //----------------------------------------------------------------------------
 void vtkClipPolyData::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   if ( this->ClipFunction )
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAccumulate.h,v $
   Language:  C++
-  Date:      $Date: 2001-12-07 14:02:27 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2002-01-04 14:28:10 $
+  Version:   $Revision: 1.30 $
   Thanks:    Thanks to C. Charles Law who developed this class
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -66,7 +66,7 @@ class VTK_IMAGING_EXPORT vtkImageAccumulate : public vtkImageToImageFilter
 {
 public:
   static vtkImageAccumulate *New();
-  vtkTypeMacro(vtkImageAccumulate,vtkImageToImageFilter);
+  vtkTypeRevisionMacro(vtkImageAccumulate,vtkImageToImageFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPIController.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:25:57 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-01-04 14:29:21 $
+  Version:   $Revision: 1.8 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -78,7 +78,7 @@ class VTK_PARALLEL_EXPORT vtkMPIController : public vtkMultiProcessController
 public:
 
   static vtkMPIController *New();
-  vtkTypeMacro(vtkMPIController,vtkMultiProcessController);
+  vtkTypeRevisionMacro(vtkMPIController,vtkMultiProcessController);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

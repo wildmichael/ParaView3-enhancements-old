@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractTensorComponents.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:41:47 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-01-04 14:25:24 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,20 +44,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
-
-
-//----------------------------------------------------------------------------
-vtkExtractTensorComponents* vtkExtractTensorComponents::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkExtractTensorComponents");
-  if(ret)
-    {
-    return (vtkExtractTensorComponents*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkExtractTensorComponents;
-}
+vtkCxxRevisionMacro(vtkExtractTensorComponents, "$Revision: 1.21 $");
+vtkStandardNewMacro(vtkExtractTensorComponents);
 
 // Construct object to extract nothing and to not pass tensor data
 // through the pipeline.
@@ -249,7 +237,7 @@ void vtkExtractTensorComponents::Execute()
 
 void vtkExtractTensorComponents::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataSetToDataSetFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Pass Tensors To Output: " << (this->PassTensorsToOutput ? "On\n" : "Off\n");
 

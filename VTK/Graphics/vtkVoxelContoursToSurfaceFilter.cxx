@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxelContoursToSurfaceFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:14:01 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-01-04 14:26:51 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -45,23 +45,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkAppendPolyData.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkVoxelContoursToSurfaceFilter* vtkVoxelContoursToSurfaceFilter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkVoxelContoursToSurfaceFilter");
-  if(ret)
-    {
-    return (vtkVoxelContoursToSurfaceFilter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkVoxelContoursToSurfaceFilter;
-}
-
-
-
+vtkCxxRevisionMacro(vtkVoxelContoursToSurfaceFilter, "$Revision: 1.17 $");
+vtkStandardNewMacro(vtkVoxelContoursToSurfaceFilter);
 
 vtkVoxelContoursToSurfaceFilter::vtkVoxelContoursToSurfaceFilter()
 {
@@ -709,7 +694,7 @@ void vtkVoxelContoursToSurfaceFilter::Execute()
 
 void vtkVoxelContoursToSurfaceFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Memory Limit (in bytes): " << 
     this->MemoryLimitInBytes << endl;

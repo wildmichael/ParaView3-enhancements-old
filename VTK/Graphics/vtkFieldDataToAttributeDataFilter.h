@@ -3,10 +3,10 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldDataToAttributeDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-30 12:49:49 $
-  Version:   $Revision: 1.26 $
-  Date:      $Date: 2001-11-30 12:49:49 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-01-04 14:25:26 $
+  Version:   $Revision: 1.27 $
+  Date:      $Date: 2002-01-04 14:25:26 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -94,7 +94,7 @@ class VTK_GRAPHICS_EXPORT vtkFieldDataToAttributeDataFilter : public vtkDataSetT
 {
 public:
   void PrintSelf(ostream& os, vtkIndent indent);
-  vtkTypeMacro(vtkFieldDataToAttributeDataFilter,vtkDataSetToDataSetFilter);
+  vtkTypeRevisionMacro(vtkFieldDataToAttributeDataFilter,vtkDataSetToDataSetFilter);
 
   // Description:
   // Construct object with input field set to the data object field, and the

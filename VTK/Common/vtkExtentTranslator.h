@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtentTranslator.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-06 14:11:37 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-01-04 14:20:42 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,7 +60,7 @@ class VTK_COMMON_EXPORT vtkExtentTranslator : public vtkObject
 public:
   static vtkExtentTranslator *New();
 
-  vtkTypeMacro(vtkExtentTranslator,vtkObject);
+  vtkTypeRevisionMacro(vtkExtentTranslator,vtkObject);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleJoystickActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:17:45 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-01-04 14:29:45 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,19 +44,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkMath.h"
 #include "vtkCommand.h"
 
-//----------------------------------------------------------------------------
-vtkInteractorStyleJoystickActor *vtkInteractorStyleJoystickActor::New() 
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkInteractorStyleJoystickActor");
-  if(ret)
-    {
-    return (vtkInteractorStyleJoystickActor*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkInteractorStyleJoystickActor;
-}
-
+vtkCxxRevisionMacro(vtkInteractorStyleJoystickActor, "$Revision: 1.12 $");
+vtkStandardNewMacro(vtkInteractorStyleJoystickActor);
 
 //----------------------------------------------------------------------------
 vtkInteractorStyleJoystickActor::vtkInteractorStyleJoystickActor() 
@@ -594,7 +583,7 @@ void vtkInteractorStyleJoystickActor::OnRightButtonUp(int vtkNotUsed(ctrl),
 //----------------------------------------------------------------------------
 void vtkInteractorStyleJoystickActor::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkInteractorStyle::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 }
 
 //----------------------------------------------------------------------------

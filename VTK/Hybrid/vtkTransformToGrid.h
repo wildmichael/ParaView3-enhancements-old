@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformToGrid.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:26 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-01-04 14:27:13 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen
@@ -58,7 +58,7 @@ class VTK_HYBRID_EXPORT vtkTransformToGrid : public vtkImageSource
 {
 public:
   static vtkTransformToGrid *New();
-  vtkTypeMacro(vtkTransformToGrid,vtkImageSource);
+  vtkTypeRevisionMacro(vtkTransformToGrid,vtkImageSource);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

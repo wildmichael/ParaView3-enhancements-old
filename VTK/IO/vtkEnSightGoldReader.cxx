@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightGoldReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:30:32 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-01-04 14:27:34 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -47,20 +47,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkImageData.h"
 #include "vtkPolyData.h"
 #include "vtkFloatArray.h"
+
 #include <ctype.h>
 
-//----------------------------------------------------------------------------
-vtkEnSightGoldReader* vtkEnSightGoldReader::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkEnSightGoldReader");
-  if(ret)
-    {
-    return (vtkEnSightGoldReader*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkEnSightGoldReader;
-}
+vtkCxxRevisionMacro(vtkEnSightGoldReader, "$Revision: 1.25 $");
+vtkStandardNewMacro(vtkEnSightGoldReader);
 
 //----------------------------------------------------------------------------
 int vtkEnSightGoldReader::ReadGeometryFile(char* fileName, int timeStep)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOrderedTriangulator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-02 16:03:22 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2002-01-04 14:21:29 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,6 +44,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkTetra.h"
 #include "vtkEdgeTable.h"
 #include "vtkObjectFactory.h"
+
+vtkCxxRevisionMacro(vtkOrderedTriangulator, "$Revision: 1.31 $");
+vtkStandardNewMacro(vtkOrderedTriangulator);
 
 #ifdef _WIN32_WCE
  #ifndef __PLACEMENT_NEW_INLINE
@@ -424,20 +427,6 @@ public:
     }
 };
 
-
-//------------------------------------------------------------------------
-vtkOrderedTriangulator* vtkOrderedTriangulator::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkOrderedTriangulator");
-  if(ret)
-    {
-    return (vtkOrderedTriangulator *)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkOrderedTriangulator;
-}
-
 //------------------------------------------------------------------------
 vtkOrderedTriangulator::vtkOrderedTriangulator()
 {
@@ -599,7 +588,7 @@ vtkIdType vtkOrderedTriangulator::InsertPoint(vtkIdType id, float x[3],
 }
 
 vtkIdType vtkOrderedTriangulator::InsertPoint(vtkIdType id, vtkIdType sortid,
-					      float x[3], int type)
+                                              float x[3], int type)
 {
   vtkIdType idx = this->NumberOfPoints++;
   if ( idx > this->MaximumNumberOfPoints )
@@ -1087,7 +1076,7 @@ vtkIdType vtkOrderedTriangulator::AddTetras(int classification,
 //------------------------------------------------------------------------
 void vtkOrderedTriangulator::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkObject::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "PreSorted: " << (this->PreSorted ? "On\n" : "Off\n");
 

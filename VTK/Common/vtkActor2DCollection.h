@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor2DCollection.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:35:59 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2002-01-04 14:20:32 $
+  Version:   $Revision: 1.26 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -64,7 +64,7 @@ class VTK_COMMON_EXPORT vtkActor2DCollection : public vtkPropCollection
   // objects from the collection.
   static vtkActor2DCollection *New();
 
-  vtkTypeMacro(vtkActor2DCollection,vtkPropCollection);
+  vtkTypeRevisionMacro(vtkActor2DCollection,vtkPropCollection);
 
   // Description:
   // Sorts the vtkActor2DCollection by layer number.  Smaller layer

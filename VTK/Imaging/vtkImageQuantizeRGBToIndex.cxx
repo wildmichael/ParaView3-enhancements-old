@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageQuantizeRGBToIndex.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:57 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2002-01-04 14:29:05 $
+  Version:   $Revision: 1.28 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -40,27 +40,13 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 #include "vtkImageQuantizeRGBToIndex.h"
 #include "vtkTimerLog.h"
-#include <math.h>
-#include <stdlib.h>
 #include "vtkObjectFactory.h"
 
+#include <math.h>
+#include <stdlib.h>
 
-
-//------------------------------------------------------------------------------
-vtkImageQuantizeRGBToIndex* vtkImageQuantizeRGBToIndex::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageQuantizeRGBToIndex");
-  if(ret)
-    {
-    return (vtkImageQuantizeRGBToIndex*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageQuantizeRGBToIndex;
-}
-
-
-
+vtkCxxRevisionMacro(vtkImageQuantizeRGBToIndex, "$Revision: 1.28 $");
+vtkStandardNewMacro(vtkImageQuantizeRGBToIndex);
 
 class vtkColorQuantizeNode
 {
@@ -664,7 +650,7 @@ void vtkImageQuantizeRGBToIndex::ComputeInputUpdateExtent(int inExt[6],
 
 void vtkImageQuantizeRGBToIndex::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImageToImageFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   // Input Type is internal so we dont prit it
   //os << indent << "InputType: " << this->InputType << endl;

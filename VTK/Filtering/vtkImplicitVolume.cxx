@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:41:33 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-01-04 14:24:14 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,22 +44,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
-
-//------------------------------------------------------------------------------
-vtkImplicitVolume* vtkImplicitVolume::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImplicitVolume");
-  if(ret)
-    {
-    return (vtkImplicitVolume*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImplicitVolume;
-}
-
-
-
+vtkCxxRevisionMacro(vtkImplicitVolume, "$Revision: 1.25 $");
+vtkStandardNewMacro(vtkImplicitVolume);
 
 // Construct an vtkImplicitVolume with no initial volume; the OutValue
 // set to a large negative number; and the OutGradient set to (0,0,1).
@@ -190,7 +176,7 @@ void vtkImplicitVolume::EvaluateGradient(float x[3], float n[3])
 
 void vtkImplicitVolume::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImplicitFunction::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Out Value: " << this->OutValue << "\n";
   os << indent << "Out Gradient: (" << this->OutGradient[0] << ", " 

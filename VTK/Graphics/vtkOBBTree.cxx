@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBBTree.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:13:56 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2002-01-04 14:25:48 $
+  Version:   $Revision: 1.48 $
   Thanks:    Thanks to Peter C. Everett <pce@world.std.com> for
              improvements and enhancements to vtkOBBTree class.
 
@@ -51,18 +51,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkMatrix4x4.h"
 #include "vtkObjectFactory.h"
 
-//----------------------------------------------------------------------------
-vtkOBBTree* vtkOBBTree::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkOBBTree");
-  if(ret)
-    {
-    return (vtkOBBTree*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkOBBTree;
-}
+vtkCxxRevisionMacro(vtkOBBTree, "$Revision: 1.48 $");
+vtkStandardNewMacro(vtkOBBTree);
 
 #define vtkCELLTRIANGLES(CELLPTIDS, TYPE, IDX, PTID0, PTID1, PTID2) \
         { switch( TYPE ) \

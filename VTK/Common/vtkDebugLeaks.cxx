@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDebugLeaks.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:09:38 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-01-04 14:20:39 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,6 +44,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkOutputWindow.h"
 #include "vtkCriticalSection.h"
+
+vtkCxxRevisionMacro(vtkDebugLeaks, "$Revision: 1.16 $");
+vtkStandardNewMacro(vtkDebugLeaks);
 
 int vtkDebugLeaks::PromptUser = 1;
 
@@ -137,21 +140,6 @@ vtkDebugLeaksHashTable::vtkDebugLeaksHashTable()
     this->Nodes[i] = NULL;
     }
 }
-
-
-
-vtkDebugLeaks* vtkDebugLeaks::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkDebugLeaks");
-  if(ret)
-    {
-    return (vtkDebugLeaks*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkDebugLeaks;
-}
-
 
 void vtkDebugLeaksHashTable::IncrementCount(const char * name)
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDebugLeaks.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:09 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-01-04 14:20:39 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -62,7 +62,7 @@ class VTK_COMMON_EXPORT vtkDebugLeaks : public vtkObject
 {
 public: 
   static vtkDebugLeaks *New();
-  vtkTypeMacro(vtkDebugLeaks,vtkObject);
+  vtkTypeRevisionMacro(vtkDebugLeaks,vtkObject);
 
   // Description:
   // Call this when creating a class of a given name.

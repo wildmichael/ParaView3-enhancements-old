@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPropAssembly.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-28 16:16:37 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-01-04 14:22:08 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,18 +44,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkAssemblyNode.h"
 #include "vtkObjectFactory.h"
 
-//-----------------------------------------------------------------------------
-vtkPropAssembly* vtkPropAssembly::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkPropAssembly");
-  if(ret)
-    {
-    return (vtkPropAssembly*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkPropAssembly;
-}
+vtkCxxRevisionMacro(vtkPropAssembly, "$Revision: 1.19 $");
+vtkStandardNewMacro(vtkPropAssembly);
 
 // Construct object with no children.
 vtkPropAssembly::vtkPropAssembly()
@@ -373,7 +363,7 @@ void vtkPropAssembly::BuildPaths(vtkAssemblyPaths *paths,
 
 void vtkPropAssembly::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkProp::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "There are: " << this->Parts->GetNumberOfItems()
      << " parts in this assembly\n";

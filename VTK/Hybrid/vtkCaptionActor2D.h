@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCaptionActor2D.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:23 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-01-04 14:26:58 $
+  Version:   $Revision: 1.6 $
   Thanks:    Tim Smith who sponsored and encouraged the development
              of this class.
 
@@ -94,7 +94,7 @@ class vtkActor;
 class VTK_HYBRID_EXPORT vtkCaptionActor2D : public vtkActor2D
 {
 public:
-  vtkTypeMacro(vtkCaptionActor2D,vtkActor2D);
+  vtkTypeRevisionMacro(vtkCaptionActor2D,vtkActor2D);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   static vtkCaptionActor2D *New();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphere.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:37 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2002-01-04 14:24:33 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -52,7 +52,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class VTK_FILTERING_EXPORT vtkSphere : public vtkImplicitFunction
 {
 public:
-  vtkTypeMacro(vtkSphere,vtkImplicitFunction);
+  vtkTypeRevisionMacro(vtkSphere,vtkImplicitFunction);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description

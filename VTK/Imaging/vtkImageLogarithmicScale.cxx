@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageLogarithmicScale.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:53 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-01-04 14:28:48 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,30 +39,13 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include <math.h>
-
 #include "vtkImageLogarithmicScale.h"
 #include "vtkObjectFactory.h"
 
+#include <math.h>
 
-
-//------------------------------------------------------------------------------
-vtkImageLogarithmicScale* vtkImageLogarithmicScale::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageLogarithmicScale");
-  if(ret)
-    {
-    return (vtkImageLogarithmicScale*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageLogarithmicScale;
-}
-
-
-
-
-
+vtkCxxRevisionMacro(vtkImageLogarithmicScale, "$Revision: 1.18 $");
+vtkStandardNewMacro(vtkImageLogarithmicScale);
 
 //----------------------------------------------------------------------------
 // Constructor sets default values
@@ -175,7 +158,7 @@ void vtkImageLogarithmicScale::ThreadedExecute(vtkImageData *inData,
 
 void vtkImageLogarithmicScale::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImageToImageFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Constant: " << this->Constant << "\n";
 }

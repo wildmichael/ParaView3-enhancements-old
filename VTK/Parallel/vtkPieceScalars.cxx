@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPieceScalars.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-13 12:57:53 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-01-04 14:29:25 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -45,18 +45,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkFloatArray.h"
 #include "vtkMath.h"
 
-//----------------------------------------------------------------------------
-vtkPieceScalars* vtkPieceScalars::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkPieceScalars");
-  if(ret)
-    {
-    return (vtkPieceScalars*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkPieceScalars;
-}
+vtkCxxRevisionMacro(vtkPieceScalars, "$Revision: 1.9 $");
+vtkStandardNewMacro(vtkPieceScalars);
 
 //----------------------------------------------------------------------------
 vtkPieceScalars::vtkPieceScalars()
@@ -152,7 +142,7 @@ vtkFloatArray *vtkPieceScalars::MakeRandomScalars(int piece, vtkIdType num)
 //----------------------------------------------------------------------------
 void vtkPieceScalars::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataSetToDataSetFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
   
   os << indent << "RandomMode: " << this->RandomMode << endl;
   if (this->CellScalarsFlag)

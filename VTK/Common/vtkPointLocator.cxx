@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-28 14:01:41 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2002-01-04 14:21:45 $
+  Version:   $Revision: 1.58 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -46,18 +46,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkIdList.h"
 
-//------------------------------------------------------------------------------
-vtkPointLocator* vtkPointLocator::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkPointLocator");
-  if(ret)
-    {
-    return (vtkPointLocator*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkPointLocator;
-}
+vtkCxxRevisionMacro(vtkPointLocator, "$Revision: 1.58 $");
+vtkStandardNewMacro(vtkPointLocator);
 
 static const int VTK_INITIAL_SIZE=1000;
 
@@ -1938,7 +1928,7 @@ float vtkPointLocator::Distance2ToBounds(const float x[3],
 
 void vtkPointLocator::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkLocator::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Number of Points Per Bucket: " << this->NumberOfPointsPerBucket << "\n";
   os << indent << "Divisions: (" << this->Divisions[0] << ", " 

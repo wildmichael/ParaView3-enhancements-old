@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLegendBoxActor.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:25 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-01-04 14:27:07 $
+  Version:   $Revision: 1.10 $
   Thanks:    Tim Smith who sponsored and encouraged the development
              of this class.
 
@@ -75,7 +75,7 @@ class vtkTransform;
 class VTK_HYBRID_EXPORT vtkLegendBoxActor : public vtkActor2D
 {
 public:
-  vtkTypeMacro(vtkLegendBoxActor,vtkActor2D);
+  vtkTypeRevisionMacro(vtkLegendBoxActor,vtkActor2D);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

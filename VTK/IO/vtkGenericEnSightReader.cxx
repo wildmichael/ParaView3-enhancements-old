@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericEnSightReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:30:32 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-01-04 14:27:36 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -46,18 +46,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkEnSightGoldBinaryReader.h"
 #include "vtkObjectFactory.h"
 
-//----------------------------------------------------------------------------
-vtkGenericEnSightReader* vtkGenericEnSightReader::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkGenericEnSightReader");
-  if(ret)
-    {
-    return (vtkGenericEnSightReader*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkGenericEnSightReader;
-}
+vtkCxxRevisionMacro(vtkGenericEnSightReader, "$Revision: 1.19 $");
+vtkStandardNewMacro(vtkGenericEnSightReader);
 
 //----------------------------------------------------------------------------
 vtkGenericEnSightReader::vtkGenericEnSightReader()
@@ -948,7 +938,7 @@ void vtkGenericEnSightReader::ReplaceWildcardsHelper(char* fileName, int num)
 
 void vtkGenericEnSightReader::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataSetSource::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "CaseFileName: "
      << (this->CaseFileName ? this->CaseFileName : "(none)") << endl;

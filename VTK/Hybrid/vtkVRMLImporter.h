@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLImporter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:26 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-01-04 14:27:14 $
+  Version:   $Revision: 1.14 $
   Thanks:    Tom Citriniti who implemented and contributed this class
 
 
@@ -110,7 +110,7 @@ class VTK_HYBRID_EXPORT vtkVRMLImporter : public vtkImporter
 public:
   static vtkVRMLImporter *New();
 
-  vtkTypeMacro(vtkVRMLImporter,vtkImporter);
+  vtkTypeRevisionMacro(vtkVRMLImporter,vtkImporter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

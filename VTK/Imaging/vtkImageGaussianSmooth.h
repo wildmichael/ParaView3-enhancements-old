@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGaussianSmooth.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:35 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2002-01-04 14:28:40 $
+  Version:   $Revision: 1.36 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -53,7 +53,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class VTK_IMAGING_EXPORT vtkImageGaussianSmooth : public vtkImageToImageFilter
 {
 public:
-  vtkTypeMacro(vtkImageGaussianSmooth,vtkImageToImageFilter);
+  vtkTypeRevisionMacro(vtkImageGaussianSmooth,vtkImageToImageFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataNormals.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:11 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-01-04 14:25:57 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,7 +68,7 @@ class vtkFloatArray;
 class VTK_GRAPHICS_EXPORT vtkPolyDataNormals : public vtkPolyDataToPolyDataFilter
 {
 public:
-  vtkTypeMacro(vtkPolyDataNormals,vtkPolyDataToPolyDataFilter);
+  vtkTypeRevisionMacro(vtkPolyDataNormals,vtkPolyDataToPolyDataFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

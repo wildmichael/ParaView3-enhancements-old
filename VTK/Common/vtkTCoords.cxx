@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-22 19:12:49 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2002-01-04 14:22:40 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,23 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkTCoords.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkTCoords* vtkTCoords::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkTCoords");
-  if(ret)
-    {
-    return (vtkTCoords*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkTCoords;
-}
-
-
-
+vtkCxxRevisionMacro(vtkTCoords, "$Revision: 1.34 $");
+vtkStandardNewMacro(vtkTCoords);
 
 vtkTCoords *vtkTCoords::New(int dataType, int numComp)
 {
@@ -107,7 +92,7 @@ void vtkTCoords::GetTCoords(vtkIdList *ptIds, vtkTCoords *tc)
 
 void vtkTCoords::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkAttributeData::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Number Of Texture Coordinates: " << this->GetNumberOfTCoords() << "\n";
   os << indent << "Number Of Texture Components: " << this->GetNumberOfComponents() << "\n";

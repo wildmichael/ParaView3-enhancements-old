@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageTwoInputFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-16 15:46:37 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-01-04 14:24:10 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,24 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkImageTwoInputFilter.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkImageTwoInputFilter* vtkImageTwoInputFilter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageTwoInputFilter");
-  if(ret)
-    {
-    return (vtkImageTwoInputFilter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageTwoInputFilter;
-}
-
-
-
-
+vtkCxxRevisionMacro(vtkImageTwoInputFilter, "$Revision: 1.21 $");
+vtkStandardNewMacro(vtkImageTwoInputFilter);
 
 //----------------------------------------------------------------------------
 vtkImageTwoInputFilter::vtkImageTwoInputFilter()

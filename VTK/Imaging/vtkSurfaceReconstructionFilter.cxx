@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSurfaceReconstructionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-29 20:52:44 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-01-04 14:29:16 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to Tim Hutton (MINORI Project, Dental and Medical
              Informatics, Eastman Dental Institute, London, UK) who
              developed and contributed this class.
@@ -47,18 +47,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
 
-//--------------------------------------------------------------------------
-vtkSurfaceReconstructionFilter* vtkSurfaceReconstructionFilter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkSurfaceReconstructionFilter");
-  if(ret)
-    {
-    return (vtkSurfaceReconstructionFilter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkSurfaceReconstructionFilter;
-}
+vtkCxxRevisionMacro(vtkSurfaceReconstructionFilter, "$Revision: 1.21 $");
+vtkStandardNewMacro(vtkSurfaceReconstructionFilter);
 
 vtkSurfaceReconstructionFilter::vtkSurfaceReconstructionFilter()
 {
@@ -486,7 +476,7 @@ void vtkSurfaceReconstructionFilter::Execute()
 
 void vtkSurfaceReconstructionFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataSetToStructuredPointsFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
   
   os << indent << "Neighborhood Size:" << this->NeighborhoodSize << "\n";
   os << indent << "Sample Spacing:" << this->SampleSpacing << "\n";

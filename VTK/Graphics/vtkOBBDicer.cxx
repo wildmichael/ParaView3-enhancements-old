@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBBDicer.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-29 17:14:46 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-01-04 14:25:47 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,22 +44,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkShortArray.h"
 
-
-//------------------------------------------------------------------------------
-vtkOBBDicer* vtkOBBDicer::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkOBBDicer");
-  if(ret)
-    {
-    return (vtkOBBDicer*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkOBBDicer;
-}
-
-
-
+vtkCxxRevisionMacro(vtkOBBDicer, "$Revision: 1.12 $");
+vtkStandardNewMacro(vtkOBBDicer);
 
 void vtkOBBDicer::BuildTree(vtkIdList *ptIds, vtkOBBNode *OBBptr)
 {
@@ -257,5 +243,5 @@ void vtkOBBDicer::DeleteTree(vtkOBBNode *OBBptr)
 
 void vtkOBBDicer::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDicer::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 }

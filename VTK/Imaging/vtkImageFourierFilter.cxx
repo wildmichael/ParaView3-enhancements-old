@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFourierFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:50 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-01-04 14:28:39 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,17 +39,16 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include <math.h>
 #include "vtkImageFourierFilter.h"
+
+#include <math.h>
+
+vtkCxxRevisionMacro(vtkImageFourierFilter, "$Revision: 1.15 $");
 
 
 /*=========================================================================
         Vectors of complex numbers.
 =========================================================================*/
-
-
-
-
 
 //----------------------------------------------------------------------------
 // This function calculates one step of a FFT.

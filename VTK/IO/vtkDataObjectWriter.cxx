@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObjectWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:33 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-01-04 14:27:27 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,23 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkDataObjectWriter.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkDataObjectWriter* vtkDataObjectWriter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkDataObjectWriter");
-  if(ret)
-    {
-    return (vtkDataObjectWriter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkDataObjectWriter;
-}
-
-
-
+vtkCxxRevisionMacro(vtkDataObjectWriter, "$Revision: 1.12 $");
+vtkStandardNewMacro(vtkDataObjectWriter);
 
 vtkDataObjectWriter::vtkDataObjectWriter()
 {
@@ -109,7 +94,7 @@ void vtkDataObjectWriter::WriteData()
 
 void vtkDataObjectWriter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkWriter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
   
   os << indent << "File Name: " 
      << (this->Writer->GetFileName() ? this->Writer->GetFileName() : "(none)") << "\n";

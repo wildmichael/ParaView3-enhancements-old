@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractGeometry.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-08 12:34:34 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2002-01-04 14:25:22 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,18 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
-//-------------------------------------------------------------------------
-vtkExtractGeometry* vtkExtractGeometry::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkExtractGeometry");
-  if(ret)
-    {
-    return (vtkExtractGeometry*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkExtractGeometry;
-}
+vtkCxxRevisionMacro(vtkExtractGeometry, "$Revision: 1.44 $");
+vtkStandardNewMacro(vtkExtractGeometry);
 
 // Construct object with ExtractInside turned on.
 vtkExtractGeometry::vtkExtractGeometry(vtkImplicitFunction *f)
@@ -261,7 +251,7 @@ void vtkExtractGeometry::Execute()
 
 void vtkExtractGeometry::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataSetToUnstructuredGridFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Implicit Function: " 
      << (void *)this->ImplicitFunction << "\n";

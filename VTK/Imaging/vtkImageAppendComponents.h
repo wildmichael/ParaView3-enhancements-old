@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAppendComponents.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:30 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2002-01-04 14:28:15 $
+  Version:   $Revision: 1.26 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,7 +58,7 @@ class VTK_IMAGING_EXPORT vtkImageAppendComponents : public vtkImageMultipleInput
 {
 public:
   static vtkImageAppendComponents *New();
-  vtkTypeMacro(vtkImageAppendComponents,vtkImageMultipleInputFilter);
+  vtkTypeRevisionMacro(vtkImageAppendComponents,vtkImageMultipleInputFilter);
 
 #ifndef VTK_REMOVE_LEGACY_CODE
   // Description:

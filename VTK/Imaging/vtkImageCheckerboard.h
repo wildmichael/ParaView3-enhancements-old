@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCheckerboard.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:31 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-01-04 14:28:21 $
+  Version:   $Revision: 1.5 $
   Thanks:    This work was supported by PHS Research Grant No. 1 P41 RR13218-01
              from the National Center for Research Resources
 
@@ -57,7 +57,7 @@ class VTK_IMAGING_EXPORT vtkImageCheckerboard : public vtkImageTwoInputFilter
 {
 public:
   static vtkImageCheckerboard *New();
-  vtkTypeMacro(vtkImageCheckerboard,vtkImageTwoInputFilter);
+  vtkTypeRevisionMacro(vtkImageCheckerboard,vtkImageTwoInputFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

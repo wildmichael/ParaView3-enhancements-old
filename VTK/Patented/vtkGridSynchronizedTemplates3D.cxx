@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGridSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-20 13:34:44 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 2002-01-04 14:29:30 $
+  Version:   $Revision: 1.53 $
 
 
 
@@ -69,18 +69,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
 
-//--------------------------------------------------------------------------
-vtkGridSynchronizedTemplates3D* vtkGridSynchronizedTemplates3D::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkGridSynchronizedTemplates3D");
-  if(ret)
-    {
-    return (vtkGridSynchronizedTemplates3D*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkGridSynchronizedTemplates3D;
-}
+vtkCxxRevisionMacro(vtkGridSynchronizedTemplates3D, "$Revision: 1.53 $");
+vtkStandardNewMacro(vtkGridSynchronizedTemplates3D);
 
 //----------------------------------------------------------------------------
 // Description:
@@ -901,7 +891,7 @@ void vtkGridSynchronizedTemplates3D::ComputeInputUpdateExtents( vtkDataObject *o
 //----------------------------------------------------------------------------
 void vtkGridSynchronizedTemplates3D::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkStructuredGridToPolyDataFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   this->ContourValues->PrintSelf(os,indent);
 

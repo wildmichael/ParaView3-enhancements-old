@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMath.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:09:49 $
-  Version:   $Revision: 1.71 $
+  Date:      $Date: 2002-01-04 14:21:12 $
+  Version:   $Revision: 1.72 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,20 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
 
-
-//-------------------------------------------------------------------------
-vtkMath* vtkMath::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkMath");
-  if(ret)
-    {
-    return (vtkMath*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkMath;
-}
-
+vtkCxxRevisionMacro(vtkMath, "$Revision: 1.72 $");
+vtkStandardNewMacro(vtkMath);
 
 long vtkMath::Seed = 1177; // One authors home address
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridToPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-15 14:20:17 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-01-04 14:24:43 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -40,6 +40,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 #include "vtkUnstructuredGridToPolyDataFilter.h"
+
+vtkCxxRevisionMacro(vtkUnstructuredGridToPolyDataFilter, "$Revision: 1.3 $");
 
 //----------------------------------------------------------------------------
 // Specify the input data or filter.

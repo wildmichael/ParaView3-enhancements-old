@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageShrink3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-28 14:09:52 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2002-01-04 14:29:10 $
+  Version:   $Revision: 1.50 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,29 +39,13 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include <math.h>
-
 #include "vtkImageShrink3D.h"
 #include "vtkObjectFactory.h"
 
+#include <math.h>
 
-
-//------------------------------------------------------------------------------
-vtkImageShrink3D* vtkImageShrink3D::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageShrink3D");
-  if(ret)
-    {
-    return (vtkImageShrink3D*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageShrink3D;
-}
-
-
-
-
+vtkCxxRevisionMacro(vtkImageShrink3D, "$Revision: 1.50 $");
+vtkStandardNewMacro(vtkImageShrink3D);
 
 //----------------------------------------------------------------------------
 // Constructor: Sets default filter to be identity.
@@ -144,7 +128,7 @@ void vtkImageShrink3D::SetAveraging (int value)
 //----------------------------------------------------------------------------
 void vtkImageShrink3D::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImageToImageFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "ShrinkFactors: (" << this->ShrinkFactors[0] << ", "
      << this->ShrinkFactors[1] << ", " << this->ShrinkFactors[2] << ")\n";

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKitwareObjectFactory.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:16 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-01-04 14:29:31 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,6 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkKitwareObjectFactory.h"
 #include "vtkKitwareContourFilter.h"
 #include "vtkVersion.h"
+
+vtkCxxRevisionMacro(vtkKitwareObjectFactory, "$Revision: 1.7 $");
 
 void vtkKitwareObjectFactory::PrintSelf(ostream& os, vtkIndent indent)
 {

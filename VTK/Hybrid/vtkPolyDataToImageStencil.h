@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataToImageStencil.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:25 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-01-04 14:27:08 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -59,7 +59,7 @@ class VTK_HYBRID_EXPORT vtkPolyDataToImageStencil : public vtkImageStencilSource
 {
 public:
   static vtkPolyDataToImageStencil *New();
-  vtkTypeMacro(vtkPolyDataToImageStencil, vtkImageStencilSource);
+  vtkTypeRevisionMacro(vtkPolyDataToImageStencil, vtkImageStencilSource);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
@@ -79,7 +79,7 @@ protected:
 
   void ExecuteData(vtkDataObject *out);
   void ThreadedExecute(vtkImageStencilData *output,
-		       int extent[6], int threadId);
+                       int extent[6], int threadId);
 
   float Tolerance;
   vtkOBBTree *OBBTree;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLFileOutputWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:10:03 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-01-04 14:23:17 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,17 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkXMLFileOutputWindow.h"
 #include "vtkObjectFactory.h"
 
-vtkXMLFileOutputWindow* vtkXMLFileOutputWindow::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkXMLFileOutputWindow");
-  if(ret)
-    {
-    return (vtkXMLFileOutputWindow*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkXMLFileOutputWindow;
-}
+vtkCxxRevisionMacro(vtkXMLFileOutputWindow, "$Revision: 1.4 $");
+vtkStandardNewMacro(vtkXMLFileOutputWindow);
 
 void vtkXMLFileOutputWindow::Initialize() 
 {

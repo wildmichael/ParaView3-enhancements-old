@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridToPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:38 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-01-04 14:24:37 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -56,7 +56,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class VTK_FILTERING_EXPORT vtkStructuredGridToPolyDataFilter : public vtkPolyDataSource
 {
 public:
-  vtkTypeMacro(vtkStructuredGridToPolyDataFilter,vtkPolyDataSource);
+  vtkTypeRevisionMacro(vtkStructuredGridToPolyDataFilter,vtkPolyDataSource);
 
   // Description:
   // Set / get the input Grid or filter.

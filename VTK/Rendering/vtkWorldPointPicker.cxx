@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWorldPointPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:01 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-01-04 14:30:27 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,18 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkCommand.h"
 
-//------------------------------------------------------------------------------
-vtkWorldPointPicker* vtkWorldPointPicker::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkWorldPointPicker");
-  if(ret)
-    {
-    return (vtkWorldPointPicker*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkWorldPointPicker;
-}
+vtkCxxRevisionMacro(vtkWorldPointPicker, "$Revision: 1.14 $");
+vtkStandardNewMacro(vtkWorldPointPicker);
 
 vtkWorldPointPicker::vtkWorldPointPicker()
 {
@@ -129,5 +119,5 @@ int vtkWorldPointPicker::Pick(float selectionX, float selectionY,
 
 void vtkWorldPointPicker::PrintSelf(ostream& os, vtkIndent indent)
 {
-  this->vtkAbstractPicker::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 }

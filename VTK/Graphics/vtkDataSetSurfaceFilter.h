@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetSurfaceFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:13:49 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-01-04 14:25:13 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -64,7 +64,7 @@ class VTK_GRAPHICS_EXPORT vtkDataSetSurfaceFilter : public vtkDataSetToPolyDataF
 {
 public:
   static vtkDataSetSurfaceFilter *New();
-  vtkTypeMacro(vtkDataSetSurfaceFilter,vtkDataSetToPolyDataFilter);
+  vtkTypeRevisionMacro(vtkDataSetSurfaceFilter,vtkDataSetToPolyDataFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

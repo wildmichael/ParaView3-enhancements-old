@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:14:01 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2002-01-04 14:26:44 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,18 +44,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
-//----------------------------------------------------------------------------
-vtkTransformFilter* vtkTransformFilter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkTransformFilter");
-  if(ret)
-    {
-    return (vtkTransformFilter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkTransformFilter;
-}
+vtkCxxRevisionMacro(vtkTransformFilter, "$Revision: 1.38 $");
+vtkStandardNewMacro(vtkTransformFilter);
 
 vtkTransformFilter::vtkTransformFilter()
 {
@@ -217,7 +207,7 @@ unsigned long vtkTransformFilter::GetMTime()
 
 void vtkTransformFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPointSetToPointSetFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Transform: " << this->Transform << "\n";
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-29 20:52:42 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-01-04 14:25:28 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -46,18 +46,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkUnsignedCharArray.h"
 #include "vtkFloatArray.h"
 
-//------------------------------------------------------------------------
-vtkGlyph2D* vtkGlyph2D::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkGlyph2D");
-  if(ret)
-    {
-    return (vtkGlyph2D*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkGlyph2D;
-}
+vtkCxxRevisionMacro(vtkGlyph2D, "$Revision: 1.13 $");
+vtkStandardNewMacro(vtkGlyph2D);
 
 void vtkGlyph2D::Execute()
 {
@@ -482,5 +472,5 @@ void vtkGlyph2D::Execute()
 
 void vtkGlyph2D::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkGlyph3D::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorNorm.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:14:01 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2002-01-04 14:26:50 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,18 +44,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
-//-------------------------------------------------------------------------
-vtkVectorNorm* vtkVectorNorm::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkVectorNorm");
-  if(ret)
-    {
-    return (vtkVectorNorm*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkVectorNorm;
-}
+vtkCxxRevisionMacro(vtkVectorNorm, "$Revision: 1.37 $");
+vtkStandardNewMacro(vtkVectorNorm);
 
 // Construct with normalize flag off.
 vtkVectorNorm::vtkVectorNorm()
@@ -207,7 +197,7 @@ const char *vtkVectorNorm::GetAttributeModeAsString(void)
 
 void vtkVectorNorm::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataSetToDataSetFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Normalize: " << (this->Normalize ? "On\n" : "Off\n");
   os << indent << "Attribute Mode: " << this->GetAttributeModeAsString() 

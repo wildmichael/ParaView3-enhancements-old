@@ -1,16 +1,16 @@
 /*
  * tkPort.h --
  *
- *	This header file handles porting issues that occur because of
- *	differences between systems.  It reads in platform specific
- *	portability files.
+ *      This header file handles porting issues that occur because of
+ *      differences between systems.  It reads in platform specific
+ *      portability files.
  *
  * Copyright (c) 1995 Sun Microsystems, Inc.
  *
  * See the file "license.terms" for information on usage and redistribution
  * of this file, and for a DISCLAIMER OF ALL WARRANTIES.
  *
- * RCS: @(#) $Id: tkPort.h,v 1.1 2001-08-17 21:57:17 martink Exp $
+ * RCS: @(#) $Id: tkPort.h,v 1.2 2002-01-04 14:30:44 king Exp $
  */
 
 #ifndef _TKPORT
@@ -27,9 +27,9 @@
 #   include "tkWinPort.h"
 #else
 #   if defined(MAC_TCL)
-#	include "tkMacPort.h"
+#       include "tkMacPort.h"
 #   else
-#	include "../unix/tkUnixPort.h"
+#       include "../unix/tkUnixPort.h"
 #   endif
 #endif
 

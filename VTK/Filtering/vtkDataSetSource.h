@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:33 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-01-04 14:23:57 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -53,7 +53,7 @@ class VTK_FILTERING_EXPORT vtkDataSetSource : public vtkSource
 {
 public:
   static vtkDataSetSource *New();
-  vtkTypeMacro(vtkDataSetSource,vtkSource);
+  vtkTypeRevisionMacro(vtkDataSetSource,vtkSource);
 
   // Description:
   // Get the output of this source.

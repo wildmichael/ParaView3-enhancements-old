@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGESignaReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-28 20:57:15 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-01-04 14:27:35 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,19 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkByteSwap.h"
 #include "vtkObjectFactory.h"
 
-//-------------------------------------------------------------------------
-vtkGESignaReader* vtkGESignaReader::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkGESignaReader");
-  if(ret)
-    {
-    return (vtkGESignaReader*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkGESignaReader;
-}
-
+vtkCxxRevisionMacro(vtkGESignaReader, "$Revision: 1.8 $");
+vtkStandardNewMacro(vtkGESignaReader);
 
 void vtkGESignaReader::ExecuteInformation()
 {

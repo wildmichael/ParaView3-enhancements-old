@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightGoldReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:30:28 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-01-04 14:27:34 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,7 +68,7 @@ class VTK_IO_EXPORT vtkEnSightGoldReader : public vtkEnSightReader
 {
 public:
   static vtkEnSightGoldReader *New();
-  vtkTypeMacro(vtkEnSightGoldReader, vtkEnSightReader);
+  vtkTypeRevisionMacro(vtkEnSightGoldReader, vtkEnSightReader);
   
 protected:
   vtkEnSightGoldReader() {};

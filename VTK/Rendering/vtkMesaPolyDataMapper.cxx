@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaPolyDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-19 19:54:31 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-01-04 14:29:53 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -65,15 +65,5 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkOpenGLPolyDataMapper.cxx"
 #undef vtkOpenGLPolyDataMapper
 
-//----------------------------------------------------------------------------
-vtkMesaPolyDataMapper* vtkMesaPolyDataMapper::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkMesaPolyDataMapper");
-  if(ret)
-    {
-    return (vtkMesaPolyDataMapper*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkMesaPolyDataMapper;
-}
+vtkCxxRevisionMacro(vtkMesaPolyDataMapper, "$Revision: 1.10 $");
+vtkStandardNewMacro(vtkMesaPolyDataMapper);

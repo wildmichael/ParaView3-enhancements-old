@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:11 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2002-01-04 14:25:55 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,7 +57,7 @@ class VTK_GRAPHICS_EXPORT vtkPointSource : public vtkPolyDataSource
 {
 public:
   static vtkPointSource *New();
-  vtkTypeMacro(vtkPointSource,vtkPolyDataSource);
+  vtkTypeRevisionMacro(vtkPointSource,vtkPolyDataSource);
   void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadric.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:23 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-01-04 14:22:19 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -53,7 +53,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class VTK_COMMON_EXPORT vtkQuadric : public vtkImplicitFunction
 {
 public:
-  vtkTypeMacro(vtkQuadric,vtkImplicitFunction);
+  vtkTypeRevisionMacro(vtkQuadric,vtkImplicitFunction);
   void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description

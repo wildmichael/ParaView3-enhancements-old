@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-18 19:00:08 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2002-01-04 14:20:42 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -41,6 +41,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 #include "vtkFieldData.h"
 #include "vtkObjectFactory.h"
+
+vtkCxxRevisionMacro(vtkFieldData, "$Revision: 1.40 $");
+vtkStandardNewMacro(vtkFieldData);
 
 vtkFieldData::BasicIterator::BasicIterator(const int* list, 
                                            unsigned int listSize)
@@ -194,21 +197,6 @@ int vtkFieldData::BasicIterator::IsInList(int index)
     }
   return 0;
 }
-
-
-//------------------------------------------------------------------------------
-vtkFieldData* vtkFieldData::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkFieldData");
-  if(ret)
-    {
-    return (vtkFieldData*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkFieldData;
-}
-
 
 // Construct object with no data initially.
 vtkFieldData::vtkFieldData()
@@ -740,7 +728,7 @@ void vtkFieldData::PassData(vtkFieldData* fd)
 
 void vtkFieldData::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkObject::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Number Of Arrays: " << this->GetNumberOfArrays() << "\n";
   for (int i=0; i<this->GetNumberOfArrays(); i++)

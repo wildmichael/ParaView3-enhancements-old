@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPSphereSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-12 16:09:44 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-01-04 14:29:24 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -47,18 +47,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkLargeInteger.h"
 
-//-----------------------------------------------------------------------------
-vtkPSphereSource* vtkPSphereSource::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkPSphereSource");
-  if(ret)
-    {
-    return (vtkPSphereSource*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkPSphereSource;
-}
+vtkCxxRevisionMacro(vtkPSphereSource, "$Revision: 1.7 $");
+vtkStandardNewMacro(vtkPSphereSource);
 
 //----------------------------------------------------------------------------
 void vtkPSphereSource::Execute()

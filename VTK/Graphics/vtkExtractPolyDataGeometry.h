@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractPolyDataGeometry.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:01 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-01-04 14:25:24 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,7 +68,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class VTK_GRAPHICS_EXPORT vtkExtractPolyDataGeometry : public vtkPolyDataToPolyDataFilter
 {
 public:
-  vtkTypeMacro(vtkExtractPolyDataGeometry,vtkPolyDataToPolyDataFilter);
+  vtkTypeRevisionMacro(vtkExtractPolyDataGeometry,vtkPolyDataToPolyDataFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

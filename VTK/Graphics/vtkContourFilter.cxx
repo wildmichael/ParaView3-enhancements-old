@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-11 18:27:16 $
-  Version:   $Revision: 1.89 $
+  Date:      $Date: 2002-01-04 14:25:10 $
+  Version:   $Revision: 1.90 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,7 +39,6 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include <math.h>
 #include "vtkContourFilter.h"
 #include "vtkCell.h"
 #include "vtkMergePoints.h"
@@ -50,21 +49,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkUnstructuredGrid.h"
 #include "vtkContourGrid.h"
 
-//----------------------------------------------------------------------------
-vtkContourFilter* vtkContourFilter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkContourFilter");
-  if(ret)
-    {
-    return (vtkContourFilter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkContourFilter;
-}
-
-
-
+#include <math.h>
+vtkCxxRevisionMacro(vtkContourFilter, "$Revision: 1.90 $");
+vtkStandardNewMacro(vtkContourFilter);
 
 // Construct object with initial range (0,1) and single contour value
 // of 0.0.
@@ -328,7 +315,7 @@ void vtkContourFilter::CreateDefaultLocator()
 
 void vtkContourFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataSetToPolyDataFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   if (this->InputScalarsSelection)
     {

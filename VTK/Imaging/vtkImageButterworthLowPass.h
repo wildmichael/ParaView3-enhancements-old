@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageButterworthLowPass.h,v $
   Language:  C++
-  Date:      $Date: 2001-12-07 14:03:48 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-01-04 14:28:17 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -62,7 +62,7 @@ class VTK_IMAGING_EXPORT vtkImageButterworthLowPass : public vtkImageToImageFilt
 {
 public:
   static vtkImageButterworthLowPass *New();
-  vtkTypeMacro(vtkImageButterworthLowPass,vtkImageToImageFilter);
+  vtkTypeRevisionMacro(vtkImageButterworthLowPass,vtkImageToImageFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

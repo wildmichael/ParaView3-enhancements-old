@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSimpleImageFilterExample.h,v $
   Language:  C++
-  Date:      $Date: 2001-12-06 18:43:13 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-01-04 14:29:16 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -56,7 +56,7 @@ class VTK_IMAGING_EXPORT vtkSimpleImageFilterExample : public vtkSimpleImageToIm
 {
 public:
   static vtkSimpleImageFilterExample *New();
-  vtkTypeMacro(vtkSimpleImageFilterExample,vtkSimpleImageToImageFilter);
+  vtkTypeRevisionMacro(vtkSimpleImageFilterExample,vtkSimpleImageToImageFilter);
 
 protected:
 

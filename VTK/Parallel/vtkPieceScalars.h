@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPieceScalars.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:00 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-01-04 14:29:25 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,7 +57,7 @@ class VTK_PARALLEL_EXPORT vtkPieceScalars : public vtkDataSetToDataSetFilter
 public:
   static vtkPieceScalars *New();
 
-  vtkTypeMacro(vtkPieceScalars,vtkDataSetToDataSetFilter);
+  vtkTypeRevisionMacro(vtkPieceScalars,vtkDataSetToDataSetFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

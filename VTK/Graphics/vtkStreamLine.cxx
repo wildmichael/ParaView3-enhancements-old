@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamLine.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-05 20:23:38 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2002-01-04 14:26:28 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -46,18 +46,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkMath.h"
 #include "vtkFloatArray.h"
 
-//----------------------------------------------------------------------------
-vtkStreamLine* vtkStreamLine::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkStreamLine");
-  if(ret)
-    {
-    return (vtkStreamLine*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkStreamLine;
-}
+vtkCxxRevisionMacro(vtkStreamLine, "$Revision: 1.49 $");
+vtkStandardNewMacro(vtkStreamLine);
 
 // Construct object with step size set to 1.0.
 vtkStreamLine::vtkStreamLine()
@@ -250,7 +240,7 @@ void vtkStreamLine::Execute()
 
 void vtkStreamLine::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkStreamer::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Step Length: " << this->StepLength << "\n";
 

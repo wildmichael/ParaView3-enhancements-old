@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-28 13:24:22 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2002-01-04 14:24:35 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,23 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkStructuredGridSource.h"
 #include "vtkObjectFactory.h"
 
-
-
-//----------------------------------------------------------------------------
-vtkStructuredGridSource* vtkStructuredGridSource::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkStructuredGridSource");
-  if(ret)
-    {
-    return (vtkStructuredGridSource*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkStructuredGridSource;
-}
-
-
-
+vtkCxxRevisionMacro(vtkStructuredGridSource, "$Revision: 1.23 $");
+vtkStandardNewMacro(vtkStructuredGridSource);
 
 //----------------------------------------------------------------------------
 vtkStructuredGridSource::vtkStructuredGridSource()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutputPort.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:26:00 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-01-04 14:29:22 $
+  Version:   $Revision: 1.4 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -44,21 +44,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkCommand.h"
 
-//----------------------------------------------------------------------------
-vtkOutputPort* vtkOutputPort::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkOutputPort");
-  if(ret)
-    {
-    return (vtkOutputPort*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkOutputPort;
-}
-
-
-
+vtkCxxRevisionMacro(vtkOutputPort, "$Revision: 1.4 $");
+vtkStandardNewMacro(vtkOutputPort);
 
 //----------------------------------------------------------------------------
 vtkOutputPort::vtkOutputPort()
@@ -90,7 +77,7 @@ vtkOutputPort::~vtkOutputPort()
 //----------------------------------------------------------------------------
 void vtkOutputPort::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkProcessObject::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
   os << indent << "Tag: " << this->Tag << endl;
   os << indent << "Controller: (" << this->Controller << ")\n";
   os << indent << "Pipeline Flag: " 

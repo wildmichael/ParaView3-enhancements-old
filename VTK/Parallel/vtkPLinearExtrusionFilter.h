@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLinearExtrusionFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:00 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-01-04 14:29:24 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -54,7 +54,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class VTK_PARALLEL_EXPORT vtkPLinearExtrusionFilter : public vtkLinearExtrusionFilter 
 {
 public:
-  vtkTypeMacro(vtkPLinearExtrusionFilter,vtkLinearExtrusionFilter);
+  vtkTypeRevisionMacro(vtkPLinearExtrusionFilter,vtkLinearExtrusionFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkElevationFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-26 17:38:46 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2002-01-04 14:25:20 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,22 +44,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
-
-//------------------------------------------------------------------------------
-vtkElevationFilter* vtkElevationFilter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkElevationFilter");
-  if(ret)
-    {
-    return (vtkElevationFilter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkElevationFilter;
-}
-
-
-
+vtkCxxRevisionMacro(vtkElevationFilter, "$Revision: 1.47 $");
+vtkStandardNewMacro(vtkElevationFilter);
 
 // Construct object with LowPoint=(0,0,0) and HighPoint=(0,0,1). Scalar
 // range is (0,1).
@@ -158,7 +144,7 @@ void vtkElevationFilter::Execute()
 
 void vtkElevationFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataSetToDataSetFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Low Point: (" << this->LowPoint[0] << ", "
                                 << this->LowPoint[1] << ", "

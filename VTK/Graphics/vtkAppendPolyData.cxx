@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:41:36 $
-  Version:   $Revision: 1.86 $
+  Date:      $Date: 2002-01-04 14:24:47 $
+  Version:   $Revision: 1.87 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,19 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkAppendPolyData.h"
 #include "vtkObjectFactory.h"
 
-
-//-----------------------------------------------------------------------
-vtkAppendPolyData* vtkAppendPolyData::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkAppendPolyData");
-  if(ret)
-    {
-    return (vtkAppendPolyData*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkAppendPolyData;
-}
+vtkCxxRevisionMacro(vtkAppendPolyData, "$Revision: 1.87 $");
+vtkStandardNewMacro(vtkAppendPolyData);
 
 //----------------------------------------------------------------------------
 vtkAppendPolyData::vtkAppendPolyData()
@@ -570,7 +559,7 @@ vtkPolyData *vtkAppendPolyData::GetInput(int idx)
 //----------------------------------------------------------------------------
 void vtkAppendPolyData::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   if ( this->ParallelStreaming )
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:36 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-01-04 14:24:25 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,7 +60,7 @@ class VTK_FILTERING_EXPORT vtkPolyDataSource : public vtkSource
 {
 public:
   static vtkPolyDataSource *New();
-  vtkTypeMacro(vtkPolyDataSource,vtkSource);
+  vtkTypeRevisionMacro(vtkPolyDataSource,vtkSource);
 
   // Description:
   // Get the output of this source.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPerspectiveTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:09:52 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2002-01-04 14:21:35 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,23 +39,14 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS EVEN, SOFTWARE IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include <stdlib.h>
 #include "vtkPerspectiveTransform.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
 
-//----------------------------------------------------------------------------
-vtkPerspectiveTransform* vtkPerspectiveTransform::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkPerspectiveTransform");
-  if(ret)
-    {
-    return (vtkPerspectiveTransform*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkPerspectiveTransform;
-}
+#include <stdlib.h>
+
+vtkCxxRevisionMacro(vtkPerspectiveTransform, "$Revision: 1.26 $");
+vtkStandardNewMacro(vtkPerspectiveTransform);
 
 //----------------------------------------------------------------------------
 vtkPerspectiveTransform::vtkPerspectiveTransform()
@@ -89,7 +80,7 @@ void vtkPerspectiveTransform::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->Update();
 
-  vtkHomogeneousTransform::PrintSelf(os, indent);
+  this->Superclass::PrintSelf(os, indent);
   os << indent << "Input: (" << this->Input << ")\n";
   os << indent << "InverseFlag: " << this->GetInverseFlag() << "\n";
   os << indent << "NumberOfConcatenatedTransforms: " <<

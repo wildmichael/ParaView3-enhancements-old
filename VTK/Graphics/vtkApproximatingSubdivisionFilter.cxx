@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkApproximatingSubdivisionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:13:51 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-01-04 14:24:48 $
+  Version:   $Revision: 1.21 $
   Thanks:    This work was supported bt PHS Research Grant No. 1 P41 RR13218-01
              from the National Center for Research Resources
 
@@ -44,6 +44,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkApproximatingSubdivisionFilter.h"
 #include "vtkEdgeTable.h"
 #include "vtkUnsignedCharArray.h"
+
+vtkCxxRevisionMacro(vtkApproximatingSubdivisionFilter, "$Revision: 1.21 $");
 
 // Construct object with number of subdivisions set to 1.
 vtkApproximatingSubdivisionFilter::vtkApproximatingSubdivisionFilter()
@@ -286,7 +288,7 @@ void vtkApproximatingSubdivisionFilter::GenerateSubdivisionCells (
 
 void vtkApproximatingSubdivisionFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Number of subdivisions: " 
      << this->NumberOfSubdivisions << endl;

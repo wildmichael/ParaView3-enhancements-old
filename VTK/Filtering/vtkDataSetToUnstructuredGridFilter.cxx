@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToUnstructuredGridFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:35 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-01-04 14:24:03 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -40,6 +40,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 #include "vtkDataSetToUnstructuredGridFilter.h"
+
+vtkCxxRevisionMacro(vtkDataSetToUnstructuredGridFilter, "$Revision: 1.21 $");
 
 //----------------------------------------------------------------------------
 // Specify the input data or filter.

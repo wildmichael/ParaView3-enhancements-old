@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMaskPolyData.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:08 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2002-01-04 14:25:44 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -53,7 +53,7 @@ class VTK_GRAPHICS_EXPORT vtkMaskPolyData : public vtkPolyDataToPolyDataFilter
 {
 public:
   static vtkMaskPolyData *New();
-  vtkTypeMacro(vtkMaskPolyData,vtkPolyDataToPolyDataFilter);
+  vtkTypeRevisionMacro(vtkMaskPolyData,vtkPolyDataToPolyDataFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

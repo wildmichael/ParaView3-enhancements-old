@@ -3,8 +3,8 @@
 Program:   Visualization Toolkit
 Module:    $RCSfile: vtkActorCollection.cxx,v $
 Language:  C++
-Date:      $Date: 2000-12-10 20:08:29 $
-Version:   $Revision: 1.6 $
+Date:      $Date: 2002-01-04 14:29:35 $
+Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,19 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkActorCollection.h"
 #include "vtkObjectFactory.h"
 
-
-//---------------------------------------------------------------------------
-vtkActorCollection* vtkActorCollection::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkActorCollection");
-  if(ret)
-    {
-    return (vtkActorCollection*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkActorCollection;
-}
+vtkCxxRevisionMacro(vtkActorCollection, "$Revision: 1.7 $");
+vtkStandardNewMacro(vtkActorCollection);
 
 void vtkActorCollection::ApplyProperties(vtkProperty *p)
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkApproximatingSubdivisionFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:41 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-01-04 14:24:49 $
+  Version:   $Revision: 1.12 $
   Thanks:    This work was supported bt PHS Research Grant No. 1 P41 RR13218-01
              from the National Center for Research Resources
 
@@ -57,7 +57,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class VTK_GRAPHICS_EXPORT vtkApproximatingSubdivisionFilter : public vtkPolyDataToPolyDataFilter
 {
 public:
-  vtkTypeMacro(vtkApproximatingSubdivisionFilter,vtkPolyDataToPolyDataFilter);
+  vtkTypeRevisionMacro(vtkApproximatingSubdivisionFilter,vtkPolyDataToPolyDataFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

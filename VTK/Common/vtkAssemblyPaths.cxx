@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssemblyPaths.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:06 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-01-04 14:20:32 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,18 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkAssemblyPaths.h"
 #include "vtkObjectFactory.h"
 
-//----------------------------------------------------------------------------
-vtkAssemblyPaths* vtkAssemblyPaths::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkAssemblyPaths");
-  if(ret)
-    {
-    return (vtkAssemblyPaths*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkAssemblyPaths;
-}
+vtkCxxRevisionMacro(vtkAssemblyPaths, "$Revision: 1.4 $");
+vtkStandardNewMacro(vtkAssemblyPaths);
 
 unsigned long vtkAssemblyPaths::GetMTime()
 {

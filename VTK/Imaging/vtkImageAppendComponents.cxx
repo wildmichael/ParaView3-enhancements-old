@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAppendComponents.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:44 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-01-04 14:28:14 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,29 +39,11 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-
 #include "vtkImageAppendComponents.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkImageAppendComponents* vtkImageAppendComponents::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageAppendComponents");
-  if(ret)
-    {
-    return (vtkImageAppendComponents*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageAppendComponents;
-}
-
-
-
-
-
+vtkCxxRevisionMacro(vtkImageAppendComponents, "$Revision: 1.20 $");
+vtkStandardNewMacro(vtkImageAppendComponents);
 
 //----------------------------------------------------------------------------
 // This method tells the ouput it will have more components

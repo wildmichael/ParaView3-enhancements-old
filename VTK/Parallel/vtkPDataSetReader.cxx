@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPDataSetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-20 14:35:10 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-01-04 14:29:23 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -55,21 +55,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkSource.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkPDataSetReader* vtkPDataSetReader::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkPDataSetReader");
-  if(ret)
-    {
-    return (vtkPDataSetReader*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkPDataSetReader;
-}
-
+vtkCxxRevisionMacro(vtkPDataSetReader, "$Revision: 1.10 $");
+vtkStandardNewMacro(vtkPDataSetReader);
 
 //----------------------------------------------------------------------------
 vtkPDataSetReader::vtkPDataSetReader()
@@ -1357,7 +1344,7 @@ void vtkPDataSetReader::CoverExtent(int ext[6], int *pieceMask)
 //----------------------------------------------------------------------------
 void vtkPDataSetReader::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkSource::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   if (this->FileName)
     {

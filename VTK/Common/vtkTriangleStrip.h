@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleStrip.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:41:23 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 2002-01-04 14:22:52 $
+  Version:   $Revision: 1.60 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -59,7 +59,7 @@ class VTK_COMMON_EXPORT vtkTriangleStrip : public vtkCell
 {
 public:
   static vtkTriangleStrip *New();
-  vtkTypeMacro(vtkTriangleStrip,vtkCell);
+  vtkTypeRevisionMacro(vtkTriangleStrip,vtkCell);
 
   // Description:
   // See the vtkCell API for descriptions of these methods.

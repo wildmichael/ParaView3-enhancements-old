@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:30:30 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2002-01-04 14:27:22 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,23 +44,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkBYUReader* vtkBYUReader::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkBYUReader");
-  if(ret)
-    {
-    return (vtkBYUReader*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkBYUReader;
-}
-
-
-
+vtkCxxRevisionMacro(vtkBYUReader, "$Revision: 1.45 $");
+vtkStandardNewMacro(vtkBYUReader);
 
 vtkBYUReader::vtkBYUReader()
 {
@@ -364,7 +349,7 @@ int vtkBYUReader::ComputeDivisionExtents(vtkDataObject *vtkNotUsed(output),
 
 void vtkBYUReader::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolyDataSource::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Geometry File Name: " 
      << (this->GeometryFileName ? this->GeometryFileName : "(none)") << "\n";

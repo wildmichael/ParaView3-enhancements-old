@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHyperStreamline.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-29 20:52:42 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2002-01-04 14:25:34 $
+  Version:   $Revision: 1.50 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -43,22 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
-
-//------------------------------------------------------------------------------
-vtkHyperStreamline* vtkHyperStreamline::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkHyperStreamline");
-  if(ret)
-    {
-    return (vtkHyperStreamline*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkHyperStreamline;
-}
-
-
-
+vtkCxxRevisionMacro(vtkHyperStreamline, "$Revision: 1.50 $");
+vtkStandardNewMacro(vtkHyperStreamline);
 
 //
 // Special classes for manipulating data
@@ -857,7 +843,7 @@ void vtkHyperStreamline::BuildTube()
 
 void vtkHyperStreamline::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataSetToPolyDataFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   if ( this->StartFrom == VTK_START_FROM_POSITION )
     {

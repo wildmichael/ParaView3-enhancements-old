@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPostScriptWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:30:35 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-01-04 14:27:52 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,22 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkPostScriptWriter.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkPostScriptWriter* vtkPostScriptWriter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkPostScriptWriter");
-  if(ret)
-    {
-    return (vtkPostScriptWriter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkPostScriptWriter;
-}
-
-
+vtkCxxRevisionMacro(vtkPostScriptWriter, "$Revision: 1.15 $");
+vtkStandardNewMacro(vtkPostScriptWriter);
 
 #define VTK_MARGIN 0.95
 

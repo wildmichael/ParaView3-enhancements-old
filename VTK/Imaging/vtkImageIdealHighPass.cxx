@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIdealHighPass.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:52 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-01-04 14:28:44 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,30 +39,14 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include <math.h>
-#include "vtkImageData.h"
 #include "vtkImageIdealHighPass.h"
+#include "vtkImageData.h"
 #include "vtkObjectFactory.h"
 
+#include <math.h>
 
-
-//------------------------------------------------------------------------------
-vtkImageIdealHighPass* vtkImageIdealHighPass::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageIdealHighPass");
-  if(ret)
-    {
-    return (vtkImageIdealHighPass*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageIdealHighPass;
-}
-
-
-
-
-
+vtkCxxRevisionMacro(vtkImageIdealHighPass, "$Revision: 1.14 $");
+vtkStandardNewMacro(vtkImageIdealHighPass);
 
 //----------------------------------------------------------------------------
 vtkImageIdealHighPass::vtkImageIdealHighPass()
@@ -262,7 +246,7 @@ void vtkImageIdealHighPass::ThreadedExecute(vtkImageData *inData,
 
 void vtkImageIdealHighPass::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImageToImageFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "CutOff: ( "
      << this->CutOff[0] << ", "

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDashedStreamLine.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:13:52 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2002-01-04 14:25:12 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,22 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
-
-//------------------------------------------------------------------------------
-vtkDashedStreamLine* vtkDashedStreamLine::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkDashedStreamLine");
-  if(ret)
-    {
-    return (vtkDashedStreamLine*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkDashedStreamLine;
-}
-
-
-
+vtkCxxRevisionMacro(vtkDashedStreamLine, "$Revision: 1.35 $");
+vtkStandardNewMacro(vtkDashedStreamLine);
 
 vtkDashedStreamLine::vtkDashedStreamLine()
 {
@@ -207,7 +193,7 @@ void vtkDashedStreamLine::Execute()
 
 void vtkDashedStreamLine::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkStreamLine::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Dash Factor: " << this->DashFactor << " <<\n";
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:17:38 $
-  Version:   $Revision: 1.110 $
+  Date:      $Date: 2002-01-04 14:29:34 $
+  Version:   $Revision: 1.111 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,13 +39,15 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include <stdlib.h>
-#include <math.h>
-
 #include "vtkActor.h"
 #include "vtkRenderWindow.h"
 #include "vtkGraphicsFactory.h"
 #include "vtkAssemblyPaths.h"
+
+#include <stdlib.h>
+#include <math.h>
+
+vtkCxxRevisionMacro(vtkActor, "$Revision: 1.111 $");
 
 // Creates an actor with the following defaults: origin(0,0,0) 
 // position=(0,0,0) scale=(1,1,1) visibility=1 pickable=1 dragable=1
@@ -462,7 +464,7 @@ unsigned long int vtkActor::GetRedrawMTime()
 
 void vtkActor::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkProp3D::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   if ( this->Mapper )
     {

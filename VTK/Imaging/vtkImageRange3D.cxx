@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageRange3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:57 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-01-04 14:29:08 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,30 +39,13 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include "vtkImageData.h"
-
 #include "vtkImageRange3D.h"
 #include "vtkImageEllipsoidSource.h"
 #include "vtkObjectFactory.h"
+#include "vtkImageData.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkImageRange3D* vtkImageRange3D::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageRange3D");
-  if(ret)
-    {
-    return (vtkImageRange3D*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageRange3D;
-}
-
-
-
-
+vtkCxxRevisionMacro(vtkImageRange3D, "$Revision: 1.21 $");
+vtkStandardNewMacro(vtkImageRange3D);
 
 //----------------------------------------------------------------------------
 // Construct an instance of vtkImageRange3D fitler.
@@ -94,7 +77,7 @@ vtkImageRange3D::~vtkImageRange3D()
 //----------------------------------------------------------------------------
 void vtkImageRange3D::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImageSpatialFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 }
 
 //----------------------------------------------------------------------------

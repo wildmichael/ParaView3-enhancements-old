@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-15 14:20:21 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2002-01-04 14:27:59 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,23 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkStructuredPointsWriter.h"
 #include "vtkObjectFactory.h"
 
-
-
-//----------------------------------------------------------------------------
-vtkStructuredPointsWriter* vtkStructuredPointsWriter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkStructuredPointsWriter");
-  if(ret)
-    {
-    return (vtkStructuredPointsWriter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkStructuredPointsWriter;
-}
-
-
-
+vtkCxxRevisionMacro(vtkStructuredPointsWriter, "$Revision: 1.32 $");
+vtkStandardNewMacro(vtkStructuredPointsWriter);
 
 //----------------------------------------------------------------------------
 // Specify the input data or filter.
@@ -125,5 +110,5 @@ void vtkStructuredPointsWriter::WriteData()
 
 void vtkStructuredPointsWriter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataWriter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 }

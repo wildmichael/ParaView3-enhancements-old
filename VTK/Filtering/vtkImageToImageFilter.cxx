@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToImageFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:13:00 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2002-01-04 14:24:08 $
+  Version:   $Revision: 1.43 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,23 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkImageToImageFilter.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkImageToImageFilter* vtkImageToImageFilter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageToImageFilter");
-  if(ret)
-    {
-    return (vtkImageToImageFilter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageToImageFilter;
-}
-
-
-
+vtkCxxRevisionMacro(vtkImageToImageFilter, "$Revision: 1.43 $");
+vtkStandardNewMacro(vtkImageToImageFilter);
 
 //----------------------------------------------------------------------------
 vtkImageToImageFilter::vtkImageToImageFilter()
@@ -77,7 +62,9 @@ vtkImageToImageFilter::~vtkImageToImageFilter()
 
 //----------------------------------------------------------------------------
 void vtkImageToImageFilter::PrintSelf(ostream& os, vtkIndent indent)
-{
+{  
+  this->Superclass::PrintSelf(os,indent);
+  
   os << indent << "NumberOfThreads: " << this->NumberOfThreads << "\n";
 
   if ( this->Bypass )
@@ -88,8 +75,6 @@ void vtkImageToImageFilter::PrintSelf(ostream& os, vtkIndent indent)
     {
     os << indent << "Bypass: Off\n";
     }
-  
-  vtkImageSource::PrintSelf(os,indent);
 }
 
 //----------------------------------------------------------------------------

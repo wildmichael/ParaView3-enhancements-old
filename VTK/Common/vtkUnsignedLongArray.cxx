@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedLongArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-03 15:02:20 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2002-01-04 14:22:56 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,18 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkUnsignedLongArray.h"
 #include "vtkObjectFactory.h"
 
-//----------------------------------------------------------------------------
-vtkUnsignedLongArray* vtkUnsignedLongArray::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkUnsignedLongArray");
-  if(ret)
-    {
-    return (vtkUnsignedLongArray*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkUnsignedLongArray;
-}
+vtkCxxRevisionMacro(vtkUnsignedLongArray, "$Revision: 1.29 $");
+vtkStandardNewMacro(vtkUnsignedLongArray);
 
 vtkDataArray *vtkUnsignedLongArray::MakeObject()
 {
@@ -182,7 +172,7 @@ void vtkUnsignedLongArray::DeepCopy(vtkDataArray *sa)
 
 void vtkUnsignedLongArray::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataArray::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   if (this->Array)
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSuperquadric.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:40 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-01-04 14:24:42 $
+  Version:   $Revision: 1.19 $
   Thanks:    Mike Halle, Brigham and Women's Hospital
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -78,7 +78,7 @@ public:
   // scale (1,1,1), size 0.5, phi roundness 1.0, and theta roundness 0.0.
   static vtkSuperquadric *New();
 
-  vtkTypeMacro(vtkSuperquadric,vtkImplicitFunction);
+  vtkTypeRevisionMacro(vtkSuperquadric,vtkImplicitFunction);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // ImplicitFunction interface

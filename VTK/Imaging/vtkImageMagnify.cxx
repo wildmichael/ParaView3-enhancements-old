@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMagnify.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:54 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2002-01-04 14:28:51 $
+  Version:   $Revision: 1.37 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,25 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkImageMagnify.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkImageMagnify* vtkImageMagnify::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageMagnify");
-  if(ret)
-    {
-    return (vtkImageMagnify*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageMagnify;
-}
-
-
-
-
-
+vtkCxxRevisionMacro(vtkImageMagnify, "$Revision: 1.37 $");
+vtkStandardNewMacro(vtkImageMagnify);
 
 //----------------------------------------------------------------------------
 // Constructor: Sets default filter to be identity.
@@ -340,7 +323,7 @@ void vtkImageMagnify::ThreadedExecute(vtkImageData *inData,
 
 void vtkImageMagnify::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImageToImageFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "MagnificationFactors: ( "
      << this->MagnificationFactors[0] << ", "

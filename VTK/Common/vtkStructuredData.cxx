@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-15 14:20:15 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2002-01-04 14:22:35 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,23 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkStructuredData.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkStructuredData* vtkStructuredData::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkStructuredData");
-  if(ret)
-    {
-    return (vtkStructuredData*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkStructuredData;
-}
-
-
-
+vtkCxxRevisionMacro(vtkStructuredData, "$Revision: 1.54 $");
+vtkStandardNewMacro(vtkStructuredData);
 
 // Return the topological dimension of the data (e.g., 0, 1, 2, or 3D).
 int vtkStructuredData::GetDataDimension(int dataDescription)

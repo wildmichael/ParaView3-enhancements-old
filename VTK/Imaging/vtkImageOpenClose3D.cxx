@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageOpenClose3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:56 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-01-04 14:29:03 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,31 +39,14 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include<math.h>
-#include "vtkImageData.h"
-
 #include "vtkImageOpenClose3D.h"
 #include "vtkObjectFactory.h"
+#include "vtkImageData.h"
 
+#include <math.h>
 
-
-//------------------------------------------------------------------------------
-vtkImageOpenClose3D* vtkImageOpenClose3D::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageOpenClose3D");
-  if(ret)
-    {
-    return (vtkImageOpenClose3D*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageOpenClose3D;
-}
-
-
-
-
-
+vtkCxxRevisionMacro(vtkImageOpenClose3D, "$Revision: 1.20 $");
+vtkStandardNewMacro(vtkImageOpenClose3D);
 
 //----------------------------------------------------------------------------
 // functions to convert progress calls.
@@ -117,7 +100,7 @@ vtkImageOpenClose3D::~vtkImageOpenClose3D()
 //----------------------------------------------------------------------------
 void vtkImageOpenClose3D::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImageToImageFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
   os << indent << "Filter0: \n";
   this->Filter0->PrintSelf(os, indent.GetNextIndent());
   os << indent << "Filter1: \n";

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkReverseSense.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:42:04 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-01-04 14:26:13 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,18 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkReverseSense.h"
 #include "vtkObjectFactory.h"
 
-//---------------------------------------------------------------------------
-vtkReverseSense* vtkReverseSense::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkReverseSense");
-  if(ret)
-    {
-    return (vtkReverseSense*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkReverseSense;
-}
+vtkCxxRevisionMacro(vtkReverseSense, "$Revision: 1.22 $");
+vtkStandardNewMacro(vtkReverseSense);
 
 // Construct object so that behavior is to reverse cell ordering and
 // leave normal orientation as is.
@@ -169,7 +159,7 @@ void vtkReverseSense::Execute()
 
 void vtkReverseSense::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Reverse Cells: " 
      << (this->ReverseCells ? "On\n" : "Off\n");

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty2D.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:22 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-01-04 14:22:13 $
+  Version:   $Revision: 1.25 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,7 +60,7 @@ class vtkViewport;
 class VTK_COMMON_EXPORT vtkProperty2D : public vtkObject
 {
 public:
-  vtkTypeMacro(vtkProperty2D,vtkObject);
+  vtkTypeRevisionMacro(vtkProperty2D,vtkObject);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

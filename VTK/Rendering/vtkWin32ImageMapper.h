@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32ImageMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:17:34 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-01-04 14:30:24 $
+  Version:   $Revision: 1.22 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -61,7 +61,7 @@ class VTK_RENDERING_EXPORT vtkWin32ImageMapper : public vtkImageMapper
 {
 public:
   static vtkWin32ImageMapper *New();
-  vtkTypeMacro(vtkWin32ImageMapper,vtkImageMapper);
+  vtkTypeRevisionMacro(vtkWin32ImageMapper,vtkImageMapper);
 
   // Description:
   // Handle the render method.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutlineCornerFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:10 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-01-04 14:25:50 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to Sebastien Barre who developed this class.
 
 
@@ -55,7 +55,7 @@ class vtkOutlineCornerSource;
 class VTK_GRAPHICS_EXPORT vtkOutlineCornerFilter : public vtkDataSetToPolyDataFilter
 {
 public:
-  vtkTypeMacro(vtkOutlineCornerFilter,vtkDataSetToPolyDataFilter);
+  vtkTypeRevisionMacro(vtkOutlineCornerFilter,vtkDataSetToPolyDataFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

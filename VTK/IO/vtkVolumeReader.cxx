@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:59 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-01-04 14:28:05 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -41,6 +41,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 #include "vtkVolumeReader.h"
 
+vtkCxxRevisionMacro(vtkVolumeReader, "$Revision: 1.19 $");
+
 // Construct object with NULL file prefix; file pattern "%s.%d"; image range 
 // set to (1,1); 
 vtkVolumeReader::vtkVolumeReader()
@@ -65,7 +67,7 @@ vtkVolumeReader::~vtkVolumeReader ()
 
 void vtkVolumeReader::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkStructuredPointsSource::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Data Origin: (" << this->DataOrigin[0] << ", "
                                    << this->DataOrigin[1] << ", "

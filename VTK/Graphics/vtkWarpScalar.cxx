@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpScalar.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-11 18:27:16 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2002-01-04 14:26:53 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,18 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkWarpScalar.h"
 #include "vtkObjectFactory.h"
 
-//----------------------------------------------------------------------------
-vtkWarpScalar* vtkWarpScalar::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkWarpScalar");
-  if(ret)
-    {
-    return (vtkWarpScalar*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkWarpScalar;
-}
+vtkCxxRevisionMacro(vtkWarpScalar, "$Revision: 1.40 $");
+vtkStandardNewMacro(vtkWarpScalar);
 
 vtkWarpScalar::vtkWarpScalar()
 {
@@ -184,7 +174,7 @@ void vtkWarpScalar::Execute()
 
 void vtkWarpScalar::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPointSetToPointSetFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   if (this->InputScalarsSelection)
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractVectorComponents.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:13:53 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2002-01-04 14:25:25 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,23 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkExtractVectorComponents.h"
 #include "vtkObjectFactory.h"
 
-
-
-//----------------------------------------------------------------------------
-vtkExtractVectorComponents* vtkExtractVectorComponents::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkExtractVectorComponents");
-  if(ret)
-    {
-    return (vtkExtractVectorComponents*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkExtractVectorComponents;
-}
-
-
-
+vtkCxxRevisionMacro(vtkExtractVectorComponents, "$Revision: 1.39 $");
+vtkStandardNewMacro(vtkExtractVectorComponents);
 
 vtkExtractVectorComponents::vtkExtractVectorComponents()
 {
@@ -359,7 +344,7 @@ vtkDataSet *vtkExtractVectorComponents::GetInput()
 
 void vtkExtractVectorComponents::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkSource::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
   
   os << indent << "ExtractToFieldData: " << this->ExtractToFieldData << endl;
 }

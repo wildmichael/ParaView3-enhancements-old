@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-12-07 14:03:09 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-01-04 14:29:25 $
+  Version:   $Revision: 1.4 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -57,7 +57,7 @@ class VTK_PARALLEL_EXPORT vtkPVGeometryFilter : public vtkDataSetSurfaceFilter
 {
 public:
   static vtkPVGeometryFilter *New();
-  vtkTypeMacro(vtkPVGeometryFilter,vtkDataSetSurfaceFilter);
+  vtkTypeRevisionMacro(vtkPVGeometryFilter,vtkDataSetSurfaceFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

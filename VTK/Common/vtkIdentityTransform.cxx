@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdentityTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:09:44 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-01-04 14:20:51 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,23 +39,12 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-
 #include "vtkIdentityTransform.h"
 #include "vtkObjectFactory.h"
 #include "vtkMath.h"
 
-//----------------------------------------------------------------------------
-vtkIdentityTransform *vtkIdentityTransform::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkIdentityTransform");
-  if(ret)
-    {
-    return (vtkIdentityTransform*)ret;
-    }
-
-  return new vtkIdentityTransform;
-}
+vtkCxxRevisionMacro(vtkIdentityTransform, "$Revision: 1.15 $");
+vtkStandardNewMacro(vtkIdentityTransform);
 
 //----------------------------------------------------------------------------
 vtkIdentityTransform::vtkIdentityTransform()
@@ -70,7 +59,7 @@ vtkIdentityTransform::~vtkIdentityTransform()
 //----------------------------------------------------------------------------
 void vtkIdentityTransform::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkLinearTransform::PrintSelf(os, indent);
+  this->Superclass::PrintSelf(os, indent);
 }
 
 //------------------------------------------------------------------------

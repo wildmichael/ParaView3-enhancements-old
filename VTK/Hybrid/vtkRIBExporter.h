@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBExporter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:26 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-01-04 14:27:09 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -84,7 +84,7 @@ class VTK_HYBRID_EXPORT vtkRIBExporter : public vtkExporter
 {
 public:
   static vtkRIBExporter *New();
-  vtkTypeMacro(vtkRIBExporter,vtkExporter);
+  vtkTypeRevisionMacro(vtkRIBExporter,vtkExporter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description

@@ -8,7 +8,7 @@
    subject to change. Applications should only use zlib.h.
  */
 
-/* @(#) $Id: deflate.h,v 1.1 2001-07-31 18:14:19 martink Exp $ */
+/* @(#) $Id: deflate.h,v 1.2 2002-01-04 14:30:50 king Exp $ */
 
 #ifndef _DEFLATE_H
 #define _DEFLATE_H
@@ -269,7 +269,7 @@ typedef struct internal_state {
 void _tr_init         OF((deflate_state *s));
 int  _tr_tally        OF((deflate_state *s, unsigned dist, unsigned lc));
 void _tr_flush_block  OF((deflate_state *s, charf *buf, ulg stored_len,
-			  int eof));
+                          int eof));
 void _tr_align        OF((deflate_state *s));
 void _tr_stored_block OF((deflate_state *s, charf *buf, ulg stored_len,
                           int eof));

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellArray.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-12 12:47:42 $
-  Version:   $Revision: 1.84 $
+  Date:      $Date: 2002-01-04 14:20:35 $
+  Version:   $Revision: 1.85 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -65,7 +65,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class VTK_COMMON_EXPORT vtkCellArray : public vtkObject
 {
 public:
-  vtkTypeMacro(vtkCellArray,vtkObject);
+  vtkTypeRevisionMacro(vtkCellArray,vtkObject);
 
   // Description:
   // Instantiate cell array (connectivity list).

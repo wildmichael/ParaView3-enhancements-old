@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-29 15:11:21 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2002-01-04 14:29:59 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -53,18 +53,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkgluPickMatrix.h"
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-//------------------------------------------------------------------------------
-vtkOpenGLPolyDataMapper2D* vtkOpenGLPolyDataMapper2D::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkOpenGLPolyDataMapper2D");
-  if(ret)
-    {
-    return (vtkOpenGLPolyDataMapper2D*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkOpenGLPolyDataMapper2D;
-}
+vtkCxxRevisionMacro(vtkOpenGLPolyDataMapper2D, "$Revision: 1.31 $");
+vtkStandardNewMacro(vtkOpenGLPolyDataMapper2D);
 #endif
 
 

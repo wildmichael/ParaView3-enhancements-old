@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeTextureMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-26 17:16:47 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-01-04 14:30:23 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,6 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkVolume.h"
 #include "vtkRenderer.h"
 #include "vtkFiniteDifferenceGradientEstimator.h"
+
+vtkCxxRevisionMacro(vtkVolumeTextureMapper, "$Revision: 1.20 $");
 
 vtkVolumeTextureMapper::vtkVolumeTextureMapper()
 {
@@ -258,7 +260,7 @@ float vtkVolumeTextureMapper::GetGradientMagnitudeBias()
 // Print the vtkVolumeTextureMapper
 void vtkVolumeTextureMapper::PrintSelf(ostream& os, vtkIndent indent)
 {
-  this->vtkVolumeMapper::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   if ( this->GradientEstimator )
     {

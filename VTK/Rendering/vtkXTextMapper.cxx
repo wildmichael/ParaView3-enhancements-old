@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:18:24 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2002-01-04 14:30:35 $
+  Version:   $Revision: 1.31 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -45,6 +45,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef VTK_REMOVE_LEGACY_CODE
 //mark this class for future legacy-related changes
 #endif
+
+vtkCxxRevisionMacro(vtkXTextMapper, "$Revision: 1.31 $");
+
 //-------------------------------------------------------------------------
 vtkXTextMapper* vtkXTextMapper::New()
 {

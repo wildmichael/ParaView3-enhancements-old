@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMarchingCubes.h,v $
   Language:  C++
-  Date:      $Date: 2001-12-17 15:28:22 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2002-01-04 14:29:31 $
+  Version:   $Revision: 1.31 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -86,7 +86,7 @@ class VTK_PATENTED_EXPORT vtkImageMarchingCubes : public vtkPolyDataSource
 {
 public:
   static vtkImageMarchingCubes *New();
-  vtkTypeMacro(vtkImageMarchingCubes,vtkPolyDataSource);
+  vtkTypeRevisionMacro(vtkImageMarchingCubes,vtkPolyDataSource);
   void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolygon.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:09:28 $
-  Version:   $Revision: 1.69 $
+  Date:      $Date: 2002-01-04 14:22:00 $
+  Version:   $Revision: 1.70 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,7 +58,7 @@ class VTK_COMMON_EXPORT vtkPolygon : public vtkCell
 {
 public:
   static vtkPolygon *New();
-  vtkTypeMacro(vtkPolygon,vtkCell);
+  vtkTypeRevisionMacro(vtkPolygon,vtkCell);
 
   // Description:
   // See the vtkCell API for descriptions of these methods.

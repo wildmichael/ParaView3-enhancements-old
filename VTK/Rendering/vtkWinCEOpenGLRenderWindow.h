@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWinCEOpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2001-12-28 14:37:30 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-01-04 14:30:27 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -59,7 +59,7 @@ class VTK_RENDERING_EXPORT vtkWinCEOpenGLRenderWindow : public vtkOpenGLRenderWi
 {
 public:
   static vtkWinCEOpenGLRenderWindow *New();
-  vtkTypeMacro(vtkWinCEOpenGLRenderWindow,vtkOpenGLRenderWindow);
+  vtkTypeRevisionMacro(vtkWinCEOpenGLRenderWindow,vtkOpenGLRenderWindow);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

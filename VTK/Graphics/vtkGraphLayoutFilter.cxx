@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGraphLayoutFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-10 20:38:45 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-01-04 14:25:31 $
+  Version:   $Revision: 1.5 $
   Thanks:    Scott Hill of RPI for developing this class
              Mark Lacy for Procter & Gamble for support
 
@@ -45,18 +45,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
 
-//--------------------------------------------------------------------------
-vtkGraphLayoutFilter* vtkGraphLayoutFilter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkGraphLayoutFilter");
-  if(ret)
-    {
-    return (vtkGraphLayoutFilter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkGraphLayoutFilter;
-}
+vtkCxxRevisionMacro(vtkGraphLayoutFilter, "$Revision: 1.5 $");
+vtkStandardNewMacro(vtkGraphLayoutFilter);
 
 vtkGraphLayoutFilter::vtkGraphLayoutFilter()
 {
@@ -292,7 +282,7 @@ void vtkGraphLayoutFilter::Execute()
 
 void vtkGraphLayoutFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "AutomaticBoundsComputation: " 
      << (this->AutomaticBoundsComputation ? "On\n" : "Off\n");

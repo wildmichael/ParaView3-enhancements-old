@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangularTCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-13 14:36:03 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-01-04 14:26:47 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -41,21 +41,12 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 #include "vtkTriangularTCoords.h"
 #include "vtkFloatArray.h"
-#include <math.h>
 #include "vtkObjectFactory.h"
 
-//--------------------------------------------------------------------------
-vtkTriangularTCoords* vtkTriangularTCoords::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkTriangularTCoords");
-  if(ret)
-    {
-    return (vtkTriangularTCoords*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkTriangularTCoords;
-}
+#include <math.h>
+
+vtkCxxRevisionMacro(vtkTriangularTCoords, "$Revision: 1.21 $");
+vtkStandardNewMacro(vtkTriangularTCoords);
 
 void vtkTriangularTCoords::Execute()
 {
@@ -217,5 +208,5 @@ void vtkTriangularTCoords::Execute()
 
 void vtkTriangularTCoords::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 }

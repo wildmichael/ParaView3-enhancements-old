@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSight6Reader.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:30:28 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-01-04 14:27:32 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,7 +68,7 @@ class VTK_IO_EXPORT vtkEnSight6Reader : public vtkEnSightReader
 {
 public:
   static vtkEnSight6Reader *New();
-  vtkTypeMacro(vtkEnSight6Reader, vtkEnSightReader);
+  vtkTypeRevisionMacro(vtkEnSight6Reader, vtkEnSightReader);
   
 protected:
   vtkEnSight6Reader();

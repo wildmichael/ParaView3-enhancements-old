@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAxes.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:13:48 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2002-01-04 14:24:55 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -56,7 +56,7 @@ class VTK_GRAPHICS_EXPORT vtkAxes : public vtkPolyDataSource
 public:
   static vtkAxes *New();
 
-  vtkTypeMacro(vtkAxes,vtkPolyDataSource);
+  vtkTypeRevisionMacro(vtkAxes,vtkPolyDataSource);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPIGroup.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:59 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-01-04 14:29:22 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -63,7 +63,7 @@ class VTK_PARALLEL_EXPORT vtkMPIGroup : public vtkObject
 
 public:
 
-  vtkTypeMacro( vtkMPIGroup,vtkObject);
+  vtkTypeRevisionMacro( vtkMPIGroup,vtkObject);
   
   // Description:
   // Construct a vtkMPIGroup with the following initial state:

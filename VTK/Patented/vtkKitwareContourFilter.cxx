@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKitwareContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-10 21:29:28 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-01-04 14:29:31 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -50,18 +50,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkGridSynchronizedTemplates3D.h"
 #include "vtkObjectFactory.h"
 
-vtkKitwareContourFilter* vtkKitwareContourFilter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = 
-    vtkObjectFactory::CreateInstance("vtkKitwareContourFilter");
-  if(ret)
-    {
-    return (vtkKitwareContourFilter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkKitwareContourFilter;
-}
+vtkCxxRevisionMacro(vtkKitwareContourFilter, "$Revision: 1.22 $");
+vtkStandardNewMacro(vtkKitwareContourFilter);
 
 // Construct object with initial range (0,1) and single contour value
 // of 0.0.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXYPlotActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-20 19:18:56 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2002-01-04 14:27:19 $
+  Version:   $Revision: 1.32 $
   Thanks:    Thanks to Kitware & RPI/SCOREC who supported the development
              of this class.
 
@@ -56,18 +56,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #define VTK_MAX_PLOTS 50
 
-//--------------------------------------------------------------------------
-vtkXYPlotActor* vtkXYPlotActor::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkXYPlotActor");
-  if(ret)
-    {
-      return (vtkXYPlotActor*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkXYPlotActor;
-}
+vtkCxxRevisionMacro(vtkXYPlotActor, "$Revision: 1.32 $");
+vtkStandardNewMacro(vtkXYPlotActor);
 
 // Instantiate object
 vtkXYPlotActor::vtkXYPlotActor()
@@ -782,7 +772,7 @@ void vtkXYPlotActor::PrintSelf(ostream& os, vtkIndent indent)
   int component;
   int idx, num;
 
-  vtkActor2D::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   this->InputList->InitTraversal();
   num = this->InputList->GetNumberOfItems();

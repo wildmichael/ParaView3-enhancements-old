@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreadedController.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:26:02 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-01-04 14:29:27 $
+  Version:   $Revision: 1.10 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -57,7 +57,7 @@ static vtkSimpleCriticalSection vtkOutputWindowCritSect;
 class VTK_PARALLEL_EXPORT vtkThreadedControllerOutputWindow : public vtkOutputWindow
 {
 public:
-  vtkTypeMacro(vtkThreadedControllerOutputWindow,vtkOutputWindow);
+  vtkTypeRevisionMacro(vtkThreadedControllerOutputWindow,vtkOutputWindow);
 
   void DisplayText(const char* t)
   {
@@ -86,12 +86,15 @@ public:
 
   friend class vtkThreadedController;
 
-protected:
+private:
   vtkThreadedControllerOutputWindow(const vtkThreadedControllerOutputWindow&);
   void operator=(const vtkThreadedControllerOutputWindow&);
-
 };
 
+vtkCxxRevisionMacro(vtkThreadedControllerOutputWindow, "$Revision: 1.10 $");
+
+vtkCxxRevisionMacro(vtkThreadedController, "$Revision: 1.10 $");
+vtkStandardNewMacro(vtkThreadedController);
 
 void vtkThreadedController::CreateOutputWindow()
 {
@@ -101,20 +104,6 @@ void vtkThreadedController::CreateOutputWindow()
   vtkOutputWindow::SetInstance(this->OutputWindow);
 #endif
 }
-
-//----------------------------------------------------------------------------
-vtkThreadedController* vtkThreadedController::New()
-{
-  // First try to create the object from the vtkObjectactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkThreadedController");
-  if(ret)
-    {
-    return (vtkThreadedController*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkThreadedController;
-}
-
 
 //----------------------------------------------------------------------------
 vtkThreadedController::vtkThreadedController()
@@ -154,7 +143,7 @@ vtkThreadedController::~vtkThreadedController()
 //----------------------------------------------------------------------------
 void vtkThreadedController::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkMultiProcessController::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
   if (this->MultiThreader)
     {
     os << indent << "MultiThreader:\n";

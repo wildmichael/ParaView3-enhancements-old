@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToImageStencil.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:33:00 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-01-04 14:29:13 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to David G Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,25 +39,14 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-
-#include <math.h>
 #include "vtkImageToImageStencil.h"
 #include "vtkPolyData.h"
 #include "vtkObjectFactory.h"
 
+#include <math.h>
 
-//----------------------------------------------------------------------------
-vtkImageToImageStencil* vtkImageToImageStencil::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageToImageStencil");
-  if(ret)
-    {
-    return (vtkImageToImageStencil*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageToImageStencil;
-}
+vtkCxxRevisionMacro(vtkImageToImageStencil, "$Revision: 1.6 $");
+vtkStandardNewMacro(vtkImageToImageStencil);
 
 //----------------------------------------------------------------------------
 vtkImageToImageStencil::vtkImageToImageStencil()
@@ -74,7 +63,7 @@ vtkImageToImageStencil::~vtkImageToImageStencil()
 //----------------------------------------------------------------------------
 void vtkImageToImageStencil::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImageStencilSource::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Input: " << this->GetInput() << "\n";
   os << indent << "UpperThreshold: " << this->UpperThreshold << "\n";

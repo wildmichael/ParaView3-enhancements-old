@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-07 16:20:30 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2002-01-04 14:29:44 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -46,6 +46,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkCellPicker.h"
 #include "vtkAssemblyNode.h"
 #include "vtkOldStyleCallbackCommand.h"
+
+vtkCxxRevisionMacro(vtkInteractorStyle, "$Revision: 1.49 $");
 
 //----------------------------------------------------------------------------
 vtkInteractorStyle *vtkInteractorStyle::New() 
@@ -1330,7 +1332,7 @@ void vtkInteractorStyle::DollyCamera(int vtkNotUsed(x), int y)
 //----------------------------------------------------------------------------
 void vtkInteractorStyle::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkObject::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Auto Adjust Camera Clipping Range " 
      << (this->AutoAdjustCameraClippingRange  ? "On\n" : "Off\n");

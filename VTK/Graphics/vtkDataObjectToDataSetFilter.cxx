@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObjectToDataSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:13:53 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2002-01-04 14:25:12 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -49,23 +49,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkCellArray.h"
 #include "vtkObjectFactory.h"
 
-
-
-//----------------------------------------------------------------------------
-vtkDataObjectToDataSetFilter* vtkDataObjectToDataSetFilter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkDataObjectToDataSetFilter");
-  if(ret)
-    {
-    return (vtkDataObjectToDataSetFilter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkDataObjectToDataSetFilter;
-}
-
-
-
+vtkCxxRevisionMacro(vtkDataObjectToDataSetFilter, "$Revision: 1.38 $");
+vtkStandardNewMacro(vtkDataObjectToDataSetFilter);
 
 //----------------------------------------------------------------------------
 // Instantiate object with no input and no defined output.
@@ -474,7 +459,7 @@ void vtkDataObjectToDataSetFilter::ComputeInputUpdateExtents(
 //----------------------------------------------------------------------------
 void vtkDataObjectToDataSetFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkSource::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Data Set Type: ";
   if ( this->DataSetType == VTK_POLY_DATA )

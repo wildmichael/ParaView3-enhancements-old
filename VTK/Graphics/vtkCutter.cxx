@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-29 20:52:42 $
-  Version:   $Revision: 1.63 $
+  Date:      $Date: 2002-01-04 14:25:11 $
+  Version:   $Revision: 1.64 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,7 +39,6 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include <math.h>
 #include "vtkCutter.h"
 #include "vtkMergePoints.h"
 #include "vtkImplicitFunction.h"
@@ -47,18 +46,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
-//---------------------------------------------------------------------------
-vtkCutter* vtkCutter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkCutter");
-  if(ret)
-    {
-    return (vtkCutter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkCutter;
-}
+#include <math.h>
+
+vtkCxxRevisionMacro(vtkCutter, "$Revision: 1.64 $");
+vtkStandardNewMacro(vtkCutter);
 
 // Construct with user-specified implicit function; initial value of 0.0; and
 // generating cut scalars turned off.
@@ -353,7 +344,7 @@ void vtkCutter::CreateDefaultLocator()
 
 void vtkCutter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataSetToPolyDataFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Cut Function: " << this->CutFunction << "\n";
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightGoldBinaryReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:30:32 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-01-04 14:27:33 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -48,20 +48,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkPolyData.h"
 #include "vtkFloatArray.h"
 #include "vtkByteSwap.h"
+
 #include <ctype.h>
 
-//----------------------------------------------------------------------------
-vtkEnSightGoldBinaryReader* vtkEnSightGoldBinaryReader::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkEnSightGoldBinaryReader");
-  if(ret)
-    {
-    return (vtkEnSightGoldBinaryReader*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkEnSightGoldBinaryReader;
-}
+vtkCxxRevisionMacro(vtkEnSightGoldBinaryReader, "$Revision: 1.17 $");
+vtkStandardNewMacro(vtkEnSightGoldBinaryReader);
 
 //----------------------------------------------------------------------------
 vtkEnSightGoldBinaryReader::vtkEnSightGoldBinaryReader()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume16Reader.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:30:29 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2002-01-04 14:28:04 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -84,7 +84,7 @@ class vtkUnsignedShortArray;
 class VTK_IO_EXPORT vtkVolume16Reader : public vtkVolumeReader
 {
 public:
-  vtkTypeMacro(vtkVolume16Reader,vtkVolumeReader);
+  vtkTypeRevisionMacro(vtkVolume16Reader,vtkVolumeReader);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

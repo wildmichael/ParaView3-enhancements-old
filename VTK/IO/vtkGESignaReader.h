@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGESignaReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-09 21:49:01 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-01-04 14:27:36 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -63,7 +63,7 @@ class VTK_IO_EXPORT vtkGESignaReader : public vtkImageReader2
 {
 public:
   static vtkGESignaReader *New();
-  vtkTypeMacro(vtkGESignaReader,vtkImageReader2);
+  vtkTypeRevisionMacro(vtkGESignaReader,vtkImageReader2);
 
 protected:
   vtkGESignaReader() {};

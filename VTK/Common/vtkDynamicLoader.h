@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDynamicLoader.h,v $
   Language:  C++
-  Date:      $Date: 2001-12-19 03:30:24 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-01-04 14:20:40 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to William A. Hoffman who developed this class
 
 
@@ -71,7 +71,7 @@ class VTK_COMMON_EXPORT vtkDynamicLoader : public vtkObject
 {
 public:
   static vtkDynamicLoader *New() {return new vtkDynamicLoader;};
-  vtkTypeMacro(vtkDynamicLoader,vtkObject);
+  vtkTypeRevisionMacro(vtkDynamicLoader,vtkObject);
 
   //BTX
   // Description:

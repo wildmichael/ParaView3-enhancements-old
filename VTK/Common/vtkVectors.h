@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectors.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:29 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 2002-01-04 14:23:01 $
+  Version:   $Revision: 1.57 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,7 +58,7 @@ public:
   static vtkVectors *New(int dataType);
   static vtkVectors *New();
 
-  vtkTypeMacro(vtkVectors,vtkAttributeData);
+  vtkTypeRevisionMacro(vtkVectors,vtkAttributeData);
   void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageBlockReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:24 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-01-04 14:29:20 $
+  Version:   $Revision: 1.11 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -43,23 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkImageTranslateExtent.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkImageBlockReader* vtkImageBlockReader::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageBlockReader");
-  if(ret)
-    {
-    return (vtkImageBlockReader*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageBlockReader;
-}
-
-
-
+vtkCxxRevisionMacro(vtkImageBlockReader, "$Revision: 1.11 $");
+vtkStandardNewMacro(vtkImageBlockReader);
 
 //----------------------------------------------------------------------------
 vtkImageBlockReader::vtkImageBlockReader()
@@ -96,7 +81,7 @@ vtkImageBlockReader::~vtkImageBlockReader()
 void vtkImageBlockReader::PrintSelf(ostream& os, vtkIndent indent)
 {
   int idx;
-  vtkImageSource::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
   
   os << indent << "FilePattern: " << this->FilePattern << endl;
   os << indent << "Overlap: " << this->Overlap << endl;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSuperquadricSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:14:00 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-01-04 14:26:36 $
+  Version:   $Revision: 1.17 $
   Thanks:    Mike Halle, Brigham and Women's Hospital
 
 
@@ -47,29 +47,16 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
    in "Graphics Gems III", David Kirk, ed., Academic Press, 1992.
 */
 
-#include <math.h>
 #include "vtkSuperquadricSource.h"
 #include "vtkPoints.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
+#include <math.h>
 
-//------------------------------------------------------------------------------
-vtkSuperquadricSource* vtkSuperquadricSource::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkSuperquadricSource");
-  if(ret)
-    {
-    return (vtkSuperquadricSource*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkSuperquadricSource;
-}
-
-
-
+vtkCxxRevisionMacro(vtkSuperquadricSource, "$Revision: 1.17 $");
+vtkStandardNewMacro(vtkSuperquadricSource);
 
 static void evalSuperquadric(float u, float v, 
                              float du, float dv,
@@ -364,7 +351,7 @@ void vtkSuperquadricSource::Execute()
 
 void vtkSuperquadricSource::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolyDataSource::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Toroidal: " << (this->Toroidal ? "On\n" : "Off\n");
   os << indent << "Size: " << this->Size << "\n";

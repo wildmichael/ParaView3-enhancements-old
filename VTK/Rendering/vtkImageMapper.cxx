@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-05 23:36:32 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2002-01-04 14:29:41 $
+  Version:   $Revision: 1.40 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -48,6 +48,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkWindow.h"
 #include "vtkImageData.h"
 #include "vtkImagingFactory.h"
+
+vtkCxxRevisionMacro(vtkImageMapper, "$Revision: 1.40 $");
 
 #define VTK_RINT(x) ((x > 0.0) ? (int)(x + 0.5) : (int)(x - 0.5))
 
@@ -101,7 +103,7 @@ unsigned long int vtkImageMapper::GetMTime()
 
 void vtkImageMapper::PrintSelf(ostream& os, vtkIndent indent)
 {
-  this->vtkMapper2D::PrintSelf(os, indent);
+  this->Superclass::PrintSelf(os, indent);
 
   os << indent << "Color Window: " << this->ColorWindow << "\n";
   os << indent << "Color Level: " << this->ColorLevel << "\n";

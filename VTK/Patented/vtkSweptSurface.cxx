@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSweptSurface.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-17 15:28:23 $
-  Version:   $Revision: 1.68 $
+  Date:      $Date: 2002-01-04 14:29:32 $
+  Version:   $Revision: 1.69 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,18 +58,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
 
-//----------------------------------------------------------------------------
-vtkSweptSurface* vtkSweptSurface::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkSweptSurface");
-  if(ret)
-    {
-    return (vtkSweptSurface*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkSweptSurface;
-}
+vtkCxxRevisionMacro(vtkSweptSurface, "$Revision: 1.69 $");
+vtkStandardNewMacro(vtkSweptSurface);
 
 // Description:
 // Construct object with SampleDimensions = (50,50,50), FillValue = 
@@ -860,7 +850,7 @@ void vtkSweptSurface::Cap(vtkDataArray *s)
 
 void vtkSweptSurface::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkStructuredPointsToStructuredPointsFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Sample Dimensions: (" << this->SampleDimensions[0] << ", "
                << this->SampleDimensions[1] << ", "

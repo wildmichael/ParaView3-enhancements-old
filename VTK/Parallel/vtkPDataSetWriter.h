@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPDataSetWriter.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-15 14:20:23 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-01-04 14:29:23 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,7 +58,7 @@ class VTK_PARALLEL_EXPORT vtkPDataSetWriter : public vtkDataSetWriter
 {
 public:
   void PrintSelf(ostream& os, vtkIndent indent);
-  vtkTypeMacro(vtkPDataSetWriter,vtkDataSetWriter);
+  vtkTypeRevisionMacro(vtkPDataSetWriter,vtkDataSetWriter);
   static vtkPDataSetWriter *New();
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-18 15:20:49 $
-  Version:   $Revision: 1.86 $
+  Date:      $Date: 2002-01-04 14:27:30 $
+  Version:   $Revision: 1.87 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,23 +58,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkDataWriter* vtkDataWriter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkDataWriter");
-  if(ret)
-    {
-    return (vtkDataWriter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkDataWriter;
-}
-
-
-
+vtkCxxRevisionMacro(vtkDataWriter, "$Revision: 1.87 $");
+vtkStandardNewMacro(vtkDataWriter);
 
 // this undef is required on the hp. vtkMutexLock ends up including
 // /usr/inclue/dce/cma_ux.h which has the gall to #define write as cma_write
@@ -979,7 +964,7 @@ char *vtkDataWriter::RegisterAndGetOutputString()
 
 void vtkDataWriter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkWriter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "File Name: " 
      << (this->FileName ? this->FileName : "(none)") << "\n";

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNGWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:30:35 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-01-04 14:27:47 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,19 +44,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include <png.h>
 
-
-//----------------------------------------------------------------------------
-vtkPNGWriter* vtkPNGWriter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkPNGWriter");
-  if(ret)
-    {
-    return (vtkPNGWriter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkPNGWriter;
-}
+vtkCxxRevisionMacro(vtkPNGWriter, "$Revision: 1.6 $");
+vtkStandardNewMacro(vtkPNGWriter);
 
 vtkPNGWriter::vtkPNGWriter()
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageExport.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-04 11:57:15 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-01-04 14:28:35 $
+  Version:   $Revision: 1.22 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 
@@ -40,25 +40,14 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include <ctype.h>
-#include <string.h>
 #include "vtkImageExport.h"
 #include "vtkObjectFactory.h"
 
+#include <ctype.h>
+#include <string.h>
 
-
-//----------------------------------------------------------------------------
-vtkImageExport* vtkImageExport::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageExport");
-  if(ret)
-    {
-    return (vtkImageExport*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageExport;
-}
+vtkCxxRevisionMacro(vtkImageExport, "$Revision: 1.22 $");
+vtkStandardNewMacro(vtkImageExport);
 
 //----------------------------------------------------------------------------
 vtkImageExport::vtkImageExport()
@@ -78,7 +67,7 @@ vtkImageExport::~vtkImageExport()
 //----------------------------------------------------------------------------
 void vtkImageExport::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkProcessObject::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "ImageLowerLeft: " 
      << (this->ImageLowerLeft ? "On\n" : "Off\n");

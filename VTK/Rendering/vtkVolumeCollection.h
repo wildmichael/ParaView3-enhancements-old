@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeCollection.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:27 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2002-01-04 14:30:15 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,7 +58,7 @@ class VTK_RENDERING_EXPORT vtkVolumeCollection : public vtkPropCollection
 {
  public:
   static vtkVolumeCollection *New();
-  vtkTypeMacro(vtkVolumeCollection,vtkPropCollection);
+  vtkTypeRevisionMacro(vtkVolumeCollection,vtkPropCollection);
 
   // Description:
   // Add a Volume to the list.

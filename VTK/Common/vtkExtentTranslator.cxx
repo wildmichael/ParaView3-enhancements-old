@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtentTranslator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-16 16:53:41 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-01-04 14:20:41 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,26 +39,12 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-
 #include "vtkExtentTranslator.h"
 #include "vtkObjectFactory.h"
 #include "vtkLargeInteger.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkExtentTranslator* vtkExtentTranslator::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkExtentTranslator");
-  if(ret)
-    {
-    return (vtkExtentTranslator*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkExtentTranslator;
-}
-
+vtkCxxRevisionMacro(vtkExtentTranslator, "$Revision: 1.18 $");
+vtkStandardNewMacro(vtkExtentTranslator);
 
 //----------------------------------------------------------------------------
 vtkExtentTranslator::vtkExtentTranslator()
@@ -349,7 +335,7 @@ int vtkExtentTranslator::SplitExtentByPoints(int piece, int numPieces,
 //----------------------------------------------------------------------------
 void vtkExtentTranslator::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkObject::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Piece: " << this->Piece << endl;
   os << indent << "NumberOfPieces: " << this->NumberOfPieces << endl;

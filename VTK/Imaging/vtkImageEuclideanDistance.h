@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageEuclideanDistance.h,v $
   Language:  C++
-  Date:      $Date: 2001-12-07 21:10:28 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-01-04 14:28:34 $
+  Version:   $Revision: 1.10 $
   Thanks:    Olivier Cuisenaire who developed this class
              URL: http://ltswww.epfl.ch/~cuisenai
              Email: Olivier.Cuisenaire@epfl.ch
@@ -81,7 +81,7 @@ class VTK_IMAGING_EXPORT vtkImageEuclideanDistance : public vtkImageDecomposeFil
 {
 public:
   static vtkImageEuclideanDistance *New();
-  vtkTypeMacro(vtkImageEuclideanDistance,vtkImageDecomposeFilter);
+  vtkTypeRevisionMacro(vtkImageEuclideanDistance,vtkImageDecomposeFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

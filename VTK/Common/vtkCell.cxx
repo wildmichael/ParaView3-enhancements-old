@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-10 23:11:30 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2002-01-04 14:20:34 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -41,6 +41,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 #include "vtkCell.h"
 #include "vtkMarchingSquaresCases.h"
+
+vtkCxxRevisionMacro(vtkCell, "$Revision: 1.51 $");
 
 // Construct cell.
 vtkCell::vtkCell()
@@ -268,10 +270,10 @@ int vtkCell::GetParametricCenter(float pcoords[3])
 
 void vtkCell::PrintSelf(ostream& os, vtkIndent indent)
 {
+  this->Superclass::PrintSelf(os,indent);
+  
   int numIds=this->PointIds->GetNumberOfIds();
-
-  vtkObject::PrintSelf(os,indent);
-
+  
   os << indent << "Number Of Points: " << numIds << "\n";
 
   if ( numIds > 0 )

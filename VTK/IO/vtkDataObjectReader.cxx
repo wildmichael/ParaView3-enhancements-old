@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObjectReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:30:30 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-01-04 14:27:26 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,18 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkDataObjectReader.h"
 #include "vtkObjectFactory.h"
 
-//-------------------------------------------------------------------------
-vtkDataObjectReader* vtkDataObjectReader::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkDataObjectReader");
-  if(ret)
-    {
-    return (vtkDataObjectReader*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkDataObjectReader;
-}
+vtkCxxRevisionMacro(vtkDataObjectReader, "$Revision: 1.14 $");
+vtkStandardNewMacro(vtkDataObjectReader);
 
 vtkDataObjectReader::vtkDataObjectReader()
 {
@@ -132,5 +122,5 @@ void vtkDataObjectReader::Execute()
 
 void vtkDataObjectReader::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataReader::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 }

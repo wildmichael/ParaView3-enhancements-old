@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNGWriter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:32 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-01-04 14:27:48 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -56,7 +56,7 @@ class VTK_IO_EXPORT vtkPNGWriter : public vtkImageWriter
 {
 public:
   static vtkPNGWriter *New();
-  vtkTypeMacro(vtkPNGWriter,vtkImageWriter);
+  vtkTypeRevisionMacro(vtkPNGWriter,vtkImageWriter);
 
   // Description:
   // The main interface which triggers the writer to start.

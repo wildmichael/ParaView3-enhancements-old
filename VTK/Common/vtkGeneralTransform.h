@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeneralTransform.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-30 19:14:13 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2002-01-04 14:20:46 $
+  Version:   $Revision: 1.38 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,7 +60,7 @@ class VTK_COMMON_EXPORT vtkGeneralTransform : public vtkAbstractTransform
 public:
   static vtkGeneralTransform *New();
 
-  vtkTypeMacro(vtkGeneralTransform,vtkAbstractTransform);
+  vtkTypeRevisionMacro(vtkGeneralTransform,vtkAbstractTransform);
   void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:

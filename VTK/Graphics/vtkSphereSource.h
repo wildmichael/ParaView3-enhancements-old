@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:16 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2002-01-04 14:26:26 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -63,7 +63,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class VTK_GRAPHICS_EXPORT vtkSphereSource : public vtkPolyDataSource 
 {
 public:
-  vtkTypeMacro(vtkSphereSource,vtkPolyDataSource);
+  vtkTypeRevisionMacro(vtkSphereSource,vtkPolyDataSource);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

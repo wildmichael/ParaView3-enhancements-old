@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSight6BinaryReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:30:31 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-01-04 14:27:31 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -50,18 +50,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkByteSwap.h"
 #include <ctype.h>
 
-//----------------------------------------------------------------------------
-vtkEnSight6BinaryReader* vtkEnSight6BinaryReader::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkEnSight6BinaryReader");
-  if(ret)
-    {
-    return (vtkEnSight6BinaryReader*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkEnSight6BinaryReader;
-}
+vtkCxxRevisionMacro(vtkEnSight6BinaryReader, "$Revision: 1.16 $");
+vtkStandardNewMacro(vtkEnSight6BinaryReader);
 
 //----------------------------------------------------------------------------
 vtkEnSight6BinaryReader::vtkEnSight6BinaryReader()

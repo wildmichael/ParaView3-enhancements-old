@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsToUnstructuredGridFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-29 15:04:57 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-01-04 14:24:41 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -40,6 +40,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 #include "vtkStructuredPointsToUnstructuredGridFilter.h"
+
+vtkCxxRevisionMacro(vtkStructuredPointsToUnstructuredGridFilter, "$Revision: 1.11 $");
 
 //----------------------------------------------------------------------------
 // Specify the input data or filter.

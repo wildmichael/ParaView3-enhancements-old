@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpherePuzzleArrows.h,v $
   Language:  C++
-  Date:      $Date: 2001-12-12 18:47:03 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-01-04 14:26:25 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -53,7 +53,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class VTK_EXPORT vtkSpherePuzzleArrows : public vtkPolyDataSource 
 {
 public:
-  vtkTypeMacro(vtkSpherePuzzleArrows,vtkPolyDataSource);
+  vtkTypeRevisionMacro(vtkSpherePuzzleArrows,vtkPolyDataSource);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

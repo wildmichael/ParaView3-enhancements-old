@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePadFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:56 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-01-04 14:29:04 $
+  Version:   $Revision: 1.25 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,29 +39,11 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-
 #include "vtkImagePadFilter.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkImagePadFilter* vtkImagePadFilter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImagePadFilter");
-  if(ret)
-    {
-    return (vtkImagePadFilter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImagePadFilter;
-}
-
-
-
-
-
+vtkCxxRevisionMacro(vtkImagePadFilter, "$Revision: 1.25 $");
+vtkStandardNewMacro(vtkImagePadFilter);
 
 //----------------------------------------------------------------------------
 // Constructor sets default values
@@ -181,7 +163,7 @@ void vtkImagePadFilter::ComputeInputUpdateExtent(int inExt[6],
 
 void vtkImagePadFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImageToImageFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "OutputNumberOfScalarComponents: " 
      << this->OutputNumberOfScalarComponents << "\n";

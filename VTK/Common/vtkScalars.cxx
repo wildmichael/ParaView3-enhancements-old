@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalars.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:09:58 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2002-01-04 14:22:28 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,21 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkLookupTable.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkScalars* vtkScalars::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkScalars");
-  if(ret)
-    {
-    return (vtkScalars*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkScalars;
-}
-
+vtkCxxRevisionMacro(vtkScalars, "$Revision: 1.54 $");
+vtkStandardNewMacro(vtkScalars);
 
 vtkScalars::vtkScalars() 
 {
@@ -403,9 +390,9 @@ unsigned char *vtkScalars::Luminance(vtkIdType id)
 
 void vtkScalars::PrintSelf(ostream& os, vtkIndent indent)
 {
-  float *range;
+  this->Superclass::PrintSelf(os,indent);
 
-  this->vtkAttributeData::PrintSelf(os,indent);
+  float *range;
 
   os << indent << "Number Of Scalars: " << this->GetNumberOfScalars() << "\n";
   range = this->GetRange();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuartzTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:18:02 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-01-04 14:30:07 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,23 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkQuartzImageWindow.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkQuartzTextMapper* vtkQuartzTextMapper::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkQuartzTextMapper");
-  if(ret)
-    {
-    return (vtkQuartzTextMapper*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkQuartzTextMapper;
-}
-
-
-
+vtkCxxRevisionMacro(vtkQuartzTextMapper, "$Revision: 1.3 $");
+vtkStandardNewMacro(vtkQuartzTextMapper);
 
 vtkQuartzTextMapper::vtkQuartzTextMapper()
 {

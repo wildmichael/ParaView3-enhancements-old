@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleFlight.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-16 16:36:14 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-01-04 14:29:44 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to John Biddiscombe of the Rutherford Appleton Laboratory
              who developed class.
 
@@ -47,18 +47,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkRenderWindowInteractor.h"
 #include "vtkObjectFactory.h"
 
-//------------------------------------------------------------------------------
-vtkInteractorStyleFlight* vtkInteractorStyleFlight::New()
-{
-  // irst try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkInteractorStyleFlight");
-  if(ret)
-    {
-    return (vtkInteractorStyleFlight*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkInteractorStyleFlight;
-}
+vtkCxxRevisionMacro(vtkInteractorStyleFlight, "$Revision: 1.14 $");
+vtkStandardNewMacro(vtkInteractorStyleFlight);
+
 //---------------------------------------------------------------------------
 vtkInteractorStyleFlight::vtkInteractorStyleFlight()
 {
@@ -559,7 +550,7 @@ void vtkInteractorStyleFlight::FlyByKey(void) {
 }
 //---------------------------------------------------------------------------
 void vtkInteractorStyleFlight::PrintSelf(ostream& os, vtkIndent indent) {
-  vtkInteractorStyle::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
   os << indent << "MotionStepSize: "
      << this->MotionStepSize << "\n";
   os << indent << "MotionAccelerationFactor: "

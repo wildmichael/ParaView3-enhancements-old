@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageConnector.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:39 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-01-04 14:28:24 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -79,7 +79,7 @@ class VTK_IMAGING_EXPORT vtkImageConnector : public vtkObject
 public:
   static vtkImageConnector *New();
 
-  vtkTypeMacro(vtkImageConnector,vtkObject);
+  vtkTypeRevisionMacro(vtkImageConnector,vtkObject);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   //BTX

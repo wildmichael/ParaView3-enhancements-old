@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPiecewiseFunction.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:12:57 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2002-01-04 14:24:19 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -55,7 +55,7 @@ class VTK_FILTERING_EXPORT vtkPiecewiseFunction : public vtkDataObject
 {
 public:
   static vtkPiecewiseFunction *New();
-  vtkTypeMacro(vtkPiecewiseFunction,vtkDataObject);
+  vtkTypeRevisionMacro(vtkPiecewiseFunction,vtkDataObject);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   vtkDataObject *MakeObject();

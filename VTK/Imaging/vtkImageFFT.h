@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFFT.h,v $
   Language:  C++
-  Date:      $Date: 2001-12-07 14:03:50 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2002-01-04 14:28:37 $
+  Version:   $Revision: 1.32 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -61,7 +61,7 @@ class VTK_IMAGING_EXPORT vtkImageFFT : public vtkImageFourierFilter
 {
 public:
   static vtkImageFFT *New();
-  vtkTypeMacro(vtkImageFFT,vtkImageFourierFilter);
+  vtkTypeRevisionMacro(vtkImageFFT,vtkImageFourierFilter);
 
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPICommunicator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:25:59 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-01-04 14:29:21 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -47,17 +47,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 vtkMPICommunicator* vtkMPICommunicator::WorldCommunicator = 0;
 
-vtkMPICommunicator* vtkMPICommunicator::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkMPICommunicator");
-  if(ret)
-    {
-    return (vtkMPICommunicator*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkMPICommunicator;
-}
+vtkCxxRevisionMacro(vtkMPICommunicator, "$Revision: 1.13 $");
+vtkStandardNewMacro(vtkMPICommunicator);
 
 // Return the world communicator (i.e. MPI_COMM_WORLD).
 // Create one if necessary (singleton).
@@ -95,7 +86,7 @@ vtkMPICommunicator* vtkMPICommunicator::GetWorldCommunicator()
 
 void vtkMPICommunicator::PrintSelf(ostream& os, vtkIndent indent)
 {
-  this->vtkCommunicator::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
   os << indent << "Group: ";
   if (this->Group)
     {

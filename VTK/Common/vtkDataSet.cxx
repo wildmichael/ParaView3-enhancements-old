@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-20 13:55:20 $
-  Version:   $Revision: 1.87 $
+  Date:      $Date: 2002-01-04 14:20:38 $
+  Version:   $Revision: 1.88 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,12 +39,12 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-//
-// DataSet methods
-//
-#include <math.h>
 #include "vtkDataSet.h"
 #include "vtkSource.h"
+
+#include <math.h>
+
+vtkCxxRevisionMacro(vtkDataSet, "$Revision: 1.88 $");
 
 //----------------------------------------------------------------------------
 // Constructor with default bounds (0,1, 0,1, 0,1).
@@ -436,9 +436,9 @@ int vtkDataSet::CheckAttributes()
 //----------------------------------------------------------------------------
 void vtkDataSet::PrintSelf(ostream& os, vtkIndent indent)
 {
-  float *bounds;
+  this->Superclass::PrintSelf(os,indent);
 
-  vtkDataObject::PrintSelf(os,indent);
+  float *bounds;
 
   os << indent << "Number Of Points: " << this->GetNumberOfPoints() << "\n";
   os << indent << "Number Of Cells: " << this->GetNumberOfCells() << "\n";

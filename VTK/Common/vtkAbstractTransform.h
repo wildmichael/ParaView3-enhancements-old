@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractTransform.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-30 19:14:13 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-01-04 14:20:31 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -75,7 +75,7 @@ class VTK_COMMON_EXPORT vtkAbstractTransform : public vtkObject
 {
 public:
 
-  vtkTypeMacro(vtkAbstractTransform,vtkObject);
+  vtkTypeRevisionMacro(vtkAbstractTransform,vtkObject);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

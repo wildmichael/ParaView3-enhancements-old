@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBlankStructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-04 11:54:50 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-01-04 14:24:57 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,18 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkBlankStructuredGrid.h"
 #include "vtkObjectFactory.h"
 
-//------------------------------------------------------------------------
-vtkBlankStructuredGrid* vtkBlankStructuredGrid::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkBlankStructuredGrid");
-  if(ret)
-    {
-    return (vtkBlankStructuredGrid*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkBlankStructuredGrid;
-}
+vtkCxxRevisionMacro(vtkBlankStructuredGrid, "$Revision: 1.4 $");
+vtkStandardNewMacro(vtkBlankStructuredGrid);
 
 // Construct object to extract all of the input data.
 vtkBlankStructuredGrid::vtkBlankStructuredGrid()
@@ -163,7 +153,7 @@ void vtkBlankStructuredGrid::Execute()
 
 void vtkBlankStructuredGrid::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkStructuredGridToStructuredGridFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Min Blanking Value: " << this->MinBlankingValue << "\n";
   os << indent << "Max Blanking Value: " << this->MaxBlankingValue << "\n";

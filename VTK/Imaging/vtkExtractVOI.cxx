@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractVOI.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-10 03:41:49 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2002-01-04 14:28:07 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,23 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkExtractVOI.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkExtractVOI* vtkExtractVOI::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkExtractVOI");
-  if(ret)
-    {
-    return (vtkExtractVOI*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkExtractVOI;
-}
-
-
-
+vtkCxxRevisionMacro(vtkExtractVOI, "$Revision: 1.26 $");
+vtkStandardNewMacro(vtkExtractVOI);
 
 // Construct object to extract all of the input data.
 vtkExtractVOI::vtkExtractVOI()
@@ -271,7 +256,7 @@ void vtkExtractVOI::Execute()
 
 void vtkExtractVOI::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkStructuredPointsToStructuredPointsFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "VOI: \n";
   os << indent << "  Imin,Imax: (" << this->VOI[0] << ", " << this->VOI[1] << ")\n";

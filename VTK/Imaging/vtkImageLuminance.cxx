@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageLuminance.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:54 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-01-04 14:28:50 $
+  Version:   $Revision: 1.17 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -38,29 +38,13 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include <math.h>
-
 #include "vtkImageLuminance.h"
 #include "vtkObjectFactory.h"
 
+#include <math.h>
 
-
-//------------------------------------------------------------------------------
-vtkImageLuminance* vtkImageLuminance::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageLuminance");
-  if(ret)
-    {
-    return (vtkImageLuminance*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageLuminance;
-}
-
-
-
-
+vtkCxxRevisionMacro(vtkImageLuminance, "$Revision: 1.17 $");
+vtkStandardNewMacro(vtkImageLuminance);
 
 //----------------------------------------------------------------------------
 // This method overrides information set by parent's ExecuteInformation.

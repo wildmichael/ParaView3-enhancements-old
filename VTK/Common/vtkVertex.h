@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVertex.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:41:24 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2002-01-04 14:23:04 $
+  Version:   $Revision: 1.58 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -52,7 +52,7 @@ class VTK_COMMON_EXPORT vtkVertex : public vtkCell
 {
 public:
   static vtkVertex *New();
-  vtkTypeMacro(vtkVertex,vtkCell);
+  vtkTypeRevisionMacro(vtkVertex,vtkCell);
   
   // Description:
   // Make a new vtkVertex object with the same information as this object.

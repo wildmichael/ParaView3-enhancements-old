@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEncodedGradientShader.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:17:19 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-01-04 14:29:38 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -69,7 +69,7 @@ class VTK_RENDERING_EXPORT vtkEncodedGradientShader : public vtkObject
 {
 public:
   static vtkEncodedGradientShader *New();
-  vtkTypeMacro(vtkEncodedGradientShader,vtkObject);
+  vtkTypeRevisionMacro(vtkEncodedGradientShader,vtkObject);
 
   // Description:
   // Print the vtkEncodedGradientShader

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSinusoidSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:41 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-01-04 14:29:10 $
+  Version:   $Revision: 1.27 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -54,7 +54,7 @@ class VTK_IMAGING_EXPORT vtkImageSinusoidSource : public vtkImageSource
 {
 public:
   static vtkImageSinusoidSource *New();
-  vtkTypeMacro(vtkImageSinusoidSource,vtkImageSource);
+  vtkTypeRevisionMacro(vtkImageSinusoidSource,vtkImageSource);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

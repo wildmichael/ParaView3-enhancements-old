@@ -3,8 +3,8 @@
 Program:   Visualization Toolkit
 Module:    $RCSfile: vtkTransformCollection.cxx,v $
 Language:  C++
-Date:      $Date: 2000-12-10 20:08:19 $
-Version:   $Revision: 1.4 $
+Date:      $Date: 2002-01-04 14:22:49 $
+Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,20 +42,5 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkTransformCollection.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkTransformCollection* vtkTransformCollection::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkTransformCollection");
-  if(ret)
-    {
-    return (vtkTransformCollection*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkTransformCollection;
-}
-
-
-
+vtkCxxRevisionMacro(vtkTransformCollection, "$Revision: 1.5 $");
+vtkStandardNewMacro(vtkTransformCollection);

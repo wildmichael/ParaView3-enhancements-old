@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:41:51 $
-  Version:   $Revision: 1.98 $
+  Date:      $Date: 2002-01-04 14:25:29 $
+  Version:   $Revision: 1.99 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -46,18 +46,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkUnsignedCharArray.h"
 #include "vtkFloatArray.h"
 
-//------------------------------------------------------------------------
-vtkGlyph3D* vtkGlyph3D::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkGlyph3D");
-  if(ret)
-    {
-    return (vtkGlyph3D*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkGlyph3D;
-}
+vtkCxxRevisionMacro(vtkGlyph3D, "$Revision: 1.99 $");
+vtkStandardNewMacro(vtkGlyph3D);
 
 // Construct object with scaling on, scaling mode is by scalar value,
 // scale factor = 1.0, the range is (0,1), orient geometry is on, and
@@ -636,7 +626,7 @@ vtkPolyData *vtkGlyph3D::GetSource(int id)
 
 void vtkGlyph3D::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataSetToPolyDataFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Generate Point Ids "
      << (this->GeneratePointIds ? "On\n" : "Off\n");

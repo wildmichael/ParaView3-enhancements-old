@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAxisActor2D.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:17:17 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-01-04 14:29:36 $
+  Version:   $Revision: 1.21 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -81,7 +81,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class VTK_RENDERING_EXPORT vtkAxisActor2D : public vtkActor2D
 {
 public:
-  vtkTypeMacro(vtkAxisActor2D,vtkActor2D);
+  vtkTypeRevisionMacro(vtkAxisActor2D,vtkActor2D);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

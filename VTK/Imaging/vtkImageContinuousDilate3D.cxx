@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageContinuousDilate3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:46 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-01-04 14:28:25 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,30 +39,13 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include "vtkImageData.h"
-
 #include "vtkImageContinuousDilate3D.h"
+#include "vtkImageData.h"
 #include "vtkImageEllipsoidSource.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkImageContinuousDilate3D* vtkImageContinuousDilate3D::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageContinuousDilate3D");
-  if(ret)
-    {
-    return (vtkImageContinuousDilate3D*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageContinuousDilate3D;
-}
-
-
-
-
+vtkCxxRevisionMacro(vtkImageContinuousDilate3D, "$Revision: 1.20 $");
+vtkStandardNewMacro(vtkImageContinuousDilate3D);
 
 //----------------------------------------------------------------------------
 // Construct an instance of vtkImageContinuousDilate3D fitler.
@@ -94,7 +77,7 @@ vtkImageContinuousDilate3D::~vtkImageContinuousDilate3D()
 //----------------------------------------------------------------------------
 void vtkImageContinuousDilate3D::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImageSpatialFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 }
 
 //----------------------------------------------------------------------------

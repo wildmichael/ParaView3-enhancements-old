@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-22 17:47:08 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-01-04 14:22:12 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,22 +39,11 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-
 #include "vtkProperty2D.h"
 #include "vtkObjectFactory.h"
 
-//-------------------------------------------------------------------------
-vtkProperty2D* vtkProperty2D::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkProperty2D");
-  if(ret)
-    {
-    return (vtkProperty2D*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkProperty2D;
-}
+vtkCxxRevisionMacro(vtkProperty2D, "$Revision: 1.19 $");
+vtkStandardNewMacro(vtkProperty2D);
 
 // Creates a vtkProperty2D with the following default values:
 // Opacity 1, Color (1,0,0), CompositingOperator VTK_SRC
@@ -92,8 +81,7 @@ void vtkProperty2D::DeepCopy(vtkProperty2D *p)
 
 void vtkProperty2D::PrintSelf(ostream& os, vtkIndent indent)
 {
-
-  this->vtkObject::PrintSelf(os, indent);
+  this->Superclass::PrintSelf(os, indent);
 
   os << indent << "Opacity: " << this->Opacity << "\n";
   os << indent << "Color: (" << this->Color[0] << ", "

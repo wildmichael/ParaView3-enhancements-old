@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConeSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:13:52 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2002-01-04 14:25:08 $
+  Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,31 +39,14 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-//
-// Methods for Cone generator
-//
-#include <math.h>
 #include "vtkConeSource.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
 
+#include <math.h>
 
-
-//------------------------------------------------------------------------------
-vtkConeSource* vtkConeSource::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkConeSource");
-  if(ret)
-    {
-    return (vtkConeSource*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkConeSource;
-}
-
-
-
+vtkCxxRevisionMacro(vtkConeSource, "$Revision: 1.55 $");
+vtkStandardNewMacro(vtkConeSource);
 
 //----------------------------------------------------------------------------
 // Construct with default resolution 6, height 1.0, radius 0.5, and capping
@@ -297,7 +280,7 @@ float vtkConeSource::GetAngle()
 //----------------------------------------------------------------------------
 void vtkConeSource::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolyDataSource::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Resolution: " << this->Resolution << "\n";
   os << indent << "Height: " << this->Height << "\n";

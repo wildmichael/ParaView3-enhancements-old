@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangularTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:33:02 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-01-04 14:29:16 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,23 +44,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkUnsignedCharArray.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkTriangularTexture* vtkTriangularTexture::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkTriangularTexture");
-  if(ret)
-    {
-    return (vtkTriangularTexture*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkTriangularTexture;
-}
-
-
-
+vtkCxxRevisionMacro(vtkTriangularTexture, "$Revision: 1.18 $");
+vtkStandardNewMacro(vtkTriangularTexture);
 
 // Instantiate object with XSize and YSize = 64; the texture pattern =1
 // (opaque at centroid); and the scale factor set to 1.0.
@@ -216,7 +201,7 @@ void vtkTriangularTexture::Execute()
 
 void vtkTriangularTexture::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkStructuredPointsSource::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "XSize:" << this->XSize << "\n";
   os << indent << "YSize:" << this->YSize << "\n";

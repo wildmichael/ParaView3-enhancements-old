@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParticleReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:32 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-01-04 14:27:50 $
+  Version:   $Revision: 1.4 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -61,7 +61,7 @@ class VTK_IO_EXPORT vtkParticleReader : public vtkPolyDataSource
 {
 public:
   static vtkParticleReader *New();
-  vtkTypeMacro(vtkParticleReader,vtkPolyDataSource);
+  vtkTypeRevisionMacro(vtkParticleReader,vtkPolyDataSource);
   void PrintSelf(ostream& os, vtkIndent indent);   
 
   // Description:

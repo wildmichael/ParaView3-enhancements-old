@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergePoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:13:02 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2002-01-04 14:24:17 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,23 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkMergePoints* vtkMergePoints::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkMergePoints");
-  if(ret)
-    {
-    return (vtkMergePoints*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkMergePoints;
-}
-
-
-
+vtkCxxRevisionMacro(vtkMergePoints, "$Revision: 1.34 $");
+vtkStandardNewMacro(vtkMergePoints);
 
 // Determine whether point given by x[3] has been inserted into points list.
 // Return id of previously inserted point if this is true, otherwise return

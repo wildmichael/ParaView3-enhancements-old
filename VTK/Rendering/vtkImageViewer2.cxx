@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer2.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-06 02:53:03 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-01-04 14:29:42 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,18 +44,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkInteractorStyleImage.h"
 #include "vtkCommand.h"
 
-//----------------------------------------------------------------------------
-vtkImageViewer2* vtkImageViewer2::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageViewer2");
-  if(ret)
-    {
-    return (vtkImageViewer2*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageViewer2;
-}
+vtkCxxRevisionMacro(vtkImageViewer2, "$Revision: 1.6 $");
+vtkStandardNewMacro(vtkImageViewer2);
 
 //----------------------------------------------------------------------------
 vtkImageViewer2::vtkImageViewer2()
@@ -97,7 +87,7 @@ vtkImageViewer2::~vtkImageViewer2()
 //----------------------------------------------------------------------------
 void vtkImageViewer2::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkObject::PrintSelf(os, indent);
+  this->Superclass::PrintSelf(os, indent);
   os << indent << *this->RenderWindow << endl;
   os << indent << *this->Renderer << endl;
   os << indent << *this->ImageActor << endl;

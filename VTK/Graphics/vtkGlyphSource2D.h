@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyphSource2D.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:05 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-01-04 14:25:30 $
+  Version:   $Revision: 1.10 $
   Thanks:    Tim Smith who sponsored and encouraged the development
              of this class.
 
@@ -74,7 +74,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class VTK_GRAPHICS_EXPORT vtkGlyphSource2D : public vtkPolyDataSource 
 {
 public:
-  vtkTypeMacro(vtkGlyphSource2D,vtkPolyDataSource);
+  vtkTypeRevisionMacro(vtkGlyphSource2D,vtkPolyDataSource);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

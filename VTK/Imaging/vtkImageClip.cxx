@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageClip.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:46 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2002-01-04 14:28:22 $
+  Version:   $Revision: 1.42 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,29 +39,12 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-
 #include "vtkImageClip.h"
 #include "vtkExtentTranslator.h"
 #include "vtkObjectFactory.h"
 
-
-
-//----------------------------------------------------------------------------
-vtkImageClip* vtkImageClip::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageClip");
-  if(ret)
-    {
-    return (vtkImageClip*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageClip;
-}
-
-
-
-
+vtkCxxRevisionMacro(vtkImageClip, "$Revision: 1.42 $");
+vtkStandardNewMacro(vtkImageClip);
 
 //----------------------------------------------------------------------------
 vtkImageClip::vtkImageClip()
@@ -81,10 +64,10 @@ vtkImageClip::vtkImageClip()
 //----------------------------------------------------------------------------
 void vtkImageClip::PrintSelf(ostream& os, vtkIndent indent)
 {
+  this->Superclass::PrintSelf(os,indent);
+
   int idx;
   
-  vtkImageToImageFilter::PrintSelf(os,indent);
-
   os << indent << "OutputWholeExtent: (" << this->OutputWholeExtent[0]
      << "," << this->OutputWholeExtent[1];
   for (idx = 1; idx < 3; ++idx)

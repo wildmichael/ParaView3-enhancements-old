@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:18:08 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2002-01-04 14:30:19 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,27 +39,11 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-
 #include "vtkVolumeProperty.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkVolumeProperty* vtkVolumeProperty::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkVolumeProperty");
-  if(ret)
-    {
-    return (vtkVolumeProperty*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkVolumeProperty;
-}
-
-
-
+vtkCxxRevisionMacro(vtkVolumeProperty, "$Revision: 1.28 $");
+vtkStandardNewMacro(vtkVolumeProperty);
 
 // Construct a new vtkVolumeProperty with default values
 vtkVolumeProperty::vtkVolumeProperty()
@@ -328,7 +312,7 @@ vtkPiecewiseFunction *vtkVolumeProperty::GetGradientOpacity()
 // Print the state of the volume property.
 void vtkVolumeProperty::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkObject::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Interpolation Type: "
      << this->GetInterpolationTypeAsString() << "\n";

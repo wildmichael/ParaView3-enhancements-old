@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPipelineSize.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:00 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-01-04 14:29:26 $
+  Version:   $Revision: 1.6 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -54,7 +54,7 @@ class VTK_PARALLEL_EXPORT vtkPipelineSize : public vtkObject
 public:
   // Description:
   static vtkPipelineSize* New();
-  vtkTypeMacro(vtkPipelineSize,vtkObject);
+  vtkTypeRevisionMacro(vtkPipelineSize,vtkObject);
 
   // Description:
   // Compute an estimate of how much memory a pipline will require in 

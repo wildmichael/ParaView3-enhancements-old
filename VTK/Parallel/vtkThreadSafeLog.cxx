@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreadSafeLog.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-05 13:31:55 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-01-04 14:29:27 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,20 +43,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkObjectFactory.h"
 #include <iomanip.h>
 
-
-//----------------------------------------------------------------------------
-vtkThreadSafeLog* vtkThreadSafeLog::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkThreadSafeLog");
-  if(ret)
-    {
-    return (vtkThreadSafeLog*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkThreadSafeLog;
-}
-
+vtkCxxRevisionMacro(vtkThreadSafeLog, "$Revision: 1.2 $");
+vtkStandardNewMacro(vtkThreadSafeLog);
 
 //----------------------------------------------------------------------------
 vtkThreadSafeLog::vtkThreadSafeLog()

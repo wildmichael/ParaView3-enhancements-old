@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:36 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-01-04 14:29:39 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -40,6 +40,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 #include "vtkExporter.h"
+
+vtkCxxRevisionMacro(vtkExporter, "$Revision: 1.16 $");
 
 // Construct with no start and end write methods or arguments.
 vtkExporter::vtkExporter()
@@ -153,7 +155,7 @@ void vtkExporter::SetEndWrite(void (*f)(void *), void *arg)
 
 void vtkExporter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkObject::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   if ( this->RenderWindow )
     {

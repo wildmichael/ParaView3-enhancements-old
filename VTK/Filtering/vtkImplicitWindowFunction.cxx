@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitWindowFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:40 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-01-04 14:24:15 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,23 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkImplicitWindowFunction.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkImplicitWindowFunction* vtkImplicitWindowFunction::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImplicitWindowFunction");
-  if(ret)
-    {
-    return (vtkImplicitWindowFunction*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImplicitWindowFunction;
-}
-
-
-
+vtkCxxRevisionMacro(vtkImplicitWindowFunction, "$Revision: 1.13 $");
+vtkStandardNewMacro(vtkImplicitWindowFunction);
 
 // Construct object with window range (0,1) and window values (0,1).
 vtkImplicitWindowFunction::vtkImplicitWindowFunction()
@@ -153,7 +138,7 @@ unsigned long int vtkImplicitWindowFunction::GetMTime()
 
 void vtkImplicitWindowFunction::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImplicitFunction::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   if ( this->ImplicitFunction )
     {

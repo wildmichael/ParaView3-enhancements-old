@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCullerCollection.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:07 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-01-04 14:29:37 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,7 +58,7 @@ class VTK_RENDERING_EXPORT vtkCullerCollection : public vtkCollection
 {
  public:
   static vtkCullerCollection *New();
-  vtkTypeMacro(vtkCullerCollection,vtkCollection);
+  vtkTypeRevisionMacro(vtkCullerCollection,vtkCollection);
 
   // Description:
   // Add an Culler to the list.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-29 20:52:41 $
-  Version:   $Revision: 1.96 $
+  Date:      $Date: 2002-01-04 14:22:59 $
+  Version:   $Revision: 1.97 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -56,20 +56,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkPyramid.h"
 #include "vtkObjectFactory.h"
 
-
-
-//----------------------------------------------------------------------------
-vtkUnstructuredGrid* vtkUnstructuredGrid::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkUnstructuredGrid");
-  if(ret)
-    {
-    return (vtkUnstructuredGrid*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkUnstructuredGrid;
-}
+vtkCxxRevisionMacro(vtkUnstructuredGrid, "$Revision: 1.97 $");
+vtkStandardNewMacro(vtkUnstructuredGrid);
 
 vtkUnstructuredGrid::vtkUnstructuredGrid ()
 {
@@ -820,7 +808,7 @@ void vtkUnstructuredGrid::DeepCopy(vtkDataObject *dataObject)
 
 void vtkUnstructuredGrid::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPointSet::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Number Of Pieces: " << this->NumberOfPieces << endl;
   os << indent << "Piece: " << this->Piece << endl;

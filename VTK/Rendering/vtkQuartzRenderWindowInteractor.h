@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuartzRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 2001-12-11 03:58:43 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-01-04 14:30:07 $
+  Version:   $Revision: 1.8 $
   
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -79,7 +79,7 @@ public:
   // Construct object so that light follows camera motion.
   static vtkQuartzRenderWindowInteractor *New();
 
-  vtkTypeMacro(vtkQuartzRenderWindowInteractor,vtkRenderWindowInteractor);
+  vtkTypeRevisionMacro(vtkQuartzRenderWindowInteractor,vtkRenderWindowInteractor);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-17 13:58:42 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2002-01-04 14:26:26 $
+  Version:   $Revision: 1.58 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,25 +39,16 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include <math.h>
 #include "vtkSphereSource.h"
 #include "vtkPoints.h"
 #include "vtkFloatArray.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
 
-//----------------------------------------------------------------------------
-vtkSphereSource* vtkSphereSource::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkSphereSource");
-  if(ret)
-    {
-    return (vtkSphereSource*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkSphereSource;
-}
+#include <math.h>
+
+vtkCxxRevisionMacro(vtkSphereSource, "$Revision: 1.58 $");
+vtkStandardNewMacro(vtkSphereSource);
 
 //----------------------------------------------------------------------------
 // Construct sphere with radius=0.5 and default resolution 8 in both Phi
@@ -296,7 +287,7 @@ void vtkSphereSource::Execute()
 //----------------------------------------------------------------------------
 void vtkSphereSource::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolyDataSource::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Theta Resolution: " << this->ThetaResolution << "\n";
   os << indent << "Phi Resolution: " << this->PhiResolution << "\n";

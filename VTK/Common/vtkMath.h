@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMath.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-30 19:14:13 $
-  Version:   $Revision: 1.76 $
+  Date:      $Date: 2002-01-04 14:21:13 $
+  Version:   $Revision: 1.77 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -56,7 +56,7 @@ class VTK_COMMON_EXPORT vtkMath : public vtkObject
 {
 public:
   static vtkMath *New();
-  vtkTypeMacro(vtkMath,vtkObject);
+  vtkTypeRevisionMacro(vtkMath,vtkObject);
   
   // Description:
   // Useful constants.

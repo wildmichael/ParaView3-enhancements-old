@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-28 13:24:22 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-01-04 14:24:27 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,23 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkRectilinearGridSource.h"
 #include "vtkObjectFactory.h"
 
-
-
-//----------------------------------------------------------------------------
-vtkRectilinearGridSource* vtkRectilinearGridSource::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkRectilinearGridSource");
-  if(ret)
-    {
-    return (vtkRectilinearGridSource*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkRectilinearGridSource;
-}
-
-
-
+vtkCxxRevisionMacro(vtkRectilinearGridSource, "$Revision: 1.13 $");
+vtkStandardNewMacro(vtkRectilinearGridSource);
 
 //----------------------------------------------------------------------------
 vtkRectilinearGridSource::vtkRectilinearGridSource()

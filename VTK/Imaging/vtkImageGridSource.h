@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGridSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:45 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-01-04 14:28:43 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -53,7 +53,7 @@ class VTK_IMAGING_EXPORT vtkImageGridSource : public vtkImageSource
 {
 public:
   static vtkImageGridSource *New();
-  vtkTypeMacro(vtkImageGridSource,vtkImageSource);
+  vtkTypeRevisionMacro(vtkImageGridSource,vtkImageSource);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

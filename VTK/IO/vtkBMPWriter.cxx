@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBMPWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:30:30 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-01-04 14:27:21 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,23 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkBMPWriter.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkBMPWriter* vtkBMPWriter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkBMPWriter");
-  if(ret)
-    {
-    return (vtkBMPWriter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkBMPWriter;
-}
-
-
-
+vtkCxxRevisionMacro(vtkBMPWriter, "$Revision: 1.17 $");
+vtkStandardNewMacro(vtkBMPWriter);
 
 vtkBMPWriter::vtkBMPWriter()
 {

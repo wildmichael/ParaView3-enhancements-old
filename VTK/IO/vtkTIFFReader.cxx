@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTIFFReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:30:36 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-01-04 14:28:00 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,27 +39,14 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-
 #include "vtkTIFFReader.h"
 #include "vtkByteSwap.h"
-#include <stdio.h>
 #include "vtkObjectFactory.h"
 
-//------------------------------------------------------------------------------
-vtkTIFFReader* vtkTIFFReader::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkTIFFReader");
-  if(ret)
-    {
-    return (vtkTIFFReader*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkTIFFReader;
-}
+#include <stdio.h>
 
-
-
+vtkCxxRevisionMacro(vtkTIFFReader, "$Revision: 1.20 $");
+vtkStandardNewMacro(vtkTIFFReader);
 
 void vtkTIFFReader::Swap2(short *stmp)
 {

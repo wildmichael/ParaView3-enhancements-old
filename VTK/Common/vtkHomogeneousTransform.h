@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHomogeneousTransform.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-30 19:14:13 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-01-04 14:20:49 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,7 +58,7 @@ class VTK_COMMON_EXPORT vtkHomogeneousTransform : public vtkAbstractTransform
 {
 public:
 
-  vtkTypeMacro(vtkHomogeneousTransform,vtkAbstractTransform);
+  vtkTypeRevisionMacro(vtkHomogeneousTransform,vtkAbstractTransform);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransmitUnstructuredGridPiece.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-31 16:36:15 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-01-04 14:29:28 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,7 +58,7 @@ class VTK_PARALLEL_EXPORT vtkTransmitUnstructuredGridPiece : public vtkUnstructu
 {
 public:
   static vtkTransmitUnstructuredGridPiece *New();
-  vtkTypeMacro(vtkTransmitUnstructuredGridPiece, vtkUnstructuredGridToUnstructuredGridFilter);
+  vtkTypeRevisionMacro(vtkTransmitUnstructuredGridPiece, vtkUnstructuredGridToUnstructuredGridFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDifference.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-15 14:20:22 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2002-01-04 14:28:30 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -40,26 +40,12 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 #include "vtkImageDifference.h"
-#include "stdlib.h"
 #include "vtkObjectFactory.h"
 
+#include "stdlib.h"
 
-
-//------------------------------------------------------------------------------
-vtkImageDifference* vtkImageDifference::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageDifference");
-  if(ret)
-    {
-    return (vtkImageDifference*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageDifference;
-}
-
-
-
+vtkCxxRevisionMacro(vtkImageDifference, "$Revision: 1.29 $");
+vtkStandardNewMacro(vtkImageDifference);
 
 // Construct object to extract all of the input data.
 vtkImageDifference::vtkImageDifference()
@@ -434,9 +420,9 @@ float vtkImageDifference::GetThresholdedError()
 
 void vtkImageDifference::PrintSelf(ostream& os, vtkIndent indent)
 {
+  this->Superclass::PrintSelf(os,indent);
+  
   int i;
-
-  vtkImageTwoInputFilter::PrintSelf(os,indent);
 
   for ( i= 0; i < this->NumberOfThreads; i++ )
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-15 14:20:16 $
-  Version:   $Revision: 1.88 $
+  Date:      $Date: 2002-01-04 14:22:36 $
+  Version:   $Revision: 1.89 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -48,18 +48,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkExtentTranslator.h"
 #include "vtkObjectFactory.h"
 
-//----------------------------------------------------------------------------
-vtkStructuredGrid* vtkStructuredGrid::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkStructuredGrid");
-  if(ret)
-    {
-    return (vtkStructuredGrid*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkStructuredGrid;
-}
+vtkCxxRevisionMacro(vtkStructuredGrid, "$Revision: 1.89 $");
+vtkStandardNewMacro(vtkStructuredGrid);
 
 #define vtkAdjustBoundsMacro( A, B ) \
   A[0] = (B[0] < A[0] ? B[0] : A[0]);   A[1] = (B[0] > A[1] ? B[0] : A[1]); \
@@ -1223,7 +1213,7 @@ void vtkStructuredGrid::Crop()
 //----------------------------------------------------------------------------
 void vtkStructuredGrid::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPointSet::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   int dim[3];
   this->GetDimensions(dim);

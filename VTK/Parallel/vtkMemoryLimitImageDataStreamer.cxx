@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMemoryLimitImageDataStreamer.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-06 12:40:30 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-01-04 14:29:22 $
+  Version:   $Revision: 1.4 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -45,19 +45,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkCommand.h"
 #include "vtkPipelineSize.h"
 
-//----------------------------------------------------------------------------
-vtkMemoryLimitImageDataStreamer* vtkMemoryLimitImageDataStreamer::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkMemoryLimitImageDataStreamer");
-  if(ret)
-    {
-    return (vtkMemoryLimitImageDataStreamer*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkMemoryLimitImageDataStreamer;
-}
-
+vtkCxxRevisionMacro(vtkMemoryLimitImageDataStreamer, "$Revision: 1.4 $");
+vtkStandardNewMacro(vtkMemoryLimitImageDataStreamer);
 
 //----------------------------------------------------------------------------
 vtkMemoryLimitImageDataStreamer::vtkMemoryLimitImageDataStreamer()
@@ -70,7 +59,7 @@ vtkMemoryLimitImageDataStreamer::vtkMemoryLimitImageDataStreamer()
 //----------------------------------------------------------------------------
 void vtkMemoryLimitImageDataStreamer::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImageDataStreamer::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "MemoryLimit (in kb): " << this->MemoryLimit << endl;
 }

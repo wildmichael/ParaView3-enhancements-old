@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiProcessController.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:25:57 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-01-04 14:29:22 $
+  Version:   $Revision: 1.12 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -91,7 +91,7 @@ class VTK_PARALLEL_EXPORT vtkMultiProcessController : public vtkObject
 {
 public:
   static vtkMultiProcessController *New();
-  vtkTypeMacro(vtkMultiProcessController,vtkObject);
+  vtkTypeRevisionMacro(vtkMultiProcessController,vtkObject);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

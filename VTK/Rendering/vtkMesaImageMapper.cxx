@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaImageMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-19 19:54:30 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-01-04 14:29:52 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -65,3 +65,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define vtkOpenGLImageMapper vtkMesaImageMapper
 #include "vtkOpenGLImageMapper.cxx"
 #undef vtkOpenGLImageMapper
+
+vtkCxxRevisionMacro(vtkMesaImageMapper, "$Revision: 1.12 $");
+vtkStandardNewMacro(vtkMesaImageMapper);

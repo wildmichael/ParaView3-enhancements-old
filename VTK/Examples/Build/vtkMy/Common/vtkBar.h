@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBar.h,v $
   Language:  C++
-  Date:      $Date: 2001-12-19 23:17:40 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-01-04 14:23:26 $
+  Version:   $Revision: 1.2 $
 
 =========================================================================*/
 // .NAME vtkBar - Bar class for vtk
@@ -21,7 +21,7 @@ class VTK_MY_COMMON_EXPORT vtkBar : public vtkObject
 {
 public:
   static vtkBar *New();
-  vtkTypeMacro(vtkBar,vtkObject);
+  vtkTypeRevisionMacro(vtkBar,vtkObject);
 
 protected:
   vtkBar() {};

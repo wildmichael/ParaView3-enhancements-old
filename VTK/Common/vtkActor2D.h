@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor2D.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:35:59 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2002-01-04 14:20:31 $
+  Version:   $Revision: 1.34 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -62,7 +62,7 @@ class VTK_COMMON_EXPORT vtkActor2D : public vtkProp
 {
 public:
   void PrintSelf(ostream& os, vtkIndent indent);
-  vtkTypeMacro(vtkActor2D,vtkProp);
+  vtkTypeRevisionMacro(vtkActor2D,vtkProp);
 
   // Description:
   // Creates an actor2D with the following defaults: 

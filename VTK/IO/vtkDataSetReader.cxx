@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:30:30 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 2002-01-04 14:27:29 $
+  Version:   $Revision: 1.56 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -47,18 +47,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkUnstructuredGridReader.h"
 #include "vtkObjectFactory.h"
 
-//--------------------------------------------------------------------------
-vtkDataSetReader* vtkDataSetReader::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkDataSetReader");
-  if(ret)
-    {
-    return (vtkDataSetReader*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkDataSetReader;
-}
+vtkCxxRevisionMacro(vtkDataSetReader, "$Revision: 1.56 $");
+vtkStandardNewMacro(vtkDataSetReader);
 
 vtkDataSetReader::vtkDataSetReader()
 {
@@ -337,5 +327,5 @@ void vtkDataSetReader::Update()
 
 void vtkDataSetReader::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataReader::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 }

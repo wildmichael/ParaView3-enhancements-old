@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaImager.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-19 19:54:30 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-01-04 14:29:52 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -65,14 +65,5 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkOpenGLImager.cxx"
 #undef vtkOpenGLImager
 
-vtkMesaImager* vtkMesaImager::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkMesaImager");
-  if(ret)
-    {
-    return (vtkMesaImager*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkMesaImager;
-}
+vtkCxxRevisionMacro(vtkMesaImager, "$Revision: 1.11 $");
+vtkStandardNewMacro(vtkMesaImager);

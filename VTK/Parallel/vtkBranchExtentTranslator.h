@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBranchExtentTranslator.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:57 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-01-04 14:29:18 $
+  Version:   $Revision: 1.8 $
 
 
 
@@ -64,7 +64,7 @@ class VTK_PARALLEL_EXPORT vtkBranchExtentTranslator : public vtkExtentTranslator
 public:
   static vtkBranchExtentTranslator *New();
 
-  vtkTypeMacro(vtkBranchExtentTranslator,vtkExtentTranslator);
+  vtkTypeRevisionMacro(vtkBranchExtentTranslator,vtkExtentTranslator);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

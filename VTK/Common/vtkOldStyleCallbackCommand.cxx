@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOldStyleCallbackCommand.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-14 20:52:33 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-01-04 14:21:28 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -38,10 +38,10 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
+#include "vtkOldStyleCallbackCommand.h"
 
 #include <string.h>
 #include <ctype.h>
-#include "vtkOldStyleCallbackCommand.h"
 
 //----------------------------------------------------------------
 vtkOldStyleCallbackCommand::vtkOldStyleCallbackCommand() 

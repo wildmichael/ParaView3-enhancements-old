@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFileOutputWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:09 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-01-04 14:20:43 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,17 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkFileOutputWindow.h"
 #include "vtkObjectFactory.h"
 
-vtkFileOutputWindow* vtkFileOutputWindow::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkFileOutputWindow");
-  if(ret)
-    {
-    return (vtkFileOutputWindow*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkFileOutputWindow;
-}
+vtkCxxRevisionMacro(vtkFileOutputWindow, "$Revision: 1.6 $");
+vtkStandardNewMacro(vtkFileOutputWindow);
 
 vtkFileOutputWindow::vtkFileOutputWindow()
 {
@@ -116,7 +107,7 @@ void vtkFileOutputWindow::DisplayText(const char* text)
 
 void vtkFileOutputWindow::PrintSelf(ostream& os, vtkIndent indent)
 {
-  this->vtkOutputWindow::PrintSelf(os, indent);
+  this->Superclass::PrintSelf(os, indent);
   os << indent << "OStream: " << this->OStream << endl;
   os << indent << "File Name: " 
      << (this->FileName ? this->FileName : "(none)") << "\n";

@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThinPlateSplineTransform.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:26 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-01-04 14:27:12 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to David G. Gobbi who developed this class 
              based on code from vtkThinPlateSplineMeshWarp.cxx
-	     written by Tim Hutton.
+             written by Tim Hutton.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -71,7 +71,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class VTK_HYBRID_EXPORT vtkThinPlateSplineTransform : public vtkWarpTransform
 {
 public:
-  vtkTypeMacro(vtkThinPlateSplineTransform,vtkWarpTransform);
+  vtkTypeRevisionMacro(vtkThinPlateSplineTransform,vtkWarpTransform);
   void PrintSelf(ostream& os, vtkIndent indent);
   static vtkThinPlateSplineTransform *New();
 
@@ -141,9 +141,9 @@ protected:
   void ForwardTransformPoint(const double in[3], double out[3]);
 
   void ForwardTransformDerivative(const float in[3], float out[3],
-				  float derivative[3][3]);
+                                  float derivative[3][3]);
   void ForwardTransformDerivative(const double in[3], double out[3],
-				  double derivative[3][3]);
+                                  double derivative[3][3]);
 
   double Sigma;
   vtkPoints *SourceLandmarks;

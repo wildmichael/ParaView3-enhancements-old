@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAccumulate.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 13:23:35 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2002-01-04 14:28:09 $
+  Version:   $Revision: 1.40 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,30 +39,14 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-
 #include "vtkImageAccumulate.h"
-#include <math.h>
-#include <stdlib.h>
 #include "vtkObjectFactory.h"
 
+#include <math.h>
+#include <stdlib.h>
 
-
-//----------------------------------------------------------------------------
-vtkImageAccumulate* vtkImageAccumulate::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageAccumulate");
-  if(ret)
-    {
-    return (vtkImageAccumulate*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageAccumulate;
-}
-
-
-
-
+vtkCxxRevisionMacro(vtkImageAccumulate, "$Revision: 1.40 $");
+vtkStandardNewMacro(vtkImageAccumulate);
 
 //----------------------------------------------------------------------------
 // Constructor sets default values
@@ -388,7 +372,7 @@ void vtkImageAccumulate::ComputeInputUpdateExtent(int inExt[6],
 
 void vtkImageAccumulate::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImageToImageFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Mean: " << this->Mean << "\n";
   os << indent << "Min: " << this->Min << "\n";

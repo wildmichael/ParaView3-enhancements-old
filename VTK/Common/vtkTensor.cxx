@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensor.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-28 05:37:19 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-01-04 14:22:41 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,23 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkTensor.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkTensor* vtkTensor::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkTensor");
-  if(ret)
-    {
-    return (vtkTensor*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkTensor;
-}
-
-
-
+vtkCxxRevisionMacro(vtkTensor, "$Revision: 1.12 $");
+vtkStandardNewMacro(vtkTensor);
 
 // Construct tensor initially pointing to internal storage.
 vtkTensor::vtkTensor()
@@ -72,4 +57,3 @@ vtkTensor::vtkTensor()
       }
     }
 }
-

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPriorityQueue.h,v $
   Language:  C++
-  Date:      $Date: 2001-12-19 14:49:38 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2002-01-04 14:22:02 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -80,7 +80,7 @@ public:
   // Instantiate priority queue with default size and extension size of 1000.
   static vtkPriorityQueue *New();
 
-  vtkTypeMacro(vtkPriorityQueue,vtkObject);
+  vtkTypeRevisionMacro(vtkPriorityQueue,vtkObject);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

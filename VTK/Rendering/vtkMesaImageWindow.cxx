@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:17:51 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-01-04 14:29:52 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -46,22 +46,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkMesaImager.h"
 #include "vtkObjectFactory.h"
 
-
-//------------------------------------------------------------------------------
-vtkMesaImageWindow* vtkMesaImageWindow::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkMesaImageWindow");
-  if(ret)
-    {
-    return (vtkMesaImageWindow*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkMesaImageWindow;
-}
-
-
-
+vtkCxxRevisionMacro(vtkMesaImageWindow, "$Revision: 1.12 $");
+vtkStandardNewMacro(vtkMesaImageWindow);
 
 // a couple of routines for offscreen rendering
 void vtkOSMesaDestroyImageWindow(void *Window) 
@@ -416,7 +402,7 @@ Colormap vtkMesaImageWindow::GetDesiredColormap ()
 
 void vtkMesaImageWindow::PrintSelf(ostream& os, vtkIndent indent)
 {
-  this->vtkImageWindow::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "ContextId: " << this->ContextId << "\n";
   os << indent << "OffScreenContextId: " << this->OffScreenContextId << "\n";

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeTextureMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-18 20:11:40 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2002-01-04 14:30:24 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -485,6 +485,8 @@ VolumeTextureMapper2D_TraverseVolume( T *data_ptr,
   delete [] t;
 
 }
+
+vtkCxxRevisionMacro(vtkVolumeTextureMapper2D, "$Revision: 1.38 $");
 
 vtkVolumeTextureMapper2D::vtkVolumeTextureMapper2D()
 {
@@ -1152,7 +1154,7 @@ void vtkVolumeTextureMapper2D::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Maximum Storage Size: " 
      << this->MaximumStorageSize << endl;
   
-  this->vtkVolumeTextureMapper::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 }
 
 

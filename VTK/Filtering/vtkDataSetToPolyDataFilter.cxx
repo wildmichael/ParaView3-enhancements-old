@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-29 15:04:57 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-01-04 14:23:59 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -40,6 +40,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 #include "vtkDataSetToPolyDataFilter.h"
+
+vtkCxxRevisionMacro(vtkDataSetToPolyDataFilter, "$Revision: 1.12 $");
 
 //----------------------------------------------------------------------------
 // Specify the input data or filter.

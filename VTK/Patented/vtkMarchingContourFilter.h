@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingContourFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-12-17 15:28:22 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-01-04 14:29:31 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -101,7 +101,7 @@ class vtkScalarTree;
 class VTK_PATENTED_EXPORT vtkMarchingContourFilter : public vtkDataSetToPolyDataFilter
 {
 public:
-  vtkTypeMacro(vtkMarchingContourFilter,vtkDataSetToPolyDataFilter);
+  vtkTypeRevisionMacro(vtkMarchingContourFilter,vtkDataSetToPolyDataFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

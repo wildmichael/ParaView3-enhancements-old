@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageNoiseSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:39 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-01-04 14:29:00 $
+  Version:   $Revision: 1.24 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,7 +60,7 @@ class VTK_IMAGING_EXPORT vtkImageNoiseSource : public vtkImageSource
 {
 public:
   static vtkImageNoiseSource *New();
-  vtkTypeMacro(vtkImageNoiseSource,vtkImageSource);
+  vtkTypeRevisionMacro(vtkImageNoiseSource,vtkImageSource);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

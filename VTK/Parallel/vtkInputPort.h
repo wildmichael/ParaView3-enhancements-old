@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInputPort.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:59 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-01-04 14:29:20 $
+  Version:   $Revision: 1.6 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -69,7 +69,7 @@ class VTK_PARALLEL_EXPORT vtkInputPort : public vtkSource
 {
 public:
   static vtkInputPort *New();
-  vtkTypeMacro(vtkInputPort,vtkSource);
+  vtkTypeRevisionMacro(vtkInputPort,vtkSource);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-19 19:54:30 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-01-04 14:29:51 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -65,19 +65,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkOpenGLActor.cxx"
 #undef vtkOpenGLActor
 
-
-//-------------------------------------------------------------------------
-vtkMesaActor* vtkMesaActor::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkMesaActor");
-  if(ret)
-    {
-    return (vtkMesaActor*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkMesaActor;
-}
+vtkCxxRevisionMacro(vtkMesaActor, "$Revision: 1.13 $");
+vtkStandardNewMacro(vtkMesaActor);
 
 vtkProperty* vtkMesaActor::MakeProperty()
 {

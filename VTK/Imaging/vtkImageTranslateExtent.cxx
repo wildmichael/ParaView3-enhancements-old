@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageTranslateExtent.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:33:01 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-01-04 14:29:13 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,28 +39,12 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-
 #include "vtkImageTranslateExtent.h"
 #include "vtkObjectFactory.h"
 
 
-
-//----------------------------------------------------------------------------
-vtkImageTranslateExtent* vtkImageTranslateExtent::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageTranslateExtent");
-  if(ret)
-    {
-    return (vtkImageTranslateExtent*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageTranslateExtent;
-}
-
-
-
-
+vtkCxxRevisionMacro(vtkImageTranslateExtent, "$Revision: 1.17 $");
+vtkStandardNewMacro(vtkImageTranslateExtent);
 
 //----------------------------------------------------------------------------
 vtkImageTranslateExtent::vtkImageTranslateExtent()
@@ -77,7 +61,7 @@ vtkImageTranslateExtent::vtkImageTranslateExtent()
 //----------------------------------------------------------------------------
 void vtkImageTranslateExtent::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImageToImageFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Translation: (" << this->Translation[0]
      << "," << this->Translation[1] << "," << this->Translation[2] << endl;

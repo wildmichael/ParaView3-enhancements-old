@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRayCaster.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:23 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2002-01-04 14:30:09 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -54,20 +54,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class VTK_RENDERING_EXPORT vtkRayCaster : public vtkObject
 {
 public:
-  static vtkRayCaster *New()
-    {
-      // First try to create the object from the vtkObjectFactory
-      vtkObject* ret = vtkObjectFactory::CreateInstance("vtkRayCaster");
-      if(ret)
-        {
-        return (vtkRayCaster*)ret;
-        }
-      
-      // If the factory was unable to create the object, then create it here.
-      return new vtkRayCaster;
-    };
-
-  vtkTypeMacro(vtkRayCaster,vtkObject);
+  static vtkRayCaster *New();
+  vtkTypeRevisionMacro(vtkRayCaster,vtkObject);
   
 #ifndef VTK_REMOVE_LEGACY_CODE
   

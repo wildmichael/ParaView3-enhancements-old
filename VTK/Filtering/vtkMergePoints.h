@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergePoints.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:36 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2002-01-04 14:24:17 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,7 +57,7 @@ class VTK_FILTERING_EXPORT vtkMergePoints : public vtkPointLocator
 {
 public:
   static vtkMergePoints *New();
-  vtkTypeMacro(vtkMergePoints,vtkPointLocator);
+  vtkTypeRevisionMacro(vtkMergePoints,vtkPointLocator);
 
   // Description:
   // Determine whether point given by x[3] has been inserted into points list.

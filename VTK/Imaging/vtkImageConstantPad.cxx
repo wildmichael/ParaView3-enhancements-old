@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageConstantPad.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:46 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2002-01-04 14:28:24 $
+  Version:   $Revision: 1.30 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,25 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkImageConstantPad.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkImageConstantPad* vtkImageConstantPad::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageConstantPad");
-  if(ret)
-    {
-    return (vtkImageConstantPad*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageConstantPad;
-}
-
-
-
-
-
+vtkCxxRevisionMacro(vtkImageConstantPad, "$Revision: 1.30 $");
+vtkStandardNewMacro(vtkImageConstantPad);
 
 //----------------------------------------------------------------------------
 // Constructor sets default values
@@ -215,7 +198,7 @@ void vtkImageConstantPad::ThreadedExecute(vtkImageData *inData,
 
 void vtkImageConstantPad::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImagePadFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Constant: " << this->Constant << "\n";
 

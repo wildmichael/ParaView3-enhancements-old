@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpatialRepresentationFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:13:59 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-01-04 14:26:23 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,22 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkSpatialRepresentationFilter.h"
 #include "vtkObjectFactory.h"
 
-
-//------------------------------------------------------------------------------
-vtkSpatialRepresentationFilter* vtkSpatialRepresentationFilter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkSpatialRepresentationFilter");
-  if(ret)
-    {
-    return (vtkSpatialRepresentationFilter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkSpatialRepresentationFilter;
-}
-
-
-
+vtkCxxRevisionMacro(vtkSpatialRepresentationFilter, "$Revision: 1.27 $");
+vtkStandardNewMacro(vtkSpatialRepresentationFilter);
 
 vtkSpatialRepresentationFilter::vtkSpatialRepresentationFilter()
 {
@@ -182,7 +168,7 @@ void vtkSpatialRepresentationFilter::GenerateOutput()
 
 void vtkSpatialRepresentationFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolyDataSource::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Level: " << this->Level << "\n";
 

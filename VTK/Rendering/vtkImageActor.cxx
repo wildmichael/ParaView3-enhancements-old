@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 16:08:35 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-01-04 14:29:41 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,10 +39,11 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-
 #include "vtkImageActor.h"
 #include "vtkGraphicsFactory.h"
 #include "vtkRenderer.h"
+
+vtkCxxRevisionMacro(vtkImageActor, "$Revision: 1.9 $");
 
 vtkImageActor* vtkImageActor::New()
 {
@@ -220,7 +221,7 @@ void vtkImageActor::GetBounds(float bounds[6])
 
 void vtkImageActor::PrintSelf(ostream& os, vtkIndent indent)
 {
-  this->vtkProp::PrintSelf(os, indent);
+  this->Superclass::PrintSelf(os, indent);
 
   os << indent << "Input: " << this->Input << "\n";
   os << indent << "Interpolate: " << (this->Interpolate ? "On\n" : "Off\n");

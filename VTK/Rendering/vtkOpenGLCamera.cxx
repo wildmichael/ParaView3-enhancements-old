@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-02 19:25:52 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2002-01-04 14:29:57 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -54,18 +54,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkgluPickMatrix.h"
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-//------------------------------------------------------------------------------
-vtkOpenGLCamera* vtkOpenGLCamera::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkOpenGLCamera");
-  if(ret)
-    {
-    return (vtkOpenGLCamera*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkOpenGLCamera;
-}
+vtkCxxRevisionMacro(vtkOpenGLCamera, "$Revision: 1.47 $");
+vtkStandardNewMacro(vtkOpenGLCamera);
 #endif
 
 // Implement base class method.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThresholdTextureCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:42:17 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2002-01-04 14:26:43 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,18 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
-//----------------------------------------------------------------------------
-vtkThresholdTextureCoords* vtkThresholdTextureCoords::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkThresholdTextureCoords");
-  if(ret)
-    {
-    return (vtkThresholdTextureCoords*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkThresholdTextureCoords;
-}
+vtkCxxRevisionMacro(vtkThresholdTextureCoords, "$Revision: 1.33 $");
+vtkStandardNewMacro(vtkThresholdTextureCoords);
 
 // Construct with lower threshold=0, upper threshold=1, threshold 
 // function=upper, and texture dimension = 2. The "out" texture coordinate
@@ -158,7 +148,7 @@ void vtkThresholdTextureCoords::Execute()
 
 void vtkThresholdTextureCoords::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataSetToDataSetFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   if ( this->ThresholdFunction == &vtkThresholdTextureCoords::Upper )
     {

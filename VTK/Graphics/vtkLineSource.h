@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLineSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:07 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2002-01-04 14:25:40 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -54,7 +54,7 @@ class VTK_GRAPHICS_EXPORT vtkLineSource : public vtkPolyDataSource
 {
 public:
   static vtkLineSource *New();
-  vtkTypeMacro(vtkLineSource,vtkPolyDataSource);
+  vtkTypeRevisionMacro(vtkLineSource,vtkPolyDataSource);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

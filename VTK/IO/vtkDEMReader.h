@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDEMReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:28 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-01-04 14:27:25 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,7 +58,7 @@ class VTK_IO_EXPORT vtkDEMReader : public vtkImageSource
 {
 public:
   static vtkDEMReader *New();
-  vtkTypeMacro(vtkDEMReader,vtkImageSource);
+  vtkTypeRevisionMacro(vtkDEMReader,vtkImageSource);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

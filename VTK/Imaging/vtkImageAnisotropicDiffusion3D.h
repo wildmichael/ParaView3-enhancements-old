@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAnisotropicDiffusion3D.h,v $
   Language:  C++
-  Date:      $Date: 2001-12-07 14:02:27 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2002-01-04 14:28:12 $
+  Version:   $Revision: 1.29 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -72,7 +72,7 @@ class VTK_IMAGING_EXPORT vtkImageAnisotropicDiffusion3D : public vtkImageSpatial
 {
 public:
   static vtkImageAnisotropicDiffusion3D *New();
-  vtkTypeMacro(vtkImageAnisotropicDiffusion3D,vtkImageSpatialFilter);
+  vtkTypeRevisionMacro(vtkImageAnisotropicDiffusion3D,vtkImageSpatialFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
   
   

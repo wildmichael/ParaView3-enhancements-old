@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIterateFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:52 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2002-01-04 14:28:47 $
+  Version:   $Revision: 1.30 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -41,6 +41,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 #include "vtkImageIterateFilter.h"
 
+vtkCxxRevisionMacro(vtkImageIterateFilter, "$Revision: 1.30 $");
 
 //----------------------------------------------------------------------------
 vtkImageIterateFilter::vtkImageIterateFilter()
@@ -61,7 +62,7 @@ vtkImageIterateFilter::~vtkImageIterateFilter()
 //----------------------------------------------------------------------------
 void vtkImageIterateFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImageToImageFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "NumberOfIterations: " << this->NumberOfIterations << "\n";
 

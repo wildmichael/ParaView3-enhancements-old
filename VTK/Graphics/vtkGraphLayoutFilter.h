@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGraphLayoutFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:06 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-01-04 14:25:31 $
+  Version:   $Revision: 1.6 $
   Thanks:    Scott Hill of RPI for developing this class
              Mark Lacy for Procter & Gamble for support
 
@@ -66,7 +66,7 @@ class VTK_GRAPHICS_EXPORT vtkGraphLayoutFilter : public vtkPolyDataToPolyDataFil
 public:
   static vtkGraphLayoutFilter *New();
 
-  vtkTypeMacro(vtkGraphLayoutFilter,vtkPolyDataToPolyDataFilter);
+  vtkTypeRevisionMacro(vtkGraphLayoutFilter,vtkPolyDataToPolyDataFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

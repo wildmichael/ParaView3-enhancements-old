@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFollower.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:17:41 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2002-01-04 14:29:39 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,26 +39,17 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include <stdlib.h>
-#include <math.h>
 #include "vtkMath.h"
 #include "vtkFollower.h"
 #include "vtkCamera.h"
 #include "vtkObjectFactory.h"
 #include "vtkRenderer.h"
 
-//-----------------------------------------------------------------------------
-vtkFollower* vtkFollower::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkFollower");
-  if(ret)
-    {
-    return static_cast<vtkFollower*>(ret);
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkFollower;
-}
+#include <stdlib.h>
+#include <math.h>
+
+vtkCxxRevisionMacro(vtkFollower, "$Revision: 1.38 $");
+vtkStandardNewMacro(vtkFollower);
 
 // Creates a follower with no camera set
 vtkFollower::vtkFollower()
@@ -169,7 +160,7 @@ void vtkFollower::GetMatrix(vtkMatrix4x4 *result)
 
 void vtkFollower::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkActor::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   if ( this->Camera )
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:05 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2002-01-04 14:20:31 $
+  Version:   $Revision: 1.31 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -45,19 +45,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkPropCollection.h"
 #include "vtkObjectFactory.h"
 
-//-------------------------------------------------------------------------
-vtkActor2D* vtkActor2D::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkActor2D");
-  if(ret)
-    {
-    return (vtkActor2D*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkActor2D;
-}
-
+vtkCxxRevisionMacro(vtkActor2D, "$Revision: 1.31 $");
+vtkStandardNewMacro(vtkActor2D);
 
 // Creates an actor2D with the following defaults:
 // position -1, -1 (view coordinates)
@@ -294,7 +283,7 @@ void vtkActor2D::ShallowCopy(vtkProp *prop)
 
 void vtkActor2D::PrintSelf(ostream& os, vtkIndent indent)
 {
-  this->vtkProp::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Layer Number: " << this->LayerNumber << "\n";
   os << indent << "PositionCoordinate: " << this->PositionCoordinate << "\n";

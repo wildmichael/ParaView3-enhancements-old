@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:18:00 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2002-01-04 14:30:05 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,6 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkPolyDataMapper.h"
 #include "vtkRenderWindow.h"
 #include "vtkGraphicsFactory.h"
+
+vtkCxxRevisionMacro(vtkPolyDataMapper, "$Revision: 1.28 $");
 
 //----------------------------------------------------------------------------
 // return the correct type of PolyDataMapper 
@@ -163,7 +165,7 @@ void vtkPolyDataMapper::ShallowCopy(vtkAbstractMapper *mapper)
 
 void vtkPolyDataMapper::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkMapper::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Piece : " << this->Piece << endl;
   os << indent << "NumberOfPieces : " << this->NumberOfPieces << endl;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuad.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:41:17 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 2002-01-04 14:22:17 $
+  Version:   $Revision: 1.59 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -54,7 +54,7 @@ class VTK_COMMON_EXPORT vtkQuad : public vtkCell
 {
 public:
   static vtkQuad *New();
-  vtkTypeMacro(vtkQuad,vtkCell);
+  vtkTypeRevisionMacro(vtkQuad,vtkCell);
 
   // Description:
   // See the vtkCell API for descriptions of these methods.

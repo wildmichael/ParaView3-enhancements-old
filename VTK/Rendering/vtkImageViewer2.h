@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer2.h,v $
   Language:  C++
-  Date:      $Date: 2001-12-07 16:20:30 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-01-04 14:29:42 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -66,7 +66,7 @@ class VTK_RENDERING_EXPORT vtkImageViewer2 : public vtkObject
 public:
   static vtkImageViewer2 *New();
   
-  vtkTypeMacro(vtkImageViewer2,vtkObject);
+  vtkTypeRevisionMacro(vtkImageViewer2,vtkObject);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

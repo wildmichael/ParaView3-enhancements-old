@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32TextMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:34 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2002-01-04 14:30:27 $
+  Version:   $Revision: 1.23 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -56,7 +56,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class VTK_RENDERING_EXPORT vtkWin32TextMapper : public vtkTextMapper
 {
 public:
-  vtkTypeMacro(vtkWin32TextMapper,vtkTextMapper);
+  vtkTypeRevisionMacro(vtkWin32TextMapper,vtkTextMapper);
   static vtkWin32TextMapper *New();
 
   // Description:

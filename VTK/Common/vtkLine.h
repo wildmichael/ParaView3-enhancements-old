@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLine.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:41:10 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 2002-01-04 14:21:01 $
+  Version:   $Revision: 1.60 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -52,7 +52,7 @@ class VTK_COMMON_EXPORT vtkLine : public vtkCell
 {
 public:
   static vtkLine *New();
-  vtkTypeMacro(vtkLine,vtkCell);
+  vtkTypeRevisionMacro(vtkLine,vtkCell);
 
   // Description:
   // See the vtkCell API for descriptions of these methods.

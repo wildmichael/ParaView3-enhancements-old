@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-18 11:11:48 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-01-04 14:20:35 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,22 +42,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkCellData.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkCellData* vtkCellData::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkCellData");
-  if(ret)
-    {
-    return (vtkCellData*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkCellData;
-}
+vtkCxxRevisionMacro(vtkCellData, "$Revision: 1.11 $");
+vtkStandardNewMacro(vtkCellData);
 
 void vtkCellData::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataSetAttributes::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 }

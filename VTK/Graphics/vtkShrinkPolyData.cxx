@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShrinkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:13:58 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2002-01-04 14:26:19 $
+  Version:   $Revision: 1.58 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,18 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkShrinkPolyData.h"
 #include "vtkObjectFactory.h"
 
-//--------------------------------------------------------------------------
-vtkShrinkPolyData* vtkShrinkPolyData::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkShrinkPolyData");
-  if(ret)
-    {
-    return (vtkShrinkPolyData*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkShrinkPolyData;
-}
+vtkCxxRevisionMacro(vtkShrinkPolyData, "$Revision: 1.58 $");
+vtkStandardNewMacro(vtkShrinkPolyData);
 
 vtkShrinkPolyData::vtkShrinkPolyData(float sf)
 {
@@ -323,6 +313,6 @@ void vtkShrinkPolyData::Execute()
 
 void vtkShrinkPolyData::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
   os << indent << "Shrink Factor: " << this->ShrinkFactor << "\n";
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMesaTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:18:19 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-01-04 14:30:30 $
+  Version:   $Revision: 1.13 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -48,6 +48,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkXMesaTextMapper.h"
 #include "vtkObjectFactory.h"
 
+vtkCxxRevisionMacro(vtkXMesaTextMapper, "$Revision: 1.13 $");
+vtkStandardNewMacro(vtkXMesaTextMapper);
 
 static void
 vtkFillBitmap (Display *dpy, Window win, GC gc,
@@ -198,22 +200,6 @@ void vtkOSUseXFont( Display *dpy, Font font, int first, int count, int listbase 
   glPixelStorei(GL_UNPACK_SKIP_PIXELS, skippixels);
   glPixelStorei(GL_UNPACK_ALIGNMENT, alignment);
 }
-
-//------------------------------------------------------------------------------
-vtkXMesaTextMapper* vtkXMesaTextMapper::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkXMesaTextMapper");
-  if(ret)
-    {
-    return (vtkXMesaTextMapper*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkXMesaTextMapper;
-}
-
-
-
 
 struct vtkFontStruct
 {

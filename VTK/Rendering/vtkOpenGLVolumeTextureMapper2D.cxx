@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLVolumeTextureMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:17:59 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2002-01-04 14:30:03 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -53,18 +53,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-//------------------------------------------------------------------------------
-vtkOpenGLVolumeTextureMapper2D* vtkOpenGLVolumeTextureMapper2D::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkOpenGLVolumeTextureMapper2D");
-  if(ret)
-    {
-    return (vtkOpenGLVolumeTextureMapper2D*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkOpenGLVolumeTextureMapper2D;
-}
+vtkCxxRevisionMacro(vtkOpenGLVolumeTextureMapper2D, "$Revision: 1.26 $");
+vtkStandardNewMacro(vtkOpenGLVolumeTextureMapper2D);
 #endif
 
 
@@ -234,6 +224,6 @@ void vtkOpenGLVolumeTextureMapper2D::RenderQuads( int numQuads,
 // Print the vtkOpenGLVolumeTextureMapper2D
 void vtkOpenGLVolumeTextureMapper2D::PrintSelf(ostream& os, vtkIndent indent)
 {
-  this->vtkVolumeTextureMapper2D::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 }
 

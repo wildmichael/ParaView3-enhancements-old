@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMedian3D.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:39 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2002-01-04 14:28:58 $
+  Version:   $Revision: 1.23 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,7 +58,7 @@ class VTK_IMAGING_EXPORT vtkImageMedian3D : public vtkImageSpatialFilter
 {
 public:
   static vtkImageMedian3D *New();
-  vtkTypeMacro(vtkImageMedian3D,vtkImageSpatialFilter);
+  vtkTypeRevisionMacro(vtkImageMedian3D,vtkImageSpatialFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

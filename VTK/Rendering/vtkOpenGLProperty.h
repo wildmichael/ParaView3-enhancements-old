@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLProperty.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:19 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-01-04 14:30:00 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -55,7 +55,7 @@ class VTK_RENDERING_EXPORT vtkOpenGLProperty : public vtkProperty
 {
 public:
   static vtkOpenGLProperty *New();
-  vtkTypeMacro(vtkOpenGLProperty,vtkProperty);
+  vtkTypeRevisionMacro(vtkOpenGLProperty,vtkProperty);
 
   // Description:
   // Implement base class method.

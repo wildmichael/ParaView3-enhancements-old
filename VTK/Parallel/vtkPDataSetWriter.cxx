@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPDataSetWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-15 14:20:22 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-01-04 14:29:23 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -45,21 +45,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkSource.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkPDataSetWriter* vtkPDataSetWriter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkPDataSetWriter");
-  if(ret)
-    {
-    return (vtkPDataSetWriter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkPDataSetWriter;
-}
-
+vtkCxxRevisionMacro(vtkPDataSetWriter, "$Revision: 1.4 $");
+vtkStandardNewMacro(vtkPDataSetWriter);
 
 //----------------------------------------------------------------------------
 vtkPDataSetWriter::vtkPDataSetWriter()
@@ -401,7 +388,7 @@ ostream *vtkPDataSetWriter::OpenFile()
 //----------------------------------------------------------------------------
 void vtkPDataSetWriter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataSetWriter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
 
   os << indent << "StartPiece: " << this->StartPiece << endl;

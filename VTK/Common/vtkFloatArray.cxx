@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFloatArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-19 17:51:13 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 2002-01-04 14:20:44 $
+  Version:   $Revision: 1.53 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,18 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
-//----------------------------------------------------------------------------
-vtkFloatArray* vtkFloatArray::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkFloatArray");
-  if(ret)
-    {
-    return (vtkFloatArray*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkFloatArray;
-}
+vtkCxxRevisionMacro(vtkFloatArray, "$Revision: 1.53 $");
+vtkStandardNewMacro(vtkFloatArray);
 
 vtkDataArray *vtkFloatArray::MakeObject()
 {
@@ -176,7 +166,7 @@ void vtkFloatArray::DeepCopy(vtkDataArray *fa)
 
 void vtkFloatArray::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataArray::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   if (this->Array)
     {

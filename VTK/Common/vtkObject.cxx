@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-14 20:59:11 $
-  Version:   $Revision: 1.66 $
+  Date:      $Date: 2002-01-04 14:21:23 $
+  Version:   $Revision: 1.67 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -300,6 +300,11 @@ int vtkObject::IsA(const char *type)
 vtkObject *vtkObject::SafeDownCast(vtkObject *o)
 {
   return (vtkObject *)o;
+}
+
+void vtkObject::CollectRevisions(ostream& os)
+{
+  os << "vtkObject $Revision: 1.67 $\n";
 }
 
 //----------------------------------Command/Observer stuff-------------------

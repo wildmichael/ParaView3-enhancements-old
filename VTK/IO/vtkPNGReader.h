@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNGReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-03 22:51:40 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-01-04 14:27:47 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,7 +57,7 @@ class VTK_IO_EXPORT vtkPNGReader : public vtkImageReader2
 {
 public:
   static vtkPNGReader *New();
-  vtkTypeMacro(vtkPNGReader,vtkImageReader2);
+  vtkTypeRevisionMacro(vtkPNGReader,vtkImageReader2);
 
 protected:
   vtkPNGReader() {};

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:17:39 $
-  Version:   $Revision: 1.96 $
+  Date:      $Date: 2002-01-04 14:29:36 $
+  Version:   $Revision: 1.97 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,11 +39,14 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include <math.h>
 #include "vtkCamera.h"
 #include "vtkMath.h"
 #include "vtkTimeStamp.h"
 #include "vtkGraphicsFactory.h"
+
+#include <math.h>
+
+vtkCxxRevisionMacro(vtkCamera, "$Revision: 1.97 $");
 
 //----------------------------------------------------------------------------
 // Construct camera instance with its focal point at the origin, 
@@ -872,7 +875,7 @@ void vtkCamera::ViewingRaysModified()
 //----------------------------------------------------------------------------
 void vtkCamera::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkObject::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "ClippingRange: (" << this->ClippingRange[0] << ", " 
      << this->ClippingRange[1] << ")\n";

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-17 15:28:22 $
-  Version:   $Revision: 1.76 $
+  Date:      $Date: 2002-01-04 14:29:31 $
+  Version:   $Revision: 1.77 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -71,23 +71,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkMarchingCubes* vtkMarchingCubes::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkMarchingCubes");
-  if(ret)
-    {
-    return (vtkMarchingCubes*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkMarchingCubes;
-}
-
-
-
+vtkCxxRevisionMacro(vtkMarchingCubes, "$Revision: 1.77 $");
+vtkStandardNewMacro(vtkMarchingCubes);
 
 // Description:
 // Construct object with initial range (0,1) and single contour value
@@ -685,7 +670,7 @@ void vtkMarchingCubes::CreateDefaultLocator()
 
 void vtkMarchingCubes::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkStructuredPointsToPolyDataFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   this->ContourValues->PrintSelf(os,indent);
 

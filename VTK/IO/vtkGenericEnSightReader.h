@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericEnSightReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:30 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-01-04 14:27:36 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,7 +58,7 @@ class VTK_IO_EXPORT vtkGenericEnSightReader : public vtkDataSetSource
 {
 public:
   static vtkGenericEnSightReader *New();
-  vtkTypeMacro(vtkGenericEnSightReader, vtkDataSetSource);
+  vtkTypeRevisionMacro(vtkGenericEnSightReader, vtkDataSetSource);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

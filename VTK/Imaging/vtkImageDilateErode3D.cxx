@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDilateErode3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:48 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2002-01-04 14:28:31 $
+  Version:   $Revision: 1.36 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,30 +39,13 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include "vtkImageData.h"
-
 #include "vtkImageDilateErode3D.h"
+#include "vtkImageData.h"
 #include "vtkImageEllipsoidSource.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkImageDilateErode3D* vtkImageDilateErode3D::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageDilateErode3D");
-  if(ret)
-    {
-    return (vtkImageDilateErode3D*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageDilateErode3D;
-}
-
-
-
-
+vtkCxxRevisionMacro(vtkImageDilateErode3D, "$Revision: 1.36 $");
+vtkStandardNewMacro(vtkImageDilateErode3D);
 
 //----------------------------------------------------------------------------
 // Construct an instance of vtkImageDilateErode3D fitler.
@@ -97,7 +80,7 @@ vtkImageDilateErode3D::~vtkImageDilateErode3D()
 //----------------------------------------------------------------------------
 void vtkImageDilateErode3D::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImageSpatialFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "DilateValue: " << this->DilateValue << "\n";
   os << indent << "ErodeValue: " << this->ErodeValue << "\n";

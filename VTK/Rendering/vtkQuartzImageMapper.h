@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuartzImageMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:17:27 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-01-04 14:30:07 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -59,7 +59,7 @@ class VTK_RENDERING_EXPORT vtkQuartzImageMapper : public vtkImageMapper
 {
 public:
   static vtkQuartzImageMapper *New();
-  vtkTypeMacro(vtkQuartzImageMapper,vtkImageMapper);
+  vtkTypeRevisionMacro(vtkQuartzImageMapper,vtkImageMapper);
   
   // Description:
   // Handle the render method.

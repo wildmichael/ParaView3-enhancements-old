@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSelectVisiblePoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-24 18:53:11 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-01-04 14:30:13 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,23 +44,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkRenderWindow.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkSelectVisiblePoints* vtkSelectVisiblePoints::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkSelectVisiblePoints");
-  if(ret)
-    {
-    return (vtkSelectVisiblePoints*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkSelectVisiblePoints;
-}
-
-
-
+vtkCxxRevisionMacro(vtkSelectVisiblePoints, "$Revision: 1.22 $");
+vtkStandardNewMacro(vtkSelectVisiblePoints);
 
 // Instantiate object with no renderer; window selection turned off; 
 // tolerance set to 0.01; and select invisible off.
@@ -238,7 +223,7 @@ unsigned long int vtkSelectVisiblePoints::GetMTime()
 
 void vtkSelectVisiblePoints::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataSetToPolyDataFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Renderer: " << this->Renderer << "\n";
   os << indent << "Selection Window: " 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLVolumeRayCastMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-20 16:43:26 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-01-04 14:30:03 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -52,19 +52,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #endif
 #include "vtkRenderer.h"
 
-//---------------------------------------------------------------------------
-vtkOpenGLVolumeRayCastMapper* vtkOpenGLVolumeRayCastMapper::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkOpenGLVolumeRayCastMapper");
-  if(ret)
-    {
-    return (vtkOpenGLVolumeRayCastMapper*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkOpenGLVolumeRayCastMapper;
-}
-
+#ifndef VTK_IMPLEMENT_MESA_CXX
+vtkCxxRevisionMacro(vtkOpenGLVolumeRayCastMapper, "$Revision: 1.10 $");
+vtkStandardNewMacro(vtkOpenGLVolumeRayCastMapper);
+#endif
 
 // Construct a new vtkOpenGLVolumeRayCastMapper with default values
 vtkOpenGLVolumeRayCastMapper::vtkOpenGLVolumeRayCastMapper()

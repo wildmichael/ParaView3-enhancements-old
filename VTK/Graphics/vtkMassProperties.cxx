@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMassProperties.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:13:55 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-01-04 14:25:45 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,18 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkCommand.h"
 
-//---------------------------------------------------------------------------
-vtkMassProperties* vtkMassProperties::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkMassProperties");
-  if(ret)
-    {
-    return (vtkMassProperties*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkMassProperties;
-}
+vtkCxxRevisionMacro(vtkMassProperties, "$Revision: 1.21 $");
+vtkStandardNewMacro(vtkMassProperties);
 
 #define  VTK_CUBE_ROOT(x) \
   ((x<0.0)?(-pow((-x),0.333333333333333)):(pow((x),0.333333333333333)))
@@ -316,7 +306,7 @@ void vtkMassProperties::Execute()
 
 void vtkMassProperties::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkProcessObject::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   if (!this->GetInput()) 
     {

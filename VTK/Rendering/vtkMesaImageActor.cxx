@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaImageActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-19 19:54:30 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-01-04 14:29:51 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -67,15 +67,5 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #undef vtkOpenGLImageActor
 #undef vtkOpenGLRenderWindow
 
-//-----------------------------------------------------------------------------
-vtkMesaImageActor* vtkMesaImageActor::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkMesaImageActor");
-  if(ret)
-    {
-    return (vtkMesaImageActor*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkMesaImageActor;
-}
+vtkCxxRevisionMacro(vtkMesaImageActor, "$Revision: 1.9 $");
+vtkStandardNewMacro(vtkMesaImageActor);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProbeFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-12-06 14:20:09 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2002-01-04 14:25:59 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,7 +58,7 @@ class VTK_GRAPHICS_EXPORT vtkProbeFilter : public vtkDataSetToDataSetFilter
 {
 public:
   static vtkProbeFilter *New();
-  vtkTypeMacro(vtkProbeFilter,vtkDataSetToDataSetFilter);
+  vtkTypeRevisionMacro(vtkProbeFilter,vtkDataSetToDataSetFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:43:22 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2002-01-04 14:30:13 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,11 +39,14 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include <stdlib.h>
 #include "vtkTexture.h"
 #include "vtkRenderer.h"
 #include "vtkRenderWindow.h"
 #include "vtkGraphicsFactory.h"
+
+#include <stdlib.h>
+
+vtkCxxRevisionMacro(vtkTexture, "$Revision: 1.45 $");
 
 // Construct object and initialize.
 vtkTexture::vtkTexture()
@@ -110,7 +113,7 @@ void vtkTexture::SetLookupTable(vtkLookupTable *lut)
 
 void vtkTexture::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkProcessObject::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Interpolate: " << (this->Interpolate ? "On\n" : "Off\n");
   os << indent << "Repeat:      " << (this->Repeat ? "On\n" : "Off\n");

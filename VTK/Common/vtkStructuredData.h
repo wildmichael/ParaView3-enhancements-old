@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredData.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-15 14:20:16 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2002-01-04 14:22:36 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -67,7 +67,7 @@ class VTK_COMMON_EXPORT vtkStructuredData : public vtkObject
 {
 public:
   static vtkStructuredData *New();
-  vtkTypeMacro(vtkStructuredData,vtkObject);
+  vtkTypeRevisionMacro(vtkStructuredData,vtkObject);
 
   // Description:
   // Specify the dimensions of a regular, rectangular dataset. The input is

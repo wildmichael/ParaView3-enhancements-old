@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32RenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-28 14:13:27 $
-  Version:   $Revision: 1.77 $
+  Date:      $Date: 2002-01-04 14:30:26 $
+  Version:   $Revision: 1.78 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -63,18 +63,8 @@ VTK_RENDERING_EXPORT LRESULT CALLBACK vtkHandleMessage2(HWND,UINT,WPARAM,LPARAM,
 
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-//----------------------------------------------------------------------------
-vtkWin32RenderWindowInteractor* vtkWin32RenderWindowInteractor::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkWin32RenderWindowInteractor");
-  if(ret)
-    {
-    return (vtkWin32RenderWindowInteractor*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkWin32RenderWindowInteractor;
-}
+vtkCxxRevisionMacro(vtkWin32RenderWindowInteractor, "$Revision: 1.78 $");
+vtkStandardNewMacro(vtkWin32RenderWindowInteractor);
 #endif
 
 
@@ -710,7 +700,7 @@ vtkWin32RenderWindowInteractor::SetClassExitMethodArgDelete(void (*f)(void *))
 
 void vtkWin32RenderWindowInteractor::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkRenderWindowInteractor::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
   os << indent << "InstallMessageProc: " << this->InstallMessageProc << endl;
 }
 

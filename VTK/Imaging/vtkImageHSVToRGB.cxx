@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageHSVToRGB.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:51 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-01-04 14:28:43 $
+  Version:   $Revision: 1.22 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,29 +39,13 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include <math.h>
 #include "vtkImageHSVToRGB.h"
 #include "vtkObjectFactory.h"
 
+#include <math.h>
 
-
-//------------------------------------------------------------------------------
-vtkImageHSVToRGB* vtkImageHSVToRGB::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageHSVToRGB");
-  if(ret)
-    {
-    return (vtkImageHSVToRGB*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageHSVToRGB;
-}
-
-
-
-
-
+vtkCxxRevisionMacro(vtkImageHSVToRGB, "$Revision: 1.22 $");
+vtkStandardNewMacro(vtkImageHSVToRGB);
 
 //----------------------------------------------------------------------------
 vtkImageHSVToRGB::vtkImageHSVToRGB()
@@ -240,7 +224,7 @@ void vtkImageHSVToRGB::ThreadedExecute(vtkImageData *inData,
 
 void vtkImageHSVToRGB::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImageToImageFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Maximum: " << this->Maximum << "\n";
 }

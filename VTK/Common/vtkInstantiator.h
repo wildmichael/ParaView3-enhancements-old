@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInstantiator.h,v $
   Language:  C++
-  Date:      $Date: 2001-12-17 22:24:21 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-01-04 14:20:58 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -88,7 +88,7 @@ class VTK_COMMON_EXPORT vtkInstantiator : public vtkObject
 {
 public:
   static vtkInstantiator* New();
-  vtkTypeMacro(vtkInstantiator,vtkObject);
+  vtkTypeRevisionMacro(vtkInstantiator,vtkObject);
   void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:

@@ -1,15 +1,15 @@
 /*
  * tkWin.h --
  *
- *	Declarations of public types and interfaces that are only
- *	available under Windows.
+ *      Declarations of public types and interfaces that are only
+ *      available under Windows.
  *
  * Copyright (c) 1996-1997 by Sun Microsystems, Inc.
  *
  * See the file "license.terms" for information on usage and redistribution
  * of this file, and for a DISCLAIMER OF ALL WARRANTIES.
  *
- * RCS: @(#) $Id: tkWin.h,v 1.1 2001-08-17 21:57:17 martink Exp $
+ * RCS: @(#) $Id: tkWin.h,v 1.2 2002-01-04 14:30:44 king Exp $
  */
 
 #ifndef _TKWIN
@@ -33,10 +33,10 @@
  * and its container window.
  */
 
-#define TK_CLAIMFOCUS	(WM_USER)
-#define TK_GEOMETRYREQ	(WM_USER+1)
-#define TK_ATTACHWINDOW	(WM_USER+2)
-#define TK_DETACHWINDOW	(WM_USER+3)
+#define TK_CLAIMFOCUS   (WM_USER)
+#define TK_GEOMETRYREQ  (WM_USER+1)
+#define TK_ATTACHWINDOW (WM_USER+2)
+#define TK_DETACHWINDOW (WM_USER+3)
 
 
 /*

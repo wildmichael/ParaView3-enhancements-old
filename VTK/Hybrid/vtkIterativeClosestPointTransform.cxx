@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIterativeClosestPointTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 14:17:27 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-01-04 14:27:05 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to Sebastien Barre who developed this class. Thanks to
              Tim Hutton too for the idea.
 
@@ -48,22 +48,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkMath.h"
 
-//--------------------------------------------------------------------------
-
-vtkIterativeClosestPointTransform* vtkIterativeClosestPointTransform::New()
-{
-  // First try to create the object from the vtkObjectFactory
-
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkIterativeClosestPointTransform");
-  if(ret)
-    {
-    return (vtkIterativeClosestPointTransform*)ret;
-    }
-
-  // If the factory was unable to create the object, then create it here.
-
-  return new vtkIterativeClosestPointTransform;
-}
+vtkCxxRevisionMacro(vtkIterativeClosestPointTransform, "$Revision: 1.7 $");
+vtkStandardNewMacro(vtkIterativeClosestPointTransform);
 
 //----------------------------------------------------------------------------
 
@@ -506,7 +492,7 @@ void vtkIterativeClosestPointTransform::InternalUpdate()
 
 void vtkIterativeClosestPointTransform::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkLinearTransform::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   if ( this->Source ) 
     {

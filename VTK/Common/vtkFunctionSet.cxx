@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFunctionSet.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:10 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-01-04 14:20:45 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,8 +39,9 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-
 #include "vtkFunctionSet.h"
+
+vtkCxxRevisionMacro(vtkFunctionSet, "$Revision: 1.3 $");
 
 vtkFunctionSet::vtkFunctionSet() 
 {
@@ -50,7 +51,7 @@ vtkFunctionSet::vtkFunctionSet()
 
 void vtkFunctionSet::PrintSelf(ostream& os, vtkIndent indent)
 {
-  this->vtkObject::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
   os << indent << "Number of functions: " << this->NumFuncs
      << "\n";
   os << indent << "Number of independant variables: " << this->NumIndepVars

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCriticalSection.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:09:24 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-01-04 14:20:37 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -138,7 +138,7 @@ class VTK_COMMON_EXPORT vtkCriticalSection : public vtkObject
 public:
   static vtkCriticalSection *New();
 
-  vtkTypeMacro(vtkCriticalSection,vtkObject);
+  vtkTypeRevisionMacro(vtkCriticalSection,vtkObject);
   void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:

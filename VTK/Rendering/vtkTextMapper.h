@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:25 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2002-01-04 14:30:13 $
+  Version:   $Revision: 1.38 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -81,7 +81,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class VTK_RENDERING_EXPORT vtkTextMapper : public vtkMapper2D
 {
 public:
-  vtkTypeMacro(vtkTextMapper,vtkMapper2D);
+  vtkTypeRevisionMacro(vtkTextMapper,vtkMapper2D);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

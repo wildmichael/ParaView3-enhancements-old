@@ -3,8 +3,8 @@
  Program:   Visualization Toolkit
  Module:    $RCSfile: vtkProcessObject.cxx,v $
  Language:  C++
- Date:      $Date: 2001-12-07 16:20:27 $
- Version:   $Revision: 1.25 $
+ Date:      $Date: 2002-01-04 14:22:03 $
+ Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,18 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkOldStyleCallbackCommand.h"
 
-//-------------------------------------------------------------------------
-vtkProcessObject* vtkProcessObject::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkProcessObject");
-  if(ret)
-    {
-    return (vtkProcessObject*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkProcessObject;
-}
+vtkCxxRevisionMacro(vtkProcessObject, "$Revision: 1.26 $");
+vtkStandardNewMacro(vtkProcessObject);
 
 // Instantiate object with no start, end, or progress methods.
 vtkProcessObject::vtkProcessObject()
@@ -500,7 +490,7 @@ void vtkProcessObject::SortMerge(vtkDataObject **a1, int l1,
 
 void vtkProcessObject::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkObject::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Number Of Required Inputs: "
      << this->NumberOfRequiredInputs << endl;

@@ -3,8 +3,8 @@
 Program:   Visualization Toolkit
 Module:    $RCSfile: vtkPolyDataCollection.cxx,v $
 Language:  C++
-Date:      $Date: 2000-12-10 20:08:47 $
-Version:   $Revision: 1.4 $
+Date:      $Date: 2002-01-04 14:24:23 $
+Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,20 +42,5 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkPolyDataCollection.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkPolyDataCollection* vtkPolyDataCollection::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkPolyDataCollection");
-  if(ret)
-    {
-    return (vtkPolyDataCollection*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkPolyDataCollection;
-}
-
-
-
+vtkCxxRevisionMacro(vtkPolyDataCollection, "$Revision: 1.5 $");
+vtkStandardNewMacro(vtkPolyDataCollection);

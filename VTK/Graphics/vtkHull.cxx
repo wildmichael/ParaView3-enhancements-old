@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHull.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-28 13:33:50 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2002-01-04 14:25:33 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,18 +44,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
 
-//-------------------------------------------------------------------------
-vtkHull* vtkHull::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkHull");
-  if(ret)
-    {
-    return (vtkHull*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkHull;
-}
+vtkCxxRevisionMacro(vtkHull, "$Revision: 1.29 $");
+vtkStandardNewMacro(vtkHull);
 
 // Construct an the hull object with no planes
 vtkHull::vtkHull()
@@ -850,7 +840,7 @@ void vtkHull::PrintSelf(ostream& os, vtkIndent indent)
 {
   int i;
 
-  vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Number Of Planes: " << this->NumberOfPlanes << endl;
 

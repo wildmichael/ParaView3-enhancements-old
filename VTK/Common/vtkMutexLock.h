@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMutexLock.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:18 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-01-04 14:21:22 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -111,7 +111,7 @@ class VTK_COMMON_EXPORT vtkMutexLock : public vtkObject
 public:
   static vtkMutexLock *New();
 
-  vtkTypeMacro(vtkMutexLock,vtkObject);
+  vtkTypeRevisionMacro(vtkMutexLock,vtkObject);
   void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:

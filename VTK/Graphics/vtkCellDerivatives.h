@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellDerivatives.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:48 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-01-04 14:25:04 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -81,7 +81,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class VTK_GRAPHICS_EXPORT vtkCellDerivatives : public vtkDataSetToDataSetFilter 
 {
 public:
-  vtkTypeMacro(vtkCellDerivatives,vtkDataSetToDataSetFilter);
+  vtkTypeRevisionMacro(vtkCellDerivatives,vtkDataSetToDataSetFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

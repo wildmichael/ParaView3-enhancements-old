@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssemblyNode.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:06 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-01-04 14:20:32 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,18 +44,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkMatrix4x4.h"
 #include "vtkObjectFactory.h"
 
-//-------------------------------------------------------------------------
-vtkAssemblyNode* vtkAssemblyNode::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkAssemblyNode");
-  if(ret)
-    {
-    return (vtkAssemblyNode*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkAssemblyNode;
-}
+vtkCxxRevisionMacro(vtkAssemblyNode, "$Revision: 1.4 $");
+vtkStandardNewMacro(vtkAssemblyNode);
 
 vtkAssemblyNode::vtkAssemblyNode()
 {
@@ -121,7 +111,7 @@ unsigned long vtkAssemblyNode::GetMTime()
 
 void vtkAssemblyNode::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkObject::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   if ( this->Prop )
     {

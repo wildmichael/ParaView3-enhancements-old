@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIslandRemoval2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:52 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2002-01-04 14:28:46 $
+  Version:   $Revision: 1.38 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,26 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkImageIslandRemoval2D.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkImageIslandRemoval2D* vtkImageIslandRemoval2D::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageIslandRemoval2D");
-  if(ret)
-    {
-    return (vtkImageIslandRemoval2D*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageIslandRemoval2D;
-}
-
-
-
-
-
-
+vtkCxxRevisionMacro(vtkImageIslandRemoval2D, "$Revision: 1.38 $");
+vtkStandardNewMacro(vtkImageIslandRemoval2D);
 
 //----------------------------------------------------------------------------
 // Constructor: Sets default filter to be identity.
@@ -80,7 +62,7 @@ vtkImageIslandRemoval2D::vtkImageIslandRemoval2D()
 //----------------------------------------------------------------------------
 void vtkImageIslandRemoval2D::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImageToImageFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
   os << indent << "AreaThreshold: " << this->AreaThreshold;
   if (this->SquareNeighborhood)
     {

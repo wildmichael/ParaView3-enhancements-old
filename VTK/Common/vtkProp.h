@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:22 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2002-01-04 14:22:07 $
+  Version:   $Revision: 1.35 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -67,7 +67,7 @@ public:
   // and dragable=1.
   static vtkProp* New();
 
-  vtkTypeMacro(vtkProp,vtkObject);
+  vtkTypeRevisionMacro(vtkProp,vtkObject);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description: 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageExtractComponents.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:49 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-01-04 14:28:36 $
+  Version:   $Revision: 1.24 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,29 +39,13 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include <math.h>
-
 #include "vtkImageExtractComponents.h"
 #include "vtkObjectFactory.h"
 
+#include <math.h>
 
-
-//------------------------------------------------------------------------------
-vtkImageExtractComponents* vtkImageExtractComponents::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageExtractComponents");
-  if(ret)
-    {
-    return (vtkImageExtractComponents*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageExtractComponents;
-}
-
-
-
-
+vtkCxxRevisionMacro(vtkImageExtractComponents, "$Revision: 1.24 $");
+vtkStandardNewMacro(vtkImageExtractComponents);
 
 //----------------------------------------------------------------------------
 vtkImageExtractComponents::vtkImageExtractComponents()
@@ -289,7 +273,7 @@ void vtkImageExtractComponents::ThreadedExecute(vtkImageData *inData,
 
 void vtkImageExtractComponents::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImageToImageFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "NumberOfComponents: " << this->NumberOfComponents << endl;
   os << indent << "Components: ( "

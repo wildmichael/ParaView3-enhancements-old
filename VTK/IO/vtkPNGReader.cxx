@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNGReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-04 13:32:51 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-01-04 14:27:46 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,19 +44,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include <png.h>
 
-//-------------------------------------------------------------------------
-vtkPNGReader* vtkPNGReader::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkPNGReader");
-  if(ret)
-    {
-    return (vtkPNGReader*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkPNGReader;
-}
-
+vtkCxxRevisionMacro(vtkPNGReader, "$Revision: 1.8 $");
+vtkStandardNewMacro(vtkPNGReader);
 
 void vtkPNGReader::ExecuteInformation()
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBBTree.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:10 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2002-01-04 14:25:49 $
+  Version:   $Revision: 1.38 $
   Thanks:    Thanks to Peter C. Everett <pce@world.std.com> for
              improvements and enhancements to vtkOBBTree class.
 
@@ -104,7 +104,7 @@ public:
 class VTK_GRAPHICS_EXPORT vtkOBBTree : public vtkCellLocator
 {
 public:
-  vtkTypeMacro(vtkOBBTree,vtkCellLocator);
+  vtkTypeRevisionMacro(vtkOBBTree,vtkCellLocator);
 
   // Description:
   // Construct with automatic computation of divisions, averaging

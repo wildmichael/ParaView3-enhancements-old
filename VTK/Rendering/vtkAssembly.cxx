@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssembly.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-27 16:20:31 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2002-01-04 14:29:35 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -48,18 +48,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkActor.h"
 #include "vtkVolume.h"
 
-//-----------------------------------------------------------------------------
-vtkAssembly* vtkAssembly::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkAssembly");
-  if(ret)
-    {
-    return (vtkAssembly*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkAssembly;
-}
+vtkCxxRevisionMacro(vtkAssembly, "$Revision: 1.51 $");
+vtkStandardNewMacro(vtkAssembly);
 
 // Construct object with no children.
 vtkAssembly::vtkAssembly()
@@ -396,7 +386,7 @@ unsigned long int vtkAssembly::GetMTime()
 
 void vtkAssembly::PrintSelf(ostream& os, vtkIndent indent)
 {
-  this->vtkProp3D::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "There are: " << this->Parts->GetNumberOfItems()
      << " parts in this assembly\n";

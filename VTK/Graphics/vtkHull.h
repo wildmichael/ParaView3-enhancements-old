@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHull.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:06 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-01-04 14:25:33 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -73,7 +73,7 @@ class VTK_GRAPHICS_EXPORT vtkHull : public vtkPolyDataToPolyDataFilter
 {
 public:
   static vtkHull *New();
-  vtkTypeMacro(vtkHull,vtkPolyDataToPolyDataFilter);
+  vtkTypeRevisionMacro(vtkHull,vtkPolyDataToPolyDataFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

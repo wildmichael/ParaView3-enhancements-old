@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageLogic.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:53 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-01-04 14:28:49 $
+  Version:   $Revision: 1.24 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,25 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <math.h>
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkImageLogic* vtkImageLogic::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageLogic");
-  if(ret)
-    {
-    return (vtkImageLogic*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageLogic;
-}
-
-
-
-
-
+vtkCxxRevisionMacro(vtkImageLogic, "$Revision: 1.24 $");
+vtkStandardNewMacro(vtkImageLogic);
 
 //----------------------------------------------------------------------------
 vtkImageLogic::vtkImageLogic()
@@ -355,7 +338,7 @@ void vtkImageLogic::ThreadedExecute(vtkImageData **inData,
 
 void vtkImageLogic::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImageTwoInputFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Operation: " << this->Operation << "\n";
 

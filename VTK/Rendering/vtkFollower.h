@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFollower.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-21 14:06:36 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2002-01-04 14:29:39 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -62,7 +62,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class VTK_RENDERING_EXPORT vtkFollower : public vtkActor
 {
  public:
-  vtkTypeMacro(vtkFollower,vtkActor);
+  vtkTypeRevisionMacro(vtkFollower,vtkActor);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

@@ -3,8 +3,8 @@
    Program:   Visualization Toolkit
    Module:    $RCSfile: vtkOOGLExporter.cxx,v $
    Language:  C++
-   Date:      $Date: 2002-01-03 13:46:01 $
-   Version:   $Revision: 1.6 $
+   Date:      $Date: 2002-01-04 14:29:56 $
+   Version:   $Revision: 1.7 $
    Thanks:    to Jeremy D. Gill of The J. P. Robarts Research Institute
  
  Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,8 +39,6 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  
  =========================================================================*/
-
-
 #include "vtkOOGLExporter.h"
 #include "vtkGeometryFilter.h"
 #include "vtkPolyDataMapper.h"
@@ -51,18 +49,8 @@
 #include "vtkTriangleStrip.h"
 #include "vtkVersion.h"
 
-//----------------------------------------------------------------------------
-vtkOOGLExporter* vtkOOGLExporter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkOOGLExporter");
-  if(ret)
-    {
-    return (vtkOOGLExporter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkOOGLExporter;
-}
+vtkCxxRevisionMacro(vtkOOGLExporter, "$Revision: 1.7 $");
+vtkStandardNewMacro(vtkOOGLExporter);
 
 vtkOOGLExporter::vtkOOGLExporter()
 {

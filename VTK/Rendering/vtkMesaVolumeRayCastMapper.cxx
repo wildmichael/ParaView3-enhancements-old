@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaVolumeRayCastMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-19 19:54:32 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-01-04 14:29:55 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,3 +60,5 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkOpenGLVolumeRayCastMapper.cxx"
 #undef vtkOpenGLVolumeRayCastMapper
 
+vtkCxxRevisionMacro(vtkMesaVolumeRayCastMapper, "$Revision: 1.4 $");
+vtkStandardNewMacro(vtkMesaVolumeRayCastMapper);

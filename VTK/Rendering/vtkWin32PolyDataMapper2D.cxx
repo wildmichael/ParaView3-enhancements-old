@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32PolyDataMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:18:16 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-01-04 14:30:26 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -46,6 +46,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 
 #ifndef VTK_REMOVE_LEGACY_CODE
+
+vtkCxxRevisionMacro(vtkWin32PolyDataMapper2D, "$Revision: 1.22 $");
+
 //-------------------------------------------------------------------------
 vtkWin32PolyDataMapper2D* vtkWin32PolyDataMapper2D::New()
 {

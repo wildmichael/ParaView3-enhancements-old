@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProVG500Mapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-17 20:03:49 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2002-01-04 14:30:17 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,8 +39,6 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-
-#include <math.h>
 #include "vtkVolumeProVG500Mapper.h"
 #include "vtkOpenGLVolumeProVG500Mapper.h"
 #include "vtkRenderWindow.h"
@@ -50,6 +48,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkGraphicsFactory.h"
 #include "vtkToolkits.h"
 #include "vtkDebugLeaks.h"
+
+#include <math.h>
+
+vtkCxxRevisionMacro(vtkVolumeProVG500Mapper, "$Revision: 1.29 $");
 
 vtkVolumeProVG500Mapper::vtkVolumeProVG500Mapper()
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCylinder.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:33 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-01-04 14:23:54 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,23 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkCylinder.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkCylinder* vtkCylinder::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkCylinder");
-  if(ret)
-    {
-    return (vtkCylinder*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkCylinder;
-}
-
-
-
+vtkCxxRevisionMacro(vtkCylinder, "$Revision: 1.24 $");
+vtkStandardNewMacro(vtkCylinder);
 
 // Construct cylinder radius of 0.5.
 vtkCylinder::vtkCylinder()
@@ -89,7 +74,7 @@ void vtkCylinder::EvaluateGradient(float xyz[3], float g[3])
 
 void vtkCylinder::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImplicitFunction::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Center: " << "( " << this->Center[0] << ", " <<
      this->Center[1] << ", " << this->Center[2] << " )";

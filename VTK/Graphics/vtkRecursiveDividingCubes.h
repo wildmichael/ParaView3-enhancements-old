@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRecursiveDividingCubes.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:13 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2002-01-04 14:26:12 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -67,7 +67,7 @@ class VTK_GRAPHICS_EXPORT vtkRecursiveDividingCubes : public vtkStructuredPoints
 {
 public:
   static vtkRecursiveDividingCubes *New();
-  vtkTypeMacro(vtkRecursiveDividingCubes,vtkStructuredPointsToPolyDataFilter);
+  vtkTypeRevisionMacro(vtkRecursiveDividingCubes,vtkStructuredPointsToPolyDataFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

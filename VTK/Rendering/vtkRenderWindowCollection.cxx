@@ -3,8 +3,8 @@
 Program:   Visualization Toolkit
 Module:    $RCSfile: vtkRenderWindowCollection.cxx,v $
 Language:  C++
-Date:      $Date: 2000-12-10 20:08:50 $
-Version:   $Revision: 1.4 $
+Date:      $Date: 2002-01-04 14:30:10 $
+Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,20 +42,5 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkRenderWindowCollection.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkRenderWindowCollection* vtkRenderWindowCollection::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkRenderWindowCollection");
-  if(ret)
-    {
-    return (vtkRenderWindowCollection*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkRenderWindowCollection;
-}
-
-
-
+vtkCxxRevisionMacro(vtkRenderWindowCollection, "$Revision: 1.5 $");
+vtkStandardNewMacro(vtkRenderWindowCollection);

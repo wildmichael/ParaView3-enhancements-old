@@ -3,8 +3,8 @@
 Program:   Visualization Toolkit
 Module:    $RCSfile: vtkVolumeCollection.cxx,v $
 Language:  C++
-Date:      $Date: 2000-12-10 20:08:58 $
-Version:   $Revision: 1.4 $
+Date:      $Date: 2002-01-04 14:30:15 $
+Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,20 +42,5 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkVolumeCollection.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkVolumeCollection* vtkVolumeCollection::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkVolumeCollection");
-  if(ret)
-    {
-    return (vtkVolumeCollection*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkVolumeCollection;
-}
-
-
-
+vtkCxxRevisionMacro(vtkVolumeCollection, "$Revision: 1.5 $");
+vtkStandardNewMacro(vtkVolumeCollection);

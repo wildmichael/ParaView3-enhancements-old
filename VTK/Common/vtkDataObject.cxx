@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-06 02:38:05 $
-  Version:   $Revision: 1.78 $
+  Date:      $Date: 2002-01-04 14:20:37 $
+  Version:   $Revision: 1.79 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,23 +44,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkExtentTranslator.h"
 
-
-
-//----------------------------------------------------------------------------
-vtkDataObject* vtkDataObject::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkDataObject");
-  if(ret)
-    {
-    return (vtkDataObject*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkDataObject;
-}
-
-
-
+vtkCxxRevisionMacro(vtkDataObject, "$Revision: 1.79 $");
+vtkStandardNewMacro(vtkDataObject);
 
 // Initialize static member that controls global data release 
 // after use by filter
@@ -787,7 +772,7 @@ void vtkDataObject::Crop()
 //----------------------------------------------------------------------------
 void vtkDataObject::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkObject::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   if ( this->Source )
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInterpolatingSubdivisionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:13:54 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-01-04 14:25:39 $
+  Version:   $Revision: 1.17 $
   Thanks:    This work was supported bt PHS Research Grant No. 1 P41 RR13218-01
              from the National Center for Research Resources
 
@@ -43,6 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 #include "vtkInterpolatingSubdivisionFilter.h"
 #include "vtkEdgeTable.h"
+
+vtkCxxRevisionMacro(vtkInterpolatingSubdivisionFilter, "$Revision: 1.17 $");
 
 // Construct object with number of subdivisions set to 1.
 vtkInterpolatingSubdivisionFilter::vtkInterpolatingSubdivisionFilter()
@@ -256,7 +258,7 @@ void vtkInterpolatingSubdivisionFilter::GenerateSubdivisionCells (vtkPolyData *i
 
 void vtkInterpolatingSubdivisionFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Number of subdivisions: " << this->NumberOfSubdivisions << endl;
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMatrixToHomogeneousTransform.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:17 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-01-04 14:21:17 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -61,7 +61,7 @@ class VTK_COMMON_EXPORT vtkMatrixToHomogeneousTransform :
 {
  public:
   static vtkMatrixToHomogeneousTransform *New();
-  vtkTypeMacro(vtkMatrixToHomogeneousTransform,vtkHomogeneousTransform);
+  vtkTypeRevisionMacro(vtkMatrixToHomogeneousTransform,vtkHomogeneousTransform);
   void PrintSelf (ostream& os, vtkIndent indent);
 
   // Set the input matrix.  Any modifications to the matrix will be

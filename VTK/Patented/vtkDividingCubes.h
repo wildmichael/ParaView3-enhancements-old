@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDividingCubes.h,v $
   Language:  C++
-  Date:      $Date: 2001-12-17 15:28:21 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2002-01-04 14:29:30 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -76,7 +76,7 @@ class VTK_PATENTED_EXPORT vtkDividingCubes : public vtkStructuredPointsToPolyDat
 {
 public:
   static vtkDividingCubes *New();
-  vtkTypeMacro(vtkDividingCubes,vtkStructuredPointsToPolyDataFilter);
+  vtkTypeRevisionMacro(vtkDividingCubes,vtkStructuredPointsToPolyDataFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpline.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:52 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-01-04 14:24:34 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,8 +39,9 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-
 #include "vtkSpline.h"
+
+vtkCxxRevisionMacro(vtkSpline, "$Revision: 1.15 $");
 
 // Construct a spline wth the folloing defaults:
 // ClampValueOff
@@ -110,7 +111,7 @@ unsigned long vtkSpline::GetMTime()
 
 void vtkSpline::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkObject::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Clamp Value: " << (this->ClampValue ? "On\n" : "Off\n");
   os << indent << "Left Constraint: " << this->LeftConstraint << "\n";

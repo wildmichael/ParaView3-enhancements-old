@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArrowSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 14:51:20 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-01-04 14:24:51 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -47,21 +47,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkAppendPolyData.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkArrowSource* vtkArrowSource::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkArrowSource");
-  if(ret)
-    {
-    return (vtkArrowSource*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkArrowSource;
-}
-
+vtkCxxRevisionMacro(vtkArrowSource, "$Revision: 1.2 $");
+vtkStandardNewMacro(vtkArrowSource);
 
 vtkArrowSource::vtkArrowSource()
 {
@@ -131,7 +118,7 @@ void vtkArrowSource::Execute()
 
 void vtkArrowSource::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolyDataSource::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "TipResolution: " << this->TipResolution << "\n";
   os << indent << "TipRadius: " << this->TipRadius << "\n";

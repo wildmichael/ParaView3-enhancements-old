@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMesaRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-21 18:17:39 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-01-04 14:30:29 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -73,17 +73,5 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // now include the source for vtkXOpenGLRenderWindow
 #include "vtkXOpenGLRenderWindow.cxx"
 
-//-----------------------------------------------------------------------------
-vtkXMesaRenderWindow* vtkXMesaRenderWindow::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkXMesaRenderWindow");
-  if(ret)
-    {
-    return (vtkXMesaRenderWindow*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkXMesaRenderWindow;
-}
-
-
+vtkCxxRevisionMacro(vtkXMesaRenderWindow, "$Revision: 1.3 $");
+vtkStandardNewMacro(vtkXMesaRenderWindow);

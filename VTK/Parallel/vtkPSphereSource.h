@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPSphereSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:00 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-01-04 14:29:25 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -49,7 +49,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class VTK_PARALLEL_EXPORT vtkPSphereSource : public vtkSphereSource
 {
 public:
-  vtkTypeMacro(vtkPSphereSource,vtkSphereSource);
+  vtkTypeRevisionMacro(vtkPSphereSource,vtkSphereSource);
 
   // Description:
   // Construct sphere with radius=0.5 and default resolution 8 in both Phi

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageActor.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:09 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-01-04 14:29:41 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,7 +68,7 @@ class vtkRenderer;
 class VTK_RENDERING_EXPORT vtkImageActor : public vtkProp
 {
 public:
-  vtkTypeMacro(vtkImageActor,vtkProp);
+  vtkTypeRevisionMacro(vtkImageActor,vtkProp);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

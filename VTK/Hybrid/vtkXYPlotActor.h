@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXYPlotActor.h,v $
   Language:  C++
-  Date:      $Date: 2001-12-13 19:22:32 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-01-04 14:27:20 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to Kitware & RPI/SCOREC who supported the development
              of this class.
 
@@ -118,7 +118,7 @@ class vtkIntArray;
 class VTK_HYBRID_EXPORT vtkXYPlotActor : public vtkActor2D
 {
 public:
-  vtkTypeMacro(vtkXYPlotActor,vtkActor2D);
+  vtkTypeRevisionMacro(vtkXYPlotActor,vtkActor2D);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

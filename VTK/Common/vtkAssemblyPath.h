@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssemblyPath.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:00 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-01-04 14:20:32 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -64,7 +64,7 @@ class vtkProp;
 class VTK_COMMON_EXPORT vtkAssemblyPath : public vtkCollection
 {
 public:
-  vtkTypeMacro(vtkAssemblyPath,vtkCollection);
+  vtkTypeRevisionMacro(vtkAssemblyPath,vtkCollection);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

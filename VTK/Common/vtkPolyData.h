@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:09:28 $
-  Version:   $Revision: 1.118 $
+  Date:      $Date: 2002-01-04 14:21:53 $
+  Version:   $Revision: 1.119 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -84,7 +84,7 @@ class VTK_COMMON_EXPORT vtkPolyData : public vtkPointSet
 public:
   static vtkPolyData *New();
 
-  vtkTypeMacro(vtkPolyData,vtkPointSet);
+  vtkTypeRevisionMacro(vtkPolyData,vtkPointSet);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

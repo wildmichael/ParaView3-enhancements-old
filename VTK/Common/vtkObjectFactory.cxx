@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObjectFactory.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-28 13:58:32 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2002-01-04 14:21:25 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -49,6 +49,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkOverrideInformationCollection.h"
 #include "vtkOverrideInformation.h"
 #include "vtkDebugLeaks.h"
+
+vtkCxxRevisionMacro(vtkObjectFactory, "$Revision: 1.30 $");
 
 vtkObjectFactoryCollection* vtkObjectFactory::RegisteredFactories = 0;
 
@@ -398,7 +400,7 @@ void vtkObjectFactory::RegisterFactory(vtkObjectFactory* factory)
 // print ivars to stream
 void vtkObjectFactory::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkObject::PrintSelf(os, indent);
+  this->Superclass::PrintSelf(os, indent);
   os << indent 
      << "Factory DLL path: " << this->LibraryPath << "\n";
   os << indent << "Library version: " << this->LibraryVTKVersion << "\n";

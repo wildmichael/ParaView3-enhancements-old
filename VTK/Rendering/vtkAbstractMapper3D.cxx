@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractMapper3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-15 16:36:25 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-01-04 14:29:33 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -41,6 +41,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 #include "vtkAbstractMapper3D.h"
 #include "vtkDataSet.h"
+
+vtkCxxRevisionMacro(vtkAbstractMapper3D, "$Revision: 1.12 $");
 
 // Construct with initial range (0,1).
 vtkAbstractMapper3D::vtkAbstractMapper3D()
@@ -87,6 +89,6 @@ float vtkAbstractMapper3D::GetLength()
 
 void vtkAbstractMapper3D::PrintSelf(ostream& os, vtkIndent indent)
 {
-  this->vtkAbstractMapper::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 }
 

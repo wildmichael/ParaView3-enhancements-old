@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShortArray.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:24 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 2002-01-04 14:22:33 $
+  Version:   $Revision: 1.62 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -55,7 +55,7 @@ class VTK_COMMON_EXPORT vtkShortArray : public vtkDataArray
 public:
   static vtkShortArray *New();
 
-  vtkTypeMacro(vtkShortArray,vtkDataArray);
+  vtkTypeRevisionMacro(vtkShortArray,vtkDataArray);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProVP1000Mapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-28 16:39:01 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-01-04 14:30:18 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,8 +39,6 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-
-#include <math.h>
 #include "vtkVolumeProVP1000Mapper.h"
 #include "vtkOpenGLVolumeProVP1000Mapper.h"
 #include "vtkRenderWindow.h"
@@ -52,6 +50,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkDebugLeaks.h"
 
 #include <stdio.h>
+#include <math.h>
+
+vtkCxxRevisionMacro(vtkVolumeProVP1000Mapper, "$Revision: 1.9 $");
 
 vtkVolumeProVP1000Mapper::vtkVolumeProVP1000Mapper()
 {

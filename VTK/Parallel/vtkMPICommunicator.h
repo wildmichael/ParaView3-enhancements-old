@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPICommunicator.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:25:57 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-01-04 14:29:21 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -71,7 +71,7 @@ class VTK_PARALLEL_EXPORT vtkMPICommunicator : public vtkCommunicator
 
 public:
 
-  vtkTypeMacro( vtkMPICommunicator,vtkObject);
+  vtkTypeRevisionMacro( vtkMPICommunicator,vtkObject);
   
   // Description:
   // Creates an empty communicator.

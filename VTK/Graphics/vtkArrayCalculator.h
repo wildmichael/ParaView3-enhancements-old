@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArrayCalculator.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-27 19:48:36 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-01-04 14:24:50 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -65,7 +65,7 @@ class vtkFunctionParser;
 class VTK_GRAPHICS_EXPORT vtkArrayCalculator : public vtkDataSetToDataSetFilter 
 {
 public:
-  vtkTypeMacro(vtkArrayCalculator,vtkDataSetToDataSetFilter);
+  vtkTypeRevisionMacro(vtkArrayCalculator,vtkDataSetToDataSetFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   static vtkArrayCalculator *New();

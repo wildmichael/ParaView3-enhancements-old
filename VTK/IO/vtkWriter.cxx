@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-15 14:20:21 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2002-01-04 14:28:05 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -41,6 +41,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 #include "vtkWriter.h"
 #include "vtkCommand.h"
+
+vtkCxxRevisionMacro(vtkWriter, "$Revision: 1.32 $");
 
 // Construct with no start and end write methods or arguments.
 vtkWriter::vtkWriter()
@@ -103,6 +105,6 @@ void vtkWriter::Update()
 
 void vtkWriter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkProcessObject::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
 }

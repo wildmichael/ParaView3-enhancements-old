@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractPolyDataGeometry.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-08 12:34:34 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-01-04 14:25:23 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,18 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
-//-------------------------------------------------------------------------
-vtkExtractPolyDataGeometry* vtkExtractPolyDataGeometry::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkExtractPolyDataGeometry");
-  if(ret)
-    {
-    return (vtkExtractPolyDataGeometry*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkExtractPolyDataGeometry;
-}
+vtkCxxRevisionMacro(vtkExtractPolyDataGeometry, "$Revision: 1.14 $");
+vtkStandardNewMacro(vtkExtractPolyDataGeometry);
 
 // Construct object with ExtractInside turned on.
 vtkExtractPolyDataGeometry::vtkExtractPolyDataGeometry(vtkImplicitFunction *f)
@@ -285,7 +275,7 @@ void vtkExtractPolyDataGeometry::Execute()
 
 void vtkExtractPolyDataGeometry::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   if (this->ImplicitFunction)
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlanes.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:41:14 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-01-04 14:21:42 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -70,7 +70,7 @@ class VTK_COMMON_EXPORT vtkPlanes : public vtkImplicitFunction
 {
 public:
   static vtkPlanes *New();
-  vtkTypeMacro(vtkPlanes,vtkImplicitFunction);
+  vtkTypeRevisionMacro(vtkPlanes,vtkImplicitFunction);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTreeComposite.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-31 16:36:15 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-01-04 14:29:28 $
+  Version:   $Revision: 1.17 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -84,7 +84,7 @@ class VTK_PARALLEL_EXPORT vtkTreeComposite : public vtkCompositeManager
 {
 public:
   static vtkTreeComposite *New();
-  vtkTypeMacro(vtkTreeComposite,vtkCompositeManager);
+  vtkTypeRevisionMacro(vtkTreeComposite,vtkCompositeManager);
   void PrintSelf(ostream& os, vtkIndent indent);
 
 protected:

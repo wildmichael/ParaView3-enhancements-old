@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOrderedTriangulator.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-02 16:03:21 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-01-04 14:21:30 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -100,7 +100,7 @@ class vtkMemoryPool;
 class VTK_COMMON_EXPORT vtkOrderedTriangulator : public vtkObject
 {
 public:
-  vtkTypeMacro(vtkOrderedTriangulator,vtkObject);
+  vtkTypeRevisionMacro(vtkOrderedTriangulator,vtkObject);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSinusoidSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:59 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2002-01-04 14:29:10 $
+  Version:   $Revision: 1.31 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,28 +39,13 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include <math.h>
-
 #include "vtkImageSinusoidSource.h"
 #include "vtkObjectFactory.h"
 
+#include <math.h>
 
-
-//------------------------------------------------------------------------------
-vtkImageSinusoidSource* vtkImageSinusoidSource::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageSinusoidSource");
-  if(ret)
-    {
-    return (vtkImageSinusoidSource*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageSinusoidSource;
-}
-
-
-
+vtkCxxRevisionMacro(vtkImageSinusoidSource, "$Revision: 1.31 $");
+vtkStandardNewMacro(vtkImageSinusoidSource);
 
 //----------------------------------------------------------------------------
 vtkImageSinusoidSource::vtkImageSinusoidSource()
@@ -230,7 +215,7 @@ void vtkImageSinusoidSource::ExecuteData(vtkDataObject *output)
 
 void vtkImageSinusoidSource::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImageSource::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Period: " << this->Period << "\n";
   os << indent << "Phase: " << this->Phase << "\n";

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:10 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2002-01-04 14:29:42 $
+  Version:   $Revision: 1.29 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,7 +68,7 @@ public:
   static vtkImageWindow *New();
 
   void PrintSelf(ostream& os, vtkIndent indent);
-  vtkTypeMacro(vtkImageWindow,vtkWindow);
+  vtkTypeRevisionMacro(vtkImageWindow,vtkWindow);
 
   // Description:
   // Set the position of the window on the screen

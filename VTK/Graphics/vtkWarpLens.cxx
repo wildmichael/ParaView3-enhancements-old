@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpLens.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-11 14:40:06 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-01-04 14:26:52 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,18 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
 
-//----------------------------------------------------------------------------
-vtkWarpLens* vtkWarpLens::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkWarpLens");
-  if(ret)
-    {
-    return (vtkWarpLens*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkWarpLens;
-}
+vtkCxxRevisionMacro(vtkWarpLens, "$Revision: 1.22 $");
+vtkStandardNewMacro(vtkWarpLens);
 
 //
 // Preserve old Kappa instance variable. It appears to be the
@@ -183,7 +173,7 @@ void vtkWarpLens::Execute()
 
 void vtkWarpLens::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPointSetToPointSetFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
   
   os << indent << "PrincipalPoint: (" << this->PrincipalPoint[0] << ", " 
     << this->PrincipalPoint[1] << ") in mm\n";

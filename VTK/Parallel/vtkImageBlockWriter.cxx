@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageBlockWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:24 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-01-04 14:29:20 $
+  Version:   $Revision: 1.9 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -43,23 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkStructuredPointsWriter.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkImageBlockWriter* vtkImageBlockWriter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageBlockWriter");
-  if(ret)
-    {
-    return (vtkImageBlockWriter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageBlockWriter;
-}
-
-
-
+vtkCxxRevisionMacro(vtkImageBlockWriter, "$Revision: 1.9 $");
+vtkStandardNewMacro(vtkImageBlockWriter);
 
 //----------------------------------------------------------------------------
 vtkImageBlockWriter::vtkImageBlockWriter()
@@ -78,7 +63,7 @@ vtkImageBlockWriter::~vtkImageBlockWriter()
 //----------------------------------------------------------------------------
 void vtkImageBlockWriter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkProcessObject::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
   
   os << indent << "FilePattern: " << this->FilePattern << endl;
   os << indent << "Overlap: " << this->Overlap << endl;

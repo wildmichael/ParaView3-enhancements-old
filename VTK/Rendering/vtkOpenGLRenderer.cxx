@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-06 19:19:18 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2002-01-04 14:30:01 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -64,18 +64,8 @@ public:
 };
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-//---------------------------------------------------------------------------
-vtkOpenGLRenderer* vtkOpenGLRenderer::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkOpenGLRenderer");
-  if(ret)
-    {
-    return (vtkOpenGLRenderer*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkOpenGLRenderer;
-}
+vtkCxxRevisionMacro(vtkOpenGLRenderer, "$Revision: 1.40 $");
+vtkStandardNewMacro(vtkOpenGLRenderer);
 #endif
 
 #define VTK_MAX_LIGHTS 8
@@ -214,7 +204,7 @@ void vtkOpenGLRenderer::DeviceRender(void)
 
 void vtkOpenGLRenderer::PrintSelf(ostream& os, vtkIndent indent)
 {
-  this->vtkRenderer::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Number Of Lights Bound: " << 
     this->NumberOfLightsBound << "\n";

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-07 16:20:31 $
-  Version:   $Revision: 1.79 $
+  Date:      $Date: 2002-01-04 14:30:10 $
+  Version:   $Revision: 1.80 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -46,6 +46,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkMath.h"
 #include "vtkOldStyleCallbackCommand.h"
 
+vtkCxxRevisionMacro(vtkRenderWindowInteractor, "$Revision: 1.80 $");
 
 // Construct object so that light follows camera motion.
 vtkRenderWindowInteractor::vtkRenderWindowInteractor()
@@ -360,7 +361,7 @@ void vtkRenderWindowInteractor::FlyTo(vtkRenderer *ren, float x, float y, float 
 
 void vtkRenderWindowInteractor::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkObject::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "InteractorStyle:    " << this->InteractorStyle << "\n";
   os << indent << "RenderWindow:    " << this->RenderWindow << "\n";

@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-17 13:58:14 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-01-04 14:29:25 $
+  Version:   $Revision: 1.5 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -47,22 +47,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkCommand.h"
 
-
-//------------------------------------------------------------------------------
-vtkPVGeometryFilter* vtkPVGeometryFilter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkPVGeometryFilter");
-  if(ret)
-    {
-    return (vtkPVGeometryFilter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkPVGeometryFilter;
-}
-
-
-
+vtkCxxRevisionMacro(vtkPVGeometryFilter, "$Revision: 1.5 $");
+vtkStandardNewMacro(vtkPVGeometryFilter);
 
 //----------------------------------------------------------------------------
 vtkPVGeometryFilter::vtkPVGeometryFilter ()
@@ -288,7 +274,7 @@ void vtkPVGeometryFilter::UnstructuredGridExecute(vtkUnstructuredGrid *input)
 //----------------------------------------------------------------------------
 void vtkPVGeometryFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataSetSurfaceFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   if (this->OutlineFlag)
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:09:35 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-01-04 14:20:34 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,6 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkOrderedTriangulator.h"
 #include "vtkPointLocator.h"
 #include "vtkMarchingCubesCases.h"
+
+vtkCxxRevisionMacro(vtkCell3D, "$Revision: 1.19 $");
 
 vtkCell3D::~vtkCell3D()
 {
@@ -163,7 +165,7 @@ void vtkCell3D::Clip(float value, vtkDataArray *cellScalars,
 
 void vtkCell3D::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkCell::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 }
 
 // Note: the following code is placed here to deal with cross-library

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolygon.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-06 19:59:22 $
-  Version:   $Revision: 1.93 $
+  Date:      $Date: 2002-01-04 14:21:59 $
+  Version:   $Revision: 1.94 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,7 +39,6 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include <stdlib.h>
 #include "vtkPolygon.h"
 #include "vtkMath.h"
 #include "vtkPlane.h"
@@ -49,18 +48,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
-//--------------------------------------------------------------------------
-vtkPolygon* vtkPolygon::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkPolygon");
-  if(ret)
-    {
-    return (vtkPolygon*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkPolygon;
-}
+#include <stdlib.h>
+
+vtkCxxRevisionMacro(vtkPolygon, "$Revision: 1.94 $");
+vtkStandardNewMacro(vtkPolygon);
 
 // Instantiate polygon.
 vtkPolygon::vtkPolygon()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleUnicam.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:17:20 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-01-04 14:29:47 $
+  Version:   $Revision: 1.13 $
 
 =========================================================================*/
 
@@ -119,7 +119,7 @@ class VTK_RENDERING_EXPORT vtkInteractorStyleUnicam : public vtkInteractorStyle
 {
 public:
   static vtkInteractorStyleUnicam *New();
-  vtkTypeMacro(vtkInteractorStyleUnicam,vtkInteractorStyle);
+  vtkTypeRevisionMacro(vtkInteractorStyleUnicam,vtkInteractorStyle);
   void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:

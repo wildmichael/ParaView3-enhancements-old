@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadricDecimation.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-19 14:49:39 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-01-04 14:26:07 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,18 +44,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
-//----------------------------------------------------------------------------
-vtkQuadricDecimation* vtkQuadricDecimation::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkQuadricDecimation");
-  if(ret)
-    {
-    return (vtkQuadricDecimation*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkQuadricDecimation;
-}
+vtkCxxRevisionMacro(vtkQuadricDecimation, "$Revision: 1.16 $");
+vtkStandardNewMacro(vtkQuadricDecimation);
 
 //----------------------------------------------------------------------------
 vtkQuadricDecimation::vtkQuadricDecimation()
@@ -875,7 +865,7 @@ void vtkQuadricDecimation::GetAttributeComponents()
 //----------------------------------------------------------------------------
 void vtkQuadricDecimation::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Maximum Cost: " << this->MaximumCost << "\n";
   os << indent << "MaximumCollapsedEdges: " << this->MaximumCollapsedEdges << "\n";

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMask.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:55 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-01-04 14:28:55 $
+  Version:   $Revision: 1.27 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,25 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkImageMask.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkImageMask* vtkImageMask::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageMask");
-  if(ret)
-    {
-    return (vtkImageMask*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageMask;
-}
-
-
-
-
-
+vtkCxxRevisionMacro(vtkImageMask, "$Revision: 1.27 $");
+vtkStandardNewMacro(vtkImageMask);
 
 //----------------------------------------------------------------------------
 vtkImageMask::vtkImageMask()
@@ -309,10 +292,10 @@ void vtkImageMask::ExecuteInformation(vtkImageData **inDatas,
 
 void vtkImageMask::PrintSelf(ostream& os, vtkIndent indent)
 {
+  this->Superclass::PrintSelf(os,indent);
+
   int idx;
   
-  vtkImageTwoInputFilter::PrintSelf(os,indent);
-
   os << indent << "MaskedOutputValue: " << this->MaskedOutputValue[0];
   for (idx = 1; idx < this->MaskedOutputValueLength; ++idx)
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCaptionActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:42:39 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-01-04 14:26:58 $
+  Version:   $Revision: 1.13 $
   Thanks:    Tim Smith who sponsored and encouraged the development
              of this class.
 
@@ -53,18 +53,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
-//----------------------------------------------------------------------------
-vtkCaptionActor2D* vtkCaptionActor2D::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkCaptionActor2D");
-  if(ret)
-    {
-    return (vtkCaptionActor2D*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkCaptionActor2D;
-}
+vtkCxxRevisionMacro(vtkCaptionActor2D, "$Revision: 1.13 $");
+vtkStandardNewMacro(vtkCaptionActor2D);
 
 vtkCaptionActor2D::vtkCaptionActor2D()
 {
@@ -467,7 +457,7 @@ int vtkCaptionActor2D::RenderOpaqueGeometry(vtkViewport *viewport)
 
 void vtkCaptionActor2D::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkActor2D::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Caption: ";
   if ( this->Caption )

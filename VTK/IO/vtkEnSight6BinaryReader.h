@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSight6BinaryReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:30:27 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-01-04 14:27:31 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,7 +68,7 @@ class VTK_IO_EXPORT vtkEnSight6BinaryReader : public vtkEnSightReader
 {
 public:
   static vtkEnSight6BinaryReader *New();
-  vtkTypeMacro(vtkEnSight6BinaryReader, vtkEnSightReader);
+  vtkTypeRevisionMacro(vtkEnSight6BinaryReader, vtkEnSightReader);
   
 protected:
   vtkEnSight6BinaryReader();

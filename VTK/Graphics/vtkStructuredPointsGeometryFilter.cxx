@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-01 18:02:50 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2002-01-04 14:26:34 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,18 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkStructuredPointsGeometryFilter.h"
 #include "vtkObjectFactory.h"
 
-//----------------------------------------------------------------------------
-vtkStructuredPointsGeometryFilter* vtkStructuredPointsGeometryFilter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkStructuredPointsGeometryFilter");
-  if(ret)
-    {
-    return (vtkStructuredPointsGeometryFilter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkStructuredPointsGeometryFilter;
-}
+vtkCxxRevisionMacro(vtkStructuredPointsGeometryFilter, "$Revision: 1.38 $");
+vtkStandardNewMacro(vtkStructuredPointsGeometryFilter);
 
 vtkStructuredPointsGeometryFilter::vtkStructuredPointsGeometryFilter()
 {

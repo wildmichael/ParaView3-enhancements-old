@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLoopSubdivisionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:13:55 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-01-04 14:25:42 $
+  Version:   $Revision: 1.12 $
   Thanks:    This work was supported bt PHS Research Grant No. 1 P41 RR13218-01
              from the National Center for Research Resources
 
@@ -44,20 +44,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkEdgeTable.h"
 #include "vtkObjectFactory.h"
 
+vtkCxxRevisionMacro(vtkLoopSubdivisionFilter, "$Revision: 1.12 $");
+vtkStandardNewMacro(vtkLoopSubdivisionFilter);
+
 static float LoopWeights[4] =
   {.375, .375, .125, .125};
-
-vtkLoopSubdivisionFilter* vtkLoopSubdivisionFilter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkLoopSubdivisionFilter");
-  if(ret)
-    {
-    return (vtkLoopSubdivisionFilter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkLoopSubdivisionFilter;
-}
 
 void vtkLoopSubdivisionFilter::GenerateSubdivisionPoints (vtkPolyData *inputDS,vtkIntArray *edgeData, vtkPoints *outputPts, vtkPointData *outputPD)
 {

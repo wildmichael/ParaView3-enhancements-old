@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPipelineSize.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:26:01 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-01-04 14:29:25 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -50,18 +50,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkPSphereSource.h"
 #include "vtkPolyDataMapper.h"
 
-//-------------------------------------------------------------------------
-vtkPipelineSize* vtkPipelineSize::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkPipelineSize");
-  if(ret)
-    {
-    return (vtkPipelineSize*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkPipelineSize;
-}
+vtkCxxRevisionMacro(vtkPipelineSize, "$Revision: 1.9 $");
+vtkStandardNewMacro(vtkPipelineSize);
 
 unsigned long 
 vtkPipelineSize::GetEstimatedSize(vtkDataObject *input)

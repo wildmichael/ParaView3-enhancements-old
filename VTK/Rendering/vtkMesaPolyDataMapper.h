@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaPolyDataMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:15 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-01-04 14:29:53 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -65,7 +65,7 @@ class VTK_RENDERING_EXPORT vtkMesaPolyDataMapper : public vtkPolyDataMapper
 {
 public:
   static vtkMesaPolyDataMapper *New();
-  vtkTypeMacro(vtkMesaPolyDataMapper,vtkPolyDataMapper);
+  vtkTypeRevisionMacro(vtkMesaPolyDataMapper,vtkPolyDataMapper);
 
   // Description:
   // Implement superclass render method.

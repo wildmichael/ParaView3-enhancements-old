@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-07 16:18:22 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2002-01-04 14:30:05 $
+  Version:   $Revision: 1.34 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,6 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkImagingFactory.h"
 
 #include "vtkLookupTable.h"
+
+vtkCxxRevisionMacro(vtkPolyDataMapper2D, "$Revision: 1.34 $");
 
 vtkPolyDataMapper2D::vtkPolyDataMapper2D()
 {
@@ -254,7 +256,7 @@ const char *vtkPolyDataMapper2D::GetColorModeAsString(void)
 
 void vtkPolyDataMapper2D::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkMapper2D::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   if ( this->Input )
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSubdivideTetra.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-25 13:43:24 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-01-04 14:26:35 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,18 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkMergePoints.h"
 #include "vtkObjectFactory.h"
 
-//-------------------------------------------------------------------------
-vtkSubdivideTetra* vtkSubdivideTetra::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkSubdivideTetra");
-  if(ret)
-    {
-    return (vtkSubdivideTetra*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkSubdivideTetra;
-}
+vtkCxxRevisionMacro(vtkSubdivideTetra, "$Revision: 1.21 $");
+vtkStandardNewMacro(vtkSubdivideTetra);
 
 // Description:
 // Construct with all types of clipping turned off.
@@ -258,6 +248,6 @@ void vtkSubdivideTetra::Execute()
 
 void vtkSubdivideTetra::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkUnstructuredGridToUnstructuredGridFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRungeKutta2.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:09:57 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-01-04 14:22:24 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,9 +39,11 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-
 #include "vtkRungeKutta2.h"
 #include "vtkObjectFactory.h"
+
+vtkCxxRevisionMacro(vtkRungeKutta2, "$Revision: 1.6 $");
+vtkStandardNewMacro(vtkRungeKutta2);
 
 vtkRungeKutta2::vtkRungeKutta2() 
 {
@@ -50,20 +52,6 @@ vtkRungeKutta2::vtkRungeKutta2()
 vtkRungeKutta2::~vtkRungeKutta2() 
 {
 }
-
-
-vtkRungeKutta2* vtkRungeKutta2::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkRungeKutta2");
-  if(ret)
-    {
-    return (vtkRungeKutta2*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkRungeKutta2;
-}
-
 
 // Calculate next time step
 float vtkRungeKutta2::ComputeNextStep(float* xprev, float* dxprev, 

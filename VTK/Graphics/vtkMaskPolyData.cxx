@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMaskPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-29 17:14:46 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2002-01-04 14:25:44 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,18 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkMaskPolyData.h"
 #include "vtkObjectFactory.h"
 
-//--------------------------------------------------------------------------
-vtkMaskPolyData* vtkMaskPolyData::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkMaskPolyData");
-  if(ret)
-    {
-    return (vtkMaskPolyData*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkMaskPolyData;
-}
+vtkCxxRevisionMacro(vtkMaskPolyData, "$Revision: 1.36 $");
+vtkStandardNewMacro(vtkMaskPolyData);
 
 vtkMaskPolyData::vtkMaskPolyData()
 {
@@ -216,7 +206,7 @@ void vtkMaskPolyData::Execute()
 
 void vtkMaskPolyData::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "On Ratio: " << this->OnRatio << "\n";
   os << indent << "Offset: " << this->Offset << "\n";

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIterativeClosestPointTransform.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 14:17:27 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-01-04 14:27:05 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to Sebastien Barre who developed this class. Thanks to
              Tim Hutton too for the idea.
 
@@ -78,7 +78,7 @@ class VTK_HYBRID_EXPORT vtkIterativeClosestPointTransform : public vtkLinearTran
 {
 public:
   static vtkIterativeClosestPointTransform *New();
-  vtkTypeMacro(vtkIterativeClosestPointTransform,vtkLinearTransform);
+  vtkTypeRevisionMacro(vtkIterativeClosestPointTransform,vtkLinearTransform);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

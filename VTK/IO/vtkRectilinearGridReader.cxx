@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-28 13:24:33 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2002-01-04 14:27:53 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,18 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkRectilinearGridReader.h"
 #include "vtkObjectFactory.h"
 
-//----------------------------------------------------------------------------
-vtkRectilinearGridReader* vtkRectilinearGridReader::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkRectilinearGridReader");
-  if(ret)
-    {
-    return (vtkRectilinearGridReader*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkRectilinearGridReader;
-}
+vtkCxxRevisionMacro(vtkRectilinearGridReader, "$Revision: 1.26 $");
+vtkStandardNewMacro(vtkRectilinearGridReader);
 
 //----------------------------------------------------------------------------
 vtkRectilinearGridReader::vtkRectilinearGridReader()
@@ -381,5 +371,5 @@ void vtkRectilinearGridReader::Execute()
 //----------------------------------------------------------------------------
 void vtkRectilinearGridReader::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataReader::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 }

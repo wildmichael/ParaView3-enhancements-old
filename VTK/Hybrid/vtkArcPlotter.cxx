@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArcPlotter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:42:38 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-01-04 14:26:57 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,6 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkMath.h"
 #include "vtkPlane.h"
 #include "vtkFloatArray.h"
+
+vtkCxxRevisionMacro(vtkArcPlotter, "$Revision: 1.14 $");
 
 vtkArcPlotter::vtkArcPlotter()
 {
@@ -302,7 +304,7 @@ int vtkArcPlotter::ProcessComponents(vtkIdType numPts, vtkPointData *pd)
       break;
     case VTK_PLOT_FIELD_DATA:
       int arrayNum = (this->FieldDataArray < pd->GetNumberOfArrays() ?
-		      this->FieldDataArray : pd->GetNumberOfArrays() - 1);
+                      this->FieldDataArray : pd->GetNumberOfArrays() - 1);
       this->Data = pd->GetArray(arrayNum);
       break;
     }
@@ -404,7 +406,7 @@ unsigned long vtkArcPlotter::GetMTime()
 
 void vtkArcPlotter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   if ( this->Camera )
     {

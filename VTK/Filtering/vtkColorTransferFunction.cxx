@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkColorTransferFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:12:58 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2002-01-04 14:23:51 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,23 +39,11 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-
 #include "vtkColorTransferFunction.h"
 #include "vtkObjectFactory.h"
 
-
-//------------------------------------------------------------------------------
-vtkColorTransferFunction* vtkColorTransferFunction::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkColorTransferFunction");
-  if(ret)
-    {
-    return (vtkColorTransferFunction*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkColorTransferFunction;
-}
+vtkCxxRevisionMacro(vtkColorTransferFunction, "$Revision: 1.39 $");
+vtkStandardNewMacro(vtkColorTransferFunction);
 
 // Construct a new vtkColorTransferFunction with default values
 vtkColorTransferFunction::vtkColorTransferFunction()
@@ -787,7 +775,7 @@ void vtkColorTransferFunction::BuildFunctionFromTable( float x1, float x2,
 // Print method for vtkColorTransferFunction
 void vtkColorTransferFunction::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkScalarsToColors::PrintSelf(os, indent);
+  this->Superclass::PrintSelf(os, indent);
 
   os << indent << "Size: " << this->NumberOfPoints << endl;
   if ( this->Clamping )

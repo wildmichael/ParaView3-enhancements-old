@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCast.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-10 23:13:42 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2002-01-04 14:28:19 $
+  Version:   $Revision: 1.40 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,29 +39,12 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-
 #include "vtkImageCast.h"
 #include "vtkObjectFactory.h"
 
 
-
-//------------------------------------------------------------------------------
-vtkImageCast* vtkImageCast::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageCast");
-  if(ret)
-    {
-    return (vtkImageCast*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageCast;
-}
-
-
-
-
-
+vtkCxxRevisionMacro(vtkImageCast, "$Revision: 1.40 $");
+vtkStandardNewMacro(vtkImageCast);
 
 //----------------------------------------------------------------------------
 vtkImageCast::vtkImageCast()
@@ -229,7 +212,7 @@ void vtkImageCast::ThreadedExecute(vtkImageData *inData,
 
 void vtkImageCast::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImageToImageFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "OutputScalarType: " << this->OutputScalarType << "\n";
   os << indent << "ClampOverflow: ";

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReslice.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-07 21:14:23 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-01-04 14:29:08 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to David G Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,26 +39,17 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include <limits.h>
-#include <float.h>
-#include <math.h>
 #include "vtkImageReslice.h"
 #include "vtkMath.h"
 #include "vtkTransform.h"
 #include "vtkObjectFactory.h"
 
-//----------------------------------------------------------------------------
-vtkImageReslice* vtkImageReslice::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageReslice");
-  if(ret)
-    {
-    return (vtkImageReslice*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageReslice;
-}
+#include <limits.h>
+#include <float.h>
+#include <math.h>
+
+vtkCxxRevisionMacro(vtkImageReslice, "$Revision: 1.18 $");
+vtkStandardNewMacro(vtkImageReslice);
 
 //----------------------------------------------------------------------------
 vtkImageReslice::vtkImageReslice()
@@ -142,7 +133,7 @@ vtkImageReslice::~vtkImageReslice()
 //----------------------------------------------------------------------------
 void vtkImageReslice::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImageToImageFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "ResliceAxes: " << this->ResliceAxes << "\n";
   if (this->ResliceAxes)

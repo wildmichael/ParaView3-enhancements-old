@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePermute.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:56 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2002-01-04 14:29:05 $
+  Version:   $Revision: 1.28 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,27 +39,11 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-
 #include "vtkImagePermute.h"
 #include "vtkObjectFactory.h"
 
-
-
-//----------------------------------------------------------------------------
-vtkImagePermute* vtkImagePermute::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImagePermute");
-  if(ret)
-    {
-    return (vtkImagePermute*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImagePermute;
-}
-
-
-
+vtkCxxRevisionMacro(vtkImagePermute, "$Revision: 1.28 $");
+vtkStandardNewMacro(vtkImagePermute);
 
 //----------------------------------------------------------------------------
 vtkImagePermute::vtkImagePermute()
@@ -241,7 +225,7 @@ void vtkImagePermute::ThreadedExecute(vtkImageData *inData,
 
 void vtkImagePermute::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImageToImageFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
     os << indent << "FilteredAxes: ( "
      << this->FilteredAxes[0] << ", "

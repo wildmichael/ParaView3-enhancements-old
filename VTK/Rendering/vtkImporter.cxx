@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-04 20:13:13 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-01-04 14:29:44 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,9 +39,10 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-
 #include "vtkImporter.h"
 #include "vtkRendererCollection.h"
+
+vtkCxxRevisionMacro(vtkImporter, "$Revision: 1.19 $");
 
 vtkImporter::vtkImporter ()
 {
@@ -106,7 +107,7 @@ void vtkImporter::Read ()
 
 void vtkImporter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkObject::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Render Window: ";
   if ( this->RenderWindow )

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTimerLog.h,v $
   Language:  C++
-  Date:      $Date: 2001-12-28 14:03:52 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2002-01-04 14:22:46 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -108,7 +108,7 @@ class VTK_COMMON_EXPORT vtkTimerLog : public vtkObject
 public:
   static vtkTimerLog *New();
 
-  vtkTypeMacro(vtkTimerLog,vtkObject);
+  vtkTypeRevisionMacro(vtkTimerLog,vtkObject);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBJReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:30:34 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-01-04 14:27:43 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,22 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
-
-//------------------------------------------------------------------------------
-vtkOBJReader* vtkOBJReader::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkOBJReader");
-  if(ret)
-    {
-    return (vtkOBJReader*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkOBJReader;
-}
-
-
-
+vtkCxxRevisionMacro(vtkOBJReader, "$Revision: 1.19 $");
+vtkStandardNewMacro(vtkOBJReader);
 
 // Description:
 // Instantiate object with NULL filename.
@@ -268,7 +254,7 @@ void vtkOBJReader::Execute()
 
 void vtkOBJReader::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolyDataSource::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "File Name: " 
      << (this->FileName ? this->FileName : "(none)") << "\n";

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-06 22:45:52 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-01-04 14:30:16 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -52,6 +52,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #endif
 
 #include "vtkObjectFactory.h"
+
+vtkCxxRevisionMacro(vtkVolumeProMapper, "$Revision: 1.27 $");
 
 // Create the mapper. No context has been created, no volume has
 // been created yet.
@@ -213,7 +215,7 @@ void vtkVolumeProMapper::SetSuperSamplingFactor( double x, double y, double z )
 
 void vtkVolumeProMapper::PrintSelf(ostream& os, vtkIndent indent)
 {
-  this->vtkVolumeMapper::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   // don't print this->SubVolume 
   os << indent << "Number Of Boards: " << this->NumberOfBoards << endl;

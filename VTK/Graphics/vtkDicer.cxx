@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDicer.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:36 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2002-01-04 14:25:16 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -41,6 +41,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 #include "vtkDicer.h"
 #include "vtkMath.h"
+
+vtkCxxRevisionMacro(vtkDicer, "$Revision: 1.29 $");
 
 // Instantiate object.
 vtkDicer::vtkDicer()
@@ -82,7 +84,7 @@ void vtkDicer::UpdatePieceMeasures()
 
 void vtkDicer::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataSetToDataSetFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Number of Points per Piece: " 
      << this->NumberOfPointsPerPiece << "\n";

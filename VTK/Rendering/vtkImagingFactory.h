@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagingFactory.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:11 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-01-04 14:29:43 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -51,7 +51,7 @@ class VTK_RENDERING_EXPORT vtkImagingFactory : public vtkObject
 {
 public:
   static vtkImagingFactory *New() {return new vtkImagingFactory;};
-  vtkTypeMacro(vtkImagingFactory,vtkObject);
+  vtkTypeRevisionMacro(vtkImagingFactory,vtkObject);
 
   // Description:
   // Create and return an instance of the named vtk object.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLVolumeProVP1000Mapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-28 16:39:01 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-01-04 14:30:03 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -49,17 +49,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkRenderWindow.h"
 #include "vtkOpenGLRenderWindow.h"
 
-vtkOpenGLVolumeProVP1000Mapper* vtkOpenGLVolumeProVP1000Mapper::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkOpenGLVolumeProVP1000Mapper");
-  if(ret)
-    {
-    return (vtkOpenGLVolumeProVP1000Mapper*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkOpenGLVolumeProVP1000Mapper;
-}
+vtkCxxRevisionMacro(vtkOpenGLVolumeProVP1000Mapper, "$Revision: 1.8 $");
+vtkStandardNewMacro(vtkOpenGLVolumeProVP1000Mapper);
 
 void vtkOpenGLVolumeProVP1000Mapper::RenderImageBuffer(vtkRenderer  *ren,
                                                        vtkVolume    *vol,

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDifference.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:33 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2002-01-04 14:28:31 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -55,7 +55,7 @@ class VTK_IMAGING_EXPORT vtkImageDifference : public vtkImageTwoInputFilter
 {
 public:
   static vtkImageDifference *New();
-  vtkTypeMacro(vtkImageDifference,vtkImageTwoInputFilter);
+  vtkTypeRevisionMacro(vtkImageDifference,vtkImageTwoInputFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

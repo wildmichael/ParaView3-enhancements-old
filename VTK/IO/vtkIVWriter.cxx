@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIVWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-28 20:31:32 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-01-04 14:27:37 $
+  Version:   $Revision: 1.22 $
   Thanks:    to Jon A. Webb for contributing this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,24 +39,15 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include <stdio.h>
 #include "vtkIVWriter.h"
 #include "vtkLookupTable.h"
 #include "vtkAbstractMapper.h"
 #include "vtkObjectFactory.h"
 
-//----------------------------------------------------------------------
-vtkIVWriter* vtkIVWriter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkIVWriter");
-  if(ret)
-    {
-    return (vtkIVWriter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkIVWriter;
-}
+#include <stdio.h>
+
+vtkCxxRevisionMacro(vtkIVWriter, "$Revision: 1.22 $");
+vtkStandardNewMacro(vtkIVWriter);
 
 void vtkIVWriter::WriteData()
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSeedConnectivity.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:58 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-01-04 14:29:09 $
+  Version:   $Revision: 1.25 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,28 +39,11 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-
 #include "vtkImageSeedConnectivity.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkImageSeedConnectivity* vtkImageSeedConnectivity::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageSeedConnectivity");
-  if(ret)
-    {
-    return (vtkImageSeedConnectivity*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageSeedConnectivity;
-}
-
-
-
-
+vtkCxxRevisionMacro(vtkImageSeedConnectivity, "$Revision: 1.25 $");
+vtkStandardNewMacro(vtkImageSeedConnectivity);
 
 //----------------------------------------------------------------------------
 vtkImageSeedConnectivity::vtkImageSeedConnectivity()
@@ -309,7 +292,7 @@ void vtkImageSeedConnectivity::ExecuteData(vtkDataObject *)
 
 void vtkImageSeedConnectivity::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImageToImageFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   if ( this->Connector )
     {

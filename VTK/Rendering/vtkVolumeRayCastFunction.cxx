@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:18:10 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-01-04 14:30:21 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,6 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkVolumeRayCastFunction.h"
 #include "vtkVolumeRayCastMapper.h"
 #include "vtkVolume.h"
+
+vtkCxxRevisionMacro(vtkVolumeRayCastFunction, "$Revision: 1.16 $");
 
 // Grab everything we need for rendering now. This procedure will be called
 // during the initialization phase of ray casting. It is called once per 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageChangeInformation.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:39 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-01-04 14:28:21 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -54,7 +54,7 @@ class VTK_IMAGING_EXPORT vtkImageChangeInformation : public vtkImageToImageFilte
 {
 public:
   static vtkImageChangeInformation *New();
-  vtkTypeMacro(vtkImageChangeInformation, vtkImageToImageFilter);
+  vtkTypeRevisionMacro(vtkImageChangeInformation, vtkImageToImageFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

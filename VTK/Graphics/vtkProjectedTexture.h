@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProjectedTexture.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:12 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-01-04 14:26:05 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -62,7 +62,7 @@ class VTK_GRAPHICS_EXPORT vtkProjectedTexture : public vtkDataSetToDataSetFilter
 {
 public:
   static vtkProjectedTexture *New();
-  vtkTypeMacro(vtkProjectedTexture,vtkDataSetToDataSetFilter);
+  vtkTypeRevisionMacro(vtkProjectedTexture,vtkDataSetToDataSetFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

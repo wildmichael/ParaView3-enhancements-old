@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdList.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:15 $
-  Version:   $Revision: 1.67 $
+  Date:      $Date: 2002-01-04 14:20:50 $
+  Version:   $Revision: 1.68 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,7 +57,7 @@ public:
 
   void Initialize();
   int Allocate(const int sz, const int strategy=0);
-  vtkTypeMacro(vtkIdList,vtkObject);
+  vtkTypeRevisionMacro(vtkIdList,vtkObject);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHeap.h,v $
   Language:  C++
-  Date:      $Date: 2001-12-21 04:04:31 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-01-04 14:20:48 $
+  Version:   $Revision: 1.7 $
   Thanks:    Tom Citriniti who implemented and contributed this class
 
 
@@ -77,7 +77,7 @@ class VTK_COMMON_EXPORT vtkHeap : public vtkObject
 {
 public:
   static vtkHeap *New();
-  vtkTypeMacro(vtkHeap,vtkObject);
+  vtkTypeRevisionMacro(vtkHeap,vtkObject);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

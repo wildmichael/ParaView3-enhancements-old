@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:20 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2002-01-04 14:26:47 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -54,7 +54,7 @@ class VTK_GRAPHICS_EXPORT vtkTriangleFilter : public vtkPolyDataToPolyDataFilter
 {
 public:
   static vtkTriangleFilter *New();
-  vtkTypeMacro(vtkTriangleFilter,vtkPolyDataToPolyDataFilter);
+  vtkTypeRevisionMacro(vtkTriangleFilter,vtkPolyDataToPolyDataFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

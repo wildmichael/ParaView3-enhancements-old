@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamPoints.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:17 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2002-01-04 14:26:30 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,7 +57,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class VTK_GRAPHICS_EXPORT vtkStreamPoints : public vtkStreamer
 {
 public:
-  vtkTypeMacro(vtkStreamPoints,vtkStreamer);
+  vtkTypeRevisionMacro(vtkStreamPoints,vtkStreamer);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

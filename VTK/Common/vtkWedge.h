@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWedge.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:41:25 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-01-04 14:23:12 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -59,7 +59,7 @@ class VTK_COMMON_EXPORT vtkWedge : public vtkCell3D
 {
 public:
   static vtkWedge *New();
-  vtkTypeMacro(vtkWedge,vtkCell);
+  vtkTypeRevisionMacro(vtkWedge,vtkCell);
 
   // Description:
   // See vtkCell3D API for description of these methods.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLongArray.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-04 13:42:15 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2002-01-04 14:21:07 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -55,7 +55,7 @@ class VTK_COMMON_EXPORT vtkLongArray : public vtkDataArray
 public:
   static vtkLongArray *New();
 
-  vtkTypeMacro(vtkLongArray,vtkDataArray);
+  vtkTypeRevisionMacro(vtkLongArray,vtkDataArray);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

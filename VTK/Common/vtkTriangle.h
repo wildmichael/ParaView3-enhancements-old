@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangle.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-30 19:14:14 $
-  Version:   $Revision: 1.74 $
+  Date:      $Date: 2002-01-04 14:22:51 $
+  Version:   $Revision: 1.75 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -56,7 +56,7 @@ class VTK_COMMON_EXPORT vtkTriangle : public vtkCell
 {
 public:
   static vtkTriangle *New();
-  vtkTypeMacro(vtkTriangle,vtkCell);
+  vtkTypeRevisionMacro(vtkTriangle,vtkCell);
 
   // Description:
   // Create a new cell and copy this triangle's information into the

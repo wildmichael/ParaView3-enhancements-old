@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBLight.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:26 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-01-04 14:27:09 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,23 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkRIBLight.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkRIBLight* vtkRIBLight::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkRIBLight");
-  if(ret)
-    {
-    return (vtkRIBLight*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkRIBLight;
-}
-
-
-
+vtkCxxRevisionMacro(vtkRIBLight, "$Revision: 1.15 $");
+vtkStandardNewMacro(vtkRIBLight);
 
 vtkRIBLight::vtkRIBLight ()
 {
@@ -91,7 +76,7 @@ void vtkRIBLight::Render(vtkRenderer *ren, int index)
 
 void vtkRIBLight::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkLight::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
  
 
   os << indent << "Shadows: " << (this->Shadows ? "On\n" : "Off\n");

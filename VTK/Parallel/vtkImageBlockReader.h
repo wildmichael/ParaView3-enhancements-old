@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageBlockReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:58 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-01-04 14:29:20 $
+  Version:   $Revision: 1.15 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -56,7 +56,7 @@ class VTK_PARALLEL_EXPORT vtkImageBlockReader : public vtkImageSource
 {
 public:
   static vtkImageBlockReader *New();
-  vtkTypeMacro(vtkImageBlockReader,vtkImageSource);
+  vtkTypeRevisionMacro(vtkImageBlockReader,vtkImageSource);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

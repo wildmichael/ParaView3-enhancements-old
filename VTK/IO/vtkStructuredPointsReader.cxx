@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-27 21:12:01 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2002-01-04 14:27:59 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,18 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkErrorCode.h"
 
-//--------------------------------------------------------------------------
-vtkStructuredPointsReader* vtkStructuredPointsReader::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkStructuredPointsReader");
-  if(ret)
-    {
-    return (vtkStructuredPointsReader*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkStructuredPointsReader;
-}
+vtkCxxRevisionMacro(vtkStructuredPointsReader, "$Revision: 1.51 $");
+vtkStandardNewMacro(vtkStructuredPointsReader);
 
 vtkStructuredPointsReader::vtkStructuredPointsReader()
 {
@@ -329,5 +319,5 @@ void vtkStructuredPointsReader::Execute()
 
 void vtkStructuredPointsReader::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataReader::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 }

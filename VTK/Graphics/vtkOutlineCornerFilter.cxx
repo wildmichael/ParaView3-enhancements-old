@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutlineCornerFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:25 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-01-04 14:25:49 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to Sebastien Barre who developed this class.
 
 
@@ -44,23 +44,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkOutlineCornerSource.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkOutlineCornerFilter* vtkOutlineCornerFilter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkOutlineCornerFilter");
-  if(ret)
-    {
-    return (vtkOutlineCornerFilter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkOutlineCornerFilter;
-}
-
-
-
+vtkCxxRevisionMacro(vtkOutlineCornerFilter, "$Revision: 1.5 $");
+vtkStandardNewMacro(vtkOutlineCornerFilter);
 
 vtkOutlineCornerFilter::vtkOutlineCornerFilter ()
 {
@@ -112,6 +97,6 @@ void vtkOutlineCornerFilter::ExecuteInformation()
 
 void vtkOutlineCornerFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataSetToPolyDataFilter::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
   os << indent << "CornerFactor: " << this->CornerFactor << "\n";
 }

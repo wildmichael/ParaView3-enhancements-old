@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGLUTesselatorTriangleFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:24 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-01-04 14:27:02 $
+  Version:   $Revision: 1.5 $
   Thanks:    Tom Citriniti who implemented this class
 
 
@@ -63,7 +63,7 @@ class VTK_HYBRID_EXPORT vtkGLUTesselatorTriangleFilter : public vtkPolyDataToPol
 {
 public:
   static vtkGLUTesselatorTriangleFilter *New();
-  vtkTypeMacro(vtkGLUTesselatorTriangleFilter,vtkPolyDataToPolyDataFilter);
+  vtkTypeRevisionMacro(vtkGLUTesselatorTriangleFilter,vtkPolyDataToPolyDataFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

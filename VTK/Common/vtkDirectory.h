@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDirectory.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:09:25 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-01-04 14:20:40 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to William A. Hoffman who developed this class
   
 
@@ -61,7 +61,7 @@ class VTK_COMMON_EXPORT vtkDirectory : public vtkObject
 public:
   // Description:
   // Return the class name as a string.
-  vtkTypeMacro(vtkDirectory,vtkObject);
+  vtkTypeRevisionMacro(vtkDirectory,vtkObject);
 
   // Description:
   // Create a new vtkDirectory object.

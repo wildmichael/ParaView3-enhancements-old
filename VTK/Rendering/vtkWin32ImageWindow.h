@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32ImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:17:35 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-01-04 14:30:24 $
+  Version:   $Revision: 1.27 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -64,7 +64,7 @@ public:
   HWND      ParentId;
 
   static vtkWin32ImageWindow *New();
-  vtkTypeMacro(vtkWin32ImageWindow,vtkImageWindow);
+  vtkTypeRevisionMacro(vtkWin32ImageWindow,vtkImageWindow);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

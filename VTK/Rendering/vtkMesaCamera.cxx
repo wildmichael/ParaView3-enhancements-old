@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-19 19:54:30 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-01-04 14:29:51 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -65,15 +65,5 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkOpenGLCamera.cxx"
 #undef vtkOpenGLCamera
 
-//------------------------------------------------------------------------------
-vtkMesaCamera* vtkMesaCamera::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkMesaCamera");
-  if(ret)
-    {
-    return (vtkMesaCamera*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkMesaCamera;
-}
+vtkCxxRevisionMacro(vtkMesaCamera, "$Revision: 1.11 $");
+vtkStandardNewMacro(vtkMesaCamera);

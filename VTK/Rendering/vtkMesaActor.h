@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaActor.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:14 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-01-04 14:29:51 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,7 +57,7 @@ protected:
   
 public:
   static vtkMesaActor *New();
-  vtkTypeMacro(vtkMesaActor,vtkActor);
+  vtkTypeRevisionMacro(vtkMesaActor,vtkActor);
 
   // Description:
   // Actual actor render method.

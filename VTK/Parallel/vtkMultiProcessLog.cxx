@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiProcessLog.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-13 21:12:19 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-01-04 14:29:22 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,20 +47,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // A log for each process.
 vtkThreadSafeLog *VTK_TIMER_LOGS[VTK_MULTI_PROCESS_LOG_MAX];
 
-
-//----------------------------------------------------------------------------
-vtkMultiProcessLog* vtkMultiProcessLog::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkMultiProcessLog");
-  if(ret)
-    {
-    return (vtkMultiProcessLog*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkMultiProcessLog;
-}
-
+vtkCxxRevisionMacro(vtkMultiProcessLog, "$Revision: 1.3 $");
+vtkStandardNewMacro(vtkMultiProcessLog);
 
 //----------------------------------------------------------------------------
 void vtkMultiProcessLog::SetTimerLog(vtkThreadSafeLog *log)

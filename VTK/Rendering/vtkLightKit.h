@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLightKit.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:14 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-01-04 14:29:50 $
+  Version:   $Revision: 1.9 $
   Thanks:    Michael Halle, Brigham and Women's Hospital
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -122,7 +122,7 @@ class VTK_RENDERING_EXPORT vtkLightKit : public vtkObject
 {
 public:
   static vtkLightKit *New();
-  vtkTypeMacro(vtkLightKit, vtkObject);
+  vtkTypeRevisionMacro(vtkLightKit, vtkObject);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

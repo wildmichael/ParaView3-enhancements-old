@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDataGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-01 18:02:49 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-01-04 14:25:36 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -67,7 +67,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class VTK_GRAPHICS_EXPORT vtkImageDataGeometryFilter : public vtkStructuredPointsToPolyDataFilter
 {
 public:
-  vtkTypeMacro(vtkImageDataGeometryFilter,vtkStructuredPointsToPolyDataFilter);
+  vtkTypeRevisionMacro(vtkImageDataGeometryFilter,vtkStructuredPointsToPolyDataFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWinCEOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-28 14:37:30 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-01-04 14:30:27 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -54,22 +54,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkOpenGLPolyDataMapper.h"
 #include "vtkObjectFactory.h"
 
-
-//----------------------------------------------------------------------------
-vtkWinCEOpenGLRenderWindow* vtkWinCEOpenGLRenderWindow::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkWinCEOpenGLRenderWindow");
-  if(ret)
-    {
-    return (vtkWinCEOpenGLRenderWindow*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkWinCEOpenGLRenderWindow;
-}
-
-
-
+vtkCxxRevisionMacro(vtkWinCEOpenGLRenderWindow, "$Revision: 1.2 $");
+vtkStandardNewMacro(vtkWinCEOpenGLRenderWindow);
 
 #define VTK_MAX_LIGHTS 8
 
@@ -679,7 +665,7 @@ void vtkWinCEOpenGLRenderWindow::WindowRemap()
 
 void vtkWinCEOpenGLRenderWindow::PrintSelf(ostream& os, vtkIndent indent)
 {
-  this->vtkOpenGLRenderWindow::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Next Window Id: " << this->NextWindowId << "\n";
   os << indent << "Window Id: " << this->WindowId << "\n";

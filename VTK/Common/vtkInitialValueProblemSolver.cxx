@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInitialValueProblemSolver.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:09:46 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-01-04 14:20:56 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,8 +39,9 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-
 #include "vtkInitialValueProblemSolver.h"
+
+vtkCxxRevisionMacro(vtkInitialValueProblemSolver, "$Revision: 1.5 $");
 
 vtkInitialValueProblemSolver::vtkInitialValueProblemSolver() 
 {
@@ -81,7 +82,7 @@ void vtkInitialValueProblemSolver::SetFunctionSet(vtkFunctionSet* fset)
 
 void vtkInitialValueProblemSolver::PrintSelf(ostream& os, vtkIndent indent)
 {
-  this->vtkObject::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
   os << indent << "Function set : " << this->FunctionSet << endl;
   os << indent << "Function values : " << this->Vals << endl;
   os << indent << "Function derivatives: " << this->Derivs << endl;

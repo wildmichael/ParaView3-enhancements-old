@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:18:18 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2002-01-04 14:30:28 $
+  Version:   $Revision: 1.43 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -46,6 +46,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef VTK_REMOVE_LEGACY_CODE
 //mark this class for future legacy-related changes
 #endif
+
+vtkCxxRevisionMacro(vtkXImageWindow, "$Revision: 1.43 $");
 
 //--------------------------------------------------------------------------
 vtkXImageWindow* vtkXImageWindow::New()

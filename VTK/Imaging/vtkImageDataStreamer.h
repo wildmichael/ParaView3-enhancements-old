@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDataStreamer.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:41 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-01-04 14:28:29 $
+  Version:   $Revision: 1.22 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -54,7 +54,7 @@ class VTK_IMAGING_EXPORT vtkImageDataStreamer : public vtkImageToImageFilter
 {
 public:
   static vtkImageDataStreamer *New();
-  vtkTypeMacro(vtkImageDataStreamer,vtkImageToImageFilter);
+  vtkTypeRevisionMacro(vtkImageDataStreamer,vtkImageToImageFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

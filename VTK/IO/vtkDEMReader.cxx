@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDEMReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:30:31 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-01-04 14:27:25 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,23 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkDEMReader.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkDEMReader* vtkDEMReader::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkDEMReader");
-  if(ret)
-    {
-    return (vtkDEMReader*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkDEMReader;
-}
-
-
-
+vtkCxxRevisionMacro(vtkDEMReader, "$Revision: 1.27 $");
+vtkStandardNewMacro(vtkDEMReader);
 
 #define VTK_SW  0
 #define VTK_NW  1
@@ -515,7 +500,7 @@ void ConvertDNotationToENotation (char *line)
 
 void vtkDEMReader::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImageSource::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "File Name: " 
      << (this->FileName ? this->FileName : "(none)") << "\n";

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitBoolean.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:13:01 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2002-01-04 14:24:11 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,27 +39,13 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include <math.h>
 #include "vtkImplicitBoolean.h"
 #include "vtkObjectFactory.h"
 
+#include <math.h>
 
-
-//------------------------------------------------------------------------------
-vtkImplicitBoolean* vtkImplicitBoolean::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImplicitBoolean");
-  if(ret)
-    {
-    return (vtkImplicitBoolean*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImplicitBoolean;
-}
-
-
-
+vtkCxxRevisionMacro(vtkImplicitBoolean, "$Revision: 1.29 $");
+vtkStandardNewMacro(vtkImplicitBoolean);
 
 // Construct with union operation.
 vtkImplicitBoolean::vtkImplicitBoolean()
@@ -255,7 +241,7 @@ void vtkImplicitBoolean::EvaluateGradient(float x[3], float g[3])
 
 void vtkImplicitBoolean::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImplicitFunction::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Function List:\n";
   this->FunctionList->PrintSelf(os,indent.GetNextIndent());

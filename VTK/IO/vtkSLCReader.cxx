@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSLCReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:30:35 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2002-01-04 14:27:54 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,28 +39,13 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include <ctype.h>
-
 #include "vtkSLCReader.h"
 #include "vtkObjectFactory.h"
 
+#include <ctype.h>
 
-
-//------------------------------------------------------------------------------
-vtkSLCReader* vtkSLCReader::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkSLCReader");
-  if(ret)
-    {
-    return (vtkSLCReader*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkSLCReader;
-}
-
-
-
+vtkCxxRevisionMacro(vtkSLCReader, "$Revision: 1.37 $");
+vtkStandardNewMacro(vtkSLCReader);
 
 // Constructor for a vtkSLCReader.
 vtkSLCReader::vtkSLCReader()
@@ -350,7 +335,7 @@ void vtkSLCReader::Execute()
 
 void vtkSLCReader::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkStructuredPointsSource::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Error: " << this->Error << "\n";
   os << indent << "File Name: " 

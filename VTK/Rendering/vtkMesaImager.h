@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaImager.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:15 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-01-04 14:29:52 $
+  Version:   $Revision: 1.9 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -56,7 +56,7 @@ class VTK_RENDERING_EXPORT vtkMesaImager : public vtkImager
 { 
 public:
   static vtkMesaImager *New();
-  vtkTypeMacro(vtkMesaImager,vtkImager);
+  vtkTypeRevisionMacro(vtkMesaImager,vtkImager);
 
   // Description:
   // Renders an imager.  Passes Render message on the 

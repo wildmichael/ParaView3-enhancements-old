@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaImageMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:17:23 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-01-04 14:29:52 $
+  Version:   $Revision: 1.10 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -58,7 +58,7 @@ class VTK_RENDERING_EXPORT vtkMesaImageMapper : public vtkImageMapper
 {
 public:
   static vtkMesaImageMapper *New();
-  vtkTypeMacro(vtkMesaImageMapper,vtkImageMapper);
+  vtkTypeRevisionMacro(vtkMesaImageMapper,vtkImageMapper);
   
   // Description:
   // Handle the render method.

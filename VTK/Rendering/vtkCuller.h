@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCuller.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:17:18 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-01-04 14:29:37 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,7 +60,7 @@ class vtkRenderer;
 class VTK_RENDERING_EXPORT vtkCuller : public vtkObject
 {
 public:
-  vtkTypeMacro(vtkCuller,vtkObject);
+  vtkTypeRevisionMacro(vtkCuller,vtkObject);
 
   // Description:
   // This is called outside the render loop by vtkRenderer
@@ -68,8 +68,8 @@ public:
                       int& listLength, int& initialized )=0;
 
 protected:
-  vtkCuller() {};
-  ~vtkCuller() {};
+  vtkCuller();
+  ~vtkCuller();
 private:
   vtkCuller(const vtkCuller&);  // Not implemented.
   void operator=(const vtkCuller&);    // Not implemented.

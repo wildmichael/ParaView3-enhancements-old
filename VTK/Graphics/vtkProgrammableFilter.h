@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:12 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-01-04 14:26:02 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -70,7 +70,7 @@ class VTK_GRAPHICS_EXPORT vtkProgrammableFilter : public vtkDataSetToDataSetFilt
 {
 public:
   static vtkProgrammableFilter *New();
-  vtkTypeMacro(vtkProgrammableFilter,vtkDataSetToDataSetFilter);
+  vtkTypeRevisionMacro(vtkProgrammableFilter,vtkDataSetToDataSetFilter);
 
   // Description:
   // Specify the function to use to operate on the point attribute data. Note

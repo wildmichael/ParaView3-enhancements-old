@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTetra.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:41:22 $
-  Version:   $Revision: 1.66 $
+  Date:      $Date: 2002-01-04 14:22:45 $
+  Version:   $Revision: 1.67 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,7 +57,7 @@ class VTK_COMMON_EXPORT vtkTetra : public vtkCell3D
 {
 public:
   static vtkTetra *New();
-  vtkTypeMacro(vtkTetra,vtkCell);
+  vtkTypeRevisionMacro(vtkTetra,vtkCell);
 
   // Description:
   // See vtkCell3D API for description of these methods.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDiskSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-27 13:24:31 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2002-01-04 14:25:17 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,23 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkDiskSource* vtkDiskSource::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkDiskSource");
-  if(ret)
-    {
-    return (vtkDiskSource*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkDiskSource;
-}
-
-
-
+vtkCxxRevisionMacro(vtkDiskSource, "$Revision: 1.28 $");
+vtkStandardNewMacro(vtkDiskSource);
 
 vtkDiskSource::vtkDiskSource()
 {
@@ -137,7 +122,7 @@ void vtkDiskSource::Execute()
 
 void vtkDiskSource::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolyDataSource::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   os << indent << "InnerRadius: " << this->InnerRadius << "\n";
   os << indent << "OuterRadius: " << this->OuterRadius << "\n";
