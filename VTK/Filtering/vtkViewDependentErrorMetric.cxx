@@ -24,7 +24,7 @@
 #include "vtkCoordinate.h"
 #include "vtkViewport.h"
 
-vtkCxxRevisionMacro(vtkViewDependentErrorMetric,"$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkViewDependentErrorMetric,"$Revision: 1.6 $");
 vtkStandardNewMacro(vtkViewDependentErrorMetric);
 
 //-----------------------------------------------------------------------------
@@ -72,10 +72,10 @@ void vtkViewDependentErrorMetric::SetViewport(vtkViewport *viewport)
 }
 
 //-----------------------------------------------------------------------------
-int vtkViewDependentErrorMetric::NeedEdgeSubdivision(double *leftPoint,
-                                                     double *midPoint,
-                                                     double *rightPoint,
-                                                     double vtkNotUsed(alpha))
+int vtkViewDependentErrorMetric::RequiresEdgeSubdivision(double *leftPoint,
+                                                         double *midPoint,
+                                                         double *rightPoint,
+                                                         double vtkNotUsed(alpha))
 {
   assert("pre: leftPoint_exists" && leftPoint!=0);
   assert("pre: midPoint_exists" && midPoint!=0);
