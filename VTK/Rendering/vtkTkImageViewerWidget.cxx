@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkImageViewerWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-23 15:04:48 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1998-05-22 13:29:57 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -134,8 +134,20 @@ int vtkTkImageViewerWidget_Widget(ClientData clientData, Tcl_Interp *interp,
   // Make sure the widget is not deleted during this function
   Tk_Preserve((ClientData)self);
   
+  
+  // Handle render call to the widget
+  if (strncmp(argv[1], "render", MAX(1, strlen(argv[1]))) == 0 || 
+      strncmp(argv[1], "Render", MAX(1, strlen(argv[1]))) == 0) 
+    {
+    // make sure we have a window
+    if (self->ImageViewer == NULL)
+      {
+      vtkTkImageViewerWidget_MakeImageViewer(self);
+      }
+    self->ImageViewer->Render();
+    }
   // Handle configure method
-  if (!strncmp(argv[1], "configure", MAX(1, strlen(argv[1])))) 
+  else if (!strncmp(argv[1], "configure", MAX(1, strlen(argv[1])))) 
     {
     if (argc == 2) 
       {
@@ -289,7 +301,8 @@ static void vtkTkImageViewerWidget_EventProc(ClientData clientData,
       if ((eventPtr->xexpose.count == 0)
 	  /* && !self->UpdatePending*/) 
 	{
-	self->ImageViewer->Render();
+	// bid this in tcl now
+	//self->ImageViewer->Render();
 	}
       break;
     case ConfigureNotify:
