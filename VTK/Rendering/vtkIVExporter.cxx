@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIVExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-05 13:11:34 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-02-24 17:33:43 $
+  Version:   $Revision: 1.12 $
   Thanks:    to Jon A. Webb of Visual Interface Inc.
 
 
@@ -274,7 +274,7 @@ void vtkIVExporter::WriteAnActor(vtkActor *anActor, FILE *fp)
 
   // first stuff out the transform
   trans = new vtkTransform;
-  trans->SetMatrix(*(anActor->vtkProp::GetMatrixPointer()));
+  trans->SetMatrix(*(anActor->vtkProp3D::GetMatrixPointer()));
   
   fprintf(fp,"%sTransform {\n", indent);
   VTK_INDENT_MORE;
