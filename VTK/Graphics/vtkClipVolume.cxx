@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-09 19:52:14 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2002-01-10 15:34:12 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -46,7 +46,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkClipVolume, "$Revision: 1.44 $");
+vtkCxxRevisionMacro(vtkClipVolume, "$Revision: 1.45 $");
 vtkStandardNewMacro(vtkClipVolume);
 
 // Construct with user-specified implicit function; InsideOut turned off; value
@@ -425,9 +425,8 @@ void vtkClipVolume::ClipVoxel(float value, vtkDataArray *cellScalars,
                               vtkCellData *vtkNotUsed(clippedCD))
 {
   float x[3], *xPtr, s1, s2, t, voxelOrigin[3];
-  int itmp, jtmp, ktmp;
   float bounds[6], p1[3], p2[3];
-  int i, edgeNum, numPts, sortId;
+  int i, edgeNum, numPts;
   vtkIdType id, ptId;
   vtkUnstructuredGrid *output=this->GetOutput();
   vtkUnstructuredGrid *clippedOutput=this->GetClippedOutput();
