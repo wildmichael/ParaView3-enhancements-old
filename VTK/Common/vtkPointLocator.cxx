@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-12 21:20:58 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 2001-12-28 14:01:41 $
+  Version:   $Revision: 1.57 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -496,7 +496,11 @@ struct idsort
   float dist;
 };
 
+#ifdef _WIN32_WCE
+static int __cdecl idsortcompare(const void *arg1, const void *arg2)
+#else
 static int idsortcompare(const void *arg1, const void *arg2)
+#endif
 {
   idsort *v1 = (idsort *)arg1;
   idsort *v2 = (idsort *)arg2;
