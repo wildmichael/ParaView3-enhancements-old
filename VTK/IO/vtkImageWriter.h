@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWriter.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:08:56 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2000-03-21 21:32:49 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -91,7 +91,7 @@ public:
   
   // Description:
   // Set/Get the input object from the image pipeline.
-  void SetInput(vtkImageData *input);
+  virtual void SetInput(vtkImageData *input);
   vtkImageData *GetInput();
 
   // Description:
