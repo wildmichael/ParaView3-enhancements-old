@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLegendBoxActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-28 15:12:17 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-09-28 18:27:22 $
+  Version:   $Revision: 1.8 $
   Thanks:    Tim Smith who sponsored and encouraged the development
              of this class.
 
@@ -145,11 +145,11 @@ void vtkLegendBoxActor::InitializeEntries()
       if ( this->Symbol[i] )
         {
         this->Symbol[i]->Delete();
-        this->Transform[i]->Delete();
-        this->SymbolTransform[i]->Delete();
-        this->SymbolMapper[i]->Delete();
-        this->SymbolActor[i]->Delete();
         }
+      this->Transform[i]->Delete();
+      this->SymbolTransform[i]->Delete();
+      this->SymbolMapper[i]->Delete();
+      this->SymbolActor[i]->Delete();
       if ( this->TextMapper[i] )
         {
         this->TextMapper[i]->Delete();
