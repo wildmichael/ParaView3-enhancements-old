@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:06:12 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 1999-11-02 19:33:01 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -97,7 +97,14 @@ vtkDataSet * vtkDataSetReader::GetOutput()
     }
 
   this->Execute();
-  return (vtkDataSet *)this->Outputs[0];
+  if (this->Outputs == NULL)
+    {
+    return NULL;
+    }
+  else
+    {
+    return (vtkDataSet *)this->Outputs[0];
+    }
 }
 
 unsigned long int vtkDataSetReader::GetMTime()
