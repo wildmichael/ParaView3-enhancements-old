@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimate.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-08 12:46:57 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1995-09-12 07:30:19 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,8 +66,8 @@ static vtkTriArray *T; //cycle of triangles around point
 
 // Description:
 // Create object with target reduction of 90%, feature angle of 30 degrees, 
-// intial error of 0.0, error increment of 0.005, maximum error of 0.1, and
-// maximum iterions of 6.
+// initial error of 0.0, error increment of 0.005, maximum error of 0.1, and
+// maximum iterations of 6.
 vtkDecimate::vtkDecimate()
 {
   this->InitialFeatureAngle = 30;

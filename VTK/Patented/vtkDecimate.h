@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimate.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-08 12:48:51 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-09-12 07:30:20 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -215,7 +215,7 @@ public:
   vtkGetMacro(FeatureAngleIncrement,float);
 
   // Description:
-  // Set the largest permissable feature angle.
+  // Set the largest permissible feature angle.
   vtkSetClampMacro(MaximumFeatureAngle,float,0.0,180.0);
   vtkGetMacro(MaximumFeatureAngle,float);
 
