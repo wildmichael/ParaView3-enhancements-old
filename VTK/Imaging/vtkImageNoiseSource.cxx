@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageNoiseSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 19:10:56 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-06-29 20:35:22 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -153,5 +153,7 @@ void vtkImageNoiseSource::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkImageSource::PrintSelf(os,indent);
 
+  os << indent << "Minimum: " << this->Minimum << "\n";
+  os << indent << "Maximum: " << this->Maximum << "\n";
 }
 

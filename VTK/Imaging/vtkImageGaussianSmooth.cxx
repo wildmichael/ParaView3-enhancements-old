@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGaussianSmooth.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-07 18:17:57 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1998-06-29 20:35:09 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,7 +64,20 @@ void vtkImageGaussianSmooth::PrintSelf(ostream& os, vtkIndent indent)
   // int idx;
   
   this->vtkImageFilter::PrintSelf(os, indent);
+
   //os << indent << "BoundaryRescale: " << this->BoundaryRescale << "\n";
+
+  os << indent << "Dimensionality: " << this->Dimensionality << "\n";
+
+  os << indent << "RadiusFactors: ( "
+     << this->RadiusFactors[0] << ", "
+     << this->RadiusFactors[1] << ", "
+     << this->RadiusFactors[2] << " )\n";
+
+  os << indent << "StandardDeviations: ( "
+     << this->StandardDeviations[0] << ", "
+     << this->StandardDeviations[1] << ", "
+     << this->StandardDeviations[2] << " )\n";
 }
 
 //----------------------------------------------------------------------------

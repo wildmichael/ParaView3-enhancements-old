@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCast.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 19:10:23 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1998-06-29 20:34:59 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -230,5 +230,6 @@ void vtkImageCast::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkImageFilter::PrintSelf(os,indent);
 
+  os << indent << "OutputScalarType: " << this->OutputScalarType << "\n";
 }
 

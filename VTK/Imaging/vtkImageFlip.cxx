@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFlip.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 19:10:34 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-06-29 20:35:08 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -235,6 +235,11 @@ void vtkImageFlip::ThreadedExecute(vtkImageData *inData,
 void vtkImageFlip::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkImageFilter::PrintSelf(os,indent);
+
+  os << indent << "FilteredAxis: " << this->FilteredAxis << "\n";
+
+  os << indent << "PreserveImageExtent: " << (this->PreserveImageExtent ? "On\n" : "Off\n");
+
 
 }
 

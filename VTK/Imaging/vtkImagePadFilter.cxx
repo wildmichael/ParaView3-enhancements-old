@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePadFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 19:11:00 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1998-06-29 20:35:23 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -163,6 +163,8 @@ void vtkImagePadFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkImageFilter::PrintSelf(os,indent);
 
+  os << indent << "OutputNumberOfScalarComponents: " 
+     << this->OutputNumberOfScalarComponents << "\n";
 }
 
 

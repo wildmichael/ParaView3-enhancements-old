@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMagnify.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 19:10:49 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1998-06-29 20:35:18 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -334,6 +334,13 @@ void vtkImageMagnify::ThreadedExecute(vtkImageData *inData,
 void vtkImageMagnify::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkImageFilter::PrintSelf(os,indent);
+
+  os << indent << "MagnificationFactors: ( "
+     << this->MagnificationFactors[0] << ", "
+     << this->MagnificationFactors[1] << ", "
+     << this->MagnificationFactors[2] << " )\n";
+
+  os << indent << "Interpolate: " << (this->Interpolate ? "On\n" : "Off\n");
 
 }
 

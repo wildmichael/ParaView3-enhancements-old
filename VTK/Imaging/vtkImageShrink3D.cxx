@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageShrink3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-07 14:27:56 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1998-06-29 20:35:25 $
+  Version:   $Revision: 1.28 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,12 +56,15 @@ vtkImageShrink3D::vtkImageShrink3D()
 //----------------------------------------------------------------------------
 void vtkImageShrink3D::PrintSelf(ostream& os, vtkIndent indent)
 {
+  vtkImageFilter::PrintSelf(os,indent);
+
   os << indent << "ShrinkFactors: (" << this->ShrinkFactors[0] << ", "
      << this->ShrinkFactors[1] << ", " << this->ShrinkFactors[2] << ")\n";
   os << indent << "Shift: (" << this->Shift[0] << ", "
      << this->Shift[1] << ", " << this->Shift[2] << ")\n";
-  
-  vtkImageFilter::PrintSelf(os,indent);
+
+  os << indent << "Averaging: " << (this->Averaging ? "On\n" : "Off\n");
+
 }
 
 //----------------------------------------------------------------------------

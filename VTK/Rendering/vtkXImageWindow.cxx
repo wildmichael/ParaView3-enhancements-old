@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-19 17:34:03 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1998-06-29 20:35:28 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -273,7 +273,7 @@ void vtkXImageWindow::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Icon Pixmap: " << this->IconPixmap << "\n";
   os << indent << "Offset: " << this->Offset << "\n";
   os << indent << "Colors: " << this->Colors << "\n";
-  os << indent << "Number Of Colors: " << this->Colors << "\n";
+  os << indent << "Number Of Colors: " << this->NumberOfColors << "\n";
   os << indent << "Drawable: " << this->Drawable << "\n";
 
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAccumulate.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 19:10:17 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-06-29 20:34:55 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -288,5 +288,14 @@ void vtkImageAccumulate::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkImageFilter::PrintSelf(os,indent);
 
+  os << indent << "ComponentOrigin: ( "
+     << this->ComponentOrigin[0] << ", "
+     << this->ComponentOrigin[1] << ", "
+     << this->ComponentOrigin[2] << " )\n";
+
+  os << indent << "ComponentSpacing: ( "
+     << this->ComponentSpacing[0] << ", "
+     << this->ComponentSpacing[1] << ", "
+     << this->ComponentSpacing[2] << " )\n";
 }
 

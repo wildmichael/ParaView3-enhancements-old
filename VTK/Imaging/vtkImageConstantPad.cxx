@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageConstantPad.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 19:10:27 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1998-06-29 20:35:01 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -209,6 +209,8 @@ void vtkImageConstantPad::ThreadedExecute(vtkImageData *inData,
 void vtkImageConstantPad::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkImagePadFilter::PrintSelf(os,indent);
+
+  os << indent << "Constant: " << this->Constant << "\n";
 
 }
 

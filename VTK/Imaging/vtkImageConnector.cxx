@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageConnector.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 19:10:25 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-06-29 20:35:00 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -200,6 +200,9 @@ void vtkImageConnector::MarkData(vtkImageData *data, int numberOfAxes, int exten
 void vtkImageConnector::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkObject::PrintSelf(os,indent);
+
+  os << indent << "ConnectedValue: " << this->ConnectedValue << "\n";
+  os << indent << "UnconnectedValue: " << this->UnconnectedValue << "\n";
 
 }
  

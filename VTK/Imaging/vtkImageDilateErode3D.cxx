@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDilateErode3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-01 14:53:38 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1998-06-29 20:35:03 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,6 +79,9 @@ vtkImageDilateErode3D::~vtkImageDilateErode3D()
 void vtkImageDilateErode3D::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkImageSpatialFilter::PrintSelf(os,indent);
+
+  os << indent << "DilateValue: " << this->DilateValue << "\n";
+  os << indent << "ErodeValue: " << this->ErodeValue << "\n";
 }
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMask.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 19:10:51 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-06-29 20:35:19 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -206,5 +206,8 @@ void vtkImageMask::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkImageTwoInputFilter::PrintSelf(os,indent);
 
+  os << indent << "MaskedOutputValue: " << this->MaskedOutputValue << "\n";
+
+  os << indent << "NotMask: " << (this->NotMask ? "On\n" : "Off\n");
 }
 
