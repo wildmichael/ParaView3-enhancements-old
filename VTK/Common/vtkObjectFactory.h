@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObjectFactory.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-25 20:53:16 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-03-02 17:07:38 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to William A. Hoffman who developed this class
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -103,10 +103,10 @@ public:
   static int HasOverrideAny(const char* className);
   
   // Description:
-  // return a vtkOverrideInformation object collection, NOTE: caller must
-  // call Delete on returned object.
-  static vtkOverrideInformationCollection* 
-    GetOverrideInformation(const char* name);
+  // Fill the given collection with all the overrides for
+  // the class with the given name.
+  static void GetOverrideInformation(const char* name,
+                                     vtkOverrideInformationCollection*);
   
   // Description:
   // Set the enable flag for a given named class for all registered
