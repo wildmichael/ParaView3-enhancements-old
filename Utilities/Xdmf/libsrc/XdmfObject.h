@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfObject.h,v 1.3 2003-04-09 19:57:26 andy Exp $  */
-/*  Date : $Date: 2003-04-09 19:57:26 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: XdmfObject.h,v 1.4 2003-04-11 17:57:52 andy Exp $  */
+/*  Date : $Date: 2003-04-11 17:57:52 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -356,6 +356,9 @@ extern void SetGlobalDebug( XdmfInt32 DebugLevel );
 extern XdmfString GetUnique( XdmfString Pattern = NULL );
 extern XDMF_EXPORT char *XdmfObjectToHandle( XdmfObject *Source );
 extern XdmfObject *HandleToXdmfObject( char *Source );
+
+extern istrstream& ICE_READ_STREAM64(istrstream& istr, ICE_64_INT& i);
+
 #endif /* __cplusplus */
 
 #endif /* __XdmfObject_h */

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfHDF.cxx,v 1.1 2002-12-02 17:11:03 clarke Exp $  */
-/*  Date : $Date: 2002-12-02 17:11:03 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfHDF.cxx,v 1.2 2003-04-11 17:57:52 andy Exp $  */
+/*  Date : $Date: 2003-04-11 17:57:52 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -381,11 +381,11 @@ src_npts = H5Sget_select_npoints( this->GetDataSpace() );
 dest_npts = H5Sget_select_npoints( Array->GetDataSpace() );
 if( src_npts != dest_npts ) {
   XdmfErrorMessage("Source and Target Spaces specify different sizes");
-  XdmfErrorMessage("Source = " << src_npts << " items");
-  XdmfErrorMessage("Target = " << dest_npts << " items");
+  XdmfErrorMessage("Source = " << ICE_64BIT_CAST(src_npts) << " items");
+  XdmfErrorMessage("Target = " << ICE_64BIT_CAST(dest_npts) << " items");
   return( NULL );
 } else {
-  XdmfDebug("Reading " << src_npts << " items");
+  XdmfDebug("Reading " << ICE_64BIT_CAST(src_npts) << " items");
 }
 
 status = H5Dread( this->Dataset,
@@ -430,11 +430,11 @@ src_npts = H5Sget_select_npoints( this->GetDataSpace() );
 dest_npts = H5Sget_select_npoints( Array->GetDataSpace() );
 if( src_npts != dest_npts ) {
   XdmfErrorMessage("Source and Target Spaces specify different sizes");
-  XdmfErrorMessage("Source = " << src_npts << " items");
-  XdmfErrorMessage("Target = " << dest_npts << " items");
+  XdmfErrorMessage("Source = " << ICE_64BIT_CAST(src_npts) << " items");
+  XdmfErrorMessage("Target = " << ICE_64BIT_CAST(dest_npts) << " items");
   return( NULL );
 } else {
-  XdmfDebug("Writing " << src_npts << " items");
+  XdmfDebug("Writing " << ICE_64BIT_CAST(src_npts) << " items");
 }
 
 status = H5Dwrite( this->Dataset,
