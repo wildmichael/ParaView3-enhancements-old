@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVDataInformation.h,v $
   Language:  C++
-  Date:      $Date: 2003-03-20 15:37:29 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-05-01 18:23:50 $
+  Version:   $Revision: 1.5 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -93,8 +93,8 @@ public:
   vtkGetMacro(DataSetType, int);
   const char *GetDataSetTypeAsString();
   int DataSetTypeIsA(const char* type);
-  vtkGetMacro(NumberOfPoints, int);
-  vtkGetMacro(NumberOfCells, int);
+  vtkGetMacro(NumberOfPoints, vtkIdType);
+  vtkGetMacro(NumberOfCells, vtkIdType);
   vtkGetMacro(MemorySize, unsigned long);
   vtkGetMacro(GeometryMemorySize, unsigned long);
   vtkGetMacro(LODMemorySize, unsigned long);
@@ -135,8 +135,8 @@ protected:
 
   // Data information collected from remote processes.
   int            DataSetType;
-  int            NumberOfPoints;
-  int            NumberOfCells;
+  vtkIdType      NumberOfPoints;
+  vtkIdType      NumberOfCells;
   unsigned long  MemorySize;
   unsigned long  GeometryMemorySize;
   unsigned long  LODMemorySize;
