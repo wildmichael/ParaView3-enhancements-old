@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: Cone.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:27:37 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-07-17 18:04:09 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,6 +26,7 @@
 #include "vtkConeSource.h"
 #include "vtkPolyDataMapper.h"
 #include "vtkRenderWindow.h"
+#include "vtkCamera.h"
 
 int main( int argc, char *argv[] )
 {
