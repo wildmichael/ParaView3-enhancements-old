@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLookupTable.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-09 19:47:57 $
-  Version:   $Revision: 1.68 $
+  Date:      $Date: 2002-11-25 11:17:44 $
+  Version:   $Revision: 1.69 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -200,6 +200,10 @@ public:
   void MapScalarsThroughTable2(void *input, unsigned char *output,
                                int inputDataType, int numberOfValues,
                                int inputIncrement, int outputIncrement);
+
+  // Description:
+  // Copy the contents from another LookupTable
+  void DeepCopy(vtkLookupTable *lut);
 
 protected:
   vtkLookupTable(int sze=256, int ext=256);
