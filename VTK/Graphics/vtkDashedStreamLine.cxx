@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDashedStreamLine.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:33 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2000-12-21 20:39:41 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -194,6 +194,11 @@ void vtkDashedStreamLine::Execute()
 
   output->SetLines(newLines);
   newLines->Delete();
+
+  // Delete the streamers since they are no longer needed
+  delete[] this->Streamers;
+  this->Streamers = 0;
+  this->NumberOfStreamers = 0;
 
   output->Squeeze();
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:53 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2000-12-21 20:39:41 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -170,6 +170,11 @@ void vtkStreamPoints::Execute()
     output->GetPointData()->SetScalars(newScalars);
     newScalars->Delete();
     }
+
+  // Delete the streamers since they are no longer needed
+  delete[] this->Streamers;
+  this->Streamers = 0;
+  this->NumberOfStreamers = 0;
 
   output->Squeeze();
   pts->Delete();
