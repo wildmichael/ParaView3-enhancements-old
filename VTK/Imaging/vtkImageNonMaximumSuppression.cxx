@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageNonMaximumSuppression.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-12-11 13:28:23 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1996-12-11 21:38:53 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -280,7 +280,7 @@ void vtkImageNonMaximumSuppression::Execute(vtkImageRegion *inRegion1,
 		}
 	      }
 	    // Vector points negative along this axis?
-	    else if (d < *thresh)
+	    else if (d < -(*thresh))
 	      {
 	      if (*idxs < imageExtent[1])  // max
 		{
