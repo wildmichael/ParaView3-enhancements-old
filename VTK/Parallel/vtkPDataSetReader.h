@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPDataSetReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-16 19:21:02 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-11-20 19:01:41 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -87,9 +87,8 @@ protected:
   void operator=(const vtkPDataSetReader&);
 
   virtual void ExecuteInformation();
-  void ReadImageInformation(vtkImageData *output, char *str, ifstream *fp);
-  void ReadWholeExtent(vtkDataSet *output, char *str, ifstream *fp);
-  void ReadVTKFileInformation(char *str, ifstream *fp);
+  void ReadPVTKFileInformation(ifstream *fp);
+  void ReadVTKFileInformation(ifstream *fp);
 
   virtual void Execute();
   void PolyDataExecute();
@@ -105,7 +104,7 @@ protected:
 //BTX
   ifstream *vtkPDataSetReader::OpenFile();
 //ETX
-  int ReadXML(ifstream *file, char **param, char **value);
+  int ReadXML(ifstream *file, char **block, char **param, char **value);
 
   int VTKFileFlag;
   int StructuredFlag;
