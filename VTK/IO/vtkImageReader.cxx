@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-10-07 13:20:57 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1997-12-11 16:23:56 $
+  Version:   $Revision: 1.34 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -610,6 +610,7 @@ void vtkImageReader::OpenAndSeekFile(int dataExtent[8], int idx)
       }
     }
   
+  this->UpdateProgress ((float) (idx - dataExtent[4]) / (float) (dataExtent[5] - dataExtent[4] + 1));
   this->OpenFile();
 
   // convert data extent into constants that can be used to seek.
