@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLImporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-06 20:17:50 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2001-07-14 04:19:53 $
+  Version:   $Revision: 1.32 $
   Thanks:    Tom Citriniti who implemented and contributed this class
 
 
@@ -514,7 +514,7 @@ VrmlNodeType::has(const VectorType<NameTypeRec*> &recs, const char *nodeName) co
 
 #define YYDEBUG 1
 
-#ifndef DARWIN
+#ifndef __APPLE__
 #include <malloc.h>
 #endif
 
