@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyphSource2D.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:02 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-04-19 21:45:31 $
+  Version:   $Revision: 1.6 $
   Thanks:    Tim Smith who sponsored and encouraged the development
              of this class.
 
@@ -134,7 +134,6 @@ public:
   // rotated glyphs (e.g., crosses, arrows, etc.)
   vtkSetMacro(RotationAngle,float);
   vtkGetMacro(RotationAngle,float);
-  vtkBooleanMacro(RotationAngle,float);
 
   // Description:
   // Specify the type of glyph to generate.
