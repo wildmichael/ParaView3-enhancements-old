@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedShortArray.h,v $
   Language:  C++
-  Date:      $Date: 1996-07-16 18:41:44 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1996-07-16 20:45:48 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,7 +64,7 @@ public:
   // access/insertion methods
   unsigned short GetValue(const int id);
   vtkUnsignedShortArray &InsertValue(const int id, const unsigned short i);
-  int InsertNextValue(const int unsigned short);
+  int InsertNextValue(const unsigned short);
   unsigned short *GetPtr(const int id);
   unsigned short *WritePtr(const int id, const int number);
 
