@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkBYUReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-05-15 19:23:44 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-06-08 21:25:00 $
+  Version:   $Revision: 1.4 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -229,7 +229,7 @@ void vlBYUReader::ReadTextureFile(int numPts)
   float t[2];
   vlFloatTCoords *newTCoords;
 
-  if ( this->ReadDisplacement && this->DisplacementFilename )
+  if ( this->ReadTexture && this->TextureFilename )
     {
     if ( !(textureFp = fopen(this->TextureFilename, "r")) )
       {

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPolyDataCollection.h,v $
   Language:  C++
-  Date:      $Date: 1994-06-06 16:13:28 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-06-08 21:25:25 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -30,14 +30,7 @@ class vlPolyDataCollectionElement
 
 class vlPolyDataCollection : public vlObject
 {
- public:
-  int NumberOfItems;
-
- private:
-  vlPolyDataCollectionElement *Top;
-  vlPolyDataCollectionElement *Bottom;
-
- public:
+public:
   vlPolyDataCollection();
   void AddItem(vlPolyData *);
   void RemoveItem(vlPolyData *);
@@ -46,6 +39,12 @@ class vlPolyDataCollection : public vlObject
   vlPolyData *GetItem(int num);
   void PrintSelf(ostream& os, vlIndent indent);
   char *GetClassName() {return "vlPolyDataCollection";};
+
+private:
+  int NumberOfItems;
+  vlPolyDataCollectionElement *Top;
+  vlPolyDataCollectionElement *Bottom;
+
 };
 
 #endif
