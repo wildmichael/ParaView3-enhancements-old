@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:01 $
-  Version:   $Revision: 1.81 $
+  Date:      $Date: 2001-06-27 14:11:17 $
+  Version:   $Revision: 1.82 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -71,6 +71,7 @@ vtkStructuredGrid::vtkStructuredGrid()
   this->Line = vtkLine::New();
   this->Quad = vtkQuad::New();
   this->Hexahedron = vtkHexahedron::New();
+  this->EmptyCell = vtkEmptyCell::New();
   
   this->Dimensions[0] = 1;
   this->Dimensions[1] = 1;
@@ -94,6 +95,7 @@ vtkStructuredGrid::~vtkStructuredGrid()
   this->Line->Delete();
   this->Quad->Delete();
   this->Hexahedron->Delete();
+  this->EmptyCell->Delete();
 }
 
 //----------------------------------------------------------------------------
