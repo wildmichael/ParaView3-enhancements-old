@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-02 12:22:19 $
-  Version:   $Revision: 1.68 $
+  Date:      $Date: 2002-05-02 14:23:11 $
+  Version:   $Revision: 1.69 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkOldStyleCallbackCommand.h"
 #include "vtkCallbackCommand.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyle, "$Revision: 1.68 $");
+vtkCxxRevisionMacro(vtkInteractorStyle, "$Revision: 1.69 $");
 
 //----------------------------------------------------------------------------
 vtkInteractorStyle *vtkInteractorStyle::New() 
@@ -471,7 +471,7 @@ void vtkInteractorStyle::HighlightProp3D(vtkProp3D *prop3D)
     this->OutlineActor->PickableOff();
     this->OutlineActor->DragableOff();
     this->OutlineActor->SetMapper(this->OutlineMapper);
-    this->OutlineActor->GetProperty()->SetColor(1.0,1.0,1.0);
+    this->OutlineActor->GetProperty()->SetColor(this->PickColor);
     this->OutlineActor->GetProperty()->SetAmbient(1.0);
     this->OutlineActor->GetProperty()->SetDiffuse(0.0);
     this->CurrentRenderer->AddActor(this->OutlineActor);
