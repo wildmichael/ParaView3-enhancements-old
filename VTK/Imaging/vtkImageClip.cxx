@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageClip.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-17 02:03:53 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2003-03-03 14:18:16 $
+  Version:   $Revision: 1.49 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkPointData.h"
 
-vtkCxxRevisionMacro(vtkImageClip, "$Revision: 1.48 $");
+vtkCxxRevisionMacro(vtkImageClip, "$Revision: 1.49 $");
 vtkStandardNewMacro(vtkImageClip);
 
 //----------------------------------------------------------------------------
@@ -181,6 +181,10 @@ void vtkImageClip::ExecuteData(vtkDataObject *)
   vtkImageData *inData = this->GetInput();
   
   vtkDebugMacro(<<"Executing image clip");
+  if (inData == NULL)
+    {
+    return;
+    }
 
   inExt  = inData->GetExtent(); 
 
