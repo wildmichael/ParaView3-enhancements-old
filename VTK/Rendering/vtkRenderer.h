@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.h,v $
   Language:  C++
-  Date:      $Date: 2000-08-02 18:23:08 $
-  Version:   $Revision: 1.88 $
+  Date:      $Date: 2000-08-16 22:06:07 $
+  Version:   $Revision: 1.89 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -142,7 +142,11 @@ public:
   // Set/Get the amount of time this renderer is allowed to spend
   // rendering its scene. This is used by vtkLODActor's.
   vtkSetMacro(AllocatedRenderTime,float);
-  vtkGetMacro(AllocatedRenderTime,float);
+  virtual float GetAllocatedRenderTime();
+
+  // Description:
+  // Get the ratio between allocated time and actual render time.
+  virtual float GetTimeFactor();
 
   // Description:
   // Create an image. This is a superclass method which will in turn 
@@ -333,6 +337,7 @@ protected:
   float              Ambient[3];  
   vtkRenderWindow    *RenderWindow;
   float              AllocatedRenderTime;
+  float              TimeFactor;
   int                TwoSidedLighting;
   int                BackingStore;
   unsigned char      *BackingImage;
