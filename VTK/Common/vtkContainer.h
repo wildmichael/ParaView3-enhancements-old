@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContainer.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-12 21:53:41 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-04-17 21:48:22 $
+  Version:   $Revision: 1.10 $
 
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -84,11 +84,11 @@ public:
   // Return the number of items currently held in this container. This
   // different from GetSize which is provided for some containers. GetSize
   // will return how many items the container can currently hold.
-  virtual vtkIdType GetNumberOfItems() = 0;
+  //virtual vtkIdType GetNumberOfItems() = 0;
   
   // Description:
   // Removes all items from the container.
-  virtual void RemoveAllItems() = 0;
+  //virtual void RemoveAllItems() = 0;
   
   // Description:
   // The counterpart to New(), Delete simply calls UnRegister to lower the
