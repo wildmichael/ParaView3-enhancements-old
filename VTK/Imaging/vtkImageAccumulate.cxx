@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAccumulate.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-29 13:47:35 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1999-11-30 12:35:34 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -128,7 +128,7 @@ void vtkImageAccumulate::GetComponentExtent(int extent[6])
 //----------------------------------------------------------------------------
 // This templated function executes the filter for any type of data.
 template <class T>
-void vtkImageAccumulateExecute(vtkImageAccumulate *self,
+static void vtkImageAccumulateExecute(vtkImageAccumulate *self,
 			       vtkImageData *inData, T *inPtr,
 			       vtkImageData *outData, int *outPtr)
 {
