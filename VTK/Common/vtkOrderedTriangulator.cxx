@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOrderedTriangulator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-02 12:51:25 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2002-10-03 12:45:49 $
+  Version:   $Revision: 1.45 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkEdgeTable.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkOrderedTriangulator, "$Revision: 1.44 $");
+vtkCxxRevisionMacro(vtkOrderedTriangulator, "$Revision: 1.45 $");
 vtkStandardNewMacro(vtkOrderedTriangulator);
 
 #ifdef _WIN32_WCE
@@ -910,7 +910,7 @@ static vtkOTTetra *CreateTetra(vtkOTPoint& p, vtkOTFace& face,
 // that is not form the cavity boundary, these are kept track of in
 // a list.
 int vtkOTMesh::CreateInsertionCavity(vtkOTPoint* p, vtkOTTetra *initialTet, 
-                                     double bc[4])
+                                     double [4])
 {
   // Prepare to insert deleted tetras and cavity faces
   //
