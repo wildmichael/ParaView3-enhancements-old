@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadraticHexahedron.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-18 14:50:45 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-06-18 19:55:32 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkQuadraticHexahedron, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkQuadraticHexahedron, "$Revision: 1.12 $");
 vtkStandardNewMacro(vtkQuadraticHexahedron);
 
 // Construct the hex with 20 points + 7 extra points for internal
@@ -582,7 +582,7 @@ void vtkQuadraticHexahedron::InterpolationDerivs(float pcoords[3],
   //coordinate system conversion from (0,1) to (-1,1).
   float r = 2.0*(pcoords[0]-0.5);
   float s = 2.0*(pcoords[1]-0.5);
-  float t = 2.0*(pcoords[1]-0.5);
+  float t = 2.0*(pcoords[2]-0.5);
 
   float rm = 1.0 - r;
   float rp = 1.0 + r;

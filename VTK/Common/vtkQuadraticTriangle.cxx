@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadraticTriangle.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-05 20:42:34 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-06-18 19:55:32 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkQuadraticTriangle, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkQuadraticTriangle, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkQuadraticTriangle);
 
 // Construct the line with two points.
@@ -133,8 +133,8 @@ int vtkQuadraticTriangle::EvaluatePosition(float* x, float* closestPoint,
       }
     else 
       {
-      pcoords[0] = 1.0 - (0.5 + pcoords[0]/2.0);
-      pcoords[1] = 1.0 - (0.5 + pcoords[1]/2.0);
+      pcoords[0] = 0.5 - pcoords[0]/2.0;
+      pcoords[1] = 0.5 - pcoords[1]/2.0;
       }
     pcoords[2] = 1.0 - pcoords[0] - pcoords[1];
     this->EvaluateLocation(subId,pcoords,closestPoint,weights);
@@ -157,7 +157,7 @@ void vtkQuadraticTriangle::EvaluateLocation(int& vtkNotUsed(subId),
 
   this->InterpolationFunctions(pcoords,weights);
   
-  for (i=0; i<6; i++) 
+  for (i=0; i<3; i++) 
     {
     x[i] = a0[i]*weights[0] + a1[i]*weights[1] + a2[i]*weights[2] +
       a3[i]*weights[3] + a4[i]*weights[4] + a5[i]*weights[5];

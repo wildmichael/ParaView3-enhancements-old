@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadraticTetra.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-03 11:54:11 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-06-18 19:55:32 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkQuadraticTetra, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkQuadraticTetra, "$Revision: 1.9 $");
 vtkStandardNewMacro(vtkQuadraticTetra);
 
 // Construct the line with two points.
@@ -125,7 +125,7 @@ int vtkQuadraticTetra::EvaluatePosition(float* x,
 
   //  set initial position for Newton's method
   subId = 0;
-  pcoords[0] = pcoords[1] = pcoords[2] = params[0] = params[1] = params[2]=0.5;
+  pcoords[0] = pcoords[1] = pcoords[2] = params[0] = params[1] = params[2]=0.333;
 
   //  enter iteration loop
   for (iteration=converged=0;
