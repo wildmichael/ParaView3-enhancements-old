@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell.h,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:24:21 $
-  Version:   $Revision: 1.79 $
+  Date:      $Date: 2003-05-06 14:33:45 $
+  Version:   $Revision: 1.80 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -264,6 +264,15 @@ public:
   // value is the subId that the center is in (if a composite cell). If you
   // want the center in x-y-z space, invoke the EvaluateLocation() method.
   virtual int GetParametricCenter(float pcoords[3]);
+
+
+  // Description:
+  // Return the distance of the parametric coordinate provided to the
+  // cell. If inside the cell, a distance of zero is returned. This is
+  // used during picking to get the correct cell picked. (The tolerance
+  // will occasionally allow cells to be picked who are not really
+  // intersected "inside" the cell.)
+  virtual float GetParametricDistance(float pcoords[3]);
 
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangle.h,v $
   Language:  C++
-  Date:      $Date: 2003-03-19 11:14:00 $
-  Version:   $Revision: 1.80 $
+  Date:      $Date: 2003-05-06 14:33:45 $
+  Version:   $Revision: 1.81 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -85,6 +85,11 @@ public:
   // Description:
   // Return the center of the triangle in parametric coordinates.
   int GetParametricCenter(float pcoords[3]);
+
+  // Description:
+  // Return the distance of the parametric coordinate provided to the
+  // cell. If inside the cell, a distance of zero is returned. 
+  float GetParametricDistance(float pcoords[3]);
 
   // Description:
   // Compute the center of the triangle.
