@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-12-03 14:19:19 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 1999-12-04 17:24:24 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -159,7 +159,7 @@ void vtkGeometryFilter::Execute()
   vtkPolyData *output = this->GetOutput();
   vtkPointData *outputPD = output->GetPointData();
   vtkCellData *outputCD = output->GetCellData();
-  
+
   switch (input->GetDataObjectType())
     {
     case  VTK_UNSTRUCTURED_GRID:
@@ -169,7 +169,7 @@ void vtkGeometryFilter::Execute()
       this->StructuredGridExecute();
       return;
     }
-  
+
   cellIds = vtkIdList::New();
   pts = vtkIdList::New();
 
@@ -513,7 +513,7 @@ void vtkGeometryFilter::UnstructuredGridExecute()
   vtkCellArray *Connectivity = input->GetCells();
   int i, cellId;
   int allVisible;
-  int pt, npts, *pts;    
+  int npts, *pts;    
   vtkPoints *p = input->GetPoints();
   int numPts=input->GetNumberOfPoints();
   int numCells=input->GetNumberOfCells();
@@ -527,7 +527,6 @@ void vtkGeometryFilter::UnstructuredGridExecute()
   vtkIdList *faceIds = vtkIdList::New();
   char *cellVis;
   int newCellId, faceId, *faceVerts, numFacePts;
-  vtkPoints *newPts;
   float *x;
   int PixelConvert[4];
   
@@ -554,9 +553,6 @@ void vtkGeometryFilter::UnstructuredGridExecute()
   output->SetPoints(input->GetPoints());
   outputPD->PassData(pd);
 
-  // Allocate
-  //
-  output->Allocate(4*numCells,numCells/2);
   outputCD->CopyAllocate(cd,numCells,numCells/2);
 
   Verts = vtkCellArray::New();
@@ -800,18 +796,16 @@ void vtkGeometryFilter::UnstructuredGridExecute()
 
 void vtkGeometryFilter::StructuredGridExecute()
 {
-  int cellId, i, j, newCellId;
+  int cellId, i, newCellId;
   vtkStructuredGrid *input=(vtkStructuredGrid *)this->GetInput();
   int numPts=input->GetNumberOfPoints();
   int numCells=input->GetNumberOfCells();
   char *cellVis;
   vtkGenericCell *cell;
-  vtkCell *face;
   float *x;
   vtkIdList *ptIds;
   vtkIdList *cellIds;
   vtkIdList *pts;
-  vtkPoints *newPts;
   int ptId, *faceVerts, *facePts, faceId, numFacePts;
   vtkPointData *pd = input->GetPointData();
   vtkCellData *cd = input->GetCellData();
