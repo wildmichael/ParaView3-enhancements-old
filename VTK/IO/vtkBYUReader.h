@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-31 23:12:41 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2002-09-23 15:41:38 $
+  Version:   $Revision: 1.43 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -39,6 +39,11 @@ public:
   // Specify name of geometry FileName.
   vtkSetStringMacro(GeometryFileName);
   vtkGetStringMacro(GeometryFileName);
+
+  // Description:
+  // Specify name of geometry FileName (alias).
+  virtual void SetFileName(const char* f) { this->SetGeometryFileName(f); }
+  virtual char* GetFileName() { return this->GetGeometryFileName(); }
 
   // Description:
   // Specify name of displacement FileName.
