@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-22 18:49:59 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1998-04-24 20:06:13 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -82,6 +82,9 @@ vtkMergeFilter::~vtkMergeFilter()
   this->StructuredGrid->Delete();
   this->UnstructuredGrid->Delete();
   this->RectilinearGrid->Delete();
+  // Output should only be one of the above. We set it to NULL
+  // so that we don't free it twice
+  this->Output = NULL;
 }
 
 void vtkMergeFilter::SetGeometry(vtkDataSet *input)

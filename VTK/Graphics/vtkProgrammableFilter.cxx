@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-16 21:11:08 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-04-24 20:06:14 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -78,6 +78,8 @@ vtkProgrammableFilter::~vtkProgrammableFilter()
   this->OutputStructuredGrid->Delete();
   this->OutputUnstructuredGrid->Delete();
   this->OutputRectilinearGrid->Delete();
+  // Output should only be one of the above. We set it to NULL
+  // so that we don't free it twice
   this->Output = NULL;
   // delete the current arg if there is one and a delete meth
   if ((this->ExecuteMethodArg)&&(this->ExecuteMethodArgDelete))
