@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-12 18:26:19 $
-  Version:   $Revision: 1.102 $
+  Date:      $Date: 2002-03-14 20:07:26 $
+  Version:   $Revision: 1.103 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,7 +33,7 @@
 #include "vtkQuadraticEdge.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkUnstructuredGrid, "$Revision: 1.102 $");
+vtkCxxRevisionMacro(vtkUnstructuredGrid, "$Revision: 1.103 $");
 vtkStandardNewMacro(vtkUnstructuredGrid);
 
 vtkUnstructuredGrid::vtkUnstructuredGrid ()
@@ -954,6 +954,7 @@ void vtkUnstructuredGrid::RemoveGhostCells(int level)
   if (temp == NULL)
     {
     vtkDebugMacro("Could not find cell ghost level array.");
+    newGrid->Delete();
     return;
     }
   if ( (temp->GetDataType() != VTK_UNSIGNED_CHAR)
@@ -961,6 +962,7 @@ void vtkUnstructuredGrid::RemoveGhostCells(int level)
        || (temp->GetNumberOfTuples() < this->GetNumberOfCells()))
     {
     vtkErrorMacro("Poorly formed ghost level array.");
+    newGrid->Delete();
     return;
     }
   cellGhostLevels =((vtkUnsignedCharArray*)temp)->GetPointer(0);
