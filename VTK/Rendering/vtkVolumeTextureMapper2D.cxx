@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeTextureMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:18:12 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2001-11-26 17:16:47 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -239,7 +239,7 @@ VolumeTextureMapper2D_TraverseVolume( T *data_ptr,
 
   cropping       = me->GetCropping();
   croppingFlags  = me->GetCroppingRegionFlags();
-  croppingBounds = me->GetCroppingRegionPlanes();
+  croppingBounds = me->GetVoxelCroppingRegionPlanes();
 
   if ( !cropping )
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeTextureMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:18:12 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-11-26 17:16:47 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -228,6 +228,9 @@ void vtkVolumeTextureMapper::InitializeRender( vtkRenderer *ren,
 
   this->GetInput()->GetOrigin( this->DataOrigin );
   this->GetInput()->GetSpacing( this->DataSpacing );
+  
+  this->ConvertCroppingRegionPlanesToVoxels();
+  
 }
 
 float vtkVolumeTextureMapper::GetGradientMagnitudeScale()

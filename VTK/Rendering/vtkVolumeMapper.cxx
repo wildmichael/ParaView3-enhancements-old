@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:43:25 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2001-11-26 17:16:46 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -78,6 +78,27 @@ void vtkVolumeMapper::Update()
     this->GetRGBTextureInput()->SetUpdateExtentToWholeExtent();
     this->GetRGBTextureInput()->RequestExactExtentOn();
     this->GetRGBTextureInput()->Update();
+    }
+}
+
+void vtkVolumeMapper::ConvertCroppingRegionPlanesToVoxels()
+{
+  float *spacing    = this->GetInput()->GetSpacing();
+  float *origin     = this->GetInput()->GetOrigin();
+  int   *dimensions = this->GetInput()->GetDimensions();
+  
+  for ( int i = 0; i < 6; i++ )
+    {
+    this->VoxelCroppingRegionPlanes[i] =
+      (this->CroppingRegionPlanes[i] - origin[i/2]) / spacing[i/2];
+    
+    this->VoxelCroppingRegionPlanes[i] = 
+      ( this->VoxelCroppingRegionPlanes[i] < 0 ) ?
+      ( 0 ) : ( this->VoxelCroppingRegionPlanes[i] );
+
+    this->VoxelCroppingRegionPlanes[i] = 
+      ( this->VoxelCroppingRegionPlanes[i] > dimensions[i/2]-1 ) ?
+      ( dimensions[i/2]-1 ) : ( this->VoxelCroppingRegionPlanes[i] );
     }
 }
 
