@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractGrid.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:44:26 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1998-08-29 20:06:06 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -77,9 +77,8 @@ public:
   // Specify i-j-k (min,max) pairs to extract. The resulting structured grid
   // dataset can be of any topological dimension (i.e., point, line, plane,
   // or 3D grid). 
-  vtkSetVectorMacro(VOI,int,6);
+  vtkSetVector6Macro(VOI,int);
   vtkGetVectorMacro(VOI,int,6);
-  void SetVOI(int imin, int imax, int jmin, int jmax, int kmin, int kmax);
 
   // Description:
   // Set the sampling rate in the i, j, and k directions. If the rate is > 1, 

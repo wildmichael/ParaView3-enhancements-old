@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-23 19:13:07 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-08-29 20:06:07 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,21 +48,6 @@ vtkExtractGrid::vtkExtractGrid()
   this->VOI[1] = this->VOI[3] = this->VOI[5] = VTK_LARGE_INTEGER;
 
   this->SampleRate[0] = this->SampleRate[1] = this->SampleRate[2] = 1;
-}
-
-void vtkExtractGrid::SetVOI(int imin, int imax, int jmin, int jmax, 
-                             int kmin, int kmax)
-{
-  int dim[6];
-
-  dim[0] = imin;
-  dim[1] = imax;
-  dim[2] = jmin;
-  dim[3] = jmax;
-  dim[4] = kmin;
-  dim[5] = kmax;
-
-  this->SetVOI(dim);
 }
 
 void vtkExtractGrid::Execute()
