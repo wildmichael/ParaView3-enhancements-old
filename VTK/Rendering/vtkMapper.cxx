@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:25:55 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1995-07-25 15:38:19 $
+  Version:   $Revision: 1.20 $
 
 This file is part of the Visualization Toolkit. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -39,7 +39,7 @@ vtkMapper::vtkMapper()
 vtkMapper::~vtkMapper()
 {
   if ( this->SelfCreatedLookupTable && this->LookupTable != NULL) 
-    delete this->LookupTable;
+    this->LookupTable->Delete();
 }
 
 // Description:
@@ -134,7 +134,7 @@ void vtkMapper::SetLookupTable(vtkLookupTable *lut)
 {
   if ( this->LookupTable != lut ) 
     {
-    if ( this->SelfCreatedLookupTable ) delete this->LookupTable;
+    if ( this->SelfCreatedLookupTable ) this->LookupTable->Delete();
     this->SelfCreatedLookupTable = 0;
     this->LookupTable = lut;
     this->Modified();
@@ -149,7 +149,7 @@ vtkLookupTable *vtkMapper::GetLookupTable()
 
 void vtkMapper::CreateDefaultLookupTable()
 {
-  if ( this->SelfCreatedLookupTable ) delete this->LookupTable;
+  if ( this->SelfCreatedLookupTable ) this->LookupTable->Delete();
   this->LookupTable = new vtkLookupTable;
   this->SelfCreatedLookupTable = 1;
 }

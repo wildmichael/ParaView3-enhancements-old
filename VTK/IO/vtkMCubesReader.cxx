@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMCubesReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:25:55 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1995-07-25 15:38:27 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -35,7 +35,7 @@ vtkMCubesReader::~vtkMCubesReader()
 {
   if (this->Filename) delete [] this->Filename;
   if (this->LimitsFilename) delete [] this->LimitsFilename;
-  if (this->SelfCreatedLocator) delete this->Locator;
+  if (this->SelfCreatedLocator) this->Locator->Delete();
 }
 
 void vtkMCubesReader::Execute()
@@ -151,8 +151,16 @@ void vtkMCubesReader::Execute()
 // Update ourselves
 //
   this->SetPoints(newPts);
+  newPts->Delete();
+
   this->SetPolys(newPolys);
-  if (this->Normals) this->GetPointData()->SetNormals(newNormals);
+  newPolys->Delete();
+
+  if (this->Normals) 
+    {
+    this->GetPointData()->SetNormals(newNormals);
+    newNormals->Delete();
+    }
   this->Squeeze(); // might have merged stuff
 
   if (this->Locator) this->Locator->Initialize(); //free storage
@@ -165,7 +173,7 @@ void vtkMCubesReader::SetLocator(vtkLocator *locator)
 {
   if ( this->Locator != locator ) 
     {
-    if ( this->SelfCreatedLocator ) delete this->Locator;
+    if ( this->SelfCreatedLocator ) this->Locator->Delete();
     this->SelfCreatedLocator = 0;
     this->Locator = locator;
     this->Modified();
@@ -174,7 +182,7 @@ void vtkMCubesReader::SetLocator(vtkLocator *locator)
 
 void vtkMCubesReader::CreateDefaultLocator()
 {
-  if ( this->SelfCreatedLocator ) delete this->Locator;
+  if ( this->SelfCreatedLocator ) this->Locator->Delete();
   this->Locator = new vtkMergePoints;
   this->SelfCreatedLocator = 1;
 }

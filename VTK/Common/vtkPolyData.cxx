@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:26:08 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 1995-07-25 15:39:14 $
+  Version:   $Revision: 1.47 $
 
 This file is part of the Visualization Toolkit. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -334,6 +334,7 @@ void vtkPolyData::BuildCells()
     {
     this->Cells = cells = new vtkCellList(numCells,3*numCells);
     this->Cells->Register(this);
+    cells->Delete();
     }
 //
 // Traverse various lists to create cell array
@@ -378,6 +379,7 @@ void vtkPolyData::BuildLinks()
   if ( this->Cells == NULL ) this->BuildCells();
   this->Links = new vtkLinkList(this->GetNumberOfPoints());
   this->Links->Register(this);
+  this->Links->Delete();
 
   this->Links->BuildLinks(this);
 }
@@ -451,10 +453,23 @@ void vtkPolyData::GetPointCells(int ptId, vtkIdList& cellIds)
 // triangle strip cell arrays.)
 void vtkPolyData::Allocate(int numCells, int extSize)
 {
-  this->SetVerts(new vtkCellArray(numCells,extSize));
-  this->SetLines(new vtkCellArray(numCells,extSize));
-  this->SetPolys(new vtkCellArray(numCells,extSize));
-  this->SetStrips(new vtkCellArray(numCells,extSize));
+  vtkCellArray *cells;
+
+  cells = new vtkCellArray(numCells,extSize);
+  this->SetVerts(cells);
+  cells->Delete();
+
+  cells = new vtkCellArray(numCells,extSize);
+  this->SetLines(cells);
+  cells->Delete();
+
+  cells = new vtkCellArray(numCells,extSize);
+  this->SetPolys(cells);
+  cells->Delete();
+
+  cells = new vtkCellArray(numCells,extSize);
+  this->SetStrips(cells);
+  cells->Delete();
 }
 
 // Description:

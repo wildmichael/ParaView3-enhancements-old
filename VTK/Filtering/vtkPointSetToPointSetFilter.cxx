@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSetToPointSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-24 17:09:07 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1995-07-25 15:39:21 $
+  Version:   $Revision: 1.15 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -24,7 +24,7 @@ vtkPointSetToPointSetFilter::vtkPointSetToPointSetFilter()
 
 vtkPointSetToPointSetFilter::~vtkPointSetToPointSetFilter()
 {
-  delete this->PointSet;
+  this->PointSet->Delete();
 }
 
 vtkDataSet* vtkPointSetToPointSetFilter::MakeObject()

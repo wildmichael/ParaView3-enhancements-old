@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRendererSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-10 17:11:20 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1995-07-25 15:39:22 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Toolkit. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -77,6 +77,7 @@ void vtkRendererSource::Execute()
 
   // Update ourselves
   this->PointData.SetScalars(outScalars);
+  outScalars->Delete();
 
   // free the memory
   delete [] pixels;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-24 09:40:08 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1995-07-25 15:39:25 $
+  Version:   $Revision: 1.34 $
 
 This file is part of the Visualization Toolkit. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -74,9 +74,9 @@ vtkRenderer::vtkRenderer()
 vtkRenderer::~vtkRenderer()
 {
   if ( this->SelfCreatedCamera && this->ActiveCamera != NULL) 
-    delete this->ActiveCamera;
+    this->ActiveCamera->Delete();
   if ( this->SelfCreatedLight && this->CreatedLight != NULL) 
-    delete this->CreatedLight;
+    this->CreatedLight->Delete();
 }
 
 // Description:
@@ -85,7 +85,7 @@ void vtkRenderer::SetActiveCamera(vtkCamera *cam)
 {
   if ( this->ActiveCamera != cam ) 
     {
-    if ( this->SelfCreatedCamera ) delete this->ActiveCamera;
+    if ( this->SelfCreatedCamera ) this->ActiveCamera->Delete();
     this->SelfCreatedCamera = 0;
     this->ActiveCamera = cam;
     this->Modified();

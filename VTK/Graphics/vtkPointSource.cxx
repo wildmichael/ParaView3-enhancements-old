@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:26:07 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-07-25 15:38:57 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Toolkit. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -55,10 +55,13 @@ void vtkPointSource::Execute()
     newVerts->InsertCellPoint(newPoints->InsertNextPoint(x));
     }
 //
-// Update ourselves
+// Update ourselves and release memory
 //
   this->SetPoints(newPoints);
+  newPoints->Delete();
+
   this->SetVerts(newVerts);
+  newVerts->Delete();
 }
 
 void vtkPointSource::PrintSelf(ostream& os, vtkIndent indent)

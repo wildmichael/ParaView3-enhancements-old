@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:26:24 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-07-25 15:39:50 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -237,12 +237,31 @@ void vtkStructuredGridGeometryFilter::Execute()
 
     } // switch
 //
-// Update self
+// Update self and release memory
 //
-  this->SetPoints(newPts);
-  this->SetVerts(newVerts);
-  this->SetLines(newLines);
-  this->SetPolys(newPolys);
+  if (newPts)
+    {
+    this->SetPoints(newPts);
+    newPts->Delete();
+    }
+
+  if (newVerts)
+    {
+    this->SetVerts(newVerts);
+    newVerts->Delete();
+    }
+
+  if (newLines)
+    {
+    this->SetLines(newLines);
+    newLines->Delete();
+    }
+
+  if (newPolys)
+    {
+    this->SetPolys(newPolys);
+    newPolys->Delete();
+    }
 }
 
 void vtkStructuredGridGeometryFilter::SetExtent(int iMin, int iMax, int jMin, int jMax, 

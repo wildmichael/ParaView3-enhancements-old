@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRibbonFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:26:22 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1995-07-25 15:39:27 $
+  Version:   $Revision: 1.15 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -80,7 +80,7 @@ void vtkRibbonFilter::Execute()
     if ( !lineNormalGenerator.GenerateSlidingNormals(inPts,inLines,(vtkFloatNormals*)inNormals) )
       {
       vtkErrorMacro(<< "No normals for line!\n");
-      delete inNormals;
+      inNormals->Delete();
       return;
       }
     }
@@ -195,12 +195,17 @@ void vtkRibbonFilter::Execute()
 //
 // Update ourselves
 //
-  if ( deleteNormals ) delete inNormals;
+  if ( deleteNormals ) inNormals->Delete();
 
   this->SetPoints(newPts);
+  newPts->Delete();
 
   this->SetStrips(newStrips);
+  newStrips->Delete();
+
   this->PointData.SetNormals(newNormals);
+  newNormals->Delete();
+
   this->Squeeze();
 }
 

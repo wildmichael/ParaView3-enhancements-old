@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMaskPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:25:56 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-07-25 15:38:44 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -134,16 +134,37 @@ void vtkMaskPolyData::Execute()
       }
     }
 //
-// Update ourselves
+// Update ourselves and release memory
 //
   // pass through points and point data
   this->SetPoints(input->GetPoints());
   pd = input->GetPointData();
   this->PointData = *pd;
-  this->SetVerts(newVerts);
-  this->SetLines(newLines);
-  this->SetPolys(newPolys);
-  this->SetStrips(newStrips);
+
+  if (newVerts)
+    {
+    this->SetVerts(newVerts);
+    newVerts->Delete();
+    }
+
+  if (newLines)
+    {
+    this->SetLines(newLines);
+    newLines->Delete();
+    } 
+
+  if (newPolys)
+    {
+    this->SetPolys(newPolys);
+    newPolys->Delete();
+    }
+
+  if (newStrips)
+    {
+    this->SetStrips(newStrips);
+    newStrips->Delete();
+    }
+
   this->Squeeze();
 }
 

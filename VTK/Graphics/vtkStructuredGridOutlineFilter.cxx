@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridOutlineFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:26:25 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1995-07-25 15:39:52 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -117,9 +117,11 @@ void vtkStructuredGridOutlineFilter::Execute()
       }
     }
 //
-// Update selves
+// Update selves and release memory
 //
   this->SetPoints(newPts);
-  this->SetLines(newLines);
+  newPts->Delete();
 
+  this->SetLines(newLines);
+  newLines->Delete();
 }

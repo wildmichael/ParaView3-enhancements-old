@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLOT3DReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:26:04 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-07-25 15:38:50 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -235,7 +235,7 @@ int vtkPLOT3DReader::ReadBinaryGrid(FILE *fp)
 
   if ( fread (this->TempStorage, sizeof(float), 3*this->NumPts, fp) < 3*this->NumPts ) 
     {
-    delete newPts;
+    newPts->Delete();
     delete [] this->TempStorage;
     return 1;
     }
@@ -255,6 +255,7 @@ int vtkPLOT3DReader::ReadBinaryGrid(FILE *fp)
   this->Grid = newPts;
   this->Grid->Register(this);
   this->SetPoints(newPts);
+  newPts->Delete();
 
   vtkDebugMacro(<<"Read " << this->NumPts << " points");
   return 0;
@@ -332,9 +333,9 @@ int vtkPLOT3DReader::ReadBinarySolution(FILE *fp)
 
   if ( fread (this->TempStorage, sizeof(float), numPts, fp) < numPts ) 
     {
-    delete newDensity;
-    delete newMomentum;
-    delete newEnergy;
+    newDensity->Delete();
+    newMomentum->Delete();
+    newEnergy->Delete();
     delete [] this->TempStorage;
     return 1;
     }
@@ -346,9 +347,9 @@ int vtkPLOT3DReader::ReadBinarySolution(FILE *fp)
 
   if ( fread (this->TempStorage, sizeof(float), 3*this->NumPts, fp) < 3*this->NumPts ) 
     {
-    delete newDensity;
-    delete newMomentum;
-    delete newEnergy;
+    newDensity->Delete();
+    newMomentum->Delete();
+    newEnergy->Delete();
     delete [] this->TempStorage;
     return 1;
     }
@@ -365,9 +366,9 @@ int vtkPLOT3DReader::ReadBinarySolution(FILE *fp)
 
   if ( fread (this->TempStorage, sizeof(float), numPts, fp) < numPts ) 
     {
-    delete newDensity;
-    delete newMomentum;
-    delete newEnergy;
+    newDensity->Delete();
+    newMomentum->Delete();
+    newEnergy->Delete();
     delete [] this->TempStorage;
     return 1;
     }
@@ -381,12 +382,15 @@ int vtkPLOT3DReader::ReadBinarySolution(FILE *fp)
 //
   this->Density = newDensity;
   this->Density->Register(this);
+  newDensity->Delete();
 
   this->Momentum = newMomentum;
   this->Momentum->Register(this);
+  newMomentum->Delete();
 
   this->Energy = newEnergy;
   this->Energy->Register(this);
+  newEnergy->Delete();
 
   return 0;
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLight.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-20 23:47:29 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-07-25 15:38:13 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Toolkit. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -53,7 +53,7 @@ vtkLight::~vtkLight()
 {
   if (this->Device)
     {
-    delete this->Device;
+    this->Device->Delete();
     }
 }
 

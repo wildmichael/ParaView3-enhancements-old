@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGaussianSplatter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:26:42 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-07-25 15:40:05 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -190,12 +190,12 @@ void vtkGaussianSplatter::Execute()
     this->Cap(NewScalars);
     }
 //
-// Update self
+// Update self and release memeory
 //
   delete [] Visited;
 
   this->PointData.SetScalars(NewScalars);
-
+  NewScalars->Delete();
 }
 
 // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSampleFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-16 08:34:54 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1995-07-25 15:39:59 $
+  Version:   $Revision: 1.15 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -164,7 +164,13 @@ void vtkSampleFunction::Execute()
 // Update self
 //
   this->PointData.SetScalars(newScalars);
-  this->PointData.SetNormals(newNormals);
+  newScalars->Delete();
+
+  if (newNormals)
+    {
+    this->PointData.SetNormals(newNormals);
+    newNormals->Delete();
+    }
 }
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutlineFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:26:00 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1995-07-25 15:38:49 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -78,9 +78,11 @@ void vtkOutlineFilter::Execute()
   pts[0] = 3; pts[1] = 7;
   newLines->InsertNextCell(2,pts);
 //
-// Update selves
+// Update selves and release memory
 //
   this->SetPoints(newPts);
-  this->SetLines(newLines);
+  newPts->Delete();
 
+  this->SetLines(newLines);
+  newLines->Delete();
 }
