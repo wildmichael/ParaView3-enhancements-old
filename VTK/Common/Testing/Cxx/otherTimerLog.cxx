@@ -3,8 +3,8 @@
   Program: 
   Module:    $RCSfile: otherTimerLog.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-10 12:35:17 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-10-10 12:39:16 $
+  Version:   $Revision: 1.2 $
 
   ==========================================================================*/
 
@@ -42,10 +42,11 @@ void Test(ostream& strm)
   timer1->StopTimer();
   strm << "GetElapsedTime: " << timer1->GetElapsedTime() << endl;
   strm << "GetCPUTime: " << timer1->GetCPUTime() << endl;
-  strm << "Test vtkTimerLog End" << endl;
   timer1->DumpLog( "timing" );
   timer1->ResetLog ();
   unlink("timing");
+  timer1->Delete();
+  strm << "Test vtkTimerLog End" << endl;
 }
 
 
