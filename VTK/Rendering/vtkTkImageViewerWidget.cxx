@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkImageViewerWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-29 21:25:48 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2002-05-03 13:49:43 $
+  Version:   $Revision: 1.52 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -343,6 +343,15 @@ static void vtkTkImageViewerWidget_EventProc(ClientData clientData,
     case MapNotify:
       break;
     case DestroyNotify:
+#if _WIN32
+    if (self->ImageViewer->GetRenderWindow()->GetGenericWindowId())
+      {
+      SetWindowLong((HWND)self->ImageViewer->GetRenderWindow()->GetGenericWindowId(),
+                    GWL_USERDATA,(LONG)((TkWindow *)self->TkWin)->window);
+      SetWindowLong((HWND)self->ImageViewer->GetRenderWindow()->GetGenericWindowId(),
+                    GWL_WNDPROC,(LONG)TkWinChildProc);
+      }
+#endif
       Tcl_EventuallyFree( (ClientData) self, vtkTkImageViewerWidget_Destroy );
       break;
     default:
