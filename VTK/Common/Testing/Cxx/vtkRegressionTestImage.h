@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRegressionTestImage.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-26 21:59:19 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2002-03-28 13:52:06 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -37,7 +37,7 @@
 class vtkRegressionTester
 {
 public:
-  static int Test(int argc, char *argv[], vtkRenderWindow *rw, float thresh );
+  static inline int Test(int argc, char *argv[], vtkRenderWindow *rw, float thresh );
 
   enum ReturnValue {
     FAILED = 0,
@@ -47,8 +47,8 @@ public:
   };
   
 private:
-  static char* IncrementFileName(const char* fname, int count);
-  static int LookForFile(const char* newFileName);
+  static inline char* IncrementFileName(const char* fname, int count);
+  static inline int LookForFile(const char* newFileName);
 };
 
 #define vtkRegressionTestImage(rw) \
