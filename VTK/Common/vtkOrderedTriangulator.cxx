@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOrderedTriangulator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-13 13:10:47 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2002-09-16 15:01:45 $
+  Version:   $Revision: 1.43 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkEdgeTable.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkOrderedTriangulator, "$Revision: 1.42 $");
+vtkCxxRevisionMacro(vtkOrderedTriangulator, "$Revision: 1.43 $");
 vtkStandardNewMacro(vtkOrderedTriangulator);
 
 #ifdef _WIN32_WCE
@@ -505,7 +505,7 @@ void vtkOrderedTriangulator::InitTriangulation(float bounds[6], int numPts)
                  (bounds[3]-bounds[2])*(bounds[3]-bounds[2]) +
                  (bounds[5]-bounds[4])*(bounds[5]-bounds[4])) );
   radius2 /= 2.0;
-  this->Mesh->Tolerance2 = length*length*1.0e-8;
+  this->Mesh->Tolerance2 = length*length*1.0e-10;
   
   //Define the points (-x,+x,-y,+y,-z,+z)
   this->Mesh->Points[numPts].P[0] = center[0] - length;
@@ -929,7 +929,9 @@ int vtkOTMesh::CreateInsertionCavity(vtkOTPoint* p, vtkOTTetra *initialTet,
   vtkOTTetra *nei, *tetra;
   vtkOTLinkedList<vtkOTTetra*>::Iterator t;
   vtkOTVector<vtkOTTetra*>::Iterator titer;
-  while ( (titer=this->TetraQueue.Pop()) != this->TetraQueue.End() )
+  for ( int numCycles=0;
+        (titer=this->TetraQueue.Pop()) != this->TetraQueue.End();
+        numCycles++)
     {
     tetra = *titer;
     
@@ -999,7 +1001,7 @@ int vtkOTMesh::CreateInsertionCavity(vtkOTPoint* p, vtkOTTetra *initialTet,
       this->TetraQueue.InsertNextValue(initialTet);
       initialTet->CurrentPointId = p->InternalId;
       }
-    
+    if ( numCycles > 1000 ) return 0;
     }//while queue not empty
   
   // Make final pass and delete tetras in the cavity
