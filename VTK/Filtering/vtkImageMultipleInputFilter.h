@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-07 20:32:17 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1997-04-16 21:41:50 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,6 +52,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include "vtkImageCachedSource.h"
 #include "vtkImageRegion.h"
+#include "vtkStructuredPointsToImage.h"
 
 class VTK_EXPORT vtkImageMultipleInputFilter : public vtkImageCachedSource
 {

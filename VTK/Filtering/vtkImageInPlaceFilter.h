@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageInPlaceFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-07 20:32:15 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1997-04-16 21:41:49 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,8 +50,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkImageInPlaceFilter_h
 #define __vtkImageInPlaceFilter_h
 
-
 #include "vtkImageCachedSource.h"
+#include "vtkStructuredPointsToImage.h"
 
 class VTK_EXPORT vtkImageInPlaceFilter : public vtkImageCachedSource
 {
