@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitPlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-06 19:00:22 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-08-06 19:33:54 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -37,7 +37,7 @@
 #include "vtkFeatureEdges.h"
 #include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkImplicitPlaneWidget, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkImplicitPlaneWidget, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkImplicitPlaneWidget);
 
 vtkImplicitPlaneWidget::vtkImplicitPlaneWidget() : vtkPolyDataSourceWidget()
@@ -529,6 +529,7 @@ void vtkImplicitPlaneWidget::OnLeftButtonDown()
   if ( prop == this->ConeActor || prop == this->LineActor ||
        prop == this->ConeActor2 || prop == this->LineActor2 )
     {
+    this->HighlightPlane(1);
     this->HighlightNormal(1);
     this->State = vtkImplicitPlaneWidget::Rotating;
     }
