@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCylinderSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-23 19:12:59 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1999-01-09 17:04:04 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -148,14 +148,16 @@ void vtkCylinderSource::Execute()
       // y coordinate
       xbot[1] = 0.5 * this->Height;
       xtop[1] = -0.5 * this->Height;
-      nbot[1] = -1.0;
-      ntop[1] =  1.0;
+      nbot[1] = 1.0;
+      ntop[1] = -1.0;
       xbot[1] += center[1]; xtop[1] += center[1];
 
       // z coordinate
       xbot[2] = xtop[2] = -this->Radius * sin((double)i*angle);
       tcbot[1] = tctop[1] = xbot[2];
       xbot[2] += center[2]; xtop[2] += center[2];
+      nbot[2] = 0.0;
+      ntop[2] = 0.0;
 
       idx = 2*this->Resolution;
       newPoints->InsertPoint(idx+i,xbot);
@@ -172,7 +174,7 @@ void vtkCylinderSource::Execute()
 //
     for (i=0; i<this->Resolution; i++)
       {
-      pts[this->Resolution-i-1] = 2*this->Resolution + i;
+      pts[i] = 2*this->Resolution + i;
       }
     newPolys->InsertNextCell(this->Resolution,pts);
     for (i=0; i<this->Resolution; i++)
