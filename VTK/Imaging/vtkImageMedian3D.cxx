@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMedian3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-02-03 17:05:38 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-04-07 16:28:23 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -120,7 +120,7 @@ double *vtkImageMedian3DAccumulateMedian(int &UpNum, int &DownNum,
     max = (UpNum < UpMax) ? UpNum : UpMax;
     ptr = Median;
     idx = 0;
-    while (val >= *ptr && idx < max)
+    while (idx < max && val >= *ptr)
       {
       ++ptr;
       ++idx;
@@ -158,7 +158,7 @@ double *vtkImageMedian3DAccumulateMedian(int &UpNum, int &DownNum,
     max = (DownNum < DownMax) ? DownNum : DownMax;
     ptr = Median;
     idx = 0;
-    while (val <= *ptr && idx < max)
+    while (idx < max && val <= *ptr)
       {
       --ptr;
       ++idx;
