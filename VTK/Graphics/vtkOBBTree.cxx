@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBBTree.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-15 16:27:09 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1999-07-22 19:16:58 $
+  Version:   $Revision: 1.24 $
   Thanks:    Thanks to Peter C. Everett <pce@world.std.com> for
              improvements and enhancements to vtkOBBTree class.
 
@@ -219,6 +219,9 @@ void vtkOBBTree::ComputeOBB(vtkDataSet *input, float corner[3], float max[3],
   vtkDataSet *origDataSet;
 
   vtkDebugMacro(<<"Computing OBB");
+
+  // what was the value of this supposed to be?
+  numCells = 1000;
 
   if ( input == NULL || (numPts = input->GetNumberOfPoints()) < 1 ||
       (input->GetNumberOfCells()) < 1 )
