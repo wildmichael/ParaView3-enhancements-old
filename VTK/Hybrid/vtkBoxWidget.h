@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBoxWidget.h,v $
   Language:  C++
-  Date:      $Date: 2003-07-01 15:46:37 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2003-07-01 19:58:11 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -308,15 +308,6 @@ protected:
   int TranslationEnabled;
   int ScalingEnabled;
   int RotationEnabled;
-
-  // This is to store the PropCenter at the same time as the InitialBounds.
-  // We need this to correctly handle off-centre PolyData.  Remember that
-  // GetTransform() yields a transform relative to first BoxWidget placement:
-  // this is also the reason that we need to store the Prop3D center at
-  // placement as Prop3D->GetCenter() can yield a transformed center if
-  // SetUserTransform() has been called, a popular use-case for the
-  // vtkBoxWidget.
-  float InitialPropCenter[6];
 
 private:
   vtkBoxWidget(const vtkBoxWidget&);  //Not implemented
