@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkXMLDataParser.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-24 12:20:57 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-11-14 16:01:25 $
+  Version:   $Revision: 1.4 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -47,7 +47,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkBase64InputStream.h"
 #include "vtkDataCompressor.h"
 
-vtkCxxRevisionMacro(vtkXMLDataParser, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkXMLDataParser, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkXMLDataParser);
 vtkCxxSetObjectMacro(vtkXMLDataParser, Compressor, vtkDataCompressor);
 
@@ -145,6 +145,13 @@ int vtkXMLDataParser::Parse()
 
 //----------------------------------------------------------------------------
 int vtkXMLDataParser::Parse(const char*)
+{
+  vtkErrorMacro("Parsing from a string is not supported.");
+  return 0;
+}
+
+//----------------------------------------------------------------------------
+int vtkXMLDataParser::Parse(const char*, unsigned int)
 {
   vtkErrorMacro("Parsing from a string is not supported.");
   return 0;

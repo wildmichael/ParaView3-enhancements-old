@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkXMLDataParser.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-23 15:57:11 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-11-14 16:01:25 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -138,6 +138,7 @@ protected:
   
   // This parser does not support parsing from a string.
   virtual int Parse(const char*);
+  virtual int Parse(const char*, unsigned int);
   
   // Implement parsing methods.
   void StartElement(const char* name, const char** atts);
