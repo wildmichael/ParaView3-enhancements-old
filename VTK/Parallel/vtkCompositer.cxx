@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCompositer.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-26 13:49:23 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-07-30 01:23:25 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,13 +22,14 @@
 #include "vtkDataArray.h"
 #include "vtkMultiProcessController.h"
 
-vtkCxxRevisionMacro(vtkCompositer, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkCompositer, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkCompositer);
 
 //-------------------------------------------------------------------------
 vtkCompositer::vtkCompositer()
 {
   this->Controller = vtkMultiProcessController::GetGlobalController();
+  this->NumberOfProcesses = 1;
   if (this->Controller)
     {
     this->Controller->Register(this);
