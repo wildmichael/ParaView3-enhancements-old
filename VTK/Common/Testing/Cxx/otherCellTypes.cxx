@@ -3,8 +3,8 @@
   Program: 
   Module:    $RCSfile: otherCellTypes.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-11 20:18:45 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-11-13 12:51:15 $
+  Version:   $Revision: 1.2 $
 
   ==========================================================================*/
 
@@ -58,6 +58,9 @@ void Test(ostream& strm)
 
   vtkCellTypes *ct1 = vtkCellTypes::New();
   ct1->DeepCopy(ct);
+
+  ct->Reset();
+  ct->Squeeze();
 
   ct1->Delete();
   ct->Delete();
