@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAxisActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-25 13:44:31 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-09-27 20:33:36 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to Kitware & RPI/SCOREC who supported the development
              of this class.
 
@@ -527,7 +527,7 @@ void vtkAxisActor2D::ComputeRange(float inRange[2], float outRange[2],
   for ( j=0; j < VTK_NUM_DIVS; j++ )
     {
     outRange[0] = ((int)floor(sRange[0]/(logFactor*divs[j]))) * logFactor*divs[j];
-    if ( (outRange[0] + (numTicks-1)*interval) > sRange[1] )
+    if ( (outRange[0] + (numTicks-1)*interval) >= sRange[1] )
       {
       break;
       }
