@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLineSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:04:11 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1998-06-03 19:31:01 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,7 +62,6 @@ void vtkLineSource::Execute()
   int numPts=this->Resolution+1;
   float x[3], tc[2], v[3];
   int i, j;
-  int pts[2];
   vtkPoints *newPoints; 
   vtkTCoords *newTCoords; 
   vtkCellArray *newLines;
@@ -93,11 +92,10 @@ void vtkLineSource::Execute()
 //
 //  Generate lines
 //
-  for (i=0; i < numLines; i++) 
+  newLines->InsertNextCell(numPts);
+  for (i=0; i < numPts; i++) 
     {
-    pts[0] = i;
-    pts[1] = i+1;
-    newLines->InsertNextCell(2,pts);
+    newLines->InsertCellPoint (i);
     }
 //
 // Update ourselves and release memory
