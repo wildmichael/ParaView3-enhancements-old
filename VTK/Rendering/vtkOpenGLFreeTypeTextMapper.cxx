@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLFreeTypeTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-12 15:31:20 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-07-15 21:29:16 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -201,10 +201,13 @@ vtkFontCache::~vtkFontCache()
 #endif  
 
   int i;
-  for (i = 0; i < NumberOfEntries; i++)
+  for (i = 0; i < this->NumberOfEntries; i++)
     {
     delete this->Entries[i]->Font;
-    delete this->Entries[i];
+    if (this->Entries[i]->FaceFileName)
+      {
+      delete [] this->Entries[i]->FaceFileName;
+      }
     }
 
   this->NumberOfEntries = 0;
@@ -359,7 +362,7 @@ FTFont* vtkFontCache::GetFont(vtkTextProperty *tprop,
     delete this->Entries[FONT_CACHE_CAPACITY - 1]->Font;
     if (this->Entries[FONT_CACHE_CAPACITY - 1]->FaceFileName)
       {
-      delete this->Entries[FONT_CACHE_CAPACITY - 1]->FaceFileName;
+      delete [] this->Entries[FONT_CACHE_CAPACITY - 1]->FaceFileName;
       }
     this->NumberOfEntries = FONT_CACHE_CAPACITY - 1;
     }
@@ -424,7 +427,7 @@ FTFont* vtkFontCache::GetFont(vtkTextProperty *tprop,
 vtkFontCache FontCacheSingleton;
 
 //----------------------------------------------------------------------------
-vtkCxxRevisionMacro(vtkOpenGLFreeTypeTextMapper, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkOpenGLFreeTypeTextMapper, "$Revision: 1.10 $");
 vtkStandardNewMacro(vtkOpenGLFreeTypeTextMapper);
 
 //----------------------------------------------------------------------------
