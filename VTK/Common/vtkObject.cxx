@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-03 23:34:14 $
-  Version:   $Revision: 1.82 $
+  Date:      $Date: 2003-01-07 18:36:00 $
+  Version:   $Revision: 1.83 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkCommand.h"
 #include "vtkTimeStamp.h"
 
-vtkCxxRevisionMacro(vtkObject, "$Revision: 1.82 $");
+vtkCxxRevisionMacro(vtkObject, "$Revision: 1.83 $");
 
 // Initialize static member that controls warning display
 static int vtkObjectGlobalWarningDisplay = 1;
@@ -244,25 +244,6 @@ void vtkObject::UnRegister(vtkObjectBase* o)
     this->InvokeEvent(vtkCommand::DeleteEvent,NULL);
     delete this;
     }
-}
-
-int vtkObject::IsTypeOf(const char *name) 
-{
-  if ( !strcmp("vtkObject",name) )
-    {
-    return 1;
-    }
-  return vtkObject::Superclass::IsTypeOf(name);
-}
-
-int vtkObject::IsA(const char *type)
-{
-  return this->vtkObject::IsTypeOf(type);
-}
-
-vtkObject *vtkObject::SafeDownCast(vtkObject *o)
-{
-  return (vtkObject *)o;
 }
 
 //----------------------------------Command/Observer stuff-------------------
