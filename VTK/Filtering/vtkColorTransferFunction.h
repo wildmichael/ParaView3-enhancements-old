@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkColorTransferFunction.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-19 20:10:42 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1999-12-02 13:05:14 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,6 +64,11 @@ public:
   // Print method for vtkColorTransferFunction
   void PrintSelf(ostream& os, vtkIndent indent);
 
+  // Description:
+  // Get the color transfer function mtime plus consider its three
+  // piecewise functions.
+  unsigned long int GetMTime();
+  
   // Description:
   // Returns the sum of the number of function points used to specify 
   // the three independent functions (R,G,B).

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkColorTransferFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-20 18:08:24 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1999-12-02 13:05:15 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -86,6 +86,32 @@ vtkColorTransferFunction::~vtkColorTransferFunction()
   this->Green = NULL;
   this->Blue->Delete();
   this->Blue = NULL;  
+}
+
+unsigned long int vtkColorTransferFunction::GetMTime()
+{
+  unsigned long mTime=this->vtkScalarsToColors::GetMTime();
+  unsigned long time;
+
+  if ( this->Red != NULL )
+    {
+    time = this->Red->GetMTime();
+    mTime = ( time > mTime ? time : mTime );
+    }
+
+  if ( this->Green != NULL )
+    {
+    time = this->Green->GetMTime();
+    mTime = ( time > mTime ? time : mTime );
+    }
+
+  if ( this->Blue != NULL )
+    {
+    time = this->Blue->GetMTime();
+    mTime = ( time > mTime ? time : mTime );
+    }
+
+  return mTime;
 }
 
 // Returns the sum of the number of function points used to specify 
