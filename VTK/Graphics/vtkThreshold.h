@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreshold.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-30 12:41:36 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1996-12-12 21:12:44 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,6 +54,19 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include "vtkDataSetToUnstructuredGridFilter.h"
 
+
+
+
+
+typedef struct vtkThresholdLinkedList;
+struct vtkThresholdLinkedList
+{
+  int Id;
+  vtkThresholdLinkedList *Next;
+};
+
+
+
 class vtkThreshold : public vtkDataSetToUnstructuredGridFilter
 {
 public:
@@ -75,11 +88,19 @@ public:
   vtkGetMacro(AllScalars,int);
   vtkBooleanMacro(AllScalars,int);
   
+  // Description:
+  // For connected componnents, the whole connectes component will be 
+  // preserved if any component has a scalar value above the threshold.
+  vtkSetMacro(Connectivity,int);
+  vtkGetMacro(Connectivity,int);
+  vtkBooleanMacro(Connectivity,int);
+  
 protected:
   // Usual data generation method
   void Execute();
 
   int   AllScalars;
+  int   Connectivity;
   float LowerThreshold;
   float UpperThreshold;
 
@@ -91,7 +112,10 @@ protected:
   int Upper(float s) {return ( s >= this->UpperThreshold ? 1 : 0 );};
   int Between(float s) {return ( s >= this->LowerThreshold ? 
                                ( s <= this->UpperThreshold ? 1 : 0 ) : 0 );};
+  vtkThresholdLinkedList *ComputeCellsToKeep();
+  vtkThresholdLinkedList *ComputeConnectedCells(vtkThresholdLinkedList *seeds);
 };
+
 
 #endif
 
