@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:33:19 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1995-09-04 21:30:14 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -117,8 +117,8 @@ void  vtkRenderWindowInteractor::FindPokedCamera(int x,int y)
 
   this->CurrentCamera = this->CurrentRenderer->GetActiveCamera();  
   memcpy(this->Center,this->CurrentRenderer->GetCenter(),sizeof(int)*2);
-  this->DeltaElevation = 20.0/((vp[3] - vp[1])*this->Size[1]);
-  this->DeltaAzimuth = 20.0/((vp[2] - vp[0])*this->Size[0]);
+  this->DeltaElevation = -20.0/((vp[3] - vp[1])*this->Size[1]);
+  this->DeltaAzimuth = -20.0/((vp[2] - vp[0])*this->Size[0]);
 
   // as a side effect also set the light 
   // in case they are using light follow camera 
