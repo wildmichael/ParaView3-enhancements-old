@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-12-07 19:11:54 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2000-01-13 23:41:14 $
+  Version:   $Revision: 1.31 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -832,6 +832,14 @@ void vtkXImageWindow::MakeDefaultWindow()
 	       PointerMotionMask | StructureNotifyMask | PropertyChangeMask);
   
   // Map Window onto Screen and sysc
+  // RESIZE THE WINDOW TO THE DESIRED SIZE
+  vtkDebugMacro(<< "Resizing the xwindow\n");
+  XResizeWindow(this->DisplayId,this->WindowId,
+		((this->Size[0] > 0) ? 
+		 (int)(this->Size[0]) : 256),
+		((this->Size[1] > 0) ? 
+		 (int)(this->Size[1]) : 256));
+  XSync(this->DisplayId,False);
   XMapWindow(this->DisplayId, this->WindowId);
   
   XSync(this->DisplayId,0);
