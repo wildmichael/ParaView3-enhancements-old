@@ -3,8 +3,8 @@
    Program:   Visualization Toolkit
    Module:    $RCSfile: vtkOOGLExporter.cxx,v $
    Language:  C++
-   Date:      $Date: 2001-11-13 14:17:53 $
-   Version:   $Revision: 1.4 $
+   Date:      $Date: 2001-12-07 15:59:51 $
+   Version:   $Revision: 1.5 $
    Thanks:    to Jeremy D. Gill of The J. P. Robarts Research Institute
  
  Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -336,7 +336,6 @@ void vtkOOGLExporter::WriteAnActor(vtkActor *anActor, FILE *fp, int count)
   vtkDataSet *ds;
   vtkPolyData *pd;
   vtkGeometryFilter *gf = NULL;
-  vtkPointData *pntData;
   vtkPoints *points = NULL;
   int i;
   vtkProperty *prop;
@@ -392,7 +391,6 @@ void vtkOOGLExporter::WriteAnActor(vtkActor *anActor, FILE *fp, int count)
   pm->SetLookupTable(anActor->GetMapper()->GetLookupTable());
 
   points = pd->GetPoints();
-  pntData = pd->GetPointData();
 
   // usage of GetColors() has been deprecated in VTK 4.0
   colors  = pm->MapScalars(1.0);
