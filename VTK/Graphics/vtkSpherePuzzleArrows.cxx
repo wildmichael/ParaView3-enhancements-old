@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpherePuzzleArrows.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-13 19:21:23 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-12-13 20:25:04 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -227,9 +227,15 @@ void vtkSpherePuzzleArrows::AppendArrow(int id1, int id2,
 //----------------------------------------------------------------------------
 void vtkSpherePuzzleArrows::PrintSelf(ostream& os, vtkIndent indent)
 {
-  int idx;
+  int i;
   vtkPolyDataSource::PrintSelf(os,indent);
 
-  //os << indent << "State: " << this->State[0];
+  os << indent << "Permutation: ";
+  for (i = 0; i < 32; ++i)
+    {
+    os << this->Permutation[i] << " ";
+    }
+  os << endl;
+
 }
 
