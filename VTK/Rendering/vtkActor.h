@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:35:01 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1995-08-07 14:20:07 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,7 +68,7 @@ class vtkActor : public vtkObject
   char *GetClassName() {return "vtkActor";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
-  void Render(vtkRenderer *ren);
+  virtual void Render(vtkRenderer *ren);
 
   // Description:
   // Specify the property object to control rendering surface properties.
