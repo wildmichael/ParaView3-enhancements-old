@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLookupTable.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-12 21:09:15 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1997-04-18 19:22:26 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,6 +68,7 @@ public:
   vtkLookupTable(int sze=256, int ext=256);
   int Allocate(int sz=256, int ext=256);
   virtual void Build();
+  vtkLookupTable *New() {return new vtkLookupTable;};
   char *GetClassName() {return "vtkLookupTable";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 17:55:01 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1997-04-18 19:22:34 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,6 +70,7 @@ class VTK_EXPORT vtkPointLocator : public vtkLocator
 {
 public:
   vtkPointLocator();
+  vtkPointLocator *New() {return new vtkPointLocator;};
   char *GetClassName() {return "vtkPointLocator";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

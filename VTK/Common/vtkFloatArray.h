@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFloatArray.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-14 20:02:54 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1997-04-18 19:22:07 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,7 +58,8 @@ public:
   vtkFloatArray(const int sz, const int ext=1000);
   vtkFloatArray(const vtkFloatArray& fa);
   ~vtkFloatArray();
-  virtual char *GetClassName() {return "vtkFloatArray";};
+  virtual vtkFloatArray *New() {return new vtkFloatArray;};
+  char *GetClassName() {return "vtkFloatArray";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // access/insertion methods

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEdgeTable.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 17:54:26 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1997-04-18 19:22:05 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,6 +55,7 @@ class VTK_EXPORT vtkEdgeTable : public vtkObject
 public:
   vtkEdgeTable(int numPoints=1);
   ~vtkEdgeTable();
+  vtkEdgeTable *New() {return new vtkEdgeTable;};
   char *GetClassName() {return "vtkEdgeTable";};
 
   // Insert/check existence of edges

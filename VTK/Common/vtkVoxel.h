@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxel.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-12 21:09:56 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1997-04-18 19:22:58 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,6 +55,7 @@ class VTK_EXPORT vtkVoxel : public vtkCell
 public:
   vtkVoxel();
   vtkVoxel(const vtkVoxel& b);
+  vtkVoxel *New() {return new vtkVoxel;};
   char *GetClassName() {return "vtkVoxel";};
 
   // cell methods

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuad.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-14 00:39:59 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1997-04-18 19:22:38 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,6 +53,7 @@ class VTK_EXPORT vtkQuad : public vtkCell
 public:
   vtkQuad();
   vtkQuad(const vtkQuad& q);
+  vtkQuad *New() {return new vtkQuad;};
   char *GetClassName() {return "vtkQuad";};
 
   // cell methods
