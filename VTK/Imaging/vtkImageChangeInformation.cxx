@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageChangeInformation.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-16 15:08:07 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-06-08 18:37:58 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -209,51 +209,27 @@ void vtkImageChangeInformation::ExecuteInformation(vtkImageData *inData,
 
 //----------------------------------------------------------------------------
 // This method simply copies by reference the input data to the output.
-void vtkImageChangeInformation::UpdateData(vtkDataObject *data)
+void vtkImageChangeInformation::ExecuteData(vtkDataObject *data)
 {
   if (this->FinalExtentTranslation[0] == VTK_INT_MAX)
     {
-    vtkErrorMacro("Bug in code.");
+    vtkErrorMacro("Bug in code, ExecuteInformation was not called");
     return;
     }
 
   vtkImageData *inData = this->GetInput();
-  vtkImageData *outData = (vtkImageData*)(data);
-  int i;
+  vtkImageData *outData = (vtkImageData *)(data);
   int extent[6];
   
-  // Make sure the Input has been set.
-  if (!inData)
-    {
-    vtkErrorMacro("Input is not set.");
-    return;
-    }
-
-  outData->GetUpdateExtent(extent);
-  for (i = 0; i < 3; ++i)
-    {
-    extent[i*2] -= this->FinalExtentTranslation[i];
-    extent[i*2+1] -= this->FinalExtentTranslation[i];
-    }  
-  inData->SetUpdateExtent(extent);
-  inData->Update();
-
   // since inData can be larger than update extent.
   inData->GetExtent(extent);
-  for (i = 0; i < 3; ++i)
+  for (int i = 0; i < 3; ++i)
     {
     extent[i*2] += this->FinalExtentTranslation[i];
     extent[i*2+1] += this->FinalExtentTranslation[i];
     }
   outData->SetExtent(extent);
   outData->GetPointData()->PassData(inData->GetPointData());
-  outData->DataHasBeenGenerated();
-  
-  // release input data
-  if (inData->ShouldIReleaseData())
-    {
-    inData->ReleaseData();
-    }
 }
 
 //----------------------------------------------------------------------------

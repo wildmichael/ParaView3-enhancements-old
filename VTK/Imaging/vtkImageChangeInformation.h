@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageChangeInformation.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-11 21:24:53 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-06-08 18:37:58 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -116,10 +116,6 @@ public:
   vtkSetVector3Macro(OriginScale, float);
   vtkGetVector3Macro(OriginScale, float);
 
-  // Description:
-  // This method simply copies by reference the input data to the output.
-  void UpdateData(vtkDataObject *data);
-
 protected:
   vtkImageChangeInformation();
   ~vtkImageChangeInformation();
@@ -144,6 +140,7 @@ protected:
   void ExecuteInformation(vtkImageData *inData, vtkImageData *outData);
   void ExecuteInformation() {
     this->vtkImageToImageFilter::ExecuteInformation(); };
+  void ExecuteData(vtkDataObject *data);
 };
 
 
