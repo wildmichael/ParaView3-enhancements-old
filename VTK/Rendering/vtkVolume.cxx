@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-12-11 22:02:05 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1998-04-16 12:00:26 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -161,7 +161,8 @@ float *vtkVolume::GetBounds()
   
   // save the old transform
   this->GetMatrix(matrix);
-  this->Transform.Push(); 
+  this->Transform.Push();
+  this->Transform.PostMultiply();
   this->Transform.Identity();
   this->Transform.Concatenate(matrix);
 
@@ -179,6 +180,7 @@ float *vtkVolume::GetBounds()
     fptr += 3;
     }
   
+  this->Transform.PreMultiply();
   this->Transform.Pop();  
   
   // now calc the new bounds
