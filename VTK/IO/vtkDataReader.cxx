@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-03-19 14:31:32 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 1997-03-25 15:52:20 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,6 +42,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkDataReader.h"
 #include "vtkBitScalars.h"
 #include "vtkUnsignedCharScalars.h"
+#include "vtkUnsignedShortScalars.h"
 #include "vtkFloatScalars.h"
 #include "vtkShortScalars.h"
 #include "vtkIntScalars.h"
@@ -159,6 +160,14 @@ int vtkDataReader::ReadShort(short *result)
   int i, ret;
   ret = this->ReadInt(&i);
   *result = (short)i;
+  return ret;
+}
+
+int vtkDataReader::ReadUnsignedShort(unsigned short *result)
+{
+  int i, ret;
+  ret = this->ReadInt(&i);
+  *result = (unsigned short)i;
   return ret;
 }
 
@@ -566,6 +575,39 @@ int vtkDataReader::ReadScalarData(vtkDataSet *ds, int numPts)
         if (!this->ReadShort(&s))
           {
           vtkErrorMacro(<<"Error reading short scalars!" << " for file: " << this->Filename);
+          return 0;
+          }
+        scalars->SetScalar(i,s);
+        }
+      }
+    if ( ! skipScalar ) ds->GetPointData()->SetScalars(scalars);
+    scalars->Delete();
+    }
+
+  else if ( ! strncmp(line, "unsigned_short", 14) )
+    {
+    vtkUnsignedShortScalars *scalars = new vtkUnsignedShortScalars(numPts);
+    unsigned short *ptr = scalars->WritePtr(0,numPts);
+    if ( this->FileType == VTK_BINARY)
+      {
+      // suck up newline
+      this->IS->getline(line,256);
+      this->IS->read((char *)ptr,sizeof(unsigned short)*numPts);
+      if (this->IS->eof())
+        {
+        vtkErrorMacro(<<"Error reading binary unsigned short scalars!" << " for file: " << this->Filename);
+        return 0;
+        }
+      vtkByteSwap::Swap2BERange((short *)ptr,numPts);
+      }
+    else // ascii
+      {
+      unsigned short s;
+      for (i=0; i<numPts; i++)
+        {
+        if (!this->ReadUnsignedShort(&s))
+          {
+          vtkErrorMacro(<<"Error reading unsigned short scalars!" << " for file: " << this->Filename);
           return 0;
           }
         scalars->SetScalar(i,s);

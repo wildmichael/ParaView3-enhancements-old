@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 17:56:32 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1997-03-25 15:52:21 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,6 +60,7 @@ class VTK_EXPORT vtkDataReader : public vtkObject
 public:
   vtkDataReader();
   ~vtkDataReader();
+  char *GetClassName() {return "vtkDataReader";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
@@ -135,6 +136,7 @@ public:
   int ReadInt(int *result);
   int ReadUChar(unsigned char *result);
   int ReadShort(short *result);
+  int ReadUnsignedShort(unsigned short *result);
   int ReadFloat(float *result);
   void EatWhiteSpace();
   istream *GetIStream() {return this->IS;};
