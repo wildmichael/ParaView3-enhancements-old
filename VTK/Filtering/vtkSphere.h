@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkSphere.h,v $
   Language:  C++
-  Date:      $Date: 1994-03-25 10:18:46 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-07-13 21:46:03 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -15,9 +15,10 @@ without the express written consent of the authors.
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-//
-// Object for computation on sphere
-//
+// .NAME vlSphere - implicit function of a sphere
+// .SECTION Description
+// vlSphere computes the implicit function and surface normal for a sphere.
+
 #ifndef __vlSphere_h
 #define __vlSphere_h
 
@@ -31,6 +32,7 @@ public:
 
   // ImplicitFunction interface
   float Evaluate(float x, float y, float z);
+  void EvaluateNormal(float x, float y, float z, float n[3]);
 
   vlSetMacro(Radius,float);
   vlGetMacro(Radius,float);

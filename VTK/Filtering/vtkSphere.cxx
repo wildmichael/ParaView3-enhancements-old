@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkSphere.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-03-25 10:18:44 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-07-13 21:46:02 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -18,6 +18,8 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #include <math.h>
 #include "Sphere.hh"
 
+// Description
+// Construct sphere with center at (0,0,0) and radius=1.0.
 vlSphere::vlSphere()
 {
   this->Radius = 1.0;
@@ -27,10 +29,21 @@ vlSphere::vlSphere()
   this->Origin[2] = 0.0;
 }
 
+// Description
+// Evaluate sphere equation (x-x0)^2 + (y-y0)^2 + (z-z0)^2 - R^2 = 0.
 float vlSphere::Evaluate(float x, float y, float z)
 {
   return ( sqrt ( this->Radius*this->Radius -
                 ((x - this->Origin[0]) * (x - this->Origin[0]) + 
                  (y - this->Origin[1]) * (y - this->Origin[1]) + 
                  (z - this->Origin[2]) * (z - this->Origin[2])) ) );
+}
+
+// Description
+// Evaluate sphere normal.
+void vlSphere::EvaluateNormal(float x, float y, float z, float n[3])
+{
+  n[0] = 2.0 * (x - this->Origin[0]);
+  n[1] = 2.0 * (y - this->Origin[1]);
+  n[2] = 2.0 * (z - this->Origin[2]);
 }
