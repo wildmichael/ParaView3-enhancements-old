@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCollection.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-05 09:00:57 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-09-09 10:45:35 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -25,6 +25,16 @@ vlCollection::vlCollection()
   this->NumberOfItems = 0;
   this->Top = NULL;
   this->Bottom = NULL;
+}
+
+vlCollection::~vlCollection()
+{
+  vlCollectionElement *p;  
+
+  for ( p=this->Top; p != NULL; p = p->Next )
+    {
+    delete p;
+    }
 }
 
 // Description:
@@ -157,11 +167,3 @@ void vlCollection::PrintSelf(ostream& os, vlIndent indent)
     os << indent << "Number Of Items: " << this->NumberOfItems << "\n";
     }
 }
-
-
-
-
-
-
-
-

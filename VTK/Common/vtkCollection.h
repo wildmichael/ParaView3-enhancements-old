@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCollection.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-05 09:00:58 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-09-09 10:45:37 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -33,18 +33,20 @@ class vlCollectionElement
 
 class vlCollection : public vlObject
 {
- public:
-  int NumberOfItems;
+public:
   vlCollection();
+  virtual ~vlCollection();
+  void PrintSelf(ostream& os, vlIndent indent);
+  char *GetClassName() {return "vlCollection";};
+
   void AddItem(vlObject *);
   void RemoveItem(vlObject *);
   int  IsItemPresent(vlObject *);
   int  GetNumberOfItems();
   vlObject *GetItem(int num);
-  void PrintSelf(ostream& os, vlIndent indent);
-  char *GetClassName() {return "vlCollection";};
 
- private:
+protected:
+  int NumberOfItems;
   vlCollectionElement *Top;
   vlCollectionElement *Bottom;
 
