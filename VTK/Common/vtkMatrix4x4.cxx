@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMatrix4x4.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-09 19:55:33 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-05-05 10:50:20 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -65,7 +65,8 @@ void vlMatrix4x4::operator= (float element)
 }
 
 // Description:
-// Multiply a point (in homogeneous coordinates) by matrix.
+// Multiply a point (in homogeneous coordinates) by matrix. The in[4] and 
+// result[4] arrays can be the same array.
 void vlMatrix4x4::PointMultiply(float in[4],float result[4])
 {
   int i;
