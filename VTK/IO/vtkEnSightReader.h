@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-09 21:42:07 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-01-16 18:30:08 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -86,14 +86,19 @@ public:
   
   // Description:
   // Set/Get the Case file name.
-//  vtkSetStringMacro(CaseFileName);
   void SetCaseFileName(char* fileName);
   vtkGetStringMacro(CaseFileName);
   
   // Description:
+  // Set/Get the path the the data files.  If specified, this reader will look
+  // in this directory for all data files.
+  vtkSetStringMacro(FilePath);
+  vtkGetStringMacro(FilePath);
+  
+  // Description:
   // Get the number of variables listed in the case file.
-  int GetNumberOfVariables() { return this->NumberOfVariables +
-                                 this->NumberOfComplexVariables; }
+  int GetNumberOfVariables() { return this->NumberOfVariables; }
+  int GetNumberOfComplexVariables() { return this->NumberOfComplexVariables; }
   
   // Description:
   // Get the number of variables of a particular type.
@@ -129,6 +134,11 @@ public:
   // VTK_COMPLEX_SCALAR_PER_NODE = 8; VTK_COMPLEX_VECTOR_PER_NODE 9;
   // VTK_COMPLEX_SCALAR_PER_ELEMENT  = 10; VTK_COMPLEX_VECTOR_PER_ELEMENT = 11
   char* GetDescription(int n, int type);
+
+  // Description:
+  // Get the variable type of variable n.
+  int GetVariableType(int n);
+  int GetComplexVariableType(int n);
   
   void Update();
   
@@ -140,12 +150,6 @@ protected:
   
   void Execute();
 
-  // Description:
-  // Set/Get the path the the data files.  If specified, this reader will look
-  // in this directory for all data files.
-  vtkSetStringMacro(FilePath);
-  vtkGetStringMacro(FilePath);
-  
   // Description:
   // Read the case file.  If an error occurred, 0 is returned; otherwise 1.
   int ReadCaseFile();

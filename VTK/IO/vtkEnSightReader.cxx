@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-10 14:07:32 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-01-16 18:30:08 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1308,6 +1308,24 @@ void vtkEnSightReader::SetCaseFileName(char* fileName)
     }
       
   this->Modified();
+}
+
+int vtkEnSightReader::GetVariableType(int n)
+{
+  if (n < this->NumberOfVariables)
+    {
+    return this->VariableTypes[n];
+    }
+  return -1;
+}
+
+int vtkEnSightReader::GetComplexVariableType(int n)
+{
+  if (n < this->NumberOfComplexVariables)
+    {
+    return this->ComplexVariableTypes[n];
+    }
+  return -1;
 }
 
 void vtkEnSightReader::PrintSelf(ostream& os, vtkIndent indent)
