@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellCenters.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-15 20:28:53 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-06-29 14:51:06 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,6 +65,7 @@ void vtkCellCenters::Execute()
   if ( (numCells = input->GetNumberOfCells()) < 1 )
     {
     vtkErrorMacro(<<"No cells to generate center points for");
+    if (weights) delete [] weights;
     return;
     }
 
@@ -102,6 +103,7 @@ void vtkCellCenters::Execute()
   newPts->Delete();
 
   outPD->PassData(inCD); //because number of points = number of cells
+  if (weights) delete [] weights;
 }
 
 void vtkCellCenters::PrintSelf(ostream& os, vtkIndent indent)
