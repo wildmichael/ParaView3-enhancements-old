@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-10 09:56:52 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2000-07-10 11:48:39 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -2693,14 +2693,6 @@ void vtkOpenGLPolyDataMapper::Draw(vtkRenderer *aren, vtkActor *act)
     glDisable( GL_LIGHTING);
     }
   
-  // Offset polygons if requested to do so
-  if ( this->ResolveCoincidentPrimitives || 
-       this->GetGlobalResolveCoincidentPrimitives() )
-    {
-    glEnable(GL_POLYGON_OFFSET_FILL);
-    glPolygonOffset(1,1);
-    }
-    
   // do tstrips
   if (resolve)
     {
@@ -2719,11 +2711,6 @@ void vtkOpenGLPolyDataMapper::Draw(vtkRenderer *aren, vtkActor *act)
   aGlFunction = glFunction[3];
   draw3(aPrim, aGlFunction, cellNum, p, n, c, t, ren, noAbort);
 
-  if ( this->ResolveCoincidentPrimitives )
-    {
-    glDisable(GL_POLYGON_OFFSET_FILL);
-    }
-    
   // enable lighting again if necessary
   if (!n && rep == VTK_POINTS)
     {
