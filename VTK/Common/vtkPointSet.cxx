@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:26:06 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1995-07-14 16:48:09 $
+  Version:   $Revision: 1.21 $
 
 This file is part of the Visualization Toolkit. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -108,8 +108,8 @@ int vtkPointSet::FindCell(float x[3], vtkCell *cell, float tol2, int& subId,
       {
       cellId = cellIds.GetId(i);
       cell = this->GetCell(cellId);
-      cell->EvaluatePosition(x,closestPoint,sId,pc,dist2,w);
-      if ( dist2 <= tol2 && dist2 < minDist2 )
+      if ( cell->EvaluatePosition(x,closestPoint,sId,pc,dist2,w) != -1 &&
+      dist2 <= tol2 && dist2 < minDist2 )
         {
         minDist2 = dist2;
         closestCell = cellId;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitTextureCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-11 16:46:21 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1995-07-14 16:48:06 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -100,16 +100,16 @@ void vtkImplicitTextureCoords::Execute()
     scale[i] = 1.0;
     if ( max[i] > 0.0 && min[i] < 0.0 ) //have positive & negative numbers
       {
-      if ( max[i] > (-min[i]) ) scale[i] = 0.5 / max[i]; //scale into 0.5->1
-      else scale[i] = -0.5 / min[i]; //scale into 0->0.5
+      if ( max[i] > (-min[i]) ) scale[i] = 0.499 / max[i]; //scale into 0.5->1
+      else scale[i] = -0.499 / min[i]; //scale into 0->0.5
       }
     else if ( max[i] > 0.0 ) //have positive numbers only
       {
-      scale[i] = 0.5 / max[i]; //scale into 0.5->1.0
+      scale[i] = 0.499 / max[i]; //scale into 0.5->1.0
       }
     else if ( min[i] < 0.0 ) //have negative numbers only
       {
-      scale[i] = -0.5 / min[i]; //scale into 0.0->0.5
+      scale[i] = -0.499 / min[i]; //scale into 0.0->0.5
       }
     }
 

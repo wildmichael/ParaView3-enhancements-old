@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxelModeller.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:27:07 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-07-14 16:48:18 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Toolkit. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -155,11 +155,11 @@ void vtkVoxelModeller::Execute()
 	  if (!(newScalars->GetScalar(idx)))
 	    {
 	    x[0] = this->AspectRatio[0] * i + this->Origin[0];
-	    cell->EvaluatePosition(x, closestPoint, subId, pcoords, 
-                                   distance2, weights);
-	    if ((fabs(closestPoint[0] - x[0]) <= voxelHalfWidth[0]) &&
-		(fabs(closestPoint[1] - x[1]) <= voxelHalfWidth[1]) &&
-		(fabs(closestPoint[2] - x[2]) <= voxelHalfWidth[2]))
+
+	    if ( cell->EvaluatePosition(x, closestPoint, subId, pcoords, distance2, weights) != -1 &&
+	    ((fabs(closestPoint[0] - x[0]) <= voxelHalfWidth[0]) &&
+            (fabs(closestPoint[1] - x[1]) <= voxelHalfWidth[1]) &&
+	    (fabs(closestPoint[2] - x[2]) <= voxelHalfWidth[2])) )
 	      {
 	      newScalars->SetScalar(idx,1);
 	      }

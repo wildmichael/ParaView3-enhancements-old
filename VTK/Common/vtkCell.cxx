@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:25:00 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-07-14 16:48:03 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -167,4 +167,27 @@ float vtkCell::GetLength2 ()
     }
  
   return l;
+}
+
+void vtkCell::PrintSelf(ostream& os, vtkIndent indent)
+{
+  float *bounds;
+  int i;
+
+  vtkObject::PrintSelf(os,indent);
+
+  os << indent << "Number Of Points: " << this->PointIds.GetNumberOfIds() << "\n";
+  bounds = this->GetBounds();
+  os << indent << "Bounds: \n";
+  os << indent << "  Xmin,Xmax: (" << bounds[0] << ", " << bounds[1] << ")\n";
+  os << indent << "  Ymin,Ymax: (" << bounds[2] << ", " << bounds[3] << ")\n";
+  os << indent << "  Zmin,Zmax: (" << bounds[4] << ", " << bounds[5] << ")\n";
+
+  os << indent << "  Point ids are: ";
+  for (i=0; this->PointIds.GetNumberOfIds(); i++)
+    {
+    os << ", " << this->PointIds.GetId(i);
+    if ( i && !(i % 12) ) os << "\n\t";
+    }
+  os << indent << "\n";
 }

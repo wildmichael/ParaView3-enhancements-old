@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPixel.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:26:03 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-07-14 16:48:08 $
+  Version:   $Revision: 1.17 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -70,21 +70,24 @@ int vtkPixel::EvaluatePosition(float x[3], float closestPoint[3],
   pcoords[0] = math.Dot(p21,p) / (l21*l21);
   pcoords[1] = math.Dot(p31,p) / (l31*l31);
 
+  this->InterpolationFunctions(pcoords, weights);
+
   if ( pcoords[0] >= 0.0 && pcoords[1] <= 1.0 &&
   pcoords[1] >= 0.0 && pcoords[1] <= 1.0 )
     {
     dist2 = math.Distance2BetweenPoints(closestPoint,x); //projection distance
-    this->InterpolationFunctions(pcoords, weights);
     return 1;
     }
   else
     {
+    float pc[3], w[4];
     for (i=0; i<2; i++)
       {
-      if (pcoords[i] < 0.0) pcoords[i] = 0.0;
-      if (pcoords[i] > 1.0) pcoords[i] = 1.0;
+      if (pcoords[i] < 0.0) pc[i] = 0.0;
+      else if (pcoords[i] > 1.0) pc[i] = 1.0;
+      else pc[i] = pcoords[i];
       }
-    this->EvaluateLocation(subId, pcoords, closestPoint, weights);
+    this->EvaluateLocation(subId, pc, closestPoint, w);
     dist2 = math.Distance2BetweenPoints(closestPoint,x);
     return 0;
     }
@@ -291,3 +294,24 @@ int vtkPixel::IntersectWithLine(float p1[3], float p2[3], float tol, float& t,
 
   return 0;
 }
+
+int vtkPixel::Triangulate(int index, vtkFloatPoints &pts)
+{
+  pts.Reset();
+  pts.InsertPoint(0,this->Points.GetPoint(0));
+  pts.InsertPoint(1,this->Points.GetPoint(1));
+  pts.InsertPoint(2,this->Points.GetPoint(2));
+
+  pts.InsertPoint(3,this->Points.GetPoint(1));
+  pts.InsertPoint(4,this->Points.GetPoint(3));
+  pts.InsertPoint(5,this->Points.GetPoint(2));
+
+  return 1;
+}
+
+void vtkPixel::Derivatives(int subId, float pcoords[3], float *values, 
+                            int dim, float *derivs)
+{
+
+}
+

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVertex.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:27:04 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-07-14 16:48:16 $
+  Version:   $Revision: 1.17 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -132,3 +132,26 @@ int vtkVertex::IntersectWithLine(float p1[3], float p2[3], float tol, float& t,
   pcoords[0] = -10.0;
   return 0;
 }
+
+int vtkVertex::Triangulate(int index, vtkFloatPoints &pts)
+{
+  pts.Reset();
+  pts.InsertPoint(0,this->Points.GetPoint(0));
+
+  return 1;
+}
+
+void vtkVertex::Derivatives(int subId, float pcoords[3], float *values, 
+                            int dim, float *derivs)
+{
+  int i, idx;
+
+  for (i=0; i<dim; i++)
+    {
+    idx = i*dim;
+    derivs[idx] = 0.0;
+    derivs[idx+1] = 0.0;
+    derivs[idx+2] = 0.0;
+    }
+}
+

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitModeller.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:25:41 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1995-07-14 16:48:05 $
+  Version:   $Revision: 1.19 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -148,9 +148,10 @@ void vtkImplicitModeller::Execute()
           x[0] = this->AspectRatio[0] * i + this->Origin[0];
           idx = jkFactor*k + this->SampleDimensions[0]*j + i;
           prevDistance2 = newScalars->GetScalar(idx);
-          cell->EvaluatePosition(x, closestPoint, subId, pcoords, 
-                                 distance2, weights);
-          if (distance2 < prevDistance2)
+
+          // union combination of distances
+          if ( cell->EvaluatePosition(x, closestPoint, subId, pcoords, 
+          distance2, weights) != -1 && distance2 < prevDistance2 )
             newScalars->SetScalar(idx,distance2);
           }
         }
