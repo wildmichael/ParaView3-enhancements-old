@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMILVideoSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:30:34 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-02-12 04:46:05 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include <ctype.h>
 #include <string.h>
 
-vtkCxxRevisionMacro(vtkMILVideoSource, "$Revision: 1.16 $");
+vtkCxxRevisionMacro(vtkMILVideoSource, "$Revision: 1.17 $");
 vtkStandardNewMacro(vtkMILVideoSource);
 
 //----------------------------------------------------------------------------
@@ -409,6 +409,10 @@ void vtkMILVideoSource::Initialize()
 //----------------------------------------------------------------------------
 void vtkMILVideoSource::ReleaseSystemResources()
 {
+  if (this->MILAppID != 0)
+    {
+    MappControl(M_ERROR, M_PRINT_DISABLE);
+    }
   if (this->MILDigID)
     {
     if (this->Recording)
@@ -438,7 +442,9 @@ void vtkMILVideoSource::ReleaseSystemResources()
     }
   if (this->MILDigID != 0)
     {
-    MdigFree(this->MILDigID);
+    //  The MdigFree call never returns if it is called by atexit(),
+    //  and it doesn't seem to hurt anything if it isn't called.
+    // MdigFree(this->MILDigID);
     this->MILDigID = 0;
     }
   if (this->MILSysInternallyAllocated && this->MILSysID != 0)
