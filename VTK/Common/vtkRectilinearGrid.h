@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGrid.h,v $
   Language:  C++
-  Date:      $Date: 1999-03-17 21:45:13 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-06-24 21:42:21 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -176,13 +176,10 @@ protected:
   vtkScalars *XCoordinates;
   vtkScalars *YCoordinates;
   vtkScalars *ZCoordinates;
-};
 
-inline void vtkRectilinearGrid::GetPoint(int id, float x[3])
-{
-  float *p=this->GetPoint(id);
-  x[0] = p[0]; x[1] = p[1]; x[2] = p[2];
-}
+  // Hang on to some space for returning points when GetPoint(id) is called.
+  float PointReturn[3];
+};
 
 inline int vtkRectilinearGrid::GetNumberOfCells() 
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPoints.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-15 18:45:32 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 1999-06-24 21:42:21 $
+  Version:   $Revision: 1.56 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -97,7 +97,7 @@ public:
   int GetCellType(int cellId);
   void GetCellPoints(int cellId, vtkIdList *ptIds)
     {vtkStructuredData::GetCellPoints(cellId,ptIds,this->DataDescription,
-				      this->Dimensions);}
+					    this->Dimensions);}
   void GetPointCells(int ptId, vtkIdList *cellIds)
     {vtkStructuredData::GetPointCells(ptId,cellIds,this->Dimensions);}
   void ComputeBounds();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-14 19:16:45 $
-  Version:   $Revision: 1.92 $
+  Date:      $Date: 1999-06-24 21:42:20 $
+  Version:   $Revision: 1.93 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -276,8 +276,9 @@ vtkCell *vtkPolyData::GetCell(int cellId)
 
 void vtkPolyData::GetCell(int cellId, vtkGenericCell *cell)
 {
-  int i, loc, numPts, *pts;
-  unsigned char type;
+  int             i, loc, numPts, *pts;
+  unsigned char   type;
+  float           x[3];
 
   if ( !this->Cells )
     {
@@ -344,7 +345,8 @@ void vtkPolyData::GetCell(int cellId, vtkGenericCell *cell)
   for (i=0; i < numPts; i++)
     {
     cell->PointIds->SetId(i,pts[i]);
-    cell->Points->SetPoint(i,this->Points->GetPoint(pts[i]));
+    this->Points->GetPoint(pts[i], x);
+    cell->Points->SetPoint(i, x);
     }
 }
 
@@ -355,7 +357,7 @@ void vtkPolyData::GetCellBounds(int cellId, float bounds[6])
 {
   int i, loc, numPts, *pts;
   unsigned char type;
-  float *x;
+  float x[3];
 
   if ( !this->Cells )
     {
@@ -398,7 +400,7 @@ void vtkPolyData::GetCellBounds(int cellId, float bounds[6])
 
   for (i=0; i < numPts; i++)
     {
-    x = this->Points->GetPoint( pts[i] );
+    this->Points->GetPoint( pts[i], x );
 
     if (x[0] < bounds[0])
       {
