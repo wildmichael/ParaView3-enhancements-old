@@ -3,8 +3,8 @@
   Program:   DICOMParser
   Module:    $RCSfile: DICOMConfig.h,v $
   Language:  C++
-  Date:      $Date: 2003-08-28 16:36:09 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2003-09-15 22:25:50 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 2003 Matt Turek
   All rights reserved.
@@ -48,8 +48,9 @@
 #else
   #define dicom_stream 
 
+  #include <iostream.h>
   #include <fstream.h>
-  #include <string.h>
+  #include <iomanip.h>
 #endif
 
 #ifdef DICOM_DLL
