@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDebugLeaks.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-31 18:20:48 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-06-04 15:32:57 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -43,7 +43,7 @@ int vtkDebugLeaksIgnoreClassesCheck(const char* s)
   return 0;
 }
 
-vtkCxxRevisionMacro(vtkDebugLeaks, "$Revision: 1.19 $");
+vtkCxxRevisionMacro(vtkDebugLeaks, "$Revision: 1.20 $");
 vtkStandardNewMacro(vtkDebugLeaks);
 
 int vtkDebugLeaks::PromptUser = 1;
@@ -143,6 +143,14 @@ public:
   int DecrementCount(const char* name);
   void PrintTable();
   int IsEmpty();
+  ~vtkDebugLeaksHashTable()
+    {
+      for (int i = 0; i < 64; i++)
+        {
+        delete this->Nodes[i];
+        }
+    }
+
 private:
   vtkDebugLeaksHashNode* Nodes[64];
 };
