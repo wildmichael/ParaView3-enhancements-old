@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: FrustumClip.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-07 23:36:55 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-08-08 13:50:50 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,7 +32,7 @@
 // Generate a sphere. Create a view frustum looking at the sphere
 // Clip anything inside the frustum, then back away and view result
 
-int main( int argc, char *argv[] )
+int FrustumClip( int argc, char *argv[] )
 {
   vtkDebugLeaks::PromptUserOff();
 

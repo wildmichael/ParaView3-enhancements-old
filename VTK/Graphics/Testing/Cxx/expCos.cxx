@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: expCos.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-28 03:33:50 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-08-08 13:50:50 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -35,7 +35,7 @@
 #include "vtkRegressionTestImage.h"
 #include "vtkDebugLeaks.h"
 
-int main( int argc, char *argv[] )
+int expCos( int argc, char *argv[] )
 {
   vtkDebugLeaks::PromptUserOff();
 

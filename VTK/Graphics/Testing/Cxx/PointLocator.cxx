@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: PointLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-27 14:27:44 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-08-08 13:50:50 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,7 @@
 #include "vtkRegressionTestImage.h"
 #include "vtkDebugLeaks.h"
 
-int main( int argc, char *argv[] )
+int PointLocator( int argc, char *argv[] )
 {
   vtkDebugLeaks::PromptUserOff();
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: volProt.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-31 23:13:44 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-08-08 13:50:50 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -36,7 +36,7 @@
 
 // Create an 8x7 grid of render windows in a renderer and render a volume
 // using various techniques for testing purposes
-int main( int argc, char *argv[] )
+int volProt( int argc, char *argv[] )
 {
 
   vtkDebugLeaks::PromptUserOff();
