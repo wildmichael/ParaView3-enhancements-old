@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:59:32 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 1996-08-13 17:49:13 $
+  Version:   $Revision: 1.56 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -397,7 +397,7 @@ void vtkRenderer::ViewToWorld()
   
   // use the inverse matrix 
   mat.Invert();
-  
+ 
   // Transform point to world coordinates 
   result[0] = this->ViewPoint[0];
   result[1] = this->ViewPoint[1];
@@ -508,7 +508,7 @@ void vtkRenderer::UpdateViewRays()
   // Loop through each pixel and compute viewing ray
 
   // get the perspective transformation from the active camera
-  mat = this->ActiveCamera->GetCompositePerspectiveTransform(1,0,1);
+  mat = this->ActiveCamera->GetPerspectiveTransform(1,0,1);
 
   mat.Invert();
   mat.Transpose();
@@ -530,7 +530,7 @@ void vtkRenderer::UpdateViewRays()
     {
       result[0] = xpos;
       result[1] = ypos;
-      result[2] = zpos;
+      result[2] = 1.0;
       result[3] = 1.0;
 
       mat.PointMultiply(result,result);
