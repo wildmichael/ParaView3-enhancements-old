@@ -3,8 +3,8 @@
 
   Module:    $RCSfile: vtkStructuredPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:27 $
-  Version:   $Revision: 1.71 $
+  Date:      $Date: 1999-07-30 11:25:47 $
+  Version:   $Revision: 1.72 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -52,7 +52,7 @@ void vtkStructuredPoints::UpdateInformation()
   int idx;
   
   this->vtkDataObject::UpdateInformation();
-
+  
   if (this->UpdateTime >= this->PipelineMTime && ! this->DataReleased)
     {
     return;
@@ -67,10 +67,11 @@ void vtkStructuredPoints::UpdateInformation()
     }
 
   scalars = this->GetPointData()->GetScalars();
+
   if (scalars)
     {
     this->ScalarType = scalars->GetDataType();
-      this->NumberOfScalarComponents = scalars->GetNumberOfComponents();
+    this->NumberOfScalarComponents = scalars->GetNumberOfComponents();
     }
 
   for (idx = 0; idx < 6; ++idx)
@@ -78,7 +79,7 @@ void vtkStructuredPoints::UpdateInformation()
     this->WholeExtent[idx] = this->Extent[idx];
     }
   this->ComputeIncrements();
-    
+
 }
 
 
