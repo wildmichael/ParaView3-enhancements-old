@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProVP1000Mapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-19 21:02:52 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-12-13 19:45:12 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -886,6 +886,7 @@ void vtkVolumeProVP1000Mapper::Render( vtkRenderer *ren, vtkVolume *vol )
 
   this->UpdateCursor( ren, vol );
 
+  this->Context->SetCorrectGradient (VLItrue);
 
   switch ( this->BlendMode )
     {
