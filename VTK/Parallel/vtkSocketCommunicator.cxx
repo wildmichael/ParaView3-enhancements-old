@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSocketCommunicator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-29 20:20:07 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2002-05-07 20:09:52 $
+  Version:   $Revision: 1.35 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -48,7 +48,7 @@
     return 0; \
     }
 
-vtkCxxRevisionMacro(vtkSocketCommunicator, "$Revision: 1.34 $");
+vtkCxxRevisionMacro(vtkSocketCommunicator, "$Revision: 1.35 $");
 vtkStandardNewMacro(vtkSocketCommunicator);
 
 //----------------------------------------------------------------------------
@@ -301,7 +301,7 @@ int vtkSocketCommunicator::ReceiveMessage(char *data, int *length,
     }
 #endif
 
-  if ( length < 0 )
+  if ( *length < 0 )
     {
     return VTK_ERROR;
     }
