@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericCell.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:20:47 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-09-16 12:07:58 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -119,7 +119,12 @@ public:
   void SetCellTypeToWedge() {this->SetCellType(VTK_WEDGE);};
   void SetCellTypeToPyramid() {this->SetCellType(VTK_PYRAMID);};
 
-protected:
+  // Description:
+  // For legacy compatibility. Do not use.
+  void DeepCopy(vtkCell &c) {this->DeepCopy(&c);}
+  void ShallowCopy(vtkCell &c) {this->ShallowCopy(&c);}
+
+ protected:
   vtkGenericCell();
   ~vtkGenericCell();
   vtkGenericCell(const vtkGenericCell&) {};
