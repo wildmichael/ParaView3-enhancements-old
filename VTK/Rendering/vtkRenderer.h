@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-07 17:28:20 $
-  Version:   $Revision: 1.97 $
+  Date:      $Date: 2001-09-19 18:54:35 $
+  Version:   $Revision: 1.98 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -121,6 +121,12 @@ public:
   vtkCamera *GetActiveCamera();
 
   // Description:
+  // Create a new Camera sutible for use with this type of Renderer.
+  // For example, a vtkMesaRenderer should create a vtkMesaCamera 
+  // in this function.   The default is to just call vtkCamera::New.
+  virtual vtkCamera *MakeCamera();
+
+  // Description:
   // Add an culler to the list of cullers.
   void AddCuller(vtkCuller *);
 
@@ -175,6 +181,12 @@ public:
   // Description:
   // Create and add a light to renderer.
   void CreateLight(void);
+  
+  // Description:
+  // Create a new Light sutible for use with this type of Renderer.
+  // For example, a vtkMesaRenderer should create a vtkMesaLight 
+  // in this function.   The default is to just call vtkLight::New.
+  virtual vtkLight *MakeLight();
 
   // Description:
   // Compute the bounding box of all the visible props

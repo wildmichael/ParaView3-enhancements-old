@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-14 20:08:28 $
-  Version:   $Revision: 1.108 $
+  Date:      $Date: 2001-09-19 18:54:32 $
+  Version:   $Revision: 1.109 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -270,11 +270,17 @@ void vtkActor::SetProperty(vtkProperty *lut)
   this->Modified();
 }
 
+vtkProperty* vtkActor::MakeProperty()
+{
+  return vtkProperty::New();
+}
+
+
 vtkProperty *vtkActor::GetProperty()
 {
   if ( this->Property == NULL )
     {
-    vtkProperty *p = vtkProperty::New();
+    vtkProperty *p = this->MakeProperty();
     this->SetProperty(p);
     p->Delete();
     }

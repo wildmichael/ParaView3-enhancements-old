@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-06 19:19:17 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2001-09-19 18:54:34 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -77,4 +77,14 @@ vtkMesaRenderer* vtkMesaRenderer::New()
     }
   // If the factory was unable to create the object, then create it here.
   return new vtkMesaRenderer;
+}
+
+vtkCamera *vtkMesaRenderer::MakeCamera()
+{
+  return vtkMesaCamera::New();
+}
+
+vtkLight *vtkMesaRenderer::MakeLight()
+{
+  return vtkMesaLight::New();
 }

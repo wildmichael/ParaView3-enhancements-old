@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaRenderer.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:07:00 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-09-19 18:54:34 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -75,6 +75,16 @@ public:
   // Description:
   // Ask lights to load themselves into graphics pipeline.
   int UpdateLights(void);
+  
+
+  
+  // Create a vtkMesaCamera, will be used by the super class
+  // to create the correct camera object.
+  virtual vtkCamera* MakeCamera();
+  
+  // Create a vtkMesaLight, will be used by the super class
+  // to create the correct light object.
+  virtual vtkLight* MakeLight();
   
 protected:
   vtkMesaRenderer();

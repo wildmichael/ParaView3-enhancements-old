@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaActor.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:07:00 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-09-19 18:54:33 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -63,6 +63,10 @@ public:
   // Actual actor render method.
   void Render(vtkRenderer *ren, vtkMapper *mapper);
   
+  // Description:
+  // Create a vtkMesaProperty, used by the super class to 
+  // create a compatible class with the vtkMesaActor.
+  vtkProperty* MakeProperty();
 protected:
   vtkMesaActor() {};
   ~vtkMesaActor() {};

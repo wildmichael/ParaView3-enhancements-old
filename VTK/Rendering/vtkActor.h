@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:53 $
-  Version:   $Revision: 1.90 $
+  Date:      $Date: 2001-09-19 18:54:33 $
+  Version:   $Revision: 1.91 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -113,6 +113,12 @@ public:
   // property object.
   void SetProperty(vtkProperty *lut);
   vtkProperty *GetProperty();
+  
+  // Description:
+  // Create a new property sutible for use with this type of Actor.
+  // For example, a vtkMesaActor should create a vtkMesaProperty 
+  // in this function.   The default is to just call vtkProperty::New.
+  virtual vtkProperty* MakeProperty();
 
   // Description: 
   // Set/Get the property object that controls this actors backface surface

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-06 19:19:14 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2001-09-19 18:54:33 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -77,4 +77,9 @@ vtkMesaActor* vtkMesaActor::New()
     }
   // If the factory was unable to create the object, then create it here.
   return new vtkMesaActor;
+}
+
+vtkProperty* MakeProperty()
+{
+  return vtkMesaProperty::New();
 }

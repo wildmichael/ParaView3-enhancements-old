@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-07 17:28:20 $
-  Version:   $Revision: 1.171 $
+  Date:      $Date: 2001-09-19 18:54:35 $
+  Version:   $Revision: 1.172 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -518,12 +518,18 @@ void vtkRenderer::SetActiveCamera(vtkCamera *cam)
   this->Modified();
 }
 
+
+vtkCamera* vtkRenderer::MakeCamera()
+{
+  return vtkCamera::New();
+}
+  
 // Get the current camera.
 vtkCamera *vtkRenderer::GetActiveCamera()
 {
   if ( this->ActiveCamera == NULL )
     {
-    vtkCamera *cam = vtkCamera::New();
+    vtkCamera *cam = this->MakeCamera();
     this->SetActiveCamera(cam);
     cam->Delete();
     this->ResetCamera();
@@ -588,6 +594,11 @@ void vtkRenderer::RemoveCuller(vtkCuller *culler)
   this->Cullers->RemoveItem(culler);
 }
 
+vtkLight *vtkRenderer::MakeLight()
+{
+  return vtkLight::New();
+}
+
 void vtkRenderer::CreateLight(void)
 {
   if (this->CreatedLight)
@@ -597,7 +608,7 @@ void vtkRenderer::CreateLight(void)
     }
 
   // I do not see why UnRegister is used on CreatedLight, but lets be consistent. 
-  vtkLight *l = vtkLight::New();
+  vtkLight *l = this->MakeLight();
   this->CreatedLight = l;
   this->CreatedLight->Register(this);
   this->AddLight(this->CreatedLight);
