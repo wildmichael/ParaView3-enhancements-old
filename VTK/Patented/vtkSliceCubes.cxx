@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSliceCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-01 18:43:17 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1997-05-06 14:05:40 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -168,7 +168,7 @@ static int Contour(T *slice, S *scalars, int imageRange[2], int dims[3], float o
 
   slice1scalars = NULL;
   slice2scalars = scalars;
-  if (debug)  cerr << "  Slice# " << imageRange[0] << "\n";
+  if (debug)  vtkGenericWarningMacro(<< "  Slice# " << imageRange[0]);
 
   if ( slice2scalars == NULL ) return 0;
   if ( slice != NULL )
@@ -181,7 +181,7 @@ static int Contour(T *slice, S *scalars, int imageRange[2], int dims[3], float o
     slice1 = slice2 = (T *) floatScalars->GetPtr(0);
     }
   slice3scalars = (S *) reader->GetImage(imageRange[0]+1)->GetPointData()->GetScalars();
-  if (debug)  cerr << "  Slice# " << imageRange[0]+1 << "\n";
+  if (debug)  vtkGenericWarningMacro(<< "  Slice# " << imageRange[0]+1 );
 
   if ( slice != NULL )
     {
@@ -195,7 +195,7 @@ static int Contour(T *slice, S *scalars, int imageRange[2], int dims[3], float o
 
   if ( !slice2 || !slice3 )
     {
-    cerr << "Cannot allocate data!";
+    vtkGenericWarningMacro(<< "Cannot allocate data!");
     return 0;
     }
 
@@ -213,12 +213,12 @@ static int Contour(T *slice, S *scalars, int imageRange[2], int dims[3], float o
     slice2 = slice3;
     if ( k < (dims[2]-2) )
       {
-      if (debug)  cerr << "  Slice# " << imageRange[0]+k+2 << "\n";
+      if (debug)  vtkGenericWarningMacro(<< "  Slice# " << imageRange[0]+k+2);
       slice3scalars = (S *)
         reader->GetImage(imageRange[0]+k+2)->GetPointData()->GetScalars();
       if ( slice3scalars == NULL )
         {
-        cerr << "Can't read all the requested slices\n";
+        vtkGenericWarningMacro(<< "Can't read all the requested slices");
         goto PREMATURE_TERMINATION;
         }
       if ( slice != NULL )
