@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-02-17 16:03:39 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2003-03-05 21:05:14 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,10 +28,11 @@
 #include "vtkXMLDataElement.h"
 #include "vtkXMLDataParser.h"
 #include "vtkXMLFileReadTester.h"
+#include "vtkZLibDataCompressor.h"
 
 #include <sys/stat.h>
 
-vtkCxxRevisionMacro(vtkXMLReader, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkXMLReader, "$Revision: 1.8 $");
 
 //----------------------------------------------------------------------------
 vtkXMLReader::vtkXMLReader()
@@ -184,6 +185,14 @@ void vtkXMLReader::SetupCompressor(const char* type)
     }
   vtkObject* object = vtkInstantiator::CreateInstance(type);
   vtkDataCompressor* compressor = vtkDataCompressor::SafeDownCast(object);
+  
+  // In static builds, the vtkZLibDataCompressor may not have been
+  // registered with the vtkInstantiator.  Check for it here.
+  if(!compressor && (strcmp(type, "vtkZLibDataCompressor") == 0))
+    {
+    compressor = vtkZLibDataCompressor::New();
+    }
+  
   if(!compressor)
     {
     vtkErrorMacro("Error creating " << type);
