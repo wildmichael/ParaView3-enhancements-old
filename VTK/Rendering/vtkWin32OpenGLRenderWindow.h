@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-02 15:12:40 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 2002-08-09 15:51:08 $
+  Version:   $Revision: 1.56 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -177,6 +177,10 @@ public:
   void HideCursor();
   void ShowCursor();
   void SetCursorPosition(int x, int y);
+
+  // Description:
+  // Change the shape of the cursor
+  virtual void SetCurrentCursor(int);
 
   // Description:
   // Override the default implementation so that we can actively switch between
