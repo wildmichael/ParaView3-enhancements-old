@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolygon.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-17 20:31:22 $
-  Version:   $Revision: 1.90 $
+  Date:      $Date: 2001-08-24 11:44:00 $
+  Version:   $Revision: 1.91 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1177,7 +1177,7 @@ int vtkPolygon::Triangulate(int vtkNotUsed(index), vtkIdList *ptIds,
 
   if ( !success ) // Indicate possible failure
     {
-    vtkErrorMacro(<<"Possible triangulation failure");
+    vtkDebugMacro(<<"Possible triangulation failure");
     }
   for (i=0; i<this->Tris->GetNumberOfIds(); i++)
     {
