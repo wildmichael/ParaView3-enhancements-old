@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-06 20:21:01 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1999-01-09 13:46:10 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -242,8 +242,14 @@ int idsortcompare(const void *arg1, const void *arg2)
 {
   idsort *v1 = (idsort *)arg1;
   idsort *v2 = (idsort *)arg2;
-  if (v1->dist < v2->dist) return -1;
-  if (v1->dist > v2->dist) return 1;
+  if (v1->dist < v2->dist)
+    {
+    return -1;
+    }
+  if (v1->dist > v2->dist)
+    {
+    return 1;
+    }
   return 0;  
 }
 
@@ -267,9 +273,18 @@ int GetOctent(float *x,float *pt)
   tmp[1] = pt[1] - x[1];
   tmp[2] = pt[2] - x[2];
   
-  if (tmp[0] > 0.0) res += 1;
-  if (tmp[1] > 0.0) res += 2;
-  if (tmp[2] > 0.0) res += 4;
+  if (tmp[0] > 0.0)
+    {
+    res += 1;
+    }
+  if (tmp[1] > 0.0)
+    {
+    res += 2;
+    }
+  if (tmp[2] > 0.0)
+    {
+    res += 4;
+    }
 
   return res;
 }
@@ -281,7 +296,10 @@ int GetMin(int *foo)
   
   for (i = 1; i < 8; i++)
     {
-    if (foo[i] < result) result = foo[i];
+    if (foo[i] < result)
+      {
+      result = foo[i];
+      }
     }
   return result;
 }
@@ -293,7 +311,10 @@ float GetMax(float *foo)
   
   for (i = 1; i < 8; i++)
     {
-    if (foo[i] > result) result = foo[i];
+    if (foo[i] > result)
+      {
+      result = foo[i];
+      }
     }
   return result;
 }
