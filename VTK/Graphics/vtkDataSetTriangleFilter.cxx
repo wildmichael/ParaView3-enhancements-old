@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetTriangleFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-23 17:25:17 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2003-10-31 14:09:07 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,7 +30,7 @@
 #include "vtkUnstructuredGrid.h"
 #include "vtkRectilinearGrid.h"
 
-vtkCxxRevisionMacro(vtkDataSetTriangleFilter, "$Revision: 1.18 $");
+vtkCxxRevisionMacro(vtkDataSetTriangleFilter, "$Revision: 1.19 $");
 vtkStandardNewMacro(vtkDataSetTriangleFilter);
 
 vtkDataSetTriangleFilter::vtkDataSetTriangleFilter()
@@ -211,6 +211,7 @@ void vtkDataSetTriangleFilter::UnstructuredExecute()
   cellPtIds = vtkIdList::New();
 
   // Create an array of points
+  outCD->CopyAllocate(inCD,input->GetNumberOfCells()*5);
   output->Allocate(input->GetNumberOfCells()*5);
   
   // Points are passed through
@@ -241,7 +242,7 @@ void vtkDataSetTriangleFilter::UnstructuredExecute()
         xPtr = cell->Points->GetPoint(j);
         this->Triangulator->InsertPoint(ptId, xPtr, p, 0);
         }//for all cell points
-      if ( cell->IsPrimaryCell() ) //use templates topology is fixed
+      if ( cell->IsPrimaryCell() ) //use templates if topology is fixed
         {
         int numEdges=cell->GetNumberOfEdges();
         this->Triangulator->TemplateTriangulate(cell->GetCellType(),
