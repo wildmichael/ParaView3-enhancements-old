@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkSource.h,v $
   Language:  C++
-  Date:      $Date: 1994-02-04 12:44:58 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1994-05-15 19:17:17 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -24,7 +24,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 class vlSource : virtual public vlObject 
 {
 public:
-  vlSource() : StartMethod(0), EndMethod(0) {};
+  vlSource() : StartMethod(NULL), EndMethod(NULL) {};
   ~vlSource() {};
   char *GetClassName() {return "vlSource";};
   void PrintSelf(ostream& os, vlIndent indent);

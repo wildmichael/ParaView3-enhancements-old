@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkSTLReader.h,v $
   Language:  C++
-  Date:      $Date: 1994-05-08 08:54:11 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-05-15 19:17:19 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -27,7 +27,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 class vlSTLReader : public vlPolySource 
 {
 public:
-  vlSTLReader():Filename(0) {};
+  vlSTLReader():Filename(NULL) {};
   ~vlSTLReader() {if (this->Filename) delete [] this->Filename;};
   char *GetClassName() {return "vlSTLReader";};
   void PrintSelf(ostream& os, vlIndent indent);

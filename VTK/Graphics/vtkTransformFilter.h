@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTransformFilter.h,v $
   Language:  C++
-  Date:      $Date: 1994-05-01 16:16:24 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-05-15 19:17:09 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -27,7 +27,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 class vlTransformFilter : public vlPointSetToPointSetFilter
 {
 public:
-  vlTransformFilter() : Transform(0) {};
+  vlTransformFilter() : Transform(NULL) {};
   ~vlTransformFilter() {};
   char *GetClassName() {return "vlTransformFilter";};
   void PrintSelf(ostream& os, vlIndent indent);

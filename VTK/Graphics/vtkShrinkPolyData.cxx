@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkShrinkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-03-27 16:11:09 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1994-05-15 19:17:18 $
+  Version:   $Revision: 1.14 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -80,12 +80,12 @@ void vlShrinkPolyData::Execute()
   newVerts = new vlCellArray(this->Input->GetNumberOfVerts());
 
   newLines = new vlCellArray;
-  newLines->Initialize(numNewLines*3);
+  newLines->Allocate(numNewLines*3);
  
   newPolys = new vlCellArray;
-  newPolys->Initialize(poly_alloc_size);
+  newPolys->Allocate(poly_alloc_size);
 
-  this->PointData.CopyInitialize(pd);
+  this->PointData.CopyAllocate(pd);
 //
 // Copy vertices (no shrinking necessary)
 //
