@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVTreeComposite.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-03-05 13:57:42 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2003-03-25 18:52:41 $
+  Version:   $Revision: 1.38 $
   
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -59,7 +59,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 //-------------------------------------------------------------------------
 vtkStandardNewMacro(vtkPVTreeComposite);
-vtkCxxRevisionMacro(vtkPVTreeComposite, "$Revision: 1.37 $");
+vtkCxxRevisionMacro(vtkPVTreeComposite, "$Revision: 1.38 $");
 
 vtkCxxSetObjectMacro(vtkPVTreeComposite, RenderView, vtkPVRenderView);
 
@@ -335,6 +335,7 @@ vtkPVTreeComposite::vtkPVTreeComposite()
   this->Initialized = 0;
   
   this->UseChar = 1;
+  this->UseCompositing = 0;
 }
 
   
