@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 1999-03-03 21:08:17 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-03-09 21:13:40 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -106,7 +106,7 @@ public:
   virtual void SetWindowName(char *);
   
   //BTX
-  virtual void *GetGenericDisplayId() {return NULL;};
+  virtual void *GetGenericDisplayId() {return (void *)this->ContextId;};
   virtual void *GetGenericWindowId()  {return (void *)this->WindowId;};
   virtual void *GetGenericParentId()  {return (void *)this->ParentId;};
   virtual void *GetGenericContext()   {return (void *)this->DeviceContext;};

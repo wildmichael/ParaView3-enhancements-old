@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImager.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-03 21:05:37 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-03-09 21:13:40 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,10 +45,16 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifdef _WIN32
   #include "vtkOpenGLImager.h"
 #endif
+#ifdef VTK_USE_OGLR
+  #include "vtkOpenGLImager.h"
+#endif
 
 vtkImager* vtkImager::New()
 {
 #ifdef _WIN32
+  return vtkOpenGLImager::New();
+#endif
+#ifdef VTK_USE_OGLR
   return vtkOpenGLImager::New();
 #endif
   return new vtkImager;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-02 16:49:08 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-03-09 21:13:40 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,6 +44,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
   #include "vtkOpenGLPolyDataMapper2D.h"
   #include "vtkWin32PolyDataMapper2D.h"
 #else
+#ifdef VTK_USE_OGLR
+  #include "vtkOpenGLPolyDataMapper2D.h"
+#endif
   #include "vtkXPolyDataMapper2D.h"
 #endif
 
@@ -86,7 +89,11 @@ vtkPolyDataMapper2D *vtkPolyDataMapper2D::New()
     return vtkOpenGLPolyDataMapper2D::New();
     return vtkWin32PolyDataMapper2D::New();
 #else
+#ifdef VTK_USE_OGLR
+    return vtkOpenGLPolyDataMapper2D::New();
+#else
     return vtkXPolyDataMapper2D::New();
+#endif
 #endif
 }
 

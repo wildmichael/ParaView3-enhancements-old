@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-03 21:06:51 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1999-03-09 21:13:39 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,7 +46,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkOpenGLImageMapper.h"
 #include "vtkWin32ImageMapper.h"
 #else
-  #include "vtkXImageMapper.h"
+#ifdef VTK_USE_OGLR
+#include "vtkOpenGLImageMapper.h"
+#endif
+#include "vtkXImageMapper.h"
 #endif
 
 #include "vtkActor2D.h"
@@ -97,6 +100,9 @@ vtkImageMapper* vtkImageMapper::New()
   return vtkOpenGLImageMapper::New();
   return vtkWin32ImageMapper::New();
 #else
+#ifdef VTK_USE_OGLR
+  return vtkOpenGLImageMapper::New();
+#endif
   return vtkXImageMapper::New();
 #endif
 

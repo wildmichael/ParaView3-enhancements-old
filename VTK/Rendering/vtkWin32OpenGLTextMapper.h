@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLTextMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-03-03 21:03:52 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-03-09 21:13:41 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,9 +65,17 @@ public:
   void RenderOpaqueGeometry(vtkViewport* viewport, vtkActor2D* actor);
   void RenderOverlay(vtkViewport* viewport, vtkActor2D* actor) {};
 
+  // Description:
+  // Release any graphics resources that are being consumed by this actor.
+  // The parameter window could be used to determine which graphic
+  // resources to release.
+  virtual void ReleaseGraphicsResources(vtkWindow *);
+
+  // Description:
+  // An internal function used for caching font display lists.
+  static int GetListBaseForFont(vtkTextMapper *tm, vtkViewport *vp, HDC);
+
 protected:
-  int ListBase;
-  vtkTimeStamp  OpenGLBuildTime;
 };
 
 

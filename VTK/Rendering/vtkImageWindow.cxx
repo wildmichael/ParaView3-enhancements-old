@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-03 21:06:51 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-03-09 21:13:39 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,6 +45,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
   #include "vtkWin32OpenGLImageWindow.h"
   #include "vtkWin32ImageWindow.h"
 #else
+#ifdef VTK_USE_OGLR
+  #include "vtkOpenGLImageWindow.h"
+#endif
   #include "vtkXImageWindow.h"
 #endif
 
@@ -164,7 +167,11 @@ vtkImageWindow* vtkImageWindow::New()
   return vtkWin32OpenGLImageWindow::New();
   return vtkWin32ImageWindow::New();
 #else
+#ifdef VTK_USE_OGLR
+  return vtkOpenGLImageWindow::New();
+#else
     return vtkXImageWindow::New();
+#endif
 #endif
 }
 
