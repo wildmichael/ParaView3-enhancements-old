@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPiecewiseFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-16 19:37:41 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-06-03 20:33:18 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -84,7 +84,7 @@ void vtkPiecewiseFunction::Initialize()
 {
   if ( this->Function)
     {
-    delete this->Function;
+    delete [] this->Function;
     }
 
   this->ArraySize     	 = 64;
