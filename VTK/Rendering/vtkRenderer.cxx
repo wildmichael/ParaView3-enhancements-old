@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-06 16:04:35 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1994-11-09 16:55:50 $
+  Version:   $Revision: 1.22 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -50,7 +50,6 @@ vlRenderer::vlRenderer()
 
   this->BackLight = 1;
   this->Erase = 1;
-  this->StereoRender = 0;
 
   this->Aspect[0] = this->Aspect[1] = 1.0;
 }
@@ -354,8 +353,6 @@ void vlRenderer::PrintSelf(ostream& os, vlIndent indent)
     os << indent << "Erase: " << (this->Erase ? "On\n" : "Off\n");
     os << indent << "Lights:\n";
     this->Lights.PrintSelf(os,indent.GetNextIndent());
-    os << indent << "Stereo Render: " 
-      << (this->StereoRender ? "On\n":"Off\n");
 
     os << indent << "ViewPoint: (" << this->ViewPoint[0] << ", " 
       << this->ViewPoint[1] << ", " << this->ViewPoint[2] << ")\n";

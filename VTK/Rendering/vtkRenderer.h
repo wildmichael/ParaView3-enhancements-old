@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRenderer.h,v $
   Language:  C++
-  Date:      $Date: 1994-09-26 20:41:37 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1994-11-09 16:56:13 $
+  Version:   $Revision: 1.15 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -82,8 +82,6 @@ public:
   vlGetMacro(Erase,int);
   vlBooleanMacro(Erase,int);
 
-  vlGetMacro(StereoRender,int);
-
   // Description:
   // Create an image.
   virtual void Render() = 0;
@@ -156,7 +154,6 @@ protected:
   float Viewport[4];
   int   Erase;
   float Aspect[2];
-  int StereoRender;
 };
 
 // Description:
