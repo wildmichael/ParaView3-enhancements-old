@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer2.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:17:43 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-11-14 21:05:25 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -119,6 +119,9 @@ void vtkImageViewer2::SetPosition(int a[2])
 class vtkImageViewer2Callback : public vtkCommand
 {
 public:
+  static vtkImageViewer2Callback *New() {
+    return new vtkImageViewer2Callback; }
+  
   void Execute(vtkObject *caller, unsigned long event, void *callData)
     {
       if (callData)
@@ -205,9 +208,10 @@ void vtkImageViewer2::SetupInteractor(vtkRenderWindowInteractor *rwi)
   if (!this->InteractorStyle)
     {
     this->InteractorStyle = vtkInteractorStyleImage::New();
-    vtkImageViewer2Callback *cbk = new vtkImageViewer2Callback;
+    vtkImageViewer2Callback *cbk = vtkImageViewer2Callback::New();
     cbk->IV = this;
     this->InteractorStyle->AddObserver(vtkCommand::WindowLevelEvent,cbk);
+    cbk->Delete();
     }
   
   if (!this->Interactor)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleUser.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:17:48 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-11-14 21:05:26 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,7 +44,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkCellPicker.h"
 #include "vtkRenderWindowInteractor.h"
 #include "vtkObjectFactory.h"
-#include "vtkCommand.h"
+#include "vtkOldStyleCallbackCommand.h"
 
 
 //----------------------------------------------------------------------------
@@ -104,11 +104,12 @@ void vtkInteractorStyleUser::PrintSelf(ostream& os, vtkIndent indent)
 void vtkInteractorStyleUser::vtkSetOldCallback(unsigned long &tag, unsigned long event, 
                                                void (*f)(void *), void *arg)
 {
-  vtkOldStyleCallbackCommand *cbc = new vtkOldStyleCallbackCommand;
+  vtkOldStyleCallbackCommand *cbc = vtkOldStyleCallbackCommand::New();
   cbc->Callback = f;
   cbc->ClientData = arg;
   this->RemoveObserver(tag);
   tag = this->AddObserver(event,cbc);
+  cbc->Delete();
 }
 
 void vtkInteractorStyleUser::vtkSetOldDelete(unsigned long tag, void (*f)(void *))
