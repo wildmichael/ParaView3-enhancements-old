@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer2.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-12 15:44:49 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-04-19 22:38:18 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkInteractorStyleImage.h"
 #include "vtkCommand.h"
 
-vtkCxxRevisionMacro(vtkImageViewer2, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkImageViewer2, "$Revision: 1.10 $");
 vtkStandardNewMacro(vtkImageViewer2);
 
 //----------------------------------------------------------------------------
@@ -89,9 +89,20 @@ public:
   static vtkImageViewer2Callback *New() {
     return new vtkImageViewer2Callback; }
   
-  void Execute(vtkObject *caller, unsigned long vtkNotUsed(event), 
-               void *callData)
+  void Execute(vtkObject *caller, unsigned long event, void *callData)
     {
+      if (event == vtkCommand::ResetWindowLevelEvent && this->IV->GetInput())
+        {
+        this->IV->GetInput()->UpdateInformation();
+        this->IV->GetInput()->SetUpdateExtent(this->IV->GetInput()->GetWholeExtent());
+        this->IV->GetInput()->Update();
+        float *range = this->IV->GetInput()->GetScalarRange();
+        this->IV->GetWindowLevel()->SetWindow(range[1] - range[0]);
+        this->IV->GetWindowLevel()->SetLevel(0.5 * (range[1] + range[0]));
+        this->IV->Render();
+        return;
+        }
+
       if (callData)
         {
         this->InitialWindow = this->IV->GetWindowLevel()->GetWindow();
@@ -178,7 +189,8 @@ void vtkImageViewer2::SetupInteractor(vtkRenderWindowInteractor *rwi)
     this->InteractorStyle = vtkInteractorStyleImage::New();
     vtkImageViewer2Callback *cbk = vtkImageViewer2Callback::New();
     cbk->IV = this;
-    this->InteractorStyle->AddObserver(vtkCommand::WindowLevelEvent,cbk);
+    this->InteractorStyle->AddObserver(vtkCommand::WindowLevelEvent, cbk);
+    this->InteractorStyle->AddObserver(vtkCommand::ResetWindowLevelEvent, cbk);
     cbk->Delete();
     }
   

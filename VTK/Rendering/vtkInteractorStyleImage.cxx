@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleImage.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-22 19:05:26 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-04-19 22:38:18 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkMath.h"
 #include "vtkCommand.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyleImage, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtkInteractorStyleImage, "$Revision: 1.11 $");
 vtkStandardNewMacro(vtkInteractorStyleImage);
 
 //----------------------------------------------------------------------------
@@ -318,6 +318,21 @@ void vtkInteractorStyleImage::OnChar(int ctrl, int shift, char keycode,
       this->AnimState = VTKIS_ANIM_OFF;
       break;
       }
+    case 'r' :      
+    case 'R' :
+      // Allow either shift/ctrl to trigger the usual 'r' binding
+      if (shift || ctrl)
+        {
+        this->Superclass::OnChar(ctrl,shift,keycode,repeatcount);
+        }
+      else
+        {
+        if (this->HasObserver(vtkCommand::ResetWindowLevelEvent)) 
+          {
+          this->InvokeEvent(vtkCommand::ResetWindowLevelEvent,this);
+          }
+        }
+      break;
     default:
       this->Superclass::OnChar(ctrl,shift,keycode,repeatcount);
       break;
