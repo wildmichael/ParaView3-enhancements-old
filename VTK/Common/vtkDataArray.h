@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArray.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:44 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2001-08-13 14:35:10 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -267,8 +267,13 @@ public:
   // Description:
   // Return the range of the array values for the given component. 
   // Note that the range is computed every time GetRange() is called.
-  // Range copied into array provided.
-  void GetRange(float range[2], int comp);
+  // Range is copied into the array provided.
+  virtual void GetRange(float range[2], int comp);
+
+  // Description:
+  // Return the maximum norm for the tuples.
+  // Note that the max. is computed everytime GetMaxNorm is called.
+  virtual float GetMaxNorm();
 
   // Description:
   // Creates an array for dataType where dataType is one of

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSmoothPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 18:11:26 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2001-08-13 14:35:11 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -657,8 +657,9 @@ void vtkSmoothPolyDataFilter::Execute()
 
   if ( this->GenerateErrorVectors )
     {
-    vtkVectors *newVectors = vtkVectors::New();
-    newVectors->SetNumberOfVectors(numPts);
+    vtkFloatArray *newVectors = vtkFloatArray::New();
+    newVectors->SetNumberOfComponents(3);
+    newVectors->SetNumberOfTuples(numPts);
     for (i=0; i<numPts; i++)
       {
       inPts->GetPoint(i,x1);
@@ -667,7 +668,7 @@ void vtkSmoothPolyDataFilter::Execute()
         {
         x3[j] = x2[j] - x1[j];
         }
-      newVectors->SetVector(i,x3);
+      newVectors->SetTuple(i,x3);
       }
     output->GetPointData()->SetVectors(newVectors);
     newVectors->Delete();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMath.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-06 21:15:13 $
-  Version:   $Revision: 1.69 $
+  Date:      $Date: 2001-08-13 14:35:11 $
+  Version:   $Revision: 1.70 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1818,6 +1818,17 @@ void vtkMath::Orthogonalize3x3(const float A[3][3], float B[3][3])
 void vtkMath::Orthogonalize3x3(const double A[3][3], double B[3][3])
 {
   vtkOrthogonalize3x3(A,B);
+}
+
+float vtkMath::Norm(const float* x, int n)
+{
+  double sum=0;
+  for (int i=0; i<n; i++)
+    {
+    sum += x[i]*x[i];
+    }
+
+  return sqrt(sum);
 }
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMath.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:45 $
-  Version:   $Revision: 1.70 $
+  Date:      $Date: 2001-08-13 14:35:11 $
+  Version:   $Revision: 1.71 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -85,6 +85,10 @@ public:
   // Cross product of two 3-vectors. Result vector in z[3]. (double-precision
   // version)
   static void Cross(const double x[3], const double y[3], double z[3]);
+
+  // Description:
+  // Compute the norm of n-vector.
+  static float Norm(const float* x, int n); 
 
   // Description:
   // Compute the norm of 3-vector.

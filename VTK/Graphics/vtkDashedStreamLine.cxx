@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDashedStreamLine.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:02 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2001-08-13 14:35:11 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -69,7 +69,7 @@ void vtkDashedStreamLine::Execute()
 {
   vtkStreamPoint *sPrev, *sPtr;
   vtkPoints *newPts;
-  vtkVectors *newVectors;
+  vtkFloatArray *newVectors;
   vtkFloatArray *newScalars=NULL;
   vtkCellArray *newLines;
   int i, ptId, j;
@@ -91,7 +91,8 @@ void vtkDashedStreamLine::Execute()
   //
   newPts = vtkPoints::New();
   newPts->Allocate(1000);
-  newVectors = vtkVectors::New();
+  newVectors = vtkFloatArray::New();
+  newVectors->SetNumberOfComponents(3);
   newVectors->Allocate(1000);
   if ( input->GetPointData()->GetScalars() || this->SpeedScalars )
     {
@@ -146,10 +147,10 @@ void vtkDashedStreamLine::Execute()
 
         // create this dash
         pts[0] = newPts->InsertNextPoint(x);
-        newVectors->InsertVector(pts[0],v);
+        newVectors->InsertTuple(pts[0],v);
 
         pts[1] = newPts->InsertNextPoint(xEnd);
-        newVectors->InsertVector(pts[1],vEnd);
+        newVectors->InsertTuple(pts[1],vEnd);
 
         if ( newScalars ) 
           {

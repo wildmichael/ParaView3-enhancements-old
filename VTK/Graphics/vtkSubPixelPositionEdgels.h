@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSubPixelPositionEdgels.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:50 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2001-08-13 14:35:11 $
+  Version:   $Revision: 1.28 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -93,7 +93,7 @@ protected:
   // Usual data generation method
   void Execute();
   void Move(int xdim, int ydim, int zdim, int x, int y,
-	    float *img, vtkVectors *inVecs, 
+	    float *img, vtkDataArray *inVecs, 
 	    float *result, int z, float *aspect, float *resultNormal);
   // extension for target instead of maximum
   int TargetFlag;

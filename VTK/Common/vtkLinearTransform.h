@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearTransform.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:45 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-08-13 14:35:11 $
+  Version:   $Revision: 1.24 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -155,13 +155,20 @@ public:
   // Description:
   // Apply the transformation to a series of normals, and append the
   // results to outNms.  
-  virtual void TransformNormals(vtkNormals *inNms, vtkNormals *outNms);
+  virtual void TransformNormals(vtkNormals *inNms, vtkNormals *outNms)
+    { 
+      this->TransformNormals(inNms->GetData(), outNms->GetData());
+    }
   virtual void TransformNormals(vtkDataArray *inNms, vtkDataArray *outNms);
 
   // Description:
   // Apply the transformation to a series of vectors, and append the
   // results to outVrs.  
-  virtual void TransformVectors(vtkVectors *inVrs, vtkVectors *outVrs);
+  virtual void TransformVectors(vtkVectors *inVrs, vtkVectors *outVrs)
+    {
+      this->TransformVectors(inVrs->GetData(), outVrs->GetData());
+    }
+  virtual void TransformVectors(vtkDataArray *inVrs, vtkDataArray *outVrs);
 
   // Description:
   // Apply the transformation to a combination of points, normals
