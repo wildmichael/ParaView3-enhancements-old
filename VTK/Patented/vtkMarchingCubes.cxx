@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:35:42 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1995-08-01 09:02:55 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,7 +39,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkMarchingCubes.hh"
-#include "MC_Cases.h"
+#include "vtkMarchingCubesCases.hh"
 #include "vtkStructuredPoints.hh"
 #include "vtkShortScalars.hh"
 #include "vtkMath.hh"

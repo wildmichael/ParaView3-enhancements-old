@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxel.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:38:08 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1995-08-01 09:02:54 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -222,7 +222,7 @@ static int faces[6][4] = { {0,2,4,6}, {1,3,5,7},
 //
 // Marching cubes case table
 //
-#include "MC_Cases.h"
+#include "vtkMarchingCubesCases.hh"
 
 void vtkVoxel::Contour(float value, vtkFloatScalars *cellScalars, 
                       vtkFloatPoints *points,
