@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToImageFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-23 18:49:24 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-08-23 19:35:29 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -115,8 +115,8 @@ void vtkImageToImageFilter::ExecuteInformation()
     this->ExecuteImageInformation();
     if (this->LegacyHack)
       {
-      vtkWarningMacro("ExecuteImageInformation will not be supported in the future.
-You should write an ExecuteInformation(vtkImageData*, vtkImageData*)");
+      vtkWarningMacro("ExecuteImageInformation will not be supported in the future.\n"
+        << "You should write an ExecuteInformation(vtkImageData*, vtkImageData*)");
       return;
       }
     
