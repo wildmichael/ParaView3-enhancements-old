@@ -1,4 +1,4 @@
-/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/vtktiff/tiffio.h,v 1.4 2005-02-28 16:15:12 malaterre Exp $ */
+/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/vtktiff/tiffio.h,v 1.5 2005-02-28 18:49:39 malaterre Exp $ */
 
 /*
  * Copyright (c) 1988-1997 Sam Leffler
@@ -248,7 +248,7 @@ extern  tsize_t TIFFRasterScanlineSize(TIFF*);
 extern  tsize_t TIFFStripSize(TIFF*);
 extern  tsize_t TIFFVStripSize(TIFF*, uint32);
 extern  tsize_t TIFFTileRowSize(TIFF*);
-extern  tsize_t TIFFTileSize(TIFF*);
+TEXTERN tsize_t TEXPORT TIFFTileSize(TIFF*);
 extern  tsize_t TIFFVTileSize(TIFF*, uint32);
 TEXTERN uint32 TEXPORT TIFFDefaultStripSize(TIFF*, uint32);
 extern  void TIFFDefaultTileSize(TIFF*, uint32*, uint32*);
@@ -313,7 +313,7 @@ extern  TIFFExtendProc TIFFSetTagExtender(TIFFExtendProc);
 extern  ttile_t TIFFComputeTile(TIFF*, uint32, uint32, uint32, tsample_t);
 extern  int TIFFCheckTile(TIFF*, uint32, uint32, uint32, tsample_t);
 extern  ttile_t TIFFNumberOfTiles(TIFF*);
-extern  tsize_t TIFFReadTile(TIFF*,
+TEXTERN tsize_t TEXPORT TIFFReadTile(TIFF*,
             tdata_t, uint32, uint32, uint32, tsample_t);
 extern  tsize_t TIFFWriteTile(TIFF*,
             tdata_t, uint32, uint32, uint32, tsample_t);

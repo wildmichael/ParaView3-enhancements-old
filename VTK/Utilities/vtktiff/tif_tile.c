@@ -1,4 +1,4 @@
-/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/vtktiff/tif_tile.c,v 1.1 2004-04-28 15:49:22 king Exp $ */
+/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/vtktiff/tif_tile.c,v 1.2 2005-02-28 18:49:39 malaterre Exp $ */
 
 /*
  * Copyright (c) 1991-1997 Sam Leffler
@@ -186,7 +186,7 @@ TIFFVTileSize(TIFF* tif, uint32 nrows)
  * Compute the # bytes in a row-aligned tile.
  */
 tsize_t
-TIFFTileSize(TIFF* tif)
+TEXPORT TIFFTileSize(TIFF* tif)
 {
         return (TIFFVTileSize(tif, tif->tif_dir.td_tilelength));
 }

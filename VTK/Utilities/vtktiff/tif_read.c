@@ -1,4 +1,4 @@
-/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/vtktiff/tif_read.c,v 1.1 2004-04-28 15:49:22 king Exp $ */
+/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/vtktiff/tif_read.c,v 1.2 2005-02-28 18:49:39 malaterre Exp $ */
 
 /*
  * Copyright (c) 1988-1997 Sam Leffler
@@ -322,7 +322,7 @@ TIFFFillStrip(TIFF* tif, tstrip_t strip)
  * tile is selected by the (x,y,z,s) coordinates.
  */
 tsize_t
-TIFFReadTile(TIFF* tif,
+TEXPORT TIFFReadTile(TIFF* tif,
     tdata_t buf, uint32 x, uint32 y, uint32 z, tsample_t s)
 {
         if (!TIFFCheckRead(tif, 1) || !TIFFCheckTile(tif, x, y, z, s))
