@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKochanekSpline.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-05 13:11:37 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-01-05 13:16:28 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -96,7 +96,9 @@ float vtkKochanekSpline::Evaluate (float t)
     {
     index = i - 1;
     if (t < intervals[i])
-xe      break;
+      {
+      break;
+      }
     }
 
   // calculate offset within interval
