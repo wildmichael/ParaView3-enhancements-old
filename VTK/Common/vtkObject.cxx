@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-29 20:49:43 $
-  Version:   $Revision: 1.81 $
+  Date:      $Date: 2002-12-03 23:34:14 $
+  Version:   $Revision: 1.82 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,6 +20,8 @@
 #include "vtkDebugLeaks.h"
 #include "vtkCommand.h"
 #include "vtkTimeStamp.h"
+
+vtkCxxRevisionMacro(vtkObject, "$Revision: 1.82 $");
 
 // Initialize static member that controls warning display
 static int vtkObjectGlobalWarningDisplay = 1;
@@ -261,11 +263,6 @@ int vtkObject::IsA(const char *type)
 vtkObject *vtkObject::SafeDownCast(vtkObject *o)
 {
   return (vtkObject *)o;
-}
-
-void vtkObject::CollectRevisions(ostream& os)
-{
-  os << "vtkObject $Revision: 1.81 $\n";
 }
 
 //----------------------------------Command/Observer stuff-------------------
