@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiThreader.h,v $
   Language:  C++
-  Date:      $Date: 1998-11-19 21:34:44 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1999-04-23 18:13:19 $
+  Version:   $Revision: 1.21 $
 
 
-Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless
