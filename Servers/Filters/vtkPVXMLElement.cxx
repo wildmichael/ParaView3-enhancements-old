@@ -15,7 +15,7 @@
 #include "vtkPVXMLElement.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkPVXMLElement, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkPVXMLElement, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkPVXMLElement);
 
 //----------------------------------------------------------------------------
@@ -122,6 +122,11 @@ void vtkPVXMLElement::AddNestedElement(vtkPVXMLElement* element)
   this->NestedElements[index] = element;
   element->Register(this);
   element->SetParent(this);
+}
+
+//----------------------------------------------------------------------------
+void vtkPVXMLElement::AddCharacterData(const char*, int)
+{
 }
 
 //----------------------------------------------------------------------------
