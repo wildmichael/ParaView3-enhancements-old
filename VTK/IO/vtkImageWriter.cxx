@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 19:11:13 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1998-06-29 19:42:19 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -104,6 +104,8 @@ void vtkImageWriter::PrintSelf(ostream& os, vtkIndent indent)
     (this->FilePrefix ? this->FilePrefix : "(none)") << "\n";
   os << indent << "FilePattern: " << 
     (this->FilePattern ? this->FilePattern : "(none)") << "\n";
+
+  os << indent << "FileDimensionality: " << this->FileDimensionality << "\n";
 }
 
 //----------------------------------------------------------------------------

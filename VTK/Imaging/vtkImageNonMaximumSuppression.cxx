@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageNonMaximumSuppression.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 19:10:58 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1998-06-29 19:42:14 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -360,6 +360,9 @@ void vtkImageNonMaximumSuppression::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkImageTwoInputFilter::PrintSelf(os,indent);
 
+  os << indent << "Dimensionality: " << this->Dimensionality << "\n";
+
+  os << indent << "HandleBoundaries: " << (this->HandleBoundaries ? "On\n" : "Off\n");
 }
 
 

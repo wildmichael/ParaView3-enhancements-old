@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-09 19:29:10 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-06-29 19:42:18 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -159,12 +159,21 @@ vtkImageWindow* vtkImageWindow::New()
 
 void vtkImageWindow::PrintSelf(ostream& os, vtkIndent indent)
 {
-
   vtkWindow::PrintSelf(os, indent);
+
+  if ( this->FileName )
+    {
+    os << indent << "FileName: " << this->FileName << "\n";
+    }
+  else
+    {
+    os << indent << "FileName: (none)\n";
+    }
+
   os << indent << "Position: (" << this->Position[0]
      << "," << this->Position[1] << ") \n";
-  os << indent << "Gray scale hint: " << this->GrayScaleHint << "\n";
 
+  os << indent << "Gray scale hint: " << this->GrayScaleHint << "\n";
 }
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageThreshold.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 19:11:11 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1998-06-29 19:42:16 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -302,5 +302,12 @@ void vtkImageThreshold::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkImageFilter::PrintSelf(os,indent);
 
+  os << indent << "OutputScalarType: " << this->OutputScalarType << "\n";
+  os << indent << "InValue: " << this->InValue << "\n";
+  os << indent << "OutValue: " << this->OutValue << "\n";
+  os << indent << "LowerThreshold: " << this->LowerThreshold << "\n";
+  os << indent << "UpperThreshold: " << this->UpperThreshold << "\n";
+  os << indent << "ReplaceIn: " << this->ReplaceIn << "\n";
+  os << indent << "ReplaceOut: " << this->ReplaceOut << "\n";
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAnisotropicDiffusion2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-07 12:12:47 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1998-06-29 19:42:10 $
+  Version:   $Revision: 1.25 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,6 +69,8 @@ vtkImageAnisotropicDiffusion2D::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "NumberOfIterations: " << this->NumberOfIterations << "\n";
   os << indent << "DiffusionThreshold: " << this->DiffusionThreshold << "\n";
   os << indent << "DiffusionFactor: " << this->DiffusionFactor << "\n";
+
+  os << indent << "Faces: " << this->Faces << "\n";
 
   if (this->Edges)
     {

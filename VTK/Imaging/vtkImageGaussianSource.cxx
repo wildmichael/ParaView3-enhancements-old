@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGaussianSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 19:10:36 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-06-29 19:42:12 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -165,6 +165,15 @@ void vtkImageGaussianSource::Execute(vtkImageData *data)
 void vtkImageGaussianSource::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkImageSource::PrintSelf(os,indent);
+
+  os << indent << "Maximum: " << this->Maximum << "\n";
+
+  os << indent << "StandardDeviation: " << this->StandardDeviation << "\n";
+
+  os << indent << "Center: ( "
+     << this->Center[0] << ", "
+     << this->Center[1] << ", "
+     << this->Center[2] << " )\n";
 
 }
 
