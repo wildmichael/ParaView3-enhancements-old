@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDynamicLoader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-17 12:42:10 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2003-09-23 20:55:32 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 // Each part of the ifdef contains a complete implementation for
 // the static methods of vtkDynamicLoader.  
 
-vtkCxxRevisionMacro(vtkDynamicLoader, "$Revision: 1.14 $");
+vtkCxxRevisionMacro(vtkDynamicLoader, "$Revision: 1.15 $");
 
 //----------------------------------------------------------------------------
 // Needed when we don't use the vtkStandardNewMacro.
@@ -91,6 +91,12 @@ const char* vtkDynamicLoader::LastError()
 
 #ifdef __APPLE__
 #define VTKDYNAMICLOADER_DEFINED
+
+// Visual Age Compiler for Mac OSX does not understand this extension.
+#if defined(__IBMCPP__) && !defined(__private_extern__)
+# define __private_extern__
+#endif
+
 #include <mach-o/dyld.h>
 
 vtkLibHandle vtkDynamicLoader::OpenLibrary(const char* libname )
