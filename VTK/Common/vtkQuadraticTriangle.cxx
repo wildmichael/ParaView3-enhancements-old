@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadraticTriangle.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 18:55:41 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2003-05-06 17:05:21 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkQuadraticTriangle, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkQuadraticTriangle, "$Revision: 1.9 $");
 vtkStandardNewMacro(vtkQuadraticTriangle);
 
 // Construct the line with two points.
@@ -292,6 +292,40 @@ int vtkQuadraticTriangle::GetParametricCenter(float pcoords[3])
 {
   pcoords[0] = pcoords[1] = 0.333; pcoords[2] = 0.0;
   return 0;
+}
+
+// Compute maximum parametric distance to cell
+float vtkQuadraticTriangle::GetParametricDistance(float pcoords[3])
+{
+  int i;
+  float pDist, pDistMax=0.0f;
+  float pc[3];
+
+  pc[0] = pcoords[0];
+  pc[1] = pcoords[1];
+  pc[2] = 1.0 - pcoords[0] - pcoords[1];
+
+  for (i=0; i<3; i++)
+    {
+    if ( pc[i] < 0.0 ) 
+      {
+      pDist = -pc[i];
+      }
+    else if ( pc[i] > 1.0 ) 
+      {
+      pDist = pc[i] - 1.0f;
+      }
+    else //inside the cell in the parametric direction
+      {
+      pDist = 0.0;
+      }
+    if ( pDist > pDistMax )
+      {
+      pDistMax = pDist;
+      }
+    }
+  
+  return pDistMax;
 }
 
 // Compute interpolation functions. The first three nodes are the triangle

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadraticTriangle.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 18:55:41 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2003-05-06 17:05:21 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -90,6 +90,11 @@ public:
   // Description:
   // Return the center of the quadratic triangle in parametric coordinates.
   int GetParametricCenter(float pcoords[3]);
+
+  // Description:
+  // Return the distance of the parametric coordinate provided to the
+  // cell. If inside the cell, a distance of zero is returned. 
+  float GetParametricDistance(float pcoords[3]);
 
   // Description:
   // Quadratic triangle specific methods. 
