@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:25:11 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 1999-07-23 12:04:44 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,6 +72,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 // .SECTION See Also
 // vtkMarchingCubes vtkSliceCubes vtkDividingCubes vtkMarchingSquares
+// vtkImageMarchingCubes
 
 #ifndef __vtkContourFilter_h
 #define __vtkContourFilter_h
@@ -166,8 +167,11 @@ protected:
   vtkPointLocator *Locator;
   int UseScalarTree;
   vtkScalarTree *ScalarTree;
-
-  void StructuredPointsContour(int dim); //special contouring for structured points
+  
+  //special contouring for structured points
+  void StructuredPointsContour(int dim); 
+  //special contouring for image data
+  void ImageContour(int dim);
 };
 
 // Description:
