@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSetGet.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-28 14:25:14 $
-  Version:   $Revision: 1.85 $
+  Date:      $Date: 2001-06-28 15:36:42 $
+  Version:   $Revision: 1.86 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,7 +58,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // Some constants used throughout the code
 #define VTK_LARGE_FLOAT 1.0e+38F
 #ifdef VTK_USE_64BIT_IDS
-#define VTK_LARGE_ID 9223372036854775807 // 2^63 - 1
+#ifdef _WIN32
+#define VTK_LARGE_ID 9223372036854775807i64 // 2^63 - 1
+#else
+#define VTK_LARGE_ID 9223372036854775807LL // 2^63 - 1
+#endif
 #else
 #define VTK_LARGE_ID 2147483647 // 2^31 - 1
 #endif
