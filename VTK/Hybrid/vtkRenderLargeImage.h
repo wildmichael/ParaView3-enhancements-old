@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderLargeImage.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:30:38 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2002-05-13 21:21:09 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,8 @@
 #define __vtkRenderLargeImage_h
 
 #include "vtkImageSource.h"
-#include "vtkRenderer.h"
+
+class vtkRenderer;
 
 class VTK_HYBRID_EXPORT vtkRenderLargeImage : public vtkImageSource
 {
@@ -40,7 +41,7 @@ public:
 
   // Description:
   // Indicates what renderer to get the pixel data from.
-  vtkSetObjectMacro(Input,vtkRenderer);
+  virtual void SetInput(vtkRenderer*);
 
   // Description:
   // Returns which renderer is being used as the source for the pixel data.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderLargeImage.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:30:38 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-05-13 21:21:09 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,15 +16,19 @@
 
 =========================================================================*/
 #include "vtkRenderLargeImage.h"
-#include "vtkRenderWindow.h"
+
 #include "vtkObjectFactory.h"
+#include "vtkRenderWindow.h"
+#include "vtkRenderer.h"
 
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
 
-vtkCxxRevisionMacro(vtkRenderLargeImage, "$Revision: 1.18 $");
+vtkCxxRevisionMacro(vtkRenderLargeImage, "$Revision: 1.19 $");
 vtkStandardNewMacro(vtkRenderLargeImage);
+
+vtkCxxSetObjectMacro(vtkRenderLargeImage,Input,vtkRenderer);
 
 //----------------------------------------------------------------------------
 vtkRenderLargeImage::vtkRenderLargeImage()
