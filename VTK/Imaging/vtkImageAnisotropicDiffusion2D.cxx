@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAnisotropicDiffusion2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-08-21 15:37:40 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1997-09-08 14:32:21 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -165,6 +165,7 @@ void vtkImageAnisotropicDiffusion2D::Execute(vtkImageRegion *inRegion,
   out->SetScalarType(VTK_FLOAT);
   out->AllocateScalars();
   
+
   // To compute extent of diffusion which will shrink.
   outRegion->GetExtent(2, extent);
   
@@ -180,7 +181,13 @@ void vtkImageAnisotropicDiffusion2D::Execute(vtkImageRegion *inRegion,
     }
   
   // copy results into output.
+
+  // NOTE: This method will allocate the data.
+  // ImageRegion::SetExtent should not be modifying the Data's extent
+  //
+  outRegion->GetScalarPointer ();
   outRegion->CopyRegionData(in);
+
   in->Delete ();
   out->Delete ();
 }
