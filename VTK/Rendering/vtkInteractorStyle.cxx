@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-07 23:07:36 $
-  Version:   $Revision: 1.78 $
+  Date:      $Date: 2002-06-20 18:02:09 $
+  Version:   $Revision: 1.79 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,6 +17,7 @@
 =========================================================================*/
 #include "vtkInteractorStyle.h"
 
+#include "vtkActor2D.h"
 #include "vtkAssemblyNode.h"
 #include "vtkCallbackCommand.h"
 #include "vtkCellPicker.h"
@@ -28,8 +29,9 @@
 #include "vtkProperty2D.h"
 #include "vtkRenderWindow.h"
 #include "vtkRenderWindowInteractor.h"
+#include "vtkTextMapper.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyle, "$Revision: 1.78 $");
+vtkCxxRevisionMacro(vtkInteractorStyle, "$Revision: 1.79 $");
 
 //----------------------------------------------------------------------------
 vtkInteractorStyle *vtkInteractorStyle::New() 
@@ -957,6 +959,24 @@ void vtkInteractorStyle::OnChar()
           aPart->GetProperty()->SetRepresentationToSurface();
           }
         }
+      rwi->Render();
+      }
+      break;
+
+    case 'l' :
+    case 'L' :
+      {
+      int val = vtkTextMapper::GetGlobalAntiAliasing();
+      // Cycle through global anti-aliasing control
+      if (val == VTK_TEXT_GLOBAL_ANTIALIASING_ALL)
+        {
+        val = VTK_TEXT_GLOBAL_ANTIALIASING_SOME;
+        }
+      else
+        {
+        val++;
+        }
+      vtkTextMapper::SetGlobalAntiAliasing(val);
       rwi->Render();
       }
       break;
