@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJavaUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-08-28 13:02:20 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1997-09-08 15:10:41 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -311,7 +311,7 @@ void vtkJavaDeleteObjectFromHash(JNIEnv *env, int id)
   vtkInstanceLookup->DeleteHashEntry((void *)id);
   vtkTypecastLookup->DeleteHashEntry((void *)id);
   vptr = vtkPointerLookup->GetHashTableValue(ptr);
-  env->DeleteGlobalRef((jobject)&vptr);
+  env->DeleteGlobalRef((jobject)vptr);
   vtkPointerLookup->DeleteHashEntry(ptr);
   vtkDeleteLookup->DeleteHashEntry((void *)id);
 }
