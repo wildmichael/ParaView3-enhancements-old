@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-18 14:55:25 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-06-25 19:51:27 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,7 +40,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 // .NAME vtkDataSetAttributes - represent and manipulate attribute data in a dataset
 // .SECTION Description
-
 // vtkDataSetAttributes is a class that is used to represent and manipulate
 // attribute data (e.g., scalars, vectors, normals, texture coordinates,
 // tensors, and field data) Special methods are provided to work with filter
