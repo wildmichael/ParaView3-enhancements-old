@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKWSerializer.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-24 13:40:28 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-08-07 12:36:42 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -41,12 +41,14 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 #include "vtkKWSerializer.h"
 
-#include <ctype.h>
 #include "vtkObjectFactory.h"
 #include "vtkString.h"
 
+#include <ctype.h>
+
 //-----------------------------------------------------------------------------
 vtkStandardNewMacro( vtkKWSerializer );
+vtkCxxRevisionMacro(vtkKWSerializer, "$Revision: 1.3 $");
 
 //-----------------------------------------------------------------------------
 // Internal function used to consume whitespace when reading in
@@ -99,11 +101,11 @@ int vtkKWSerializer::GetNextToken(istream *is, char result[1024])
           result[count] = c;
           count++;
           }
-	      else
-					{
-					result[count] = c;
+              else
+                                        {
+                                        result[count] = c;
           count++;
-					}
+                                        }
         if (count >= 1024)
           {
           result[count] ='\0';
@@ -197,6 +199,10 @@ void vtkKWSerializer::WriteSafeString(ostream& os, const char *val)
     os << val[i];
     }
   os << '"';
-}
+}  
 
-  
+//----------------------------------------------------------------------------
+void vtkKWSerializer::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
+}

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKWIcon.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-06 18:28:01 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-08-07 12:36:41 $
+  Version:   $Revision: 1.6 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -50,6 +50,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 //------------------------------------------------------------------------------
 vtkStandardNewMacro( vtkKWIcon );
+vtkCxxRevisionMacro(vtkKWIcon, "$Revision: 1.6 $");
 
 vtkKWIcon::vtkKWIcon()
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKWIcon.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-02 18:59:13 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-08-07 12:36:41 $
+  Version:   $Revision: 1.5 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -58,7 +58,7 @@ class VTK_EXPORT vtkKWIcon : public vtkObject
 {
 public:
   static vtkKWIcon* New();
-  vtkTypeMacro(vtkKWIcon,vtkObject);
+  vtkTypeRevisionMacro(vtkKWIcon,vtkObject);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

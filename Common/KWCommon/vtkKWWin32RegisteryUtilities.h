@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKWWin32RegisteryUtilities.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-29 00:15:36 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-08-07 12:36:42 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -47,9 +47,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 class VTK_EXPORT vtkKWWin32RegisteryUtilities : public vtkKWRegisteryUtilities
 {
-  public:
+public:
   static vtkKWWin32RegisteryUtilities* New();
-  vtkTypeMacro(vtkKWWin32RegisteryUtilities, vtkKWRegisteryUtilities);
+  vtkTypeRevisionMacro(vtkKWWin32RegisteryUtilities, vtkKWRegisteryUtilities);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Read a value from the registry.
@@ -75,14 +76,14 @@ class VTK_EXPORT vtkKWWin32RegisteryUtilities : public vtkKWRegisteryUtilities
   // Close the registry.
   virtual int CloseInternal();
 
-  protected:
+protected:
   vtkKWWin32RegisteryUtilities();
   virtual ~vtkKWWin32RegisteryUtilities();
 
-  private:
-  vtkKWWin32RegisteryUtilities(const vtkKWWin32RegisteryUtilities&);
-  void operator=(const vtkKWWin32RegisteryUtilities&);
+private:
   HKEY HKey;
+  vtkKWWin32RegisteryUtilities(const vtkKWWin32RegisteryUtilities&); // Not implemented
+  void operator=(const vtkKWWin32RegisteryUtilities&); // Not implemented
 };
 
 #endif

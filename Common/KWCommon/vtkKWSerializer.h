@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKWSerializer.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-11 15:38:20 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-08-07 12:36:42 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -54,7 +54,8 @@ class VTK_EXPORT vtkKWSerializer : public vtkObject
 {
 public:
   static vtkKWSerializer* New();
-  vtkTypeMacro(vtkKWSerializer,vtkObject);
+  vtkTypeRevisionMacro(vtkKWSerializer,vtkObject);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // The primary helper functions instances can invoke.
