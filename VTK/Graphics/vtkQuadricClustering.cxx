@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadricClustering.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-25 11:58:24 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2001-06-27 13:22:36 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1284,4 +1284,5 @@ void vtkQuadricClustering::PrintSelf(ostream& os, vtkIndent indent)
   
   os << indent << "FeaturePointsAngle: " << this->FeaturePointsAngle << endl;
   os << indent << "UseFeaturePoints: " << this->UseFeaturePoints << endl;
+  os << indent << "CopyCellData : " << this->CopyCellData << endl;
 }

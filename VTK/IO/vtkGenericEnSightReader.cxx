@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericEnSightReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-25 20:03:57 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-06-27 13:22:36 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -974,5 +974,7 @@ void vtkGenericEnSightReader::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "NumberOfVectorsPerNode: "
      << this->NumberOfVectorsPerNode << endl;
   os << indent << "TimeValue: " << this->TimeValue << endl;
+  os << indent << "MinimumTimeValue: " << this->MinimumTimeValue << endl;
+  os << indent << "MaximumTimeValue: " << this->MaximumTimeValue << endl;
 }
 
