@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFileOutputWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-11-08 12:04:43 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2000-12-02 16:17:20 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -118,7 +118,8 @@ void vtkFileOutputWindow::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->vtkOutputWindow::PrintSelf(os, indent);
   os << indent << "OStream: " << this->OStream << endl;
-  os << indent << "FileName: " << this->FileName << endl;
+  os << indent << "File Name: " 
+     << (this->FileName ? this->FileName : "(none)") << "\n";
   os << indent << "Append: " << (this->Append ? "On" : "Off") << endl;
   os << indent << "Flush: " << (this->Flush ? "On" : "Off") << endl;
 }
