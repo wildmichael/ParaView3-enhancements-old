@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuad.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-11 18:53:21 $
-  Version:   $Revision: 1.74 $
+  Date:      $Date: 2001-12-20 15:44:19 $
+  Version:   $Revision: 1.75 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -47,6 +47,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkPointLocator.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
+
+static const float VTK_DIVERGED = 1.e6;
 
 //------------------------------------------------------------------------
 vtkQuad* vtkQuad::New()
@@ -193,6 +195,12 @@ int vtkQuad::EvaluatePosition(float x[3], float* closestPoint,
          ((fabs(pcoords[1]-params[1])) < VTK_QUAD_CONVERGED) )
       {
       converged = 1;
+      }
+    // Test for bad divergence (S.Hirschberg 11.12.2001)
+    else if ((fabs(pcoords[0]) > VTK_DIVERGED) || 
+	     (fabs(pcoords[1]) > VTK_DIVERGED))
+      {
+      return -1;
       }
     //
     //  if not converged, repeat
