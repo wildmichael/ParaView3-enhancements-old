@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: Win32Cone.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:27:33 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-11-27 11:45:07 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,6 +27,7 @@
 #include "vtkPolyDataMapper.h"
 #include "vtkRenderWindow.h"
 #include "vtkRenderWindowInteractor.h"
+#include "vtkRenderer.h"
 
 static HANDLE hinst; 
 long FAR PASCAL WndProc(HWND, UINT, UINT, LONG);
