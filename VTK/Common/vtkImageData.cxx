@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-15 14:20:14 $
-  Version:   $Revision: 1.128 $
+  Date:      $Date: 2001-11-20 19:02:34 $
+  Version:   $Revision: 1.129 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1492,7 +1492,12 @@ void *vtkImageData::GetScalarPointer(int coordinates[3])
     this->AllocateScalars();
     scalars = this->PointData->GetScalars();
     }
-  
+  if (scalars == NULL)
+    {
+    vtkErrorMacro("Could not allocate scalars.");
+    return NULL;
+    }
+      
   // error checking: since most acceses will be from pointer arithmetic.
   // this should not waste much time.
   for (idx = 0; idx < 3; ++idx)
@@ -1707,6 +1712,12 @@ static void vtkImageDataCastExecute(vtkImageData *inData, T *inPtr,
 {
   void *outPtr = outData->GetScalarPointerForExtent(outExt);
 
+  if (outPtr == NULL)
+    {
+    vtkGenericWarningMacro("Scalars not allocated.");
+    return;
+    }
+
   switch (outData->GetScalarType())
     {
     vtkTemplateMacro5(vtkImageDataCastExecute, inData, (T *)(inPtr), 
@@ -1729,6 +1740,12 @@ void vtkImageData::CopyAndCastFrom(vtkImageData *inData, int extent[6])
 {
   void *inPtr = inData->GetScalarPointerForExtent(extent);
   
+  if (inPtr == NULL)
+    {
+    vtkErrorMacro("Scalars not allocated.");
+    return;
+    }
+
   switch (inData->ScalarType)
     {
     vtkTemplateMacro4(vtkImageDataCastExecute,inData, (VTK_TT *)(inPtr), 
