@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-11-08 22:13:02 $
-  Version:   $Revision: 1.72 $
+  Date:      $Date: 2000-11-09 13:12:32 $
+  Version:   $Revision: 1.73 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -321,7 +321,7 @@ const char *vtkMapper::GetColorModeAsString(void)
 }
 
 // Return the method for obtaining scalar data.
-char *vtkMapper::GetScalarModeAsString(void)
+const char *vtkMapper::GetScalarModeAsString(void)
 {
   if ( this->ScalarMode == VTK_SCALAR_MODE_USE_CELL_DATA )
     {

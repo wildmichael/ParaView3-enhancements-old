@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWriter.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-17 11:17:04 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2000-11-09 13:12:32 $
+  Version:   $Revision: 1.24 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -77,7 +77,7 @@ public:
 
   // Description:
   // The sprintf format used to build filename from FilePrefix and number.
-  void SetFilePattern(char *filePattern);
+  void SetFilePattern(const char *filePattern);
   vtkGetStringMacro(FilePattern);
 
   // Description:

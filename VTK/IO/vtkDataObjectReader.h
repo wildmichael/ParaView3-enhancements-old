@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObjectReader.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-17 11:12:07 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-11-09 13:12:32 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -75,8 +75,8 @@ public:
 
   // Description:
   // Set / get the InputString for use when reading from a character array.
-  void SetInputString(char *in) {this->Reader->SetInputString(in);}
-  void SetInputString(char *in,int len) {this->Reader->SetInputString(in,len);}
+  void SetInputString(const char *in) {this->Reader->SetInputString(in);}
+  void SetInputString(const char *in,int len) {this->Reader->SetInputString(in,len);}
   char *GetInputString() { return this->Reader->GetInputString();}
 
   // Description:

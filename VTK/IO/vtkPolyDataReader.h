@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataReader.h,v $
   Language:  C++
-  Date:      $Date: 2000-11-08 22:13:02 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2000-11-09 13:12:32 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -75,10 +75,10 @@ public:
 
   // Description:
   // Specify the InputString for use when reading from a character array.
-  void SetInputString(char *in) {this->Reader->SetInputString(in);}
-  void SetInputString(char *in,int len) {this->Reader->SetInputString(in,len);}
+  void SetInputString(const char *in) {this->Reader->SetInputString(in);}
+  void SetInputString(const char *in,int len) {this->Reader->SetInputString(in,len);}
   char *GetInputString() { return this->Reader->GetInputString();}
-  void SetBinaryInputString(char *in, int len) {
+  void SetBinaryInputString(const char *in, int len) {
       this->Reader->SetBinaryInputString(in,len);};
 
   // Description:

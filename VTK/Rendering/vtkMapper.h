@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.h,v $
   Language:  C++
-  Date:      $Date: 2000-11-08 22:13:02 $
-  Version:   $Revision: 1.65 $
+  Date:      $Date: 2000-11-09 13:12:32 $
+  Version:   $Revision: 1.66 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -218,7 +218,7 @@ public:
 
   // Description:
   // Return the method for obtaining scalar data.
-  char *GetScalarModeAsString();
+  const char *GetScalarModeAsString();
 
   // Description:
   // Set/Get a global flag that controls whether coincident topology (e.g., a

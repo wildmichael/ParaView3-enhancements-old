@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-17 11:13:40 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2000-11-09 13:12:32 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -88,7 +88,7 @@ void vtkRectilinearGridReader::SetFileName(const char *name)
   this->Reader->SetFileName(name);
 }
 //----------------------------------------------------------------------------
-char *vtkRectilinearGridReader::GetFileName() 
+const char *vtkRectilinearGridReader::GetFileName() 
 {
   return this->Reader->GetFileName();
 }
