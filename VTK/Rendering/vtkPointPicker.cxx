@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:04 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2002-08-26 02:31:33 $
+  Version:   $Revision: 1.28 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,11 +16,13 @@
 
 =========================================================================*/
 #include "vtkPointPicker.h"
+
 #include "vtkMath.h"
+#include "vtkMapper.h"
 #include "vtkVolumeMapper.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkPointPicker, "$Revision: 1.27 $");
+vtkCxxRevisionMacro(vtkPointPicker, "$Revision: 1.28 $");
 vtkStandardNewMacro(vtkPointPicker);
 
 vtkPointPicker::vtkPointPicker()
