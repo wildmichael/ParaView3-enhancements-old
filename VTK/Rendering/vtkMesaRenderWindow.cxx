@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:43 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-01-16 16:47:34 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -680,9 +680,21 @@ void vtkMesaRenderWindow::SetSize(int x,int y)
   this->Size[0] = x;
   this->Size[1] = y;
   
-
+  
   if (this->OffScreenRendering && this->OffScreenWindow)
     {
+    vtkRenderer *ren;
+    // Disconnect renderers from this render window.
+    vtkRendererCollection *renderers = this->Renderers;
+    renderers->Register(this);
+    this->Renderers->Delete();
+    this->Renderers = vtkRendererCollection::New();
+    renderers->InitTraversal();
+    while ( (ren = renderers->GetNextItem()) )
+      {
+      ren->SetRenderWindow(NULL);
+      }
+    
 #ifdef MESA
     OSMesaDestroyContext(this->OffScreenContextId);
 #endif
@@ -690,6 +702,14 @@ void vtkMesaRenderWindow::SetSize(int x,int y)
     vtkOSMesaDestroyWindow(this->OffScreenWindow);
     this->OffScreenWindow = NULL;      
     this->WindowInitialize();
+    
+    // Add the renders back into the render window.
+    renderers->InitTraversal();
+    while ( (ren = renderers->GetNextItem()) )
+      {
+      this->AddRenderer(ren);
+      }
+    renderers->Delete();
     }
   else
     {
