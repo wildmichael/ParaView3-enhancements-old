@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTclUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-07-07 12:41:40 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1998-07-09 12:20:40 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -364,16 +364,18 @@ VTKTCL_EXPORT void *vtkTclGetPointerFromObject(char *name,char *result_type,
     }
   else
     {
+    Tcl_Interp *i;
+    i = Tcl_CreateInterp();
     // provide more diagnostic info
     args[0] = "Dummy";
     args[1] = "GetClassName";
     args[2] = NULL;
-    command(temp,interp,2,args);
+    command(temp,i,2,args);
 
-    sprintf(temps,"vtk bad argument, type conversion failed for object %s.\nCould not type convert %s which is of type %s, to type %s.\n", name, name, interp->result, result_type);
-    interp->result[0] = '\0';
+    sprintf(temps,"vtk bad argument, type conversion failed for object %s.\nCould not type convert %s which is of type %s, to type %s.\n", name, name, i->result, result_type);
     Tcl_AppendResult(interp,temps,NULL);
     error = 1;
+    Tcl_DeleteInterp(i);
     return NULL;
     }
 
