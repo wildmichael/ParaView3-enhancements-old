@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.h,v $
   Language:  C++
-  Date:      $Date: 1996-09-12 13:28:44 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 1997-02-19 21:19:51 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,7 +61,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkActor.h"
 
 class vtkRenderWindow;
-class vtkVolumeRenderer;
 class vtkNewVolumeRenderer;
 
 class vtkRenderer : public vtkObject
@@ -83,8 +82,6 @@ public:
 
   void SetActiveCamera(vtkCamera *);
   vtkCamera *GetActiveCamera();
-  void SetVolumeRenderer(vtkVolumeRenderer *);
-  vtkVolumeRenderer *GetVolumeRenderer();
 
   void SetNewVolumeRenderer(vtkNewVolumeRenderer *);
   vtkNewVolumeRenderer *GetNewVolumeRenderer();
@@ -212,7 +209,6 @@ public:
 protected:
   void UpdateViewRays();
 
-  vtkVolumeRenderer *VolumeRenderer;
   vtkNewVolumeRenderer *NewVolumeRenderer;
 
   vtkCamera *ActiveCamera;

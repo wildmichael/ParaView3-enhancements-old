@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBJExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-12-05 20:09:42 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1997-02-19 21:19:45 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -153,7 +153,7 @@ void vtkOBJExporter::WriteAnActor(vtkActor *anActor, FILE *fpObj, FILE *fpMtl,
 
   // get the mappers input and matrix
   ds = anActor->GetMapper()->GetInput();
-  trans->SetMatrix(anActor->GetMatrix());
+  trans->SetMatrix(anActor->vtkProp::GetMatrix());
     
   // we really want polydata
   if (strcmp(ds->GetClassName(),"vtkPolyData"))

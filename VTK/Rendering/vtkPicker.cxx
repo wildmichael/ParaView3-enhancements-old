@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:54:15 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1997-02-19 21:19:48 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -239,7 +239,7 @@ int vtkPicker::Pick(float selectionX, float selectionY, float selectionZ,
       if ( visible && pickable && (opacity != 0.0) &&
       (mapper = part->GetMapper()) != NULL )
         {
-        this->Transform.SetMatrix(part->GetMatrix());
+        this->Transform.SetMatrix(part->vtkProp::GetMatrix());
         this->Transform.Push();
         this->Transform.Transpose();
         this->Transform.Inverse();
