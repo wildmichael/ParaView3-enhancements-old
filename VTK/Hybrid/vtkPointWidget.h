@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-20 18:31:07 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-08-21 13:39:53 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -150,6 +150,19 @@ public:
     {this->Cursor3D->ZShadowsOff();}
 
   // Description:
+  // If translation mode is on, as the widget is moved the bounding box,
+  // shadows, and cursor are all translated simultaneously as the point
+  // moves.
+  void SetTranslationMode(int mode)
+    { this->Cursor3D->SetTranslationMode(mode); this->Cursor3D->Update(); }
+  int GetTranslationMode()
+    { return this->Cursor3D->GetTranslationMode(); }
+  void TranslationModeOn()
+    { this->SetTranslationMode(1); }
+  void TranslationModeOff()
+    { this->SetTranslationMode(0); }
+  
+  // Description:
   // Convenience methods to turn outline and shadows on and off.
   void AllOn()
     {
@@ -165,6 +178,7 @@ public:
       this->YShadowsOff();
       this->ZShadowsOff();
     }
+
 
   // Description:
   // Get the handle properties (the little balls are the handles). The 
@@ -220,6 +234,7 @@ protected:
   void Translate(double *p1, double *p2);
   void Scale(double *p1, double *p2, int X, int Y);
   void MoveFocus(double *p1, double *p2);
+  int TranslationMode;
 
   // Initial bounds
   float InitialBounds[6];
