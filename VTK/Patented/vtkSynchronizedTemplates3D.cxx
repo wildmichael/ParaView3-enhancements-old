@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:14:22 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2000-05-16 19:56:06 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -537,67 +537,10 @@ void vtkSynchronizedTemplates3D::ThreadedExecute(vtkImageData *data,
     ptr = data->GetScalarPointerForExtent(exExt);
     switch (data->GetScalarType())
       {
-      case VTK_CHAR:
-        {
-	ContourImage(this, exExt, data, newPts, newScalars, newPolys, 
-		     newNormals, newGradients, (char*)ptr);
-	}
+      vtkTemplateMacro9(ContourImage, this, exExt, data, newPts, newScalars, 
+                        newPolys, newNormals, newGradients,(VTK_TT *)ptr);
       break;
-      case VTK_UNSIGNED_CHAR:
-        {
-	ContourImage(this, exExt, data, newPts, newScalars, newPolys, 
-		     newNormals, newGradients, (unsigned char*)ptr);
-	}
-      break;
-      case VTK_SHORT:
-        {
-	ContourImage(this, exExt, data, newPts, newScalars, newPolys, 
-		     newNormals, newGradients, (short*)ptr);
-	}
-      break;
-      case VTK_UNSIGNED_SHORT:
-        {
-	ContourImage(this, exExt, data, newPts, newScalars, newPolys, 
-		     newNormals, newGradients, (unsigned short*)ptr);
-	}
-      break;
-      case VTK_INT:
-        {
-	ContourImage(this, exExt, data, newPts, newScalars, newPolys, 
-		     newNormals, newGradients, (int*)ptr);
-	}
-      break;
-      case VTK_UNSIGNED_INT:
-        {
-	ContourImage(this, exExt, data, newPts, newScalars, newPolys, 
-		     newNormals, newGradients, (unsigned int*)ptr);
-	}
-      break;
-      case VTK_LONG:
-        {
-	ContourImage(this, exExt, data, newPts, newScalars, newPolys, 
-		     newNormals, newGradients, (long*)ptr);
-	}
-      break;
-      case VTK_UNSIGNED_LONG:
-        {
-	ContourImage(this, exExt, data, newPts, newScalars, newPolys, 
-		     newNormals, newGradients, (unsigned long*)ptr);
-	}
-      break;
-      case VTK_FLOAT:
-        {
-	ContourImage(this, exExt, data, newPts, newScalars, newPolys, 
-		     newNormals, newGradients, (float*)ptr);
-	}
-      break;
-      case VTK_DOUBLE:
-        {
-	ContourImage(this, exExt, data, newPts, newScalars, newPolys, 
-		     newNormals, newGradients, (double*)ptr);
-	}
-      break;
-      }//switch
+      }
     }
   else //multiple components - have to convert
     {
