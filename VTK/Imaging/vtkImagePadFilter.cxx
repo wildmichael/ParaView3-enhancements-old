@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePadFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:33:12 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-09-25 23:31:10 $
+  Version:   $Revision: 1.27 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,11 @@
 
 =========================================================================*/
 #include "vtkImagePadFilter.h"
+
+#include "vtkImageData.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImagePadFilter, "$Revision: 1.26 $");
+vtkCxxRevisionMacro(vtkImagePadFilter, "$Revision: 1.27 $");
 vtkStandardNewMacro(vtkImagePadFilter);
 
 //----------------------------------------------------------------------------

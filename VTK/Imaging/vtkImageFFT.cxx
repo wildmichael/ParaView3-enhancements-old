@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFFT.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-14 17:38:44 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2002-09-25 23:31:10 $
+  Version:   $Revision: 1.33 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,11 +16,13 @@
 
 =========================================================================*/
 #include "vtkImageFFT.h"
+
+#include "vtkImageData.h"
 #include "vtkObjectFactory.h"
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageFFT, "$Revision: 1.32 $");
+vtkCxxRevisionMacro(vtkImageFFT, "$Revision: 1.33 $");
 vtkStandardNewMacro(vtkImageFFT);
 
 //----------------------------------------------------------------------------

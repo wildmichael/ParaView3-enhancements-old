@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLoad.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-05 17:29:13 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2002-09-25 23:31:10 $
+  Version:   $Revision: 1.42 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,11 +16,13 @@
 
 =========================================================================*/
 #include "vtkPointLoad.h"
-#include "vtkMath.h"
+
 #include "vtkFloatArray.h"
+#include "vtkImageData.h"
+#include "vtkMath.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkPointLoad, "$Revision: 1.41 $");
+vtkCxxRevisionMacro(vtkPointLoad, "$Revision: 1.42 $");
 vtkStandardNewMacro(vtkPointLoad);
 
 // Construct with ModelBounds=(-1,1,-1,1,-1,1), SampleDimensions=(50,50,50),

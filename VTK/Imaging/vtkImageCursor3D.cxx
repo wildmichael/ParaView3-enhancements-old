@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCursor3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-14 17:38:44 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-09-25 23:31:10 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,11 @@
 
 =========================================================================*/
 #include "vtkImageCursor3D.h"
+
+#include "vtkImageData.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageCursor3D, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkImageCursor3D, "$Revision: 1.16 $");
 vtkStandardNewMacro(vtkImageCursor3D);
 
 //----------------------------------------------------------------------------

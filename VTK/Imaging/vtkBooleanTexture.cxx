@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBooleanTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-12 13:50:30 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2002-09-25 23:31:10 $
+  Version:   $Revision: 1.33 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,10 +16,12 @@
 
 =========================================================================*/
 #include "vtkBooleanTexture.h"
-#include "vtkUnsignedCharArray.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkBooleanTexture, "$Revision: 1.32 $");
+#include "vtkImageData.h"
+#include "vtkObjectFactory.h"
+#include "vtkUnsignedCharArray.h"
+
+vtkCxxRevisionMacro(vtkBooleanTexture, "$Revision: 1.33 $");
 vtkStandardNewMacro(vtkBooleanTexture);
 
 vtkBooleanTexture::vtkBooleanTexture()

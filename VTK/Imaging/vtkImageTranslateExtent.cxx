@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageTranslateExtent.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:33:38 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-09-25 23:31:10 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,10 +16,11 @@
 
 =========================================================================*/
 #include "vtkImageTranslateExtent.h"
+
+#include "vtkImageData.h"
 #include "vtkObjectFactory.h"
 
-
-vtkCxxRevisionMacro(vtkImageTranslateExtent, "$Revision: 1.18 $");
+vtkCxxRevisionMacro(vtkImageTranslateExtent, "$Revision: 1.19 $");
 vtkStandardNewMacro(vtkImageTranslateExtent);
 
 //----------------------------------------------------------------------------

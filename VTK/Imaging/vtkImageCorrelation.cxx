@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCorrelation.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-14 17:38:44 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-09-25 23:31:10 $
+  Version:   $Revision: 1.27 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,11 @@
 
 =========================================================================*/
 #include "vtkImageCorrelation.h"
+
+#include "vtkImageData.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageCorrelation, "$Revision: 1.26 $");
+vtkCxxRevisionMacro(vtkImageCorrelation, "$Revision: 1.27 $");
 vtkStandardNewMacro(vtkImageCorrelation);
 
 //----------------------------------------------------------------------------

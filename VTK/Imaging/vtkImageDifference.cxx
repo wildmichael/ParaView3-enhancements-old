@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDifference.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:32:18 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2002-09-25 23:31:10 $
+  Version:   $Revision: 1.31 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,11 +16,11 @@
 
 =========================================================================*/
 #include "vtkImageDifference.h"
+
+#include "vtkImageData.h"
 #include "vtkObjectFactory.h"
 
-#include "stdlib.h"
-
-vtkCxxRevisionMacro(vtkImageDifference, "$Revision: 1.30 $");
+vtkCxxRevisionMacro(vtkImageDifference, "$Revision: 1.31 $");
 vtkStandardNewMacro(vtkImageDifference);
 
 // Construct object to extract all of the input data.

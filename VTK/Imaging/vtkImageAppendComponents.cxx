@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAppendComponents.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-14 17:04:31 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-09-25 23:31:10 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,10 +16,12 @@
 
 =========================================================================*/
 #include "vtkImageAppendComponents.h"
-#include "vtkObjectFactory.h"
-#include "vtkImageProgressIterator.h"
 
-vtkCxxRevisionMacro(vtkImageAppendComponents, "$Revision: 1.23 $");
+#include "vtkImageData.h"
+#include "vtkImageProgressIterator.h"
+#include "vtkObjectFactory.h"
+
+vtkCxxRevisionMacro(vtkImageAppendComponents, "$Revision: 1.24 $");
 vtkStandardNewMacro(vtkImageAppendComponents);
 
 //----------------------------------------------------------------------------

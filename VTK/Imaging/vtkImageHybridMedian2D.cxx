@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageHybridMedian2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:32:42 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-09-25 23:31:10 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,11 @@
 
 =========================================================================*/
 #include "vtkImageHybridMedian2D.h"
+
+#include "vtkImageData.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageHybridMedian2D, "$Revision: 1.14 $");
+vtkCxxRevisionMacro(vtkImageHybridMedian2D, "$Revision: 1.15 $");
 vtkStandardNewMacro(vtkImageHybridMedian2D);
 
 //----------------------------------------------------------------------------

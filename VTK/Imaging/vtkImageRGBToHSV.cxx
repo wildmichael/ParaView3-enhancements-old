@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageRGBToHSV.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-14 19:19:23 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-09-25 23:31:10 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,12 +16,14 @@
 
 =========================================================================*/
 #include "vtkImageRGBToHSV.h"
-#include "vtkObjectFactory.h"
+
+#include "vtkImageData.h"
 #include "vtkImageProgressIterator.h"
+#include "vtkObjectFactory.h"
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageRGBToHSV, "$Revision: 1.24 $");
+vtkCxxRevisionMacro(vtkImageRGBToHSV, "$Revision: 1.25 $");
 vtkStandardNewMacro(vtkImageRGBToHSV);
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSampleFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-12 18:29:54 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 2002-09-25 23:31:10 $
+  Version:   $Revision: 1.60 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,11 +16,13 @@
 
 =========================================================================*/
 #include "vtkSampleFunction.h"
-#include "vtkMath.h"
+
 #include "vtkFloatArray.h"
+#include "vtkImageData.h"
+#include "vtkMath.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkSampleFunction, "$Revision: 1.59 $");
+vtkCxxRevisionMacro(vtkSampleFunction, "$Revision: 1.60 $");
 vtkStandardNewMacro(vtkSampleFunction);
 
 // Construct with ModelBounds=(-1,1,-1,1,-1,1), SampleDimensions=(50,50,50),

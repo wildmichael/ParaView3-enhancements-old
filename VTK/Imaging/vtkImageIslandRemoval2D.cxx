@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIslandRemoval2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-14 18:22:21 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2002-09-25 23:31:10 $
+  Version:   $Revision: 1.41 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,11 @@
 
 =========================================================================*/
 #include "vtkImageIslandRemoval2D.h"
+
+#include "vtkImageData.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageIslandRemoval2D, "$Revision: 1.40 $");
+vtkCxxRevisionMacro(vtkImageIslandRemoval2D, "$Revision: 1.41 $");
 vtkStandardNewMacro(vtkImageIslandRemoval2D);
 
 //----------------------------------------------------------------------------

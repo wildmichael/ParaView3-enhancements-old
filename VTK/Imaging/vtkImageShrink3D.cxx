@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageShrink3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-09 14:35:21 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2002-09-25 23:31:10 $
+  Version:   $Revision: 1.54 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,11 +16,13 @@
 
 =========================================================================*/
 #include "vtkImageShrink3D.h"
+
+#include "vtkImageData.h"
 #include "vtkObjectFactory.h"
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageShrink3D, "$Revision: 1.53 $");
+vtkCxxRevisionMacro(vtkImageShrink3D, "$Revision: 1.54 $");
 vtkStandardNewMacro(vtkImageShrink3D);
 
 //----------------------------------------------------------------------------

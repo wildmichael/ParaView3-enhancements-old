@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxelModeller.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-14 15:14:10 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2002-09-25 23:31:10 $
+  Version:   $Revision: 1.51 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,13 +16,14 @@
 
 =========================================================================*/
 #include "vtkVoxelModeller.h"
-#include "vtkObjectFactory.h"
+
 #include "vtkBitArray.h"
+#include "vtkImageData.h"
+#include "vtkObjectFactory.h"
 
 #include <math.h>
-#include <stdio.h>
 
-vtkCxxRevisionMacro(vtkVoxelModeller, "$Revision: 1.50 $");
+vtkCxxRevisionMacro(vtkVoxelModeller, "$Revision: 1.51 $");
 vtkStandardNewMacro(vtkVoxelModeller);
 
 // Construct an instance of vtkVoxelModeller with its sample dimensions

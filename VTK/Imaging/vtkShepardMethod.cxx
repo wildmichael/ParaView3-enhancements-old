@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShepardMethod.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-17 20:25:55 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2002-09-25 23:31:10 $
+  Version:   $Revision: 1.40 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,11 +16,13 @@
 
 =========================================================================*/
 #include "vtkShepardMethod.h"
+
+#include "vtkFloatArray.h"
+#include "vtkImageData.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
-#include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkShepardMethod, "$Revision: 1.39 $");
+vtkCxxRevisionMacro(vtkShepardMethod, "$Revision: 1.40 $");
 vtkStandardNewMacro(vtkShepardMethod);
 
 // Construct with sample dimensions=(50,50,50) and so that model bounds are

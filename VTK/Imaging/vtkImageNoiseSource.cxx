@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageNoiseSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-07 18:30:01 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-09-25 23:31:10 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,11 +16,13 @@
 
 =========================================================================*/
 #include "vtkImageNoiseSource.h"
+
+#include "vtkImageData.h"
+#include "vtkImageProgressIterator.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
-#include "vtkImageProgressIterator.h"
 
-vtkCxxRevisionMacro(vtkImageNoiseSource, "$Revision: 1.24 $");
+vtkCxxRevisionMacro(vtkImageNoiseSource, "$Revision: 1.25 $");
 vtkStandardNewMacro(vtkImageNoiseSource);
 
 //----------------------------------------------------------------------------

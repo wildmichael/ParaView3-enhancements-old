@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAnisotropicDiffusion3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:31:49 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2002-09-25 23:31:10 $
+  Version:   $Revision: 1.38 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,11 +16,13 @@
 
 =========================================================================*/
 #include "vtkImageAnisotropicDiffusion3D.h"
+
+#include "vtkImageData.h"
 #include "vtkObjectFactory.h"
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageAnisotropicDiffusion3D, "$Revision: 1.37 $");
+vtkCxxRevisionMacro(vtkImageAnisotropicDiffusion3D, "$Revision: 1.38 $");
 vtkStandardNewMacro(vtkImageAnisotropicDiffusion3D);
 
 //----------------------------------------------------------------------------

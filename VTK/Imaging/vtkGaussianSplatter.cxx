@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGaussianSplatter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-13 15:25:09 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2002-09-25 23:31:10 $
+  Version:   $Revision: 1.51 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,12 +16,14 @@
 
 =========================================================================*/
 #include "vtkGaussianSplatter.h"
+
 #include "vtkFloatArray.h"
+#include "vtkImageData.h"
 #include "vtkObjectFactory.h"
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkGaussianSplatter, "$Revision: 1.50 $");
+vtkCxxRevisionMacro(vtkGaussianSplatter, "$Revision: 1.51 $");
 vtkStandardNewMacro(vtkGaussianSplatter);
 
 // Construct object with dimensions=(50,50,50); automatic computation of 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSurfaceReconstructionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-18 18:47:25 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-09-25 23:31:10 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,12 +16,14 @@
 
 =========================================================================*/
 #include "vtkSurfaceReconstructionFilter.h"
+
 #include "vtkFloatArray.h"
-#include "vtkPointLocator.h"
+#include "vtkImageData.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointLocator.h"
 
-vtkCxxRevisionMacro(vtkSurfaceReconstructionFilter, "$Revision: 1.24 $");
+vtkCxxRevisionMacro(vtkSurfaceReconstructionFilter, "$Revision: 1.25 $");
 vtkStandardNewMacro(vtkSurfaceReconstructionFilter);
 
 vtkSurfaceReconstructionFilter::vtkSurfaceReconstructionFilter()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractVOI.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-06 13:55:12 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2002-09-25 23:31:10 $
+  Version:   $Revision: 1.31 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,13 @@
 
 =========================================================================*/
 #include "vtkExtractVOI.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkExtractVOI, "$Revision: 1.30 $");
+#include "vtkCellData.h"
+#include "vtkImageData.h"
+#include "vtkObjectFactory.h"
+#include "vtkPointData.h"
+
+vtkCxxRevisionMacro(vtkExtractVOI, "$Revision: 1.31 $");
 vtkStandardNewMacro(vtkExtractVOI);
 
 // Construct object to extract all of the input data.

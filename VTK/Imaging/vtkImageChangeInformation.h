@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageChangeInformation.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-07 21:11:36 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-09-25 23:31:10 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,6 +26,8 @@
 
 #include "vtkImageToImageFilter.h"
 
+class vtkImageData;
+
 class VTK_IMAGING_EXPORT vtkImageChangeInformation : public vtkImageToImageFilter
 {
 public:
@@ -36,7 +38,7 @@ public:
   // Description:
   // Copy the information from another data set.  By default,
   // the information is copied from the input.
-  vtkSetObjectMacro(InformationInput, vtkImageData);
+  virtual void SetInformationInput(vtkImageData*);
   vtkGetObjectMacro(InformationInput, vtkImageData);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageConstantPad.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-14 17:28:04 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2002-09-25 23:31:10 $
+  Version:   $Revision: 1.33 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,11 @@
 
 =========================================================================*/
 #include "vtkImageConstantPad.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageConstantPad, "$Revision: 1.32 $");
+#include "vtkObjectFactory.h"
+#include "vtkImageData.h"
+
+vtkCxxRevisionMacro(vtkImageConstantPad, "$Revision: 1.33 $");
 vtkStandardNewMacro(vtkImageConstantPad);
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageButterworthLowPass.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:31:54 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-09-25 23:31:10 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,11 +16,13 @@
 
 =========================================================================*/
 #include "vtkImageButterworthLowPass.h"
+
+#include "vtkImageData.h"
 #include "vtkObjectFactory.h"
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageButterworthLowPass, "$Revision: 1.20 $");
+vtkCxxRevisionMacro(vtkImageButterworthLowPass, "$Revision: 1.21 $");
 vtkStandardNewMacro(vtkImageButterworthLowPass);
 
 //----------------------------------------------------------------------------

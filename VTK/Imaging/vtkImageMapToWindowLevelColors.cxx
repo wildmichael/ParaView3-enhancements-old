@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapToWindowLevelColors.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-14 18:22:21 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-09-25 23:31:10 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,11 @@
 
 =========================================================================*/
 #include "vtkImageMapToWindowLevelColors.h"
+
+#include "vtkImageData.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageMapToWindowLevelColors, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkImageMapToWindowLevelColors, "$Revision: 1.13 $");
 vtkStandardNewMacro(vtkImageMapToWindowLevelColors);
 
 // Constructor sets default values

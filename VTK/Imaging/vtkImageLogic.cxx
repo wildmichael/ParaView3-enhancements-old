@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageLogic.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-14 18:22:21 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2002-09-25 23:31:10 $
+  Version:   $Revision: 1.28 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,11 +16,14 @@
 
 =========================================================================*/
 #include "vtkImageLogic.h"
-#include <math.h>
-#include "vtkObjectFactory.h"
-#include "vtkImageProgressIterator.h"
 
-vtkCxxRevisionMacro(vtkImageLogic, "$Revision: 1.27 $");
+#include "vtkImageData.h"
+#include "vtkImageProgressIterator.h"
+#include "vtkObjectFactory.h"
+
+#include <math.h>
+
+vtkCxxRevisionMacro(vtkImageLogic, "$Revision: 1.28 $");
 vtkStandardNewMacro(vtkImageLogic);
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapToColors.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-14 19:19:23 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-09-25 23:31:10 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,11 @@
 
 =========================================================================*/
 #include "vtkImageMapToColors.h"
+
+#include "vtkImageData.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageMapToColors, "$Revision: 1.18 $");
+vtkCxxRevisionMacro(vtkImageMapToColors, "$Revision: 1.19 $");
 vtkStandardNewMacro(vtkImageMapToColors);
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMedian3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-14 18:22:21 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2002-09-25 23:31:10 $
+  Version:   $Revision: 1.30 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,11 @@
 
 =========================================================================*/
 #include "vtkImageMedian3D.h"
+
+#include "vtkImageData.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageMedian3D, "$Revision: 1.29 $");
+vtkCxxRevisionMacro(vtkImageMedian3D, "$Revision: 1.30 $");
 vtkStandardNewMacro(vtkImageMedian3D);
 
 //----------------------------------------------------------------------------

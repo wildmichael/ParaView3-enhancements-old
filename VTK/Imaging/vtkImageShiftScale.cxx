@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageShiftScale.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-14 19:19:23 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2002-09-25 23:31:10 $
+  Version:   $Revision: 1.44 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,10 +16,12 @@
 
 =========================================================================*/
 #include "vtkImageShiftScale.h"
-#include "vtkObjectFactory.h"
-#include "vtkImageProgressIterator.h"
 
-vtkCxxRevisionMacro(vtkImageShiftScale, "$Revision: 1.43 $");
+#include "vtkImageData.h"
+#include "vtkImageProgressIterator.h"
+#include "vtkObjectFactory.h"
+
+vtkCxxRevisionMacro(vtkImageShiftScale, "$Revision: 1.44 $");
 vtkStandardNewMacro(vtkImageShiftScale);
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageLuminance.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-14 18:22:21 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-09-25 23:31:10 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,12 +16,14 @@
 
 =========================================================================*/
 #include "vtkImageLuminance.h"
-#include "vtkObjectFactory.h"
+
+#include "vtkImageData.h"
 #include "vtkImageProgressIterator.h"
+#include "vtkObjectFactory.h"
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageLuminance, "$Revision: 1.20 $");
+vtkCxxRevisionMacro(vtkImageLuminance, "$Revision: 1.21 $");
 vtkStandardNewMacro(vtkImageLuminance);
 
 //----------------------------------------------------------------------------

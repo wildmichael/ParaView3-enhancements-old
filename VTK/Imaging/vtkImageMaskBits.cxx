@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMaskBits.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-14 18:22:21 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-09-25 23:31:10 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,12 +16,14 @@
 
 =========================================================================*/
 #include "vtkImageMaskBits.h"
-#include "vtkObjectFactory.h"
+
+#include "vtkImageData.h"
 #include "vtkImageProgressIterator.h"
+#include "vtkObjectFactory.h"
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageMaskBits, "$Revision: 1.14 $");
+vtkCxxRevisionMacro(vtkImageMaskBits, "$Revision: 1.15 $");
 vtkStandardNewMacro(vtkImageMaskBits);
 
 vtkImageMaskBits::vtkImageMaskBits()

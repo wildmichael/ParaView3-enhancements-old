@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFlip.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-17 18:11:27 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2002-09-25 23:31:10 $
+  Version:   $Revision: 1.34 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,10 +16,12 @@
 
 =========================================================================*/
 #include "vtkImageFlip.h"
+
+#include "vtkImageData.h"
 #include "vtkMatrix4x4.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageFlip, "$Revision: 1.33 $");
+vtkCxxRevisionMacro(vtkImageFlip, "$Revision: 1.34 $");
 vtkStandardNewMacro(vtkImageFlip);
 
 //----------------------------------------------------------------------------

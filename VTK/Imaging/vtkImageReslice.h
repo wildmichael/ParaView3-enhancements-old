@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReslice.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-17 18:11:27 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-09-25 23:31:10 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -63,6 +63,8 @@
 #define VTK_RESLICE_NEAREST 0
 #define VTK_RESLICE_LINEAR 1
 #define VTK_RESLICE_CUBIC 3
+
+class vtkImageData;
 
 class VTK_IMAGING_EXPORT vtkImageReslice : public vtkImageToImageFilter
 {
@@ -146,7 +148,7 @@ public:
   // SetOutputOrigin, and SetOutputExtent will override these
   // values.  By default, the Spacing, Origin, and WholeExtent
   // of the Input are used.
-  vtkSetObjectMacro(InformationInput, vtkImageData);
+  virtual void SetInformationInput(vtkImageData*);
   vtkGetObjectMacro(InformationInput, vtkImageData);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageEuclideanToPolar.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-14 17:38:44 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-09-25 23:31:10 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,12 +16,14 @@
 
 =========================================================================*/
 #include "vtkImageEuclideanToPolar.h"
-#include "vtkObjectFactory.h"
+
+#include "vtkImageData.h"
 #include "vtkImageProgressIterator.h"
+#include "vtkObjectFactory.h"
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageEuclideanToPolar, "$Revision: 1.23 $");
+vtkCxxRevisionMacro(vtkImageEuclideanToPolar, "$Revision: 1.24 $");
 vtkStandardNewMacro(vtkImageEuclideanToPolar);
 
 //----------------------------------------------------------------------------

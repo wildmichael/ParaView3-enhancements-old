@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageThreshold.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-05 13:39:01 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2002-09-25 23:31:10 $
+  Version:   $Revision: 1.41 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,10 +16,12 @@
 
 =========================================================================*/
 #include "vtkImageThreshold.h"
-#include "vtkObjectFactory.h"
-#include "vtkImageProgressIterator.h"
 
-vtkCxxRevisionMacro(vtkImageThreshold, "$Revision: 1.40 $");
+#include "vtkImageData.h"
+#include "vtkImageProgressIterator.h"
+#include "vtkObjectFactory.h"
+
+vtkCxxRevisionMacro(vtkImageThreshold, "$Revision: 1.41 $");
 vtkStandardNewMacro(vtkImageThreshold);
 
 //----------------------------------------------------------------------------

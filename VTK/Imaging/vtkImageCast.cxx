@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCast.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-14 17:28:04 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2002-09-25 23:31:10 $
+  Version:   $Revision: 1.44 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,11 +16,12 @@
 
 =========================================================================*/
 #include "vtkImageCast.h"
-#include "vtkObjectFactory.h"
+
+#include "vtkImageData.h"
 #include "vtkImageProgressIterator.h"
+#include "vtkObjectFactory.h"
 
-
-vtkCxxRevisionMacro(vtkImageCast, "$Revision: 1.43 $");
+vtkCxxRevisionMacro(vtkImageCast, "$Revision: 1.44 $");
 vtkStandardNewMacro(vtkImageCast);
 
 //----------------------------------------------------------------------------

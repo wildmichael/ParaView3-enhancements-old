@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIterateFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-27 12:40:28 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2002-09-25 23:31:10 $
+  Version:   $Revision: 1.33 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,7 +17,9 @@
 =========================================================================*/
 #include "vtkImageIterateFilter.h"
 
-vtkCxxRevisionMacro(vtkImageIterateFilter, "$Revision: 1.32 $");
+#include "vtkImageData.h"
+
+vtkCxxRevisionMacro(vtkImageIterateFilter, "$Revision: 1.33 $");
 
 //----------------------------------------------------------------------------
 vtkImageIterateFilter::vtkImageIterateFilter()

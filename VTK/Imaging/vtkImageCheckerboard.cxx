@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCheckerboard.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-14 17:28:04 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-09-25 23:31:10 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,11 @@
 
 =========================================================================*/
 #include "vtkImageCheckerboard.h"
+
+#include "vtkImageData.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageCheckerboard, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkImageCheckerboard, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkImageCheckerboard);
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageChangeInformation.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-05 22:07:06 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-09-25 23:31:10 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,10 +16,13 @@
 
 =========================================================================*/
 #include "vtkImageChangeInformation.h"
+
+#include "vtkImageData.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageChangeInformation, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkImageChangeInformation, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkImageChangeInformation);
+vtkCxxSetObjectMacro(vtkImageChangeInformation, InformationInput, vtkImageData);
 
 //----------------------------------------------------------------------------
 vtkImageChangeInformation::vtkImageChangeInformation()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAccumulate.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-14 19:19:23 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2002-09-25 23:31:10 $
+  Version:   $Revision: 1.47 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,12 +16,13 @@
 
 =========================================================================*/
 #include "vtkImageAccumulate.h"
+
+#include "vtkImageData.h"
 #include "vtkObjectFactory.h"
 
 #include <math.h>
-#include <stdlib.h>
 
-vtkCxxRevisionMacro(vtkImageAccumulate, "$Revision: 1.46 $");
+vtkCxxRevisionMacro(vtkImageAccumulate, "$Revision: 1.47 $");
 vtkStandardNewMacro(vtkImageAccumulate);
 
 //----------------------------------------------------------------------------

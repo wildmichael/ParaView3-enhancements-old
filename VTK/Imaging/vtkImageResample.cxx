@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageResample.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-17 18:17:50 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2002-09-25 23:31:10 $
+  Version:   $Revision: 1.37 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,11 @@
 
 =========================================================================*/
 #include "vtkImageResample.h"
+
+#include "vtkImageData.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageResample, "$Revision: 1.36 $");
+vtkCxxRevisionMacro(vtkImageResample, "$Revision: 1.37 $");
 vtkStandardNewMacro(vtkImageResample);
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGaussianSmooth.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-14 17:38:44 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2002-09-25 23:31:10 $
+  Version:   $Revision: 1.34 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,11 +16,13 @@
 
 =========================================================================*/
 #include "vtkImageGaussianSmooth.h"
+
+#include "vtkImageData.h"
 #include "vtkObjectFactory.h"
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageGaussianSmooth, "$Revision: 1.33 $");
+vtkCxxRevisionMacro(vtkImageGaussianSmooth, "$Revision: 1.34 $");
 vtkStandardNewMacro(vtkImageGaussianSmooth);
 
 //----------------------------------------------------------------------------
