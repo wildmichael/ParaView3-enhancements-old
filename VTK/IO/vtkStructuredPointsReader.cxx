@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredPointsReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-03-03 17:08:21 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1995-03-05 21:29:43 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -97,7 +97,7 @@ void vlStructuredPointsReader::Execute()
         this->SetOrigin(origin);
         }
 
-      else if ( ! strncmp(line, "point_data", 16) )
+      else if ( ! strncmp(line, "point_data", 10) )
         {
         if ( (retStat=fscanf(fp,"%d", &npts)) == EOF || retStat < 1 ) 
           goto PREMATURE;
@@ -117,7 +117,7 @@ void vlStructuredPointsReader::Execute()
       }
     }
 
-  else if ( !strncmp(line,"point_attributes",16) )
+  else if ( !strncmp(line,"point_data",10) )
     {
     if ( (retStat=fscanf(fp,"%d", &npts)) == EOF || retStat < 1 ) 
       goto PREMATURE;

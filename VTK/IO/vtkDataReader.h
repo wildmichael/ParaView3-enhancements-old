@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataReader.h,v $
   Language:  C++
-  Date:      $Date: 1995-03-03 17:08:20 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1995-03-05 21:29:42 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -23,7 +23,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #define __vlDataReader_hh
 
 #include <stdio.h>
-#include "DataSet.hh"
+#include "PointSet.hh"
 
 #define ASCII 1
 #define BINARY 2
@@ -52,7 +52,16 @@ public:
 protected:
   int FileType;
   char *LowerCase(char *);
+  vlLookupTable *Lut;
 
+  int ReadPoints(FILE *fp, vlPointSet *ps, int numPts);
+  int ReadScalarData(FILE *fp, vlDataSet *ds, int numPts);
+  int ReadVectorData(FILE *fp, vlDataSet *ds, int numPts);
+  int ReadNormalData(FILE *fp, vlDataSet *ds, int numPts);
+  int ReadTensorData(FILE *fp, vlDataSet *ds, int numPts);
+  int ReadCoScalarData(FILE *fp, vlDataSet *ds, int numPts);
+  int ReadLutData(FILE *fp, vlDataSet *ds, int numPts);
+  int ReadTCoordsData(FILE *fp, vlDataSet *ds, int numPts);
 };
 
 #endif
