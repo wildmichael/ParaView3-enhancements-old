@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGridTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-06 11:35:04 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2000-06-09 14:31:11 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1211,7 +1211,7 @@ void vtkGridTransform::InverseTransformPoint(const float inPoint[3],
 void vtkGridTransform::InverseTransformPoint(const double point[3], 
 					     double output[3])
 {
-  double fpoint[3];
+  float fpoint[3];
   fpoint[0] = point[0]; 
   fpoint[1] = point[1]; 
   fpoint[2] = point[2];
