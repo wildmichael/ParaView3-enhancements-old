@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkString.h,v $
   Language:  C++
-  Date:      $Date: 2002-12-30 15:54:13 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2003-01-06 17:57:54 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 
 #include "vtkObject.h"
 
-class VTK_COMMON_EXPORT vtkString : public vtkObject
+class VTK_EXPORT vtkString : public vtkObject
 {
 public:
   static vtkString *New();
