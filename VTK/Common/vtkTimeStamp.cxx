@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTimeStamp.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:28 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-08-04 19:07:41 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,12 +46,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 void vtkTimeStamp::Modified()
 {
-  static vtkMutexLock lock;
+  static vtkMutexLock *lock = vtkMutex::New();
   static unsigned long vtkTimeStampTime = 0; 
 
-  lock.Lock();
+  lock->Lock();
   this->ModifiedTime = ++vtkTimeStampTime;
-  lock.Unlock();
+  lock->Unlock();
 }
 
 
