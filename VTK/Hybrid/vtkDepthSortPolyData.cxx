@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDepthSortPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-18 10:11:39 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-07-25 11:13:15 $
+  Version:   $Revision: 1.3 $
   Thanks:    Scott Hill for implementing this class
 
 
@@ -72,16 +72,17 @@ vtkDepthSortPolyData::vtkDepthSortPolyData()
 
 vtkDepthSortPolyData::~vtkDepthSortPolyData()
 {
-  if ( this->Camera )
-    {
-    this->Camera->Delete();
-    }
+  this->Transform->Delete();
   
   if ( this->Prop3D )
     {
     this->Prop3D->Delete();
     }
-  this->Transform->Delete();
+  
+  if ( this->Camera )
+    {
+    this->Camera->Delete();
+    }
 }
 
 typedef struct _vtkSortValues {
