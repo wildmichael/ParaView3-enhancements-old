@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPythonUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-10 22:26:00 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-07-02 16:32:01 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -249,6 +249,7 @@ PyObject *vtkPythonGetObjectFromPointer(void *ptr)
 void *vtkPythonGetPointerFromObject(PyObject *obj, char *result_type)
 {
   void *ptr;
+  void *result;
   void *(*command)(void *,char *);
   
   ptr = vtkInstanceLookup->GetHashTableValue((void *)obj);
@@ -264,12 +265,13 @@ void *vtkPythonGetPointerFromObject(PyObject *obj, char *result_type)
     return NULL;
     }
   
-  if (command(ptr,result_type))
+  result = command(ptr,result_type);
+  if (result)
     {
 #ifdef VTKPYTHONDEBUG
     vtkGenericWarningMacro("Got obj= " << obj << " ptr= " << ptr << " " << result_type);
 #endif  
-    return command(ptr,result_type);
+    return result;
     }
   else
     {
