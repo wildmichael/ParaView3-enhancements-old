@@ -1,4 +1,5 @@
-/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tiff.h,v 1.3 2003-12-03 23:23:45 barre Exp $ */
+#include "vtk_tiff_mangle.h"
+/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tiff.h,v 1.4 2004-04-26 17:14:20 king Exp $ */
 
 /*
  * Copyright (c) 1988-1997 Sam Leffler
