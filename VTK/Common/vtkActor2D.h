@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor2D.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-17 21:36:12 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-05-19 17:33:05 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,15 +55,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkActor2D_h
 
 #include "vtkReferenceCount.h"
-#include "vtkTransform.h"
+#include "vtkCoordinate.h"
 
 class vtkMapper2D;
 class vtkProperty2D;
-class vtkViewport;
 
-#define VTK_VIEW_COORD    0
-#define VTK_DISPLAY_COORD 1
-#define VTK_WORLD_COORD   2
 
 class VTK_EXPORT vtkActor2D : public vtkReferenceCount
 {
@@ -96,49 +92,23 @@ public:
   vtkProperty2D* GetProperty();
   vtkSetObjectMacro(Property, vtkProperty2D);
 
-  vtkGetVectorMacro(ViewPosition, float, 2);
-  void SetViewPosition(float XPos, float YPos);
-  void SetViewPosition(float arr[2]) {this->SetViewPosition(arr[0], arr[1]);};
+  vtkSetReferenceCountedObjectMacro(PositionCoordinate,vtkCoordinate);
+  vtkGetObjectMacro(PositionCoordinate,vtkCoordinate);
 
-  vtkGetVectorMacro(DisplayPosition, int, 2);
-  void SetDisplayPosition(int XPos, int YPos);
-  void SetDisplayPosition(int arr[2]) {this->SetDisplayPosition(arr[0], arr[1]);};
-
-  vtkGetVectorMacro(WorldPosition, float, 3);
-  void SetWorldPosition(float XPos, float YPos, float ZPos);
-  void SetWorldPosition(float arr[3]) {this->SetWorldPosition(arr[0], arr[1], arr[2]);};
-
-  virtual int *GetComputedDisplayPosition(vtkViewport* viewport);
-  virtual int *GetComputedViewportPixelPosition(vtkViewport* viewport);
-  virtual float *GetComputedWorldPosition(vtkViewport* viewport);
-
-  vtkSetMacro(PositionType, int);
-  vtkGetMacro(PositionType, int);
-
-  void SetPositionTypeToView() {this->SetPositionType(VTK_VIEW_COORD);};
-  void SetPositionTypeToDisplay() {this->SetPositionType(VTK_DISPLAY_COORD);};
-  void SetPositionTypeToWorld() {this->SetPositionType(VTK_WORLD_COORD);};
+  void SetDisplayPosition(int,int);
   
-protected:
 
+protected:
   float Orientation;
   float Scale[2];
-
-  float ViewPosition[2];
-  int   DisplayPosition[2];
-  float   WorldPosition[3];
-  int   ComputedDisplayPosition[2];
-
-  int   PositionType;
 
   int LayerNumber;
   int Visibility;
   int SelfCreatedProperty;
-  vtkTransform Transform;
 
   vtkProperty2D *Property;
   vtkMapper2D *Mapper;
-
+  vtkCoordinate *PositionCoordinate;
 };
 
 #endif

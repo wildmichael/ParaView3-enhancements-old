@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewport.h,v $
   Language:  C++
-  Date:      $Date: 1998-04-23 15:03:29 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-05-19 17:33:10 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -125,6 +125,22 @@ public:
   virtual void DisplayToWorld();
   virtual void WorldToDisplay();
 
+  // new coordinate systems
+  virtual void LocalDisplayToDisplay(float &x, float &y);
+  virtual void DisplayToNormalizedDisplay(float &u, float &v);
+  virtual void NormalizedDisplayToViewport(float &x, float &y);
+  virtual void ViewportToNormalizedViewport(float &u, float &v);
+  virtual void NormalizedViewportToView(float &x, float &y, float &z);
+  virtual void ViewToWorld(float &, float &, float &) {};
+  
+  virtual void DisplayToLocalDisplay(float &x, float &y);
+  virtual void NormalizedDisplayToDisplay(float &u, float &v);
+  virtual void ViewportToNormalizedDisplay(float &x, float &y);
+  virtual void NormalizedViewportToViewport(float &u, float &v);
+  virtual void ViewToNormalizedViewport(float &x, float &y, float &z);
+  virtual void WorldToView(float &, float &, float &) {};
+  
+  
   void AddActor2D(vtkActor2D* actor);
   void RemoveActor2D(vtkActor2D* actor);
 
