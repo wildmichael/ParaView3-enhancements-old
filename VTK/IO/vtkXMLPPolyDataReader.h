@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLPPolyDataReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-16 18:23:06 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-03-27 15:00:33 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -44,6 +44,7 @@ public:
   // Get/Set the reader's output.
   void SetOutput(vtkPolyData *output);
   vtkPolyData *GetOutput();
+  vtkPolyData *GetOutput(int idx);
   
 protected:
   vtkXMLPPolyDataReader();
