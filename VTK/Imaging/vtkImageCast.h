@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCast.h,v $
   Language:  C++
-  Date:      $Date: 1997-08-11 18:56:32 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1997-12-22 14:57:02 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,9 +59,24 @@ public:
   static vtkImageCast *New() {return new vtkImageCast;};
   const char *GetClassName() {return "vtkImageCast";};
 
+  void SetOutputScalarTypeToFloat(){this->SetOutputScalarType(VTK_FLOAT);}
+  void SetOutputScalarTypeToInt(){this->SetOutputScalarType(VTK_INT);}
+  void SetOutputScalarTypeToShort(){this->SetOutputScalarType(VTK_SHORT);}
+  void SetOutputScalarTypeToUnsignedShort()
+    {this->SetOutputScalarType(VTK_UNSIGNED_SHORT);}
+  void SetOutputScalarTypeToUnsignedChar()
+    {this->SetOutputScalarType(VTK_UNSIGNED_CHAR);}
+
+  // Description:
+  // Set the desired output scalar type to cast to
+  vtkSetMacro(OutputScalarType,int);
+  vtkGetMacro(OutputScalarType,int);
+
 protected:
-  void InternalUpdate();
-  void Execute(vtkImageRegion *inRegion, vtkImageRegion *outRegion);
+  int OutputScalarType;
+  void ExecuteImageInformation();
+  void InternalUpdate(vtkImageData *data);
+  void ThreadedExecute(vtkImageData *inData, vtkImageData *outData, int ext[6]);
 };
 
 #endif

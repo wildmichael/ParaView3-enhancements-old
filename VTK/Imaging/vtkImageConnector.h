@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageConnector.h,v $
   Language:  C++
-  Date:      $Date: 1997-08-11 14:30:55 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-12-22 14:57:04 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,9 +54,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkImageConnector_h
 
 #include "vtkObject.h"
-class vtkImageRegion;
-
-
+#include "vtkImageData.h"
 
 //
 // Special classes for manipulating data
@@ -96,7 +94,7 @@ public:
   vtkSetMacro(UnconnectedValue, unsigned char);
   vtkGetMacro(UnconnectedValue, unsigned char);
 
-  void MarkRegion(vtkImageRegion *region, int dimensionality);
+  void MarkData(vtkImageData *data, int dimensionality, int ext[6]);
 
 private:
   unsigned char ConnectedValue;
