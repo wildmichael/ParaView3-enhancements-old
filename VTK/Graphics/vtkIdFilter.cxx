@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-15 20:29:26 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-07-01 12:17:52 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -103,7 +103,7 @@ void vtkIdFilter::Execute()
 
   // Loop over cells (if requested) and generate ids
   //
-  if ( this->PointIds && numCells > 0 )
+  if ( this->CellIds && numCells > 0 )
     {
     cellIds = vtkIntArray::New();
     cellIds->SetNumberOfValues(numCells);
