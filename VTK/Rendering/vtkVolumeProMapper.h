@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-12-17 22:37:43 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-12-22 16:28:52 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -213,10 +213,10 @@ public:
   vtkGetMacro( MajorBoardVersion, int );
   vtkGetMacro( MinorBoardVersion, int );
   virtual int GetAvailableBoardMemory() { return 0; }
-  virtual void GetLockSizesForBoardMemory( unsigned int type,
-					   unsigned int *xSize,
-					   unsigned int *ySize,
-					   unsigned int *zSize ) {};
+  virtual void GetLockSizesForBoardMemory( unsigned int vtkNotUsed(type),
+					   unsigned int * vtkNotUsed(xSize),
+					   unsigned int * vtkNotUsed(ySize),
+					   unsigned int * vtkNotUsed(zSize)) {};
  
 protected:
   vtkVolumeProMapper();

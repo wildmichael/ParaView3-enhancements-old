@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProVG500Mapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-12-10 22:50:38 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-12-22 16:28:52 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -151,12 +151,13 @@ protected:
 
   // Render the hexagon to the screen
   // Defined in the specific graphics implementation.
-  virtual void RenderHexagon( vtkRenderer  *ren, 
-			      vtkVolume    *vol,
-			      VLIPixel     *basePlane,
+  virtual void RenderHexagon( vtkRenderer  * vtkNotUsed(ren), 
+			      vtkVolume    * vtkNotUsed(vol),
+			      VLIPixel     * vtkNotUsed(basePlane),
 			      int          size[2],
 			      VLIVector3D  hexagon[6], 
-			      VLIVector2D  textureCoords[6] ) {};
+			      VLIVector2D  textureCoords[6] ) 
+    {(void)size; (void)hexagon; (void)textureCoords;}
 
   // Make the base plane size a power of 2 for OpenGL
   void CorrectBasePlaneSize( VLIPixel *inBase, int inSize[2],
