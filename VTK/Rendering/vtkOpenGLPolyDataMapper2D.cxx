@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-27 15:42:04 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2002-06-07 23:07:36 $
+  Version:   $Revision: 1.39 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,6 +21,7 @@
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
 #include "vtkPolyData.h"
+#include "vtkProperty2D.h"
 #include "vtkScalarsToColors.h"
 #include "vtkUnsignedCharArray.h"
 #include "vtkViewport.h"
@@ -29,7 +30,7 @@
 #include <math.h>
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkOpenGLPolyDataMapper2D, "$Revision: 1.38 $");
+vtkCxxRevisionMacro(vtkOpenGLPolyDataMapper2D, "$Revision: 1.39 $");
 vtkStandardNewMacro(vtkOpenGLPolyDataMapper2D);
 #endif
 

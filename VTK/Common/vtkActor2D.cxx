@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:09 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2002-06-07 23:07:36 $
+  Version:   $Revision: 1.33 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,13 +16,16 @@
 
 =========================================================================*/
 #include "vtkActor2D.h"
+
 #include "vtkProperty2D.h"
 #include "vtkMapper2D.h"
 #include "vtkPropCollection.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkActor2D, "$Revision: 1.32 $");
+vtkCxxRevisionMacro(vtkActor2D, "$Revision: 1.33 $");
 vtkStandardNewMacro(vtkActor2D);
+
+vtkCxxSetObjectMacro(vtkActor2D,Property, vtkProperty2D);
 
 // Creates an actor2D with the following defaults:
 // position -1, -1 (view coordinates)

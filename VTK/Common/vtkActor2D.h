@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor2D.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-04 16:36:04 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2002-06-07 23:07:36 $
+  Version:   $Revision: 1.38 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,9 +30,10 @@
 #define __vtkActor2D_h
 
 #include "vtkProp.h"
-#include "vtkCoordinate.h"
-#include "vtkProperty2D.h"
+#include "vtkCoordinate.h" // For vtkViewportCoordinateMacro
+
 class vtkMapper2D;
+class vtkProperty2D;
 
 class VTK_COMMON_EXPORT vtkActor2D : public vtkProp
 {
@@ -69,7 +70,7 @@ public:
 
   // Description:
   // Set this vtkProp's vtkProperty2D.
-  vtkSetObjectMacro(Property, vtkProperty2D);
+  virtual void SetProperty(vtkProperty2D*);
 
   // Description:
   // Get the PositionCoordinate instance of vtkCoordinate.
