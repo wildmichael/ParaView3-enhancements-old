@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OutputWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:01 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2001-08-27 14:59:26 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -198,7 +198,7 @@ int vtkWin32OutputWindow::Initialize()
   
   lpParam.lpszName = "Output Control";
   lpParam.lpszClass = "EDIT"; // use the RICHEDIT control widget
-  lpParam.dwExStyle = NULL;
+  lpParam.dwExStyle = 0;
   // Create the EDIT window as a child of win
   vtkWin32OutputWindow::OutputWindow = CreateWindow(
     lpParam.lpszClass,  // pointer to registered class name
