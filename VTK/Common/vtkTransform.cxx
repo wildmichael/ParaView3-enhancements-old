@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-11-22 15:00:43 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 1996-12-12 14:36:57 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -740,7 +740,7 @@ void vtkTransform::GetMatrix (vtkMatrix4x4 & ctm)
 
 vtkTransform::~vtkTransform ()
 {
-  int i, n=this->Stack-this->StackBottom+1;
+  int i, n;
 
   for (n=this->Stack-this->StackBottom+1, i=0; i < n; i++)
     {
