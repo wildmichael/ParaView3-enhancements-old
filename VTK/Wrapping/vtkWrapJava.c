@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapJava.c,v $
   Language:  C++
-  Date:      $Date: 1999-04-23 12:58:52 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-05-18 18:24:15 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -93,7 +93,7 @@ void output_proto_vars(FILE *fp, int i)
     case 6:   fprintf(fp,"jint "); break;
     case 2:     fprintf(fp,"void "); break;
     case 3:     fprintf(fp,"jchar "); break;
-    case 9:     fprintf(fp,"jref "); break;
+    case 9:     fprintf(fp,"jobject "); break;
     case 8: return;
     }
   
