@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLImporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-11-03 02:19:01 $
-  Version:   $Revision: 1.62 $
+  Date:      $Date: 2003-11-11 21:48:49 $
+  Version:   $Revision: 1.63 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -4259,7 +4259,7 @@ YY_MALLOC_DECL
 #define YY_BREAK break;
 #endif
 
-vtkCxxRevisionMacro(vtkVRMLImporter, "$Revision: 1.62 $");
+vtkCxxRevisionMacro(vtkVRMLImporter, "$Revision: 1.63 $");
 vtkStandardNewMacro(vtkVRMLImporter);
 
 vtkPoints* vtkVRMLImporter::PointsNew()
@@ -5505,8 +5505,6 @@ void vtkVRMLImporter::ImportEnd ()
   delete VrmlNodeType::currentField;
   VrmlNodeType::currentField = 0;
 
-  vtkVRMLAllocator::CleanUp();
-
   vtkDebugMacro(<<"Closing import file");
   if ( this->FileFD != NULL )
     {
@@ -5590,6 +5588,7 @@ vtkVRMLImporter::~vtkVRMLImporter()
   // deleted.
   delete VrmlNodeType::useList;
   VrmlNodeType::useList = 0;
+  vtkVRMLAllocator::CleanUp();
 }
 
 void vtkVRMLImporter::PrintSelf(ostream& os, vtkIndent indent)
