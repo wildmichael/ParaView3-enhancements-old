@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdList.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-25 15:24:41 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 1998-03-10 15:28:32 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -143,7 +143,7 @@ inline int vtkIdList::InsertUniqueId(const int id)
 
 // Description:
 // Get a pointer to a particular data index.
-inline int *vtkIdList::GetPointer(const int i) {return this->Ia->GetPointer(i);};
+inline int *vtkIdList::GetPointer(const int i) {return this->Ia->GetPointer(i);}
 
 // Description:
 // Get a pointer to a particular data index. Make sure data is allocated

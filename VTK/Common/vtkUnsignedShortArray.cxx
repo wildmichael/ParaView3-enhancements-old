@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedShortArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:41:57 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-03-10 15:28:45 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,6 +56,13 @@ int vtkUnsignedShortArray::Allocate(const int sz, const int ext)
   this->MaxId = -1;
 
   return 1;
+}
+
+void vtkUnsignedShortArray::SetArray(unsigned short *ptr, int size)
+{
+    this->Size = size;
+    this->Array = ptr;
+    this->MaxId = size -1;
 }
 
 // Description:

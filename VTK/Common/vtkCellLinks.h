@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLinks.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:39:50 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-03-10 15:28:27 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -97,7 +97,7 @@ private:
 
 // Description:
 // Get a link structure given a point id.
-inline _vtkLink_s &vtkCellLinks::GetLink(int ptId) {return this->Array[ptId];};
+inline _vtkLink_s &vtkCellLinks::GetLink(int ptId) {return this->Array[ptId];}
 
 // Description:
 // Get the number of cells using the point specified by ptId.
@@ -108,7 +108,7 @@ inline unsigned short vtkCellLinks::GetNcells(int ptId)
 
 // Description:
 // Return a list of cell ids using the point.
-inline int *vtkCellLinks::GetCells(int ptId) {return this->Array[ptId].cells;};
+inline int *vtkCellLinks::GetCells(int ptId) {return this->Array[ptId].cells;}
 
 // Description:
 // Increment the count of the number of cells using the point.

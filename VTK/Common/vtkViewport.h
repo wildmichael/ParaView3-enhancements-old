@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewport.h,v $
   Language:  C++
-  Date:      $Date: 1997-12-08 14:29:24 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-03-10 15:28:48 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -157,11 +157,11 @@ protected:
 
 // Description:
 // Convert display (or screen) coordinates to world coordinates.
-inline void vtkViewport::DisplayToWorld() {DisplayToView(); ViewToWorld();};
+inline void vtkViewport::DisplayToWorld() {DisplayToView(); ViewToWorld();}
 
 // Description:
 // Convert world point coordinates to display (or screen) coordinates.
-inline void vtkViewport::WorldToDisplay() {WorldToView(); ViewToDisplay();};
+inline void vtkViewport::WorldToDisplay() {WorldToView(); ViewToDisplay();}
 
 
 #endif

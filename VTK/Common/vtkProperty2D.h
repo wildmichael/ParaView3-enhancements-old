@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty2D.h,v $
   Language:  C++
-  Date:      $Date: 1997-12-11 20:34:41 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-03-10 15:28:38 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -91,7 +91,7 @@ public:
   void SetCompositingOperatorToSrc() {this->CompositingOperator = VTK_SRC;};
   void SetCompositingOperatorToWhite() {this->CompositingOperator = VTK_WHITE;};
 
-  void Render (vtkViewport* viewport)  { viewport;}
+  void Render (vtkViewport* vtkNotUsed(viewport))  {}
   
 protected:
   float Color[3];

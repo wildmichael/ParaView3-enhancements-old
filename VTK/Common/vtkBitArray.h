@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBitArray.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:39:40 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1998-03-10 15:28:24 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -96,7 +96,7 @@ private:
 inline unsigned char *vtkBitArray::GetPointer(const int id)
 {
   return this->Array + id/8;
-};
+}
 
 // Description:
 // Get the address of a particular data index. Make sure data is allocated

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellArray.h,v $
   Language:  C++
-  Date:      $Date: 1997-12-11 22:12:28 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 1998-03-10 15:28:26 $
+  Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -119,7 +119,7 @@ protected:
 
 // Description:
 // Get the number of cells in the array.
-inline int vtkCellArray::GetNumberOfCells() {return this->NumberOfCells;};
+inline int vtkCellArray::GetNumberOfCells() {return this->NumberOfCells;}
 
 // Description:
 // Create a cell by specifying the number of points and an array of point id's.
@@ -249,7 +249,7 @@ inline int vtkCellArray::GetNextCell(int& npts, int* &pts)
 
 // Description:
 // Get the size of the allocated connectivity array.
-inline int vtkCellArray::GetSize() {return Ia->GetSize();};
+inline int vtkCellArray::GetSize() {return Ia->GetSize();}
 
 // Description:
 // Get the total number of entries (i.e., data values) in the connectivity 

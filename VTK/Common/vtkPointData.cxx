@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointData.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-01-16 21:18:27 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 1998-03-10 15:28:35 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -255,7 +255,7 @@ void vtkPointData::Initialize()
     this->UserDefined->UnRegister(this);
     this->UserDefined = NULL;
     }
-};
+}
 
 // Description:
 // Pass entire arrays of input data through to output. Obey the "copy"
@@ -337,7 +337,7 @@ void vtkPointData::CopyAllocate(vtkPointData* pd, int sze, int ext)
     this->SetUserDefined(newUserDefined);
     newUserDefined->Delete();
     }
-};
+}
 
 
 // do it this way because some compilers don't initialize file scope statics

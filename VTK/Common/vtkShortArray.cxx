@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShortArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:41:23 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1998-03-10 15:28:39 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,6 +56,13 @@ int vtkShortArray::Allocate(const int sz, const int ext)
   this->MaxId = -1;
 
   return 1;
+}
+
+void vtkShortArray::SetArray(short *ptr, int size)
+{
+    this->Size = size;
+    this->Array = ptr;
+    this->MaxId = size -1;
 }
 
 // Description:

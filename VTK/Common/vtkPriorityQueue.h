@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPriorityQueue.h,v $
   Language:  C++
-  Date:      $Date: 1997-11-13 16:21:51 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1998-03-10 15:28:37 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -111,7 +111,7 @@ inline float vtkPriorityQueue::DeleteId(int id)
     this->Pop(priority,loc);
     }
   return priority;
-};
+}
 
 // Description:
 // Get the priority of an entry in the queue with specified id. Returns priority
@@ -126,6 +126,6 @@ inline float vtkPriorityQueue::GetPriority(int id)
     return this->Array[loc].priority;
     }
   return VTK_LARGE_FLOAT;
-};
+}
 
 #endif
