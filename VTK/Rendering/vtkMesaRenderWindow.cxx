@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-06 19:19:16 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2001-09-19 19:54:31 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -41,8 +41,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 // Probably not needed for abstract classes without new methods.
 #define VTK_IMPLEMENT_MESA_CXX
-#include "GL/gl_mangle.h"
-#include "GL/gl.h"
+#include "MangleMesaInclude/gl_mangle.h"
+#include "MangleMesaInclude/gl.h"
 
 #include "vtkOpenGLRenderWindow.h"
 #include "vtkXMesaRenderWindow.h"

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMesaRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-06 19:19:18 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-09-19 19:54:32 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -49,14 +49,14 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef __vtkXMesaRenderWindow_h
 #define __vtkXMesaRenderWindow_h
 
-#include "GL/gl_mangle.h"
-#include "GL/glx_mangle.h"
+#include "MangleMesaInclude/gl_mangle.h"
+#include "MangleMesaInclude/glx_mangle.h"
 #include <stdlib.h>
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
 #include "vtkMesaRenderWindow.h"
-#include "GL/glx.h"
-#include "GL/osmesa.h"
+#include "MangleMesaInclude/glx.h"
+#include "MangleMesaInclude/osmesa.h"
 
 
 

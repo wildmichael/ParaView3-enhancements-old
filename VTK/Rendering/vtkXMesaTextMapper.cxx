@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMesaTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-06 19:19:18 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2001-09-19 19:54:33 $
+  Version:   $Revision: 1.11 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -38,11 +38,11 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include "GL/gl_mangle.h"
-#include "GL/glx_mangle.h"
-#include "GL/gl.h"
-#include "GL/glx.h"
-#include "GL/osmesa.h"
+#include "MangleMesaInclude/gl_mangle.h"
+#include "MangleMesaInclude/glx_mangle.h"
+#include "MangleMesaInclude/gl.h"
+#include "MangleMesaInclude/glx.h"
+#include "MangleMesaInclude/osmesa.h"
 
 #include "vtkToolkits.h"
 #include "vtkXMesaTextMapper.h"

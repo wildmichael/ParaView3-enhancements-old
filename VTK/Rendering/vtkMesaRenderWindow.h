@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-06 19:19:16 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-09-19 19:54:32 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -48,12 +48,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef __vtkMesaRenderWindow_h
 #define __vtkMesaRenderWindow_h
 
-#include "GL/gl_mangle.h"
-#ifdef __APPLE__
-#include <Mesa/gl.h>
-#else
-#include <GL/gl.h>
-#endif
+#include "MangleMesaInclude/gl_mangle.h"
+#include <MangleMesaInclude/gl.h>
 
 
 
