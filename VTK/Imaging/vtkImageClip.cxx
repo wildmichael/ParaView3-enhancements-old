@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageClip.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-01-13 21:58:47 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1998-02-05 17:00:44 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -134,7 +134,7 @@ void vtkImageClip::ExecuteImageInformation()
   if ( ! this->Bypass)
     {
     // Clip the OutputWholeExtent with the input WholeExtent
-    for (idx = 0; idx < 6; ++idx)
+    for (idx = 0; idx < 3; ++idx)
       {
       if (this->OutputWholeExtent[idx*2] >= extent[idx*2] && 
 	  this->OutputWholeExtent[idx*2] <= extent[idx*2+1])
