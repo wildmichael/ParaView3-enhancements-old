@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXYPlotActor.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-30 00:00:44 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-07-14 04:07:07 $
+  Version:   $Revision: 1.22 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -414,7 +414,7 @@ public:
   // Description:
   // Set/Get the format with which to print the labels on the scalar
   // bar.
-  vtkSetStringMacro(LabelFormat);
+  virtual void SetLabelFormat (const char* _arg);
   vtkGetStringMacro(LabelFormat);
 
   // Description:
