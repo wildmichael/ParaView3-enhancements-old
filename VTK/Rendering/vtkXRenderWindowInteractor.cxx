@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 11:56:34 $
-  Version:   $Revision: 1.70 $
+  Date:      $Date: 1999-10-11 00:16:43 $
+  Version:   $Revision: 1.71 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -161,12 +161,16 @@ void vtkXRenderWindowInteractor::Initialize()
   static int any_initialized = 0;
   static XtAppContext app;
   vtkXRenderWindow *ren;
+  int needs_render;
   int depth;
   Colormap cmap;
   Visual  *vis;
   int *size;
   int *position;
   int argc = 0;
+
+  // set if the window hasn't rendered yet
+  needs_render = !this->Initialized;
 
   // make sure we have a RenderWindow and camera
   if ( ! this->RenderWindow)
@@ -263,6 +267,11 @@ void vtkXRenderWindowInteractor::Initialize()
   this->Enable();
   this->Size[0] = size[0];
   this->Size[1] = size[1];
+  if (needs_render) 
+    {
+    ren->Render();
+    }
+
 }
 
 void vtkXRenderWindowInteractor::Enable()
