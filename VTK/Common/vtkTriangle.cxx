@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangle.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:41:50 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 1997-10-29 16:46:30 $
+  Version:   $Revision: 1.60 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -359,7 +359,11 @@ void vtkTriangle::Contour(float value, vtkFloatScalars *cellScalars,
           }
         }
       }
-    lines->InsertNextCell(2,pts);
+    // check for degenerate line
+    if ( pts[0] != pts[1] )
+      {
+      lines->InsertNextCell(2,pts);
+      }
     }
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPixel.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-10 21:10:29 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1997-10-29 16:46:27 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -234,7 +234,11 @@ void vtkPixel::Contour(float value, vtkFloatScalars *cellScalars,
           }
         }
       }
-    lines->InsertNextCell(2,pts);
+    // check for degenerate line
+    if ( pts[0] != pts[1] )
+      {
+      lines->InsertNextCell(2,pts);
+      }
     }
 }
 
