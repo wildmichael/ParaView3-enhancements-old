@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageClip.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-11 17:07:33 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1997-07-11 20:12:16 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -119,9 +119,6 @@ void vtkImageClip::SetOutputWholeExtent(int dim, int *extent)
 //----------------------------------------------------------------------------
 void vtkImageClip::SetOutputAxisWholeExtent(int axis, int min, int max)
 {
-  int idx;
-  int modified = 0;
-  
   if (axis < 0 || axis > 3)
     {
     vtkErrorMacro("SetOutputAxisWholeExtent: bad axis " << axis);
