@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapPython.c,v $
   Language:  C++
-  Date:      $Date: 1998-05-01 18:11:01 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-05-05 20:18:19 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -459,7 +459,7 @@ void outputFunction2(FILE *fp, FileInfo *data)
 	if (wrappedFunctions[occ]->Name && 
 	    !strcmp(theFunc->Name,wrappedFunctions[occ]->Name))
 	  {
-	  // memory leak here but ...
+	  /* memory leak here but ... */
 	  wrappedFunctions[occ]->Name = NULL;
 	  }
 	}
@@ -494,7 +494,8 @@ void outputFunction(FILE *fp, FileInfo *data)
   if (currentFunction->IsPureVirtual ||
       currentFunction->IsOperator || 
       currentFunction->ArrayFailure ||
-      !currentFunction->IsPublic) 
+      !currentFunction->IsPublic ||
+      !currentFunction->Name) 
     {
     return;
     }

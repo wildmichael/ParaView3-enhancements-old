@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapJava.c,v $
   Language:  C++
-  Date:      $Date: 1998-05-01 18:11:00 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-05-05 20:18:18 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -212,9 +212,7 @@ void output_temp(FILE *fp, int i, int aType, char *Id, int aCount)
   
   /* handle arrays */
   if ((aType%1000/100 == 3)&&
-      (i != 10)&&
-      (aType%10 != 9)&&
-      (aType != 303))
+      (i != MAX_ARGS)&&(aType%10 != 9)&&(aType%1000 != 303))
     {
     fprintf(fp,"[%i]",aCount);
     fprintf(fp,";\n  void *tempArray");
@@ -395,7 +393,8 @@ void outputFunction(FILE *fp, FileInfo *data)
   if (currentFunction->IsPureVirtual ||
       currentFunction->IsOperator || 
       currentFunction->ArrayFailure ||
-      !currentFunction->IsPublic) 
+      !currentFunction->IsPublic ||
+      !currentFunction->Name) 
     {
     return;
     }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParse.y,v $
   Language:  C++
-  Date:      $Date: 1998-04-29 19:49:17 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-05-05 20:18:16 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -372,6 +372,7 @@ macro:
    currentFunction->ReturnType = 2;
    output_function();
 
+   currentFunction->Name = strdup(temps);
    currentFunction->NumberOfArguments = 1;
    currentFunction->ArgTypes[0] = 300 + $<integer>5;
    currentFunction->ArgCounts[0] = 2;
@@ -401,6 +402,7 @@ macro:
    currentFunction->ReturnType = 2;
    output_function();
 
+   currentFunction->Name = strdup(temps);
    currentFunction->NumberOfArguments = 1;
    currentFunction->ArgTypes[0] = 300 + $<integer>5;
    currentFunction->ArgCounts[0] = 3;
@@ -432,6 +434,7 @@ macro:
    currentFunction->ReturnType = 2;
    output_function();
 
+   currentFunction->Name = strdup(temps);
    currentFunction->NumberOfArguments = 1;
    currentFunction->ArgTypes[0] = 300 + $<integer>5;
    currentFunction->ArgCounts[0] = 4;
@@ -449,14 +452,13 @@ macro:
    }
 | SetVectorMacro  '(' any_id ',' type_red2 ',' float_num ')'
    {
-   sprintf(temps,"Set%s",$<str>3); 
-   currentFunction->Name = strdup(temps);
-
-   currentFunction->NumberOfArguments = 1;
-   currentFunction->ArgTypes[0] = 300 + $<integer>5;
-   currentFunction->ArgCounts[0] = $<integer>7;
-   currentFunction->HaveHint = 1;
-   output_function();
+     sprintf(temps,"Set%s",$<str>3); 
+     currentFunction->Name = strdup(temps);
+     currentFunction->ReturnType = 2;
+     currentFunction->NumberOfArguments = 1;
+     currentFunction->ArgTypes[0] = 300 + $<integer>5;
+     currentFunction->ArgCounts[0] = $<integer>7;
+     output_function();
    }
 | GetVectorMacro  '(' any_id ',' type_red2 ',' float_num ')'
    { 
