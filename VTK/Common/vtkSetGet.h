@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSetGet.h,v $
   Language:  C++
-  Date:      $Date: 2002-02-12 13:27:49 $
-  Version:   $Revision: 1.98 $
+  Date:      $Date: 2002-02-26 22:33:42 $
+  Version:   $Revision: 1.99 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -59,6 +59,11 @@
 #define VTK_FLOAT          10
 #define VTK_DOUBLE         11 
 #define VTK_ID_TYPE        12
+
+// These types are not currently supported by GetDataType, but are 
+// for completeness.
+#define VTK_STRING         13
+#define VTK_OPAQUE         14
 
 // Some constant required for correct template performance
 #define VTK_BIT_MIN 0
