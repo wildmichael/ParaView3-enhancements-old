@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRuledSurfaceFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-09-03 12:52:23 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2003-05-07 15:17:05 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -107,7 +107,8 @@ public:
   // Set the mode by which to create the ruled surface. (Dramatically
   // different results are possible depending on the chosen mode.) The
   // resample mode evenly resamples the polylines (based on length) and 
-  // generates triangle strips. The
+  // generates triangle strips. The point walk mode uses the existing
+  // points and walks around the polyline using existing points.
   vtkSetClampMacro(RuledMode,int,
                    VTK_RULED_MODE_RESAMPLE,VTK_RULED_MODE_POINT_WALK);
   vtkGetMacro(RuledMode,int);
