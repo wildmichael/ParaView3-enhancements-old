@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-08 17:21:11 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-05-26 20:04:15 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -99,6 +99,11 @@ void vtkOpenGLPolyDataMapper::Render(vtkRenderer *ren, vtkActor *act)
 //
 // make sure that we've been properly initialized
 //
+  if (ren->GetRenderWindow()->CheckAbortStatus())
+    {
+    return;
+    }
+  
   if ( input == NULL ) 
     {
     vtkErrorMacro(<< "No input!");

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-06 19:14:28 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 1998-05-26 20:04:10 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,6 +49,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifdef VTK_USE_PATENTED
 #include "vtkMarchingSquares.h"
 #include "vtkMarchingCubes.h"
+#include "vtkImageMarchingCubes.h"
 #endif
 
 // Description:

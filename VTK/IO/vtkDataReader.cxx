@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-21 11:34:53 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 1998-05-26 20:04:12 $
+  Version:   $Revision: 1.57 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -98,6 +98,11 @@ void vtkDataReader::SetInputString(char* _arg, int len)
     vtkDebugMacro(<< "setting InputString to " << _arg );
     }
 
+  if (this->InputString && _arg && strncmp(_arg, this->InputString, len) == 0)
+    {
+    return;
+    }
+  
   if (this->InputString) delete [] this->InputString; 
   if (_arg) 
     { 
