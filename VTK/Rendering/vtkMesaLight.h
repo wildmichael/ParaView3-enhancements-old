@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaLight.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-22 19:09:32 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-12-22 20:14:04 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,7 +53,7 @@ class vtkMesaRenderer;
 class VTK_EXPORT vtkMesaLight : public vtkLight
 {
 public:
-  static vtkMesaLight *New() {return new vtkMesaLight;};
+  static vtkMesaLight *New();
   const char *GetClassName() {return "vtkMesaLight";};
 
   // Description:

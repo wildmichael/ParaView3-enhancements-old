@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-12-21 17:38:00 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-12-22 20:14:03 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,5 +66,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // Make sure vtkMesaTexture is a copy of vtkOpenGLTexture
 // with vtkOpenGLTexture replaced with vtkMesaTexture
 #define vtkOpenGLTexture vtkMesaTexture
+#define vtkOpenGLRenderWindow vtkMesaRenderWindow
 #include "vtkOpenGLTexture.cxx"
 #undef vtkOpenGLTexture
+#undef vtkOpenGLRenderWindow

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-12-22 16:24:12 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-12-22 20:14:03 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,11 +60,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #endif
 // make sure this file is included before the #define takes place
 // so we don't get two vtkMesaMesaProperty classes defined.
-#include "vtkOpenGLMesaProperty.h"
-#include "vtkMesaMesaProperty.h"
+#include "vtkOpenGLProperty.h"
+#include "vtkMesaProperty.h"
 
-// Make sure vtkMesaMesaProperty is a copy of vtkOpenGLMesaProperty
-// with vtkOpenGLMesaProperty replaced with vtkMesaMesaProperty
-#define vtkOpenGLMesaProperty vtkMesaMesaProperty
-#include "vtkOpenGLMesaProperty.cxx"
-#undef vtkOpenGLMesaProperty
+// Make sure vtkMesaMesaProperty is a copy of vtkOpenGLProperty
+// with vtkOpenGLProperty replaced with vtkMesaMesaProperty
+#define vtkOpenGLProperty vtkMesaProperty
+#include "vtkOpenGLProperty.cxx"
+#undef vtkOpenGLProperty

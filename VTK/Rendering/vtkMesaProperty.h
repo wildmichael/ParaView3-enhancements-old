@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaProperty.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-22 19:09:33 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-12-22 20:14:05 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,7 +53,7 @@ class vtkMesaRenderer;
 class VTK_EXPORT vtkMesaProperty : public vtkProperty
 {
 public:
-  static vtkMesaProperty *New() {return new vtkMesaProperty;};
+  static vtkMesaProperty *New();
   const char *GetClassName() {return "vtkMesaProperty";};
 
   // Description:

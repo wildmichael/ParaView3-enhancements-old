@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaActor.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-22 19:09:31 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-12-22 20:14:04 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,7 +55,7 @@ class VTK_EXPORT vtkMesaActor : public vtkActor
 protected:
   
 public:
-  static vtkMesaActor *New() {return new vtkMesaActor;};
+  static vtkMesaActor *New();
   const char *GetClassName() {return "vtkMesaActor";};
 
   // Description:

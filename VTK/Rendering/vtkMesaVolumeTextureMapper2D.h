@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaVolumeTextureMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-22 19:09:35 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-12-22 20:14:05 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,7 +58,7 @@ public:
   const char *GetClassName() {return "vtkMesaVolumeTextureMapper2D";};
   void PrintSelf( ostream& os, vtkIndent index );
 
-  static vtkMesaVolumeTextureMapper2D *New() {return new vtkMesaVolumeTextureMapper2D;};
+  static vtkMesaVolumeTextureMapper2D *New();
   
 //BTX
 
