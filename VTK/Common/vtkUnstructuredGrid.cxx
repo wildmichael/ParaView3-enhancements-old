@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-15 07:47:24 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1994-09-28 10:56:25 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -37,7 +37,7 @@ vlUnstructuredGrid::vlUnstructuredGrid ()
 // Description:
 // Allocate memory space for data insertion. Execute this method before
 // inserting and cells into object.
-void vlUnstructuredGrid::Allocate (int numCells=1000, int extSize=1000)
+void vlUnstructuredGrid::Allocate (int numCells, int extSize)
 {
   if ( numCells < 1 ) numCells = 1000;
   if ( extSize < 1 ) extSize = 1000;
@@ -206,16 +206,20 @@ int vlUnstructuredGrid::InsertNextCell(int type, vlIdList& ptIds)
   for (i=0; i < npts; i++) this->Connectivity->InsertCellPoint(ptIds.GetId(i));
 
   // insert type and storage information   
-  this->Cells->InsertNextCell(type,this->Connectivity->GetLocation(npts));
+  return
+    this->Cells->InsertNextCell(type,this->Connectivity->GetLocation(npts));
 }
 
 // Description:
 // Insert/create cell in object by type and list of point ids defining
 // cell topology.
-int vlUnstructuredGrid::InsertNextCell(int type, int npts, int pts[MAX_CELL_SIZE])
+int vlUnstructuredGrid::InsertNextCell(int type, int npts, 
+				       int pts[MAX_CELL_SIZE])
 {
   this->Connectivity->InsertNextCell(npts,pts);
-  this->Cells->InsertNextCell(type,this->Connectivity->GetLocation(npts));
+
+  return
+    this->Cells->InsertNextCell(type,this->Connectivity->GetLocation(npts));
 }
 
 void vlUnstructuredGrid::InsertCells(int numCells, int width, int *data)
