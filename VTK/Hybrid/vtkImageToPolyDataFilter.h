@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-13 21:26:32 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-08-15 15:37:24 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -84,8 +84,7 @@ public:
 
   // Description:
   // Instantiate object with initial number of colors 256.
-  static vtkImageToPolyDataFilter *New() 
-    {return new vtkImageToPolyDataFilter;};
+  static vtkImageToPolyDataFilter* New();
 
   // Description:
   // Specify how to create the output. Pixelize means converting the image
