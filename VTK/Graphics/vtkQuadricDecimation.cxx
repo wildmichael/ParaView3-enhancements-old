@@ -3,8 +3,8 @@
 Program:   Visualization Toolkit
 Module:    $RCSfile: vtkQuadricDecimation.cxx,v $
 Language:  C++
-Date:      $Date: 2003-11-07 21:34:03 $
-Version:   $Revision: 1.30 $
+Date:      $Date: 2003-11-14 14:07:10 $
+Version:   $Revision: 1.31 $
 
 Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -56,7 +56,7 @@ PURPOSE.  See the above copyright notice for more information.
 #include "vtkPriorityQueue.h"
 #include "vtkTriangle.h"
 
-vtkCxxRevisionMacro(vtkQuadricDecimation, "$Revision: 1.30 $");
+vtkCxxRevisionMacro(vtkQuadricDecimation, "$Revision: 1.31 $");
 vtkStandardNewMacro(vtkQuadricDecimation);
 
 
@@ -86,6 +86,8 @@ vtkQuadricDecimation::vtkQuadricDecimation()
   this->NormalsWeight = 0.1f;
   this->TCoordsWeight = 0.1f;
   this->TensorsWeight = 0.1f;
+
+  this->ActualReduction = 0.00f;
 }
 
 //----------------------------------------------------------------------------
