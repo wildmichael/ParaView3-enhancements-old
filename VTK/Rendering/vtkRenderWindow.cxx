@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-30 13:07:23 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 1997-05-01 17:13:42 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -191,12 +191,22 @@ vtkRenderWindowInteractor *vtkRenderWindow::MakeRenderWindowInteractor()
   return this->Interactor;
 }
 
+// Description:
+// Set the interactor that will work with this renderer.
+void vtkRenderWindow::SetInteractor(vtkRenderWindowInteractor *rwi)
+{
+  this->Interactor = rwi;
+  if (this->Interactor->GetRenderWindow() != this)
+    {
+    this->Interactor->SetRenderWindow(this);
+    }
+}
+
 void vtkRenderWindow::SetWindowName( char * _arg )
 {
-  if (Debug)   
-    cerr << "Debug: In " __FILE__ << ", line " << __LINE__ << "\n" 
+  vtkDebugMacro("Debug: In " __FILE__ << ", line " << __LINE__ << "\n" 
          << this->GetClassName() << " (" << this << "): setting " 
-         << WindowName  << " to " << _arg << "\n\n";
+         << WindowName  << " to " << _arg << "\n\n");
 
   if ( WindowName && _arg && (!strcmp(WindowName,_arg))) return;
   if (WindowName) delete [] WindowName;

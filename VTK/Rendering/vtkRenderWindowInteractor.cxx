@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-23 21:08:48 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1997-05-01 17:13:45 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -96,6 +96,14 @@ vtkRenderWindowInteractor *vtkRenderWindowInteractor::New()
   return new vtkRenderWindowInteractor;
 }
 
+void vtkRenderWindowInteractor::SetRenderWindow(vtkRenderWindow *aren)
+{
+  this->RenderWindow = aren;
+  if (this->RenderWindow->GetInteractor() != this)
+    {
+    this->RenderWindow->SetInteractor(this);
+    }
+}
 void vtkRenderWindowInteractor::FindPokedRenderer(int x,int y)
 {
   vtkRendererCollection *rc;

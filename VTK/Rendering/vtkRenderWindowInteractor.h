@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-23 18:58:30 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1997-05-01 17:13:44 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,7 +80,7 @@ public:
 
   // Description:
   // Set/Get the rendering window being controlled by this object.
-  vtkSetObjectMacro(RenderWindow,vtkRenderWindow);
+  void SetRenderWindow(vtkRenderWindow *aren);
   vtkGetObjectMacro(RenderWindow,vtkRenderWindow);
 
   // Description:
