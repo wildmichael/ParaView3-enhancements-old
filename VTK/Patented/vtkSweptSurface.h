@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSweptSurface.h,v $
   Language:  C++
-  Date:      $Date: 1999-02-25 18:30:03 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1999-02-26 20:02:05 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -192,8 +192,6 @@ protected:
 
 private:
   //used to perform computations
-  vtkIdList *IdList;
-  vtkScalars *VoxelScalars;
   vtkTransform *T;
 };
 
