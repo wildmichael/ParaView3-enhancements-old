@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-21 19:02:04 $
-  Version:   $Revision: 1.77 $
+  Date:      $Date: 1998-04-23 15:06:54 $
+  Version:   $Revision: 1.78 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -126,13 +126,6 @@ vtkRenderer *vtkRenderer::New()
 // Concrete render method.
 void vtkRenderer::Render(void)
 {
-  int    actor_count;
-  int    volume_count;
-  float  scale_factor;
-  float  saved_viewport[4];
-  float  new_viewport[4];
-  int    saved_erase;
-
   if (this->StartRenderMethod) 
     {
     (*this->StartRenderMethod)(this->StartRenderMethodArg);
@@ -213,7 +206,7 @@ void vtkRenderer::Render(void)
 
 void vtkRenderer::Render2D()
 {
-  this->Actors2D.Render(this);
+  this->Actors2D->Render(this);
 }
 
 vtkWindow *vtkRenderer::GetVTKWindow()
