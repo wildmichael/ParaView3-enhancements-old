@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParallelCoordinatesActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:03 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-05-27 15:23:04 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,8 +19,10 @@
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkParallelCoordinatesActor, "$Revision: 1.18 $");
+vtkCxxRevisionMacro(vtkParallelCoordinatesActor, "$Revision: 1.19 $");
 vtkStandardNewMacro(vtkParallelCoordinatesActor);
+
+vtkCxxSetObjectMacro(vtkParallelCoordinatesActor,Input,vtkDataObject);
 
 // Instantiate object
 vtkParallelCoordinatesActor::vtkParallelCoordinatesActor()

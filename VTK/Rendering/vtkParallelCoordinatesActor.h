@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParallelCoordinatesActor.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:03 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-05-27 15:23:04 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -48,7 +48,8 @@
 #define __vtkParallelCoordinatesActor_h
 
 #include "vtkAxisActor2D.h"
-#include "vtkDataObject.h"
+
+class vtkDataObject;
 
 #define VTK_IV_COLUMN 0
 #define VTK_IV_ROW    1
@@ -131,7 +132,7 @@ public:
 
   // Description:
   // Set the input to the parallel coordinates actor.
-  vtkSetObjectMacro(Input,vtkDataObject);
+  virtual void SetInput(vtkDataObject*);
 
   // Description:
   // Remove a dataset from the list of data to append.
