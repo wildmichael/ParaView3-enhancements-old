@@ -5,14 +5,14 @@
   Program:   Visualization Toolkit
   Module:  $RCSfile: vtkPointsProjectedHull.cxx,v $
   Language:  C++
-  Date:    $Date: 2003-09-10 19:41:55 $
-  Version:   $Revision: 1.2 $
+  Date:    $Date: 2003-09-22 17:00:05 $
+  Version:   $Revision: 1.3 $
 
 =========================================================================*/
 
 #include "vtkPointsProjectedHull.h"
 
-vtkCxxRevisionMacro(vtkPointsProjectedHull, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkPointsProjectedHull, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkPointsProjectedHull);
 
 static const int xdim=0, ydim=1, zdim=2;
@@ -473,7 +473,7 @@ rectangleBoundingBoxIntersection(double hmin, double hmax,
 
 int vtkPointsProjectedHull::
 outsideHorizontalLine(double vmin, double vmax, 
-                      double *p0, double *p1, double *insidePt)
+                      double *p0, double *, double *insidePt)
 {
     if (insidePt[1] > p0[1]){
 
@@ -490,7 +490,7 @@ outsideHorizontalLine(double vmin, double vmax,
 }
 int vtkPointsProjectedHull::
 outsideVerticalLine(double hmin, double hmax,
-                      double *p0, double *p1, double *insidePt)
+                      double *p0, double *, double *insidePt)
 {
     if (insidePt[0] > p0[0]){
 
