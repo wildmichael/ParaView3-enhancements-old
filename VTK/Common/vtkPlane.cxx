@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlane.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-14 19:19:32 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1999-06-16 19:43:23 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,6 +60,21 @@ vtkPlane::vtkPlane()
 void vtkPlane::ProjectPoint(float x[3], float origin[3], float normal[3], float xproj[3])
 {
   float t, xo[3];
+
+  xo[0] = x[0] - origin[0];
+  xo[1] = x[1] - origin[1];
+  xo[2] = x[2] - origin[2];
+
+  t = vtkMath::Dot(normal,xo);
+
+  xproj[0] = x[0] - t * normal[0];
+  xproj[1] = x[1] - t * normal[1];
+  xproj[2] = x[2] - t * normal[2];
+}
+
+void vtkPlane::ProjectPoint(double x[3], double origin[3], double normal[3], double xproj[3])
+{
+  double t, xo[3];
 
   xo[0] = x[0] - origin[0];
   xo[1] = x[1] - origin[1];

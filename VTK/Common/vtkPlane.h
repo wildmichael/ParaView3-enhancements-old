@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlane.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-14 19:19:32 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1999-06-16 19:43:23 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -87,6 +87,8 @@ public:
   // have magnitude 1.
   static void ProjectPoint(float x[3], float origin[3], float normal[3], 
                            float xproj[3]);
+  static void ProjectPoint(double x[3], double origin[3], double normal[3], 
+                           double xproj[3]);
 
   // Description
   // Project a point x onto plane defined by origin and normal. The 
