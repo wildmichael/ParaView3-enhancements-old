@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:26:43 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1995-07-10 08:14:02 $
+  Version:   $Revision: 1.24 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -375,7 +375,7 @@ void vtkStructuredPoints::GetPointGradient(int i,int j,int k, vtkScalars *s,
     }
 
   // z-direction
-  if ( dims[1] == 1 )
+  if ( dims[2] == 1 )
     {
     g[2] = 0.0;
     }
@@ -385,7 +385,7 @@ void vtkStructuredPoints::GetPointGradient(int i,int j,int k, vtkScalars *s,
     sm = s->GetScalar(i + j*dims[0] + k*ijsize);
     g[2] = (sp - sm) / ar[2];
     }
-  else if ( k == (dims[1]-1) )
+  else if ( k == (dims[2]-1) )
     {
     sp = s->GetScalar(i + j*dims[0] + k*ijsize);
     sm = s->GetScalar(i + j*dims[0] + (k-1)*ijsize);
