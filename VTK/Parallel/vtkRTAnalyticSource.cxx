@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRTAnalyticSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-16 22:42:17 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-03-06 13:14:54 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -158,7 +158,7 @@ void vtkRTAnalyticSource::Execute(vtkImageData *data)
   int *outExt, *whlExt;
   double sum;
   double yContrib, zContrib;
-  double temp, temp2;
+  double temp2;
   unsigned long count = 0;
   unsigned long target;
   
