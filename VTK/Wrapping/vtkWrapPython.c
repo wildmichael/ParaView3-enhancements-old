@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapPython.c,v $
   Language:  C++
-  Date:      $Date: 2000-03-11 22:21:48 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2000-03-12 21:40:08 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -159,7 +159,7 @@ void output_temp(FILE *fp, int i, int aType, char *Id, int aCount)
     }
 
   fprintf(fp,";\n");
-  if (aType%1000 == 302)
+  if (aType%1000 == 302 && i != MAX_ARGS)
     {
     fprintf(fp,"  int      size%d;\n",i);
     }
