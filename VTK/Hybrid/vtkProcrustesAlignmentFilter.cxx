@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProcrustesAlignmentFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-24 12:32:50 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-01-24 13:59:05 $
+  Version:   $Revision: 1.2 $
   Thanks:    Tim Hutton who developed and contributed this class
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -22,7 +22,7 @@
 #include "vtkTransformPolyDataFilter.h"
 #include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkProcrustesAlignmentFilter, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkProcrustesAlignmentFilter, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkProcrustesAlignmentFilter);
 
 //----------------------------------------------------------------------------
@@ -90,7 +90,7 @@ void vtkProcrustesAlignmentFilter::Execute()
   this->LandmarkTransform->SetTargetLandmarks(mean_points);
 
   // compute mean and align all the shapes to it, until convergence
-  BOOL converged=false;
+  int converged=0; // bool converged=false
   int iterations=0;
   const int MAX_ITERATIONS=5;
   float difference; 
@@ -138,7 +138,7 @@ void vtkProcrustesAlignmentFilter::Execute()
       // test for convergence
       iterations++;
       if(fabs(difference)<1e-4 || iterations>=MAX_ITERATIONS) {
-        converged=true;
+        converged=1; // true
         }
 
       // The convergence test is a simple sum of differences of changing mean.
