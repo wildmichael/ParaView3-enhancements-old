@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:10:01 $
-  Version:   $Revision: 1.98 $
+  Date:      $Date: 2001-11-26 15:45:51 $
+  Version:   $Revision: 1.99 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -391,9 +391,9 @@ void vtkTransform::GetOrientation(double orientation[3])
     }
   if (vtkMath::Determinant3x3(ortho) < 0)
     {
-    ortho[0][i] = -ortho[0][i];
-    ortho[1][i] = -ortho[1][i];
-    ortho[2][i] = -ortho[2][i];
+    ortho[0][2] = -ortho[0][2];
+    ortho[1][2] = -ortho[1][2];
+    ortho[2][2] = -ortho[2][2];
     }
 
   vtkMath::Orthogonalize3x3(ortho, ortho);
