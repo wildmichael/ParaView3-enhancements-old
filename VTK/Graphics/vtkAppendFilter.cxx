@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkAppendFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-02-26 10:25:05 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-05-17 16:29:46 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -130,6 +130,7 @@ void vlAppendFilter::Execute()
     }
 
 // Now can allocate memory
+  this->Allocate(numCells); //allocate storage for geometry/topology
   if ( !scalarsPresent ) this->PointData.CopyScalarsOff();
   if ( !vectorsPresent ) this->PointData.CopyVectorsOff();
   if ( !normalsPresent ) this->PointData.CopyNormalsOff();
