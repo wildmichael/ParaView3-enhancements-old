@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-11-05 14:08:10 $
-  Version:   $Revision: 1.67 $
+  Date:      $Date: 1998-12-23 19:59:41 $
+  Version:   $Revision: 1.68 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1385,7 +1385,15 @@ vtkFieldData *vtkDataReader::ReadFieldData()
       }
     }
 
-  return f;
+  if ( skipField ) 
+    {
+    f->Delete();
+    return NULL;
+    }
+  else 
+    {
+    return f;
+    }
 }
 
 
