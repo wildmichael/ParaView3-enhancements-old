@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-27 17:16:27 $
-  Version:   $Revision: 1.75 $
+  Date:      $Date: 2001-01-29 15:47:48 $
+  Version:   $Revision: 1.76 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1087,7 +1087,6 @@ void vtkGeometryFilter::ComputeInputUpdateExtents(vtkDataObject *output)
     ++ghostLevels;
     }
 
-  this->GetInput()->SetUpdateExtent(piece, numPieces, ghostLevels);
   this->GetInput()->SetUpdateExtent(piece, numPieces, ghostLevels);
 
   this->GetInput()->RequestExactExtentOn();
