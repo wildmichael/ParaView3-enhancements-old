@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVGlyphFilter.h,v $
   Language:  C++
-  Date:      $Date: 2003-09-25 16:24:50 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-09-26 15:24:25 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -67,6 +67,16 @@ public:
   vtkSetMacro(NumberOfProcesses, int);
   vtkGetMacro(NumberOfProcesses, int);
   
+  // Description:
+  // Set/get whether to mask points
+  vtkSetMacro(UseMaskPoints, int);
+  vtkGetMacro(UseMaskPoints, int);
+
+  // Description:
+  // Set/get flag to cause randomization of which points to mask.
+  void SetRandomMode(int mode);
+  int GetRandomMode();
+
 protected:
   vtkPVGlyphFilter();
   ~vtkPVGlyphFilter();
@@ -76,6 +86,7 @@ protected:
   vtkMaskPoints *MaskPoints;
   int MaximumNumberOfPoints;
   int NumberOfProcesses;
+  int UseMaskPoints;
   
 private:
   vtkPVGlyphFilter(const vtkPVGlyphFilter&);  // Not implemented.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVGlyphFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-09-25 16:24:50 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-09-26 15:24:25 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkPVGlyphFilter, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkPVGlyphFilter, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkPVGlyphFilter);
 
 vtkPVGlyphFilter::vtkPVGlyphFilter()
@@ -31,6 +31,7 @@ vtkPVGlyphFilter::vtkPVGlyphFilter()
   this->MaskPoints = vtkMaskPoints::New();
   this->MaximumNumberOfPoints = 5000;
   this->NumberOfProcesses = 1;
+  this->UseMaskPoints = 1;
 }
 
 vtkPVGlyphFilter::~vtkPVGlyphFilter()
@@ -44,14 +45,34 @@ void vtkPVGlyphFilter::SetInput(vtkDataSet *input)
   this->Superclass::SetInput(this->MaskPoints->GetOutput());
 }
 
+void vtkPVGlyphFilter::SetRandomMode(int mode)
+{
+  this->MaskPoints->SetRandomMode(mode);
+}
+
+int vtkPVGlyphFilter::GetRandomMode()
+{
+  return this->MaskPoints->GetRandomMode();
+}
+
 void vtkPVGlyphFilter::Execute()
 {
-  vtkIdType numPts = this->MaskPoints->GetInput()->GetNumberOfPoints();
-  vtkIdType maxNumPts = this->MaximumNumberOfPoints / this->NumberOfProcesses;
-  maxNumPts = (maxNumPts < 1) ? 1 : maxNumPts;
-  this->MaskPoints->SetMaximumNumberOfPoints(maxNumPts);
-  this->MaskPoints->SetOnRatio(numPts / maxNumPts);
-  this->MaskPoints->Update();
+  if (this->UseMaskPoints)
+    {
+    this->Superclass::SetInput(this->MaskPoints->GetOutput());
+    vtkIdType numPts = this->MaskPoints->GetInput()->GetNumberOfPoints();
+    vtkIdType maxNumPts =
+      this->MaximumNumberOfPoints / this->NumberOfProcesses;
+    maxNumPts = (maxNumPts < 1) ? 1 : maxNumPts;
+    this->MaskPoints->SetMaximumNumberOfPoints(maxNumPts);
+    this->MaskPoints->SetOnRatio(numPts / maxNumPts);
+    this->MaskPoints->Update();
+    }
+  else
+    {
+    this->Superclass::SetInput(this->MaskPoints->GetInput());
+    }
+  
   this->Superclass::Execute();
 }
 
