@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToStructuredPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-06-10 14:02:40 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1997-06-11 18:00:49 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -779,9 +779,9 @@ vtkImageToStructuredPoints::ReformatRegionData(vtkImageRegion *region)
 	dataAxes[2] != VTK_IMAGE_Z_AXIS)
       {
       // Put a special conditional for the most common condition
-      if ((dataAxes[0] == VTK_IMAGE_COMPONENT_AXIS || 
-	   dataAxes[1] == VTK_IMAGE_X_AXIS || 
-	   dataAxes[2] != VTK_IMAGE_Y_AXIS ||
+      if ((dataAxes[0] == VTK_IMAGE_COMPONENT_AXIS &&
+	   dataAxes[1] == VTK_IMAGE_X_AXIS &&
+	   dataAxes[2] == VTK_IMAGE_Y_AXIS &&
 	   dataAxes[3] == VTK_IMAGE_Z_AXIS) && 
 	  (dataExtent[0] == dataExtent[1]))
 	{
