@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-03-08 12:22:06 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1994-04-11 17:16:20 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -123,8 +123,6 @@ void vlActor::PrintSelf(ostream& os, vlIndent indent)
 
 void vlActor::SetOrientation (float x,float y,float z)
 {
-  int	i;
-  
   // store the coordinates
   this->Orientation[0] = x;
   this->Orientation[1] = y;
@@ -147,7 +145,6 @@ void vlActor::SetOrientation(float a[3])
 
 float *vlActor::GetOrientation ()
 {
-  int     i;
   float   *orientation;
 
   // return the orientation of the transformation matrix
