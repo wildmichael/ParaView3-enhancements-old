@@ -1,7 +1,7 @@
 /*=========================================================================
 
   Program:   Visualization Toolkit
-  Module:    $RCSfile: vtkInformationInformationVectorKey.h,v $
+  Module:    $RCSfile: vtkInformationObjectBaseKey.h,v $
 
   Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -12,32 +12,33 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
-// .NAME vtkInformationInformationVectorKey - Key for vtkInformation vectors.
+// .NAME vtkInformationObjectBaseKey - Key for vtkObjectBase values.
 // .SECTION Description
-// vtkInformationInformationVectorKey is used to represent keys in
-// vtkInformation for vectors of other vtkInformation objects.
+// vtkInformationObjectBaseKey is used to represent keys in
+// vtkInformation for values that are vtkObjectBase instances.
 
-#ifndef __vtkInformationInformationVectorKey_h
-#define __vtkInformationInformationVectorKey_h
+#ifndef __vtkInformationObjectBaseKey_h
+#define __vtkInformationObjectBaseKey_h
 
 #include "vtkInformationKey.h"
 
-class vtkInformationVector;
+class vtkObjectBase;
 
-class VTK_FILTERING_EXPORT vtkInformationInformationVectorKey : public vtkInformationKey
+class VTK_FILTERING_EXPORT vtkInformationObjectBaseKey : public vtkInformationKey
 {
 public:
-  vtkTypeRevisionMacro(vtkInformationInformationVectorKey,vtkInformationKey);
+  vtkTypeRevisionMacro(vtkInformationObjectBaseKey,vtkInformationKey);
   void PrintSelf(ostream& os, vtkIndent indent);
 
-  vtkInformationInformationVectorKey(const char* name, const char* location);
-  ~vtkInformationInformationVectorKey();
+  vtkInformationObjectBaseKey(const char* name, const char* location,
+                              const char* requiredClass=0);
+  ~vtkInformationObjectBaseKey();
 
   // Description:
   // Get/Set the value associated with this key in the given
   // information object.
-  void Set(vtkInformation* info, vtkInformationVector*);
-  vtkInformationVector* Get(vtkInformation* info);
+  void Set(vtkInformation* info, vtkObjectBase*);
+  vtkObjectBase* Get(vtkInformation* info);
   int Has(vtkInformation* info);
 
   // Description:
@@ -50,9 +51,12 @@ public:
   // Report a reference this key has in the given information object.
   virtual void Report(vtkInformation* info, vtkGarbageCollector* collector);
 
+protected:
+  // The type required of all objects stored with this key.
+  const char* RequiredClass;
 private:
-  vtkInformationInformationVectorKey(const vtkInformationInformationVectorKey&);  // Not implemented.
-  void operator=(const vtkInformationInformationVectorKey&);  // Not implemented.
+  vtkInformationObjectBaseKey(const vtkInformationObjectBaseKey&);  // Not implemented.
+  void operator=(const vtkInformationObjectBaseKey&);  // Not implemented.
 };
 
 #endif

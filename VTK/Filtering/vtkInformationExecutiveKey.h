@@ -1,7 +1,7 @@
 /*=========================================================================
 
   Program:   Visualization Toolkit
-  Module:    $RCSfile: vtkInformationInformationVectorKey.h,v $
+  Module:    $RCSfile: vtkInformationExecutiveKey.h,v $
 
   Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -12,32 +12,32 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
-// .NAME vtkInformationInformationVectorKey - Key for vtkInformation vectors.
+// .NAME vtkInformationExecutiveKey - Key for vtkExecutive values.
 // .SECTION Description
-// vtkInformationInformationVectorKey is used to represent keys in
-// vtkInformation for vectors of other vtkInformation objects.
+// vtkInformationExecutiveKey is used to represent keys in
+// vtkInformation for values that are vtkExecutive instances.
 
-#ifndef __vtkInformationInformationVectorKey_h
-#define __vtkInformationInformationVectorKey_h
+#ifndef __vtkInformationExecutiveKey_h
+#define __vtkInformationExecutiveKey_h
 
 #include "vtkInformationKey.h"
 
-class vtkInformationVector;
+class vtkExecutive;
 
-class VTK_FILTERING_EXPORT vtkInformationInformationVectorKey : public vtkInformationKey
+class VTK_FILTERING_EXPORT vtkInformationExecutiveKey : public vtkInformationKey
 {
 public:
-  vtkTypeRevisionMacro(vtkInformationInformationVectorKey,vtkInformationKey);
+  vtkTypeRevisionMacro(vtkInformationExecutiveKey,vtkInformationKey);
   void PrintSelf(ostream& os, vtkIndent indent);
 
-  vtkInformationInformationVectorKey(const char* name, const char* location);
-  ~vtkInformationInformationVectorKey();
+  vtkInformationExecutiveKey(const char* name, const char* location);
+  ~vtkInformationExecutiveKey();
 
   // Description:
   // Get/Set the value associated with this key in the given
   // information object.
-  void Set(vtkInformation* info, vtkInformationVector*);
-  vtkInformationVector* Get(vtkInformation* info);
+  void Set(vtkInformation* info, vtkExecutive*);
+  vtkExecutive* Get(vtkInformation* info);
   int Has(vtkInformation* info);
 
   // Description:
@@ -51,8 +51,8 @@ public:
   virtual void Report(vtkInformation* info, vtkGarbageCollector* collector);
 
 private:
-  vtkInformationInformationVectorKey(const vtkInformationInformationVectorKey&);  // Not implemented.
-  void operator=(const vtkInformationInformationVectorKey&);  // Not implemented.
+  vtkInformationExecutiveKey(const vtkInformationExecutiveKey&);  // Not implemented.
+  void operator=(const vtkInformationExecutiveKey&);  // Not implemented.
 };
 
 #endif
