@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSetGet.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:47 $
-  Version:   $Revision: 1.67 $
+  Date:      $Date: 2000-04-12 09:38:08 $
+  Version:   $Revision: 1.68 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -535,13 +535,17 @@ virtual float *Get##name() \
 //
 #define vtkTypeMacro(thisClass,superclass) \
 virtual const char *GetClassName() {return #thisClass;};\
-virtual int IsA(const char *type) \
+static int IsTypeOf(const char *type) \
 { \
-  if ( !strcmp(this->thisClass::GetClassName(),type) ) \
+  if ( !strcmp(#thisClass,type) ) \
     { \
     return 1; \
     } \
-  return this->superclass::IsA(type); \
+  return superclass::IsTypeOf(type); \
+} \
+virtual int IsA(const char *type) \
+{ \
+  return this->thisClass::IsTypeOf(type); \
 } \
 static thisClass* SafeDownCast(vtkObject *o) \
 { \

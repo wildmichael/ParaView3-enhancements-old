@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:30 $
-  Version:   $Revision: 1.68 $
+  Date:      $Date: 2000-04-12 09:38:08 $
+  Version:   $Revision: 1.69 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -79,6 +79,12 @@ public:
   // in all subclasses of vtkObject with the vtkTypeMacro found
   // in vtkSetGet.h.
   virtual const char *GetClassName() {return "vtkObject";};
+
+  // Description:
+  // Return 1 if this class type is the same type of (or a subclass of)
+  // the named class. Returns 0 otherwise. This method works in
+  // combination with vtkTypeMacro found in vtkSetGet.h.
+  static int IsTypeOf(const char *name);
 
   // Description:
   // Return 1 if this class is the same type of (or a subclass of)

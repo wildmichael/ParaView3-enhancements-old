@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:30 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2000-04-12 09:38:07 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -257,13 +257,18 @@ void vtkObject::UnRegister(vtkObject* o)
     }
 }
 
-int vtkObject::IsA(const char *type)
+int vtkObject::IsTypeOf(const char *name) 
 {
-  if ( !strcmp(this->vtkObject::GetClassName(),type) )
+  if ( !strcmp("vtkObject",name) )
     {
     return 1;
     }
   return 0;
+}
+
+int vtkObject::IsA(const char *type)
+{
+  return this->vtkObject::IsTypeOf(type);
 }
 
 vtkObject *vtkObject::SafeDownCast(vtkObject *o)
