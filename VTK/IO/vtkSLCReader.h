@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSLCReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-29 20:25:12 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2002-01-31 23:53:14 $
+  Version:   $Revision: 1.37 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -43,6 +43,8 @@ public:
   // Description:
   // Was there an error on the last read performed?
   vtkGetMacro(Error,int);
+  //Description: create a clone of this object.
+  virtual vtkImageReader2* MakeObject() { return vtkSLCReader::New(); }
   
   // Description:
   // Is the given file an SLC file?

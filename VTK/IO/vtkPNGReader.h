@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNGReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-29 20:25:11 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-01-31 23:53:13 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -38,7 +38,9 @@ public:
 protected:
   vtkPNGReader() {};
   ~vtkPNGReader() {};
-  
+  //Description: create a clone of this object.
+  virtual vtkImageReader2* MakeObject() { return vtkPNGReader::New(); }
+
   // Description: is the given file name a png file?
   virtual int CanReadFile(const char* fname);
  // Description:
