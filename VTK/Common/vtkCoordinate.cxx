@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCoordinate.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-23 01:45:53 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-02-23 13:40:29 $
+  Version:   $Revision: 1.10 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -381,7 +381,9 @@ int *vtkCoordinate::GetComputedDisplayValue(vtkViewport* viewport)
   this->ComputedDisplayValue[1] = (int)VTK_RINT(val[1]);
   
   // if we have a reference coordinate and we haven't handled it yet
-  if (this->ReferenceCoordinate && this->CoordinateSystem == VTK_DISPLAY)
+  if (this->ReferenceCoordinate && 
+      (this->CoordinateSystem == VTK_DISPLAY ||
+       this->CoordinateSystem == VTK_NORMALIZED_DISPLAY))
     {
     int *RefValue;
     
