@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProjectedTexture.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:41 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-12-09 13:39:05 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -34,6 +34,9 @@
 
 #include "vtkDataSetToDataSetFilter.h"
 
+#define VTK_PROJECTED_TEXTURE_USE_PINHOLE 0
+#define VTK_PROJECTED_TEXTURE_USE_TWO_MIRRORS 1
+
 class VTK_GRAPHICS_EXPORT vtkProjectedTexture : public vtkDataSetToDataSetFilter 
 {
 public:
@@ -52,6 +55,19 @@ public:
   void SetFocalPoint(float focalPoint[3]);
   void SetFocalPoint(float x, float y, float z);
   vtkGetVectorMacro(FocalPoint,float,3);
+
+  // Description:
+  // Set/Get the camera mode of the projection -- pinhole projection or
+  // two mirror projection.
+  vtkSetMacro(CameraMode, int);
+  vtkGetMacro(CameraMode, int);
+  void SetCameraModeToPinhole() {this->SetCameraMode(VTK_PROJECTED_TEXTURE_USE_PINHOLE);}
+  void SetCameraModeToTwoMirror() {this->SetCameraMode(VTK_PROJECTED_TEXTURE_USE_TWO_MIRRORS);}
+
+  // Description:
+  // Set/Get the mirror separation for the two mirror system.
+  vtkSetMacro(MirrorSeparation, float);
+  vtkGetMacro(MirrorSeparation, float);
 
   // Description:
   // Get the normalized orientation vector of the projector.
@@ -86,10 +102,13 @@ protected:
   void Execute();
   void ComputeNormal();
 
+  int CameraMode;
+
   float Position[3];
   float Orientation[3];
   float FocalPoint[3];
   float Up[3];
+  float MirrorSeparation;
   float AspectRatio[3];
   float SRange[2];
   float TRange[2];
