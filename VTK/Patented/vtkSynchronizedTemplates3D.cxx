@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-30 16:49:34 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2001-01-31 13:52:11 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -851,11 +851,8 @@ void vtkSynchronizedTemplates3D::ComputeInputUpdateExtents(vtkDataObject *out)
     }
   else
     {    
-    translator->SetWholeExtent(ext);
-    translator->SetPiece(piece);
-    translator->SetNumberOfPieces(numPieces);
-    translator->PieceToExtent();
-    translator->GetExtent(ext);
+    translator->PieceToExtentThreadSafe(piece, numPieces, 0, wholeExt, ext, 
+                                        translator->GetSplitMode(),0);
     }
   
   // As a side product of this call, ExecuteExtent is set.
