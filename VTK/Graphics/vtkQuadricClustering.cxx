@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadricClustering.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-04 16:53:59 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2002-10-28 20:43:47 $
+  Version:   $Revision: 1.48 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkTimerLog.h"
 #include "vtkTriangle.h"
 
-vtkCxxRevisionMacro(vtkQuadricClustering, "$Revision: 1.47 $");
+vtkCxxRevisionMacro(vtkQuadricClustering, "$Revision: 1.48 $");
 vtkStandardNewMacro(vtkQuadricClustering);
 
 //----------------------------------------------------------------------------
@@ -124,7 +124,7 @@ void vtkQuadricClustering::Execute()
   int target = this->GetInput()->GetNumberOfPoints();
   int numDiv = (this->NumberOfXDivisions * this->NumberOfYDivisions
                   * this->NumberOfZDivisions) / 2;
-  if (numDiv > target) 
+  if (target > 0 && numDiv > target) 
     {
     double factor = pow(((double)numDiv/(double)target),0.33333);
     this->NumberOfDivisions[0] = 
