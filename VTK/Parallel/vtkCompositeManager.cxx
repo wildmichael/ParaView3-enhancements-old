@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCompositeManager.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-03-03 20:15:40 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2003-03-03 20:16:44 $
+  Version:   $Revision: 1.48 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -43,7 +43,7 @@
  #include <mpi.h>
 #endif
 
-vtkCxxRevisionMacro(vtkCompositeManager, "$Revision: 1.47 $");
+vtkCxxRevisionMacro(vtkCompositeManager, "$Revision: 1.48 $");
 vtkStandardNewMacro(vtkCompositeManager);
 
 
@@ -1662,6 +1662,15 @@ void vtkCompositeManager::PrintSelf(ostream& os, vtkIndent indent)
     {
     os << indent << "RenderWindow: (none)\n";
     }
+
+  if (this->DoMagnifyBuffer)
+    {
+    os << indent << "DoMagnifyBuffer: On\n";
+    }
+  else
+    {
+    os << indent << "DoMagnifyBuffer: Off\n";
+    }  
   
   os << indent << "SetBuffersTime: " << this->SetBuffersTime << "\n";
   os << indent << "GetBuffersTime: " << this->GetGetBuffersTime() << "\n";
