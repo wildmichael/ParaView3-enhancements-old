@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-30 15:20:20 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1999-10-11 12:34:54 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -265,7 +265,8 @@ void vtkDataSetReader::Execute()
 	preader->SetOutput((vtkStructuredPoints *)(output));
 	}
       preader->SetFileName(this->Reader->GetFileName());
-      preader->SetInputString(this->Reader->GetInputString());
+      preader->SetInputString(this->Reader->GetInputString(),
+			      this->Reader->GetInputStringLength());
       preader->SetReadFromInputString(this->Reader->GetReadFromInputString());
       preader->SetScalarsName(this->Reader->GetScalarsName());
       preader->SetVectorsName(this->Reader->GetVectorsName());
@@ -290,7 +291,8 @@ void vtkDataSetReader::Execute()
 	preader->SetOutput((vtkStructuredGrid *)(output));
 	}
       preader->SetFileName(this->Reader->GetFileName());
-      preader->SetInputString(this->Reader->GetInputString());
+      preader->SetInputString(this->Reader->GetInputString(),
+			      this->Reader->GetInputStringLength());
       preader->SetReadFromInputString(this->Reader->GetReadFromInputString());
       preader->SetScalarsName(this->Reader->GetScalarsName());
       preader->SetVectorsName(this->Reader->GetVectorsName());
@@ -316,7 +318,8 @@ void vtkDataSetReader::Execute()
 	}
       preader->SetFileName(this->Reader->GetFileName());
       preader->SetInputString(this->Reader->GetInputString());
-      preader->SetReadFromInputString(this->Reader->GetReadFromInputString());
+      preader->SetInputString(this->Reader->GetInputString(),
+			      this->Reader->GetInputStringLength());
       preader->SetScalarsName(this->Reader->GetScalarsName());
       preader->SetVectorsName(this->Reader->GetVectorsName());
       preader->SetNormalsName(this->Reader->GetNormalsName());
@@ -341,7 +344,8 @@ void vtkDataSetReader::Execute()
 	}
       preader->SetFileName(this->Reader->GetFileName());
       preader->SetInputString(this->Reader->GetInputString());
-      preader->SetReadFromInputString(this->Reader->GetReadFromInputString());
+      preader->SetInputString(this->Reader->GetInputString(),
+			      this->Reader->GetInputStringLength());
       preader->SetScalarsName(this->Reader->GetScalarsName());
       preader->SetVectorsName(this->Reader->GetVectorsName());
       preader->SetNormalsName(this->Reader->GetNormalsName());
