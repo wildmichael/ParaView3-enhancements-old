@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractTensorComponents.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:44:27 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1998-07-01 12:41:28 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -94,7 +94,7 @@ public:
 
   // Description:
   // Specify the (row,column) tensor component to extract as a scalar.
-  vtkSetVectorMacro(ScalarComponents,int,2);
+  vtkSetVector2Macro(ScalarComponents,int);
   vtkGetVectorMacro(ScalarComponents,int,2);
 
   // Description:
