@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:03:02 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1999-08-29 19:54:59 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -215,12 +215,13 @@ public:
   // Clean up device contexts, rendering contexts, etc.
   void Clean();
 
+  // Description:
+  // Register a texture name with this render window
+  void RegisterTextureResource (GLuint id);
+
 protected:
   vtkWin32OpenGLRenderWindow();
   ~vtkWin32OpenGLRenderWindow();
-
-  // Register a texture name with this render window
-  void RegisterTextureResource (GLuint id);
 
   HINSTANCE ApplicationInstance;
   HPALETTE  Palette;
