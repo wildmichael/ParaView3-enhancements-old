@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-26 14:21:45 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1999-01-06 15:11:11 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -325,9 +325,8 @@ void vtkClipVolume::Execute()
             for (jj=0; jj<4; jj++)
               {
               x = tetraPts->GetPoint(id+jj);
-              if ( (pts[jj] = this->Locator->IsInsertedPoint(x)) < 0 )
+              if ( this->Locator->InsertUniquePoint(x, pts[jj]) )
                 {
-                pts[jj] = this->Locator->InsertNextPoint(x);
                 outPD->CopyData(inPD,tetraIds->GetId(id+jj),pts[jj]);
                 }
               }
@@ -442,9 +441,8 @@ void vtkClipVolume::ClipVoxel(float value, vtkScalars *cellScalars,
     if ( (s1 >= value && !this->InsideOut) ||
     (s1 < value && this->InsideOut) || this->GenerateClippedOutput )
       {
-      if ( this->Locator->IsInsertedPoint(xPtr) < 0 )
+      if ( this->Locator->InsertUniquePoint(xPtr, tPts[0]) )
         {
-        tPts[0] = this->Locator->InsertNextPoint(xPtr);
         outPD->CopyData(inPD,cellIds->GetId(ptId),tPts[0]);
         }
       }
@@ -485,9 +483,8 @@ void vtkClipVolume::ClipVoxel(float value, vtkScalars *cellScalars,
                                       x, holeTetras);
       
       // Incorporate point into output and interpolate edge data as necessary
-      if ( this->Locator->IsInsertedPoint(x) < 0 )
+      if ( this->Locator->InsertUniquePoint(x, ptId) )
         {
-        ptId = this->Locator->InsertNextPoint(x);
         outPD->InterpolateEdge(inPD, ptId, cellIds->GetId(edges[edgeNum][0]),
                                cellIds->GetId(edges[edgeNum][1]), t);
         }
@@ -526,9 +523,8 @@ void vtkClipVolume::ClipVoxel(float value, vtkScalars *cellScalars,
     ptId = mergedPts->GetId(i);
     cellScalars->SetScalar(ptId, value);
     xPtr = cellPts->GetPoint(ptId);
-    if ( this->Locator->IsInsertedPoint(xPtr) < 0 )
+    if ( this->Locator->InsertUniquePoint(xPtr, tPts[0]) )
       {
-      tPts[0] = this->Locator->InsertNextPoint(xPtr);
       outPD->CopyData(inPD,cellIds->GetId(ptId),tPts[0]);
       }
     }

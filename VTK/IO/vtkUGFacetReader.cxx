@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUGFacetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-29 14:53:38 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1999-01-06 15:11:13 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -232,9 +232,8 @@ void vtkUGFacetReader::Execute()
       for (i=0; i < 3; i++) 
         {
         x = newPts->GetPoint(pts[i]);
-        if ( (nodes[i] = this->Locator->IsInsertedPoint(x)) < 0 )
+        if ( this->Locator->InsertUniquePoint(x, nodes[i]) )
           {
-          nodes[i] = this->Locator->InsertNextPoint(x);
           mergedNormals->InsertNormal(nodes[i],newNormals->GetNormal(pts[i]));
           }
         }

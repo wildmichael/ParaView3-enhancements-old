@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-31 14:10:28 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 1999-01-06 15:11:13 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -153,10 +153,7 @@ void vtkSTLReader::Execute()
       for (i=0; i < 3; i++) 
         {
         x = newPts->GetPoint(pts[i]);
-        if ( (nodes[i] = this->Locator->IsInsertedPoint(x)) < 0 )
-          {
-          nodes[i] = this->Locator->InsertNextPoint(x);
-          }
+	this->Locator->InsertUniquePoint(x, nodes[i]);
         }
 
       if ( nodes[0] != nodes[1] &&

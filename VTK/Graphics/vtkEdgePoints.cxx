@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEdgePoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-31 17:38:42 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1999-01-06 15:11:11 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -180,9 +180,8 @@ void vtkEdgePoints::Execute()
 	      {
 	      x[i] = x0[i] + t * (x1[i] - x0[i]);
 	      }
-            if ( (pts[0] = this->Locator->IsInsertedPoint(x)) < 0 )
+            if ( this->Locator->InsertUniquePoint(x, pts[0]) )
               {
-              pts[0] = this->Locator->InsertNextPoint(x);
               newCellId = newVerts->InsertNextCell(1,pts);
 	      outCd->CopyData(inCd,cellId,newCellId);
               p1 = edge->PointIds->GetId(e0);

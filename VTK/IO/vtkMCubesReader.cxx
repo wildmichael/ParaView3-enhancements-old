@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMCubesReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-05 13:12:49 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 1999-01-06 15:11:12 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -188,9 +188,8 @@ void vtkMCubesReader::Execute()
 
       // swap bytes if necc
       vtkByteSwap::Swap4BERange((float *)(&point),6);
-      if ( (nodes[j] = this->Locator->IsInsertedPoint(point.x)) < 0 )
+      if ( this->Locator->InsertUniquePoint(point.x, nodes[j]) )
         {
-        nodes[j] = this->Locator->InsertNextPoint(point.x);
         if ( this->Normals )
           {
           for (k=0; k<3; k++)

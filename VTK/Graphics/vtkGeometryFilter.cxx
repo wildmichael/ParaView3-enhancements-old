@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-31 17:38:47 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 1999-01-06 15:11:12 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -223,9 +223,8 @@ void vtkGeometryFilter::Execute()
             ptId = cell->GetPointId(i);
             x = input->GetPoint(ptId);
 
-            if ( this->Merging && (pt=this->Locator->IsInsertedPoint(x)) < 0 )
+            if ( this->Merging && this->Locator->InsertUniquePoint(x, pt) )
               {
-              pt = this->Locator->InsertNextPoint(x);
               outputPD->CopyData(pd,ptId,pt);
               }
             else if (!this->Merging)
@@ -254,9 +253,8 @@ void vtkGeometryFilter::Execute()
                 {
                 ptId = face->GetPointId(i);
                 x = input->GetPoint(ptId);
-                if (this->Merging && (pt=this->Locator->IsInsertedPoint(x)) <0)
+                if (this->Merging && this->Locator->InsertUniquePoint(x, pt) )
                   {
-                  pt = this->Locator->InsertNextPoint(x);
                   outputPD->CopyData(pd,ptId,pt);
                   }
                 else if (!this->Merging)
