@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractUnstructuredGridPiece.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-26 18:50:50 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-11-13 14:25:59 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -86,8 +86,8 @@ void vtkExtractUnstructuredGridPiece::ExecuteInformation()
 }
   
 void vtkExtractUnstructuredGridPiece::ComputeCellTags(vtkIntArray *tags, 
-					      vtkIdList *pointOwnership,
-					      int piece, int numPieces)
+                                              vtkIdList *pointOwnership,
+                                              int piece, int numPieces)
 {
   vtkUnstructuredGrid *input;
   int j;
@@ -121,9 +121,9 @@ void vtkExtractUnstructuredGridPiece::ComputeCellTags(vtkIntArray *tags,
       {
       ptId = cellPtIds->GetId(j);
       if (pointOwnership->GetId(ptId) == -1)
-	{
-	pointOwnership->SetId(ptId, idx);
-	}  
+        {
+        pointOwnership->SetId(ptId, idx);
+        }  
       }
     }
   
@@ -204,10 +204,10 @@ void vtkExtractUnstructuredGridPiece::Execute()
     if ( cellTags->GetValue(cellId) != -1) // satisfied thresholding
       {
       if (cellGhostLevels)
- 	{                
- 	cellGhostLevels->InsertNextValue(
- 	  (unsigned char)(cellTags->GetValue(cellId)));
- 	}
+        {                
+        cellGhostLevels->InsertNextValue(
+          (unsigned char)(cellTags->GetValue(cellId)));
+        }
  
       cell = input->GetCell(cellId);
       cellPts = cell->GetPointIds();
@@ -220,12 +220,12 @@ void vtkExtractUnstructuredGridPiece::Execute()
           {
           x = input->GetPoint(ptId);
           newId = newPoints->InsertNextPoint(x);
-  	  if (pointGhostLevels)
- 	    {
- 	    pointGhostLevels->InsertNextValue(
- 	      cellTags->GetValue(pointOwnership->GetId(ptId)));
- 	    }
-	  pointMap->SetId(ptId,newId);
+          if (pointGhostLevels)
+            {
+            pointGhostLevels->InsertNextValue(
+              cellTags->GetValue(pointOwnership->GetId(ptId)));
+            }
+          pointMap->SetId(ptId,newId);
           outPD->CopyData(pd,ptId,newId);
           }
         newCellPts->InsertId(i,newId);

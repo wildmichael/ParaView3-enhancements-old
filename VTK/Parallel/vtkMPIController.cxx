@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPIController.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-31 16:36:12 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-11-13 14:25:59 $
+  Version:   $Revision: 1.7 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -56,7 +56,7 @@ public:
     if (this->Controller)
       {
       cout << "Process id: " << this->Controller->GetLocalProcessId()
-	   << " >> ";
+           << " >> ";
       }
     cout << t;
   }
@@ -144,7 +144,7 @@ int vtkMPIController::InitializeNumberOfProcesses()
 
   vtkMPICommunicator* comm = (vtkMPICommunicator*)this->Communicator;
   if ( (err = MPI_Comm_size(*(comm->Handle), 
-			    &(this->MaximumNumberOfProcesses))) 
+                            &(this->MaximumNumberOfProcesses))) 
        != MPI_SUCCESS  )
     {
     char *msg = vtkMPIController::ErrorString(err);

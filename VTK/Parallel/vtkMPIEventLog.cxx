@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPIEventLog.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-09 12:32:54 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-11-13 14:25:59 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -99,7 +99,7 @@ int vtkMPIEventLog::SetDescription(const char* name, const char* desc)
     this->BeginId = MPE_Log_get_event_number();
     this->EndId = MPE_Log_get_event_number();
     MPE_Describe_state(this->BeginId, this->EndId, const_cast<char*>(name), 
-		       const_cast<char*>(desc));
+                       const_cast<char*>(desc));
     }
   MPI_Bcast(&this->BeginId, 1, MPI_INT, 0, MPI_COMM_WORLD);
   MPI_Bcast(&this->EndId, 1, MPI_INT, 0, MPI_COMM_WORLD);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSharedMemoryCommunicator.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:43:01 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2001-11-13 14:25:58 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -82,7 +82,7 @@ public:
   // when multiple sends or receives exist in the same process.
   virtual int Send(int* data, int length, int remoteThreadId, int tag);
   virtual int Send(unsigned long* data, int length, int remoteThreadId, 
-		   int tag);
+                   int tag);
   virtual int Send(char* data, int length, int remoteThreadId, int tag);
   virtual int Send(unsigned char* data, int length, int remoteThreadId, int tag);
   virtual int Send(float* data, int length, int remoteThreadId, int tag);
@@ -98,20 +98,20 @@ public:
   // until the receive is finished.  It calls methods in "data"
   // to communicate the sending data.
   virtual int Receive(int* data, int length, int remoteThreadId, 
-		      int tag);
+                      int tag);
   virtual int Receive(unsigned long* data, int length, 
-		      int remoteThreadId, int tag);
+                      int remoteThreadId, int tag);
   virtual int Receive(char* data, int length, int remoteThreadId, 
-		      int tag);
+                      int tag);
   virtual int Receive(unsigned char* data, int length, int remoteThreadId, 
-		      int tag);
+                      int tag);
   virtual int Receive(float* data, int length, int remoteThreadId, 
-		      int tag);
+                      int tag);
   virtual int Receive(double* data, int length, int remoteThreadId, 
-		      int tag);
+                      int tag);
 #ifdef VTK_USE_64BIT_IDS
   virtual int Receive(vtkIdType* data, int length, int remoteThreadId, 
-		      int tag);
+                      int tag);
 #endif
   virtual int Receive(vtkDataObject *data, int remoteThreadId, int tag);
   virtual int Receive(vtkDataArray *data, int remoteThreadId, int tag);
@@ -153,21 +153,21 @@ protected:
 
   // The generic send and receive methods.
   int Send(vtkDataObject* object, void *data, int dataLength, 
-	   int remoteThreadId, int tag);
+           int remoteThreadId, int tag);
   int Receive(vtkDataObject* object, void *data, int dataLength, 
-	      int remoteThreadId, int tag);
+              int remoteThreadId, int tag);
 
   int Send(vtkDataArray* object, int dataLength, 
-	   int remoteThreadId, int tag);
+           int remoteThreadId, int tag);
   int Receive(vtkDataArray* object, int dataLength, 
-	      int remoteThreadId, int tag);
+              int remoteThreadId, int tag);
 
   vtkSharedMemoryCommunicatorMessage* NewMessage(vtkDataObject* object,
-						 void* data, 
-						 int dataLength);
+                                                 void* data, 
+                                                 int dataLength);
   vtkSharedMemoryCommunicatorMessage* NewMessage(vtkDataArray* object,
-						 void* data, 
-						 int dataLength);
+                                                 void* data, 
+                                                 int dataLength);
   void DeleteMessage(vtkSharedMemoryCommunicatorMessage *message);
   void AddMessage(vtkSharedMemoryCommunicatorMessage *message);
   vtkSharedMemoryCommunicatorMessage* FindMessage(int sendId, int tag);

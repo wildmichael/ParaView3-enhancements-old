@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPipelineSize.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-09 17:59:47 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-11-13 14:26:01 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -183,21 +183,21 @@ void vtkPipelineSize::GenericComputeSourcePipelineSize(vtkSource *src,
 
       // Is the max returned bigger than the max we've seen so far?
       if ( inputPipelineSize[2] > maxSize )
-	{
-	maxSize = inputPipelineSize[2];
-	}
+        {
+        maxSize = inputPipelineSize[2];
+        }
       
       // If we are going to release this input, then its size won't matter
       // downstream from here.
       if ( inputs[idx]->ShouldIReleaseData() )
-	{
-	goingDownstreamSize = goingDownstreamSize + inputPipelineSize[0] - 
+        {
+        goingDownstreamSize = goingDownstreamSize + inputPipelineSize[0] - 
           inputPipelineSize[1];
-	}
+        }
       else
-	{
-	goingDownstreamSize = goingDownstreamSize + inputPipelineSize[0];
-	}
+        {
+        goingDownstreamSize = goingDownstreamSize + inputPipelineSize[0];
+        }
       
       // During execution this filter will need all the input data 
       mySize += inputPipelineSize[0];

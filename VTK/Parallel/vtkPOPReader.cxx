@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPOPReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:42:59 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-11-13 14:26:01 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -304,7 +304,7 @@ void vtkPOPReader::Execute()
         return;
         }
       reader->SetHeaderSize(this->ArrayOffsets[i] * 4 
-			    * this->Dimensions[0] * this->Dimensions[1]);
+                            * this->Dimensions[0] * this->Dimensions[1]);
       // Just in case.
       //reader->SetHeaderSize(0);
       output->GetUpdateExtent(ext);
@@ -405,16 +405,16 @@ vtkPoints *vtkPOPReader::ReadPoints(vtkImageData *image)
     for (j = ext[2]; j <= ext[3]; ++j)
       {
       for (i = ext[0]; i <= ext[1]; ++i)
-	{      
-	phi = (double)(image->GetScalarComponentAsFloat(i, j, 0, 0));
-	theta = (double)(image->GetScalarComponentAsFloat(i, j, 1, 0));
-	phi += vtkMath::Pi()/2.0;
-	y = -cos(phi)*radius;
-	x = sin(theta)*sin(phi)*radius;
-	z = cos(theta)*sin(phi)*radius;
-	points->SetPoint(id, x, y, z);
-	++id;
-	}
+        {      
+        phi = (double)(image->GetScalarComponentAsFloat(i, j, 0, 0));
+        theta = (double)(image->GetScalarComponentAsFloat(i, j, 1, 0));
+        phi += vtkMath::Pi()/2.0;
+        y = -cos(phi)*radius;
+        x = sin(theta)*sin(phi)*radius;
+        z = cos(theta)*sin(phi)*radius;
+        points->SetPoint(id, x, y, z);
+        ++id;
+        }
       }
     }
   

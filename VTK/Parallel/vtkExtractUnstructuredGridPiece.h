@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractUnstructuredGridPiece.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:58 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-11-13 14:25:57 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -71,7 +71,7 @@ protected:
  
   // A method for labeling which piece the cells belong to.
   void ComputeCellTags(vtkIntArray *cellTags, vtkIdList *pointOwnership,
-		       int piece, int numPieces);
+                       int piece, int numPieces);
   
   void AddGhostLevel(vtkUnstructuredGrid *input, vtkIntArray *cellTags, int ghostLevel);
   

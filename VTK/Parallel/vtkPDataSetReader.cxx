@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPDataSetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-31 16:36:12 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-11-13 14:26:00 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -90,10 +90,10 @@ vtkPDataSetReader::~vtkPDataSetReader()
     for (int i = 0; i < this->NumberOfPieces; ++i)
       {
       if (this->PieceFileNames[i])
-	{
-	delete [] this->PieceFileNames[i];
-	this->PieceFileNames[i] = NULL;
-	}
+        {
+        delete [] this->PieceFileNames[i];
+        this->PieceFileNames[i] = NULL;
+        }
       }
     }
 }

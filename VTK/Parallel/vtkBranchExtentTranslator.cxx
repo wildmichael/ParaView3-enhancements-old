@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBranchExtentTranslator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-30 16:49:34 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-11-13 14:25:58 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -107,8 +107,8 @@ int vtkBranchExtentTranslator::PieceToExtent()
     this->Extent[0] = this->Extent[2] = this->Extent[4] = 0;
     this->Extent[1] = this->Extent[3] = this->Extent[5] = -1;
     //cerr << this << " Extent: " << this->Extent[0] << ", " << this->Extent[1] << ", " 
-    //	 << this->Extent[2] << ", " << this->Extent[3] << ", " 
-    //	 << this->Extent[4] << ", " << this->Extent[5] << endl;    
+    //   << this->Extent[2] << ", " << this->Extent[3] << ", " 
+    //   << this->Extent[4] << ", " << this->Extent[5] << endl;    
     return 0;
     }
 
@@ -150,8 +150,8 @@ int vtkBranchExtentTranslator::PieceToExtent()
     this->Extent[0] = this->Extent[2] = this->Extent[4] = 0;
     this->Extent[1] = this->Extent[3] = this->Extent[5] = -1;
     //cerr << this << " Extent: " << this->Extent[0] << ", " << this->Extent[1] << ", " 
-    //	 << this->Extent[2] << ", " << this->Extent[3] << ", " 
-    //	 << this->Extent[4] << ", " << this->Extent[5] << endl;
+    //   << this->Extent[2] << ", " << this->Extent[3] << ", " 
+    //   << this->Extent[4] << ", " << this->Extent[5] << endl;
     return 0;
     }  
   

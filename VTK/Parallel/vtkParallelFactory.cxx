@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParallelFactory.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-22 18:15:09 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-11-13 14:26:00 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1999-2000 Mercury Computers Inc. All rigts reserved.
@@ -55,20 +55,20 @@ VTK_CREATE_CREATE_FUNCTION(vtkPSphereSource);
 vtkParallelFactory::vtkParallelFactory()
 {
   this->RegisterOverride("vtkImageWriter",
-			 "vtkPImageWriter",
-			 "Parallel",
-			 1,
-			 vtkObjectFactoryCreatevtkPImageWriter);
+                         "vtkPImageWriter",
+                         "Parallel",
+                         1,
+                         vtkObjectFactoryCreatevtkPImageWriter);
   this->RegisterOverride("vtkPolyDataNormals",
-			 "vtkPPolyDataNormals",
-			 "Parallel",
-			 1,
-			 vtkObjectFactoryCreatevtkPPolyDataNormals);
+                         "vtkPPolyDataNormals",
+                         "Parallel",
+                         1,
+                         vtkObjectFactoryCreatevtkPPolyDataNormals);
   this->RegisterOverride("vtkSphereSource",
-			 "vtkPSphereSource",
-			 "Parallel",
-			 1,
-			 vtkObjectFactoryCreatevtkPSphereSource);
+                         "vtkPSphereSource",
+                         "Parallel",
+                         1,
+                         vtkObjectFactoryCreatevtkPSphereSource);
 }
 
 const char* vtkParallelFactory::GetVTKSourceVersion()

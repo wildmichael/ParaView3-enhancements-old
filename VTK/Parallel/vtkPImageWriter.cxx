@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPImageWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-30 15:31:46 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-11-13 14:26:00 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -111,7 +111,7 @@ void vtkPImageWriter::PrintSelf(ostream& os, vtkIndent indent)
 //----------------------------------------------------------------------------
 // Breaks region into pieces with correct dimensionality.
 void vtkPImageWriter::RecursiveWrite(int axis, vtkImageData *cache,
-				    ofstream *file)
+                                    ofstream *file)
 {
   int             min, max, mid;
   vtkImageData    *data;
@@ -149,7 +149,7 @@ void vtkPImageWriter::RecursiveWrite(int axis, vtkImageData *cache,
     if (file->fail())
       {
       vtkErrorMacro("RecursiveWrite: Could not open file " << 
-		    this->InternalFileName);
+                    this->InternalFileName);
       delete file;
       return;
       }
@@ -183,8 +183,8 @@ void vtkPImageWriter::RecursiveWrite(int axis, vtkImageData *cache,
   this->GetInput()->GetAxisUpdateExtent(axis, min, max);
   
   vtkDebugMacro("Axes: " << axis << "(" << min << ", " << max 
-  	<< "), UpdateMemory: " << inputMemorySize 
-  	<< ", Limit: " << this->MemoryLimit << endl);
+        << "), UpdateMemory: " << inputMemorySize 
+        << ", Limit: " << this->MemoryLimit << endl);
   
   if (min == max)
     {

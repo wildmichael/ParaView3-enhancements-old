@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRTAnalyticSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-31 16:36:14 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-11-13 14:25:57 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,7 +60,7 @@ public:
   // Description:
   // Set/Get the extent of the whole output image.
   void SetWholeExtent(int xMinx, int xMax, int yMin, int yMax,
-		      int zMin, int zMax);
+                      int zMin, int zMax);
   vtkGetVector6Macro(WholeExtent, int);
   
   // Description:

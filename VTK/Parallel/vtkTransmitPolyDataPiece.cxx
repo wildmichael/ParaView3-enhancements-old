@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransmitPolyDataPiece.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-31 16:36:14 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-11-13 14:26:02 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -199,7 +199,7 @@ void vtkTransmitPolyDataPiece::RootExecute()
   extract->SetCreateGhostCells(this->CreateGhostCells);
   extract->SetInput(tmp);
   extract->GetOutput()->SetUpdateNumberOfPieces(
-				output->GetUpdateNumberOfPieces());
+                                output->GetUpdateNumberOfPieces());
   extract->GetOutput()->SetUpdatePiece(0);
   extract->GetOutput()->SetUpdateGhostLevel(output->GetUpdateGhostLevel());
 

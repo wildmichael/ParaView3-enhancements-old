@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTreeComposite.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-31 16:36:15 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2001-11-13 14:26:02 $
+  Version:   $Revision: 1.22 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -102,8 +102,8 @@ vtkTreeComposite::~vtkTreeComposite()
 //-------------------------------------------------------------------------
 // Results are put in the local data.
 void vtkCompositeImagePair(float *localZdata, float *localPdata, 
-			   float *remoteZdata, float *remotePdata, 
-			   int total_pixels, int useCharFlag) 
+                           float *remoteZdata, float *remotePdata, 
+                           int total_pixels, int useCharFlag) 
 {
   int i,j;
   int pixel_data_size;
@@ -191,14 +191,14 @@ void vtkTreeComposite::CompositeBuffer(int width, int height, int useCharFlag,
         {
         // receivers
         id = myId+vtkTCPow2(i);
-	
+        
         // only send or receive if sender or receiver id is valid
         // (handles non-power of 2 cases)
         if (id < numProcs) 
           {
           this->Controller->Receive(zTmp, zSize, id, 99);
           this->Controller->Receive((float*)pTmp, pSize, id, 99);
-	  
+          
           // notice the result is stored as the local data
           vtkCompositeImagePair(zBuf, (float*)pBuf, zTmp, (float*)pTmp, 
                                 totalPixels, useCharFlag);
