@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArrayMap.txx,v $
   Language:  C++
-  Date:      $Date: 2002-06-27 13:57:53 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-06-28 11:35:39 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -130,7 +130,7 @@ int vtkArrayMap<KeyType,DataType>::GetItem(const KeyType& key, DataType& data)
 
 template<class KeyType, class DataType>
 vtkAbstractMapItem<KeyType,DataType> *
-vtkArrayMap<KeyType,DataType>::FindDataItem(KeyType key)
+vtkArrayMap<KeyType,DataType>::FindDataItem(const KeyType key)
 {
   if ( !this->Array )
     {
