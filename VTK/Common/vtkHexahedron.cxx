@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHexahedron.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-06 20:36:14 $
-  Version:   $Revision: 1.86 $
+  Date:      $Date: 2003-02-06 03:25:50 $
+  Version:   $Revision: 1.87 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #include "vtkPoints.h"
 #include "vtkQuad.h"
 
-vtkCxxRevisionMacro(vtkHexahedron, "$Revision: 1.86 $");
+vtkCxxRevisionMacro(vtkHexahedron, "$Revision: 1.87 $");
 vtkStandardNewMacro(vtkHexahedron);
 
 static const float VTK_DIVERGED = 1.e6;
@@ -708,12 +708,12 @@ void vtkHexahedron::GetFacePoints(int faceId, int* &pts)
   pts = this->GetFaceArray(faceId);
 }
 
-static float CellPCoords[24] = {0.0,0.0,0.0, 1.0,0.0,0.0,
-                                1.0,1.0,0.0, 0.0,1.0,0.0,
-                                0.0,0.0,1.0, 1.0,0.0,1.0,
-                                1.0,1.0,1.0, 0.0,1.0,1.0};
+static float vtkHexahedronCellPCoords[24] = {0.0,0.0,0.0, 1.0,0.0,0.0,
+                                             1.0,1.0,0.0, 0.0,1.0,0.0,
+                                             0.0,0.0,1.0, 1.0,0.0,1.0,
+                                             1.0,1.0,1.0, 0.0,1.0,1.0};
 
 float *vtkHexahedron::GetParametricCoords()
 {
-  return CellPCoords;
+  return vtkHexahedronCellPCoords;
 }

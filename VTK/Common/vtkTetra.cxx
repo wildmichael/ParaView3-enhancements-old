@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTetra.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:24:22 $
-  Version:   $Revision: 1.75 $
+  Date:      $Date: 2003-02-06 03:25:50 $
+  Version:   $Revision: 1.76 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #include "vtkTriangle.h"
 #include "vtkUnstructuredGrid.h"
 
-vtkCxxRevisionMacro(vtkTetra, "$Revision: 1.75 $");
+vtkCxxRevisionMacro(vtkTetra, "$Revision: 1.76 $");
 vtkStandardNewMacro(vtkTetra);
 
 // Construct the tetra with four points.
@@ -814,10 +814,10 @@ void vtkTetra::Clip(float value, vtkDataArray *cellScalars,
                     inCD, cellId, outCD, insideOut);
     }
 }
-static float CellPCoords[12] = {0.0,0.0,0.0, 1.0,0.0,0.0,
-                                0.0,1.0,0.0, 0.0,0.0,1.0};
+static float vtkTetraCellPCoords[12] = {0.0,0.0,0.0, 1.0,0.0,0.0,
+                                        0.0,1.0,0.0, 0.0,0.0,1.0};
 
 float *vtkTetra::GetParametricCoords()
 {
-  return CellPCoords;
+  return vtkTetraCellPCoords;
 }
