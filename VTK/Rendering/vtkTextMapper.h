@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextMapper.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-04 16:36:04 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2002-06-07 21:19:08 $
+  Version:   $Revision: 1.43 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -57,7 +57,7 @@ public:
   // Description:
   // Return the size[2]/width/height of the rectangle required to draw this
   // mapper (in pixels).
-  virtual void GetSize(vtkViewport*v, int size[2]) {size[0]=size[0];};
+  virtual void GetSize(vtkViewport*, int size[2]) {size[0]=size[0];};
   int GetWidth(vtkViewport*v);
   int GetHeight(vtkViewport*v);
   
