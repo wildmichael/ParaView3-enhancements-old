@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-07 15:55:26 $
-  Version:   $Revision: 1.122 $
+  Date:      $Date: 1999-10-08 20:12:30 $
+  Version:   $Revision: 1.123 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -357,6 +357,7 @@ void vtkRenderer::AllocateTime()
   // existing render time for an actor.
 
   totalTime = this->PropArrayCount;
+  this->ComputeAspect();
 
   for (this->Cullers->InitTraversal(); 
        (aCuller=this->Cullers->GetNextItem());)
