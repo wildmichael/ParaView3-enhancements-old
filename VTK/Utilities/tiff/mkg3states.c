@@ -1,4 +1,4 @@
-/* "$Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/mkg3states.c,v 1.2 2002-01-30 13:51:29 andy Exp $ */
+/* "$Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/mkg3states.c,v 1.3 2003-04-17 12:53:07 king Exp $ */
 
 /*
  * Copyright (c) 1991-1997 Sam Leffler
@@ -36,6 +36,8 @@
 #include <stdlib.h>
 #include <string.h>
 #endif
+
+#include <unistd.h> /* getopt */
 
 #include "tif_fax3.h"
 
