@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkByteSwap.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-01 21:21:57 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2001-11-11 15:56:42 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -93,9 +93,7 @@ void vtkByteSwap::Swap8BE(char *){}
 #else
 void vtkByteSwap::Swap8BE(char *mem_ptr1)
 {
-
   Swap8Bytes(mem_ptr1);
-
 }
 #endif
 
@@ -157,7 +155,6 @@ void vtkByteSwap::Swap8BERange(char *mem_ptr1, int num)
   for (i = 0; i < num; i++)
     {
       Swap8Bytes(pos);
-
       pos += 8;
     }
   
@@ -222,21 +219,20 @@ void vtkByteSwap::SwapWrite4BERange(char *mem_ptr1,int num, ostream *fp)
  
   while (num)
     {
-      memcpy(cpy, mem_ptr1, chunkSize * 4);
-    
-      pos = cpy;   
-      for (i = 0; i < chunkSize; i++)
-	{
-	  Swap4Bytes(pos);
-	  pos += 4;
-	}
-      fp->write((char *)cpy, 4*chunkSize);
-      mem_ptr1 += chunkSize*4;
-      num -= chunkSize;
-      if (num < chunkSize)
-	{
-	  chunkSize = num;
-	}
+    memcpy(cpy, mem_ptr1, chunkSize * 4);
+    pos = cpy;
+    for (i = 0; i < chunkSize; i++)
+      {
+      Swap4Bytes(pos);
+      pos += 4;
+      }
+    fp->write((char *)cpy, 4*chunkSize);
+    mem_ptr1 += chunkSize*4;
+    num -= chunkSize;
+    if (num < chunkSize)
+      {
+      chunkSize = num;
+      }
     }
 
   delete [] cpy;
@@ -256,32 +252,27 @@ void vtkByteSwap::SwapWrite8BERange(char *mem_ptr1,int num, ostream *fp)
 
   if (num < chunkSize)
     {
-      chunkSize = num;
+    chunkSize = num;
     }
   cpy = new char [chunkSize * 8];
  
   while (num)
     {
-      memcpy(cpy, mem_ptr1, chunkSize * 8);
-    
-      pos = cpy;   
-      for (i = 0; i < chunkSize; i++)
-	{
-
-	  Swap8Bytes(pos);
-
-	  pos += 8;
-
-	}
-      fp->write((char *)cpy, 8*chunkSize);
-      mem_ptr1 += chunkSize*8;
-      num -= chunkSize;
-      if (num < chunkSize)
-	{
-	  chunkSize = num;
-	}
+    memcpy(cpy, mem_ptr1, chunkSize * 8);
+    pos = cpy;
+    for (i = 0; i < chunkSize; i++)
+      {
+      Swap8Bytes(pos);
+      pos += 8;
+      }
+    fp->write((char *)cpy, 8*chunkSize);
+    mem_ptr1 += chunkSize*8;
+    num -= chunkSize;
+    if (num < chunkSize)
+      {
+      chunkSize = num;
+      }
     }
-
   delete [] cpy;
 #else
   fp->write((char *)mem_ptr1, 8*num);
@@ -349,8 +340,7 @@ void vtkByteSwap::SwapWrite4BERange(char *mem_ptr1,int num, FILE *fp)
   while (num)
     {
     memcpy(cpy, mem_ptr1, chunkSize * 4);
-  
-    pos = cpy;    
+    pos = cpy;
     for (i = 0; i < chunkSize; i++)
       {
       Swap4Bytes(pos);
@@ -382,33 +372,28 @@ void vtkByteSwap::SwapWrite8BERange(char *mem_ptr1,int num, FILE *fp)
 
   if (num < chunkSize)
     {
-      chunkSize = num;
+    chunkSize = num;
     }
   cpy = new char [chunkSize * 8];
  
   while (num)
     {
-      memcpy(cpy, mem_ptr1, chunkSize * 8);
-  
-      pos = cpy;    
-      for (i = 0; i < chunkSize; i++)
-	{
-
-	  Swap2Bytes(pos);
-
-	  pos += 8;
-
-	}
-      fwrite(cpy,8,chunkSize,fp);
-      mem_ptr1 += chunkSize*8;
-      num -= chunkSize;
-      if (num < chunkSize)
-	{
-	  chunkSize = num;
-	}
+    memcpy(cpy, mem_ptr1, chunkSize * 8);
+    pos = cpy;
+    for (i = 0; i < chunkSize; i++)
+      {
+      Swap8Bytes(pos);
+      pos += 8;
+      }
+    fwrite(cpy,8,chunkSize,fp);
+    mem_ptr1 += chunkSize*8;
+    num -= chunkSize;
+    if (num < chunkSize)
+      {
+      chunkSize = num;
+      }
     }
   delete [] cpy;
-  
 #else
   fwrite(mem_ptr1,8,num,fp);
 #endif
@@ -448,9 +433,7 @@ void vtkByteSwap::Swap4LE(char *){}
 #ifdef VTK_WORDS_BIGENDIAN
 void vtkByteSwap::Swap8LE(char *mem_ptr1)
 {
-
   Swap8Bytes(mem_ptr1);
-
 }
 #else
 void vtkByteSwap::Swap8LE(char *){}
@@ -508,11 +491,8 @@ void vtkByteSwap::Swap8LERange(char *mem_ptr1, int num)
   
   for (i = 0; i < num; i++)
     {
-
-      Swap8Bytes(pos);
-
-      pos += 8;
-
+    Swap8Bytes(pos);
+    pos += 8;
     }
   
 }
