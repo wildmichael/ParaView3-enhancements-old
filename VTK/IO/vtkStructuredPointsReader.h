@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsReader.h,v $
   Language:  C++
-  Date:      $Date: 2000-11-30 12:45:45 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2000-12-07 13:09:29 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,6 +68,8 @@ public:
   // Description:
   // Set/Get the output of this reader.
   void SetOutput(vtkStructuredPoints *output);
+  vtkStructuredPoints *GetOutput(int idx)
+    {return (vtkStructuredPoints *) this->vtkSource::GetOutput(idx); };
   vtkStructuredPoints *GetOutput();
   
 protected:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObjectReader.h,v $
   Language:  C++
-  Date:      $Date: 2000-11-30 12:45:45 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2000-12-07 13:09:29 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,6 +68,8 @@ public:
   // Description:
   // Get the output field of this reader.
   vtkDataObject *GetOutput();
+  vtkDataObject *GetOutput(int idx)
+    {return this->vtkSource::GetOutput(idx); };
   void SetOutput(vtkDataObject *);
   
 protected:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridReader.h,v $
   Language:  C++
-  Date:      $Date: 2000-11-30 12:45:45 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2000-12-07 13:09:29 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,6 +68,8 @@ public:
   // Description:
   // Get and set the output of this reader.
   vtkRectilinearGrid *GetOutput();
+  vtkRectilinearGrid *GetOutput(int idx)
+    {return (vtkRectilinearGrid *) this->vtkSource::GetOutput(idx); };
   void SetOutput(vtkRectilinearGrid *output);
 
 protected:
