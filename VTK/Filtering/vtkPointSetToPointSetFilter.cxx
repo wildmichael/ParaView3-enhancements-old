@@ -1,10 +1,10 @@
 /*=========================================================================
 
   Program:   Visualization Library
-  Module:    $RCSfile: vtkPointSetToPointSetFilter.cxx,v $
+  Module:    PtS2PtSF.cc
   Language:  C++
-  Date:      $Date: 1994-11-06 19:34:28 $
-  Version:   $Revision: 1.8 $
+  Date:      11/6/94
+  Version:   1.8
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
