@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDistributedStreamTracer.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-06-02 12:20:20 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-06-03 17:27:20 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,7 +29,7 @@
 #include "vtkPolyData.h"
 #include "vtkRungeKutta2.h"
 
-vtkCxxRevisionMacro(vtkDistributedStreamTracer, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkDistributedStreamTracer, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkDistributedStreamTracer);
 
 vtkDistributedStreamTracer::vtkDistributedStreamTracer()
@@ -242,7 +242,7 @@ int vtkDistributedStreamTracer::ProcessTask(float seed[3],
   vtkIntArray* streamIds = vtkIntArray::New();
   streamIds->SetNumberOfTuples(1);
   streamIds->SetName("Streamline Ids");
-  lastCellId = this->TmpOutputs.size() - 1;
+  lastCellId = static_cast<int>(this->TmpOutputs.size()) - 1;
   streamIds->SetComponent(0, 0, lastCellId);
   tmpOutput->GetCellData()->AddArray(streamIds);
   streamIds->Delete();
