@@ -3,8 +3,8 @@
  Program:   Visualization Toolkit
  Module:    $RCSfile: vtkSource.cxx,v $
  Language:  C++
- Date:      $Date: 2001-09-21 13:55:35 $
- Version:   $Revision: 1.84 $
+ Date:      $Date: 2001-09-25 21:06:47 $
+ Version:   $Revision: 1.85 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -422,6 +422,22 @@ void vtkSource::UpdateData(vtkDataObject *output)
   else
     {
     this->ExecuteData(output);
+    // Pass the vtkDataObject's field data from the first input
+    // to all outputs
+    vtkFieldData* fd;
+    if ((this->NumberOfInputs > 0) && (this->Inputs[0]) && 
+	(fd = this->Inputs[0]->GetFieldData()))
+      {
+      vtkFieldData* outputFd;
+      for (idx = 0; idx < this->NumberOfOutputs; idx++)
+	{
+	if (this->Outputs[idx] && 
+	    (outputFd=this->Outputs[idx]->GetFieldData()))
+	  {
+	  outputFd->PassData(fd);
+	  }
+	}
+      }
     }
 
   // If we ended due to aborting, push the progress up to 1.0 (since

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-11 18:53:20 $
-  Version:   $Revision: 1.105 $
+  Date:      $Date: 2001-09-25 21:06:46 $
+  Version:   $Revision: 1.106 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -316,6 +316,15 @@ public:
   // Shallow and Deep copy.
   void ShallowCopy(vtkDataObject *src);  
   void DeepCopy(vtkDataObject *src);
+
+//BTX
+  enum FieldDataType 
+  {
+    DATA_OBJECT_FIELD=0,
+    POINT_DATA_FIELD=1,
+    CELL_DATA_FIELD=2
+  };
+//ETX
   
 protected:
   // Constructor with default bounds (0,1, 0,1, 0,1).
