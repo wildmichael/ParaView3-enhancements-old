@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBJReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:10:49 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2000-11-01 04:23:22 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -205,8 +205,8 @@ void vtkOBJReader::Execute()
             else 
               {
               sscanf (ptr, "%d", &objTCoordId);
-              blank = (char *) strchr (line, (int) ' ');
-              slash = (char *) strchr (line, (int) '/');
+              blank = (char *) strchr (ptr, (int) ' ');
+              slash = (char *) strchr (ptr, (int) '/');
               if (blank && slash && (slash < blank)) 
                 {
                 ptr = slash + 1;
