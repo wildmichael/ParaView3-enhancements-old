@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkObject.h,v $
   Language:  C++
-  Date:      $Date: 1994-02-07 17:30:36 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1994-02-16 16:08:49 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -67,7 +67,7 @@ private:
   int RefCount;    // Number of uses of this object by other objects
   vlPrintList PrintList;
 
-friend ostream& operator<<(ostream& os, vlObject& o) {o.Print(os);return os;}
+  friend ostream& operator<<(ostream& os, vlObject& o);
 };
 
 #endif
