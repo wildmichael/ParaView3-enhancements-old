@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMedian3D.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-14 21:00:43 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-08-26 17:40:34 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,7 +62,7 @@ public:
 
   void SetFilteredAxes(int axis0, int axis1, int axis2);
   
-  // Set/Get the size of the neighood.
+  // Set the size of the neighood.
   void SetKernelSize(int size0, int size1, int size2);
   
 protected:

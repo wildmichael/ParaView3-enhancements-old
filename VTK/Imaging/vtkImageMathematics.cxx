@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMathematics.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-14 21:00:40 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-08-26 17:40:32 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -186,6 +186,26 @@ static void vtkImageMathematicsExecute2(vtkImageMathematics *self,
 	    {
 	    *outPtr0 = (T)(*in1Ptr0 / 0.00001);
 	    }
+	  break;
+	case VTK_MIN:
+	  if (*in1Ptr0 < *in2Ptr0)
+	    {
+	    *outPtr0 = *in1Ptr0;
+	    }
+	  else
+	    {
+	    *outPtr0 = *in2Ptr0;
+	    }
+	  break;
+	case VTK_MAX:
+	  if (*in1Ptr0 > *in2Ptr0)
+	    {
+	    *outPtr0 = *in1Ptr0;
+	    }
+	  else
+	    {
+	    *outPtr0 = *in2Ptr0;
+	    }
 	}
       
       
@@ -215,7 +235,8 @@ void vtkImageMathematics::Execute(vtkImageRegion *inRegion1,
   void *outPtr = outRegion->GetScalarPointer();
 
   if (this->Operation == VTK_ADD || this->Operation == VTK_SUBTRACT || 
-      this->Operation == VTK_MULTIPLY || this->Operation == VTK_DIVIDE) 
+      this->Operation == VTK_MULTIPLY || this->Operation == VTK_DIVIDE ||
+      this->Operation == VTK_MIN || this->Operation == VTK_MAX) 
     {
     void *inPtr2 = inRegion2->GetScalarPointer();
     // this filter expects that inputs are the same type as output.

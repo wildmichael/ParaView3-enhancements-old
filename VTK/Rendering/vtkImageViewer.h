@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer.h,v $
   Language:  C++
-  Date:      $Date: 1997-08-22 20:28:48 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1997-08-26 17:40:40 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -98,6 +98,10 @@ public:
   vtkGetMacro(ZSlice, int);
   vtkSetMacro(TimeSlice, int);
   vtkGetMacro(TimeSlice, int);
+  // Description:
+  // This is for a tcl interface
+  int GetWholeZMin();
+  int GetWholeZMax();
   
   // Description:
   // Legacy compatability

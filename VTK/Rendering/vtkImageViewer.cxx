@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-08-22 20:28:49 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1997-08-26 17:40:38 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -239,6 +239,36 @@ void vtkImageViewer::Render(void)
 
 
 
+
+//----------------------------------------------------------------------------
+int vtkImageViewer::GetWholeZMin()
+{
+  int axis = this->PermutationAxes[2];
+  int *extent;
+  
+  if ( ! this->Input)
+    {
+    return 0;
+    }
+  this->Input->UpdateImageInformation();
+  extent = this->Input->GetWholeExtent();
+  return extent[axis*2];
+}
+
+//----------------------------------------------------------------------------
+int vtkImageViewer::GetWholeZMax()
+{
+  int axis = this->PermutationAxes[2];
+  int *extent;
+  
+  if ( ! this->Input)
+    {
+    return 0;
+    }
+  this->Input->UpdateImageInformation();
+  extent = this->Input->GetWholeExtent();
+  return extent[axis*2 + 1];
+}
 
 
 

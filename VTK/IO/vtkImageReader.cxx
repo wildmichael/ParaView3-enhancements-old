@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-08-22 13:29:19 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1997-08-26 17:40:36 $
+  Version:   $Revision: 1.25 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -597,7 +597,8 @@ void vtkImageReader::OpenAndSeekFile(int dataExtent[8], int idx)
     {
     streamStart = 
       (dataExtent[0] - this->DataExtent[0]) * this->DataIncrements[0] + 
-      dataExtent[3] * this->DataIncrements[1];
+      (this->DataExtent[3] - this->DataExtent[2] - dataExtent[2]) * 
+      this->DataIncrements[1];
     }
   
   // handle three and four dimensional files

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCast.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-08-11 18:56:31 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1997-08-26 17:40:31 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -76,8 +76,6 @@ void vtkImageCast::InternalUpdate()
     }
   
   // call the superclass update which will cause an execute.
-  vtkDebugMacro("Update: Casting to type "
-		<< vtkImageScalarTypeNameMacro(this->Output->GetScalarType()));
   this->vtkImageFilter::Update();
 }
 
