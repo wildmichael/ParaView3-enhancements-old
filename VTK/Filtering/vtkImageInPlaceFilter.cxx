@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageInPlaceFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-08-11 19:11:21 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1997-09-08 14:45:32 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -269,6 +269,7 @@ void vtkImageInPlaceFilter::InternalUpdate()
     {
     // we have to copy the data
     vtkDebugMacro(<< "Update: Cannot copy by reference.");
+    outRegion->GetScalarPointer ();
     outRegion->CopyRegionData(inRegion);
     }
   else

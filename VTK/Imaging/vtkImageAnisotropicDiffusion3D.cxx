@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAnisotropicDiffusion3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-08-21 15:37:43 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1997-09-08 14:45:31 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -194,6 +194,7 @@ void vtkImageAnisotropicDiffusion3D::Execute(vtkImageRegion *inRegion,
     }
   
   // copy results into output.
+  outRegion->GetScalarPointer ();
   outRegion->CopyRegionData(in);
   in->Delete ();
   out->Delete ();
