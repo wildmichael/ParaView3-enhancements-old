@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeTextureMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-30 05:17:22 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-08-31 20:27:42 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,13 +71,13 @@ public:
 
   virtual int GetMapperType() {return VTK_FRAMEBUFFER_VOLUME_MAPPER;};
 
-//BTX
-
   // Description:
   // WARNING: INTERNAL METHOD - NOT INTENDED FOR GENERAL USE
   // DO NOT USE THIS METHOD OUTSIDE OF THE RENDERING PROCESS
   // Render the volume
   virtual void Render(vtkRenderer *ren, vtkVolume *vol)=0;
+
+//BTX
 
   // Description:
   // Allow access to the arrays / variables from the templated functions in the
