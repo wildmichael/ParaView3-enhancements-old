@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFourierCenter.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:35 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2001-12-07 14:03:50 $
+  Version:   $Revision: 1.22 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -59,9 +59,10 @@ public:
   static vtkImageFourierCenter *New();
   vtkTypeMacro(vtkImageFourierCenter,vtkImageDecomposeFilter);
 
+  // Description:
+  // This is an internal method that should not be called by the user.
   virtual void IterativeExecuteData(vtkImageData *in, vtkImageData *out) {
     this->MultiThread(in, out); };
-  
   
 protected:
   vtkImageFourierCenter();

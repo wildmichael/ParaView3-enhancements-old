@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCast.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:31 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2001-12-07 14:03:49 $
+  Version:   $Revision: 1.35 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -63,7 +63,7 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
-  // Set the desired output scalar type to cast to
+  // Set the desired output scalar type to cast to.
   vtkSetMacro(OutputScalarType,int);
   vtkGetMacro(OutputScalarType,int);
   void SetOutputScalarTypeToFloat(){this->SetOutputScalarType(VTK_FLOAT);};

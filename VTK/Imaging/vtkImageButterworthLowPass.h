@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageButterworthLowPass.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:31 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-12-07 14:03:48 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -41,13 +41,16 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 // .NAME vtkImageButterworthLowPass - Frequency domain Low pass.
 // .SECTION Description
+// This filter only works on an image after it has been converted to
+// frequency domain by a vtkImageFFT filter.  A vtkImageRFFT filter
+// can be used to convert the output back into the spatial domain.
 // vtkImageButterworthLowPass  the high frequency components are
 // attenuated.  Input and output are in floats, with two components
 // (complex numbers).
 // out(i, j) = (1 + pow(CutOff/Freq(i,j), 2*Order));
 
 // .SECTION See Also
-// vtkImageButterworthHighPass
+// vtkImageButterworthHighPass vtkImageFFT vtkImageRFFT
 
 #ifndef __vtkImageButterworthLowPass_h
 #define __vtkImageButterworthLowPass_h

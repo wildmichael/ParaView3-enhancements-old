@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageRFFT.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:40 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2001-12-07 14:03:51 $
+  Version:   $Revision: 1.30 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,11 +42,20 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // .NAME vtkImageRFFT -  Reverse Fast Fourier Transform.
 // .SECTION Description
 // vtkImageRFFT implements the reverse fast Fourier transform.  The input
-// can have real or imaginary data in any components and data types, but
-// the output is always float with real values in component0, and
-// imaginary values in component1.  The filter is faster for images that
-// have power of two sizes.  
+// can have real or complex data in any components and data types, but
+// the output is always complex floats with real values in component0, and
+// imaginary values in component1.  The filter is fastest for images that
+// have power of two sizes.  The filter uses a butterfly fitlers for each
+// prime factor of the dimension.  This makes images with prime number dimensions 
+// (i.e. 17x17) much slower to compute.  Multi dimensional (i.e volumes) 
+// FFT's are decomposed so that each axis executes in series.
+// In most cases the RFFT will produce an image whose imaginary values are all
+// zero's. In this case vtkImageExtractComponents can be used to remove
+// this imaginary components leaving only the real image.
 
+// .SECTION See Also
+// vtkImageExtractComponenents
+ 
 
 
 #ifndef __vtkImageRFFT_h
