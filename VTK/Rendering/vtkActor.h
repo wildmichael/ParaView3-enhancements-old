@@ -3,8 +3,8 @@
   Program:   OSCAR 
   Module:    $RCSfile: vtkActor.h,v $
   Language:  C++
-  Date:      $Date: 1994-01-12 12:48:50 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-01-13 12:57:43 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -26,12 +26,14 @@ class vlActor : public vlObject
 {
  public:
   vlActor();
+  ~vlActor();
   void Render(vlRenderer *ren);
   int GetVisibility();
+  void SetVisibility(int flag);
   void GetCompositeMatrix(float mat[4][4]);
   void SetMapper(vlMapper *m);
   vlMapper *GetMapper();
-  vlProperty *MyProperty; 
+  vlProperty *Property; 
 
  protected:
   vlMapper *Mapper;
