@@ -3,9 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageLuminance.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-23 16:02:51 $
-  Version:   $Revision: 1.1 $
-  Thanks:    Thanks to C. Charles Law who developed this class.
+  Date:      $Date: 1998-08-01 17:28:58 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
