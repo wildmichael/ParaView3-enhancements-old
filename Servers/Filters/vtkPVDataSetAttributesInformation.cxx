@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVDataSetAttributesInformation.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-07 17:59:07 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2003-05-08 14:55:49 $
+  Version:   $Revision: 1.6 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -48,7 +48,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkPVDataSetAttributesInformation);
-vtkCxxRevisionMacro(vtkPVDataSetAttributesInformation, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkPVDataSetAttributesInformation, "$Revision: 1.6 $");
 
 
 //----------------------------------------------------------------------------
@@ -158,6 +158,11 @@ void vtkPVDataSetAttributesInformation::AddInformation(vtkPVDataSetAttributesInf
   short                  infoArrayIndex;
   short                  newAttributeIndices[5]; 
   vtkCollection*         newArrayInformation;
+
+  for (idx1 = 0; idx1 < 5; ++idx1)
+    {
+    newAttributeIndices[idx1] = -1;
+    }
 
   // Combine point array information.
   infoArrayIndex = 0;
