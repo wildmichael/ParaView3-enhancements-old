@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericCell.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:10 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-06-22 17:13:17 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -205,8 +205,9 @@ void vtkGenericCell::SetCellType(int cellType)
 {
   if ( this->Cell->GetCellType() != cellType )
     {
-    this->Points->Delete();
-    this->PointIds->Delete();
+    this->Points->UnRegister(this);
+    this->PointIds->UnRegister(this);
+    this->PointIds = NULL;
     this->Cell->Delete();
 
     switch (cellType)
