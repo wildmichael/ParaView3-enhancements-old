@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParse.y,v $
   Language:  C++
-  Date:      $Date: 2001-02-13 06:33:01 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2001-06-12 10:31:13 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -424,12 +424,32 @@ macro:
     {preSig("void Set"); postSig(" ("); } type_red2 
     {postSig(");"); openSig = 0;} ',' maybe_other_no_semi ')'
    { 
+   char *local = strdup(currentFunction->Signature);
+   sscanf (currentFunction->Signature, "%*s %*s (%s);", local);
    sprintf(temps,"Set%s",$<str>3); 
    currentFunction->Name = strdup(temps);
    currentFunction->NumberOfArguments = 1;
    currentFunction->ArgTypes[0] = $<integer>6;
    currentFunction->ArgCounts[0] = 0;
    currentFunction->ReturnType = 2;
+   output_function();
+
+   currentFunction->Signature = (char *)malloc(2048);
+   sigAllocatedLength = 2048;
+   sprintf(currentFunction->Signature,"%s Get%sMinValue ();",local,$<str>3);
+   sprintf(temps,"Get%sMinValue",$<str>3);
+   currentFunction->Name = strdup(temps);
+   currentFunction->NumberOfArguments = 0;
+   currentFunction->ReturnType = $<integer>6;
+   output_function();
+
+   currentFunction->Signature = (char *)malloc(2048);
+   sigAllocatedLength = 2048;
+   sprintf(currentFunction->Signature,"%s Get%sMaxValue ();",local,$<str>3);
+   sprintf(temps,"Get%sMaxValue",$<str>3);
+   currentFunction->Name = strdup(temps);
+   currentFunction->NumberOfArguments = 0;
+   currentFunction->ReturnType = $<integer>6;
    output_function();
    }
 | SetObjectMacro '(' any_id ',' 
