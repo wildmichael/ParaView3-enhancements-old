@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLFreeTypeTextMapper.h,v $
   Language:  C++
-  Date:      $Date: 2002-07-09 21:06:53 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-07-24 02:43:24 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -60,6 +60,7 @@ protected:
 
   vtkTimeStamp  SizeBuildTime;
   int LastSize[2];
+  int LastLargestDescender;
 
 private:
   vtkOpenGLFreeTypeTextMapper(const vtkOpenGLFreeTypeTextMapper&);  // Not implemented.
