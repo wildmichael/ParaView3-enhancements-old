@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-06 15:40:00 $
-  Version:   $Revision: 1.82 $
+  Date:      $Date: 2002-03-12 18:18:02 $
+  Version:   $Revision: 1.83 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -160,6 +160,11 @@ public:
   // Description:
   // Traverse cells and determine if cells are all of the same type.
   int IsHomogeneous();
+
+  // Description:
+  // This method will remove any cell that has a ghost level array value
+  // greater or equal to level.
+  void RemoveGhostCells(int level);
 
 protected:
   vtkUnstructuredGrid();
