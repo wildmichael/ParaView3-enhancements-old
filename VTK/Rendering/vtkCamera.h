@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-19 13:59:39 $
-  Version:   $Revision: 1.86 $
+  Date:      $Date: 2002-11-21 16:16:39 $
+  Version:   $Revision: 1.87 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -360,17 +360,6 @@ class VTK_RENDERING_EXPORT vtkCamera : public vtkObject
   // Update the viewport
   virtual void UpdateViewport(vtkRenderer *vtkNotUsed(ren)) {}
   
-#ifndef VTK_REMOVE_LEGACY_CODE
-  // Description:
-  // For legacy compatibility. Do not use.
-  vtkMatrix4x4 &GetViewTransform()
-    {VTK_LEGACY_METHOD(GetViewTransformMatrix,"3.2"); return *this->GetViewTransformMatrix();}
-  vtkMatrix4x4 &GetPerspectiveTransform(double aspect,double nearz,double farz) 
-    {VTK_LEGACY_METHOD(GetPerspectiveTransformMatrix,"3.2"); return *this->GetPerspectiveTransformMatrix(aspect, nearz, farz);}
-  vtkMatrix4x4 &GetCompositePerspectiveTransform(double aspect, double nearz, double farz) 
-    {VTK_LEGACY_METHOD(GetCompositePerspectiveTransformMatrix,"3.2"); return *this->GetCompositePerspectiveTransformMatrix(aspect,nearz,farz);}
-#endif
-
   vtkTransform *GetViewTransformObject() {return this->ViewTransform;};
   
 protected:
