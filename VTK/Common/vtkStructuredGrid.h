@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 1994-09-26 16:13:12 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-09-27 09:49:44 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -40,7 +40,7 @@ public:
   // dataset interface
   vlDataSet *MakeObject() {return new vlStructuredGrid(*this);};
   void Initialize();
-  int GetNumberOfPoints() {vlPointSet::GetNumberOfPoints();};
+  int GetNumberOfPoints() {return vlPointSet::GetNumberOfPoints();};
   vlCell *GetCell(int cellId);
   int GetCellType(int cellId);
 
