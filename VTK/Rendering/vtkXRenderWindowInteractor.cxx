@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:49:57 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1997-08-12 15:26:27 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -255,8 +255,9 @@ void  vtkXRenderWindowInteractor::StartRotate()
 void  vtkXRenderWindowInteractor::EndRotate()
 {
   if (this->State != VTKXI_ROTATE) return;
-  this->RenderWindow->SetDesiredUpdateRate(this->StillUpdateRate);
   this->State = VTKXI_START;
+  this->RenderWindow->SetDesiredUpdateRate(this->StillUpdateRate);
+  this->RenderWindow->Render();
 }
 
 void  vtkXRenderWindowInteractor::StartZoom()
@@ -269,8 +270,9 @@ void  vtkXRenderWindowInteractor::StartZoom()
 void  vtkXRenderWindowInteractor::EndZoom()
 {
   if (this->State != VTKXI_ZOOM) return;
-  this->RenderWindow->SetDesiredUpdateRate(this->StillUpdateRate);
   this->State = VTKXI_START;
+  this->RenderWindow->SetDesiredUpdateRate(this->StillUpdateRate);
+  this->RenderWindow->Render();
 }
 
 void  vtkXRenderWindowInteractor::StartPan()
@@ -297,8 +299,9 @@ void  vtkXRenderWindowInteractor::StartPan()
 void  vtkXRenderWindowInteractor::EndPan()
 {
   if (this->State != VTKXI_PAN) return;
-  this->RenderWindow->SetDesiredUpdateRate(this->StillUpdateRate);
   this->State = VTKXI_START;
+  this->RenderWindow->SetDesiredUpdateRate(this->StillUpdateRate);
+  this->RenderWindow->Render();
 }
 
 void vtkXRenderWindowInteractorCallback(Widget vtkNotUsed(w),
