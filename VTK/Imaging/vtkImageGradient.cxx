@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGradient.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-17 14:29:35 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1997-08-13 21:33:09 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -78,7 +78,7 @@ void vtkImageGradient::SetFilteredAxes(int num, int *axes)
 //----------------------------------------------------------------------------
 void vtkImageGradient::ExecuteImageInformation()
 {
-  int extent[4];
+  int extent[8];
   int idx;
 
   this->Input->GetWholeExtent(extent);
@@ -104,7 +104,7 @@ void vtkImageGradient::ExecuteImageInformation()
 // This method computes the input extent necessary to generate the output.
 void vtkImageGradient::ComputeRequiredInputUpdateExtent()
 {
-  int extent[4];
+  int extent[8];
   int *wholeExtent;
   int idx, axis;
 
