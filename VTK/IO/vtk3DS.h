@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtk3DS.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:29 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2001-10-12 13:24:32 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -45,7 +45,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 typedef float Vector[3];
 
 /* A generic list type */
-#define VTK_LIST_INSERT(root, node) list_insert ((List **)&root, (List *)node)
+#define VTK_LIST_INSERT(root, node) list_insert ((List **)&root, reinterpret_cast<List *>(node))
 #define VTK_LIST_FIND(root, name)   list_find   ((List **)&root, name)
 #define VTK_LIST_DELETE(root, node) list_delete ((List **)&root, (List *)node)
 #define VTK_LIST_KILL(root)         list_kill   ((List **)&root)
