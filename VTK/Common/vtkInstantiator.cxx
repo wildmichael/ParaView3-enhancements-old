@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInstantiator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-04 14:20:57 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-01-07 15:07:17 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -40,8 +40,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 #include "vtkInstantiator.h"
 #include "vtkObjectFactory.h"
+#include "vtkDebugLeaks.h"
 
-vtkCxxRevisionMacro(vtkInstantiator, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkInstantiator, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkInstantiator);
 
 // Node in hash table.
@@ -98,11 +99,14 @@ private:
   void operator=(const vtkInstantiatorHashTable&);  // Not implemented.
 };
 
-vtkCxxRevisionMacro(vtkInstantiatorHashTable, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkInstantiatorHashTable, "$Revision: 1.3 $");
 
 //----------------------------------------------------------------------------
 vtkInstantiatorHashTable* vtkInstantiatorHashTable::New()
 {
+#ifdef VTK_DEBUG_LEAKS
+  vtkDebugLeaks::ConstructClass("vtkInstantiatorHashTable");
+#endif    
   // Don't use the object factory because it may not have been
   // initialized when this table is allocated.
   return new vtkInstantiatorHashTable;
