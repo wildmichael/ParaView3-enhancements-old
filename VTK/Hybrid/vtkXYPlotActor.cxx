@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXYPlotActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:42:41 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2001-11-13 16:15:29 $
+  Version:   $Revision: 1.29 $
   Thanks:    Thanks to Kitware & RPI/SCOREC who supported the development
              of this class.
 
@@ -1439,15 +1439,15 @@ void vtkXYPlotActor::PlotToViewportCoordinate(vtkViewport *viewport,
 void vtkXYPlotActor::ViewportToPlotCoordinate(vtkViewport *viewport)
 {
   this->ViewportToPlotCoordinate(viewport, 
-                                 this->PlotCoordinate[0],
-                                 this->PlotCoordinate[1]);
+                                 this->ViewportCoordinate[0],
+                                 this->ViewportCoordinate[1]);
 }
 
 void vtkXYPlotActor::PlotToViewportCoordinate(vtkViewport *viewport)
 {
   this->PlotToViewportCoordinate(viewport, 
-                                 this->ViewportCoordinate[0],
-                                 this->ViewportCoordinate[1]);
+                                 this->PlotCoordinate[0],
+                                 this->PlotCoordinate[1]);
 }
 
 int vtkXYPlotActor::IsInPlot(vtkViewport *viewport, float u, float v)
