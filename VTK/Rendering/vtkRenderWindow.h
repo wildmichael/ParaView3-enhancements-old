@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-29 14:51:35 $
-  Version:   $Revision: 1.130 $
+  Date:      $Date: 2002-11-19 18:16:29 $
+  Version:   $Revision: 1.131 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -382,6 +382,18 @@ public:
   // MakeCurrent() reverts to original behavior of cache-checking
   // on the next render.
   virtual void SetForceMakeCurrent() {};
+
+  // Description:
+  // Get report of capabilities for the render window
+  virtual const char *ReportCapabilities() { return "Not Implemented";};
+
+  // Description:
+  // Does this render window support OpenGL? 0-false, 1-true
+  virtual int SupportsOpenGL() { return 0;};
+
+  // Description:
+  // Is this render window using hardware acceleration? 0-false, 1-true
+  virtual int IsDirect() { return 0;};
 
   // Description:
   // This method should be defined by the subclass. How many bits of

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-25 18:18:40 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 2002-11-19 18:16:29 $
+  Version:   $Revision: 1.62 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -142,6 +142,18 @@ public:
   // Description:
   // Make this windows OpenGL context the current context.
   void MakeCurrent();
+
+  // Description:
+  // Get report of capabilities for the render window
+  const char *ReportCapabilities();
+
+  // Description:
+  // Does this render window support OpenGL? 0-false, 1-true
+  int SupportsOpenGL();
+
+  // Description:
+  // Is this render window using hardware acceleration? 0-false, 1-true
+  int IsDirect();
 
   // Description:
   // Check to see if a mouse button has been pressed.

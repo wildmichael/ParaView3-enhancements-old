@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-24 15:27:55 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-11-19 18:16:29 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -95,6 +95,18 @@ public:
   // MakeCurrent() reverts to original behavior of cache-checking
   // on the next render.
   void SetForceMakeCurrent();
+
+  // Description:
+  // Get report of capabilities for the render window
+  const char *ReportCapabilities();
+
+  // Description:
+  // Does this render window support OpenGL? 0-false, 1-true
+  int SupportsOpenGL();
+
+  // Description:
+  // Is this render window using hardware acceleration? 0-false, 1-true
+  int IsDirect();
   
   // Description:
   // Xwindow get set functions
@@ -199,6 +211,7 @@ protected:
   int      ScreenSize[2];
   int      CursorHidden;
   int      ForceMakeCurrent;
+  int      UsingHardware;
 
   // we must keep track of the cursors we are using
   Cursor XCArrow;
