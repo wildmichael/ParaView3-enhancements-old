@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-03-05 21:47:54 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 1997-03-25 16:12:06 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -726,7 +726,7 @@ vtkTransform::~vtkTransform ()
 
   for (n=this->Stack-this->StackBottom+1, i=0; i < n; i++)
     {
-    this->Stack[i]->Delete();
+    this->StackBottom[i]->Delete();
     }
 
   delete [] this->Stack;
