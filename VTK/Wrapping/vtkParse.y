@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParse.y,v $
   Language:  C++
-  Date:      $Date: 2001-06-12 13:07:29 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2001-08-07 13:01:07 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -743,7 +743,6 @@ macro:
    }
 | ViewportCoordinateMacro '(' any_id ')'
    { 
-     char *local = strdup(currentFunction->Signature);
      sprintf(currentFunction->Signature,"vtkCoordinate *Get%sCoordinate ();",
        $<str>3);
 
@@ -791,7 +790,6 @@ macro:
    }
 | WorldCoordinateMacro '(' any_id ')'
    { 
-     char *local = strdup(currentFunction->Signature);
      sprintf(currentFunction->Signature,"vtkCoordinate *Get%sCoordinate ();",
        $<str>3);
 
