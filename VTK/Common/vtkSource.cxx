@@ -3,8 +3,8 @@
  Program:   Visualization Toolkit
  Module:    $RCSfile: vtkSource.cxx,v $
  Language:  C++
- Date:      $Date: 1999-09-02 12:54:07 $
- Version:   $Revision: 1.43 $
+ Date:      $Date: 1999-09-10 12:24:30 $
+ Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -459,13 +459,6 @@ void vtkSource::UpdateInformation()
 	locality = l2;
 	}
       
-      // Should probably not be general infomation (specific to unstructured)
-      l2 = pd->GetMaximumNumberOfPieces();
-      if (maxPieces < l2)
-	{
-	maxPieces = l2;
-	}
-      
       // Pipeline MTime stuff
       t2 = pd->GetPipelineMTime();
       if (t2 > t1)
@@ -510,8 +503,6 @@ void vtkSource::UpdateInformation()
 	output->SetPipelineMTime(t1);
 	output->SetLocality(locality + 1);
 	output->SetEstimatedWholeMemorySize(size);
-	// This should really be specific for unstructured data sets.
-	output->SetMaximumNumberOfPieces(maxPieces);
 	// By default, copy information from first input.
 	if (pd)
 	  {
