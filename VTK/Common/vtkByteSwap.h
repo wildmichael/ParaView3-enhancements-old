@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkByteSwap.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-25 15:25:23 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1998-02-09 14:30:20 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,8 +61,11 @@ public:
   static void Swap4LE(float *p) { vtkByteSwap::Swap4LE((char *)p);};
   static void Swap4LE(int *i)   { vtkByteSwap::Swap4LE((char *)i);};
   static void Swap4LE(unsigned long *i) { Swap4LE((char *)i);};
+  static void Swap4LE(long *i) { Swap4LE((char *)i);};
 
   static void Swap4LERange(char *c,int num);
+  static void Swap4LERange(unsigned char *c,int num) 
+  { vtkByteSwap::Swap4LERange((char *)c,num);};
   static void Swap4LERange(float *p,int num) 
   { vtkByteSwap::Swap4LERange((char *)p,num);};
   static void Swap4LERange(int *i,int num) 
