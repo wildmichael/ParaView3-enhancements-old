@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-13 21:11:57 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1998-06-23 20:26:32 $
+  Version:   $Revision: 1.40 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -290,7 +290,16 @@ void vtkImageReader::PrintSelf(ostream& os, vtkIndent indent)
      << vtkImageScalarTypeNameMacro(this->DataScalarType) << "\n";
   os << indent << "NumberOfScalarComponents: " 
      << this->NumberOfScalarComponents << "\n";
-  
+ 
+  os << indent << "Data Mask: " << this->DataMask << "\n";
+
+  os << indent << "File Dimensionality: " << this->FileDimensionality << "\n";
+
+  os << indent << "File Lower Left: " << 
+    (this->FileLowerLeft ? "On\n" : "Off\n");
+
+  os << indent << "Swap Bytes: " << (this->SwapBytes ? "On\n" : "Off\n");
+
   os << indent << "DataExtent: (" << this->DataExtent[0];
   for (idx = 1; idx < 6; ++idx)
     {
@@ -320,6 +329,24 @@ void vtkImageReader::PrintSelf(ostream& os, vtkIndent indent)
   os << ")\n";
   
   os << indent << "HeaderSize: " << this->HeaderSize << "\n";
+
+  if ( this->Transform )
+    {
+    os << indent << "Transform: " << this->Transform << "\n";
+    }
+  else
+    {
+    os << indent << "Transform: (none)\n";
+    }
+
+  if ( this->InternalFileName )
+    {
+    os << indent << "Internal File Name: " << this->InternalFileName << "\n";
+    }
+  else
+    {
+    os << indent << "Internal File Name: (none)\n";
+    }
 }
 
 

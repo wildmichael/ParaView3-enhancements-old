@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageShiftScale.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-26 20:02:30 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1998-06-23 20:26:35 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -210,16 +210,12 @@ void vtkImageShiftScale::ThreadedExecute(vtkImageData *inData,
 
 
 
+void vtkImageShiftScale::PrintSelf(ostream& os, vtkIndent indent)
+{
+  vtkImageFilter::PrintSelf(os,indent);
 
-
-
-
-
-
-
-
-
-
-
-
+  os << indent << "Shift: " << this->Shift << "\n";
+  os << indent << "Scale: " << this->Scale << "\n";
+  os << indent << "Output Scalar Type: " << this->OutputScalarType << "\n";
+}
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCorrelation.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-14 18:18:58 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-06-23 20:26:27 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -278,3 +278,11 @@ void vtkImageCorrelation::ThreadedExecute(vtkImageData **inData,
       return;
     }
 }
+
+void vtkImageCorrelation::PrintSelf(ostream& os, vtkIndent indent)
+{
+  vtkImageTwoInputFilter::PrintSelf(os,indent);
+
+  os << indent << "Dimensionality: " << this->Dimensionality << "\n";
+}
+

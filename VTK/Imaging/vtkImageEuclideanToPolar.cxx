@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageEuclideanToPolar.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-09 20:49:39 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-06-23 20:26:29 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -176,17 +176,9 @@ void vtkImageEuclideanToPolar::ThreadedExecute(vtkImageData *inData,
     }
 }
 
-  
+void vtkImageEuclideanToPolar::PrintSelf(ostream& os, vtkIndent indent)
+{
+  vtkImageFilter::PrintSelf(os,indent);
 
-
-
-
-
-
-
-
-
-
-
-
-
+  os << indent << "Maximum Angle: " << this->ThetaMaximum << "\n";
+}

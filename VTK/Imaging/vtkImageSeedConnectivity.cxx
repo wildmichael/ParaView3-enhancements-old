@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSeedConnectivity.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-12-22 14:57:05 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-06-23 20:26:33 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -264,5 +264,22 @@ void vtkImageSeedConnectivity::Execute(vtkImageData *inData,
 }
 
 
+void vtkImageSeedConnectivity::PrintSelf(ostream& os, vtkIndent indent)
+{
+  vtkImageFilter::PrintSelf(os,indent);
 
+  if ( this->Connector )
+    {
+    os << indent << "Connector: " << this->Connector << "\n";
+    }
+  else
+    {
+    os << indent << "Connector: (none)\n";
+    }
+
+  os << indent << "Dimensionality: " << this->Dimensionality << "\n";
+  os << indent << "InputConnectValue: " << this->InputConnectValue << "\n";
+  os << indent << "OutputConnectedValue: " << this->OutputConnectedValue << "\n";
+  os << indent << "OutputUnconnectedValue: " << this->OutputUnconnectedValue << "\n";
+}
 

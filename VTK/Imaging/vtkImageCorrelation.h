@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCorrelation.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-30 21:06:57 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-06-23 20:26:28 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,6 +60,7 @@ public:
   vtkImageCorrelation();
   static vtkImageCorrelation *New() {return new vtkImageCorrelation;};
   const char *GetClassName() {return "vtkImageCorrelation";};
+  void PrintSelf(ostream& os, vtkIndent indent);
 
     // Description:
   // Determines how the input is interpreted (set of 2d slices ...)
