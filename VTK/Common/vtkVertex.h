@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVertex.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-09 16:42:20 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1996-07-19 04:19:55 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,7 +64,7 @@ public:
   int CellBoundary(int subId, float pcoords[3], vtkIdList& pts);
 
   void Contour(float value, vtkFloatScalars *cellScalars, 
-               vtkFloatPoints *points, vtkCellArray *verts, 
+               vtkPointLocator *locator, vtkCellArray *verts, 
                vtkCellArray *lines, vtkCellArray *polys, vtkFloatScalars *s);
   int EvaluatePosition(float x[3], float closestPoint[3], 
                        int& subId, float pcoords[3], 

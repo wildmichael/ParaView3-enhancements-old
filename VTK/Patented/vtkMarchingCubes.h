@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingCubes.h,v $
   Language:  C++
-  Date:      $Date: 1996-07-18 20:14:41 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1996-07-19 04:19:42 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -104,15 +104,16 @@ public:
   vtkGetMacro(ComputeScalars,int);
   vtkBooleanMacro(ComputeScalars,int);
 
+  void GenerateValues(int numContours, float range[2]);
+  void GenerateValues(int numContours, float range1, float range2);
+
   void SetLocator(vtkPointLocator *locator);
   void SetLocator(vtkPointLocator& locator) {this->SetLocator(&locator);};
   vtkGetObjectMacro(Locator,vtkPointLocator);
 
-  void GenerateValues(int numContours, float range[2]);
-  void GenerateValues(int numContours, float range1, float range2);
-
   // Description:
-  // Create default locator. Used to create one when none is specified.
+  // Create default locator. Used to create one when none is specified. The locator
+  // is used to merge coincident points.
   void CreateDefaultLocator();
 
 protected:

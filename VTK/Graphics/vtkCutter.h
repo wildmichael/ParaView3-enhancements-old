@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.h,v $
   Language:  C++
-  Date:      $Date: 1995-11-05 18:44:08 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1996-07-19 04:19:37 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,10 +66,21 @@ public:
   vtkSetObjectMacro(CutFunction,vtkImplicitFunction);
   vtkGetObjectMacro(CutFunction,vtkImplicitFunction);
 
+  void SetLocator(vtkPointLocator *locator);
+  void SetLocator(vtkPointLocator& locator) {this->SetLocator(&locator);};
+  vtkGetObjectMacro(Locator,vtkPointLocator);
+
+  // Description:
+  // Create default locator. Used to create one when none is specified. The locator
+  // is used to merge coincident points.
+  void CreateDefaultLocator();
+
 protected:
   void Execute();
   vtkImplicitFunction *CutFunction;
   
+  vtkPointLocator *Locator;
+  int SelfCreatedLocator;
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell.h,v $
   Language:  C++
-  Date:      $Date: 1996-06-26 20:38:43 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1996-07-19 04:19:34 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,6 +68,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkCellType.hh"
 
 class vtkCellArray;
+class vtkPointLocator;
 
 class vtkCell : public vtkObject
 {
@@ -155,9 +156,10 @@ public:
                                 float x[3], float *weights) = 0;
 
   // Description:
-  // Generate contouring primitives.
+  // Generate contouring primitives. The point locator is essentially a points list
+  // that merges points as they are inserted (i.e., prevents duplicates).
   virtual void Contour(float value, vtkFloatScalars *cellScalars, 
-                       vtkFloatPoints *points, vtkCellArray *verts, 
+                       vtkPointLocator *locator, vtkCellArray *verts, 
                        vtkCellArray *lines, vtkCellArray *polys, 
                        vtkFloatScalars *scalars) = 0;
 
