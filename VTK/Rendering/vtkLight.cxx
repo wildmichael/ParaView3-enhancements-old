@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLight.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:06:47 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1999-10-22 19:11:40 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,7 +43,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkLight.h"
 #include "vtkRenderer.h"
 #include "vtkRenderWindow.h"
-#include "vtkObjectFactory.h"
+#include "vtkGraphicsFactory.h"
 
 // Create a light with the focal point at the origin and its position
 // set to (0,0,1). The lights color is white, intensity=1, and the light 
@@ -73,39 +73,12 @@ vtkLight::vtkLight()
   this->Exponent = 1;
 }
 
-#ifdef VTK_USE_OGLR
-#include "vtkOpenGLLight.h"
-#endif
-#ifdef _WIN32
-#include "vtkOpenGLLight.h"
-#endif
 // return the correct type of light 
 vtkLight *vtkLight::New()
 { 
   // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkLight");
-  if(ret)
-    {
-    return (vtkLight*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-
-  char *temp = vtkRenderWindow::GetRenderLibrary();
-  
-#ifdef VTK_USE_OGLR
-  if (!strcmp("OpenGL",temp))
-    {
-    return vtkOpenGLLight::New();
-    }
-#endif
-#ifdef _WIN32
-  if (!strcmp("Win32OpenGL",temp))
-    {
-    return vtkOpenGLLight::New();
-    }
-#endif
-  
-  return new vtkLight;
+  vtkObject* ret = vtkGraphicsFactory::CreateInstance("vtkLight");
+  return (vtkLight*)ret;
 }
 
 void vtkLight::DeepCopy(vtkLight *light)
