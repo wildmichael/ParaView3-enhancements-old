@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:03:22 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-08-30 14:51:13 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,10 +80,6 @@ public:
   virtual void GetPosition(int* x, int* y);
 
   // Description:
-  // Set the desired background color for the window.
-  virtual void SetBackgroundColor(float r, float g, float b) = 0;
-  
-  // Description:
   // Sets the size of a window in pixels.
   virtual void SetSize(int , int ) = 0;
   virtual void SetSize(int a[2]) { this->SetSize(a[0], a[1]); };
@@ -142,7 +138,7 @@ public:
 
   // Description:
   // Erase the window contents 
-  virtual void EraseWindow() = 0;
+  virtual void EraseWindow();
 
   // Description:
   // Save the current image as a PPM file.

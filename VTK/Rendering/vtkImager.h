@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImager.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:03:23 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-08-30 14:51:13 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -87,7 +87,7 @@ public:
   
   // Description:
   // Erase the contents of the imager in the window.
-  void Erase(){vtkErrorMacro(<<"vtkImager::Erase - Not implemented!");};
+  virtual void Erase(){vtkErrorMacro(<<"vtkImager::Erase - Not implemented!");};
 
 protected:
   vtkImager();
