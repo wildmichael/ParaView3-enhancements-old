@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToImageFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-18 14:06:01 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-01-31 22:00:02 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,7 +63,7 @@ public:
 
   // Description:
   // Set the Input of a filter. 
-  void SetInput(vtkImageData *input);
+  virtual void SetInput(vtkImageData *input);
   vtkImageData *GetInput();
   
   // Description:
