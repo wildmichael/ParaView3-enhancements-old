@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeneralTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-26 17:37:38 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2000-02-01 04:42:43 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -139,19 +139,8 @@ public:
   // Description:
   // Update the transform to account for any changes which
   // have been made.  This is called automatically when
-  // TransformPoint etc. is called unless the AutoUpdate
-  // flag is off.
+  // TransformPoint etc. is called.
   virtual void Update();
-
-  // Description:
-  // Automatically update the transform any time that
-  // TransformPoint, TransformPoints, etc. are called.
-  // This is on by default, you can turn it off before
-  // transforming a bunch of points to improve efficiency.
-  // But make sure that you turn it back on again later!
-  vtkSetMacro(AutoUpdate,int);
-  vtkBooleanMacro(AutoUpdate,int);
-  vtkGetMacro(AutoUpdate,int);
 
   // Description:
   // Needs a special UnRegister() implementation to avoid
@@ -165,6 +154,12 @@ protected:
   ~vtkGeneralTransform() {};
   vtkGeneralTransform(const vtkGeneralTransform&) {};
   void operator=(const vtkGeneralTransform&) {};
+
+//BTX
+  vtkSetMacro(AutoUpdate,int);
+  vtkBooleanMacro(AutoUpdate,int);
+  vtkGetMacro(AutoUpdate,int);
+//ETX
 
   int TransformType;
   int AutoUpdate;
