@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkElevationFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:01 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1998-10-15 16:24:00 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,11 +65,10 @@ void vtkElevationFilter::Execute()
 {
   int i, j, numPts;
   vtkScalars *newScalars;
-  float l, *bounds, *x, s, v[3];
+  float l, *x, s, v[3];
   float diffVector[3], diffScalar;
   vtkDataSet *input = (vtkDataSet *)this->Input;
 
-  //
   // Initialize
   //
   vtkDebugMacro(<<"Generating elevation scalars!");
@@ -79,16 +78,14 @@ void vtkElevationFilter::Execute()
     vtkErrorMacro(<< "No input!");
     return;
     }
-//
-// Allocate
-//
+
+  // Allocate
+  //
   newScalars = vtkScalars::New();
   newScalars->SetNumberOfScalars(numPts);
-//
-// Set up 1D parametric system
-//
-  bounds = input->GetBounds();
 
+  // Set up 1D parametric system
+  //
   for (i=0; i<3; i++) diffVector[i] = this->HighPoint[i] - this->LowPoint[i];
   if ( (l = vtkMath::Dot(diffVector,diffVector)) == 0.0)
     {
@@ -96,21 +93,27 @@ void vtkElevationFilter::Execute()
     diffVector[0] = diffVector[1] = 0.0; diffVector[2] = 1.0;
     l = 1.0;
     }
-//
-// Compute parametric coordinate and map into scalar range
-//
+
+  // Compute parametric coordinate and map into scalar range
+  //
   diffScalar = this->ScalarRange[1] - this->ScalarRange[0];
   for (i=0; i<numPts; i++)
     {
+    if ( ! (i % 10000) ) 
+      {
+      this->UpdateProgress ((float)i/numPts);
+      if (this->GetAbortExecute()) break;
+      }
+
     x = input->GetPoint(i);
     for (j=0; j<3; j++) v[j] = x[j] - this->LowPoint[j];
     s = vtkMath::Dot(v,diffVector) / l;
     s = (s < 0.0 ? 0.0 : s > 1.0 ? 1.0 : s);
     newScalars->SetScalar(i,this->ScalarRange[0]+s*diffScalar);
     }
-//
-// Update self
-//
+
+  // Update self
+  //
   ((vtkDataSet *)this->Output)->GetPointData()->CopyScalarsOff();
   ((vtkDataSet *)this->Output)->GetPointData()->PassData(input->GetPointData());
 
