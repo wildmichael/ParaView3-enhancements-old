@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-23 16:11:41 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1995-09-07 09:10:32 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,11 +50,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 // .SECTION Event Bindings
 // Specific devices have different camera bindings. The bindings are on both
-// mouse events as well as keyboard presses. See vtkXRenderWindowInteractor and 
-// vtkWin32RenderWindowInteractor for specific information.
+// mouse events as well as keyboard presses. See vtkXRenderWindowInteractor  
+// and vtkWin32RenderWindowInteractor for specific information.
 
 // .SECTION see also
-// vtkXRenderWindowInteractor vtkWinRenderWindowInteractor vtkPicker
+// vtkXRenderWindowInteractor vtkWin32RenderWindowInteractor vtkPicker
 
 #ifndef __vtkRenderWindowInteractor_h
 #define __vtkRenderWindowInteractor_h
