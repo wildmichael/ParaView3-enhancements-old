@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIterator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-05 18:33:49 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-03-12 15:27:44 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,8 +16,9 @@
 
 =========================================================================*/
 
-#ifndef CMAKE_NO_EXPLICIT_TEMPLATE_INSTATIATION
 #include "vtkImageIterator.txx"
+
+#ifndef VTK_NO_EXPLICIT_TEMPLATE_INSTANTIATION
 
 template class VTK_COMMON_EXPORT vtkImageIterator<char>;
 template class VTK_COMMON_EXPORT vtkImageIterator<int>;

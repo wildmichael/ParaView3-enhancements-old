@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageProgressIterator.txx,v $
   Language:  C++
-  Date:      $Date: 2002-03-07 13:05:28 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-03-12 15:27:45 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -15,12 +15,14 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
+// Include blockers needed since vtkImageProgressIterator.h includes
+// this file when VTK_NO_EXPLICIT_TEMPLATE_INSTANTIATION is defined.
+#ifndef __vtkImageProgressIterator_txx
+#define __vtkImageProgressIterator_txx
 
-#ifndef CMAKE_NO_EXPLICIT_TEMPLATE_INSTATIATION
 #include "vtkImageProgressIterator.h"
 #include "vtkImageData.h"
 #include "vtkProcessObject.h"
-#endif
 
 template <class DType>
 vtkImageProgressIterator<DType>::vtkImageProgressIterator(vtkImageData *imgd, 
@@ -60,4 +62,4 @@ void vtkImageProgressIterator<DType>::NextSpan()
     }
 }
 
-
+#endif
