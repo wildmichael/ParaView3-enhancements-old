@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageEuclideanToPolar.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-06 20:22:07 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2002-06-14 17:38:44 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageEuclideanToPolar, "$Revision: 1.22 $");
+vtkCxxRevisionMacro(vtkImageEuclideanToPolar, "$Revision: 1.23 $");
 vtkStandardNewMacro(vtkImageEuclideanToPolar);
 
 //----------------------------------------------------------------------------
@@ -33,10 +33,10 @@ vtkImageEuclideanToPolar::vtkImageEuclideanToPolar()
 //----------------------------------------------------------------------------
 // This templated function executes the filter for any type of data.
 template <class T>
-static void vtkImageEuclideanToPolarExecute(vtkImageEuclideanToPolar *self,
-                                    vtkImageData *inData,
-                                    vtkImageData *outData,
-                                    int outExt[6], int id, T *)
+void vtkImageEuclideanToPolarExecute(vtkImageEuclideanToPolar *self,
+                                     vtkImageData *inData,
+                                     vtkImageData *outData,
+                                     int outExt[6], int id, T *)
 {
   vtkImageIterator<T> inIt(inData, outExt);
   vtkImageProgressIterator<T> outIt(outData, outExt, self, id);

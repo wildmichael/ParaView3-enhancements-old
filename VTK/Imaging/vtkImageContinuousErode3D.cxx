@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageContinuousErode3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:32:09 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-06-14 17:38:44 $
+  Version:   $Revision: 1.22 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkImageEllipsoidSource.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageContinuousErode3D, "$Revision: 1.21 $");
+vtkCxxRevisionMacro(vtkImageContinuousErode3D, "$Revision: 1.22 $");
 vtkStandardNewMacro(vtkImageContinuousErode3D);
 
 //----------------------------------------------------------------------------
@@ -110,11 +110,11 @@ void vtkImageContinuousErode3D::SetKernelSize(int size0, int size1, int size2)
 // If the filter needs to be faster, the function could be duplicated
 // for strictly center (no boundary ) processing.
 template <class T>
-static void vtkImageContinuousErode3DExecute(vtkImageContinuousErode3D *self,
-                                             vtkImageData *mask,
-                                             vtkImageData *inData, T *inPtr, 
-                                             vtkImageData *outData, 
-                                             int *outExt, T *outPtr, int id)
+void vtkImageContinuousErode3DExecute(vtkImageContinuousErode3D *self,
+                                      vtkImageData *mask,
+                                      vtkImageData *inData, T *inPtr, 
+                                      vtkImageData *outData, 
+                                      int *outExt, T *outPtr, int id)
 {
   int *kernelMiddle, *kernelSize;
   // For looping though output (and input) pixels.

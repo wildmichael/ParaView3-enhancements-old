@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageEuclideanDistance.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:32:25 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-06-14 17:38:44 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageEuclideanDistance, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkImageEuclideanDistance, "$Revision: 1.13 $");
 vtkStandardNewMacro(vtkImageEuclideanDistance);
 
 //----------------------------------------------------------------------------
@@ -65,9 +65,10 @@ void vtkImageEuclideanDistance::ComputeInputUpdateExtent(int inExt[6],
 // This templated execute method handles any type input, but the output
 // is always floats.
 template <class TT>
-static void vtkImageEuclideanDistanceCopyData(vtkImageEuclideanDistance *self,
-                         vtkImageData *inData, TT *inPtr,
-                         vtkImageData *outData, int outExt[6], float *outPtr )
+void vtkImageEuclideanDistanceCopyData(vtkImageEuclideanDistance *self,
+                                       vtkImageData *inData, TT *inPtr,
+                                       vtkImageData *outData, int outExt[6], 
+                                       float *outPtr )
 {
   int inInc0, inInc1, inInc2;
   TT *inPtr0, *inPtr1, *inPtr2;
@@ -112,10 +113,10 @@ static void vtkImageEuclideanDistanceCopyData(vtkImageEuclideanDistance *self,
 // This templated execute method handles any type input, but the output
 // is always floats.
 template <class T>
-static
 void vtkImageEuclideanDistanceInitialize(vtkImageEuclideanDistance *self,
-                         vtkImageData *inData, T *inPtr,
-                         vtkImageData *outData, int outExt[6], float *outPtr )
+                                         vtkImageData *inData, T *inPtr,
+                                         vtkImageData *outData, 
+                                         int outExt[6], float *outPtr )
 {
   int inInc0, inInc1, inInc2;
   T *inPtr0, *inPtr1, *inPtr2;

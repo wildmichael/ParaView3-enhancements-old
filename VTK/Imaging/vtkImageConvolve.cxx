@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageConvolve.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:32:11 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-06-14 17:38:44 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkImageEllipsoidSource.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageConvolve, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkImageConvolve, "$Revision: 1.12 $");
 vtkStandardNewMacro(vtkImageConvolve);
 
 //----------------------------------------------------------------------------
@@ -275,10 +275,10 @@ void vtkImageConvolve::GetKernel(float *kernel)
 // If the filter needs to be faster, the function could be duplicated
 // for strictly center (no boundary) processing.
 template <class T>
-static void vtkImageConvolveExecute(vtkImageConvolve *self,
-                                    vtkImageData *inData, T *inPtr, 
-                                    vtkImageData *outData, T *outPtr,
-                                    int outExt[6], int id)
+void vtkImageConvolveExecute(vtkImageConvolve *self,
+                             vtkImageData *inData, T *inPtr, 
+                             vtkImageData *outData, T *outPtr,
+                             int outExt[6], int id)
 {
   int *kernelSize;
   int kernelMiddle[3];

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageEllipsoidSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:32:24 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-06-14 17:38:44 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 
 #include "vtkImageData.h"
 
-vtkCxxRevisionMacro(vtkImageEllipsoidSource, "$Revision: 1.24 $");
+vtkCxxRevisionMacro(vtkImageEllipsoidSource, "$Revision: 1.25 $");
 vtkStandardNewMacro(vtkImageEllipsoidSource);
 
 //----------------------------------------------------------------------------
@@ -119,9 +119,8 @@ void vtkImageEllipsoidSource::ExecuteInformation()
 
 
 template <class T>
-static void vtkImageEllipsoidSourceExecute(vtkImageEllipsoidSource *self,
-                                          vtkImageData *data, int ext[6],
-                                          T *ptr)
+void vtkImageEllipsoidSourceExecute(vtkImageEllipsoidSource *self,
+                                    vtkImageData *data, int ext[6], T *ptr)
 {
   int min0, max0;
   int idx0, idx1, idx2;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCorrelation.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:32:12 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2002-06-14 17:38:44 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkImageCorrelation.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageCorrelation, "$Revision: 1.25 $");
+vtkCxxRevisionMacro(vtkImageCorrelation, "$Revision: 1.26 $");
 vtkStandardNewMacro(vtkImageCorrelation);
 
 //----------------------------------------------------------------------------
@@ -75,11 +75,11 @@ void vtkImageCorrelation::ComputeInputUpdateExtent(int inExt[6],
 // This templated function executes the filter for any type of data.
 // Handles the two input operations
 template <class T>
-static void vtkImageCorrelationExecute(vtkImageCorrelation *self,
-                                       vtkImageData *in1Data, T *in1Ptr,
-                                       vtkImageData *in2Data, T *in2Ptr,
-                                       vtkImageData *outData, float *outPtr,
-                                       int outExt[6], int id)
+void vtkImageCorrelationExecute(vtkImageCorrelation *self,
+                                vtkImageData *in1Data, T *in1Ptr,
+                                vtkImageData *in2Data, T *in2Ptr,
+                                vtkImageData *outData, float *outPtr,
+                                int outExt[6], int id)
 {
   int idxC, idxX, idxY, idxZ;
   int maxC, maxX, maxY, maxZ;

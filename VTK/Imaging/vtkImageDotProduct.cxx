@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDotProduct.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-04 14:07:56 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2002-06-14 17:38:44 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkImageProgressIterator.h"
 
-vtkCxxRevisionMacro(vtkImageDotProduct, "$Revision: 1.25 $");
+vtkCxxRevisionMacro(vtkImageDotProduct, "$Revision: 1.26 $");
 vtkStandardNewMacro(vtkImageDotProduct);
 
 //----------------------------------------------------------------------------
@@ -35,11 +35,11 @@ void vtkImageDotProduct::ExecuteInformation(vtkImageData **vtkNotUsed(inDatas),
 // This templated function executes the filter for any type of data.
 // Handles the two input operations
 template <class T>
-static void vtkImageDotProductExecute(vtkImageDotProduct *self,
-                                      vtkImageData *in1Data, 
-                                      vtkImageData *in2Data, 
-                                      vtkImageData *outData, 
-                                      int outExt[6], int id, T *)
+void vtkImageDotProductExecute(vtkImageDotProduct *self,
+                               vtkImageData *in1Data, 
+                               vtkImageData *in2Data, 
+                               vtkImageData *outData, 
+                               int outExt[6], int id, T *)
 {
   vtkImageIterator<T> inIt1(in1Data, outExt);
   vtkImageIterator<T> inIt2(in2Data, outExt);

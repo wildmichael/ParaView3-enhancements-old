@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDivergence.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-12 16:55:23 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-06-14 17:38:44 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageDivergence, "$Revision: 1.23 $");
+vtkCxxRevisionMacro(vtkImageDivergence, "$Revision: 1.24 $");
 vtkStandardNewMacro(vtkImageDivergence);
 
 //----------------------------------------------------------------------------
@@ -79,7 +79,7 @@ void vtkImageDivergence::ComputeInputUpdateExtent(int inExt[6],
 // it handles boundaries. Pixels are just replicated to get values 
 // out of extent.
 template <class T>
-static void vtkImageDivergenceExecute(vtkImageDivergence *self,
+void vtkImageDivergenceExecute(vtkImageDivergence *self,
                                vtkImageData *inData, T *inPtr,
                                vtkImageData *outData, T *outPtr,
                                int outExt[6], int id)

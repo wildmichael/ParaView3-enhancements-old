@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGridSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:32:40 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-06-14 17:38:44 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageGridSource, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkImageGridSource, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkImageGridSource);
 
 //----------------------------------------------------------------------------
@@ -61,7 +61,7 @@ void vtkImageGridSource::ExecuteInformation()
 
 //----------------------------------------------------------------------------
 template<class T>
-static void vtkImageGridSourceExecute(vtkImageGridSource *self,
+void vtkImageGridSourceExecute(vtkImageGridSource *self,
                                vtkImageData *data, T *outPtr,
                                int outExt[6], int id)
 {

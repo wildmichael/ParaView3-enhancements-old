@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFFT.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:32:30 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2002-06-14 17:38:44 $
+  Version:   $Revision: 1.32 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageFFT, "$Revision: 1.31 $");
+vtkCxxRevisionMacro(vtkImageFFT, "$Revision: 1.32 $");
 vtkStandardNewMacro(vtkImageFFT);
 
 //----------------------------------------------------------------------------
@@ -57,10 +57,10 @@ void vtkImageFFT::ComputeInputUpdateExtent(int inExt[6],
 // This templated execute method handles any type input, but the output
 // is always floats.
 template <class T>
-static void vtkImageFFTExecute(vtkImageFFT *self,
-                         vtkImageData *inData, int inExt[6], T *inPtr,
-                         vtkImageData *outData, int outExt[6], float *outPtr,
-                         int id)
+void vtkImageFFTExecute(vtkImageFFT *self,
+                        vtkImageData *inData, int inExt[6], T *inPtr,
+                        vtkImageData *outData, int outExt[6], float *outPtr,
+                        int id)
 {
   vtkImageComplex *inComplex;
   vtkImageComplex *outComplex;

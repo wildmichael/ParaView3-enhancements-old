@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFlip.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:32:31 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2002-06-14 17:38:44 $
+  Version:   $Revision: 1.31 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkImageFlip.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageFlip, "$Revision: 1.30 $");
+vtkCxxRevisionMacro(vtkImageFlip, "$Revision: 1.31 $");
 vtkStandardNewMacro(vtkImageFlip);
 
 //----------------------------------------------------------------------------
@@ -76,9 +76,9 @@ void vtkImageFlip::ComputeInputUpdateExtent(int inExt[6],
 //----------------------------------------------------------------------------
 // This templated function executes the filter for any type of data.
 template <class T>
-static void vtkImageFlipExecute(vtkImageFlip *self, int id,
-                                vtkImageData *inData, int *inExt,
-                                vtkImageData *outData, int *outExt, T *outPtr)
+void vtkImageFlipExecute(vtkImageFlip *self, int id,
+                         vtkImageData *inData, int *inExt,
+                         vtkImageData *outData, int *outExt, T *outPtr)
 {
   int idxX, idxY, idxZ;
   int maxX, maxY, maxZ;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGradient.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:32:38 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2002-06-14 17:38:44 $
+  Version:   $Revision: 1.38 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageGradient, "$Revision: 1.37 $");
+vtkCxxRevisionMacro(vtkImageGradient, "$Revision: 1.38 $");
 vtkStandardNewMacro(vtkImageGradient);
 
 //----------------------------------------------------------------------------
@@ -104,10 +104,10 @@ void vtkImageGradient::ComputeInputUpdateExtent(int inExt[6],
 // it handles boundaries. Pixels are just replicated to get values 
 // out of extent.
 template <class T>
-static void vtkImageGradientExecute(vtkImageGradient *self,
-                                    vtkImageData *inData, T *inPtr,
-                                    vtkImageData *outData, float *outPtr,
-                                    int outExt[6], int id)
+void vtkImageGradientExecute(vtkImageGradient *self,
+                             vtkImageData *inData, T *inPtr,
+                             vtkImageData *outData, float *outPtr,
+                             int outExt[6], int id)
 {
   int idxX, idxY, idxZ;
   int maxX, maxY, maxZ;
