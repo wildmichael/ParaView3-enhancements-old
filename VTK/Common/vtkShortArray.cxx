@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShortArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-19 17:51:13 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2002-01-03 15:02:29 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -413,7 +413,7 @@ float vtkShortArray::GetComponent(const vtkIdType i, const int j)
 // SetNumberOfComponents()).
 void vtkShortArray::SetComponent(const vtkIdType i, const int j, const float c)
 {
-  this->SetValue(i*this->NumberOfComponents + j, (short)c);
+  this->SetValue(i*this->NumberOfComponents + j, static_cast<short>(c));
 }
 
 // Insert the data component at ith tuple and jth component location. 
@@ -421,6 +421,6 @@ void vtkShortArray::SetComponent(const vtkIdType i, const int j, const float c)
 void vtkShortArray::InsertComponent(const vtkIdType i, const int j,
                                     const float c)
 {
-  this->InsertValue(i*this->NumberOfComponents + j, (short)c);
+  this->InsertValue(i*this->NumberOfComponents + j, static_cast<short>(c));
 }
 

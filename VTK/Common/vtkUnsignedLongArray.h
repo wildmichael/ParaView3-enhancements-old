@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedLongArray.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-12 16:07:45 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2002-01-03 15:02:20 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -129,6 +129,19 @@ public:
   // Insert data at the end of the array. Return its location in the array.
   vtkIdType InsertNextValue(const unsigned long);
 
+  // Description:
+  // Return the data component at the ith tuple and jth component location.
+  // Note that i is less then NumberOfTuples and j is less then 
+  // NumberOfComponents.
+  float GetComponent(const vtkIdType i, const int j);
+  
+  // Description:
+  // Set the data component at the ith tuple and jth component location.
+  // Note that i is less then NumberOfTuples and j is less then 
+  // NumberOfComponents. Make sure enough memory has been allocated 
+  // (use SetNumberOfTuples() and SetNumberOfComponents()).
+  void SetComponent(const vtkIdType i, const int j, const float c);
+  
   // Description:
   // Insert the data component at ith tuple and jth component location. 
   // Note that memory allocation is performed as necessary to hold the data.

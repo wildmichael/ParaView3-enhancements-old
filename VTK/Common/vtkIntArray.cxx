@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIntArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-27 21:41:33 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 2002-01-03 15:02:07 $
+  Version:   $Revision: 1.60 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -395,6 +395,22 @@ vtkIdType vtkIntArray::InsertNextTuple(const double * tuple)
     }
 
   return this->MaxId / this->NumberOfComponents;
+}
+
+// Return the data component at the ith tuple and jth component location.
+// Note that i<NumberOfTuples and j<NumberOfComponents.
+float vtkIntArray::GetComponent(const vtkIdType i, const int j)
+{
+  return (float) this->GetValue(i*this->NumberOfComponents + j);
+}
+
+// Set the data component at the ith tuple and jth component location.
+// Note that i<NumberOfTuples and j<NumberOfComponents. Make sure enough
+// memory has been allocated (use SetNumberOfTuples() and 
+// SetNumberOfComponents()).
+void vtkIntArray::SetComponent(const vtkIdType i, const int j, const float c)
+{
+  this->SetValue(i*this->NumberOfComponents + j, static_cast<int>(c));
 }
 
 void vtkIntArray::InsertComponent(const vtkIdType i, const int j, 
