@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-15 07:49:23 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1994-09-30 17:09:10 $
+  Version:   $Revision: 1.34 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -74,7 +74,7 @@ public:
   // Allocate storage for cells when using the following InsertNextCell method
   void Allocate(int numCells=1000, int extSize=1000);
   // create verts, lines, polys, tmeshes from cell object
-  void InsertNextCell(int type, int npts, int pts[MAX_CELL_SIZE]);
+  int InsertNextCell(int type, int npts, int pts[MAX_CELL_SIZE]);
   // Use this method to reclaim memory when using InsertNextCell()
   void Squeeze();
 
