@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPicker.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-27 15:33:29 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1997-07-08 10:43:26 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -121,7 +121,7 @@ public:
 
   vtkActorCollection *GetActors();
 
-  int Pick(float selectionX, float selectionY, float selectionZ, 
+  virtual int Pick(float selectionX, float selectionY, float selectionZ, 
            vtkRenderer *renderer);  
   int Pick(float selectionPt[3], vtkRenderer *renderer);  
 
