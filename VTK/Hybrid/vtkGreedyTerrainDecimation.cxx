@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGreedyTerrainDecimation.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-23 20:29:59 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2003-09-03 13:59:51 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,7 @@
 
 #include <vtkstd/vector>
 
-vtkCxxRevisionMacro(vtkGreedyTerrainDecimation, "$Revision: 1.13 $");
+vtkCxxRevisionMacro(vtkGreedyTerrainDecimation, "$Revision: 1.14 $");
 vtkStandardNewMacro(vtkGreedyTerrainDecimation);
 
 // Define some constants describing vertices
@@ -140,6 +140,7 @@ void vtkGreedyTerrainDecimation::EstimateOutputSize(const vtkIdType numInputPts,
     }
 
   numPts = numTris/2 + 1;
+  numPts = (numPts < 4 ? 4 : numPts); //insure enough storage for initial four corner points
   return;
 }
 
