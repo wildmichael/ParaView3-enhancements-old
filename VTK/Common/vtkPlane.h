@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlane.h,v $
   Language:  C++
-  Date:      $Date: 2003-01-06 20:36:14 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2003-05-07 17:32:57 $
+  Version:   $Revision: 1.51 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -95,7 +95,8 @@ public:
   // normal n and point p0, compute an intersection. The parametric
   // coordinate along the line is returned in t, and the coordinates of 
   // intersection are returned in x. A zero is returned if the plane and line
-  // are parallel.
+  // do not intersect between (0<=t<=1). If the plane and line are parallel,
+  // zero is returned and t is set to VTK_LARGE_FLOAT.
   static int IntersectWithLine(float p1[3], float p2[3], float n[3], 
                                float p0[3], float& t, float x[3]);
 
