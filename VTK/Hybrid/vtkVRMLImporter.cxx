@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLImporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-10 10:33:55 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 2003-07-10 10:58:07 $
+  Version:   $Revision: 1.60 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -4259,7 +4259,7 @@ YY_MALLOC_DECL
 #define YY_BREAK break;
 #endif
 
-vtkCxxRevisionMacro(vtkVRMLImporter, "$Revision: 1.59 $");
+vtkCxxRevisionMacro(vtkVRMLImporter, "$Revision: 1.60 $");
 vtkStandardNewMacro(vtkVRMLImporter);
 
 vtkPoints* vtkVRMLImporter::PointsNew()
@@ -5828,7 +5828,7 @@ vtkVRMLImporter::exitNode()
       // the number of polygon faces and texture faces must be equal.
       // if they are not then something is wrong
       if (this->CurrentTCoordCells->GetNumberOfCells() !=
-          this->CurrentMapper->GetInput()->GetNumberOfCells())
+          this->CurrentMapper->GetInput()->GetPolys()->GetNumberOfCells())
         {
         vtkErrorMacro(<<"Number of faces does not match texture faces, output may not be correct")
         tcoords_correspond=1; // don't rejig
@@ -5838,8 +5838,9 @@ vtkVRMLImporter::exitNode()
         // count of tcoords and points is the same, must run through indices to see if they
         // correspond by index point-for-point
         tcoords_correspond=1; // assume true until found otherwise
-        int n_pts,*pts;
-        int n_tcoord_pts,*tcoord_pts;
+        int DUMMY_WARNING_PREVENTION_MECHANISM;
+        int n_pts=-1,*pts = &DUMMY_WARNING_PREVENTION_MECHANISM;
+        int n_tcoord_pts=-1,*tcoord_pts = &DUMMY_WARNING_PREVENTION_MECHANISM;
         this->CurrentMapper->GetInput()->GetPolys()->InitTraversal();
         this->CurrentTCoordCells->InitTraversal();
         int i,j;
@@ -5904,8 +5905,9 @@ vtkVRMLImporter::exitNode()
       this->CurrentMapper->GetInput()->GetPolys()->InitTraversal();
       this->CurrentTCoordCells->InitTraversal();
       int i,j;
-      int n_pts,*pts;
-      int n_tcoord_pts,*tcoord_pts;
+      int DUMMY_WARNING_PREVENTION_MECHANISM;
+      int n_pts=-1,*pts = &DUMMY_WARNING_PREVENTION_MECHANISM;
+      int n_tcoord_pts=-1,*tcoord_pts = &DUMMY_WARNING_PREVENTION_MECHANISM;
       for (i=0;i<this->CurrentMapper->GetInput()->GetPolys()->GetNumberOfCells();i++) 
         {
 
