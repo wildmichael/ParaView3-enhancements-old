@@ -1,4 +1,4 @@
-# $Id: CMakeLists.txt,v 1.5 2003-08-12 18:47:00 kmorel Exp $
+# $Id: CMakeLists.txt,v 1.6 2004-04-01 21:29:46 berk Exp $
 #
 ## Copyright 2003 Sandia Coporation
 ## Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -31,7 +31,7 @@ CREATE_TEST_SOURCELIST(Tests icetTests_mpi.c ${MyTests}
 		       FUNCTION init_mpi_comm)
 
 ADD_EXECUTABLE(icetTests_mpi ${Tests} ${UTIL_SRCS})
-TARGET_LINK_LIBRARIES(icetTests_mpi icet icet_strategies icet_mpi)
+TARGET_LINK_LIBRARIES(icetTests_mpi icet icet_strategies icet_mpi ${OPENGL_glu_LIBRARY})
 
 IF (ICET_MPIRUN_EXE)
   SET(PRE_TEST_FLAGS ${ICET_MPIRUN_EXE} ${ICET_MPI_PREFLAGS})
