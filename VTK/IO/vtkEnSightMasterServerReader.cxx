@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightMasterServerReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-21 12:58:19 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-06-24 13:06:44 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkString.h"
 
-vtkCxxRevisionMacro(vtkEnSightMasterServerReader, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkEnSightMasterServerReader, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkEnSightMasterServerReader);
 
 //----------------------------------------------------------------------------
@@ -139,7 +139,7 @@ int vtkEnSightMasterServerReader::DetermineFileName(int piece)
         sscanf(result, "casefile: %s", filename);
         if ( filename[0] == 0 )
           {
-          //cout << "Problem parsing file name from: " << result << endl;
+          vtkErrorMacro("Problem parsing file name from: " << result);
           return VTK_ERROR;
           }
         this->SetPieceCaseFileName(filename);
