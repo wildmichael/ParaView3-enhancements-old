@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageButterworthHighPass.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 20:34:57 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-08-18 15:56:38 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -212,7 +212,7 @@ void vtkImageButterworthHighPass::ThreadedExecute(vtkImageData *inData,
 	  }
 	else
 	  {
-	  sum0 = 1.0 / (1.0 + pow(sum0, this->Order));
+	  sum0 = 1.0 / (1.0 + pow(sum0, (float)this->Order));
 	  }	
 	
 	// real component
