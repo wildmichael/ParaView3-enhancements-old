@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitPlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-11 03:07:54 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-12-26 18:21:21 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,28 +19,29 @@
 
 #include "vtkActor.h"
 #include "vtkAssemblyNode.h"
+#include "vtkAssemblyPath.h"
 #include "vtkCallbackCommand.h"
 #include "vtkCamera.h"
 #include "vtkCellPicker.h"
-#include "vtkSphereSource.h"
 #include "vtkConeSource.h"
+#include "vtkCutter.h"
+#include "vtkFeatureEdges.h"
+#include "vtkImageData.h"
 #include "vtkLineSource.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
 #include "vtkOutlineFilter.h"
-#include "vtkTubeFilter.h"
-#include "vtkCutter.h"
+#include "vtkPlane.h"
 #include "vtkPolyData.h"
 #include "vtkPolyDataMapper.h"
 #include "vtkProperty.h"
-#include "vtkRenderer.h"
 #include "vtkRenderWindowInteractor.h"
-#include "vtkPlane.h"
-#include "vtkFeatureEdges.h"
+#include "vtkRenderer.h"
+#include "vtkSphereSource.h"
 #include "vtkTransform.h"
-#include "vtkImageData.h"
+#include "vtkTubeFilter.h"
 
-vtkCxxRevisionMacro(vtkImplicitPlaneWidget, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkImplicitPlaneWidget, "$Revision: 1.16 $");
 vtkStandardNewMacro(vtkImplicitPlaneWidget);
 
 vtkImplicitPlaneWidget::vtkImplicitPlaneWidget() : vtkPolyDataSourceWidget()

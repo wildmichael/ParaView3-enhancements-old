@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLegendBoxActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-11 21:41:29 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-12-26 18:21:21 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,6 +18,7 @@
 #include "vtkLegendBoxActor.h"
 
 #include "vtkActor.h"
+#include "vtkCellArray.h"
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 #include "vtkPolyData.h"
@@ -30,7 +31,7 @@
 #include "vtkTransformPolyDataFilter.h"
 #include "vtkViewport.h"
 
-vtkCxxRevisionMacro(vtkLegendBoxActor, "$Revision: 1.24 $");
+vtkCxxRevisionMacro(vtkLegendBoxActor, "$Revision: 1.25 $");
 vtkStandardNewMacro(vtkLegendBoxActor);
 
 vtkCxxSetObjectMacro(vtkLegendBoxActor,EntryTextProperty,vtkTextProperty);

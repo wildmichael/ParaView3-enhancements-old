@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-12 14:19:04 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2002-12-26 18:21:21 $
+  Version:   $Revision: 1.31 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,8 +19,10 @@
 
 #include "vtkActor.h"
 #include "vtkAssemblyNode.h"
+#include "vtkAssemblyPath.h"
 #include "vtkCallbackCommand.h"
 #include "vtkCamera.h"
+#include "vtkCellArray.h"
 #include "vtkCellPicker.h"
 #include "vtkConeSource.h"
 #include "vtkDoubleArray.h"
@@ -39,7 +41,7 @@
 #include "vtkSphereSource.h"
 #include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkPlaneWidget, "$Revision: 1.30 $");
+vtkCxxRevisionMacro(vtkPlaneWidget, "$Revision: 1.31 $");
 vtkStandardNewMacro(vtkPlaneWidget);
 
 vtkCxxSetObjectMacro(vtkPlaneWidget,PlaneProperty,vtkProperty);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLineWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-12 14:19:04 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2002-12-26 18:21:21 $
+  Version:   $Revision: 1.39 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,25 +19,26 @@
 
 #include "vtkActor.h"
 #include "vtkAssemblyNode.h"
+#include "vtkAssemblyPath.h"
 #include "vtkCallbackCommand.h"
 #include "vtkCamera.h"
 #include "vtkCellPicker.h"
+#include "vtkCommand.h"
 #include "vtkDoubleArray.h"
 #include "vtkFloatArray.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
 #include "vtkPlanes.h"
+#include "vtkPointWidget.h"
 #include "vtkPolyData.h"
 #include "vtkPolyDataMapper.h"
 #include "vtkProperty.h"
-#include "vtkRenderer.h"
-#include "vtkRenderWindowInteractor.h"
-#include "vtkSphereSource.h"
 #include "vtkRenderWindow.h"
-#include "vtkPointWidget.h"
-#include "vtkCommand.h"
+#include "vtkRenderWindowInteractor.h"
+#include "vtkRenderer.h"
+#include "vtkSphereSource.h"
 
-vtkCxxRevisionMacro(vtkLineWidget, "$Revision: 1.38 $");
+vtkCxxRevisionMacro(vtkLineWidget, "$Revision: 1.39 $");
 vtkStandardNewMacro(vtkLineWidget);
 
 // This class is used to coordinate the interaction between the point widget

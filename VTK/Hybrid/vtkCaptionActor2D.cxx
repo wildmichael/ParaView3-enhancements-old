@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCaptionActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-11 21:41:29 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2002-12-26 18:21:21 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,11 +19,13 @@
 
 #include "vtkActor.h"
 #include "vtkAppendPolyData.h"
+#include "vtkCellArray.h"
 #include "vtkFloatArray.h"
 #include "vtkGlyph2D.h"
 #include "vtkGlyph3D.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 #include "vtkPolyData.h"
 #include "vtkPolyDataMapper.h"
 #include "vtkPolyDataMapper2D.h"
@@ -33,7 +35,7 @@
 #include "vtkTextProperty.h"
 #include "vtkViewport.h"
 
-vtkCxxRevisionMacro(vtkCaptionActor2D, "$Revision: 1.22 $");
+vtkCxxRevisionMacro(vtkCaptionActor2D, "$Revision: 1.23 $");
 vtkStandardNewMacro(vtkCaptionActor2D);
 
 vtkCxxSetObjectMacro(vtkCaptionActor2D,LeaderGlyph,vtkPolyData);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitModeller.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-28 22:55:56 $
-  Version:   $Revision: 1.81 $
+  Date:      $Date: 2002-12-26 18:21:21 $
+  Version:   $Revision: 1.82 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,16 +17,19 @@
 =========================================================================*/
 #include "vtkImplicitModeller.h"
 
+#include "vtkCell.h"
 #include "vtkCellLocator.h"
 #include "vtkClipPolyData.h"
 #include "vtkCommand.h"
 #include "vtkFloatArray.h"
+#include "vtkGenericCell.h"
 #include "vtkImageData.h"
 #include "vtkMath.h"
 #include "vtkMultiThreader.h"
 #include "vtkMutexLock.h"
 #include "vtkObjectFactory.h"
 #include "vtkPlane.h"
+#include "vtkPointData.h"
 #include "vtkPolyData.h"
 #include "vtkRectilinearGrid.h"
 #include "vtkStructuredGrid.h"
@@ -34,7 +37,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImplicitModeller, "$Revision: 1.81 $");
+vtkCxxRevisionMacro(vtkImplicitModeller, "$Revision: 1.82 $");
 vtkStandardNewMacro(vtkImplicitModeller);
 
 struct vtkImplicitModellerAppendInfo

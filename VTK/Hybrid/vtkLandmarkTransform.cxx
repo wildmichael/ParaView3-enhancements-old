@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLandmarkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:30:33 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-12-26 18:21:21 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -15,12 +15,14 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
-
 #include "vtkLandmarkTransform.h"
-#include "vtkMath.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkLandmarkTransform, "$Revision: 1.20 $");
+#include "vtkMath.h"
+#include "vtkMatrix4x4.h"
+#include "vtkObjectFactory.h"
+#include "vtkPoints.h"
+
+vtkCxxRevisionMacro(vtkLandmarkTransform, "$Revision: 1.21 $");
 vtkStandardNewMacro(vtkLandmarkTransform);
 
 //----------------------------------------------------------------------------

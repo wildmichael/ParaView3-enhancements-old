@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDepthSortPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-30 21:06:20 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-12-26 18:21:21 $
+  Version:   $Revision: 1.27 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,14 +18,17 @@
 #include "vtkDepthSortPolyData.h"
 
 #include "vtkCamera.h"
+#include "vtkCellData.h"
+#include "vtkGenericCell.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 #include "vtkPolyData.h"
 #include "vtkProp3D.h"
 #include "vtkTransform.h"
 #include "vtkUnsignedIntArray.h"
 
-vtkCxxRevisionMacro(vtkDepthSortPolyData, "$Revision: 1.26 $");
+vtkCxxRevisionMacro(vtkDepthSortPolyData, "$Revision: 1.27 $");
 vtkStandardNewMacro(vtkDepthSortPolyData);
 
 vtkCxxSetObjectMacro(vtkDepthSortPolyData,Camera,vtkCamera);

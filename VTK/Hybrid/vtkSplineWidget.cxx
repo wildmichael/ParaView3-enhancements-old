@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSplineWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-16 01:22:12 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-12-26 18:21:21 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,9 +19,11 @@
 
 #include "vtkActor.h"
 #include "vtkAssemblyNode.h"
+#include "vtkAssemblyPath.h"
 #include "vtkCallbackCommand.h"
 #include "vtkCamera.h"
 #include "vtkCardinalSpline.h"
+#include "vtkCellArray.h"
 #include "vtkCellPicker.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
@@ -29,13 +31,13 @@
 #include "vtkPolyData.h"
 #include "vtkPolyDataMapper.h"
 #include "vtkProperty.h"
-#include "vtkRenderer.h"
 #include "vtkRenderWindowInteractor.h"
+#include "vtkRenderer.h"
 #include "vtkSphereSource.h"
 #include "vtkSpline.h"
 #include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkSplineWidget, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkSplineWidget, "$Revision: 1.13 $");
 vtkStandardNewMacro(vtkSplineWidget);
 
 vtkSplineWidget::vtkSplineWidget()

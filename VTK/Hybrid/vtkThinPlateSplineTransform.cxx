@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThinPlateSplineTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-17 15:12:54 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2002-12-26 18:21:21 $
+  Version:   $Revision: 1.32 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,10 +16,12 @@
 
 =========================================================================*/
 #include "vtkThinPlateSplineTransform.h"
+
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
+#include "vtkPoints.h"
 
-vtkCxxRevisionMacro(vtkThinPlateSplineTransform, "$Revision: 1.31 $");
+vtkCxxRevisionMacro(vtkThinPlateSplineTransform, "$Revision: 1.32 $");
 vtkStandardNewMacro(vtkThinPlateSplineTransform);
 
 //------------------------------------------------------------------------

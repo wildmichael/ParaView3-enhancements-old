@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtk3DSImporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-16 14:54:16 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2002-12-26 18:21:21 $
+  Version:   $Revision: 1.34 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,6 +20,7 @@
 #include "vtkActor.h"
 #include "vtkByteSwap.h"
 #include "vtkCamera.h"
+#include "vtkCellArray.h"
 #include "vtkLight.h"
 #include "vtkObjectFactory.h"
 #include "vtkPolyData.h"
@@ -29,7 +30,7 @@
 #include "vtkRenderer.h"
 #include "vtkStripper.h"
 
-vtkCxxRevisionMacro(vtk3DSImporter, "$Revision: 1.33 $");
+vtkCxxRevisionMacro(vtk3DSImporter, "$Revision: 1.34 $");
 vtkStandardNewMacro(vtk3DSImporter);
 
 //-----  This hack needed to compile using gcc3 on OSX until new stdc++.dylib

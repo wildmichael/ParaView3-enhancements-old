@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBoxWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-12 13:06:55 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-12-26 18:21:21 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,9 +19,11 @@
 
 #include "vtkActor.h"
 #include "vtkAssemblyNode.h"
+#include "vtkAssemblyPath.h"
 #include "vtkCallbackCommand.h"
-#include "vtkCellPicker.h"
 #include "vtkCamera.h"
+#include "vtkCellArray.h"
+#include "vtkCellPicker.h"
 #include "vtkDoubleArray.h"
 #include "vtkFloatArray.h"
 #include "vtkMath.h"
@@ -30,12 +32,12 @@
 #include "vtkPolyData.h"
 #include "vtkPolyDataMapper.h"
 #include "vtkProperty.h"
+#include "vtkRenderWindowInteractor.h"
 #include "vtkRenderer.h"
 #include "vtkSphereSource.h"
-#include "vtkRenderWindowInteractor.h"
 #include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkBoxWidget, "$Revision: 1.24 $");
+vtkCxxRevisionMacro(vtkBoxWidget, "$Revision: 1.25 $");
 vtkStandardNewMacro(vtkBoxWidget);
 
 vtkBoxWidget::vtkBoxWidget()
