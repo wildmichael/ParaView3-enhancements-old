@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutMaterial.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-29 17:09:39 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-12-10 21:32:44 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -122,7 +122,7 @@ void vtkCutMaterial::Execute()
   // It would be nice to get rid of this in the future.
   thresh = vtkThreshold::New();
   thresh->SetInput(input);
-  thresh->SetArrayName(this->MaterialArrayName);
+  thresh->SelectInputScalars(this->MaterialArrayName);
   thresh->SetAttributeModeToUseCellData();
   thresh->ThresholdBetween(this->Material-0.5, this->Material+0.5);
   thresh->Update();
