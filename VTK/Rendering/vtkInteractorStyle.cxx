@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-17 02:03:07 $
-  Version:   $Revision: 1.84 $
+  Date:      $Date: 2003-02-17 19:28:36 $
+  Version:   $Revision: 1.85 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -35,7 +35,7 @@
 #include "vtkRenderer.h"
 #include "vtkTextProperty.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyle, "$Revision: 1.84 $");
+vtkCxxRevisionMacro(vtkInteractorStyle, "$Revision: 1.85 $");
 vtkStandardNewMacro(vtkInteractorStyle);
 
 //----------------------------------------------------------------------------
@@ -299,19 +299,32 @@ void vtkInteractorStyle::HighlightProp3D(vtkProp3D *prop3D)
     this->OutlineActor->GetProperty()->SetColor(this->PickColor);
     this->OutlineActor->GetProperty()->SetAmbient(1.0);
     this->OutlineActor->GetProperty()->SetDiffuse(0.0);
-    this->CurrentRenderer->AddActor(this->OutlineActor);
     }
   
-  if ( ! prop3D ) 
+  //no prop picked now 
+  if ( ! prop3D) 
     {
-    this->PickedRenderer = NULL;
-    this->OutlineActor->VisibilityOff();
+    //was there previously?
+    if (this->PickedRenderer != NULL) 
+      {
+      this->PickedRenderer->RemoveActor(this->OutlineActor);
+      this->PickedRenderer = NULL;
+      }
     }
-  else 
+  //prop picked now 
+  else
     {
-    this->PickedRenderer = this->CurrentRenderer;
+    //check if picked in different renderer to previous pick
+    if (this->CurrentRenderer != this->PickedRenderer)
+      {
+      if (this->PickedRenderer != NULL)
+        {
+        this->PickedRenderer->RemoveActor(this->OutlineActor);
+        }
+      this->CurrentRenderer->AddActor(this->OutlineActor);
+      this->PickedRenderer = this->CurrentRenderer;      
+      }
     this->Outline->SetBounds(prop3D->GetBounds());
-    this->OutlineActor->VisibilityOn();
     }
 }
 
