@@ -20,7 +20,7 @@
 #include "vtkSMSourceProxy.h"
 
 vtkStandardNewMacro(vtkSMBoundsDomain);
-vtkCxxRevisionMacro(vtkSMBoundsDomain, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkSMBoundsDomain, "$Revision: 1.2 $");
 
 vtkSMBoundsDomain::vtkSMBoundsDomain()
 {
@@ -30,7 +30,7 @@ vtkSMBoundsDomain::~vtkSMBoundsDomain()
 {
 }
 
-void vtkSMBoundsDomain::Update(vtkSMProperty *prop)
+void vtkSMBoundsDomain::Update(vtkSMProperty*)
 {
   this->RemoveAllMinima();
   this->RemoveAllMaxima();
