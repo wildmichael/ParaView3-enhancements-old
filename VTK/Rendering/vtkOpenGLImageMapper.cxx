@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-22 23:22:51 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2000-06-23 22:15:53 $
+  Version:   $Revision: 1.34 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -111,7 +111,7 @@ vtkOpenGLImageMapper::~vtkOpenGLImageMapper()
 } 
 
 // pad an integer to a multiply of four, for OpenGL
-static inline vtkPadToFour(int n)
+static inline int vtkPadToFour(int n)
 {
   return (((n+3)/4)*4);
 }
