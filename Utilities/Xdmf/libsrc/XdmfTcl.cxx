@@ -8,6 +8,8 @@
  * interface file instead. 
  * ----------------------------------------------------------------------------- */
 
+#include <stdarg.h>
+
 
 #ifdef __cplusplus
 template<class T> class SwigValueWrapper {
@@ -222,7 +224,7 @@ SWIG_TypeClientData(swig_type_info *ti, void *clientdata) {
 #endif
 
 /*
- * $Header: /cvsroot/ParaView3/ParaView3/Utilities/Xdmf/libsrc/Attic/XdmfTcl.cxx,v 1.2 2003-03-04 15:24:31 andy Exp $
+ * $Header: /cvsroot/ParaView3/ParaView3/Utilities/Xdmf/libsrc/Attic/XdmfTcl.cxx,v 1.3 2003-06-12 17:35:55 andy Exp $
  * 
  * swigtcl8.swg
  */
@@ -1077,7 +1079,7 @@ SWIGEXPORT(int) SWIG_init(Tcl_Interp *);
 #include <XdmfNDGM.h>
 #endif
 
-#ifdef SIZEOF___INT64
+#ifndef HAVE_STRTOLL
 inline XDMF_LONG64 XDMF_strtoll(char *str, void*, int)
 {
   XDMF_LONG64 result = 0;
