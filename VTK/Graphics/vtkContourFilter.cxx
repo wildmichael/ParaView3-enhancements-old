@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-27 17:13:43 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 1998-12-30 12:55:17 $
+  Version:   $Revision: 1.61 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -172,7 +172,7 @@ void vtkContourFilter::Execute()
   cellScalars = vtkScalars::New();
   cellScalars->Allocate(VTK_CELL_SIZE);
   
-  
+ 
   // locator used to merge potentially duplicate points
   if ( this->Locator == NULL )
     {
@@ -181,6 +181,11 @@ void vtkContourFilter::Execute()
   this->Locator->InitPointInsertion (newPts, input->GetBounds(),estimatedSize);
 
   // interpolate data along edge
+  // if we did not ask for scalars to be computed, don't copy them
+  if (!this->ComputeScalars)
+    {
+    outPd->CopyScalarsOff();
+    }
   outPd->InterpolateAllocate(inPd,estimatedSize,estimatedSize);
   outCd->CopyAllocate(inCd,estimatedSize,estimatedSize);
 
