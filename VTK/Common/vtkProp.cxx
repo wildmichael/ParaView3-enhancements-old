@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-23 20:53:02 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-06-23 18:14:22 $
+  Version:   $Revision: 1.4 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -45,6 +45,7 @@ vtkProp::vtkProp()
   this->Visibility = 1;  // ON
   this->AllocatedRenderTime = 10.0;
   this->EstimatedRenderTime = 0.0;
+  this->RenderTimeMultiplier = 1.0;
 }
 
 void vtkProp::PrintSelf(ostream& os, vtkIndent indent)
