@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-13 21:14:45 $
-  Version:   $Revision: 1.86 $
+  Date:      $Date: 1999-10-22 19:13:31 $
+  Version:   $Revision: 1.87 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -112,10 +112,6 @@ public:
   // This is typically done right before swapping buffers.
   virtual void CopyResultFrame();
 
-  // Description:
-  // Return a string for the device dependent rendering library being used.
-  static char *GetRenderLibrary();
-  
   // Description:
   // Create an interactor to control renderers in this window. We need
   // to know what type of interactor to create, because we might be in

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProjectedPolyDataRayBounder.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:07:26 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-10-22 19:13:55 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to Lisa Sobierajski Avila who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,14 +40,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkProjectedPolyDataRayBounder.h"
 #include "vtkRenderWindow.h"
-#include "vtkObjectFactory.h"
+#include "vtkGraphicsFactory.h"
 
-#ifdef VTK_USE_OGLR
-#include "vtkOpenGLProjectedPolyDataRayBounder.h"
-#endif
-#ifdef _WIN32
-#include "vtkOpenGLProjectedPolyDataRayBounder.h"
-#endif
 
 
 // The constructor for the class. Initialize everything to NULL.
@@ -79,33 +73,9 @@ vtkProjectedPolyDataRayBounder::~vtkProjectedPolyDataRayBounder()
 vtkProjectedPolyDataRayBounder *vtkProjectedPolyDataRayBounder::New()
 {  
   // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkProjectedPolyDataRayBounder");
-  if(ret)
-    {
-    return (vtkProjectedPolyDataRayBounder*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-
-  char *temp = vtkRenderWindow::GetRenderLibrary();
-  
-#ifdef VTK_USE_OGLR
-  if (!strcmp("OpenGL",temp)) 
-    {
-    return vtkOpenGLProjectedPolyDataRayBounder::New();
-    }
-#endif
-#ifdef _WIN32
-  if (!strcmp("Win32OpenGL",temp)) 
-    {
-    return vtkOpenGLProjectedPolyDataRayBounder::New();
-    }
-#endif
-
-  vtkGenericWarningMacro( << 
-    "Sorry, vtkProjectedPolyDataRayBounder is not supported for: " <<
-    temp );
-
-  return new vtkProjectedPolyDataRayBounder;
+  vtkObject* ret = 
+    vtkGraphicsFactory::CreateInstance("vtkProjectedPolyDataRayBounder");
+  return (vtkProjectedPolyDataRayBounder*)ret;
 }
 
 // Set the matrix source to be an actor. The PolyData will be transformed
