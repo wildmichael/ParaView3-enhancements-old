@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-02-13 15:48:16 $
-  Version:   $Revision: 1.131 $
+  Date:      $Date: 2003-02-13 18:25:56 $
+  Version:   $Revision: 1.132 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkRendererCollection.h"
 #include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkRenderWindow, "$Revision: 1.131 $");
+vtkCxxRevisionMacro(vtkRenderWindow, "$Revision: 1.132 $");
 
 //----------------------------------------------------------------------------
 // Needed when we don't use the vtkStandardNewMacro.
@@ -672,6 +672,7 @@ void vtkRenderWindow::PrintSelf(ostream& os, vtkIndent indent)
   this->Superclass::PrintSelf(os,indent);
 
   os << indent << "Borders: " << (this->Borders ? "On\n":"Off\n");
+  os << indent << "IsPicking: " << (this->IsPicking ? "On\n":"Off\n");
   os << indent << "Double Buffer: " << (this->DoubleBuffer ? "On\n":"Off\n");
   os << indent << "Full Screen: " << (this->FullScreen ? "On\n":"Off\n");
   os << indent << "Renderers:\n";
