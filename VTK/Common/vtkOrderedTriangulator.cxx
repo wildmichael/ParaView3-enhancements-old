@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOrderedTriangulator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-23 11:47:28 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2001-05-23 11:57:26 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -136,7 +136,7 @@ public:
   class ListContainer //the container for the data
   {
   public:
-    ListContainer(T* x):Next(0),Previous(0),Data(x) {}
+    ListContainer(T* x):Data(x),Next(0),Previous(0) {}
     T* Data;
     ListContainer* Next;
     ListContainer* Previous;
