@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-10-31 16:38:15 $
-  Version:   $Revision: 1.69 $
+  Date:      $Date: 2003-11-01 13:02:18 $
+  Version:   $Revision: 1.70 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -43,7 +43,7 @@
 #include "vtkTextureMapToPlane.h"
 #include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.69 $");
+vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.70 $");
 vtkStandardNewMacro(vtkImagePlaneWidget);
 
 vtkCxxSetObjectMacro(vtkImagePlaneWidget, PlaneProperty, vtkProperty);
@@ -509,6 +509,16 @@ void vtkImagePlaneWidget::PrintSelf(ostream& os, vtkIndent indent)
     {
     os << indent << "TexturePlane Property: (none)\n";
     }
+
+  if ( this->ColorMap )
+    {
+    os << indent << "ColorMap:\n";
+    this->ColorMap->PrintSelf(os,indent.GetNextIndent());
+    }
+  else
+    {
+    os << indent << "ColorMap: (none)\n";
+    }      
 
   float *o = this->PlaneSource->GetOrigin();
   float *pt1 = this->PlaneSource->GetPoint1();
