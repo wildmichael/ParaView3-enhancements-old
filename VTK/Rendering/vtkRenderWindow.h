@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-20 21:09:15 $
-  Version:   $Revision: 1.68 $
+  Date:      $Date: 1998-07-28 19:35:38 $
+  Version:   $Revision: 1.69 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -194,7 +194,7 @@ public:
   // or completely replaces the frame buffer data.
   virtual float *GetRGBAPixelData(int ,int ,int ,int ,int ) {return (float *)NULL;};
   virtual void SetRGBAPixelData(int ,int ,int ,int ,float *,int,
-                                int blend=0) {};
+                                int blend=0) = 0;
 
   // Description:
   // Set/Get the zbuffer data from the frame buffer.

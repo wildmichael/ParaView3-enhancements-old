@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-22 22:32:27 $
-  Version:   $Revision: 1.67 $
+  Date:      $Date: 1998-07-28 19:35:39 $
+  Version:   $Revision: 1.68 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -212,7 +212,7 @@ vtkRenderWindow *vtkRenderWindow::New()
   if (!strcmp("XGL",temp)) return vtkXGLRenderWindow::New();
 #endif
   
-  return new vtkRenderWindow;
+  return NULL;
 }
 
 // Description:
