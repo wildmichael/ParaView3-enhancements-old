@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSetGet.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-13 13:52:01 $
-  Version:   $Revision: 1.104 $
+  Date:      $Date: 2002-05-16 15:51:53 $
+  Version:   $Revision: 1.105 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -103,6 +103,20 @@
 // These types define error codes for vtk functions
 #define VTK_OK                 1
 #define VTK_ERROR              2
+
+// These types define different text properties
+#define VTK_ARIAL     0
+#define VTK_COURIER   1
+#define VTK_TIMES     2
+
+#define VTK_TEXT_LEFT     0
+#define VTK_TEXT_CENTERED 1
+#define VTK_TEXT_RIGHT    2
+
+#define VTK_TEXT_BOTTOM 0
+#define VTK_TEXT_TOP    2
+
+// 
 
 // A macro to get the name of a type
 #define vtkImageScalarTypeNameMacro(type) \

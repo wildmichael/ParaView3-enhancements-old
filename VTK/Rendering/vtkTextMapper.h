@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextMapper.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-15 03:19:26 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2002-05-16 15:51:53 $
+  Version:   $Revision: 1.41 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -42,17 +42,6 @@
 #include "vtkViewport.h"
 #include "vtkActor2D.h"
 #include "vtkProperty2D.h"
-
-#define VTK_ARIAL     0
-#define VTK_COURIER   1
-#define VTK_TIMES     2
-
-#define VTK_TEXT_LEFT     0
-#define VTK_TEXT_CENTERED 1
-#define VTK_TEXT_RIGHT    2
-
-#define VTK_TEXT_BOTTOM 0
-#define VTK_TEXT_TOP    2
 
 class VTK_RENDERING_EXPORT vtkTextMapper : public vtkMapper2D
 {
