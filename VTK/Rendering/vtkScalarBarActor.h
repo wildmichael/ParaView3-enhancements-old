@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarBarActor.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:09:06 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2000-02-14 22:22:15 $
+  Version:   $Revision: 1.24 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -229,6 +229,9 @@ private:
   vtkTimeStamp  BuildTime;
   int LastSize[2];
   int LastOrigin[2];
+
+  // hide the superclass' ShallowCopy() from the user and the compiler.
+  void ShallowCopy(vtkProp *prop) { this->vtkProp::ShallowCopy( prop ); };
 };
 
 

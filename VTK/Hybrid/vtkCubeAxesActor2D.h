@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeAxesActor2D.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:04:11 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-02-14 22:21:52 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thorsten Dowe who modified and improved this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -275,6 +275,10 @@ protected:
                   int xAxes, int yAxes, int zAxes,
                   float xCoords[4], float yCoords[4], float zCoords[4],
                   float xRange[2], float yRange[2], float zRange[2]);
+
+private:
+  // hide the superclass' ShallowCopy() from the user and the compiler.
+  void ShallowCopy(vtkProp *prop) { this->vtkProp::ShallowCopy( prop ); };
 };
 
 
