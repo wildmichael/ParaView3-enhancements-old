@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArraySelection.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-15 19:05:41 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-10-15 20:44:08 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkVector.txx"
 
-vtkCxxRevisionMacro(vtkDataArraySelection, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkDataArraySelection, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkDataArraySelection);
 
 //----------------------------------------------------------------------------
@@ -41,6 +41,19 @@ void vtkDataArraySelection::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->Superclass::PrintSelf(os, indent);
   os << indent << "Number of Arrays: " << this->GetNumberOfArrays() << "\n";
+}
+
+//----------------------------------------------------------------------------
+int vtkDataArraySelection::AddArray(const char* name)
+{
+  vtkIdType pos=0;
+  if(this->ArrayNames->FindItem(name, pos) == VTK_OK)
+    {
+    return 0;
+    }
+  this->ArrayNames->AppendItem(name);
+  this->ArraySettings->AppendItem(1);
+  return 1;
 }
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArraySelection.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-15 19:02:33 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-10-15 20:44:08 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -57,6 +57,10 @@ public:
   // Description:
   // Return whether the array with the given name exists.
   int ArrayExists(const char* name);
+
+  // Description:
+  // Add array without calling modified.
+  int AddArray(const char* name);
 
   // Description:
   // Enable all arrays that currently have an entry.
