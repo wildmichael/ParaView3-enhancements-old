@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageConstantPad.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-12-23 19:32:35 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1998-01-07 21:38:14 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -153,13 +153,7 @@ void vtkImageConstantPad::ThreadedExecute(vtkImageData *inData,
   
   // need to get the correct pointer for the input data
   int inExt[6];
-  int i;
-  inData->GetExtent(inExt);
-  for (i = 0; i < 3; i++)
-    {
-    if (inExt[i*2] < outExt[i*2]) inExt[i*2] = outExt[i*2];
-    if (inExt[i*2+1] > outExt[i*2+1]) inExt[i*2+1] = outExt[i*2+1];
-    }
+  this->ComputeRequiredInputUpdateExtent(inExt,outExt);
   void *inPtr = inData->GetScalarPointerForExtent(inExt);
 
   switch (inData->GetScalarType())

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageLogic.h,v $
   Language:  C++
-  Date:      $Date: 1998-01-05 21:49:34 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-01-07 21:38:16 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -83,12 +83,12 @@ public:
 
   // Description:
   // Set the value to use for true in the output.
-  vtkSetMacro(OutputTrueValue, unsigned char);
-  vtkGetMacro(OutputTrueValue, unsigned char);
+  vtkSetMacro(OutputTrueValue, float);
+  vtkGetMacro(OutputTrueValue, float);
   
 protected:
   int Operation;
-  unsigned char OutputTrueValue;
+  float OutputTrueValue;
   
   void ThreadedExecute(vtkImageData **inDatas, vtkImageData *outData,
 		       int extent[6], int id);

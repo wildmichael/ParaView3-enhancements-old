@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePadFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-01-05 21:49:38 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1998-01-07 21:38:18 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -143,6 +143,14 @@ void vtkImagePadFilter::ComputeRequiredInputUpdateExtent(int inExt[6],
     if (inExt[idx*2] < wholeExtent[idx*2])
       {
       inExt[idx*2] = wholeExtent[idx*2];
+      }
+    if (inExt[idx*2] > wholeExtent[idx*2 + 1])
+      {
+      inExt[idx*2] = wholeExtent[idx*2 + 1];
+      }
+    if (inExt[idx*2+1] < wholeExtent[idx*2])
+      {
+      inExt[idx*2+1] = wholeExtent[idx*2];
       }
     if (inExt[idx*2 + 1] > wholeExtent[idx*2 + 1])
       {
