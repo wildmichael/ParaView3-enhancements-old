@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-19 20:33:14 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2001-04-21 15:40:27 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1739,6 +1739,7 @@ vtkDataSetAttributes::FieldList::FieldList(int numInputs)
   this->FieldComponents = 0;
   this->FieldIndices = 0;
   this->NumberOfFields = 0;
+  this->LUT = 0;
   this->NumberOfDSAIndices = numInputs;
   this->DSAIndices = new int*[numInputs];
   for (int i=0; i<numInputs; i++)
@@ -1750,14 +1751,6 @@ vtkDataSetAttributes::FieldList::FieldList(int numInputs)
 vtkDataSetAttributes::FieldList::~FieldList()
 {
   this->ClearFields();
-  if ( this->DSAIndices )
-    {
-    for (int i=0; i<this->NumberOfDSAIndices; i++)
-      {
-      delete this->DSAIndices[i];
-      }
-    delete [] this->DSAIndices;
-    }
 }
 
 void vtkDataSetAttributes::FieldList::ClearFields()
@@ -1769,15 +1762,26 @@ void vtkDataSetAttributes::FieldList::ClearFields()
       delete [] this->Fields[i];
       this->Fields[i] = 0;
       }
-    delete [] this->Fields;
-    this->Fields = 0;
-    delete [] this->FieldTypes;
-    this->FieldTypes = 0;
-    delete [] this->FieldComponents;
-    this->FieldComponents = 0;
-    delete [] this->FieldIndices;
-    this->FieldIndices = 0;
     }
+  if ( this->DSAIndices )
+    {
+    for (int i=0; i<this->NumberOfDSAIndices; i++)
+      {
+      delete this->DSAIndices[i];
+      }
+    }
+  delete [] this->DSAIndices;
+  this->DSAIndices = 0;
+  delete [] this->LUT;
+  this->LUT = 0;
+  delete [] this->Fields;
+  this->Fields = 0;
+  delete [] this->FieldTypes;
+  this->FieldTypes = 0;
+  delete [] this->FieldComponents;
+  this->FieldComponents = 0;
+  delete [] this->FieldIndices;
+  this->FieldIndices = 0;
   
   this->NumberOfFields = 0;
   this->CurrentInput = 0;
