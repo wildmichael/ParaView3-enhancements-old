@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLookupTable.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-09 19:47:57 $
-  Version:   $Revision: 1.85 $
+  Date:      $Date: 2002-08-09 22:26:47 $
+  Version:   $Revision: 1.86 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkLookupTable, "$Revision: 1.85 $");
+vtkCxxRevisionMacro(vtkLookupTable, "$Revision: 1.86 $");
 vtkStandardNewMacro(vtkLookupTable);
 
 // Construct with range=(0,1); and hsv ranges set up for rainbow color table 
@@ -221,6 +221,7 @@ void vtkLookupTable::ForceBuild()
            c_rgba[3] = static_cast<unsigned char>(rgba[3]*255.0f + 0.5f);
         */
         }
+        break;
       case VTK_RAMP_LINEAR:
         {
         c_rgba[0] = static_cast<unsigned char>((rgba[0])*255.0f + 0.5f);
@@ -228,6 +229,7 @@ void vtkLookupTable::ForceBuild()
         c_rgba[2] = static_cast<unsigned char>((rgba[2])*255.0f + 0.5f);
         c_rgba[3] = static_cast<unsigned char>(rgba[3]*255.0f + 0.5f);
         }
+        break;
       case VTK_RAMP_SQRT:
         {
         c_rgba[0] = static_cast<unsigned char>((sqrt(rgba[0]))*255.0f + 0.5f);
@@ -235,6 +237,7 @@ void vtkLookupTable::ForceBuild()
         c_rgba[2] = static_cast<unsigned char>((sqrt(rgba[2]))*255.0f + 0.5f);
         c_rgba[3] = static_cast<unsigned char>((sqrt(rgba[3]))*255.0f + 0.5f);
         }
+        break;
       }
     
     }
