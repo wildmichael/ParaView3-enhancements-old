@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBalancedRedistributePolyData.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-28 18:41:18 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-08-07 21:16:25 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -79,11 +79,10 @@ class vtkMultiProcessController;
 
 //*******************************************************************
 
-class VTK_EXPORT vtkBalancedRedistributePolyData : 
-  public vtkWeightedRedistributePolyData
+class VTK_EXPORT vtkBalancedRedistributePolyData : public vtkWeightedRedistributePolyData
 {
 public:
-  vtkTypeMacro(vtkBalancedRedistributePolyData, vtkWeightedRedistributePolyData);
+  vtkTypeRevisionMacro(vtkBalancedRedistributePolyData, vtkWeightedRedistributePolyData);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

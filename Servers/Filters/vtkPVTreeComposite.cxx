@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVTreeComposite.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-26 13:47:26 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2002-08-07 21:16:27 $
+  Version:   $Revision: 1.35 $
   
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -55,10 +55,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkRenderWindow.h"
 #include "vtkPVRenderView.h"
 
-vtkCxxSetObjectMacro(vtkPVTreeComposite, RenderView, vtkPVRenderView);
-
 //-------------------------------------------------------------------------
 vtkStandardNewMacro(vtkPVTreeComposite);
+vtkCxxRevisionMacro(vtkPVTreeComposite, "$Revision: 1.35 $");
+
+vtkCxxSetObjectMacro(vtkPVTreeComposite, RenderView, vtkPVRenderView);
 
 //=========================================================================
 // Stuff to avoid compositing if there is no data on statlite processes.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAllToNRedistributePolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-08 16:50:40 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-08-07 21:16:25 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -77,6 +77,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkAllToNRedistributePolyData);
+vtkCxxRevisionMacro(vtkAllToNRedistributePolyData, "$Revision: 1.4 $");
 
 //----------------------------------------------------------------------------
 vtkAllToNRedistributePolyData::vtkAllToNRedistributePolyData()

@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVTreeComposite.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-11 19:03:27 $
-  Version:   $Revision: 1.17 $  
+  Date:      $Date: 2002-08-07 21:16:27 $
+  Version:   $Revision: 1.18 $  
   
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -46,12 +46,12 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // .SECTION see also
 // vtkMultiProcessController vtkRenderWindow.
 
-#include "vtkToolkits.h"
+#include "vtkToolkits.h" // Needed for VTK_USE_MPI
 #ifndef __vtkPVTreeComposite_h
 #define __vtkPVTreeComposite_h
 
 #ifdef VTK_USE_MPI
-#include "vtkMPICommunicator.h"
+#include "vtkMPICommunicator.h" // Needed for vtkMPICommunicator::Request
 class vtkMPIController;
 #endif
 
@@ -63,7 +63,7 @@ class VTK_EXPORT vtkPVTreeComposite : public vtkCompositeManager
 {
 public:
   static vtkPVTreeComposite *New();
-  vtkTypeMacro(vtkPVTreeComposite,vtkCompositeManager);
+  vtkTypeRevisionMacro(vtkPVTreeComposite,vtkCompositeManager);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBalancedRedistributePolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-08 16:50:40 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-08-07 21:16:25 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -76,6 +76,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkBalancedRedistributePolyData);
+vtkCxxRevisionMacro(vtkBalancedRedistributePolyData, "$Revision: 1.3 $");
 
 //----------------------------------------------------------------------------
 vtkBalancedRedistributePolyData::vtkBalancedRedistributePolyData()

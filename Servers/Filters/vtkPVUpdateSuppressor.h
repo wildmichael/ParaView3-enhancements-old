@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVUpdateSuppressor.h,v $
   Language:  C++
-  Date:      $Date: 2002-07-10 17:49:07 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-08-07 21:16:27 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,6 @@
 #define __vtkPVUpdateSupressor_h
 
 #include "vtkPolyDataToPolyDataFilter.h"
-#include "vtkImplicitFunction.h"
 
 class VTK_EXPORT vtkPVUpdateSupressor : public vtkPolyDataToPolyDataFilter
 {
