@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataConnectivityFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-22 12:39:53 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-10-14 11:20:06 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -346,6 +346,14 @@ void vtkPolyDataConnectivityFilter::Execute()
   Mesh->Delete();
   output->Squeeze();
 
+  int num = this->GetNumberOfExtractedRegions();
+  int count = 0;
+
+  for (int ii = 0; ii < num; ii++)
+    {
+    count += this->RegionSizes->GetValue (ii);
+    }
+  vtkDebugMacro (<< "Total # of cells accounted for: " << count);
   vtkDebugMacro (<<"Extracted " << output->GetNumberOfCells() << " cells");
 
   return;
@@ -361,14 +369,14 @@ void vtkPolyDataConnectivityFilter::TraverseAndMark (int cellId)
   unsigned short ncells;
 
   Visited[cellId] = RegionNumber;
-  NumCellsInRegion++;
-
   if ( RecursionDepth++ > this->MaxRecursionDepth ) 
     {
     RecursionSeeds->InsertNextId(cellId);
     NumExceededMaxDepth++;
     return;
     }
+
+  NumCellsInRegion++;
 
   Mesh->GetCellPoints(cellId, npts, pts);
 
