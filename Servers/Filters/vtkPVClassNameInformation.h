@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVClassNameInformation.h,v $
   Language:  C++
-  Date:      $Date: 2003-10-07 12:53:50 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-10-07 14:59:53 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -71,6 +71,10 @@ public:
   virtual int GetMessageLength();
   virtual void WriteMessage(unsigned char *msg);
   
+  // Description:
+  // Merge another information object.
+  // This is not needed for this information object because the class name
+  // will not change from one processor to another.
   virtual void AddInformation(vtkPVInformation*) {};
   
 protected:
