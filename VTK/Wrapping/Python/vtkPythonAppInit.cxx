@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPythonAppInit.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-21 16:53:54 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-01-22 20:03:59 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -99,7 +99,7 @@ static int vtkPythonAppInitFileExists(const char* filename);
 
 int main(int argc, char **argv)
 {
-  void vtkPythonAppInitEnableMSVCDebugHook();
+  vtkPythonAppInitEnableMSVCDebugHook();
   
 #ifdef VTK_COMPILED_USING_MPI
   VTKMPICleanup.Initialize(&argc, &argv);
