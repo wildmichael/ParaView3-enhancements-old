@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:20 $
-  Version:   $Revision: 1.177 $
+  Date:      $Date: 2002-02-05 18:30:43 $
+  Version:   $Revision: 1.178 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,7 +32,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-vtkCxxRevisionMacro(vtkRenderer, "$Revision: 1.177 $");
+vtkCxxRevisionMacro(vtkRenderer, "$Revision: 1.178 $");
 
 // Create a vtkRenderer with a black background, a white ambient light, 
 // two-sided lighting turned on, a viewport of (0,0,1,1), and backface culling
@@ -740,6 +740,10 @@ void vtkRenderer::ResetCamera(float bounds[6])
     {
     width = bounds[1] - bounds[0];
     }
+  
+  // If we have just a single point, pick a width of 1.0
+  width = (width==0)?(1.0):(width);
+  
   distance = 
     0.8*width/tan(this->ActiveCamera->GetViewAngle()*vtkMath::Pi()/360.0);
   distance = distance + (bounds[5] - bounds[4])/2.0;
