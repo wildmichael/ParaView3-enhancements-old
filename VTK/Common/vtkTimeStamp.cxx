@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTimeStamp.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-27 00:52:55 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2000-09-19 14:24:06 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -49,12 +49,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //-------------------------------------------------------------------------
 vtkTimeStamp* vtkTimeStamp::New()
 {
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkTimeStamp");
-  if(ret)
-    {
-    return (vtkTimeStamp*)ret;
-    }
   // If the factory was unable to create the object, then create it here.
   return new vtkTimeStamp;
 }
