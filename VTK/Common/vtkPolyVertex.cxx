@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyVertex.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:38 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2000-10-26 13:32:05 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -81,7 +81,7 @@ vtkCell *vtkPolyVertex::MakeObject()
   return cell;
 }
 
-int vtkPolyVertex::EvaluatePosition(float x[3], float closestPoint[3],
+int vtkPolyVertex::EvaluatePosition(float x[3], float* closestPoint,
                                    int& subId, float pcoords[3], 
                                    float& minDist2, float *weights)
 {
@@ -96,7 +96,10 @@ int vtkPolyVertex::EvaluatePosition(float x[3], float closestPoint[3],
     dist2 = vtkMath::Distance2BetweenPoints(X,x);
     if (dist2 < minDist2)
       {
-      closestPoint[0] = X[0]; closestPoint[1] = X[1]; closestPoint[2] = X[2];
+      if (closestPoint)
+	{
+	closestPoint[0] = X[0]; closestPoint[1] = X[1]; closestPoint[2] = X[2];
+	}
       minDist2 = dist2;
       subId = i;
       }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEmptyCell.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:08 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2000-10-26 13:32:05 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -74,7 +74,7 @@ public:
             vtkPointLocator *locator, vtkCellArray *pts,
             vtkPointData *inPd, vtkPointData *outPd,
             vtkCellData *inCd, int cellId, vtkCellData *outCd, int insideOut);
-  int EvaluatePosition(float x[3], float closestPoint[3], 
+  int EvaluatePosition(float x[3], float* closestPoint, 
                        int& subId, float pcoords[3], 
                        float& dist2, float *weights);
   void EvaluateLocation(int& subId, float pcoords[3], float x[3],

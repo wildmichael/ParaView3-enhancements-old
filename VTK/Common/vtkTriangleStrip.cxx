@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleStrip.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-02 19:36:10 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 2000-10-26 13:32:05 $
+  Version:   $Revision: 1.60 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -82,7 +82,7 @@ vtkCell *vtkTriangleStrip::MakeObject()
   return cell;
 }
 
-int vtkTriangleStrip::EvaluatePosition(float x[3], float closestPoint[3],
+int vtkTriangleStrip::EvaluatePosition(float x[3], float* closestPoint,
                                       int& subId, float pcoords[3], 
                                       float& minDist2, float *weights)
 {
@@ -104,7 +104,12 @@ int vtkTriangleStrip::EvaluatePosition(float x[3], float closestPoint[3],
     if ( status != -1 && dist2 < minDist2 )
       {
       return_status = status;
-      closestPoint[0] = closest[0]; closestPoint[1] = closest[1]; closestPoint[2] = closest[2];
+      if (closestPoint)
+	{
+	closestPoint[0] = closest[0]; 
+	closestPoint[1] = closest[1]; 
+	closestPoint[2] = closest[2];
+	}
       subId = i;
       pcoords[0] = pc[0];
       pcoords[1] = pc[1];
