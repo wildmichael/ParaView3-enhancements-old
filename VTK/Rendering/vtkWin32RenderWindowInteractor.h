@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32RenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-06 19:25:56 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-05-19 19:48:51 $
+  Version:   $Revision: 1.10 $
   
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -89,10 +89,27 @@ public:
   friend LRESULT CALLBACK vtkHandleMessage(HWND hwnd,UINT uMsg,
 					   WPARAM w, LPARAM l);
   //ETX
+
+  // Description:
+  // Methods to set the default exit method for the class. This method is
+  // only used if no instance level ExitMethod has been defined.  It is
+  // provided as a means to control how an interactor is exited given
+  // the various language bindings (tcl, Win32, etc.).
+  static void SetClassExitMethod(void (*f)(void *), void *arg);
+  static void SetClassExitMethodArgDelete(void (*f)(void *));
+  
 protected:
   HWND WindowId;
   UINT TimerId;
   WNDPROC OldProc;
+
+  // Description:
+  // Class variables so an exit method can be defined for this class
+  // (used to set different exit methods for various language bindings,
+  // i.e. tcl, java, Win32)
+  static void (*ClassExitMethod)(void *);
+  static void (*ClassExitMethodArgDelete)(void *);
+  static void *ClassExitMethodArg;
 };
 
 #endif
