@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPieceScalars.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-16 16:40:02 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-02-08 15:20:30 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -50,14 +50,14 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef __vtkPieceScalars_h
 #define __vtkPieceScalars_h
 
-#include "vtkPolyDataToPolyDataFilter.h"
+#include "vtkDataSetToDataSetFilter.h"
 
-class VTK_EXPORT vtkPieceScalars : public vtkPolyDataToPolyDataFilter
+class VTK_EXPORT vtkPieceScalars : public vtkDataSetToDataSetFilter
 {
 public:
   static vtkPieceScalars *New();
 
-  vtkTypeMacro(vtkPieceScalars,vtkPolyDataToPolyDataFilter);
+  vtkTypeMacro(vtkPieceScalars,vtkDataSetToDataSetFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
 protected:

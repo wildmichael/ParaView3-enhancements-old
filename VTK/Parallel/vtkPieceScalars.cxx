@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPieceScalars.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-16 16:40:01 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-02-08 15:20:30 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -77,8 +77,8 @@ vtkPieceScalars::~vtkPieceScalars()
 void vtkPieceScalars::Execute()
 {
   int piece;
-  vtkPolyData *input = this->GetInput();
-  vtkPolyData *output = this->GetOutput();
+  vtkDataSet *input = this->GetInput();
+  vtkDataSet *output = this->GetOutput();
   int i;
   vtkScalars *pieceColors = NULL;
 
@@ -99,7 +99,7 @@ void vtkPieceScalars::Execute()
 //----------------------------------------------------------------------------
 void vtkPieceScalars::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
+  vtkDataSetToDataSetFilter::PrintSelf(os,indent);
 }
 
 
