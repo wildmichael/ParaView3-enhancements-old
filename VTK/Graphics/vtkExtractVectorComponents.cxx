@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractVectorComponents.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-12 12:45:44 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2001-06-13 13:59:21 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -344,4 +344,9 @@ vtkDataSet *vtkExtractVectorComponents::GetInput()
   return (vtkDataSet *)(this->Inputs[0]);
 }
 
-
+void vtkExtractVectorComponents::PrintSelf(ostream& os, vtkIndent indent)
+{
+  vtkSource::PrintSelf(os,indent);
+  
+  os << indent << "ExtractToFieldData: " << this->ExtractToFieldData << endl;
+}

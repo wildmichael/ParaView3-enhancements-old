@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractVectorComponents.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-12 12:45:44 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2001-06-13 13:59:21 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -66,6 +66,7 @@ class VTK_EXPORT vtkExtractVectorComponents : public vtkSource
 public:
   static vtkExtractVectorComponents *New();
   vtkTypeMacro(vtkExtractVectorComponents,vtkSource);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Specify the input data or filter.
