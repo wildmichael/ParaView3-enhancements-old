@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: H5FDndgm.h,v 1.1 2002-12-02 17:11:03 clarke Exp $  */
-/*  Date : $Date: 2002-12-02 17:11:03 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: H5FDndgm.h,v 1.2 2003-05-08 14:39:28 clarke Exp $  */
+/*  Date : $Date: 2003-05-08 14:39:28 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -29,6 +29,10 @@
 #include "H5pubconf.h"
 
 #define H5FD_NDGM  (H5FD_ndgm_init())
+
+#ifndef WIN32
+#define __DLL__
+#endif
 
 __DLL__ hid_t H5FD_ndgm_init(void);
 __DLL__ herr_t H5Pset_fapl_ndgm(hid_t fapl_id, size_t increment, char *host);
