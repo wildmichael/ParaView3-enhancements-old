@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-20 21:08:48 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2000-04-07 03:17:06 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -177,6 +177,8 @@ void vtkOpenGLPolyDataMapper2D::RenderOpaqueGeometry(vtkViewport* viewport,
   glMatrixMode( GL_MODELVIEW );
   glPushMatrix();
   glLoadIdentity();
+
+  glDisable(GL_TEXTURE_2D);
   glDisable( GL_LIGHTING);
   if ( actor->GetProperty()->GetDisplayLocation() == 
        VTK_FOREGROUND_LOCATION )
