@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVideoSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-03-05 02:38:58 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-03-08 23:03:01 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -82,9 +82,10 @@ public:
   virtual void Stop();
 
   // Description:
-  // Rewind to the frame immediately before the frame that has the 
-  // earliest timestamp.  Subsequent Play, Record, or Grab operations
-  // will start on the next frame.
+  // Rewind to the frame that has the earliest timestamp.  Subsequent grab 
+  // and record operations will start on the following frame, therefore
+  // if you want to re-record over the this frame you must call Seek(-1)
+  // before calling Grab() or Record().
   virtual void Rewind();
 
   // Description:
