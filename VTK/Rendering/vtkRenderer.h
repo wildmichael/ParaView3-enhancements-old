@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.h,v $
   Language:  C++
-  Date:      $Date: 1998-04-21 19:02:06 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 1998-05-26 16:29:06 $
+  Version:   $Revision: 1.60 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -172,6 +172,8 @@ public:
 
   void WorldToView();
   void ViewToWorld();
+  virtual void ViewToWorld(float &wx, float &wy, float &wz);
+  virtual void WorldToView(float &wx, float &wy, float &wz);
 
   vtkGetObjectMacro(RayCaster,vtkRayCaster);
   float GetZ (int x, int y);
