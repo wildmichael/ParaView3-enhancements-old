@@ -13,7 +13,7 @@
 =========================================================================*/
 #include "vtkKWProcessStatistics.h"
 
-vtkCxxRevisionMacro(vtkKWProcessStatistics, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkKWProcessStatistics, "$Revision: 1.7 $");
 
 #ifdef __linux
 #include <sys/procfs.h>
@@ -21,6 +21,8 @@ vtkCxxRevisionMacro(vtkKWProcessStatistics, "$Revision: 1.6 $");
 #include <unistd.h>
 #include <fcntl.h>
 #include <sys/utsname.h> // int uname(struct utsname *buf);
+#include <ctype.h> // int isdigit(int c);
+#include <errno.h> // extern int errno;
 #elif __hpux
 #include <sys/param.h>
 #include <sys/pstat.h>
