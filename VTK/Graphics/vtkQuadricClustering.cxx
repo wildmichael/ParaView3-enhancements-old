@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadricClustering.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-07 16:13:30 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2001-12-17 13:49:54 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -128,6 +128,12 @@ void vtkQuadricClustering::Execute()
     return;
     }
   
+  if (input->CheckAttributes())
+    {
+    // avoid crashing if input is not all we expect (is not consistent).
+    return;
+    }
+
   if (this->Debug)
     {
     tlog = vtkTimerLog::New();
