@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-08 17:21:10 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1998-05-26 16:28:20 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -210,7 +210,6 @@ protected:
   int ScalarVisibility;
   vtkTimeStamp BuildTime;
   float ScalarRange[2];
-  int SelfCreatedLookupTable;
   int ImmediateModeRendering;
   int ColorMode;
   int ScalarMode;
