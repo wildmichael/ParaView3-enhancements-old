@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDilateErode3D.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-30 12:58:11 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1996-09-12 17:28:24 $
+  Version:   $Revision: 1.5 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -37,24 +37,24 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkImage3dDilateErodeFilter - Dilates one value and erodes another.
+// .NAME vtkImageDilateErode3d - Dilates one value and erodes another.
 // .SECTION Description
-// vtkImage3dDilateErodeFilter will dilate one value and erode another.
+// vtkImageDilateErode3d will dilate one value and erode another.
 // It uses an box foot print, and only erodes/dilates on the
 // boundary of the two values.
 
 
-#ifndef __vtkImage3dDilateErodeFilter_h
-#define __vtkImage3dDilateErodeFilter_h
+#ifndef __vtkImageDilateErode3d_h
+#define __vtkImageDilateErode3d_h
 
 
 #include "vtkImageSpatialFilter.h"
 
-class vtkImage3dDilateErodeFilter : public vtkImageSpatialFilter
+class vtkImageDilateErode3d : public vtkImageSpatialFilter
 {
 public:
-  vtkImage3dDilateErodeFilter();
-  char *GetClassName() {return "vtkImage3dDilateErodeFilter";};
+  vtkImageDilateErode3d();
+  char *GetClassName() {return "vtkImageDilateErode3d";};
   void PrintSelf(ostream& os, vtkIndent indent);
   
   void SetKernelSize(int size){this->SetKernelSize(size,size,size);};
