@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBBTree.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-16 21:08:17 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1998-04-23 14:01:48 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -255,6 +255,8 @@ void vtkOBBTree::BuildLocator()
   this->BuildTime.Modified();
 }
 
+// NOTE: for better memory usage this recursive method 
+// frees its first argument 
 void vtkOBBTree::BuildTree(vtkIdList *cells, vtkOBBNode *OBBptr, int level)
 {
   int i, j, numCells=cells->GetNumberOfIds();
@@ -395,10 +397,12 @@ void vtkOBBTree::BuildTree(vtkIdList *cells, vtkOBBNode *OBBptr, int level)
       this->BuildTree(LHlist, LHnode, level+1);
       this->BuildTree(RHlist, RHnode, level+1);
       }
-    
-    // free up local objects
-    LHlist->Delete();
-    RHlist->Delete(); 
+    else
+      {
+      // free up local objects
+      LHlist->Delete();
+      RHlist->Delete(); 
+      }
     }//if should build tree
 
   if ( cells && this->RetainCellLists ) 
