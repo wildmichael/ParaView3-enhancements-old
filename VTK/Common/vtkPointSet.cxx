@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-17 19:44:26 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 1999-12-02 21:14:27 $
+  Version:   $Revision: 1.57 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -234,7 +234,7 @@ int vtkPointSet::FindCell(float x[3], vtkCell *cell, vtkGenericCell *gencell,
       }
     }
 
-  // If a cell is supplied, or we were able to find a starting cell (in the
+  // If a cell is supplied, or we were unable to find a starting cell (in the
   // previous chunk of code), then we use this to start our search. A
   // walking scheme is used, where we walk towards the point and eventually
   // locate the cell that contains the point.
