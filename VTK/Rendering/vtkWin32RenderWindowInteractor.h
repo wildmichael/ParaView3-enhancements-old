@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32RenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-19 19:48:51 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1998-05-21 16:07:10 $
+  Version:   $Revision: 1.11 $
   
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -102,6 +102,7 @@ protected:
   HWND WindowId;
   UINT TimerId;
   WNDPROC OldProc;
+  LPARAM LastPosition;
 
   // Description:
   // Class variables so an exit method can be defined for this class
