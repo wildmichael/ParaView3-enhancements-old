@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowTclInteractor.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:01 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-12-11 21:33:02 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -163,6 +163,9 @@ public:
                                                  XEvent *,Boolean *);
   friend void vtkXRenderWindowTclInteractorTimer(XtPointer,XtIntervalId *);
 
+  vtkGetMacro(BreakLoopFlag, int);
+  vtkSetMacro(BreakLoopFlag, int);
+
 protected:
   vtkXRenderWindowTclInteractor();
   ~vtkXRenderWindowTclInteractor();
@@ -177,6 +180,8 @@ protected:
   Widget oldTop;
   XtAppContext App;
   int PositionBeforeStereo[2];
+
+  int BreakLoopFlag;
 };
 
 #endif
