@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRayCaster.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:46:48 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-07-15 02:57:19 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -532,14 +532,14 @@ float vtkRayCaster::GetViewportScaleFactor( vtkRenderer *ren )
   return this->ImageScale[ this->SelectedImageScaleIndex ];
 }
 
-float vtkRayCaster::GetViewportStepSize(vtkRenderer *ren)
-  {
-    if ( this->SelectedImageScaleIndex >= 0 &&
-	 this->SelectedImageScaleIndex < VTK_MAX_VIEW_RAYS_LEVEL )
-      return this->ViewRaysStepSize[this->SelectedImageScaleIndex];
-    else
-      return 1.0;
-  }
+float vtkRayCaster::GetViewportStepSize()
+{
+  if ( this->SelectedImageScaleIndex >= 0 &&
+       this->SelectedImageScaleIndex < VTK_MAX_VIEW_RAYS_LEVEL )
+    return this->ViewRaysStepSize[this->SelectedImageScaleIndex];
+  else
+    return 1.0;
+}
 
 
 #ifndef TRUE

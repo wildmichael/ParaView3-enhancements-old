@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRayCaster.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:46:49 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-07-15 02:57:20 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -90,7 +90,7 @@ public:
   vtkGetObjectMacro(Renderer,vtkRenderer);
 
   float GetViewportScaleFactor( vtkRenderer *ren );
-  float GetViewportStepSize( vtkRenderer *ren );
+  float GetViewportStepSize( );
   
   vtkGetMacro( AutomaticScaleAdjustment, int );
   void AutomaticScaleAdjustmentOn( void );
