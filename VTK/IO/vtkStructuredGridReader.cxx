@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:12:45 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2000-09-17 11:14:31 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -309,7 +309,13 @@ void vtkStructuredGridReader::Execute()
 	break;
 	}
 
-      if ( ! strncmp(this->Reader->LowerCase(line),"dimensions",10) )
+      if (! strncmp(this->Reader->LowerCase(line), "field", 5))
+	{
+	vtkFieldData* fd = this->Reader->ReadFieldData();
+	output->SetFieldData(fd);
+	fd->Delete(); // ?
+	}
+      else if ( ! strncmp(line, "dimensions",10) )
         {
         int dim[3];
         if (!(this->Reader->Read(dim) && 

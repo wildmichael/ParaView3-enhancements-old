@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:12:46 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2000-09-17 11:14:31 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -95,6 +95,9 @@ void vtkStructuredGridWriter::WriteData()
   // Write structured grid specific stuff
   //
   *fp << "DATASET STRUCTURED_GRID\n";
+
+  // Write data owned by the dataset
+  this->WriteDataSetData(fp, input);
 
   input->GetDimensions(dim);
   *fp << "DIMENSIONS " << dim[0] << " " << dim[1] << " " << dim[2] << "\n";
