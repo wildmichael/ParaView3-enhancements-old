@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-11-04 16:35:35 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 1996-11-05 17:52:55 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -600,7 +600,6 @@ int vtkRenderWindow::OpenPPMImageFile()
       vtkErrorMacro(<< "RenderWindow unable to open image file for writing\n");
       return 0;
       }
-    return 0;
   }
   return 1;
 }
