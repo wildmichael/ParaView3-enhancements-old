@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleStrip.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-16 22:30:57 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 2000-02-16 22:44:59 $
+  Version:   $Revision: 1.56 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -149,7 +149,6 @@ int vtkTriangleStrip::CellBoundary(int subId, float pcoords[3], vtkIdList *pts)
   static int idx[2][3]={{0,1,2},{1,0,2}};
   int order;
   int numPts=this->PointIds->GetNumberOfIds();
-  int retStatus;
 
   order = subId % 2;
 
