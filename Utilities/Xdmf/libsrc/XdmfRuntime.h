@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfRuntime.h,v 1.2 2003-03-04 15:24:31 andy Exp $  */
-/*  Date : $Date: 2003-03-04 15:24:31 $ */
-/*  Version : $Revision: 1.2 $ */
+/*  Id : $Id: XdmfRuntime.h,v 1.3 2003-04-02 18:22:24 clarke Exp $  */
+/*  Date : $Date: 2003-04-02 18:22:24 $ */
+/*  Version : $Revision: 1.3 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -104,6 +104,7 @@ next Frequency multiple
 
 //! Signal Completed Update in Free Run or Safe Mode
   XdmfInt32  SignalComplete( XdmfInt32 Barrier = XDMF_DEFAULT_BARRIER, XdmfInt32 Mode = -1 ) {
+#ifdef HAVE_NDGM
     XdmfInt32 Status;
     XdmfDebug("Clearing Barrier " << Barrier << endl);
     Status = ndgm_barrier_init(Barrier, -1);
@@ -114,6 +115,10 @@ next Frequency multiple
     }
     XdmfDebug("Status = " << Status << endl );
     return( Status );
+#else
+    // This allows for ICE Aware Applications without NDGM
+    return(XDMF_SUCCESS);
+#endif
     }
 
 //! Update the Time/Iteration Scalar Values
