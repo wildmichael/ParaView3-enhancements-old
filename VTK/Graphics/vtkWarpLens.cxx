@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpLens.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:14:02 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-12-11 14:40:06 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -151,13 +151,13 @@ void vtkWarpLens::Execute()
     // The corrected location adds the correction for radial len distortion
     // and for the decentering lens distortion
     //
-    rSquared = pow(x,2) + pow(y,2);
+    rSquared = x*x + y*y;
 
-    newX = x * (1 + this->K1 * rSquared + this->K2 * pow(rSquared,2) ) +
-      this->P1 * (rSquared + 2 * pow(x,2)) + 2 * this->P2 * x * y;
+    newX = x * (1 + this->K1 * rSquared + this->K2 * rSquared*rSquared ) +
+      this->P1 * (rSquared + 2 * x*x) + 2 * this->P2 * x * y;
 
-    newY = y * (1 + this->K1 * rSquared + this->K2 * pow(rSquared,2) ) +
-      this->P2 * (rSquared + 2 * pow(y,2)) + 2 * this->P1 * x * y;
+    newY = y * (1 + this->K1 * rSquared + this->K2 * rSquared*rSquared ) +
+      this->P2 * (rSquared + 2 * y*y) + 2 * this->P1 * x * y;
 
     //
     // Convert back to pixels
