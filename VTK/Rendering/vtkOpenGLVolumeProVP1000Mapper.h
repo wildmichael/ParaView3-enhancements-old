@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLVolumeProVP1000Mapper.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-22 18:39:31 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-09-05 13:26:29 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -53,8 +53,8 @@ public:
   virtual void PrintSelf(ostream& os, vtkIndent indent);
 
 protected:
-  vtkOpenGLVolumeProVP1000Mapper();
-  ~vtkOpenGLVolumeProVP1000Mapper();
+  vtkOpenGLVolumeProVP1000Mapper() {}
+  ~vtkOpenGLVolumeProVP1000Mapper() {}
 
   // Render the hexagon returned by the hardware to the screen.
   void RenderImageBuffer( vtkRenderer  *ren,
