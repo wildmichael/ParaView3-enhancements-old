@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-02 14:34:19 $
-  Version:   $Revision: 1.125 $
+  Date:      $Date: 2002-08-02 15:12:40 $
+  Version:   $Revision: 1.126 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -115,8 +115,11 @@ public:
   // Description:
   // Hide or Show the mouse cursor, it is nice to be able to hide the
   // default cursor if you want VTK to display a 3D cursor instead.
+  // Set cursor position in window (note that (0,0) is the lower left 
+  // corner).
   virtual void HideCursor() = 0;
   virtual void ShowCursor() = 0;
+  virtual void SetCursorPosition(int x, int y) {};
 
   // Description:
   // Turn on/off rendering full screen window size.
