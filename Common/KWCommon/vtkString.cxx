@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkString.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-02-27 18:48:40 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2003-03-03 21:38:55 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,7 +29,7 @@
 #  define STRCASECMP strcasecmp
 #endif
 
-vtkCxxRevisionMacro(vtkString, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtkString, "$Revision: 1.11 $");
 vtkStandardNewMacro(vtkString);
  
 //----------------------------------------------------------------------------
@@ -278,4 +278,23 @@ unsigned int vtkString::CountChar(char* str, char c)
       }
     }
   return count;
+}
+
+//----------------------------------------------------------------------------
+const char* vtkString::GetFilenamePath(const char *filename, char *path)
+{
+  const char *ptr = filename + strlen(filename) - 1;
+  while (ptr > filename && *ptr != '/' && *ptr != '\\')
+    {
+    ptr--;
+    }
+
+  size_t length = ptr - filename;
+  if (length)
+    {
+    strncpy(path, filename, length);
+    }
+  path[length] = '\0';
+  
+  return path;
 }
