@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLVolumeRayCastMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-22 18:58:11 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-08-28 20:12:21 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -70,15 +70,8 @@ vtkOpenGLVolumeRayCastMapper::~vtkOpenGLVolumeRayCastMapper()
 }
 
 void vtkOpenGLVolumeRayCastMapper::RenderTexture( vtkVolume *vol, 
-                                            vtkRenderer *ren )
+                                                  vtkRenderer *ren )
 {
-  int extent[6];
-  
-  extent[0] = this->ImageOrigin[0];
-  extent[1] = this->ImageOrigin[0] + this->ImageInUseSize[0] - 1;
-  extent[2] = this->ImageOrigin[1];
-  extent[3] = this->ImageOrigin[1] + this->ImageInUseSize[1] - 1;
-  
   // Where should we draw the rectangle? If intermixing is on, then do it
   // at the center of the volume, otherwise do it fairly close to the near
   // near plane.
