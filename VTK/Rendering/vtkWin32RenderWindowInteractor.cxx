@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32RenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:17 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 2000-07-11 11:56:41 $
+  Version:   $Revision: 1.59 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -130,7 +130,6 @@ void vtkWin32RenderWindowInteractor::Initialize()
 {
   static int any_initialized = 0;
   vtkWin32OpenGLRenderWindow *ren;
-  int depth;
   int *size;
   int *position;
   int argc = 0;
@@ -391,7 +390,6 @@ void vtkWin32RenderWindowInteractor::OnChar(HWND wnd,UINT nChar,
 LRESULT CALLBACK vtkHandleMessage(HWND hWnd,UINT uMsg, WPARAM wParam, 
                                   LPARAM lParam) 
 {
-  float xf,yf;
   vtkWin32OpenGLRenderWindow *ren;
   vtkWin32RenderWindowInteractor *me;
   
