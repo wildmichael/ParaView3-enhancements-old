@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParse.y,v $
   Language:  C++
-  Date:      $Date: 1998-08-14 14:11:13 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-09-11 15:53:28 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -170,7 +170,10 @@ func: any_id '(' args_list ')' func_end
 any_id: VTK_ID | ID;
 
 func_end: ';' 
+    | CONST ';'
+    | CONST '{' maybe_other '}' ';' 
     | '{' maybe_other '}' ';' 
+    | CONST '{' maybe_other '}'  
     | '{' maybe_other '}'  
     | ':' maybe_other_no_semi ';';
 
