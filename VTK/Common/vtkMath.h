@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMath.h,v $
   Language:  C++
-  Date:      $Date: 1994-04-15 10:01:33 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1994-07-11 22:18:27 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -28,7 +28,7 @@ public:
 
   float Pi() {return 3.14159265358979;};
 
-  float DegreesToRadians() {return 0.018977369;};
+  float DegreesToRadians() {return 0.017453292;};
 
   float Dot(float x[3], float y[3]) 
     {return x[0]*y[0] + x[1]*y[1] + x[2]*y[2];};
