@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOrderedTriangulator.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:18 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-01-02 16:03:21 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -124,6 +124,7 @@ public:
   // can be used prior to the Triangulate() method to update the type of
   // the point with UpdatePointType().
   vtkIdType InsertPoint(vtkIdType id, float x[3], int type);
+  vtkIdType InsertPoint(vtkIdType id, vtkIdType sortid, float x[3], int type);
 
   // Description:
   // Perform the triangulation. (Complete all calls to InsertPoint() prior
