@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-24 08:58:42 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2000-11-03 21:44:26 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -131,32 +131,23 @@ void vtkRectilinearGrid::Initialize()
 void vtkRectilinearGrid::CopyStructure(vtkDataSet *ds)
 {
   vtkRectilinearGrid *rGrid=(vtkRectilinearGrid *)ds;
+  int i;
   this->Initialize();
 
-  for (int i=0; i<3; i++)
+  for (i=0; i<3; i++)
     {
     this->Dimensions[i] = rGrid->Dimensions[i];
     }
+  for (i=0; i<6; i++)
+    {
+    this->Extent[i] = rGrid->Extent[i];
+    }
   this->DataDescription = rGrid->DataDescription;
 
-  this->XCoordinates = rGrid->XCoordinates;
-  if ( this->XCoordinates )
-    {
-    this->XCoordinates->Register(this);
-    }
-
-  this->YCoordinates = rGrid->YCoordinates;
-  if ( this->YCoordinates )
-    {
-    this->YCoordinates->Register(this);
-    }
-
-  this->ZCoordinates = rGrid->ZCoordinates;
-  if ( this->ZCoordinates )
-    {
-    this->ZCoordinates->Register(this);
-    }
- }
+  this->SetXCoordinates(rGrid->XCoordinates);
+  this->SetYCoordinates(rGrid->YCoordinates);
+  this->SetZCoordinates(rGrid->ZCoordinates);
+}
 
 //----------------------------------------------------------------------------
 vtkCell *vtkRectilinearGrid::GetCell(int cellId)
