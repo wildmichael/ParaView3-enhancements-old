@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHeap.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-21 04:04:30 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-12-28 13:57:45 $
+  Version:   $Revision: 1.4 $
   Thanks:    Tom Citriniti who implemented and contributed this class
 
 
@@ -122,7 +122,11 @@ char* vtkHeap::vtkStrDup(const char* str)
   this->NumberOfAllocations++;
 
   vtkHeapNode* node = new vtkHeapNode;
+#ifdef _WIN32_WCE
+  node->Ptr = _strdup(str);
+#else
   node->Ptr = strdup(str);
+#endif
   this->Add(node);
   return static_cast<char*>(node->Ptr);
 }
