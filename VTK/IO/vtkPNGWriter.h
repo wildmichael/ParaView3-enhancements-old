@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNGWriter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:19 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-04-15 19:08:49 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,16 +33,31 @@ class VTK_IO_EXPORT vtkPNGWriter : public vtkImageWriter
 public:
   static vtkPNGWriter *New();
   vtkTypeRevisionMacro(vtkPNGWriter,vtkImageWriter);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // The main interface which triggers the writer to start.
   virtual void Write();
 
+  // Description:
+  // Write the image to memory (a vtkUnsignedCharArray)
+  vtkSetMacro(WriteToMemory, unsigned int);
+  vtkGetMacro(WriteToMemory, unsigned int);
+  vtkBooleanMacro(WriteToMemory, unsigned int);
+  
+  // Description:
+  // When writing to memory this is the result, it will be NULL until the 
+  // data is written the first time
+  vtkSetObjectMacro(Result, vtkUnsignedCharArray);
+  vtkGetObjectMacro(Result, vtkUnsignedCharArray);
+
 protected:
   vtkPNGWriter();
-  ~vtkPNGWriter() {};
+  ~vtkPNGWriter();
   
   void WriteSlice(vtkImageData *data);
+  unsigned int WriteToMemory;
+  vtkUnsignedCharArray *Result;
 
 private:
   vtkPNGWriter(const vtkPNGWriter&);  // Not implemented.
