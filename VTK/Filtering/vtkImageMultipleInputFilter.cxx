@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-01-08 18:31:15 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1998-01-09 20:14:41 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -501,7 +501,7 @@ void vtkImageMultipleInputFilter::Execute(vtkImageData **inDatas,
   str.Inputs = inDatas;
   str.Output = outData;
   
-  this->Threader->SetNumberOfThreads(1/*this->NumberOfThreads*/);
+  this->Threader->SetNumberOfThreads(this->NumberOfThreads);
   
   // setup threading and the invoke threadedExecute
   this->Threader->SetSingleMethod(vtkImageMultiThreadedExecute, &str);

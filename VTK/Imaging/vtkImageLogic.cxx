@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageLogic.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-01-07 21:38:15 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-01-09 20:14:39 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,7 +70,7 @@ static void vtkImageLogicExecute1(vtkImageLogic *self,
   int rowLength;
   unsigned long count = 0;
   unsigned long target;
-  float trueValue = self->GetOutputTrueValue();
+  T trueValue = (T)(self->GetOutputTrueValue());
   int op = self->GetOperation();
 
   
@@ -103,7 +103,7 @@ static void vtkImageLogicExecute1(vtkImageLogic *self,
 	  case VTK_NOT:
 	    if ( ! *in1Ptr)
 	      {
-	      *outPtr = (T)trueValue;
+	      *outPtr = trueValue;
 	      }
 	    else
 	      {
@@ -113,7 +113,7 @@ static void vtkImageLogicExecute1(vtkImageLogic *self,
 	  case VTK_NOP:
 	    if (*in1Ptr)
 	      {
-	      *outPtr = (T)trueValue;
+	      *outPtr = trueValue;
 	      }
 	    else
 	      {
@@ -153,7 +153,7 @@ static void vtkImageLogicExecute2(vtkImageLogic *self,
   int rowLength;
   unsigned long count = 0;
   unsigned long target;
-  float trueValue = self->GetOutputTrueValue();
+  T trueValue = (T)(self->GetOutputTrueValue());
   int op = self->GetOperation();
 
   
@@ -187,7 +187,7 @@ static void vtkImageLogicExecute2(vtkImageLogic *self,
 	  case VTK_AND:
 	    if (*in1Ptr && *in2Ptr)
 	      {
-	      *outPtr = (T)trueValue;
+	      *outPtr = trueValue;
 	      }
 	    else
 	      {
@@ -197,7 +197,7 @@ static void vtkImageLogicExecute2(vtkImageLogic *self,
 	  case VTK_OR:
 	    if (*in1Ptr || *in2Ptr)
 	      {
-	      *outPtr = (T)trueValue;
+	      *outPtr = trueValue;
 	      }
 	    else
 	      {
@@ -207,7 +207,7 @@ static void vtkImageLogicExecute2(vtkImageLogic *self,
 	  case VTK_XOR:
 	    if (( ! *in1Ptr && *in2Ptr) || (*in1Ptr && ! *in2Ptr))
 	      {
-	      *outPtr = (T)trueValue;
+	      *outPtr = trueValue;
 	      }
 	    else
 	      {
@@ -217,7 +217,7 @@ static void vtkImageLogicExecute2(vtkImageLogic *self,
 	  case VTK_NAND:
 	    if ( ! (*in1Ptr && *in2Ptr))
 	      {
-	      *outPtr = (T)trueValue;
+	      *outPtr = trueValue;
 	      }
 	    else
 	      {
@@ -227,7 +227,7 @@ static void vtkImageLogicExecute2(vtkImageLogic *self,
 	  case VTK_NOR:
 	    if ( ! (*in1Ptr || *in2Ptr))
 	      {
-	      *outPtr = (T)trueValue;
+	      *outPtr = trueValue;
 	      }
 	    else
 	      {

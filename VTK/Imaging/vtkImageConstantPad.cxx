@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageConstantPad.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-01-07 21:38:14 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1998-01-09 20:14:37 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -99,15 +99,12 @@ static void vtkImageConstantPadExecute(vtkImageConstantPad *self,
 	count++;
 	}
       state2 = (state3 || idxY < inExt[2] || idxY > inExt[3]);
-      for (idxX = 0; idxX <= maxX; idxX++)
+      if ((maxC == inMaxC) && (maxC == 1))
 	{
-	state1 = (state2 || idxX < inMinX || idxX > inMaxX);
-	for (idxC = 0; idxC < maxC; idxC++)
+	for (idxX = 0; idxX <= maxX; idxX++)
 	  {
-	  // Pixel operation
-	  // Copy Pixel
-	  state0 = (state1 || idxC >= inMaxC);
-	  if (state0)
+	  state1 = (state2 || idxX < inMinX || idxX > inMaxX);
+	  if (state1)
 	    {
 	    *outPtr = constant;
 	    }
@@ -117,6 +114,29 @@ static void vtkImageConstantPadExecute(vtkImageConstantPad *self,
 	    inPtr++;
 	    }
 	  outPtr++;
+	  }
+	}
+      else
+	{
+	for (idxX = 0; idxX <= maxX; idxX++)
+	  {
+	  state1 = (state2 || idxX < inMinX || idxX > inMaxX);
+	  for (idxC = 0; idxC < maxC; idxC++)
+	    {
+	    // Pixel operation
+	    // Copy Pixel
+	    state0 = (state1 || idxC >= inMaxC);
+	    if (state0)
+	      {
+	      *outPtr = constant;
+	      }
+	    else
+	      {
+	      *outPtr = *inPtr;
+	      inPtr++;
+	      }
+	    outPtr++;
+	    }
 	  }
 	}
       outPtr += outIncY;

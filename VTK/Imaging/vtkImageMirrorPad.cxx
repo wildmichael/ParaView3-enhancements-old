@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMirrorPad.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-01-05 21:49:34 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-01-09 20:14:40 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -155,8 +155,11 @@ static void vtkImageMirrorPadExecute(vtkImageMirrorPad *self,
   int cycle, mirror;
   unsigned long count = 0;
   unsigned long target;
-
+  int maxC, inMaxC, idxC;
+  
   // Get information to march through data 
+  inMaxC = inData->GetNumberOfScalarComponents();
+  maxC = outData->GetNumberOfScalarComponents();
   inData->GetIncrements(inInc0, inInc1, inInc2);
   inData->GetExtent(imageMin0, imageMax0, imageMin1, imageMax1, 
 		    imageMin2, imageMax2);
@@ -229,21 +232,49 @@ static void vtkImageMirrorPadExecute(vtkImageMirrorPad *self,
       inPtr0 = inPtr1;
       inIdx0 = start0;
       mInc0 = inInc0;
-      for (outIdx0 = min0; outIdx0 <= max0; ++outIdx0)
+
+      // if components are same much faster
+      if ((maxC == inMaxC) && (maxC == 1))
 	{
-	// Copy Pixel
-	*outPtr0 = *inPtr0;
-	
-	outPtr0 += outInc0;
-	if (inIdx0 == imageMax0)
+	for (outIdx0 = min0; outIdx0 <= max0; ++outIdx0)
 	  {
-	  inIdx0 = imageMin0;
-	  mInc0 = -mInc0;
+	  // Copy Pixel
+	  *outPtr0 = *inPtr0;
+
+	  outPtr0 += outInc0;
+	  if (inIdx0 == imageMax0)
+	    {
+	    inIdx0 = imageMin0;
+	    mInc0 = -mInc0;
+	    }
+	  else
+	    {
+	    ++inIdx0;
+	    inPtr0 += mInc0;
+	    }
 	  }
-	else
+	}
+      else
+	{
+	for (outIdx0 = min0; outIdx0 <= max0; ++outIdx0)
 	  {
-	  ++inIdx0;
-	  inPtr0 += mInc0;
+	  // Copy Pixel
+	  for (idxC = 0; idxC < maxC; idxC++)
+	    {
+	    // Copy Pixel
+	    outPtr0[idxC] = inPtr0[idxC%inMaxC];
+	    }
+	  outPtr0 += outInc0;
+	  if (inIdx0 == imageMax0)
+	    {
+	    inIdx0 = imageMin0;
+	    mInc0 = -mInc0;
+	    }
+	  else
+	    {
+	    ++inIdx0;
+	    inPtr0 += mInc0;
+	    }
 	  }
 	}
       outPtr1 += outInc1;
