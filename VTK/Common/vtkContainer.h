@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContainer.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-10 17:22:02 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-04-10 18:40:24 $
+  Version:   $Revision: 1.8 $
 
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -182,20 +182,20 @@ static inline void* vtkContainerCreateMethod(void* d1)
 
 static inline void vtkContainerDeleteMethod(vtkObject* d1) 
 { d1->UnRegister(0); /* cout << "UR(d1)" << endl; */ }
-static inline void vtkContainerDeleteMethod(char d1) {}
-static inline void vtkContainerDeleteMethod(short d1) {}
-static inline void vtkContainerDeleteMethod(int d1) {}
-static inline void vtkContainerDeleteMethod(long d1) {}
-static inline void vtkContainerDeleteMethod(unsigned char d1) {}
-static inline void vtkContainerDeleteMethod(unsigned short d1) {}
-static inline void vtkContainerDeleteMethod(unsigned int d1) {}
-static inline void vtkContainerDeleteMethod(unsigned long d1) {}
-static inline void vtkContainerDeleteMethod(float d1) {}
-static inline void vtkContainerDeleteMethod(double d1) {}
+static inline void vtkContainerDeleteMethod(char) {}
+static inline void vtkContainerDeleteMethod(short) {}
+static inline void vtkContainerDeleteMethod(int) {}
+static inline void vtkContainerDeleteMethod(long) {}
+static inline void vtkContainerDeleteMethod(unsigned char) {}
+static inline void vtkContainerDeleteMethod(unsigned short) {}
+static inline void vtkContainerDeleteMethod(unsigned int) {}
+static inline void vtkContainerDeleteMethod(unsigned long) {}
+static inline void vtkContainerDeleteMethod(float) {}
+static inline void vtkContainerDeleteMethod(double) {}
 static inline void vtkContainerDeleteMethod(const char* d1) 
 { char *ch = const_cast<char*>(d1); delete [] ch; } 
 static inline void vtkContainerDeleteMethod(char* d1) { delete [] d1; }
-static inline void vtkContainerDeleteMethod(void* d1) {}
+static inline void vtkContainerDeleteMethod(void*) {}
 
 
 #endif 
