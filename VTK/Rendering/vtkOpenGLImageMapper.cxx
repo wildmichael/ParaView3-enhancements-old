@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-11-19 20:15:08 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2000-11-22 02:21:15 $
+  Version:   $Revision: 1.36 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -219,8 +219,8 @@ static void vtkOpenGLImageMapperRender(
 
   if (self->GetRenderToRectangle())
     {
-    int rectwidth  = actorPos2[0] - actorPos[0];
-    int rectheight = actorPos2[1] - actorPos[1];
+    int rectwidth  = (actorPos2[0] - actorPos[0]) + 1;
+    int rectheight = (actorPos2[1] - actorPos[1]) + 1;
     float xscale = (float)rectwidth/width;
     float yscale = (float)rectheight/height;
     glPixelZoom(xscale, yscale);
@@ -355,8 +355,8 @@ static void vtkOpenGLImageMapperRenderShort(
 
   if (self->GetRenderToRectangle())
     {
-    int rectwidth  = actorPos2[0] - actorPos[0];
-    int rectheight = actorPos2[1] - actorPos[1];
+    int rectwidth  = (actorPos2[0] - actorPos[0]) + 1;
+    int rectheight = (actorPos2[1] - actorPos[1]) + 1;
     float xscale = (float)rectwidth/width;
     float yscale = (float)rectheight/height;
     glPixelZoom(xscale, yscale);
@@ -401,8 +401,8 @@ static void vtkOpenGLImageMapperRenderChar(
 
   if (self->GetRenderToRectangle())
     {
-    int rectwidth  = actorPos2[0] - actorPos[0];
-    int rectheight = actorPos2[1] - actorPos[1];
+    int rectwidth  = (actorPos2[0] - actorPos[0]) + 1;
+    int rectheight = (actorPos2[1] - actorPos[1]) + 1;
     float xscale = (float)rectwidth/width;
     float yscale = (float)rectheight/height;
     glPixelZoom(xscale, yscale);
