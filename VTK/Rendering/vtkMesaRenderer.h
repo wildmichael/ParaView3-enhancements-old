@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaRenderer.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:12:05 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-06-12 10:08:15 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -86,9 +86,9 @@ protected:
   // Picking functions to be implemented by sub-classes
   virtual void DevicePickRender();
   virtual void StartPick(unsigned int pickFromSize);
-  virtual void SetPickId(unsigned int pickID);
+  virtual void UpdatePickId();
   virtual void DonePick();
-  virtual unsigned int GetPickedID();
+  virtual unsigned int GetPickedId();
   virtual float GetPickedZ();
   // Ivars used in picking
   class vtkGLPickInfo* PickInfo;
