@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:33 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2002-02-07 19:28:52 $
+  Version:   $Revision: 1.47 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -82,7 +82,7 @@ public:
   // appearance of gray scale images on some systems.
   int GetGrayScaleHint() 
     {vtkWarningMacro("GetGrayScaleHint deprecated, not required anymore"); return 0;};
-  void SetGrayScaleHint(int a) 
+  void SetGrayScaleHint(int vtkNotUsed(a)) 
     {vtkWarningMacro("SetGrayScaleHint deprecated, not required anymore");};
   void GrayScaleHintOn()
     {vtkWarningMacro("GrayScaleHintOn deprecated, not required anymore");};

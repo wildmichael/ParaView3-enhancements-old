@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeTextureMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-02 18:21:53 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2002-02-07 19:28:53 $
+  Version:   $Revision: 1.41 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -64,12 +64,12 @@ VolumeTextureMapper2D_TraverseVolume( T *data_ptr,
   unsigned char    *texture;
   int              textureSize[2];
   int              xTile, yTile, xTotal, yTotal, tile, numTiles;
-  int              *zAxis, *yAxis, *xAxis;
-  int              loc, inc;
+  int              *zAxis=0, *yAxis=0, *xAxis=0;
+  int              loc, inc=0;
   int              saveTextures = me->GetSaveTextures();
-  int              textureOffset;
+  int              textureOffset=0;
   
-  int a0, a1, a2;
+  int a0=0, a1=0, a2=0;
   
   switch ( axis )
     {
@@ -462,7 +462,7 @@ VolumeTextureMapper2D_TraverseVolume( T *data_ptr,
 
 }
 
-vtkCxxRevisionMacro(vtkVolumeTextureMapper2D, "$Revision: 1.40 $");
+vtkCxxRevisionMacro(vtkVolumeTextureMapper2D, "$Revision: 1.41 $");
 
 vtkVolumeTextureMapper2D::vtkVolumeTextureMapper2D()
 {
@@ -502,11 +502,11 @@ void vtkVolumeTextureMapper2D::RenderSavedTexture()
   unsigned char    *texture;
   int              textureSize[2];
   int              xTile, yTile, xTotal, yTotal, tile, numTiles;
-  int              textureOffset;
-  int              axis, directionFlag;
+  int              textureOffset=0;
+  int              axis=0, directionFlag=0;
   int              size[3];
   
-  int a0, a1, a2;
+  int a0=0, a1=0, a2=0;
 
   this->GetInput()->GetDimensions( size );
 
@@ -987,7 +987,7 @@ void vtkVolumeTextureMapper2D::InitializeRender( vtkRenderer *ren,
 void vtkVolumeTextureMapper2D::ComputeAxisTextureSize( int axis, int *textureSize )
 { 
   int targetSize[2];
-  int a0, a1, a2;
+  int a0=0, a1=0, a2=0;
   
   switch ( axis )
     {

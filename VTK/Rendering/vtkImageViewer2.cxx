@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer2.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:33 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-02-07 19:28:52 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkInteractorStyleImage.h"
 #include "vtkCommand.h"
 
-vtkCxxRevisionMacro(vtkImageViewer2, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkImageViewer2, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkImageViewer2);
 
 //----------------------------------------------------------------------------
@@ -89,7 +89,8 @@ public:
   static vtkImageViewer2Callback *New() {
     return new vtkImageViewer2Callback; }
   
-  void Execute(vtkObject *caller, unsigned long event, void *callData)
+  void Execute(vtkObject *caller, unsigned long vtkNotUsed(event), 
+               void *callData)
     {
       if (callData)
         {
