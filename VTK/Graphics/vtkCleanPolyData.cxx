@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCleanPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-06-06 12:43:32 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1997-07-02 18:48:38 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -84,7 +84,7 @@ void vtkCleanPolyData::Execute()
     }
 
   outputPD->CopyAllocate(pd);
-  if ( this->Locator == NULL ) this->CreateDefaultLocator();
+  this->CreateDefaultLocator();
 
   // Initialize; compute absolute tolerance from relative given
   this->Locator->SetTolerance(this->Tolerance*input->GetLength());
@@ -256,16 +256,30 @@ void vtkCleanPolyData::SetLocator(vtkPointLocator *locator)
     }
 }
 
+// Method manages creation of locators. It takes into account the potential
+// change of tolerance (zero to non-zero).
 void vtkCleanPolyData::CreateDefaultLocator()
 {
-  if ( this->SelfCreatedLocator ) this->Locator->Delete();
+  if ( this->SelfCreatedLocator || !this->Locator ) 
+    {
+    if ( this->Locator ) this->Locator->Delete();
 
-  if ( this->Tolerance <= 0.0 )
-    this->Locator = vtkMergePoints::New();
+    if ( this->Tolerance <= 0.0 )
+      this->Locator = vtkMergePoints::New();
+    else
+      this->Locator = vtkPointLocator::New();
+
+    this->SelfCreatedLocator = 1;
+    }
+
   else
-    this->Locator = vtkPointLocator::New();
-
-  this->SelfCreatedLocator = 1;
+    {
+    if ( !strcmp(this->Locator->GetClassName(),"vtkMergePoints") &&
+    this->Tolerance > 0.0 )
+      {
+      vtkWarningMacro(<<"Trying to merge points with non-zero tolerance using vtkMergePoints");
+      }
+    }
 }
 
 void vtkCleanPolyData::PrintSelf(ostream& os, vtkIndent indent)
