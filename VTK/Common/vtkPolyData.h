@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1995-11-05 18:44:12 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 1995-11-07 21:25:30 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,7 +46,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // (e.g., scalars, vectors, etc.) are also represented.
 //
 // The actual cell types (CellType.hh) supported by vtkPolyData are: 
-// vtkVertex, vtkPolyVertex, vtkLine, vtlPolyLine, vtkTriangle, 
+// vtkVertex, vtkPolyVertex, vtkLine, vtkPolyLine, vtkTriangle, 
 // vtkTriangleStrip, vtkPolygon, vtkPixel, and vtkQuad.
 //
 // One important feature of vtkPolyData objects is that special traversal
