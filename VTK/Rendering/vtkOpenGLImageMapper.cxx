@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-18 17:18:27 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-06-20 13:03:28 $
+  Version:   $Revision: 1.16 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -502,12 +502,14 @@ void vtkOpenGLImageMapper::RenderData(vtkViewport* viewport,
 
   switch (data->GetScalarType())
     {
+#ifdef GL_DOUBLE
     case VTK_DOUBLE:  
       vtkOpenGLImageMapperRender(this, data,
 				 (double *)(ptr0), 
 				 GL_DOUBLE,
 				 shift, scale, actorPos, vsize);
       break;
+#endif
     case VTK_FLOAT:  
       vtkOpenGLImageMapperRender(this, data,
 				 (float *)(ptr0), 
