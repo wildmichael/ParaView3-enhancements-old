@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-16 19:41:01 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2000-03-18 13:47:19 $
+  Version:   $Revision: 1.35 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -289,18 +289,20 @@ void vtkXImageWindow::SwapBuffers()
     }
   else
     {
-    if ( !this->WindowId )
+    if ( !this->WindowId)
       {
       vtkErrorMacro ( << "Attempt to use NULL WindowId" );
       return;
       }
-    XCopyArea(this->DisplayId, this->Drawable, this->WindowId, this->Gc, 
-	      0, 0, this->Size[0], this->Size[1], 0, 0);
+    if (this->DoubleBuffer)
+      {
+      XCopyArea(this->DisplayId, this->Drawable, this->WindowId, this->Gc, 
+		0, 0, this->Size[0], this->Size[1], 0, 0);
+      swapFlag = 0;
+      }
+    }
     XSync(this->DisplayId, False);
     XFlush(this->DisplayId);
-    swapFlag = 0;
-    }
-
 }
 
 void *vtkXImageWindow::GetGenericDrawable()
