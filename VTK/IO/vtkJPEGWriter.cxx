@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJPEGWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-31 14:23:43 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-09-11 16:55:40 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -173,7 +173,6 @@ void vtkJPEGWriter::WriteSlice(vtkImageData *data)
   unsigned int width, height;
   width = uExtent[1] - uExtent[0] + 1;
   height = uExtent[3] - uExtent[2] + 1;  
-  int bit_depth = 8;
 
   cinfo.image_width = width; 	/* image width and height, in pixels */
   cinfo.image_height = height;
