@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImager.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:13 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-01-18 19:50:24 $
+  Version:   $Revision: 1.13 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -114,12 +114,13 @@ void vtkOpenGLImager::Erase()
   glEnable( GL_SCISSOR_TEST );
   glScissor(lowerLeft[0],lowerLeft[1],usize,vsize);
 
+  glClearDepth( (GLclampd)(1.0));
   glClearColor( ((GLclampf)(this->Background[0])),
                 ((GLclampf)(this->Background[1])),
                 ((GLclampf)(this->Background[2])),
                 ((GLclampf)(1.0)) );
 
   vtkDebugMacro(<< "glClear\n");
-  glClear((GLbitfield)GL_COLOR_BUFFER_BIT);
+  glClear((GLbitfield)GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 

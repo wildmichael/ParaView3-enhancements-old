@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:11 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2001-01-18 19:50:24 $
+  Version:   $Revision: 1.40 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -75,7 +75,7 @@ public:
 
   // Description:
   // Render the resulting image.
-  void Render(void);
+  virtual void Render(void);
   
   // Description:
   // Set/Get the input to the viewer.
