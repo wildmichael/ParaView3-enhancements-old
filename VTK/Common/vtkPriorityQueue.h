@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPriorityQueue.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:41:15 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1997-11-13 16:21:51 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,7 +80,7 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
 
   int Pop(float &priority, int location=0);
-  float Delete(int id);
+  float DeleteId(int id);
   float GetPriority(int id);
   void Insert(float priority, int id);
   int GetNumberOfItems() {return this->MaxId+1;};
@@ -100,7 +100,7 @@ protected:
 // Description:
 // Delete entry in queue with specified id. Returns priority value
 // associated with that id; or VTK_LARGE_FLOAT if not in queue.
-inline float vtkPriorityQueue::Delete(int id)
+inline float vtkPriorityQueue::DeleteId(int id)
 {
   float priority=VTK_LARGE_FLOAT;
   int loc;
