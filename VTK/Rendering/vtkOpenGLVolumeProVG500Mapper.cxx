@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLVolumeProVG500Mapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-02 20:35:16 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-09-15 21:11:28 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -97,8 +97,13 @@ void vtkOpenGLVolumeProVG500Mapper::RenderHexagon(  vtkRenderer  *ren,
 
   // Specify the texture
   glColor3f(1.0,1.0,1.0);
+#ifdef GL_VERSION_1_1
+  glTexImage2D( GL_TEXTURE_2D, 0, GL_RGBA8, size[0], size[1], 
+		0, GL_RGBA, GL_UNSIGNED_BYTE, basePlane );
+#else
   glTexImage2D( GL_TEXTURE_2D, 0, 4, size[0], size[1], 
-  		0, GL_RGBA, GL_UNSIGNED_BYTE, basePlane );
+		0, GL_RGBA, GL_UNSIGNED_BYTE, basePlane );
+#endif
 
 
   // What is the center of the hexagon?
