@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSetGet.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-27 14:33:54 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 1998-05-22 18:21:21 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -472,5 +472,39 @@ if (vtkObject::GetGlobalWarningDisplay()) cerr << "Warning: In " __FILE__ ", lin
 // sweet time getting around to implementing the method.
 //
 #define vtkNotUsed(x)
+
+#define vtkWorldCoordinateMacro(name) \
+vtkCoordinate *Get##name##Coordinate () \
+{ \
+    vtkDebugMacro(<< this->GetClassName() << " (" << this << "): returning " #name "Coordinate address " << name##Coordinate ); \
+    return name##Coordinate; \
+} \
+void Set##name(float x[3]) {this->Set##name(x[0],x[1],x[2]);}; \
+void Set##name(float x, float y, float z) \
+{ \
+    this->name##Coordinate->SetCoordinateSystem(VTK_WORLD); \
+    this->name##Coordinate->SetValue(x,y,z); \
+} \
+float *Get##name() \
+{ \
+    return this->name##Coordinate->GetValue(); \
+}
+
+#define vtkViewportCoordinateMacro(name) \
+vtkCoordinate *Get##name##Coordinate () \
+{ \
+    vtkDebugMacro(<< this->GetClassName() << " (" << this << "): returning " #name "Coordinate address " << name##Coordinate ); \
+    return name##Coordinate; \
+} \
+void Set##name(float x[2]) {this->Set##name(x[0],x[1]);}; \
+void Set##name(float x, float y) \
+{ \
+    this->name##Coordinate->SetCoordinateSystem(VTK_VIEWPORT); \
+    this->name##Coordinate->SetValue(x,y); \
+} \
+float *Get##name() \
+{ \
+    return this->name##Coordinate->GetValue(); \
+}
 
 #endif
