@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-28 19:55:46 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-05-29 12:48:55 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -39,8 +39,8 @@ int main( int argc, char *argv[] )
   renWin->SetSize( 200, 200 );
   
   vtkSphereSource *sphereSource = vtkSphereSource::New();
-  sphereSource->SetThetaResolution(30.0);
-  sphereSource->SetPhiResolution(30.0);
+  sphereSource->SetThetaResolution(30);
+  sphereSource->SetPhiResolution(30);
   vtkPolyDataMapper *mapper = vtkPolyDataMapper::New();
   mapper->SetInput( sphereSource->GetOutput() );
   
