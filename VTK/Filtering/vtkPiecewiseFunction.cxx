@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPiecewiseFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:28:09 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2002-11-12 20:02:30 $
+  Version:   $Revision: 1.32 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkSource.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkPiecewiseFunction, "$Revision: 1.31 $");
+vtkCxxRevisionMacro(vtkPiecewiseFunction, "$Revision: 1.32 $");
 vtkStandardNewMacro(vtkPiecewiseFunction);
 
 // Construct a new vtkPiecewiseFunction with default values
@@ -87,15 +87,6 @@ void vtkPiecewiseFunction::ShallowCopy( vtkDataObject *o )
 
   // Do the superclass
   this->vtkDataObject::ShallowCopy(o);
-}
-
-vtkDataObject *vtkPiecewiseFunction::MakeObject()
-{
-  vtkPiecewiseFunction *f;
-
-  f = vtkPiecewiseFunction::New();
-  f->DeepCopy( this );
-  return (vtkDataObject *)f;
 }
 
 void vtkPiecewiseFunction::Initialize()
