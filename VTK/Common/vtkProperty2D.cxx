@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:38:43 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-02-10 17:59:40 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,8 +47,8 @@ vtkProperty2D::vtkProperty2D()
 {
   this->Opacity = 1.0;
   this->Color[0] = 1.0;
-  this->Color[1] = 0.0;
-  this->Color[2] = 0.0;  
+  this->Color[1] = 1.0;
+  this->Color[2] = 1.0;  
   this->CompositingOperator = VTK_SRC;
 }
 
