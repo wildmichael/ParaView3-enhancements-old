@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-05 20:29:22 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-04-05 20:36:04 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,7 +30,7 @@
 #include "vtkCallbackCommand.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkPlaneWidget, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkPlaneWidget, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkPlaneWidget);
 
 vtkPlaneWidget::vtkPlaneWidget()
@@ -286,7 +286,7 @@ void vtkPlaneWidget::SetEnabled(int enabling)
 }
 
 void vtkPlaneWidget::ProcessEvents(vtkObject* object, unsigned long event,
-                                       void* clientdata, void* calldata)
+                                       void* clientdata, void* vtkNotUsed(calldata))
 {
   vtkPlaneWidget* self = reinterpret_cast<vtkPlaneWidget *>( clientdata );
   vtkRenderWindowInteractor* rwi = static_cast<vtkRenderWindowInteractor *>( object );
