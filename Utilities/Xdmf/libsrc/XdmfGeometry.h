@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGeometry.h,v 1.4 2003-11-07 19:19:58 clarke Exp $  */
-/*  Date : $Date: 2003-11-07 19:19:58 $ */
-/*  Version : $Revision: 1.4 $ */
+/*  Id : $Id: XdmfGeometry.h,v 1.5 2004-08-24 15:30:18 clarke Exp $  */
+/*  Date : $Date: 2004-08-24 15:30:18 $ */
+/*  Version : $Revision: 1.5 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -31,8 +31,9 @@
 #define XDMF_GEOMETRY_XYZ    1
 #define XDMF_GEOMETRY_XY    2
 #define XDMF_GEOMETRY_X_Y_Z    3
-#define XDMF_GEOMETRY_VXVYVZ    4
-#define XDMF_GEOMETRY_ORIGIN_DXDYDZ  5
+#define XDMF_GEOMETRY_X_Y    4
+#define XDMF_GEOMETRY_VXVYVZ    5
+#define XDMF_GEOMETRY_ORIGIN_DXDYDZ  6
 
 
 //! Class to handle the XYZ positions of a Grid
