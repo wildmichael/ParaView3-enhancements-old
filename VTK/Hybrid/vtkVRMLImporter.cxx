@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLImporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-21 13:37:40 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2001-09-21 14:32:23 $
+  Version:   $Revision: 1.38 $
   Thanks:    Tom Citriniti who implemented and contributed this class
 
 
@@ -61,25 +61,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #pragma warning( disable : 4005 )
 #endif
 
-#include "vtkVRML.h"
-
-#include "vtkVRMLImporter.h"
-#include "vtkByteSwap.h"
-#include "vtkPolyDataMapper.h"
-#include "vtkPolyDataNormals.h"
-#include "vtkStripper.h"
-#include "vtkActor.h"
-#include "vtkSphereSource.h"
-#include "vtkCubeSource.h"
-#include "vtkConeSource.h"
-#include "vtkCylinderSource.h"
-#include "vtkPoints.h"
-#include "vtkSystemIncludes.h"
-#include "vtkObjectFactory.h"
-#include "vtkFloatArray.h"
-#include "vtkHeap.h"
-
 // Use a user-managed heap to remove memory leaks
+// This code must come before "#include vtkVRML.h" because
+// it uses the functions below.
+#include "vtkHeap.h"
 static vtkHeap *vrmlHeap=NULL;
 static void vrmlInitialize()
 {
@@ -105,6 +90,21 @@ static char *vrmlStrDup(const char *str)
   return vrmlHeap->StrDup(str);
 }
 
+#include "vtkVRML.h"
+#include "vtkVRMLImporter.h"
+#include "vtkByteSwap.h"
+#include "vtkPolyDataMapper.h"
+#include "vtkPolyDataNormals.h"
+#include "vtkStripper.h"
+#include "vtkActor.h"
+#include "vtkSphereSource.h"
+#include "vtkCubeSource.h"
+#include "vtkConeSource.h"
+#include "vtkCylinderSource.h"
+#include "vtkPoints.h"
+#include "vtkSystemIncludes.h"
+#include "vtkObjectFactory.h"
+#include "vtkFloatArray.h"
 
 // Provide isatty prototype for Cygwin. 
 #ifdef __CYGWIN__
