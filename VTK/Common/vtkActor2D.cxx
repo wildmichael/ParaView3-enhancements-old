@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-07 23:07:36 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2002-09-26 17:15:12 $
+  Version:   $Revision: 1.34 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkPropCollection.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkActor2D, "$Revision: 1.33 $");
+vtkCxxRevisionMacro(vtkActor2D, "$Revision: 1.34 $");
 vtkStandardNewMacro(vtkActor2D);
 
 vtkCxxSetObjectMacro(vtkActor2D,Property, vtkProperty2D);
@@ -174,7 +174,7 @@ void vtkActor2D::SetMapper(vtkMapper2D *mapper)
 
 unsigned long int vtkActor2D::GetMTime()
 {
-  unsigned long mTime=this->vtkObject::GetMTime();
+  unsigned long mTime=this->Superclass::GetMTime();
   unsigned long time;
 
   time  = this->PositionCoordinate->GetMTime();
@@ -254,6 +254,7 @@ void vtkActor2D::ShallowCopy(vtkProp *prop)
     this->SetLayerNumber(a->GetLayerNumber());
     this->SetProperty(a->GetProperty());
     this->SetPosition(a->GetPosition());
+    this->SetPosition2(a->GetPosition2());
     }
 
   // Now do superclass
