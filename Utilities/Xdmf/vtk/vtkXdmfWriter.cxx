@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2004-08-19 21:25:43 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2005-02-09 19:23:24 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -107,7 +107,7 @@ struct vtkXdmfWriterInternal
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkXdmfWriter);
-vtkCxxRevisionMacro(vtkXdmfWriter, "$Revision: 1.16 $");
+vtkCxxRevisionMacro(vtkXdmfWriter, "$Revision: 1.17 $");
 
 //----------------------------------------------------------------------------
 vtkXdmfWriter::vtkXdmfWriter()
@@ -728,7 +728,7 @@ void vtkXdmfWriter::WriteAttributes( ostream& ost, vtkDataSet* ds, const char* g
       {
       vtkDataArray* array = CellData->GetArray(cc);
       int type = XDMF_ATTRIBUTE_TYPE_NONE;
-      if ( array == CellData->GetScalars() )
+      if ( array == CellData->GetScalars()  || array->GetNumberOfComponents() == 1 )
         {
         type = XDMF_ATTRIBUTE_TYPE_SCALAR;
         }
@@ -758,7 +758,7 @@ void vtkXdmfWriter::WriteAttributes( ostream& ost, vtkDataSet* ds, const char* g
       {
       vtkDataArray* array = PointData->GetArray(cc);
       int type = XDMF_ATTRIBUTE_TYPE_NONE;
-      if ( array == PointData->GetScalars() )
+      if ( array == PointData->GetScalars() || array->GetNumberOfComponents() == 1 )
         {
         type = XDMF_ATTRIBUTE_TYPE_SCALAR;
         }
