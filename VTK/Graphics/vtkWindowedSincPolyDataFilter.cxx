@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindowedSincPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:25:31 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-12-17 15:05:44 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -251,13 +251,13 @@ void vtkWindowedSincPolyDataFilter::Execute()
         if ( Verts[p1].edges == NULL )
           {
           Verts[p1].edges = vtkIdList::New();
-          Verts[p1].edges->Allocate(6,6);
+          Verts[p1].edges->Allocate(16,6);
           // Verts[p1].edges = new vtkIdList(6,6);
           }
         if ( Verts[p2].edges == NULL )
           {
           Verts[p2].edges = vtkIdList::New();
-          Verts[p2].edges->Allocate(6,6);
+          Verts[p2].edges->Allocate(16,6);
           // Verts[p2].edges = new vtkIdList(6,6);
           }
 
