@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkHexahedron.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-01 23:12:25 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1994-12-28 15:53:22 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -21,7 +21,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 
 static vlMath math;
 static vlLine line;
-static vlQuad quad;
+static vlQuad theQuad; // using "quad" bothers IBM xlc compiler!
 
 // Description:
 // Deep copy of cell.
@@ -308,11 +308,11 @@ vlCell *vlHexahedron::GetFace(int faceId)
 
   for (i=0; i<4; i++)
     {
-    quad.PointIds.SetId(i,this->PointIds.GetId(verts[i]));
-    quad.Points.SetPoint(i,this->Points.GetPoint(verts[i]));
+    theQuad.PointIds.SetId(i,this->PointIds.GetId(verts[i]));
+    theQuad.Points.SetPoint(i,this->Points.GetPoint(verts[i]));
     }
 
-  return &quad;
+  return &theQuad;
 }
 // 
 // Intersect hexa faces against line. Each hexa face is a quadrilateral.
@@ -335,12 +335,12 @@ int vlHexahedron::IntersectWithLine(float p1[3], float p2[3], float tol,
     pt3 = this->Points.GetPoint(faces[faceNum][2]);
     pt4 = this->Points.GetPoint(faces[faceNum][3]);
 
-    quad.Points.SetPoint(0,pt1);
-    quad.Points.SetPoint(1,pt2);
-    quad.Points.SetPoint(2,pt3);
-    quad.Points.SetPoint(3,pt4);
+    theQuad.Points.SetPoint(0,pt1);
+    theQuad.Points.SetPoint(1,pt2);
+    theQuad.Points.SetPoint(2,pt3);
+    theQuad.Points.SetPoint(3,pt4);
 
-    if ( quad.IntersectWithLine(p1, p2, tol, tTemp, xTemp, pc, subId) )
+    if ( theQuad.IntersectWithLine(p1, p2, tol, tTemp, xTemp, pc, subId) )
       {
       intersection = 1;
       if ( tTemp < t )
