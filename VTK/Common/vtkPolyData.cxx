@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:24:21 $
-  Version:   $Revision: 1.149 $
+  Date:      $Date: 2003-01-17 14:08:41 $
+  Version:   $Revision: 1.150 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -34,7 +34,7 @@
 #include "vtkTriangleStrip.h"
 #include "vtkVertex.h"
 
-vtkCxxRevisionMacro(vtkPolyData, "$Revision: 1.149 $");
+vtkCxxRevisionMacro(vtkPolyData, "$Revision: 1.150 $");
 vtkStandardNewMacro(vtkPolyData);
 
 //----------------------------------------------------------------------------
@@ -1866,7 +1866,14 @@ void vtkPolyData::RemoveGhostCells(int level)
   // Save the results.
   this->CellData->ShallowCopy(newCellData);
   newCellData->Delete();
-  
+
+  // If there are no more ghost levels, then remove all arrays.
+  if (level <= 1)
+    {
+    this->CellData->RemoveArray("vtkGhostLevels");
+    this->PointData->RemoveArray("vtkGhostLevels");
+    }
+
   this->Squeeze();
 }
 
