@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-07 01:27:46 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-08-07 18:47:23 $
+  Version:   $Revision: 1.10 $
 
 Copyright (c) 1998-2000 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -103,9 +103,8 @@ void vtkPVContourFilter::SetInput(vtkPVData *pvData)
     }  
   
   this->GetContour()->SetInput(pvData->GetData());
+  this->Input = pvData;
 }
-
-
 
 //----------------------------------------------------------------------------
 void vtkPVContourFilter::SetOutput(vtkPVPolyData *pvd)
@@ -160,12 +159,14 @@ void vtkPVContourFilter::ContourValueChanged()
     this->SetOutput(pvd);
     a = window->GetPreviousSource()->GetPVData()->GetAssignment();
     pvd->SetAssignment(a);
-    window->GetPreviousSource()->GetPVData()->GetActorComposite()->VisibilityOff(); 
+//    window->GetPreviousSource()->GetPVData()->GetActorComposite()->VisibilityOff(); 
+    this->GetInput()->GetActorComposite()->VisibilityOff();
     this->CreateDataPage();
     ac = this->GetPVData()->GetActorComposite();
     window->GetMainView()->AddComposite(ac);
     }
   window->GetMainView()->SetSelectedComposite(this);
+
   this->GetView()->Render();
 }
 
