@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-23 20:34:44 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1997-06-06 12:44:43 $
+  Version:   $Revision: 1.16 $
   
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -55,8 +55,8 @@ vtkLODActor::vtkLODActor()
   this->Timings[2] = -2; // lowest LOD
   // get a hardware dependent actor and mappers
   this->Device = vtkActor::New();
-  this->MediumMapper = vtkPolyMapper::New();
-  this->LowMapper = vtkPolyMapper::New();
+  this->MediumMapper = vtkPolyDataMapper::New();
+  this->LowMapper = vtkPolyDataMapper::New();
 }
 
 vtkLODActor::~vtkLODActor()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlaneSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-23 20:35:08 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1997-06-06 12:45:10 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -397,7 +397,7 @@ int vtkPlaneSource::UpdatePlane(float v1[3], float v2[3])
 
 void vtkPlaneSource::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolySource::PrintSelf(os,indent);
+  vtkPolyDataSource::PrintSelf(os,indent);
 
   os << indent << "X Resolution: " << this->XResolution << "\n";
   os << indent << "Y Resolution: " << this->YResolution << "\n";

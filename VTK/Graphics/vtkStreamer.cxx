@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamer.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-23 20:35:44 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1997-06-06 12:46:28 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -460,7 +460,7 @@ void vtkStreamer::ComputeVorticity()
 
 void vtkStreamer::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataSetToPolyFilter::PrintSelf(os,indent);
+  vtkDataSetToPolyDataFilter::PrintSelf(os,indent);
 
   if ( this->StartFrom == VTK_START_FROM_POSITION && !this->Source)
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:54:09 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1997-06-06 12:46:53 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,7 +52,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // visualization pipeline. This is necessary for some objects 
 // (e.g., vtkProbeFilter) that require point coordinates as input.
 // .SECTION See Also
-// vtkTransform vtkTransformPolyFilter vtkActor
+// vtkTransform vtkTransformPolyDataFilter vtkActor
 // .EXAMPLE XFormSph.cc
 
 #ifndef __vtkTransformFilter_h

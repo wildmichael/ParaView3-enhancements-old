@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-23 20:35:19 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-06-06 12:45:54 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -319,7 +319,7 @@ void vtkRectilinearGridGeometryFilter::SetExtent(int *extent)
 
 void vtkRectilinearGridGeometryFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkRectilinearGridToPolyFilter::PrintSelf(os,indent);
+  vtkRectilinearGridToPolyDataFilter::PrintSelf(os,indent);
 
   os << indent << "Extent: \n";
   os << indent << "  Imin,Imax: (" << this->Extent[0] << ", " << this->Extent[1] << ")\n";

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkReverseSense.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-05 17:45:08 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-06-06 12:46:05 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -105,7 +105,7 @@ void vtkReverseSense::Execute()
 
 void vtkReverseSense::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolyToPolyFilter::PrintSelf(os,indent);
+  vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
 
   os << indent << "Reverse Cells: " << (this->ReverseCells ? "On\n" : "Off\n");
   os << indent << "Reverse Normals: " << (this->ReverseNormals ? "On\n" : "Off\n");

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensorGlyph.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-23 20:35:59 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1997-06-06 12:46:44 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -342,7 +342,7 @@ void vtkTensorGlyph::Update()
 
 void vtkTensorGlyph::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataSetToPolyFilter::PrintSelf(os,indent);
+  vtkDataSetToPolyDataFilter::PrintSelf(os,indent);
 
   os << indent << "Source: " << this->Source << "\n";
   os << indent << "Scaling: " << (this->Scaling ? "On\n" : "Off\n");

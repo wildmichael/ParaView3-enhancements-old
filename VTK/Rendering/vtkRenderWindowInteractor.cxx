@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-26 22:06:43 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1997-06-06 12:46:03 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,7 +64,7 @@ vtkRenderWindowInteractor::vtkRenderWindowInteractor()
   this->SelfCreatedPicker = 0;
   this->Picker = this->CreateDefaultPicker();
   this->OutlineActor = NULL;
-  this->OutlineMapper = vtkPolyMapper::New();  
+  this->OutlineMapper = vtkPolyDataMapper::New();  
   this->OutlineMapper->SetInput(this->Outline.GetOutput());
   this->PickedRenderer = NULL;
   this->CurrentActor = NULL;

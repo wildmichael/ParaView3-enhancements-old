@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-06-05 12:11:47 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1997-06-06 12:47:17 $
+  Version:   $Revision: 1.5 $
   Thanks:    to Horst Schreiber for developing this MFC code
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,7 +52,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkOpenGLCamera.h"
 #include "vtkOpenGLActor.h"
 #include "vtkOpenGLLight.h"
-#include "vtkOpenGLPolyMapper.h"
+#include "vtkOpenGLPolyDataMapper.h"
 
 #define MAX_LIGHTS 8
 

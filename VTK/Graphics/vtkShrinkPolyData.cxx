@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShrinkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-23 20:35:35 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1997-06-06 12:46:16 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -233,6 +233,6 @@ void vtkShrinkPolyData::Execute()
 
 void vtkShrinkPolyData::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolyToPolyFilter::PrintSelf(os,indent);
+  vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
   os << indent << "Shrink Factor: " << this->ShrinkFactor << "\n";
 }

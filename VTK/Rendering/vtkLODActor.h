@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODActor.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-23 18:58:07 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1997-06-06 12:44:44 $
+  Version:   $Revision: 1.12 $
   
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -62,7 +62,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkActor.h"
 #include "vtkMaskPoints.h"
 #include "vtkOutlineFilter.h"
-#include "vtkPolyMapper.h"
+#include "vtkPolyDataMapper.h"
 #include "vtkGlyph3D.h"
 #include "vtkPointSource.h"
 
@@ -85,8 +85,8 @@ class VTK_EXPORT vtkLODActor : public vtkActor
 protected:
   vtkPointSource      PointSource;
   vtkGlyph3D          Glyph3D;
-  vtkPolyMapper       *MediumMapper;
-  vtkPolyMapper       *LowMapper;
+  vtkPolyDataMapper       *MediumMapper;
+  vtkPolyDataMapper       *LowMapper;
   vtkMaskPoints       MaskPoints;
   vtkOutlineFilter    OutlineFilter;
   vtkTimeStamp        BuildTime;

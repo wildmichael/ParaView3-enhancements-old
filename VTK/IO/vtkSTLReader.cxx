@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-29 01:52:54 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1997-06-06 12:46:12 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -293,7 +293,7 @@ void vtkSTLReader::CreateDefaultLocator()
 
 void vtkSTLReader::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolySource::PrintSelf(os,indent);
+  vtkPolyDataSource::PrintSelf(os,indent);
 
   os << indent << "File Name: " 
      << (this->FileName ? this->FileName : "(none)") << "\n";

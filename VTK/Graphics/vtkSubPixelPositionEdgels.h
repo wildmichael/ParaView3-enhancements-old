@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSubPixelPositionEdgels.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:53:55 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1997-06-06 12:46:43 $
+  Version:   $Revision: 1.7 $
 
 Copyright (c) 1993-1997 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -59,10 +59,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkSubPixelPositionEdgels_h
 #define __vtkSubPixelPositionEdgels_h
 
-#include "vtkPolyToPolyFilter.h"
+#include "vtkPolyDataToPolyDataFilter.h"
 #include "vtkStructuredPoints.h"
 
-class VTK_EXPORT vtkSubPixelPositionEdgels : public vtkPolyToPolyFilter
+class VTK_EXPORT vtkSubPixelPositionEdgels : public vtkPolyDataToPolyDataFilter
 {
 public:
   vtkSubPixelPositionEdgels();

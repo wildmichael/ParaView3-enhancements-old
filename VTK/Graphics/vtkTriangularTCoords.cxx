@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangularTCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-23 20:36:14 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1997-06-06 12:47:01 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -187,5 +187,5 @@ void vtkTriangularTCoords::Execute()
 
 void vtkTriangularTCoords::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolyToPolyFilter::PrintSelf(os,indent);
+  vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangularTCoords.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:54:15 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1997-06-06 12:47:02 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,9 +55,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkTriangularTCoords_h
 #define __vtkTriangularTCoords_h
 
-#include "vtkPolyToPolyFilter.h"
+#include "vtkPolyDataToPolyDataFilter.h"
 
-class VTK_EXPORT vtkTriangularTCoords : public vtkPolyToPolyFilter
+class VTK_EXPORT vtkTriangularTCoords : public vtkPolyDataToPolyDataFilter
 {
 public:
   static vtkTriangularTCoords *New() {return new vtkTriangularTCoords;};

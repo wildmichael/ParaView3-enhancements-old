@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRibbonFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-23 20:35:24 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1997-06-06 12:46:07 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -243,7 +243,7 @@ void vtkRibbonFilter::Execute()
 
 void vtkRibbonFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolyToPolyFilter::PrintSelf(os,indent);
+  vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
 
   os << indent << "Width: " << this->Width << "\n";
   os << indent << "Angle: " << this->Angle << "\n";

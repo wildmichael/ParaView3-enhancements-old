@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexturedSphereSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-23 20:36:06 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1997-06-06 12:46:48 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -147,7 +147,7 @@ void vtkTexturedSphereSource::Execute()
 
 void vtkTexturedSphereSource::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolySource::PrintSelf(os,indent);
+  vtkPolyDataSource::PrintSelf(os,indent);
 
   os << indent << "Theta Resolution: " << this->ThetaResolution << "\n";
   os << indent << "Phi Resolution: " << this->PhiResolution << "\n";

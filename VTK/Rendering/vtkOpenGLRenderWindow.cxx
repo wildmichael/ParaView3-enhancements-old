@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-30 13:22:05 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-06-06 12:45:05 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,7 +48,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkOpenGLCamera.h"
 #include "vtkOpenGLLight.h"
 #include "vtkOpenGLActor.h"
-#include "vtkOpenGLPolyMapper.h"
+#include "vtkOpenGLPolyDataMapper.h"
 #include "GL/gl.h"
 #include "GL/glu.h"
 

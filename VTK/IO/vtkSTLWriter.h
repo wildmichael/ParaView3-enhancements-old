@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLWriter.h,v $
   Language:  C++
-  Date:      $Date: 1997-05-29 01:52:58 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1997-06-06 12:46:15 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,10 +50,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkSTLWriter_h
 
 #include <stdio.h>
-#include "vtkPolyWriter.h"
+#include "vtkPolyDataWriter.h"
 #include "vtkPolyData.h"
 
-class VTK_EXPORT vtkSTLWriter : public vtkPolyWriter
+class VTK_EXPORT vtkSTLWriter : public vtkPolyDataWriter
 {
 public:
   vtkSTLWriter();

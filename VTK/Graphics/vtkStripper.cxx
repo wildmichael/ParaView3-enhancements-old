@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStripper.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-15 23:23:49 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1997-06-06 12:46:31 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -312,7 +312,7 @@ void vtkStripper::Execute()
 
 void vtkStripper::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolyToPolyFilter::PrintSelf(os,indent);
+  vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
 
   os << indent << "Maximum Length: " << this->MaximumLength << "\n";
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkReverseSense.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:53:00 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-06-06 12:46:06 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,9 +52,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkReverseSense_h
 #define __vtkReverseSense_h
 
-#include "vtkPolyToPolyFilter.h"
+#include "vtkPolyDataToPolyDataFilter.h"
 
-class VTK_EXPORT vtkReverseSense : public vtkPolyToPolyFilter
+class VTK_EXPORT vtkReverseSense : public vtkPolyDataToPolyDataFilter
 {
 public:
   vtkReverseSense();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1997-05-29 01:52:51 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 1997-06-06 12:46:02 $
+  Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,7 +62,7 @@ class vtkCameraDevice;
 class vtkActorDevice;
 class vtkTextureDevice;
 class vtkPropertyDevice;
-class vtkPolyMapperDevice;
+class vtkPolyDataMapperDevice;
 
 // lets define the diferent types of stereo
 #define VTK_STEREO_CRYSTAL_EYES 1

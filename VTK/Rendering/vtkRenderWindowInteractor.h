@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1997-05-01 17:13:44 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1997-06-06 12:46:04 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,7 +63,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkCamera.h"
 #include "vtkLight.h"
 #include "vtkPicker.h"
-#include "vtkPolyMapper.h"
+#include "vtkPolyDataMapper.h"
 #include "vtkOutlineSource.h"
 
 class VTK_EXPORT vtkRenderWindowInteractor : public vtkObject
@@ -157,7 +157,7 @@ protected:
   vtkPicker *Picker;
   int SelfCreatedPicker;
   vtkOutlineSource Outline;
-  vtkPolyMapper *OutlineMapper;
+  vtkPolyDataMapper *OutlineMapper;
   vtkActor *OutlineActor;
   vtkRenderer *PickedRenderer;
   vtkActor *CurrentActor;

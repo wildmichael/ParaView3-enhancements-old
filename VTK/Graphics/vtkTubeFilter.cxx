@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTubeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-23 20:36:15 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1997-06-06 12:47:03 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -308,7 +308,7 @@ void vtkTubeFilter::Execute()
 
 void vtkTubeFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolyToPolyFilter::PrintSelf(os,indent);
+  vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
 
   os << indent << "Radius: " << this->Radius << "\n";
   os << indent << "Vary Radius: " << (this->VaryRadius ? "On\n" : "Off\n");

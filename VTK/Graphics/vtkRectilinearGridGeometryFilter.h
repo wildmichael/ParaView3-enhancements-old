@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-05-13 01:29:25 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-06-06 12:45:55 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,9 +59,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkRectilinearGridGeometryFilter_h
 #define __vtkRectilinearGridGeometryFilter_h
 
-#include "vtkRectilinearGridToPolyFilter.h"
+#include "vtkRectilinearGridToPolyDataFilter.h"
 
-class VTK_EXPORT vtkRectilinearGridGeometryFilter : public vtkRectilinearGridToPolyFilter
+class VTK_EXPORT vtkRectilinearGridGeometryFilter : public vtkRectilinearGridToPolyDataFilter
 {
 public:
   vtkRectilinearGridGeometryFilter();
