@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLImporter.h,v $
   Language:  C++
-  Date:      $Date: 2001-04-04 20:13:13 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-05-14 21:38:00 $
+  Version:   $Revision: 1.8 $
   Thanks:    Tom Citriniti who implemented and contributed this class
 
 
@@ -183,7 +183,15 @@ private:
 
 //BTX
 
+#ifdef WIN32
+#pragma warning( disable : 4251 )
+#endif
+
   VectorType<vtkObject*> Heap;
+
+#ifdef WIN32
+#pragma warning( default : 4251 )
+#endif
 
 //ETX
 
