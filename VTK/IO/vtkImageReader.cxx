@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-19 17:34:24 $
-  Version:   $Revision: 1.81 $
+  Date:      $Date: 2001-06-19 19:03:28 $
+  Version:   $Revision: 1.82 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -591,7 +591,7 @@ unsigned long vtkImageReader::GetHeaderSize(int idx)
     // Get the size of the header from the size of the image
     this->File->seekg(0,ios::end);
     
-    return (unsigned long)(this->File->tellg() - 
+    return (unsigned long)((unsigned long)this->File->tellg() - 
       (unsigned long)this->DataIncrements[this->GetFileDimensionality()]);
     }
 
