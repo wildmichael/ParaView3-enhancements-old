@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkUnstructuredGridWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-02-15 10:09:49 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1995-05-01 21:05:39 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -17,6 +17,46 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 
 void vlUnstructuredGridWriter::WriteData()
 {
+  FILE *fp;
+  vlUnstructuredGrid *input=(vlUnstructuredGrid *)this->Input;
+  int *types, ncells, cellId;
+
+  vlDebugMacro(<<"Writing vl unstructured grid data...");
+
+  if ( !(fp=this->OpenVLFile(this->Filename)) || !this->WriteHeader(fp) )
+      return;
+//
+// Write unstructured grid specific stuff
+//
+  fprintf(fp,"DATASET UNSTRUCTURED_GRID\n");
+  this->WritePoints(fp, input->GetPoints());
+  this->WriteCells(fp, input->GetCells(),"CELLS");
+//
+// Cell types are a little more work
+//
+  ncells = input->GetCells()->GetNumberOfCells();
+  types = new int[ncells];
+  for (cellId=0; cellId < ncells; cellId++)
+    {
+    types[cellId] = input->GetCellType(cellId);
+    }
+
+  fprintf (fp, "CELL_TYPES %d\n", ncells);
+  if ( this->FileType == ASCII )
+    {
+    for (cellId=0; cellId<ncells; cellId++)
+      {
+      fprintf (fp, "%d\n", types[cellId]);
+      }
+    }
+  else
+    {
+    fwrite (types,sizeof(int),ncells,fp);
+    }
+  fprintf (fp,"\n");
+    
+  delete [] types;
+  this->WritePointData(fp, input);
 }
 
 void vlUnstructuredGridWriter::Modified()
