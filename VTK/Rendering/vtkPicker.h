@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPicker.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-26 02:31:16 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2003-05-06 15:17:52 $
+  Version:   $Revision: 1.49 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -118,7 +118,7 @@ protected:
                                   vtkAbstractMapper3D *m);
   virtual void Initialize();
 
-  float Tolerance; //tolerance for computation (% of window)
+  float Tolerance;  //tolerance for computation (% of window)
   float MapperPosition[3]; //selection point in untransformed coordinates
 
   vtkAbstractMapper3D *Mapper; //selected mapper (if the prop has a mapper)
