@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSLCReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:47:16 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1997-07-17 16:41:20 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -185,7 +185,7 @@ void vtkSLCReader::Execute()
         if( !scan_ptr )
           scan_ptr = new unsigned char[plane_size];
 
-        if( fread( scan_ptr, 1, plane_size, fp ) != plane_size )
+        if( fread( scan_ptr, 1, plane_size, fp ) != (unsigned int)plane_size )
 	{
           vtkErrorMacro( << 
 	    "Unable to read slice " << z_counter << " from SLC File" );
@@ -203,7 +203,8 @@ void vtkSLCReader::Execute()
 
         compressed_ptr = new unsigned char[compressed_size];
 
-        if( fread(compressed_ptr, 1, compressed_size, fp) != compressed_size )
+        if( fread(compressed_ptr, 1, compressed_size, fp) != 
+	    (unsigned int)compressed_size )
 	{
           vtkErrorMacro( << "Unable to read compressed slice " << 
 	    z_counter << " from SLC File" );
