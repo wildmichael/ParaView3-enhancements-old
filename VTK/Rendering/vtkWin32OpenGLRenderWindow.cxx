@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-06-09 18:44:05 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1997-07-09 17:11:24 $
+  Version:   $Revision: 1.7 $
   Thanks:    to Horst Schreiber for developing this MFC code
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -783,8 +783,9 @@ void vtkWin32OpenGLRenderWindow::SetPixelData(int x1, int y1, int x2, int y2,
     glMatrixMode( GL_PROJECTION );
     glPushMatrix();
     glLoadIdentity();
-    glRasterPos2f( 2.0 * (GLfloat)(x_low) / this->Size[0] - 1, 
-                   2.0 * (GLfloat)(yloop) / this->Size[1] - 1);
+    glRasterPos3f( (2.0 * (GLfloat)(x_low) / this->Size[0] - 1), 
+                   (2.0 * (GLfloat)(yloop) / this->Size[1] - 1),
+		   -1.0 );
     glMatrixMode( GL_MODELVIEW );
     glPopMatrix();
     glMatrixMode( GL_PROJECTION );
@@ -954,8 +955,9 @@ void vtkWin32OpenGLRenderWindow::SetRGBAPixelData(int x1, int y1,
   glMatrixMode( GL_PROJECTION );
   glPushMatrix();
   glLoadIdentity();
-  glRasterPos2f( 2.0 * (GLfloat)(x_low) / this->Size[0] - 1, 
-                 2.0 * (GLfloat)(y_low) / this->Size[1] - 1);
+  glRasterPos3f( (2.0 * (GLfloat)(x_low) / this->Size[0] - 1), 
+                 (2.0 * (GLfloat)(y_low) / this->Size[1] - 1), 
+		 -1.0 );
   glMatrixMode( GL_MODELVIEW );
   glPopMatrix();
   glMatrixMode( GL_PROJECTION );
