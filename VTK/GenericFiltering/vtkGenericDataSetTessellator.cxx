@@ -30,7 +30,7 @@
 #include "vtkGenericAttribute.h"
 #include "vtkCellData.h"
 
-vtkCxxRevisionMacro(vtkGenericDataSetTessellator, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkGenericDataSetTessellator, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkGenericDataSetTessellator);
 
 //----------------------------------------------------------------------------
@@ -160,7 +160,6 @@ void vtkGenericDataSetTessellator::Execute()
         } //switch
       } //insert each new cell
     } //for all cells
-  cout<<"********* count="<<count<<endl;
   cellIt->Delete();
   
   // Send to the output
