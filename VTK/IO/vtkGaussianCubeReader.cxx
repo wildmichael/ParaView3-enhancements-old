@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGaussianCubeReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-13 14:49:43 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-05-14 14:16:23 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -51,7 +51,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include <ctype.h>
 
-vtkCxxRevisionMacro(vtkGaussianCubeReader, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkGaussianCubeReader, "$Revision: 1.5 $");
 vtkStandardNewMacro(vtkGaussianCubeReader);
 
 // Construct object with merging set to true.
@@ -184,7 +184,7 @@ void vtkGaussianCubeReader::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->Superclass::PrintSelf(os,indent);
 
-  os << "Filename: " << this->FileName << "\n";
+  os << "Filename: " << (this->FileName?this->FileName:"<null>") << "\n";
   os << indent << "Xform: ";
   //os << indent << this->Transform->PrintSelf(os, indent);
 }
