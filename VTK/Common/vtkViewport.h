@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewport.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-05 17:13:58 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1999-10-08 20:09:55 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -99,7 +99,8 @@ public:
   // automatically and should not be set by the user.
   vtkSetVector2Macro(Aspect,float);
   vtkGetVectorMacro(Aspect,float,2);
-
+  void ComputeAspect();
+  
   // Description:
   // Specify the viewport for the Viewport to draw in the rendering window. 
   // Coordinates are expressed as (xmin,ymin,xmax,ymax), where each
