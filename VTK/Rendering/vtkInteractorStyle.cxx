@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-01 14:37:44 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2000-08-02 13:49:51 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -340,7 +340,7 @@ void vtkInteractorStyle::FindPokedRenderer(int x,int y)
   for (i = numRens -1; (i >= 0) && !this->CurrentRenderer; i--) 
     {
     aren = (vtkRenderer *)rc->GetItemAsObject(i);
-    if (aren->IsInViewport(x,y)) 
+    if (aren->IsInViewport(x,y) && aren->GetInteractive()) 
       {
       this->CurrentRenderer = aren;
       }
