@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArray.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-12 16:08:43 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2001-09-25 21:04:07 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -305,7 +305,7 @@ public:
       this->ComputeRange(comp);
       memcpy(range, this->Range, 2*sizeof(float));
     }
-  const float* GetRange(int comp)
+  float* GetRange(int comp)
     {
       this->ComputeRange(comp);
       return this->Range;
