@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-15 21:31:43 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 1996-08-20 11:05:39 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -91,6 +91,7 @@ vtkCamera::vtkCamera()
   this->FocalDisk = 1.0;
   this->Device = NULL;
   this->Stereo = 0;
+  this->VPN_dot_DOP = 0.0;
 }
 
 vtkCamera::~vtkCamera()
@@ -1002,7 +1003,7 @@ void vtkCamera::SetViewPlaneNormal(float X,float Y,float Z)
 		dy*this->ViewPlaneNormal[1] +
 		dz*this->ViewPlaneNormal[2];
 
-  if( abs((this->VPN_dot_DOP - dot_product)) > 0.001 )
+  if( fabs((this->VPN_dot_DOP - dot_product)) > 0.001 )
     {
     this->VPN_dot_DOP = dot_product;
     this->ViewingRaysModified();
