@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewport.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-05-24 16:57:52 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2000-05-25 09:54:27 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -474,8 +474,8 @@ void vtkViewport::NormalizedDisplayToViewport(float &u, float &v)
     this->NormalizedDisplayToDisplay(u,v);
     
     // subtract the vpo
-    u = u - vpou;
-    v = v - vpov;
+    u = u - vpou - 0.5;
+    v = v - vpov - 0.5;
     }
 }
 
@@ -528,8 +528,10 @@ void vtkViewport::ViewportToNormalizedDisplay(float &u, float &v)
     this->NormalizedDisplayToDisplay(vpou,vpov);
 
     // add the vpo
-    u = u + vpou;
-    v = v + vpov;
+    // the 0.5 offset is here because the viewport uses pixel centers
+    // while the display uses pixel edges. 
+    u = u + vpou + 0.5;
+    v = v + vpov + 0.5;
 
     // get the pixel value for the coordinate
     this->DisplayToNormalizedDisplay(u,v);
