@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-10 12:44:52 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1995-07-18 15:51:10 $
+  Version:   $Revision: 1.32 $
 
 This file is part of the Visualization Toolkit. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -351,6 +351,15 @@ void vtkRenderer::ViewToWorld()
   mat.PointMultiply(result,result);
   
   // Get the transformed vector & set WorldPoint 
+  // while we are at it try to keep w at one
+  if (result[3])
+    {
+    result[0] /= result[3];
+    result[1] /= result[3];
+    result[2] /= result[3];
+    result[3] = 1;
+    }
+  
   this->SetWorldPoint(result);
 }
 
