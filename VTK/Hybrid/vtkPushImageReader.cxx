@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPushImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-05 13:33:50 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-08-06 13:55:36 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,7 @@ public:
   // when a push is received move to the next slice,
   // when the last slice is reached, invoke a 
   // EndOfData event
-  virtual void Execute(vtkObject *caller, unsigned long, void *callData)
+  virtual void Execute(vtkObject *caller, unsigned long, void *)
     {
       vtkPushImageReader *pir = vtkPushImageReader::SafeDownCast(caller);
       if (pir)
@@ -53,7 +53,7 @@ public:
     }
 };
 
-vtkCxxRevisionMacro(vtkPushImageReader, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkPushImageReader, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkPushImageReader);
 
 vtkPushImageReader::vtkPushImageReader()
