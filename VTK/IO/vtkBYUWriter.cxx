@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-21 14:07:53 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1999-06-25 15:59:57 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -78,7 +78,7 @@ vtkBYUWriter::~vtkBYUWriter()
 void vtkBYUWriter::WriteData()
 {
   FILE *geomFp;
-  vtkPolyData *input=(vtkPolyData *)this->Input;
+  vtkPolyData *input= this->GetInput();
   int numPts=input->GetNumberOfPoints();
 
   if ( numPts < 1 )
@@ -113,7 +113,7 @@ void vtkBYUWriter::WriteGeometryFile(FILE *geomFile, int numPts)
   int npts, *pts;
   vtkPoints *inPts;
   vtkCellArray *inPolys;
-  vtkPolyData *input=(vtkPolyData *)this->Input;
+  vtkPolyData *input= this->GetInput();
   //
   // Check input
   //
@@ -172,7 +172,7 @@ void vtkBYUWriter::WriteDisplacementFile(int numPts)
   int i;
   float *v;
   vtkVectors *inVectors;
-  vtkPolyData *input=(vtkPolyData *)this->Input;
+  vtkPolyData *input= this->GetInput();
 
   if ( this->WriteDisplacement && this->DisplacementFileName &&
   (inVectors = input->GetPointData()->GetVectors()) != NULL )
@@ -210,7 +210,7 @@ void vtkBYUWriter::WriteScalarFile(int numPts)
   int i;
   float s;
   vtkScalars *inScalars;
-  vtkPolyData *input=(vtkPolyData *)this->Input;
+  vtkPolyData *input= this->GetInput();
 
   if ( this->WriteScalar && this->ScalarFileName &&
   (inScalars = input->GetPointData()->GetScalars()) != NULL )
@@ -248,7 +248,7 @@ void vtkBYUWriter::WriteTextureFile(int numPts)
   int i;
   float *t;
   vtkTCoords *inTCoords;
-  vtkPolyData *input=(vtkPolyData *)this->Input;
+  vtkPolyData *input= this->GetInput();
 
   if ( this->WriteTexture && this->TextureFileName &&
   (inTCoords = input->GetPointData()->GetTCoords()) != NULL )

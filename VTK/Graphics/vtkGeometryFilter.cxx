@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-06 15:11:12 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 1999-06-25 16:00:02 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -115,7 +115,7 @@ void vtkGeometryFilter::SetExtent(float *extent)
 void vtkGeometryFilter::Execute()
 {
   int cellId, i, j, newCellId;
-  vtkDataSet *input=(vtkDataSet *)this->Input;
+  vtkDataSet *input= this->GetInput();
   int numPts=input->GetNumberOfPoints();
   int numCells=input->GetNumberOfCells();
   char *cellVis;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-30 12:55:17 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 1999-06-25 15:59:59 $
+  Version:   $Revision: 1.62 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -276,7 +276,7 @@ void vtkContourFilter::StructuredPointsContour(int vtkNotUsed(dim)) { }
 void vtkContourFilter::StructuredPointsContour(int dim)
 {
   vtkPolyData *output;
-  vtkPolyData *thisOutput = (vtkPolyData *)this->Output;
+  vtkPolyData *thisOutput = this->GetOutput();
   int numContours=this->ContourValues->GetNumberOfContours();
   float *values=this->ContourValues->GetValues();
 
@@ -286,7 +286,7 @@ void vtkContourFilter::StructuredPointsContour(int dim)
     int i;
     
     msquares = vtkMarchingSquares::New();
-    msquares->SetInput((vtkStructuredPoints *)this->Input);
+    msquares->SetInput((vtkStructuredPoints *)this->GetInput());
     msquares->SetDebug(this->Debug);
     msquares->SetNumberOfContours(numContours);
     for (i=0; i < numContours; i++)
@@ -306,7 +306,7 @@ void vtkContourFilter::StructuredPointsContour(int dim)
     int i;
     
     mcubes = vtkMarchingCubes::New();
-    mcubes->SetInput((vtkStructuredPoints *)this->Input);
+    mcubes->SetInput((vtkStructuredPoints *)this->GetInput());
     mcubes->SetComputeNormals (this->ComputeNormals);
     mcubes->SetComputeGradients (this->ComputeGradients);
     mcubes->SetComputeScalars (this->ComputeScalars);

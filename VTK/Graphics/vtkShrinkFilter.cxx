@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShrinkFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-15 20:29:23 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1999-06-25 16:00:07 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,8 +54,8 @@ void vtkShrinkFilter::Execute()
   float center[3], *p, pt[3];
   vtkPointData *pd, *outPD;;
   vtkIdList *ptIds, *newPtIds;
-  vtkDataSet *input=(vtkDataSet *)this->Input;
-  vtkUnstructuredGrid *output=(vtkUnstructuredGrid *)this->Output;
+  vtkDataSet *input= this->GetInput();
+  vtkUnstructuredGrid *output = this->GetOutput();
 
   vtkDebugMacro(<<"Shrinking cells");
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-31 14:10:28 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1999-06-25 16:00:07 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,7 +51,7 @@ void vtkSTLWriter::WriteData()
 {
   vtkPoints *pts;
   vtkCellArray *polys;
-  vtkPolyData *input=(vtkPolyData *)this->Input;
+  vtkPolyData *input = this->GetInput();
 
   polys = input->GetPolys();
   pts = input->GetPoints();

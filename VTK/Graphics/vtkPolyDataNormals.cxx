@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataNormals.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-07 19:07:57 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-06-25 16:00:04 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -85,8 +85,8 @@ void vtkPolyDataNormals::Execute()
   vtkCellArray *newPolys;
   int ptId, oldId;
   vtkIdList *cellIds, *edgeNeighbors;
-  vtkPolyData *input=(vtkPolyData *)this->Input;
-  vtkPolyData *output=(vtkPolyData *)this->Output;
+  vtkPolyData *input = this->GetInput();
+  vtkPolyData *output = this->GetOutput();
   int noCellsNeedVisiting;
   int *Visited;
   vtkPolyData *OldMesh, *NewMesh;

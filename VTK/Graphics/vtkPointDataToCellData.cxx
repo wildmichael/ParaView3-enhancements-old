@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointDataToCellData.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-01 22:07:30 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-06-25 16:00:04 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,8 +50,8 @@ void vtkPointDataToCellData::Execute()
 {
   int cellId, ptId;
   int numCells, numPts;
-  vtkDataSet *input=(vtkDataSet *)this->Input;
-  vtkDataSet *output=(vtkDataSet *)this->Output;
+  vtkDataSet *input= this->GetInput();
+  vtkDataSet *output= this->GetOutput();
   vtkPointData *inPD=input->GetPointData();
   vtkCellData *outPD=output->GetCellData();
   int maxCellSize=input->GetMaxCellSize();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMaskPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:45:34 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1999-06-25 16:00:04 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,7 +60,7 @@ void vtkMaskPolyData::Execute()
   int id, interval;
   vtkPointData *pd;
   int npts, *pts;
-  vtkPolyData *input=(vtkPolyData *)this->Input;
+  vtkPolyData *input= this->GetInput();
   vtkPolyData *output = this->GetOutput();
   
   //

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFeatureEdges.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-06 15:11:11 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1999-06-25 16:00:02 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,7 +69,7 @@ vtkFeatureEdges::~vtkFeatureEdges()
 // Generate feature edges for mesh
 void vtkFeatureEdges::Execute()
 {
-  vtkPolyData *input=(vtkPolyData *)this->Input;
+  vtkPolyData *input= this->GetInput();
   vtkPoints *inPts;
   vtkPoints *newPts;
   vtkScalars *newScalars;

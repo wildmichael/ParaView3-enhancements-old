@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractEdges.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-06 15:11:11 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1999-06-25 16:00:01 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,8 +60,8 @@ vtkExtractEdges::~vtkExtractEdges()
 // Generate feature edges for mesh
 void vtkExtractEdges::Execute()
 {
-  vtkDataSet *input=(vtkDataSet *)this->Input;
-  vtkPolyData *output=(vtkPolyData *)this->Output;
+  vtkDataSet *input= this->GetInput();
+  vtkPolyData *output= this->GetOutput();
   vtkPoints *newPts;
   vtkCellArray *newLines;
   int numCells, cellNum, numEdges, edgeNum, numEdgePts, numCellEdges;

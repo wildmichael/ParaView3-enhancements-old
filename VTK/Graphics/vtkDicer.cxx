@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDicer.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-31 17:38:42 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1999-06-25 16:00:00 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,7 +53,7 @@ void vtkDicer::BuildTree(vtkIdList *ptIds, vtkOBBNode *OBBptr)
   int i, numPts=ptIds->GetNumberOfIds();
   int ptId;
   vtkOBBTree *OBB = vtkOBBTree::New();
-  vtkDataSet *input=(vtkDataSet *)this->Input;
+  vtkDataSet *input= this->GetInput();
 
   float size[3];
 
@@ -144,8 +144,8 @@ void vtkDicer::Execute()
   vtkIdList *ptIds;
   vtkScalars *groupIds;
   vtkOBBNode *root;
-  vtkDataSet *input=(vtkDataSet *)this->Input;
-  vtkDataSet *output=(vtkDataSet *)this->Output;
+  vtkDataSet *input= this->GetInput();
+  vtkDataSet *output= this->GetOutput();
 
   vtkDebugMacro(<<"Dicing object");
 

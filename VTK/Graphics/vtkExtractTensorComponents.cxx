@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractTensorComponents.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-31 17:38:44 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-06-25 16:00:01 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,9 +80,9 @@ void vtkExtractTensorComponents::Execute()
 {
   vtkTensors *inTensors;
   vtkTensor *tensor;
-  vtkDataSet *input = (vtkDataSet *)this->Input;
+  vtkDataSet *input = this->GetInput();
   vtkPointData *pd = input->GetPointData();
-  vtkPointData *outPD = ((vtkDataSet *)this->Output)->GetPointData();
+  vtkPointData *outPD = this->GetOutput()->GetPointData();
   float s, v[3];
   vtkScalars *newScalars=NULL;
   vtkVectors *newVectors=NULL;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimatePro.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-22 21:30:30 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 1999-06-25 15:59:59 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -129,8 +129,8 @@ void vtkDecimatePro::Execute()
   vtkCellArray *inPolys;
   vtkCellArray *newPolys;
   float error, previousError=0.0, reduction;
-  vtkPolyData *input=(vtkPolyData *)this->Input;
-  vtkPolyData *output=(vtkPolyData *)this->Output;
+  vtkPolyData *input = this->GetInput();
+  vtkPolyData *output = this->GetOutput();
   int type, totalEliminated, numPops;
   int numRecycles, npts, *pts;
   unsigned short int ncells;
@@ -192,10 +192,9 @@ void vtkDecimatePro::Execute()
     }
   else
     {
-    ((vtkDataSet *)this->Output)->CopyStructure((vtkDataSet *)this->Input);
-    ((vtkDataSet *)this->Output)->GetPointData()->PassData(
-                                  ((vtkDataSet *)this->Input)->GetPointData());
-    vtkWarningMacro(<<"Reduction == 0: passing data through unchanged");
+    output->CopyStructure(input);
+    output->GetPointData()->PassData(input->GetPointData());
+    //vtkWarningMacro(<<"Reduction == 0: passing data through unchanged");
     return;
     }
 

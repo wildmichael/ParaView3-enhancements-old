@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkElevationFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-31 17:38:42 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1999-06-25 16:00:00 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,7 +67,7 @@ void vtkElevationFilter::Execute()
   vtkScalars *newScalars;
   float l, *x, s, v[3];
   float diffVector[3], diffScalar;
-  vtkDataSet *input = (vtkDataSet *)this->Input;
+  vtkDataSet *input = this->GetInput();
 
   // Initialize
   //
@@ -123,12 +123,12 @@ void vtkElevationFilter::Execute()
 
   // Update self
   //
-  ((vtkDataSet *)this->Output)->GetPointData()->CopyScalarsOff();
-  ((vtkDataSet *)this->Output)->GetPointData()->PassData(input->GetPointData());
+  this->GetOutput()->GetPointData()->CopyScalarsOff();
+  this->GetOutput()->GetPointData()->PassData(input->GetPointData());
 
-  ((vtkDataSet *)this->Output)->GetCellData()->PassData(input->GetCellData());
+  this->GetOutput()->GetCellData()->PassData(input->GetCellData());
 
-  ((vtkDataSet *)this->Output)->GetPointData()->SetScalars(newScalars);
+  this->GetOutput()->GetPointData()->SetScalars(newScalars);
   newScalars->Delete();
 }
 

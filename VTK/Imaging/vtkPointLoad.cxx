@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLoad.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-01 22:07:30 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1999-06-25 16:00:04 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -107,7 +107,7 @@ void vtkPointLoad::Execute()
   float P, twoPi, xP[3], rho, rho2, rho3, rho5, nu;
   float x, x2, y, y2, z, z2, rhoPlusz2, zPlus2rho, txy, txz, tyz;
   float sx, sy, sz, seff, spacing[3], origin[3];
-  vtkStructuredPoints *output = (vtkStructuredPoints *)this->Output;
+  vtkStructuredPoints *output = this->GetOutput();
 
   vtkDebugMacro(<< "Computing point load stress tensors");
   //

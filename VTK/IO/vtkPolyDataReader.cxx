@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-31 14:08:39 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-06-25 16:00:05 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -157,7 +157,7 @@ void vtkPolyDataReader::Execute()
   int numPts=0;
   char line[256];
   int npts, size, ncells;
-  vtkPolyData *output=(vtkPolyData *)this->Output;
+  vtkPolyData *output = this->GetOutput();
 
   vtkDebugMacro(<<"Reading vtk polygonal data...");
 

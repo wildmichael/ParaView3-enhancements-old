@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractVOI.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-31 17:38:44 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-06-25 16:00:02 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,9 +51,9 @@ vtkExtractVOI::vtkExtractVOI()
 
 void vtkExtractVOI::Execute()
 {
-  vtkStructuredPoints *input=(vtkStructuredPoints *)this->Input;
+  vtkStructuredPoints *input=this->GetInput();
   vtkPointData *pd=input->GetPointData();
-  vtkStructuredPoints *output=(vtkStructuredPoints *)this->Output;
+  vtkStructuredPoints *output=this->GetOutput();
   vtkPointData *outPD=output->GetPointData();
   int i, j, k, dims[3], outDims[3], voi[6], dim, idx, newIdx;
   float origin[3], ar[3], outOrigin[3], outAR[3];

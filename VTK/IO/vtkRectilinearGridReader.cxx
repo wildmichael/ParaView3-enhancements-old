@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-04 14:35:24 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-06-25 16:00:05 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -156,7 +156,7 @@ void vtkRectilinearGridReader::Execute()
   int numPts=0, npts, ncoords, numCells=0, ncells;
   char line[256];
   int dimsRead=0;
-  vtkRectilinearGrid *output=(vtkRectilinearGrid *)this->Output;
+  vtkRectilinearGrid *output = this->GetOutput();
   
   vtkDebugMacro(<<"Reading vtk rectilinear grid file...");
   if ( this->Debug )

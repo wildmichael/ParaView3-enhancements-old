@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRibbonFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-31 14:10:26 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1999-06-25 16:00:06 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -78,8 +78,8 @@ void vtkRibbonFilter::Execute()
   double BevelAngle;
   float theta;
   int deleteNormals=0, ptId;
-  vtkPolyData *input=(vtkPolyData *)this->Input;
-  vtkPolyData *output=(vtkPolyData *)this->Output;
+  vtkPolyData *input= this->GetInput();
+  vtkPolyData *output= this->GetOutput();
   vtkScalars *inScalars=NULL;
   float sFactor=1.0, range[2];
   int ptOffset=0;

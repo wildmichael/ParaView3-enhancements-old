@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStripper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-25 16:17:44 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1999-06-25 16:00:08 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,8 +57,8 @@ void vtkStripper::Execute()
   vtkPolyData *Mesh;
   char *visited;
   int numStripPts, *stripPts;
-  vtkPolyData *input=(vtkPolyData *)this->Input;
-  vtkPolyData *output=(vtkPolyData *)this->Output;
+  vtkPolyData *input= this->GetInput();
+  vtkPolyData *output= this->GetOutput();
   vtkPointData *pd=input->GetPointData();
 
   vtkDebugMacro(<<"Executing triangle strip / poly-line filter");

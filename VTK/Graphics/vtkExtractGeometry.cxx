@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractGeometry.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-31 17:38:43 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1999-06-25 16:00:01 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -83,7 +83,7 @@ void vtkExtractGeometry::Execute()
   float multiplier;
   vtkPoints *newPts;
   vtkIdList *newCellPts;
-  vtkDataSet *input = (vtkDataSet *)this->Input;
+  vtkDataSet *input = this->GetInput();
   vtkPointData *pd = input->GetPointData();
   vtkCellData *cd = input->GetCellData();
   vtkUnstructuredGrid *output = this->GetOutput();

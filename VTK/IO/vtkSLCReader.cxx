@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSLCReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-21 14:07:56 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-06-25 16:00:06 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -117,7 +117,7 @@ void vtkSLCReader::Execute()
   unsigned char *scan_ptr = NULL;
   unsigned char *sptr = NULL;
 
-  vtkStructuredPoints *output=(vtkStructuredPoints *)this->Output;
+  vtkStructuredPoints *output = this->GetOutput();
 
   // Initialize
   if ((fp = fopen(this->FileName, "rb")) == NULL)

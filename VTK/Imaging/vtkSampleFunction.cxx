@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSampleFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-31 14:10:28 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1999-06-25 16:00:07 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -109,7 +109,7 @@ void vtkSampleFunction::Execute()
   vtkNormals *newNormals=NULL;
   int numPts;
   float *p, s, ar[3], origin[3];
-  vtkStructuredPoints *output=(vtkStructuredPoints *)this->Output;
+  vtkStructuredPoints *output = this->GetOutput();
 
   vtkDebugMacro(<< "Sampling implicit function");
 //

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRendererSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:45:04 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1999-06-25 16:00:06 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,7 +65,7 @@ void vtkRendererSource::Execute()
   float x1,y1,x2,y2;
   unsigned char *pixels, *ptr;
   int dims[3];
-  vtkStructuredPoints *output=(vtkStructuredPoints *)this->Output;
+  vtkStructuredPoints *output = this->GetOutput();
 
   vtkDebugMacro(<<"Converting points");
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSmoothPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-05-31 19:34:33 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-06-25 16:00:08 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -94,8 +94,8 @@ void vtkSmoothPolyDataFilter::Execute()
   vtkCellArray *inVerts, *inLines, *inPolys, *inStrips;
   vtkPoints *newPts;
   vtkMeshVertexPtr Verts;
-  vtkPolyData *input=(vtkPolyData *)this->Input;
-  vtkPolyData *output=(vtkPolyData *)this->Output;
+  vtkPolyData *input= this->GetInput();
+  vtkPolyData *output= this->GetOutput();
 //
 // Check input
 //

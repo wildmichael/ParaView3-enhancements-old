@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHedgeHog.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:04:04 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-06-25 16:00:03 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,7 +42,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 void vtkHedgeHog::Execute()
 {
-  vtkDataSet *input=(vtkDataSet *)this->Input;
+  vtkDataSet *input= this->GetInput();
   int numPts;
   vtkPoints *newPts;
   vtkPointData *pd;

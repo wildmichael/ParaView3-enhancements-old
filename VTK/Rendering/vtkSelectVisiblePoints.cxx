@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSelectVisiblePoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-30 16:32:35 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-06-25 16:00:07 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,7 +63,7 @@ void vtkSelectVisiblePoints::Execute()
 {
   int ptId, id, visible;
   vtkPoints *outPts;
-  vtkDataSet *input=(vtkDataSet *)this->Input;
+  vtkDataSet *input= this->GetInput();
   vtkPolyData *output=this->GetOutput();
   vtkPointData *inPD=input->GetPointData();
   vtkPointData *outPD=output->GetPointData();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-31 17:38:43 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-06-25 16:00:01 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,9 +51,9 @@ vtkExtractGrid::vtkExtractGrid()
 
 void vtkExtractGrid::Execute()
 {
-  vtkStructuredGrid *input=(vtkStructuredGrid *)this->Input;
+  vtkStructuredGrid *input= this->GetInput();
   vtkPointData *pd=input->GetPointData();
-  vtkStructuredGrid *output=(vtkStructuredGrid *)this->Output;
+  vtkStructuredGrid *output= this->GetOutput();
   vtkPointData *outPD=output->GetPointData();
   int i, j, k, dims[3], outDims[3], voi[6], dim, idx, newIdx;
   int sliceSize, outSize, jOffset, kOffset, rate[3];
