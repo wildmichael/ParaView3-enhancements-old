@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedIntArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:26:33 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2002-04-12 13:35:44 $
+  Version:   $Revision: 1.31 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkUnsignedIntArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkUnsignedIntArray, "$Revision: 1.30 $");
+vtkCxxRevisionMacro(vtkUnsignedIntArray, "$Revision: 1.31 $");
 vtkStandardNewMacro(vtkUnsignedIntArray);
 
 vtkDataArray *vtkUnsignedIntArray::MakeObject()
@@ -383,12 +383,12 @@ float vtkUnsignedIntArray::GetComponent(const vtkIdType i, const int j)
 void vtkUnsignedIntArray::SetComponent(const vtkIdType i, const int j, 
                                        const float c)
 {
-  this->SetValue(i*this->NumberOfComponents + j, static_cast<unsigned int>(c));
+  this->SetValue(i*this->NumberOfComponents + j, static_cast<const unsigned int>(c));
 }
 
 void vtkUnsignedIntArray::InsertComponent(const vtkIdType i, const int j, 
                                           const float c)
 {
   this->InsertValue(i*this->NumberOfComponents + j, 
-                    static_cast<unsigned int>(c));
+                    static_cast<const unsigned int>(c));
 }

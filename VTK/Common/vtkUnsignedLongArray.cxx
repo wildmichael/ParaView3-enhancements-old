@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedLongArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:26:34 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2002-04-12 13:35:44 $
+  Version:   $Revision: 1.31 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkUnsignedLongArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkUnsignedLongArray, "$Revision: 1.30 $");
+vtkCxxRevisionMacro(vtkUnsignedLongArray, "$Revision: 1.31 $");
 vtkStandardNewMacro(vtkUnsignedLongArray);
 
 vtkDataArray *vtkUnsignedLongArray::MakeObject()
@@ -384,12 +384,12 @@ float vtkUnsignedLongArray::GetComponent(const vtkIdType i, const int j)
 void vtkUnsignedLongArray::SetComponent(const vtkIdType i, const int j, 
                                         const float c)
 {
-  this->SetValue(i*this->NumberOfComponents + j, static_cast<unsigned long>(c));
+  this->SetValue(i*this->NumberOfComponents + j, static_cast<const unsigned long>(c));
 }
 
 void vtkUnsignedLongArray::InsertComponent(const vtkIdType i, const int j, 
                                            const float c)
 {
   this->InsertValue(i*this->NumberOfComponents + j, 
-                    static_cast<unsigned long>(c));
+                    static_cast<const unsigned long>(c));
 }

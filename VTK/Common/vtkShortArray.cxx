@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShortArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:26:19 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2002-04-12 13:35:44 $
+  Version:   $Revision: 1.50 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkShortArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkShortArray, "$Revision: 1.49 $");
+vtkCxxRevisionMacro(vtkShortArray, "$Revision: 1.50 $");
 vtkStandardNewMacro(vtkShortArray);
 
 vtkDataArray *vtkShortArray::MakeObject()
@@ -379,7 +379,7 @@ float vtkShortArray::GetComponent(const vtkIdType i, const int j)
 // SetNumberOfComponents()).
 void vtkShortArray::SetComponent(const vtkIdType i, const int j, const float c)
 {
-  this->SetValue(i*this->NumberOfComponents + j, static_cast<short>(c));
+  this->SetValue(i*this->NumberOfComponents + j, static_cast<const short>(c));
 }
 
 // Insert the data component at ith tuple and jth component location. 
@@ -387,6 +387,6 @@ void vtkShortArray::SetComponent(const vtkIdType i, const int j, const float c)
 void vtkShortArray::InsertComponent(const vtkIdType i, const int j,
                                     const float c)
 {
-  this->InsertValue(i*this->NumberOfComponents + j, static_cast<short>(c));
+  this->InsertValue(i*this->NumberOfComponents + j, static_cast<const short>(c));
 }
 

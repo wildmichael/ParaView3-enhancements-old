@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLongArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:35 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2002-04-12 13:35:44 $
+  Version:   $Revision: 1.32 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkLongArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkLongArray, "$Revision: 1.31 $");
+vtkCxxRevisionMacro(vtkLongArray, "$Revision: 1.32 $");
 vtkStandardNewMacro(vtkLongArray);
 
 vtkDataArray *vtkLongArray::MakeObject()
@@ -378,12 +378,12 @@ float vtkLongArray::GetComponent(const vtkIdType i, const int j)
 // SetNumberOfComponents()).
 void vtkLongArray::SetComponent(const vtkIdType i, const int j, const float c)
 {
-  this->SetValue(i*this->NumberOfComponents + j, static_cast<long>(c));
+  this->SetValue(i*this->NumberOfComponents + j, static_cast<const long>(c));
 }
 
 void vtkLongArray::InsertComponent(const vtkIdType i, const int j, 
                                    const float c)
 {
   this->InsertValue(i*this->NumberOfComponents + j, 
-                    static_cast<long>(c));
+                    static_cast<const long>(c));
 }

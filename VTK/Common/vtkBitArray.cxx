@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBitArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:10 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2002-04-12 13:35:44 $
+  Version:   $Revision: 1.52 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkBitArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkBitArray, "$Revision: 1.51 $");
+vtkCxxRevisionMacro(vtkBitArray, "$Revision: 1.52 $");
 vtkStandardNewMacro(vtkBitArray);
 
 vtkDataArray *vtkBitArray::MakeObject()
@@ -383,7 +383,7 @@ void vtkBitArray::InsertComponent(const vtkIdType i, const int j,
                                   const float c)
 {
   this->InsertValue(i*this->NumberOfComponents + j, 
-                    static_cast<int>(c));
+                    static_cast<const int>(c));
 }
 
 // Set the data component at the ith tuple and jth component location.

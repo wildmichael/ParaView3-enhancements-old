@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDoubleArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:20 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2002-04-12 13:35:44 $
+  Version:   $Revision: 1.44 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkDoubleArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkDoubleArray, "$Revision: 1.43 $");
+vtkCxxRevisionMacro(vtkDoubleArray, "$Revision: 1.44 $");
 vtkStandardNewMacro(vtkDoubleArray);
 
 vtkDataArray *vtkDoubleArray::MakeObject()
@@ -376,12 +376,12 @@ float vtkDoubleArray::GetComponent(const vtkIdType i, const int j)
 // SetNumberOfComponents()).
 void vtkDoubleArray::SetComponent(const vtkIdType i, const int j, const float c)
 {
-  this->SetValue(i*this->NumberOfComponents + j, static_cast<double>(c));
+  this->SetValue(i*this->NumberOfComponents + j, static_cast<const double>(c));
 }
 
 void vtkDoubleArray::InsertComponent(const vtkIdType i, const int j, 
                                      const float c)
 {
   this->InsertValue(i*this->NumberOfComponents + j, 
-                    static_cast<double>(c));
+                    static_cast<const double>(c));
 }
