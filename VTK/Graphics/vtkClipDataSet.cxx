@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-11 11:18:53 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-05-23 11:49:58 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -143,7 +143,7 @@ void vtkClipDataSet::Execute()
   int estimatedSize;
   vtkUnsignedCharArray *types[2];
   vtkIntArray *locs[2];
-  
+  int numOutputs = 1;
  
   vtkDebugMacro(<< "Clipping dataset");
   
@@ -180,6 +180,7 @@ void vtkClipDataSet::Execute()
   locs[0]->Allocate(estimatedSize,estimatedSize/2);
   if ( this->GenerateClippedOutput )
     {
+    numOutputs = 2;
     conn[1] = vtkCellArray::New();
     conn[1]->Allocate(estimatedSize,estimatedSize/2);
     conn[1]->InitTraversal();
@@ -285,7 +286,7 @@ void vtkClipDataSet::Execute()
       num[1] = conn[1]->GetNumberOfCells();
       }
 
-    for (i=0; i<2; i++) //for both outputs
+    for (i=0; i<numOutputs; i++) //for both outputs
       {
       for (j=0; j < numNew[i]; j++) 
         {
