@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLCollectionReader.h,v $
   Language:  C++
-  Date:      $Date: 2003-05-21 19:02:34 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-05-21 21:54:02 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,7 +33,7 @@
 
 class vtkXMLCollectionReaderInternals;
 
-class VTK_IO_EXPORT vtkXMLCollectionReader : public vtkXMLReader
+class VTK_EXPORT vtkXMLCollectionReader : public vtkXMLReader
 {
 public:
   static vtkXMLCollectionReader* New();
