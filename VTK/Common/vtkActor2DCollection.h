@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor2DCollection.h,v $
   Language:  C++
-  Date:      $Date: 1997-12-08 14:26:32 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-12-09 19:56:37 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,9 +58,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkActor2DCollection : public vtkCollection
 {
  public:
+  vtkActor2DCollection();
+  ~vtkActor2DCollection();
+
   static vtkActor2DCollection *New() {return new vtkActor2DCollection;};
   const char *GetClassName() {return "vtkActor2DCollection";};
-
   void Sort();
   void AddItem(vtkActor2D *a);
   void RemoveItem(vtkActor2D *a);
