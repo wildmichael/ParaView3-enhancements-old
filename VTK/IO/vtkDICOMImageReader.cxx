@@ -4,8 +4,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDICOMImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2004-04-21 22:29:07 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2004-04-23 12:41:51 $
+  Version:   $Revision: 1.27 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -29,7 +29,7 @@
 #include <vtkstd/vector>
 #include <vtkstd/string>
 
-vtkCxxRevisionMacro(vtkDICOMImageReader, "$Revision: 1.26 $");
+vtkCxxRevisionMacro(vtkDICOMImageReader, "$Revision: 1.27 $");
 vtkStandardNewMacro(vtkDICOMImageReader);
 
 class vtkDICOMImageReaderVector : public vtkstd::vector<vtkstd::string>
@@ -554,15 +554,15 @@ float vtkDICOMImageReader::GetGantryAngle()
 }
 
 //----------------------------------------------------------------------------
-int vtkDICOMImageReader::GetNumberOfFileNames()
+int vtkDICOMImageReader::GetNumberOfDICOMFileNames()
 {
   return static_cast<int>(this->DICOMFileNames->size());
 }
 
 //----------------------------------------------------------------------------
-const char* vtkDICOMImageReader::GetFileName(int index)
+const char* vtkDICOMImageReader::GetDICOMFileName(int index)
 {
-  if(index >= 0 && index < this->GetNumberOfFileNames())
+  if(index >= 0 && index < this->GetNumberOfDICOMFileNames())
     {
     return (*this->DICOMFileNames)[index].c_str();
     }
