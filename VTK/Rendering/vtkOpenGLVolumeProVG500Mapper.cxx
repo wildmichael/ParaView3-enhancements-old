@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLVolumeProVG500Mapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-05-21 18:04:59 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2000-05-23 11:58:10 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -105,10 +105,13 @@ void vtkOpenGLVolumeProVG500Mapper::RenderHexagon(  vtkRenderer  *ren,
   volCenter[2] = out[2] / out[3];
 
   // Remove the view transform from the OpenGL modelview matrix stack
-  t->GetMatrix(matrix);
-  vtkMatrix4x4::Invert(matrix,matrix);
-  vtkMatrix4x4::Transpose(matrix,matrix);
-  glMultMatrixd( matrix );
+  //t->GetMatrix(matrix);
+  t->Inverse();
+  t->Transpose();
+  
+  //vtkMatrix4x4::Invert(matrix,matrix);
+  //vtkMatrix4x4::Transpose(matrix,matrix);
+  glMultMatrixd(t->GetMatrix()->Element[0]);
   t->Delete();
 
   // Specify the texture
