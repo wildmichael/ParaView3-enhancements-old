@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume16Reader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-25 13:13:07 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2002-09-30 20:36:05 $
+  Version:   $Revision: 1.48 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,11 +17,12 @@
 =========================================================================*/
 #include "vtkVolume16Reader.h"
 
+#include "vtkImageData.h"
 #include "vtkObjectFactory.h"
 #include "vtkTransform.h"
 #include "vtkUnsignedShortArray.h"
 
-vtkCxxRevisionMacro(vtkVolume16Reader, "$Revision: 1.47 $");
+vtkCxxRevisionMacro(vtkVolume16Reader, "$Revision: 1.48 $");
 vtkStandardNewMacro(vtkVolume16Reader);
 
 vtkCxxSetObjectMacro(vtkVolume16Reader,Transform,vtkTransform);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-29 12:37:02 $
-  Version:   $Revision: 1.105 $
+  Date:      $Date: 2002-09-30 20:36:05 $
+  Version:   $Revision: 1.106 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,10 +18,11 @@
 #include "vtkImageReader.h"
 
 #include "vtkByteSwap.h"
+#include "vtkImageData.h"
 #include "vtkObjectFactory.h"
 #include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkImageReader, "$Revision: 1.105 $");
+vtkCxxRevisionMacro(vtkImageReader, "$Revision: 1.106 $");
 vtkStandardNewMacro(vtkImageReader);
 
 vtkCxxSetObjectMacro(vtkImageReader,Transform,vtkTransform);

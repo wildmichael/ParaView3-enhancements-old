@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGESignaReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-13 17:14:28 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-09-30 20:36:05 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,10 +16,12 @@
 
 =========================================================================*/
 #include "vtkGESignaReader.h"
+
 #include "vtkByteSwap.h"
+#include "vtkImageData.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkGESignaReader, "$Revision: 1.14 $");
+vtkCxxRevisionMacro(vtkGESignaReader, "$Revision: 1.15 $");
 vtkStandardNewMacro(vtkGESignaReader);
 
 

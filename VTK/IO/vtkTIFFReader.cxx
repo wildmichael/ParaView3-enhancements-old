@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTIFFReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-13 17:14:29 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2002-09-30 20:36:05 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -40,7 +40,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 #include "vtkTIFFReader.h"
+
+#include "vtkImageData.h"
 #include "vtkObjectFactory.h"
+
 #include <sys/stat.h>
 
 extern "C" {
@@ -49,7 +52,7 @@ extern "C" {
 
 //-------------------------------------------------------------------------
 vtkStandardNewMacro(vtkTIFFReader);
-vtkCxxRevisionMacro(vtkTIFFReader, "$Revision: 1.36 $");
+vtkCxxRevisionMacro(vtkTIFFReader, "$Revision: 1.37 $");
 
 class vtkTIFFReaderInternal
 {

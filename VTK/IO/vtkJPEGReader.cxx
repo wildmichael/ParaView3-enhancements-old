@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJPEGReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-13 17:14:28 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-09-30 20:36:05 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,6 +16,8 @@
 
 =========================================================================*/
 #include "vtkJPEGReader.h"
+
+#include "vtkImageData.h"
 #include "vtkObjectFactory.h"
 
 extern "C" {
@@ -24,7 +26,7 @@ extern "C" {
 }
 
 
-vtkCxxRevisionMacro(vtkJPEGReader, "$Revision: 1.13 $");
+vtkCxxRevisionMacro(vtkJPEGReader, "$Revision: 1.14 $");
 vtkStandardNewMacro(vtkJPEGReader);
 
 
