@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-14 20:01:45 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1997-05-15 23:24:41 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -582,7 +582,7 @@ void vtkMarchingCubes::SetLocator(vtkPointLocator *locator)
 void vtkMarchingCubes::CreateDefaultLocator()
 {
   if ( this->SelfCreatedLocator ) this->Locator->Delete();
-  this->Locator = new vtkMergePoints;
+  this->Locator = vtkMergePoints::New();
   this->SelfCreatedLocator = 1;
 }
 

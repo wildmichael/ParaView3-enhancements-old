@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-23 18:58:06 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1997-05-15 23:23:18 $
+  Version:   $Revision: 1.14 $
   
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -76,7 +76,7 @@ void vtkLODActor::Render(vtkRenderer *ren)
   float myTime;
   double aTime;
   static int refreshCount = 0; // every 97 calls decay some timings
-  vtkMatrix4x4 *matrix = new vtkMatrix4x4;
+  vtkMatrix4x4 *matrix = vtkMatrix4x4::New();
   
   // figure out how much time we have to render
   myTime = ren->GetAllocatedRenderTime();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingSquares.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-01 18:43:15 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1997-05-15 23:24:42 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -438,7 +438,7 @@ void vtkMarchingSquares::SetLocator(vtkPointLocator *locator)
 void vtkMarchingSquares::CreateDefaultLocator()
 {
   if ( this->SelfCreatedLocator ) this->Locator->Delete();
-  this->Locator = new vtkMergePoints;
+  this->Locator = vtkMergePoints::New();
   this->SelfCreatedLocator = 1;
 }
 

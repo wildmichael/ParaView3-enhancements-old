@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLineSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:53:23 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1997-05-15 23:23:19 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -73,7 +73,7 @@ void vtkLineSource::Execute()
   newPoints = new vtkFloatPoints(numPts);
   newTCoords = new vtkFloatTCoords(numPts,2);
 
-  newLines = new vtkCellArray;
+  newLines = vtkCellArray::New();
   newLines->Allocate(newLines->EstimateSize(numLines,2));
 //
 // Generate points and texture coordinates

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAnisotropicDiffusion3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-01-03 22:09:03 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1997-05-15 23:24:17 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -157,8 +157,8 @@ void vtkImageAnisotropicDiffusion3D::Execute(vtkImageRegion *inRegion,
   inRegion->GetAspectRatio(ar0, ar1, ar2);
 
   // make the temporary regions to iterate over.
-  in = new vtkImageRegion;
-  out = new vtkImageRegion;
+  in = vtkImageRegion::New();
+  out = vtkImageRegion::New();
   
   // might as well make these floats
   in->SetExtent(VTK_IMAGE_DIMENSIONS, inRegion->GetExtent());

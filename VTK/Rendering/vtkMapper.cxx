@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-03-12 21:11:48 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1997-05-15 23:23:24 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -233,7 +233,7 @@ vtkLookupTable *vtkMapper::GetLookupTable()
 void vtkMapper::CreateDefaultLookupTable()
 {
   if ( this->SelfCreatedLookupTable ) this->LookupTable->Delete();
-  this->LookupTable = new vtkLookupTable;
+  this->LookupTable = vtkLookupTable::New();
   this->SelfCreatedLookupTable = 1;
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUGFacetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-09 12:24:45 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1997-05-15 23:24:03 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -114,7 +114,7 @@ void vtkUGFacetReader::Execute()
 
   newPts = new vtkFloatPoints(25000,25000);
   newNormals = new vtkFloatNormals(25000,25000);
-  newPolys = new vtkCellArray;
+  newPolys = vtkCellArray::New();
   newPolys->Allocate(newPolys->EstimateSize(25000,3),25000);
 
   // loop over all facet sets, extracting triangles
@@ -305,7 +305,7 @@ void vtkUGFacetReader::SetLocator(vtkPointLocator *locator)
 void vtkUGFacetReader::CreateDefaultLocator()
 {
   if ( this->SelfCreatedLocator ) this->Locator->Delete();
-  this->Locator = new vtkMergePoints;
+  this->Locator = vtkMergePoints::New();
   this->SelfCreatedLocator = 1;
 }
 

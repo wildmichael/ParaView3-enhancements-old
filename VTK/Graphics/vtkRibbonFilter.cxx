@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRibbonFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:55:07 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1997-05-15 23:23:44 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -123,7 +123,7 @@ void vtkRibbonFilter::Execute()
 
   newPts = new vtkFloatPoints(numNewPts);
   newNormals = new vtkFloatNormals(numNewPts);
-  newStrips = new vtkCellArray;
+  newStrips = vtkCellArray::New();
   newStrips->Allocate(newStrips->EstimateSize(1,numNewPts));
 //
 //  Create pairs of points along the line that are later connected into a 

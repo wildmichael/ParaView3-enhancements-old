@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorText.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 17:59:28 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1997-05-15 23:24:08 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -3761,7 +3761,7 @@ void vtkVectorText::Execute()
   
   // Set things up; allocate memory
   newPoints = new vtkFloatPoints();
-  newPolys = new vtkCellArray;
+  newPolys = vtkCellArray::New();
   ftmp[2] = 0.0;
   
   // Create Text

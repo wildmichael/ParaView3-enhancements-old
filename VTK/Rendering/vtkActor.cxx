@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-23 18:57:48 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 1997-05-15 23:22:46 $
+  Version:   $Revision: 1.56 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -338,7 +338,7 @@ void vtkActor::BuildPaths(vtkAssemblyPaths *vtkNotUsed(paths),
 
   previous = path->GetLastItem();
 
-  vtkMatrix4x4 *matrix = new vtkMatrix4x4;
+  vtkMatrix4x4 *matrix = vtkMatrix4x4::New();
   *matrix = previous->vtkProp::GetMatrix();
   copy->SetUserMatrix(matrix);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMCubesReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-09-09 19:26:54 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1997-05-15 23:23:23 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -148,7 +148,7 @@ void vtkMCubesReader::Execute()
 //
   rewind (fp);
   newPts = new vtkFloatPoints(numPts/3,numPts/3);
-  newPolys = new vtkCellArray;
+  newPolys = vtkCellArray::New();
   newPolys->Allocate(newPolys->EstimateSize(numTris,3));
 
   if ( this->Normals ) newNormals = new vtkFloatNormals(numPts/3,numPts/3);
@@ -223,7 +223,7 @@ void vtkMCubesReader::SetLocator(vtkPointLocator *locator)
 void vtkMCubesReader::CreateDefaultLocator()
 {
   if ( this->SelfCreatedLocator ) this->Locator->Delete();
-  this->Locator = new vtkMergePoints;
+  this->Locator = vtkMergePoints::New();
   this->SelfCreatedLocator = 1;
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFollower.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-30 21:24:08 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1997-05-15 23:23:12 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -262,7 +262,7 @@ void vtkFollower::PrintSelf(ostream& os, vtkIndent indent)
 // property and then mapper.  
 void vtkFollower::Render(vtkRenderer *ren)
 {
-  vtkMatrix4x4 *matrix = new vtkMatrix4x4;
+  vtkMatrix4x4 *matrix = vtkMatrix4x4::New();
   
   /* render the property */
   if (!this->Property)

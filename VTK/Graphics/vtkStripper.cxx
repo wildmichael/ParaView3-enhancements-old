@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStripper.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-09-20 19:43:15 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1997-05-15 23:23:49 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -87,7 +87,7 @@ void vtkStripper::Execute()
   // pre-load existing strips
   if ( inStrips->GetNumberOfCells() > 0 || inPolys->GetNumberOfCells() > 0 )
     {
-    newStrips = new vtkCellArray;
+    newStrips = vtkCellArray::New();
     newStrips->Allocate(newStrips->EstimateSize(numCells,6));
     for(inStrips->InitTraversal(); inStrips->GetNextCell(numStripPts,stripPts);)
       {
@@ -98,7 +98,7 @@ void vtkStripper::Execute()
   // pre-load existing poly-lines
   if ( inLines->GetNumberOfCells() > 0 )
     {
-    newLines = new vtkCellArray;
+    newLines = vtkCellArray::New();
     newLines->Allocate(newStrips->EstimateSize(numCells,6));
     for (inLines->InitTraversal(); inLines->GetNextCell(numLinePts,linePts); )
       {

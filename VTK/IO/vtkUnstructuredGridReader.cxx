@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-30 11:52:41 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1997-05-15 23:24:04 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -218,7 +218,7 @@ void vtkUnstructuredGridReader::Execute()
           return;
           }
 
-        cells = new vtkCellArray;
+        cells = vtkCellArray::New();
         if (!this->Reader.ReadCells(size, cells->WritePtr(ncells,size)) )
 	  {
           this->Reader.CloseVTKFile ();

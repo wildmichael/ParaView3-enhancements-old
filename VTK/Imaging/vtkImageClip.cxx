@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageClip.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-04 12:31:22 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-05-15 23:24:18 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -160,7 +160,7 @@ void vtkImageClip::ResetOutputImageExtent()
     return;
     }
 
-  region = new vtkImageRegion;
+  region = vtkImageRegion::New();
   this->Input->UpdateImageInformation(region);
   this->SetOutputImageExtent(VTK_IMAGE_DIMENSIONS, region->GetImageExtent());
   region->Delete();

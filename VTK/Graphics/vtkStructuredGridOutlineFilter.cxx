@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridOutlineFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:55:57 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1997-05-15 23:23:51 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,7 +65,7 @@ void vtkStructuredGridOutlineFilter::Execute()
 //  Allocate storage for lines and points
 //
   newPts = new vtkFloatPoints(4*(dim[0]+dim[1]+dim[2]));
-  newLines = new vtkCellArray;
+  newLines = vtkCellArray::New();
   newLines->Allocate(newLines->EstimateSize(4*((dim[0]-1)+(dim[1]-1)+(dim[2]-1)),2));
 //
 //  Load data

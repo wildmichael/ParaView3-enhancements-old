@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTubeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-09 10:56:44 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1997-05-15 23:24:02 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -146,7 +146,7 @@ void vtkTubeFilter::Execute()
 
   newPts = new vtkFloatPoints(numNewPts);
   newNormals = new vtkFloatNormals(numNewPts);
-  newStrips = new vtkCellArray;
+  newStrips = vtkCellArray::New();
   newStrips->Allocate(newStrips->EstimateSize(1,numNewPts));
 //
 //  Create points along the line that are later connected into a 

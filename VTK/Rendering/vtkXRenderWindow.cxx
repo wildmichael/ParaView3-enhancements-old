@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-23 18:58:50 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1997-05-15 23:24:11 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -144,7 +144,7 @@ Display *vtkXRenderWindow::GetDisplayId()
 Window vtkXRenderWindow::GetParentId()
 {
   vtkDebugMacro(<< "Returning ParentId of " << (void *)this->ParentId << "\n");
-  return this->WindowId;
+  return this->ParentId;
 }
 
 // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-23 18:58:46 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1997-05-15 23:23:59 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -129,7 +129,7 @@ unsigned char *vtkTexture::MapScalarsToColors (vtkScalars *scalars)
   // if there is no lookup table, create one
   if (this->LookupTable == NULL)
     {
-    this->LookupTable = new vtkLookupTable;
+    this->LookupTable = vtkLookupTable::New();
     this->LookupTable->Build ();
     this->SelfCreatedLookupTable = 1;
     }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreshold.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-03-12 21:12:07 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1997-05-15 23:24:01 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -91,7 +91,7 @@ void vtkThreshold::Execute()
 {
   int cellId;
   vtkIdList *cellPts, *pointMap;
-  vtkIdList *newCellPts = new vtkIdList;
+  vtkIdList *newCellPts = vtkIdList::New();
   vtkScalars *inScalars;
   vtkCell *cell;
   vtkFloatPoints *newPoints;

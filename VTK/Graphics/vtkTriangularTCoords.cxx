@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangularTCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-11-13 16:13:11 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-05-15 23:24:01 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -101,7 +101,7 @@ void vtkTriangularTCoords::Execute()
 //
   newPoints = new vtkFloatPoints(numNewPts);
 
-  newPolys = new vtkCellArray;
+  newPolys = vtkCellArray::New();
   newPolys->Allocate(polyAllocSize);
 
   pointData->CopyTCoordsOff();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSubPixelPositionEdgels.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 17:58:59 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1997-05-15 23:23:57 $
+  Version:   $Revision: 1.9 $
 
 Copyright (c) 1993-1997 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -69,8 +69,8 @@ void vtkSubPixelPositionEdgels::Execute()
     return;
     }
 
-  newPts = new vtkFloatPoints;
-  newNormals = new vtkFloatNormals;
+  newPts = vtkFloatPoints::New();
+  newNormals = vtkFloatNormals::New();
   
   dimensions = this->GradMaps->GetDimensions();
   aspect = this->GradMaps->GetAspectRatio();

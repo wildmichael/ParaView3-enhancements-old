@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMagnify.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-10-03 12:04:43 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-05-15 23:24:29 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,7 +68,7 @@ void vtkImageMagnify::SetDimensionality(int num)
       {
       this->Filters[idx]->Delete();
       }
-    this->Filters[idx] = new vtkImageMagnify1D;
+    this->Filters[idx] = vtkImageMagnify1D::New();
     this->Filters[idx]->SetAxes(this->Axes[idx]);
     // Get the default values for the MagnificationFactors.
     this->MagnificationFactors[idx] 

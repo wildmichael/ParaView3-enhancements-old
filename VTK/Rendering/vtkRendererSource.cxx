@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRendererSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-03-28 13:52:36 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1997-05-15 23:23:43 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -90,7 +90,7 @@ void vtkRendererSource::Execute()
 
   // Allocate data.  Scalar type is FloatScalars.
   numOutPts = dims[0] * dims[1];
-  outScalars = new vtkPixmap;
+  outScalars = vtkPixmap::New();
 
   pixels = (this->Input->GetRenderWindow())->GetPixelData((int)x1,(int)y1,
 							  (int)x2,(int)y2,1);

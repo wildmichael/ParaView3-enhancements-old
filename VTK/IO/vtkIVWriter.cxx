@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIVWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-03-05 18:57:49 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-05-15 23:23:17 $
+  Version:   $Revision: 1.4 $
   Thanks:    to Jon A. Webb for contributing this class.
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -86,7 +86,7 @@ void vtkIVWriter::WritePolyData(vtkPolyData *pd, FILE *fp)
   vtkPolyMapper *pm;
   vtkColorScalars *colors;
   
-  pm = new vtkPolyMapper;
+  pm = vtkPolyMapper::New();
   pm->SetInput(pd);
   
   points = pd->GetPoints();

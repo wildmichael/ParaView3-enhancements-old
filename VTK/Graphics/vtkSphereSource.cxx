@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-09-17 12:03:02 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1997-05-15 23:23:49 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,7 +80,7 @@ void vtkSphereSource::Execute()
 
   newPoints = new vtkFloatPoints(numPts);
   newNormals = new vtkFloatNormals(numPts);
-  newPolys = new vtkCellArray;
+  newPolys = vtkCellArray::New();
   newPolys->Allocate(newPolys->EstimateSize(numPolys,3));
 //
 // Create sphere

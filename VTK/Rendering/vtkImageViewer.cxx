@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-06 17:02:04 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1997-05-15 23:24:36 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -102,9 +102,9 @@ void vtkImageViewer::SetPosition(int x, int y)
 vtkImageViewer *vtkImageViewer::New()
 {
 #ifdef _WIN32
-  return new vtkImageWin32Viewer;
+  return vtkImageWin32Viewer::New();
 #else
-  return new vtkImageXViewer;
+  return vtkImageXViewer::New();
 #endif  
   return NULL;
 }

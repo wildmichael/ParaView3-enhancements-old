@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGaussianSmooth.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-12-19 13:52:13 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-05-15 23:24:25 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,7 +71,7 @@ void vtkImageGaussianSmooth::SetDimensionality(int num)
       {
       this->Filters[idx]->Delete();
       }
-    this->Filters[idx] = new vtkImageGaussianSmooth1D;
+    this->Filters[idx] = vtkImageGaussianSmooth1D::New();
     this->Filters[idx]->SetAxes(this->Axes[idx]);
     ((vtkImageGaussianSmooth1D *)
      (this->Filters[idx]))->SetStride(this->Strides[idx]);

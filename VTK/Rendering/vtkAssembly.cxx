@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssembly.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-28 19:06:52 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1997-05-15 23:22:48 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -144,8 +144,8 @@ void vtkAssembly::UpdatePaths()
 
   if ( ! this->Paths )
     {
-    this->Paths = new vtkAssemblyPaths;
-    vtkActorCollection *path = new vtkActorCollection;
+    this->Paths = vtkAssemblyPaths::New();
+    vtkActorCollection *path = vtkActorCollection::New();
     this->Paths->AddItem(path);
 
     this->BuildPaths(this->Paths,path);
@@ -167,7 +167,7 @@ void vtkAssembly::BuildPaths(vtkAssemblyPaths *paths, vtkActorCollection *path)
     {
     if ( this->GetUserMatrix() )
       {
-      matrix = new vtkMatrix4x4;
+      matrix = vtkMatrix4x4::New();
       *matrix = *(this->GetUserMatrix());
       copy->SetUserMatrix(matrix);
       }
@@ -175,7 +175,7 @@ void vtkAssembly::BuildPaths(vtkAssemblyPaths *paths, vtkActorCollection *path)
   else //somewhere in the middle of the assembly hierarchy
     {
     previous = path->GetLastItem();
-    matrix = new vtkMatrix4x4;
+    matrix = vtkMatrix4x4::New();
     previous->GetMatrix(*matrix);
     copy->SetUserMatrix(matrix);
     }
@@ -188,18 +188,18 @@ void vtkAssembly::BuildPaths(vtkAssemblyPaths *paths, vtkActorCollection *path)
     for ( this->Parts.InitTraversal(); (part = this->Parts.GetNextItem()); )
       {
       //a new path is created for each child
-      childPath = new vtkActorCollection;
+      childPath = vtkActorCollection::New();
       paths->AddItem(childPath);
 
       // copy incoming path
       for ( path->InitTraversal(); (actor = path->GetNextItem()); )
         {
-        copy = new vtkActor;
+        copy = vtkActor::New();
         *copy = *actor;
 
         if ( actor->GetUserMatrix() )
           {
-          matrix = new vtkMatrix4x4;
+          matrix = vtkMatrix4x4::New();
           *matrix = *(actor->GetUserMatrix());
           copy->SetUserMatrix(matrix);
           }

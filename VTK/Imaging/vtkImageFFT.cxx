@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFFT.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-11-01 18:26:46 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-05-15 23:24:21 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,7 +70,7 @@ void vtkImageFFT::SetDimensionality(int num)
       {
       this->Filters[idx]->Delete();
       }
-    this->Filters[idx] = new vtkImageFFT1D;
+    this->Filters[idx] = vtkImageFFT1D::New();
     this->Filters[idx]->SetAxes(this->Axes[idx]);
     // Splitting the principle axis will do no good (reverse order).
     axes = this->Filters[idx]->GetAxes();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBBTree.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:53:48 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1997-05-15 23:23:25 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -372,8 +372,8 @@ void vtkOBBTree::BuildTree(vtkIdList *cells, vtkOBBNode *OBBptr, int level)
 
     if ( splitAcceptable ) //otherwise recursion terminates
       {
-      vtkOBBNode *LHnode=new vtkOBBNode;
-      vtkOBBNode *RHnode=new vtkOBBNode;
+      vtkOBBNode *LHnode= new vtkOBBNode;
+      vtkOBBNode *RHnode= new vtkOBBNode;
       OBBptr->Kids = new vtkOBBNode *[2];
       OBBptr->Kids[0] = LHnode;
       OBBptr->Kids[1] = RHnode;

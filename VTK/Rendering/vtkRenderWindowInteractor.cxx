@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-01 17:13:45 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1997-05-15 23:23:42 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -228,7 +228,7 @@ vtkPicker *vtkRenderWindowInteractor::CreateDefaultPicker()
 {
   if ( this->SelfCreatedPicker ) this->Picker->Delete();
   this->SelfCreatedPicker = 1;
-  return new vtkCellPicker;
+  return vtkCellPicker::New();
 }
 
 // Description:
