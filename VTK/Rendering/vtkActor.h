@@ -1,16 +1,16 @@
 /*=========================================================================
 
-  Program:   OSCAR 
+  Program:   Visualization Library
   Module:    $RCSfile: vtkActor.h,v $
   Language:  C++
-  Date:      $Date: 1994-01-28 17:38:48 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1994-02-06 17:55:56 $
+  Version:   $Revision: 1.6 $
 
-Description:
----------------------------------------------------------------------------
-This file is part of the vis library
+This file is part of the Visualization Library. No part of this file or its
+contents may be copied, reproduced or altered in any way without the express
+written consent of the authors.
 
-- Ken Martin
+Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 
 =========================================================================*/
 #ifndef __vlActor_hh
@@ -47,6 +47,7 @@ class vlActor : public vlObject
   vlMapper *GetMapper();
   vlProperty *Property; 
   char *GetClassName() {return "vlActor";};
+  void PrintSelf(ostream& os, vlIndent indent);
 
 protected:
   vlMapper *Mapper;
