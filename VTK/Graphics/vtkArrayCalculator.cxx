@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArrayCalculator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-28 14:07:39 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-03-01 20:27:34 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -707,6 +707,49 @@ const char* vtkArrayCalculator::GetAttributeModeAsString()
     {
     return "UseCellData";
     }
+}
+
+void vtkArrayCalculator::RemoveAllVariables()
+{
+  int i;
+  
+  for (i = 0; i < this->NumberOfScalarArrays; i++)
+    {
+    delete [] this->ScalarArrayNames[i];
+    this->ScalarArrayNames[i] = NULL;
+    delete [] this->ScalarVariableNames[i];
+    this->ScalarVariableNames[i] = NULL;
+    }
+  if (this->NumberOfScalarArrays > 0)
+    {
+    delete [] this->ScalarArrayNames;
+    this->ScalarArrayNames = NULL;
+    delete [] this->ScalarVariableNames;
+    this->ScalarVariableNames = NULL;
+    delete [] this->SelectedScalarComponents;
+    this->SelectedScalarComponents = NULL;
+    }
+  this->NumberOfScalarArrays = 0;
+  
+  for (i = 0; i < this->NumberOfVectorArrays; i++)
+    {
+    delete [] this->VectorArrayNames[i];
+    this->VectorArrayNames[i] = NULL;
+    delete [] this->VectorVariableNames[i];
+    this->VectorVariableNames[i] = NULL;
+    delete [] this->SelectedVectorComponents[i];
+    this->SelectedVectorComponents[i] = NULL;
+    }
+  if (this->NumberOfVectorArrays > 0)
+    {
+    delete [] this->VectorArrayNames;
+    this->VectorArrayNames = NULL;
+    delete [] this->VectorVariableNames;
+    this->VectorVariableNames = NULL;
+    delete [] this->SelectedVectorComponents;
+    this->SelectedVectorComponents = NULL;
+    }
+  this->NumberOfVectorArrays = 0;
 }
 
 void vtkArrayCalculator::PrintSelf(ostream& os, vtkIndent indent)

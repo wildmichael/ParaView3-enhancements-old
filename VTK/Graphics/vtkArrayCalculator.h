@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArrayCalculator.h,v $
   Language:  C++
-  Date:      $Date: 2001-02-26 16:07:44 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-03-01 20:27:34 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -116,6 +116,10 @@ public:
   void SetAttributeModeToUseCellData() 
     {this->SetAttributeMode(VTK_ATTRIBUTE_MODE_USE_CELL_DATA);};
   const char *GetAttributeModeAsString();
+
+  // Description:
+  // Remove all the variable names and their associated array names.
+  void RemoveAllVariables();
   
 protected:
   vtkArrayCalculator();
