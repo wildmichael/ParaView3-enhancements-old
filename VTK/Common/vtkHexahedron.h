@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHexahedron.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-25 23:49:57 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1996-06-12 13:20:31 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -82,7 +82,7 @@ public:
   // Hexahedron specific
   void InterpolationFunctions(float pcoords[3], float weights[8]);
   void InterpolationDerivs(float pcoords[3], float derivs[24]);
-  void JacobianInverse(float pcoords[3], float inverse[9], float derivs[24]);
+  void JacobianInverse(float pcoords[3], double **inverse, float derivs[24]);
 
 };
 
