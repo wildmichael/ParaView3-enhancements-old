@@ -9,7 +9,7 @@
  * Copyright (c) 1998-1999 by Scriptics Corporation.
  * All rights reserved.
  *
- * RCS: @(#) $Id: tkIntPlatDecls.h,v 1.3 2003-05-28 17:37:41 barre Exp $
+ * RCS: @(#) $Id: tkIntPlatDecls.h,v 1.4 2003-07-24 20:08:56 barre Exp $
  */
 
 #ifndef _TKINTPLATDECLS

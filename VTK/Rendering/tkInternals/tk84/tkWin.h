@@ -9,7 +9,7 @@
  * See the file "license.terms" for information on usage and redistribution
  * of this file, and for a DISCLAIMER OF ALL WARRANTIES.
  *
- * RCS: @(#) $Id: tkWin.h,v 1.4 2003-05-28 17:37:41 barre Exp $
+ * RCS: @(#) $Id: tkWin.h,v 1.5 2003-07-24 20:08:56 barre Exp $
  */
 
 #ifndef _TKWIN
