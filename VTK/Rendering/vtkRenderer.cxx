@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-26 14:21:56 $
-  Version:   $Revision: 1.91 $
+  Date:      $Date: 1998-11-24 17:56:01 $
+  Version:   $Revision: 1.92 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -572,10 +572,9 @@ void vtkRenderer::ResetCamera()
       }
     }
 
-
   if ( nothingVisible )
     {
-    vtkErrorMacro(<< "Can't reset camera if no actors or volumes are visible");
+    vtkDebugMacro(<< "Can't reset camera, no actors or volumes are visible");
     return;
     }
 
