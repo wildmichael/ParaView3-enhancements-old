@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRibbonFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-08 18:35:24 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 2002-08-08 19:20:50 $
+  Version:   $Revision: 1.61 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkRibbonFilter, "$Revision: 1.60 $");
+vtkCxxRevisionMacro(vtkRibbonFilter, "$Revision: 1.61 $");
 vtkStandardNewMacro(vtkRibbonFilter);
 
 // Construct ribbon so that width is 0.1, the width does 
@@ -193,8 +193,6 @@ void vtkRibbonFilter::Execute()
     if ( this->GenerateTCoords != VTK_TCOORDS_OFF )
       {
       this->GenerateTextureCoords(offset,npts,pts,inPts,inScalars,newTCoords);
-      outPD->SetTCoords(newTCoords);
-      newTCoords->Delete();
       }
 
     // Compute the new offset for the next polyline
@@ -209,6 +207,12 @@ void vtkRibbonFilter::Execute()
   if ( deleteNormals )
     {
     inNormals->Delete();
+    }
+
+  if ( this->GenerateTCoords != VTK_TCOORDS_OFF )
+    {
+    outPD->SetTCoords(newTCoords);
+    newTCoords->Delete();
     }
 
   output->SetPoints(newPts);
