@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRibbonFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:48:20 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1995-07-29 11:48:22 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,7 +57,7 @@ vtkRibbonFilter::vtkRibbonFilter()
 
 void vtkRibbonFilter::Execute()
 {
-  int i, j, k;
+  int i, j;
   vtkPoints *inPts;
   vtkNormals *inNormals;
   vtkPointData *pd;
