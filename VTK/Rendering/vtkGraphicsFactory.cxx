@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGraphicsFactory.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-22 19:26:27 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-10-22 20:56:58 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -84,7 +84,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkWin32RenderWindowInteractor.h"
 #endif
 
-const char *vtkGraphicsFactoryGetRenderLibrary()
+const char *vtkGraphicsFactory::GetRenderLibrary()
 {
   const char *temp;
   
@@ -136,7 +136,7 @@ vtkObject* vtkGraphicsFactory::CreateInstance(const char* vtkclassname )
     return ret;
     }
 
-  const char *rl = vtkGraphicsFactoryGetRenderLibrary();
+  const char *rl = vtkGraphicsFactory::GetRenderLibrary();
   
 #ifdef VTK_USE_OGLR
   if (!strcmp("OpenGL",rl))

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGraphicsFactory.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-22 19:00:52 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-10-22 20:56:58 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,6 +58,10 @@ public:
   // dynamic loading. 
   static vtkObject* CreateInstance(const char* vtkclassname);
 
+  // Description:
+  // What rendering library has the user requested
+  static const char *GetRenderLibrary();
+  
 protected:
 };
 
