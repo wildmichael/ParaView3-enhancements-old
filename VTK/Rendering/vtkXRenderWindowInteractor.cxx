@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-01-20 12:27:36 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1996-03-13 20:51:31 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -588,10 +588,18 @@ void vtkXRenderWindowInteractorTimer(XtPointer client_data,XtIntervalId *id)
 		    &root,&child,&root_x,&root_y,&x,&y,&keys);
       yf = ((me->Size[1] - y) - me->Center[1])/(float)me->Center[1];
       zoomFactor = pow(1.1,yf);
-      clippingRange = me->CurrentCamera->GetClippingRange();
-      me->CurrentCamera->SetClippingRange(clippingRange[0]/zoomFactor,
-      					  clippingRange[1]/zoomFactor);
-      me->CurrentCamera->Dolly(zoomFactor);
+      if (me->CurrentCamera->GetParallelProjection())
+	{
+	me->CurrentCamera->
+	  SetParallelScale(me->CurrentCamera->GetParallelScale()/zoomFactor);
+	}
+      else
+	{
+	clippingRange = me->CurrentCamera->GetClippingRange();
+	me->CurrentCamera->SetClippingRange(clippingRange[0]/zoomFactor,
+					    clippingRange[1]/zoomFactor);
+	me->CurrentCamera->Dolly(zoomFactor);
+	}
       me->RenderWindow->Render();
       XtAppAddTimeOut(me->App,10,vtkXRenderWindowInteractorTimer,client_data);
       }

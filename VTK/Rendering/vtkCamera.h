@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.h,v $
   Language:  C++
-  Date:      $Date: 1995-12-27 10:55:32 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1996-03-13 20:51:15 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -125,6 +125,11 @@ class vtkCamera : public vtkObject
   vtkGetVectorMacro(WindowCenter,float,2);
 
   // Description:
+  // Set/Get the scaling used for a parallel projection.
+  vtkSetMacro(ParallelScale,float);
+  vtkGetMacro(ParallelScale,float);
+
+  // Description:
   // Set the size of the cameras lens in world coordinates. This is only 
   // used when the renderer is doing focal depth rendering. When that is 
   // being done the size of the focal disk will effect how significant the
@@ -141,12 +146,12 @@ class vtkCamera : public vtkObject
   void SetDistance(float);
   vtkGetMacro(Distance,float);
 
-  // Description:
-  // Set/Get the value of the Switch instance variable. This indicates if the 
-  // camera is on or off.
-  vtkSetMacro(Switch,int);
-  vtkGetMacro(Switch,int);
-  vtkBooleanMacro(Switch,int);
+  // Description: 
+  // Set/Get the value of the ParallelProjection instance variable. This
+  // determines if the camera should do a perspective or parallel projection.
+  vtkSetMacro(ParallelProjection,int);
+  vtkGetMacro(ParallelProjection,int);
+  vtkBooleanMacro(ParallelProjection,int);
 
   void SetViewPlaneNormal(float a[3]);
   void SetViewPlaneNormal(float x, float y, float z);
@@ -184,7 +189,8 @@ class vtkCamera : public vtkObject
   float ClippingRange[2];
   float EyeAngle;
   int   LeftEye;
-  int   Switch;
+  int   ParallelProjection;
+  float ParallelScale;
   int   Stereo;  
   float Thickness;
   float Distance;
