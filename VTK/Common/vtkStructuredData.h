@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredData.h,v $
   Language:  C++
-  Date:      $Date: 1994-04-08 08:06:38 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-05-02 08:49:13 $
+  Version:   $Revision: 1.4 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -33,7 +33,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #define XZ_PLANE 6
 #define XYZ_GRID 7
 
-class vlStructuredDataSet : public vlDataSet {
+class vlStructuredDataSet : virtual public vlDataSet {
 public:
   vlStructuredDataSet();
   vlStructuredDataSet(const vlStructuredDataSet& sds);
