@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObjectFactory.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-25 20:53:16 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-02-26 14:03:06 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -568,6 +568,9 @@ public:
   vtkObjectFactoryCollectionIterator(vtkCollection* source)
     {
       Source = source;
+#ifdef VTK_DEBUG_LEAKS
+      vtkDebugLeaks::ConstructClass("vtkCollection");
+#endif
     }
   vtkObjectFactory* GetNextItem() 
     {
@@ -614,6 +617,7 @@ vtkObjectFactory::GetOverrideInformation(const char* name)
         overInfo->SetObjectFactory(factory);
         // add the item to the collection
         ret->AddItem(overInfo);
+        overInfo->Delete();
         }
       }
     }
