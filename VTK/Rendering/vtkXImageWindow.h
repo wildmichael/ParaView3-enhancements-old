@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 1998-04-13 18:28:02 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-04-13 21:11:57 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -150,6 +150,10 @@ public:
   // and from bottom to top.  To maintain the same prototype as in 
   // vtkRenderWindow, the last argument is provided, but currently not used.
   unsigned char *GetPixelData(int x1, int y1, int x2, int y2, int);
+
+  void GetShiftsAndMasks(int &rshift, int &gshift, int &bshift,
+			 unsigned long &rmask, unsigned long &gmask,
+			 unsigned long &bmask);
 
 protected:
   // X stuff
