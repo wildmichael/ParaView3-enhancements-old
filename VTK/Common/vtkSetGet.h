@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSetGet.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-04 16:59:24 $
-  Version:   $Revision: 1.93 $
+  Date:      $Date: 2002-01-04 18:04:00 $
+  Version:   $Revision: 1.94 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -480,22 +480,19 @@ extern VTK_COMMON_EXPORT void vtkOutputWindowDisplayDebugText(const char*);
 // vtkWarningMacro(<< "Warning message" << variable);
 //
 #define vtkWarningMacro(x)                      \
-   vtkWarningMacroWithObject(this,x)
+   vtkWarningWithObjectMacro(this,x)
 
 //
 // This macro is used to print out errors
 // vtkErrorMacro(<< "Error message" << variable);
 //
 #define vtkErrorMacro(x)                        \
-   vtkErrorMacroWithObject(this,x)
+   vtkErrorWithObjectMacro(this,x)
 
 //
 // This macro is used to print out errors
 // vtkErrorWithObjectMacro(self, << "Error message" << variable);
 //
-#define vtkErrorMacroWithObject(self, x)        \
-   vtkErrorWithObjectMacro(self, x)
-
 #define vtkErrorWithObjectMacro(self, x)                        \
    {                                                            \
    if (vtkObject::GetGlobalWarningDisplay())                    \
@@ -520,11 +517,8 @@ extern VTK_COMMON_EXPORT void vtkOutputWindowDisplayDebugText(const char*);
 
 //
 // This macro is used to print out warnings
-// vtkWarningWithObjectMacro(self, << "Warning message" << variable);
+// vtkWarningWithObjectMacro(self, "Warning message" << variable);
 //
-#define vtkWarningMacroWithObject(self, x)      \
-   vtkWarningWithObjectMacro(self, x)
-
 #define vtkWarningWithObjectMacro(self, x)                      \
    {                                                            \
    if (vtkObject::GetGlobalWarningDisplay())                    \
