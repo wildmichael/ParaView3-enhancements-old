@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-24 11:26:22 $
-  Version:   $Revision: 1.83 $
+  Date:      $Date: 2001-07-25 12:21:14 $
+  Version:   $Revision: 1.84 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -1156,8 +1156,8 @@ void vtkStructuredGrid::Crop()
     this->SetExtent(uExt);
     this->SetPoints(newPts);
     newPts->Delete();
-    outPD->ShallowCopy(inPD);
-    outCD->ShallowCopy(inCD);
+    inPD->ShallowCopy(outPD);
+    inCD->ShallowCopy(outCD);
     newGrid->Delete();
     }
 }
