@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-24 18:34:10 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1999-03-17 15:59:44 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -296,17 +296,20 @@ void *vtkXImageWindow::GetGenericDrawable()
 vtkXImageWindow::vtkXImageWindow()
 {
   vtkDebugMacro(<< "vtkXImageWindow::vtkXImageWindow");
-  this->DisplayId = (Display *)NULL;
-  this->WindowId = (Window)(NULL);
   this->ParentId = (Window)(NULL);
+  this->WindowId = (Window)(NULL);
+  this->DisplayId = (Display *)NULL;
+  this->VisualId = 0;
+  this->VisualDepth = 0;
+  this->VisualClass = 0;
   this->ColorMap = (Colormap) NULL;
-  this->Drawable = (Pixmap) NULL;
-  this->IconPixmap = (Pixmap) NULL;
+  this->Gc = NULL;
   this->Offset = 0;
+  this->NumberOfColors = 150;
+  this->Drawable = (Pixmap) NULL;
   this->OwnDisplay = 0;
   this->PixmapWidth = 0;
   this->PixmapHeight = 0;
-  this->NumberOfColors = 150;
 }
 
 
@@ -318,7 +321,10 @@ vtkXImageWindow::~vtkXImageWindow()
   /* free the Xwindow we created no need to free the colormap */
   if (this->DisplayId && this->WindowId && this->WindowCreated)
     {
-    XFreeGC(this->DisplayId, this->Gc);
+    if (this->Gc)
+      {
+      XFreeGC(this->DisplayId, this->Gc);
+      }
     XDestroyWindow(this->DisplayId,this->WindowId);
     }
   if (this->DisplayId)
@@ -344,7 +350,6 @@ void vtkXImageWindow::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Visual Class: " << this->VisualClass << "\n";
   os << indent << "ColorMap: " << this->ColorMap << "\n";
   os << indent << "GC: " << this->Gc << "\n";
-  os << indent << "Icon Pixmap: " << this->IconPixmap << "\n";
   os << indent << "Offset: " << this->Offset << "\n";
   os << indent << "Colors: " << this->Colors << "\n";
   os << indent << "Number Of Colors: " << this->NumberOfColors << "\n";

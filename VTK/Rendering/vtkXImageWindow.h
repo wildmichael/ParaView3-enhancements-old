@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 1999-03-10 23:04:16 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-03-17 15:59:45 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -164,8 +164,6 @@ protected:
   int                  VisualClass;
   Colormap             ColorMap;
   GC                   Gc;
-  Pixmap               IconPixmap;
-  XEvent               report;
   int	               Offset;
   XColor               Colors[256];
   int                  NumberOfColors;
