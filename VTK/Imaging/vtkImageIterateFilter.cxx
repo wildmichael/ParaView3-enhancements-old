@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIterateFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-01-30 19:26:12 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-02-02 16:03:27 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -553,7 +553,7 @@ void vtkImageIterateFilter::SetNumberOfIterations(int num)
     }
   
   // create new ones (first and last set later to input and output)
-  this->IterationCaches = (vtkImageCache **)(new (void *)[num + 1]);
+  this->IterationCaches = (vtkImageCache **) new void *[num + 1];
   this->IterationCaches[0] = this->IterationCaches[num] = NULL;
   for (idx = 1; idx < num; ++idx)
     {
