@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVideoSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-12-09 16:38:29 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-12-09 23:13:49 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -354,6 +354,8 @@ void vtkVideoSource::SetFrameSize(int x, int y, int z)
     vtkErrorMacro(<< "SetFrameSize: Illegal frame size");
     }
 
+  this->Modified();
+
   if (this->FrameSize[0] != x ||
       this->FrameSize[1] != y ||
       this->FrameSize[2] != z)
@@ -374,6 +376,8 @@ void vtkVideoSource::SetFrameSize(int x, int y, int z)
 //----------------------------------------------------------------------------
 void vtkVideoSource::SetFrameRate(float rate)
 {
+  this->Modified();
+
   this->FrameRate = rate;
 }
 
@@ -535,16 +539,7 @@ static void *vtkVideoSourceGrabThread(struct ThreadInfoStruct *data)
 	}
 
       // sleep according to OS preference
-#ifdef _WIN32
-      Sleep((int)(1000*remaining));
-#else
-#if defined(__FreeBSD__) || defined(linux) || defined(sgi)
-      struct timespec sleep_time, dummy;
-      sleep_time.tv_sec = (int)remaining;
-      sleep_time.tv_nsec = (int)(1000000000*(remaining-sleep_time.tv_sec));
-      nanosleep(&sleep_time,&dummy);
-#endif
-#endif
+      vtkTimerLog::Sleep((int)(1000*remaining));
       }
     }
 }
@@ -558,6 +553,7 @@ void vtkVideoSource::Play()
   if (!this->Playing)
     {
     this->Playing = 1;
+    this->Modified();
     this->PlayerThreadId = 
       this->PlayerThreader->SpawnThread((vtkThreadFunctionType)\
 					&vtkVideoSourceGrabThread,this);
@@ -574,6 +570,7 @@ void vtkVideoSource::Stop()
     this->PlayerThreader->TerminateThread(this->PlayerThreadId);
     this->PlayerThreadId = -1;
     this->Playing = 0;
+    this->Modified();
     }
 } 
 
@@ -656,6 +653,8 @@ void vtkVideoSource::SetOutputFormat(int format)
       this->SetVideoInput(VTK_VIDEO_MONO);
       }
     }
+
+  this->Modified();
 }
 
 //----------------------------------------------------------------------------

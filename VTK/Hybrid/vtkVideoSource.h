@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVideoSource.h,v $
   Language:  C++
-  Date:      $Date: 1999-12-09 16:38:29 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-12-09 23:13:49 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -153,7 +153,8 @@ public:
 
   // Description:
   // Advance the buffer by one frame
-  void Advance(int n) { this->AdvanceFrameBuffer(n); this->Modified(); };
+  void Advance(int n) { 
+    if (!this->Playing) { this->AdvanceFrameBuffer(n); this->Modified(); } };
   void Advance() { this->Advance(-1); };
 
   // Description:
@@ -197,12 +198,12 @@ public:
 
   // Description:
   // Set/Get the video channel (only supported on some hardware)
-  virtual void SetVideoChannel(int channel) { this->VideoChannel = channel; };
+  vtkSetMacro(VideoChannel, int);
   vtkGetMacro(VideoChannel,int);
 
   // Description:
   // Set/Get the video format (only supported on some hardware)
-  virtual void SetVideoFormat(int format) { this->VideoFormat = format; };
+  vtkSetMacro(VideoFormat, int);
   void SetVideoFormatToNTSC() { this->SetVideoFormat(VTK_VIDEO_NTSC); };
   void SetVideoFormatToPAL() { this->SetVideoFormat(VTK_VIDEO_PAL); };
   void SetVideoFormatToSECAM() { this->SetVideoFormat(VTK_VIDEO_SECAM); };
@@ -214,7 +215,7 @@ public:
   
   // Description:
   // Set/Get the video input (only supported on some hardware)
-  virtual void SetVideoInput(int input) { this->VideoInput = input; };
+  vtkSetMacro(VideoInput,int);
   void SetVideoInputToMono() { this->SetVideoInput(VTK_VIDEO_MONO); };
   void SetVideoInputToComposite() {this->SetVideoInput(VTK_VIDEO_COMPOSITE);};
   void SetVideoInputToYC() { this->SetVideoInput(VTK_VIDEO_YC); };
@@ -225,12 +226,12 @@ public:
   // Description:
   // For RGBA output only (4 scalar components), set the opacity.  You will
   // not see the effect until the next Grab.
-  virtual void SetOpacity(float opacity) { this->Opacity = opacity; };
+  vtkSetMacro(Opacity,float);
   vtkGetMacro(Opacity,float);  
 
   // Description:
   // Enable a video preview window if supported by driver
-  virtual void SetPreview(int preview) { this->Preview = preview; };
+  vtkSetMacro(Preview,int);
   vtkBooleanMacro(Preview,int);
   vtkGetMacro(Preview,int);
 
