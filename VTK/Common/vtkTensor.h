@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensor.h,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:29:34 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1995-07-13 22:14:10 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -36,6 +36,7 @@ public:
   float GetComponent(int i, int j);
   void SetComponent(int i, int j, float v);
   void AddComponent(int i, int j, float v);
+  float *GetColumn(int j);
   void operator=(float *t);
   void operator=(vtkTensor &t);
   operator float*() {return this->T;};
@@ -120,6 +121,13 @@ inline void vtkTensor::operator=(vtkTensor &t)
   for (int j=0; j < this->Dimension; j++)
     for (int i=0; i < this->Dimension; i++)
       this->T[i+this->Dimension*j] = t.T[i+this->Dimension*j];
+}
+
+// Description:
+// Return column vector from tensor. (Assumes 2D matrix form). 0-offset.
+inline float *vtkTensor::GetColumn(int j)
+{
+  return this->T + this->Dimension*j;
 }
 
 #endif
