@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-24 15:27:55 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2002-10-24 15:47:35 $
+  Version:   $Revision: 1.35 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -88,7 +88,7 @@ vtkXOpenGLRenderWindowInternal::vtkXOpenGLRenderWindowInternal(
 
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkXOpenGLRenderWindow, "$Revision: 1.34 $");
+vtkCxxRevisionMacro(vtkXOpenGLRenderWindow, "$Revision: 1.35 $");
 vtkStandardNewMacro(vtkXOpenGLRenderWindow);
 #endif
 
@@ -928,7 +928,7 @@ void vtkXOpenGLRenderWindow::MakeCurrent()
 
 void vtkXOpenGLRenderWindow::SetForceMakeCurrent()
 {
-  this.ForceMakeCurrent = 1;
+  this->ForceMakeCurrent = 1;
 }
 
 int vtkXOpenGLRenderWindowFoundMatch;
