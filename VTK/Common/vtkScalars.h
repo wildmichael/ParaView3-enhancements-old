@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkScalars.h,v $
   Language:  C++
-  Date:      $Date: 1995-01-23 21:15:19 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1995-03-03 17:11:57 $
+  Version:   $Revision: 1.21 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -86,7 +86,10 @@ public:
   // all scalar types: check for NULL return value. 
   virtual unsigned char *GetPtr(const int id) {return NULL;};
 
-  void GetScalars(vlIdList& ptId, vlFloatScalars& fs);
+  // Description:
+  // Get the scalar values for the point ids specified.
+  virtual void GetScalars(vlIdList& ptIds, vlFloatScalars& fs);
+
   virtual void ComputeRange();
   float *GetRange();
   void GetRange(float range[8]);

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPoints.h,v $
   Language:  C++
-  Date:      $Date: 1995-02-26 10:17:34 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-03-03 17:11:50 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -70,7 +70,10 @@ public:
   // Reclaim any extra memory.
   virtual void Squeeze() = 0; // reclaim memory
 
-  void GetPoints(vlIdList& ptId, vlFloatPoints& fp);
+  // Description:
+  // Get the point coordinates for the point ids specified.
+  virtual void GetPoints(vlIdList& ptId, vlFloatPoints& fp);
+
   virtual void ComputeBounds();
   float *GetBounds();
 
