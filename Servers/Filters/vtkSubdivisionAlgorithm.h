@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSubdivisionAlgorithm.h,v $
   Language:  C++
-  Date:      $Date: 2004-07-08 19:47:06 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2004-08-24 14:50:23 $
+  Version:   $Revision: 1.2 $
 
   Copyright 2003 Sandia Corporation.
   Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -31,7 +31,7 @@
 // .SECTION See Also
 // vtkDataSetSubdivisionAlgorithm vtkStreamingTessellator
 
-#include <vtkObject.h>
+#include "vtkObject.h"
 
 class vtkDataSetAttributes;
 class vtkMatrix4x4;
