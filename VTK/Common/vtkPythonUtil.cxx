@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPythonUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-09-16 14:22:44 $
-  Version:   $Revision: 1.64 $
+  Date:      $Date: 2003-09-23 15:00:01 $
+  Version:   $Revision: 1.65 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -530,8 +530,8 @@ static PyObject *PyVTKClass_PyCall(PyVTKClass *self, PyObject *arg,
     if (initfunc)
       {      
       PyObject *obj = PyVTKObject_New((PyObject *)self,NULL);
-      PyObject *initfunc = PyVTKObject_PyGetAttr((PyVTKObject *)obj, initstr);
-      PyObject *res = PyEval_CallObjectWithKeywords(initfunc, arg, kw);
+      PyObject *cinitfunc = PyVTKObject_PyGetAttr((PyVTKObject *)obj, initstr);
+      PyObject *res = PyEval_CallObjectWithKeywords(cinitfunc, arg, kw);
       if (res == NULL)
         {
         Py_DECREF(obj);
@@ -543,7 +543,7 @@ static PyObject *PyVTKClass_PyCall(PyVTKClass *self, PyObject *arg,
         Py_DECREF(obj);
         obj = NULL;
         }
-      Py_DECREF(initfunc);
+      Py_DECREF(cinitfunc);
       return obj;
       }
     }
@@ -874,11 +874,11 @@ PyObject *PyVTKClass_New(vtknewfunc constructor,
 
   if (vtkPythonHash)
     {
-    vtkstd::map<vtkstd::string, PyObject*>::iterator i =
+    vtkstd::map<vtkstd::string, PyObject*>::iterator it =
       vtkPythonHash->ClassHash->find(classname);
-    if(i != vtkPythonHash->ClassHash->end())
+    if(it != vtkPythonHash->ClassHash->end())
       {
-      self = i->second;
+      self = it->second;
       }
     }
   if (self)
@@ -1097,7 +1097,7 @@ static PyObject *PyVTKSpecialObject_PyGetAttr(PyVTKSpecialObject *self,
       }
     if (strcmp(name,"__methods__") == 0)
       {
-      PyMethodDef *meth = self->vtk_methods;
+      meth = self->vtk_methods;
       PyObject *lst;
       int i, n;
 
