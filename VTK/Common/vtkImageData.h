@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-07 08:57:11 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2000-01-10 07:14:48 $
+  Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -302,7 +302,7 @@ public:
   // the correct version of SetExtent rather than just doing a memcpy.
   virtual void ModifyExtentForUpdateExtent();
 
-  void SetMemoryLimit( int x ) 
+  void SetMemoryLimit( int vtkNotUsed(x) ) 
     { vtkErrorMacro( << "Memory limit no longer supported - use streamer" ); };
 
   int GetMemoryLimit() { return 0; };

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-07 08:57:18 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 2000-01-10 07:14:48 $
+  Version:   $Revision: 1.53 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -127,6 +127,10 @@ public:
   // The source of this poly data has to return exactly this piece.
   void SetUpdateExtent(int piece, int numPieces);
   void GetUpdateExtent(int &piece, int &numPieces);
+
+  // Description:
+  // We need this here to keep from hiding superclass method
+  vtkGetVector6Macro( UpdateExtent, int );
 
   // Description:
   // Call superclass method to avoid hiding

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-07 08:57:10 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2000-01-10 07:14:47 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -108,7 +108,7 @@ vtkDataObject::~vtkDataObject()
 // Determine the modified time of this object
 unsigned long int vtkDataObject::GetMTime()
 {
-  unsigned long result, t2;
+  unsigned long result;
 
   result = vtkObject::GetMTime();
   if ( this->FieldData )
