@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldData.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:22 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2002-02-15 16:35:29 $
+  Version:   $Revision: 1.44 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkFieldData.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkFieldData, "$Revision: 1.43 $");
+vtkCxxRevisionMacro(vtkFieldData, "$Revision: 1.44 $");
 vtkStandardNewMacro(vtkFieldData);
 
 vtkFieldData::BasicIterator::BasicIterator(const int* list, 
@@ -197,6 +197,7 @@ void vtkFieldData::InitializeFields()
 
   this->NumberOfArrays = 0;
   this->NumberOfActiveArrays = 0;
+  this->Modified();
 
 }
 
@@ -564,7 +565,11 @@ void vtkFieldData::CopyFieldOnOff(const char* field, int onOff)
   // If the array is in the list, simply set IsCopied to onOff
   if ((index=this->FindFlag(field)) != -1)
     {
-    this->CopyFieldFlags[index].IsCopied = onOff;
+    if (this->CopyFieldFlags[index].IsCopied != onOff)
+      {
+      this->CopyFieldFlags[index].IsCopied = onOff;
+      this->Modified();
+      }
     }
   else
     {
@@ -585,21 +590,30 @@ void vtkFieldData::CopyFieldOnOff(const char* field, int onOff)
     this->NumberOfFieldFlags++;
     delete[] this->CopyFieldFlags;
     this->CopyFieldFlags = newFlags;
+    this->Modified();
     }
 }
 
 // Turn on copying of all data.
 void vtkFieldData::CopyAllOn()
 {
-  this->DoCopyAllOn = 1;
-  this->DoCopyAllOff = 0;
+  if ( !DoCopyAllOn || DoCopyAllOff)
+    {
+    this->DoCopyAllOn = 1;
+    this->DoCopyAllOff = 0;
+    this->Modified();
+    }
 }
 
 // Turn off copying of all data.
 void vtkFieldData::CopyAllOff()
 {
-  this->DoCopyAllOn = 0;
-  this->DoCopyAllOff = 1;
+  if ( DoCopyAllOn || !DoCopyAllOff)
+    {
+    this->DoCopyAllOn = 0;
+    this->DoCopyAllOff = 1;
+    this->Modified();
+    }
 }
 
 // Deallocate and clear the list of fields.
