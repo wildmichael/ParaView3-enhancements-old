@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-11-03 17:18:05 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-11-16 22:26:26 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -129,6 +129,7 @@ void vtkSTLWriter::WriteAsciiSTL(vtkPoints *pts, vtkCellArray *polys)
     fprintf (fp, "  ENDLOOP\n ENDFACET\n");
     }
   fprintf (fp, "ENDSOLID\n");
+  fclose (fp);
 }
 
 void vtkSTLWriter::WriteBinarySTL(vtkPoints *pts, vtkCellArray *polys)
@@ -183,6 +184,7 @@ void vtkSTLWriter::WriteBinarySTL(vtkPoints *pts, vtkCellArray *polys)
 
     fwrite (&ibuff2, 2, 1, fp);
     }
+  fclose (fp);
 }
 
 void vtkSTLWriter::PrintSelf(ostream& os, vtkIndent indent)
