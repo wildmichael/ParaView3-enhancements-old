@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCompositeManager.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-07 14:03:08 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-12-08 16:33:24 $
+  Version:   $Revision: 1.8 $
 
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1070,7 +1070,7 @@ void vtkCompositeManager::PrintSelf(ostream& os, vtkIndent indent)
     }
   
   os << indent << "SetBuffersTime: " << this->SetBuffersTime << "\n";
-  os << indent << "GetBuffersTime: " << this->GetBuffersTime << "\n";
+  os << indent << "GetBuffersTime: " << this->GetGetBuffersTime() << "\n";
   os << indent << "CompositeTime: " << this->CompositeTime << "\n";
   os << indent << "MaxRenderTime: " << this->MaxRenderTime << "\n";
   if (this->UseCompositing)
