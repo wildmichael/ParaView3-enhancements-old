@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSeparableConvolution.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-18 15:33:29 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-12-29 15:13:57 $
+  Version:   $Revision: 1.7 $
   Thanks:    
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -160,7 +160,8 @@ vtkImageSeparableConvolution::vtkImageSeparableConvolution()
 
 //----------------------------------------------------------------------------
 // This extent of the components changes to real and imaginary values.
-void vtkImageSeparableConvolution::ExecuteInformation(vtkImageData *input, vtkImageData *output)
+void vtkImageSeparableConvolution::ExecuteInformation(vtkImageData *, 
+                                                      vtkImageData *output)
 {
   output->SetNumberOfScalarComponents(1);
   output->SetScalarType(VTK_FLOAT);
