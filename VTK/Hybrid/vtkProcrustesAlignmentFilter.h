@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProcrustesAlignmentFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-02-05 13:37:48 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-02-05 17:36:04 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -91,7 +91,7 @@ public:
   vtkPointSet* GetOutput(int idx);
 
   // Description:
-  // A wrapper function for accessing the inputs within the filter and subclasses.
+  // Retrieve the input point set with index idx (usuall only for pipeline tracing).
   vtkPointSet* GetInput(int idx);
 
 protected:
