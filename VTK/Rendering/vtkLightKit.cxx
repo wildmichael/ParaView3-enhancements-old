@@ -1,10 +1,10 @@
 /*=========================================================================
 
   Program:   Visualization Toolkit
-  Module:    $ $
+  Module:    $RCSfile: vtkLightKit.cxx,v $
   Language:  C++
-  Date:      $ $
-  Version:   $ $
+  Date:      $Date: 2000-09-07 08:31:51 $
+  Version:   $Revision: 1.2 $
   Thanks:    Michael Halle, Brigham and Women's Hospital
 
 
