@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkSweptSurface.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:48:45 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1995-07-29 11:52:30 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -105,7 +105,6 @@ void vtkSweptSurface::SetModelBounds(float xmin, float xmax, float ymin, float y
 void vtkSweptSurface::Execute()
 {
   int i, numPts, numOutPts;
-  float ar[3];
   vtkPointData *pd;
   vtkScalars *inScalars, *newScalars;
   vtkStructuredPoints *input=(vtkStructuredPoints *)this->Input;
