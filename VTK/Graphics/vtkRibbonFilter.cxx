@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRibbonFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-08 11:47:34 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-03-01 22:23:06 $
+  Version:   $Revision: 1.3 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -57,7 +57,7 @@ void vlRibbonFilter::Execute()
   if ( !(inLines = this->Input->GetLines()) || 
   inLines->GetNumberOfCells() < 1 )
     {
-    cerr << this->GetClassName() << ": No input data!\n";
+    vlErrorMacro(<< ": No input data!\n");
     return;
     }
 
@@ -68,7 +68,7 @@ void vlRibbonFilter::Execute()
     inNormals = new vlFloatNormals(inPts->NumberOfPoints());
     if ( !lineNormalGenerator.GenerateNormals(inPts,inLines,(vlFloatNormals*)inNormals) )
       {
-      cerr << this->GetClassName() << ": No normals for line!\n";
+      vlErrorMacro(<< ": No normals for line!\n");
       delete inNormals;
       return;
       }
