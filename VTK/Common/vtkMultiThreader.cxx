@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiThreader.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-17 17:48:24 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1997-08-01 18:11:02 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -77,7 +77,11 @@ vtkMultiThreader::vtkMultiThreader()
 #ifdef VTK_USE_PTHREADS
   // Default the number of threads to be the number of available
   // processors if we are using pthreads()
+#ifdef _SC_NPROCESSORS_ONLN
   this->NumberOfThreads             = sysconf( _SC_NPROCESSORS_ONLN );
+#else
+  this->NumberOfThreads             = 1;
+#endif
 #endif
 
 #ifdef _WIN32
