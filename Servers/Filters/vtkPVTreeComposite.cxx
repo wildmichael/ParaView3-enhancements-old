@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVTreeComposite.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-04 13:58:45 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-05-04 14:40:55 $
+  Version:   $Revision: 1.5 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -61,7 +61,7 @@ vtkPVTreeComposite* vtkPVTreeComposite::New()
 // will do every thing.
 #ifdef VTK_USE_MPI
 
-3/-------------------------------------------------------------------------
+//-------------------------------------------------------------------------
 vtkPVTreeComposite::vtkPVTreeComposite()
 {
   this->MPIController = vtkMPIController::SafeDownCast(this->Controller);
