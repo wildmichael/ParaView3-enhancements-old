@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1994-05-31 14:22:30 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1994-06-10 08:35:51 $
+  Version:   $Revision: 1.28 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -33,6 +33,7 @@ public:
   vlPolyData(const vlPolyData& pd);
   ~vlPolyData();
   char *GetClassName() {return "vlPolyData";};
+  char *GetDataType() {return "vlPolyData";};
   void PrintSelf(ostream& os, vlIndent indent);
 
   // dataset interface
@@ -40,7 +41,6 @@ public:
   int GetNumberOfCells();
   vlCell *GetCell(int cellId);
   int GetCellType(int cellId);
-  vlMapper *MakeMapper();
   void Initialize();
   void GetCellPoints(int cellId, vlIdList *ptIds);
   void GetPointCells(int ptId, vlIdList *cellIds);

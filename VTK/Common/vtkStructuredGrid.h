@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 1994-05-23 22:28:23 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-06-10 08:35:32 $
+  Version:   $Revision: 1.5 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -30,11 +30,11 @@ public:
   vlStructuredGrid(const vlStructuredGrid& sg);
   ~vlStructuredGrid();
   char *GetClassName() {return "vlStructuredGrid";};
+  char *GetDataType() {return "vlStructuredGrid";};
   void PrintSelf(ostream& os, vlIndent indent);
 
   // dataset interface
   vlDataSet *MakeObject() {return new vlStructuredGrid(*this);};
-  vlMapper *MakeMapper() {return (vlMapper *)0;};
   void Initialize();
   int GetNumberOfPoints() {vlPointSet::GetNumberOfPoints();};
   vlCell *GetCell(int cellId);
