@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-06 17:57:13 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-02-07 17:28:46 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -75,38 +75,38 @@ void vlMapper::PrintSelf(ostream& os, vlIndent indent)
     {
     vlObject::PrintSelf(os,indent);
 
-    os << indent << "Build Time: " <<this->BuildTime.GetMtime() << "\n";
+    os << indent << "Build Time: " <<this->BuildTime.GetMTime() << "\n";
     if ( this->StartRender )
       {
-      os << indent << "StartRender method defined.\n";
+      os << indent << "Start Render method defined.\n";
       }
     else
       {
-      os << indent << "No StartRender method.\n";
+      os << indent << "No Start Render method.\n";
       }
 
     if ( this->EndRender )
       {
-      os << indent << "EndRender method defined.\n";
+      os << indent << "End Render method defined.\n";
       }
     else
       {
-      os << indent << "No EndRender method.\n";
+      os << indent << "No End Render method.\n";
       }
 
     if ( this->LookupTable )
       {
-      os << indent << "Lookup table:\n";
+      os << indent << "Lookup Table:\n";
       this->LookupTable->PrintSelf(os,indent.GetNextIndent());
       }
     else
       {
-      os << indent << "LookupTable: (none)\n";
+      os << indent << "Lookup Table: (none)\n";
       }
-    os << indent << "ScalarsVisible: " 
+    os << indent << "Scalars Visible: " 
       << (this->ScalarsVisible ? "On\n" : "Off\n");
 
     float *range = this->GetScalarRange();
-    os << indent << "Scalar range: (" << range[0] << ", " << range[1] << ")\n";
+    os << indent << "Scalar Range: (" << range[0] << ", " << range[1] << ")\n";
    }
 }

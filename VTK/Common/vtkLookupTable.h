@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkLookupTable.h,v $
   Language:  C++
-  Date:      $Date: 1994-02-05 12:59:46 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-02-07 17:28:45 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -31,8 +31,8 @@ public:
   char *GetClassName() {return "vlLookupTable";};
   void PrintSelf(ostream& os, vlIndent indent);
 
-  vlSetClampMacro(NumColors,int,8, 65536);
-  vlGetMacro(NumColors,int);
+  vlSetClampMacro(NumberOfColors,int,8, 65536);
+  vlGetMacro(NumberOfColors,int);
 
   void SetTableRange(float r[2]); // can't use macro 'cause don't want modified
   void SetTableRange(float min, float max);
@@ -53,7 +53,7 @@ public:
   float *GetTableValue (int);
 
 protected:
-  int NumColors;
+  int NumberOfColors;
   vlRGBArray Table;  
   float TableRange[2];
   float HueRange[2];
