@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeTextureMapper.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:42 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2002-04-01 21:51:28 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -84,6 +84,10 @@ public:
   // Values needed by the volume
   virtual float GetGradientMagnitudeScale();
   virtual float GetGradientMagnitudeBias();
+  virtual float GetGradientMagnitudeScale(int)
+    { return this->GetGradientMagnitudeScale(); };
+  virtual float GetGradientMagnitudeBias(int)
+    { return this->GetGradientMagnitudeBias(); };
   
 //ETX
 

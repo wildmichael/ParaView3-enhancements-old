@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-05 20:16:13 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2002-04-01 21:51:28 $
+  Version:   $Revision: 1.46 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -151,6 +151,10 @@ public:
   // Values needed by the volume
   virtual float GetGradientMagnitudeScale();
   virtual float GetGradientMagnitudeBias();
+  virtual float GetGradientMagnitudeScale(int)
+    {return this->GetGradientMagnitudeScale();};
+  virtual float GetGradientMagnitudeBias(int)
+    {return this->GetGradientMagnitudeBias();};
   
 //ETX
 
