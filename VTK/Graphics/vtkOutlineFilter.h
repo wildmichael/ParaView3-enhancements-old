@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkOutlineFilter.h,v $
   Language:  C++
-  Date:      $Date: 1994-03-27 16:14:21 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-03-29 10:05:00 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -26,7 +26,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 class vlOutlineFilter : public vlDataSetToPolyFilter
 {
 public:
-  vlOutlineFilter();
+  vlOutlineFilter() {};
   ~vlOutlineFilter() {};
   char *GetClassName() {return "vlOutlineFilter";};
 
