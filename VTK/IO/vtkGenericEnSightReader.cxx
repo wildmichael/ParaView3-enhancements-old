@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericEnSightReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-07 18:10:23 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2003-06-13 17:29:18 $
+  Version:   $Revision: 1.44 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,7 +30,7 @@
 
 #include <vtkstd/string>
 
-vtkCxxRevisionMacro(vtkGenericEnSightReader, "$Revision: 1.43 $");
+vtkCxxRevisionMacro(vtkGenericEnSightReader, "$Revision: 1.44 $");
 vtkStandardNewMacro(vtkGenericEnSightReader);
 
 vtkCxxSetObjectMacro(vtkGenericEnSightReader,TimeSets, 
@@ -249,7 +249,7 @@ void vtkGenericEnSightReader::SetTimeValue(float value)
 //----------------------------------------------------------------------------
 int vtkGenericEnSightReader::DetermineEnSightVersion()
 {
-  char line[256], subLine[256], subLine1[256], subLine2[256], binaryLine[80];
+  char line[256], subLine[256], subLine1[256], subLine2[256], binaryLine[81];
   int stringRead;
   int timeSet = 1, fileSet = 1;
   char *fileName = NULL;
@@ -365,6 +365,9 @@ int vtkGenericEnSightReader::DetermineEnSightVersion()
           
             this->ReadBinaryLine(binaryLine);
             sscanf(binaryLine, " %*s %s", subLine);
+            // If the file is ascii, there might not be a null
+            // terminator. This leads to a UMR in sscanf
+            binaryLine[80] = '\0';
             if (strcmp(subLine, "Binary") == 0 ||
                 strcmp(subLine, "binary") == 0)
               {
@@ -455,6 +458,9 @@ int vtkGenericEnSightReader::DetermineEnSightVersion()
           } // end if IFile == NULL
         
         this->ReadBinaryLine(binaryLine);
+        // If the file is ascii, there might not be a null
+        // terminator. This leads to a UMR in sscanf
+        binaryLine[80] = '\0';
         sscanf(binaryLine, " %*s %s", subLine);
         if (strcmp(subLine, "Binary") == 0)
           {
