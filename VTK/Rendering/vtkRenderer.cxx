@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-15 18:33:25 $
-  Version:   $Revision: 1.105 $
+  Date:      $Date: 1999-03-17 18:34:42 $
+  Version:   $Revision: 1.106 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -347,6 +347,12 @@ int vtkRenderer::UpdateActors()
   int        renderedPropsCount = 0;
 
   num_actors = this->Props->GetNumberOfItems();
+
+  if ( num_actors == 0 ) 
+    {
+    this->NumberOfPropsRenderedAsGeometry = renderedPropsCount;
+    return renderedPropsCount;
+    }
 
   // We don't have any cullers so don't try to do any culling
   if ( this->Cullers->GetNumberOfItems() == 0 )
