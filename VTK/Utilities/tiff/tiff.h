@@ -1,4 +1,4 @@
-/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tiff.h,v 1.1 2002-01-29 22:38:25 andy Exp $ */
+/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tiff.h,v 1.2 2002-02-14 16:53:01 andy Exp $ */
 
 /*
  * Copyright (c) 1988-1997 Sam Leffler
@@ -465,27 +465,5 @@ typedef enum {
 #define TIFFTAG_SGILOGENCODE            65561 /* SGILog data encoding control*/
 #define     SGILOGENCODE_NODITHER       0     /* do not dither encoded values*/
 #define     SGILOGENCODE_RANDITHER      1     /* randomly dither encd values */
-
-/* a function referenced thru EXTERNs: */
-#if defined( _WIN32 ) && defined (JPEGDLL)
-#define GLOBAL(type)            __declspec(dllexport) type
-#else
-#define GLOBAL(type)            type
-#endif
-
-/* a reference to a GLOBAL function: */
-#if defined(_WIN32) && !defined(JPEGSTATIC)
-#ifdef JPEGDLL
-/* Win32, building a dll */
-#define EXTERN(type)            __declspec(dllexport) type
-#else
-/* Win32, not building a dll but using the dll */
-#define EXTERN(type)            __declspec(dllimport) type
-#endif
-#else
-/* not a Win32 system or building a static Win32 lib */
-#define EXTERN(type)            extern type
-#endif
-
 
 #endif /* _TIFF_ */
