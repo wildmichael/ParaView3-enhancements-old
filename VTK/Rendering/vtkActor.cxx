@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-14 22:20:43 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1995-09-11 08:12:00 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -192,7 +192,7 @@ float *vtkActor::GetOrientation ()
 // Description:
 // Add to the current orientation. See SetOrientation and GetOrientation for 
 // more details. This basically does a GetOrientation adds the passed in
-// arguents and then calls SetOrientation.
+// arguments and then calls SetOrientation.
 void vtkActor::AddOrientation (float a1,float a2,float a3)
 {
   float *orient;
