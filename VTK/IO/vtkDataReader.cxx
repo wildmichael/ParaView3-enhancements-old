@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-17 11:12:07 $
-  Version:   $Revision: 1.91 $
+  Date:      $Date: 2000-09-19 07:16:12 $
+  Version:   $Revision: 1.92 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -2014,7 +2014,7 @@ void vtkDataReader::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "InputStringLength: " << this->InputStringLength << endl;
 }
 
-int vtkDataReader::ReadDataSetData(vtkDataSet *ds)
+int vtkDataReader::ReadDataSetData(vtkDataSet *vtkNotUsed(ds))
 {
   vtkFieldData* fd = this->ReadFieldData();
   return 0;
