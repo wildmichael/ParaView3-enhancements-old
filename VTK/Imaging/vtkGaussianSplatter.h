@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGaussianSplatter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:31:46 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2002-06-13 15:25:09 $
+  Version:   $Revision: 1.44 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -67,7 +67,7 @@
 #ifndef __vtkGaussianSplatter_h
 #define __vtkGaussianSplatter_h
 
-#include "vtkDataSetToStructuredPointsFilter.h"
+#include "vtkDataSetToImageFilter.h"
 
 #define VTK_ACCUMULATION_MODE_MIN 0
 #define VTK_ACCUMULATION_MODE_MAX 1
@@ -75,10 +75,10 @@
 
 class vtkFloatAray;
 
-class VTK_IMAGING_EXPORT vtkGaussianSplatter : public vtkDataSetToStructuredPointsFilter 
+class VTK_IMAGING_EXPORT vtkGaussianSplatter : public vtkDataSetToImageFilter 
 {
 public:
-  vtkTypeRevisionMacro(vtkGaussianSplatter,vtkDataSetToStructuredPointsFilter);
+  vtkTypeRevisionMacro(vtkGaussianSplatter,vtkDataSetToImageFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
@@ -191,7 +191,8 @@ protected:
   vtkGaussianSplatter();
   ~vtkGaussianSplatter() {};
 
-  void Execute();
+  virtual void ExecuteInformation();
+  virtual void ExecuteData(vtkDataObject *);
   void Cap(vtkFloatArray *s);
 
   int SampleDimensions[3]; // dimensions of volume to splat into
@@ -212,11 +213,10 @@ protected:
     {return this->ScaleFactor * s;}
   float PositionSampling(float) 
     {return this->ScaleFactor;}
-  void SetScalar(int idx, float dist2);
+  void SetScalar(int idx, float dist2, vtkFloatArray *newScalars);
 
 //BTX
 private:
-  vtkFloatArray *NewScalars;
   float Radius2;
   float (vtkGaussianSplatter::*Sample)(float x[3]);
   float (vtkGaussianSplatter::*SampleFactor)(float s);
