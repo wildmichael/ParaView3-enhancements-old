@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-01 16:37:16 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2001-03-07 20:24:21 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -56,7 +56,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkTriangle.h"
 #include "vtkPlane.h"
 
-#include "vtkTimerLog.h"
 #include "vtkObjectFactory.h"
 #include "vtkCommand.h"
 
@@ -79,7 +78,6 @@ vtkOpenGLPolyDataMapper* vtkOpenGLPolyDataMapper::New()
 vtkOpenGLPolyDataMapper::vtkOpenGLPolyDataMapper()
 {
   this->ListId = 0;
-  this->Timer = vtkTimerLog::New();
 }
 
 // Destructor (don't call ReleaseGraphicsResources() since it is virtual
@@ -89,7 +87,6 @@ vtkOpenGLPolyDataMapper::~vtkOpenGLPolyDataMapper()
     {
     this->ReleaseGraphicsResources(this->LastWindow);
     }  
-  this->Timer->Delete();
 }
 
 // Release the graphics resources used by this mapper.  In this case, release

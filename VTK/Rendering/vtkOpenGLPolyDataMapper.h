@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-08 14:10:29 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-03-07 20:24:21 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,7 +57,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class vtkProperty;
 class vtkRenderWindow;
 class vtkOpenGLRenderer;
-class vtkTimerLog;
 
 class VTK_EXPORT vtkOpenGLPolyDataMapper : public vtkPolyDataMapper
 {
@@ -96,7 +95,6 @@ protected:
   void operator=(const vtkOpenGLPolyDataMapper&) {};
 
   int ListId;
-  vtkTimerLog *Timer;
 };
 
 #endif
