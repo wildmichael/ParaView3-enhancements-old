@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingSquares.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-06 15:08:35 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1999-02-15 14:06:19 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -127,7 +127,7 @@ unsigned long vtkMarchingSquares::GetMTime()
 // Contouring filter specialized for images
 //
 template <class T>
-static void ContourImage(T *scalars, vtkScalars *newScalars, int roi[6], int dir[3],
+void ContourImage(T *scalars, vtkScalars *newScalars, int roi[6], int dir[3],
                   int start[2], int end[2], int offset[3], float ar[3], 
                   float origin[3], float *values, int numValues, 
                   vtkPointLocator *p, vtkCellArray *lines)
