@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSetGet.h,v $
   Language:  C++
-  Date:      $Date: 2001-02-12 14:21:22 $
-  Version:   $Revision: 1.79 $
+  Date:      $Date: 2001-04-11 19:01:03 $
+  Version:   $Revision: 1.80 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -513,7 +513,6 @@ virtual vtkCoordinate *Get##name##Coordinate () \
 virtual void Set##name(float x[3]) {this->Set##name(x[0],x[1],x[2]);}; \
 virtual void Set##name(float x, float y, float z) \
 { \
-    this->name##Coordinate->SetCoordinateSystem(VTK_WORLD); \
     this->name##Coordinate->SetValue(x,y,z); \
 } \
 virtual float *Get##name() \
@@ -530,7 +529,6 @@ virtual vtkCoordinate *Get##name##Coordinate () \
 virtual void Set##name(float x[2]) {this->Set##name(x[0],x[1]);}; \
 virtual void Set##name(float x, float y) \
 { \
-    this->name##Coordinate->SetCoordinateSystem(VTK_VIEWPORT); \
     this->name##Coordinate->SetValue(x,y); \
 } \
 virtual float *Get##name() \
