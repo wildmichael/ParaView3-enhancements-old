@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdentityTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-05-03 20:53:33 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-06-03 15:51:54 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -85,11 +85,6 @@ public:
 				     vtkNormals *outNms,
 				     vtkVectors *inVrs, 
 				     vtkVectors *outVrs);
-
-  // Description:
-  // Create an identity transformation, which is does nothing because
-  // this transform is always the identity transform.
-  void Identity() {};
 
   // Invert the transformation.  This doesn't do anything to the 
   // identity transformation.

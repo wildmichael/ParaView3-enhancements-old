@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPerspectiveTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-05-03 20:53:35 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-06-03 15:51:54 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -45,8 +45,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // transformations, i.e. transformations which can be represented by 
 // multiplying a 4x4 matrix with a homogenous coordinate. 
 // .SECTION see also
-// vtkProjectionTransform vtkPerspectiveTransformConcatenation 
-// vtkLinearTransform vtkCamera
+// vtkProjectionTransform vtkLinearTransform vtkIdentityTransform
 
 
 #ifndef __vtkPerspectiveTransform_h
@@ -93,7 +92,7 @@ public:
 
   // Description:
   // This is an obsolete method provided for backwards-compatibility.
-  vtkMatrix4x4 *GetMatrixPointer() { this->Update(); return this->Matrix; };
+  vtkMatrix4x4 *GetMatrixPointer() { return this->GetMatrix(); };
 
   // Description:
   // Just like GetInverse(), but includestypecast to vtkPerspectiveTransform.
@@ -116,10 +115,12 @@ public:
 				   double derivative[3][3]);
 
 protected:
-  vtkPerspectiveTransform() { this->Matrix = vtkMatrix4x4::New(); };
-  ~vtkPerspectiveTransform() { if (this->Matrix) { this->Matrix->Delete(); } };
+  vtkPerspectiveTransform();
+  ~vtkPerspectiveTransform();
   vtkPerspectiveTransform(const vtkPerspectiveTransform&) {};
   void operator=(const vtkPerspectiveTransform&) {};
+
+  void InternalDeepCopy(vtkGeneralTransform *transform);
 
   vtkMatrix4x4 *Matrix;
 };

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLandmarkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-05-03 20:53:36 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-06-03 15:51:55 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to Tim Hutton and David G. Gobbi who developed this class.
 
 Redistribution and use in source and binary forms, with or without
@@ -360,13 +360,6 @@ void vtkLandmarkTransform::SetTargetLandmarks(vtkPoints *target)
 }
 
 //----------------------------------------------------------------------------
-void vtkLandmarkTransform::Identity()
-{
-  this->SetSourceLandmarks(NULL);
-  this->SetTargetLandmarks(NULL);
-}
-
-//----------------------------------------------------------------------------
 void vtkLandmarkTransform::Inverse()
 {
   vtkPoints *tmp1 = this->SourceLandmarks;
@@ -390,6 +383,8 @@ void vtkLandmarkTransform::InternalDeepCopy(vtkGeneralTransform *transform)
   this->SetMode(t->Mode);
   this->SetSourceLandmarks(t->SourceLandmarks);
   this->SetTargetLandmarks(t->TargetLandmarks);
+
+  this->Modified();
 }
 
 

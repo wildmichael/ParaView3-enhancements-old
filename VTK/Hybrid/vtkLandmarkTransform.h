@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLandmarkTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-05-03 20:53:36 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2000-06-03 15:51:55 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to Tim Hutton and David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -86,11 +86,6 @@ public:
   const char *GetModeAsString();
 
   // Description:
-  // Create an identity transformation.  This simply calls
-  // SetSourceLandmarks(NULL), SetTargetLandmarks(NULL).
-  void Identity();
-
-  // Description:
   // Invert the transformation.  This is done by switching the
   // source and target landmarks.
   void Inverse();
@@ -98,10 +93,6 @@ public:
   // Description:
   // Get the MTime.
   unsigned long GetMTime();
-
-  // Description:
-  // This method does no type checking, use DeepCopy instead.
-  void InternalDeepCopy(vtkGeneralTransform *transform);
 
   // Description:
   // Make another transform of the same type.
@@ -115,6 +106,10 @@ protected:
 
   // Update the matrix from the quaternion.
   void InternalUpdate();
+
+  // Description:
+  // This method does no type checking, use DeepCopy instead.
+  void InternalDeepCopy(vtkGeneralTransform *transform);
 
   vtkPoints* SourceLandmarks;
   vtkPoints* TargetLandmarks;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPerspectiveTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-05-03 20:53:35 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-06-03 15:51:54 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,17 +44,28 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkMath.h"
 
 //----------------------------------------------------------------------------
+vtkPerspectiveTransform::vtkPerspectiveTransform()
+{
+  this->Matrix = vtkMatrix4x4::New();
+}
+
+//----------------------------------------------------------------------------
+vtkPerspectiveTransform::~vtkPerspectiveTransform()
+{
+  if (this->Matrix)
+    {
+    this->Matrix->Delete();
+    }
+}
+
+//----------------------------------------------------------------------------
 void vtkPerspectiveTransform::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkGeneralTransform::PrintSelf(os, indent);
+  os << indent << "Matrix: (" << this->Matrix << ")\n";
   if (this->Matrix)
     {
-    os << indent << "Matrix: " << this->Matrix << "\n";
     this->Matrix->PrintSelf(os, indent.GetNextIndent());
-    }
-  else
-    {
-    os << indent << "Matrix: (none)" << "\n";
     }
 }
 
@@ -226,4 +237,11 @@ void vtkPerspectiveTransform::GetMatrix(vtkMatrix4x4 *m)
   m->DeepCopy(this->Matrix); 
 }
 
+//----------------------------------------------------------------------------
+void vtkPerspectiveTransform::InternalDeepCopy(vtkGeneralTransform *transform)
+{
+  vtkPerspectiveTransform *t = (vtkPerspectiveTransform *)transform;
+
+  this->Matrix->DeepCopy(t->Matrix);
+}
 
