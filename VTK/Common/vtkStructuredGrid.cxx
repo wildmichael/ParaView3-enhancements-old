@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-12 11:32:40 $
-  Version:   $Revision: 1.75 $
+  Date:      $Date: 2001-04-16 15:01:46 $
+  Version:   $Revision: 1.76 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -1004,6 +1004,74 @@ void vtkStructuredGrid::InternalStructuredGridCopy(vtkStructuredGrid *src)
     {
     this->Dimensions[idx] = src->Dimensions[idx];
     }
+}
+
+//----------------------------------------------------------------------------
+// Override this method because of blanking
+void vtkStructuredGrid::GetScalarRange(float range[2])
+{
+  vtkScalars *ptScalars = this->PointData->GetScalars();
+  vtkScalars *cellScalars = this->CellData->GetScalars();
+  float ptRange[2];
+  float cellRange[2];
+  float s;
+  int id, num;
+  
+  ptRange[0] =  VTK_LARGE_FLOAT;
+  ptRange[1] =  -VTK_LARGE_FLOAT;
+  if ( ptScalars )
+    {
+    num = this->GetNumberOfPoints();
+    for (id=0; id < num; id++)
+      {
+      if ( this->IsPointVisible(id) )
+        {
+        s = ptScalars->GetScalar(id);
+        if ( s < ptRange[0] )
+          {
+          ptRange[0] = s;
+          }
+        if ( s > ptRange[1] )
+          {
+          ptRange[1] = s;
+          }
+        }
+      }
+    }
+
+  cellRange[0] =  ptRange[0];
+  cellRange[1] =  ptRange[1];
+  if ( cellScalars )
+    {
+    num = this->GetNumberOfCells();
+    for (id=0; id < num; id++)
+      {
+      if ( this->IsCellVisible(id) )
+        {
+        s = cellScalars->GetScalar(id);
+        if ( s < cellRange[0] )
+          {
+          cellRange[0] = s;
+          }
+        if ( s > cellRange[1] )
+          {
+          cellRange[1] = s;
+          }
+        }
+      }
+    }
+
+  if ( cellRange[0] >= VTK_LARGE_FLOAT )
+    {
+    range[0] = 0.0;
+    }
+  
+  if ( cellRange[1] <= -VTK_LARGE_FLOAT )
+    {
+    range[1] = 1.0;
+    }
+
+  this->ComputeTime.Modified();
 }
 
 //----------------------------------------------------------------------------

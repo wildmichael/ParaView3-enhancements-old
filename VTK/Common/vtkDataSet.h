@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:08 $
-  Version:   $Revision: 1.100 $
+  Date:      $Date: 2001-04-16 15:01:46 $
+  Version:   $Revision: 1.101 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -281,7 +281,7 @@ public:
   // Note: Update needs to be called to create the scalars.
   // THIS METHOD IS THREAD SAFE IF FIRST CALLED FROM A SINGLE THREAD AND
   // THE DATASET IS NOT MODIFIED
-  void GetScalarRange(float range[2]);
+  virtual void GetScalarRange(float range[2]);
 
   // Description:
   // Convenience method to get the range of the scalar data (if there is any 
