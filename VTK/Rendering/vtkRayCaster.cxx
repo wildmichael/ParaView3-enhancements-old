@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRayCaster.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-02-18 15:49:33 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-02-26 14:14:19 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -676,7 +676,7 @@ int vtkRayCaster::Render(vtkRenderer *ren)
 
         case VR_HARDWARE:
 
-          if( destroy_hw_buffer || something_in_hardware_buffer )
+          if( destroy_hw_buffer && something_in_hardware_buffer )
             {
             // Store the color and zbuffer data
             prev_cdata = ren->GetRenderWindow()->GetRGBAPixelData( 
