@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEncodedGradientEstimator.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-06 19:20:58 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-04-07 20:34:16 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -138,14 +138,14 @@ public:
   int *GetCircleLimits() { return this->CircleLimits; };
 
     // Description:
-  // Set / Get the ZeroNormalTolerance - this defines the minimum magnitude 
+  // Set / Get the ZeroNormalThreshold - this defines the minimum magnitude 
   // of a gradient that is considered sufficient to define a 
   // direction. Gradients with magnitudes at or less than this value are given
   // a "zero normal" index. These are handled specially in the shader, 
   // and you can set the intensity of light for these zero normals in
   // the gradient shader.
-  void SetZeroNormalTolerance( float v );
-  vtkGetMacro( ZeroNormalTolerance, float );
+  void SetZeroNormalThreshold( float v );
+  vtkGetMacro( ZeroNormalThreshold, float );
 
   // These variables should be protected but are being
   // made public to be accessible to the templated function.
@@ -190,7 +190,7 @@ protected:
   float                      LastUpdateTimeInSeconds;
   float                      LastUpdateTimeInCPUSeconds;
 
-  float                      ZeroNormalTolerance;
+  float                      ZeroNormalThreshold;
 
   int                        ClipOutsideCircle;
   int                        *CircleLimits;

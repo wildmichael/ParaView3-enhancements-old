@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFiniteDifferenceGradientEstimator.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-06 19:20:59 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-04-07 20:34:16 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,7 +70,7 @@ static void ComputeGradients(
   float               n[3], t;
   float               gvalue;
   float               normalize_factor;
-  float               zeroNormalTolerance;
+  float               zeroNormalThreshold;
   vtkDirectionEncoder *direction_encoder;
   
   // Compute steps through the volume in x, y, and z
@@ -85,7 +85,7 @@ static void ComputeGradients(
 
   // Get the length at or below which normals are considered to
   // be "zero"
-  zeroNormalTolerance = estimator->GetZeroNormalTolerance();
+  zeroNormalThreshold = estimator->GetZeroNormalThreshold();
   
   // Compute an offset based on the thread_id. The volume will
   // be broken into large slabs (thread_count slabs). For this thread
@@ -230,7 +230,7 @@ static void ComputeGradients(
 	  }
 
 	// Normalize the gradient direction
-	if ( t > zeroNormalTolerance )
+	if ( t > zeroNormalThreshold )
 	  {
 	  n[0] /= t;
 	  n[1] /= t;
