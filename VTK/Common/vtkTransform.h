@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTransform.h,v $
   Language:  C++
-  Date:      $Date: 1994-11-28 23:46:52 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-01-11 09:31:49 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -53,7 +53,7 @@ class vlTransform : public vlObject
   void Scale ( float x, float y, float z);
   void Translate ( float x, float y, float z);
   void Transpose ();
-  void GetTranspose (vlMatrix4x4& (transpose));
+  void GetTranspose (vlMatrix4x4& transpose);
   void Inverse ();
   void GetInverse ( vlMatrix4x4& inverse);
   float *GetOrientation();
