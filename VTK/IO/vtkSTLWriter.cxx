@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkSTLWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-21 20:47:29 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-11-06 19:41:24 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -32,11 +32,12 @@ void vlSTLWriter::Write()
 {
   vlPoints *pts;
   vlCellArray *polys;
+  vlPolyData *input=(vlPolyData *)this->Input;
 
-  this->Input->Update();
+  input->Update();
 
-  if ( (pts = this->Input->GetPoints()) == NULL ||
-  (polys = this->Input->GetPolys()) == NULL )
+  if ( (pts = input->GetPoints()) == NULL ||
+  (polys = input->GetPolys()) == NULL )
     {
     vlErrorMacro(<<"No data to write!");
     return;
@@ -157,7 +158,7 @@ void vlSTLWriter::PrintSelf(ostream& os, vlIndent indent)
     {
     this->PrintWatchOn(); // watch for multiple inheritance
 
-    vlPolyFilter::PrintSelf(os,indent);
+    vlPolyFilter::_PrintSelf(os,indent);
     vlWriter::PrintSelf(os,indent);
 
     os << indent << "Filename: " << this->Filename << "\n";

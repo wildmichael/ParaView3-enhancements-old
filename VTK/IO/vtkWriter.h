@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkWriter.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-21 20:47:36 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-11-06 19:41:26 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -23,7 +23,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 
 #include "Object.hh"
 
-class vlWriter : virtual public vlObject 
+class vlWriter : public vlObject 
 {
 public:
   char *GetClassName() {return "vlWriter";};
