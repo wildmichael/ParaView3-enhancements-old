@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGraphicsFactory.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-20 21:12:11 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-08-20 21:29:14 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,6 +58,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkOpenGLTexture.h"
 #include "vtkOpenGLVolumeTextureMapper2D.h"
 #include "vtkOpenGLProjectedPolyDataRayBounder.h"
+#include "vtkOpenGLVolumeRayCastMapper.h"
 #endif
 
 #ifdef VTK_USE_MESA
