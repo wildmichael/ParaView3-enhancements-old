@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-31 22:21:23 $
-  Version:   $Revision: 1.98 $
+  Date:      $Date: 2002-06-05 11:38:55 $
+  Version:   $Revision: 1.99 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkImageReader, "$Revision: 1.98 $");
+vtkCxxRevisionMacro(vtkImageReader, "$Revision: 1.99 $");
 vtkStandardNewMacro(vtkImageReader);
 
 vtkCxxSetObjectMacro(vtkImageReader,Transform,vtkTransform);
@@ -190,7 +190,7 @@ static void vtkImageReaderUpdate2(vtkImageReader *self, vtkImageData *data,
   int inIncr[3], outIncr[3];
   OT *outPtr0, *outPtr1, *outPtr2;
   long streamSkip0, streamSkip1;
-  long streamRead;
+  unsigned long streamRead;
   int idx0, idx1, idx2, pixelRead;
   unsigned char *buf;
   int inExtent[6];
@@ -280,19 +280,20 @@ static void vtkImageReaderUpdate2(vtkImageReader *self, vtkImageData *data,
         }
       count++;
       outPtr0 = outPtr1;
-  
+      
       // read the row.
-      if ( ! self->GetFile()->read((char *)buf, streamRead))
+      self->GetFile()->read((char *)buf, streamRead);
+      if ( self->GetFile()->gcount() != streamRead || self->GetFile()->fail())
         {
         vtkGenericWarningMacro("File operation failed. row = " << idx1
-                               << ", Read = " << streamRead
+                               << ", Tried to Read = " << streamRead
+                               << ", Read = " << self->GetFile()->gcount()
                                << ", Skip0 = " << streamSkip0
                                << ", Skip1 = " << streamSkip1
                                << ", FilePos = " << self->GetFile()->tellg());
         delete [] buf;
         return;
         }
-
       // handle swapping
       if (self->GetSwapBytes())
         {
@@ -324,8 +325,21 @@ static void vtkImageReaderUpdate2(vtkImageReader *self, vtkImageData *data,
         inPtr += pixelSkip;
         outPtr0 += outIncr[0];
         }
+
       // move to the next row in the file and data
       filePos = self->GetFile()->tellg();
+
+#if defined(VTK_USE_ANSI_STDLIB ) && defined(__sgi) && !defined(__GNUC__)
+      // this check is required for SGI's when vtk is build with VTK_USE_ANSI_STDLIB
+      // seems that after a read that just reaches EOF, tellg reports a -1.
+      // clear() does not work, so we have to reopen the file.
+      if (filePos == -1)
+        {
+        self->OpenFile();
+        self->GetFile()->seekg(0,ios::end);
+        filePos = self->GetFile()->tellg();
+        }
+#endif 
       // watch for case where we might rewind too much
       // if that happens, store the value in correction and apply later
       if (filePos + streamSkip0 >= 0)
