@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTransformTextureCoords.h,v $
   Language:  C++
-  Date:      $Date: 1996-07-03 20:48:53 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1996-07-05 18:24:33 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,9 +72,12 @@ public:
   vtkSetVector3Macro(Position,float);
   vtkGetVectorMacro(Position,float,3);
 
+  void AddPosition(float deltaPosition[3]);
+  void AddPosition(float deltaR, float deltaS, float deltaT);
+
   // Description:
-  // Set/Get the scale of the texture map. Scaling in performed independently on 
-  // the r, s and t axes.
+  // Set/Get the scale of the texture map. Scaling in performed independently 
+  // on the r, s and t axes.
   vtkSetVector3Macro(Scale,float);
   vtkGetVectorMacro(Scale,float,3);
 
@@ -87,22 +90,22 @@ public:
   vtkGetVectorMacro(Origin,float,3);
 
   // Description:
-  // Boolean indicates whether the texture map should be flipped around the s-axis.
-  // Note that the flips occur around the texture origin.
+  // Boolean indicates whether the texture map should be flipped around the 
+  // s-axis. Note that the flips occur around the texture origin.
   vtkSetMacro(FlipR,int);
   vtkGetMacro(FlipR,int);
   vtkBooleanMacro(FlipR,int);
 
   // Description:
-  // Boolean indicates whether the texture map should be flipped around the s-axis.
-  // Note that the flips occur around the texture origin.
+  // Boolean indicates whether the texture map should be flipped around the 
+  // s-axis. Note that the flips occur around the texture origin.
   vtkSetMacro(FlipS,int);
   vtkGetMacro(FlipS,int);
   vtkBooleanMacro(FlipS,int);
 
   // Description:
-  // Boolean indicates whether the texture map should be flipped around the t-axis.
-  // Note that the flips occur around the texture origin.
+  // Boolean indicates whether the texture map should be flipped around the 
+  // t-axis. Note that the flips occur around the texture origin.
   vtkSetMacro(FlipT,int);
   vtkGetMacro(FlipT,int);
   vtkBooleanMacro(FlipT,int);
@@ -116,7 +119,6 @@ protected:
   int FlipR; //boolean indicates whether to flip texture around r-axis
   int FlipS; //boolean indicates whether to flip texture around s-axis
   int FlipT; //boolean indicates whether to flip texture around t-axis
-
 };
 
 #endif
