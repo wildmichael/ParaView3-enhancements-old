@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTclUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-25 20:44:17 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1995-10-13 19:10:42 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Toolkit. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -131,9 +131,11 @@ int vtkCommand(ClientData cd, Tcl_Interp *interp, int argc, char *argv[])
     vtkTclDebugOn = 0;
     return TCL_OK;
     }
+
+  return TCL_OK;
 }
 
-vtkTclGetObjectFromPointer(Tcl_Interp *interp,void *temp,
+void vtkTclGetObjectFromPointer(Tcl_Interp *interp,void *temp,
 			  int command(ClientData, Tcl_Interp *,int, char *[]))
 {
   int is_new;
