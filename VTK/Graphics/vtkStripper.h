@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStripper.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:48 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2002-03-02 23:21:23 $
+  Version:   $Revision: 1.39 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,11 +17,15 @@
 =========================================================================*/
 // .NAME vtkStripper - create triangle strips and/or poly-lines
 // .SECTION Description
+
 // vtkStripper is a filter that generates triangle strips and/or poly-lines
-// from input polygons, triangle strips, and lines. Input polygons are 
-// assumed to be triangles. (Use vtkTriangleFilter to triangulate 
-// non-triangular polygons.) The filter will pass through (to the output)
-// vertices if they are present in the input poly-data.
+// from input polygons, triangle strips, and lines. Input polygons are
+// assembled into triangle strips only if they are triangles; other types of
+// polygons are passed through to the output and not stripped. (Use
+// vtkTriangleFilter to triangulate non-triangular polygons prior to running
+// this filter if you need to strip all the data.) The filter will pass
+// through (to the output) vertices if they are present in the input
+// polydata.
 //
 // The ivar MaximumLength can be used to control the maximum
 // allowable triangle strip and poly-line length.
@@ -58,12 +62,13 @@ public:
 
 protected:
   vtkStripper();
-  ~vtkStripper() {};
+  ~vtkStripper() {}
 
   // Usual data generation method
   void Execute();
 
   int MaximumLength;
+
 private:
   vtkStripper(const vtkStripper&);  // Not implemented.
   void operator=(const vtkStripper&);  // Not implemented.
