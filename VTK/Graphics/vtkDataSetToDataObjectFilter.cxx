@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToDataObjectFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:46 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-07-26 17:17:13 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -389,7 +389,7 @@ vtkDataSetToDataObjectFilter::ComputeInputUpdateExtents(vtkDataObject *output)
 //----------------------------------------------------------------------------
 void vtkDataSetToDataObjectFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkSource::PrintSelf(os,indent);
+  vtkDataObjectSource::PrintSelf(os,indent);
 
   os << indent << "Geometry: " << (this->Geometry ? "On\n" : "Off\n");
   os << indent << "Topology: " << (this->Topology ? "On\n" : "Off\n");

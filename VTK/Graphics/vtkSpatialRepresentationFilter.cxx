@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpatialRepresentationFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:09 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-07-26 17:17:13 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -205,7 +205,7 @@ void vtkSpatialRepresentationFilter::GenerateOutput()
 
 void vtkSpatialRepresentationFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkSource::PrintSelf(os,indent);
+  vtkPolyDataSource::PrintSelf(os,indent);
 
   os << indent << "Level: " << this->Level << "\n";
 
