@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-06-09 09:32:53 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-07-06 14:51:27 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -235,8 +235,8 @@ private:
   // if necessary.
 //ETX
   vtkTimeStamp UpdateTime;
-  vtkSimpleMutexLock UpdateMutex;
-  vtkSimpleMutexLock InverseMutex;
+  vtkSimpleMutexLock *UpdateMutex;
+  vtkSimpleMutexLock *InverseMutex;
   int DependsOnInverse;
 
 //BTX
