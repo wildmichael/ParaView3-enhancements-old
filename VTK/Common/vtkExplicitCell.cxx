@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExplicitCell.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-06 15:43:41 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-04-05 20:31:51 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,11 +19,12 @@
 #include "vtkCellArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkExplicitCell, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkExplicitCell, "$Revision: 1.2 $");
 
 vtkExplicitCell::vtkExplicitCell()
 {
   this->CellId = -1;
+  this->DataSet = NULL;
 }
 
 void vtkExplicitCell::PrintSelf(ostream& os, vtkIndent indent)
@@ -31,4 +32,5 @@ void vtkExplicitCell::PrintSelf(ostream& os, vtkIndent indent)
   this->Superclass::PrintSelf(os,indent);
   
   os << indent << "Cell Id: " << this->CellId << "\n";
+  os << indent << "Data Set: " << this->DataSet << "\n";
 }
