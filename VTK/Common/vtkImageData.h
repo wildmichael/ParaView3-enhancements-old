@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:04:44 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 1999-10-22 15:51:34 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -256,7 +256,11 @@ public:
 
   // Description:
   // Different ways to get the increments for moving around the data.
-  vtkGetVector3Macro(Increments,int);
+  // GetIncrements() calls ComputeIncrements() to ensure the increments are
+  // up to date.
+  int *GetIncrements();
+  void GetIncrements(int &incX, int &incY, int &incZ);
+  void GetIncrements(int inc[3]);
   
   // Description:
   // Different ways to get the increments for moving around the data.
