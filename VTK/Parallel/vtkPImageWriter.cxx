@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPImageWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:34:45 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-05-31 23:13:44 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -15,12 +15,11 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
-#include <stdio.h>
-#include <ctype.h>
-#include <string.h>
 #include "vtkPImageWriter.h"
+
 #include "vtkObjectFactory.h"
 #include "vtkPipelineSize.h"
+#include "vtkImageData.h"
 
 #define vtkPIWCloseFile \
     if (file && fileOpenedHere) \
@@ -31,7 +30,7 @@
       file = NULL; \
       } \
 
-vtkCxxRevisionMacro(vtkPImageWriter, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkPImageWriter, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkPImageWriter);
 
 #ifdef write

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCommunicator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-07 14:58:52 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-05-31 23:13:44 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,20 +16,22 @@
 
 =========================================================================*/
 #include "vtkCommunicator.h"
+
+#include "vtkCharArray.h"
 #include "vtkDataSetReader.h"
 #include "vtkDataSetWriter.h"
+#include "vtkDoubleArray.h"
+#include "vtkFloatArray.h"
+#include "vtkIdTypeArray.h"
+#include "vtkImageClip.h"
+#include "vtkIntArray.h"
+#include "vtkStructuredPoints.h"
 #include "vtkStructuredPointsReader.h"
 #include "vtkStructuredPointsWriter.h"
-#include "vtkImageClip.h"
-#include "vtkCharArray.h"
 #include "vtkUnsignedCharArray.h"
-#include "vtkIntArray.h"
 #include "vtkUnsignedLongArray.h"
-#include "vtkFloatArray.h"
-#include "vtkDoubleArray.h"
-#include "vtkIdTypeArray.h"
 
-vtkCxxRevisionMacro(vtkCommunicator, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkCommunicator, "$Revision: 1.13 $");
 
 template <class T>
 static int SendDataArray(T* data, int length, int handle, int tag, vtkCommunicator *self)

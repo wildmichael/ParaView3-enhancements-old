@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: volProt.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-28 03:33:50 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-05-31 23:13:44 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,6 +21,7 @@
 #include "vtkRenderWindow.h"
 #include "vtkRenderWindowInteractor.h"
 #include "vtkRenderer.h"
+#include "vtkStructuredPoints.h"
 #include "vtkStructuredPointsReader.h"
 #include "vtkVolume.h"
 #include "vtkVolumeProperty.h"
