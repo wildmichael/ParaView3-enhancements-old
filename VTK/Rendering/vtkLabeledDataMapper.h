@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLabeledDataMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-02-26 12:33:22 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-03-11 21:27:52 $
+  Version:   $Revision: 1.8 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -99,13 +99,19 @@ public:
   
   // Description:
   // Draw the text to the screen at each input point.
-  void RenderGeometry(vtkViewport* viewport, vtkActor2D* actor) {};
+  void RenderOpaqueGeometry(vtkViewport* viewport, vtkActor2D* actor);
   void RenderOverlay(vtkViewport* viewport, vtkActor2D* actor);
 
   // Description:
   // Set the input dataset to the mapper.  
   vtkSetObjectMacro(Input, vtkDataSet);
   vtkGetObjectMacro(Input, vtkDataSet);
+
+  // Description:
+  // Release any graphics resources that are being consumed by this actor.
+  // The parameter window could be used to determine which graphic
+  // resources to release.
+  virtual void ReleaseGraphicsResources(vtkWindow *);
 
   // Description:
   // Set/Get the font family for the annotation text. Three font types 
