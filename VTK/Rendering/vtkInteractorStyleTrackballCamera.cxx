@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleTrackballCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-17 14:38:49 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2000-12-05 00:47:15 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -261,15 +261,25 @@ void vtkInteractorStyleTrackballCamera::OnLeftButtonDown(int ctrl, int shift,
 
   if (shift)
     {
-    this->State = VTK_INTERACTOR_STYLE_CAMERA_PAN;
+    if (ctrl)
+      {
+      this->State = VTK_INTERACTOR_STYLE_CAMERA_ZOOM;
+      }
+    else
+      {
+      this->State = VTK_INTERACTOR_STYLE_CAMERA_PAN;
+      }
     }
-  else if (this->CtrlKey)
+  else 
     {
-    this->State = VTK_INTERACTOR_STYLE_CAMERA_SPIN;
-    }
-  else
-    {
-    this->State = VTK_INTERACTOR_STYLE_CAMERA_ROTATE;
+    if (this->CtrlKey)
+      {
+      this->State = VTK_INTERACTOR_STYLE_CAMERA_SPIN;
+      }
+    else
+      {
+      this->State = VTK_INTERACTOR_STYLE_CAMERA_ROTATE;
+      }
     }
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleJoystickCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-17 14:38:17 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-12-05 00:47:15 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -148,18 +148,29 @@ void vtkInteractorStyleJoystickCamera::OnLeftButtonDown(int ctrl, int shift,
   
   if (shift)
     {
-    this->StartPan();
-    this->State = VTK_INTERACTOR_STYLE_CAMERA_PAN;
+    if (ctrl)
+      {
+      this->StartDolly();
+      this->State = VTK_INTERACTOR_STYLE_CAMERA_ZOOM;
+      }
+    else
+      {
+      this->StartPan();
+      this->State = VTK_INTERACTOR_STYLE_CAMERA_PAN;
+      }
     }
-  else if (this->CtrlKey)
+  else 
     {
-    this->StartSpin();
-    this->State = VTK_INTERACTOR_STYLE_CAMERA_SPIN;
-    }
-  else
-    {
-    this->StartRotate();
-    this->State = VTK_INTERACTOR_STYLE_CAMERA_ROTATE;
+    if (this->CtrlKey)
+      {
+      this->StartSpin();
+      this->State = VTK_INTERACTOR_STYLE_CAMERA_SPIN;
+      }
+    else
+      {
+      this->StartRotate();
+      this->State = VTK_INTERACTOR_STYLE_CAMERA_ROTATE;
+      }
     }
 }
 
