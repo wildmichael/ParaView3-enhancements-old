@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSetGet.h,v $
   Language:  C++
-  Date:      $Date: 2001-04-24 20:39:24 $
-  Version:   $Revision: 1.81 $
+  Date:      $Date: 2001-04-28 19:46:12 $
+  Version:   $Revision: 1.82 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -179,6 +179,8 @@ virtual char* Get##name () { \
 // Set built-in type where value is constrained between min/max limits.
 // Create member Set"name"() (eg., SetRadius()). #defines are 
 // convenience for clamping open-ended values.
+// The Get"name"MinValue() and Get"name"MaxValue() members return the
+// min and max limits.
 //
 #define vtkSetClampMacro(name,type,min,max) \
 virtual void Set##name (type _arg) \
@@ -189,7 +191,15 @@ virtual void Set##name (type _arg) \
     this->name = (_arg<min?min:(_arg>max?max:_arg)); \
     this->Modified(); \
     } \
-  } 
+  } \
+virtual type Get##name##MinValue () \
+  { \
+  return min; \
+  } \
+virtual type Get##name##MaxValue () \
+  { \
+  return max; \
+  }
 
 //
 // Set pointer to object; uses vtkObject reference counting methodology.
