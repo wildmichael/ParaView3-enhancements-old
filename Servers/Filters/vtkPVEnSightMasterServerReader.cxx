@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVEnSightMasterServerReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-10-16 19:32:25 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2003-10-29 16:33:08 $
+  Version:   $Revision: 1.12 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -64,7 +64,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkPVEnSightMasterServerReader);
-vtkCxxRevisionMacro(vtkPVEnSightMasterServerReader, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkPVEnSightMasterServerReader, "$Revision: 1.12 $");
 
 vtkCxxSetObjectMacro(vtkPVEnSightMasterServerReader, Controller,
                      vtkMultiProcessController);
@@ -181,13 +181,11 @@ int vtkPVEnSightMasterServerReaderSyncValues(T* data, int numValues,
 }
 #else
 template <class T>
-int vtkPVEnSightMasterServerReaderSyncValues(T* data, int numValues,
-                     int numPieces,
-                     vtkMultiProcessController* controller)
+int vtkPVEnSightMasterServerReaderSyncValues(T*, 
+                                             int,
+                                             int,
+                                             vtkMultiProcessController*)
 {
-  data = data;
-  numValues = numValues;
-  controller = controller;
   return VTK_OK;
 }
 #endif
