@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEncodedGradientEstimator.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-22 22:34:52 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-04-06 19:20:59 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,7 +66,7 @@ vtkEncodedGradientEstimator::vtkEncodedGradientEstimator()
   this->UseCircleClip              = 0;
   this->LastUpdateTimeInSeconds    = -1.0;
   this->LastUpdateTimeInCPUSeconds = -1.0;
-
+  this->ZeroNormalTolerance        = 0.0;
 }
 
 // Destruct a vtkEncodedGradientEstimator - free up any memory used
@@ -94,6 +94,21 @@ vtkEncodedGradientEstimator::~vtkEncodedGradientEstimator()
   if ( this->CircleLimits )
     {
     delete [] this->CircleLimits;
+    }
+}
+
+void vtkEncodedGradientEstimator::SetZeroNormalTolerance( float v )
+{
+  if ( this->ZeroNormalTolerance != v )
+    {
+    if ( v < 0.0 )
+      {
+      vtkErrorMacro( << "The ZeroNormalTolerance must be a value >= 0.0" );
+      return;
+      }
+
+    this->ZeroNormalTolerance = v;
+    this->Modified();
     }
 }
 
