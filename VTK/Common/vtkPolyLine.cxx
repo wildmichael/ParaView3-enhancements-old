@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyLine.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-21 20:34:53 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1995-08-23 16:34:21 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -411,7 +411,11 @@ void vtkPolyLine::EvaluateLocation(int& subId, float pcoords[3], float x[3],
   for (i=0; i<3; i++) 
     {
     x[i] = a1[i] + pcoords[0]*(a2[i] - a1[i]);
+    weights[i] = 0.0;
     }
+
+  weights[subId] = pcoords[0];
+  weights[subId+1] = 1.0 - pcoords[0];
 }
 
 int vtkPolyLine::CellBoundary(int subId, float pcoords[3], vtkIdList& pts)

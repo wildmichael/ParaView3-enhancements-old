@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimate.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:34:42 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1995-08-23 16:34:09 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -223,7 +223,7 @@ void vtkDecimate::Execute()
 //  boundary.
 //
           ContinueTriangulating = 0;
-          this->EvaluateLoop (ptId, vtype, numFEdges, fedges);
+          this->EvaluateLoop (vtype, numFEdges, fedges);
 
           if ( vtype != COMPLEX_VERTEX ) 
             {
@@ -263,7 +263,7 @@ void vtkDecimate::Execute()
 
           if ( ContinueTriangulating ) 
             {
-            if ( this->CheckError(ptId) )
+            if ( this->CheckError() )
               {
               if ( vtype == BOUNDARY_VERTEX ) trisEliminated += 1;
               else trisEliminated += 2;
@@ -638,13 +638,12 @@ int vtkDecimate::BuildLoop (int ptId, unsigned short int numTris, int *tris)
 //  Compute the polygon normals and edge feature angles around the
 //  loop.  Determine if there are any feature edges across the loop.
 //
-void vtkDecimate::EvaluateLoop (int ptId, int& vtype, int& numFEdeges, 
+void vtkDecimate::EvaluateLoop (int& vtype, int& numFEdges, 
                                vtkLocalVertexPtr fedges[])
 {
   int i, j, numNormals;
   float *x1, *x2, *normal, loopArea;
   float v1[3], v2[3], center[3];
-  int numFEdges;
 //
 //  Traverse all polygons and generate normals and areas
 //
@@ -967,7 +966,7 @@ void vtkDecimate::Triangulate(int numVerts, vtkLocalVertexPtr verts[])
     }
 }
 
-int vtkDecimate::CheckError (int ptId)
+int vtkDecimate::CheckError ()
 {
     int i, j;
     float error, planeError;

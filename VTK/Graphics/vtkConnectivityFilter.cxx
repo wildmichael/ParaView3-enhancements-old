@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConnectivityFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:34:31 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1995-08-23 16:34:24 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -425,9 +425,9 @@ void vtkConnectivityFilter::PrintSelf(ostream& os, vtkIndent indent)
     case EXTRACT_LARGEST_REGION:
       os << "(Extract largest region)\n";
       break;
+    }
 
     os << indent << "Color Regions: " << (this->ColorRegions ? "On\n" : "Off\n");
     os << indent << "Maximum Recursion Depth: " << this->MaxRecursionDepth << "\n";
-    }
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHexahedron.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-21 22:43:20 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1995-08-23 16:34:16 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -521,6 +521,5 @@ int vtkHexahedron::Triangulate(int index, vtkFloatPoints &pts)
 void vtkHexahedron::Derivatives(int subId, float pcoords[3], float *values, 
                                 int dim, float *derivs)
 {
-
 }
 

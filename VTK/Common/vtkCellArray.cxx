@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:34:27 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-08-23 16:34:06 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,9 +52,9 @@ vtkCellArray::vtkCellArray (const vtkCellArray& ca)
 // defining the cell.
 int vtkCellArray::GetMaxCellSize()
 {
-  int i, npts, maxSize=0;
+  int i, npts=0, maxSize=0;
 
-  for (i=0; i<this->Ia.GetMaxId(); i+=npts+1)
+  for (i=0; i<this->Ia.GetMaxId(); i+=(npts+1))
     {
     if ( (npts=this->Ia.GetValue(i)) > maxSize )
       maxSize = npts;
