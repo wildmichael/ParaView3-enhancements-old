@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKWUNIXRegisteryUtilities.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-29 00:15:36 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-05-13 10:50:31 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -309,7 +309,7 @@ int vtkKWUNIXRegisteryUtilities::ReadValueInternal(const char *skey,
   return res;
 }
 
-int vtkKWUNIXRegisteryUtilities::DeleteKeyInternal(const char *key)
+int vtkKWUNIXRegisteryUtilities::DeleteKeyInternal(const char* vtkNotUsed(key))
 {
   int res = 0;
   return res;

@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkStringList.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-12 17:30:36 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-05-13 10:50:31 $
+  Version:   $Revision: 1.6 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -84,8 +84,6 @@ public:
 protected:
   vtkStringList();
   ~vtkStringList();
-  vtkStringList(const vtkStringList&) {};
-  void operator=(const vtkStringList&) {};
   
   int NumberOfStrings;
   int StringArrayLength;
@@ -93,6 +91,8 @@ protected:
   void Reallocate(int num);
   void DeleteStrings();
 
+  vtkStringList(const vtkStringList&); // Not implemented
+  void operator=(const vtkStringList&); // Not implemented
 };
 
 #endif

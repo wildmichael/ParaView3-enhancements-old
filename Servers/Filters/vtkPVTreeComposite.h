@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVTreeComposite.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-06 12:10:46 $
-  Version:   $Revision: 1.13 $  
+  Date:      $Date: 2002-05-13 10:50:31 $
+  Version:   $Revision: 1.14 $  
   
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -108,8 +108,6 @@ public:
 protected:
   vtkPVTreeComposite();
   ~vtkPVTreeComposite();
-  vtkPVTreeComposite(const vtkPVTreeComposite&) {};
-  void operator=(const vtkPVTreeComposite&) {};
 
   int  CheckForData();
   int  ShouldIComposite();
@@ -155,11 +153,10 @@ protected:
   int ReceiveMessage;
 #endif
 //ETX  
-  
-  
+    
+  vtkPVTreeComposite(const vtkPVTreeComposite&); // Not implemented
+  void operator=(const vtkPVTreeComposite&); // Not implemented
 };
-
-
 
 // ifndef __vtkPVTreeComposite_h
 #endif

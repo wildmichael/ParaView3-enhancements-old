@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKWHashTable.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-12 17:30:36 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-05-13 10:50:31 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -282,8 +282,5 @@ void vtkKWHashTable::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Size:              " << this->GetSize() << endl
      << indent << "Number of buckets: " << this->GetNumberOfBuckets() << endl
      << indent << "Hash function:     " 
-     << ((this->HashFunction == vtkKWHashTable::HashString) ? 
-	 "Hash String" : "Custom hash function")
-     << ((this->HashFunction == vtkKWHashTable::HashString) ? 
-	 "" : (void *)this->HashFunction) << endl;
+     << (void*)this->HashFunction << endl;
 }
