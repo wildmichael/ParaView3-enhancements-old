@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsSource.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:51 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1999-09-02 13:05:27 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,6 +69,10 @@ protected:
   // Used by streaming: The extent of the output being processed
   // by the execute method. Set in the ComputeInputUpdateExtent method.
   int ExecuteExtent[6];
+  
+  // Default method performs Update to get information.  Not all the old
+  // structured points sources compute information
+  void ExecuteInformation();
 
 };
 
