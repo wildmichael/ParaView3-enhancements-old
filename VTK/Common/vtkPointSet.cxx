@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-16 15:58:18 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 1999-04-15 18:45:14 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkPointSet.h"
+#include "vtkSource.h"
 
 vtkPointSet::vtkPointSet ()
 {
@@ -267,6 +268,16 @@ void vtkPointSet::Squeeze()
 
 void vtkPointSet::UnRegister(vtkObject *o)
 {
+  // detect the circular loop source <-> data
+  // If we have two references and one of them is my data
+  // and I am not being unregistered by my data, break the loop.
+  if (this->ReferenceCount == 2 && this->Source != NULL &&
+      this->Source->GetOutputAsDataObject() == this && 
+      o != this->Source &&
+      this->Source->GetReferenceCount() == 1)
+    {
+    this->SetSource(NULL);
+    }
   // detect the circular loop PointSet <-> Locator
   // If we have two references and one of them is my locator
   // and I am not being unregistered by my locator, break the loop.
@@ -276,6 +287,19 @@ void vtkPointSet::UnRegister(vtkObject *o)
     {
     this->Locator->SetDataSet(NULL);
     }
+  // catch the case when both of the above are true
+  if (this->ReferenceCount == 3 && this->Source != NULL &&
+      this->Source->GetOutputAsDataObject() == this && 
+      o != this->Source &&
+      this->Source->GetReferenceCount() == 1 &&
+      this->Locator &&
+      this->Locator->GetDataSet() == this && 
+      this->Locator != o)
+    {
+    this->SetSource(NULL);
+    // the locater will get freed by a recursive call
+    }  
+  
   this->vtkObject::UnRegister(o);
 }
 

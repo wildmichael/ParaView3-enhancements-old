@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPoints.h,v $
   Language:  C++
-  Date:      $Date: 1999-03-17 21:45:14 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 1999-04-15 18:45:32 $
+  Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -169,13 +169,7 @@ public:
   // This method is used translparently by the 
   // "SetInput(vtkStructuredPoints *)"
   // method to connect the visualization pipeline to the image pipeline..
-  vtkStructuredPointsToImage *GetStructuredPointsToImage();
-
-  // Description:
-  // Decrease the reference count (release by another object).
-  // Also, we need to check for the reference loop 
-  // StructurePoints<->StructuredPointsToImage to avoid memory leaks.
-  void UnRegister(vtkObject* o);
+  vtkStructuredPointsToImage *MakeStructuredPointsToImage();
 
   // Description:
   // For legacy compatibility. Do not use.
