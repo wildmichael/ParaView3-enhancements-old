@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLImporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-21 19:18:42 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2001-09-25 15:07:30 $
+  Version:   $Revision: 1.40 $
   Thanks:    Tom Citriniti who implemented and contributed this class
 
 
@@ -76,6 +76,21 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkSystemIncludes.h"
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
+
+// Heap to manage memory leaks
+static void vrmlCleanUp()
+{
+  if ( vrmlHeap )
+    {
+    vrmlHeap->Delete();
+    vrmlHeap = NULL;
+    }
+}
+static char *vrmlStrDup(const char *str)
+{
+  return vrmlHeap->StrDup(str);
+}
+
 
 // Provide isatty prototype for Cygwin. 
 #ifdef __CYGWIN__

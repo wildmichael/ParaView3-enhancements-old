@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRML.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-21 19:18:42 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-09-25 15:07:30 $
+  Version:   $Revision: 1.13 $
   Thanks:    Tom Citriniti who implemented and contributed this class
 
 
@@ -89,21 +89,9 @@ static void vrmlInitialize()
     vrmlHeap = vtkHeap::New();
     }
 }
-static void vrmlCleanUp()
-{
-  if ( vrmlHeap )
-    {
-    vrmlHeap->Delete();
-    vrmlHeap = NULL;
-    }
-}
 static void *vrmlAllocateMemory(size_t n)
 {
   return vrmlHeap->AllocateMemory(n);
-}
-static char *vrmlStrDup(const char *str)
-{
-  return vrmlHeap->StrDup(str);
 }
 
 template <class T> 
