@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUGFacetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-23 19:25:10 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1998-08-07 19:11:18 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -105,7 +105,7 @@ void vtkUGFacetReader::Execute()
     }
 
   // open the file
-  if ( (fp = fopen(this->FileName, "r")) == NULL) 
+  if ( (fp = fopen(this->FileName, "rb")) == NULL) 
     {
     vtkErrorMacro(<<"Cannot open file specified.");
     return;
@@ -272,7 +272,7 @@ int vtkUGFacetReader::GetNumberOfParts()
     }
 
   // open the file
-  if ( (fp = fopen(this->FileName, "r")) == NULL) 
+  if ( (fp = fopen(this->FileName, "rb")) == NULL) 
     {
     vtkErrorMacro(<<"Cannot open file specified.");
     return 0;
