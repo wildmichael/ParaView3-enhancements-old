@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVDataInformation.h,v $
   Language:  C++
-  Date:      $Date: 2003-11-12 20:58:55 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2003-11-12 21:20:24 $
+  Version:   $Revision: 1.10 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -58,6 +58,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 #include "vtkPVInformation.h"
+
+#include "vtkPVConfig.h" // Needed for PARAVIEW_BUILD_DEVELOPMENT
 
 class vtkCollection;
 #ifdef PARAVIEW_BUILD_DEVELOPMENT

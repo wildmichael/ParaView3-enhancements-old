@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 2003-11-12 20:58:55 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2003-11-12 21:20:24 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,6 +24,8 @@
 #define __vtkPVGeometryFilter_h
 
 #include "vtkPolyDataSource.h"
+
+#include "vtkPVConfig.h" // Needed for PARAVIEW_BUILD_DEVELOPMENT
 
 class vtkDataObject;
 class vtkDataSet;
