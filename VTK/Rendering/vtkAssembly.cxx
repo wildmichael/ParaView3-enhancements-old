@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssembly.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-05 12:00:22 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2000-07-18 10:10:49 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -193,7 +193,13 @@ int vtkAssembly::RenderOpaqueGeometry(vtkViewport *ren)
 
 void vtkAssembly::ReleaseGraphicsResources(vtkWindow *renWin)
 {
-  this->vtkProp3D::ReleaseGraphicsResources(renWin);
+  vtkProp3D *prop3D;
+
+  for ( this->Parts->InitTraversal(); 
+        (prop3D = this->Parts->GetNextProp3D()); )
+    {
+    prop3D->ReleaseGraphicsResources(renWin);
+    }
 }
 
 void vtkAssembly::GetActors(vtkPropCollection *ac)
