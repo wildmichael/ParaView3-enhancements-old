@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMapper.h,v $
   Language:  C++
-  Date:      $Date: 1994-09-14 08:10:01 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1994-11-01 23:17:24 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -76,6 +76,8 @@ public:
   // Used in the rendering process to automatically create a camera in the 
   // proper initial configuration.
   virtual float *GetBounds() = 0;
+
+  float *GetCenter();
 
 protected:
   void (*StartRender)(void *);

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-12 21:10:12 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1994-11-01 23:17:26 $
+  Version:   $Revision: 1.14 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -110,6 +110,16 @@ void vlMapper::CreateDefaultLookupTable()
   if ( this->SelfCreatedLookupTable ) delete this->LookupTable;
   this->LookupTable = new vlLookupTable;
   this->SelfCreatedLookupTable = 1;
+}
+
+float *vlMapper::GetCenter()
+{
+  static float center[3];
+  float *bounds;
+
+  bounds = this->GetBounds();
+  for (int i=0; i<3; i++) center[i] = (bounds[2*i+1] + bounds[2*i]) / 2.0;
+  return center;
 }
 
 void vlMapper::PrintSelf(ostream& os, vlIndent indent)
