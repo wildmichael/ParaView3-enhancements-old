@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataNormals.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:24 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-04-28 18:12:17 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,7 +68,7 @@ class VTK_EXPORT vtkPolyDataNormals : public vtkPolyDataToPolyDataFilter
 {
 public:
   vtkTypeMacro(vtkPolyDataNormals,vtkPolyDataToPolyDataFilter);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Construct with feature angle=30, splitting and consistency turned on, 

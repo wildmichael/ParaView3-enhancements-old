@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:30:01 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-04-28 18:12:55 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -215,7 +215,7 @@ unsigned long vtkTransformPolyDataFilter::GetMTime()
   return mTime;
 }
 
-void vtkTransformPolyDataFilter::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkTransformPolyDataFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
 

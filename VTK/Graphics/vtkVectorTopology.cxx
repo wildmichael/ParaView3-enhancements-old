@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorTopology.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:05 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2000-04-28 18:10:56 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -147,7 +147,7 @@ void vtkVectorTopology::Execute()
   output->Squeeze();
 }
 
-void vtkVectorTopology::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkVectorTopology::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkDataSetToPolyDataFilter::PrintSelf(os,indent);
 

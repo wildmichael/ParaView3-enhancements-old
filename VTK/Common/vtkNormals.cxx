@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkNormals.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:20 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2000-04-28 18:10:11 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -87,7 +87,7 @@ void vtkNormals::GetNormals(vtkIdList *ptIds, vtkNormals *n)
     }
 }
 
-void vtkNormals::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkNormals::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkAttributeData::PrintSelf(os,indent);
 

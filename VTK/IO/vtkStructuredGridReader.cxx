@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:52 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2000-04-28 18:12:45 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -423,7 +423,7 @@ void vtkStructuredGridReader::Execute()
 }
 
 static int recursing = 0;
-void vtkStructuredGridReader::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkStructuredGridReader::PrintSelf(ostream& os, vtkIndent indent)
 {
   // the reader ivar's source will be this reader. 
   // We must do this to prevent infinite printing

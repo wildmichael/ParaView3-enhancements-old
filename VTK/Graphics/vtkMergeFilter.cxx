@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:10 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2000-04-28 18:12:04 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -360,7 +360,7 @@ void vtkMergeFilter::ComputeInputUpdateExtents(vtkDataObject *vtkNotUsed(data))
     }
 }
 
-void vtkMergeFilter::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkMergeFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkDataSetToDataSetFilter::PrintSelf(os,indent);
 

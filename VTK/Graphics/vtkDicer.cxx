@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDicer.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:38 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2000-04-28 18:11:31 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -80,7 +80,7 @@ void vtkDicer::UpdatePieceMeasures()
     }
 }
 
-void vtkDicer::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkDicer::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkDataSetToDataSetFilter::PrintSelf(os,indent);
 

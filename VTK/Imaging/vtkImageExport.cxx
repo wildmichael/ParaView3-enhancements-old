@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageExport.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:30:42 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-04-28 18:13:37 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 
@@ -86,7 +86,7 @@ vtkImageExport::~vtkImageExport()
 
 
 //----------------------------------------------------------------------------
-void vtkImageExport::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkImageExport::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkProcessObject::PrintSelf(os,indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWorldPointPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:30:23 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-04-28 18:13:18 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -132,7 +132,7 @@ int vtkWorldPointPicker::Pick(float selectionX, float selectionY, float selectio
   return 0;
 }
 
-void vtkWorldPointPicker::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkWorldPointPicker::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->vtkPicker::PrintSelf(os,indent);
 

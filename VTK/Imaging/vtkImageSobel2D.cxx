@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSobel2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:31:03 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2000-04-28 18:14:00 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -78,7 +78,7 @@ vtkImageSobel2D::vtkImageSobel2D()
 
 
 //----------------------------------------------------------------------------
-void vtkImageSobel2D::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkImageSobel2D::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->vtkImageSpatialFilter::PrintSelf(os, indent);
 }

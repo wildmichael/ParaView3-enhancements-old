@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSobel3D.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:31:04 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2000-04-28 18:14:01 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,7 +60,7 @@ class VTK_EXPORT vtkImageSobel3D : public vtkImageSpatialFilter
 public:
   static vtkImageSobel3D *New();
   vtkTypeMacro(vtkImageSobel3D,vtkImageSpatialFilter);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
 protected:
   vtkImageSobel3D();

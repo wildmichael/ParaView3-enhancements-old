@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:27 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2000-04-28 18:11:19 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -63,7 +63,7 @@ class VTK_EXPORT vtkCutter : public vtkDataSetToPolyDataFilter
 {
 public:
   vtkTypeMacro(vtkCutter,vtkDataSetToPolyDataFilter);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Construct with user-specified implicit function; initial value of 0.0; and

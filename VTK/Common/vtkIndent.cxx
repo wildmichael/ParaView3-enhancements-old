@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIndent.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:11 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2000-04-28 18:10:03 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -77,7 +77,7 @@ vtkIndent vtkIndent::GetNextIndent()
 }
  
 // Print out the indentation. Basically output a bunch of spaces.
-vtkOstream& operator<<(vtkOstream& os, vtkIndent& ind)
+ostream& operator<<(ostream& os, vtkIndent& ind)
 {
   os << blanks + (VTK_NUMBER_OF_BLANKS-ind.Indent) ;
   return os;

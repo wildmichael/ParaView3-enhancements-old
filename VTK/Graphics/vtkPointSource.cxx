@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:22 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2000-04-28 18:12:15 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -118,7 +118,7 @@ void vtkPointSource::ExecuteInformation()
 
 
 //----------------------------------------------------------------------------
-void vtkPointSource::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkPointSource::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkPolyDataSource::PrintSelf(os,indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBitArray.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:26:55 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2000-04-28 18:09:46 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -56,7 +56,7 @@ class VTK_EXPORT vtkBitArray : public vtkDataArray
 public:
   static vtkBitArray *New();
   vtkTypeMacro(vtkBitArray,vtkDataArray);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Allocate memory for this array. Delete old storage only if necessary.

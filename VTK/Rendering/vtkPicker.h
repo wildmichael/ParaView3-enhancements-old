@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPicker.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:18 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2000-04-28 18:12:11 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -85,7 +85,7 @@ class VTK_EXPORT vtkPicker : public vtkObject
 public:
   static vtkPicker *New();
   vtkTypeMacro(vtkPicker,vtkObject);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Get the renderer in which pick event occurred.

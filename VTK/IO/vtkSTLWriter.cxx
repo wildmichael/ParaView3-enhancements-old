@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:41 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2000-04-28 18:12:34 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -134,7 +134,7 @@ void vtkSTLWriter::WriteAsciiSTL(vtkPoints *pts, vtkCellArray *polys)
     fprintf (fp, "   vertex %.6g %.6g %.6g\n", v2[0], v2[1], v2[2]);
     fprintf (fp, "   vertex %.6g %.6g %.6g\n", v3[0], v3[1], v3[2]);
 
-    fprintf (fp, "  vtkEndloop\n endfacet\n");
+    fprintf (fp, "  endloop\n endfacet\n");
     }
   fprintf (fp, "endsolid\n");
   fclose (fp);

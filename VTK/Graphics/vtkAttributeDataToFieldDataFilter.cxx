@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAttributeDataToFieldDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:12 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2000-04-28 18:11:04 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -199,7 +199,7 @@ void vtkAttributeDataToFieldDataFilter::Execute()
     }
 }
 
-void vtkAttributeDataToFieldDataFilter::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkAttributeDataToFieldDataFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkDataSetToDataSetFilter::PrintSelf(os,indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMCubesReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:07 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2000-04-28 18:12:00 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -288,7 +288,7 @@ void vtkMCubesReader::CreateDefaultLocator()
     }
 }
 
-void vtkMCubesReader::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkMCubesReader::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkPolyDataSource::PrintSelf(os,indent);
 

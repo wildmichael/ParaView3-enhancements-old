@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipVolume.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:22 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-04-28 18:11:14 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -87,7 +87,7 @@ class VTK_EXPORT vtkClipVolume : public vtkStructuredPointsToUnstructuredGridFil
 {
 public:
   vtkTypeMacro(vtkClipVolume,vtkStructuredPointsToUnstructuredGridFilter);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Construct with user-specified implicit function; InsideOut turned off;

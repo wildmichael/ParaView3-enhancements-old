@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:32 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-04-28 18:12:25 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,7 +68,7 @@ class VTK_EXPORT vtkRectilinearGridGeometryFilter : public vtkRectilinearGridToP
 {
 public:
   vtkTypeMacro(vtkRectilinearGridGeometryFilter,vtkRectilinearGridToPolyDataFilter);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Construct with initial extent (0,100, 0,100, 0,0) (i.e., a k-plane).

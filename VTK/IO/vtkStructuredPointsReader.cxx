@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:53 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2000-04-28 18:12:47 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -369,7 +369,7 @@ void vtkStructuredPointsReader::Execute()
 }
 
 static int recursing = 0;
-void vtkStructuredPointsReader::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkStructuredPointsReader::PrintSelf(ostream& os, vtkIndent indent)
 {
   // the reader ivar's source will be this reader. we must do this to prevent infinite printing
   if (!recursing)

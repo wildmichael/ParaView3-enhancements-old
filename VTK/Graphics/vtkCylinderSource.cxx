@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCylinderSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:27 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2000-04-28 18:11:20 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -221,7 +221,7 @@ void vtkCylinderSource::Execute()
   newPolys->Delete();
 }
 
-void vtkCylinderSource::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkCylinderSource::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkPolyDataSource::PrintSelf(os,indent);
 

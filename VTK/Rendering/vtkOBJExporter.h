@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBJExporter.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:13 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2000-04-28 18:12:07 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -61,7 +61,7 @@ class VTK_EXPORT vtkOBJExporter : public vtkExporter
 public:
   static vtkOBJExporter *New();
   vtkTypeMacro(vtkOBJExporter,vtkExporter);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Specify the prefix of the files to write out. The resulting filenames

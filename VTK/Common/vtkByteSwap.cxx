@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkByteSwap.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:26:55 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2000-04-28 18:09:46 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -109,7 +109,7 @@ void vtkByteSwap::Swap4BERange(char *mem_ptr1,int num)
 
 
 // Swap bunch of bytes. Num is the number of four byte words to swap.
-void vtkByteSwap::SwapWrite4BERange(char *mem_ptr1,int num, vtkOstream *fp)
+void vtkByteSwap::SwapWrite4BERange(char *mem_ptr1,int num, ostream *fp)
 {
 #ifndef VTK_WORDS_BIGENDIAN
   char one_byte;
@@ -298,7 +298,7 @@ void vtkByteSwap::Swap2LERange(char *mem_ptr1,int num){}
 
 
 // Swap bunch of bytes. Num is the number of four byte words to swap.
-void vtkByteSwap::SwapWrite2BERange(char *mem_ptr1,int num, vtkOstream *fp)
+void vtkByteSwap::SwapWrite2BERange(char *mem_ptr1,int num, ostream *fp)
 {
 #ifndef VTK_WORDS_BIGENDIAN
   char one_byte;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMaskPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:08 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2000-04-28 18:12:02 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -157,7 +157,7 @@ void vtkMaskPoints::Execute()
 
 
 //----------------------------------------------------------------------------
-void vtkMaskPoints::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkMaskPoints::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkDataSetToPolyDataFilter::PrintSelf(os,indent);
 

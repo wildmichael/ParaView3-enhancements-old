@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinkEdgels.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:06 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2000-04-28 18:12:00 $
+  Version:   $Revision: 1.23 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -368,7 +368,7 @@ void vtkLinkEdgels::LinkEdgels(int xdim, int ydim, float *image,
   delete [] backward;
 }
 
-void vtkLinkEdgels::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkLinkEdgels::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkStructuredPointsToPolyDataFilter::PrintSelf(os,indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapJava.c,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:31:39 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2000-04-28 18:14:40 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -653,7 +653,7 @@ void vtkParseOutput(FILE *fp, FileInfo *data)
     fprintf(fp,"  jstring tmp;\n\n");
     fprintf(fp,"  op = (vtkObject *)vtkJavaGetPointerFromObject(env,obj,\"vtkObject\");\n");
     
-    fprintf(fp,"  vtkOstrstream buf;\n");
+    fprintf(fp,"  ostrstream buf;\n");
     fprintf(fp,"  op->Print(buf);\n");
     fprintf(fp,"  buf.put('\\0');\n");  
 	fprintf(fp,"  tmp = vtkJavaMakeJavaString(env,buf.str());\n");

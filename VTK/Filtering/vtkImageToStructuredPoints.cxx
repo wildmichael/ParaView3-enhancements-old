@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToStructuredPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:10 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2000-04-28 18:10:02 $
+  Version:   $Revision: 1.42 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -80,7 +80,7 @@ vtkImageToStructuredPoints::~vtkImageToStructuredPoints()
 
 
 //----------------------------------------------------------------------------
-void vtkImageToStructuredPoints::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkImageToStructuredPoints::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkSource::PrintSelf(os,indent);
 

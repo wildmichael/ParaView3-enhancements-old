@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorTopology.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:05 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2000-04-28 18:10:56 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -73,7 +73,7 @@ public:
   static vtkVectorTopology *New();
 
   vtkTypeMacro(vtkVectorTopology,vtkDataSetToPolyDataFilter);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Specify distance from singularity to generate point.

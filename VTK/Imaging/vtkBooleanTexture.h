@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBooleanTexture.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:15 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2000-04-28 18:11:07 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -76,7 +76,7 @@ public:
   static vtkBooleanTexture *New();
 
   vtkTypeMacro(vtkBooleanTexture,vtkStructuredPointsSource);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Set the X texture map dimension.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 18:19:57 $
-  Version:   $Revision: 1.64 $
+  Date:      $Date: 2000-04-28 18:11:02 $
+  Version:   $Revision: 1.65 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -725,7 +725,7 @@ vtkPolyData *vtkAppendPolyData::GetInput(int idx)
 }
 
 //----------------------------------------------------------------------------
-void vtkAppendPolyData::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkAppendPolyData::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
 
@@ -739,7 +739,7 @@ void vtkAppendPolyData::PrintSelf(vtkOstream& os, vtkIndent indent)
     }
   //
   os << indent << "UserManagedInputs: "
-     << this->UserManagedInputs << vtkEndl;
+     << this->UserManagedInputs << endl;
 }
 
 void vtkAppendPolyData::AppendData(vtkDataArray *dest, vtkDataArray *src,

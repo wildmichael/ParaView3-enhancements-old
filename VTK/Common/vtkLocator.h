@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLocator.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:15 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2000-04-28 18:10:06 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -84,7 +84,7 @@ class VTK_EXPORT vtkLocator : public vtkObject
 {
 public:
   vtkTypeMacro(vtkLocator,vtkObject);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Build the locator from the points/cells defining this dataset.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSeedConnectivity.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:31:01 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2000-04-28 18:13:57 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -301,7 +301,7 @@ void vtkImageSeedConnectivity::Execute(vtkImageData *inData,
 }
 
 
-void vtkImageSeedConnectivity::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkImageSeedConnectivity::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkImageToImageFilter::PrintSelf(os,indent);
 

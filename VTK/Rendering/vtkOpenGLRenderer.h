@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderer.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:16 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2000-04-28 18:12:09 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,7 +58,7 @@ protected:
 public:
   static vtkOpenGLRenderer *New();
   vtkTypeMacro(vtkOpenGLRenderer,vtkRenderer);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Concrete open gl render method.

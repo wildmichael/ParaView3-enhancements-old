@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:37 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2000-04-28 18:11:30 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1108,7 +1108,7 @@ void vtkDelaunay3D::InsertSphere(vtkUnstructuredGrid *Mesh, vtkPoints *points,
   this->Spheres->InsertSphere(tetraId, radius2, center);
 }
 
-void vtkDelaunay3D::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkDelaunay3D::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkUnstructuredGridSource::PrintSelf(os,indent);
 

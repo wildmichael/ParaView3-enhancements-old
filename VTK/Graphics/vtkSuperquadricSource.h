@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSuperquadricSource.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:03 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-04-28 18:10:54 $
+  Version:   $Revision: 1.10 $
   Thanks:    Mike Halle, Brigham and Women's Hospital
 
 
@@ -88,7 +88,7 @@ public:
   static vtkSuperquadricSource *New();
 
   vtkTypeMacro(vtkSuperquadricSource,vtkPolyDataSource);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Set the center of the superquadric. Default is 0,0,0.

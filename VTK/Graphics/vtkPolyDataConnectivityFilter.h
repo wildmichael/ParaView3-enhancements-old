@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataConnectivityFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:23 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-04-28 18:12:16 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -81,7 +81,7 @@ class VTK_EXPORT vtkPolyDataConnectivityFilter : public vtkPolyDataToPolyDataFil
 {
 public:
   vtkTypeMacro(vtkPolyDataConnectivityFilter,vtkPolyDataToPolyDataFilter);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Construct with default extraction mode to extract largest regions.

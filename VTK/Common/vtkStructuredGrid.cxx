@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:37 $
-  Version:   $Revision: 1.65 $
+  Date:      $Date: 2000-04-28 18:10:28 $
+  Version:   $Revision: 1.66 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -907,7 +907,7 @@ void vtkStructuredGrid::InternalStructuredGridCopy(vtkStructuredGrid *src)
 }
 
 //----------------------------------------------------------------------------
-void vtkStructuredGrid::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkStructuredGrid::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkPointSet::PrintSelf(os,indent);
 
@@ -920,11 +920,11 @@ void vtkStructuredGrid::PrintSelf(vtkOstream& os, vtkIndent indent)
   os << indent << "WholeExtent: " << this->WholeExtent[0] << ", "
      << this->WholeExtent[1] << ", " << this->WholeExtent[2] << ", "
      << this->WholeExtent[3] << ", " << this->WholeExtent[4] << ", "
-     << this->WholeExtent[5] << vtkEndl;
+     << this->WholeExtent[5] << endl;
   os << indent << "Extent: " << this->Extent[0] << ", "
      << this->Extent[1] << ", " << this->Extent[2] << ", "
      << this->Extent[3] << ", " << this->Extent[4] << ", "
-     << this->Extent[5] << vtkEndl;
+     << this->Extent[5] << endl;
 
   os << ")\n";
 }

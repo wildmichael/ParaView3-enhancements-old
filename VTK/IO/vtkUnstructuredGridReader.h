@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridReader.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:30:05 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2000-04-28 18:13:00 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,7 +57,7 @@ class VTK_EXPORT vtkUnstructuredGridReader : public vtkUnstructuredGridSource
 public:
   static vtkUnstructuredGridReader *New();
   vtkTypeMacro(vtkUnstructuredGridReader,vtkUnstructuredGridSource);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Return MTime also considering the vtkDataReader ivar.

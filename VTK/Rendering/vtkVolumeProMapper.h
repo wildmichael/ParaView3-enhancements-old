@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProMapper.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:06 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2000-04-28 18:10:57 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -96,7 +96,7 @@ class VTK_EXPORT vtkVolumeProMapper : public vtkVolumeMapper
 {
 public:
   vtkTypeMacro(vtkVolumeProMapper,vtkVolumeMapper);
-  void PrintSelf( vtkOstream& os, vtkIndent index );
+  void PrintSelf( ostream& os, vtkIndent index );
 
   // Description:
   // Automatically create the proper subclass

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:10 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2000-04-28 18:11:01 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -344,7 +344,7 @@ void vtkAppendFilter::Execute()
 }
 
 //----------------------------------------------------------------------------
-void vtkAppendFilter::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkAppendFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkDataSetToUnstructuredGridFilter::PrintSelf(os,indent);
 }

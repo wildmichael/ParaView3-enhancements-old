@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:30:02 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2000-04-28 18:12:57 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -135,7 +135,7 @@ void vtkTriangleFilter::Execute()
                 <<" output cells");
 }
 
-void vtkTriangleFilter::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkTriangleFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapToColors.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:30:51 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2000-04-28 18:13:47 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -212,7 +212,7 @@ void vtkImageMapToColors::ThreadedExecute(vtkImageData *inData,
 			   outData, (unsigned char *)outPtr, outExt, id);
 }
 
-void vtkImageMapToColors::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkImageMapToColors::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkImageToImageFilter::PrintSelf(os,indent);
 

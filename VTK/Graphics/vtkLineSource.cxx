@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLineSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:05 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2000-04-28 18:11:58 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -136,7 +136,7 @@ void vtkLineSource::Execute()
   newLines->Delete();
 }
 
-void vtkLineSource::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkLineSource::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkPolyDataSource::PrintSelf(os,indent);
 

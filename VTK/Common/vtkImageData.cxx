@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:08 $
-  Version:   $Revision: 1.84 $
+  Date:      $Date: 2000-04-28 18:10:00 $
+  Version:   $Revision: 1.85 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -975,15 +975,15 @@ int vtkImageData::ComputeStructuredCoordinates(float x[3], int ijk[3],
 
 
 //----------------------------------------------------------------------------
-void vtkImageData::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkImageData::PrintSelf(ostream& os, vtkIndent indent)
 {
   int idx;
   
   vtkDataSet::PrintSelf(os,indent);
 
-  os << indent << "ScalarType: " << this->ScalarType << vtkEndl;
+  os << indent << "ScalarType: " << this->ScalarType << endl;
   os << indent << "NumberOfScalarComponents: " << 
-    this->NumberOfScalarComponents << vtkEndl;
+    this->NumberOfScalarComponents << endl;
   os << indent << "Spacing: (" << this->Spacing[0] << ", "
                                << this->Spacing[1] << ", "
                                << this->Spacing[2] << ")\n";

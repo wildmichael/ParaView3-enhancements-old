@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCoordinate.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:26:59 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-04-28 18:09:50 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -86,7 +86,7 @@ class VTK_EXPORT vtkCoordinate : public vtkObject
 {
 public:
   vtkTypeMacro(vtkCoordinate,vtkObject);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Creates an instance of this class with the following defaults: 

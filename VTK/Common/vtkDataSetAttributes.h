@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:02 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2000-04-28 18:09:53 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -67,7 +67,7 @@ public:
   static vtkDataSetAttributes *New();
   
   vtkTypeMacro(vtkDataSetAttributes,vtkObject);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Initialize all of the object's data to NULL

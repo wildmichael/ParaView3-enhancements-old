@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToCylinder.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:57 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2000-04-28 18:12:51 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -199,7 +199,7 @@ void vtkTextureMapToCylinder::Execute()
 
 }
 
-void vtkTextureMapToCylinder::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkTextureMapToCylinder::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkDataSetToDataSetFilter::PrintSelf(os,indent);
 

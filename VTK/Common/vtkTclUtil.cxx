@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTclUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:38 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2000-04-28 18:10:29 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,7 +58,7 @@ VTKTCL_EXPORT int vtkTclEval(char *str)
   if (res == TCL_ERROR)
     {
     vtkGenericWarningMacro("Error returned from vtk/tcl callback.\n" <<
-			   vtkGlobalTclInterp->result << vtkEndl);
+			   vtkGlobalTclInterp->result << endl);
     }
   return res;
 }
@@ -394,14 +394,14 @@ VTKTCL_EXPORT void vtkTclVoidFunc(void *arg)
     if (Tcl_GetVar(arg2->interp,"errorInfo",0))
       {
       vtkGenericWarningMacro("Error returned from vtk/tcl callback:\n" <<
-			     arg2->command << vtkEndl <<
+			     arg2->command << endl <<
 			     Tcl_GetVar(arg2->interp,"errorInfo",0) <<
 			     " at line number " << arg2->interp->errorLine);
       }
     else
       {
       vtkGenericWarningMacro("Error returned from vtk/tcl callback:\n" <<
-			     arg2->command << vtkEndl <<
+			     arg2->command << endl <<
 			     " at line number " << arg2->interp->errorLine);
       }
     }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSet.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:27 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2000-04-28 18:10:18 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,7 +60,7 @@ class VTK_EXPORT vtkPointSet : public vtkDataSet
 {
 public:
   vtkTypeMacro(vtkPointSet,vtkDataSet);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Reset to an empty state and free any memory.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindowToImageFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:48 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-04-28 18:10:39 $
+  Version:   $Revision: 1.11 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -92,7 +92,7 @@ void vtkWindowToImageFilter::SetInput(vtkWindow *input)
 }
 
 //----------------------------------------------------------------------------
-void vtkWindowToImageFilter::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkWindowToImageFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkImageSource::PrintSelf(os,indent);
   

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageExport.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:30:42 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2000-04-28 18:13:38 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 
@@ -59,7 +59,7 @@ class VTK_EXPORT vtkImageExport : public vtkProcessObject
 public:
   static vtkImageExport *New();
   vtkTypeMacro(vtkImageExport,vtkProcessObject);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:
   // Get the number of bytes required (for safety checks, etc)

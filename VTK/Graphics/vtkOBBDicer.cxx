@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBBDicer.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:12 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2000-04-28 18:12:06 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -256,7 +256,7 @@ void vtkOBBDicer::DeleteTree(vtkOBBNode *OBBptr)
     }
 }
 
-void vtkOBBDicer::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkOBBDicer::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkDicer::PrintSelf(os,indent);
 }

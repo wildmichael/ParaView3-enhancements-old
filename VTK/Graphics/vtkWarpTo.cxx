@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpTo.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:30:20 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2000-04-28 18:13:15 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -145,7 +145,7 @@ void vtkWarpTo::Execute()
   newPts->Delete();
 }
 
-void vtkWarpTo::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkWarpTo::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkPointSetToPointSetFilter::PrintSelf(os,indent);
   

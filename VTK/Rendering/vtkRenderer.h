@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:37 $
-  Version:   $Revision: 1.83 $
+  Date:      $Date: 2000-04-28 18:12:31 $
+  Version:   $Revision: 1.84 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -76,7 +76,7 @@ class VTK_EXPORT vtkRenderer : public vtkViewport
 {
 public:
   vtkTypeMacro(vtkRenderer,vtkViewport);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Create a vtkRenderer with a black background, a white ambient light,

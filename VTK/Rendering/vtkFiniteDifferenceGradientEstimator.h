@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFiniteDifferenceGradientEstimator.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:48 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-04-28 18:11:40 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -69,7 +69,7 @@ class VTK_EXPORT vtkFiniteDifferenceGradientEstimator : public vtkEncodedGradien
 {
 public:
   vtkTypeMacro(vtkFiniteDifferenceGradientEstimator,vtkEncodedGradientEstimator);
-  void PrintSelf( vtkOstream& os, vtkIndent index );
+  void PrintSelf( ostream& os, vtkIndent index );
 
   // Description:
   // Construct a vtkFiniteDifferenceGradientEstimator with

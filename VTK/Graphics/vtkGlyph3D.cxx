@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:50 $
-  Version:   $Revision: 1.73 $
+  Date:      $Date: 2000-04-28 18:11:43 $
+  Version:   $Revision: 1.74 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -548,11 +548,11 @@ vtkPolyData *vtkGlyph3D::GetSource(int id)
     }
 }
 
-void vtkGlyph3D::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkGlyph3D::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkDataSetToPolyDataFilter::PrintSelf(os,indent);
 
-  os << indent << "Color Mode: " << this->GetColorModeAsString() << vtkEndl;
+  os << indent << "Color Mode: " << this->GetColorModeAsString() << endl;
 
   if ( this->GetNumberOfSources() < 2 )
     {

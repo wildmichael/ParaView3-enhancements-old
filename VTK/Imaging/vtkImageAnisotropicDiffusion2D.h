@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAnisotropicDiffusion2D.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:30:30 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2000-04-28 18:13:25 $
+  Version:   $Revision: 1.22 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -71,7 +71,7 @@ class VTK_EXPORT vtkImageAnisotropicDiffusion2D : public vtkImageSpatialFilter
 public:
   static vtkImageAnisotropicDiffusion2D *New();
   vtkTypeMacro(vtkImageAnisotropicDiffusion2D,vtkImageSpatialFilter);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // This method sets the number of inputs which also affects the

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBExporter.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:00 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-04-28 18:10:51 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -85,7 +85,7 @@ class VTK_EXPORT vtkRIBExporter : public vtkExporter
 public:
   static vtkRIBExporter *New();
   vtkTypeMacro(vtkRIBExporter,vtkExporter);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description
   // Specify the size of the image for RenderMan. If none is specified, the

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBJExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:13 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2000-04-28 18:12:07 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -383,7 +383,7 @@ void vtkOBJExporter::WriteAnActor(vtkActor *anActor, FILE *fpObj, FILE *fpMtl,
 
 
 
-void vtkOBJExporter::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkOBJExporter::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkExporter::PrintSelf(os,indent);
  

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:15 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2000-04-28 18:12:08 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -734,7 +734,7 @@ Colormap vtkOpenGLRenderWindow::GetDesiredColormap ()
   return this->ColorMap;  
 }
 
-void vtkOpenGLRenderWindow::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkOpenGLRenderWindow::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->vtkXRenderWindow::PrintSelf(os,indent);
 

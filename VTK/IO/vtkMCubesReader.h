@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMCubesReader.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:07 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2000-04-28 18:12:01 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -83,7 +83,7 @@ class VTK_EXPORT vtkMCubesReader : public vtkPolyDataSource
 {
 public:
   vtkTypeMacro(vtkMCubesReader,vtkPolyDataSource);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Construct object with FlipNormals turned off and Normals set to true.

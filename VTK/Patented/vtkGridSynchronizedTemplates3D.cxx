@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGridSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:31:19 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-04-28 18:14:16 $
+  Version:   $Revision: 1.18 $
 
 
 
@@ -1056,7 +1056,7 @@ int vtkGridSynchronizedTemplates3D::SplitExtent(int piece, int numPieces,
 }
 
 //----------------------------------------------------------------------------
-void vtkGridSynchronizedTemplates3D::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkGridSynchronizedTemplates3D::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkStructuredGridToPolyDataFilter::PrintSelf(os,indent);
 

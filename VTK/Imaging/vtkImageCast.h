@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCast.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:30:34 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2000-04-28 18:13:30 $
+  Version:   $Revision: 1.29 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,7 +60,7 @@ class VTK_EXPORT vtkImageCast : public vtkImageToImageFilter
 public:
   static vtkImageCast *New();
   vtkTypeMacro(vtkImageCast,vtkImageToImageFilter);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Set the desired output scalar type to cast to

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleTrackball.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:00 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-04-28 18:11:53 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -593,7 +593,7 @@ void vtkInteractorStyleTrackball::TrackballScaleActor(int x, int y)
     }
 }
 
-void vtkInteractorStyleTrackball::PrintSelf(vtkOstream& os, vtkIndent indent) 
+void vtkInteractorStyleTrackball::PrintSelf(ostream& os, vtkIndent indent) 
 {
   this->vtkInteractorStyle::PrintSelf(os,indent);
 

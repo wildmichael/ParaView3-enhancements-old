@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridReader.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:32 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-04-28 18:12:26 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,7 +58,7 @@ class VTK_EXPORT vtkRectilinearGridReader : public vtkRectilinearGridSource
 public:
   static vtkRectilinearGridReader *New();
   vtkTypeMacro(vtkRectilinearGridReader,vtkRectilinearGridSource);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Return the MTime also considering the vtkDataReader ivar

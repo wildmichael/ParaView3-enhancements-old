@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:30:16 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-04-28 18:13:11 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -63,7 +63,7 @@ vtkVolumeReader::~vtkVolumeReader ()
   delete [] this->FilePattern;
 }
 
-void vtkVolumeReader::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkVolumeReader::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkStructuredPointsSource::PrintSelf(os,indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDEMReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:51 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2000-04-28 18:10:42 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -479,7 +479,7 @@ void ConvertDNotationToENotation (char *line)
     }
 }    
 
-void vtkDEMReader::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkDEMReader::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkImageSource::PrintSelf(os,indent);
 

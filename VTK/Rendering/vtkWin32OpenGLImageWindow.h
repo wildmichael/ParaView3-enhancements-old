@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:31:15 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-04-28 18:14:12 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,7 +57,7 @@ class VTK_EXPORT vtkWin32OpenGLImageWindow : public vtkImageWindow
 public:
   static vtkWin32OpenGLImageWindow *New();
   vtkTypeMacro(vtkWin32OpenGLImageWindow,vtkImageWindow);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // output to the viewer.
   vtkWin32OpenGLImageWindow *GetOutput(){return this;};

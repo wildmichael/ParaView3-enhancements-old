@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoidArray.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:46 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2000-04-28 18:10:37 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -56,7 +56,7 @@ public:
   static vtkVoidArray *New();
 
   vtkTypeMacro(vtkVoidArray,vtkDataArray);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Allocate memory for this array. Delete old storage only if necessary.

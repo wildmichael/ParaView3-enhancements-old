@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:32 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-04-28 18:12:25 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -384,7 +384,7 @@ void vtkRectilinearGridReader::Execute()
 }
 
 static int recursing = 0;
-void vtkRectilinearGridReader::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkRectilinearGridReader::PrintSelf(ostream& os, vtkIndent indent)
 {
   // the reader ivar's source will be this Reader. 
   // we must do this to prevent infinite printing

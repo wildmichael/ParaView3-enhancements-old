@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToDataObjectFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:33 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-04-28 18:11:26 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -408,7 +408,7 @@ void vtkDataSetToDataObjectFilter::ComputeInputUpdateExtents(
 
 
 //----------------------------------------------------------------------------
-void vtkDataSetToDataObjectFilter::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkDataSetToDataObjectFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkDataObjectSource::PrintSelf(os,indent);
 

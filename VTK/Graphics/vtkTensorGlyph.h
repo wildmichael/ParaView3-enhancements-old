@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensorGlyph.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:55 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2000-04-28 18:12:49 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -79,7 +79,7 @@ class VTK_EXPORT vtkTensorGlyph : public vtkDataSetToPolyDataFilter
 {
 public:
   vtkTypeMacro(vtkTensorGlyph,vtkDataSetToPolyDataFilter);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description
   // Construct object with scaling on and scale factor 1.0. Eigenvalues are 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:34 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2000-04-28 18:11:27 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -161,7 +161,7 @@ void vtkDataSetWriter::WriteData()
   writer->Delete();
 }
 
-void vtkDataSetWriter::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkDataSetWriter::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkDataWriter::PrintSelf(os,indent);
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIVExporter.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:53 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-04-28 18:11:47 $
+  Version:   $Revision: 1.14 $
   Thanks:    to Jon A. Webb of Visual Interface Inc.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -59,7 +59,7 @@ class VTK_EXPORT vtkIVExporter : public vtkExporter
 public:
   static vtkIVExporter *New();
   vtkTypeMacro(vtkIVExporter,vtkExporter);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Specify the name of the OpenInventor file to write.

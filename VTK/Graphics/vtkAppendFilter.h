@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:10 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2000-04-28 18:11:02 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -63,7 +63,7 @@ public:
   static vtkAppendFilter *New();
 
   vtkTypeMacro(vtkAppendFilter,vtkDataSetToUnstructuredGridFilter);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Add a dataset to the list of data to append.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLogLookupTable.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:15 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2000-04-28 18:10:06 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -230,7 +230,7 @@ void vtkLogLookupTable::MapScalarsThroughTable2(void *input,
     }
 }  
 
-void vtkLogLookupTable::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkLogLookupTable::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkLookupTable::PrintSelf(os,indent);
 

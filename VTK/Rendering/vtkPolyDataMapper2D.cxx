@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:31:11 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2000-04-28 18:14:08 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -224,7 +224,7 @@ char *vtkPolyDataMapper2D::GetColorModeAsString(void)
     }
 }
 
-void vtkPolyDataMapper2D::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkPolyDataMapper2D::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkMapper2D::PrintSelf(os,indent);
 
@@ -252,7 +252,7 @@ void vtkPolyDataMapper2D::PrintSelf(vtkOstream& os, vtkIndent indent)
   float *range = this->GetScalarRange();
   os << indent << "Scalar Range: (" << range[0] << ", " << range[1] << ")\n";
   
-  os << indent << "Color Mode: " << this->GetColorModeAsString() << vtkEndl;
+  os << indent << "Color Mode: " << this->GetColorModeAsString() << endl;
 
   if ( this->TransformCoordinate )
     {

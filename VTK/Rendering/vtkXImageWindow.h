@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:31:16 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2000-04-28 18:14:13 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -63,7 +63,7 @@ class VTK_EXPORT vtkXImageWindow : public vtkImageWindow
 public:
   static vtkXImageWindow *New();
   vtkTypeMacro(vtkXImageWindow,vtkImageWindow);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Implements SetWindowName for a X window

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeReader.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:30:16 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2000-04-28 18:13:11 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -76,7 +76,7 @@ class VTK_EXPORT vtkVolumeReader : public vtkStructuredPointsSource
 {
 public:
   vtkTypeMacro(vtkVolumeReader,vtkStructuredPointsSource);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Specify file prefix for the image file(s).

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleUser.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:01 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-04-28 18:11:54 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,7 +60,7 @@ class VTK_EXPORT vtkInteractorStyleUser : public vtkInteractorStyleTrackball
 public:
   static vtkInteractorStyleUser *New();
   vtkTypeMacro(vtkInteractorStyleUser,vtkInteractorStyleTrackball);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description: 
   // Hooks to set up a customized interaction mode

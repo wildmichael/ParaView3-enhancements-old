@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeneralTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:05 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2000-04-28 18:09:57 $
+  Version:   $Revision: 1.22 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -45,7 +45,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkMath.h"
 
 //----------------------------------------------------------------------------
-void vtkGeneralTransform::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkGeneralTransform::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkObject::PrintSelf(os, indent);
 }

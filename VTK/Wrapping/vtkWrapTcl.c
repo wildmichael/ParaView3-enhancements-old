@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapTcl.c,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:31:40 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-04-28 18:14:41 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -681,7 +681,7 @@ void vtkParseOutput(FILE *fp, FileInfo *data)
   if (!strcmp("vtkObject",data->ClassName))
     {
     fprintf(fp,"  if ((!strcmp(\"Print\",argv[1]))&&(argc == 2))\n    {\n");
-    fprintf(fp,"    vtkOstrstream buf;\n");
+    fprintf(fp,"    ostrstream buf;\n");
     fprintf(fp,"    op->Print(buf);\n");
     fprintf(fp,"    buf.put('\\0');\n");
     fprintf(fp,"    Tcl_SetResult(interp,buf.str(),TCL_VOLATILE);\n");

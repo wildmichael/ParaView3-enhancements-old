@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUWriter.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:14 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2000-04-28 18:11:06 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -63,7 +63,7 @@ public:
   static vtkBYUWriter *New();
 
   vtkTypeMacro(vtkBYUWriter,vtkPolyDataWriter);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Specify the name of the geometry file to write.

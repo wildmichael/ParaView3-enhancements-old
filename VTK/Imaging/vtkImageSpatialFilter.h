@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSpatialFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:31:05 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2000-04-28 18:14:01 $
+  Version:   $Revision: 1.39 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,7 +60,7 @@ class VTK_EXPORT vtkImageSpatialFilter : public vtkImageToImageFilter
 public:
   static vtkImageSpatialFilter *New();
   vtkTypeMacro(vtkImageSpatialFilter,vtkImageToImageFilter);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Get the Kernel size.

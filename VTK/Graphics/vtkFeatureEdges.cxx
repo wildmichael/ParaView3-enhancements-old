@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFeatureEdges.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:46 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2000-04-28 18:11:39 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -346,7 +346,7 @@ unsigned long int vtkFeatureEdges::GetMTime()
   return mTime;
 }
 
-void vtkFeatureEdges::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkFeatureEdges::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
 

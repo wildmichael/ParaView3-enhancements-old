@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMIPFunction.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:30:15 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-04-28 18:13:10 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,7 +68,7 @@ class VTK_EXPORT vtkVolumeRayCastMIPFunction : public vtkVolumeRayCastFunction
 public:
   static vtkVolumeRayCastMIPFunction *New();
   vtkTypeMacro(vtkVolumeRayCastMIPFunction,vtkVolumeRayCastFunction);
-  void PrintSelf( vtkOstream& os, vtkIndent index );
+  void PrintSelf( ostream& os, vtkIndent index );
 
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMatrix4x4.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:18 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2000-04-28 18:10:09 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -72,7 +72,7 @@ class VTK_EXPORT vtkMatrix4x4 : public vtkObject
   static vtkMatrix4x4 *New();
 
   vtkTypeMacro(vtkMatrix4x4,vtkObject);
-  void PrintSelf (vtkOstream& os, vtkIndent indent);
+  void PrintSelf (ostream& os, vtkIndent indent);
   
   // Description:
   // Set the elements of the matrix to the same values as the elements

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConnectivityFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:24 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2000-04-28 18:11:16 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -526,7 +526,7 @@ void vtkConnectivityFilter::DeleteSpecifiedRegion(int id)
   this->SpecifiedRegionIds->DeleteId(id);
 }
 
-void vtkConnectivityFilter::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkConnectivityFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkDataSetToUnstructuredGridFilter::PrintSelf(os,indent);
 

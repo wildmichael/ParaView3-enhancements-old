@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxelModeller.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:30:19 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2000-04-28 18:13:14 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,7 +58,7 @@ class VTK_EXPORT vtkVoxelModeller : public vtkDataSetToStructuredPointsFilter
 {
 public:
   vtkTypeMacro(vtkVoxelModeller,vtkDataSetToStructuredPointsFilter);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Construct an instance of vtkVoxelModeller with its sample dimensions

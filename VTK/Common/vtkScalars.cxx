@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalars.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:34 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2000-04-28 18:10:24 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -408,7 +408,7 @@ unsigned char *vtkScalars::Luminance(int id)
   return this->RGBA;
 }
 
-void vtkScalars::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkScalars::PrintSelf(ostream& os, vtkIndent indent)
 {
   float *range;
 

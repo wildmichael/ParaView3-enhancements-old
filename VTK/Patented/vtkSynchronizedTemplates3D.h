@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates3D.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:31:25 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-04-28 18:14:22 $
+  Version:   $Revision: 1.12 $
 
 
 
@@ -78,7 +78,7 @@ public:
   static vtkSynchronizedTemplates3D *New();
 
   vtkTypeMacro(vtkSynchronizedTemplates3D,vtkPolyDataSource);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:
   // Set/Get the source for the scalar data to contour.

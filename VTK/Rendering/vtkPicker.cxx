@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:18 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2000-04-28 18:12:11 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -533,7 +533,7 @@ void vtkPicker::DeletePickList(vtkActor *a)
   this->PickList->RemoveItem(a);
 }
 
-void vtkPicker::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkPicker::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->vtkObject::PrintSelf(os,indent);
 

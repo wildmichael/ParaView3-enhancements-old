@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThresholdTextureCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:30:00 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2000-04-28 18:12:54 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -159,7 +159,7 @@ void vtkThresholdTextureCoords::Execute()
   newTCoords->Delete();
 }
 
-void vtkThresholdTextureCoords::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkThresholdTextureCoords::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkDataSetToDataSetFilter::PrintSelf(os,indent);
 

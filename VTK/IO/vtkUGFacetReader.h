@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUGFacetReader.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:30:05 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2000-04-28 18:12:59 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -56,7 +56,7 @@ class VTK_EXPORT vtkUGFacetReader : public vtkPolyDataSource
 {
 public:
   vtkTypeMacro(vtkUGFacetReader,vtkPolyDataSource);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Construct object to extract all parts, and with point merging

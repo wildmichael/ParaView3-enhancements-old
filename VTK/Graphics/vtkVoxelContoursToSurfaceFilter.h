@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxelContoursToSurfaceFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:30:18 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-04-28 18:13:13 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -74,7 +74,7 @@ class VTK_EXPORT vtkVoxelContoursToSurfaceFilter : public vtkPolyDataToPolyDataF
 public:
   static vtkVoxelContoursToSurfaceFilter *New();
   vtkTypeMacro(vtkVoxelContoursToSurfaceFilter,vtkPolyDataToPolyDataFilter);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Set / Get the memory limit in bytes for this filter. This is the limit

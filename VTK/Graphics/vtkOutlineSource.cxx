@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutlineSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:16 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2000-04-28 18:12:10 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -146,7 +146,7 @@ void vtkOutlineSource::Execute()
 
 
 //----------------------------------------------------------------------------
-void vtkOutlineSource::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkOutlineSource::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkPolyDataSource::PrintSelf(os,indent);
 

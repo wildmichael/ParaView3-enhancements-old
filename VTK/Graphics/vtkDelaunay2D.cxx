@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:36 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2000-04-28 18:11:29 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1047,7 +1047,7 @@ void vtkDelaunay2D::FillPolygons(vtkCellArray *polys, int *triUse)
   neis->Delete();
 }
 
-void vtkDelaunay2D::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkDelaunay2D::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkPolyDataSource::PrintSelf(os,indent);
 

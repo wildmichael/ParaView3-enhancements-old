@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeDataObjectFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:10 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-04-28 18:12:03 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -71,7 +71,7 @@ class VTK_EXPORT vtkMergeDataObjectFilter : public vtkDataSetToDataSetFilter
 public:
   static vtkMergeDataObjectFilter *New();
   vtkTypeMacro(vtkMergeDataObjectFilter,vtkDataSetToDataSetFilter);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Specify the data object to merge with the input dataset.

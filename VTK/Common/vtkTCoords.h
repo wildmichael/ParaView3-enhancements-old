@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTCoords.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:38 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2000-04-28 18:10:29 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -63,7 +63,7 @@ public:
 
 
   vtkTypeMacro(vtkTCoords,vtkAttributeData);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Set the data for this object. The tuple dimension must be consistent with

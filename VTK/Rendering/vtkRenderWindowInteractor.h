@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:36 $
-  Version:   $Revision: 1.66 $
+  Date:      $Date: 2000-04-28 18:12:29 $
+  Version:   $Revision: 1.67 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -70,7 +70,7 @@ class VTK_EXPORT vtkRenderWindowInteractor : public vtkObject
 public:
   static vtkRenderWindowInteractor *New();
   vtkTypeMacro(vtkRenderWindowInteractor,vtkObject);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Prepare for handling events. This must be called before the

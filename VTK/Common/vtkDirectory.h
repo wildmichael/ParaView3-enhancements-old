@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDirectory.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:03 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2000-04-28 18:09:54 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to William A. Hoffman who developed this class
   
 
@@ -68,7 +68,7 @@ public:
 
   // Description:
   // Print directory to stream.
-  virtual void PrintSelf(vtkOstream& os, vtkIndent indent);
+  virtual void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Open the specified directory and load the names of the files

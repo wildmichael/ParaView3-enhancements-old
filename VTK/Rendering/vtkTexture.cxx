@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:56 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2000-04-28 18:12:50 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -97,7 +97,7 @@ void vtkTexture::SetLookupTable(vtkLookupTable *lut)
     }
 }
 
-void vtkTexture::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkTexture::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkObject::PrintSelf(os,indent);
 

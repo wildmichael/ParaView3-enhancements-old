@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSource.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:36 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 2000-04-28 18:10:27 $
+  Version:   $Revision: 1.53 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -78,7 +78,7 @@ public:
   static vtkSource *New();
 
   vtkTypeMacro(vtkSource,vtkProcessObject);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Bring object up-to-date before execution. Update() checks modified

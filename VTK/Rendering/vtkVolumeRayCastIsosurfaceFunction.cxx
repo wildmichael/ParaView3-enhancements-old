@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastIsosurfaceFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:30:14 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-04-28 18:13:08 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1320,7 +1320,7 @@ void vtkVolumeRayCastIsosurfaceFunction::SpecificFunctionInitialize(
 }
 
 // Print method for vtkVolumeRayCastIsosurfaceFunction
-void vtkVolumeRayCastIsosurfaceFunction::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkVolumeRayCastIsosurfaceFunction::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkVolumeRayCastFunction::PrintSelf(os,indent);
 

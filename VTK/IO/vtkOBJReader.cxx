@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBJReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:58 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-04-28 18:10:49 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -264,7 +264,7 @@ void vtkOBJReader::Execute()
   output->Squeeze();
 }
 
-void vtkOBJReader::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkOBJReader::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkPolyDataSource::PrintSelf(os,indent);
 

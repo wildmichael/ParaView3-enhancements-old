@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourValues.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:26:58 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-04-28 18:09:49 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -64,7 +64,7 @@ public:
   static vtkContourValues *New();
 
   vtkTypeMacro(vtkContourValues,vtkObject);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Set the ith contour value.

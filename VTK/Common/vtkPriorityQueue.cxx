@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPriorityQueue.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:29 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2000-04-28 18:10:20 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -268,7 +268,7 @@ void vtkPriorityQueue::Reset()
     }
 }
 
-void vtkPriorityQueue::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkPriorityQueue::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkObject::PrintSelf(os,indent);
 

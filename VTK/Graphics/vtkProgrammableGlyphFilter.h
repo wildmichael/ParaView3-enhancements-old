@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableGlyphFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:27 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-04-28 18:12:20 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -93,7 +93,7 @@ class VTK_EXPORT vtkProgrammableGlyphFilter : public vtkDataSetToPolyDataFilter
 {
 public:
   vtkTypeMacro(vtkProgrammableGlyphFilter,vtkDataSetToPolyDataFilter);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description
   // Construct object with NULL GlyphMethod() and no source object. The ColorMode

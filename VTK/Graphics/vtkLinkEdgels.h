@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinkEdgels.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:06 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-04-28 18:12:00 $
+  Version:   $Revision: 1.18 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -77,7 +77,7 @@ class VTK_EXPORT vtkLinkEdgels : public vtkStructuredPointsToPolyDataFilter
 {
 public:
   vtkTypeMacro(vtkLinkEdgels,vtkStructuredPointsToPolyDataFilter);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Construct instance of vtkLinkEdgels with GradientThreshold set to 

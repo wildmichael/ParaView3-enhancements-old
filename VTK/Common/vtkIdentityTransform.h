@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdentityTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:08 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-04-28 18:10:00 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -59,7 +59,7 @@ public:
   static vtkIdentityTransform *New();
 
   vtkTypeMacro(vtkIdentityTransform,vtkLinearTransform);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Apply the transformation to a coordinate.  You can use the same 

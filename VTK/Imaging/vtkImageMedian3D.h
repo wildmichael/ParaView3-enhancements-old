@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMedian3D.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:30:54 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-04-28 18:13:50 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -59,7 +59,7 @@ class VTK_EXPORT vtkImageMedian3D : public vtkImageSpatialFilter
 public:
   static vtkImageMedian3D *New();
   vtkTypeMacro(vtkImageMedian3D,vtkImageSpatialFilter);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // This method sets the size of the neighborhood.  It also sets the 

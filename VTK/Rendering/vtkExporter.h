@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExporter.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:42 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2000-04-28 18:11:35 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -70,7 +70,7 @@ class VTK_EXPORT vtkExporter : public vtkObject
 {
 public:
   vtkTypeMacro(vtkExporter,vtkObject);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Write data to output. Method executes subclasses WriteData() method, as 

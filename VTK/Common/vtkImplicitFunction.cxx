@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:11 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2000-04-28 18:10:03 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -111,7 +111,7 @@ unsigned long vtkImplicitFunction::GetMTime()
   return mTime;
 }
 
-void vtkImplicitFunction::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkImplicitFunction::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkObject::PrintSelf(os,indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMatrix4x4.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:18 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2000-04-28 18:10:09 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -522,7 +522,7 @@ void vtkMatrix4x4::Transpose (const double inElements[16],
     }
 }
 
-void vtkMatrix4x4::PrintSelf (vtkOstream& os, vtkIndent indent)
+void vtkMatrix4x4::PrintSelf (ostream& os, vtkIndent indent)
 {
   int i, j;
 

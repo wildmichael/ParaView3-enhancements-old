@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlaneSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:19 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2000-04-28 18:12:12 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -417,7 +417,7 @@ int vtkPlaneSource::UpdatePlane(float v1[3], float v2[3])
     }
 }
 
-void vtkPlaneSource::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkPlaneSource::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkPolyDataSource::PrintSelf(os,indent);
 

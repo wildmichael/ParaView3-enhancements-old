@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAppend.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:30:31 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-04-28 18:13:26 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -62,7 +62,7 @@ class VTK_EXPORT vtkImageAppend : public vtkImageMultipleInputFilter
 public:
   static vtkImageAppend *New();
   vtkTypeMacro(vtkImageAppend,vtkImageMultipleInputFilter);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:
   // This axis is expanded to hold the multiple images.

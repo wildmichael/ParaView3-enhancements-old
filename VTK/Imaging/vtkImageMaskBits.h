@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMaskBits.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:30:53 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-04-28 18:13:49 $
+  Version:   $Revision: 1.10 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -57,7 +57,7 @@ class VTK_EXPORT vtkImageMaskBits : public vtkImageToImageFilter
 public:
   static vtkImageMaskBits *New();
   vtkTypeMacro(vtkImageMaskBits,vtkImageToImageFilter);
-  void PrintSelf(vtkOstream &, vtkIndent);
+  void PrintSelf(ostream &, vtkIndent);
   
   // Description:
   // Set/Get the bit-masks. Default is 0xffffffff.

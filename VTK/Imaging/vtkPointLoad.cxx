@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLoad.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:21 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2000-04-28 18:12:14 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -258,7 +258,7 @@ void vtkPointLoad::Execute()
 }
 
 
-void vtkPointLoad::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkPointLoad::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkStructuredPointsSource::PrintSelf(os,indent);
 

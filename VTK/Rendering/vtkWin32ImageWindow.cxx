@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32ImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:31:14 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2000-04-28 18:14:11 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -222,7 +222,7 @@ vtkWin32ImageWindow::~vtkWin32ImageWindow()
 
 
 //----------------------------------------------------------------------------
-void vtkWin32ImageWindow::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkWin32ImageWindow::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkImageWindow::PrintSelf(os, indent);
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 05:30:13 $
-  Version:   $Revision: 1.143 $
+  Date:      $Date: 2000-04-28 18:12:30 $
+  Version:   $Revision: 1.144 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -999,7 +999,7 @@ void vtkRenderer::WorldToView(float &x, float &y, float &z)
   matrix->Delete();
 }
 
-void vtkRenderer::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkRenderer::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->vtkViewport::PrintSelf(os,indent);
 
@@ -1031,7 +1031,7 @@ void vtkRenderer::PrintSelf(vtkOstream& os, vtkIndent indent)
      << "\n";
 
   os << indent << "Last Time To Render (Seconds): " 
-     << this->LastRenderTimeInSeconds << vtkEndl;
+     << this->LastRenderTimeInSeconds << endl;
 
   // I don't want to print this since it is used just internally
   // os << indent << this->NumberOfPropsRenderedAsGeometry;

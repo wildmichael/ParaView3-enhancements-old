@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:30:01 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-04-28 18:12:56 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -69,7 +69,7 @@ class VTK_EXPORT vtkTransformPolyDataFilter : public vtkPolyDataToPolyDataFilter
 public:
   static vtkTransformPolyDataFilter *New();
   vtkTypeMacro(vtkTransformPolyDataFilter,vtkPolyDataToPolyDataFilter);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Return the MTime also considering the trnasform.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpScalar.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:30:20 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2000-04-28 18:13:14 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -178,7 +178,7 @@ void vtkWarpScalar::Execute()
   newPts->Delete();
 }
 
-void vtkWarpScalar::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkWarpScalar::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkPointSetToPointSetFilter::PrintSelf(os,indent);
 

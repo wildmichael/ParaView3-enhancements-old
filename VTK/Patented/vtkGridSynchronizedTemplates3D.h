@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGridSynchronizedTemplates3D.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:31:19 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-04-28 18:14:16 $
+  Version:   $Revision: 1.12 $
 
 
 
@@ -75,7 +75,7 @@ class VTK_EXPORT vtkGridSynchronizedTemplates3D : public vtkStructuredGridToPoly
 public:
   static vtkGridSynchronizedTemplates3D *New();
   vtkTypeMacro(vtkGridSynchronizedTemplates3D,vtkStructuredGridToPolyDataFilter);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Because we delegate to vtkContourValues

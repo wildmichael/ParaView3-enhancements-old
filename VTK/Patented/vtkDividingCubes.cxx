@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDividingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:31:18 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2000-04-28 18:14:15 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -370,7 +370,7 @@ void vtkDividingCubes::SubDivide(float origin[3], int dim[3], float h[3],
     }
 }
 
-void vtkDividingCubes::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkDividingCubes::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkStructuredPointsToPolyDataFilter::PrintSelf(os,indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssembly.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:12 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2000-04-28 18:11:03 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -438,7 +438,7 @@ unsigned long int vtkAssembly::GetMTime()
   return mTime;
 }
 
-void vtkAssembly::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkAssembly::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkActor::PrintSelf(os,indent);
 

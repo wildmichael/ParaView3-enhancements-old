@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedCharArray.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:41 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2000-04-28 18:10:32 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -56,7 +56,7 @@ public:
   static vtkUnsignedCharArray *New();
 
   vtkTypeMacro(vtkUnsignedCharArray,vtkDataArray);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Allocate memory for this array. Delete old storage only if necessary.

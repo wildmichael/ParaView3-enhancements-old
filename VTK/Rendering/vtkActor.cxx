@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:09 $
-  Version:   $Revision: 1.97 $
+  Date:      $Date: 2000-04-28 18:11:00 $
+  Version:   $Revision: 1.98 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -476,7 +476,7 @@ void vtkActor::BuildPaths(vtkAssemblyPaths *vtkNotUsed(paths),
   path->AddItem(copy);
 }
 
-void vtkActor::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkActor::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkProp3D::PrintSelf(os,indent);
 

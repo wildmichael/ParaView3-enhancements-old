@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProbeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:25 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2000-04-28 18:12:18 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -158,7 +158,7 @@ void vtkProbeFilter::Execute()
 
 
 //----------------------------------------------------------------------------
-void vtkProbeFilter::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkProbeFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkDataSet *source = this->GetSource();
 

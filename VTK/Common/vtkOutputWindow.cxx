@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutputWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:22 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-04-28 18:10:13 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -71,12 +71,12 @@ vtkOutputWindow::~vtkOutputWindow()
 {
 }
 
-void vtkOutputWindow::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkOutputWindow::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->vtkObject::PrintSelf(os, indent);
 
   os << indent << "vtkOutputWindow Single instance = "
-     << (void*)vtkOutputWindow::Instance << vtkEndl;
+     << (void*)vtkOutputWindow::Instance << endl;
   os << indent << "Prompt User: " 
      << (this->PromptUser ? "On\n" : "Off\n");
 }
@@ -85,13 +85,13 @@ void vtkOutputWindow::PrintSelf(vtkOstream& os, vtkIndent indent)
 // default implementation outputs to cerr only
 void vtkOutputWindow::DisplayText(const char* txt)
 {
-  vtkCerr << txt;
+  cerr << txt;
   if (this->PromptUser)
     {
     char c = 'n';
-    vtkCerr << "\nDo you want to suppress any further messages (y,n)?." 
-              << vtkEndl;
-    vtkCin >> c;
+    cerr << "\nDo you want to suppress any further messages (y,n)?." 
+              << endl;
+    cin >> c;
     if (c == 'y')
       {
       vtkObject::GlobalWarningDisplayOff(); 

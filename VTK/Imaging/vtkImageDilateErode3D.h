@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDilateErode3D.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:30:40 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2000-04-28 18:13:36 $
+  Version:   $Revision: 1.23 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -64,7 +64,7 @@ public:
   // By default zero values are dilated.
   static vtkImageDilateErode3D *New();
   vtkTypeMacro(vtkImageDilateErode3D,vtkImageSpatialFilter);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:
   // This method sets the size of the neighborhood.  It also sets the 

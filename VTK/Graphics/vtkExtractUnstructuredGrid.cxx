@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:45 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-04-28 18:11:38 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -256,7 +256,7 @@ void vtkExtractUnstructuredGrid::Execute()
   cellIds->Delete();
 }
 
-void vtkExtractUnstructuredGrid::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkExtractUnstructuredGrid::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkUnstructuredGridToUnstructuredGridFilter::PrintSelf(os,indent);
 

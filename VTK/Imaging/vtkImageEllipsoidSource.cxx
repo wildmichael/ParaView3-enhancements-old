@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageEllipsoidSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:30:41 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-04-28 18:13:36 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -89,7 +89,7 @@ vtkImageEllipsoidSource::~vtkImageEllipsoidSource()
 }
 
 //----------------------------------------------------------------------------
-void vtkImageEllipsoidSource::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkImageEllipsoidSource::PrintSelf(ostream& os, vtkIndent indent)
 {
   os << indent << "Center: (" << this->Center[0] << ", "
      << this->Center[1] << ", " << this->Center[2] << ")\n";

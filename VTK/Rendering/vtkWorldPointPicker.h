@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWorldPointPicker.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:30:24 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2000-04-28 18:13:19 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -62,7 +62,7 @@ class VTK_EXPORT vtkWorldPointPicker : public vtkPicker
 public:
   static vtkWorldPointPicker *New();
   vtkTypeMacro(vtkWorldPointPicker,vtkPicker);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Get the id of the picked point. If PointId = -1, nothing was picked.

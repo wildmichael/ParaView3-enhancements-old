@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMassProperties.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:57 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-04-28 18:10:48 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -329,7 +329,7 @@ void vtkMassProperties::Execute()
   ptIds->Delete();
 }
 
-void vtkMassProperties::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkMassProperties::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkProcessObject::PrintSelf(os,indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSmoothPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:46 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2000-04-28 18:12:39 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -693,7 +693,7 @@ void vtkSmoothPolyDataFilter::Execute()
   delete [] Verts;
 }
 
-void vtkSmoothPolyDataFilter::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkSmoothPolyDataFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLogLookupTable.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:15 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2000-04-28 18:10:07 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -64,7 +64,7 @@ public:
   static vtkLogLookupTable *New();
 
   vtkTypeMacro(vtkLogLookupTable,vtkLookupTable);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Set the minimum/maximum scalar values for scalar mapping. Scalar values

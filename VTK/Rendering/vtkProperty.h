@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:29 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2000-04-28 18:12:23 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -66,7 +66,7 @@ class VTK_EXPORT vtkProperty : public vtkObject
 {
 public:
   vtkTypeMacro(vtkProperty,vtkObject);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Construct object with object color, ambient color, diffuse color,

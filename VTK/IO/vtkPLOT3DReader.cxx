@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLOT3DReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:17 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2000-04-28 18:12:10 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1593,7 +1593,7 @@ int vtkPLOT3DReader::GetFileType(FILE *fp)
   return type;
 }
 
-void vtkPLOT3DReader::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkPLOT3DReader::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkStructuredGridSource::PrintSelf(os,indent);
 

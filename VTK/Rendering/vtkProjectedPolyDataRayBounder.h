@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProjectedPolyDataRayBounder.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:27 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2000-04-28 18:12:21 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to Lisa Sobierajski Avila who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -67,7 +67,7 @@ class VTK_EXPORT vtkProjectedPolyDataRayBounder : public vtkRayBounder
 {
 public:
   vtkTypeMacro(vtkProjectedPolyDataRayBounder,vtkRayBounder);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:
   // New method for the class which will return the correct type of 

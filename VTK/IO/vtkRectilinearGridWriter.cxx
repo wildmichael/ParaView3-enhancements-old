@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:32 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-04-28 18:12:26 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -82,7 +82,7 @@ vtkRectilinearGrid *vtkRectilinearGridWriter::GetInput()
 
 void vtkRectilinearGridWriter::WriteData()
 {
-  vtkOstream *fp;
+  ostream *fp;
   vtkRectilinearGrid *input = this->GetInput();
   int dim[3];
 
@@ -110,7 +110,7 @@ void vtkRectilinearGridWriter::WriteData()
   this->CloseVTKFile(fp);
 }
 
-void vtkRectilinearGridWriter::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkRectilinearGridWriter::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkDataWriter::PrintSelf(os,indent);
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextSource.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:56 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2000-04-28 18:12:50 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -66,7 +66,7 @@ class VTK_EXPORT vtkTextSource : public vtkPolyDataSource
 {
 public:
   vtkTypeMacro(vtkTextSource,vtkPolyDataSource);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Construct object with no string set and backing enabled.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShepardMethod.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:43 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2000-04-28 18:12:37 $
+  Version:   $Revision: 1.31 $
   Thanks:    Paul A, Hsieh for bug fixes
 
 
@@ -337,7 +337,7 @@ void vtkShepardMethod::SetSampleDimensions(int dim[3])
     }
 }
 
-void vtkShepardMethod::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkShepardMethod::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkDataSetToStructuredPointsFilter::PrintSelf(os,indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:22 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2000-04-28 18:12:15 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -142,7 +142,7 @@ void vtkPointPicker::Initialize()
   this->vtkPicker::Initialize();
 }
 
-void vtkPointPicker::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkPointPicker::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->vtkPicker::PrintSelf(os,indent);
 

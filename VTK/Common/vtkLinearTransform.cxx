@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:13 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-04-28 18:10:04 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -45,7 +45,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkMath.h"
 
 //----------------------------------------------------------------------------
-void vtkLinearTransform::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkLinearTransform::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkGeneralTransform::PrintSelf(os, indent);
   if (this->Matrix)

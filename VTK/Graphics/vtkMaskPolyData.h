@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMaskPolyData.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:09 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2000-04-28 18:12:03 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -54,7 +54,7 @@ class VTK_EXPORT vtkMaskPolyData : public vtkPolyDataToPolyDataFilter
 public:
   static vtkMaskPolyData *New();
   vtkTypeMacro(vtkMaskPolyData,vtkPolyDataToPolyDataFilter);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Turn on every nth entity (cell).

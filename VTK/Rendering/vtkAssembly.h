@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssembly.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:12 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2000-04-28 18:11:04 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -90,7 +90,7 @@ public:
   static vtkAssembly *New();
 
   vtkTypeMacro(vtkAssembly,vtkActor);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Add a part to the list of parts.

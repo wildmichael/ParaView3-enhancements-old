@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdentityTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:08 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2000-04-28 18:10:00 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,7 +68,7 @@ vtkIdentityTransform::~vtkIdentityTransform()
 }
 
 //----------------------------------------------------------------------------
-void vtkIdentityTransform::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkIdentityTransform::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkLinearTransform::PrintSelf(os, indent);
 }

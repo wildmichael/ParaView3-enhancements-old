@@ -3,8 +3,8 @@
  Program:   Visualization Toolkit
  Module:    $RCSfile: vtkProcessObject.cxx,v $
  Language:  C++
- Date:      $Date: 2000-04-25 13:27:30 $
- Version:   $Revision: 1.12 $
+ Date:      $Date: 2000-04-28 18:10:21 $
+ Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -384,12 +384,12 @@ void vtkProcessObject::SetEndMethodArgDelete(void (*f)(void *))
     }
 }
 
-void vtkProcessObject::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkProcessObject::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkObject::PrintSelf(os,indent);
 
   os << indent << "Number Of Required Inputs: "
-     << this->NumberOfRequiredInputs << vtkEndl;
+     << this->NumberOfRequiredInputs << endl;
 
   if ( this->NumberOfInputs)
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdList.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:07 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 2000-04-28 18:09:59 $
+  Version:   $Revision: 1.61 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,7 +58,7 @@ public:
   void Initialize();
   int Allocate(const int sz, const int strategy=0);
   vtkTypeMacro(vtkIdList,vtkObject);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Return the number of id's in the list.

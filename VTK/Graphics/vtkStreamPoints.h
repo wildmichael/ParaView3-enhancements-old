@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamPoints.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:49 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2000-04-28 18:12:43 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,7 +58,7 @@ class VTK_EXPORT vtkStreamPoints : public vtkStreamer
 {
 public:
   vtkTypeMacro(vtkStreamPoints,vtkStreamer);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Construct object with time increment set to 1.0.

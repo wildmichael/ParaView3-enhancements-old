@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShrinkFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:44 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2000-04-28 18:12:38 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -153,7 +153,7 @@ void vtkShrinkFilter::Execute()
   newPts->Delete();
 }
 
-void vtkShrinkFilter::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkShrinkFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkDataSetToUnstructuredGridFilter::PrintSelf(os,indent);
 

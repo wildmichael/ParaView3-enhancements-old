@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageBlockReader.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:54 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2000-04-28 18:10:45 $
+  Version:   $Revision: 1.9 $
   
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -57,7 +57,7 @@ class VTK_EXPORT vtkImageBlockReader : public vtkImageSource
 public:
   static vtkImageBlockReader *New();
   vtkTypeMacro(vtkImageBlockReader,vtkImageSource);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // The whole extent is broken up into this many divisions along each axis.

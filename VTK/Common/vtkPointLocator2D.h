@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator2D.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:26 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-04-28 18:10:17 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -81,7 +81,7 @@ public:
   static vtkPointLocator2D *New();
 
   vtkTypeMacro(vtkPointLocator2D,vtkLocator);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Set the number of divisions in x-y directions.

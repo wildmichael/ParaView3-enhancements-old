@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:16 $
-  Version:   $Revision: 1.80 $
+  Date:      $Date: 2000-04-28 18:11:08 $
+  Version:   $Revision: 1.81 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -894,7 +894,7 @@ void vtkCamera::ViewingRaysModified()
   this->ViewingRaysMTime.Modified();
 }
 
-void vtkCamera::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkCamera::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkObject::PrintSelf(os,indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHedgeHog.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:51 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2000-04-28 18:11:45 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -124,7 +124,7 @@ void vtkHedgeHog::Execute()
   newLines->Delete();
 }
 
-void vtkHedgeHog::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkHedgeHog::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkDataSetToPolyDataFilter::PrintSelf(os,indent);
 

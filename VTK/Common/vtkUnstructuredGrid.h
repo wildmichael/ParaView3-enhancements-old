@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:44 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 2000-04-28 18:10:35 $
+  Version:   $Revision: 1.60 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -74,7 +74,7 @@ public:
   static vtkUnstructuredGrid *New();
 
   vtkTypeMacro(vtkUnstructuredGrid,vtkPointSet);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Standard vtkDataSet API methods. See vtkDataSet for more information.

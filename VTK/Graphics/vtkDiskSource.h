@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDiskSource.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:38 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2000-04-28 18:11:32 $
+  Version:   $Revision: 1.29 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -58,7 +58,7 @@ class VTK_EXPORT vtkDiskSource : public vtkPolyDataSource
 public:
   static vtkDiskSource *New();
   vtkTypeMacro(vtkDiskSource,vtkPolyDataSource);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Specify inner radius of hole in disc.

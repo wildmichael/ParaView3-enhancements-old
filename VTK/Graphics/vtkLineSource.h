@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLineSource.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:05 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2000-04-28 18:11:59 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -55,7 +55,7 @@ class VTK_EXPORT vtkLineSource : public vtkPolyDataSource
 public:
   static vtkLineSource *New();
   vtkTypeMacro(vtkLineSource,vtkPolyDataSource);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Set position of first end point.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBJReader.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:59 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2000-04-28 18:10:49 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,7 +57,7 @@ class VTK_EXPORT vtkOBJReader : public vtkPolyDataSource
 public:
   static vtkOBJReader *New();
   vtkTypeMacro(vtkOBJReader,vtkPolyDataSource);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Specify file name of Wavefront .obj file.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLookupTable.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:16 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2000-04-28 18:10:08 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -75,7 +75,7 @@ public:
   static vtkLookupTable *New();
   
   vtkTypeMacro(vtkLookupTable,vtkScalarsToColors);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Allocate a color table of specified size.

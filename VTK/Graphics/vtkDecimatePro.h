@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimatePro.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:36 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2000-04-28 18:11:29 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -176,7 +176,7 @@ class VTK_EXPORT vtkDecimatePro : public vtkPolyDataToPolyDataFilter
 {
 public:
   vtkTypeMacro(vtkDecimatePro,vtkPolyDataToPolyDataFilter);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Create object with specified reduction of 90% and feature angle of

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeneralTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:06 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2000-04-28 18:09:57 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -73,7 +73,7 @@ class VTK_EXPORT vtkGeneralTransform : public vtkObject
 public:
 
   vtkTypeMacro(vtkGeneralTransform,vtkObject);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Apply the transformation to a coordinate.  You can use the same 

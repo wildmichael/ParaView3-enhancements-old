@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkReferenceCount.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:33 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-04-28 18:10:24 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,7 +68,7 @@ vtkReferenceCount::~vtkReferenceCount()
 {
 }
 
-void vtkReferenceCount::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkReferenceCount::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkObject::PrintSelf(os,indent);
 }

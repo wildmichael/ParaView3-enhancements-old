@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:30:06 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2000-04-28 18:13:00 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -82,7 +82,7 @@ vtkUnstructuredGrid *vtkUnstructuredGridWriter::GetInput()
 
 void vtkUnstructuredGridWriter::WriteData()
 {
-  vtkOstream *fp;
+  ostream *fp;
   vtkUnstructuredGrid *input=this->GetInput();
   int *types, ncells, cellId;
 
@@ -130,7 +130,7 @@ void vtkUnstructuredGridWriter::WriteData()
   this->CloseVTKFile(fp);  
 }
 
-void vtkUnstructuredGridWriter::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkUnstructuredGridWriter::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkDataWriter::PrintSelf(os,indent);
 }

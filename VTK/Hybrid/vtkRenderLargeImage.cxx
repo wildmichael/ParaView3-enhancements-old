@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderLargeImage.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:01 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-04-28 18:10:52 $
+  Version:   $Revision: 1.12 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -81,7 +81,7 @@ vtkRenderLargeImage::~vtkRenderLargeImage()
 }
 
 //----------------------------------------------------------------------------
-void vtkRenderLargeImage::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkRenderLargeImage::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkImageSource::PrintSelf(os,indent);
   

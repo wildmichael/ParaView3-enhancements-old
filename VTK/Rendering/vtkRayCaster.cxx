@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRayCaster.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 05:30:13 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2000-04-28 18:12:24 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1504,7 +1504,7 @@ void vtkRayCaster::RescaleImage( )
   delete[] outputFloat;
 }
 
-void vtkRayCaster::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkRayCaster::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->vtkObject::PrintSelf(os,indent);
 

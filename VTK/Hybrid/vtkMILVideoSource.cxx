@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   $RCSfile: vtkMILVideoSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:56 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-04-28 18:10:47 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -116,7 +116,7 @@ vtkMILVideoSource::~vtkMILVideoSource()
 }  
 
 //----------------------------------------------------------------------------
-void vtkMILVideoSource::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkMILVideoSource::PrintSelf(ostream& os, vtkIndent indent)
 {
   int idx;
   

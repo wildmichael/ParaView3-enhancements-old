@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHull.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:52 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-04-28 18:11:45 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -699,18 +699,18 @@ void vtkHull::CreateInitialPolygon( float *verts, int i )
 }
 
 // Print the object
-void vtkHull::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkHull::PrintSelf(ostream& os, vtkIndent indent)
 {
   int i;
 
   vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
 
-  os << indent << "Number Of Planes: " << this->NumberOfPlanes << vtkEndl;
+  os << indent << "Number Of Planes: " << this->NumberOfPlanes << endl;
 
   for ( i = 0; i < this->NumberOfPlanes; i++ )
     {
     os << indent << "Plane " << i << ":  " << this->Planes[i*4] << " " <<
       this->Planes[i*4+1] << " " << this->Planes[i*4+2] << 
-      " " << this->Planes[i*4+3] << vtkEndl;
+      " " << this->Planes[i*4+3] << endl;
     }
 }

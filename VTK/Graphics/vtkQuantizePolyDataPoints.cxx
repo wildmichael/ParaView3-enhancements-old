@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuantizePolyDataPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:30 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-04-28 18:12:24 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to John Biddiscombe of the Rutherford Appleton Laboratory
              who developed and contributed this class.
 
@@ -80,7 +80,7 @@ void vtkQuantizePolyDataPoints::OperateOnBounds(float in[6], float out[6])
   out[5] = floor(in[5]/this->QFactor + 0.5)*this->QFactor;
 }
 //------------------------------------------------------------------------------
-void vtkQuantizePolyDataPoints::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkQuantizePolyDataPoints::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkCleanPolyData::PrintSelf(os,indent);
   os << indent << "QFactor: " << this->QFactor << "\n";

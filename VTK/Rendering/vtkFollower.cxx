@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFollower.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:48 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2000-04-28 18:11:41 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -160,7 +160,7 @@ void vtkFollower::GetMatrix(vtkMatrix4x4 *result)
   this->Transform->Pop();  
 } 
 
-void vtkFollower::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkFollower::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkActor::PrintSelf(os,indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextMapper.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:31:14 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2000-04-28 18:14:11 $
+  Version:   $Revision: 1.30 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -82,7 +82,7 @@ class VTK_EXPORT vtkTextMapper : public vtkMapper2D
 {
 public:
   vtkTypeMacro(vtkTextMapper,vtkMapper2D);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Creates a new text mapper with Font size 12, bold off, italic off,

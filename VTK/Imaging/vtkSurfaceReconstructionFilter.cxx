@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSurfaceReconstructionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:03 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-04-28 18:10:54 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to Tim Hutton (MINORI Project, Dental and Medical
              Informatics, Eastman Dental Institute, London, UK) who
              developed and contributed this class.
@@ -484,7 +484,7 @@ void vtkSurfaceReconstructionFilter::Execute()
   delete [] surfacePoints;
 }
 
-void vtkSurfaceReconstructionFilter::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkSurfaceReconstructionFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkDataSetToStructuredPointsFilter::PrintSelf(os,indent);
   

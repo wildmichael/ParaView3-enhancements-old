@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGradientMagnitude.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:30:45 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2000-04-28 18:13:41 $
+  Version:   $Revision: 1.24 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -73,7 +73,7 @@ vtkImageGradientMagnitude::vtkImageGradientMagnitude()
 
 
 //----------------------------------------------------------------------------
-void vtkImageGradientMagnitude::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkImageGradientMagnitude::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->vtkImageToImageFilter::PrintSelf(os, indent);
   os << indent << "HandleBoundaries: " << this->HandleBoundaries << "\n";

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWriter.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:30:24 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2000-04-28 18:13:19 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -70,7 +70,7 @@ class VTK_EXPORT vtkWriter : public vtkProcessObject
 {
 public:
   vtkTypeMacro(vtkWriter,vtkProcessObject);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Write data to output. Method executes subclasses WriteData() method, as 

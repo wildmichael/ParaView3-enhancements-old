@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereSource.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:48 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2000-04-28 18:12:41 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -62,7 +62,7 @@ class VTK_EXPORT vtkSphereSource : public vtkPolyDataSource
 {
 public:
   vtkTypeMacro(vtkSphereSource,vtkPolyDataSource);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Construct sphere with radius=0.5 and default resolution 8 in both Phi

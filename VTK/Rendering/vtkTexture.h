@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexture.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:57 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2000-04-28 18:12:50 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -86,7 +86,7 @@ class VTK_EXPORT vtkTexture : public vtkObject
 public:
   static vtkTexture *New();
   vtkTypeMacro(vtkTexture,vtkObject);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Renders a texture map. It first checks the object's modified time

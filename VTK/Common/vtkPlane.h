@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlane.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:24 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2000-04-28 18:10:15 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,7 +60,7 @@ public:
   static vtkPlane *New();
 
   vtkTypeMacro(vtkPlane,vtkImplicitFunction);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description
   // Evaluate plane equation for point x[3].

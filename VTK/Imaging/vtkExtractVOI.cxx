@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractVOI.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:45 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2000-04-28 18:11:38 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -263,7 +263,7 @@ void vtkExtractVOI::Execute()
 }
 
 
-void vtkExtractVOI::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkExtractVOI::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkStructuredPointsToStructuredPointsFilter::PrintSelf(os,indent);
 

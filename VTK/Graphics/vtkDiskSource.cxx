@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDiskSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:38 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2000-04-28 18:11:31 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -135,7 +135,7 @@ void vtkDiskSource::Execute()
   newPolys->Delete();
 }
 
-void vtkDiskSource::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkDiskSource::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkPolyDataSource::PrintSelf(os,indent);
 

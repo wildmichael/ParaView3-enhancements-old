@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:40 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2000-04-28 18:12:34 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -372,7 +372,7 @@ void vtkSTLReader::CreateDefaultLocator()
     }
 }
 
-void vtkSTLReader::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkSTLReader::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkPolyDataSource::PrintSelf(os,indent);
 

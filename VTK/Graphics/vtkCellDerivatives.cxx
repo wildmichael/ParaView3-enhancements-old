@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellDerivatives.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:49 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-04-28 18:10:40 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -247,14 +247,14 @@ char *vtkCellDerivatives::GetTensorModeAsString(void)
     }
 }
 
-void vtkCellDerivatives::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkCellDerivatives::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkDataSetToDataSetFilter::PrintSelf(os,indent);
 
   os << indent << "Vector Mode: " << this->GetVectorModeAsString() 
-     << vtkEndl;
+     << endl;
 
   os << indent << "Tensor Mode: " << this->GetTensorModeAsString() 
-     << vtkEndl;
+     << endl;
 }
 

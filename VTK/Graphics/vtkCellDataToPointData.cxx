@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellDataToPointData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:18 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-04-28 18:11:10 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -129,7 +129,7 @@ void vtkCellDataToPointData::Execute()
   delete [] weights;
 }
 
-void vtkCellDataToPointData::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkCellDataToPointData::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkDataSetToDataSetFilter::PrintSelf(os,indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:03 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2000-04-28 18:11:57 $
+  Version:   $Revision: 1.49 $
   
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -95,7 +95,7 @@ vtkLODActor::~vtkLODActor()
 
 
 //----------------------------------------------------------------------------
-void vtkLODActor::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkLODActor::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkActor::PrintSelf(os,indent);
 
@@ -103,7 +103,7 @@ void vtkLODActor::PrintSelf(vtkOstream& os, vtkIndent indent)
 
   // how should we print out the LODMappers?
   os << indent << "NumberOfLODMappers: " << this->LODMappers->GetNumberOfItems() 
-     << vtkEndl;
+     << endl;
 }
 
 
@@ -161,7 +161,7 @@ void vtkLODActor::Render(vtkRenderer *ren, vtkMapper *vtkNotUsed(m))
       // If the LOD has never been rendered, select it!
       if (tempTime == 0.0)
 	{ 
-	// vtkCerr << "      Has never been rendererd\n";
+	// cerr << "      Has never been rendererd\n";
 	bestMapper = mapper;
 	bestTime = 0.0;
 	}
@@ -169,13 +169,13 @@ void vtkLODActor::Render(vtkRenderer *ren, vtkMapper *vtkNotUsed(m))
 	{
 	if (bestTime > myTime && tempTime < bestTime)
 	  {
-	  // vtkCerr << "      Less than best in violation\n";
+	  // cerr << "      Less than best in violation\n";
 	  bestMapper = mapper;
 	  bestTime = tempTime;
 	  }
 	if (tempTime > bestTime && tempTime < myTime)
 	  { 
-	  // vtkCerr << "      Larger than best\n";
+	  // cerr << "      Larger than best\n";
 	  bestMapper = mapper;
 	  bestTime = tempTime;
 	  }

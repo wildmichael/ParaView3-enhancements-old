@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageThreshold.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:31:05 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2000-04-28 18:14:02 $
+  Version:   $Revision: 1.30 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -360,7 +360,7 @@ void vtkImageThreshold::ThreadedExecute(vtkImageData *inData,
     }
 }
 
-void vtkImageThreshold::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkImageThreshold::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkImageToImageFilter::PrintSelf(os,indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellDerivatives.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:49 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2000-04-28 18:10:40 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -79,7 +79,7 @@ class VTK_EXPORT vtkCellDerivatives : public vtkDataSetToDataSetFilter
 {
 public:
   vtkTypeMacro(vtkCellDerivatives,vtkDataSetToDataSetFilter);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Construct to compute the gradient of the scalars and vectors.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThinPlateSplineTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:04 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-04-28 18:10:55 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to David G. Gobbi who developed this class 
              based on code from vtkThinPlateSplineMeshWarp.cxx
 	     written by Tim Hutton.
@@ -569,7 +569,7 @@ void vtkThinPlateSplineTransform::InverseTransformPoint(const float point[3],
 }
 
 //------------------------------------------------------------------------
-void vtkThinPlateSplineTransform::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkThinPlateSplineTransform::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkWarpTransform::PrintSelf(os,indent);
   

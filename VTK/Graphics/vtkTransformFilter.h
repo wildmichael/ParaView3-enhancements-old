@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:30:01 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2000-04-28 18:12:55 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -67,7 +67,7 @@ class VTK_EXPORT vtkTransformFilter : public vtkPointSetToPointSetFilter
 public:
   static vtkTransformFilter *New();
   vtkTypeMacro(vtkTransformFilter,vtkPointSetToPointSetFilter);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Return the MTime also considering the transform.

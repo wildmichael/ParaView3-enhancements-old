@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingContourFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:31:21 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2000-04-28 18:14:18 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -101,7 +101,7 @@ class VTK_EXPORT vtkMarchingContourFilter : public vtkDataSetToPolyDataFilter
 {
 public:
   vtkTypeMacro(vtkMarchingContourFilter,vtkDataSetToPolyDataFilter);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Construct object with initial range (0,1) and single contour value

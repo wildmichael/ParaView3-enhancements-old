@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPoints.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 08:19:58 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2000-04-28 18:10:19 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -61,7 +61,7 @@ public:
   static vtkPoints *New();
 
   vtkTypeMacro(vtkPoints,vtkAttributeData);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Create a copy of this object.

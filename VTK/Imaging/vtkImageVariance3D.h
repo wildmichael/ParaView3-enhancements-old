@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageVariance3D.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:31:07 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-04-28 18:14:04 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -62,7 +62,7 @@ class VTK_EXPORT vtkImageVariance3D : public vtkImageSpatialFilter
 public:
   static vtkImageVariance3D *New();
   vtkTypeMacro(vtkImageVariance3D,vtkImageSpatialFilter);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:
   // This method sets the size of the neighborhood.  It also sets the default

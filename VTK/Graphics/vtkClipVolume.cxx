@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:21 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2000-04-28 18:11:14 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -663,7 +663,7 @@ void vtkClipVolume::CreateDefaultLocator()
     }
 }
 
-void vtkClipVolume::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkClipVolume::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkStructuredPointsToUnstructuredGridFilter::PrintSelf(os,indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMagnify.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:30:50 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2000-04-28 18:13:46 $
+  Version:   $Revision: 1.32 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -386,7 +386,7 @@ void vtkImageMagnify::ThreadedExecute(vtkImageData *inData,
     }
 }
 
-void vtkImageMagnify::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkImageMagnify::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkImageToImageFilter::PrintSelf(os,indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:09 $
-  Version:   $Revision: 1.65 $
+  Date:      $Date: 2000-04-28 18:10:01 $
+  Version:   $Revision: 1.66 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -64,7 +64,7 @@ public:
   static vtkImageData *New();
 
   vtkTypeMacro(vtkImageData,vtkDataSet);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Create the same type object as this (virtual constructor).

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:31:09 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2000-04-28 18:14:06 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -418,7 +418,7 @@ Colormap vtkMesaImageWindow::GetDesiredColormap ()
   return this->ColorMap;  
 }
 
-void vtkMesaImageWindow::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkMesaImageWindow::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->vtkImageWindow::PrintSelf(os,indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTimerLog.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:40 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2000-04-28 18:10:31 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -104,7 +104,7 @@ public:
   static vtkTimerLog *New();
 
   vtkTypeMacro(vtkTimerLog,vtkObject);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Set/Get the maximum number of entries allowed in the timer log
@@ -192,7 +192,7 @@ protected:
   double EndTime;
 
   //BTX
-  static void DumpEntry(vtkOstream& os, int index, float time, float deltatime,
+  static void DumpEntry(ostream& os, int index, float time, float deltatime,
                         int tick, int deltatick, char *event);
   //ETX
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToPlane.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:57 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2000-04-28 18:12:51 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -323,7 +323,7 @@ void vtkTextureMapToPlane::ComputeNormal()
   return;
 }
 
-void vtkTextureMapToPlane::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkTextureMapToPlane::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkDataSetToDataSetFilter::PrintSelf(os,indent);
 

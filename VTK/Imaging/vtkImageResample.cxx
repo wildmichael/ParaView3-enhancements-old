@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageResample.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:31:00 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2000-04-28 18:13:56 $
+  Version:   $Revision: 1.29 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -857,7 +857,7 @@ void vtkImageResample::ThreadedExecute(vtkImageData *inData,
     }
 }
 
-void vtkImageResample::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkImageResample::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkImageToImageFilter::PrintSelf(os,indent);
   os << indent << "Dimensionality: " << this->Dimensionality << "\n";

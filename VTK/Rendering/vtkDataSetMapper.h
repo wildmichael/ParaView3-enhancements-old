@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetMapper.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:32 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2000-04-28 18:11:25 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -62,7 +62,7 @@ class VTK_EXPORT vtkDataSetMapper : public vtkMapper
 public:
   static vtkDataSetMapper *New();
   vtkTypeMacro(vtkDataSetMapper,vtkMapper);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
   void Render(vtkRenderer *ren, vtkActor *act);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpatialRepresentationFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:47 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-04-28 18:12:40 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -91,7 +91,7 @@ class VTK_EXPORT vtkSpatialRepresentationFilter : public vtkPolyDataSource
 public:
   static vtkSpatialRepresentationFilter *New();
   vtkTypeMacro(vtkSpatialRepresentationFilter,vtkPolyDataSource);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Set/Get the locator that will be used to generate the representation.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInterpolateDataSetAttributes.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:01 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-04-28 18:11:55 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -260,10 +260,10 @@ void vtkInterpolateDataSetAttributes::Execute()
 }
 
 
-void vtkInterpolateDataSetAttributes::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkInterpolateDataSetAttributes::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkDataSetToDataSetFilter::PrintSelf(os,indent);
 
-  os << indent << "T: " << this->T << vtkEndl;
+  os << indent << "T: " << this->T << endl;
 }
 

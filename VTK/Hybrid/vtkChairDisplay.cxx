@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkChairDisplay.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:49 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-04-28 18:10:40 $
+  Version:   $Revision: 1.12 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -657,7 +657,7 @@ void vtkChairDisplay::GenerateTexture(vtkImageData *inData,
 }
 
 //----------------------------------------------------------------------------
-void vtkChairDisplay::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkChairDisplay::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkPolyDataSource::PrintSelf(os,indent);
 

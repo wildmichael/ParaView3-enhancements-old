@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeTextureMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:30:17 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-04-28 18:13:12 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1044,7 +1044,7 @@ void vtkVolumeTextureMapper2D::InitializeRender( vtkRenderer *ren,
 
 
 // Print the vtkVolumeTextureMapper2D
-void vtkVolumeTextureMapper2D::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkVolumeTextureMapper2D::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->vtkVolumeTextureMapper::PrintSelf(os,indent);
 }

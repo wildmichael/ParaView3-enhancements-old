@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCharArray.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:26:57 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2000-04-28 18:09:48 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -56,7 +56,7 @@ public:
   static vtkCharArray *New();
 
   vtkTypeMacro(vtkCharArray,vtkDataArray);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Allocate memory for this array. Delete old storage only if necessary.

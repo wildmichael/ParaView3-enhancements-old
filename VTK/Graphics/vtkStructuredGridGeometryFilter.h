@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:51 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2000-04-28 18:12:45 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -70,7 +70,7 @@ class VTK_EXPORT vtkStructuredGridGeometryFilter : public vtkStructuredGridToPol
 public:
   static vtkStructuredGridGeometryFilter *New();
   vtkTypeMacro(vtkStructuredGridGeometryFilter,vtkStructuredGridToPolyDataFilter);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Get the extent in topological coordinate range (imin,imax, jmin,jmax,

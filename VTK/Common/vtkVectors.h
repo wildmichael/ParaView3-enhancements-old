@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectors.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 08:19:59 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2000-04-28 18:10:36 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -59,7 +59,7 @@ public:
   static vtkVectors *New();
 
   vtkTypeMacro(vtkVectors,vtkAttributeData);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:
   // Create the same type object as this (virtual constructor).

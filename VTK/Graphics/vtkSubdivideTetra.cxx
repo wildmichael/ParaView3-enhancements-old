@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSubdivideTetra.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:02 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2000-04-28 18:10:53 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -261,7 +261,7 @@ void vtkSubdivideTetra::Execute()
   output->Squeeze();
 }
 
-void vtkSubdivideTetra::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkSubdivideTetra::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkUnstructuredGridToUnstructuredGridFilter::PrintSelf(os,indent);
 }

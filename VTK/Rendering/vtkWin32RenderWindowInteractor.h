@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32RenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:30:22 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2000-04-28 18:13:18 $
+  Version:   $Revision: 1.30 $
   
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -62,7 +62,7 @@ public:
   static vtkWin32RenderWindowInteractor *New();
 
   vtkTypeMacro(vtkWin32RenderWindowInteractor,vtkRenderWindowInteractor);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Initialize the even handler

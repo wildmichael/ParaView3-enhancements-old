@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMarchingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:31:19 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2000-04-28 18:14:17 $
+  Version:   $Revision: 1.33 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -924,7 +924,7 @@ vtkImageData *vtkImageMarchingCubes::GetInput()
 
   
 //----------------------------------------------------------------------------
-void vtkImageMarchingCubes::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkImageMarchingCubes::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkPolyDataSource::PrintSelf(os,indent);
 

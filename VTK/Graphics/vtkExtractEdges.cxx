@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractEdges.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:42 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2000-04-28 18:11:35 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -212,7 +212,7 @@ void vtkExtractEdges::CreateDefaultLocator()
     }
 }
 
-void vtkExtractEdges::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkExtractEdges::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkDataSetToPolyDataFilter::PrintSelf(os,indent);
 

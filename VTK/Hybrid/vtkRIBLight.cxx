@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBLight.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:01 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-04-28 18:10:51 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -89,7 +89,7 @@ void vtkRIBLight::Render(vtkRenderer *ren, int index)
   this->Light->Render (ren, index);
 }
 
-void vtkRIBLight::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkRIBLight::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkLight::PrintSelf(os,indent);
  

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFrustumCoverageCuller.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:48 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-04-28 18:11:41 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -386,17 +386,17 @@ char *vtkFrustumCoverageCuller::GetSortingStyleAsString(void)
     }
 }
 
-void vtkFrustumCoverageCuller::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkFrustumCoverageCuller::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->vtkCuller::PrintSelf(os,indent);
 
   os << indent << "Minimum Coverage: " 
-     << this->MinimumCoverage << vtkEndl;
+     << this->MinimumCoverage << endl;
 
   os << indent << "Maximum Coverage: " 
-     << this->MaximumCoverage << vtkEndl;
+     << this->MaximumCoverage << endl;
 
   os << indent << "Sorting Style: "
-     << this->GetSortingStyleAsString() << vtkEndl;
+     << this->GetSortingStyleAsString() << endl;
 
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDividingCubes.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:31:18 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2000-04-28 18:14:16 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -76,7 +76,7 @@ class VTK_EXPORT vtkDividingCubes : public vtkStructuredPointsToPolyDataFilter
 public:
   static vtkDividingCubes *New();
   vtkTypeMacro(vtkDividingCubes,vtkStructuredPointsToPolyDataFilter);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Set isosurface value.

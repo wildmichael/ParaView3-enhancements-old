@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageResample.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:31:00 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2000-04-28 18:13:57 $
+  Version:   $Revision: 1.24 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,7 +58,7 @@ class VTK_EXPORT vtkImageResample : public vtkImageToImageFilter
 public:
   static vtkImageResample *New();
   vtkTypeMacro(vtkImageResample,vtkImageToImageFilter);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Set desired spacing.  

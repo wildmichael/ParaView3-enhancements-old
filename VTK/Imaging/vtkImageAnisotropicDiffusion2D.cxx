@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAnisotropicDiffusion2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:30:30 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2000-04-28 18:13:24 $
+  Version:   $Revision: 1.37 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -84,7 +84,7 @@ vtkImageAnisotropicDiffusion2D::vtkImageAnisotropicDiffusion2D()
 
 //----------------------------------------------------------------------------
 void 
-vtkImageAnisotropicDiffusion2D::PrintSelf(vtkOstream& os, vtkIndent indent)
+vtkImageAnisotropicDiffusion2D::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->vtkImageSpatialFilter::PrintSelf(os, indent);
   os << indent << "NumberOfIterations: " << this->NumberOfIterations << "\n";

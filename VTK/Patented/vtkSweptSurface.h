@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSweptSurface.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:31:23 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2000-04-28 18:14:21 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -85,7 +85,7 @@ class VTK_EXPORT vtkSweptSurface : public vtkStructuredPointsToStructuredPointsF
 public:
   static vtkSweptSurface *New();
   vtkTypeMacro(vtkSweptSurface,vtkStructuredPointsToStructuredPointsFilter);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Specify i-j-k dimensions to sample input with. The higher the resolution

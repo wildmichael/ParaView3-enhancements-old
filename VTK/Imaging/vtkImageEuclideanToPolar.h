@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageEuclideanToPolar.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:30:41 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-04-28 18:13:37 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -55,7 +55,7 @@ class VTK_EXPORT vtkImageEuclideanToPolar : public vtkImageToImageFilter
 public:
   static vtkImageEuclideanToPolar *New();
   vtkTypeMacro(vtkImageEuclideanToPolar,vtkImageToImageFilter);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Theta is an angle. Maximum specifies when it maps back to 0.

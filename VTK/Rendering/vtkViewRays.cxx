@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewRays.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:30:09 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-04-28 18:13:04 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -399,7 +399,7 @@ void vtkViewRays::ComputeParallelInfo( int size[2] )
 }
 
 // Print the class
-void vtkViewRays::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkViewRays::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->vtkObject::PrintSelf(os,indent);
   os << "Renderer: " << this->Renderer << "\n";

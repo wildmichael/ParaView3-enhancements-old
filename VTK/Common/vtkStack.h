@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStack.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:37 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2000-04-28 18:10:27 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -66,7 +66,7 @@ public:
   static vtkStack *New();
 
   vtkTypeMacro(vtkStack,vtkObject);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Add an object to the top of the stack. Does not prevent duplicate entries.

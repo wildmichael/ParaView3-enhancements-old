@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageBlend.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:30:32 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2000-04-28 18:13:27 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -59,7 +59,7 @@ class VTK_EXPORT vtkImageBlend : public vtkImageMultipleInputFilter
 public:
   static vtkImageBlend *New();
   vtkTypeMacro(vtkImageBlend,vtkImageMultipleInputFilter);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Set the opacity of an input image: the alpha values of the image are

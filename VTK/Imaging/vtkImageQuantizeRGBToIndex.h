@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageQuantizeRGBToIndex.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:30:57 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-04-28 18:13:54 $
+  Version:   $Revision: 1.17 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -62,7 +62,7 @@ class VTK_EXPORT vtkImageQuantizeRGBToIndex : public vtkImageToImageFilter
 public:
   static vtkImageQuantizeRGBToIndex *New();
   vtkTypeMacro(vtkImageQuantizeRGBToIndex,vtkImageToImageFilter);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Set / Get the number of color index values to produce - must be 

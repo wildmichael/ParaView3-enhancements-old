@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThresholdPoints.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:30:00 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2000-04-28 18:12:54 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,7 +58,7 @@ class VTK_EXPORT vtkThresholdPoints : public vtkDataSetToPolyDataFilter
 public:
   static vtkThresholdPoints *New();
   vtkTypeMacro(vtkThresholdPoints,vtkDataSetToPolyDataFilter);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:
   // Criterion is cells whose scalars are less than lower threshold.

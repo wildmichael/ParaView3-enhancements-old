@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODProp3D.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:04 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-04-28 18:11:58 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -78,7 +78,7 @@ public:
   static vtkLODProp3D *New();
 
   vtkTypeMacro(vtkLODProp3D,vtkProp3D);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Standard vtkProp method to get 3D bounds of a 3D prop

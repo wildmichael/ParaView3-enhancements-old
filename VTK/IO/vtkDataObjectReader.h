@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObjectReader.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:29 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2000-04-28 18:11:22 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -62,7 +62,7 @@ class VTK_EXPORT vtkDataObjectReader : public vtkDataObjectSource
 public:
   static vtkDataObjectReader *New();
   vtkTypeMacro(vtkDataObjectReader,vtkDataObjectSource);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Return the MTime also considering the vtkDataReader ivar

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:30:16 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2000-04-28 18:13:11 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -85,7 +85,7 @@ class VTK_EXPORT vtkVolumeRayCastMapper : public vtkVolumeMapper
 public:
   static vtkVolumeRayCastMapper *New();
   vtkTypeMacro(vtkVolumeRayCastMapper,vtkVolumeMapper);
-  void PrintSelf( vtkOstream& os, vtkIndent index );
+  void PrintSelf( ostream& os, vtkIndent index );
 
   // Description:
   // Set/Get the distance between samples.  This variable is only

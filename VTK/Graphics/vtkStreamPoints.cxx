@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:49 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2000-04-28 18:12:43 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -171,7 +171,7 @@ void vtkStreamPoints::Execute()
   output->Squeeze();
 }
 
-void vtkStreamPoints::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkStreamPoints::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkStreamer::PrintSelf(os,indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGaussianSplatter.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:49 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2000-04-28 18:11:42 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,7 +57,7 @@ class VTK_EXPORT vtkGaussianSplatter : public vtkDataSetToStructuredPointsFilter
 {
 public:
   vtkTypeMacro(vtkGaussianSplatter,vtkDataSetToStructuredPointsFilter);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Construct object with dimensions=(50,50,50); automatic computation of 

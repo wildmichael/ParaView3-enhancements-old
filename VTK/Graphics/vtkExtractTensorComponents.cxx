@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractTensorComponents.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:44 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-04-28 18:11:37 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -247,7 +247,7 @@ void vtkExtractTensorComponents::Execute()
     }
 }
 
-void vtkExtractTensorComponents::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkExtractTensorComponents::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkDataSetToDataSetFilter::PrintSelf(os,indent);
 

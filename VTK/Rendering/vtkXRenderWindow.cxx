@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:30:25 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2000-04-28 18:13:20 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -332,7 +332,7 @@ void vtkXRenderWindow::SetDisplayId(void *arg)
   this->OwnDisplay = 0;
 }
 
-void vtkXRenderWindow::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkXRenderWindow::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->vtkRenderWindow::PrintSelf(os,indent);
 

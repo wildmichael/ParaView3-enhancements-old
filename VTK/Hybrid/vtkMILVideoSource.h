@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMILVideoSource.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:57 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-04-28 18:10:47 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -83,7 +83,7 @@ class VTK_EXPORT vtkMILVideoSource : public vtkVideoSource
 public:
   static vtkMILVideoSource *New();
   vtkTypeMacro(vtkMILVideoSource,vtkVideoSource);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);   
+  void PrintSelf(ostream& os, vtkIndent indent);   
 
   // Description:
   // See vtkVideoSource

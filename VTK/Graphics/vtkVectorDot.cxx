@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorDot.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:30:07 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2000-04-28 18:13:01 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -155,7 +155,7 @@ void vtkVectorDot::Execute()
   newScalars->Delete();
 }
 
-void vtkVectorDot::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkVectorDot::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkDataSetToDataSetFilter::PrintSelf(os,indent);
 

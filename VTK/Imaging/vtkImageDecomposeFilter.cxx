@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSFile: vtkImageDecomposeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:30:39 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2000-04-28 18:13:35 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -73,7 +73,7 @@ vtkImageDecomposeFilter::vtkImageDecomposeFilter()
 
 
 //----------------------------------------------------------------------------
-void vtkImageDecomposeFilter::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkImageDecomposeFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkImageIterateFilter::PrintSelf(os,indent);
 

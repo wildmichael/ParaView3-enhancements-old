@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellData.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:26:57 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-04-28 18:09:47 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,7 +58,7 @@ public:
   static vtkCellData *New();
 
   vtkTypeMacro(vtkCellData,vtkDataSetAttributes);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Set cell data to null values

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRotationalExtrusionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:39 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2000-04-28 18:12:33 $
+  Version:   $Revision: 1.36 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -340,7 +340,7 @@ void vtkRotationalExtrusionFilter::Execute()
 
 
 
-void vtkRotationalExtrusionFilter::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkRotationalExtrusionFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
 

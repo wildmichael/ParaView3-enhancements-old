@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleUser.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:01 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2000-04-28 18:11:54 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -81,7 +81,7 @@ vtkInteractorStyleUser::~vtkInteractorStyleUser()
     }
 }
 
-void vtkInteractorStyleUser::PrintSelf(vtkOstream& os, vtkIndent indent) 
+void vtkInteractorStyleUser::PrintSelf(ostream& os, vtkIndent indent) 
 {
   this->vtkInteractorStyleTrackball::PrintSelf(os,indent);
 

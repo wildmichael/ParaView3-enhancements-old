@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:54 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-04-28 18:11:47 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -161,7 +161,7 @@ void vtkIdFilter::Execute()
   outCD->PassNoReplaceData(inCD);
 }
 
-void vtkIdFilter::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkIdFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkDataSetToDataSetFilter::PrintSelf(os,indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:08 $
-  Version:   $Revision: 1.66 $
+  Date:      $Date: 2000-04-28 18:12:01 $
+  Version:   $Revision: 1.67 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -301,7 +301,7 @@ char *vtkMapper::GetScalarModeAsString(void)
 }
 
 
-void vtkMapper::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkMapper::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->vtkAbstractMapper3D::PrintSelf(os,indent);
 
@@ -325,11 +325,11 @@ void vtkMapper::PrintSelf(vtkOstream& os, vtkIndent indent)
   float *range = this->GetScalarRange();
   os << indent << "Scalar Range: (" << range[0] << ", " << range[1] << ")\n";
   
-  os << indent << "Color Mode: " << this->GetColorModeAsString() << vtkEndl;
+  os << indent << "Color Mode: " << this->GetColorModeAsString() << endl;
 
-  os << indent << "Scalar Mode: " << this->GetScalarModeAsString() << vtkEndl;
+  os << indent << "Scalar Mode: " << this->GetScalarModeAsString() << endl;
 
-  os << indent << "RenderTime: " << this->RenderTime << vtkEndl;
+  os << indent << "RenderTime: " << this->RenderTime << endl;
 
 }
 

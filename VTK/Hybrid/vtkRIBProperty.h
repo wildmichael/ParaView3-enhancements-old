@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBProperty.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:01 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2000-04-28 18:10:52 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -62,7 +62,7 @@ class VTK_EXPORT vtkRIBProperty : public vtkProperty
 public:
   static vtkRIBProperty *New();
   vtkTypeMacro(vtkRIBProperty,vtkProperty);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Specify the name of a surface shader.

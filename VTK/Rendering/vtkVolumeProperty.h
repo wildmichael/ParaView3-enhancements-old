@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProperty.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:30:12 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2000-04-28 18:13:07 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -77,7 +77,7 @@ class VTK_EXPORT vtkVolumeProperty : public vtkObject
 public:
   static vtkVolumeProperty *New();
   vtkTypeMacro(vtkVolumeProperty,vtkObject);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Get the modified time for this object (or the properties registered

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBooleanTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:15 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2000-04-28 18:11:06 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -165,7 +165,7 @@ void vtkBooleanTexture::Execute()
   newScalars->Delete();
 }
 
-void vtkBooleanTexture::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkBooleanTexture::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkStructuredPointsSource::PrintSelf(os,indent);
 

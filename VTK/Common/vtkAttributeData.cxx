@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAttributeData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:26:54 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-04-28 18:09:45 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -209,7 +209,7 @@ unsigned long vtkAttributeData::GetActualMemorySize()
   return this->Data->GetActualMemorySize();
 }
 
-void vtkAttributeData::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkAttributeData::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkObject::PrintSelf(os,indent);
 

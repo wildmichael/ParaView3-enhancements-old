@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:32 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2000-04-28 18:11:25 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -171,7 +171,7 @@ void vtkDataSetMapper::Render(vtkRenderer *ren, vtkActor *act)
   this->TimeToDraw = this->PolyDataMapper->GetTimeToDraw();
 }
 
-void vtkDataSetMapper::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkDataSetMapper::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkMapper::PrintSelf(os,indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCollection.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:26:57 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2000-04-28 18:09:48 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -188,7 +188,7 @@ int vtkCollection::GetNumberOfItems()
 }
 
 
-void vtkCollection::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkCollection::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkObject::PrintSelf(os,indent);
 

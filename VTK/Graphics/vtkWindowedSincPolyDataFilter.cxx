@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindowedSincPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:30:23 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-04-28 18:13:18 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -760,7 +760,7 @@ void vtkWindowedSincPolyDataFilter::Execute()
   delete [] Verts;
 }
 
-void vtkWindowedSincPolyDataFilter::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkWindowedSincPolyDataFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
 

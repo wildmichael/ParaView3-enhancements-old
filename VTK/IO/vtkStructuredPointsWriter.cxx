@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:54 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2000-04-28 18:12:48 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -82,7 +82,7 @@ vtkStructuredPoints *vtkStructuredPointsWriter::GetInput()
 
 void vtkStructuredPointsWriter::WriteData()
 {
-  vtkOstream *fp;
+  ostream *fp;
   vtkStructuredPoints *input=this->GetInput();
   int dim[3];
   float spacing[3], origin[3];
@@ -113,7 +113,7 @@ void vtkStructuredPointsWriter::WriteData()
   this->CloseVTKFile(fp);
 }
 
-void vtkStructuredPointsWriter::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkStructuredPointsWriter::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkDataWriter::PrintSelf(os,indent);
 }

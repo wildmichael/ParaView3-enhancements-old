@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToBox.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:03 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2000-04-28 18:10:54 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -178,7 +178,7 @@ void vtkTextureMapToBox::SetBox(float *bounds)
                bounds[5]);
 }
 
-void vtkTextureMapToBox::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkTextureMapToBox::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkDataSetToDataSetFilter::PrintSelf(os,indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLandmarkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:56 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2000-04-28 18:10:47 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to Tim Hutton and David G. Gobbi who developed this class.
 
 Redistribution and use in source and binary forms, with or without
@@ -81,7 +81,7 @@ vtkLandmarkTransform::~vtkLandmarkTransform()
 }
 
 //----------------------------------------------------------------------------
-void vtkLandmarkTransform::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkLandmarkTransform::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkLinearTransform::PrintSelf(os, indent);
   os << "Mode: " << this->GetModeAsString() << "\n";

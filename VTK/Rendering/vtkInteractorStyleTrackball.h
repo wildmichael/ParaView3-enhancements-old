@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleTrackball.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:00 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-04-28 18:11:54 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,7 +60,7 @@ class VTK_EXPORT vtkInteractorStyleTrackball : public vtkInteractorStyle
 public:
   static vtkInteractorStyleTrackball *New();
   vtkTypeMacro(vtkInteractorStyleTrackball,vtkInteractorStyle);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:
   // Concrete implementation of event bindings

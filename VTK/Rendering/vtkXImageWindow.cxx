@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:31:16 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2000-04-28 18:14:13 $
+  Version:   $Revision: 1.37 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -390,7 +390,7 @@ vtkXImageWindow::~vtkXImageWindow()
 
 
 //----------------------------------------------------------------------------
-void vtkXImageWindow::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkXImageWindow::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkImageWindow::PrintSelf(os, indent);
   os << indent << "Parent Id: " << this->ParentId << "\n";

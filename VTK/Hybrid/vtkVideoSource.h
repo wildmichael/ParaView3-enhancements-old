@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVideoSource.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:06 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-04-28 18:10:56 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -63,7 +63,7 @@ class VTK_EXPORT vtkVideoSource : public vtkImageSource
 public:
   static vtkVideoSource *New();
   vtkTypeMacro(vtkVideoSource,vtkImageSource);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);   
+  void PrintSelf(ostream& os, vtkIndent indent);   
 
   // Description:
   // Initialize the hardware.  This is called automatically

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlane.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:24 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2000-04-28 18:10:15 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -221,7 +221,7 @@ int vtkPlane::IntersectWithLine(float p1[3], float p2[3], float n[3],
     }
 }
 
-void vtkPlane::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkPlane::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkImplicitFunction::PrintSelf(os,indent);
 

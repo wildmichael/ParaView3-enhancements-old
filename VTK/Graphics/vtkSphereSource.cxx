@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:47 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2000-04-28 18:12:41 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -246,7 +246,7 @@ void vtkSphereSource::Execute()
   newPolys->Delete();
 }
 
-void vtkSphereSource::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkSphereSource::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkPolyDataSource::PrintSelf(os,indent);
 

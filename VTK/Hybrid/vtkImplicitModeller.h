@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitModeller.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:56 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2000-04-28 18:11:49 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -108,7 +108,7 @@ class VTK_EXPORT vtkImplicitModeller : public vtkDataSetToStructuredPointsFilter
 {
 public:
   vtkTypeMacro(vtkImplicitModeller,vtkDataSetToStructuredPointsFilter);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Construct with sample dimensions=(50,50,50), and so that model bounds are

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEncodedGradientShader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:41 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-04-28 18:11:34 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -576,14 +576,14 @@ void vtkEncodedGradientShader::BuildShadingTable( int index,
 
 
 // Print the vtkEncodedGradientShader
-void vtkEncodedGradientShader::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkEncodedGradientShader::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkObject::PrintSelf(os,indent);
   
   os << indent << "Zero Normal Diffuse Intensity: " <<
-    this->ZeroNormalDiffuseIntensity << vtkEndl;
+    this->ZeroNormalDiffuseIntensity << endl;
 
   os << indent << "Zero Normal Specular Intensity: " <<
-    this->ZeroNormalSpecularIntensity << vtkEndl;
+    this->ZeroNormalSpecularIntensity << endl;
 }
 

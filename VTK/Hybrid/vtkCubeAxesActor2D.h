@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeAxesActor2D.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:50 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2000-04-28 18:10:41 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thorsten Dowe who modified and improved this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -77,7 +77,7 @@ class VTK_EXPORT vtkCubeAxesActor2D : public vtkActor2D
 {
 public:
   vtkTypeMacro(vtkCubeAxesActor2D,vtkActor2D);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Instantiate object with bold, italic, and shadow enabled; font family

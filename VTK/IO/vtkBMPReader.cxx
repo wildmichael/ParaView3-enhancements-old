@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBMPReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:30:28 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2000-04-28 18:13:23 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -471,11 +471,11 @@ static void vtkBMPReaderUpdate2(vtkBMPReader *self, vtkImageData *data,
 	outPtr0 += outIncr[0];
 	}
       // move to the next row in the file and data
-      self->GetFile()->seekg(self->GetFile()->tellg() + streamSkip0, vtkIos::beg);
+      self->GetFile()->seekg(self->GetFile()->tellg() + streamSkip0, ios::beg);
       outPtr1 += outIncr[1];
       }
     // move to the next image in the file and data
-    self->GetFile()->seekg(self->GetFile()->tellg() + streamSkip1, vtkIos::beg);
+    self->GetFile()->seekg(self->GetFile()->tellg() + streamSkip1, ios::beg);
     outPtr2 += outIncr[2];
     }
 
@@ -538,7 +538,7 @@ void vtkBMPReader::Execute(vtkImageData *data)
     }  
 }
 
-void vtkBMPReader::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkBMPReader::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkImageReader::PrintSelf(os,indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSubPixelPositionEdgels.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:54 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2000-04-28 18:12:48 $
+  Version:   $Revision: 1.28 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -463,7 +463,7 @@ vtkStructuredPoints *vtkSubPixelPositionEdgels::GetGradMaps()
 
 
 // Print the state of the class.
-void vtkSubPixelPositionEdgels::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkSubPixelPositionEdgels::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
 
@@ -476,7 +476,7 @@ void vtkSubPixelPositionEdgels::PrintSelf(vtkOstream& os, vtkIndent indent)
     os << indent << "Gradient Data: (none)\n";
     }
   
-  os << indent << "TargetFlag: " << this->TargetFlag << vtkEndl;
-  os << indent << "TargetValue: " << this->TargetValue << vtkEndl;
+  os << indent << "TargetFlag: " << this->TargetFlag << endl;
+  os << indent << "TargetValue: " << this->TargetValue << endl;
 }
 

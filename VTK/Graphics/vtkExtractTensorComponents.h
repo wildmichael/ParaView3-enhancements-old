@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractTensorComponents.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:44 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2000-04-28 18:11:37 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -77,7 +77,7 @@ class VTK_EXPORT vtkExtractTensorComponents : public vtkDataSetToDataSetFilter
 {
 public:
   vtkTypeMacro(vtkExtractTensorComponents,vtkDataSetToDataSetFilter);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Construct object to extract nothing and to not pass tensor data

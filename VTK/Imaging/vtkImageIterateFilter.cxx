@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIterateFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:30:48 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2000-04-28 18:13:44 $
+  Version:   $Revision: 1.24 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -77,7 +77,7 @@ vtkImageIterateFilter::~vtkImageIterateFilter()
 }
 
 //----------------------------------------------------------------------------
-void vtkImageIterateFilter::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkImageIterateFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkImageToImageFilter::PrintSelf(os,indent);
 

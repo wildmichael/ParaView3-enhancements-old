@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSliceCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:31:22 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2000-04-28 18:14:20 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -641,7 +641,7 @@ void vtkSliceCubes::Execute()
     }
 }
 
-void vtkSliceCubes::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkSliceCubes::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkObject::PrintSelf(os,indent);
 

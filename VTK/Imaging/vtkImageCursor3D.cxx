@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCursor3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:30:38 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-04-28 18:13:34 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -62,7 +62,7 @@ vtkImageCursor3D* vtkImageCursor3D::New()
 
 
 //----------------------------------------------------------------------------
-void vtkImageCursor3D::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkImageCursor3D::PrintSelf(ostream& os, vtkIndent indent)
 {
   int idx;
   

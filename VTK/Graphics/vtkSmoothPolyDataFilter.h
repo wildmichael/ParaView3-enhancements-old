@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSmoothPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:46 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-04-28 18:12:40 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -125,7 +125,7 @@ class VTK_EXPORT vtkSmoothPolyDataFilter : public vtkPolyDataToPolyDataFilter
 {
 public:
   vtkTypeMacro(vtkSmoothPolyDataFilter,vtkPolyDataToPolyDataFilter);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Construct object with number of iterations 20; relaxation factor .01;

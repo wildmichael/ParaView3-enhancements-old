@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSelectVisiblePoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:43 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2000-04-28 18:12:37 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -174,7 +174,7 @@ unsigned long int vtkSelectVisiblePoints::GetMTime()
   return mTime;
 }
 
-void vtkSelectVisiblePoints::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkSelectVisiblePoints::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkDataSetToPolyDataFilter::PrintSelf(os,indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCursor3D.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:26 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2000-04-28 18:11:19 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,7 +60,7 @@ class VTK_EXPORT vtkCursor3D : public vtkPolyDataSource
 {
 public:
   vtkTypeMacro(vtkCursor3D,vtkPolyDataSource);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Construct with model bounds = (-1,1,-1,1,-1,1), focal point = (0,0,0),

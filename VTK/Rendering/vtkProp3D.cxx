@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:28 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-04-28 18:12:21 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -382,7 +382,7 @@ float *vtkProp3D::GetZRange()
   return &(this->Bounds[4]);
 }
 
-void vtkProp3D::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkProp3D::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkProp::PrintSelf(os,indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIntArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:12 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2000-04-28 18:10:04 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -170,7 +170,7 @@ void vtkIntArray::DeepCopy(vtkDataArray *ia)
     }
 }
 
-void vtkIntArray::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkIntArray::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkDataArray::PrintSelf(os,indent);
 

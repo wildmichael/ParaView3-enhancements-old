@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMatrixToLinearTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:19 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2000-04-28 18:10:09 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -62,7 +62,7 @@ class VTK_EXPORT vtkMatrixToLinearTransform : public vtkLinearTransform
  public:
   static vtkMatrixToLinearTransform *New();
   vtkTypeMacro(vtkMatrixToLinearTransform,vtkLinearTransform);
-  void PrintSelf (vtkOstream& os, vtkIndent indent);
+  void PrintSelf (ostream& os, vtkIndent indent);
 
   // Description:
   // Set the matrix.  Calls to Identity() and Inverse() will modify

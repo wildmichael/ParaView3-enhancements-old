@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAxes.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:13 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2000-04-28 18:11:05 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -191,7 +191,7 @@ int vtkAxes::ComputeDivisionExtents(vtkDataObject *vtkNotUsed(output),
     }
 }
 
-void vtkAxes::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkAxes::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkPolyDataSource::PrintSelf(os,indent);
   os << indent << "Origin: (" << this->Origin[0] << ", "

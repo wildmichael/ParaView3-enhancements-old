@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:31:08 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2000-04-28 18:14:04 $
+  Version:   $Revision: 1.37 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -67,7 +67,7 @@ public:
   static vtkImageViewer *New();
   
   vtkTypeMacro(vtkImageViewer,vtkObject);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Get name of rendering window

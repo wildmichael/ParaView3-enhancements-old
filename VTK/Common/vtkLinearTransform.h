@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:13 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-04-28 18:10:05 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,7 +57,7 @@ class VTK_EXPORT vtkLinearTransform : public vtkPerspectiveTransform
 public:
 
   vtkTypeMacro(vtkLinearTransform,vtkPerspectiveTransform);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Apply the transformation to a coordinate.  You can use the same 

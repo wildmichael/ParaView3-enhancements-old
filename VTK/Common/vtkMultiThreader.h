@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiThreader.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:20 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2000-04-28 18:10:11 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -150,7 +150,7 @@ public:
   static vtkMultiThreader *New();
 
   vtkTypeMacro(vtkMultiThreader,vtkObject);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Get/Set the number of threads to create. It will be clamped to the range

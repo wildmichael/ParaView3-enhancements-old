@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:13 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2000-04-28 18:11:05 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -362,7 +362,7 @@ int vtkBYUReader::ComputeDivisionExtents(vtkDataObject *vtkNotUsed(output),
     }
 }
 
-void vtkBYUReader::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkBYUReader::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkPolyDataSource::PrintSelf(os,indent);
 

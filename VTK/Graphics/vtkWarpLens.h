@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpLens.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:30:19 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-04-28 18:13:14 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -54,7 +54,7 @@ class VTK_EXPORT vtkWarpLens : public vtkPointSetToPointSetFilter
 public:
   static vtkWarpLens *New();
   vtkTypeMacro(vtkWarpLens,vtkPointSetToPointSetFilter);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Specify the distortion constant

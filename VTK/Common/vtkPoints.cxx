@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:27 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2000-04-28 18:10:18 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -134,7 +134,7 @@ void vtkPoints::GetBounds(float bounds[6])
     }
 }
 
-void vtkPoints::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkPoints::PrintSelf(ostream& os, vtkIndent indent)
 {
   float *bounds;
 

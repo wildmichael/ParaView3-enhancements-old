@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSurfaceReconstructionFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:03 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2000-04-28 18:10:54 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to Tim Hutton (MINORI Project, Dental and Medical
              Informatics, Eastman Dental Institute, London, UK) who
              developed and contributed this class.
@@ -61,7 +61,7 @@ class VTK_EXPORT vtkSurfaceReconstructionFilter : public vtkDataSetToStructuredP
 {
 public:
   vtkTypeMacro(vtkSurfaceReconstructionFilter,vtkDataSetToStructuredPointsFilter);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Construct with NeighborhoodSize=20.

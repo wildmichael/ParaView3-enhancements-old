@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:10 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2000-04-28 18:12:04 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -56,7 +56,7 @@ class VTK_EXPORT vtkMergeFilter : public vtkDataSetToDataSetFilter
 public:
   static vtkMergeFilter *New();
   vtkTypeMacro(vtkMergeFilter,vtkDataSetToDataSetFilter);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Specify object from which to extract geometry information.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingSquares.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:31:22 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2000-04-28 18:14:19 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -85,7 +85,7 @@ class VTK_EXPORT vtkMarchingSquares : public vtkStructuredPointsToPolyDataFilter
 public:
   static vtkMarchingSquares *New();
   vtkTypeMacro(vtkMarchingSquares,vtkStructuredPointsToPolyDataFilter);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Set/Get the i-j-k index range which define a plane on which to generate 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:31:08 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2000-04-28 18:14:05 $
+  Version:   $Revision: 1.23 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -67,7 +67,7 @@ public:
   // background erasing disabled and gray scale hint off
   static vtkImageWindow *New();
 
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
   vtkTypeMacro(vtkImageWindow,vtkWindow);
 
   // Description:

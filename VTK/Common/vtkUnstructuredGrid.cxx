@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:44 $
-  Version:   $Revision: 1.74 $
+  Date:      $Date: 2000-04-28 18:10:35 $
+  Version:   $Revision: 1.75 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -705,18 +705,18 @@ void vtkUnstructuredGrid::DeepCopy(vtkDataObject *dataObject)
 }
 
 
-void vtkUnstructuredGrid::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkUnstructuredGrid::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkPointSet::PrintSelf(os,indent);
 
-  os << indent << "Number Of Pieces: " << this->NumberOfPieces << vtkEndl;
-  os << indent << "Piece: " << this->Piece << vtkEndl;
-  os << indent << "Maximum Number Of Pieces: " << this->MaximumNumberOfPieces << vtkEndl;
+  os << indent << "Number Of Pieces: " << this->NumberOfPieces << endl;
+  os << indent << "Piece: " << this->Piece << endl;
+  os << indent << "Maximum Number Of Pieces: " << this->MaximumNumberOfPieces << endl;
 
   os << indent << "UpdateExtent: " << this->UpdateExtent[0] << ", "
      << this->UpdateExtent[1] << ", " << this->UpdateExtent[2] << ", "
      << this->UpdateExtent[3] << ", " << this->UpdateExtent[4] << ", "
-     << this->UpdateExtent[5] << vtkEndl;
+     << this->UpdateExtent[5] << endl;
 }
 
 void vtkUnstructuredGrid::GetCellNeighbors(int cellId, vtkIdList *ptIds,

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkChairDisplay.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:49 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-04-28 18:10:40 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -54,7 +54,7 @@ class VTK_EXPORT vtkChairDisplay : public vtkPolyDataSource
 public:
   static vtkChairDisplay *New();
   vtkTypeMacro(vtkChairDisplay,vtkPolyDataSource);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:
   // Set/Get the source for the scalar data to contour.

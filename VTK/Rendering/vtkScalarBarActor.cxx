@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarBarActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:31:12 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2000-04-28 18:14:09 $
+  Version:   $Revision: 1.27 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -521,7 +521,7 @@ int vtkScalarBarActor::RenderOpaqueGeometry(vtkViewport *viewport)
   return renderedSomething;
 }
 
-void vtkScalarBarActor::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkScalarBarActor::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkActor2D::PrintSelf(os,indent);
 
