@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleImage.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-19 22:38:18 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-04-23 17:29:34 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkMath.h"
 #include "vtkCommand.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyleImage, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkInteractorStyleImage, "$Revision: 1.12 $");
 vtkStandardNewMacro(vtkInteractorStyleImage);
 
 //----------------------------------------------------------------------------
@@ -79,8 +79,7 @@ void vtkInteractorStyleImage::WindowLevelXY(int x, int y)
   
   if (this->HasObserver(vtkCommand::WindowLevelEvent)) 
     {
-    this->InvokeEvent(vtkCommand::WindowLevelEvent,NULL);
-    return;
+    this->InvokeEvent(vtkCommand::WindowLevelEvent, this);
     }
 }
 
@@ -230,9 +229,9 @@ void vtkInteractorStyleImage::OnLeftButtonDown(int ctrl, int shift,
       this->State = VTK_INTERACTOR_STYLE_IMAGE_WINDOW_LEVEL;
       this->WindowLevelStartPosition[0] = x;
       this->WindowLevelStartPosition[1] = y;      
-      if (this->HasObserver(vtkCommand::WindowLevelEvent)) 
+      if (this->HasObserver(vtkCommand::StartWindowLevelEvent)) 
         {
-        this->InvokeEvent(vtkCommand::WindowLevelEvent,this);
+        this->InvokeEvent(vtkCommand::StartWindowLevelEvent,this);
         }
       }
     }
@@ -243,6 +242,11 @@ void vtkInteractorStyleImage::OnLeftButtonUp(int ctrl, int shift,
                                              int x, int y)
 {
   this->UpdateInternalState(ctrl, shift, x, y);
+  if (this->State == VTK_INTERACTOR_STYLE_IMAGE_WINDOW_LEVEL &&
+      this->HasObserver(vtkCommand::EndWindowLevelEvent)) 
+      {
+      this->InvokeEvent(vtkCommand::EndWindowLevelEvent, this);
+      }
   this->State = VTK_INTERACTOR_STYLE_IMAGE_NONE;
 }
 
