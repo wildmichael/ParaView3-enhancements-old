@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-01 19:59:09 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2002-07-23 19:24:35 $
+  Version:   $Revision: 1.46 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkImagingFactory.h"
 #include "vtkTextProperty.h"
 
-vtkCxxRevisionMacro(vtkTextMapper, "$Revision: 1.45 $");
+vtkCxxRevisionMacro(vtkTextMapper, "$Revision: 1.46 $");
 
 vtkCxxSetObjectMacro(vtkTextMapper,TextProperty,vtkTextProperty);
 
@@ -459,7 +459,7 @@ void vtkTextMapper::GetMultiLineSize(vtkViewport* viewport, int size[2])
   
   // add in the line spacing
   this->LineSize = size[1];
-  size[1] = (int)(this->NumberOfLines * tprop->GetLineSpacing() * size[1]);
+  size[1] = (int)((float)size[1] * (1.0 + (this->NumberOfLines - 1) * tprop->GetLineSpacing()));
 }
 
 //----------------------------------------------------------------------------
@@ -481,13 +481,13 @@ void vtkTextMapper::RenderOverlayMultipleLines(vtkViewport *viewport,
   switch (tprop->GetVerticalJustification())
     {
     case VTK_TEXT_TOP:
-      offset = 1.0;
+      offset = 0.0;
       break;
     case VTK_TEXT_CENTERED:
-      offset = -this->NumberOfLines/2.0 + 1;
+      offset = (-this->NumberOfLines + 1.0) / 2.0;
       break;
     case VTK_TEXT_BOTTOM:
-      offset = -(this->NumberOfLines - 1.0);
+      offset = -this->NumberOfLines + 1.0;
       break;
     }
 
@@ -495,8 +495,10 @@ void vtkTextMapper::RenderOverlayMultipleLines(vtkViewport *viewport,
     {
     this->TextLines[lineNum]->GetTextProperty()->ShallowCopy(tprop);
     this->TextLines[lineNum]->GetTextProperty()->SetLineOffset
-      (this->LineSize*(lineNum+offset));
+      (tprop->GetLineOffset() + (int)((float)this->LineSize * (lineNum + offset) * tprop->GetLineSpacing()));
+#ifndef VTK_USE_FREETYPE
     this->TextLines[lineNum]->GetTextProperty()->SetVerticalJustificationToBottom();
+#endif
     this->TextLines[lineNum]->RenderOverlay(viewport,actor);
     }
 }

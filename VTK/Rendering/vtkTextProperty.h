@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextProperty.h,v $
   Language:  C++
-  Date:      $Date: 2002-07-09 18:46:02 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-07-23 19:24:35 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -133,7 +133,8 @@ public:
   // Description:
   // These methods can be used to control the spacing and placement of 
   // text (in the vertical direction). LineOffset is a vertical offset 
-  // (measured in lines); LineSpacing is the spacing between lines.
+  // (measured in pixels); LineSpacing is the spacing between lines, 
+  // expressed as a text height multiplication factor.
   vtkSetMacro(LineOffset, float);
   vtkGetMacro(LineOffset, float);
   vtkSetMacro(LineSpacing, float);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-11 13:36:39 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-07-23 19:24:35 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkTextProperty.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkTextProperty, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkTextProperty, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkTextProperty);
 
 //----------------------------------------------------------------------------
@@ -82,7 +82,7 @@ vtkTextProperty::vtkTextProperty()
   this->VerticalJustification = VTK_TEXT_BOTTOM;
 
   this->LineOffset = 0.0;
-  this->LineSpacing = 1.0;
+  this->LineSpacing = 1.1;
 
   this->FaceFileName = NULL;
 }
