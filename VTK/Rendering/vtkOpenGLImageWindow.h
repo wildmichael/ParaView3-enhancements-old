@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-30 14:48:20 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-09-01 14:27:39 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -105,6 +105,10 @@ public:
   // Description:
   // Make this windows OpenGL context the current context.
   void MakeCurrent();
+
+  // Description:
+  // Erase the window contents 
+  virtual void EraseWindow() {this->vtkImageWindow::EraseWindow();};
 
   GLXContext ContextId;
 

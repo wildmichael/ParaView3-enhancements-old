@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-30 14:48:20 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-09-01 14:27:40 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -148,6 +148,10 @@ void vtkOpenGLImageWindow::Render()
   if (this->WindowCreated)
     {
     this->MakeCurrent();
+    }
+  if (this->DoubleBuffer)
+    {
+    glDrawBuffer(GL_BACK);
     }
   this->vtkImageWindow::Render();
 }
