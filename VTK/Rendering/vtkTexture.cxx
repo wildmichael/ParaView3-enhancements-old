@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-06-14 11:18:01 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1996-06-19 11:13:05 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -86,6 +86,7 @@ void vtkTexture::PrintSelf(ostream& os, vtkIndent indent)
 
   os << indent << "Interpolate: " << (this->Interpolate ? "On\n" : "Off\n");
   os << indent << "Repeat:      " << (this->Repeat ? "On\n" : "Off\n");
+  os << indent << "SelfCreatedLookupTable:      " << (this->SelfCreatedLookupTable ? "On\n" : "Off\n");
   if ( this->Input )
     {
     os << indent << "Input: (" << (void *)this->Input << ")\n";
@@ -96,7 +97,8 @@ void vtkTexture::PrintSelf(ostream& os, vtkIndent indent)
     }
   if ( this->LookupTable )
     {
-    os << indent << "LookupTable: (" << (void *)this->LookupTable << ")\n";
+    os << indent << "LookupTable:\n";
+    this->LookupTable->PrintSelf (os, indent.GetNextIndent ());
     }
   else
     {
@@ -116,18 +118,17 @@ unsigned char *vtkTexture::MapScalarsToColors (vtkScalars *scalars)
       this->LookupTable->Build ();
       this->SelfCreatedLookupTable = 1;
     }
-  if (this->MappedScalars &&
-      numPts > this->MappedScalars->GetNumberOfScalars ())
-    {
-      this->MappedScalars->Allocate (numPts);
-    }
-  else
+  // if there is no pixmap, create one
+  if (!this->MappedScalars)
     {
       this->MappedScalars = new vtkAPixmap(numPts);
-    }
-  // convert scalars to colors
+    }      
+
+  // if the texture created its own lookup table, set the Table Range
+  // to the range of the scalar data.
   if (this->SelfCreatedLookupTable) this->LookupTable->SetTableRange (scalars->GetRange ());
 
+  // map the scalars to colors
   mappedScalars = this->MappedScalars;
   for (int i = 0; i < numPts; i++)
     {
