@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-08 15:57:18 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2000-04-06 16:27:00 $
+  Version:   $Revision: 1.48 $
   Thanks:    to Horst Schreiber for developing this MFC code
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -265,7 +265,9 @@ void vtkWin32OpenGLRenderWindow::SetPosition(int x, int y)
     }
 }
 
-static void vtkWin32OpenGLSwapBuffers(HDC hdc)
+// this function is needed because SwapBuffers is an ivar,
+// as well as a Win32 API
+inline static void vtkWin32OpenGLSwapBuffers(HDC hdc)
 {
   SwapBuffers(hdc);
 }
@@ -273,6 +275,7 @@ static void vtkWin32OpenGLSwapBuffers(HDC hdc)
 // End the rendering process and display the image.
 void vtkWin32OpenGLRenderWindow::Frame(void)
 {
+  this->MakeCurrent();
   glFlush();
   if (!this->AbortRender && this->DoubleBuffer)
     {
