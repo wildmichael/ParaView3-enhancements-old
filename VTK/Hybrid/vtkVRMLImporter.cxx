@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLImporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-15 10:10:57 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-07-16 08:10:49 $
+  Version:   $Revision: 1.10 $
   Thanks:    Tom Citriniti who implemented and contributed this class
 
 
@@ -1869,10 +1869,6 @@ void yy_load_buffer_state YY_PROTO(( void ));
 YY_BUFFER_STATE yy_create_buffer YY_PROTO(( FILE *file, int size ));
 void yy_delete_buffer YY_PROTO(( YY_BUFFER_STATE b ));
 void yy_init_buffer YY_PROTO(( YY_BUFFER_STATE b, FILE *file ));
-
-static int yy_start_stack_ptr = 0;
-static int yy_start_stack_depth = 0;
-static int *yy_start_stack = 0;
 
 static void *yy_flex_alloc YY_PROTO(( unsigned int ));
 static void *yy_flex_realloc YY_PROTO(( void *, unsigned int ));
