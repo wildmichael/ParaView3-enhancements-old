@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-02 20:35:16 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-09-15 21:12:03 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -517,9 +517,12 @@ void vtkVolumeProMapper::UpdateCropping( vtkRenderer *ren, vtkVolume *vol )
 
   crop = new VLICrop;
 
-  crop->SetSlabs( this->CroppingBounds[0], this->CroppingBounds[1],
-		  this->CroppingBounds[2], this->CroppingBounds[3],
-		  this->CroppingBounds[4], this->CroppingBounds[5] );
+  crop->SetSlabs( this->CroppingRegionPlanes[0], 
+		  this->CroppingRegionPlanes[1],
+		  this->CroppingRegionPlanes[2], 
+		  this->CroppingRegionPlanes[3],
+		  this->CroppingRegionPlanes[4], 
+		  this->CroppingRegionPlanes[5] );
 
   if ( !this->Cropping )
     {
