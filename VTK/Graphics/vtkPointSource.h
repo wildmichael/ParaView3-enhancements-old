@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointSource.h,v $
   Language:  C++
-  Date:      $Date: 1994-02-05 13:01:38 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-02-07 17:15:01 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -28,8 +28,8 @@ public:
   char *GetClassName() {return "vlPointSource";};
   void PrintSelf(ostream& os, vlIndent indent);
 
-  vlSetClampMacro(NumPoints,int,1,LARGE_INTEGER);
-  vlGetMacro(NumPoints,int);
+  vlSetClampMacro(NumberOfPoints,int,1,LARGE_INTEGER);
+  vlGetMacro(NumberOfPoints,int);
 
   vlSetVector3Macro(Center,float);
   vlGetVectorMacro(Center,float);
@@ -39,7 +39,7 @@ public:
 
 protected:
   void Execute();
-  int NumPoints;
+  int NumberOfPoints;
   float Center[3];
   float Radius;
 };

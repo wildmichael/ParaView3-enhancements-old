@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-05 13:01:25 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-02-07 17:14:38 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -22,7 +22,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 
 void vlTCoords::GetTCoords(vlIdList& ptId, vlFloatTCoords& ftc)
 {
-  for (int i=0; i<ptId.NumIds(); i++)
+  for (int i=0; i<ptId.NumberOfIds(); i++)
     {
     ftc.InsertTCoord(i,this->GetTCoord(ptId[i]));
     }
@@ -34,7 +34,7 @@ void vlTCoords::PrintSelf(ostream& os, vlIndent indent)
     {
     vlObject::PrintSelf(os,indent);
 
-    os << indent << "Number texture coords: " << this->NumTCoords() << "\n";
-    os << indent << "Texture dimension: " << this->Dimension << "\n";
+    os << indent << "Number Of Texture Coordinates: " << this->NumberOfTCoords() << "\n";
+    os << indent << "Texture Dimension: " << this->Dimension << "\n";
     }
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1994-02-04 12:47:24 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1994-02-07 17:14:52 $
+  Version:   $Revision: 1.16 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -38,8 +38,8 @@ public:
   vlDataSet *MakeObject();
   char *GetClassName() {return "vlPolyData";};
   void PrintSelf(ostream& os, vlIndent indent);
-  int NumCells();
-  int NumPoints();
+  int NumberOfCells();
+  int NumberOfPoints();
   int CellDimension(int cellId);
   void CellPoints(int cellId, vlIdList& ptId);
   void Initialize();
@@ -65,10 +65,10 @@ public:
   void SetStrips (vlCellArray* s);
   vlCellArray *GetStrips();
 
-  int NumVerts();
-  int NumLines();
-  int NumPolys();
-  int NumStrips();
+  int NumberOfVerts();
+  int NumberOfLines();
+  int NumberOfPolys();
+  int NumberOfStrips();
 
 private:
   // point data (i.e., scalars, vectors, normals, tcoords) inherited

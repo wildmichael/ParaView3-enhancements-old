@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkShrinkFilter.h,v $
   Language:  C++
-  Date:      $Date: 1994-02-05 13:01:29 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1994-02-07 17:14:42 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express

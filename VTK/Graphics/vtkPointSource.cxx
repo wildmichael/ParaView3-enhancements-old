@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-06 08:05:39 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-02-07 17:15:03 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -19,7 +19,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 
 vlPointSource::vlPointSource(int numPts)
 {
-  this->NumPoints = (numPts > 0 ? numPts : 10);
+  this->NumberOfPoints = (numPts > 0 ? numPts : 10);
 
   this->Center[0] = 0.0;
   this->Center[1] = 0.0;
@@ -39,10 +39,10 @@ void vlPointSource::Execute()
 
   this->Initialize();
 
-  newPoints = new vlFloatPoints(this->NumPoints);
-  newVerts = new vlCellArray(this->NumPoints);
+  newPoints = new vlFloatPoints(this->NumberOfPoints);
+  newVerts = new vlCellArray(this->NumberOfPoints);
 
-  for (i=0; i<this->NumPoints; i++)
+  for (i=0; i<this->NumberOfPoints; i++)
     {
     phi = math.Pi() * math.Random();
     radius = this->Radius * sin((double)phi) * math.Random();
@@ -66,7 +66,7 @@ void vlPointSource::PrintSelf(ostream& os, vlIndent indent)
     {
     vlPolySource::PrintSelf(os,indent);
 
-    os << indent << "Number points: " << this->NumPoints << "\n";
+    os << indent << "Number Of Points: " << this->NumberOfPoints << "\n";
     os << indent << "Radius: " << this->Radius << "\n";
     os << indent << "Center: (" << this->Center[0] << ", "
                                   << this->Center[1] << ", "

@@ -5,8 +5,8 @@
  Module:    $RCSfile: vtkSource.cxx,v $
  Language:  C++
 
- Date:      $Date: 1994-02-04 14:07:32 $
- Version:   $Revision: 1.5 $
+ Date:      $Date: 1994-02-07 17:14:39 $
+ Version:   $Revision: 1.6 $
 
  This file is part of the Visualization Library. No part of this file or its
  contents may be copied, reproduced or altered in any way without the express
@@ -25,8 +25,8 @@ void vlSource::Execute()
 
 void vlSource::Update()
 {
-  // Make sure virtual getMtime method is called since subclasses will overload
-  if ( this->GetMtime() > this->ExecuteTime )
+  // Make sure virtual getMTime method is called since subclasses will overload
+  if ( this->GetMTime() > this->ExecuteTime )
     {
     if ( this->StartMethod ) (*this->StartMethod)();
     this->Execute();
@@ -57,5 +57,5 @@ void vlSource::PrintSelf(ostream& os, vlIndent indent)
 {
   vlObject::PrintSelf(os,indent);
 
-  os << indent << "Execute time: " << this->ExecuteTime.GetMtime() << "\n";
+  os << indent << "Execute Time: " << this->ExecuteTime.GetMTime() << "\n";
 }

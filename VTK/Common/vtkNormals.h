@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkNormals.h,v $
   Language:  C++
-  Date:      $Date: 1994-02-04 12:47:38 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-02-07 17:15:04 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -29,7 +29,7 @@ class vlNormals : public vlObject
 public:
   virtual ~vlNormals() {};
   virtual vlNormals *MakeObject(int sze, int ext=1000) = 0;
-  virtual int NumNormals() = 0;
+  virtual int NumberOfNormals() = 0;
   virtual float *GetNormal(int i) = 0;
   virtual void SetNormal(int i,float x[3]) = 0;     // fast insert
   virtual void InsertNormal(int i, float x[3]) = 0; // allocates memory as necessary
