@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-22 14:17:23 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1998-07-29 11:20:36 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -215,93 +215,6 @@ int vtkPointLocator::FindClosestPoint(float x[3])
     }//if not identical point
 
   return closest;
-}
-
-// Description:
-// Merge points together based on tolerance specified. Return a list 
-// that maps unmerged point ids into new point ids.
-int *vtkPointLocator::MergePoints()
-{
-  float tol2;
-  int ptId, i, j, k;
-  int numPts;
-  int *index;
-  int newPtId;
-  int maxDivs;
-  float hmin, *pt, *p;
-  int ijk[3], *nei;
-  int level, lvtk, cno;
-  vtkIdList *ptIds;
-
-  vtkDebugMacro(<<"Merging points");
-
-  if ( this->DataSet == NULL || 
-  (numPts=this->DataSet->GetNumberOfPoints()) < 1 ) return NULL;
-
-  this->BuildLocator(); // subdivides if necessary
-
-  index = new int[numPts];
-  for (i=0; i < numPts; i++) index[i] = -1;
-
-  tol2 = this->Tolerance * this->Tolerance;
-  newPtId = 0; // renumbering points
-
-  for (maxDivs=0, hmin=VTK_LARGE_FLOAT, i=0; i<3; i++) 
-    {
-    hmin = (this->H[i] < hmin ? this->H[i] : hmin);
-    maxDivs = (maxDivs > this->Divisions[i] ? maxDivs : this->Divisions[i]);
-    }
-  level = (int) (ceil ((double) this->Tolerance / hmin));
-  level = (level > maxDivs ? maxDivs : level);
-//
-//  Traverse each point, find bucket that point is in, check the list of
-//  points in that bucket for merging.  Also need to search all
-//  neighboring buckets within the tolerance.  The number and level of
-//  neighbors to search depends upon the tolerance and the bucket width.
-//
-  for ( i=0; i < numPts; i++ ) //loop over all points
-    {
-    // Only try to merge the point if it hasn't yet been merged.
-
-    if ( index[i] == -1 ) 
-      {
-      p = this->DataSet->GetPoint(i);
-      index[i] = newPtId;
-
-      for (j=0; j<3; j++) 
-        ijk[j] = (int) ((float)((p[j] - this->Bounds[2*j]) / 
-          (this->Bounds[2*j+1] - this->Bounds[2*j])) * (this->Divisions[j]-1));
-
-      for (lvtk=0; lvtk <= level; lvtk++) 
-        {
-        this->GetBucketNeighbors (ijk, this->Divisions, lvtk);
-
-        for ( k=0; k < Buckets->GetNumberOfNeighbors(); k++ ) 
-          {
-          nei = Buckets->GetPoint(k);
-          cno = nei[0] + nei[1]*this->Divisions[0] + 
-                nei[2]*this->Divisions[0]*this->Divisions[1];
-
-           if ( (ptIds = this->HashTable[cno]) != NULL )
-            {
-            for (j=0; j < ptIds->GetNumberOfIds(); j++) 
-              {
-              ptId = ptIds->GetId(j);
-              pt = this->DataSet->GetPoint(ptId);
-
-              if ( index[ptId] == -1 && vtkMath::Distance2BetweenPoints(p,pt) <= tol2 )
-                {
-                index[ptId] = newPtId;
-                }
-              }
-            }
-          }
-        }
-      newPtId++;
-      } // if point hasn't been merged
-    } // for all points
-
-  return index;
 }
 
 //

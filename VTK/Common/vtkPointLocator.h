@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-19 20:35:41 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1998-07-29 11:20:35 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -87,7 +87,6 @@ public:
 
   // these operate with specified dataset
   virtual int FindClosestPoint(float x[3]);
-  virtual int *MergePoints();
 
   // these all operate on array of points from InitPointInsertion()
   virtual int InitPointInsertion(vtkPoints *newPts, float bounds[6]);
