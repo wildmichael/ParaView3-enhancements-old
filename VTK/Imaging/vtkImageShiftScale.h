@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageShiftScale.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:57:04 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1999-12-28 17:17:38 $
+  Version:   $Revision: 1.28 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,13 +74,26 @@ public:
   // and scale operations is cast to the type specified.
   vtkSetMacro(OutputScalarType, int);
   vtkGetMacro(OutputScalarType, int);
-  void SetOutputScalarTypeToFloat() {this->SetOutputScalarType(VTK_FLOAT);};
-  void SetOutputScalarTypeToInt() {this->SetOutputScalarType(VTK_INT);};
-  void SetOutputScalarTypeToShort() {this->SetOutputScalarType(VTK_SHORT);};
-  void SetOutputScalarTypeToUnsignedShort() 
-    {this->SetOutputScalarType(VTK_UNSIGNED_SHORT);};
-  void SetOutputScalarTypeToUnsignedChar() 
-    {this->SetOutputScalarType(VTK_UNSIGNED_CHAR);};
+  void SetOutputScalarTypeToDouble()
+    {this->SetOutputScalarType(VTK_DOUBLE);}
+  void SetOutputScalarTypeToFloat()
+    {this->SetOutputScalarType(VTK_FLOAT);}
+  void SetOutputScalarTypeToLong()
+    {this->SetOutputScalarType(VTK_LONG);}
+  void SetOutputScalarTypeToUnsignedLong()
+    {this->SetOutputScalarType(VTK_UNSIGNED_LONG);};
+  void SetOutputScalarTypeToInt()
+    {this->SetOutputScalarType(VTK_INT);}
+  void SetOutputScalarTypeToUnsignedInt()
+    {this->SetOutputScalarType(VTK_UNSIGNED_INT);}
+  void SetOutputScalarTypeToShort()
+    {this->SetOutputScalarType(VTK_SHORT);}
+  void SetOutputScalarTypeToUnsignedShort()
+    {this->SetOutputScalarType(VTK_UNSIGNED_SHORT);}
+  void SetOutputScalarTypeToChar()
+    {this->SetOutputScalarType(VTK_CHAR);}
+  void SetOutputScalarTypeToUnsignedChar()
+    {this->SetOutputScalarType(VTK_UNSIGNED_CHAR);}
 
   // Description:
   // When the ClampOverflow flag is on, the data is thresholded so that

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageThreshold.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:57:05 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-12-28 17:17:39 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -101,13 +101,26 @@ public:
   // Set the desired output scalar type to cast to
   vtkSetMacro(OutputScalarType, int);
   vtkGetMacro(OutputScalarType, int);
-  void SetOutputScalarTypeToFloat() {this->SetOutputScalarType(VTK_FLOAT);};
-  void SetOutputScalarTypeToInt() {this->SetOutputScalarType(VTK_INT);};
-  void SetOutputScalarTypeToShort() {this->SetOutputScalarType(VTK_SHORT);};
-  void SetOutputScalarTypeToUnsignedShort() 
-    {this->SetOutputScalarType(VTK_UNSIGNED_SHORT);};
-  void SetOutputScalarTypeToUnsignedChar() 
-    {this->SetOutputScalarType(VTK_UNSIGNED_CHAR);};
+  void SetOutputScalarTypeToDouble()
+    {this->SetOutputScalarType(VTK_DOUBLE);}
+  void SetOutputScalarTypeToFloat()
+    {this->SetOutputScalarType(VTK_FLOAT);}
+  void SetOutputScalarTypeToLong()
+    {this->SetOutputScalarType(VTK_LONG);}
+  void SetOutputScalarTypeToUnsignedLong()
+    {this->SetOutputScalarType(VTK_UNSIGNED_LONG);};
+  void SetOutputScalarTypeToInt()
+    {this->SetOutputScalarType(VTK_INT);}
+  void SetOutputScalarTypeToUnsignedInt()
+    {this->SetOutputScalarType(VTK_UNSIGNED_INT);}
+  void SetOutputScalarTypeToShort()
+    {this->SetOutputScalarType(VTK_SHORT);}
+  void SetOutputScalarTypeToUnsignedShort()
+    {this->SetOutputScalarType(VTK_UNSIGNED_SHORT);}
+  void SetOutputScalarTypeToChar()
+    {this->SetOutputScalarType(VTK_CHAR);}
+  void SetOutputScalarTypeToUnsignedChar()
+    {this->SetOutputScalarType(VTK_UNSIGNED_CHAR);}
   
 protected:
   vtkImageThreshold();
