@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToImageFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-13 18:41:20 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2001-03-13 20:24:36 $
+  Version:   $Revision: 1.37 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -314,15 +314,16 @@ int vtkImageToImageFilter::SplitExtent(int splitExt[6], int startExt[6],
 void vtkImageToImageFilter::ExecuteData(vtkDataObject *out)
 {
   vtkImageData *outData = this->AllocateOutputData(out);
-  this->MultiThread(outData);
+  this->MultiThread(this->GetInput(),outData);
 }
 
-void vtkImageToImageFilter::MultiThread(vtkImageData *outData)
+void vtkImageToImageFilter::MultiThread(vtkImageData *inData,
+                                        vtkImageData *outData)
 {
   vtkImageThreadStruct str;
   
   str.Filter = this;
-  str.Input = this->GetInput();
+  str.Input = inData;
   str.Output = outData;
   
   this->Threader->SetNumberOfThreads(this->NumberOfThreads);

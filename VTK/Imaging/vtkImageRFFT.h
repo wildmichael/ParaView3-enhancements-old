@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageRFFT.h,v $
   Language:  C++
-  Date:      $Date: 2001-03-13 18:45:27 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-03-13 20:24:36 $
+  Version:   $Revision: 1.25 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -72,8 +72,8 @@ public:
   int SplitExtent(int splitExt[6], int startExt[6], 
 		  int num, int total);
 
-  virtual void IterativeExecuteData(vtkImageData *, vtkImageData *out) {
-    this->MultiThread(out);};
+  virtual void IterativeExecuteData(vtkImageData *in, vtkImageData *out) {
+    this->MultiThread(in,out);};
 
 protected:
   vtkImageRFFT() {};

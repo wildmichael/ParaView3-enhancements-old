@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToImageFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-03-13 18:41:20 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-03-13 20:24:36 $
+  Version:   $Revision: 1.25 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -139,7 +139,7 @@ protected:
   void ExecuteData(vtkDataObject *output);
   
   // The method that starts the multithreading
-  void MultiThread(vtkImageData *output);
+  void MultiThread(vtkImageData *input, vtkImageData *output);
 
   void ComputeInputUpdateExtents( vtkDataObject *output );
   virtual void ComputeInputUpdateExtent(int inExt[6], int outExt[6]);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIterateFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-03-13 18:45:27 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2001-03-13 20:24:36 $
+  Version:   $Revision: 1.27 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -53,7 +53,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 #include "vtkImageToImageFilter.h"
-#include "vtkMultiThreader.h"
 
 class VTK_EXPORT vtkImageIterateFilter : public vtkImageToImageFilter
 {
