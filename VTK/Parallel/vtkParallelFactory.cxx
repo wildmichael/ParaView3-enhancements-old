@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParallelFactory.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-31 14:03:35 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-08-22 18:15:09 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1999-2000 Mercury Computers Inc. All rigts reserved.
@@ -28,6 +28,18 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkPPolyDataNormals.h"
 #include "vtkPSphereSource.h"
 #include "vtkVersion.h"
+
+vtkParallelFactory* vtkParallelFactory::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkParallelFactory");
+  if(ret)
+    {
+    return (vtkParallelFactory*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkParallelFactory;
+}
 
 void vtkParallelFactory::PrintSelf(ostream& os, vtkIndent indent)
 {
