@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfTransform.cxx,v 1.10 2004-01-23 18:15:16 martink Exp $  */
-/*  Date : $Date: 2004-01-23 18:15:16 $ */
-/*  Version : $Revision: 1.10 $ */
+/*  Id : $Id: XdmfTransform.cxx,v 1.11 2004-04-02 18:37:12 andy Exp $  */
+/*  Date : $Date: 2004-04-02 18:37:12 $ */
+/*  Version : $Revision: 1.11 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -153,21 +153,19 @@ if( XDMF_WORD_CMP( Attribute, "Function" ) ){
   char    c, *StreamString;
 
   CData = this->DOM->Get( Element, "Function" );
-  XdmfDebug("Transform is Function = " << CData);
-  XdmfConstString ch = CData;
+  char* scdata = new char[strlen(CData) + 1];
+  strcpy(scdata, CData);
+  XdmfDebug("Transform is Function = " << scdata);
+  XdmfConstString ch = scdata;
   while( (c = *ch++) ) {
     if( c == '$' ) {
       XdmfXNode  *Argument;
       XdmfArray  *TmpArray;
       XdmfTransform  TmpTransform;
-      char* NewCH = new char [ strlen(ch) + 1 ];
-      strcpy(NewCH, ch);
-      istrstream  CDataStream(NewCH);
-      CDataStream >> Id;
+      Id = atoi(ch);
       while( (c = *ch++) ) {
         if( c > ' ') break;
         }
-      delete [] NewCH;
       Argument = this->DOM->FindElement( NULL, Id, Element );
       TmpTransform.SetDOM( this->DOM );
       TmpArray = TmpTransform.ElementToArray( Argument );
@@ -183,7 +181,8 @@ if( XDMF_WORD_CMP( Attribute, "Function" ) ){
       Function << c;
       }
     }
-  Function << '\0';
+  delete [] scdata;
+  Function << ends;
   StreamString = Function.str();
   XdmfDebug("Transform Function = " << StreamString );
   ReturnArray = XdmfExpr(  StreamString );
