@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-23 10:20:58 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1994-09-09 10:47:53 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -601,8 +601,8 @@ void vlCamera::OrthogonalizeViewUp()
 
 // Description:
 // Move the position of the camera along the view plane normal. Moving
-// towards the focal point is a zoom-in, moving away from the focal point
-// is a zoom-out.
+// towards the focal point (e.g., zoom>1) is a zoom-in, moving away 
+// from the focal point (e.g., zoom<1) is a zoom-out.
 void vlCamera::Zoom(float amount)
 {
   float	distance;
