@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCylinderSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-09 16:43:28 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1996-05-20 13:53:16 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -162,7 +162,7 @@ void vtkCylinderSource::Execute()
 //
     for (i=0; i<this->Resolution; i++)
       {
-      pts[i] = 2*this->Resolution + i;
+      pts[this->Resolution-i-1] = 2*this->Resolution + i;
       }
     newPolys->InsertNextCell(this->Resolution,pts);
     for (i=0; i<this->Resolution; i++)
