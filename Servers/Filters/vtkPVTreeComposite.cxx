@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVTreeComposite.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-01 15:04:34 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2001-06-01 18:43:24 $
+  Version:   $Revision: 1.11 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -109,9 +109,6 @@ void vtkPVTreeComposite::PrintSelf(ostream& os, vtkIndent indent)
 //----------------------------------------------------------------------------
 void vtkPVTreeComposite::CheckForAbortRender()
 {
-  int abort;
-
-  
   if ( ! this->Initialized)
     {
     // Never abort while printing.
@@ -261,6 +258,7 @@ int vtkPVTreeComposite::CheckForAbortComposite()
 void vtkPVTreeComposite::RootAbortCheck()
 {
   //sleep(5);
+  int abort;
 
   // If the render has already been aborted, then we need do nothing else.
   if (this->RenderAborted)
@@ -269,13 +267,12 @@ void vtkPVTreeComposite::RootAbortCheck()
     }
 
   // This checks for events to decide whether to abort.
-  if ( ! this->Printing && this->RenderView && this->RenderView->ShouldIAbort())
+  abort = this->RenderView->ShouldIAbort();
+  if ( ! this->Printing && this->RenderView && abort)
     { // Yes, abort.
     int idx;
     int message;
     int num = this->MPIController->GetNumberOfProcesses();
-
-    cout << "Root  ---------- ABORT ----------- \n";
 
     // Tell the satellite processes they need to abort.
     for (idx = 1; idx < num; ++idx)
@@ -288,6 +285,11 @@ void vtkPVTreeComposite::RootAbortCheck()
     // abort our own render.
     this->RenderWindow->SetAbortRender(1);
     this->RenderAborted = 1;
+    // For some abort types, we want to queue another render.
+    if (abort == 1)
+      {
+      this->RenderView->EventuallyRender();
+      }
     }
 }
 
