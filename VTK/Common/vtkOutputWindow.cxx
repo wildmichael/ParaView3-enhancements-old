@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutputWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-12-15 20:14:39 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-12-17 14:25:03 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,8 +62,10 @@ vtkOutputWindow::~vtkOutputWindow()
 
 void vtkOutputWindow::PrintSelf(ostream& os, vtkIndent indent)
 {
+  this->vtkObject::PrintSelf(os, indent);
   os << indent << "vtkOutputWindow Single instance = "
-     << (void*)vtkOutputWindow::Instance;
+     << (void*)vtkOutputWindow::Instance << endl;
+  os << indent << "PromptUser Flag: " << this->PromptUser << endl;
 }
 
 
