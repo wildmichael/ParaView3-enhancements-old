@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMathematics.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-11 20:12:56 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-07-14 21:00:40 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -103,6 +103,15 @@ static void vtkImageMathematicsExecute1(vtkImageMathematics *self,
 	  break;
 	case VTK_LOG:
 	  *outPtr0 = log(*in1Ptr0);
+	  break;
+	case VTK_ABS:
+	  *outPtr0 = fabs(*in1Ptr0);
+	  break;
+	case VTK_SQR:
+	  *outPtr0 = *in1Ptr0 * *in1Ptr0;
+	  break;
+	case VTK_SQRT:
+	  *outPtr0 = sqrt(*in1Ptr0);
 	  break;
 	}
       
