@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLStructuredDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-21 17:42:33 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2003-06-13 18:23:59 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkXMLDataElement.h"
 #include "vtkXMLDataParser.h"
 
-vtkCxxRevisionMacro(vtkXMLStructuredDataReader, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkXMLStructuredDataReader, "$Revision: 1.10 $");
 
 //----------------------------------------------------------------------------
 vtkXMLStructuredDataReader::vtkXMLStructuredDataReader()
@@ -211,6 +211,10 @@ void vtkXMLStructuredDataReader::ReadXMLData()
       {      
       this->ComputeDimensions(this->SubExtent, pieceDims, 1);
       fractions[i+1] = fractions[i] + pieceDims[0]*pieceDims[1]*pieceDims[2];
+      }
+    else
+      {
+      fractions[i+1] = 0;
       }
     }
   if(fractions[this->NumberOfPieces] == 0)
