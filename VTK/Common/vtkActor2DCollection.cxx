@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor2DCollection.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-12-16 13:40:06 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-04-20 17:13:24 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,23 +44,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkActor2DCollection.h"
 
 // Description:
-// Createes a vtkActor2DCollection
-vtkActor2DCollection::vtkActor2DCollection()
+// protected function to delete an element. Internal use only.
+void vtkActor2DCollection::DeleteElement(vtkCollectionElement *e)
 {
-
-}
-
-// Description:
-// Destroys a vtkActor2DCollection.  List elements
-// are destroyed in the superclass's destructor.
-vtkActor2DCollection::~vtkActor2DCollection()
-{
-  // List elements are deleted in vtkCollection's destructor
-}
-
-void vtkActor2DCollection::PrintSelf(ostream& os, vtkIndent indent)
-{
-  this->vtkCollection::PrintSelf(os, indent);
+  ((vtkActor2D *)(e->Item))->UnRegister(this); 
+  vtkCollection::DeleteElement(e);
 }
 
 // Description:

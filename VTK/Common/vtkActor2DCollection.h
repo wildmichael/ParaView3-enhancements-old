@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor2DCollection.h,v $
   Language:  C++
-  Date:      $Date: 1997-12-11 20:32:54 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-04-20 17:13:25 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,31 +58,18 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkActor2DCollection : public vtkCollection
 {
  public:
-  vtkActor2DCollection();
-  ~vtkActor2DCollection();
-  void PrintSelf(ostream& os, vtkIndent indent);
-
   static vtkActor2DCollection *New() {return new vtkActor2DCollection;};
   const char *GetClassName() {return "vtkActor2DCollection";};
   void Sort();
   void AddItem(vtkActor2D *a);
-  void RemoveItem(vtkActor2D *a);
   int IsItemPresent(vtkActor2D *a);
   vtkActor2D *GetNextItem();
   vtkActor2D *GetLastItem();
   void Render(vtkViewport* viewport);
 
+protected:
+  virtual void DeleteElement(vtkCollectionElement *); 
 };
-
-
-
-// Description:
-// Remove an actor from the list.
-inline void vtkActor2DCollection::RemoveItem(vtkActor2D *a) 
-{
-  this->vtkCollection::RemoveItem((vtkObject *)a);
-  a->UnRegister(this);
-}
 
 // Description:
 // Determine whether a particular actor is present. Returns its position

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCollection.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:39:55 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1998-04-20 17:13:26 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,10 +74,10 @@ public:
   static vtkCollection *New() {return new vtkCollection;};
   const char *GetClassName() {return "vtkCollection";};
 
-  void AddItem(vtkObject *);
-  void ReplaceItem(int i, vtkObject *);
-  void RemoveItem(int i);  
-  void RemoveItem(vtkObject *);
+  virtual void AddItem(vtkObject *);
+  virtual void ReplaceItem(int i, vtkObject *);
+  virtual void RemoveItem(int i);  
+  virtual void RemoveItem(vtkObject *);
   void RemoveAllItems();
   int  IsItemPresent(vtkObject *);
   int  GetNumberOfItems();
@@ -85,14 +85,15 @@ public:
   vtkObject *GetNextItemAsObject();  
   vtkObject *GetItemAsObject(int i);
 
-
 protected:
+  virtual void DeleteElement(vtkCollectionElement *); 
   int NumberOfItems;
   vtkCollectionElement *Top;
   vtkCollectionElement *Bottom;
   vtkCollectionElement *Current;
 
 };
+
 
 // Description:
 // Initialize the traversal of the collection. This means the data pointer

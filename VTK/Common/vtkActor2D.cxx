@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-17 21:36:11 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-04-20 17:13:24 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,7 +72,7 @@ vtkActor2D::vtkActor2D()
 // property, that property is deleted.
 vtkActor2D::~vtkActor2D()
 {
-  if (this->SelfCreatedProperty) delete this->Property;
+  if (this->SelfCreatedProperty) this->Property->Delete();
 }
 
 void vtkActor2D::PrintSelf(ostream& os, vtkIndent indent)
