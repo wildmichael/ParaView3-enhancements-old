@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLine.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-31 17:12:25 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1996-04-30 01:30:22 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -222,7 +222,8 @@ void vtkLine::Contour(float value, vtkFloatScalars *cellScalars,
 }
 
 // Description:
-// Compute distance to finite line.
+// Compute distance to finite line. Returns parametric coordinate t 
+// and point location on line.
 float vtkLine::DistanceToLine(float x[3], float p1[3], float p2[3], 
                               float &t, float closestPoint[3])
 {
