@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectors.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:45 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2000-04-28 08:19:59 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -114,7 +114,7 @@ void vtkVectors::ComputeMaxNorm()
 }
 
 // Return the maximum norm for these vectors.
-float vtkVectors::GetMaxNorm()
+double vtkVectors::GetMaxNorm()
 {
   this->ComputeMaxNorm();
   return this->MaxNorm;
