@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVTreeComposite.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-27 21:32:40 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2002-07-01 18:53:28 $
+  Version:   $Revision: 1.32 $
   
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -319,8 +319,12 @@ vtkPVTreeComposite::vtkPVTreeComposite()
   if (this->MPIController == NULL)
     {
     vtkErrorMacro("This objects requires an MPI controller.");
+    this->LocalProcessId = 0;
     }
-  this->LocalProcessId = this->Controller->GetLocalProcessId();
+  else
+    {
+    this->LocalProcessId = this->Controller->GetLocalProcessId();
+    }
   this->RenderAborted = 0;
   
   this->RenderView = NULL;
