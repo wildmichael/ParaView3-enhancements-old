@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-07 16:14:43 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-12-07 18:07:58 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -147,7 +147,7 @@ void vtkAbstractTransform::TransformPointsNormalsVectors(vtkPoints *inPts,
 //----------------------------------------------------------------------------
 vtkAbstractTransform *vtkAbstractTransform::GetInverse()
 {
-  this->InverseMutex->Unlock();
+  this->InverseMutex->Lock();
   if (this->MyInverse == NULL)
     {
     // we create a circular reference here, it is dealt with in UnRegister
