@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToImageFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:56 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-07-22 19:31:26 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -271,6 +271,14 @@ void vtkImageToImageFilter::UpdateInformation()
 
   if ( ! this->Bypass)
     {
+    // legacy (hack to check to see if subclass used wrong method.
+    this->ExecuteImageInformationHack = 1;
+    this->ExecuteImageInformation();
+    if (this->ExecuteImageInformationHack == 1)
+      {
+      vtkWarningMacro("Rename your ExecuteImageInformation to ExecuteInformation");
+      }
+    // the correct call.
     // Let the subclass modify the default.
     this->ExecuteInformation();
     }
