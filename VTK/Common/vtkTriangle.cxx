@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangle.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-26 13:32:05 $
-  Version:   $Revision: 1.81 $
+  Date:      $Date: 2000-11-29 16:36:48 $
+  Version:   $Revision: 1.82 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1005,21 +1005,21 @@ void vtkTriangle::ComputeQuadric(float x1[3], float x2[3], float x3[3],
 {
   float crossX1X2[3], crossX2X3[3], crossX3X1[3];
   float determinantABC;
-  float ABC[3][3];
+  float ABCx[3][3];
   float n[4];
   int i, j;
   
   for (i = 0; i < 3; i++)
     {
-    ABC[0][i] = x1[i];
-    ABC[1][i] = x2[i];
-    ABC[2][i] = x3[i];
+    ABCx[0][i] = x1[i];
+    ABCx[1][i] = x2[i];
+    ABCx[2][i] = x3[i];
     }
   
   vtkMath::Cross(x1, x2, crossX1X2);
   vtkMath::Cross(x2, x3, crossX2X3);
   vtkMath::Cross(x3, x1, crossX3X1);
-  determinantABC = vtkMath::Determinant3x3(ABC);
+  determinantABC = vtkMath::Determinant3x3(ABCx);
   
   n[0] = crossX1X2[0] + crossX2X3[0] + crossX3X1[0];
   n[1] = crossX1X2[1] + crossX2X3[1] + crossX3X1[1];
