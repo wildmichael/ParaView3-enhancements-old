@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-16 16:42:01 $
-  Version:   $Revision: 1.84 $
+  Date:      $Date: 2001-03-16 20:29:26 $
+  Version:   $Revision: 1.85 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -385,7 +385,7 @@ int vtkUnstructuredGrid::InsertNextCell(int type, vtkIdList *ptIds)
   this->Locations->InsertNextValue(this->Connectivity->GetInsertLocation(npts));
   this->Types->InsertNextValue((unsigned char) type);
   //return the number of cells
-  return this->GetNumberOfCells();
+  return this->GetNumberOfCells()-1;
 
 }
 
@@ -400,7 +400,7 @@ int vtkUnstructuredGrid::InsertNextCell(int type, int npts, int *pts)
   this->Locations->InsertNextValue(this->Connectivity->GetInsertLocation(npts));
   this->Types->InsertNextValue((unsigned char) type);
   //return the number of cells
-  return this->GetNumberOfCells();
+  return this->GetNumberOfCells()-1;
 
 }
 
@@ -518,6 +518,7 @@ void vtkUnstructuredGrid::GetCellPoints(int cellId, int& npts, int* &pts)
   int loc;
 
   loc = this->Locations->GetValue(cellId);
+
   this->Connectivity->GetCell(loc,npts,pts);
 }
 
