@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:24:52 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-07-25 15:33:54 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -153,7 +153,10 @@ void vtkBYUReader::ReadGeometryFile(FILE *geomFile, int &numPts)
                  << numPolys << " polygons.");
 
   this->SetPoints(newPts);
+  newPts->Delete();
+
   this->SetPolys(newPolys);
+  newPolys->Delete();
 }
 
 void vtkBYUReader::ReadDisplacementFile(int numPts)
@@ -186,6 +189,7 @@ void vtkBYUReader::ReadDisplacementFile(int numPts)
   vtkDebugMacro(<<"Read " << numPts << " displacements");
 
   this->PointData.SetVectors(newVectors);
+  newVectors->Delete();
 }
 
 void vtkBYUReader::ReadScalarFile(int numPts)
@@ -218,6 +222,7 @@ void vtkBYUReader::ReadScalarFile(int numPts)
   vtkDebugMacro(<<"Read " << numPts << " scalars");
 
   this->PointData.SetScalars(newScalars);
+  newScalars->Delete();
 }
 
 void vtkBYUReader::ReadTextureFile(int numPts)
@@ -250,6 +255,7 @@ void vtkBYUReader::ReadTextureFile(int numPts)
   vtkDebugMacro(<<"Read " << numPts << " texture coordinates");
 
   this->PointData.SetTCoords(newTCoords);
+  newTCoords->Delete();
 }
 
 void vtkBYUReader::PrintSelf(ostream& os, vtkIndent indent)

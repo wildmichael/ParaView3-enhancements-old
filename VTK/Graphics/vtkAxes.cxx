@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAxes.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:24:51 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1995-07-25 15:33:53 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -88,14 +88,20 @@ void vtkAxes::Execute()
   newScalars->InsertNextScalar(0.5);
   newNormals->InsertNextNormal(n);
   newLines->InsertNextCell(2,ptIds);
-
 //
-// Update self
+// Update self and release memory
 // 
   this->SetPoints(newPts);
+  newPts->Delete();
+
   this->PointData.SetScalars(newScalars);
+  newScalars->Delete();
+
   this->PointData.SetNormals(newNormals);
+  newNormals->Delete();
+
   this->SetLines(newLines);
+  newLines->Delete();
 }
 
 void vtkAxes::PrintSelf(ostream& os, vtkIndent indent)

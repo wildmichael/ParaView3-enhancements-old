@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:24:50 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-07-25 15:33:52 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -199,21 +199,22 @@ void vtkAppendPolyData::Execute()
       }
     }
 //
-// Update ourselves
+// Update ourselves and release memory
 //
   this->SetPoints(newPts);
+  newPts->Delete();
 
   if ( newVerts->GetNumberOfCells() > 0 ) this->SetVerts(newVerts);
-  else delete newVerts;
+  newVerts->Delete();
 
   if ( newLines->GetNumberOfCells() > 0 ) this->SetLines(newLines);
-  else delete newLines;
+  newLines->Delete();
 
   if ( newPolys->GetNumberOfCells() > 0 ) this->SetPolys(newPolys);
-  else delete newPolys;
+  newPolys->Delete();
 
   if ( newStrips->GetNumberOfCells() > 0 ) this->SetStrips(newStrips);
-  else delete newStrips;
+  newStrips->Delete();
 
   this->Squeeze();
 }

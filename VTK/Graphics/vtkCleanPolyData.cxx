@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCleanPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-12 08:38:11 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-07-25 15:33:59 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -28,7 +28,7 @@ vtkCleanPolyData::vtkCleanPolyData()
 vtkCleanPolyData::~vtkCleanPolyData()
 {
   if ( this->SelfCreatedLocator && this->Locator != NULL) 
-    delete this->Locator;
+    this->Locator->Delete();
 }
 
 void vtkCleanPolyData::Execute()
@@ -73,7 +73,7 @@ void vtkCleanPolyData::Execute()
   if (this->SelfCreatedLocator) // in case tolerance is changed
     {
     this->SelfCreatedLocator = 0;
-    delete this->Locator;
+    this->Locator->Delete();
     this->Locator = NULL;
     }
 //
@@ -214,16 +214,32 @@ void vtkCleanPolyData::Execute()
                  newStrips->GetNumberOfCells() << " strips");
     }
 //
-// Update ourselves
+// Update ourselves and release memory
 //
   delete [] Index;
 
   this->SetPoints(newPts);
-  this->SetVerts(newVerts);
-  this->SetLines(newLines);
-  this->SetPolys(newPolys);
-  this->SetStrips(newStrips);
-
+  newPts->Delete();
+  if (newVerts)
+    {
+    this->SetVerts(newVerts);
+    newVerts->Delete();
+    }
+  if (newLines)
+    {
+    this->SetLines(newLines);
+    newLines->Delete();
+    }
+  if (newPolys)
+    {
+    this->SetPolys(newPolys);
+    newPolys->Delete();
+    }
+  if (newStrips)
+    {
+    this->SetStrips(newStrips);
+    newStrips->Delete();
+    }
 }
 
 // Description:
@@ -233,7 +249,7 @@ void vtkCleanPolyData::SetLocator(vtkLocator *locator)
 {
   if ( this->Locator != locator ) 
     {
-    if ( this->SelfCreatedLocator ) delete this->Locator;
+    if ( this->SelfCreatedLocator ) this->Locator->Delete();
     this->SelfCreatedLocator = 0;
     this->Locator = locator;
     this->Modified();
@@ -242,7 +258,7 @@ void vtkCleanPolyData::SetLocator(vtkLocator *locator)
 
 void vtkCleanPolyData::CreateDefaultLocator()
 {
-  if ( this->SelfCreatedLocator ) delete this->Locator;
+  if ( this->SelfCreatedLocator ) this->Locator->Delete();
 
   if ( this->Tolerance <= 0.0 )
     this->Locator = new vtkMergePoints;

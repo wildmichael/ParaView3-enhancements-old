@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:24:49 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1995-07-25 15:33:50 $
+  Version:   $Revision: 1.16 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -163,9 +163,11 @@ void vtkAppendFilter::Execute()
       this->InsertNextCell(ds->GetCellType(cellId),newPtIds);
       }
     }
-
-// Update ourselves
+//
+// Update ourselves and release memory
+//
   this->SetPoints(newPts);
+  newPts->Delete();
 }
 
 void vtkAppendFilter::PrintSelf(ostream& os, vtkIndent indent)

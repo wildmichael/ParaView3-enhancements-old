@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-14 16:48:03 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-07-25 15:34:02 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -14,6 +14,15 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 
 =========================================================================*/
 #include "Cell.hh"
+
+// Description:
+// Construct cell.
+vtkCell::vtkCell():
+Points(MAX_CELL_SIZE), PointIds(MAX_CELL_SIZE)
+{
+  this->Points.ReferenceCountingOff();
+}  
+
 //
 // Instantiate cell from outside
 //

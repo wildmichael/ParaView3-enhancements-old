@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConeSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:25:05 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1995-07-25 15:34:05 $
+  Version:   $Revision: 1.14 $
 
 This file is part of the Visualization Toolkit. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -136,15 +136,18 @@ void vtkConeSource::Execute()
 // Update ourselves
 //
   this->SetPoints(newPoints);
+  newPoints->Delete();
 
   if ( newPolys )
     {
     newPolys->Squeeze(); // we may have estimated size; reclaim some space
     this->SetPolys(newPolys);
+    newPolys->Delete();
     }
   else
     {
     this->SetLines(newLines);
+    newLines->Delete();
     }
 }
 
