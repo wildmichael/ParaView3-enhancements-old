@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:51:06 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1997-07-09 20:43:20 $
+  Version:   $Revision: 1.13 $
 
 
-Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless

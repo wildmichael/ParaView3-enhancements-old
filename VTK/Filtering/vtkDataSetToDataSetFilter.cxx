@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToDataSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-10-15 17:12:54 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1997-07-09 20:43:56 $
+  Version:   $Revision: 1.32 $
 
 
-Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless
