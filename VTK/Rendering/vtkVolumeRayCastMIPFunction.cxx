@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMIPFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:38 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-10-15 11:45:31 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -494,7 +494,7 @@ void vtkVolumeRayCastMIPFunction::CastARay( int ray_type, void *data_ptr,
     }
 }
 
-float vtkVolumeRayCastMIPFunction::GetZeroOpacityThreshold( vtkVolume *vol )
+float vtkVolumeRayCastMIPFunction::GetZeroOpacityThreshold( vtkVolume *vtkNotUsed(vol) )
 {
   return ( 1.0 );
 }
