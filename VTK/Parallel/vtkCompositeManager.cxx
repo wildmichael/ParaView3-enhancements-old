@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCompositeManager.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-08 13:00:58 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2002-07-09 12:20:28 $
+  Version:   $Revision: 1.35 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -44,7 +44,7 @@
  #include <mpi.h>
 #endif
 
-vtkCxxRevisionMacro(vtkCompositeManager, "$Revision: 1.34 $");
+vtkCxxRevisionMacro(vtkCompositeManager, "$Revision: 1.35 $");
 vtkStandardNewMacro(vtkCompositeManager);
 
 vtkCxxSetObjectMacro(vtkCompositeManager,Compositer, vtkCompositer);
@@ -523,6 +523,10 @@ void vtkCompositeManager::RenderRMI()
         cam->ParallelProjectionOn();
         cam->SetParallelScale(renInfo.ParallelScale);
         }
+      else
+        {
+        cam->ParallelProjectionOff();   
+        }
       if (light)
         {
         light->SetPosition(renInfo.LightPosition);
@@ -708,6 +712,10 @@ void vtkCompositeManager::StartRender()
     if (cam->GetParallelProjection())
       {
       renInfo.ParallelScale = cam->GetParallelScale();
+      }
+    else
+      {
+      renInfo.ParallelScale = 0.0;
       }
     if (light)
       {
