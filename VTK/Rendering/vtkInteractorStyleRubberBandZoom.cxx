@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleRubberBandZoom.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-10-27 17:03:36 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-11-05 14:32:12 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkRenderWindowInteractor.h"
 #include "vtkUnsignedCharArray.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyleRubberBandZoom, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkInteractorStyleRubberBandZoom, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkInteractorStyleRubberBandZoom);
 
 vtkInteractorStyleRubberBandZoom::vtkInteractorStyleRubberBandZoom()
@@ -88,6 +88,8 @@ void vtkInteractorStyleRubberBandZoom::OnMouseMove()
     }
   
   this->Interactor->GetRenderWindow()->SetPixelData(0, 0, size[0]-1, size[1]-1, pixels, 1);
+  
+  tmpPixelArray->Delete();
 }
 
 void vtkInteractorStyleRubberBandZoom::OnLeftButtonDown()
