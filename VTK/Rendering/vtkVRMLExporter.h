@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLExporter.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:57 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-08-08 20:32:02 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -76,7 +76,6 @@ public:
   // Set the file pointer to write to. This will override
   // a FileName if specified.
   void SetFilePointer(FILE *);
-  FILE *GetFilePointer();
   
 protected:
   vtkVRMLExporter();
