@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarBarActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-06 21:22:25 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1999-07-12 14:27:49 $
+  Version:   $Revision: 1.18 $
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -208,7 +208,9 @@ int vtkScalarBarActor::RenderOpaqueGeometry(vtkViewport *viewport)
     }
 
   // Check to see whether we have to rebuild everything
-  if (viewport->GetMTime() > this->BuildTime)
+  if ( viewport->GetMTime() > this->BuildTime || 
+       ( viewport->GetVTKWindow() && 
+	 viewport->GetVTKWindow()->GetMTime() > this->BuildTime ) )
     {
     // if the viewport has changed we may - or may not need
     // to rebuild, it depends on if the projected coords chage
