@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-30 16:23:05 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1998-12-31 14:10:28 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,8 +67,14 @@ void vtkSTLWriter::WriteData()
     return;
     }
 
-  if ( this->FileType == VTK_BINARY ) this->WriteBinarySTL(pts,polys);
-  else this->WriteAsciiSTL(pts,polys);
+  if ( this->FileType == VTK_BINARY )
+    {
+    this->WriteBinarySTL(pts,polys);
+    }
+  else
+    {
+    this->WriteAsciiSTL(pts,polys);
+    }
 }
 
 static char header[]="Visualization Toolkit generated SLA File                                        ";

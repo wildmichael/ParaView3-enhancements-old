@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.h,v $
   Language:  C++
-  Date:      $Date: 1998-11-17 22:54:59 $
-  Version:   $Revision: 1.69 $
+  Date:      $Date: 1998-12-31 14:10:26 $
+  Version:   $Revision: 1.70 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -223,7 +223,7 @@ public:
   // when the renderer is created by MakeRenderer.  The user probably
   // shouldn't ever need to call this method.
   void SetRenderWindow(vtkRenderWindow *);
-  vtkRenderWindow *GetRenderWindow() {return RenderWindow;};
+  vtkRenderWindow *GetRenderWindow() {return this->RenderWindow;};
   virtual vtkWindow *GetVTKWindow();
   
   // Description:

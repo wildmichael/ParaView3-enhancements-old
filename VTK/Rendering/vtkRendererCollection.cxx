@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRendererCollection.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:21 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1998-12-31 14:10:26 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,7 +46,7 @@ void vtkRendererCollection::Render()
 {
   vtkRenderer *ren;
 
-  for (this->InitTraversal(); (ren = GetNextItem()); )
+  for (this->InitTraversal(); (ren = this->GetNextItem()); )
     {
     ren->Render();
     }
@@ -56,7 +56,7 @@ void vtkRendererCollection::Render2D()
 {
   vtkRenderer *ren;
 
-  for (this->InitTraversal(); (ren = GetNextItem()); )
+  for (this->InitTraversal(); (ren = this->GetNextItem()); )
     {
     ren->Render2D();
     }

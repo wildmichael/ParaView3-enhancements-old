@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamer.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:20 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1998-12-31 14:10:29 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -104,12 +104,21 @@ typedef struct _vtkStreamPoint {
 class vtkStreamArray { //;prevent man page generation
 public:
   vtkStreamArray();
-  ~vtkStreamArray() {if (this->Array) delete [] this->Array;};
+  ~vtkStreamArray()
+    {
+    if (this->Array)
+      {
+      delete [] this->Array;
+      }
+    };
   int GetNumberOfPoints() {return this->MaxId + 1;};
   vtkStreamPoint *GetStreamPoint(int i) {return this->Array + i;};
   vtkStreamPoint *InsertNextStreamPoint() 
     {
-    if ( ++this->MaxId >= this->Size ) this->Resize(this->MaxId);
+    if ( ++this->MaxId >= this->Size )
+      {
+      this->Resize(this->MaxId);
+      }
     return this->Array + this->MaxId;
     }
   vtkStreamPoint *Resize(int sz); //reallocates data

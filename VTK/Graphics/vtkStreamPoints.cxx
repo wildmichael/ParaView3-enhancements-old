@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:26 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1998-12-31 14:10:29 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,7 +59,10 @@ void vtkStreamPoints::Execute()
   vtkPolyData *output=(vtkPolyData *)this->Output;
 
   this->vtkStreamer::Integrate();
-  if ( this->NumberOfStreamers <= 0 ) return;
+  if ( this->NumberOfStreamers <= 0 )
+    {
+    return;
+    }
 
   newPts  = vtkPoints::New();
   newPts ->Allocate(1000);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamLine.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:25:27 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1998-12-31 14:10:29 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -85,12 +85,17 @@ void vtkStreamLine::Execute()
   //
   for (ptId=0; ptId < this->NumberOfStreamers; ptId++)
     {
-    if ( this->Streamers[ptId].GetNumberOfPoints() < 2 ) continue;
+    if ( this->Streamers[ptId].GetNumberOfPoints() < 2 )
+      {
+      continue;
+      }
     sPrev = this->Streamers[ptId].GetStreamPoint(0);
     sPtr = this->Streamers[ptId].GetStreamPoint(1);
 
     if ( this->Streamers[ptId].GetNumberOfPoints() == 2 && sPtr->cellId >= 0 )
+      {
       continue;
+      }
 
     tOffset = sPrev->t;
 
