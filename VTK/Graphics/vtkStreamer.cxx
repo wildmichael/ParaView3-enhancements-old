@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamer.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-19 15:53:44 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2000-10-19 19:16:53 $
+  Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -328,6 +328,7 @@ static VTK_THREAD_RETURN_TYPE vtkStreamer_ThreadedIntegrate( void *arg )
 	{
         continue;
 	}
+      func->SetLastCellId(sPtr->cellId);
 
       dir = streamer->Direction;
 
