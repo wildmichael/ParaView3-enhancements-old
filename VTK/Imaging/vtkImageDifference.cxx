@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDifference.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-13 18:43:25 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1998-11-10 12:40:18 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -368,8 +368,10 @@ float vtkImageDifference::GetError()
   int i;
 
   for ( i= 0; i < this->NumberOfThreads; i++ )
+    {
     error += this->ErrorPerThread[i];
-  
+    }
+
   return error;
 }
 
@@ -379,8 +381,10 @@ float vtkImageDifference::GetThresholdedError()
   int i;
 
   for ( i= 0; i < this->NumberOfThreads; i++ )
+    {
     error += this->ThresholdedErrorPerThread[i];
-  
+    }
+
   return error;
 }
 
