@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPProbeFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-26 17:54:34 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-02-28 17:30:07 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,6 +24,7 @@
 #include "vtkProbeFilter.h"
 
 class vtkMultiProcessController;
+class vtkSocketController;
 
 class VTK_PARALLEL_EXPORT vtkPProbeFilter : public vtkProbeFilter
 {
@@ -39,16 +40,24 @@ public:
   virtual void SetController(vtkMultiProcessController*);
   vtkGetObjectMacro(Controller, vtkMultiProcessController);
 
+  // Description:
+  // Use only in client server mode for paraview.
+  // We distinguish the client by the controller.
+  // The client should have a socket controller, but not a controller.
+  virtual void SetSocketController(vtkSocketController*);
+  vtkGetObjectMacro(SocketController, vtkSocketController);
+
 protected:
   vtkPProbeFilter();
   ~vtkPProbeFilter();
 
   // Usual data generation method
-  virtual void Execute();
+  virtual void ExecuteData(vtkDataObject*);
   virtual void ExecuteInformation();
   virtual void ComputeInputUpdateExtents(vtkDataObject *output);
 
   vtkMultiProcessController* Controller;
+  vtkSocketController* SocketController;
 
 private:
   vtkPProbeFilter(const vtkPProbeFilter&);  // Not implemented.
