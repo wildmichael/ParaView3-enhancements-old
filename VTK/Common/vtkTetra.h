@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTetra.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-27 13:09:09 $
-  Version:   $Revision: 1.69 $
+  Date:      $Date: 2002-09-06 20:28:09 $
+  Version:   $Revision: 1.70 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -93,6 +93,13 @@ public:
   // a tetrahedron defined by the four points x1, x2, x3, and x4.
   static double Circumsphere(double  p1[3], double p2[3], double p3[3], 
                              double p4[3], double center[3]);
+
+  // Description:
+  // Compute the center (center[3]) and radius (method return value) of
+  // a sphere that just fits inside the faces of a tetrahedron defined
+  // by the four points x1, x2, x3, and x4.
+  static double Insphere(double  p1[3], double p2[3], double p3[3], 
+                         double p4[3], double center[3]);
 
   // Description:
   // Given a 3D point x[3], determine the barycentric coordinates of the point.

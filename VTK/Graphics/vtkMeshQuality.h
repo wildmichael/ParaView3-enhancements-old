@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMeshQuality.h,v $
   Language:  C++
-  Date:      $Date: 2002-09-05 16:12:58 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-09-06 20:28:09 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -62,8 +62,6 @@ protected:
   vtkMeshQuality();
   ~vtkMeshQuality();
   void Execute();
-  double Insphere(double p1[3], double p2[3], double p3[3],
-                  double p4[3], double center[3]);
 
   int Volume;
   int Ratio;
