@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeCollection.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:39:01 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1995-08-16 21:48:20 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,9 +40,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 // .NAME vtkVolumeCollection - a list of Volumes
 // .SECTION Description
-// vtkVolumeCollection represents and provides methods to manipulate list of
+// vtkVolumeCollection represents and provides methods to manipulate a list of
 // Volumes (i.e., vtkVolume and subclasses). The list is unsorted and duplicate
 // entries are not prevented.
+
+// .SECTION see also
+// vtkCollection vtkVolume
 
 #ifndef __vtkVolumeC_hh
 #define __vtkVolumeC_hh
@@ -84,7 +87,8 @@ inline int vtkVolumeCollection::IsItemPresent(vtkVolume *a)
 }
 
 // Description:
-// Get the next Volume in the list.
+// Get the next Volume in the list. Return NULL when the end of the list
+// is reached.
 inline vtkVolume *vtkVolumeCollection::GetNextItem() 
 { 
   return (vtkVolume *)(this->vtkCollection::GetNextItem());
