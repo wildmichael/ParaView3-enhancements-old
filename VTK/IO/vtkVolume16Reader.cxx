@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume16Reader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:20 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1999-07-30 18:33:53 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -146,7 +146,7 @@ void vtkVolume16Reader::ExecuteInformation()
   output->SetScalarType(VTK_UNSIGNED_SHORT);
   output->SetNumberOfScalarComponents(1);
   
-  // I think I will remove spacing and origin from image information!
+  // spacing and origin ?
 }
     
     
