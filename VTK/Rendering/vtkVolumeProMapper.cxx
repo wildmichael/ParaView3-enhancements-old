@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-17 18:59:23 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-06-18 15:54:12 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -98,6 +98,8 @@ vtkVolumeProMapper::vtkVolumeProMapper()
   this->WrongVLIVersion   = 0;
   this->DisplayedMessage  = 0;
 
+  this->Cut = NULL;
+  
   // Establish a connection with vli
   status = VLIOpen();
   if ( status != kVLIOK )
