@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLRectilinearGridWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-16 18:23:07 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-11-27 00:16:05 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,8 +19,9 @@
 #include "vtkObjectFactory.h"
 #include "vtkRectilinearGrid.h"
 #include "vtkExtentTranslator.h"
+#include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkXMLRectilinearGridWriter, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkXMLRectilinearGridWriter, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkXMLRectilinearGridWriter);
 
 //----------------------------------------------------------------------------
@@ -85,13 +86,21 @@ vtkXMLRectilinearGridWriter::CreateExactCoordinates(vtkDataArray* a, int xyz)
   int* inBounds = inExtent+xyz*2;
   int* outBounds = outExtent+xyz*2;
   
+  if(!a)
+    {
+    // There are no coordinates.  This can happen with empty input.
+    return vtkFloatArray::New();
+    }
+  
   if((inBounds[0] == outBounds[0]) && (inBounds[1] == outBounds[1]))
     {
+    // Use the entire coordinates array.
     a->Register(0);
     return a;
     }
   else
     {
+    // Create a subset of the coordinates array.
     int components = a->GetNumberOfComponents();
     int tupleSize = components*this->GetWordTypeSize(a->GetDataType());
     vtkDataArray* b = a->NewInstance();

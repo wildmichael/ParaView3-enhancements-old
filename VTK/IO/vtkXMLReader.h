@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-23 15:49:47 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-11-27 00:16:04 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -169,6 +169,12 @@ protected:
   // The observer to modify this object when the array selections are
   // modified.
   vtkCallbackCommand* SelectionObserver;
+  
+  // Whether there was an error reading the file in ExecuteInformation.
+  int InformationError;
+  
+  // Whether there was an error reading the file in ExecuteData.
+  int DataError;
   
 private:
   vtkXMLReader(const vtkXMLReader&);  // Not implemented.

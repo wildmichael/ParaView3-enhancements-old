@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLPRectilinearGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-22 20:52:59 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-11-27 00:16:04 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkXMLDataElement.h"
 #include "vtkXMLRectilinearGridReader.h"
 
-vtkCxxRevisionMacro(vtkXMLPRectilinearGridReader, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkXMLPRectilinearGridReader, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkXMLPRectilinearGridReader);
 
 //----------------------------------------------------------------------------
@@ -109,10 +109,17 @@ vtkXMLPRectilinearGridReader::ReadPrimaryElement(vtkXMLDataElement* ePrimary)
       }
     }
   
+  // If there is any volume, we require a PCoordinates element.
   if(!this->PCoordinatesElement)
     {
-    vtkErrorMacro("Could not find PCoordinates element with 3 arrays.");
-    return 0;
+    int extent[6];
+    this->GetOutput()->GetWholeExtent(extent);
+    if((extent[0] <= extent[1]) && (extent[2] <= extent[3]) &&
+       (extent[4] <= extent[5]))
+      {
+      vtkErrorMacro("Could not find PCoordinates element with 3 arrays.");
+      return 0;
+      }
     }
   
   return 1;
@@ -123,6 +130,12 @@ void vtkXMLPRectilinearGridReader::SetupOutputInformation()
 {
   this->Superclass::SetupOutputInformation();  
   vtkRectilinearGrid* output = this->GetOutput();  
+  
+  if(!this->PCoordinatesElement)
+    {
+    // Empty volume.
+    return;
+    }
   
   // Create the coordinate arrays.
   vtkXMLDataElement* xc = this->PCoordinatesElement->GetNestedElement(0);
