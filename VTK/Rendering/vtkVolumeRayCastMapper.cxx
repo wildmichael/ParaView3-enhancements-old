@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-01-16 21:23:54 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1998-03-01 20:03:24 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,6 +70,10 @@ vtkVolumeRayCastMapper::vtkVolumeRayCastMapper()
   this->GrayTFArray                   = NULL;
   this->CorrectedScalarOpacityTFArray = NULL;
   this->CorrectedStepSize             = -1;
+  this->CastTime                      = 0.0;
+  this->DrawTime                      = 0.0;
+  this->TotalStepsTaken               = 0;
+  this->TotalRaysCast                 = 0;
 }
 
 // Description:
@@ -1103,7 +1107,6 @@ void vtkVolumeRayCastMapper::UpdateShadingTables( vtkRenderer *ren,
 	 this->NormalEncoder.GetGradientMagnitudeScale() !=
 		    gradient_opacity_scale ) )
     {
-cout << "Updating normals!\n";
     this->NormalEncoder.SetGradientMagnitudeBias( gradient_opacity_bias );
     this->NormalEncoder.SetGradientMagnitudeScale( gradient_opacity_scale );
     this->NormalEncoder.SetScalarInput( this->ScalarInput );
