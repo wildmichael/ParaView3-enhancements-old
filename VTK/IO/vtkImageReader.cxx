@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-19 15:15:44 $
-  Version:   $Revision: 1.95 $
+  Date:      $Date: 2002-02-19 15:16:59 $
+  Version:   $Revision: 1.96 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include <ctype.h>
 #include <string.h>
 
-vtkCxxRevisionMacro(vtkImageReader, "$Revision: 1.95 $");
+vtkCxxRevisionMacro(vtkImageReader, "$Revision: 1.96 $");
 vtkStandardNewMacro(vtkImageReader);
 
 #ifdef read
@@ -377,10 +377,6 @@ void vtkImageReader::ExecuteData(vtkDataObject *output)
   void *ptr = NULL;
   int *ext;
 
-  void *ptrFileName = this->FileName;
-  void *ptrFilePattern = this->FilePattern;
-
-  
   if (!this->FileName && !this->FilePattern)
     {
     vtkErrorMacro("Either a valid FileName or FilePattern must be specified.");
