@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-23 18:36:54 $
-  Version:   $Revision: 1.62 $
+  Date:      $Date: 1999-08-24 12:03:56 $
+  Version:   $Revision: 1.63 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -1405,7 +1405,8 @@ void vtkImageData::SetScalarType(int t)
   tmp = this->GetPointData()->GetScalars();
   if (tmp && tmp->GetDataType() != t)
     {
-    vtkWarningMacro("Setting ScalarType: Existing scalars do not match.");
+    // This happens during setup of default information
+    //vtkWarningMacro("Setting ScalarType: Existing scalars do not match.");
     }
   
   if (t != this->ScalarType)
@@ -1428,10 +1429,10 @@ void vtkImageData::AllocateScalars()
     vtkErrorMacro("Attempt to allocate scalars before scalar type was set!.");
     return;
     }
-  
+
   // if we currently have scalars then just adjust the size
   scalars = this->PointData->GetScalars();
-  if (scalars) 
+  if (scalars && scalars->GetDataType() == this->ScalarType) 
     {
     scalars->SetNumberOfComponents(this->NumberOfScalarComponents);
     scalars->SetNumberOfScalars((this->Extent[1] - this->Extent[0] + 1)*
