@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:28 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2001-10-08 12:09:38 $
+  Version:   $Revision: 1.36 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -56,7 +56,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // lines will be justified the same way.
 
 // .SECTION See Also
-// vtkMapper2D vtkActor2D
+// vtkMapper2D vtkActor2D vtkLegendBoxActor vtkCaptionActor2D vtkVectorText
 
 #ifndef __vtkTextMapper_h
 #define __vtkTextMapper_h
