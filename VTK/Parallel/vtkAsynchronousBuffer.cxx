@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAsynchronousBuffer.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-30 12:04:11 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-08-02 17:59:50 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -331,6 +331,7 @@ void vtkAsynchronousBuffer::PrintSelf(ostream& os, vtkIndent indent)
     {
     os << indent << "BlockingOff\n";
     }
+  os << "Finished: " << this->Finished << endl;
   
   os << indent << "ThreadId: " << this->ThreadId << "\n";
 }
