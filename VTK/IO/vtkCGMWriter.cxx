@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCGMWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-08-13 14:51:41 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2003-08-13 18:50:22 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #include "vtkCellData.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkCGMWriter, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkCGMWriter, "$Revision: 1.10 $");
 vtkStandardNewMacro(vtkCGMWriter);
 
 vtkCxxSetObjectMacro(vtkCGMWriter, Viewport, vtkViewport);
@@ -535,7 +535,8 @@ void vtkCGMWriter::WriteData()
   vtkDataArray *inScalars=input->GetCellData()->GetScalars();
   vtkIdType numCells=input->GetNumberOfCells(), cellId;
   vtkIdType numPts=input->GetNumberOfPoints();
-  int i, id, type, npts, size[2], *p;
+  int i, id, type, npts, size[2];
+  vtkIdType *p;
   float bounds[6], xRange, yRange, x[3], factor[2];
   int color, bpp, colorMode;
   unsigned char *ptr, *colors;
