@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-06 17:57:21 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1995-09-15 14:58:08 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -103,6 +103,12 @@ public:
   vtkGetMacro(Orient,int);
 
   // Description:
+  // Turn on/off clamping of scalar values to range.
+  vtkSetMacro(Clamping,int);
+  vtkBooleanMacro(Clamping,int);
+  vtkGetMacro(Clamping,int);
+
+  // Description:
   // Specify whether to use vector or normal to perform vector operations.
   vtkSetMacro(VectorMode,int);
   vtkGetMacro(VectorMode,int);
@@ -118,6 +124,7 @@ protected:
   float Range[2]; // Range to use to perform scalar scaling
   int Orient; // boolean controls whether to "orient" data
   int VectorMode; // Orient/scale via normal or via vector data
+  int Clamping;
 };
 
 #endif
