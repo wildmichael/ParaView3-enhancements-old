@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCast.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-03-13 15:57:13 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-04-01 18:58:29 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,7 +58,7 @@ vtkImageCast::vtkImageCast()
 // Description:
 // This templated function executes the filter for any type of data.
 template <class IT, class OT>
-void vtkImageCastExecute(vtkImageCast *self,
+static void vtkImageCastExecute(vtkImageCast *self,
 			      vtkImageRegion *inRegion, IT *inPtr,
 			      vtkImageRegion *outRegion, OT *outPtr){
   int min0, max0, min1, max1;
@@ -95,7 +95,7 @@ void vtkImageCastExecute(vtkImageCast *self,
 
 //----------------------------------------------------------------------------
 template <class T>
-void vtkImageCastExecute(vtkImageCast *self,
+static void vtkImageCastExecute(vtkImageCast *self,
 			 vtkImageRegion *inRegion, T *inPtr,
 			 vtkImageRegion *outRegion)
 {

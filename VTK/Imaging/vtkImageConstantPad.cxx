@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageConstantPad.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-02-03 18:52:02 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-04-01 18:58:32 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,7 +59,7 @@ vtkImageConstantPad::vtkImageConstantPad()
 // Description:
 // This templated function executes the filter for any type of data.
 template <class T>
-void vtkImageConstantPadExecute(vtkImageConstantPad *self,
+static void vtkImageConstantPadExecute(vtkImageConstantPad *self,
 				vtkImageRegion *inRegion, T *inPtr,
 				vtkImageRegion *outRegion, T *outPtr)
 {
