@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-25 07:47:35 $
-  Version:   $Revision: 1.76 $
+  Date:      $Date: 2000-11-30 12:16:44 $
+  Version:   $Revision: 1.77 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -56,7 +56,6 @@ class vtkLine;
 class vtkPixel;
 class vtkVoxel;
 class vtkImageToStructuredPoints;
-class vtkExtentTranslator;
 
 
 class VTK_EXPORT vtkImageData : public vtkDataSet
@@ -319,11 +318,6 @@ public:
   void ShallowCopy(vtkDataObject *src);  
   void DeepCopy(vtkDataObject *src);
 
-  // Description:
-  // An object that will translate pieces into extents.
-  void SetExtentTranslator(vtkExtentTranslator *translator);
-  vtkExtentTranslator *GetExtentTranslator();
-  
 protected:
   vtkImageData();
   ~vtkImageData();
@@ -331,7 +325,6 @@ protected:
   void operator=(const vtkImageData&) {};
 
   vtkImageToStructuredPoints *ImageToStructuredPoints;
-  vtkExtentTranslator *ExtentTranslator;
 
   // for the GetCell method
   vtkVertex *Vertex;

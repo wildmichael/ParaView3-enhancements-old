@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-10 17:36:43 $
-  Version:   $Revision: 1.98 $
+  Date:      $Date: 2000-11-30 12:16:44 $
+  Version:   $Revision: 1.99 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -97,10 +97,6 @@ vtkImageData::vtkImageData()
 
   // for automatic conversion
   this->ImageToStructuredPoints = NULL;
-
-  this->ExtentTranslator = vtkExtentTranslator::New();
-  this->ExtentTranslator->Register(this);
-  this->ExtentTranslator->Delete();
 }
 
 //----------------------------------------------------------------------------
@@ -110,8 +106,6 @@ vtkImageData::~vtkImageData()
   this->Line->Delete();
   this->Pixel->Delete();
   this->Voxel->Delete();
-  
-  this->SetExtentTranslator(NULL);
 }
 
 //----------------------------------------------------------------------------
@@ -1039,37 +1033,7 @@ void vtkImageData::PrintSelf(ostream& os, vtkIndent indent)
     os << ", " << this->WholeExtent[idx];
     }
   os << ")\n";
-  os << indent << "ExtentTranslator: (" << this->ExtentTranslator << ")\n";
 }
-
-//----------------------------------------------------------------------------
-void vtkImageData::SetExtentTranslator(vtkExtentTranslator *t)
-{
-  if (this->ExtentTranslator == t)
-    {
-    return;
-    }
-
-  if (this->ExtentTranslator)
-    {
-    this->ExtentTranslator->UnRegister(this);
-    this->ExtentTranslator = NULL;
-    }
-  if (t)
-    {
-    t->Register(this);
-    this->ExtentTranslator = t;
-    }
-
-  this->Modified();
-} 
-
-//----------------------------------------------------------------------------
-vtkExtentTranslator *vtkImageData::GetExtentTranslator()
-{
-  return this->ExtentTranslator;
-}
-
 
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-11-28 18:06:10 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 2000-11-30 12:16:44 $
+  Version:   $Revision: 1.59 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,6 +42,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkDataObject.h"
 #include "vtkSource.h"
 #include "vtkObjectFactory.h"
+#include "vtkExtentTranslator.h"
 
 
 
@@ -108,12 +109,18 @@ vtkDataObject::vtkDataObject()
   this->UpdateExtentInitialized = 0;
 
   this->Locality = 0.0;
+
+  this->ExtentTranslator = vtkExtentTranslator::New();
+  this->ExtentTranslator->Register(this);
+  this->ExtentTranslator->Delete();
 }
 
 //----------------------------------------------------------------------------
 vtkDataObject::~vtkDataObject()
 {
   this->FieldData->Delete();
+
+  this->SetExtentTranslator(NULL);
 }
 
 
@@ -684,6 +691,34 @@ void vtkDataObject::InternalDataObjectCopy(vtkDataObject *src)
   this->Locality = src->Locality;
 }
 
+//----------------------------------------------------------------------------
+void vtkDataObject::SetExtentTranslator(vtkExtentTranslator *t)
+{
+  if (this->ExtentTranslator == t)
+    {
+    return;
+    }
+
+  if (this->ExtentTranslator)
+    {
+    this->ExtentTranslator->UnRegister(this);
+    this->ExtentTranslator = NULL;
+    }
+  if (t)
+    {
+    t->Register(this);
+    this->ExtentTranslator = t;
+    }
+
+  this->Modified();
+} 
+
+//----------------------------------------------------------------------------
+vtkExtentTranslator *vtkDataObject::GetExtentTranslator()
+{
+  return this->ExtentTranslator;
+}
+
 
 //----------------------------------------------------------------------------
 void vtkDataObject::PrintSelf(ostream& os, vtkIndent indent)
@@ -733,4 +768,5 @@ void vtkDataObject::PrintSelf(ostream& os, vtkIndent indent)
     this->LastUpdateExtentWasOutsideOfTheExtent << endl;
 
   os << indent << "Locality: " << this->Locality << endl;
+  os << indent << "ExtentTranslator: (" << this->ExtentTranslator << ")\n";
 }
