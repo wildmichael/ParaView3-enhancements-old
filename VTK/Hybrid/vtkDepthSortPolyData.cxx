@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDepthSortPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-28 05:29:56 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-05-30 11:07:28 $
+  Version:   $Revision: 1.14 $
   Thanks:    Scott Hill for implementing this class
 
 
@@ -63,7 +63,7 @@ vtkDepthSortPolyData::vtkDepthSortPolyData()
   this->Camera = NULL;
   this->Prop3D = NULL;
   this->Direction = VTK_DIRECTION_BACK_TO_FRONT;
-  this->Direction = VTK_SORT_FIRST_POINT;
+  this->DepthSortMode = VTK_SORT_FIRST_POINT;
   this->Vector[0] = this->Vector[1] = 0.0;
   this->Vector[2] = 0,0;
   this->Origin[0] = this->Origin[1] = this->Origin[2] = 0.0;
