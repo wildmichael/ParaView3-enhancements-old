@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractPropPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-27 13:44:53 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-12-17 02:03:07 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,11 +21,12 @@
 #include "vtkActor2D.h"
 #include "vtkAssembly.h"
 #include "vtkAssemblyNode.h"
+#include "vtkAssemblyPath.h"
 #include "vtkObjectFactory.h"
 #include "vtkPropAssembly.h"
 #include "vtkVolume.h"
 
-vtkCxxRevisionMacro(vtkAbstractPropPicker, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkAbstractPropPicker, "$Revision: 1.6 $");
 
 vtkCxxSetObjectMacro(vtkAbstractPropPicker,Path,vtkAssemblyPath);
 
