@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFiniteDifferenceGradientEstimator.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-08-11 17:26:22 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-08-24 18:40:13 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -165,11 +165,10 @@ static void ComputeGradients(
 	// Compute the gradient magnitude
 	t = sqrt( (double)( n[0]*n[0] + 
 			    n[1]*n[1] + 
-			    n[2]*n[2] ) ) * normalize_factor;
+			    n[2]*n[2] ) );
 	
-	// Encode this into an 8 bit value - this method is changing
-	// in the near future
-	gvalue = t * estimator->GradientMagnitudeScale + 
+	// Encode this into an 8 bit value 
+	gvalue = t * normalize_factor * estimator->GradientMagnitudeScale + 
 	  estimator->GradientMagnitudeBias;
 	  
 	if ( gvalue < 0.0 )
