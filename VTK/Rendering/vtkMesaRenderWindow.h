@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-27 14:29:25 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2002-03-27 14:48:01 $
+  Version:   $Revision: 1.29 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -118,6 +118,13 @@ protected:
   ~vtkMesaRenderWindow();
 
   vtkIdList *TextureResourceIds;
+
+  int GetPixelData(int x,int y,int x2,int y2,int front, unsigned char* data);
+  int GetZbufferData( int x1, int y1, int x2, int y2, float* z );
+  int GetRGBAPixelData(int x,int y,int x2,int y2, int front, float* data);
+  int GetRGBACharPixelData(int x,int y,int x2,int y2, int front,
+			   unsigned char* data);
+
 private:
   vtkMesaRenderWindow(const vtkMesaRenderWindow&);  // Not implemented.
   void operator=(const vtkMesaRenderWindow&);  // Not implemented.
