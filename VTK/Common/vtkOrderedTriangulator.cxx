@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOrderedTriangulator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-08 13:57:45 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2002-01-09 19:52:26 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -45,7 +45,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkEdgeTable.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkOrderedTriangulator, "$Revision: 1.32 $");
+vtkCxxRevisionMacro(vtkOrderedTriangulator, "$Revision: 1.33 $");
 vtkStandardNewMacro(vtkOrderedTriangulator);
 
 #ifdef _WIN32_WCE
@@ -1153,6 +1153,7 @@ void vtkOrderedTriangulator::PrintSelf(ostream& os, vtkIndent indent)
   this->Superclass::PrintSelf(os,indent);
 
   os << indent << "PreSorted: " << (this->PreSorted ? "On\n" : "Off\n");
+  os << indent << "UseTwoSortIds: " << (this->UseTwoSortIds ? "On\n" : "Off\n");
 
 }
 
