@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRungeKutta2.h,v $
   Language:  C++
-  Date:      $Date: 2000-10-18 17:18:44 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-10-20 13:50:17 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -70,6 +70,11 @@ public:
   // It returns an estimated value for the error (not implemented yet)
   // or -1 on failure (for example, if the integration moves out of
   // a data set)
+  virtual float ComputeNextStep(float* xprev, float* xnext, float t,
+				float delT) 
+    {
+      return this->ComputeNextStep(xprev, 0, xnext, t, delT);
+    }
   virtual float ComputeNextStep(float* xprev, float* dxprev, float* xnext, 
 				float t, float delT);
 
