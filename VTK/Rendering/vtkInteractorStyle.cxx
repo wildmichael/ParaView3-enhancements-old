@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-01 04:56:53 $
-  Version:   $Revision: 1.67 $
+  Date:      $Date: 2002-05-02 12:22:19 $
+  Version:   $Revision: 1.68 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkOldStyleCallbackCommand.h"
 #include "vtkCallbackCommand.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyle, "$Revision: 1.67 $");
+vtkCxxRevisionMacro(vtkInteractorStyle, "$Revision: 1.68 $");
 
 //----------------------------------------------------------------------------
 vtkInteractorStyle *vtkInteractorStyle::New() 
@@ -1062,9 +1062,6 @@ void vtkInteractorStyle::ProcessEvents(vtkObject* object,
 {
   vtkInteractorStyle* self 
     = reinterpret_cast<vtkInteractorStyle *>( clientdata );
-
-  vtkRenderWindowInteractor* rwi 
-    = static_cast<vtkRenderWindowInteractor *>( object );
 
   switch(event)
     {
