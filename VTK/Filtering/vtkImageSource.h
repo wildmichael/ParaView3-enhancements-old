@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 21:18:37 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1997-07-17 14:28:17 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,7 +65,7 @@ public:
   const char *GetClassName() {return "vtkImageSource";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
-  virtual void InterceptCacheUpdate(vtkImageCache *cache);
+  virtual void InterceptCacheUpdate();
   virtual void Update();
   virtual void UpdateWholeExtent();
   virtual void UpdateImageInformation() = 0;

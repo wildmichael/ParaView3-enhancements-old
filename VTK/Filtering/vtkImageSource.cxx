@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 21:18:36 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1997-07-17 14:28:16 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -115,9 +115,8 @@ void vtkImageSource::PrintSelf(ostream& os, vtkIndent indent)
 // This method can be used to intercept a generate call made to a cache.
 // It allows a source to generate a larger region than was originally 
 // specified.  The default method does not alter the specified region extent.
-void vtkImageSource::InterceptCacheUpdate(vtkImageCache *cache)
+void vtkImageSource::InterceptCacheUpdate()
 {
-  cache = cache;
 }
 
 
