@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32VideoSource.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:28 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-02-10 22:18:52 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -79,6 +79,10 @@ public:
   void SetOutputFormat(int format);
 
   // Description:
+  // turn on/off the preview window
+  void SetPreview(int p);
+
+  // Description:
   // bring up a modal dialog box for video format selection
   void VideoFormatDialog();
 
@@ -89,6 +93,8 @@ public:
   // Description:
   // For internal use only
   void InternalGrab(LPVIDEOHDR VideoHdrPtr);
+  void SetBeginTimeStamp(double t) { this->BeginTimeStamp = t; };
+  double GetBeginTimeStamp() { return this->BeginTimeStamp; };
 
 protected:
   vtkWin32VideoSource();
@@ -106,6 +112,8 @@ protected:
   int BitMapSize;
 
   int FatalVFWError;
+
+  double BeginTimeStamp;
 
   void CheckBuffer();
   void UnpackRasterLine(char *outptr, char *inptr, 
