@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVEnSightMasterServerTranslator.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-08 15:34:28 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-05-15 19:19:20 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -45,7 +45,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkPVEnSightMasterServerTranslator);
-vtkCxxRevisionMacro(vtkPVEnSightMasterServerTranslator, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkPVEnSightMasterServerTranslator, "$Revision: 1.2 $");
 
 //----------------------------------------------------------------------------
 vtkPVEnSightMasterServerTranslator::vtkPVEnSightMasterServerTranslator()
@@ -62,6 +62,8 @@ vtkPVEnSightMasterServerTranslator::~vtkPVEnSightMasterServerTranslator()
 void vtkPVEnSightMasterServerTranslator::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->Superclass::PrintSelf(os, indent);
+  os << indent << "ProcessId: " << this->ProcessId << "\n";
+  
 }
 
 //----------------------------------------------------------------------------
