@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-28 22:34:11 $
-  Version:   $Revision: 1.77 $
+  Date:      $Date: 2003-04-28 19:13:10 $
+  Version:   $Revision: 1.78 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -46,7 +46,7 @@
 
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkOpenGLPolyDataMapper, "$Revision: 1.77 $");
+vtkCxxRevisionMacro(vtkOpenGLPolyDataMapper, "$Revision: 1.78 $");
 vtkStandardNewMacro(vtkOpenGLPolyDataMapper);
 #endif
 
@@ -2560,15 +2560,29 @@ int vtkOpenGLPolyDataMapper::Draw(vtkRenderer *aren, vtkActor *act)
   if (c)
     {
     GLenum lmcolorMode;
-    if (prop->GetAmbient() > prop->GetDiffuse())
+    if (this->ScalarMaterialMode == VTK_MATERIALMODE_DEFAULT)
+      {
+      if (prop->GetAmbient() > prop->GetDiffuse())
+        {
+        lmcolorMode = GL_AMBIENT;
+        }
+      else
+        {
+        lmcolorMode = GL_DIFFUSE;
+        }
+      }
+    else if (this->ScalarMaterialMode == VTK_MATERIALMODE_AMBIENT_AND_DIFFUSE)
+      {
+      lmcolorMode = GL_AMBIENT_AND_DIFFUSE;
+      }
+    else if (this->ScalarMaterialMode == VTK_MATERIALMODE_AMBIENT)
       {
       lmcolorMode = GL_AMBIENT;
       }
-    else
+    else // if (this->ScalarMaterialMode == VTK_MATERIALMODE_DIFFUSE)
       {
       lmcolorMode = GL_DIFFUSE;
-      }
-    
+      } 
     glColorMaterial( GL_FRONT_AND_BACK, lmcolorMode);
     glEnable( GL_COLOR_MATERIAL );
     }

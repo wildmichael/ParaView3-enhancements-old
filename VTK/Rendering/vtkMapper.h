@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-21 19:12:59 $
-  Version:   $Revision: 1.82 $
+  Date:      $Date: 2003-04-28 19:13:10 $
+  Version:   $Revision: 1.83 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -64,6 +64,11 @@
 
 #define VTK_GET_ARRAY_BY_ID 0
 #define VTK_GET_ARRAY_BY_NAME 1
+
+#define VTK_MATERIALMODE_DEFAULT  0
+#define VTK_MATERIALMODE_AMBIENT  1
+#define VTK_MATERIALMODE_DIFFUSE  2
+#define VTK_MATERIALMODE_AMBIENT_AND_DIFFUSE  3
 
 class vtkWindow;
 class vtkRenderer;
@@ -300,6 +305,23 @@ public:
   // Update the input to the Mapper.
   virtual void Update();
 
+  // Description:
+  // Set/Get the light-model color mode. 
+  vtkSetMacro(ScalarMaterialMode,int);
+  vtkGetMacro(ScalarMaterialMode,int);
+  void SetScalarMaterialModeToDefault() 
+    {this->SetScalarMaterialMode(VTK_MATERIALMODE_DEFAULT);};
+  void SetScalarMaterialModeToAmbient() 
+    {this->SetScalarMaterialMode(VTK_MATERIALMODE_AMBIENT);};
+  void SetScalarMaterialModeToDiffuse() 
+    {this->SetScalarMaterialMode(VTK_MATERIALMODE_DIFFUSE);};
+  void SetScalarMaterialModeToAmbientAndDiffuse() 
+    {this->SetScalarMaterialMode(VTK_MATERIALMODE_AMBIENT_AND_DIFFUSE);};
+
+  // Description:
+  // Return the light-model color mode.
+  const char *GetScalarMaterialModeAsString();
+
 protected:
   vtkMapper();
   ~vtkMapper();
@@ -314,6 +336,7 @@ protected:
   int ImmediateModeRendering;
   int ColorMode;
   int ScalarMode;
+  int ScalarMaterialMode;
 
   float RenderTime;
 
@@ -322,6 +345,7 @@ protected:
   char ArrayName[256];
   int ArrayComponent;
   int ArrayAccessMode;
+
 private:
   vtkMapper(const vtkMapper&);  // Not implemented.
   void operator=(const vtkMapper&);  // Not implemented.
