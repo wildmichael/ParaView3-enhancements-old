@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHexahedron.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-14 16:48:04 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1995-07-16 08:33:50 $
+  Version:   $Revision: 1.21 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -197,9 +197,9 @@ void vtkHexahedron::EvaluateLocation(int& subId, float pcoords[3], float x[3],
                                     float weights[MAX_CELL_SIZE])
 {
   int i, j;
-  float *pt, pc[3];
+  float *pt;
 
-  this->InterpolationFunctions(pc, weights);
+  this->InterpolationFunctions(pcoords, weights);
 
   x[0] = x[1] = x[2] = 0.0;
   for (i=0; i<8; i++)
