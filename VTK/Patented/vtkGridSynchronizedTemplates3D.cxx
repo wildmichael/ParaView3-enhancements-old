@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGridSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-19 13:21:38 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2001-03-20 18:53:52 $
+  Version:   $Revision: 1.26 $
 
 
 
@@ -654,6 +654,10 @@ void vtkGridSynchronizedTemplates3D::InitializeOutput(int *ext,vtkPolyData *o)
     {
     estimatedSize = 1024;
     }
+
+  o->GetPointData()->InterpolateAllocate(this->GetInput()->GetPointData(),
+					 estimatedSize,estimatedSize/2);  
+  
   newPts = vtkPoints::New();
   newPts->Allocate(estimatedSize,estimatedSize);
   newPolys = vtkCellArray::New();
@@ -715,10 +719,7 @@ void vtkGridSynchronizedTemplates3D::InitializeOutput(int *ext,vtkPolyData *o)
     {
     o->GetPointData()->SetNormals(newNormals);
     newNormals->Delete();
-    }
-  
-  o->GetPointData()->InterpolateAllocate(this->GetInput()->GetPointData(),
-					 estimatedSize,estimatedSize/2);
+    }  
 }
 
 //----------------------------------------------------------------------------
