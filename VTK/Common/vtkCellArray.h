@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCellArray.h,v $
   Language:  C++
-  Date:      $Date: 1995-05-01 21:08:31 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1995-05-03 05:59:58 $
+  Version:   $Revision: 1.30 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -63,6 +63,8 @@ public:
   
   void ReverseCell(int loc);
   void ReplaceCell(int loc, int npts, int *pts);
+
+  int GetMaxCellSize();
 
   // miscellaneous pointer type operations (for fast read/write operations)
   int *GetPtr();
