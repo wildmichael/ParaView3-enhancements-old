@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataSetMapper.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-05 09:02:13 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-09-12 21:10:10 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -43,6 +43,7 @@ public:
   // Description:
   // Specify the input data to map.
   virtual void SetInput(vlDataSet *in);
+  void SetInput(vlDataSet& in) {this->SetInput(&in);};
   virtual vlDataSet* GetInput();
 
 protected:

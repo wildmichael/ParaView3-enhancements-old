@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-23 22:40:23 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1994-09-12 21:10:12 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -28,14 +28,14 @@ vlMapper::vlMapper()
 
   this->ScalarsVisible = 1;
   this->ScalarRange[0] = 0.0; this->ScalarRange[1] = 1.0;
+
+  this->SelfCreatedLookupTable = 0;
 }
 
 vlMapper::~vlMapper()
 {
-  if (this->LookupTable)
-    {
-    this->LookupTable->UnRegister(this);
-    }
+  if ( this->SelfCreatedLookupTable && this->LookupTable != NULL) 
+    delete this->LookupTable;
 }
 
 // Description:
@@ -90,6 +90,26 @@ void vlMapper::SetEndRender(void (*f)(void *), void *arg)
     this->EndRenderArg = arg;
     this->Modified();
     }
+}
+
+// Description:
+// Specify a lookup table for the mapper to use.
+void vlMapper::SetLookupTable(vlLookupTable *lut)
+{
+  if ( this->LookupTable != lut ) 
+    {
+    if ( this->SelfCreatedLookupTable ) delete this->LookupTable;
+    this->SelfCreatedLookupTable = 0;
+    this->LookupTable = lut;
+    this->Modified();
+    }
+}
+
+void vlMapper::CreateDefaultLookupTable()
+{
+  if ( this->SelfCreatedLookupTable ) delete this->LookupTable;
+  this->LookupTable = new vlLookupTable;
+  this->SelfCreatedLookupTable = 1;
 }
 
 void vlMapper::PrintSelf(ostream& os, vlIndent indent)
