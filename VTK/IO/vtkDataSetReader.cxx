@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataSetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-05-25 16:49:12 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1995-06-01 12:13:38 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -221,6 +221,8 @@ void vlDataSetReader::Execute()
 //
   if ( this->DataSet ) delete this->DataSet;
   this->DataSet = reader;
+  *(this->DataSet->GetPointData()) = *(reader->GetPointData());
+
   return;
 }
 
