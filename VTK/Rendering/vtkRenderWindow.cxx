@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-22 19:11:41 $
-  Version:   $Revision: 1.91 $
+  Date:      $Date: 1999-11-16 21:33:07 $
+  Version:   $Revision: 1.92 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -210,6 +210,11 @@ void vtkRenderWindow::SetStereoCapableWindow(int capable)
 // Turn on stereo rendering
 void vtkRenderWindow::SetStereoRender(int stereo)
 {
+  if (stereo == this->StereoRender)
+    {
+    return;
+    }
+  
   if (this->StereoCapableWindow ||
       (!this->StereoCapableWindow
        && this->StereoType != VTK_STEREO_CRYSTAL_EYES))
