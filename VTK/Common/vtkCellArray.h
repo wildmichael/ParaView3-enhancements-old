@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellArray.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-21 13:43:33 $
-  Version:   $Revision: 1.87 $
+  Date:      $Date: 2002-12-11 22:47:41 $
+  Version:   $Revision: 1.88 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -35,8 +35,10 @@
 #ifndef __vtkCellArray_h
 #define __vtkCellArray_h
 
-#include "vtkIdTypeArray.h"
-#include "vtkCell.h"
+#include "vtkObject.h"
+
+#include "vtkIdTypeArray.h" // Needed for inline methods
+#include "vtkCell.h" // Needed for inline methods
 
 class VTK_COMMON_EXPORT vtkCellArray : public vtkObject
 {

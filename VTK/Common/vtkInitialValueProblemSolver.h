@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInitialValueProblemSolver.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-06 20:10:00 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-12-11 22:47:41 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,7 +32,9 @@
 #ifndef __vtkInitialValueProblemSolver_h
 #define __vtkInitialValueProblemSolver_h
 
-#include "vtkFunctionSet.h"
+#include "vtkObject.h"
+
+class vtkFunctionSet;
 
 class VTK_COMMON_EXPORT vtkInitialValueProblemSolver : public vtkObject
 {

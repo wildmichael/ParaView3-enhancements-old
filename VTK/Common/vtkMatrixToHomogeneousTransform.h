@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMatrixToHomogeneousTransform.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-03 22:53:38 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-12-11 22:47:41 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,8 +32,7 @@
 #include "vtkHomogeneousTransform.h"
 #include "vtkMatrix4x4.h"
 
-class VTK_COMMON_EXPORT vtkMatrixToHomogeneousTransform : 
-  public vtkHomogeneousTransform
+class VTK_COMMON_EXPORT vtkMatrixToHomogeneousTransform : public vtkHomogeneousTransform
 {
  public:
   static vtkMatrixToHomogeneousTransform *New();

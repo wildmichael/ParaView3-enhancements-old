@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldData.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 19:59:17 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2002-12-11 22:47:41 $
+  Version:   $Revision: 1.48 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,11 @@
 
 =========================================================================*/
 #include "vtkFieldData.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkFieldData, "$Revision: 1.47 $");
+#include "vtkObjectFactory.h"
+#include "vtkIdList.h"
+
+vtkCxxRevisionMacro(vtkFieldData, "$Revision: 1.48 $");
 vtkStandardNewMacro(vtkFieldData);
 
 vtkFieldData::BasicIterator::BasicIterator(const int* list, 

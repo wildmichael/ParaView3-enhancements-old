@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInitialValueProblemSolver.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-14 22:32:14 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-12-11 22:47:41 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,7 +17,9 @@
 =========================================================================*/
 #include "vtkInitialValueProblemSolver.h"
 
-vtkCxxRevisionMacro(vtkInitialValueProblemSolver, "$Revision: 1.7 $");
+#include "vtkFunctionSet.h"
+
+vtkCxxRevisionMacro(vtkInitialValueProblemSolver, "$Revision: 1.8 $");
 
 vtkInitialValueProblemSolver::vtkInitialValueProblemSolver() 
 {

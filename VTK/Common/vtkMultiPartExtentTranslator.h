@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiPartExtentTranslator.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-21 14:33:08 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-12-11 22:47:41 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,8 +26,7 @@
 #include "vtkExtentTranslator.h"
 
 
-class VTK_COMMON_EXPORT vtkMultiPartExtentTranslator : 
-  public vtkExtentTranslator
+class VTK_COMMON_EXPORT vtkMultiPartExtentTranslator : public vtkExtentTranslator
 {
 public:
   static vtkMultiPartExtentTranslator *New();

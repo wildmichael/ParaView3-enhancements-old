@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldData.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 19:59:17 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2002-12-11 22:47:41 $
+  Version:   $Revision: 1.44 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -43,8 +43,11 @@
 #ifndef __vtkFieldData_h
 #define __vtkFieldData_h
 
-#include "vtkDataArray.h"
-#include "vtkIdList.h"
+#include "vtkObject.h"
+
+#include "vtkDataArray.h" // Needed for inline methods
+
+class vtkIdList;
 
 class VTK_COMMON_EXPORT vtkFieldData : public vtkObject
 {
