@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-16 14:43:10 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 2001-08-17 16:56:43 $
+  Version:   $Revision: 1.53 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -157,6 +157,7 @@ void vtkOpenGLRenderWindow::OpenGLInit()
     glDisable(GL_POLYGON_SMOOTH);
     }
 
+  glEnable(GL_NORMALIZE);
   glLightModeli(GL_LIGHT_MODEL_TWO_SIDE, GL_TRUE);
 }
 
