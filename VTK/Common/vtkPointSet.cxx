@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSet.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:14 $
-  Version:   $Revision: 1.66 $
+  Date:      $Date: 2001-05-15 12:42:55 $
+  Version:   $Revision: 1.67 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -66,11 +66,7 @@ void vtkPointSet::CopyStructure(vtkDataSet *ds)
   vtkPointSet *ps=(vtkPointSet *)ds;
   this->Initialize();
 
-  this->Points = ps->Points;
-  if (this->Points)
-    {
-    this->Points->Register(this);
-    }
+  this->SetPoints(ps->Points);
 }
 
 
