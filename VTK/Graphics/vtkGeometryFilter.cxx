@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-07-09 06:44:16 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-07-15 13:18:39 $
+  Version:   $Revision: 1.7 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -123,6 +123,7 @@ void vlGeometryFilter::Execute()
 // Allocate
 //
   newPts = new vlFloatPoints(1000,10000);
+  this->Allocate(1000,10000);
   this->PointData.CopyAllocate(pd,1000,10000);
 //
 // Traverse cells to extract geometry
