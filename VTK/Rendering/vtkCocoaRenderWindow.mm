@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCocoaRenderWindow.mm,v $
   Language:  C++
-  Date:      $Date: 2003-01-09 17:57:11 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2003-01-16 16:22:28 $
+  Version:   $Revision: 1.8 $
   Thanks:    to Yves Starreveld for developing this class
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,7 +58,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define id Id // since id is a reserved token in ObjC and is used a _lot_ in vtk
 
 
-vtkCxxRevisionMacro(vtkCocoaRenderWindow, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkCocoaRenderWindow, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkCocoaRenderWindow);
 
 
@@ -439,13 +439,13 @@ int *vtkCocoaRenderWindow::GetSize(void)
     // if we aren't mapped then just return the ivar
     if (!this->Mapped)
     {
-        return this->Size;
+        return this->Superclass::GetSize();
     }
 
     //  Find the current window size
     this->Size[0] = (int) [[(vtkCocoaWindow *)this->WindowId getvtkCocoaGLView] frame].size.width;
     this->Size[1] = (int) [[(vtkCocoaWindow *)this->WindowId getvtkCocoaGLView] frame].size.height;
-    return this->Size;
+    return this->Superclass::GetSize();
 }
 
 // Get the current size of the screen.

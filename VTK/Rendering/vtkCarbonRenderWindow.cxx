@@ -3,8 +3,8 @@
 Program:   Visualization Toolkit
 Module:    $RCSfile: vtkCarbonRenderWindow.cxx,v $
 Language:  C++
-Date:      $Date: 2003-01-13 22:15:45 $
-Version:   $Revision: 1.15 $
+Date:      $Date: 2003-01-16 16:22:28 $
+Version:   $Revision: 1.16 $
 Thanks:    to Yves Starreveld for developing this class
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
@@ -32,7 +32,7 @@ Thanks:    to Yves Starreveld for developing this class
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkCarbonRenderWindow, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkCarbonRenderWindow, "$Revision: 1.16 $");
 vtkStandardNewMacro(vtkCarbonRenderWindow);
 
 
@@ -818,7 +818,7 @@ int *vtkCarbonRenderWindow::GetSize(void)
   // if we aren't mapped then just return the ivar
   if (!this->Mapped)
     {
-    return this->Size;
+    return this->Superclass::GetSize();
     }
 
   //  Find the current window size
@@ -830,7 +830,7 @@ int *vtkCarbonRenderWindow::GetSize(void)
     this->Size[1] = (int) windowRect.bottom-windowRect.top;
     }
 
-  return this->Size;
+  return this->Superclass::GetSize();
 }
 
 //--------------------------------------------------------------------------
