@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRendererCollection.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-06 17:53:40 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-03-01 22:20:16 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -58,7 +58,7 @@ vlRenderer *vlRendererCollection::GetMember(int num)
 
   if (num > this->NumberOfItems)
     {
-    cerr << "Renderer: Requesting illegal index\n";
+    vlErrorMacro(<< "Renderer: Requesting illegal index\n");
     return this->Top->Renderer;
     }
 

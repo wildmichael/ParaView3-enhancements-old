@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMatrix4x4.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-24 15:03:49 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-03-01 22:20:15 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -73,8 +73,7 @@ void vlMatrix4x4::Invert (vlMatrix4x4 in,vlMatrix4x4 & out)
 
   det = in.Determinant(in);
   if ( fabs( det ) < SMALL_NUMBER) {
-    cerr << "Singular matrix, no inverse! Determinant = ";
-    cerr << det;
+    vlErrorMacro(<< "Singular matrix, no inverse! Determinant= " << det <<"\n");
     det = 0.0;
     return;
   }
