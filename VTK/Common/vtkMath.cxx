@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMath.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-08 20:28:59 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 1999-07-09 14:37:23 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -181,6 +181,7 @@ int vtkMath::SolveLinearSystem(double **A, double *x, int size)
 
   return 1;
 }
+
 
 // Invert input square matrix A into matrix AI. Note that A is modified during
 // the inversion. The size variable is the dimension of the matrix. Returns 0
