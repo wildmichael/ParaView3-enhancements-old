@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-26 17:16:15 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-07-27 17:43:06 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -149,12 +149,14 @@ void vtkDataObject::InternalUpdate()
   vtkDebugMacro("InternalUpdate: VT: " << this->UpdateTime << ", PMT: "  
 		<< this->PipelineMTime);
   
+  // Clip has to be before the Update check because:  If the update extent
+  // after clipping is larger than current extent, then data is released ...
+  this->ClipUpdateExtentWithWholeExtent();
   if (this->UpdateTime >= this->PipelineMTime && ! this->DataReleased)
     {
     return;
     }
   
-  this->ClipUpdateExtentWithWholeExtent();
   if (this->Source)
     {
     this->Source->InternalUpdate(this);
