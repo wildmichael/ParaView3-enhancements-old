@@ -108,6 +108,7 @@ my %default =
   (
    dirs => ["../../Common", 
             "../../Filtering", 
+            "../../GenericFiltering", 
             "../../Graphics", 
             "../../Hybrid", 
             "../../Imaging", 
@@ -258,13 +259,13 @@ foreach my $source (@files) {
         last if $line =~ /\/\/ \.NAME/;
 
         # Date. Example:
-        # Date:      $Date: 2002-01-29 23:29:28 $
+        # Date:      $Date: 2004-08-29 15:00:31 $
 
         if ($line =~ /^\s*Date:\s*(.*)$/) {
             $date = $1;
 
         # Version. Example:
-        # Version:   $Revision: 1.7 $
+        # Version:   $Revision: 1.8 $
 
         } elsif ($line =~ /^\s*Version:\s*(.*)$/) {
             $revision = $1;
