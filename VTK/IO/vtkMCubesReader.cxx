@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMCubesReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-08 12:47:29 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-10-09 16:44:01 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,12 +71,10 @@ void vtkMCubesReader::Execute()
   vtkFloatNormals *newNormals;
   float bounds[6];
   int i, j, k, numPts, numTris;
-  typedef struct {
-    float x[3], n[3];
-  } pointType;
-  struct  stat buf;
+  typedef struct {float x[3], n[3];} pointType;
   pointType point;
-  int nodes[3];
+  struct  stat buf;
+  int nodes[3], numDegenerate=0;
   float direction, n[3], dummy[2];
   vtkPolyData *output = this->GetOutput();
   
@@ -166,10 +164,13 @@ void vtkMCubesReader::Execute()
     if ( nodes[0] != nodes[1] && nodes[0] != nodes[2] && 
     nodes[1] != nodes[2] )
       newPolys->InsertNextCell(3,nodes);
+    else
+      numDegenerate++;
     }
   vtkDebugMacro(<< "Read: " 
-               << newPts->GetNumberOfPoints() << " points, " 
-               << newPolys->GetNumberOfCells() << " triangles");
+                << newPts->GetNumberOfPoints() << " points, " 
+                << newPolys->GetNumberOfCells() << " triangles\n"
+                << "(Removed " << numDegenerate << " degenerate triangles)");
 
   fclose(fp);
 //

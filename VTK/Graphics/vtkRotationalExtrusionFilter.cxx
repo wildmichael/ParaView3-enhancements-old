@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRotationalExtrusionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-08 12:49:12 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-10-09 16:45:04 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,7 +69,7 @@ void vtkRotationalExtrusionFilter::Execute()
   vtkFloatPoints *newPts;
   vtkCellArray *newLines=NULL, *newPolys=NULL, *newStrips=NULL;
   vtkCell *cell, *edge;
-  vtkIdList cellIds(VTK_MAX_CELL_SIZE), *cellPts;
+  vtkIdList cellIds(VTK_CELL_SIZE), *cellPts;
   vtkMath math;
   int i, j, k, p1, p2;
   vtkPolyData *output=(vtkPolyData *)this->Output;

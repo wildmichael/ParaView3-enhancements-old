@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleStrip.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-08 12:49:16 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1995-10-09 16:45:06 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,7 +53,7 @@ vtkTriangleStrip::vtkTriangleStrip(const vtkTriangleStrip& ts)
 
 int vtkTriangleStrip::EvaluatePosition(float x[3], float closestPoint[3],
                                       int& subId, float pcoords[3], 
-                                      float& minDist2, float weights[VTK_MAX_CELL_SIZE])
+                                      float& minDist2, float *weights)
 {
   float pc[3], dist2;
   int ignoreId, i, return_status, status;
@@ -70,8 +70,7 @@ int vtkTriangleStrip::EvaluatePosition(float x[3], float closestPoint[3],
     tri.Points.SetPoint(0,this->Points.GetPoint(i));
     tri.Points.SetPoint(1,this->Points.GetPoint(i+1));
     tri.Points.SetPoint(2,this->Points.GetPoint(i+2));
-    status = tri.EvaluatePosition(x,closest,ignoreId,pc,dist2,
-				  (float *)tempWeights);
+    status = tri.EvaluatePosition(x,closest,ignoreId,pc,dist2,tempWeights);
     if ( status != -1 && dist2 < minDist2 )
       {
       return_status = status;
@@ -96,8 +95,8 @@ int vtkTriangleStrip::EvaluatePosition(float x[3], float closestPoint[3],
   return return_status;
 }
 
-void vtkTriangleStrip::EvaluateLocation(int& subId, float pcoords[3], float x[3],
-                                       float weights[VTK_MAX_CELL_SIZE])
+void vtkTriangleStrip::EvaluateLocation(int& subId, float pcoords[3], 
+                                        float x[3], float *weights)
 {
   int i;
   float *pt1 = this->Points.GetPoint(subId);

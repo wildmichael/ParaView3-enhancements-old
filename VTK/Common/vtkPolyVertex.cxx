@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyVertex.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-08 12:49:09 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1995-10-09 16:45:02 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,7 +55,7 @@ vtkPolyVertex::vtkPolyVertex(const vtkPolyVertex& pp)
 
 int vtkPolyVertex::EvaluatePosition(float x[3], float closestPoint[3],
                                    int& subId, float pcoords[3], 
-                                   float& minDist2, float weights[VTK_MAX_CELL_SIZE])
+                                   float& minDist2, float *weights)
 {
   int numPts=this->Points.GetNumberOfPoints();
   float *X;
@@ -91,7 +91,7 @@ int vtkPolyVertex::EvaluatePosition(float x[3], float closestPoint[3],
 }
 
 void vtkPolyVertex::EvaluateLocation(int& subId, float pcoords[3], 
-                                    float x[3], float weights[VTK_MAX_CELL_SIZE])
+                                     float x[3], float *weights)
 {
   int i;
   float *X = this->Points.GetPoint(subId);

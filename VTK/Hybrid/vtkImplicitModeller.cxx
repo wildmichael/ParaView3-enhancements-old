@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitModeller.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-12 13:48:04 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1995-10-09 16:45:00 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -92,11 +92,11 @@ void vtkImplicitModeller::Execute()
   int min[3], max[3];
   float x[3], prevDistance2, distance2;
   int jkFactor;
-  float weights[VTK_MAX_CELL_SIZE];
   float closestPoint[3];
   vtkStructuredPoints *output = this->GetOutput();
   float *aspectRatio;
   float *origin;
+  float *weights=new float[this->Input->GetMaxCellSize()];
   
   vtkDebugMacro(<< "Executing implicit model");
 
@@ -176,6 +176,7 @@ void vtkImplicitModeller::Execute()
 //
   output->GetPointData()->SetScalars(newScalars);
   newScalars->Delete();
+  delete [] weights;
 }
 
 // Description:
@@ -282,13 +283,13 @@ void vtkImplicitModeller::Cap(vtkFloatScalars *s)
   k = 0;
   for (j=0; j<this->SampleDimensions[1]; j++)
     for (i=0; i<this->SampleDimensions[0]; i++)
-      s->SetScalar(i+j*this->SampleDimensions[1], this->CapValue);
+      s->SetScalar(i+j*this->SampleDimensions[0], this->CapValue);
 
   k = this->SampleDimensions[2] - 1;
   idx = k*d01;
   for (j=0; j<this->SampleDimensions[1]; j++)
     for (i=0; i<this->SampleDimensions[0]; i++)
-      s->SetScalar(idx+i+j*this->SampleDimensions[1], this->CapValue);
+      s->SetScalar(idx+i+j*this->SampleDimensions[0], this->CapValue);
 
 // j-k planes
   i = 0;

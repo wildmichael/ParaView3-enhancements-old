@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStripper.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-12 13:48:00 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1995-10-09 16:44:33 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,7 +44,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // Construct object with vertex and line passing turned on.
 vtkStripper::vtkStripper()
 {
-  this->MaximumStripLength = VTK_MAX_CELL_SIZE - 2;
+  this->MaximumStripLength = VTK_CELL_SIZE - 2;
 
   this->PassVerts = 1;
   this->PassLines = 1;
@@ -56,11 +56,11 @@ void vtkStripper::Execute()
   vtkCellArray *newStrips, *inStrips;
   vtkPointData *pd=this->Input->GetPointData();
   int numTriPts, *triPts;
-  vtkIdList cellIds(VTK_MAX_CELL_SIZE);
+  vtkIdList cellIds(VTK_CELL_SIZE);
+  int pts[VTK_CELL_SIZE];
   int neighbor;
   vtkPolyData Mesh;
   char *visited;
-  int pts[VTK_MAX_CELL_SIZE];
   int numStripPts, *stripPts;
   vtkPolyData *input=(vtkPolyData *)this->Input;
   vtkPolyData *output=(vtkPolyData *)this->Output;

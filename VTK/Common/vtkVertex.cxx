@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVertex.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-08 12:48:36 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1995-10-09 16:44:45 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,7 +54,7 @@ vtkVertex::vtkVertex(const vtkVertex& p)
 
 int vtkVertex::EvaluatePosition(float x[3], float closestPoint[3],
                               int& subId, float pcoords[3], 
-                              float& dist2, float weights[VTK_MAX_CELL_SIZE])
+                              float& dist2, float *weights)
 {
   float *X;
 
@@ -80,7 +80,7 @@ int vtkVertex::EvaluatePosition(float x[3], float closestPoint[3],
 }
 
 void vtkVertex::EvaluateLocation(int& subId, float pcoords[3], float x[3],
-                               float weights[VTK_MAX_CELL_SIZE])
+                                 float *weights)
 {
   float *X = this->Points.GetPoint(0);
   x[0] = X[0];
