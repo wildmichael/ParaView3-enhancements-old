@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToSphere.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-09-26 20:55:01 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1997-03-12 21:12:05 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -90,6 +90,7 @@ void vtkTextureMapToSphere::Execute()
   //loop over all points computing spherical coordinates. Only tricky part
   //is keeping track of singularities/numerical problems.
   newTCoords = new vtkFloatTCoords(numPts,2);
+  newTCoords->SetNumberOfTCoords(numPts);
   for ( ptId=0; ptId < numPts; ptId++ )
     {
     x = input->GetPoint(ptId);
@@ -156,7 +157,7 @@ void vtkTextureMapToSphere::Execute()
         }
       }
 
-    newTCoords->InsertTCoord(ptId,tc);
+    newTCoords->SetTCoord(ptId,tc);
     }
 
   this->Output->GetPointData()->CopyTCoordsOff();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractVectorComponents.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-10-15 17:12:55 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1997-03-12 21:11:41 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -224,9 +224,9 @@ void vtkExtractVectorComponents::Execute()
     return;
     }
 
-  vx = new vtkFloatScalars(numVectors);  
-  vy = new vtkFloatScalars(numVectors);  
-  vz = new vtkFloatScalars(numVectors);  
+  vx = new vtkFloatScalars(numVectors); vx->SetNumberOfScalars(numVectors);
+  vy = new vtkFloatScalars(numVectors); vy->SetNumberOfScalars(numVectors);
+  vz = new vtkFloatScalars(numVectors); vz->SetNumberOfScalars(numVectors);
 
   for (i=0; i<numVectors; i++)
     {

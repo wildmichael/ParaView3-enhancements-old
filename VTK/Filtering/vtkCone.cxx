@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCone.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-12-31 17:14:49 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1997-03-12 21:11:29 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,7 +63,7 @@ void vtkCone::EvaluateGradient(float x[3], float g[3])
 {
   float tanTheta = (float) 
     tan((double)this->Angle*vtkMath::DegreesToRadians());
-  g[0] = -2.0*tanTheta*tanTheta;
+  g[0] = -2.0*x[0]*tanTheta*tanTheta;
   g[1] = 2.0*x[1];
   g[2] = 2.0*x[2];
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGaussianSplatter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:52:40 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1997-03-12 21:11:42 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -131,7 +131,7 @@ void vtkGaussianSplatter::Execute()
 
   numPts = this->SampleDimensions[0] * this->SampleDimensions[1] 
            * this->SampleDimensions[2];
-  NewScalars = new vtkFloatScalars(numPts);
+  NewScalars = new vtkFloatScalars(numPts); NewScalars->SetNumberOfScalars(numPts);
   for (i=0; i<numPts; i++) NewScalars->SetScalar(i,0.0);
 
   Visited = new char[numPts];

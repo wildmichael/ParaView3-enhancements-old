@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxelModeller.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:57:22 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1997-03-12 21:12:14 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -111,6 +111,7 @@ void vtkVoxelModeller::Execute()
 
   numPts = this->SampleDimensions[0] * this->SampleDimensions[1] * this->SampleDimensions[2];
   newScalars = new vtkBitScalars(numPts);
+  newScalars->SetNumberOfScalars(numPts);
   for (i=0; i<numPts; i++) newScalars->SetScalar(i,0);
 
   output->SetDimensions(this->GetSampleDimensions());

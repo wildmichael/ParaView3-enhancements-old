@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:53:42 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1997-03-12 21:11:49 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -193,12 +193,11 @@ void vtkMergeFilter::Execute()
   
   vtkDebugMacro(<<"Merging data!");
 
-  // geometry is created
-
+  // geometry needs to be copied
+  this->Output->CopyStructure(this->Geometry);
   if ( (numPts = this->Geometry->GetNumberOfPoints()) < 1 )
     {
-    vtkErrorMacro(<<"Nothing to merge!");
-    return;
+    vtkWarningMacro(<<"Nothing to merge!");
     }
   
   if ( this->Scalars ) 

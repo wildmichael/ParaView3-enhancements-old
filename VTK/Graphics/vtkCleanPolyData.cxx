@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCleanPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:51:08 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1997-03-12 21:11:28 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -111,7 +111,7 @@ void vtkCleanPolyData::Execute()
     {
     if ( Index[i] == numNewPts ) 
       {
-      newPts->SetPoint(numNewPts,inPts->GetPoint(i));
+      newPts->InsertPoint(numNewPts,inPts->GetPoint(i));
       outputPD->CopyData(pd,i,numNewPts);
       numNewPts++;
       }

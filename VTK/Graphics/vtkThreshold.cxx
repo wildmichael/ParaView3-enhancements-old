@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreshold.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-02-12 13:13:38 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1997-03-12 21:12:07 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -117,7 +117,8 @@ void vtkThreshold::Execute()
   outPD = output->GetPointData();
   outPD->CopyAllocate(pd);
 
-  pointMap = new vtkIdList(numPts); // maps old point ids into new
+  pointMap = new vtkIdList(numPts); //maps old point ids into new
+  pointMap->SetNumberOfIds(numPts);
   for (i=0; i < numPts; i++) pointMap->SetId(i,-1);
 
   // Check that the scalars of each cell satisfy the threshold criterion

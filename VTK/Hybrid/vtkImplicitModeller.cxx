@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitModeller.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:53:15 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1997-03-12 21:11:45 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -102,7 +102,7 @@ void vtkImplicitModeller::Execute()
 
   numPts = this->SampleDimensions[0] * this->SampleDimensions[1] 
            * this->SampleDimensions[2];
-  newScalars = new vtkFloatScalars(numPts);
+  newScalars = new vtkFloatScalars(numPts); newScalars->SetNumberOfScalars(numPts);
   maxDistance = this->CapValue*this->CapValue;//sqrt taken later
   for (i=0; i<numPts; i++) newScalars->SetScalar(i,maxDistance);
 

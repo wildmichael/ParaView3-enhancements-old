@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-11-06 12:37:00 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1997-03-12 21:12:00 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -131,12 +131,12 @@ unsigned char *vtkTexture::MapScalarsToColors (vtkScalars *scalars)
   // map the scalars to colors
   mappedScalars = (vtkAPixmap *) this->MappedScalars;
   
-  // insert the last entry to allocate ensure there is enough memory
-  mappedScalars->InsertColor(numPts-1, this->LookupTable->MapValue(scalars->GetScalar(numPts-1)));
+  mappedScalars->SetNumberOfColors(numPts);
   for (int i = 0; i < numPts; i++)
     {
-      mappedScalars->SetColor(i, this->LookupTable->MapValue(scalars->GetScalar(i)));
+    mappedScalars->SetColor(i, this->LookupTable->MapValue(scalars->GetScalar(i)));
     }
+
   return this->MappedScalars->GetPtr(0);
 }
 

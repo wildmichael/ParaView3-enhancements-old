@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTubeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:56:54 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1997-03-12 21:12:09 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -107,7 +107,8 @@ void vtkTubeFilter::Execute()
     {
     vtkPolyLine lineNormalGenerator;
     deleteNormals = 1;
-    inNormals = new vtkFloatNormals(numNewPts);
+    inNormals = new vtkFloatNormals(numNewPts); 
+    inNormals->SetNumberOfNormals(numNewPts);
 
     if ( this->UseDefaultNormal )
       {

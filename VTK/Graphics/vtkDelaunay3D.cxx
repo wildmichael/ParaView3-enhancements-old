@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-11-12 22:35:14 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1997-03-12 21:11:38 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -91,7 +91,7 @@ static int FindTetra(float x[3], int ptIds[4], float p[4][3],
                      vtkFloatPoints *points, float tol, int depth)
 {
   int i, j, inside, i2, i3, i4;
-  vtkIdList pts(4), facePts(3);
+  vtkIdList pts(4), facePts(3); facePts.SetNumberOfIds(3);
   vtkIdList neighbors(2);
   float v12[3], vp[3], vx[3], v32[3], n[3], valx, valp, maxValx;
   

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRecursiveDividingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:54:52 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1997-03-12 21:11:56 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,7 +61,7 @@ void vtkRecursiveDividingCubes::Execute()
 {
   int i, j, k, idx;
   vtkScalars *inScalars;
-  vtkIdList voxelPts(8);
+  vtkIdList voxelPts(8); voxelPts.SetNumberOfIds(8);
   float origin[3];
   int dim[3], jOffset, kOffset, sliceSize;
   int above, below, vertNum;

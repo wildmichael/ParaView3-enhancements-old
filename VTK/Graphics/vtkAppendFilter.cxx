@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:50:33 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1997-03-12 21:11:24 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -166,6 +166,7 @@ void vtkAppendFilter::Execute()
   outputPD->CopyAllocate(pd,numPts);
 
   newPts = new vtkFloatPoints(numPts);
+  newPts->SetNumberOfPoints(numPts);
 
   for (ptOffset=0, this->InputList.InitTraversal(); 
        (ds = this->InputList.GetNextItem()); ptOffset+=numPts)

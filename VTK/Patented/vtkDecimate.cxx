@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimate.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-03-05 16:36:33 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1997-03-12 21:12:34 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -410,6 +410,7 @@ void vtkDecimate::CreateOutput(int numPts, int numTris, int numEliminated,
     }
   outputPD->CopyAllocate(pd,numNewPts);
   newPts = new vtkFloatPoints(numNewPts);
+  newPts->SetNumberOfPoints(numNewPts);
 
   for (ptId=0; ptId < numPts; ptId++)
     {

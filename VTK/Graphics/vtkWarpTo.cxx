@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpTo.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:57:29 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1997-03-12 21:12:17 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,7 +46,7 @@ void vtkWarpTo::Execute()
   vtkPoints *inPts;
   vtkFloatPoints *newPts;
   vtkPointData *pd;
-  int i, ptId;
+  int i, ptId, numPts;
   float *x, newX[3];
   vtkPointSet *input=(vtkPointSet *)this->Input;
   vtkPointSet *output=(vtkPointSet *)this->Output;
@@ -56,6 +56,7 @@ void vtkWarpTo::Execute()
   vtkDebugMacro(<<"Warping data to a point");
 
   inPts = input->GetPoints();
+  numPts = inPts->GetNumberOfPoints();
   pd = input->GetPointData();
 
   if (!inPts )
@@ -64,12 +65,12 @@ void vtkWarpTo::Execute()
     return;
     }
 
-  newPts = new vtkFloatPoints(inPts->GetNumberOfPoints());
+  newPts = new vtkFloatPoints(numPts); newPts->SetNumberOfPoints(numPts);
 
   if (this->Absolute)
     {
     minMag = 1.0e10;
-    for (ptId=0; ptId < inPts->GetNumberOfPoints(); ptId++)
+    for (ptId=0; ptId < numPts; ptId++)
       {
       x = inPts->GetPoint(ptId);
       mag = sqrt(vtkMath::Distance2BetweenPoints(this->Position,x));
@@ -80,7 +81,7 @@ void vtkWarpTo::Execute()
   //
   // Loop over all points, adjusting locations
   //
-  for (ptId=0; ptId < inPts->GetNumberOfPoints(); ptId++)
+  for (ptId=0; ptId < numPts; ptId++)
     {
     x = inPts->GetPoint(ptId);
     if (this->Absolute)

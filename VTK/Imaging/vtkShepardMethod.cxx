@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShepardMethod.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:55:29 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1997-03-12 21:11:59 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -160,7 +160,10 @@ void vtkShepardMethod::Execute()
 //
   numNewPts = this->SampleDimensions[0] * this->SampleDimensions[1] 
               * this->SampleDimensions[2];
-  newScalars = new vtkFloatScalars(numNewPts);
+
+  newScalars = new vtkFloatScalars(numNewPts); 
+  newScalars->SetNumberOfScalars(numNewPts);
+
   sum = new float[numNewPts];
   for (i=0; i<numNewPts; i++) 
     {

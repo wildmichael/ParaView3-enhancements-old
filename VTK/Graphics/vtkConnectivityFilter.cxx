@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConnectivityFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-09-20 12:43:50 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1997-03-12 21:11:30 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -201,7 +201,7 @@ void vtkConnectivityFilter::Execute()
     {
     if ( PointMap[i] > -1 )
       {
-      newPts->SetPoint(PointMap[i],this->Input->GetPoint(i));
+      newPts->InsertPoint(PointMap[i],this->Input->GetPoint(i));
       outputPD->CopyData(pd,i,PointMap[i]);
       }
     }

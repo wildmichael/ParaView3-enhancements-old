@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:50:43 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1997-03-12 21:11:26 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -191,7 +191,7 @@ void vtkBYUReader::ReadDisplacementFile(int numPts)
 //
 // Allocate and read data
 //
-  newVectors = new vtkFloatVectors(numPts);
+  newVectors = new vtkFloatVectors(numPts); newVectors->SetNumberOfVectors(numPts);
 
   for (i=0; i<numPts; i++)
     {
@@ -225,7 +225,7 @@ void vtkBYUReader::ReadScalarFile(int numPts)
 //
 // Allocate and read data
 //
-  newScalars = new vtkFloatScalars(numPts);
+  newScalars = new vtkFloatScalars(numPts); newScalars->SetNumberOfScalars(numPts);
 
   for (i=0; i<numPts; i++)
     {
@@ -260,6 +260,7 @@ void vtkBYUReader::ReadTextureFile(int numPts)
 // Allocate and read data
 //
   newTCoords = new vtkFloatTCoords(numPts,2);
+  newTCoords->SetNumberOfTCoords(numPts);
 
   for (i=0; i<numPts; i++)
     {
