@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEncodedGradientEstimator.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-22 14:14:14 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1999-04-23 11:44:57 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,6 +53,9 @@ vtkEncodedGradientEstimator::vtkEncodedGradientEstimator()
 {
   this->Input                      = NULL;
   this->EncodedNormals             = NULL;
+  this->EncodedNormalsSize[0]      = 0;
+  this->EncodedNormalsSize[1]      = 0;
+  this->EncodedNormalsSize[2]      = 0;
   this->GradientMagnitudes         = NULL;
   this->GradientMagnitudeScale     = 1.0;
   this->GradientMagnitudeBias      = 0.0;
