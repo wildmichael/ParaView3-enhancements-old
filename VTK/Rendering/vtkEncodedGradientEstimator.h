@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEncodedGradientEstimator.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:40 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-04-27 19:20:16 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -160,6 +160,14 @@ public:
   void SetZeroNormalThreshold( float v );
   vtkGetMacro( ZeroNormalThreshold, float );
 
+  // Description:
+  // Assume that the data value outside the volume is zero when
+  // computing normals.
+  vtkSetClampMacro( ZeroPad, int, 0, 1 );
+  vtkGetMacro( ZeroPad, int );
+  vtkBooleanMacro( ZeroPad, int );
+  
+  
   // These variables should be protected but are being
   // made public to be accessible to the templated function.
   // We used to have the templated function as a friend, but
@@ -218,6 +226,9 @@ protected:
   float                      InputAspect[3];
 
   int                        ComputeGradientMagnitudes;
+  
+  int                        ZeroPad;
+  
 }; 
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEncodedGradientEstimator.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:40 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2000-04-27 19:20:16 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -71,6 +71,7 @@ vtkEncodedGradientEstimator::vtkEncodedGradientEstimator()
   this->LastUpdateTimeInSeconds    = -1.0;
   this->LastUpdateTimeInCPUSeconds = -1.0;
   this->ZeroNormalThreshold        = 0.0;
+  this->ZeroPad                    = 1;
   this->BoundsClip                 = 0;
   this->Bounds[0] = 
     this->Bounds[1] = 
@@ -78,6 +79,7 @@ vtkEncodedGradientEstimator::vtkEncodedGradientEstimator()
     this->Bounds[3] =
     this->Bounds[4] =
     this->Bounds[5] = 0;
+  
 }
 
 // Destruct a vtkEncodedGradientEstimator - free up any memory used
@@ -332,6 +334,9 @@ void vtkEncodedGradientEstimator::PrintSelf(vtkOstream& os, vtkIndent indent)
   os << indent << "Gradient Magnitude Bias: " 
      << this->GradientMagnitudeBias << vtkEndl;
 
+  os << indent << "Zero Pad: " 
+     << ((this->ZeroPad)?"On":"Off") << vtkEndl;
+  
   os << indent << "Bounds Clip: " 
      << ((this->BoundsClip)?"On":"Off") << vtkEndl;
   
