@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPDataSetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-20 18:52:28 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-11-26 15:04:35 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -469,7 +469,7 @@ void vtkPDataSetReader::ExecuteInformation()
     this->ReadPVTKFileInformation(file);
     this->VTKFileFlag = 0;
     }
-  else if (type == 4 && strncmp(value, "# vtk DataFile Version", 22) != 0)
+  else if (type == 4 && strncmp(value, "# vtk DataFile Version", 22) == 0)
     {
     // This is a vtk file not a PVTK file.
     this->ReadVTKFileInformation(file);
