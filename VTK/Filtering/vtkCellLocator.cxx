@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-14 19:21:39 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1999-04-14 20:12:18 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1508,18 +1508,6 @@ float vtkCellLocator::Distance2ToBounds(float x[3], float bounds[6])
   else if (deltas[1] == 0.0 && deltas[2] == 0.0) 
     {
     return deltas[0]*deltas[0];
-    }
-  else if (deltas[0] == 0.0)
-    {
-    deltas[0] = 0.0;
-    }
-  else if (deltas[1] == 0.0)
-    {
-    deltas[1] = 0.0;
-    }
-  else if (deltas[2] == 0.0)
-    {
-    deltas[2] = 0.0;
     }
     
   distance = vtkMath::Dot(deltas, deltas);
