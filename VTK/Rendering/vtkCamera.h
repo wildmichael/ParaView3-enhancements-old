@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.h,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:27:37 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1995-07-20 23:47:52 $
+  Version:   $Revision: 1.14 $
 
 This file is part of the Visualization Toolkit. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -35,6 +35,7 @@ class vtkCamera : public vtkObject
 {
  public:
   vtkCamera();
+  ~vtkCamera();
   void PrintSelf(ostream& os, vtkIndent indent);
   char *GetClassName() {return "vtkCamera";};
 

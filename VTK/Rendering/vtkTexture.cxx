@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:26:52 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1995-07-20 23:47:32 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Toolkit. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -28,6 +28,14 @@ vtkTexture::vtkTexture()
 
   this->Input = NULL;
   this->Device = NULL;
+}
+
+vtkTexture::~vtkTexture()
+{
+  if (this->Device)
+    {
+    delete this->Device;
+    }
 }
 
 void vtkTexture::Load(vtkRenderer *ren)

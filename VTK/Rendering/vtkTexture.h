@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexture.h,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:29:37 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1995-07-20 23:47:55 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Toolkit. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -38,6 +38,7 @@ class vtkTexture : public vtkObject
 {
 public:
   vtkTexture();
+  ~vtkTexture();
   char *GetClassName() {return "vtkTexture";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

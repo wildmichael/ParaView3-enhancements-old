@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLight.h,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:28:33 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-07-20 23:47:51 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Toolkit. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -31,6 +31,7 @@ class vtkLight : public vtkObject
 {
 public:
   vtkLight();
+  ~vtkLight();
   char *GetClassName() {return "vtkLight";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

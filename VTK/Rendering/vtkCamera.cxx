@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-10 17:56:07 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1995-07-20 23:47:30 $
+  Version:   $Revision: 1.24 $
 
 This file is part of the Visualization Toolkit. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -60,6 +60,14 @@ vtkCamera::vtkCamera()
   
   this->FocalDisk = 1.0;
   this->Device = NULL;
+}
+
+vtkCamera::~vtkCamera()
+{
+  if (this->Device)
+    {
+    delete this->Device;
+    }
 }
 
 void vtkCamera::Render(vtkRenderer *ren)

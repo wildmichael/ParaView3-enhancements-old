@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:26:13 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-07-20 23:47:31 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Toolkit. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -56,6 +56,14 @@ vtkProperty::vtkProperty()
   this->EdgeVisibility = 0;
   this->Backface = 0;
   this->Device = NULL;
+}
+
+vtkProperty::~vtkProperty()
+{
+  if (this->Device)
+    {
+    delete this->Device;
+    }
 }
 
 void vtkProperty::Render(vtkRenderer *ren)
