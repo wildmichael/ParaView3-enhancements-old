@@ -3,7 +3,7 @@
  * For conditions of distribution and use, see copyright notice in zlib.h 
  */
 
-/* @(#) $Id: zconf.h,v 1.3 2002-02-10 16:55:54 andy Exp $ */
+/* @(#) $Id: zconf.h,v 1.4 2002-02-13 15:19:14 king Exp $ */
 
 #ifndef _ZCONF_H
 #define _ZCONF_H
@@ -159,6 +159,8 @@
 #    define FAR _far
 #  endif
 #endif
+
+#include "zlibDllConfig.h"
 
 /* Compile with -DZLIB_DLL for Windows DLL support */
 #if defined(ZLIB_DLL)
