@@ -14,7 +14,7 @@
 =========================================================================*/
 /* -*- c++ -*- *******************************************************/
 
-/* $Id: vtkIceTRenderer.cxx,v 1.9 2004-01-05 18:12:49 kmorel Exp $ */
+/* $Id: vtkIceTRenderer.cxx,v 1.10 2004-01-22 20:16:34 lawcc Exp $ */
 
 #include "vtkIceTRenderer.h"
 
@@ -38,7 +38,7 @@ static vtkIceTRenderer *currentRenderer;
 // vtkIceTRenderer implementation.
 //******************************************************************
 
-vtkCxxRevisionMacro(vtkIceTRenderer, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkIceTRenderer, "$Revision: 1.10 $");
 vtkStandardNewMacro(vtkIceTRenderer);
 
 vtkIceTRenderer::vtkIceTRenderer()
@@ -92,6 +92,7 @@ void vtkIceTRenderer::DeviceRender()
     this->vtkOpenGLRenderer::DeviceRender();
     glMatrixMode(GL_MODELVIEW);
     glPopMatrix();
+    this->InvokeEvent(vtkCommand::EndEvent,NULL);
     return;
     }
 
