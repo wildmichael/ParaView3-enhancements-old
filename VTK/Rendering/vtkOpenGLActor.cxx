@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-19 17:10:36 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-07-14 18:46:04 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,6 +50,18 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 void vtkOpenGLActor::Render(vtkRenderer *ren, vtkMapper *mapper)
 {
   static vtkMatrix4x4 matrix;
+  float opacity;
+
+  // get opacity
+  opacity = this->GetProperty()->GetOpacity();
+  if (opacity == 1.0)
+    {
+    glDepthMask (GL_TRUE);
+    }
+  else
+    {
+    glDepthMask (GL_FALSE);
+    }
 
   // build transformation 
   this->GetMatrix(matrix);
@@ -66,5 +78,10 @@ void vtkOpenGLActor::Render(vtkRenderer *ren, vtkMapper *mapper)
   // pop transformation matrix
   glMatrixMode( GL_MODELVIEW );
   glPopMatrix();
+
+  if (opacity != 1.0)
+    {
+    glDepthMask (GL_TRUE);
+    }
 }
 
