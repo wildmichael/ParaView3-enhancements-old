@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay2D.h,v $
   Language:  C++
-  Date:      $Date: 1996-01-09 21:49:56 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1996-03-27 22:26:29 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,7 +65,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // is 2D. Thus the triangulation is constructed in the x-y plane, and
 // the z coordinate is ignored (although carried through on
 // output). (If you desire to triangulate in a different plane, you'll
-// have to use the vtkTranformFilter to transform the points into and
+// have to use the vtkTransformFilter to transform the points into and
 // out of the x-y plane.)
 
 // .SECTION Caveats
@@ -89,7 +89,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // and the more likely you are to see numerical problems.
  
 // .SECTION See Also
-// vtkDelaunay3D vtkTranformFilter vtkGaussianSplatter
+// vtkDelaunay3D vtkTransformFilter vtkGaussianSplatter
 
 #ifndef __vtkDelaunay2D_h
 #define __vtkDelaunay2D_h
