@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-08 09:11:03 $
-  Version:   $Revision: 1.99 $
+  Date:      $Date: 2000-06-12 11:29:01 $
+  Version:   $Revision: 1.100 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -482,6 +482,34 @@ void vtkActor::PrintSelf(ostream& os, vtkIndent indent)
 
 }
 
+// Compatibility methods...to be deprecated in the future.
+#include "vtkAssemblyNode.h"
+void vtkActor::InitPartTraversal()
+{
+  this->InitPathTraversal();
+}
 
+vtkActor *vtkActor::GetNextPart()
+{
+  vtkAssemblyPath *path = this->GetNextPath();
+  if ( !path )
+    {
+    return NULL;
+    }
+  else
+    {
+    vtkAssemblyNode *node = path->GetLastNode();
+    if ( node && node->GetProp()->IsA("vtkActor") )
+      {
+      return (vtkActor *)node->GetProp();
+      }
+    }
+  return NULL;
+}
+
+int vtkActor::GetNumberOfParts()
+{
+  return this->GetNumberOfPaths();
+}
 
 
