@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVEnSightMasterServerReader.h,v $
   Language:  C++
-  Date:      $Date: 2003-05-07 18:59:42 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-05-07 21:34:01 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -48,6 +48,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkGenericEnSightReader.h"
 
 class vtkMPIController;
+class vtkMultiProcessController;
 class vtkPVEnSightMasterServerReaderInternal;
 
 class VTK_EXPORT vtkPVEnSightMasterServerReader : public vtkGenericEnSightReader
@@ -59,9 +60,14 @@ public:
   
   // Description:
   // This class uses MPI communication mechanisms to verify the
-  // integrity of all case files in the master file.
-  vtkGetObjectMacro(Controller, vtkMPIController);
-  void SetController(vtkMPIController* controller);
+  // integrity of all case files in the master file.  The get method
+  // interface must use vtkMultiProcessController instead of
+  // vtkMPIController because Tcl wrapping requires the class's
+  // wrapper to be defined, but it is not defined if MPI is not on.
+  // In client-server mode, we may still need to create an instance of
+  // this class on the client process even if MPI is not compiled in.
+  virtual vtkMultiProcessController* GetController();
+  virtual void SetController(vtkMPIController* controller);
   
   // Description:
   // Get the number of pieces in the file.  Valid after
