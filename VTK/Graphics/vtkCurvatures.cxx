@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCurvatures.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-03 00:51:16 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-11-04 16:14:05 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -26,7 +26,7 @@
 #include "vtkPolygon.h"
 #include "vtkTensor.h"
 
-vtkCxxRevisionMacro(vtkCurvatures, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkCurvatures, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkCurvatures);
 
 //------------------------------------------------------------------------------
@@ -47,7 +47,7 @@ vtkCurvatures* vtkCurvatures::New()
 vtkCurvatures::vtkCurvatures()
 {
   this->CurvatureType = VTK_CURVATURE_GAUSS;
-  this->InvertMeanCurvature = false;
+  this->InvertMeanCurvature = 0;
 }
 //-------------------------------------------------------//
 void vtkCurvatures::GetMeanCurvature()
