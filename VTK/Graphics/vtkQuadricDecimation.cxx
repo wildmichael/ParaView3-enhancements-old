@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadricDecimation.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:42:00 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-11-06 14:13:20 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -260,9 +260,9 @@ void vtkQuadricDecimation::Execute()
       else
         { // This edge already has one point as the merged point.
         // Compute cost (target point/data) and add to priority cue.
-        cost = this->ComputeCost(edgeId, x, targetPointData);
-        this->EdgeCosts->Insert(cost, edgeId);
-        targetPoints->InsertPoint(edgeId, x);
+        cost = this->ComputeCost(changedEdges->GetId(i), x, targetPointData);
+        this->EdgeCosts->Insert(cost, changedEdges->GetId(i));
+        targetPoints->InsertPoint(changedEdges->GetId(i), x);
         }
       }
     
