@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCastToConcrete.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:04:43 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2000-08-17 18:18:06 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -72,8 +72,16 @@ void vtkCastToConcrete::Execute()
   
   vtkDebugMacro(<<"Casting to concrete type...");
 
-  output->CopyStructure(input);
-  output->GetPointData()->PassData(input->GetPointData());
-  output->GetCellData()->PassData(input->GetCellData());
+  output->ShallowCopy(input);
 }
+
+
+void vtkCastToConcrete::ExecuteInformation()
+{
+  vtkDataSet *input = this->GetInput();
+  vtkDataSet *output = this->GetOutput();
+
+  output->CopyInformation(input);
+}
+
 

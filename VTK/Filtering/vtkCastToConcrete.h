@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCastToConcrete.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:04:43 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2000-08-17 18:18:06 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -81,6 +81,7 @@ protected:
   void operator=(const vtkCastToConcrete&) {};
 
   void Execute(); //insures compatibility; satisfies abstract api in vtkFilter
+  void ExecuteInformation();
 };
 
 #endif
