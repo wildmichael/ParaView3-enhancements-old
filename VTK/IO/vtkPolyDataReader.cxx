@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:04:35 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-05-14 20:37:39 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -319,7 +319,7 @@ void vtkPolyDataReader::Execute()
 
       else
         {
-        vtkErrorMacro(<< "Unrecognized keyord: " << line);
+        vtkErrorMacro(<< "Unrecognized keyword: " << line);
         this->Reader.CloseVTKFile ();
         return;
         }
@@ -359,7 +359,7 @@ void vtkPolyDataReader::Execute()
 
   else 
     {
-    vtkErrorMacro(<< "Unrecognized keyord: " << line);
+    vtkErrorMacro(<< "Unrecognized keyword: " << line);
     }
   this->Reader.CloseVTKFile ();
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:05:05 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1998-05-14 20:37:42 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -296,7 +296,7 @@ void vtkStructuredPointsReader::Execute()
 
       else
         {
-        vtkErrorMacro(<< "Unrecognized keyord: " << line);
+        vtkErrorMacro(<< "Unrecognized keyword: " << line);
         this->Reader.CloseVTKFile ();
         return;
         }
@@ -333,7 +333,7 @@ void vtkStructuredPointsReader::Execute()
 
   else 
     {
-    vtkErrorMacro(<< "Unrecognized keyord: " << line);
+    vtkErrorMacro(<< "Unrecognized keyword: " << line);
     }
   this->Reader.CloseVTKFile ();
 }

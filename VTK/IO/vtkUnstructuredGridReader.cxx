@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-30 19:48:49 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1998-05-14 20:37:43 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -320,7 +320,7 @@ void vtkUnstructuredGridReader::Execute()
 
       else
         {
-        vtkErrorMacro(<< "Unrecognized keyord: " << line);
+        vtkErrorMacro(<< "Unrecognized keyword: " << line);
         this->Reader.CloseVTKFile ();
         return;
         }
@@ -344,7 +344,7 @@ void vtkUnstructuredGridReader::Execute()
 
   else 
     {
-    vtkErrorMacro(<< "Unrecognized keyord: " << line);
+    vtkErrorMacro(<< "Unrecognized keyword: " << line);
     }
 //
 // Clean-up and get out
