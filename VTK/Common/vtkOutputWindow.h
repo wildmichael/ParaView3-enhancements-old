@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutputWindow.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-25 18:28:58 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2000-02-26 14:34:19 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -71,11 +71,6 @@ public:
   // Description:
   // Return the singleton instance with no reference counting.
   static vtkOutputWindow* GetInstance();
-  // Description:
-  // Supply a user defined output window. Call ->Delete() on the supplied
-  // instance after setting it.
-  static void SetInstance(vtkOutputWindow *instance);
-  //
   virtual void DisplayText(const char*);
   // Description:
   // If PromptUser is set to true then each time a line of text
