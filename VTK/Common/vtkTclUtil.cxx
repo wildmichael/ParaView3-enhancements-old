@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTclUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-14 21:00:20 $
-  Version:   $Revision: 1.67 $
+  Date:      $Date: 2001-12-11 20:47:12 $
+  Version:   $Revision: 1.68 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -598,7 +598,7 @@ void vtkTclCommand::SetStringCommand(const char *arg)
 void vtkTclCommand::Execute(vtkObject *, unsigned long, void *)
 {
   int res;
-  res = Tcl_GlobalEval(this->Interp, this->StringCommand);
+  res = Tcl_EvalEx(this->Interp, this->StringCommand, -1, TCL_EVAL_GLOBAL);
   
   if (res == TCL_ERROR)
     {
