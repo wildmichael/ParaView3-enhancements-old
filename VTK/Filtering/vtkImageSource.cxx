@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:20 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1999-07-23 17:06:26 $
+  Version:   $Revision: 1.34 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -110,6 +110,6 @@ void vtkImageSource::UpdateWholeExtent()
 {
   this->UpdateInformation();
   this->GetOutput()->SetUpdateExtent(this->GetOutput()->GetWholeExtent());
-  this->InternalUpdate(this->GetOutput());
+  this->GetOutput()->InternalUpdate();
 }
 
