@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArray.h,v $
   Language:  C++
-  Date:      $Date: 2003-07-02 17:24:50 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2003-07-11 20:15:49 $
+  Version:   $Revision: 1.49 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -366,9 +366,13 @@ protected:
 
 private:
   float Range[2];
-  int ComponentForLastRange;
-  vtkTimeStamp ComputeTimeForLastRange;
 
+  // 5 components since you can compute the range of components
+  // less than 0 to get a magnitude range. ComponentRange[4] is 
+  // this magnitude range
+  vtkTimeStamp ComponentRangeComputeTime[5];
+  float ComponentRange[5][2];
+  
   float* GetTupleN(const vtkIdType i, int n);
   
 private:
