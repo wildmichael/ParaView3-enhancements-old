@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMask.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 18:00:31 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-04-07 20:32:16 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,7 +68,9 @@ public:
   vtkGetMacro(MaskedValue, float);
 
   void SetImageInput(vtkImageSource *in) {this->SetInput1(in);}
+  void SetImageInput(vtkStructuredPoints *in) {this->SetInput1(in);}
   void SetMaskInput(vtkImageSource *in) {this->SetInput2(in);}
+  void SetMaskInput(vtkStructuredPoints *in) {this->SetInput2(in);}
   
 protected:
   float MaskedValue;

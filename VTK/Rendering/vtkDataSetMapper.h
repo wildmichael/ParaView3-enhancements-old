@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetMapper.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 17:56:35 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1997-04-07 20:31:50 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,6 +53,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkGeometryFilter.h"
 #include "vtkPolyMapper.h"
 #include "vtkRenderer.h"
+#include "vtkImageSource.h"
+#include "vtkImageToStructuredPoints.h"
+
 
 class VTK_EXPORT vtkDataSetMapper : public vtkMapper 
 {
@@ -68,6 +71,8 @@ public:
   // Specify the input data to map.
   void SetInput(vtkDataSet *in);
   void SetInput(vtkDataSet& in) {this->SetInput(&in);};
+  void SetInput(vtkImageSource *cache)
+    {this->SetInput(cache->GetImageToStructuredPoints()->GetOutput());}
 
 protected:
   vtkGeometryFilter *GeometryExtractor;

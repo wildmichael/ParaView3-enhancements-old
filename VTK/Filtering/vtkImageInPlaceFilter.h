@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageInPlaceFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 18:00:26 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-04-07 20:32:15 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,6 +61,9 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
 
   virtual void SetInput(vtkImageSource *input);
+  void SetInput(vtkStructuredPoints *spts)
+    {this->SetInput(spts->GetStructuredPointsToImage()->GetOutput());}
+
   void UpdatePointData(int dim, vtkImageRegion *outRegion);
   void UpdateImageInformation(vtkImageRegion *region);
   unsigned long int GetPipelineMTime();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 18:00:56 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-04-07 20:32:24 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -74,6 +74,8 @@ public:
   // Set/Get the input to the viewer.
   vtkSetObjectMacro(Input,vtkImageSource);
   vtkGetObjectMacro(Input,vtkImageSource);
+  void SetInput(vtkStructuredPoints *spts)
+    {this->SetInput(spts->GetStructuredPointsToImage()->GetOutput());}
   
   // Description:
   // Display the wole image or just the region specified by extent.

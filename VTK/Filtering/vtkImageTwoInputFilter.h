@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageTwoInputFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 18:00:54 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-04-07 20:32:22 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,7 +60,13 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
 
   virtual void SetInput1(vtkImageSource *input);
+  void SetInput1(vtkStructuredPoints *spts)
+    {this->SetInput1(spts->GetStructuredPointsToImage()->GetOutput());}
   virtual void SetInput2(vtkImageSource *input);
+  void SetInput2(vtkStructuredPoints *spts)
+    {this->SetInput2(spts->GetStructuredPointsToImage()->GetOutput());}
+
+  
   void UpdatePointData(int dim, vtkImageRegion *outRegion);
   void UpdateImageInformation(vtkImageRegion *outRegion);
   unsigned long int GetPipelineMTime();
