@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-31 22:38:15 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-12-07 21:40:42 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -70,7 +70,7 @@ public:
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkXdmfWriter);
-vtkCxxRevisionMacro(vtkXdmfWriter, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkXdmfWriter, "$Revision: 1.3 $");
 
 //----------------------------------------------------------------------------
 vtkXdmfWriter::vtkXdmfWriter()
@@ -246,7 +246,7 @@ int vtkXdmfWriter::WritePoints( vtkPoints *Points )
 {
   int  NumberOfPoints;
   int  i;
-  float  *Pp;
+  double *Pp;
 
   NumberOfPoints = Points->GetNumberOfPoints();
   Pp = Points->GetPoint(0);
@@ -621,7 +621,7 @@ int vtkXdmfWriter::WriteGrid( void )
   else if ( type == VTK_STRUCTURED_POINTS || type == VTK_IMAGE_DATA)
     {
     int     Dims[3];
-    float    Origin[3], Spacing[3];
+    double Origin[3], Spacing[3];
     vtkImageData *SGrid = ( vtkImageData *)DataSet;
     SGrid->GetDimensions( Dims );
     SGrid->GetOrigin( Origin );

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: vtkXdmfDataSetWriter.cxx,v 1.4 2003-07-10 19:30:19 andy Exp $  */
-/*  Date : $Date: 2003-07-10 19:30:19 $ */
-/*  Version : $Revision: 1.4 $ */
+/*  Id : $Id: vtkXdmfDataSetWriter.cxx,v 1.5 2003-12-07 21:40:42 andy Exp $  */
+/*  Date : $Date: 2003-12-07 21:40:42 $ */
+/*  Version : $Revision: 1.5 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -168,7 +168,7 @@ int
 vtkXdmfDataSetWriter::WritePoints( vtkPoints *Points ){
 int  NumberOfPoints;
 int  i;
-float  *Pp;
+double *Pp;
 
 NumberOfPoints = Points->GetNumberOfPoints();
 Pp = Points->GetPoint(0);
@@ -466,7 +466,7 @@ int vtkXdmfDataSetWriter::WriteGrid( void )
   else if ( type == VTK_STRUCTURED_POINTS || type == VTK_IMAGE_DATA)
   {
     int     Dims[3];
-    float    Origin[3], Spacing[3];
+    double Origin[3], Spacing[3];
     vtkImageData *SGrid = ( vtkImageData *)DataSet;
     SGrid->GetDimensions( Dims );
     SGrid->GetOrigin( Origin );

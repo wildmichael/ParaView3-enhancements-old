@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-11-07 19:57:17 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2003-12-07 21:40:42 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -73,7 +73,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <vector>
 
 vtkStandardNewMacro(vtkXdmfReader);
-vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.27 $");
+vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.28 $");
 
 #if defined(_WIN32) && (defined(_MSC_VER) || defined(__BORLANDC__))
 #  include <direct.h>
@@ -446,7 +446,7 @@ void vtkXdmfReader::Execute()
       ( Geometry->GetGeometryType() == XDMF_GEOMETRY_XYZ ) ||
       ( Geometry->GetGeometryType() == XDMF_GEOMETRY_XY ) )
       {
-      float *pp;
+      double *pp;
       XdmfInt64   Length;
       vtkPoints   *Points;
       vtkPointSet *Pointset = ( vtkPointSet *)this->Outputs[idx];
