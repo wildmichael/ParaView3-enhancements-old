@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRendererCollection.h,v $
   Language:  C++
-  Date:      $Date: 1994-09-16 12:49:43 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-11-29 10:04:55 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -20,7 +20,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 // duplicate entries are not prevented.
 
 #ifndef __vlRendererCollection_hh
-#define __vlRendererColleciton_hh
+#define __vlRendererCollection_hh
 
 #include "Collect.hh"
 #include "Renderer.hh"
