@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConnectivityFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-18 17:16:40 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 2001-08-29 15:04:57 $
+  Version:   $Revision: 1.59 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -97,6 +97,7 @@ void vtkConnectivityFilter::Execute()
   int maxCellsInRegion;
   int largestRegionId = 0;
   vtkDataSet *input= this->GetInput();
+  if (input == NULL) {return;}
   vtkUnstructuredGrid *output = this->GetOutput();
   vtkPointData *pd=input->GetPointData(), *outputPD=output->GetPointData();
   vtkCellData *cd=input->GetCellData(), *outputCD=output->GetCellData();

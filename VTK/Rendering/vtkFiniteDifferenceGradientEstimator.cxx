@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFiniteDifferenceGradientEstimator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-12 13:18:04 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2001-08-29 15:04:57 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -363,9 +363,14 @@ static VTK_THREAD_RETURN_TYPE vtkSwitchOnDataType( void *arg )
     (((ThreadInfoStruct *)(arg))->UserData);
   scalars = estimator->Input->GetPointData()->GetActiveScalars();
 
+  if (scalars == NULL)
+    {
+    return VTK_THREAD_RETURN_VALUE;
+    }
+  
   // Find the data type of the Input and call the correct 
   // templated function to actually compute the normals and magnitudes
-
+  
   switch ( scalars->GetDataType() )
     {
     case VTK_CHAR:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-24 13:46:20 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2001-08-29 15:04:57 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -67,6 +67,11 @@ void vtkDataSetToPolyDataFilter::ComputeInputUpdateExtents(vtkDataObject *output
 {
   vtkDataObject *input = this->GetInput();
 
+  if (input == NULL)
+    {
+    return;
+    }
+  
   this->vtkPolyDataSource::ComputeInputUpdateExtents(output);
   input->RequestExactExtentOn();
 }

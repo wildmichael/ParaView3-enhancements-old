@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-12 20:33:39 $
-  Version:   $Revision: 1.84 $
+  Date:      $Date: 2001-08-29 15:04:57 $
+  Version:   $Revision: 1.85 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -128,6 +128,7 @@ void vtkContourFilter::Execute()
   vtkCellArray *newVerts, *newLines, *newPolys;
   vtkPoints *newPts;
   vtkDataSet *input=this->GetInput();
+  if (input == NULL) {return;}
   vtkPolyData *output=this->GetOutput();
   vtkIdType numCells, estimatedSize;
   vtkPointData *inPd=input->GetPointData(), *outPd=output->GetPointData();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRuledSurfaceFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-02 13:05:04 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-08-29 15:04:57 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -92,13 +92,15 @@ void vtkRuledSurfaceFilter::Execute()
   vtkDebugMacro(<<"Creating a ruled surface");
 
   inPts = input->GetPoints();
-  numPts = inPts->GetNumberOfPoints();
   inLines = input->GetLines();
-  numLines=inLines->GetNumberOfCells();
-
-  if ( !inPts || numPts < 1 || !inLines || numLines < 2 )
+  if ( !inPts || !inLines)
     {
-    vtkDebugMacro(<< "No input data!\n");
+    return;
+    }
+  numLines=inLines->GetNumberOfCells();
+  numPts = inPts->GetNumberOfPoints();
+  if (numPts < 1 || numLines < 2 )
+    {
     return;
     }
   

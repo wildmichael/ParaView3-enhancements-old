@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsToUnstructuredGridFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-22 12:48:07 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2001-08-29 15:04:57 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -67,5 +67,8 @@ void vtkStructuredPointsToUnstructuredGridFilter::ComputeInputUpdateExtents(
   this->vtkUnstructuredGridSource::ComputeInputUpdateExtents(output);
 
   // assume that we cannot handle more than the requested extent.
-  this->GetInput()->RequestExactExtentOn();
+  if (this->GetInput())
+    {
+    this->GetInput()->RequestExactExtentOn();
+    }
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxelContoursToSurfaceFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-21 15:21:52 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-08-29 15:04:57 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -537,6 +537,11 @@ void vtkVoxelContoursToSurfaceFilter::Execute()
 
   // Get the bounds of the input contours
   input->GetBounds( contourBounds );
+  
+  if (contourBounds[0] > contourBounds[1])
+    { // empty input
+    return;
+    }
 
   // From the bounds, compute the grid size, and origin
   

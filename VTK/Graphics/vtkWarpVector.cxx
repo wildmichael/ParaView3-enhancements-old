@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpVector.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-02 18:08:08 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2001-08-29 15:04:57 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -120,7 +120,7 @@ void vtkWarpVector::Execute()
   // First, copy the input to the output as a starting point
   output->CopyStructure( input );
 
-  if (input == NULL)
+  if (input == NULL || input->GetPoints() == NULL)
     {
     return;
     }

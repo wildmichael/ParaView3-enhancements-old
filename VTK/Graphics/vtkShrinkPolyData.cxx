@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShrinkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-02 13:05:04 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 2001-08-29 15:04:57 $
+  Version:   $Revision: 1.56 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -302,6 +302,11 @@ void vtkShrinkPolyData::Execute()
   // Initialize
   vtkDebugMacro(<<"Shrinking polygonal data");
 
+  if (this->GetInput() == NULL || this->GetInput()->GetPoints() == NULL)
+    {
+    return;
+    }
+  
   // get the input pointer for templating
   void *inPtr = this->GetInput()->GetPoints()->GetVoidPointer(0);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-12 20:33:38 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-08-29 15:04:57 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -127,6 +127,10 @@ void vtkClipDataSet::Execute()
   vtkDataSet *input = this->GetInput();
   vtkUnstructuredGrid *output = this->GetOutput();
   vtkUnstructuredGrid *clippedOutput = this->GetClippedOutput();
+  if (input == NULL)
+    {
+    return;
+    }
   vtkIdType numPts = input->GetNumberOfPoints();
   vtkIdType numCells = input->GetNumberOfCells();
   vtkPointData *inPD=input->GetPointData(), *outPD = output->GetPointData();
