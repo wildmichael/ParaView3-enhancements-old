@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkProbeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-02-26 10:24:58 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-06-06 08:41:20 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -60,8 +60,6 @@ void vlProbeFilter::Execute()
       this->PointData.NullPoint(ptId);
       }
     }
-
-  this->Modified(); //since we aren't setting anything to modify data
 }
 
 void vlProbeFilter::Initialize()
