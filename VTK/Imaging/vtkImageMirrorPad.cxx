@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMirrorPad.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:48:10 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-06-18 12:56:08 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -262,13 +262,29 @@ void vtkImageMirrorPad::ThreadedExecute(vtkImageData *inData,
   
   switch (inData->GetScalarType())
     {
+    case VTK_DOUBLE:
+      vtkImageMirrorPadExecute(this, inData, outData, 
+			       (double *)(outPtr), outExt, id);
+      break;
     case VTK_FLOAT:
       vtkImageMirrorPadExecute(this, inData, outData, 
 			       (float *)(outPtr), outExt, id);
       break;
+    case VTK_LONG:
+      vtkImageMirrorPadExecute(this, inData, outData, 
+			       (long *)(outPtr), outExt, id);
+      break;
+    case VTK_UNSIGNED_LONG:
+      vtkImageMirrorPadExecute(this, inData, outData, 
+			       (unsigned long *)(outPtr), outExt, id);
+      break;
     case VTK_INT:
       vtkImageMirrorPadExecute(this, inData, outData, 
 			       (int *)(outPtr), outExt, id);
+      break;
+    case VTK_UNSIGNED_INT:
+      vtkImageMirrorPadExecute(this, inData, outData, 
+			       (unsigned int *)(outPtr), outExt, id);
       break;
     case VTK_SHORT:
       vtkImageMirrorPadExecute(this, inData, outData, 
@@ -277,6 +293,10 @@ void vtkImageMirrorPad::ThreadedExecute(vtkImageData *inData,
     case VTK_UNSIGNED_SHORT:
       vtkImageMirrorPadExecute(this, inData, outData, 
 			       (unsigned short *)(outPtr), outExt, id);
+      break;
+    case VTK_CHAR:
+      vtkImageMirrorPadExecute(this, inData, outData, 
+			       (char *)(outPtr), outExt, id);
       break;
     case VTK_UNSIGNED_CHAR:
       vtkImageMirrorPadExecute(this, inData, outData, 

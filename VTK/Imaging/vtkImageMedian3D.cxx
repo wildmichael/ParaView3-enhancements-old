@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMedian3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-30 16:30:39 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-06-18 12:56:08 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -383,13 +383,29 @@ void vtkImageMedian3D::ThreadedExecute(vtkImageData *inData,
   
   switch (inData->GetScalarType())
     {
+    case VTK_DOUBLE:
+      vtkImageMedian3DExecute(this, inData, (double *)(inPtr), 
+			      outData, (double *)(outPtr),outExt, id);
+      break;
     case VTK_FLOAT:
       vtkImageMedian3DExecute(this, inData, (float *)(inPtr), 
 			      outData, (float *)(outPtr),outExt, id);
       break;
+    case VTK_LONG:
+      vtkImageMedian3DExecute(this, inData, (long *)(inPtr), 
+			      outData, (long *)(outPtr),outExt, id);
+      break;
+    case VTK_UNSIGNED_LONG:
+      vtkImageMedian3DExecute(this, inData, (unsigned long *)(inPtr), 
+			      outData, (unsigned long *)(outPtr),outExt, id);
+      break;
     case VTK_INT:
       vtkImageMedian3DExecute(this, inData, (int *)(inPtr), 
 			      outData, (int *)(outPtr),outExt, id);
+      break;
+    case VTK_UNSIGNED_INT:
+      vtkImageMedian3DExecute(this, inData, (unsigned int *)(inPtr), 
+			      outData, (unsigned int *)(outPtr),outExt, id);
       break;
     case VTK_SHORT:
       vtkImageMedian3DExecute(this, inData, (short *)(inPtr), 
@@ -398,6 +414,10 @@ void vtkImageMedian3D::ThreadedExecute(vtkImageData *inData,
     case VTK_UNSIGNED_SHORT:
       vtkImageMedian3DExecute(this, inData, (unsigned short *)(inPtr), 
 			      outData, (unsigned short *)(outPtr),outExt, id);
+      break;
+    case VTK_CHAR:
+      vtkImageMedian3DExecute(this, inData, (char *)(inPtr), 
+			      outData, (char *)(outPtr),outExt, id);
       break;
     case VTK_UNSIGNED_CHAR:
       vtkImageMedian3DExecute(this, inData, (unsigned char *)(inPtr), 
