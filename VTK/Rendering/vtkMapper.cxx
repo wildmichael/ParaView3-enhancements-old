@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-04 00:13:03 $
-  Version:   $Revision: 1.97 $
+  Date:      $Date: 2002-04-04 12:43:28 $
+  Version:   $Revision: 1.98 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkMapper.h"
 #include "vtkLookupTable.h"
 
-vtkCxxRevisionMacro(vtkMapper, "$Revision: 1.97 $");
+vtkCxxRevisionMacro(vtkMapper, "$Revision: 1.98 $");
 
 // Initialize static member that controls global immediate mode rendering
 static int vtkMapperGlobalImmediateModeRendering = 0;
@@ -271,9 +271,10 @@ void vtkMapper::ColorByArrayComponent(int arrayNum, int component)
 
 void vtkMapper::ColorByArrayComponent(const char* arrayName, int component)
 {
-  if (arrayName || strcmp(this->ArrayName, arrayName) == 0 &&
-      component == this->ArrayComponent &&
-      this->ArrayAccessMode == VTK_GET_ARRAY_BY_ID)
+  if (!arrayName || 
+      ( strcmp(this->ArrayName, arrayName) == 0 &&
+        component == this->ArrayComponent &&
+        this->ArrayAccessMode == VTK_GET_ARRAY_BY_ID ))
     {
     return;
     }
