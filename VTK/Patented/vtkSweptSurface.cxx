@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSweptSurface.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:56:21 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1996-12-31 17:18:04 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -355,7 +355,7 @@ void vtkSweptSurface::ComputeBounds(float origin[3], float ar[3], float bbox[24]
     for (i=0; i<8; i++)
       {
       x[0] = bbox[i*3]; x[1] = bbox[i*3+1]; x[2] = bbox[i*3+2]; 
-      t.PointMultiply(x,xTrans);
+      t.MultiplyPoint(x,xTrans);
       if ( xTrans[3] != 0.0 ) for (ii=0; ii<3; ii++) xTrans[ii] /= xTrans[3];
       for (j=0; j<3; j++)
         {
