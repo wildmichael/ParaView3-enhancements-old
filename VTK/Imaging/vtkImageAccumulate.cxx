@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAccumulate.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-10 20:05:10 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2001-07-17 17:08:21 $
+  Version:   $Revision: 1.32 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -456,5 +456,11 @@ void vtkImageAccumulate::PrintSelf(ostream& os, vtkIndent indent)
      << this->ComponentExtent[0] << "," << this->ComponentExtent[1] << " "
      << this->ComponentExtent[2] << "," << this->ComponentExtent[3] << " "
      << this->ComponentExtent[4] << "," << this->ComponentExtent[5] << " }\n";
+
+  os << indent << "StencilFunction: " << this->StencilFunction << "\n";
+  os << indent << "ReverseStencil: " << (this->ReverseStencil ?
+		                         "On\n" : "Off\n");
+
+  os << indent << "ClippingExtents: " << this->ClippingExtents << "\n";
 }
 
