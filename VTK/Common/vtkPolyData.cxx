@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-30 17:08:30 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1994-09-30 19:33:51 $
+  Version:   $Revision: 1.40 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -328,9 +328,7 @@ void vlPolyData::BuildCells()
   vlCellArray *inLines=this->GetLines();
   vlCellArray *inPolys=this->GetPolys();
   vlCellArray *inStrips=this->GetStrips();
-  int i, j;
   int npts, *pts;
-  vlIdList outVerts(3*MAX_CELL_SIZE);
   vlCellList *cells;
   vlPoints *inPoints=this->GetPoints();
 
