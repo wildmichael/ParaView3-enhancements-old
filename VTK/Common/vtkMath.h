@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMath.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:41 $
-  Version:   $Revision: 1.79 $
+  Date:      $Date: 2002-04-30 19:50:47 $
+  Version:   $Revision: 1.80 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -38,6 +38,7 @@ public:
   // Useful constants.
   static float Pi() {return 3.14159265358979;};
   static float DegreesToRadians() {return 0.017453292;};
+  static float RadiansToDegrees() {return 57.2957795131;};
 
   // Description:
   // Useful constants. (double-precision version)
