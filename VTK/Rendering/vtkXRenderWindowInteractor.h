@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-06 17:28:38 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2000-10-03 15:50:40 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -80,6 +80,13 @@ public:
   // Description:
   // Call exit on 'q','e' keypress. Want more ???
   void TerminateApp(void) { exit(0); }
+
+  // Description:
+  // The BreakLoopFlag is checked in the Start() method.
+  // Setting it to anything other than zero will cause
+  // the interactor loop to terminate and return to the
+  // calling function.
+  vtkSetMacro(BreakLoopFlag, int);
 
   // Description:
   // X timer methods
@@ -188,10 +195,13 @@ protected:
   int PositionBeforeStereo[2];
   Widget TopLevelShell;
 
+  int BreakLoopFlag;
   XtIntervalId AddTimeOut(XtAppContext app_context, unsigned long interval,
 			  XtTimerCallbackProc proc, XtPointer client_data) ;
   void Timer(XtPointer client_data, XtIntervalId *id); 
   void Callback(Widget w, XtPointer client_data, XEvent *event, Boolean *ctd);
+
+
 };
 
 #endif

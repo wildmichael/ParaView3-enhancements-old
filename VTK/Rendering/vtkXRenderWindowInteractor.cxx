@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-06 17:28:38 $
-  Version:   $Revision: 1.87 $
+  Date:      $Date: 2000-10-03 15:50:40 $
+  Version:   $Revision: 1.88 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -96,6 +96,7 @@ vtkXRenderWindowInteractor::vtkXRenderWindowInteractor()
   this->App = 0;
   this->top = 0;
   this->TopLevelShell = NULL;
+  this->BreakLoopFlag = 0;
 }
 
 vtkXRenderWindowInteractor::~vtkXRenderWindowInteractor()
@@ -153,6 +154,15 @@ void vtkXRenderWindowInteractor::SetTopLevelShell(Widget topLevel)
   this->TopLevelShell = topLevel;
 }
 
+// This function replaces TerminateApp() if Start() is called.
+// This way, when the user hits the exit key, Start() returns
+// and the application continues instead of calling exit().
+// With this change, it is possible to have clean-up code after
+// the interactor loop.
+void BreakXtLoop(void *iren)
+{
+  ((vtkXRenderWindowInteractor*)iren)->SetBreakLoopFlag(1);
+}
 
 // This will start up the X event loop and never return. If you
 // call this method it will loop processing X events until the
@@ -163,7 +173,14 @@ void vtkXRenderWindowInteractor::Start()
     {
     this->Initialize();
     }
-  XtAppMainLoop(this->App);
+  this->SetExitMethod(BreakXtLoop, this);
+  do 
+    {
+    XEvent event;
+    XtAppNextEvent(this->App, &event);
+    XtDispatchEvent(&event);
+    } 
+  while (this->BreakLoopFlag == 0);
 }
 
 // Initializes the event handlers using an XtAppContext that you have
