@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTreeComposite.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-21 15:40:01 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-08-15 17:37:56 $
+  Version:   $Revision: 1.17 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -102,7 +102,7 @@ struct vtkCompositeRendererInfo
 vtkTreeComposite* vtkTreeComposite::New()
 {
   // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkTreeCompssite");
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkTreeComposite");
   if(ret)
     {
     return (vtkTreeComposite*)ret;
