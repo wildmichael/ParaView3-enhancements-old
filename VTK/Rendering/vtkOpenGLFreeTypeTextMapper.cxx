@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLFreeTypeTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-31 17:45:35 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-08-01 13:27:47 $
+  Version:   $Revision: 1.22 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -614,7 +614,7 @@ vtkFontCache::Entry* vtkFontCache::GetFont(vtkTextProperty *tprop,
 }
 
 //----------------------------------------------------------------------------
-vtkCxxRevisionMacro(vtkOpenGLFreeTypeTextMapper, "$Revision: 1.21 $");
+vtkCxxRevisionMacro(vtkOpenGLFreeTypeTextMapper, "$Revision: 1.22 $");
 vtkStandardNewMacro(vtkOpenGLFreeTypeTextMapper);
 
 //----------------------------------------------------------------------------
@@ -842,9 +842,6 @@ void vtkOpenGLFreeTypeTextMapper::RenderOverlay(vtkViewport* viewport,
     {
     glOrtho(0, vsize[0] - 1, 0, vsize[1] - 1, -1, 0);
     }
-
-  int front = 
-    (actor->GetProperty()->GetDisplayLocation() == VTK_FOREGROUND_LOCATION);
 
   int *winSize = viewport->GetVTKWindow()->GetSize();
 
