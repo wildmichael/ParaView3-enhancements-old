@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaImageActor.h,v $
   Language:  C++
-  Date:      $Date: 2003-09-06 21:47:46 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2003-09-06 21:49:24 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -60,6 +60,7 @@ protected:
   vtkRenderWindow *RenderWindow;   // RenderWindow used for previous render
   float Coords[12];
   float TCoords[8];
+  int TextureSize[2];
 private:
   vtkMesaImageActor(const vtkMesaImageActor&);  // Not implemented.
   void operator=(const vtkMesaImageActor&);  // Not implemented.
