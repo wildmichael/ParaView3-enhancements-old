@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpLens.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-23 15:27:54 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-05-11 11:09:14 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -67,7 +67,7 @@ void vtkWarpLens::SetKappa(float kappa)
   this->SetK1(kappa);
 }
 
-float vtkWarpLens::GetKappa(float kappa)
+float vtkWarpLens::GetKappa()
 {
   return this->GetK1();
 }
