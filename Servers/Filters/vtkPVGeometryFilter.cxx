@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-21 15:44:05 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-08-22 21:35:58 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -225,7 +225,6 @@ void vtkPVGeometryFilter::Execute()
 //----------------------------------------------------------------------------
 void vtkPVGeometryFilter::ExecuteInformation()
 {
-  vtkPolyData *output = this->GetOutput();
   vtkDataSet *ds = this->GetInput();
   vtkImageData *input = vtkImageData::SafeDownCast(ds);
 
@@ -241,5 +240,4 @@ void vtkPVGeometryFilter::ExecuteInformation()
   // Let OutlineSource do all the work
   //
   this->vtkSource::ExecuteInformation();
-
 }
