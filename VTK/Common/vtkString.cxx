@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkString.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-07 14:46:52 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-12-30 15:54:13 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkString.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkString, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkString, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkString);
  
 //----------------------------------------------------------------------------
@@ -159,3 +159,36 @@ int vtkString::CompareCase(const char* str1, const char* str2)
   return STRCASECMP(str1, str2);
 }
 
+//----------------------------------------------------------------------------
+// Description:
+// Transform the string to lowercase (inplace).
+char* vtkString::ToLower(char *str)
+{
+  if (str)
+    {
+    char *ptr = str;
+    while (*ptr)
+      {
+      *ptr = (char)tolower(*ptr);
+      ++ptr;
+      }
+    }
+  return str;
+}
+
+//----------------------------------------------------------------------------
+// Description:
+// Transform the string to uppercase (inplace).
+char* vtkString::ToUpper(char *str)
+{
+  if (str)
+    {
+    char *ptr = str;
+    while (*ptr)
+      {
+      *ptr = (char)toupper(*ptr);
+      ++ptr;
+      }
+    }
+  return str;
+}

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkString.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-07 14:46:52 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-12-30 15:54:13 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -85,6 +85,14 @@ public:
   // if there was an error.
   static char* Append(const char* str1, const char* str2);
   
+  // Description:
+  // Transform the string to lowercase (inplace).
+  static char* ToLower(char* str);
+
+  // Description:
+  // Transform the string to uppercase (inplace).
+  static char* ToUpper(char* str);
+
 protected:
   vtkString() {};
   ~vtkString() {};
