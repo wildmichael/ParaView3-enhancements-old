@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-05-02 02:59:31 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2000-05-17 16:00:33 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -156,10 +156,8 @@ void vtkOpenGLCamera::Render(vtkRenderer *ren)
     glLoadMatrixd(matrix->Element[0]);
     }
   
-
-  // since lookat modifies the model view matrix do a push 
-  // first and set the mmode.  This will be undone in the  
-  // render action after the actors! message sis sent      
+  // push the model view matrix onto the stack, make sure we 
+  // adjust the mode first
   glMatrixMode(GL_MODELVIEW);
   glPushMatrix();
 
