@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMath.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-29 20:26:22 $
-  Version:   $Revision: 1.75 $
+  Date:      $Date: 2003-03-20 13:55:27 $
+  Version:   $Revision: 1.76 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkMath, "$Revision: 1.75 $");
+vtkCxxRevisionMacro(vtkMath, "$Revision: 1.76 $");
 vtkStandardNewMacro(vtkMath);
 
 long vtkMath::Seed = 1177; // One authors home address
@@ -634,6 +634,7 @@ static inline int vtkJacobiN(T **a, int n, T *w, T **v)
   // are negative of one another (.707,.707,0) and (-.707,-.707,0). This can
   // reek havoc in hyperstreamline/other stuff. We will select the most
   // positive eigenvector.
+  int ceil_half_n = (n >> 1) + (n & 1);
   for (j=0; j<n; j++)
     {
     for (numPos=0, i=0; i<n; i++)
@@ -643,7 +644,8 @@ static inline int vtkJacobiN(T **a, int n, T *w, T **v)
         numPos++;
         }
       }
-    if ( numPos < ceil(double(n)/double(2.0)) )
+//    if ( numPos < ceil(double(n)/double(2.0)) )
+    if ( numPos < ceil_half_n)
       {
       for(i=0; i<n; i++)
         {
