@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-24 18:24:09 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2000-11-28 18:06:10 $
+  Version:   $Revision: 1.58 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -549,19 +549,19 @@ int vtkDataObject::UpdateExtentIsEmpty()
     case VTK_PIECES_EXTENT:
       // Special way of asking for no input.
       if ( this->UpdateNumberOfPieces == 0 )
-	{
+        {
         return 1;
-	}
+        }
       break;
 
     case VTK_3D_EXTENT:
       // Special way of asking for no input. (zero volume)
       if (this->UpdateExtent[0] == (this->UpdateExtent[1] + 1) ||
-	  this->UpdateExtent[2] == (this->UpdateExtent[3] + 1) ||
-	  this->UpdateExtent[4] == (this->UpdateExtent[5] + 1))
-	{
-	return 1;
-	}
+          this->UpdateExtent[2] == (this->UpdateExtent[3] + 1) ||
+          this->UpdateExtent[4] == (this->UpdateExtent[5] + 1))
+      {
+      return 1;
+      }
       break;
 
     // We should never have this case occur
