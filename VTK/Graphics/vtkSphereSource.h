@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkSphereSource.h,v $
   Language:  C++
-  Date:      $Date: 1994-02-23 21:16:31 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1994-07-20 21:32:10 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -13,10 +13,14 @@ written consent of the authors.
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-//
-// Create sphere centered at origin. Resolution=0 means octahedron which 
-// is recursively subdivided for each resolution increase.
-//
+// .NAME vlSphereSource - create a sphere centered at the origin
+// .SECTION Description
+// vlSphereSource creates a polygonal sphere of specified radius centered 
+// at the origin. The resolution (polygonal discretization) in both the
+// latitude (phi) and longitude (theta) diections can be specified. It is
+// also possible to create partial spheres by specifying maximum phi
+// and theta angles.
+
 #ifndef __vlSphereSource_h
 #define __vlSphereSource_h
 
@@ -27,7 +31,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 class vlSphereSource : public vlPolySource 
 {
 public:
-  vlSphereSource(int res=4);
+  vlSphereSource(int res=8);
   char *GetClassName() {return "vlSphereSource";};
   void PrintSelf(ostream& os, vlIndent indent);
 

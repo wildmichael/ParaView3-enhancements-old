@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointSource.h,v $
   Language:  C++
-  Date:      $Date: 1994-02-07 17:15:01 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-07-20 21:32:09 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -13,8 +13,11 @@ written consent of the authors.
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-//
-// Create cloud of points centered at specified point
+// .NAME vlPointSource - create a random cloud of points
+// .SECTION Description
+// vlPointSource is a source object that creates a user-specified number 
+// of points within a specified radius about a specified center point. 
+// The location of the points is random within the sphere.
 //
 #ifndef __vlPointSource_h
 #define __vlPointSource_h

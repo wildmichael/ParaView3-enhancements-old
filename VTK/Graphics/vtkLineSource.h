@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkLineSource.h,v $
   Language:  C++
-  Date:      $Date: 1994-02-05 13:03:41 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-07-20 21:32:08 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -13,9 +13,12 @@ written consent of the authors.
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-//
-// Create line centered at origin
-//
+// .NAME vlLineSource - create a line defined by two end points
+// .SECTION Description
+// vlLineSource is a source object that creates a polyline defined by
+// two endpoints. The number of segments composing the polyline is
+// controlled by setting the object resolution.
+
 #ifndef __vlLineSource_h
 #define __vlLineSource_h
 
