@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLOT3DReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:18:50 $
-  Version:   $Revision: 1.72 $
+  Date:      $Date: 2003-04-10 14:33:26 $
+  Version:   $Revision: 1.73 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #include "vtkStructuredGrid.h"
 #include "vtkUnsignedCharArray.h"
 
-vtkCxxRevisionMacro(vtkPLOT3DReader, "$Revision: 1.72 $");
+vtkCxxRevisionMacro(vtkPLOT3DReader, "$Revision: 1.73 $");
 vtkStandardNewMacro(vtkPLOT3DReader);
 
 #define VTK_RHOINF 1.0
@@ -239,6 +239,9 @@ int vtkPLOT3DReader::CanReadFile(const char* fname)
     {
     return 0;
     }
+
+  this->CalculateFileSize(xyzFp);
+
   int numOutputs = this->GetNumberOfOutputsInternal(xyzFp, 1);
   fclose(xyzFp);
   if (numOutputs != 0)
