@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericEnSightReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-16 18:30:08 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-01-17 13:18:19 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,6 +57,7 @@ class VTK_EXPORT vtkGenericEnSightReader : public vtkDataSetSource
 public:
   static vtkGenericEnSightReader *New();
   vtkTypeMacro(vtkGenericEnSightReader, vtkDataSetSource);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Set/Get the Case file name.
