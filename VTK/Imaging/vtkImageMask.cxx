@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMask.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 20:35:19 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-08-13 13:25:58 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,9 +45,46 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 //----------------------------------------------------------------------------
 vtkImageMask::vtkImageMask()
 {
-  this->MaskedOutputValue = 0.0;
   this->NotMask = 0;
+  this->MaskedOutputValue = new float[3];
+  this->MaskedOutputValueLength = 3;
+  this->MaskedOutputValue[0] = this->MaskedOutputValue[1] 
+    = this->MaskedOutputValue[2] = 0.0;
 }
+
+
+//----------------------------------------------------------------------------
+void vtkImageMask::SetMaskedOutputValue(int num, float *v)
+{
+  int idx;
+
+  if (num < 1)
+    {
+    vtkErrorMacro("Output value must have length greater than 0");
+    return;
+    }
+  if (num != this->MaskedOutputValueLength)
+    {
+    this->Modified();
+    }
+  
+  if (num > this->MaskedOutputValueLength)
+    {
+    delete [] this->MaskedOutputValue;
+    this->MaskedOutputValue = new float[num];
+    this->MaskedOutputValueLength = num;
+    }
+
+  for (idx = 0; idx < num; ++ idx)
+    {
+    if (this->MaskedOutputValue[idx] != v[idx])
+      {
+      this->Modified();
+      }
+    this->MaskedOutputValue[idx] = v[idx];
+    }
+}
+
 
 //----------------------------------------------------------------------------
 // Description:
@@ -64,13 +101,22 @@ static void vtkImageMaskExecute(vtkImageMask *self, int ext[6],
   int in2Inc0, in2Inc1, in2Inc2;
   int outInc0, outInc1, outInc2;
   T *maskedValue;
+  float *v;
+  int nv;
   int maskState;
   
+  // create a masked output value with the correct length by cycling
   numC = outData->GetNumberOfScalarComponents();
   maskedValue = new T[numC];
-  for (idx0 = 0; idx0 < numC; ++idx0)
+  v = self->GetMaskedOutputValue();
+  nv = self->GetMaskedOutputValueLength();
+  for (idx0 = 0, idx1 = 0; idx0 < numC; ++idx0, ++idx1)
     {
-    maskedValue[idx0] = (T)(self->GetMaskedOutputValue());
+    if (idx1 >= nv)
+      {
+      idx1 = 0;
+      }
+    maskedValue[idx0] = (T)(v[idx1]);
     }
   pixSize = numC * sizeof(T);
   maskState = self->GetNotMask();
@@ -204,9 +250,16 @@ void vtkImageMask::ThreadedExecute(vtkImageData **inData,
 
 void vtkImageMask::PrintSelf(ostream& os, vtkIndent indent)
 {
+  int idx;
+  
   vtkImageTwoInputFilter::PrintSelf(os,indent);
 
-  os << indent << "MaskedOutputValue: " << this->MaskedOutputValue << "\n";
+  os << indent << "MaskedOutputValue: " << this->MaskedOutputValue[0];
+  for (idx = 1; idx < this->MaskedOutputValueLength; ++idx)
+    {
+    os << ", " << this->MaskedOutputValue[idx];
+    }
+  os << endl;
 
   os << indent << "NotMask: " << (this->NotMask ? "On\n" : "Off\n");
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMask.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 19:10:52 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1998-08-13 13:26:02 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,8 +68,14 @@ public:
 
   // Description:
   // SetGet the value of the output pixel replaced by mask.
-  vtkSetMacro(MaskedOutputValue, float);
-  vtkGetMacro(MaskedOutputValue, float);
+  void SetMaskedOutputValue(int num, float *v);
+  void SetMaskedOutputValue(float v) {this->SetMaskedOutputValue(1, &v);}
+  void SetMaskedOutputValue(float v1, float v2) 
+    {float v[2]; v[0]=v1; v[1]=v2; this->SetMaskedOutputValue(2, v);}
+  void SetMaskedOutputValue(float v1, float v2, float v3) 
+    {float v[2]; v[0]=v1; v[1]=v2; v[2]=v3; this->SetMaskedOutputValue(3, v);}
+  float *GetMaskedOutputValue() {return this->MaskedOutputValue;}
+  int GetMaskedOutputValueLength() {return this->MaskedOutputValueLength;}
 
   void SetImageInput(vtkImageCache *in) {this->SetInput1(in);}
   void SetImageInput(vtkStructuredPoints *in) {this->SetInput1(in);}
@@ -86,7 +92,8 @@ public:
   vtkBooleanMacro(NotMask, int);
   
 protected:
-  float MaskedOutputValue;
+  float *MaskedOutputValue;
+  int MaskedOutputValueLength;
   int NotMask;
   
   void ThreadedExecute(vtkImageData **inDatas, vtkImageData *outData,
