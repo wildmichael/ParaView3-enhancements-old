@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-27 16:26:57 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2002-06-07 23:36:37 $
+  Version:   $Revision: 1.48 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,6 +31,9 @@
 #include "vtkVolumeRayCastFunction.h" // For VTKVRCStaticInfo 
                                       // and VTKVRCDynamicInfo
 
+class vtkEncodedGradientEstimator;
+class vtkEncodedGradientShader;
+class vtkMatrix4x4;
 class vtkMultiThreader;
 class vtkPlaneCollection;
 class vtkRenderer;
@@ -38,8 +41,6 @@ class vtkTimerLog;
 class vtkVolume;
 class vtkVolumeRayCastFunction;
 class vtkVolumeTransform;
-class vtkEncodedGradientEstimator;
-class vtkEncodedGradientShader;
 
 // Macro for floor of x
 #define vtkFloorFuncMacro(x)   (((x) < 0.0)?((int)((x)-1.0)):((int)(x)))

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractMapper.h,v $
   Language:  C++
-  Date:      $Date: 2002-02-21 18:51:48 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2002-06-07 23:36:37 $
+  Version:   $Revision: 1.28 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,10 +29,6 @@
 #define __vtkAbstractMapper_h
 
 #include "vtkProcessObject.h"
-#include "vtkPlaneCollection.h"
-#include "vtkPlane.h"
-#include "vtkPlanes.h"
-#include "vtkTimerLog.h"
 
 #define VTK_SCALAR_MODE_DEFAULT 0
 #define VTK_SCALAR_MODE_USE_POINT_DATA 1
@@ -45,6 +41,10 @@
 
 class vtkWindow;
 class vtkDataSet;
+class vtkPlaneCollection;
+class vtkPlane;
+class vtkPlanes;
+class vtkTimerLog;
 
 class VTK_COMMON_EXPORT vtkAbstractMapper : public vtkProcessObject
 {
@@ -76,7 +76,7 @@ public:
   // Description:
   // Get/Set the vtkPlaneCollection which specifies the
   // clipping planes.
-  vtkSetObjectMacro(ClippingPlanes,vtkPlaneCollection);
+  virtual void SetClippingPlanes(vtkPlaneCollection*);
   vtkGetObjectMacro(ClippingPlanes,vtkPlaneCollection);
 
   // Description:

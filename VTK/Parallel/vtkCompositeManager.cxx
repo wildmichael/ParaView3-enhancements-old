@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCompositeManager.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-03 16:47:52 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2002-06-07 23:36:55 $
+  Version:   $Revision: 1.33 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,6 +30,7 @@
 #include "vtkRenderWindowInteractor.h"
 #include "vtkRenderer.h"
 #include "vtkRendererCollection.h"
+#include "vtkTimerLog.h"
 #include "vtkToolkits.h"
 #include "vtkUnsignedCharArray.h"
 
@@ -43,7 +44,7 @@
  #include <mpi.h>
 #endif
 
-vtkCxxRevisionMacro(vtkCompositeManager, "$Revision: 1.32 $");
+vtkCxxRevisionMacro(vtkCompositeManager, "$Revision: 1.33 $");
 vtkStandardNewMacro(vtkCompositeManager);
 
 vtkCxxSetObjectMacro(vtkCompositeManager,Compositer, vtkCompositer);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: FrustumClip.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-28 03:33:50 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-06-07 23:36:55 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,16 +18,16 @@
 #include "vtkActor.h"
 #include "vtkCamera.h"
 #include "vtkClipPolyData.h"
+#include "vtkDebugLeaks.h"
+#include "vtkPlanes.h"
 #include "vtkPolyDataMapper.h"
 #include "vtkProperty.h"
+#include "vtkRegressionTestImage.h"
 #include "vtkRenderWindow.h"
 #include "vtkRenderWindowInteractor.h"
 #include "vtkRenderer.h"
 #include "vtkRenderer.h"
 #include "vtkSphereSource.h"
-
-#include "vtkRegressionTestImage.h"
-#include "vtkDebugLeaks.h"
 
 // Generate a sphere. Create a view frustum looking at the sphere
 // Clip anything inside the frustum, then back away and view result

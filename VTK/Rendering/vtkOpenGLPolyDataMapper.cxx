@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-03 15:59:53 $
-  Version:   $Revision: 1.72 $
+  Date:      $Date: 2002-06-07 23:36:37 $
+  Version:   $Revision: 1.73 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,9 +22,11 @@
 #include "vtkObjectFactory.h"
 #include "vtkOpenGLRenderer.h"
 #include "vtkPlane.h"
+#include "vtkPlaneCollection.h"
 #include "vtkPolyData.h"
 #include "vtkPolygon.h"
 #include "vtkProperty.h"
+#include "vtkTimerLog.h"
 #include "vtkTriangle.h"
 
 #ifdef VTK_USE_CARBON
@@ -53,7 +55,7 @@
 
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkOpenGLPolyDataMapper, "$Revision: 1.72 $");
+vtkCxxRevisionMacro(vtkOpenGLPolyDataMapper, "$Revision: 1.73 $");
 vtkStandardNewMacro(vtkOpenGLPolyDataMapper);
 #endif
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-28 03:33:51 $
-  Version:   $Revision: 1.85 $
+  Date:      $Date: 2002-06-07 23:36:37 $
+  Version:   $Revision: 1.86 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,11 +26,12 @@
 #include "vtkPlaneCollection.h"
 #include "vtkRenderWindow.h"
 #include "vtkRenderer.h"
+#include "vtkTimerLog.h"
 #include "vtkVolumeRayCastFunction.h"
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkVolumeRayCastMapper, "$Revision: 1.85 $");
+vtkCxxRevisionMacro(vtkVolumeRayCastMapper, "$Revision: 1.86 $");
 
 vtkCxxSetObjectMacro(vtkVolumeRayCastMapper,VolumeRayCastFunction,
                      vtkVolumeRayCastFunction );

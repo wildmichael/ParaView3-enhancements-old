@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLVolumeTextureMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:02 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2002-06-07 23:36:37 $
+  Version:   $Revision: 1.28 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,8 +16,14 @@
 
 =========================================================================*/
 #include "vtkOpenGLVolumeTextureMapper2D.h"
+
 #include "vtkMatrix4x4.h"
+#include "vtkObjectFactory.h"
+#include "vtkPlane.h"
+#include "vtkPlaneCollection.h"
+#include "vtkTimerLog.h"
 #include "vtkVolume.h"
+
 #ifndef VTK_IMPLEMENT_MESA_CXX
 #ifdef __APPLE__
 #include <OpenGL/gl.h>
@@ -25,11 +31,10 @@
 #include <GL/gl.h>
 #endif
 #endif
-#include "vtkObjectFactory.h"
 
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkOpenGLVolumeTextureMapper2D, "$Revision: 1.27 $");
+vtkCxxRevisionMacro(vtkOpenGLVolumeTextureMapper2D, "$Revision: 1.28 $");
 vtkStandardNewMacro(vtkOpenGLVolumeTextureMapper2D);
 #endif
 
