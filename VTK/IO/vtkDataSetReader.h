@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-02-27 12:39:43 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 2002-03-07 02:12:30 $
+  Version:   $Revision: 1.53 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -77,7 +77,7 @@ public:
   // Description:
   // This method can be used to find out the type of output expected without
   // needing to read the whole file.
-  int ReadOutputType();
+  virtual int ReadOutputType();
 
 protected:
   vtkDataSetReader();

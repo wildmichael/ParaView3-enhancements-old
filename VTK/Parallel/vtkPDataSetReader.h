@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPDataSetReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:34:44 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-03-07 02:12:45 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -56,6 +56,11 @@ public:
   // It shows the type of the output.
   vtkGetMacro(DataType, int);
   
+  // Description:
+  // This method can be used to find out the type of output expected without
+  // needing to read the whole file.
+  virtual int ReadOutputType();
+
 protected:
   vtkPDataSetReader();
   ~vtkPDataSetReader();

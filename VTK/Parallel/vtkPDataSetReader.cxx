@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPDataSetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-19 15:36:45 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-03-07 02:12:57 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,7 +31,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkSource.h"
 
-vtkCxxRevisionMacro(vtkPDataSetReader, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkPDataSetReader, "$Revision: 1.13 $");
 vtkStandardNewMacro(vtkPDataSetReader);
 
 //----------------------------------------------------------------------------
@@ -1321,6 +1321,14 @@ void vtkPDataSetReader::CoverExtent(int ext[6], int *pieceMask)
       cExt[i*2+1] = ext[i*2+1];
       }
     }
+}
+
+//----------------------------------------------------------------------------
+int vtkPDataSetReader::ReadOutputType()
+{
+  this->ExecuteInformation();
+
+  return this->DataType;
 }
 
 //----------------------------------------------------------------------------
