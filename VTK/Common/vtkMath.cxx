@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMath.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-03-20 13:55:27 $
-  Version:   $Revision: 1.76 $
+  Date:      $Date: 2003-05-06 15:39:41 $
+  Version:   $Revision: 1.77 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkMath, "$Revision: 1.76 $");
+vtkCxxRevisionMacro(vtkMath, "$Revision: 1.77 $");
 vtkStandardNewMacro(vtkMath);
 
 long vtkMath::Seed = 1177; // One authors home address
@@ -2077,7 +2077,12 @@ void vtkMath::RGBToHSV(float r, float g, float b, float *h, float *s, float *v)
     *v = 0.0;
     return;
     }
-  if (r >= g && g >= b)
+  if (r == g && g == b)
+    {
+    hue = sat = 0.0;
+    val = r;
+    }
+  else if (r >= g && g >= b)
     { // case 0
     val = r;
     lz = g;
