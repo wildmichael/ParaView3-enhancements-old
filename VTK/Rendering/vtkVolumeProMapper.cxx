@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-18 15:54:12 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-07-14 19:04:24 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -479,8 +479,8 @@ void vtkVolumeProMapper::UpdateProperties( vtkRenderer *ren, vtkVolume *vol )
     gradientTable = new double [this->GradientTableSize];
     for ( i = 0; i < this->GradientTableSize; i++ )
       {
-      gradientTable[i] = 0.5 +
-	goFunc->GetValue( ((float)(i) / this->GradientTableSize) * 255.0 );
+      gradientTable[i] =
+	goFunc->GetValue( ((float)(i)/(this->GradientTableSize-1)) * 255.0 );
       }
     
     this->Context->SetGradientOpacityModulation( VLItrue );

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLVolumeProVG500Mapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-16 20:10:49 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-07-14 19:04:25 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -129,6 +129,7 @@ void vtkOpenGLVolumeProVG500Mapper::RenderHexagon(  vtkRenderer  *ren,
 
   glDisable( GL_BLEND );
   glDisable( GL_ALPHA_TEST );
+  glDisable( GL_TEXTURE_2D );
 
   // Pop the OpenGL modelview matrix
   glPopMatrix();
