@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTclUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-07 10:34:41 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2000-09-08 10:12:18 $
+  Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -489,7 +489,6 @@ int vtkTclNewInstanceCommand(ClientData cd, Tcl_Interp *interp,
   // Make sure we are not clobbering a built in command
   if (Tcl_GetCommandInfo(interp,argv[1],&cinf))
     {
-    Tcl_SetResult(interp, argv[1], TCL_VOLATILE);
     vtkGenericWarningMacro(<< argv[1] << ": a tcl/tk command with that name already exists.");
     }
 
