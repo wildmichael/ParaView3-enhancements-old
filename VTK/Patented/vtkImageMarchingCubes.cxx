@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMarchingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-30 21:05:16 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2002-10-28 21:37:18 $
+  Version:   $Revision: 1.51 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -41,7 +41,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageMarchingCubes, "$Revision: 1.50 $");
+vtkCxxRevisionMacro(vtkImageMarchingCubes, "$Revision: 1.51 $");
 vtkStandardNewMacro(vtkImageMarchingCubes);
 
 //----------------------------------------------------------------------------
@@ -540,10 +540,10 @@ void vtkImageMarchingCubesHandleCube(vtkImageMarchingCubes *self,
   float value;
   int cubeIndex, ii;
   vtkIdType pointIds[3];
-  VTK_TRIANGLE_CASES *triCase, *triCases;
+  vtkMarchingCubesTriangleCases *triCase, *triCases;
   EDGE_LIST  *edge;
 
-  triCases =  VTK_TRIANGLE_CASES::GetCases();
+  triCases =  vtkMarchingCubesTriangleCases::GetCases();
 
   inData->GetIncrements(inc0, inc1, inc2);
   for (valueIdx = 0; valueIdx < numContours; ++valueIdx)

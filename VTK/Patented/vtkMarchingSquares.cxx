@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingSquares.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-30 21:05:16 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 2002-10-28 21:37:18 $
+  Version:   $Revision: 1.53 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -50,7 +50,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkMarchingSquares, "$Revision: 1.52 $");
+vtkCxxRevisionMacro(vtkMarchingSquares, "$Revision: 1.53 $");
 vtkStandardNewMacro(vtkMarchingSquares);
 
 // Description:
@@ -145,12 +145,12 @@ void vtkContourImage(T *scalars, vtkDataArray *newScalars, int roi[6], int dir[3
   float pts[4][3], min, max;
   int contNum, jOffset, idx, ii, jj, index, *vert;
   static int CASE_MASK[4] = {1,2,8,4};  
-  VTK_LINE_CASES *lineCase, *lineCases;
+  vtkMarchingSquaresLineCases *lineCase, *lineCases;
   static int edges[4][2] = { {0,1}, {1,3}, {2,3}, {0,2} };
   EDGE_LIST  *edge;
   float value, s[4];
 
-  lineCases = VTK_LINE_CASES::GetCases();
+  lineCases = vtkMarchingSquaresLineCases::GetCases();
 //
 // Get min/max contour values
 //
