@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkRenderWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-30 17:22:17 $
-  Version:   $Revision: 1.66 $
+  Date:      $Date: 2002-06-28 13:52:12 $
+  Version:   $Revision: 1.67 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -507,7 +507,7 @@ static int vtkTkRenderWidget_MakeRenderWindow(struct vtkTkRenderWidget *self)
   TkWindow *winPtr = (TkWindow *) self->TkWin;
   Tcl_HashEntry *hPtr;
   int new_flag;
-  vtkWin32OpenGLRenderWindow *renderWindow;
+  vtkWin32OpenGLRenderWindow *renderWindow = 0;
   TkWinDrawable *twdPtr;
   HWND parentWin;
 
