@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSplineWidget.h,v $
   Language:  C++
-  Date:      $Date: 2003-01-29 21:33:53 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2003-03-06 20:26:29 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -269,7 +269,6 @@ protected:
   vtkSpline *YSpline;
   vtkSpline *ZSpline;
   int NumberOfHandles;
-  float* HandlePositions;
   vtkSpline* CreateDefaultSpline();// default is vtkCardinalSpline
   int Closed;
   float Offset;
@@ -314,6 +313,10 @@ protected:
   vtkProperty *LineProperty;
   vtkProperty *SelectedLineProperty;
   void CreateDefaultProperties();
+
+  // For efficient spinning
+  float Centroid[3];
+  void CalculateCentroid();
 
 private:
   vtkSplineWidget(const vtkSplineWidget&);  //Not implemented
