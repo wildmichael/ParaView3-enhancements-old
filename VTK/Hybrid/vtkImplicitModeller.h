@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitModeller.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-15 15:05:53 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1997-07-22 12:40:53 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,8 +40,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 // .NAME vtkImplicitModeller - compute distance from input geometry on structured point dataset
 // .SECTION Description
-
-
 // vtkImplicitModeller is a filter that computes the distance from the input
 // geometry to the points of an output structured point set. This distance
 // function can then be "contoured" to generate new, offset surfaces from

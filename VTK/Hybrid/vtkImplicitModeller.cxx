@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitModeller.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-17 13:29:36 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 1997-07-22 12:40:55 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -424,6 +424,9 @@ void vtkImplicitModeller::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "  Xmin,Xmax: (" << this->ModelBounds[0] << ", " << this->ModelBounds[1] << ")\n";
   os << indent << "  Ymin,Ymax: (" << this->ModelBounds[2] << ", " << this->ModelBounds[3] << ")\n";
   os << indent << "  Zmin,Zmax: (" << this->ModelBounds[4] << ", " << this->ModelBounds[5] << ")\n";
+
+  os << indent << "AdjustBounds: " << (this->AdjustBounds ? "On\n" : "Off\n");
+  os << indent << "Adjust Distance: " << this->AdjustDistance << "\n";
 
   os << indent << "Capping: " << (this->Capping ? "On\n" : "Off\n");
   os << indent << "Cap Value: " << this->CapValue << "\n";
