@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkUnstructuredGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-05-24 09:48:29 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1995-05-24 12:40:23 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -270,9 +270,11 @@ void vlUnstructuredGridReader::Execute()
     vlErrorMacro(<< "Unrecognized keyord: " << line);
     }
 //
-// Now read the point data
+// Clean-up and get out
 //
   if ( types ) delete [] types;
+
+  vlDebugMacro(<<"Read " <<this->GetNumberOfPoints() <<" points," <<this->GetNumberOfCells() <<" cells.\n");
   return;
 }
 
