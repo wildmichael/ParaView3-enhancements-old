@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-03-14 12:29:23 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-04-11 17:12:15 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -441,7 +441,6 @@ float *vlCamera::GetOrientation ()
 
 void vlCamera::CalcPerspectiveTransform ()
 {
-  int     i, j;
   vlMatrix4x4  matrix;
   float   view_ratio;
   float   distance, distance_old;
