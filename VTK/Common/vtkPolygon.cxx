@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolygon.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-06 19:06:04 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 1998-08-19 12:07:26 $
+  Version:   $Revision: 1.56 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -543,8 +543,6 @@ int vtkPolygon::RecursiveTriangulate (int numVerts, int *verts)
   int i,j;
   int n1, n2;
   int fedges[2];
-  float min, dist;
-  int minI, minJ;
 
   if ( ! this->SuccessfulTriangulation )
     return 0;
