@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-08 13:11:37 $
-  Version:   $Revision: 1.68 $
+  Date:      $Date: 2002-05-13 14:23:58 $
+  Version:   $Revision: 1.69 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -41,7 +41,7 @@
 #include "vtkCommand.h"
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkOpenGLPolyDataMapper, "$Revision: 1.68 $");
+vtkCxxRevisionMacro(vtkOpenGLPolyDataMapper, "$Revision: 1.69 $");
 vtkStandardNewMacro(vtkOpenGLPolyDataMapper);
 #endif
 
@@ -228,6 +228,7 @@ void vtkOpenGLPolyDataMapper::RenderPiece(vtkRenderer *ren, vtkActor *act)
     if (!this->ImmediateModeRendering && 
         !this->GetGlobalImmediateModeRendering())
       {
+      vtkTimerLog::MarkStartEvent("Building display list");
       this->ReleaseGraphicsResources(ren->GetRenderWindow());
       this->LastWindow = ren->GetRenderWindow();
       
@@ -237,6 +238,7 @@ void vtkOpenGLPolyDataMapper::RenderPiece(vtkRenderer *ren, vtkActor *act)
 
       noAbort = this->Draw(ren,act);
       glEndList();
+      vtkTimerLog::MarkEndEvent("Building display list");
 
       // Time the actual drawing
       this->Timer->StartTimer();
