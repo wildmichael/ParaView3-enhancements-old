@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-02-26 14:59:21 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1996-06-14 11:16:41 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,6 +43,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkRenderer.hh"
 #include "vtkRenderWindow.hh"
 #include "vtkPropertyDevice.hh"
+#include "vtkActor.hh"
 
 // Description:
 // Construct object with object color, ambient color, diffuse color,
@@ -138,6 +139,15 @@ void vtkProperty::Render(vtkRenderer *ren)
     this->Device = ren->GetRenderWindow()->MakeProperty();
     }
   this->Device->Render(this,ren);
+}
+
+void vtkProperty::Render(vtkRenderer *ren, vtkActor *anActor)
+{
+  if (!this->Device)
+    {
+    this->Device = ren->GetRenderWindow()->MakeProperty();
+    }
+  this->Device->Render(this, anActor, ren);
 }
 
 void vtkProperty::SetFlat (void)
