@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:34 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 2001-05-23 13:32:13 $
+  Version:   $Revision: 1.57 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -160,6 +160,7 @@ void vtkDataSetMapper::Render(vtkRenderer *ren, vtkActor *act)
   // update ourselves in case something has changed
   this->PolyDataMapper->SetLookupTable(this->GetLookupTable());
   this->PolyDataMapper->SetScalarVisibility(this->GetScalarVisibility());
+  this->PolyDataMapper->SetUseLookupTableScalarRange(this->GetUseLookupTableScalarRange());
   this->PolyDataMapper->SetScalarRange(this->GetScalarRange());
   this->PolyDataMapper->SetImmediateModeRendering
     (this->GetImmediateModeRendering());
