@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScaledTextActor.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-04 16:36:04 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2002-06-05 10:25:20 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -40,6 +40,9 @@ public:
 
 protected:
    vtkScaledTextActor();
+private:
+  vtkScaledTextActor(const vtkScaledTextActor&);  // Not implemented.
+  void operator=(const vtkScaledTextActor&);  // Not implemented.
 };
 
 
