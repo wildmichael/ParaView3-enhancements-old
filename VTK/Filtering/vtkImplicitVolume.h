@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitVolume.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:05:30 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2000-04-11 22:51:08 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -65,6 +65,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkImplicitFunction.h"
 #include "vtkStructuredPoints.h"
+#include "vtkImageToStructuredPoints.h"
 
 class VTK_EXPORT vtkImplicitVolume : public vtkImplicitFunction
 {
@@ -96,6 +97,9 @@ public:
   // Specify the volume for the implicit function.
   vtkSetObjectMacro(Volume,vtkStructuredPoints);
   vtkGetObjectMacro(Volume,vtkStructuredPoints);
+  void SetVolume(vtkImageData *cache)
+    {vtkImageToStructuredPoints *tmp = cache->MakeImageToStructuredPoints();
+    this->SetVolume(tmp->GetOutput()); tmp->Delete();}
 
   // Description:
   // Set the function value to use for points outside of the dataset.
