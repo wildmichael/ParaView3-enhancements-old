@@ -3,8 +3,8 @@
 Program:   Visualization Toolkit
 Module:    $RCSfile: vtkSocketCommunicator.cxx,v $
 Language:  C++
-Date:      $Date: 2003-04-29 17:15:37 $
-Version:   $Revision: 1.40 $
+Date:      $Date: 2003-07-22 19:26:23 $
+Version:   $Revision: 1.41 $
 
 Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -24,10 +24,12 @@ PURPOSE.  See the above copyright notice for more information.
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
+#include <netinet/tcp.h>
 #include <arpa/inet.h>
 #include <netdb.h>
 #include <unistd.h>
 #endif
+
 
 #if defined(_WIN32) && !defined(__CYGWIN__)
 #define WSA_VERSION MAKEWORD(1,1)
@@ -36,7 +38,7 @@ PURPOSE.  See the above copyright notice for more information.
 #define vtkCloseSocketMacro(sock) (close(sock))
 #endif
 
-vtkCxxRevisionMacro(vtkSocketCommunicator, "$Revision: 1.40 $");
+vtkCxxRevisionMacro(vtkSocketCommunicator, "$Revision: 1.41 $");
 vtkStandardNewMacro(vtkSocketCommunicator);
 
 //----------------------------------------------------------------------------
@@ -280,6 +282,12 @@ int vtkSocketCommunicator::WaitForConnection(int port)
     }
 
   int sock = socket(AF_INET, SOCK_STREAM, 0);
+  // Elimate windows 0.2 second delay sending (buffering) data.
+  int on = 1;
+  if (setsockopt(sock, IPPROTO_TCP, TCP_NODELAY, (char*)&on, sizeof(on)))
+    {
+    return -1;
+    }
 
   struct sockaddr_in server;
 
@@ -371,6 +379,12 @@ int vtkSocketCommunicator::ConnectTo ( char* hostName, int port )
     }
 
   this->Socket = socket(AF_INET, SOCK_STREAM, 0);
+  // Elimate windows 0.2 second delay sending (buffering) data.
+  int on = 1;
+  if (setsockopt(this->Socket, IPPROTO_TCP, TCP_NODELAY, (char*)&on, sizeof(on)))
+    {
+    return -1;
+    }
 
   struct sockaddr_in name;
   name.sin_family = AF_INET;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransmitUnstructuredGridPiece.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-09 17:09:41 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2003-07-22 19:26:23 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkPointData.h"
 #include "vtkUnstructuredGrid.h"
 
-vtkCxxRevisionMacro(vtkTransmitUnstructuredGridPiece, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkTransmitUnstructuredGridPiece, "$Revision: 1.16 $");
 vtkStandardNewMacro(vtkTransmitUnstructuredGridPiece);
 
 vtkCxxSetObjectMacro(vtkTransmitUnstructuredGridPiece,Controller,
@@ -147,10 +147,17 @@ void vtkTransmitUnstructuredGridPiece::RootExecute()
   extract->GetOutput()->SetUpdateGhostLevel(output->GetUpdateGhostLevel());
 
   extract->Update();
+
   // Copy geometry without copying information.
   output->CopyStructure(extract->GetOutput());
   output->GetPointData()->PassData(extract->GetOutput()->GetPointData());
   output->GetCellData()->PassData(extract->GetOutput()->GetCellData());
+  vtkFieldData*  inFd = extract->GetOutput()->GetFieldData();
+  vtkFieldData* outFd = output->GetFieldData();
+  if (inFd && outFd)
+    {
+    outFd->PassData(inFd);
+    }
 
   // Now do each of the satellite requests.
   numProcs = this->Controller->GetNumberOfProcesses();

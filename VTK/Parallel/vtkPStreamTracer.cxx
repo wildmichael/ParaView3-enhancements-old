@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPStreamTracer.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-06-12 14:42:29 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2003-07-22 19:26:23 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,7 @@
 #include "vtkPoints.h"
 #include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkPStreamTracer, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkPStreamTracer, "$Revision: 1.9 $");
 
 vtkCxxSetObjectMacro(vtkPStreamTracer, Controller, vtkMultiProcessController);
 vtkCxxSetObjectMacro(vtkPStreamTracer, 
@@ -80,7 +80,7 @@ vtkPStreamTracer::~vtkPStreamTracer()
 // This method waits until a process sends its first points.
 void vtkPStreamTracer::ReceiveLastPoints()
 {
-  int streamId;
+  int streamId = 0;
 
   while(1)
     {

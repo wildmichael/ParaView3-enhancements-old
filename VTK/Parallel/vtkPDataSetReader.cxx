@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPDataSetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-16 13:30:33 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2003-07-22 19:26:23 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -34,7 +34,7 @@
 #include "vtkUnstructuredGrid.h"
 #include "vtkExtentTranslator.h"
 
-vtkCxxRevisionMacro(vtkPDataSetReader, "$Revision: 1.25 $");
+vtkCxxRevisionMacro(vtkPDataSetReader, "$Revision: 1.26 $");
 vtkStandardNewMacro(vtkPDataSetReader);
 
 //----------------------------------------------------------------------------
@@ -972,6 +972,12 @@ void vtkPDataSetReader::Execute()
     reader->SetFileName(this->FileName);
     reader->Update();
     vtkDataSet *data = reader->GetOutput();
+
+    if (data == NULL)
+      {
+      vtkErrorMacro("Could not read file: " << this->FileName);
+      return;
+      }
     data->Update();
     // Structured points giving me a pain.
     //this->DataType = data->GetDataObjectType();

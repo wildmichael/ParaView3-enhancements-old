@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreadSafeLog.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-12 15:20:30 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2003-07-22 19:26:23 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,6 +24,7 @@
 
 #include "vtkObject.h"
 
+
 #define VTK_THREAD_SAFE_LOG_MAX 1000
 
 class VTK_PARALLEL_EXPORT vtkThreadSafeLog : public vtkObject
@@ -35,9 +36,9 @@ public:
 
   // Description:
   // some of the timeing features of vtkTimerLog.
-  void StartTimer() { this->Timer->StartTimer();}
-  void StopTimer() { this->Timer->StopTimer();}
-  double GetElapsedTime() { return this->Timer->GetElapsedTime();}
+  void StartTimer();
+  void StopTimer();
+  double GetElapsedTime();
 
   // Decription:
   // Save a tag/value pair. 
@@ -48,7 +49,8 @@ public:
   // if mode is out, then two lines are printed: 
   // Tags on first, values on second.
   // If mode is iso::app, then only the line with values is printed.
-  void DumpLog(char *filename, int mode = ios::out);
+  void DumpLog(char *filename, int mode);
+  void DumpLog(char *filename);
 
 protected:
 

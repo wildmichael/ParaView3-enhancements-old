@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowTclInteractor.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-22 19:37:49 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2003-07-22 19:26:59 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -36,6 +36,10 @@
 #include "vtkRenderWindowInteractor.h"
 #include <X11/StringDefs.h> // Needed for X types in public interface
 #include <X11/Intrinsic.h> // Needed for X types in public interface
+
+extern void vtkXRenderWindowTclInteractorCallback(Widget,XtPointer,
+                                                  XEvent *,Boolean *);
+extern void vtkXRenderWindowTclInteractorTimer(XtPointer,XtIntervalId *);
 
 class VTK_RENDERING_EXPORT vtkXRenderWindowTclInteractor : public vtkRenderWindowInteractor
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiProcessLog.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:34:41 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-07-22 19:26:23 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,12 +19,13 @@
 #include "vtkMultiProcessLog.h"
 #include "vtkObjectFactory.h"
 #include "vtkMultiProcessController.h"
+#include "vtkThreadSafeLog.h"
 
 // Is there a thread safe way to initialize this array?
 // A log for each process.
 vtkThreadSafeLog *VTK_TIMER_LOGS[VTK_MULTI_PROCESS_LOG_MAX];
 
-vtkCxxRevisionMacro(vtkMultiProcessLog, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkMultiProcessLog, "$Revision: 1.5 $");
 vtkStandardNewMacro(vtkMultiProcessLog);
 
 //----------------------------------------------------------------------------
@@ -96,8 +97,7 @@ void vtkMultiProcessLog::DumpLog(char *filename)
 }
 
   
-
-
-
-
-
+void vtkMultiProcessLog::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
+}
