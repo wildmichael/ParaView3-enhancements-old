@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-10 07:14:47 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2000-01-10 20:24:41 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -95,6 +95,8 @@ vtkDataObject::vtkDataObject()
   this->UpdateNumberOfPieces =   1;
 
   this->MaximumNumberOfPieces = 1;
+
+  this->PipelineMTime = 0;
 }
 
 //----------------------------------------------------------------------------
