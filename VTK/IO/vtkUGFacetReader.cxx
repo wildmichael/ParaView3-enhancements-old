@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUGFacetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-29 17:42:11 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1998-06-23 19:25:10 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -349,6 +349,8 @@ void vtkUGFacetReader::PrintSelf(ostream& os, vtkIndent indent)
 
   os << indent << "File Name: " 
      << (this->FileName ? this->FileName : "(none)") << "\n";
+
+  os << indent << "Part Number: " << this->PartNumber << "\n";
 
   os << indent << "Merging: " << (this->Merging ? "On\n" : "Off\n");
   if ( this->Locator )
