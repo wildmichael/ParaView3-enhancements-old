@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPlaneSource.h,v $
   Language:  C++
-  Date:      $Date: 1994-02-04 12:47:33 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1994-07-20 08:18:28 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -13,9 +13,12 @@ written consent of the authors.
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-//
-// Create nxm array of quadrilaterals
-//
+// .NAME - create an array of quadrilaterals located in the plane
+// .SECTION Description
+// vlPlaneSource creates an m x n array of quadrilaterals oriented in a 
+// plane. The plane is centered at the origin. It is possible to control
+// the resolution of the plane in both directions (i.e., set m,n).
+
 #ifndef __vlPlaneSource_h
 #define __vlPlaneSource_h
 
