@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-07-12 13:03:37 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1996-07-19 17:01:52 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -629,6 +629,7 @@ void vtkDelaunay3D::Execute()
             points->GetPoint(p2,x2);
             if ( (math.Distance2BetweenPoints(x1,x2)*0.25) <= alpha2 )
               {
+              edges.InsertEdge(p1,p2);
               pts[0] = p1;
               pts[1] = p2;
               output->InsertNextCell(VTK_LINE,2,pts);
