@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHexahedron.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:35:07 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1995-08-01 09:01:33 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -315,7 +315,7 @@ static int faces[6][4] = { {0,4,7,3}, {1,2,6,5},
 //
 // Marching cubes case table
 //
-#include "MC_Cases.h"
+#include "vtkMarchingCubesCases.hh"
 
 void vtkHexahedron::Contour(float value, vtkFloatScalars *cellScalars, 
                       vtkFloatPoints *points,
