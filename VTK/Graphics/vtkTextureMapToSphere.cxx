@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToSphere.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:56:35 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1996-09-26 20:55:01 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,7 +58,7 @@ void vtkTextureMapToSphere::Execute()
   vtkDataSet *input=this->Input;
   int numPts=input->GetNumberOfPoints();
   int ptId;
-  float *x, rho, r, tc[2], phi, thetaX, thetaY;
+  float *x, rho, r, tc[2], phi=0.0, thetaX, thetaY;
   double diff, PiOverTwo=vtkMath::Pi()/2.0;
 
   vtkDebugMacro(<<"Generating Spherical Texture Coordinates");
