@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-17 19:55:09 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 1999-10-11 12:33:54 $
+  Version:   $Revision: 1.53 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -190,7 +190,14 @@ public:
   // arrays, etc. are not included in the return value). THIS METHOD
   // IS THREAD SAFE.
   unsigned long GetActualMemorySize();
-  
+
+  //BTX
+  // Description:
+  // This method is used internally.  We are overiding the superclass,
+  // because we will clip the data if the source provided too much.
+  void InternalUpdate();
+  //ETX
+
 protected:
   vtkStructuredGrid();
   ~vtkStructuredGrid();

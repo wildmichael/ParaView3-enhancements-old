@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-17 19:55:08 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 1999-10-11 12:33:54 $
+  Version:   $Revision: 1.53 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -991,6 +991,61 @@ unsigned long vtkStructuredGrid::GetEstimatedUpdateMemorySize()
 unsigned long vtkStructuredGrid::GetActualMemorySize()
 {
   return this->vtkPointSet::GetActualMemorySize();
+}
+
+
+//----------------------------------------------------------------------------
+void vtkStructuredGrid::InternalUpdate()
+{
+  int *uExt, *ext;
+
+  this->vtkDataObject::InternalUpdate();
+  uExt = this->GetUpdateExtent();
+  ext = this->GetExtent();
+  if (uExt[0] > ext[0] || uExt[1] < ext[1] || uExt[2] > ext[2] || 
+      uExt[3] < ext[3] || uExt[4] > ext[4] || uExt[5] < ext[5])
+    {
+    // vtkWarningMacro("Extent does not match UpdateExtent.");
+    // clip the grid
+    vtkPointData *inPd = this->GetPointData();
+    vtkPointData *newPd = vtkPointData::New();
+    int i, j, k, idx, newIdx, yInc, zInc;
+    int newSize, jOffset, kOffset;
+    vtkPoints *newPts, *inPts;
+
+    inPts = this->GetPoints();
+
+    yInc = (uExt[1]-uExt[0]+1);
+    zInc = yInc * (uExt[3]-uExt[2]+1) ;
+    newSize = zInc * (uExt[5]-uExt[4]+1);
+    newPts = (vtkPoints *) inPts->MakeObject(); newPts->SetNumberOfPoints(newSize);
+    newPd->CopyAllocate(inPd,newSize,newSize);
+
+    //
+    // Traverse input data and copy point attributes to newPd
+    //
+    newIdx = 0;
+    for ( k=uExt[4]; k <= uExt[5]; ++k )
+      {
+      kOffset = k * zInc;
+      for ( j=uExt[2]; j <= uExt[3]; ++j )
+        {
+        jOffset = j * yInc;
+        for ( i=uExt[0]; i <= uExt[1]; ++i )
+          {
+          idx = i + jOffset + kOffset;
+          newPts->SetPoint(newIdx,inPts->GetPoint(idx));
+          newPd->CopyData(inPd, idx, newIdx++);
+          }
+        }
+      }
+
+    this->SetExtent(uExt);
+    this->SetPoints(newPts);
+    newPts->Delete();
+    this->PointData->Delete();
+    this->PointData = newPd;
+    }
 }
 
 //----------------------------------------------------------------------------
