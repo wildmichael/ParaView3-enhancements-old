@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTimeStamp.h,v $
   Language:  C++
-  Date:      $Date: 1997-01-03 14:24:25 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1997-02-07 15:13:53 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,6 +48,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #ifndef __vtkTimeStamp_h
 #define __vtkTimeStamp_h
+
+#ifdef _WIN32
+#include "vtkWin32Header.h"
+#endif
 
 class vtkTimeStamp 
 {
