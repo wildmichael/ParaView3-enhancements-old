@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVTiledDisplayManager.h,v $
   Language:  C++
-  Date:      $Date: 2003-03-18 16:52:45 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-03-18 21:07:19 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -34,6 +34,7 @@ class vtkRenderWindow;
 class vtkMultiProcessController;
 class vtkRenderer;
 class vtkPVTiledDisplaySchedule;
+class vtkPVCompositeUtilities;
 class vtkFloatArray;
 class vtkUnsignedCharArray;
 
@@ -112,11 +113,12 @@ public:
   vtkBooleanMacro(UseCompositing, int);
 
   // Description:
+  // This value is only used for interactive rendering.
   // Reduction factor = 1 means normal (full sized) rendering
   // and compositing.  When ReductionFactor > 1, a small window
-  // is rendered (subsampled) and composited.  This value is set 
-  // internally based on the render window's "DesiredUpdateRate".
-  vtkGetMacro(ReductionFactor, int);
+  // is rendered (subsampled) and composited.
+  vtkSetMacro(LODReductionFactor, int);
+  vtkGetMacro(LODReductionFactor, int);
 
 protected:
   vtkPVTiledDisplayManager();
@@ -129,6 +131,7 @@ protected:
   vtkPVCompositeUtilities* CompositeUtilities;
 
   int ReductionFactor;
+  int LODReductionFactor;
 
   unsigned long StartTag;
   unsigned long EndTag;
@@ -139,7 +142,6 @@ protected:
   // There can be more processes than tiles.
   int TileDimensions[2];
   int NumberOfProcesses;
-  int NumberOfTiles;
 
   vtkPVTiledDisplaySchedule* Schedule;
   int ZeroEmpty;

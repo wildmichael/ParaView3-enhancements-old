@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVDuplicatePolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-03-18 16:52:45 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-03-18 21:07:19 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 #include "vtkSocketController.h"
 #include "vtkTiledDisplaySchedule.h"
 
-vtkCxxRevisionMacro(vtkPVDuplicatePolyData, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkPVDuplicatePolyData, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkPVDuplicatePolyData);
 
 vtkCxxSetObjectMacro(vtkPVDuplicatePolyData,Controller, vtkMultiProcessController);
@@ -99,7 +99,7 @@ void vtkPVDuplicatePolyData::Execute()
 {
   vtkPolyData *input = this->GetInput();
   vtkPolyData *output = this->GetOutput();
-  int myId, partner;
+  int myId;
   int idx, tileId, otherProcessId;
   int numElements;
   // A list of appends (not all are used by all processes.
@@ -136,7 +136,7 @@ void vtkPVDuplicatePolyData::Execute()
     {
     // Copy to zero also (eventhough zeroEmpty). (it is small).
     tmp = vtkPolyData::New();
-    this->Controller->Receive(tmp, otherProcessId, 12333);
+    this->Controller->Receive(tmp, 1, 12333);
     output->CopyStructure(tmp);
     output->GetPointData()->PassData(tmp->GetPointData());
     output->GetCellData()->PassData(tmp->GetCellData());
@@ -259,7 +259,6 @@ void vtkPVDuplicatePolyData::ClientExecute()
 void vtkPVDuplicatePolyData::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->Superclass::PrintSelf(os,indent);
-  int i, j;
   
   os << indent << "Controller: (" << this->Controller << ")\n";
   if (this->SocketController)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVCompositeUtilities.h,v $
   Language:  C++
-  Date:      $Date: 2003-03-18 16:52:45 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-03-18 21:07:19 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,6 +27,7 @@
 #include "vtkObject.h"
 
 class vtkCollection;
+class vtkDataArray;
 class vtkUnsignedCharArray;
 class vtkFloatArray;
 class vtkPVCompositeBuffer;
@@ -77,6 +78,11 @@ public:
   static void CompositeImagePair(vtkPVCompositeBuffer* inBuf1,
                                  vtkPVCompositeBuffer* inBuf2,
                                  vtkPVCompositeBuffer* outBuf);
+
+  static void MagnifyBuffer(vtkDataArray* in, vtkDataArray* out, 
+                            int inWinSize[2], int factor);
+
+
 protected:
   vtkPVCompositeUtilities();
   ~vtkPVCompositeUtilities();
