@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHeap.h,v $
   Language:  C++
-  Date:      $Date: 2003-05-29 17:18:55 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2003-06-20 17:25:42 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -94,12 +94,12 @@ protected:
   size_t BlockSize;
   int    NumberOfAllocations;
   int    NumberOfBlocks;
+  int    Alignment;
 
   // Manage the blocks
   vtkHeapBlock* First;
   vtkHeapBlock* Last;
   vtkHeapBlock* Current;
-
   // Manage the memory in the block
   size_t Position; //the position in the Current block
   
