@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamingTessellator.h,v $
   Language:  C++
-  Date:      $Date: 2004-08-08 01:46:35 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2004-08-09 15:33:39 $
+  Version:   $Revision: 1.3 $
 
   Copyright 2003 Sandia Corporation.
   Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -227,6 +227,7 @@ class VTK_EXPORT vtkStreamingTessellator : public vtkObject
 #ifdef PARAVIEW_DEBUG_TESSELLATOR
       return this->CaseCounts[c];
 #else
+      (void)c;
       return 0;
 #endif // PARAVIEW_DEBUG_TESSELLATOR
       }
@@ -235,6 +236,8 @@ class VTK_EXPORT vtkStreamingTessellator : public vtkObject
 #ifdef PARAVIEW_DEBUG_TESSELLATOR
       return this->SubcaseCounts[casenum][sub];
 #else
+      (void)casenum;
+      (void)sub;
       return 0;
 #endif // PARAVIEW_DEBUG_TESSELLATOR
       }
