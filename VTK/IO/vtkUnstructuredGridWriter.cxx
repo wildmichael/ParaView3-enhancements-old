@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkUnstructuredGridWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-05-02 18:44:19 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1995-05-24 08:33:52 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -69,6 +69,8 @@ void vlUnstructuredGridWriter::WriteData()
     
   delete [] types;
   this->WritePointData(fp, input);
+
+  this->CloseVLFile(fp);  
 }
 
 void vlUnstructuredGridWriter::PrintSelf(ostream& os, vlIndent indent)
