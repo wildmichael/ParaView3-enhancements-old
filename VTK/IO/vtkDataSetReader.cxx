@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-29 01:52:26 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1997-06-06 12:44:00 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,7 +39,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkDataSetReader.h"
-#include "vtkPolyReader.h"
+#include "vtkPolyDataReader.h"
 #include "vtkStructuredPointsReader.h"
 #include "vtkStructuredGridReader.h"
 #include "vtkUnstructuredGridReader.h"
@@ -174,7 +174,7 @@ void vtkDataSetReader::Execute()
     this->Reader.CloseVTKFile();
     if ( ! strncmp(this->Reader.LowerCase(line),"polydata",8) )
       {
-      vtkPolyReader *preader = vtkPolyReader::New();
+      vtkPolyDataReader *preader = vtkPolyDataReader::New();
       preader->SetFileName(this->Reader.GetFileName());
       preader->SetInputString(this->Reader.GetInputString());
       preader->SetReadFromInputString(this->Reader.GetReadFromInputString());

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMaskPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-23 20:34:56 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1997-06-06 12:44:56 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -132,7 +132,7 @@ void vtkMaskPoints::Execute()
 
 void vtkMaskPoints::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataSetToPolyFilter::PrintSelf(os,indent);
+  vtkDataSetToPolyDataFilter::PrintSelf(os,indent);
 
   os << indent << "MaximumNumberOfPoints: " << 
     this->MaximumNumberOfPoints << "\n";

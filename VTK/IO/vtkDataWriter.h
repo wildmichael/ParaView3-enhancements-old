@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.h,v $
   Language:  C++
-  Date:      $Date: 1997-05-29 01:52:31 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1997-06-06 12:44:07 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,7 +45,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // See text for various formats.
 
 // .SECTION See Also
-// vtkDataSetWriter vtkPolyWriter vtkStructuredGridWriter
+// vtkDataSetWriter vtkPolyDataWriter vtkStructuredGridWriter
 // vtkStructuredPointsWriter vtkUnstructuredGridWriter
 
 #ifndef __vtkDataWriter_h

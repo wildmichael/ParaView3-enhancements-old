@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-05-13 20:57:31 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1997-06-06 12:44:33 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,7 +58,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .SECTION Caveats
 // When vtkGeometryFilter extracts cells (or boundaries of cells) it
 // will (by default) merge duplicate vertices. This may cause problems
-// in some cases. For example, if you've run vtkPolyNormals to
+// in some cases. For example, if you've run vtkPolyDataNormals to
 // generate normals, which may split meshes and create duplicate
 // vertices, vtkGeometryFilter will merge these points back
 // together. Turn merging off to prevent this from occuring.
@@ -70,9 +70,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkGeometryFilter_h
 #define __vtkGeometryFilter_h
 
-#include "vtkDataSetToPolyFilter.h"
+#include "vtkDataSetToPolyDataFilter.h"
 
-class VTK_EXPORT vtkGeometryFilter : public vtkDataSetToPolyFilter
+class VTK_EXPORT vtkGeometryFilter : public vtkDataSetToPolyDataFilter
 {
 public:
   vtkGeometryFilter();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-23 18:57:49 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 1997-06-06 12:43:24 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -102,7 +102,7 @@ class VTK_EXPORT vtkActor : public vtkProp
   // Description:
   // This is the method that is used to connect an actor to the end of a
   // visualization pipeline, i.e. the mapper. This should be a subclass
-  // of vtkMapper. Typically vtkPolyMapper and vtkDataSetMapper will
+  // of vtkMapper. Typically vtkPolyDataMapper and vtkDataSetMapper will
   // be used.
   vtkSetObjectMacro(Mapper,vtkMapper);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssembly.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:50:40 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1997-06-06 12:43:25 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -73,7 +73,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // cause program failure.
  
 // .SECTION See Also
-// vtkActor vtkTransform vtkMapper vtkPolyMapper
+// vtkActor vtkTransform vtkMapper vtkPolyDataMapper
 
 #ifndef __vtkAssembly_h
 #define __vtkAssembly_h

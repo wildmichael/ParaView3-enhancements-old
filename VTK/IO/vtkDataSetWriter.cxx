@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-29 01:52:28 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1997-06-06 12:44:06 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,7 +39,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkDataSetWriter.h"
-#include "vtkPolyWriter.h"
+#include "vtkPolyDataWriter.h"
 #include "vtkStructuredPointsWriter.h"
 #include "vtkStructuredGridWriter.h"
 #include "vtkUnstructuredGridWriter.h"
@@ -59,7 +59,7 @@ void vtkDataSetWriter::SetInput(vtkDataSet *input)
 void vtkDataSetWriter::WriteData()
 {
   char *type;
-  vtkPolyWriter pwriter;
+  vtkPolyDataWriter pwriter;
   vtkStructuredPointsWriter spwriter;
   vtkStructuredGridWriter sgwriter;
   vtkUnstructuredGridWriter ugwriter;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-23 20:34:34 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1997-06-06 12:44:34 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -438,7 +438,7 @@ vtkPolyData *vtkGlyph3D::GetSource(int id)
 
 void vtkGlyph3D::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataSetToPolyFilter::PrintSelf(os,indent);
+  vtkDataSetToPolyDataFilter::PrintSelf(os,indent);
 
   if ( this->NumberOfSources < 2 )
     {

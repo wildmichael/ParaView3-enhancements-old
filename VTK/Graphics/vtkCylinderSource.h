@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCylinderSource.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:51:04 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1997-06-06 12:43:55 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,9 +49,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkCylinderSource_h
 #define __vtkCylinderSource_h
 
-#include "vtkPolySource.h"
+#include "vtkPolyDataSource.h"
 
-class VTK_EXPORT vtkCylinderSource : public vtkPolySource 
+class VTK_EXPORT vtkCylinderSource : public vtkPolyDataSource 
 {
 public:
   vtkCylinderSource(int res=6);

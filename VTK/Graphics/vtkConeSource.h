@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConeSource.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:50:56 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1997-06-06 12:43:37 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,9 +52,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkConeSource_h
 #define __vtkConeSource_h
 
-#include "vtkPolySource.h"
+#include "vtkPolyDataSource.h"
 
-class VTK_EXPORT vtkConeSource : public vtkPolySource 
+class VTK_EXPORT vtkConeSource : public vtkPolyDataSource 
 {
 public:
   vtkConeSource(int res=6);

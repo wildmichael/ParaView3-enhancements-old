@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-02 22:01:40 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1997-06-06 12:43:42 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,7 +67,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .SECTION Caveats
 // For unstructured data or structured grids, normals and gradients
 // are not computed.  This calculation will be implemented in the
-// future. In the mean time, use vtkPolyNormals to compute the surface
+// future. In the mean time, use vtkPolyDataNormals to compute the surface
 // normals.
 
 // .SECTION See Also
@@ -76,12 +76,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkContourFilter_h
 #define __vtkContourFilter_h
 
-#include "vtkDataSetToPolyFilter.h"
+#include "vtkDataSetToPolyDataFilter.h"
 #include "vtkContourValues.h"
 
 class vtkScalarTree;
 
-class VTK_EXPORT vtkContourFilter : public vtkDataSetToPolyFilter
+class VTK_EXPORT vtkContourFilter : public vtkDataSetToPolyDataFilter
 {
 public:
   vtkContourFilter();

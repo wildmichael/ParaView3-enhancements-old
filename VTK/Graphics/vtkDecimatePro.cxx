@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimatePro.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-23 20:34:14 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1997-06-06 12:44:09 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1362,7 +1362,7 @@ void vtkDecimatePro::DistributeError(float error)
 
 void vtkDecimatePro::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolyToPolyFilter::PrintSelf(os,indent);
+  vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
 
   os << indent << "Target Reduction: " << this->TargetReduction << "\n";
   os << indent << "Feature Angle: " << this->FeatureAngle << "\n";

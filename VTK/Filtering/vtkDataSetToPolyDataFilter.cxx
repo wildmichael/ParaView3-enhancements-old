@@ -1,10 +1,10 @@
 /*=========================================================================
 
   Program:   Visualization Toolkit
-  Module:    $RCSfile: vtkMaskPolyData.h,v $
+  Module:    $RCSfile: vtkDataSetToPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-06-06 12:44:59 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1997-06-06 12:44:01 $
+  Version:   $Revision: 1.1 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,40 +38,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkMaskPolyData - sample subset of input polygonal data
-// .SECTION Description
-// vtkMaskPolyData is a filter that sub-samples input polygonal data. The user
-// specifies every nth item, with an initial offset to begin sampling.
+#include "vtkDataSetToPolyDataFilter.h"
 
-#ifndef __vtkMaskPolyData_h
-#define __vtkMaskPolyData_h
-
-#include "vtkPolyDataToPolyDataFilter.h"
-
-class VTK_EXPORT vtkMaskPolyData : public vtkPolyDataToPolyDataFilter
+vtkDataSetToPolyDataFilter::vtkDataSetToPolyDataFilter()
 {
-public:
-  vtkMaskPolyData();
-  static vtkMaskPolyData *New() {return new vtkMaskPolyData;};
-  char *GetClassName() {return "vtkMaskPolyData";};
-  void PrintSelf(ostream& os, vtkIndent indent);
-
-  // Description:
-  // Turn on every nth entity.
-  vtkSetClampMacro(OnRatio,int,1,VTK_LARGE_INTEGER);
-  vtkGetMacro(OnRatio,int);
-
-  // Description:
-  // Start with this entity.
-  vtkSetClampMacro(Offset,int,0,VTK_LARGE_INTEGER);
-  vtkGetMacro(Offset,int);
-
-protected:
-  void Execute();
-  int OnRatio; // every OnRatio entity is on; all others are off.
-  int Offset;  // offset (or starting point id)
-};
-
-#endif
+  this->Output = vtkPolyData::New();
+  this->Output->SetSource(this);
+}
 
 

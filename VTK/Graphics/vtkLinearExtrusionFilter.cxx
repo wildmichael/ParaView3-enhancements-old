@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearExtrusionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-23 20:34:47 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1997-06-06 12:44:48 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -299,7 +299,7 @@ void vtkLinearExtrusionFilter::Execute()
 
 void vtkLinearExtrusionFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolyToPolyFilter::PrintSelf(os,indent);
+  vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
 
   if ( this->ExtrusionType == VTK_VECTOR_EXTRUSION )
     {

@@ -1,10 +1,10 @@
 /*=========================================================================
 
   Program:   Visualization Toolkit
-  Module:    $RCSfile: vtkMaskPolyData.h,v $
+  Module:    $RCSfile: vtkDataSetToPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-06 12:44:59 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1997-06-06 12:44:02 $
+  Version:   $Revision: 1.1 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,38 +38,34 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkMaskPolyData - sample subset of input polygonal data
+// .NAME vtkDataSetToPolyDataFilter - abstract filter class
 // .SECTION Description
-// vtkMaskPolyData is a filter that sub-samples input polygonal data. The user
-// specifies every nth item, with an initial offset to begin sampling.
+// vtkDataSetToPolyDataFilter is an abstract filter class whose subclasses 
+// take as input any dataset and generate polygonal data on output.
 
-#ifndef __vtkMaskPolyData_h
-#define __vtkMaskPolyData_h
+// .SECTION See Also
+// vtkContourFilter vtkCutter vtkEdgePoints vtkExtractEdges
+// vtkGeometryFilter vtkGlyph3D vtkHedgeHog vtkHyperStreamline
+// vtkMaskPoints vtkOutlineFilter vtkStreamer vtkTensorGlyph
+// vtkThresholdPoints vtkVectorTopology
 
-#include "vtkPolyDataToPolyDataFilter.h"
+#ifndef __vtkDataSetToPolyDataFilter_h
+#define __vtkDataSetToPolyDataFilter_h
 
-class VTK_EXPORT vtkMaskPolyData : public vtkPolyDataToPolyDataFilter
+#include "vtkDataSetFilter.h"
+#include "vtkPolyData.h"
+
+class VTK_EXPORT vtkDataSetToPolyDataFilter : public vtkDataSetFilter
 {
 public:
-  vtkMaskPolyData();
-  static vtkMaskPolyData *New() {return new vtkMaskPolyData;};
-  char *GetClassName() {return "vtkMaskPolyData";};
-  void PrintSelf(ostream& os, vtkIndent indent);
+  vtkDataSetToPolyDataFilter();
+  static vtkDataSetToPolyDataFilter *New() {return new vtkDataSetToPolyDataFilter;};
+  char *GetClassName() {return "vtkDataSetToPolyDataFilter";};
 
   // Description:
-  // Turn on every nth entity.
-  vtkSetClampMacro(OnRatio,int,1,VTK_LARGE_INTEGER);
-  vtkGetMacro(OnRatio,int);
+  // Get the output of this filter.
+  vtkPolyData *GetOutput() {return (vtkPolyData *)this->Output;};
 
-  // Description:
-  // Start with this entity.
-  vtkSetClampMacro(Offset,int,0,VTK_LARGE_INTEGER);
-  vtkGetMacro(Offset,int);
-
-protected:
-  void Execute();
-  int OnRatio; // every OnRatio entity is on; all others are off.
-  int Offset;  // offset (or starting point id)
 };
 
 #endif

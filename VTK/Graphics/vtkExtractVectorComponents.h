@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractVectorComponents.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:51:31 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1997-06-06 12:44:19 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,7 +49,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .SECTION Caveats
 // This filter is unusual in that it creates multiple outputs. As a result,
 // it cannot take advantage of the convenience classes (e.g., 
-// vtkPolyToPolyFilter) for deriving concrete filters. Instead, it overloads 
+// vtkPolyDataToPolyDataFilter) for deriving concrete filters. Instead, it overloads 
 // the Update() method of its superclasses and provides methods for retrieving
 // the output.
 //

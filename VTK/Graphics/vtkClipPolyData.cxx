@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-23 20:33:54 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1997-06-06 12:43:35 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,7 +71,7 @@ vtkClipPolyData::~vtkClipPolyData()
 // then this object is modified as well.
 unsigned long vtkClipPolyData::GetMTime()
 {
-  unsigned long mTime=this->vtkPolyToPolyFilter::GetMTime();
+  unsigned long mTime=this->vtkPolyDataToPolyDataFilter::GetMTime();
   unsigned long ClipFuncMTime;
 
   if ( this->ClipFunction != NULL )
@@ -309,7 +309,7 @@ void vtkClipPolyData::CreateDefaultLocator()
 
 void vtkClipPolyData::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolyToPolyFilter::PrintSelf(os,indent);
+  vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
 
   os << indent << "Clip Function: " << this->ClipFunction << "\n";
   os << indent << "InsideOut: " << (this->InsideOut ? "On\n" : "Off\n");

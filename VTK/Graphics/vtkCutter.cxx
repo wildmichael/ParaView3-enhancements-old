@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-06-02 22:01:41 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1997-06-06 12:43:48 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -275,7 +275,7 @@ void vtkCutter::CreateDefaultLocator()
 
 void vtkCutter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataSetToPolyFilter::PrintSelf(os,indent);
+  vtkDataSetToPolyDataFilter::PrintSelf(os,indent);
 
   os << indent << "Cut Function: " << this->CutFunction << "\n";
 
