@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFourierFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-07-26 12:37:44 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1996-08-16 16:01:11 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -47,6 +47,17 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 /*=========================================================================
 	Vectors of complex numbers.
 =========================================================================*/
+
+
+
+
+//----------------------------------------------------------------------------
+void vtkImageFourierFilter::PrintSelf(ostream& os, vtkIndent indent)
+{
+  vtkImageFilter::PrintSelf(os,indent);
+}
+
+
 
 
 //----------------------------------------------------------------------------
