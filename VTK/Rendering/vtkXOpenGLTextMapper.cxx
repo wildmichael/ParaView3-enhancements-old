@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-02 20:23:06 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-08-04 20:54:35 $
+  Version:   $Revision: 1.5 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -217,7 +217,7 @@ void vtkXOpenGLTextMapper::RenderOpaqueGeometry(vtkViewport* viewport,
 
   int pos[2];
   pos[0] = actorPos[0];
-  pos[1] = actorPos[1] - (this->LineOffset * this->LineSpacing * size[1]);
+  pos[1] = actorPos[1] - this->LineOffset;
 
   switch (this->Justification)
     {

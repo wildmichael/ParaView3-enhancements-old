@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32TextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-02 01:56:36 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1999-08-04 20:54:35 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -78,7 +78,7 @@ void vtkWin32TextMapper::GetSize(vtkViewport* viewport, int *size)
     size[1] = this->LastSize[1];
     return;
     }
-  
+
   // Check for input
   if (this->Input == NULL) 
     {
@@ -197,7 +197,7 @@ void vtkWin32TextMapper::RenderOverlay(vtkViewport* viewport,
   int* actorPos = 
     actor->GetPositionCoordinate()->GetComputedLocalDisplayValue(viewport);
   ptDestOff.x = actorPos[0];
-  ptDestOff.y = actorPos[1] - (this->LineOffset * this->LineSpacing * size[1]);
+  ptDestOff.y = actorPos[1] - this->LineOffset;
 
   // Set up the font color from the text actor
   unsigned char red = 0;

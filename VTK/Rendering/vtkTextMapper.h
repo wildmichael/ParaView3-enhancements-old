@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-02 01:56:36 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-08-04 20:54:34 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -187,8 +187,8 @@ protected:
   int   Justification;
   int   VerticalJustification;
   vtkTimeStamp FontMTime;
-  
   // these functions are used to parse, process, and render multiple lines 
+  int LineSize;
   float LineOffset;
   float LineSpacing;
   int  NumberOfLines;
