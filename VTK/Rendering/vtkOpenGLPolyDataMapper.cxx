@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:45:49 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-07-17 21:30:47 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -347,7 +347,7 @@ void vtkOpenGLPolyDataMapper::Draw(vtkRenderer *aren, vtkActor *act)
 		vtkTriangle::ComputeNormal(p, 3, idx, polyNorm);
 		}
 	      }
-	    else if ( j == 0 )
+  	    else if ( j == 0 )
 	      {
 	      vtkTriangle::ComputeNormal(p, 3, pts, polyNorm);
 	      }
@@ -378,9 +378,13 @@ void vtkOpenGLPolyDataMapper::Draw(vtkRenderer *aren, vtkActor *act)
 	    }
 	  else 
 	    {
-	    if ( j && j < (npts-1) )
+  	    if ( j == 0 )
 	      {
-              idx[0] = pts[j-1]; idx[1] = pts[j]; idx[2] = pts[j+1]; 
+	      vtkTriangle::ComputeNormal(p, 3, pts, polyNorm);
+	      }
+	    else
+	      {
+              idx[0] = pts[j-2]; idx[1] = pts[j-1]; idx[2] = pts[j]; 
               vtkTriangle::ComputeNormal(p, 3, idx, polyNorm);
 	      }
 	    glNormal3fv(polyNorm);
@@ -410,9 +414,13 @@ void vtkOpenGLPolyDataMapper::Draw(vtkRenderer *aren, vtkActor *act)
 	    }
 	  else 
 	    {
-	    if (j < npts-1)
+	    if (j == 1)
 	      {
-              idx[0] = pts[j+1]; idx[1] = pts[j]; idx[2] = pts[j-1]; 
+	      vtkTriangle::ComputeNormal(p, 3, pts, polyNorm);
+	      }
+	    else
+	      {
+              idx[0] = pts[j-2]; idx[1] = pts[j]; idx[2] = pts[j-1]; 
               vtkTriangle::ComputeNormal(p, 3, idx, polyNorm);
 	      }
 	    glNormal3fv(polyNorm);
