@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSliceCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 19:58:28 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1997-07-20 11:15:46 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,6 +70,7 @@ vtkSliceCubes::vtkSliceCubes()
   this->Reader = NULL;
   this->FileName = NULL;
   this->LimitsFileName = NULL;
+  this->Value = 0.0;
 }
 
 // Description:
@@ -374,7 +375,7 @@ void vtkSliceCubes::Execute()
   float origin[3], Spacing[3];
   int numTriangles;
 
-  // check input/initialize
+  // check input/initalize
   vtkDebugMacro(<< "Executing slice cubes");
   if ( this->Reader == NULL )
    {
@@ -471,7 +472,7 @@ void vtkSliceCubes::Execute()
     int i;
     float t;
 
-    if ( (outFP = fopen(this->LimitsFileName, "w")) == NULL )
+    if ( (outFP = fopen(this->LimitsFileName, "wb")) == NULL )
       {
       vtkWarningMacro(<<"Sorry, couldn't write limits file...");
       }
