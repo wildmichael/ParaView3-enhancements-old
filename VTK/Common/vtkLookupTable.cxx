@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkLookupTable.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-05 12:59:45 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1994-02-06 17:57:26 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -170,18 +170,16 @@ void vlLookupTable::PrintSelf(ostream& os, vlIndent indent)
     {
     vlObject::PrintSelf(os,indent);
 
-    os << indent << "Number colors: " << this->GetNumColors() << "\n";
+    os << indent << "Build Time: " <<this->BuildTime.GetMtime() << "\n";
     os << indent << "Hue Range: (" << this->HueRange[0] << ", "
        << this->HueRange[1] << ")\n";
+    os << indent << "Insert Time: " <<this->InsertTime.GetMtime() << "\n";
+    os << indent << "Num Colors: " << this->GetNumColors() << "\n";
     os << indent << "Saturation Range: (" << this->SaturationRange[0] << ", "
        << this->SaturationRange[1] << ")\n";
-    os << indent << "Value Range: (" << this->ValueRange[0] << ", "
-       << this->ValueRange[1] << ")\n";
-
     os << indent << "Table Range: (" << this->TableRange[0] << ", "
        << this->TableRange[1] << ")\n";
-
-    os << indent << "Build time: " <<this->BuildTime.GetMtime() << "\n";
-    os << indent << "Insert time: " <<this->InsertTime.GetMtime() << "\n";
+    os << indent << "Value Range: (" << this->ValueRange[0] << ", "
+       << this->ValueRange[1] << ")\n";
    }
 }
