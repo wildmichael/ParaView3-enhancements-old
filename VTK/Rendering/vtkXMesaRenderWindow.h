@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMesaRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:54 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-03-13 16:11:09 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -108,10 +108,6 @@ public:
   virtual void *GetGenericContext();
   virtual void *GetGenericDrawable()  {return (void *)this->WindowId;};
   
-  // Description:
-  // Get the current size of the window in pixels.
-  virtual int     *GetSize();
-
   // Description:
   // Get the size of the screen in pixels
   virtual int     *GetScreenSize();

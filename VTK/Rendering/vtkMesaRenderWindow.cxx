@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:45 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2002-03-13 16:11:09 $
+  Version:   $Revision: 1.29 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,4 +29,5 @@
 #include "vtkOpenGLRenderWindow.cxx"
 #undef vtkOpenGLRenderWindow
 
-vtkCxxRevisionMacro(vtkMesaRenderWindow, "$Revision: 1.28 $");
+vtkCxxRevisionMacro(vtkMesaRenderWindow, "$Revision: 1.29 $");
+vtkStandardNewMacro(vtkMesaRenderWindow);
