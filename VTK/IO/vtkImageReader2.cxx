@@ -3,15 +3,15 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader2.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 19:44:35 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-11-25 11:17:08 $
+  Version:   $Revision: 1.22 $
 
-  Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
+  Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
   See Copyright.txt or http://www.kitware.com/Copyright.htm for details.
 
-     This software is distributed WITHOUT ANY WARRANTY; without even 
-     the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR 
+     This software is distributed WITHOUT ANY WARRANTY; without even
+     the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
@@ -23,7 +23,7 @@
 
 #include <sys/stat.h>
 
-vtkCxxRevisionMacro(vtkImageReader2, "$Revision: 1.21 $");
+vtkCxxRevisionMacro(vtkImageReader2, "$Revision: 1.22 $");
 vtkStandardNewMacro(vtkImageReader2);
 
 #ifdef read
@@ -550,15 +550,11 @@ unsigned long vtkImageReader2::GetHeaderSize(unsigned long idx)
 
     // make sure we figure out a filename to open
     this->ComputeInternalFileName(idx);
-    if ( !this->OpenFile() )
-      {
-      return 0;
-      }
-    
-    // Get the size of the header from the size of the image
-    this->File->seekg(0,ios::end);
-    
-    return (int)(this->File->tellg() - 
+
+    struct stat statbuf;
+    stat(this->InternalFileName, &statbuf);
+
+    return (int)(statbuf.st_size -
       (long)this->DataIncrements[this->GetFileDimensionality()]);
     }
   
