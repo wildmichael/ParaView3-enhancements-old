@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSweptSurface.h,v $
   Language:  C++
-  Date:      $Date: 1997-08-19 18:39:13 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1997-09-03 21:02:01 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -191,6 +191,7 @@ private:
   vtkFloatScalars *VoxelScalars;
   vtkTransform *T;
 
+  void GetRelativePosition(vtkTransform &t, float *origin, float *position);
 };
 
 #endif
