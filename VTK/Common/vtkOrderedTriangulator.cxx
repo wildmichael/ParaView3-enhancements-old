@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOrderedTriangulator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-22 19:12:48 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2001-06-25 21:16:28 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -148,6 +148,7 @@ public:
   {
   public:
     ListContainer(T* x):Data(x),Next(0),Previous(0) {}
+    ~ListContainer() { delete this->Data; }
     T* Data;
     ListContainer* Next;
     ListContainer* Previous;
@@ -194,6 +195,7 @@ public:
   ~vtkOTLinkedList()
     {
       this->Reset();
+      delete this->Tail.Container;
     }
   Iterator& Begin() {return this->Head;}
   Iterator& End() {return this->Tail;}
@@ -227,6 +229,7 @@ public:
         next->Previous = i.Container->Previous;
         i.Container->Previous->Next = next;
         }
+      delete *(i.Container->Data);
       delete i.Container;
       return (i=next);
     }
@@ -238,9 +241,8 @@ public:
 };
 
 // Classes are used to represent points, faces, and tetras-------------------
-class vtkOTPoint
+struct vtkOTPoint
 {
-public:
   vtkOTPoint() : Id(0), InternalId(0), Type(Inside) 
     {this->X[0] = this->X[1] = this->X[2] = 0.0;}
   enum PointClassification 
