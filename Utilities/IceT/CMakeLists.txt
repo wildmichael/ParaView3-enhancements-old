@@ -1,4 +1,4 @@
-# $Id: CMakeLists.txt,v 1.8 2003-10-02 18:44:58 lawcc Exp $
+# $Id: CMakeLists.txt,v 1.9 2003-11-09 06:02:57 dcthomp Exp $
 #
 ## Copyright 2003 Sandia Coporation
 ## Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -116,7 +116,7 @@ INSTALL_FILES(/lib .cmake ${ICET_BINARY_DIR}/ICETBuildSettings)
 
 # Save the library dependency graph for external projects.
 EXPORT_LIBRARY_DEPENDENCIES(${ICET_BINARY_DIR}/ICETLibraryDepends.cmake)
-INSTALL_FILES(/lib .cmake ${ICET_BINARY_DIR}/ICETBuildSettings)
+INSTALL_FILES(/lib .cmake ${ICET_BINARY_DIR}/ICETLibraryDepends)
 
 # Save ICE-T specific configuration options.
 #First, configuration for build directory.
