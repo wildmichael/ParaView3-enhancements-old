@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCocoaRenderWindow.mm,v $
   Language:  C++
-  Date:      $Date: 2003-04-17 13:13:46 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2003-12-01 20:23:58 $
+  Version:   $Revision: 1.14 $
   Thanks:    to Yves Starreveld for developing this class
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,7 +58,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define id Id // since id is a reserved token in ObjC and is used a _lot_ in vtk
 
 
-vtkCxxRevisionMacro(vtkCocoaRenderWindow, "$Revision: 1.13 $");
+vtkCxxRevisionMacro(vtkCocoaRenderWindow, "$Revision: 1.14 $");
 vtkStandardNewMacro(vtkCocoaRenderWindow);
 
 
@@ -86,12 +86,11 @@ vtkCocoaRenderWindow::~vtkCocoaRenderWindow()
   {
       this->ShowCursor();
   }
+  this->Clean();
+  // can't set WindowId=NULL, needed for DestroyWindow
+  this->DeviceContext = NULL;
   if (this->WindowId && this->OwnWindow)
-    {
-    this->Clean();
-    // can't set WindowId=NULL, needed for DestroyWindow
-    this->DeviceContext = NULL;
-    
+    {  
     [(vtkCocoaWindow *)this->WindowId close];
     }
 }
