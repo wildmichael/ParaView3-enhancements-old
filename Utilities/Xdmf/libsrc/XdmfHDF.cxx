@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfHDF.cxx,v 1.14 2004-01-15 13:46:37 andy Exp $  */
-/*  Date : $Date: 2004-01-15 13:46:37 $ */
-/*  Version : $Revision: 1.14 $ */
+/*  Id : $Id: XdmfHDF.cxx,v 1.15 2004-01-23 16:46:44 andy Exp $  */
+/*  Date : $Date: 2004-01-23 16:46:44 $ */
+/*  Version : $Revision: 1.15 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -749,7 +749,7 @@ XdmfArray *CopyArray( XdmfArray *Source, XdmfArray *Target ) {
 
 XdmfString  H5Name;
 XdmfHDF    Hdf;
-XdmfArray  *NewArray;
+XdmfArray  *NewArray = NULL;
 ostrstream str;
 
 if( Target == NULL ){
