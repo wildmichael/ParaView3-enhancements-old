@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-01 19:24:49 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2001-08-02 15:40:24 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,8 +60,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "mesaglx.h"
 #else
 #include "GL/glx.h"
+#include "GL/osmesa.h"
 #endif
-#include "/opt/include/GL/osmesa.h"
 
 
 class VTK_EXPORT vtkMesaImageWindow : public vtkXImageWindow
