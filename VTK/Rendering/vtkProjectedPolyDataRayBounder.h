@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProjectedPolyDataRayBounder.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-29 20:14:13 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-08-29 21:29:57 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to Lisa Sobierajski Avila who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -47,11 +47,12 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkRayBounder.h"
 
+class vtkPolyData;
+
 class VTK_EXPORT vtkProjectedPolyDataRayBounder : public vtkRayBounder
 {
 public:
   vtkTypeMacro(vtkProjectedPolyDataRayBounder,vtkRayBounder);
-  void PrintSelf(ostream& os, vtkIndent indent);
   
   static vtkProjectedPolyDataRayBounder *New() 
     {return new vtkProjectedPolyDataRayBounder;};
@@ -75,8 +76,8 @@ public:
     {vtkErrorMacro("vtkRayBounder and all subclasses have been obsoleted.");}
 
 protected:
-  vtkProjectedPolyDataRayBounder();
-  ~vtkProjectedPolyDataRayBounder();
+  vtkProjectedPolyDataRayBounder(){};
+  ~vtkProjectedPolyDataRayBounder(){};
   vtkProjectedPolyDataRayBounder(const vtkProjectedPolyDataRayBounder&);
   void operator=(const vtkProjectedPolyDataRayBounder&);
 };
