@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKdTree.h,v $
   Language:  C++
-  Date:      $Date: 2003-09-24 19:35:11 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2003-09-24 21:56:37 $
+  Version:   $Revision: 1.7 $
 
 =========================================================================*/
 
@@ -184,7 +184,7 @@ public:
     // Description:
     //   Get one of the data sets included in spatial paritioning
 
-    vtkDataSet *GetDataSet(int i){return this->DataSets[i];}
+    vtkDataSet *GetDataSet(int i){return this->DataSet?this->DataSets[i]:0;}
     vtkDataSet *GetDataSet(){ return this->GetDataSet(0); }
 
     // Description:
