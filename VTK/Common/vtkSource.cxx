@@ -3,8 +3,8 @@
  Program:   Visualization Toolkit
  Module:    $RCSfile: vtkSource.cxx,v $
  Language:  C++
- Date:      $Date: 1999-07-27 13:45:24 $
- Version:   $Revision: 1.38 $
+ Date:      $Date: 1999-07-28 15:33:55 $
+ Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -579,7 +579,7 @@ void vtkSource::UnRegister(vtkObject *o)
 	total += this->Outputs[idx]->GetNetReferenceCount();
 	}
       }
-    if (total == 6 && match)
+    if (total == (this->NumberOfOutputs + 1) && match)
       {
       done = 1;
       }
