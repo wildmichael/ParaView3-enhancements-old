@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-17 14:05:00 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2000-08-18 17:17:34 $
+  Version:   $Revision: 1.55 $
   Thanks:    to Horst Schreiber for developing this MFC code
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -204,6 +204,13 @@ void vtkWin32OpenGLRenderWindow::Start(void)
 
 void vtkWin32OpenGLRenderWindow::MakeCurrent()
 {
+  // Try to avoid doing anything (for performance).
+  if (this->CurrentRenderWindow == this)
+    {
+    return;
+    }
+  this->CurrentRenderWindow = this;
+
   wglMakeCurrent(this->DeviceContext, this->ContextId);
 }
 

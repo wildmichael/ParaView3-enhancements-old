@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-08 11:36:33 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-08-18 17:17:34 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1322,6 +1322,14 @@ void vtkMesaRenderWindow::SetZbufferData( int x1, int y1, int x2, int y2,
 
 void vtkMesaRenderWindow::MakeCurrent()
 {
+  // Try to avoid doing anything (for performance).
+  // Do we need to do anything if the Offscreen flag has changed?
+  if (this->CurrentRenderWindow == this)
+    {
+    return;
+    }
+  this->CurrentRenderWindow = this;
+
   // set the current window 
   if (this->OffScreenRendering)
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-05 15:14:05 $
-  Version:   $Revision: 1.103 $
+  Date:      $Date: 2000-08-18 17:17:34 $
+  Version:   $Revision: 1.104 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -47,6 +47,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkTransform.h"
 #include "vtkMath.h"
 #include "vtkGraphicsFactory.h"
+
+
+// This is used to try to avoid extra make current calls.
+// Make current calls are expensive on Win32.
+vtkRenderWindow *vtkRenderWindow::CurrentRenderWindow = NULL;
 
 // Construct an instance of  vtkRenderWindow with its screen size 
 // set to 300x300, borders turned on, positioned at (0,0), double 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-08 11:36:50 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2000-08-18 17:17:34 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1176,6 +1176,13 @@ void vtkOpenGLRenderWindow::SetZbufferData( int x1, int y1, int x2, int y2,
 
 void vtkOpenGLRenderWindow::MakeCurrent()
 {
+  // Try to avoid this call when it is not necessary.
+  if (this->CurrentRenderWindow == this)
+    {
+    return;
+    }
+  this->CurrentRenderWindow = this;
+
   // when debugging XErrors uncomment the following lines
   //if (this->DisplayId)
   //  {
