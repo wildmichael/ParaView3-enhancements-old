@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:12 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-06-12 13:18:59 $
+  Version:   $Revision: 1.25 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -236,6 +236,33 @@ void vtkLinearTransform::TransformNormals(vtkNormals *inNms,
     vtkMath::Normalize(norm);
 
     outNms->InsertNextNormal(norm);
+    }
+}
+
+//----------------------------------------------------------------------------
+void vtkLinearTransform::TransformNormals(vtkDataArray *inNms, 
+					  vtkDataArray *outNms)
+{
+  int n = inNms->GetNumberOfTuples();
+  double norm[3];
+  double matrix[4][4];
+  
+  this->Update();
+
+  // to transform the normal, multiply by the transposed inverse matrix
+  vtkMatrix4x4::DeepCopy(*matrix,this->Matrix);  
+  vtkMatrix4x4::Invert(*matrix,*matrix);
+  vtkMatrix4x4::Transpose(*matrix,*matrix);
+
+  for (int i = 0; i < n; i++)
+    {
+    inNms->GetTuple(i,norm);
+
+    // use TransformVector because matrix is already transposed & inverted
+    vtkLinearTransformVector(matrix,norm,norm);
+    vtkMath::Normalize(norm);
+
+    outNms->InsertNextTuple(norm);
     }
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolygon.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-15 16:33:06 $
-  Version:   $Revision: 1.85 $
+  Date:      $Date: 2001-06-12 13:18:59 $
+  Version:   $Revision: 1.86 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1129,7 +1129,7 @@ int vtkPolygon::IntersectWithLine(float p1[3], float p2[3], float tol,float& t,
   pt1 = this->Points->GetPoint(1);
   this->ComputeNormal (this->Points,n);
  
-  // Intersect plane of triangle with line
+  // Intersect plane of the polygon with line
   //
   if ( ! vtkPlane::IntersectWithLine(p1,p2,n,pt1,t,x) )
     {

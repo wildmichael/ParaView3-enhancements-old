@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-01 12:37:06 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2001-06-12 13:18:59 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -320,7 +320,7 @@ public:
   };
 
   enum AttributeLimitTypes {
-    MAX, EXACT
+    MAX, EXACT, NOLIMIT
   };
 
   // This public class is used to perform set operations, other misc. 

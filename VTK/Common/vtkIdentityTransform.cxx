@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdentityTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:10 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-06-12 13:18:59 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -216,6 +216,19 @@ void vtkIdentityTransform::TransformNormals(vtkNormals *inNms,
     {
     inNms->GetNormal(i,normal);
     outNms->InsertNextNormal(normal);
+    }
+}
+
+void vtkIdentityTransform::TransformNormals(vtkDataArray *inNms, 
+					    vtkDataArray *outNms)
+{
+  int n = inNms->GetNumberOfTuples();
+  double normal[3];
+  
+  for (int i = 0; i < n; i++)
+    {
+    inNms->GetTuple(i,normal);
+    outNms->InsertNextTuple(normal);
     }
 }
 

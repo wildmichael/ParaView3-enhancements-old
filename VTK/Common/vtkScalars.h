@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalars.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-28 05:38:39 $
-  Version:   $Revision: 1.70 $
+  Date:      $Date: 2001-06-12 13:18:59 $
+  Version:   $Revision: 1.71 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -131,8 +131,8 @@ public:
   // Set/Get the active scalar component. This ivar specifies which
   // value (or component) to use with multivalued scalars. Currently,
   // a scalar can have at most four components (assumed RGBA).
-  void SetActiveComponent(int i);
-  int GetActiveComponent();
+  vtkSetMacro(ActiveComponent, int);
+  vtkGetMacro(ActiveComponent, int);
 
   // Special computational methods.
 
@@ -221,6 +221,7 @@ protected:
   unsigned char *Luminance(int id);  
   vtkUnsignedCharArray *Colors;
   unsigned char RGBA[4];
+  int ActiveComponent;
   //ETX
 };
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-31 13:20:28 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2001-06-12 13:18:59 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1329,7 +1329,7 @@ int vtkDataSetAttributes::CheckNumberOfComponents(vtkDataArray* da,
       return 1;
       }
     }
-  else
+  else if ( vtkDataSetAttributes::AttributeLimits[attributeType] == EXACT )
     {
     if ( numComp != 
 	 vtkDataSetAttributes::NumberOfAttributeComponents[attributeType] )
@@ -1340,6 +1340,14 @@ int vtkDataSetAttributes::CheckNumberOfComponents(vtkDataArray* da,
       {
       return 1;
       }
+    }
+  else if ( vtkDataSetAttributes::AttributeLimits[attributeType] == NOLIMIT )
+    {
+    return 1;
+    }
+  else
+    {
+    return 0;
     }
 }
 
