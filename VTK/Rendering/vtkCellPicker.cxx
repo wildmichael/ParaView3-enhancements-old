@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:29 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2002-08-26 02:30:50 $
+  Version:   $Revision: 1.30 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,10 +16,12 @@
 
 =========================================================================*/
 #include "vtkCellPicker.h"
+
+#include "vtkMapper.h"
 #include "vtkObjectFactory.h"
 #include "vtkVolumeMapper.h"
 
-vtkCxxRevisionMacro(vtkCellPicker, "$Revision: 1.29 $");
+vtkCxxRevisionMacro(vtkCellPicker, "$Revision: 1.30 $");
 vtkStandardNewMacro(vtkCellPicker);
 
 vtkCellPicker::vtkCellPicker()
