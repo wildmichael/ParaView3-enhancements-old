@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewport.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:21 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2001-02-26 15:14:11 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -103,6 +103,13 @@ public:
   vtkGetVectorMacro(Aspect,float,2);
   void ComputeAspect();
   
+  // Description:
+  // Set the aspect ratio of a pixel in the rendered image. 
+  // This factor permits the image to rendered anisotropically
+  // (i.e., stretched in one direction or the other).
+  vtkSetVector2Macro(PixelAspect,float);
+  vtkGetVectorMacro(PixelAspect,float,2);
+
   // Description:
   // Specify the viewport for the Viewport to draw in the rendering window. 
   // Coordinates are expressed as (xmin,ymin,xmax,ymax), where each
@@ -292,6 +299,7 @@ protected:
   float Background[3];  
   float Viewport[4];
   float Aspect[2];
+  float PixelAspect[2];
   float Center[2];
 
   unsigned long StartTag;
