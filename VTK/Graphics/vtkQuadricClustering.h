@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadricClustering.h,v $
   Language:  C++
-  Date:      $Date: 2001-03-23 21:52:53 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-03-29 13:57:44 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -182,8 +182,6 @@ public:
   void Append(vtkPolyData *piece);
   void EndAppend();
 
-  vtkGetObjectMacro(FeaturePD, vtkPolyData);
-  
 protected:
   vtkQuadricClustering();
   ~vtkQuadricClustering();
@@ -277,9 +275,6 @@ protected:
   vtkFeatureEdges *FeatureEdges;
   vtkPoints *FeaturePoints;
   float FeaturePointsAngle;
-
-  // for debugging the feature points
-  vtkPolyData *FeaturePD;
 };
 
 #endif
