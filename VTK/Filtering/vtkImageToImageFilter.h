@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToImageFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-28 06:06:32 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2001-05-29 12:27:02 $
+  Version:   $Revision: 1.28 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -99,6 +99,25 @@ public:
   virtual int SplitExtent(int splitExt[6], int startExt[6], 
 			  int num, int total);
   
+//BTX
+#ifndef VTK_REMOVE_LEGACY_CODE
+  // Legacy !!!!!!!!!!!!!!! ---------------------------------
+  
+  // Description:
+  // Legacy method.  May go away at any time. It should be called 
+  // UpdateInformation.
+  virtual void UpdateImageInformation() 
+    {VTK_LEGACY_METHOD(UpdateInformation,"3.2"); this->UpdateInformation();}
+  
+  // Description:
+  // Legacy method.  May go away at any time. You should call ExecuteInformation
+  // which should call vtkImageToImageFilter::ExecuteInformation to set up defaults,
+  // and the change what needs to be changed.
+  virtual void ExecuteImageInformation() 
+    { this->LegacyHack = 0; }
+  int LegacyHack;
+#endif
+//ETX
 protected:
   vtkImageToImageFilter();
   ~vtkImageToImageFilter();

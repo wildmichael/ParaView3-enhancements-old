@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSFile: vtkImageDecomposeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-28 06:08:28 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-05-29 12:27:03 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -80,6 +80,45 @@ void vtkImageDecomposeFilter::SetDimensionality(int dim)
   this->SetNumberOfIterations(dim);
   this->Modified();
 }
+
+#ifndef VTK_REMOVE_LEGACY_CODE
+//----------------------------------------------------------------------------
+void vtkImageDecomposeFilter::SetFilteredAxes(int axis)
+{
+  VTK_LEGACY_METHOD(SetFilteredAxes,"3.2");
+  if (axis != 0)
+    {
+    vtkErrorMacro("If only one axis is specified, it must be X");
+    return;
+    }
+  this->SetDimensionality(1);
+}
+
+//----------------------------------------------------------------------------
+void vtkImageDecomposeFilter::SetFilteredAxes(int axis0, int axis1)
+{
+  VTK_LEGACY_METHOD(SetFilteredAxes,"3.2");
+  if (axis0 != 0 || axis1 != 1)
+    {
+    vtkErrorMacro("If only two axes are specified, they must be X, Y");
+    return;
+    }
+  this->SetDimensionality(2);
+}
+
+
+//----------------------------------------------------------------------------
+void vtkImageDecomposeFilter::SetFilteredAxes(int axis0, int axis1, int axis2)
+{
+  VTK_LEGACY_METHOD(SetFilteredAxes,"3.2");
+  if (axis0 != 0 || axis1 != 1 || axis2 != 2)
+    {
+    vtkErrorMacro("Axes must be order X, Y, Z");
+    return;
+    }
+  this->SetDimensionality(3);
+}
+#endif
 
 
 
