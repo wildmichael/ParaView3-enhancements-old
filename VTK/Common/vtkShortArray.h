@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShortArray.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-12 21:09:32 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1997-04-14 20:03:23 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,9 +47,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkShortArray_h
 #define __vtkShortArray_h
 
-#include "vtkObject.h"
+#include "vtkRefCount.h"
 
-class VTK_EXPORT vtkShortArray : public vtkObject 
+class VTK_EXPORT vtkShortArray : public vtkRefCount 
 {
 public:
   vtkShortArray():Array(NULL),Size(0),MaxId(-1),Extend(1000) {};

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDoubleArray.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-12 21:08:53 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1997-04-14 20:02:53 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,9 +47,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkDoubleArray_h
 #define __vtkDoubleArray_h
 
-#include "vtkObject.h"
+#include "vtkRefCount.h"
 
-class VTK_EXPORT vtkDoubleArray : public vtkObject 
+class VTK_EXPORT vtkDoubleArray : public vtkRefCount 
 {
 public:
   vtkDoubleArray():Array(NULL),Size(0),MaxId(-1),Extend(1000) {};

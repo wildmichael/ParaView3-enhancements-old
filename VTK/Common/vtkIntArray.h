@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIntArray.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-12 21:09:08 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1997-04-14 20:03:15 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,9 +47,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkIntArray_h
 #define __vtkIntArray_h
 
-#include "vtkObject.h"
+#include "vtkRefCount.h"
 
-class VTK_EXPORT vtkIntArray : public vtkObject 
+class VTK_EXPORT vtkIntArray : public vtkRefCount 
 {
 public:
   vtkIntArray():Array(NULL),Size(0),MaxId(-1),Extend(1000) {};

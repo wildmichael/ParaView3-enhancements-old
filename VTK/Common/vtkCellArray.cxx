@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 21:01:58 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1997-04-14 20:02:51 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,12 +40,33 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkCellArray.h"
 
+vtkCellArray::vtkCellArray()
+{
+  this->Ia = new vtkIntArray;
+  this->NumberOfCells = 0;
+  this->Location = 0;
+}
+
+vtkCellArray::vtkCellArray(const int sz, const int ext=1000)
+{
+  this->Ia = new vtkIntArray(sz,ext);
+  this->NumberOfCells = 0;
+  this->Location = 0;
+}
+
 vtkCellArray::vtkCellArray (const vtkCellArray& ca)
 {
+  this->Ia = new vtkIntArray;
   this->NumberOfCells = ca.NumberOfCells;
   this->Location = 0;
-  this->Ia = ca.Ia;
+  *(this->Ia) = *(ca.Ia);
 }
+
+vtkCellArray::~vtkCellArray()
+{
+  this->Ia->Delete();
+}
+
 
 // Description:
 // Returns the size of the largest cell. The size is the number of points
@@ -54,9 +75,9 @@ int vtkCellArray::GetMaxCellSize()
 {
   int i, npts=0, maxSize=0;
 
-  for (i=0; i<this->Ia.GetMaxId(); i+=(npts+1))
+  for (i=0; i<this->Ia->GetMaxId(); i+=(npts+1))
     {
-    if ( (npts=this->Ia.GetValue(i)) > maxSize )
+    if ( (npts=this->Ia->GetValue(i)) > maxSize )
       maxSize = npts;
     }
   return maxSize;

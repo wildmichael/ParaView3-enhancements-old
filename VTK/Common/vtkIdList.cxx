@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdList.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-01-09 02:59:31 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1997-04-14 20:03:11 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,6 +41,18 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkIdList.h"
 #include "vtkCell.h"
 
+
+vtkIdList::vtkIdList(const int sz=512, const int ext=1000)
+{
+  this->Ia = new vtkIntArray(sz,ext);
+}
+
+vtkIdList::~vtkIdList()
+{
+  this->Ia->Delete();
+}
+
+
 // Description:
 // Delete specified id from list. Will replace all occurences of id in list.
 void vtkIdList::DeleteId(int Id)
@@ -58,8 +70,8 @@ void vtkIdList::DeleteId(int Id)
     // if found; replace current id with last
     if ( i < numIds )
       {
-      this->SetId(i,this->Ia.GetValue(this->Ia.GetMaxId()));
-      this->Ia.SetNumberOfValues(--numIds);
+      this->SetId(i,this->Ia->GetValue(this->Ia->GetMaxId()));
+      this->Ia->SetNumberOfValues(--numIds);
       }
     }
 }
