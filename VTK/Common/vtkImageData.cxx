@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-26 17:37:41 $
-  Version:   $Revision: 1.77 $
+  Date:      $Date: 2000-02-02 20:02:52 $
+  Version:   $Revision: 1.78 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -1661,18 +1661,9 @@ void vtkImageData::GetAxisUpdateExtent(int idx, int &min, int &max)
 // method to connect the image pipeline to the visualization pipeline.
 vtkImageToStructuredPoints *vtkImageData::MakeImageToStructuredPoints()
 {
-  if ( ! this->ImageToStructuredPoints)
-    {
-    this->ImageToStructuredPoints = vtkImageToStructuredPoints::New();
-    this->ImageToStructuredPoints->SetInput(this);
-    }
-  else
-    {
-    // we must up the ref count because this is a Make method
-    // it will be matched by a Delete
-    this->ImageToStructuredPoints->Register(this);
-    }
-  return this->ImageToStructuredPoints;
+  vtkImageToStructuredPoints *i2sp = vtkImageToStructuredPoints::New();
+  i2sp->SetInput(this);
+  return i2sp;
 }
 
 //----------------------------------------------------------------------------
