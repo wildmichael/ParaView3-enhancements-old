@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdList.h,v $
   Language:  C++
-  Date:      $Date: 1997-01-23 20:27:52 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1997-02-14 12:18:12 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -86,7 +86,7 @@ inline int vtkIdList::GetNumberOfIds()
 // Return the id at location i.
 inline int vtkIdList::GetId(const int i) 
 {
-  return this->Ia[i];
+  return this->Ia.GetValue(i);
 }
 
 // Description:
