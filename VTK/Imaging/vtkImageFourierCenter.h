@@ -1,10 +1,10 @@
 /*=========================================================================
 
   Program:   Visualization Toolkit
-  Module:    $RCSfile: vtkImageGaussianSmooth.h,v $
+  Module:    $RCSfile: vtkImageFourierCenter.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 21:16:32 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1997-07-09 21:16:24 $
+  Version:   $Revision: 1.1 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,61 +38,32 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkImageGaussianSmooth - smooths on a 3D plane.
+// .NAME vtkImageFourierCenter - Shifts constant frequency to center for
+// display.
 // .SECTION Description
-// vtkImageGaussianSmooth implements Gaussian smoothing over any number of 
-// axes. It really consists of multiple decomposed 1D filters.
+// This filter is used for dispaying images in frequency space.  
+// FFT converts spatial
+// images into ferequency space, but puts the zero frequency at the origin.
+// This filter shifts the zero frequency to the center of the image.
+// Input and output are assumed to be floats.
 
 
-#ifndef __vtkImageGaussianSmooth_h
-#define __vtkImageGaussianSmooth_h
+
+#ifndef __vtkImageFourierCenter_h
+#define __vtkImageFourierCenter_h
 
 
 #include "vtkImageDecomposedFilter.h"
-#include "vtkImageGaussianSmooth1D.h"
+#include "vtkImageFourierCenter1D.h"
 
-class VTK_EXPORT vtkImageGaussianSmooth : public vtkImageDecomposedFilter
+class VTK_EXPORT vtkImageFourierCenter : public vtkImageDecomposedFilter
 {
 public:
-  vtkImageGaussianSmooth();
-  static vtkImageGaussianSmooth *New() {return new vtkImageGaussianSmooth;};
-  void PrintSelf(ostream& os, vtkIndent indent);
-  const char *GetClassName() {return "vtkImageGaussianSmooth";};
+  vtkImageFourierCenter();
+  static vtkImageFourierCenter *New() {return new vtkImageFourierCenter;};
+  const char *GetClassName() {return "vtkImageFourierCenter";};
 
-  void SetFilteredAxes(int num, int *axes);
-
-  // Description:
-  // Each axis can have a separate radius factor which determines
-  // the cuttoff of the kernel.  The Kernel will have radius =
-  // (RadiusFactor * StanardDeviation) pixels.
-  void SetRadiusFactors(int num, float *factors);
-  vtkImageSetMacro(RadiusFactors, float);
-  void SetRadiusFactor(float f) {this->SetRadiusFactors(f, f, f, f);}
-
-  // Description:
-  // Each axis can have a separate standard deviation.
-  void SetStandardDeviations(int num, float *stds);
-  vtkImageSetMacro(StandardDeviations, float);
-
-  // Description:
-  // For legacy compatability.
-  // Repeats the deviations.
-  void SetStandardDeviation(int num, float *stds);
-  vtkImageSetMacro(StandardDeviation, float);
-  
-  // Description:
-  // Each axis can have a stride to shrink the image.
-  void SetStrides(int num, int *strides);
-  vtkImageSetMacro(Strides, int);
-  void SetStride(int s) {this->SetStrides(s, s, s, s);}
-
-  
 protected:
-  int Strides[4];
-  float RadiusFactors[4];
-  float StandardDeviations[4];
-
-  void InitializeParameters();
 };
 
 #endif

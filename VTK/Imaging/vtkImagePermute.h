@@ -1,10 +1,10 @@
 /*=========================================================================
 
   Program:   Visualization Toolkit
-  Module:    $RCSfile: vtkImageGaussianSmooth.h,v $
+  Module:    $RCSfile: vtkImagePermute.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 21:16:32 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1997-07-09 21:17:09 $
+  Version:   $Revision: 1.1 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,61 +38,37 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkImageGaussianSmooth - smooths on a 3D plane.
+// .NAME vtkImagePermute -  Permutes axes of input.
 // .SECTION Description
-// vtkImageGaussianSmooth implements Gaussian smoothing over any number of 
-// axes. It really consists of multiple decomposed 1D filters.
+// vtkImagePermute reorders the axes of the input. Filtered axes specify
+// the input axes which become X, Y, Z and Time.  The input has to have the
+// same scalar type of the output. The filter does copy the 
+// data when it executes. (If flexible memory order were allowed, this
+// would not be necessary.)
 
 
-#ifndef __vtkImageGaussianSmooth_h
-#define __vtkImageGaussianSmooth_h
+#ifndef __vtkImagePermute_h
+#define __vtkImagePermute_h
 
 
-#include "vtkImageDecomposedFilter.h"
-#include "vtkImageGaussianSmooth1D.h"
+#include "vtkImageFilter.h"
 
-class VTK_EXPORT vtkImageGaussianSmooth : public vtkImageDecomposedFilter
+class VTK_EXPORT vtkImagePermute : public vtkImageFilter
 {
 public:
-  vtkImageGaussianSmooth();
-  static vtkImageGaussianSmooth *New() {return new vtkImageGaussianSmooth;};
-  void PrintSelf(ostream& os, vtkIndent indent);
-  const char *GetClassName() {return "vtkImageGaussianSmooth";};
+  vtkImagePermute();
+  static vtkImagePermute *New() {return new vtkImagePermute;};
+  const char *GetClassName() {return "vtkImagePermute";};
 
+  // Description:
+  // The filtered axes are the input axes that get relabeled to X,Y,Z,Time.
   void SetFilteredAxes(int num, int *axes);
-
-  // Description:
-  // Each axis can have a separate radius factor which determines
-  // the cuttoff of the kernel.  The Kernel will have radius =
-  // (RadiusFactor * StanardDeviation) pixels.
-  void SetRadiusFactors(int num, float *factors);
-  vtkImageSetMacro(RadiusFactors, float);
-  void SetRadiusFactor(float f) {this->SetRadiusFactors(f, f, f, f);}
-
-  // Description:
-  // Each axis can have a separate standard deviation.
-  void SetStandardDeviations(int num, float *stds);
-  vtkImageSetMacro(StandardDeviations, float);
-
-  // Description:
-  // For legacy compatability.
-  // Repeats the deviations.
-  void SetStandardDeviation(int num, float *stds);
-  vtkImageSetMacro(StandardDeviation, float);
-  
-  // Description:
-  // Each axis can have a stride to shrink the image.
-  void SetStrides(int num, int *strides);
-  vtkImageSetMacro(Strides, int);
-  void SetStride(int s) {this->SetStrides(s, s, s, s);}
-
+  vtkImageSetMacro(FilteredAxes, int);
   
 protected:
-  int Strides[4];
-  float RadiusFactors[4];
-  float StandardDeviations[4];
-
-  void InitializeParameters();
+  void ExecuteImageInformation(vtkImageCache *in, vtkImageCache *out);
+  void ComputeRequiredInputUpdateExtent(vtkImageCache *out, vtkImageCache *in);
+  void Execute(vtkImageRegion *inRegion, vtkImageRegion *outRegion);
 };
 
 #endif

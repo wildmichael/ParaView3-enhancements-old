@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageShrink3D.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-27 15:36:14 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1997-07-09 21:17:22 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,7 +71,11 @@ public:
   vtkGetVector3Macro(Shift,int);
 
   // Description:
-  // Choose Averaging or sub sampling
+  // Choose Averaging or sub sampling. The averaging neighborhood
+  // currently implemented is not centered on the sampled pixel.
+  // This may cause a half pixel shift in your output image.
+  // You can changed "Shift to get arround this, or use
+  // vtkImageGaussianSmooth or vtkImageMean with strides.
   vtkSetMacro(Averaging,int);
   vtkGetMacro(Averaging,int);
   vtkBooleanMacro(Averaging,int);
@@ -82,10 +86,8 @@ protected:
   int Shift[3];
   int Averaging;
 
-  void ComputeOutputImageInformation(vtkImageRegion *inRegion,
-				     vtkImageRegion *outRegion);
-  void ComputeRequiredInputRegionExtent(vtkImageRegion *outRegion,
-					vtkImageRegion *inRegion);
+  void ExecuteImageInformation(vtkImageCache *in, vtkImageCache *out);
+  void ComputeRequiredInputUpdateExtent(vtkImageCache *out, vtkImageCache *in);
   void Execute(vtkImageRegion *inRegion, vtkImageRegion *outRegion);  
 };
 

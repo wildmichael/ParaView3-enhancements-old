@@ -1,11 +1,11 @@
 /*=========================================================================
 
   Program:   Visualization Toolkit
-  Module:    $RCSfile: vtkImageFlip.cxx,v $
+  Module:    $RCSfile: vtkImagePermute.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 21:16:19 $
-  Version:   $Revision: 1.5 $
-  Thanks:    Thanks to C. Charles Law who developed this class.
+  Date:      $Date: 1997-07-09 21:17:08 $
+  Version:   $Revision: 1.1 $
+  Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -40,123 +40,87 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkImageRegion.h"
 #include "vtkImageCache.h"
-#include "vtkImageFlip.h"
-
-
+#include "vtkImagePermute.h"
 
 //----------------------------------------------------------------------------
-vtkImageFlip::vtkImageFlip()
+// Description:
+// Constructor sets default values
+vtkImagePermute::vtkImagePermute()
 {
-  this->NumberOfExecutionAxes = 4;
-  this->PreserveImageExtent = 1;
+  this->SetExecutionAxes(VTK_IMAGE_X_AXIS, VTK_IMAGE_Y_AXIS,
+			 VTK_IMAGE_Z_AXIS, VTK_IMAGE_COMPONENT_AXIS);
 }
 
+
 //----------------------------------------------------------------------------
-void vtkImageFlip::SetFilteredAxes(int num, int *axes)
+void vtkImagePermute::SetFilteredAxes(int num, int *axes)
 {
   this->vtkImageFilter::SetFilteredAxes(num, axes);
   this->NumberOfExecutionAxes = 4;
 }
-						 
-//----------------------------------------------------------------------------
-// Description:
-// Image extent is modified by this filter.
-void vtkImageFlip::ExecuteImageInformation(vtkImageCache *in,
-					   vtkImageCache *out)
-{
-  int idx, axis, extent[8], temp;
-
-  if ( ! this->PreserveImageExtent)
-    {
-    in->GetWholeExtent(extent);
-    for (idx = 0; idx < this->NumberOfFilteredAxes; ++idx)
-      {
-      axis = this->FilteredAxes[idx];
-      temp = extent[axis*2];
-      extent[axis*2] = -extent[axis*2+1];
-      extent[axis*2+1] = -temp;
-      }
-    out->SetWholeExtent(extent);
-    }
-}
 
 //----------------------------------------------------------------------------
-// Description:
-// What input should be requested.
-void vtkImageFlip::ComputeRequiredInputUpdateExtent(vtkImageCache *out, 
-						    vtkImageCache *in)
+void vtkImagePermute::ExecuteImageInformation(vtkImageCache *in, 
+					      vtkImageCache *out)
 {
-  int idx, axis, extent[8], temp, sum;
-  int *wholeExtent;
+  int min, max;
+  float spacing;
+  float origin;
+  int idx, axis;
   
-  in = in;
-  
-  out->GetUpdateExtent(extent);
-  wholeExtent = out->GetWholeExtent();
   for (idx = 0; idx < this->NumberOfFilteredAxes; ++idx)
     {
     axis = this->FilteredAxes[idx];
-    if (this->PreserveImageExtent)
-      {
-      temp = extent[axis*2];
-      sum = wholeExtent[axis*2] + wholeExtent[axis*2+1];
-      extent[axis*2] = -extent[axis*2+1]+sum;
-      extent[axis*2+1] = -temp+sum;
-      }
-    else
-      {
-      temp = extent[axis*2];
-      extent[axis*2] = -extent[axis*2+1];
-      extent[axis*2+1] = -temp;
-      }
+    in->GetAxisWholeExtent(axis, min, max);
+    out->SetAxisWholeExtent(idx, min, max);
+    in->GetAxisSpacing(axis, spacing);
+    out->SetAxisSpacing(idx, spacing);
+    in->GetAxisOrigin(axis, origin);
+    out->SetAxisOrigin(idx, origin);
     }
+}
+
+
+//----------------------------------------------------------------------------
+void vtkImagePermute::ComputeRequiredInputUpdateExtent(vtkImageCache *out, 
+						       vtkImageCache *in)
+{
+  int min, max;
+  int idx, axis;
   
+  for (idx = 0; idx < this->NumberOfFilteredAxes; ++idx)
+    {
+    axis = this->FilteredAxes[idx];
+    out->GetAxisUpdateExtent(idx, min, max);
+    in->SetAxisUpdateExtent(axis, min, max);
+    }
 }
 
 
 //----------------------------------------------------------------------------
 // Description:
 // This templated function executes the filter for any type of data.
-template <class IT, class OT>
-static void vtkImageFlipExecute(vtkImageFlip *self,
-			 vtkImageRegion *inRegion, IT *inPtr,
-			 vtkImageRegion *outRegion, OT *outPtr){
+template <class T>
+static void vtkImagePermuteExecute(vtkImagePermute *self,
+				   vtkImageRegion *inRegion, T *inPtr,
+				   vtkImageRegion *outRegion, T *outPtr)
+{
   int min0, max0, min1, max1, min2, max2, min3, max3;
   int idx0, idx1, idx2, idx3;
   int inInc0, inInc1, inInc2, inInc3;
   int outInc0, outInc1, outInc2, outInc3;
-  IT  *inPtr0, *inPtr1, *inPtr2, *inPtr3;
-  OT  *outPtr0, *outPtr1, *outPtr2, *outPtr3;
+  T  *inPtr0, *inPtr1, *inPtr2, *inPtr3;
+  T  *outPtr0, *outPtr1, *outPtr2, *outPtr3;
 
   self = self;
-  outPtr = outPtr;
-  
+  outRegion->SetAxes(VTK_IMAGE_X_AXIS, VTK_IMAGE_Y_AXIS, VTK_IMAGE_Z_AXIS,
+		     VTK_IMAGE_TIME_AXIS);
+    
   // Get information to march through data 
   inRegion->GetIncrements(inInc0, inInc1, inInc2, inInc3);
   outRegion->GetIncrements(outInc0, outInc1, outInc2, outInc3);
   outRegion->GetExtent(min0, max0, min1, max1, min2, max2, min3, max3);
 
-  if (self->GetNumberOfFilteredAxes() > 0)
-    {
-    outPtr += (max0 - min0) * outInc0;
-    outInc0 = -outInc0;
-    }
-  if (self->GetNumberOfFilteredAxes() > 1)
-    {
-    outPtr += (max1 - min1) * outInc1;
-    outInc1 = -outInc1;
-    }
-  if (self->GetNumberOfFilteredAxes() > 2)
-    {
-    outPtr += (max2 - min2) * outInc2;
-    outInc2 = -outInc2;
-    }
-  if (self->GetNumberOfFilteredAxes() > 3)
-    {
-    outPtr += (max3 - min3) * outInc3;
-    outInc3 = -outInc3;
-    }
-  
   // Loop through ouput pixels
   inPtr3 = inPtr;
   outPtr3 = outPtr;
@@ -166,15 +130,15 @@ static void vtkImageFlipExecute(vtkImageFlip *self,
     inPtr2 = inPtr3;
     for (idx2 = min2; idx2 <= max2; ++idx2)
       {
-      outPtr1 = outPtr0;
-      inPtr1 = inPtr0;
+      inPtr1 = inPtr2;
+      outPtr1 = outPtr2;
       for (idx1 = min1; idx1 <= max1; ++idx1)
 	{
 	outPtr0 = outPtr1;
 	inPtr0 = inPtr1;
 	for (idx0 = min0; idx0 <= max0; ++idx0)
 	  {
-	  *outPtr0 = (OT)(*inPtr0);
+	  *outPtr0 = *inPtr0;
 	  outPtr0 += outInc0;
 	  inPtr0  += inInc0;
 	  }
@@ -182,7 +146,7 @@ static void vtkImageFlipExecute(vtkImageFlip *self,
 	inPtr1 += inInc1;
 	}
       outPtr2 += outInc2;
-      inPtr2 += inInc2;
+      inPtr2  += inInc2;
       }
     outPtr3 += outInc3;
     inPtr3 += inInc3;
@@ -192,70 +156,47 @@ static void vtkImageFlipExecute(vtkImageFlip *self,
 
 
 //----------------------------------------------------------------------------
-template <class T>
-static void vtkImageFlipExecute(vtkImageFlip *self,
-			 vtkImageRegion *inRegion, T *inPtr,
-			 vtkImageRegion *outRegion)
-{
-  void *outPtr = outRegion->GetScalarPointer();
-  switch (outRegion->GetScalarType())
-    {
-    case VTK_FLOAT:
-      vtkImageFlipExecute(self, inRegion, (T *)(inPtr), 
-			  outRegion, (float *)(outPtr));
-      break;
-    case VTK_INT:
-      vtkImageFlipExecute(self, inRegion, (T *)(inPtr), 
-			  outRegion, (int *)(outPtr)); 
-      break;
-    case VTK_SHORT:
-      vtkImageFlipExecute(self, inRegion, (T *)(inPtr), 
-			  outRegion, (short *)(outPtr));
-      break;
-    case VTK_UNSIGNED_SHORT:
-      vtkImageFlipExecute(self, inRegion, (T *)(inPtr), 
-			  outRegion, (unsigned short *)(outPtr)); 
-      break;
-    case VTK_UNSIGNED_CHAR:
-      vtkImageFlipExecute(self, inRegion, (T *)(inPtr), 
-			  outRegion, (unsigned char *)(outPtr)); 
-      break;
-    default:
-      vtkGenericWarningMacro("Execute: Unknown output ScalarType");
-      return;
-    }
-}
-
-//----------------------------------------------------------------------------
 // Description:
 // This method is passed a input and output region, and executes the filter
 // algorithm to fill the output from the input.
 // It just executes a switch statement to call the correct function for
 // the regions data types.
-void vtkImageFlip::Execute(vtkImageRegion *inRegion, 
-				vtkImageRegion *outRegion) {
+void vtkImagePermute::Execute(vtkImageRegion *inRegion, 
+			      vtkImageRegion *outRegion)
+{
   void *inPtr = inRegion->GetScalarPointer();
+  void *outPtr = outRegion->GetScalarPointer();
   
-  vtkDebugMacro(<< "Execute: inRegion = " << inRegion 
-		<< ", outRegion = " << outRegion);
-
+  if (inRegion->GetScalarType() != inRegion->GetScalarType())
+    {
+    vtkErrorMacro("Input (" 
+	  << vtkImageScalarTypeNameMacro(inRegion->GetScalarType()) 
+	  << ") has to be the same data type as output"
+	  << vtkImageScalarTypeNameMacro(outRegion->GetScalarType()) << ")");
+    return;
+    }
+  
   switch (inRegion->GetScalarType())
     {
     case VTK_FLOAT:
-      vtkImageFlipExecute(this, inRegion, (float *)(inPtr), outRegion);
+      vtkImagePermuteExecute(this, inRegion, (float *)(inPtr), 
+			  outRegion, (float *)(outPtr));
       break;
     case VTK_INT:
-      vtkImageFlipExecute(this, inRegion, (int *)(inPtr), outRegion);
+      vtkImagePermuteExecute(this, inRegion, (int *)(inPtr), 
+			     outRegion, (int *)(outPtr));
       break;
     case VTK_SHORT:
-      vtkImageFlipExecute(this, inRegion, (short *)(inPtr), outRegion);
+      vtkImagePermuteExecute(this, inRegion, (short *)(inPtr), 
+			  outRegion, (short *)(outPtr));
       break;
     case VTK_UNSIGNED_SHORT:
-      vtkImageFlipExecute(this, inRegion, (unsigned short *)(inPtr), 
-			  outRegion);
+      vtkImagePermuteExecute(this, inRegion, (unsigned short *)(inPtr), 
+			  outRegion, (unsigned short *)(outPtr));
       break;
     case VTK_UNSIGNED_CHAR:
-      vtkImageFlipExecute(this, inRegion, (unsigned char *)(inPtr), outRegion);
+      vtkImagePermuteExecute(this, inRegion, (unsigned char *)(inPtr), 
+			  outRegion, (unsigned char *)(outPtr));
       break;
     default:
       vtkErrorMacro(<< "Execute: Unknown input ScalarType");

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-27 15:36:09 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1997-07-09 21:17:15 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,12 +48,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include <iostream.h>
 #include <fstream.h>
-#include "vtkImageCachedSource.h"
+#include "vtkImageSource.h"
 
 #define VTK_FILE_BYTE_ORDER_BIG_ENDIAN 0
 #define VTK_FILE_BYTE_ORDER_LITTLE_ENDIAN 1
 
-class VTK_EXPORT vtkImageReader : public vtkImageCachedSource
+class VTK_EXPORT vtkImageReader : public vtkImageSource
 {
 public:
   vtkImageReader();
@@ -95,7 +95,6 @@ public:
   vtkImageGetMacro(DataDimensions,int);
   int *GetDataDimensions() {return this->DataDimensions;};  
   
-  
   // Description:
   // Set/Get the spacing of the data in the file.
   void SetDataSpacing(int num, float *ratio);
@@ -121,7 +120,7 @@ public:
   vtkImageGetMacro(DataMemoryOrder,int);
   int *GetDataMemoryOrder() {return this->DataMemoryOrder;};
   
-  void UpdateImageInformation(vtkImageRegion *region);
+  void UpdateImageInformation();
   vtkImageCache *GetOutput();
   
   // Description:

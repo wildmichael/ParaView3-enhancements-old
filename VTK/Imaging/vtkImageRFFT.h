@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageRFFT.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-27 15:36:06 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1997-07-09 21:17:11 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,8 +58,6 @@ public:
   vtkImageRFFT();
   static vtkImageRFFT *New() {return new vtkImageRFFT;};
   const char *GetClassName() {return "vtkImageRFFT";};
-
-  void SetDimensionality(int num);
 
 protected:
 };

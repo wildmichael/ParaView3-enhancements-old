@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageLaplacian.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-27 15:35:53 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1997-07-09 21:16:45 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,9 +38,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkImageLaplacian - Computes divergence of gradient.
+// .NAME vtkimageLaplacian - Computes divergence of gradient.
 // .SECTION Description
-// vtkImageLaplacian computes the Laplacian (like a second derivative)
+// vtkimageLaplacian computes the Laplacian (like a second derivative)
 // of a scalar image.  The operation is the same as taking the
 // divergence after a gradient.  Boundaries are handled, so the input
 // is the same as the output.  The output is always float.
@@ -49,8 +49,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 
-#ifndef __vtkImageLaplacian_h
-#define __vtkImageLaplacian_h
+#ifndef __vtkimageLaplacian_h
+#define __vtkimageLaplacian_h
 
 
 #include "vtkImageFilter.h"
@@ -63,18 +63,14 @@ public:
   const char *GetClassName() {return "vtkImageLaplacian";};
   void PrintSelf(ostream& os, vtkIndent indent);
   
-  // Description:
-  // Determines how the input is interpreted (set of 2d slices ...)
-  // and cannot be more than 3.
-  vtkSetMacro(Dimensionality, int);
-  vtkGetMacro(Dimensionality, int);
-  
+  void SetFilteredAxes(int num, int *axes);
+  vtkImageSetMacro(FilteredAxes,int);
+
+  // For templated function
+  vtkGetMacro(NumberOfFilteredAxes,int);
   
 protected:
-  int Dimensionality;
-  
-  void ComputeRequiredInputRegionExtent(vtkImageRegion *outRegion, 
-					vtkImageRegion *inRegion);
+  void ComputeRequiredInputUpdateExtent(vtkImageCache *out, vtkImageCache *in);
   void Execute(vtkImageRegion *inRegion, vtkImageRegion *outRegion);
 };
 

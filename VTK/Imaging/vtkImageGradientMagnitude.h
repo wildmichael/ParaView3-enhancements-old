@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGradientMagnitude.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-27 15:35:49 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1997-07-09 21:16:36 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,7 +58,8 @@ class VTK_EXPORT vtkImageGradientMagnitude : public vtkImageFilter
 {
 public:
   vtkImageGradientMagnitude();
-  static vtkImageGradientMagnitude *New() {return new vtkImageGradientMagnitude;};
+  static vtkImageGradientMagnitude *New() 
+    {return new vtkImageGradientMagnitude;};
   const char *GetClassName() {return "vtkImageGradientMagnitude";};
   void PrintSelf(ostream& os, vtkIndent indent);
   
@@ -71,17 +72,14 @@ public:
 
   // Description:
   // Determines how the input is interpreted (set of 2d slices ...)
-  vtkSetMacro(Dimensionality, int);
-  vtkGetMacro(Dimensionality, int);
+  void SetFilteredAxes(int num, int *axes);
+  vtkImageSetMacro(FilteredAxes, int);
   
 protected:
   int HandleBoundaries;
-  int Dimensionality;
   
-  void ComputeOutputImageInformation(vtkImageRegion *inRegion,
-				     vtkImageRegion *outRegion);
-  void ComputeRequiredInputRegionExtent(vtkImageRegion *outRegion, 
-					vtkImageRegion *inRegion);
+  void ExecuteImageInformation(vtkImageCache *in, vtkImageCache *out);
+  void ComputeRequiredInputUpdateExtent(vtkImageCache *out, vtkImageCache *in);
   void Execute(vtkImageRegion *inRegion, vtkImageRegion *outRegion);
 
 };

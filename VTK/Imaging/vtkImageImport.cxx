@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageImport.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-06-13 20:14:37 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-07-09 21:16:39 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -57,7 +57,7 @@ vtkImageImport::~vtkImageImport()
 //----------------------------------------------------------------------------
 void vtkImageImport::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkImageCachedSource::PrintSelf(os,indent);
+  vtkImageSource::PrintSelf(os,indent);
   os << indent << "DataScalarType: " 
      << vtkImageScalarTypeNameMacro(this->DataScalarType) << "\n";
   os << indent << "Region: (" << this->Region << ")\n";

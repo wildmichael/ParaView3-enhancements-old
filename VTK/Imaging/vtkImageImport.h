@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageImport.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-27 15:35:51 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1997-07-09 21:16:40 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,12 +47,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkImageImport_h
 #define __vtkImageImport_h
 
-#include "vtkImageCachedSource.h"
+#include "vtkImageSource.h"
 #include "vtkImageRegion.h"
 #include "vtkImageExport.h"
 
 
-class VTK_EXPORT vtkImageImport : public vtkImageCachedSource
+class VTK_EXPORT vtkImageImport : public vtkImageSource
 {
 public:
   vtkImageImport();

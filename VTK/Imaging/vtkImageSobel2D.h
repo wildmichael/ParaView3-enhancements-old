@@ -1,10 +1,10 @@
 /*=========================================================================
 
   Program:   Visualization Toolkit
-  Module:    $RCSfile: vtkImageGaussianSmooth.h,v $
+  Module:    $RCSfile: vtkImageSobel2D.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 21:16:32 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1997-07-09 21:17:24 $
+  Version:   $Revision: 1.1 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,61 +38,39 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkImageGaussianSmooth - smooths on a 3D plane.
+// .NAME vtkImageSobel2D - Computes a vector field using sobel functions.
 // .SECTION Description
-// vtkImageGaussianSmooth implements Gaussian smoothing over any number of 
-// axes. It really consists of multiple decomposed 1D filters.
+// vtkImageSobel2D computes a vector field from a scalar field by using
+// Sobel functions.  The number of vector components is 2 because
+// the input is an image.  Output is always floats.
 
 
-#ifndef __vtkImageGaussianSmooth_h
-#define __vtkImageGaussianSmooth_h
+
+#ifndef __vtkImageSobel2D_h
+#define __vtkImageSobel2D_h
 
 
-#include "vtkImageDecomposedFilter.h"
-#include "vtkImageGaussianSmooth1D.h"
+#include "vtkImageFilter.h"
 
-class VTK_EXPORT vtkImageGaussianSmooth : public vtkImageDecomposedFilter
+class VTK_EXPORT vtkImageSobel2D : public vtkImageFilter
 {
 public:
-  vtkImageGaussianSmooth();
-  static vtkImageGaussianSmooth *New() {return new vtkImageGaussianSmooth;};
+  vtkImageSobel2D();
+  static vtkImageSobel2D *New() {return new vtkImageSobel2D;};
+  const char *GetClassName() {return "vtkImageSobel2D";};
   void PrintSelf(ostream& os, vtkIndent indent);
-  const char *GetClassName() {return "vtkImageGaussianSmooth";};
-
-  void SetFilteredAxes(int num, int *axes);
 
   // Description:
-  // Each axis can have a separate radius factor which determines
-  // the cuttoff of the kernel.  The Kernel will have radius =
-  // (RadiusFactor * StanardDeviation) pixels.
-  void SetRadiusFactors(int num, float *factors);
-  vtkImageSetMacro(RadiusFactors, float);
-  void SetRadiusFactor(float f) {this->SetRadiusFactors(f, f, f, f);}
-
-  // Description:
-  // Each axis can have a separate standard deviation.
-  void SetStandardDeviations(int num, float *stds);
-  vtkImageSetMacro(StandardDeviations, float);
-
-  // Description:
-  // For legacy compatability.
-  // Repeats the deviations.
-  void SetStandardDeviation(int num, float *stds);
-  vtkImageSetMacro(StandardDeviation, float);
-  
-  // Description:
-  // Each axis can have a stride to shrink the image.
-  void SetStrides(int num, int *strides);
-  vtkImageSetMacro(Strides, int);
-  void SetStride(int s) {this->SetStrides(s, s, s, s);}
-
+  // Specify which axes will contribute to the gradient.
+  void SetFilteredAxes(int axis0, int axis1);
+  vtkGetVector2Macro(FilteredAxes, int);
   
 protected:
-  int Strides[4];
-  float RadiusFactors[4];
-  float StandardDeviations[4];
+  void ExecuteImageInformation(vtkImageCache *in, vtkImageCache *out);
+  void ComputeRequiredInputUpdateExtent(vtkImageCache *out, 
+					vtkImageCache *in);
+  void Execute(vtkImageRegion *inRegion, vtkImageRegion *outRegion);
 
-  void InitializeParameters();
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMask.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-06-13 20:14:48 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-07-09 21:16:53 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,13 +46,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 //----------------------------------------------------------------------------
 vtkImageMask::vtkImageMask()
 {
-  this->SetAxes(VTK_IMAGE_X_AXIS, VTK_IMAGE_Y_AXIS);
-  this->MaskedValue = 0.0;
+  this->MaskedOutputValue = 0.0;
+  this->NotMask = 0;
   
-  this->ExecuteDimensionality = 2;
+  this->NumberOfExecutionAxes = 2;
 }
-
-
 
 //----------------------------------------------------------------------------
 // Description:
@@ -71,9 +69,11 @@ static void vtkImageMaskExecute(vtkImageMask *self,
   T *in1Ptr0, *in1Ptr1;
   unsigned char *in2Ptr0, *in2Ptr1;
   T *outPtr0, *outPtr1;
-  T MaskedValue;
+  T maskedValue;
+  int maskState;
   
-  MaskedValue = (T)(self->GetMaskedValue());
+  maskedValue = (T)(self->GetMaskedOutputValue());
+  maskState = self->GetNotMask();
 
   // Get information to march through data 
   in1Region->GetIncrements(in1Inc0, in1Inc1);
@@ -94,13 +94,17 @@ static void vtkImageMaskExecute(vtkImageMask *self,
       {
       
       // Pixel operation
-      if (*in2Ptr0)
+      if (*in2Ptr0 && maskState == 1)
 	{
-	*outPtr0 = *in1Ptr0;
+	*outPtr0 = maskedValue;
+	}
+      else if ( ! *in2Ptr0 && maskState == 0)
+	{
+	*outPtr0 = maskedValue;
 	}
       else
-	{
-	*outPtr0 = MaskedValue;
+      	{
+	*outPtr0 = *in1Ptr0;
 	}
       
       outPtr0 += outInc0;

@@ -1,10 +1,10 @@
 /*=========================================================================
 
   Program:   Visualization Toolkit
-  Module:    $RCSfile: vtkImageGaussianSmooth.h,v $
+  Module:    $RCSfile: vtkImageFourierCenter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 21:16:32 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1997-07-09 21:16:23 $
+  Version:   $Revision: 1.1 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,64 +38,26 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkImageGaussianSmooth - smooths on a 3D plane.
-// .SECTION Description
-// vtkImageGaussianSmooth implements Gaussian smoothing over any number of 
-// axes. It really consists of multiple decomposed 1D filters.
+#include "vtkImageFourierCenter.h"
 
-
-#ifndef __vtkImageGaussianSmooth_h
-#define __vtkImageGaussianSmooth_h
-
-
-#include "vtkImageDecomposedFilter.h"
-#include "vtkImageGaussianSmooth1D.h"
-
-class VTK_EXPORT vtkImageGaussianSmooth : public vtkImageDecomposedFilter
+//----------------------------------------------------------------------------
+vtkImageFourierCenter::vtkImageFourierCenter()
 {
-public:
-  vtkImageGaussianSmooth();
-  static vtkImageGaussianSmooth *New() {return new vtkImageGaussianSmooth;};
-  void PrintSelf(ostream& os, vtkIndent indent);
-  const char *GetClassName() {return "vtkImageGaussianSmooth";};
+  int idx;
+  vtkImageFourierCenter1D *filter;
 
-  void SetFilteredAxes(int num, int *axes);
+  for (idx = 0; idx < 4; ++idx)
+    {
+    filter = vtkImageFourierCenter1D::New();
+    this->Filters[idx] = filter;
+    filter->SetFilteredAxis(idx);
+    }
+  // Let the superclass set some superclass variables of the filters.
+  this->InitializeFilters();
 
-  // Description:
-  // Each axis can have a separate radius factor which determines
-  // the cuttoff of the kernel.  The Kernel will have radius =
-  // (RadiusFactor * StanardDeviation) pixels.
-  void SetRadiusFactors(int num, float *factors);
-  vtkImageSetMacro(RadiusFactors, float);
-  void SetRadiusFactor(float f) {this->SetRadiusFactors(f, f, f, f);}
-
-  // Description:
-  // Each axis can have a separate standard deviation.
-  void SetStandardDeviations(int num, float *stds);
-  vtkImageSetMacro(StandardDeviations, float);
-
-  // Description:
-  // For legacy compatability.
-  // Repeats the deviations.
-  void SetStandardDeviation(int num, float *stds);
-  vtkImageSetMacro(StandardDeviation, float);
-  
-  // Description:
-  // Each axis can have a stride to shrink the image.
-  void SetStrides(int num, int *strides);
-  vtkImageSetMacro(Strides, int);
-  void SetStride(int s) {this->SetStrides(s, s, s, s);}
-
-  
-protected:
-  int Strides[4];
-  float RadiusFactors[4];
-  float StandardDeviations[4];
-
-  void InitializeParameters();
-};
-
-#endif
+  // Default 2D FourierCenter.
+  this->SetFilteredAxes(VTK_IMAGE_X_AXIS, VTK_IMAGE_Y_AXIS);
+}
 
 
 

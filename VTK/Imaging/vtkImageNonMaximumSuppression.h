@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageNonMaximumSuppression.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-27 15:36:03 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1997-07-09 21:17:05 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,8 +62,8 @@ public:
   
   // Description:
   // These method add VTK_IMAGE_COMPONENT_AXIS as the last axis.
-  void SetAxes(int num, int *axes);
-  vtkImageSetMacro(Axes, int);
+  void SetFilteredAxes(int num, int *axes);
+  vtkImageSetMacro(FilteredAxes, int);
 
   // Description:
   // Rename the inputs.
@@ -84,12 +84,10 @@ protected:
   int HandleBoundaries;
   int Dimensionality;
 
-  void ComputeOutputImageInformation(vtkImageRegion *inRegion1,
-				     vtkImageRegion *inRegion2,
-				     vtkImageRegion *outRegion);
-  void ComputeRequiredInputRegionExtent(vtkImageRegion *outRegion,
-					vtkImageRegion *inRegion1,
-					vtkImageRegion *inRegion2);
+  void ExecuteImageInformation(vtkImageCache *in1, vtkImageCache *in2,
+			       vtkImageCache *out);
+  void ComputeRequiredInputUpdateExtent(vtkImageCache *out, vtkImageCache *in1,
+					vtkImageCache *in2);
   void Execute(vtkImageRegion *inRegion1, vtkImageRegion *inRegion2, 
 	       vtkImageRegion *outRegion);
 

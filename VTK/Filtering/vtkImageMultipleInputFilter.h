@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-27 15:36:02 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1997-07-09 21:17:03 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,27 +53,32 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkImageMultipleInputFilter_h
 
 
-#include "vtkImageCachedSource.h"
+#include "vtkImageSource.h"
+#include "vtkStructuredPoints.h"
 #include "vtkStructuredPointsToImage.h"
 class vtkImageRegion;
 class vtkImageCache;
 
 
-class VTK_EXPORT vtkImageMultipleInputFilter : public vtkImageCachedSource
+class VTK_EXPORT vtkImageMultipleInputFilter : public vtkImageSource
 {
 public:
   vtkImageMultipleInputFilter();
   ~vtkImageMultipleInputFilter();
-  static vtkImageMultipleInputFilter *New() {return new vtkImageMultipleInputFilter;};
+  static vtkImageMultipleInputFilter *New() 
+    {return new vtkImageMultipleInputFilter;};
   const char *GetClassName() {return "vtkImageMultipleInputFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   virtual void SetInput(int num, vtkImageCache *input);
   void SetInput(int num, vtkStructuredPoints *spts)
     {this->SetInput(num, spts->GetStructuredPointsToImage()->GetOutput());}
+  virtual void AddInput(vtkImageCache *input);
+  void AddInput(vtkStructuredPoints *spts)
+    {this->AddInput(spts->GetStructuredPointsToImage()->GetOutput());}
   
-  void Update(vtkImageRegion *outRegion);
-  void UpdateImageInformation(vtkImageRegion *outRegion);
+  void Update();
+  void UpdateImageInformation();
   unsigned long int GetPipelineMTime();
   
   // Description:
@@ -84,18 +89,29 @@ public:
   // Get the number of inputs to this filter
   vtkGetMacro(NumberOfInputs, int);
   
+  // Description:
+  // Turning bypass on will causse the filter to turn off and
+  // simply pass the data from the first input (input0) through.  
+  // It is implemented for consitancy with vtkImageFilter.
+  vtkSetMacro(Bypass,int);
+  vtkGetMacro(Bypass,int);
+  vtkBooleanMacro(Bypass,int);
+
 protected:
+  int FilteredAxes[4];
+  int NumberOfFilteredAxes;
   int NumberOfInputs;
   vtkImageCache **Inputs;     // An Array of the inputs to the filter
   vtkImageRegion **Regions;   // We need an array for inputs.
-
-  // Should be set in the constructor.
-  void SetNumberOfInputs(int num);
+  int Bypass;
   
-  virtual void ComputeOutputImageInformation(vtkImageRegion **inRegions,
-					     vtkImageRegion *outRegion);
-  virtual void ComputeRequiredInputRegionExtent(vtkImageRegion *outRegion,
-						vtkImageRegion **inRegions);
+  // Called to allocate the input array.  Copies old inputs.
+  void SetNumberOfInputs(int num);
+
+  virtual void SetFilteredAxes(int num, int *axes);
+  virtual void ExecuteImageInformation(vtkImageCache **ins, vtkImageCache *out);
+  virtual void ComputeRequiredInputUpdateExtent(vtkImageCache *out,
+						vtkImageCache **ins);
   virtual void RecursiveLoopExecute(int dim, vtkImageRegion **inRegions,
 				    vtkImageRegion *outRegion);
   virtual void Execute(vtkImageRegion **inRegions, vtkImageRegion *outRegion);

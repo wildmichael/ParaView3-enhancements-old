@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageShiftScale.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-06-13 20:15:12 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1997-07-09 21:17:20 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,10 +50,9 @@ vtkImageShiftScale::vtkImageShiftScale()
 {
   this->Shift = 0.0;
   this->Scale = 1.0;
-  this->SetAxes(VTK_IMAGE_X_AXIS, VTK_IMAGE_Y_AXIS);
 
   // For better performance, the execute function was written as a 2d.
-  this->ExecuteDimensionality = 2;
+  this->NumberOfExecutionAxes = 2;
 }
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFourierFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-27 15:35:46 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1997-07-09 21:16:28 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -91,12 +91,13 @@ typedef struct{
   (cOut).Real = (C1).Real - (C2).Real; \
   (cOut).Imag = (C1).Imag - (C2).Imag
 
-// Hack for temporary variable
-static vtkImageComplex _vtkImageComplexMultiplyTemp = {0.0, 0.0};
 #define vtkImageComplexMultiply(C1, C2, cOut) \
+{ \
+  vtkImageComplex _vtkImageComplexMultiplyTemp; \
   _vtkImageComplexMultiplyTemp.Real = (C1).Real*(C2).Real-(C1).Imag*(C2).Imag;\
   _vtkImageComplexMultiplyTemp.Imag = (C1).Real*(C2).Imag+(C1).Imag*(C2).Real;\
-  cOut = _vtkImageComplexMultiplyTemp;
+  cOut = _vtkImageComplexMultiplyTemp; \
+}
 
 // This macro calculates exp(cIn) and puts the result in cOut 
 #define vtkImageComplexExponential(cIn, cOut) \

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSobel3D.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-27 15:36:15 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1997-07-09 21:17:26 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,7 +42,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .SECTION Description
 // vtkImageSobel3D computes a vector field from a scalar field by using
 // Sobel functions.  The number of vector components is 3 because
-// the input is a volume.
+// the input is a volume.  Output is always floats.
+
 
 
 
@@ -59,21 +60,16 @@ public:
   static vtkImageSobel3D *New() {return new vtkImageSobel3D;};
   const char *GetClassName() {return "vtkImageSobel3D";};
   void PrintSelf(ostream& os, vtkIndent indent);
-  
-  void InterceptCacheUpdate(vtkImageRegion *region);
 
   // Description:
-  // This SetAxes method sets VTK_COMPONENT_AXIS as the fourth axis.
-  // The superclass is told not to loop over this axis.
-  // Note: Get Axes still returns the super class axes.
-  void SetAxes(int num, int *axes);
-  vtkImageSetMacro(Axes,int);
+  // Specify which axes will contribute to the gradient.
+  void SetFilteredAxes(int axis0, int axis1, int axis2);
+  vtkGetVector3Macro(FilteredAxes,int);
   
 protected:
-  void ComputeOutputImageInformation(vtkImageRegion *inRegion,
-				     vtkImageRegion *outRegion);
-  void ComputeRequiredInputRegionExtent(vtkImageRegion *outRegion, 
-					vtkImageRegion *inRegion);
+  void ExecuteImageInformation(vtkImageCache *in, vtkImageCache *out);
+  void ComputeRequiredInputUpdateExtent(vtkImageCache *out, 
+					vtkImageCache *in);
   void Execute(vtkImageRegion *inRegion, vtkImageRegion *outRegion);
 
 };

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMagnitude.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-27 15:35:56 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1997-07-09 21:16:52 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,14 +38,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkImageMagnitude - Colapses 1 axis with magnitude function..
+// .NAME vtkImageMagnitude - Colapses components with magnitude function..
 // .SECTION Description
-// vtkImageMagnitude interprets one axes as a list of vector elements.
-// The filter compresses this axis into one value by taking the
-// magnitude of this vector.  By default the magnitude is taken over
-// VTK_IMAGE_COMPONENT_AXIS.  The output and input can be any
-// independent type.
-
+// vtkImageMagnitude takes the magnitude of the components.
 
 
 #ifndef __vtkImageMagnitude_h
@@ -61,17 +56,9 @@ public:
   static vtkImageMagnitude *New() {return new vtkImageMagnitude;};
   const char *GetClassName() {return "vtkImageMagnitude";};
 
-  // Description:
-  // We only allow one axis to be compressed.
-  void SetAxes(int num, int *axes);
-  vtkImageSetMacro(Axes,int);
-  
 protected:
 
-  void ComputeOutputImageInformation(vtkImageRegion *inRegion,
-				     vtkImageRegion *outRegion);
-  void ComputeRequiredInputRegionExtent(vtkImageRegion *outRegion, 
-					vtkImageRegion *inRegion);
+  void ExecuteImageInformation(vtkImageCache *in, vtkImageCache *out);
   void Execute(vtkImageRegion *inRegion, vtkImageRegion *outRegion);
 };
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageThreshold.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-06-13 20:15:22 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1997-07-09 21:17:33 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,10 +55,8 @@ vtkImageThreshold::vtkImageThreshold()
   this->ReplaceOut = 0;
   this->OutValue = 0.0;
 
-  this->SetAxes(VTK_IMAGE_X_AXIS, VTK_IMAGE_Y_AXIS);
-
   // For performance, it was implemented as 2d.
-  this->ExecuteDimensionality = 2;
+  this->NumberOfExecutionAxes = 2;
 }
 
 

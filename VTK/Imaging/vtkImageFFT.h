@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFFT.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-27 15:35:41 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1997-07-09 21:16:13 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,8 +58,6 @@ public:
   vtkImageFFT();
   static vtkImageFFT *New() {return new vtkImageFFT;};
   const char *GetClassName() {return "vtkImageFFT";};
-
-  void SetDimensionality(int num);
 
 protected:
 };

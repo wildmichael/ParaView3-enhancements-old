@@ -1,10 +1,10 @@
 /*=========================================================================
 
   Program:   Visualization Toolkit
-  Module:    $RCSfile: vtkImageGaussianSmooth.h,v $
+  Module:    $RCSfile: vtkImageMedian3D.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 21:16:32 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1997-07-09 21:16:59 $
+  Version:   $Revision: 1.1 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,61 +38,50 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkImageGaussianSmooth - smooths on a 3D plane.
+// .NAME vtkImageMedian3D - Median Filter
 // .SECTION Description
-// vtkImageGaussianSmooth implements Gaussian smoothing over any number of 
-// axes. It really consists of multiple decomposed 1D filters.
+// vtkImageMedian3D a Median filter that replaces each pixel with the 
+// median value from a rectangular neighborhood around that pixel.
+// Neighborhoods can be no more than 3 dimensional.  Setting one
+// axis of the neighborhood kernelSize to 1 changes the filter
+// into a 2D median.  
 
 
-#ifndef __vtkImageGaussianSmooth_h
-#define __vtkImageGaussianSmooth_h
+#ifndef __vtkImageMedian3D_h
+#define __vtkImageMedian3D_h
 
 
-#include "vtkImageDecomposedFilter.h"
-#include "vtkImageGaussianSmooth1D.h"
+#include "vtkImageSpatialFilter.h"
 
-class VTK_EXPORT vtkImageGaussianSmooth : public vtkImageDecomposedFilter
+class VTK_EXPORT vtkImageMedian3D : public vtkImageSpatialFilter
 {
 public:
-  vtkImageGaussianSmooth();
-  static vtkImageGaussianSmooth *New() {return new vtkImageGaussianSmooth;};
-  void PrintSelf(ostream& os, vtkIndent indent);
-  const char *GetClassName() {return "vtkImageGaussianSmooth";};
+  vtkImageMedian3D();
+  ~vtkImageMedian3D();
+  static vtkImageMedian3D *New() {return new vtkImageMedian3D;};
+  const char *GetClassName() {return "vtkImageMedian3D";};
 
-  void SetFilteredAxes(int num, int *axes);
-
-  // Description:
-  // Each axis can have a separate radius factor which determines
-  // the cuttoff of the kernel.  The Kernel will have radius =
-  // (RadiusFactor * StanardDeviation) pixels.
-  void SetRadiusFactors(int num, float *factors);
-  vtkImageSetMacro(RadiusFactors, float);
-  void SetRadiusFactor(float f) {this->SetRadiusFactors(f, f, f, f);}
-
-  // Description:
-  // Each axis can have a separate standard deviation.
-  void SetStandardDeviations(int num, float *stds);
-  vtkImageSetMacro(StandardDeviations, float);
-
-  // Description:
-  // For legacy compatability.
-  // Repeats the deviations.
-  void SetStandardDeviation(int num, float *stds);
-  vtkImageSetMacro(StandardDeviation, float);
+  void SetFilteredAxes(int axis0, int axis1, int axis2);
   
-  // Description:
-  // Each axis can have a stride to shrink the image.
-  void SetStrides(int num, int *strides);
-  vtkImageSetMacro(Strides, int);
-  void SetStride(int s) {this->SetStrides(s, s, s, s);}
-
+  // Set/Get the size of the neighood.
+  void SetKernelSize(int size0, int size1, int size2);
+  
+  void ClearMedian();
+  void AccumulateMedian(double val);
+  double GetMedian();
   
 protected:
-  int Strides[4];
-  float RadiusFactors[4];
-  float StandardDeviations[4];
+  // stuff for sorting the pixels
+  int NumNeighborhood;
+  double *Sort;
+  double *Median;
+  int UpMax;
+  int DownMax;
+  int UpNum;
+  int DownNum;
 
-  void InitializeParameters();
+  void Execute(vtkImageRegion *inRegion, vtkImageRegion *outRegion);
+
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIslandRemoval2D.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-27 15:35:52 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1997-07-09 21:16:44 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,7 +42,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .SECTION Description
 // vtkImageIslandRemoval2D computes the area of separate islands in 
 // a mask image.  It removes any island that has less than AreaThreshold
-// pixels.  Output has the same ScalarType as input.
+// pixels.  Output has the same ScalarType as input.  It generates
+// the whole 2D output image for any output request.
 
 
 #ifndef __vtkImageIslandRemoval2D_h
@@ -70,8 +71,11 @@ public:
   const char *GetClassName() {return "vtkImageIslandRemoval2D";};
   void PrintSelf(ostream& os, vtkIndent indent);
   
-  void InterceptCacheUpdate(vtkImageRegion *region);
-  
+  // Description:
+  // Set/Get which 2 axes will be processed.
+  void SetFilteredAxes(int axis0, int axis1);
+  vtkGetVector2Macro(FilteredAxes, int);
+
   // Description:
   // Set/Get the cutoff area for removal
   vtkSetMacro(AreaThreshold, int);
@@ -92,6 +96,8 @@ public:
   // Set/Get the value to put in the place of removed pixels.
   vtkSetMacro(ReplaceValue, float);
   vtkGetMacro(ReplaceValue, float);
+  
+  void InterceptCacheUpdate(vtkImageCache *out);
   
 protected:
   int AreaThreshold;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageResample.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-27 15:36:09 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-07-09 21:17:17 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,25 +62,16 @@ public:
   // Description:
   // Set/Get Magnification factors.
   // Zero is a reserved value indicating values have not been computed.
-  void SetMagnificationFactors(int num, float *factors);
-  vtkImageSetMacro(MagnificationFactors,float);
-  void GetMagnificationFactors(int num, float *factors);
-  vtkImageGetMacro(MagnificationFactors,float);
-  float *GetMagnificationFactors() {return this->MagnificationFactors;};  
+  void SetAxisMagnificationFactor(int axis, float MagnificationFactor);
   
   // Description:
   // Set desired spacing.  
   // Zero is a reserved value indicating spacing has not been set.
-  void SetOutputSpacing(int num, float *spacing);
-  vtkImageSetMacro(OutputSpacing,float);
-  
-  // Description:
-  // Determines how many sub filters are created.
-  void SetDimensionality(int num);
+  void SetAxisOutputSpacing(int axis, float OutputSpacing);
   
 protected:
-  float MagnificationFactors[VTK_IMAGE_DIMENSIONS];
-  float OutputSpacing[VTK_IMAGE_DIMENSIONS];
+  float MagnificationFactors[4];
+  float OutputSpacing[4];
 };
 
 #endif
