@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:01 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-10-08 18:45:43 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,6 +51,19 @@ vtkExporter::vtkExporter()
   this->EndWriteArgDelete = NULL;
   this->EndWriteArg = NULL;
 }
+
+vtkExporter::~vtkExporter()
+{
+  if ((this->StartWriteArg)&&(this->StartWriteArgDelete))
+    {
+    (*this->StartWriteArgDelete)(this->StartWriteArg);
+    }
+  if ((this->EndWriteArg)&&(this->EndWriteArgDelete))
+    {
+    (*this->EndWriteArgDelete)(this->EndWriteArg);
+    }
+}
+
 
 // Write data to output. Method executes subclasses WriteData() method, as 
 // well as StartWrite() and EndWrite() methods.
