@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkString.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-09 20:47:38 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-07-09 21:33:51 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkString.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkString, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkString, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkString);
  
 //----------------------------------------------------------------------------
@@ -118,7 +118,7 @@ char* vtkString::Append(const char* str1, const char* str2)
     return 0;
     }
   char *newstr = 
-    new char[ vtkString::Length(str1) + vtkString::Length(str1)+1];
+    new char[ vtkString::Length(str1) + vtkString::Length(str2)+1];
   if ( !newstr )
     {
     return 0;
