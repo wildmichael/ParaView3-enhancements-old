@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitModeller.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-17 10:55:51 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 1997-07-17 13:29:36 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,7 +48,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // equal to a large positive number.
 vtkImplicitModeller::vtkImplicitModeller()
 {
-  this->MaximumDistance = 0.075;
+  this->MaximumDistance = 0.1;
 
   this->ModelBounds[0] = 0.0;
   this->ModelBounds[1] = 0.0;
