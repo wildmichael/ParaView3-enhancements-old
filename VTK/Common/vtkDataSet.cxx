@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-08 12:46:55 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1995-09-12 22:24:29 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -126,6 +126,18 @@ void vtkDataSet::ComputeBounds()
 
     this->ComputeTime.Modified();
     }
+}
+
+float *vtkDataSet::GetScalarRange()
+{
+  vtkScalars *tmp;
+  static float res[2] = {0.0,1.0};
+  
+  tmp = this->PointData.GetScalars();
+  
+  if (tmp) return tmp->GetRange();
+  
+  return res;
 }
 
 // Description:
