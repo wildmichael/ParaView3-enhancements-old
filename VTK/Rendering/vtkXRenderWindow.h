@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:57:35 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1996-11-14 15:05:37 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,6 +80,8 @@ public:
   void     SetWindowId(Window);
   void     SetWindowId(void *);
   void     SetNextWindowId(Window);
+  virtual void     SetWindowName(char *);
+  void     SetPosition(int,int);
   virtual int      GetDesiredDepth()    = 0;
   virtual Colormap GetDesiredColormap() = 0;
   virtual Visual  *GetDesiredVisual()   = 0;
