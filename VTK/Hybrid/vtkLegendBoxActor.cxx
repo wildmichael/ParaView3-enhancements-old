@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLegendBoxActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-11-19 20:10:35 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-11-19 23:31:35 $
+  Version:   $Revision: 1.12 $
   Thanks:    Tim Smith who sponsored and encouraged the development
              of this class.
 
@@ -69,10 +69,7 @@ vtkLegendBoxActor::vtkLegendBoxActor()
   this->PositionCoordinate->SetCoordinateSystemToNormalizedViewport();
   this->PositionCoordinate->SetValue(0.75, 0.75);
   
-  this->Position2Coordinate = vtkCoordinate::New();
-  this->Position2Coordinate->SetCoordinateSystemToNormalizedViewport();
   this->Position2Coordinate->SetValue(0.2, 0.2);
-  this->Position2Coordinate->SetReferenceCoordinate(this->PositionCoordinate);
 
   this->LockBorder = 0;
   this->ScalarVisibility = 1;
@@ -120,9 +117,6 @@ vtkLegendBoxActor::vtkLegendBoxActor()
 
 vtkLegendBoxActor::~vtkLegendBoxActor()
 {
-  this->Position2Coordinate->Delete();
-  this->Position2Coordinate = NULL;
-
   this->InitializeEntries();
 
   if ( this->BorderActor )
