@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-12-18 17:28:47 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-03-20 21:10:02 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,7 +49,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // buffering turned on.
 vtkWindow::vtkWindow()
 {
-  this->Size[0] = this->Size[1] = 300;
+  this->Size[0] = this->Size[1] = 0;
   this->Position[0] = this->Position[1] = 0;
   this->Mapped = 0;
   this->WindowName = new char[strlen("Visualization Toolkit")+1];
