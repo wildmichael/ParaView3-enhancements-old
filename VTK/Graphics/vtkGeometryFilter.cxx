@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-12-04 17:24:24 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 1999-12-06 14:46:01 $
+  Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -162,6 +162,9 @@ void vtkGeometryFilter::Execute()
 
   switch (input->GetDataObjectType())
     {
+    case  VTK_POLY_DATA:
+      this->PolyDataExecute();
+      return;
     case  VTK_UNSTRUCTURED_GRID:
       this->UnstructuredGridExecute();
       return;
