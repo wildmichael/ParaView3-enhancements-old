@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDilateErode3D.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-22 13:05:35 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1996-08-30 12:58:11 $
+  Version:   $Revision: 1.4 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -77,7 +77,7 @@ protected:
   vtkImageRegion *Mask;
     
   void ExecuteCenter3d(vtkImageRegion *inRegion, vtkImageRegion *outRegion);
-  void ExecuteBoundary3d(vtkImageRegion *inRegion, vtkImageRegion *outRegion);
+  void Execute3d(vtkImageRegion *inRegion, vtkImageRegion *outRegion);
 };
 
 #endif

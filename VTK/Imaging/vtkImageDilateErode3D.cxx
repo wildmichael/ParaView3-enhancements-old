@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDilateErode3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-29 12:25:46 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1996-08-30 12:58:10 $
+  Version:   $Revision: 1.6 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -344,8 +344,8 @@ void vtkImage3dDilateErodeFilter::ExecuteCenter3d(vtkImageRegion *inRegion,
 // This method contains the first switch statement that calls the correct
 // templated function for the input and output region types.
 // It hanldes image boundaries, so the image does not shrink.
-void vtkImage3dDilateErodeFilter::ExecuteBoundary3d(vtkImageRegion *inRegion, 
-						    vtkImageRegion *outRegion)
+void vtkImage3dDilateErodeFilter::Execute3d(vtkImageRegion *inRegion, 
+					    vtkImageRegion *outRegion)
 {
   void *inPtr = inRegion->GetVoidPointer3d();
   void *outPtr = outRegion->GetVoidPointer3d();

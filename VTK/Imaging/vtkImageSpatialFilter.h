@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSpatialFilter.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-22 13:06:28 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1996-08-30 12:58:14 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -72,11 +72,18 @@ public:
   vtkGetMacro(HandleBoundaries,int);
   vtkBooleanMacro(HandleBoundaries,int);
   
-
+  // Description:
+  // Set/Get whether a special method exists for non boundary condition.
+  vtkSetMacro(UseExecuteCenter,int);
+  vtkGetMacro(UseExecuteCenter,int);
+  vtkBooleanMacro(UseExecuteCenter,int);
+  
+  
 protected:
   int   KernelSize[4];
   int   KernelMiddle[4];      // Index of kernel origin
   int   HandleBoundaries;     // Shrink kernel at boundaries?
+  int   UseExecuteCenter;     // Will the subclass have special execute method.
 
   void ComputeOutputImageInformation(vtkImageRegion *inRegion,
 				     vtkImageRegion *outRegion);
@@ -86,20 +93,12 @@ protected:
   virtual void Execute4d(vtkImageRegion *inRegion, vtkImageRegion *outRegion);
   virtual void ExecuteCenter4d(vtkImageRegion *inRegion, 
 			       vtkImageRegion *outRegion);
-  virtual void ExecuteBoundary4d(vtkImageRegion *inRegion, 
-				 vtkImageRegion *outRegion);
   virtual void ExecuteCenter3d(vtkImageRegion *inRegion, 
 			       vtkImageRegion *outRegion);
-  virtual void ExecuteBoundary3d(vtkImageRegion *inRegion, 
-				 vtkImageRegion *outRegion);
   virtual void ExecuteCenter2d(vtkImageRegion *inRegion, 
 			       vtkImageRegion *outRegion);
-  virtual void ExecuteBoundary2d(vtkImageRegion *inRegion, 
-				 vtkImageRegion *outRegion);
   virtual void ExecuteCenter1d(vtkImageRegion *inRegion, 
 			       vtkImageRegion *outRegion);
-  virtual void ExecuteBoundary1d(vtkImageRegion *inRegion, 
-				 vtkImageRegion *outRegion);
   
 };
 
