@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAccumulate.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:36 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2001-11-13 13:05:29 $
+  Version:   $Revision: 1.28 $
   Thanks:    Thanks to C. Charles Law who developed this class
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -78,8 +78,8 @@ public:
   // Description:
   // Set/Get - The component extent is the number/extent of the bins.  
   void SetComponentExtent(int extent[6]);
-  void SetComponentExtent(int minX, int maxX, int minY, int maxY, 
-			  int minZ, int maxZ);
+  void SetComponentExtent(int minX, int maxX, int minY, int maxY,
+        int minZ, int maxZ);
   void GetComponentExtent(int extent[6]);
   int *GetComponentExtent() {return this->ComponentExtent;}
 
@@ -100,6 +100,7 @@ public:
   vtkGetVector3Macro(Min, double);
   vtkGetVector3Macro(Max, double);
   vtkGetVector3Macro(Mean, double);
+  vtkGetVector3Macro(StandardDeviation, double);
   vtkGetMacro(VoxelCount, long int);
  
   
@@ -119,6 +120,7 @@ protected:
   double Min[3];
   double Max[3];
   double Mean[3];
+  double StandardDeviation[3];
   long int VoxelCount;
 
   int ReverseStencil;
