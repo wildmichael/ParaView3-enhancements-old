@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume16Reader.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-08-19 13:17:42 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1997-08-20 10:54:53 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -236,7 +236,7 @@ vtkScalars *vtkVolume16Reader::ReadImage(int sliceNumber)
   char filename[1024];
 
   // build the file name. if there is no prefix, just use the slice number
-  if (this->FilePattern)
+  if (this->FilePrefix)
     {
     sprintf (filename, this->FilePattern, this->FilePrefix, sliceNumber);
     }
