@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapJava.c,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:35:50 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2002-05-14 13:13:00 $
+  Version:   $Revision: 1.34 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -433,6 +433,15 @@ void outputFunction(FILE *fp, FileInfo *data)
   int i;
   int args_ok = 1;
   CurrentData = data;
+
+  /* NewInstance can not be wrapped because it is a (non-virtual)   */
+  /* method which returns a pointer of the same type as the current */ 
+  /* pointer. Since all methods are virtual in Java, this looks     */
+  /* like polymorphic return type.                                  */
+  if (!strcmp("NewInstance",currentFunction->Name))
+    {
+    return ;
+    }
 
   /* some functions will not get wrapped no matter what else */
   if (currentFunction->IsOperator || 
