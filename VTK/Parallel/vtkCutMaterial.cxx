@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutMaterial.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-24 19:17:44 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-08-29 13:33:03 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -153,8 +153,13 @@ void vtkCutMaterial::Execute()
   cutter->SetCutFunction(this->PlaneFunction);
   cutter->SetValue(0, 0.0);
   cutter->Update();
-  
-  this->GetOutput()->ShallowCopy(cutter->GetOutput());
+
+  vtkDataSet* output = this->GetOutput();
+  output->CopyStructure(cutter->GetOutput());
+  output->GetPointData()->PassData(
+           cutter->GetOutput()->GetPointData());
+  output->GetCellData()->PassData(
+           cutter->GetOutput()->GetCellData());
 
   cutter->Delete();
   thresh->Delete();

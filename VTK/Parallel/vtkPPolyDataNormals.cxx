@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPPolyDataNormals.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-26 20:55:14 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-08-29 13:33:03 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -74,8 +74,12 @@ void vtkPPolyDataNormals::Execute()
     rmGhostCells->SetInput(ghost);
     rmGhostCells->SetGhostLevel(ghostLevel);
     rmGhostCells->Update();
-    output->ShallowCopy(rmGhostCells->GetOutput());
-    
+    output->CopyStructure(rmGhostCells->GetOutput());
+    output->GetPointData()->PassData(
+                 rmGhostCells->GetOutput()->GetPointData());
+    output->GetCellData()->PassData(
+                 rmGhostCells->GetOutput()->GetCellData());
+
     ghost->Delete();
     rmGhostCells->Delete();
     }                                                                           
