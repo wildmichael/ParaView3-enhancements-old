@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEncodedGradientShader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:30 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2002-05-27 14:36:48 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,14 +16,16 @@
 
 =========================================================================*/
 #include "vtkEncodedGradientShader.h"
-#include "vtkVolume.h"
-#include "vtkRenderer.h"
+
+#include "vtkDirectionEncoder.h"
 #include "vtkEncodedGradientEstimator.h"
 #include "vtkObjectFactory.h"
+#include "vtkRenderer.h"
+#include "vtkVolume.h"
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkEncodedGradientShader, "$Revision: 1.22 $");
+vtkCxxRevisionMacro(vtkEncodedGradientShader, "$Revision: 1.23 $");
 vtkStandardNewMacro(vtkEncodedGradientShader);
 
 vtkEncodedGradientShader::vtkEncodedGradientShader()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEncodedGradientEstimator.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:30 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2002-05-27 14:36:48 $
+  Version:   $Revision: 1.29 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -35,9 +35,10 @@
 #define __vtkEncodedGradientEstimator_h
 
 #include "vtkObject.h"
-#include "vtkMultiThreader.h"
-#include "vtkImageData.h"
-#include "vtkDirectionEncoder.h"
+#include "vtkMultiThreader.h" // for VTK_MAX_THREADS
+
+class vtkImageData;
+class vtkDirectionEncoder;
 
 class VTK_RENDERING_EXPORT vtkEncodedGradientEstimator : public vtkObject
 {
@@ -48,7 +49,7 @@ public:
   // Description:
   // Set/Get the scalar input for which the normals will be 
   // calculated
-  vtkSetObjectMacro( Input, vtkImageData );
+  virtual void SetInput(vtkImageData*);
   vtkGetObjectMacro( Input, vtkImageData );
 
   // Description:

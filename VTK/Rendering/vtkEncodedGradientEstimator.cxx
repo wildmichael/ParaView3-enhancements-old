@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEncodedGradientEstimator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:30 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2002-05-27 14:36:48 $
+  Version:   $Revision: 1.31 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,12 +16,16 @@
 
 =========================================================================*/
 #include "vtkEncodedGradientEstimator.h"
+
 #include "vtkRecursiveSphereDirectionEncoder.h"
 #include "vtkTimerLog.h"
+#include "vtkImageData.h"
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkEncodedGradientEstimator, "$Revision: 1.30 $");
+vtkCxxRevisionMacro(vtkEncodedGradientEstimator, "$Revision: 1.31 $");
+
+vtkCxxSetObjectMacro(vtkEncodedGradientEstimator, Input, vtkImageData );
 
 // Construct a vtkEncodedGradientEstimator with initial values of NULL for
 // the Input, EncodedNormal, and GradientMagnitude. Also,
