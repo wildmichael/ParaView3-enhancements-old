@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-29 23:54:53 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2002-06-30 02:55:45 $
+  Version:   $Revision: 1.42 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkImagingFactory.h"
 #include "vtkTextProperty.h"
 
-vtkCxxRevisionMacro(vtkTextMapper, "$Revision: 1.41 $");
+vtkCxxRevisionMacro(vtkTextMapper, "$Revision: 1.42 $");
 
 vtkCxxSetObjectMacro(vtkTextMapper,TextProperty,vtkTextProperty);
 
@@ -251,7 +251,7 @@ int vtkTextMapper::SetMultipleConstrainedFontSize(vtkViewport *viewport,
 
   // Assign the smallest size to all text mappers and find the largest area
 
-  int tempi[1];
+  int tempi[2];
   for (i = 0; i < nbOfMappers; i++)
     {
     mappers[i]->GetTextProperty()->SetFontSize(fontSize);
