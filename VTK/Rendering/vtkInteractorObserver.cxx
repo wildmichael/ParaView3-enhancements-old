@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorObserver.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-26 21:52:52 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-04-28 02:57:13 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkCallbackCommand.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkInteractorObserver, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkInteractorObserver, "$Revision: 1.10 $");
 
 vtkInteractorObserver::vtkInteractorObserver()
 {
@@ -220,6 +220,9 @@ void vtkInteractorObserver::PrintSelf(ostream& os, vtkIndent indent)
      << (this->KeyPressActivation ? "On" : "Off") << "\n";
   os << indent << "Key Press Activation Value: " 
      << this->KeyPressActivationValue << "\n";
+  os << indent << "LastPos: (" << this->LastPos[0] << ", " 
+                               << this->LastPos[1] << ")\n";  
+
 }
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-26 21:57:20 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 2002-04-28 02:57:13 $
+  Version:   $Revision: 1.62 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkOldStyleCallbackCommand.h"
 #include "vtkCallbackCommand.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyle, "$Revision: 1.61 $");
+vtkCxxRevisionMacro(vtkInteractorStyle, "$Revision: 1.62 $");
 
 //----------------------------------------------------------------------------
 vtkInteractorStyle *vtkInteractorStyle::New() 
@@ -1299,6 +1299,7 @@ void vtkInteractorStyle::PrintSelf(ostream& os, vtkIndent indent)
   
   os << indent << "State: " << this->State << endl;
   os << indent << "UseTimers: " << this->UseTimers << endl;
+  os << indent << "HandleObservers: " << this->HandleObservers << endl;
 }
 
 //----------------------------------------------------------------------------
