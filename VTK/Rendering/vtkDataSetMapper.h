@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetMapper.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:35:39 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1995-11-09 21:34:59 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,9 +42,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .SECTION Description
 // vtkDataSetMapper is a mapper to map data sets (i.e., vtkDataSet and 
 // all derived classes) to graphics primitives. The mapping procedure
-// is as follows: all 0-D, 1-D, and 2-D cells are converted into points,
-// lines, and polygons/triangle strips and mapped. The 2-D faces of
-// 3-D cells are mapped only if they are used by only one cell, i.e.,
+// is as follows: all 0D, 1D, and 2D cells are converted into points,
+// lines, and polygons/triangle strips and mapped. The 2D faces of
+// 3D cells are mapped only if they are used by only one cell, i.e.,
 // on the boundary of the data set.
 
 #ifndef __vtkDataSetMapper_h

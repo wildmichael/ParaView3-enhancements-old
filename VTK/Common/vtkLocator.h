@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLocator.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-25 23:50:02 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-11-09 21:35:01 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,10 +40,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 // .NAME vtkLocator - spatial search object to quickly locate points
 // .SECTION Description
-// vtkLocator is a spatial search object to quickly locate points in 3-D.
+// vtkLocator is a spatial search object to quickly locate points in 3D.
 // vtkLocator works by dividing a specified region of space into a regular
 // array of "rectangular" buckets, and then keeping a list of points that 
-// lie in each bucket. Typical operation involves giving a position in 3-D 
+// lie in each bucket. Typical operation involves giving a position in 3D 
 // and finding the closest point.
 // .SECTION Caveats
 // Many other types of spatial locators have been developed such as 

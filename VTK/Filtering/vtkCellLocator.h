@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLocator.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-25 23:49:40 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-11-09 21:34:58 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,7 +40,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 // .NAME vtkCellLocator - octree-based spatial search object to quickly locate cells
 // .SECTION Description
-// vtkCellLocator is a spatial search object to quickly locate cells in 3-D.
+// vtkCellLocator is a spatial search object to quickly locate cells in 3D.
 // vtkCellLocator uses a uniform-level octree subdivision, where each octant
 // carries an indication of whether it is empty or not, and each leaf octant 
 // carries a list of the cells inside of it. (An octant is not empty if it 
