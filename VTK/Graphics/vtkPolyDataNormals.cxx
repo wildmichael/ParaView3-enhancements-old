@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataNormals.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-17 02:05:39 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 2003-05-07 17:33:56 $
+  Version:   $Revision: 1.57 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #include "vtkPolygon.h"
 #include "vtkTriangleStrip.h"
 
-vtkCxxRevisionMacro(vtkPolyDataNormals, "$Revision: 1.56 $");
+vtkCxxRevisionMacro(vtkPolyDataNormals, "$Revision: 1.57 $");
 vtkStandardNewMacro(vtkPolyDataNormals);
 
 // Construct with feature angle=30, splitting and consistency turned on, 
@@ -564,7 +564,7 @@ void vtkPolyDataNormals::MarkAndSplit (vtkIdType ptId)
             }//if can move to edge neighbor
           else
             {
-            cellId = -1;//separated by previous visit, bounary, or non-manifold
+            cellId = -1;//separated by previous visit, boundary, or non-manifold
             }
           }//while visit wave is propagating
         }//for each of the two edges of the starting cell
