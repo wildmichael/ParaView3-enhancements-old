@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleStrip.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:20 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2001-04-25 20:40:50 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -98,7 +98,7 @@ public:
   // Description:
   // Given a triangle strip, decompose it into a list of (triangle) 
   // polygons. The polygons are appended to the end of the list of triangles.
-  void DecomposeStrip(int npts, int *pts, vtkCellArray *tris);
+  static void DecomposeStrip(int npts, int *pts, vtkCellArray *tris);
   
 #ifndef VTK_REMOVE_LEGACY_CODE
   // Description:
