@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTriangle.h,v $
   Language:  C++
-  Date:      $Date: 1994-11-01 23:12:58 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1994-11-12 07:08:19 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -70,7 +70,7 @@ inline void vlTriangle::TriangleCenter(float p1[3], float p2[3], float p3[3],
 // Compute the area of a triangle in 3D.
 inline float vlTriangle::TriangleArea(float p1[3], float p2[3], float p3[3])
 {
-  static vlMath math;
+  vlMath math;
   float a,b,c;
   a = math.Distance2BetweenPoints(p1,p2);
   b = math.Distance2BetweenPoints(p2,p3);
