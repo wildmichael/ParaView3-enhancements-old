@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-03 09:42:45 $
-  Version:   $Revision: 1.77 $
+  Date:      $Date: 2000-07-05 10:54:31 $
+  Version:   $Revision: 1.78 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -143,12 +143,17 @@ void vtkContourFilter::Execute()
 
 	if (input->GetDataObjectType() == VTK_UNSTRUCTURED_GRID)
 		{
+		vtkDebugMacro(<< "executing contour grid filter");
 		vtkContourGrid *cgrid;
 
 		cgrid = vtkContourGrid::New();
 		cgrid->SetInput(input);
+		for (i = 0; i < numContours; i++)
+			{
+			cgrid->SetValue(i, values[i]);
+			}
 		cgrid->Update();
-		output = cgrid->GetOutput();
+		output->ShallowCopy(cgrid->GetOutput());
 		} //if type VTK_UNSTRUCTURED_GRID
 	else
 		{
