@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamTracer.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-06-12 14:42:06 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2003-06-13 17:50:13 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -35,7 +35,7 @@
 #include "vtkRungeKutta4.h"
 #include "vtkRungeKutta45.h"
 
-vtkCxxRevisionMacro(vtkStreamTracer, "$Revision: 1.20 $");
+vtkCxxRevisionMacro(vtkStreamTracer, "$Revision: 1.21 $");
 vtkStandardNewMacro(vtkStreamTracer);
 vtkCxxSetObjectMacro(vtkStreamTracer,Integrator,vtkInitialValueProblemSolver);
 
@@ -541,6 +541,9 @@ void vtkStreamTracer::Execute()
       {
       vtkErrorMacro("No appropriate inputs have been found. Can not execute.");
       func->Delete();
+      seeds->Delete();
+      integrationDirections->Delete();
+      seedIds->Delete();
       return;
       }
     this->Integrate(this->GetOutput(),
