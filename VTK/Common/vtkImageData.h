@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-30 21:09:19 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1998-05-22 17:30:26 $
+  Version:   $Revision: 1.34 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -100,6 +100,10 @@ public:
   void *GetScalarPointer(int x, int y, int z);
   void *GetScalarPointer();
 
+  // Description:
+  // For acces to data from tcl
+  float GetScalarComponentAsFloat(int x, int y, int z, int component);
+  
   // Description:
   // Allocate the vtkScalars object associated with this object.
   void AllocateScalars();

@@ -3,8 +3,8 @@
 
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-30 21:09:17 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 1998-05-22 17:30:24 $
+  Version:   $Revision: 1.45 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -203,6 +203,39 @@ void vtkImageData::ComputeIncrements()
     this->Increments[idx] = inc;
     inc *= (this->Extent[idx*2+1] - this->Extent[idx*2] + 1);
     }
+}
+
+
+
+
+//----------------------------------------------------------------------------
+float vtkImageData::GetScalarComponentAsFloat(int x, int y, int z, int comp)
+{
+  void *ptr;
+  
+  if (comp >= this->NumberOfScalarComponents || comp < 0)
+    {
+    vtkErrorMacro("Bad component index " << comp);
+    return 0.0;
+    }
+  
+  ptr = this->GetScalarPointer(x, y, z);
+  switch (this->ScalarType)
+    {
+    case VTK_FLOAT:
+      return *(((float *)ptr) + comp);
+    case VTK_INT:
+      return (float)(*(((int *)ptr) + comp));
+    case VTK_SHORT:
+      return (float)(*(((short *)ptr) + comp));
+    case VTK_UNSIGNED_SHORT:
+      return (float)(*(((unsigned short *)ptr) + comp));
+    case VTK_UNSIGNED_CHAR:
+      return (float)(*(((unsigned char *)ptr) + comp));
+    }
+
+  vtkErrorMacro("Unknown Scalar type");
+  return 0.0;
 }
 
 
