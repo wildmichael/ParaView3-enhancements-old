@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 13:45:40 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1997-04-30 19:16:12 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -149,12 +149,19 @@ public:
   // These are here for using a tk window.
   virtual void SetDisplayId(void *) {};
   virtual void SetWindowId(void *) {};
+  virtual void SetParentId(void *) {};
   
   // Description:
   // Keep track of whether the rendering window has been mapped to screen.
   vtkSetMacro(Mapped,int);
   vtkGetMacro(Mapped,int);
   vtkBooleanMacro(Mapped,int);
+
+  // Description:
+  // Set/Get the position in screen coordinates of the rendering window.
+  virtual int *GetPosition() {return (int *)NULL;};
+  virtual void SetPosition(int,int);
+  virtual void SetPosition(int a[2]);
 
   // Description:
   // Set/Get the size of the window in screen coordinates.
@@ -183,6 +190,7 @@ protected:
   int Blue;
   char *WindowName;
   int Size[2];
+  int Position[2];
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-24 20:47:04 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1997-04-30 19:16:12 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -51,6 +51,7 @@ vtkImageViewer::vtkImageViewer()
 {
   this->Size[0] = 0;
   this->Size[1] = 0;
+  this->Position[0] = this->Position[1] = 0;
   this->Input = NULL;
   this->WholeImage = 1;
   this->Coordinate2 = 0;
@@ -78,6 +79,23 @@ vtkImageViewer::~vtkImageViewer()
 void vtkImageViewer::SetSize(int a[2])
 {
   this->SetSize(a[0],a[1]);
+}
+void vtkImageViewer::SetPosition(int a[2])
+{
+  this->SetPosition(a[0],a[1]);
+}
+void vtkImageViewer::SetPosition(int x, int y)
+{
+  // if we arent mappen then just set the ivars 
+  if (!this->Mapped)
+    {
+    if ((this->Position[0] != x)||(this->Position[1] != y))
+      {
+      this->Modified();
+      }
+    this->Position[0] = x;
+    this->Position[1] = y;
+    }
 }
 
 //----------------------------------------------------------------------------
