@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCylinder.h,v $
   Language:  C++
-  Date:      $Date: 1995-05-04 15:58:37 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1995-06-08 20:04:13 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -19,6 +19,10 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 // a cylinder. vlCylinder is a concrete implementation of vlImplicitFunction.
 // Cylinder is centered at origin and axes of rotation is along z-axis. (Use a
 // transform filter if necessary to reposition).
+// .SECTION Caveats
+// The cylinder is infinite in extent. To truncate the cylinder use the 
+// vlImplicitBoolean in combination with clipping planes.
+
 
 #ifndef __vlCylinder_h
 #define __vlCylinder_h
@@ -41,14 +45,8 @@ public:
   vlSetMacro(Radius,float);
   vlGetMacro(Radius,float);
 
-  // Description:
-  // Set/Get cylinder height.
-  vlSetMacro(Height,float);
-  vlGetMacro(Height,float);
-
 protected:
   float Radius;
-  float Height;
 
 };
 
