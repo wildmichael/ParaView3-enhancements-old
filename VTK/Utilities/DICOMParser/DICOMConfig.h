@@ -3,8 +3,8 @@
   Program:   DICOMParser
   Module:    $RCSfile: DICOMConfig.h,v $
   Language:  C++
-  Date:      $Date: 2003-08-27 18:49:00 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-08-28 16:36:09 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 2003 Matt Turek
   All rights reserved.
@@ -33,17 +33,20 @@
 //
 // END toolkit (ITK, VTK, etc) specific
 //
+#ifdef DICOM_NO_STD_NAMESPACE
+  #define dicom_stl
+#else
+  #define dicom_stl std
+#endif
 
 #ifdef DICOM_ANSI_STDLIB
   #define dicom_stream std
-  #define dicom_stl std
 
   #include <iostream>
   #include <fstream>
   #include <iomanip>
 #else
   #define dicom_stream 
-  #define dicom_stl std
 
   #include <fstream.h>
   #include <string.h>
