@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMyXdmfReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-04 22:54:41 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-04-07 13:59:44 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -69,7 +69,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <vector>
 
 vtkStandardNewMacro(vtkMyXdmfReader);
-vtkCxxRevisionMacro(vtkMyXdmfReader, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkMyXdmfReader, "$Revision: 1.4 $");
 
 #if defined(_WIN32) && (defined(_MSC_VER) || defined(__BORLANDC__))
 #  include <direct.h>
@@ -954,7 +954,8 @@ void vtkMyXdmfReader::ExecuteInformation()
   EndExtent[0] = vtkMAX(1, EndExtent[0]) / this->Stride[2];
   EndExtent[1] = vtkMAX(1, EndExtent[1]) / this->Stride[1];
   EndExtent[2] = vtkMAX(1, EndExtent[2]) / this->Stride[0];
-  vtkDebugMacro( << "EndExtents = " << EndExtent[0] << ", " << EndExtent[1] << ", " << EndExtent[2]);
+  vtkDebugMacro( << "EndExtents = " << (vtkIdType)EndExtent[0] << ", " 
+     << (vtkIdType)EndExtent[1] << ", " << (vtkIdType)EndExtent[2]);
   this->Outputs[0]->SetWholeExtent(0, EndExtent[2],
                                    0, EndExtent[1],
                                    0, EndExtent[0]);
