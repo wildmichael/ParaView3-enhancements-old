@@ -3,11 +3,9 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataSetToUnstructuredGridFilter.h,v $
   Language:  C++
-  Date:      $Date: 1994-05-15 19:40:41 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-08-08 09:13:24 $
+  Version:   $Revision: 1.2 $
 
-Description:
----------------------------------------------------------------------------
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
 without the express written consent of the authors.
@@ -15,10 +13,12 @@ without the express written consent of the authors.
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-//
-// DataSetToUnstructuredGridFilter are filters that take DataSets in 
-// and generate UnstructuredGrid data as output.
-//
+// .NAME vlDataSetToUnstructuredGridFilter - abstract filter class
+// .SECTION Description
+// vlDataSetToUnstructuredGridFilter is an abstract filter class whose 
+// subclasses take as input any dataset and generate an unstructured
+// grid on output.
+
 #ifndef __vlDataSetToUnstructuredGridFilter_h
 #define __vlDataSetToUnstructuredGridFilter_h
 

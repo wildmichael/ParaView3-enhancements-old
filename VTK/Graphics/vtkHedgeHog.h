@@ -3,11 +3,9 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkHedgeHog.h,v $
   Language:  C++
-  Date:      $Date: 1994-07-21 17:00:12 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-08-08 09:13:29 $
+  Version:   $Revision: 1.3 $
 
-Description:
----------------------------------------------------------------------------
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
 without the express written consent of the authors.
@@ -34,6 +32,8 @@ public:
   char *GetClassName() {return "vlHedgeHog";};
   void PrintSelf(ostream& os, vlIndent indent);
 
+  // Description:
+  // Set scale factor to control size of oriented lines.
   vlSetMacro(ScaleFactor,float);
   vlGetMacro(ScaleFactor,float);
 

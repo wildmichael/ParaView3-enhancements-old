@@ -3,11 +3,9 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkGlyph3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-05 09:06:46 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1994-08-08 09:13:27 $
+  Version:   $Revision: 1.9 $
 
-Description:
----------------------------------------------------------------------------
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
 without the express written consent of the authors.

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkElevationFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-06-02 19:23:32 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1994-08-08 09:13:25 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -20,6 +20,9 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #include "vlMath.hh"
 #include "FScalars.hh"
 
+// Description:
+// Construct object with LowPoint=(0,0,0) and HighPoint=(0,0,1). Scalar
+// range is (0,1).
 vlElevationFilter::vlElevationFilter()
 {
   this->LowPoint[0] = 0.0;

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkElevationFilter.h,v $
   Language:  C++
-  Date:      $Date: 1994-07-21 17:00:11 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1994-08-08 09:13:26 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -33,12 +33,18 @@ public:
   char *GetClassName() {return "vlElevationFilter";};
   void PrintSelf(ostream& os, vlIndent indent);
 
+  // Description:
+  // Define one end of the line (small scalar values).
   vlSetVector3Macro(LowPoint,float);
   vlGetVectorMacro(LowPoint,float);
 
+  // Description:
+  // Define other end of the line (large scalar values).
   vlSetVector3Macro(HighPoint,float);
   vlGetVectorMacro(HighPoint,float);
 
+  // Description:
+  // Specify range to map scalars into.
   vlSetVector2Macro(ScalarRange,float);
   vlGetVectorMacro(ScalarRange,float);
 
