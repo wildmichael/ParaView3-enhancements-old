@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-02 19:22:42 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 1999-01-06 15:08:34 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -339,10 +339,8 @@ static void ContourVolume(vtkMarchingCubes *self,T *scalars, int dims[3],
                 x[jj] = x1[jj] + t * (x2[jj] - x1[jj]);
                 }
               // check for a new point
-              if ( (ptIds[ii] = locator->IsInsertedPoint (x)) < 0)
+              if ( locator->InsertUniquePoint(x, ptIds[ii]) )
                   {
-                  ptIds[ii] = locator->InsertNextPoint(x);
-
                   if (NeedGradients)
                     {
                     n1 = gradients[vert[0]];

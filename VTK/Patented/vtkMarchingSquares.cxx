@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingSquares.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:25:33 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1999-01-06 15:08:35 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -233,9 +233,8 @@ static void ContourImage(T *scalars, vtkScalars *newScalars, int roi[6], int dir
               {
               x[dir[jj]] = x1[dir[jj]] + t * (x2[dir[jj]] - x1[dir[jj]]);
               }
-            if ( (ptIds[ii] = p->IsInsertedPoint(x)) < 0 )
+            if ( p->InsertUniquePoint(x, ptIds[ii]) )
               {
-              ptIds[ii] = p->InsertNextPoint(x);
               newScalars->InsertScalar(ptIds[ii],value);
               }
             }
