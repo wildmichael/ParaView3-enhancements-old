@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-19 19:58:03 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2001-04-18 11:11:49 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -51,6 +51,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkDataSetToDataSetFilter.h"
 
+class vtkFieldList;
+
 class VTK_EXPORT vtkMergeFilter : public vtkDataSetToDataSetFilter
 {
 public:
@@ -90,10 +92,10 @@ public:
   vtkDataSet *GetTensors();
 
   // Description:
-  // Set / get the object from which to extract field data.
-  void SetFieldData(vtkDataSet *);
-  vtkDataSet *GetFieldData();
-  
+  // Set the object from which to extract a field and the name
+  // of the field
+  void AddField(const char* name, vtkDataSet* input);
+
 protected:
   vtkMergeFilter();
   ~vtkMergeFilter();
@@ -103,6 +105,8 @@ protected:
   // Usual data generation method
   void Execute();
   void ComputeInputUpdateExtents(vtkDataObject *data);
+
+  vtkFieldList* FieldList;
   };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:07 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2001-04-18 11:11:48 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -55,43 +55,6 @@ vtkCellData* vtkCellData::New()
     }
   // If the factory was unable to create the object, then create it here.
   return new vtkCellData;
-}
-
-
-
-
-void vtkCellData::NullCell (int ptId)
-{
-  if ( this->Scalars )
-    {
-    this->Scalars->GetData()->InsertTuple(ptId, this->Null4Tuple);
-    }
-
-  if ( this->Vectors )
-    {
-    this->Vectors->InsertVector(ptId,this->Null3Tuple);
-    }
-
-  if ( this->Normals )
-    {
-    this->Normals->InsertNormal(ptId,this->Null3Tuple);
-    }
-
-  if ( this->TCoords )
-    {
-    this->TCoords->InsertTCoord(ptId,this->Null3Tuple);
-    }
-
-  if ( this->Tensors )
-    {
-    this->Tensors->InsertTensor(ptId,(this->NullTensor));
-    }
-
-  if ( this->FieldData )
-    {
-    this->FieldData->InsertTuple(ptId,this->NullTuple);
-    }
-
 }
 
 void vtkCellData::PrintSelf(ostream& os, vtkIndent indent)

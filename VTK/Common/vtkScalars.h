@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalars.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:17 $
-  Version:   $Revision: 1.67 $
+  Date:      $Date: 2001-04-18 11:11:48 $
+  Version:   $Revision: 1.68 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -167,7 +167,7 @@ public:
   // Description:
   // Set/get the lookup table associated with this scalar data, if any.
   void SetLookupTable(vtkLookupTable *lut);
-  vtkGetObjectMacro(LookupTable,vtkLookupTable);
+  vtkLookupTable* GetLookupTable();
 
   // Description:
   // Given a list of point ids, return an array of scalar values.
@@ -213,7 +213,6 @@ protected:
 
   float Range[8];
   vtkTimeStamp ComputeTime;
-  vtkLookupTable *LookupTable;
   int ActiveComponent; //for multiple component scalars, the current component
 
   // following stuff is used for converting scalars to colors

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSelectPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-24 22:06:15 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-04-18 11:11:49 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -540,8 +540,9 @@ void vtkSelectPolyData::Execute()
 
     output->CopyStructure(this->Mesh); //pass geometry/topology unchanged
     outPD->SetScalars(selectionScalars);
-    outPD->PassNoReplaceData(inPD);
-    outCD->PassNoReplaceData(inCD);
+    outPD->CopyScalarsOff();
+    outPD->PassData(inPD);
+    outCD->PassData(inCD);
     selectionScalars->Delete();
     }
     

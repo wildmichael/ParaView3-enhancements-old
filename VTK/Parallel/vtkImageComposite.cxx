@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageComposite.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-16 16:40:01 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-04-18 11:11:49 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -111,7 +111,6 @@ void vtkImageComposite::Execute()
   vtkScalars *inPScalars;
   vtkDataArray *inZData;
   vtkFloatArray *outZArray;
-  vtkFieldData *outZField;
   float *outZPtr, *inZ, *outZ;
   vtkScalars *outPScalars;
   int alphaFlag = 0;
@@ -133,9 +132,8 @@ void vtkImageComposite::Execute()
   outZArray->Allocate(numPts);
   outZArray->SetNumberOfTuples(numPts);
   outZPtr = outZArray->WritePointer(0, numPts);
-  outZField = vtkFieldData::New();
-  outZField->SetArray(0, outZArray);
-  outZField->SetArrayName(0, "ZBuffer");
+  outZArray->SetName("ZBuffer");
+  output->GetPointData()->AddArray(outZArray);
 
   outPScalars = vtkScalars::New();
   if (alphaFlag)
@@ -256,9 +254,7 @@ void vtkImageComposite::Execute()
       }
     }
   output->GetPointData()->SetScalars(outPScalars);
-  output->GetPointData()->SetFieldData(outZField);
   outPScalars->Delete();
-  outZField->Delete();
   outZArray->Delete();
 
 }

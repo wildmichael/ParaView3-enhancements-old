@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeDataObjectFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:43 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-04-18 11:11:49 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -124,7 +124,10 @@ void vtkMergeDataObjectFilter::Execute()
       vtkErrorMacro(<<"Field data size incompatible with number of cells");
       return;
       }
-    output->GetCellData()->SetFieldData(fd);
+    for(int i=0; i<fd->GetNumberOfArrays(); i++)
+      {
+      output->GetCellData()->AddArray(fd->GetArray(i));
+      }
     }
   else if ( this->OutputField == VTK_POINT_DATA_FIELD )
     {
@@ -134,7 +137,10 @@ void vtkMergeDataObjectFilter::Execute()
       vtkErrorMacro(<<"Field data size incompatible with number of points");
       return;
       }
-    output->GetPointData()->SetFieldData(fd);
+    for(int i=0; i<fd->GetNumberOfArrays(); i++)
+      {
+      output->GetPointData()->AddArray(fd->GetArray(i));
+      }
     }
   else //( this->OutputField == VTK_DATA_OBJECT_FIELD )
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-24 21:18:54 $
-  Version:   $Revision: 1.86 $
+  Date:      $Date: 2001-04-18 11:11:49 $
+  Version:   $Revision: 1.87 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -122,11 +122,10 @@ void vtkGlyph3D::Execute()
   inVectors = pd->GetVectors();
   inNormals = pd->GetNormals();
 
-  vtkFieldData* fd = pd->GetFieldData();
   vtkDataArray* temp = 0;
-  if (fd)
+  if (pd)
     {
-    temp = fd->GetArray("vtkGhostLevels");
+    temp = pd->GetArray("vtkGhostLevels");
     }
   if ( (!temp) || (temp->GetDataType() != VTK_UNSIGNED_CHAR)
     || (temp->GetNumberOfComponents() != 1))

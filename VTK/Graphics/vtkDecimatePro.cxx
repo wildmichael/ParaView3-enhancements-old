@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimatePro.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-29 21:18:28 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2001-04-18 11:11:48 $
+  Version:   $Revision: 1.58 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -228,8 +228,8 @@ void vtkDecimatePro::Execute()
     newPolys->Delete(); //registered by Mesh and preserved
 
     meshPD = this->Mesh->GetPointData();
-    meshPD->CopyAllocate(inPD, numPts);
     meshPD->DeepCopy(inPD);
+    meshPD->CopyAllocate(meshPD, input->GetNumberOfPoints());
 
     this->Mesh->BuildLinks();
     }

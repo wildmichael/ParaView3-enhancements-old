@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorNorm.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-02 12:54:39 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2001-04-18 11:11:49 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -138,6 +138,7 @@ void vtkVectorNorm::Execute()
 
     outPD->SetScalars(newScalars);
     newScalars->Delete();
+    outPD->CopyScalarsOff();
     }//if computing point scalars
 
   // Allocate / operate on cell data
@@ -177,11 +178,12 @@ void vtkVectorNorm::Execute()
 
     outCD->SetScalars(newScalars);
     newScalars->Delete();
+    outCD->CopyScalarsOff();
     }//if computing cell scalars
 
   // Pass appropriate data through to output
-  outPD->PassNoReplaceData(pd);
-  outCD->PassNoReplaceData(cd);
+  outPD->PassData(pd);
+  outCD->PassData(cd);
 }
 
 // Return the method for generating scalar data as a string.

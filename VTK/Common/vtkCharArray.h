@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCharArray.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:07 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2001-04-18 11:11:48 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,6 +60,7 @@ public:
 
   // Description:
   // Allocate memory for this array. Delete old storage only if necessary.
+  // Note that ext is no longer used.
   int Allocate(const int sz, const int ext=1000);
 
   // Description:
@@ -107,7 +108,11 @@ public:
 
   // Description:
   // Resize object to just fit data requirement. Reclaims extra memory.
-  void Squeeze() {this->Resize (this->MaxId+1);}
+  void Squeeze() {this->ResizeAndExtend (this->MaxId+1);}
+
+  // Description:
+  // Resize the array while conserving the data.
+  virtual void Resize(int numTuples);
 
   // Description:
   // Return the data component at the ith tuple and jth component location.
@@ -191,7 +196,7 @@ protected:
   void operator=(const vtkCharArray&) {};
 
   char *Array;    // pointer to data
-  char *Resize(const int sz);  // function to resize data
+  char *ResizeAndExtend(const int sz);  // function to resize data
 
   int TupleSize; //used for data conversion
   float *Tuple;
@@ -218,7 +223,7 @@ inline char *vtkCharArray::WritePointer(const int id, const int number)
   int newSize=id+number;
   if ( newSize > this->Size )
     {
-    this->Resize(newSize);
+    this->ResizeAndExtend(newSize);
     }
   if ( (--newSize) > this->MaxId )
     {
@@ -231,7 +236,7 @@ inline void vtkCharArray::InsertValue(const int id, const char c)
 {
   if ( id >= this->Size )
     {
-    this->Resize(id+1);
+    this->ResizeAndExtend(id+1);
     }
   this->Array[id] = c;
   if ( id > this->MaxId )

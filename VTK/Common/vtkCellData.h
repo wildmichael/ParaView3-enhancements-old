@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellData.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:07 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-04-18 11:11:48 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,10 +60,6 @@ public:
   vtkTypeMacro(vtkCellData,vtkDataSetAttributes);
   void PrintSelf(ostream& os, vtkIndent indent);
 
-  // Description:
-  // Set cell data to null values
-  void NullCell(int cellId);
-  
 protected:
   vtkCellData() {}; //make sure constructor and desctructor are protected
   ~vtkCellData() {};

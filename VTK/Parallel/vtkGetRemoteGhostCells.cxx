@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGetRemoteGhostCells.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-26 20:49:39 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-04-18 11:11:49 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -323,15 +323,8 @@ void vtkGetRemoteGhostCells::Execute()
     newCells->Reset();
     }
   
-  if (!output->GetCellData()->GetFieldData())
-    {
-    vtkFieldData* field = vtkFieldData::New();
-    output->GetCellData()->SetFieldData(field);
-    field->Delete();
-    }
-  
-  output->GetCellData()->GetFieldData()
-    ->AddReplaceArray(ghostLevels, "vtkGhostLevels");
+  ghostLevels->SetName("vtkGhostLevels");
+  output->GetCellData()->AddArray(ghostLevels);
   
   points->Delete();
   points = NULL;

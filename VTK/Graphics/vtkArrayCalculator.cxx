@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArrayCalculator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-06 13:11:08 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-04-18 11:11:48 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -335,13 +335,14 @@ void vtkArrayCalculator::Execute()
   output->GetPointData()->PassData(inPD);
   output->GetCellData()->PassData(inCD);
   
+  resultArray->SetName(this->ResultArrayName);
   if (attributeDataType == 0)
     {
-    output->GetPointData()->GetFieldData()->AddReplaceArray(resultArray, this->ResultArrayName);
+    output->GetPointData()->GetFieldData()->AddArray(resultArray);
     }
   else
     {
-    output->GetCellData()->GetFieldData()->AddReplaceArray(resultArray, this->ResultArrayName);
+    output->GetCellData()->GetFieldData()->AddArray(resultArray);
     }
   resultArray->Delete();
   resultArray = NULL;

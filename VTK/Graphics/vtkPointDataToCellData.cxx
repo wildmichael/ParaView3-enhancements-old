@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointDataToCellData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-02 12:54:39 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-04-18 11:11:49 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,7 +68,7 @@ void vtkPointDataToCellData::Execute()
   vtkDataSet *input= this->GetInput();
   vtkDataSet *output= this->GetOutput();
   vtkPointData *inPD=input->GetPointData();
-  vtkCellData *outPD=output->GetCellData();
+  vtkCellData *outCD=output->GetCellData();
   int maxCellSize=input->GetMaxCellSize();
   vtkIdList *cellPts;
   float weight, *weights=new float[maxCellSize];
@@ -87,9 +87,14 @@ void vtkPointDataToCellData::Execute()
   cellPts = vtkIdList::New();
   cellPts->Allocate(maxCellSize);
 
-  // notice that inPD and outPD are vtkPointData and vtkCellData; respectively.
+  // Pass the cell data first. The fields and attributes
+  // which also exist in the point data of the input will
+  // be over-written during CopyAllocate
+  output->GetCellData()->PassData(input->GetCellData());
+
+  // notice that inPD and outCD are vtkPointData and vtkCellData; respectively.
   // It's weird, but it works.
-  outPD->CopyAllocate(inPD,numCells);
+  outCD->CopyAllocate(inPD,numCells);
 
   int abort=0;
   int progressInterval=numCells/20 + 1;
@@ -110,14 +115,10 @@ void vtkPointDataToCellData::Execute()
 	{
 	weights[ptId] = weight;
 	}
-      outPD->InterpolatePoint(inPD, cellId, cellPts, weights);
+      outCD->InterpolatePoint(inPD, cellId, cellPts, weights);
       }
     }
 
-  // Pass through any cell data that's in the input 
-  // and not defined in the output.
-  output->GetCellData()->PassNoReplaceData(input->GetCellData());
-  
   if ( this->PassPointData )
     {
     output->GetPointData()->PassData(input->GetPointData());

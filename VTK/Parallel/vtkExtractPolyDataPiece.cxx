@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractPolyDataPiece.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-16 13:28:38 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-04-18 11:11:49 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -171,12 +171,6 @@ void vtkExtractPolyDataPiece::Execute()
     pointGhostLevels = vtkUnsignedCharArray::New();
     cellGhostLevels->Allocate(input->GetNumberOfCells());
     pointGhostLevels->Allocate(input->GetNumberOfPoints());
-    vtkFieldData* field = vtkFieldData::New();
-    output->GetPointData()->SetFieldData(field);
-    field->Delete();
-    field = vtkFieldData::New();
-    output->GetCellData()->SetFieldData(field);
-    field->Delete();
     }
     
   // Break up cells based on which piece they belong to.
@@ -258,15 +252,15 @@ void vtkExtractPolyDataPiece::Execute()
   
   if (cellGhostLevels)
     {
-    output->GetCellData()->GetFieldData()
-      ->AddReplaceArray(cellGhostLevels, "vtkGhostLevels");
+    cellGhostLevels->SetName("vtkGhostLevels");
+    output->GetCellData()->AddArray(cellGhostLevels);
     cellGhostLevels->Delete();
     cellGhostLevels = 0;
      }
   if (pointGhostLevels)
     {
-    output->GetPointData()->GetFieldData()
-       ->AddReplaceArray(pointGhostLevels, "vtkGhostLevels");
+    pointGhostLevels->SetName("vtkGhostLevels");
+    output->GetPointData()->AddArray(pointGhostLevels);
     pointGhostLevels->Delete();
     pointGhostLevels = 0;
     }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkApproximatingSubdivisionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-24 21:18:54 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-04-18 11:11:48 $
+  Version:   $Revision: 1.15 $
   Thanks:    This work was supported bt PHS Research Grant No. 1 P41 RR13218-01
              from the National Center for Research Resources
 
@@ -141,11 +141,14 @@ void vtkApproximatingSubdivisionFilter::Execute()
   // Get rid of ghost cells if we have to.
   unsigned char* ghostLevels=0;
   
-  vtkFieldData* fd = inputDS->GetCellData()->GetFieldData();
-  if (fd)
+  vtkCellData* cd = inputDS->GetCellData();
+  if (cd)
     {
-    vtkDataArray* temp = fd->GetArray("vtkGhostLevels");
-    ghostLevels = ((vtkUnsignedCharArray*)temp)->GetPointer(0);
+    vtkDataArray* temp = cd->GetArray("vtkGhostLevels");
+    if (temp)
+      {
+      ghostLevels = ((vtkUnsignedCharArray*)temp)->GetPointer(0);
+      }
     }
   int updateGhostLevel = output->GetUpdateGhostLevel();
   

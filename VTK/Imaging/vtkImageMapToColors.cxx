@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapToColors.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-29 23:14:21 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-04-18 11:11:49 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -124,7 +124,7 @@ void vtkImageMapToColors::UpdateData(vtkDataObject *outObject)
     {
     if ( this->DataWasPassed )
       {
-      outData->GetPointData()->SetScalars(NULL);
+      outData->GetPointData()->SetScalars((vtkScalars*)NULL);
       this->DataWasPassed = 0;
       }
     

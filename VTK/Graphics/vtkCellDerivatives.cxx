@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellDerivatives.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-02 12:52:54 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-04-18 11:11:48 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -109,6 +109,7 @@ void vtkCellDerivatives::Execute()
     outVectors->SetNumberOfVectors(numCells);
     outCD->SetVectors(outVectors);
     outVectors->Delete(); //okay reference counted
+    outCD->CopyVectorsOff();
     }
 
   if ( !inVectors || (this->TensorMode == VTK_TENSOR_MODE_PASS_TENSORS &&
@@ -122,6 +123,7 @@ void vtkCellDerivatives::Execute()
     outTensors->SetNumberOfTensors(numCells);
     outCD->SetTensors(outTensors);
     outTensors->Delete(); //okay reference counted
+    outCD->CopyTensorsOff();
     }
 
   // If just passing data forget the loop
@@ -211,7 +213,7 @@ void vtkCellDerivatives::Execute()
 
   // Pass appropriate data through to output
   outPD->PassData(pd);
-  outCD->PassNoReplaceData(cd);
+  outCD->PassData(cd);
 }
 
 const char *vtkCellDerivatives::GetVectorModeAsString(void)

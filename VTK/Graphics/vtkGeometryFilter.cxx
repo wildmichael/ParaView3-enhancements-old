@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-16 15:06:02 $
-  Version:   $Revision: 1.79 $
+  Date:      $Date: 2001-04-18 11:11:49 $
+  Version:   $Revision: 1.80 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -183,11 +183,10 @@ void vtkGeometryFilter::Execute()
       return;
     }
 
-  vtkFieldData* fd = input->GetCellData()->GetFieldData();
   vtkDataArray* temp = 0;
-  if (fd)
+  if (cd)
     {
-    temp = fd->GetArray("vtkGhostLevels");
+    temp = cd->GetArray("vtkGhostLevels");
     }
   if ( (!temp) || (temp->GetDataType() != VTK_UNSIGNED_CHAR)
     || (temp->GetNumberOfComponents() != 1))
@@ -477,11 +476,10 @@ void vtkGeometryFilter::PolyDataExecute()
   
   vtkDebugMacro(<<"Executing geometry filter for poly data input");
 
-  vtkFieldData* fd = input->GetCellData()->GetFieldData();
   vtkDataArray* temp = 0;
-  if (fd)
+  if (cd)
     {
-    temp = fd->GetArray("vtkGhostLevels");
+    temp = cd->GetArray("vtkGhostLevels");
     }
   if ( (!temp) || (temp->GetDataType() != VTK_UNSIGNED_CHAR)
     || (temp->GetNumberOfComponents() != 1))
@@ -616,11 +614,10 @@ void vtkGeometryFilter::UnstructuredGridExecute()
   
   vtkDebugMacro(<<"Executing geometry filter for unstructured grid input");
 
-  vtkFieldData* fd = input->GetCellData()->GetFieldData();
   vtkDataArray* temp = 0;
-  if (fd)
+  if (cd)
     {
-    temp = fd->GetArray("vtkGhostLevels");
+    temp = cd->GetArray("vtkGhostLevels");
     }
   if ( (!temp) || (temp->GetDataType() != VTK_UNSIGNED_CHAR)
     || (temp->GetNumberOfComponents() != 1))
@@ -943,11 +940,10 @@ void vtkGeometryFilter::StructuredGridExecute()
 
   cell = vtkGenericCell::New();
 
-  vtkFieldData* fd = input->GetCellData()->GetFieldData();
   vtkDataArray* temp = 0;
-  if (fd)
+  if (cd)
     {
-    temp = fd->GetArray("vtkGhostLevels");
+    temp = cd->GetArray("vtkGhostLevels");
     }
   if ( (!temp) || (temp->GetDataType() != VTK_UNSIGNED_CHAR)
     || (temp->GetNumberOfComponents() != 1))

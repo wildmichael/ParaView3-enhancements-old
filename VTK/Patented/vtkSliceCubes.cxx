@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSliceCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-24 21:56:51 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2001-04-18 11:11:49 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -239,7 +239,7 @@ static int vtkSliceCubesContour(T *slice, S *scalars, int imageRange[2], int dim
   else
     {//get as float
     numComp = scalars->GetNumberOfComponents();
-    slice2scalars->GetData(0,sliceSize-1,0,numComp-1,*floatScalars);
+    slice2scalars->GetData(0,sliceSize-1,0,numComp-1,floatScalars);
     slice1 = slice2 = (T *) floatScalars->GetPointer(0);
     }
     
@@ -256,7 +256,7 @@ static int vtkSliceCubesContour(T *slice, S *scalars, int imageRange[2], int dim
     }
   else
     {//get as float: cast is ok because this code is only executed for float type
-    slice3scalars->GetData(0,sliceSize-1,0,numComp-1,*floatScalars);
+    slice3scalars->GetData(0,sliceSize-1,0,numComp-1,floatScalars);
     slice3 = (T *) floatScalars->GetPointer(0);
     }
 
@@ -299,7 +299,7 @@ static int vtkSliceCubesContour(T *slice, S *scalars, int imageRange[2], int dim
         }
       else
         {//get as float
-        slice3scalars->GetData(0,sliceSize-1,0,numComp-1,*floatScalars);
+        slice3scalars->GetData(0,sliceSize-1,0,numComp-1,floatScalars);
         slice3 = (T *) floatScalars->GetPointer(0);
         }
       }

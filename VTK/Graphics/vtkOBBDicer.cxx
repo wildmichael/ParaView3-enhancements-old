@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBBDicer.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:44 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-04-18 11:11:49 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -202,17 +202,16 @@ void vtkOBBDicer::Execute()
   //
   if ( this->FieldData )
     {
-    vtkFieldData *newField = vtkFieldData::New();
-    newField->SetNumberOfArrays(1);
-    newField->SetArray(0, groupIds->GetData());
-    output->GetPointData()->SetFieldData(newField);
-    output->GetPointData()->PassNoReplaceData(input->GetPointData());
-    newField->Delete();
+    groupIds->GetData()->SetName("vtkOBBDicer_GroupIds");
+    output->GetPointData()->AddArray(groupIds->GetData());
+    output->GetPointData()->CopyFieldOff("vtkOBBDicer_GroupIds");
+    output->GetPointData()->PassData(input->GetPointData());
     }
   else
     {
     output->GetPointData()->SetScalars(groupIds);
-    output->GetPointData()->PassNoReplaceData(input->GetPointData());
+    output->GetPointData()->CopyScalarsOff();
+    output->GetPointData()->PassData(input->GetPointData());
     }
 
   output->GetCellData()->PassData(input->GetCellData());
