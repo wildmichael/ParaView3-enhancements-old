@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMesaRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-19 19:29:54 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2003-01-24 16:24:02 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -211,6 +211,7 @@ protected:
   int      CursorHidden;
   int      ForceMakeCurrent;
   int      UsingHardware;
+  char    *Capabilities;
 
   // we must keep track of the cursors we are using
   Cursor XCArrow;
@@ -221,7 +222,7 @@ protected:
   Cursor XCSizeNW;
   Cursor XCSizeSE;
   Cursor XCSizeSW;
-
+  
 private:
   vtkXMesaRenderWindow(const vtkXMesaRenderWindow&);  // Not implemented.
   void operator=(const vtkXMesaRenderWindow&);  // Not implemented.
