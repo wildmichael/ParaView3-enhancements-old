@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-14 14:00:20 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-04-16 21:21:40 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -135,7 +135,13 @@ public:
   // Description:
   // Handle the source/data loop.
   void UnRegister(vtkObject *o);
-  
+
+  // Description:
+  // Get the net reference count. That is the count minus
+  // any self created loops. This is used in the Source/Data
+  // registration to properly free the objects.
+  virtual int GetNetReferenceCount() {return this->ReferenceCount;};
+
 protected:
   vtkSource *Source;
   vtkFieldData *FieldData; //General field data associated with data object

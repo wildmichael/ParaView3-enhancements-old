@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSet.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-26 14:21:41 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1999-04-16 21:21:41 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -103,6 +103,12 @@ public:
   // Detect refernce loop PointSet <-> locator.
   void UnRegister(vtkObject *o);
   
+  // Description:
+  // Get the net reference count. That is the count minus
+  // any self created loops. This is used in the Source/Data
+  // registration to properly free the objects.
+  virtual int GetNetReferenceCount();
+
 protected:
   vtkPoints *Points;
   vtkPointLocator *Locator;
