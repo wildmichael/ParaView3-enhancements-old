@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-11-18 18:56:33 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-03-03 19:05:21 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,6 +52,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 vtkOpenGLRenderer::vtkOpenGLRenderer()
 {
+  this->NumberOfLightsBound = 0;
 }
 
 // Description:
