@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-17 11:12:53 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2000-09-25 12:44:03 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -344,9 +344,9 @@ void vtkDataSetReader::Execute()
 	preader->SetOutput((vtkRectilinearGrid *)(output));
 	}
       preader->SetFileName(this->Reader->GetFileName());
-      preader->SetInputString(this->Reader->GetInputString());
       preader->SetInputString(this->Reader->GetInputString(),
 			      this->Reader->GetInputStringLength());
+      preader->SetReadFromInputString(this->Reader->GetReadFromInputString());
       preader->SetScalarsName(this->Reader->GetScalarsName());
       preader->SetVectorsName(this->Reader->GetVectorsName());
       preader->SetNormalsName(this->Reader->GetNormalsName());
@@ -370,9 +370,9 @@ void vtkDataSetReader::Execute()
 	preader->SetOutput((vtkUnstructuredGrid *)(output));
 	}
       preader->SetFileName(this->Reader->GetFileName());
-      preader->SetInputString(this->Reader->GetInputString());
       preader->SetInputString(this->Reader->GetInputString(),
 			      this->Reader->GetInputStringLength());
+      preader->SetReadFromInputString(this->Reader->GetReadFromInputString());
       preader->SetScalarsName(this->Reader->GetScalarsName());
       preader->SetVectorsName(this->Reader->GetVectorsName());
       preader->SetNormalsName(this->Reader->GetNormalsName());
