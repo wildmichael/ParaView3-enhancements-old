@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTubeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-05-22 01:31:00 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2000-10-26 19:54:06 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -198,9 +198,14 @@ void vtkTubeFilter::Execute()
           {
           inNormals->Delete();
           }
+        newPts->Delete();
+        newNormals->Delete();
+        newStrips->Delete();
+	single_polyline->Delete();
         lineNormalGenerator->Delete();
         capPoints->Delete();
         capNormals->Delete();
+	single_polyline->Delete();
         return;
         }
       }
@@ -257,13 +262,17 @@ void vtkTubeFilter::Execute()
       if ( vtkMath::Normalize(sNext) == 0.0 )
         {
         vtkErrorMacro(<<"Coincident points!");
-        inNormals->Delete();
+	if (this->DeleteNormals)
+	  {
+	  inNormals->Delete();
+	  }
         newPts->Delete();
         newNormals->Delete();
         newStrips->Delete();
         lineNormalGenerator->Delete();
         capPoints->Delete();
         capNormals->Delete();
+	single_polyline->Delete();
         return;
         }
 
@@ -312,6 +321,7 @@ void vtkTubeFilter::Execute()
         lineNormalGenerator->Delete();
         capPoints->Delete();
         capNormals->Delete();
+	single_polyline->Delete();
         return;
         }
       
