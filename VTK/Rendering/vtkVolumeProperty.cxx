@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-13 20:18:06 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2003-06-04 17:54:04 $
+  Version:   $Revision: 1.36 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,12 +21,14 @@
 #include "vtkPiecewiseFunction.h"
 #include "vtkColorTransferFunction.h"
 
-vtkCxxRevisionMacro(vtkVolumeProperty, "$Revision: 1.35 $");
+vtkCxxRevisionMacro(vtkVolumeProperty, "$Revision: 1.36 $");
 vtkStandardNewMacro(vtkVolumeProperty);
 
 // Construct a new vtkVolumeProperty with default values
 vtkVolumeProperty::vtkVolumeProperty()
 {
+  this->IndependentComponents = 1;
+
   this->InterpolationType               = VTK_NEAREST_INTERPOLATION;
 
   for ( int i = 0; i < VTK_MAX_VRCOMP; i++ )
@@ -525,6 +527,9 @@ void vtkVolumeProperty::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->Superclass::PrintSelf(os,indent);
 
+  os << indent << "Independent Components: " << 
+    (this->IndependentComponents ? "On\n" : "Off\n");
+  
   os << indent << "Interpolation Type: "
      << this->GetInterpolationTypeAsString() << "\n";
 
