@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDOM.cxx,v 1.3 2003-06-03 11:21:26 andy Exp $  */
-/*  Date : $Date: 2003-06-03 11:21:26 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: XdmfDOM.cxx,v 1.4 2003-09-16 19:07:40 andy Exp $  */
+/*  Date : $Date: 2003-09-16 19:07:40 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -101,6 +101,8 @@ XdmfDOM::~XdmfDOM(){
   if( this->Input != &cin ) {
           ifstream *OldInput = ( ifstream *)this->Input;
           OldInput->close();
+          delete this->Input;
+          this->Input = &cin;
         }
 }
 
@@ -202,6 +204,8 @@ XdmfDOM::SetInputFileName( XdmfString Filename ){
   if( this->Input != &cin ) {
           ifstream *OldInput = ( ifstream *)this->Input;
           OldInput->close();
+          delete this->Input;
+          this->Input = &cin;
         }
   if( XDMF_WORD_CMP( Filename, "stdin" ) ) {
           this->Input = &cin;

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGrid.cxx,v 1.1 2002-12-02 17:11:03 clarke Exp $  */
-/*  Date : $Date: 2002-12-02 17:11:03 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfGrid.cxx,v 1.2 2003-09-16 19:07:40 andy Exp $  */
+/*  Date : $Date: 2003-09-16 19:07:40 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -48,6 +48,7 @@ XdmfGrid::XdmfGrid() {
 
 XdmfGrid::~XdmfGrid() {
   if( this->GeometryIsMine && this->Geometry ) delete this->Geometry;
+  free(this->Attribute);
   }
 
 XdmfInt32
