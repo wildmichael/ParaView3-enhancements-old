@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:38:49 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1998-11-11 21:43:21 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,6 +55,7 @@ vtkWindow::vtkWindow()
     strcpy( this->WindowName, "Visualization Toolkit" );
   this->Erase = 1;
   this->DoubleBuffer = 0;
+  this->DPI = 120;
 }
 
 // Destructor for the vtkWindow object.
@@ -154,6 +155,7 @@ void vtkWindow::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Size: (" << temp[0] << ", " << temp[1] << ")\n";
   os << indent << "Mapped: " << this->Mapped << "\n";
   os << indent << "Double Buffered: " << this->DoubleBuffer << "\n";
+  os << indent << "DPI: " << this->DPI << "\n";
 
 }
 

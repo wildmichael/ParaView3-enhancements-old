@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindow.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 20:34:21 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-11-11 21:43:21 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -123,6 +123,12 @@ public:
   virtual unsigned char *GetPixelData(int, int, int, int, int) {
     return (unsigned char *)NULL;};
 
+  // Description:
+  // Return a best estimate to the dots per inch of the display
+  // device being rendered (or printed).
+  vtkGetMacro(DPI,int);
+  vtkSetClampMacro(DPI,int,1,3000);
+  
 protected:
   char *WindowName;
   int Size[2];
@@ -130,6 +136,7 @@ protected:
   int Mapped;
   int Erase;
   int DoubleBuffer;
+  int DPI;
 };
 
 #endif
