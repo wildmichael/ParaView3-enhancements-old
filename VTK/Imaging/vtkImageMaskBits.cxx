@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMaskBits.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-06 21:29:21 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-06-14 18:22:21 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageMaskBits, "$Revision: 1.13 $");
+vtkCxxRevisionMacro(vtkImageMaskBits, "$Revision: 1.14 $");
 vtkStandardNewMacro(vtkImageMaskBits);
 
 vtkImageMaskBits::vtkImageMaskBits()
@@ -40,10 +40,10 @@ vtkImageMaskBits::vtkImageMaskBits()
 // it handles boundaries. Pixels are just replicated to get values 
 // out of extent.
 template <class T>
-static void vtkImageMaskBitsExecute(vtkImageMaskBits *self,
-                                    vtkImageData *inData,
-                                    vtkImageData *outData,
-                                    int outExt[6], int id, T *)
+void vtkImageMaskBitsExecute(vtkImageMaskBits *self,
+                             vtkImageData *inData,
+                             vtkImageData *outData,
+                             int outExt[6], int id, T *)
 {
   vtkImageIterator<T> inIt(inData, outExt);
   vtkImageProgressIterator<T> outIt(outData, outExt, self, id);

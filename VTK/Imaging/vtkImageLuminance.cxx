@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageLuminance.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-04 14:07:56 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-06-14 18:22:21 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageLuminance, "$Revision: 1.19 $");
+vtkCxxRevisionMacro(vtkImageLuminance, "$Revision: 1.20 $");
 vtkStandardNewMacro(vtkImageLuminance);
 
 //----------------------------------------------------------------------------
@@ -37,10 +37,9 @@ void vtkImageLuminance::ExecuteInformation(vtkImageData *vtkNotUsed(inData),
 // it handles boundaries. Pixels are just replicated to get values 
 // out of extent.
 template <class T>
-static void vtkImageLuminanceExecute(vtkImageLuminance *self,
-                                             vtkImageData *inData,
-                                             vtkImageData *outData,
-                                             int outExt[6], int id, T *)
+void vtkImageLuminanceExecute(vtkImageLuminance *self, vtkImageData *inData,
+                              vtkImageData *outData,
+                              int outExt[6], int id, T *)
 {
   vtkImageIterator<T> inIt(inData, outExt);
   vtkImageProgressIterator<T> outIt(outData, outExt, self, id);

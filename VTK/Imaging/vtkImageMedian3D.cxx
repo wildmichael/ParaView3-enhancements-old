@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMedian3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-08 13:18:53 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2002-06-14 18:22:21 $
+  Version:   $Revision: 1.29 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkImageMedian3D.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageMedian3D, "$Revision: 1.28 $");
+vtkCxxRevisionMacro(vtkImageMedian3D, "$Revision: 1.29 $");
 vtkStandardNewMacro(vtkImageMedian3D);
 
 //----------------------------------------------------------------------------
@@ -175,10 +175,10 @@ double *vtkImageMedian3DAccumulateMedian(int &UpNum, int &DownNum,
 // This method contains the second switch statement that calls the correct
 // templated function for the mask types.
 template <class T>
-static void vtkImageMedian3DExecute(vtkImageMedian3D *self,
-                                    vtkImageData *inData, T *inPtr, 
-                                    vtkImageData *outData, T *outPtr,
-                                    int outExt[6], int id)
+void vtkImageMedian3DExecute(vtkImageMedian3D *self,
+                             vtkImageData *inData, T *inPtr, 
+                             vtkImageData *outData, T *outPtr,
+                             int outExt[6], int id)
 {
   int *kernelMiddle, *kernelSize;
   int NumberOfElements;

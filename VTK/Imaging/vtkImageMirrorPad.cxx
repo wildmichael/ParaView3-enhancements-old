@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMirrorPad.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:33:07 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2002-06-14 18:22:21 $
+  Version:   $Revision: 1.29 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkImageMirrorPad.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageMirrorPad, "$Revision: 1.28 $");
+vtkCxxRevisionMacro(vtkImageMirrorPad, "$Revision: 1.29 $");
 vtkStandardNewMacro(vtkImageMirrorPad);
 
 //----------------------------------------------------------------------------
@@ -49,10 +49,10 @@ void vtkImageMirrorPad::ComputeInputUpdateExtent(int inExt[6],
 
 //----------------------------------------------------------------------------
 template <class T>
-static void vtkImageMirrorPadExecute(vtkImageMirrorPad *self,
-                                     vtkImageData *inData,
-                                     vtkImageData *outData, T *outPtr,
-                                     int outExt[6], int id)
+void vtkImageMirrorPadExecute(vtkImageMirrorPad *self,
+                              vtkImageData *inData,
+                              vtkImageData *outData, T *outPtr,
+                              int outExt[6], int id)
 {
   int idxC, idxX, idxY, idxZ;
   int maxX, maxY, maxZ;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageNonMaximumSuppression.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:33:09 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2002-06-14 18:22:21 $
+  Version:   $Revision: 1.45 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageNonMaximumSuppression, "$Revision: 1.44 $");
+vtkCxxRevisionMacro(vtkImageNonMaximumSuppression, "$Revision: 1.45 $");
 vtkStandardNewMacro(vtkImageNonMaximumSuppression);
 
 //----------------------------------------------------------------------------
@@ -98,14 +98,13 @@ void vtkImageNonMaximumSuppression::ComputeInputUpdateExtent(int inExt[6],
 // This templated function executes the filter for any type of data.
 // Handles the two input operations
 template <class T>
-static void vtkImageNonMaximumSuppressionExecute(vtkImageNonMaximumSuppression *self,
-                                                 vtkImageData *in1Data, 
-                                                 T *in1Ptr,
-                                                 vtkImageData *in2Data, 
-                                                 T *in2Ptr,
-                                                 vtkImageData *outData, 
-                                                 T *outPtr,
-                                                 int outExt[6], int id)
+void vtkImageNonMaximumSuppressionExecute(vtkImageNonMaximumSuppression *self,
+                                          vtkImageData *in1Data, T *in1Ptr,
+                                          vtkImageData *in2Data, 
+                                          T *in2Ptr,
+                                          vtkImageData *outData, 
+                                          T *outPtr,
+                                          int outExt[6], int id)
 {
   int idxC, idxX, idxY, idxZ;
   int maxC, maxX, maxY, maxZ;

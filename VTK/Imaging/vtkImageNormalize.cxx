@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageNormalize.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-06 21:39:34 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-06-14 18:22:21 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageNormalize, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtkImageNormalize, "$Revision: 1.11 $");
 vtkStandardNewMacro(vtkImageNormalize);
 
 //----------------------------------------------------------------------------
@@ -37,10 +37,10 @@ void vtkImageNormalize::ExecuteInformation(vtkImageData *vtkNotUsed(inData),
 // it handles boundaries. Pixels are just replicated to get values 
 // out of extent.
 template <class T>
-static void vtkImageNormalizeExecute(vtkImageNormalize *self,
-                                     vtkImageData *inData,
-                                     vtkImageData *outData,
-                                     int outExt[6], int id, T *)
+void vtkImageNormalizeExecute(vtkImageNormalize *self,
+                              vtkImageData *inData,
+                              vtkImageData *outData,
+                              int outExt[6], int id, T *)
 {
   vtkImageIterator<T> inIt(inData, outExt);
   vtkImageProgressIterator<float> outIt(outData, outExt, self, id);

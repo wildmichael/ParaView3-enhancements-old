@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMathematics.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-21 15:09:16 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2002-06-14 18:22:21 $
+  Version:   $Revision: 1.42 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageMathematics, "$Revision: 1.41 $");
+vtkCxxRevisionMacro(vtkImageMathematics, "$Revision: 1.42 $");
 vtkStandardNewMacro(vtkImageMathematics);
 
 //----------------------------------------------------------------------------
@@ -68,7 +68,7 @@ void vtkImageMathematics::ExecuteInformation(vtkImageData **inDatas,
 }
 
 template <class TValue, class TIvar>
-static void vtkImageMathematicsClamp(TValue &value, TIvar ivar, vtkImageData *data)
+void vtkImageMathematicsClamp(TValue &value, TIvar ivar, vtkImageData *data)
 {
   if (ivar < (TIvar) data->GetScalarTypeMin())
     {
@@ -88,10 +88,10 @@ static void vtkImageMathematicsClamp(TValue &value, TIvar ivar, vtkImageData *da
 // This templated function executes the filter for any type of data.
 // Handles the one input operations
 template <class T>
-static void vtkImageMathematicsExecute1(vtkImageMathematics *self,
-                                        vtkImageData *in1Data, T *in1Ptr,
-                                        vtkImageData *outData, T *outPtr,
-                                        int outExt[6], int id)
+void vtkImageMathematicsExecute1(vtkImageMathematics *self,
+                                 vtkImageData *in1Data, T *in1Ptr,
+                                 vtkImageData *outData, T *outPtr,
+                                 int outExt[6], int id)
 {
   int idxR, idxY, idxZ;
   int maxY, maxZ;
@@ -219,11 +219,11 @@ static void vtkImageMathematicsExecute1(vtkImageMathematics *self,
 // This templated function executes the filter for any type of data.
 // Handles the two input operations
 template <class T>
-static void vtkImageMathematicsExecute2(vtkImageMathematics *self,
-                                        vtkImageData *in1Data, T *in1Ptr,
-                                        vtkImageData *in2Data, T *in2Ptr,
-                                        vtkImageData *outData, T *outPtr,
-                                        int outExt[6], int id)
+void vtkImageMathematicsExecute2(vtkImageMathematics *self,
+                                 vtkImageData *in1Data, T *in1Ptr,
+                                 vtkImageData *in2Data, T *in2Ptr,
+                                 vtkImageData *outData, T *outPtr,
+                                 int outExt[6], int id)
 {
   int idxR, idxY, idxZ;
   int maxY, maxZ;

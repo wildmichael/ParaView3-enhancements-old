@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageLaplacian.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:32:50 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-06-14 18:22:21 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageLaplacian, "$Revision: 1.24 $");
+vtkCxxRevisionMacro(vtkImageLaplacian, "$Revision: 1.25 $");
 vtkStandardNewMacro(vtkImageLaplacian);
 
 //----------------------------------------------------------------------------
@@ -81,10 +81,10 @@ void vtkImageLaplacian::ComputeInputUpdateExtent(int inExt[6],
 // it handles boundaries. Pixels are just replicated to get values 
 // out of extent.
 template <class T>
-static void vtkImageLaplacianExecute(vtkImageLaplacian *self,
-                                      vtkImageData *inData, T *inPtr,
-                                      vtkImageData *outData, T *outPtr,
-                                      int outExt[6], int id)
+void vtkImageLaplacianExecute(vtkImageLaplacian *self,
+                              vtkImageData *inData, T *inPtr,
+                              vtkImageData *outData, T *outPtr,
+                              int outExt[6], int id)
 {
   int idxC, idxX, idxY, idxZ;
   int maxC, maxX, maxY, maxZ;

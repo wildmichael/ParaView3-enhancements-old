@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageHSVToRGB.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-06 20:30:09 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-06-14 18:22:21 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageHSVToRGB, "$Revision: 1.24 $");
+vtkCxxRevisionMacro(vtkImageHSVToRGB, "$Revision: 1.25 $");
 vtkStandardNewMacro(vtkImageHSVToRGB);
 
 //----------------------------------------------------------------------------
@@ -34,10 +34,10 @@ vtkImageHSVToRGB::vtkImageHSVToRGB()
 //----------------------------------------------------------------------------
 // This templated function executes the filter for any type of data.
 template <class T>
-static void vtkImageHSVToRGBExecute(vtkImageHSVToRGB *self,
-                                    vtkImageData *inData,
-                                    vtkImageData *outData,
-                                    int outExt[6], int id, T *)
+void vtkImageHSVToRGBExecute(vtkImageHSVToRGB *self,
+                             vtkImageData *inData,
+                             vtkImageData *outData,
+                             int outExt[6], int id, T *)
 {
   vtkImageIterator<T> inIt(inData, outExt);
   vtkImageProgressIterator<T> outIt(outData, outExt, self, id);
