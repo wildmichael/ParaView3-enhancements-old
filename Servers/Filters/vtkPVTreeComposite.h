@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVTreeComposite.h,v $
   Language:  C++
-  Date:      $Date: 2003-11-19 21:45:07 $
-  Version:   $Revision: 1.23 $  
+  Date:      $Date: 2003-11-20 15:52:34 $
+  Version:   $Revision: 1.24 $  
   
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -192,8 +192,8 @@ protected:
   void ReallocDataArrays();
   virtual void ReadReducedImage();
   virtual void MagnifyReducedFloatImage();
-  virtual void SetRenderWindowPixelData(vtkFloatArray *pixels,
-                                        const int pixelDimensions[2]);
+  virtual void SetRenderWindowFloatPixelData(vtkFloatArray *pixels,
+                                             const int pixelDimensions[2]);
   
   int ExitInteractorTag;
 

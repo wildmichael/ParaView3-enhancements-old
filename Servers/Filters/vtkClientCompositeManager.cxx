@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClientCompositeManager.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-11-19 19:19:10 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2003-11-20 15:52:34 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -60,7 +60,7 @@
 #endif
 
 
-vtkCxxRevisionMacro(vtkClientCompositeManager, "$Revision: 1.22 $");
+vtkCxxRevisionMacro(vtkClientCompositeManager, "$Revision: 1.23 $");
 vtkStandardNewMacro(vtkClientCompositeManager);
 
 vtkCxxSetObjectMacro(vtkClientCompositeManager,Compositer,vtkCompositer);
@@ -1116,8 +1116,6 @@ void vtkClientCompositeManager::InitializeOffScreen()
 // Only process 0 needs start and end render callbacks.
 void vtkClientCompositeManager::SetRenderWindow(vtkRenderWindow *renWin)
 {
-  vtkRenderer *ren = 0;
-
   if (this->RenderWindow == renWin)
     {
     return;
