@@ -32,7 +32,7 @@
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkPVProgressHandler);
-vtkCxxRevisionMacro(vtkPVProgressHandler, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkPVProgressHandler, "$Revision: 1.3 $");
 vtkCxxSetObjectMacro(vtkPVProgressHandler, SocketController, vtkSocketController);
 
 //----------------------------------------------------------------------------
@@ -248,7 +248,7 @@ void vtkPVProgressHandler::InvokeRootNodeProgressEvent(
 
 //----------------------------------------------------------------------------
 void vtkPVProgressHandler::InvokeRootNodeServerProgressEvent(
-  vtkProcessModule* app, vtkObject* o, int myprogress)
+  vtkProcessModule* , vtkObject* o, int myprogress)
 {
   int id = -1;
   int progress = -1;
