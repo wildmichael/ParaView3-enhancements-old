@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-08 09:11:04 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2000-06-10 11:12:58 $
+  Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -101,7 +101,6 @@ void vtkPicker::MarkPicked(vtkAssemblyPath *path, vtkProp3D *prop3D,
   vtkVolumeMapper *volumeMapper;
 
   this->SetPath(path);
-  this->Mapper = mapper;
   this->GlobalTMin = tMin;
 
   for (i=0; i < 3; i++) 
@@ -113,11 +112,12 @@ void vtkPicker::MarkPicked(vtkAssemblyPath *path, vtkProp3D *prop3D,
   if ( (mapper=vtkMapper::SafeDownCast(m)) != NULL )
     {
     this->DataSet = mapper->GetInput();
+    this->Mapper = mapper;
     }
   else if ( (volumeMapper=vtkVolumeMapper::SafeDownCast(m)) != NULL )
     {
     this->DataSet = volumeMapper->GetInput();
-    }
+    this->Mapper = volumeMapper;    }
   else
     {
     this->DataSet = NULL;
