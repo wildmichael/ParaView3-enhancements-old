@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJavaUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-10 13:26:10 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2000-09-07 16:02:46 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -352,6 +352,11 @@ JNIEXPORT void *vtkJavaGetPointerFromObject(JNIEnv *env, jobject obj, char *resu
   void *ptr;
   void *(*command)(void *,char *);
   int id;
+
+  if (!obj)
+    {
+    return NULL;  
+    }
   
   id = vtkJavaGetId(env,obj);
   VTK_GET_MUTEX();
