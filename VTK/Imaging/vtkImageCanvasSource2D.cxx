@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCanvasSource2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-26 14:22:06 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-10-27 14:49:44 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,15 +47,12 @@ vtkImageCanvasSource2D::vtkImageCanvasSource2D()
 {
   int idx;
   
-  // A little odd, but lets be consistent with reference counting.
-  this->ImageData = this;
-  this->Register(this);
-  
   for (idx = 0; idx < 4; ++idx)
     {
     this->DrawColor[idx] = 0.0;
     }
   this->NumberOfScalarComponents = 1;
+  this->ImageData = this;
 }
 
 
@@ -66,7 +63,7 @@ vtkImageCanvasSource2D::vtkImageCanvasSource2D()
 // actually be deleted.
 vtkImageCanvasSource2D::~vtkImageCanvasSource2D()
 {
-  if (this->ImageData != NULL)
+  if (this->ImageData != NULL && this->ImageData != this)
     {
     this->ImageData->UnRegister(this);
     }
@@ -89,6 +86,32 @@ void vtkImageCanvasSource2D::PrintSelf(ostream& os, vtkIndent indent)
     }
   os << ")\n";
 }
+
+
+//----------------------------------------------------------------------------
+// Normal reference counting, but do not reference count "this".
+void vtkImageCanvasSource2D::SetImageData(vtkImageData *image)
+{
+  if (this->ImageData == image)
+    {
+    return;
+    }
+  
+  if (this->ImageData != NULL && this->ImageData != this)
+    {
+    this->ImageData->UnRegister(this);
+    }
+  
+  this->ImageData = image;
+  this->Modified();
+  
+  if (this->ImageData != NULL && this->ImageData != this)
+    {
+    this->ImageData->Register(this);
+    }
+  
+}
+
 
 //----------------------------------------------------------------------------
 // Draw a data.  Only implentented for 2D extents.

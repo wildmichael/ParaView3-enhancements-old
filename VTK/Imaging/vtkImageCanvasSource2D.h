@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCanvasSource2D.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:47:41 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-10-27 14:49:44 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -91,7 +91,7 @@ public:
 
   // Description:
   // To drawing into a different image, set it with this method.
-  vtkSetObjectMacro(ImageData, vtkImageData);
+  void SetImageData(vtkImageData *image);
   vtkGetObjectMacro(ImageData, vtkImageData);
   
   // Description:
