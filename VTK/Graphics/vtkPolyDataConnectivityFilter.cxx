@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataConnectivityFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:07:17 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-01-21 17:10:13 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -114,6 +114,13 @@ void vtkPolyDataConnectivityFilter::Execute()
   //  Check input/allocate storage
   //
   inPts = input->GetPoints();
+
+  if (inPts == NULL)
+    {
+    vtkErrorMacro("No points!");
+    return;
+    }
+
   numPts = inPts->GetNumberOfPoints();
   numCells = input->GetNumberOfCells();
 
