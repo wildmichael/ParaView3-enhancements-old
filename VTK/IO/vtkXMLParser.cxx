@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLParser.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-06 22:29:08 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-08-13 19:53:10 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #define VTK_IOS_NOCREATE | ios::nocreate
 #endif
 
-vtkCxxRevisionMacro(vtkXMLParser, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkXMLParser, "$Revision: 1.10 $");
 vtkStandardNewMacro(vtkXMLParser);
 
 //----------------------------------------------------------------------------
@@ -80,7 +80,11 @@ int vtkXMLParser::Parse()
   if ( !this->InputString && !this->Stream && this->FileName )
     {
     // If it is file, open it and set the appropriate stream
+#ifdef _WIN32
+    ifs.open(this->FileName, ios::binary | ios::in VTK_IOS_NOCREATE);
+#else
     ifs.open(this->FileName, ios::in VTK_IOS_NOCREATE);
+#endif
     if ( !ifs )
       {
       vtkErrorMacro("Cannot open XML file: " << this->FileName);
