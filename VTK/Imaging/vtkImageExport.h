@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageExport.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-14 00:41:26 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-07-15 11:15:39 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 
@@ -108,7 +108,7 @@ public:
   int GetDataScalarType() {
     this->Input->UpdateImageInformation();
     return this->Input->GetScalarType(); };
-  char *GetDataScalarTypeAsString() { 
+  const char *GetDataScalarTypeAsString() { 
     this->Input->UpdateImageInformation();
     return this->Input->GetScalarTypeAsString(); };
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageImport.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-14 00:41:25 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-07-15 11:15:39 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,7 +80,7 @@ public:
   void SetDataScalarTypeToUnsignedChar()
     {this->SetDataScalarType(VTK_UNSIGNED_CHAR);}
   vtkGetMacro(DataScalarType, int);
-  char *GetDataScalarTypeAsString() { 
+  const char *GetDataScalarTypeAsString() { 
     return vtkImageScalarTypeNameMacro(this->DataScalarType); }
 
   // Description:
