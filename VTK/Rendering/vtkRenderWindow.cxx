@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-21 10:12:31 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1994-11-09 10:57:28 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -31,6 +31,7 @@ vlRenderWindow::vlRenderWindow()
   OldScreen[4] = 1;
   Mapped = 0;
   DoubleBuffer = 1;
+  StereoRender = 0;
 
   strcpy(this->Name,"Visualization Library");
 }
@@ -87,6 +88,8 @@ void vlRenderWindow::PrintSelf(ostream& os, vlIndent indent)
     os << indent << "Renderers:\n";
     this->Renderers.PrintSelf(os,indent.GetNextIndent());
     os << indent << "Size: (" << temp[0] << ", " << temp[1] << ")\n";
+    os << indent << "Stereo Render: " 
+      << (this->StereoRender ? "On\n":"Off\n");
     }
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1994-09-27 10:42:57 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-11-09 10:57:07 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -29,6 +29,9 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #include "Object.hh"
 #include "RenderC.hh"
 
+// lets define the diferent types of stereo
+#define VL_STEREO_CRYSTAL_EYES 1
+
 class vlRenderWindow : public vlObject
 {
 public:
@@ -41,6 +44,8 @@ public:
   int   OldScreen[5];
   int   Mapped;
   int   DoubleBuffer;
+  int   StereoRender;
+  int   StereoType;
 
 public:
   vlRenderWindow();
@@ -117,6 +122,8 @@ public:
   vlSetMacro(DoubleBuffer,int);
   vlGetMacro(DoubleBuffer,int);
   vlBooleanMacro(DoubleBuffer,int);
+
+  vlGetMacro(StereoRender,int);
 };
 
 #endif
