@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfFormat.cxx,v 1.9 2004-01-21 20:25:34 andy Exp $  */
-/*  Date : $Date: 2004-01-21 20:25:34 $ */
-/*  Version : $Revision: 1.9 $ */
+/*  Id : $Id: XdmfFormat.cxx,v 1.10 2004-02-13 20:19:58 andy Exp $  */
+/*  Date : $Date: 2004-02-13 20:19:58 $ */
+/*  Version : $Revision: 1.10 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -168,10 +168,13 @@ for( i = 0 ; i < NumberOfMembers ; i++ ){
     if( !name ) {
       name = GetUnique("XdmfMember");
       }
-    Desc->AddCompoundMember( name,
+    XdmfString sname = 0;
+    XDMF_STRING_DUPLICATE(sname, name);
+    Desc->AddCompoundMember( sname,
         ChildDesc->GetNumberType(),
         Rank,
         Dimensions );
+    delete [] sname;
     delete ChildDesc;
     }
   }
