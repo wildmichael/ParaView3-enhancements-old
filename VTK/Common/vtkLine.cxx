@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLine.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-08 00:28:44 $
-  Version:   $Revision: 1.75 $
+  Date:      $Date: 2002-07-31 19:24:18 $
+  Version:   $Revision: 1.76 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkPointData.h"
 #include "vtkPointLocator.h"
 
-vtkCxxRevisionMacro(vtkLine, "$Revision: 1.75 $");
+vtkCxxRevisionMacro(vtkLine, "$Revision: 1.76 $");
 vtkStandardNewMacro(vtkLine);
 
 // Construct the line with two points.
@@ -349,7 +349,7 @@ float vtkLine::DistanceToLine (float x[3], float p1[3], float p2[3])
 // Line-line intersection. Intersection has to occur within [0,1] parametric
 // coordinates and with specified tolerance.
 int vtkLine::IntersectWithLine(float p1[3], float p2[3], float tol, float& t,
-                              float x[3], float pcoords[3], int& subId)
+                               float x[3], float pcoords[3], int& subId)
 {
   float *a1, *a2;
   float projXYZ[3];
@@ -363,11 +363,11 @@ int vtkLine::IntersectWithLine(float p1[3], float p2[3], float tol, float& t,
 
   if ( this->Intersection(p1, p2, a1, a2, t, pcoords[0]) == VTK_YES_INTERSECTION )
     {
-    // make sure we are withing tolerance
+    // make sure we are within tolerance
     for (i=0; i<3; i++)
       {
-        x[i] = a1[i] + pcoords[0]*(a2[i]-a1[i]);
-        projXYZ[i] = p1[i] + t*(p2[i]-p1[i]);
+      x[i] = a1[i] + pcoords[0]*(a2[i]-a1[i]);
+      projXYZ[i] = p1[i] + t*(p2[i]-p1[i]);
       }
     if ( vtkMath::Distance2BetweenPoints(x,projXYZ) <= tol*tol )
       {
