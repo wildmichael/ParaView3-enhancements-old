@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRotationalExtrusionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:34:09 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-08-31 21:25:21 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -78,7 +78,6 @@ void vtkRotationalExtrusionFilter::Execute()
 // Initialize / check input
 //
   vtkDebugMacro(<<"Rotationally extruding data");
-  output->Initialize();
 
   if ( (numPts=input->GetNumberOfPoints()) < 1 || 
   (numCells=input->GetNumberOfCells()) < 1 )

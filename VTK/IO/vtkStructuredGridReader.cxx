@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:34:20 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1995-08-31 21:25:46 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -151,7 +151,6 @@ void vtkStructuredGridReader::Execute()
   vtkStructuredGrid *output=(vtkStructuredGrid *)this->Output;
   
   vtkDebugMacro(<<"Reading vtk structured grid file...");
-  output->Initialize();
   if ( this->Debug ) this->Reader.DebugOn();
   else this->Reader.DebugOff();
 

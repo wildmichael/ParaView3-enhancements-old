@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:33:56 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1995-08-31 21:24:50 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,7 +68,6 @@ void vtkCubeSource::Execute()
   //
   // Set things up; allocate memory
   //
-  output->Initialize();
 
   newPoints = new vtkFloatPoints(numPts);
   newNormals = new vtkFloatNormals(numPts);

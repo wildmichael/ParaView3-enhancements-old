@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTubeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:34:04 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-08-31 21:25:03 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -77,7 +77,6 @@ void vtkTubeFilter::Execute()
 // Initialize
 //
   vtkDebugMacro(<<"Creating ribbon");
-  output->Initialize();
 
   if ( !(inPts=input->GetPoints()) || 
   (numPts = inPts->GetNumberOfPoints()) < 1 ||

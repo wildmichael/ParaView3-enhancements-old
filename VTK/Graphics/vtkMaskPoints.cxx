@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMaskPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:33:51 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1995-08-31 21:24:30 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,7 +64,6 @@ void vtkMaskPoints::Execute()
   // Check input
   //
   vtkDebugMacro(<<"Masking points");
-  output->Initialize();
 
   if ( numPts < 1 )
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxelModeller.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:34:17 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1995-08-31 21:25:40 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -110,7 +110,6 @@ void vtkVoxelModeller::Execute()
 // Initialize self; create output objects
 //
   vtkDebugMacro(<< "Executing Voxel model");
-  output->Initialize();
 
   numPts = this->SampleDimensions[0] * this->SampleDimensions[1] * this->SampleDimensions[2];
   newScalars = new vtkBitScalars(numPts);

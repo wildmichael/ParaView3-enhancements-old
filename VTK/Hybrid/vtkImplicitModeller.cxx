@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitModeller.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:34:04 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1995-08-31 21:25:05 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -99,7 +99,6 @@ void vtkImplicitModeller::Execute()
   float *origin;
   
   vtkDebugMacro(<< "Executing implicit model");
-  output->Initialize();
 
   numPts = this->SampleDimensions[0] * this->SampleDimensions[1] 
            * this->SampleDimensions[2];

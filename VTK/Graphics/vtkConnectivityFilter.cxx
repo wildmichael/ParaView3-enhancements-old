@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConnectivityFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:33:55 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1995-08-31 21:24:47 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,7 +70,6 @@ void vtkConnectivityFilter::Execute()
   vtkPointData *outputPD = output->GetPointData();
   
   vtkDebugMacro(<<"Executing connectivity filter.");
-  output->Initialize();
   //
   //  Check input/allocate storage
   //

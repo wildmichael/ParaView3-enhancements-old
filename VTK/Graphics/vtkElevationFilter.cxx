@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkElevationFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:34:01 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1995-08-31 21:24:58 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,7 +75,6 @@ void vtkElevationFilter::Execute()
   // Initialize
   //
   vtkDebugMacro(<<"Generating elevation scalars!");
-  this->Output->Initialize();
 
   if ( ((numPts=this->Input->GetNumberOfPoints()) < 1) )
     {

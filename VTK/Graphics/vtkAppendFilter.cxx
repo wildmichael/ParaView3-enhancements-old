@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:33:53 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1995-08-31 21:24:40 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,7 +74,7 @@ void vtkAppendFilter::Update()
   // make sure input is available
   if ( this->InputList.GetNumberOfItems() < 1 )
     {
-    vtkErrorMacro(<< "No input!\n");
+    vtkErrorMacro(<< "No input...can't execute!");
     return;
     }
 
@@ -94,6 +94,7 @@ void vtkAppendFilter::Update()
       this->GetDataReleased() )
     {
     if ( this->StartMethod ) (*this->StartMethod)(this->StartMethodArg);
+    this->Output->Initialize(); //clear output
     this->Execute();
     this->ExecuteTime.Modified();
     this->SetDataReleased(0);
@@ -120,7 +121,6 @@ void vtkAppendFilter::Execute()
   vtkPointData *outputPD = output->GetPointData();
   
   vtkDebugMacro(<<"Appending data together");
-  output->Initialize();
 
   // loop over all data sets, checking to see what point data is available.
   numPts = 0;
