@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKWDirectoryUtilities.h,v $
   Language:  C++
-  Date:      $Date: 2003-03-06 22:10:26 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-03-17 23:33:13 $
+  Version:   $Revision: 1.5 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -79,7 +79,7 @@ public:
   
   // Description:
   // Tests whether a file is a directory.  Returns 1 for yes, 0 for no.
-  int FileIsDirectory(const char* name);
+  static int FileIsDirectory(const char* name);
   
   //BTX
   // Description:
