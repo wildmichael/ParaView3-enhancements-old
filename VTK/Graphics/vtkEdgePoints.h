@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEdgePoints.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:31:21 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-09-11 07:57:26 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,10 +38,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkEdgePoints - generate points on iso-surface
+// .NAME vtkEdgePoints - generate points on isosurface
 // .SECTION Description
 // vtkEdgePoints is a filter that takes as input any dataset and 
-// generates for output a set of points that lie on an iso-surface. The 
+// generates for output a set of points that lie on an isosurface. The 
 // points are created by interpolation along cells edges whose end-points are 
 // below and above the contour value.
 // .SECTION Caveats
