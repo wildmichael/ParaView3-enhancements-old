@@ -3,7 +3,7 @@
  * For conditions of distribution and use, see copyright notice in zlib.h 
  */
 
-/* @(#) $Id: zconf.h,v 1.2 2002-01-04 14:30:51 king Exp $ */
+/* @(#) $Id: zconf.h,v 1.3 2002-02-10 16:55:54 andy Exp $ */
 
 #ifndef _ZCONF_H
 #define _ZCONF_H
@@ -274,6 +274,13 @@ typedef uLong FAR uLongf;
 #   pragma map(inflate_trees_dynamic,"INTRDY")
 #   pragma map(inflate_trees_fixed,"INTRFI")
 #   pragma map(inflate_trees_free,"INTRFR")
+#endif
+
+#if defined(WIN32)
+#pragma warning ( disable : 4100 ) /* unreferenced variable */
+#pragma warning ( disable : 4127 ) /* cond expr is constant */
+#pragma warning ( disable : 4131 ) /* Old style declaration */
+#pragma warning ( disable : 4244 ) /* conversion loss of data */
 #endif
 
 #endif /* _ZCONF_H */
