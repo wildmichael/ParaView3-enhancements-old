@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastIsosurfaceFunction.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:31 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-12-02 17:05:43 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,17 +72,6 @@ public:
     return new vtkVolumeRayCastIsosurfaceFunction;};
 
   // Description:
-  // Given a ray type, cast a ray through the scalar data starting
-  // at ray_position and taking num_steps of ray_increment size.
-  // Return the final compositing value in pixel_value where
-  // pixel_value[0] = red, pixel_value[1] = green, 
-  // pixel_value[2] = blue, pixel_value[3] = alpha
-  // pixel_value[4] = depth, and pixel_value[5] = number of steps
-  void CastARay( int ray_type, void *data_ptr,
-		 float ray_position[3], float ray_increment[3],
-		 int num_steps, float pixel_value[6] );
-
-  // Description:
   // Get the scalar value below which all scalar values have 0 opacity
   float GetZeroOpacityThreshold( vtkVolume *vol );
 
@@ -100,10 +89,16 @@ public:
   // These variables are filled in by SpecificFunctionInitialize
   float       Color[3];
 
+// BTX
+  void CastRay(	struct VolumeRayCastRayInfoStruct *rayInfo,
+		struct VolumeRayCastVolumeInfoStruct *volumeInfo);
+// ETX
+
 protected:
 
   void SpecificFunctionInitialize( vtkRenderer *ren,
 				   vtkVolume   *vol,
+				   struct VolumeRayCastVolumeInfoStruct *volumeInfo,
 				   vtkVolumeRayCastMapper *mapper );
 };
 #endif

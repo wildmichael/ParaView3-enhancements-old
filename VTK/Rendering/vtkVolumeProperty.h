@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProperty.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-15 13:45:28 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1998-12-02 17:05:41 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -185,14 +185,13 @@ public:
   vtkGetMacro(SpecularPower,float);
 
   // Description:
-  // Set/Get the gradient magnitude opacity scale.
-  vtkSetMacro(GradientOpacityScale,float);
-  vtkGetMacro(GradientOpacityScale,float);
-
-  // Description:
-  // Set/Get the gradient magnitude opacity bias.
-  vtkSetMacro(GradientOpacityBias,float);
-  vtkGetMacro(GradientOpacityBias,float);
+  // The gradient magnitude opacity scale and bias values
+  // should be set in the vtkEncodedGradientEstimator.
+  // Do not use these methods.
+  void SetGradientOpacityScale( float v );
+  float GetGradientOpacityScale( );
+  void SetGradientOpacityBias( float v );
+  float GetGradientOpacityBias( );
 
 protected:
 
@@ -218,9 +217,6 @@ protected:
   float				Specular;
   float				SpecularPower;
 
-  // Constants for remapping the gradient magnitude values
-  float				GradientOpacityScale;
-  float				GradientOpacityBias;
 };
 
 // Description:
