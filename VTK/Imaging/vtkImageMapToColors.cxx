@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapToColors.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-17 02:03:53 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2003-10-31 14:22:57 $
+  Version:   $Revision: 1.22 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkScalarsToColors.h"
 #include "vtkPointData.h"
 
-vtkCxxRevisionMacro(vtkImageMapToColors, "$Revision: 1.21 $");
+vtkCxxRevisionMacro(vtkImageMapToColors, "$Revision: 1.22 $");
 vtkStandardNewMacro(vtkImageMapToColors);
 vtkCxxSetObjectMacro(vtkImageMapToColors,LookupTable,vtkScalarsToColors);
 
@@ -82,6 +82,8 @@ void vtkImageMapToColors::ExecuteData(vtkDataObject *output)
     }
   else // normal behaviour
     {
+    this->LookupTable->Build(); //make sure table is built
+
     if (this->DataWasPassed)
       {
       outData->GetPointData()->SetScalars(NULL);
