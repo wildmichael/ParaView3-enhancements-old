@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageClip.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-10 14:07:29 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1999-11-23 13:19:58 $
+  Version:   $Revision: 1.28 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -302,14 +302,14 @@ void vtkImageClip::SetOutputWholeExtent(int piece, int numPieces)
 
   input->UpdateInformation();
   input->GetWholeExtent(ext);
-  this->SplitExtent(piece, numPieces, ext);
+  this->SplitExtentTmp(piece, numPieces, ext);
 
   this->SetOutputWholeExtent(ext);
 }
 
 //----------------------------------------------------------------------------
 // Assumes UpdateInformation was called first.
-int vtkImageClip::SplitExtent(int piece, int numPieces, int *ext)
+int vtkImageClip::SplitExtentTmp(int piece, int numPieces, int *ext)
 {
   int numPiecesInFirstHalf;
   int size[3], mid, splitAxis;
