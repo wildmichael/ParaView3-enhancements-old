@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:30 $
-  Version:   $Revision: 1.68 $
+  Date:      $Date: 2001-02-27 12:39:01 $
+  Version:   $Revision: 1.69 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,8 +43,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 
 
-
-//------------------------------------------------------------------------------
+//--------------------------------------------------------------------------
 vtkAppendPolyData* vtkAppendPolyData::New()
 {
   // First try to create the object from the vtkObjectFactory
@@ -56,9 +55,6 @@ vtkAppendPolyData* vtkAppendPolyData::New()
   // If the factory was unable to create the object, then create it here.
   return new vtkAppendPolyData;
 }
-
-
-
 
 //----------------------------------------------------------------------------
 vtkAppendPolyData::vtkAppendPolyData()
@@ -387,6 +383,7 @@ void vtkAppendPolyData::Execute()
     //vtkErrorMacro(<<"No data to append!");
     return;
     }
+  this->UpdateProgress(0.10);
 
   // Now can allocate memory
 
@@ -492,6 +489,7 @@ void vtkAppendPolyData::Execute()
   cellOffset = 0;
   for (idx = 0; idx < this->NumberOfInputs; ++idx)
     {
+    this->UpdateProgress(0.2 + 0.8*idx/this->NumberOfInputs);
     ds = (vtkPolyData *)(this->Inputs[idx]);
     // this check is not necessary, but I'll put it in anyway
     if (ds != NULL)
