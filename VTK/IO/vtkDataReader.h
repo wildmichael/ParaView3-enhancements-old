@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.h,v $
   Language:  C++
-  Date:      $Date: 1996-01-25 13:27:06 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1996-02-01 14:25:13 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,6 +48,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkDataReader_hh
 
 #include <stdio.h>
+#include <fstream.h>
 #include "vtkObject.hh"
 #include "vtkPointSet.hh"
 
@@ -134,12 +135,12 @@ public:
   int ReadShort(short *result);
   int ReadFloat(float *result);
   void EatWhiteSpace();
-  FILE *GetFP() {return this->fp;};
+  istream *GetIStream() {return this->IS;};
 
 protected:
   char *Filename;
   int FileType;
-  FILE *fp;
+  istream *IS;
 
   char *ScalarsName;
   char *VectorsName;
