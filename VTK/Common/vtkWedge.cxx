@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWedge.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-11-25 21:01:45 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2000-11-28 12:46:29 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -396,7 +396,7 @@ static TRIANGLE_CASES triCases[] = {
   {{ 2,  1,  8, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}}, //59
   {{ 7,  1,  6,  6,  1,  2, -1, -1, -1, -1, -1, -1, -1}}, //60
   {{ 0,  7,  1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}}, //61
-  {{ 2,  6,  0, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}}, //62
+  {{ 0,  2,  6, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}}, //62
   {{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}}  //63
 };
 
