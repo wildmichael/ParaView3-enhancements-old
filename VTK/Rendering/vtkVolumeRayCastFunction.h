@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastFunction.h,v $
   Language:  C++
-  Date:      $Date: 1998-12-03 16:28:36 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-01-07 18:47:57 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -89,18 +89,12 @@ struct VolumeRayCastRayInfoStruct
 
 struct VolumeRayCastVolumeInfoStruct 
 {
-  float WorldToVolumeMatrix[16];
-  float ViewToVolumeMatrix[16];
-  vtkVolume *Volume;
-  int   ScalarDataType;
-  void  *ScalarDataPointer;
-
-  // Description:
-  // These are some variables set during FunctionInitialize. They
-  // are either passed into that function, or acquired using Get 
-  // methods and saved locally for performance reasons. They are
-  // public because they need to be accessed by a templated method
-  // which is not a member method.
+  float                        WorldToVolumeMatrix[16];
+  float                        ViewToVolumeMatrix[16];
+  vtkVolume                    *Volume;
+  float                        CenterDistance;
+  int                          ScalarDataType;
+  void                         *ScalarDataPointer;
   int                          Shading;
   int                          ColorChannels;
   float                        Color[3];
