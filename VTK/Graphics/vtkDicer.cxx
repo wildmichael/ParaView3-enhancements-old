@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDicer.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:03:41 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-04-16 21:08:17 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -175,7 +175,8 @@ void vtkDicer::Execute()
   this->NumberOfPieces = 0;
   this->MarkPoints(root,groupIds);
   this->DeleteTree(root);
-
+  delete root;
+  
   vtkDebugMacro(<<"Created " << this->NumberOfPieces << " pieces");
 //
 // Update self
@@ -220,6 +221,7 @@ void vtkDicer::DeleteTree(vtkOBBNode *OBBptr)
     this->DeleteTree(OBBptr->Kids[1]);
     delete OBBptr->Kids[0];
     delete OBBptr->Kids[1];
+    delete [] OBBptr->Kids;
     }
 }
 

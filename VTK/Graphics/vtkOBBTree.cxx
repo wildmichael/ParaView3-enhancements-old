@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBBTree.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:04:22 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1998-04-16 21:08:17 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -395,6 +395,10 @@ void vtkOBBTree::BuildTree(vtkIdList *cells, vtkOBBNode *OBBptr, int level)
       this->BuildTree(LHlist, LHnode, level+1);
       this->BuildTree(RHlist, RHnode, level+1);
       }
+    
+    // free up local objects
+    LHlist->Delete();
+    RHlist->Delete(); 
     }//if should build tree
 
   if ( cells && this->RetainCellLists ) 
