@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamer.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-04-24 19:41:26 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1996-05-10 15:57:59 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -206,7 +206,8 @@ void vtkStreamer::Update()
   this->GetMTime() > this->ExecuteTime )
     {
     if ( this->Input->GetDataReleased() ) this->Input->ForceUpdate();
-    if ( this->Source->GetDataReleased() ) this->Source->ForceUpdate();
+    if ( this->Source && this->Source->GetDataReleased() ) 
+      this->Source->ForceUpdate();
 
     if ( this->StartMethod ) (*this->StartMethod)(this->StartMethodArg);
     this->Output->Initialize(); //clear output
