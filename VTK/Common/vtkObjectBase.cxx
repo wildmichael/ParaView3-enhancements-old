@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObjectBase.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-21 15:47:42 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-07-09 21:48:34 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -62,6 +62,20 @@ vtkObjectBase::~vtkObjectBase()
     {
     vtkGenericWarningMacro(<< "Trying to delete object with non-zero reference count.");
     }
+}
+
+int vtkObjectBase::IsTypeOf(const char *name) 
+{
+  if ( !strcmp("vtkObjectBase",name) )
+    {
+    return 1;
+    }
+  return 0;
+}
+
+int vtkObjectBase::IsA(const char *type)
+{
+  return this->vtkObjectBase::IsTypeOf(type);
 }
 
 // Delete a vtk object. This method should always be used to delete an object 
@@ -149,5 +163,5 @@ void vtkObjectBase::UnRegister(vtkObjectBase* o)
 
 void vtkObjectBase::CollectRevisions(ostream& os)
 {
-  os << "vtkObjectBase $Revision: 1.3 $\n";
+  os << "vtkObjectBase $Revision: 1.4 $\n";
 }

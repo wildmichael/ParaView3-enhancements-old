@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObjectBase.h,v $
   Language:  C++
-  Date:      $Date: 2002-07-01 22:05:23 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-07-09 21:48:34 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -56,6 +56,18 @@ public:
   virtual const char *GetClassName() const {return "vtkObjectBase";};
 
   // Description:
+  // Return 1 if this class type is the same type of (or a subclass of)
+  // the named class. Returns 0 otherwise. This method works in
+  // combination with vtkTypeRevisionMacro found in vtkSetGet.h.
+  static int IsTypeOf(const char *name);
+
+  // Description:
+  // Return 1 if this class is the same type of (or a subclass of)
+  // the named class. Returns 0 otherwise. This method works in
+  // combination with vtkTypeRevisionMacro found in vtkSetGet.h.
+  virtual int IsA(const char *name);
+
+  // Description:
   // Delete a VTK object.  This method should always be used to delete
   // an object when the New() method was used to create it. Using the
   // C++ delete method will not work with reference counting.
@@ -92,9 +104,9 @@ public:
   void Register(vtkObjectBase* o);
 
   // Description:
-  // Decrease the reference count (release by another object). This has
-  // the same effect as invoking Delete() (i.e., it reduces the reference
-  // count by 1).
+  // Decrease the reference count (release by another object). This
+  // has the same effect as invoking Delete() (i.e., it reduces the
+  // reference count by 1).
   virtual void UnRegister(vtkObjectBase* o);
 
   // Description:
