@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToDataSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-04-24 19:41:13 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1996-07-12 13:03:34 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -106,7 +106,7 @@ void vtkDataSetToDataSetFilter::Update()
       }
 
     if ( this->StartMethod ) (*this->StartMethod)(this->StartMethodArg);
-    // clear just point data output because structure is copied from input
+    // copy topological/geometric structure from input
     this->Output->CopyStructure(this->Input);
     this->Execute();
     this->ExecuteTime.Modified();
