@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLPRectilinearGridReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-16 18:23:06 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-11-22 20:51:52 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -54,13 +54,17 @@ protected:
   const char* GetDataSetName();
   void SetOutputExtent(int* extent);
   void GetPieceInputExtent(int index, int* extent);
+  int ReadPrimaryElement(vtkXMLDataElement* ePrimary);
   void SetupOutputInformation();
   void SetupOutputData();
   int ReadPieceData();
   vtkXMLDataReader* CreatePieceReader();
   void CopySubCoordinates(int* inBounds, int* outBounds, int* subBounds,
                           vtkDataArray* inArray, vtkDataArray* outArray);
-  
+
+  // The PCoordinates element with coordinate information.
+  vtkXMLDataElement* PCoordinatesElement;
+
 private:
   vtkXMLPRectilinearGridReader(const vtkXMLPRectilinearGridReader&);  // Not implemented.
   void operator=(const vtkXMLPRectilinearGridReader&);  // Not implemented.

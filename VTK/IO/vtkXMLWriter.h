@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLWriter.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-23 15:57:11 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-11-22 20:51:52 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -277,6 +277,8 @@ protected:
   void WritePPoints(vtkPoints* points, vtkIndent indent);
   void WritePDataArray(vtkDataArray* a, vtkIndent indent,
                        const char* alternateName=0);
+  void WritePCoordinates(vtkDataArray* xc, vtkDataArray* yc,
+                         vtkDataArray* zc, vtkIndent indent);
   
   // Internal utility methods.
   int WriteBinaryDataInternal(void* data, unsigned long size);

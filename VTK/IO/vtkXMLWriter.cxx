@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-11 15:05:31 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-11-22 20:51:52 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #include "vtkPoints.h"
 #include "vtkUnsignedCharArray.h"
 
-vtkCxxRevisionMacro(vtkXMLWriter, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkXMLWriter, "$Revision: 1.5 $");
 vtkCxxSetObjectMacro(vtkXMLWriter, Compressor, vtkDataCompressor);
 
 //----------------------------------------------------------------------------
@@ -1345,6 +1345,20 @@ void vtkXMLWriter::WritePDataArray(vtkDataArray* a, vtkIndent indent,
                                a->GetNumberOfComponents());
     }
   os << "/>\n";
+}
+
+//----------------------------------------------------------------------------
+void vtkXMLWriter::WritePCoordinates(vtkDataArray* xc, vtkDataArray* yc,
+                                     vtkDataArray* zc, vtkIndent indent)
+{
+  ostream& os = *(this->Stream);
+  os << indent << "<PCoordinates>\n";
+  
+  this->WritePDataArray(xc, indent.GetNextIndent());
+  this->WritePDataArray(yc, indent.GetNextIndent());
+  this->WritePDataArray(zc, indent.GetNextIndent());
+  
+  os << indent << "</PCoordinates>\n";
 }
 
 //----------------------------------------------------------------------------

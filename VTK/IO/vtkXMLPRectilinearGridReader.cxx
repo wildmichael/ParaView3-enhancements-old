@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLPRectilinearGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-16 18:23:06 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-11-22 20:51:52 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,12 +16,14 @@
 
 =========================================================================*/
 #include "vtkXMLPRectilinearGridReader.h"
-#include "vtkObjectFactory.h"
-#include "vtkXMLRectilinearGridReader.h"
-#include "vtkRectilinearGrid.h"
-#include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkXMLPRectilinearGridReader, "$Revision: 1.1 $");
+#include "vtkFloatArray.h"
+#include "vtkObjectFactory.h"
+#include "vtkRectilinearGrid.h"
+#include "vtkXMLDataElement.h"
+#include "vtkXMLRectilinearGridReader.h"
+
+vtkCxxRevisionMacro(vtkXMLPRectilinearGridReader, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkXMLPRectilinearGridReader);
 
 //----------------------------------------------------------------------------
@@ -89,15 +91,47 @@ void vtkXMLPRectilinearGridReader::GetPieceInputExtent(int index, int* extent)
 }
 
 //----------------------------------------------------------------------------
+int
+vtkXMLPRectilinearGridReader::ReadPrimaryElement(vtkXMLDataElement* ePrimary)
+{
+  if(!this->Superclass::ReadPrimaryElement(ePrimary)) { return 0; }
+  
+  // Find the PCoordinates element.
+  this->PCoordinatesElement = 0;
+  int i;
+  int numNested = ePrimary->GetNumberOfNestedElements();
+  for(i=0;i < numNested; ++i)
+    {
+    vtkXMLDataElement* eNested = ePrimary->GetNestedElement(i);
+    if((strcmp(eNested->GetName(), "PCoordinates") == 0) &&
+       (eNested->GetNumberOfNestedElements() == 3))
+      {
+      this->PCoordinatesElement = eNested;
+      }
+    }
+  
+  if(!this->PCoordinatesElement)
+    {
+    vtkErrorMacro("Could not find PCoordinates element with 3 arrays.");
+    return 0;
+    }
+  
+  return 1;
+}
+
+//----------------------------------------------------------------------------
 void vtkXMLPRectilinearGridReader::SetupOutputInformation()
 {
   this->Superclass::SetupOutputInformation();  
-  vtkRectilinearGrid* output = this->GetOutput();
+  vtkRectilinearGrid* output = this->GetOutput();  
   
   // Create the coordinate arrays.
-  vtkDataArray* x = vtkFloatArray::New();
-  vtkDataArray* y = vtkFloatArray::New();
-  vtkDataArray* z = vtkFloatArray::New();
+  vtkXMLDataElement* xc = this->PCoordinatesElement->GetNestedElement(0);
+  vtkXMLDataElement* yc = this->PCoordinatesElement->GetNestedElement(1);
+  vtkXMLDataElement* zc = this->PCoordinatesElement->GetNestedElement(2);
+  vtkDataArray* x = this->CreateDataArray(xc);
+  vtkDataArray* y = this->CreateDataArray(yc);
+  vtkDataArray* z = this->CreateDataArray(zc);
   output->SetXCoordinates(x);
   output->SetYCoordinates(y);
   output->SetZCoordinates(z);
