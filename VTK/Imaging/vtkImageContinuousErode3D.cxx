@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageContinuousErode3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-29 17:07:00 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-06-16 19:38:17 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -314,13 +314,29 @@ void vtkImageContinuousErode3D::ThreadedExecute(vtkImageData *inData,
   
   switch (inData->GetScalarType())
     {
+    case VTK_DOUBLE:
+      vtkImageContinuousErode3DExecute(this, mask, inData, (double *)(inPtr), 
+				outData, outExt, (double *)(outPtr),id);
+      break;
     case VTK_FLOAT:
       vtkImageContinuousErode3DExecute(this, mask, inData, (float *)(inPtr), 
 				outData, outExt, (float *)(outPtr),id);
       break;
+    case VTK_LONG:
+      vtkImageContinuousErode3DExecute(this, mask, inData, (long *)(inPtr), 
+				outData, outExt, (long *)(outPtr),id);
+      break;
+    case VTK_UNSIGNED_LONG:
+      vtkImageContinuousErode3DExecute(this, mask, inData, (unsigned long *)(inPtr), 
+				outData, outExt, (unsigned long *)(outPtr),id);
+      break;
     case VTK_INT:
       vtkImageContinuousErode3DExecute(this, mask, inData, (int *)(inPtr), 
 				outData, outExt, (int *)(outPtr),id);
+      break;
+    case VTK_UNSIGNED_INT:
+      vtkImageContinuousErode3DExecute(this, mask, inData, (unsigned int *)(inPtr), 
+				outData, outExt, (unsigned int *)(outPtr),id);
       break;
     case VTK_SHORT:
       vtkImageContinuousErode3DExecute(this, mask, inData, (short *)(inPtr), 
@@ -330,6 +346,11 @@ void vtkImageContinuousErode3D::ThreadedExecute(vtkImageData *inData,
       vtkImageContinuousErode3DExecute(this, mask, 
 			       inData, (unsigned short *)(inPtr), 
 			       outData, outExt, (unsigned short *)(outPtr),id);
+      break;
+    case VTK_CHAR:
+      vtkImageContinuousErode3DExecute(this, mask, 
+			       inData, (char *)(inPtr), 
+			       outData, outExt, (char *)(outPtr),id);
       break;
     case VTK_UNSIGNED_CHAR:
       vtkImageContinuousErode3DExecute(this, mask, 

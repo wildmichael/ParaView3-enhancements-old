@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFlip.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:48:05 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-06-16 19:38:19 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -205,13 +205,29 @@ void vtkImageFlip::ThreadedExecute(vtkImageData *inData,
   
   switch (outData->GetScalarType())
     {
+    case VTK_DOUBLE:
+      vtkImageFlipExecute(this, id, inData, inExt, 
+			  outData, outExt, (double *)(outPtr));
+      break;
     case VTK_FLOAT:
       vtkImageFlipExecute(this, id, inData, inExt, 
 			  outData, outExt, (float *)(outPtr));
       break;
+    case VTK_LONG:
+      vtkImageFlipExecute(this, id, inData, inExt, 
+			  outData, outExt, (long *)(outPtr));
+      break;
+    case VTK_UNSIGNED_LONG:
+      vtkImageFlipExecute(this, id, inData, inExt, 
+			  outData, outExt, (unsigned long *)(outPtr));
+      break;
     case VTK_INT:
       vtkImageFlipExecute(this, id, inData, inExt, 
 			  outData, outExt, (int *)(outPtr));
+      break;
+    case VTK_UNSIGNED_INT:
+      vtkImageFlipExecute(this, id, inData, inExt, 
+			  outData, outExt, (unsigned int *)(outPtr));
       break;
     case VTK_SHORT:
       vtkImageFlipExecute(this, id, inData, inExt, 
@@ -224,6 +240,10 @@ void vtkImageFlip::ThreadedExecute(vtkImageData *inData,
     case VTK_UNSIGNED_CHAR:
       vtkImageFlipExecute(this, id, inData, inExt, 
 			  outData, outExt, (unsigned char *)(outPtr));
+      break;
+    case VTK_CHAR:
+      vtkImageFlipExecute(this, id, inData, inExt, 
+			  outData, outExt, (char *)(outPtr));
       break;
     default:
       vtkErrorMacro(<< "Execute: Unknown input ScalarType");

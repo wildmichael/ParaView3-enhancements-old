@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageHSVToRGB.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:48:07 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-06-16 19:38:20 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -204,15 +204,37 @@ void vtkImageHSVToRGB::ThreadedExecute(vtkImageData *inData,
 
   switch (inData->GetScalarType())
     {
+    case VTK_DOUBLE:
+      vtkImageHSVToRGBExecute(this, 
+			      inData, (double *)(inPtr), 
+			      outData, (double *)(outPtr), outExt, id);
+      break;
     case VTK_FLOAT:
       vtkImageHSVToRGBExecute(this, 
 			      inData, (float *)(inPtr), 
 			      outData, (float *)(outPtr), outExt, id);
       break;
+    case VTK_LONG:
+      vtkImageHSVToRGBExecute(this, 
+			      inData, (long *)(inPtr), 
+			      outData, (long *)(outPtr), outExt, id);
+      break;
+    case VTK_UNSIGNED_LONG:
+      vtkImageHSVToRGBExecute(this, 
+			      inData, (unsigned long *)(inPtr), 
+			      outData, (unsigned long *)(outPtr), 
+			      outExt, id);
+      break;
     case VTK_INT:
       vtkImageHSVToRGBExecute(this, 
 			      inData, (int *)(inPtr), 
 			      outData, (int *)(outPtr), outExt, id);
+      break;
+    case VTK_UNSIGNED_INT:
+      vtkImageHSVToRGBExecute(this, 
+			      inData, (unsigned int *)(inPtr), 
+			      outData, (unsigned int *)(outPtr), 
+			      outExt, id);
       break;
     case VTK_SHORT:
       vtkImageHSVToRGBExecute(this, 
@@ -224,6 +246,11 @@ void vtkImageHSVToRGB::ThreadedExecute(vtkImageData *inData,
 			      inData, (unsigned short *)(inPtr), 
 			      outData, (unsigned short *)(outPtr), 
 			      outExt, id);
+      break;
+    case VTK_CHAR:
+      vtkImageHSVToRGBExecute(this, 
+			      inData, (char *)(inPtr), 
+			      outData, (char *)(outPtr), outExt, id);
       break;
     case VTK_UNSIGNED_CHAR:
       vtkImageHSVToRGBExecute(this, 

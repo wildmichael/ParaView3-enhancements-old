@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageExtractComponents.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-29 17:07:01 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-06-16 19:38:18 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -257,14 +257,34 @@ void vtkImageExtractComponents::ThreadedExecute(vtkImageData *inData,
   // choose which templated function to call.
   switch (inData->GetScalarType())
     {
+    case VTK_DOUBLE:
+      vtkImageExtractComponentsExecute(this, inData, (double *)(inPtr),
+				       outData, (double *)(outPtr),
+				       outExt, id);
+      break;
     case VTK_FLOAT:
       vtkImageExtractComponentsExecute(this, inData, (float *)(inPtr),
 				       outData, (float *)(outPtr),
 				       outExt, id);
       break;
+    case VTK_LONG:
+      vtkImageExtractComponentsExecute(this, inData, (long *)(inPtr),
+				       outData, (long *)(outPtr),
+				       outExt, id);
+      break;
+    case VTK_UNSIGNED_LONG:
+      vtkImageExtractComponentsExecute(this,inData,(unsigned long *)(inPtr),
+				       outData, (unsigned long *)(outPtr),
+				       outExt, id);
+      break;
     case VTK_INT:
       vtkImageExtractComponentsExecute(this, inData, (int *)(inPtr),
 				       outData, (int *)(outPtr),
+				       outExt, id);
+      break;
+    case VTK_UNSIGNED_INT:
+      vtkImageExtractComponentsExecute(this,inData,(unsigned int *)(inPtr),
+				       outData, (unsigned int *)(outPtr),
 				       outExt, id);
       break;
     case VTK_SHORT:
@@ -275,6 +295,11 @@ void vtkImageExtractComponents::ThreadedExecute(vtkImageData *inData,
     case VTK_UNSIGNED_SHORT:
       vtkImageExtractComponentsExecute(this,inData,(unsigned short *)(inPtr),
 				       outData, (unsigned short *)(outPtr),
+				       outExt, id);
+      break;
+    case VTK_CHAR:
+      vtkImageExtractComponentsExecute(this, inData, (char *)(inPtr),
+				       outData, (char *)(outPtr),
 				       outExt, id);
       break;
     case VTK_UNSIGNED_CHAR:

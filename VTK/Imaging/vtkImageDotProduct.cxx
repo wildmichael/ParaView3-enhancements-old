@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDotProduct.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-05-06 02:21:59 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-06-16 19:38:18 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -171,6 +171,13 @@ void vtkImageDotProduct::ThreadedExecute(vtkImageData **inData,
 
   switch (inData[0]->GetScalarType())
     {
+    case VTK_DOUBLE:
+      vtkImageDotProductExecute(this, inData[0], 
+				(double *)(in1Ptr), 
+				inData[1], (double *)(in2Ptr), 
+				outData, (double *)(outPtr), 
+				outExt, id);
+      break;
     case VTK_FLOAT:
       vtkImageDotProductExecute(this, inData[0], 
 				(float *)(in1Ptr), 
@@ -178,10 +185,34 @@ void vtkImageDotProduct::ThreadedExecute(vtkImageData **inData,
 				outData, (float *)(outPtr), 
 				outExt, id);
       break;
+    case VTK_LONG:
+      vtkImageDotProductExecute(this, inData[0], (long *)(in1Ptr), 
+				inData[1], (long *)(in2Ptr), 
+				outData, (long *)(outPtr), 
+				outExt, id);
+      break;
+    case VTK_UNSIGNED_LONG:
+      vtkImageDotProductExecute(this, inData[0], 
+				(unsigned long *)(in1Ptr), 
+				inData[1], 
+				(unsigned long *)(in2Ptr), 
+				outData, 
+				(unsigned long *)(outPtr), 
+				outExt, id);
+      break;
     case VTK_INT:
       vtkImageDotProductExecute(this, inData[0], (int *)(in1Ptr), 
 				inData[1], (int *)(in2Ptr), 
 				outData, (int *)(outPtr), 
+				outExt, id);
+      break;
+    case VTK_UNSIGNED_INT:
+      vtkImageDotProductExecute(this, inData[0], 
+				(unsigned int *)(in1Ptr), 
+				inData[1], 
+				(unsigned int *)(in2Ptr), 
+				outData, 
+				(unsigned int *)(outPtr), 
 				outExt, id);
       break;
     case VTK_SHORT:
@@ -198,6 +229,13 @@ void vtkImageDotProduct::ThreadedExecute(vtkImageData **inData,
 				(unsigned short *)(in2Ptr), 
 				outData, 
 				(unsigned short *)(outPtr), 
+				outExt, id);
+      break;
+    case VTK_CHAR:
+      vtkImageDotProductExecute(this, inData[0], 
+				(char *)(in1Ptr), 
+				inData[1], (char *)(in2Ptr), 
+				outData, (char *)(outPtr), 
 				outExt, id);
       break;
     case VTK_UNSIGNED_CHAR:

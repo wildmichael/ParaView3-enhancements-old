@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAccumulate.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-20 15:57:15 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-06-16 19:38:15 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -218,14 +218,34 @@ void vtkImageAccumulate::Execute(vtkImageData *inData,
   
   switch (inData->GetScalarType())
     {
+    case VTK_DOUBLE:
+      vtkImageAccumulateExecute(this, 
+			  inData, (double *)(inPtr), 
+			  outData, (int *)(outPtr));
+      break;
     case VTK_FLOAT:
       vtkImageAccumulateExecute(this, 
 			  inData, (float *)(inPtr), 
 			  outData, (int *)(outPtr));
       break;
+    case VTK_LONG:
+      vtkImageAccumulateExecute(this, 
+			  inData, (long *)(inPtr), 
+			  outData, (int *)(outPtr));
+      break;
+    case VTK_UNSIGNED_LONG:
+      vtkImageAccumulateExecute(this, 
+			  inData, (unsigned long *)(inPtr), 
+			  outData, (int *)(outPtr));
+      break;
     case VTK_INT:
       vtkImageAccumulateExecute(this, 
 			  inData, (int *)(inPtr), 
+			  outData, (int *)(outPtr));
+      break;
+    case VTK_UNSIGNED_INT:
+      vtkImageAccumulateExecute(this, 
+			  inData, (unsigned int *)(inPtr), 
 			  outData, (int *)(outPtr));
       break;
     case VTK_SHORT:
@@ -236,6 +256,11 @@ void vtkImageAccumulate::Execute(vtkImageData *inData,
     case VTK_UNSIGNED_SHORT:
       vtkImageAccumulateExecute(this, 
 			  inData, (unsigned short *)(inPtr), 
+			  outData, (int *)(outPtr));
+      break;
+    case VTK_CHAR:
+      vtkImageAccumulateExecute(this, 
+			  inData, (char *)(inPtr), 
 			  outData, (int *)(outPtr));
       break;
     case VTK_UNSIGNED_CHAR:

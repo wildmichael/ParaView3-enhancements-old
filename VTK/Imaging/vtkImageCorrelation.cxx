@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCorrelation.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:48:03 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-06-16 19:38:17 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -247,6 +247,13 @@ void vtkImageCorrelation::ThreadedExecute(vtkImageData **inData,
   
   switch (inData[0]->GetScalarType())
     {
+    case VTK_DOUBLE:
+      vtkImageCorrelationExecute(this, inData[0], 
+				 (double *)(in1Ptr), 
+				 inData[1], (double *)(in2Ptr), 
+				 outData, outPtr, 
+				 outExt, id);
+      break;
     case VTK_FLOAT:
       vtkImageCorrelationExecute(this, inData[0], 
 				 (float *)(in1Ptr), 
@@ -254,9 +261,27 @@ void vtkImageCorrelation::ThreadedExecute(vtkImageData **inData,
 				 outData, outPtr, 
 				 outExt, id);
       break;
+    case VTK_LONG:
+      vtkImageCorrelationExecute(this, inData[0], (long *)(in1Ptr), 
+				 inData[1], (long *)(in2Ptr), 
+				 outData, outPtr, 
+				 outExt, id);
+      break;
+    case VTK_UNSIGNED_LONG:
+      vtkImageCorrelationExecute(this, inData[0], (unsigned long *)(in1Ptr), 
+				 inData[1], (unsigned long *)(in2Ptr), 
+				 outData, outPtr, 
+				 outExt, id);
+      break;
     case VTK_INT:
       vtkImageCorrelationExecute(this, inData[0], (int *)(in1Ptr), 
 				 inData[1], (int *)(in2Ptr), 
+				 outData, outPtr, 
+				 outExt, id);
+      break;
+    case VTK_UNSIGNED_INT:
+      vtkImageCorrelationExecute(this, inData[0], (unsigned int *)(in1Ptr), 
+				 inData[1], (unsigned int *)(in2Ptr), 
 				 outData, outPtr, 
 				 outExt, id);
       break;
@@ -272,6 +297,13 @@ void vtkImageCorrelation::ThreadedExecute(vtkImageData **inData,
 				 (unsigned short *)(in1Ptr), 
 				 inData[1], 
 				 (unsigned short *)(in2Ptr), 
+				 outData, outPtr, outExt, id);
+      break;
+    case VTK_CHAR:
+      vtkImageCorrelationExecute(this, inData[0], 
+				 (char *)(in1Ptr), 
+				 inData[1], 
+				 (char *)(in2Ptr), 
 				 outData, outPtr, outExt, id);
       break;
     case VTK_UNSIGNED_CHAR:
