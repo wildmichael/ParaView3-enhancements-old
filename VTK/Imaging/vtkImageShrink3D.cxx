@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageShrink3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-22 13:05:45 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1996-08-28 19:19:53 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -115,7 +115,7 @@ void vtkImage3dShrinkFilter::ComputeOutputImageInformation(
     imageBounds[2*idx+1] = (imageBounds[2*idx+1] - this->Shift[idx])
       / this->ShrinkFactors[idx];
     // Change the aspect ratio.
-    aspectRatio[idx] /= (float)(this->ShrinkFactors[idx]);
+    aspectRatio[idx] *= (float)(this->ShrinkFactors[idx]);
     }
 
   outRegion->SetImageBounds3d(imageBounds);
