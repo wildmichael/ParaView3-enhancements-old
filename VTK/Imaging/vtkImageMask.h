@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMask.h,v $
   Language:  C++
-  Date:      $Date: 1998-08-13 13:26:02 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1998-08-18 11:52:46 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -73,7 +73,7 @@ public:
   void SetMaskedOutputValue(float v1, float v2) 
     {float v[2]; v[0]=v1; v[1]=v2; this->SetMaskedOutputValue(2, v);}
   void SetMaskedOutputValue(float v1, float v2, float v3) 
-    {float v[2]; v[0]=v1; v[1]=v2; v[2]=v3; this->SetMaskedOutputValue(3, v);}
+    {float v[3]; v[0]=v1; v[1]=v2; v[2]=v3; this->SetMaskedOutputValue(3, v);}
   float *GetMaskedOutputValue() {return this->MaskedOutputValue;}
   int GetMaskedOutputValueLength() {return this->MaskedOutputValueLength;}
 
