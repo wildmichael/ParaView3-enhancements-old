@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSubdivideTetra.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-02 21:04:55 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-04-03 16:20:55 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -246,6 +246,7 @@ void vtkSubdivideTetra::Execute()
     output->InsertNextCell(VTK_TETRA, 4, pts);
 
     } //for all cells
+  cell->Delete();
 
   vtkDebugMacro(<<"Subdivided " << numCells << " cells");
 
