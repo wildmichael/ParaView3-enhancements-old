@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBrownianPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:08 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2002-06-04 11:17:20 $
+  Version:   $Revision: 1.34 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkBrownianPoints, "$Revision: 1.33 $");
+vtkCxxRevisionMacro(vtkBrownianPoints, "$Revision: 1.34 $");
 vtkStandardNewMacro(vtkBrownianPoints);
 
 vtkBrownianPoints::vtkBrownianPoints()
@@ -63,9 +63,10 @@ void vtkBrownianPoints::Execute()
     this->MaximumSpeed = 1.0;
     }
 
+  int tenth = numPts/10 + 1;
   for (i=0; i<numPts; i++)
     {
-    if ( ! (i % 10000) ) 
+    if ( ! (i % tenth) ) 
       {
       this->UpdateProgress ((float)i/numPts);
       if (this->GetAbortExecute())
@@ -79,7 +80,7 @@ void vtkBrownianPoints::Execute()
       {
       for (j=0; j<3; j++)
         {
-        v[j] = vtkMath::Random(0,speed);
+        v[j] = vtkMath::Random(-1.0,1.0);
         }
       norm = vtkMath::Norm(v);
       for (j=0; j<3; j++)
@@ -89,10 +90,9 @@ void vtkBrownianPoints::Execute()
       }
     else
       {
-      for (j=0; j<3; j++)
-        {
-        v[j] = 0.0;
-        }
+      v[0] = 0.0;
+      v[1] = 0.0;
+      v[2] = 0.0;
       }
 
     newVectors->SetTuple(i,v);
