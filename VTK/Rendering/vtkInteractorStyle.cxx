@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-27 12:53:45 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-08-27 13:39:40 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,8 +67,8 @@ vtkInteractorStyle::vtkInteractorStyle()
   this->CurrentActor     = NULL;
 
   this->State    = VTKIS_START;
-  this->CtrlKey  = false;
-  this->ShiftKey = false;
+  this->CtrlKey  = 0;
+  this->ShiftKey = 1;
 
   this->LeftButtonPressMethod = NULL;
   this->LeftButtonPressMethodArgDelete = NULL;
