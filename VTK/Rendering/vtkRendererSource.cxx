@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRendererSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 21:23:35 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1996-01-11 10:52:11 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -122,4 +122,19 @@ void vtkRendererSource::PrintSelf(ostream& os, vtkIndent indent)
     {
     os << indent << "Input: (none)\n";
     }
+}
+
+
+unsigned long vtkRendererSource::GetMTime()
+{
+  unsigned long mTime=this->MTime.GetMTime();
+  unsigned long transMTime;
+
+  if ( this->Input )
+    {
+    transMTime = this->Input->GetMTime();
+    mTime = ( transMTime > mTime ? transMTime : mTime );
+    }
+
+  return mTime;
 }
