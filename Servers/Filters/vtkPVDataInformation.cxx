@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVDataInformation.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-06-04 17:08:20 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2003-06-09 16:57:10 $
+  Version:   $Revision: 1.11 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -55,7 +55,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkPVDataInformation);
-vtkCxxRevisionMacro(vtkPVDataInformation, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtkPVDataInformation, "$Revision: 1.11 $");
 
 
 //----------------------------------------------------------------------------
@@ -508,20 +508,20 @@ void vtkPVDataInformation::CopyFromMessage(unsigned char *msg)
   this->DataSetType = *tmp;
   tmp += 1;
 
-  if (swap) {vtkByteSwap::SwapVoidRange((void *)msg, 1, sizeof(vtkIdType));}
+  if (swap) {vtkByteSwap::SwapVoidRange((void *)tmp, 1, sizeof(vtkIdType));}
   memcpy((unsigned char*)&this->NumberOfPoints, tmp, sizeof(vtkIdType));
   tmp += sizeof(vtkIdType);
 
-  if (swap) {vtkByteSwap::SwapVoidRange((void *)msg, 1, sizeof(vtkIdType));}
+  if (swap) {vtkByteSwap::SwapVoidRange((void *)tmp, 1, sizeof(vtkIdType));}
   memcpy((unsigned char*)&this->NumberOfCells, tmp, sizeof(vtkIdType));
   tmp += sizeof(vtkIdType);
 
-  if (swap) {vtkByteSwap::SwapVoidRange((void *)msg, 1, sizeof(int));}
+  if (swap) {vtkByteSwap::SwapVoidRange((void *)tmp, 1, sizeof(int));}
   memcpy((unsigned char*)&this->MemorySize, tmp, sizeof(int));
   tmp += sizeof(int);
 
   // Bounds
-  if (swap) {vtkByteSwap::SwapVoidRange((void *)msg, 6, sizeof(double));}
+  if (swap) {vtkByteSwap::SwapVoidRange((void *)tmp, 6, sizeof(double));}
   for (idx = 0; idx < 6; ++idx)
     {
     memcpy((unsigned char*)&this->Bounds[idx], tmp, sizeof(double));
@@ -529,7 +529,7 @@ void vtkPVDataInformation::CopyFromMessage(unsigned char *msg)
     }
 
   // Extent
-  if (swap) {vtkByteSwap::SwapVoidRange((void *)msg, 6, sizeof(int));}
+  if (swap) {vtkByteSwap::SwapVoidRange((void *)tmp, 6, sizeof(int));}
   for (idx = 0; idx < 6; ++idx)
     {
     memcpy((unsigned char*)&this->Extent[idx], tmp, sizeof(int));
