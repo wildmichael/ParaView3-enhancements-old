@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-27 01:17:17 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2003-02-17 16:03:39 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,7 +31,7 @@
 
 #include <sys/stat.h>
 
-vtkCxxRevisionMacro(vtkXMLReader, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkXMLReader, "$Revision: 1.7 $");
 
 //----------------------------------------------------------------------------
 vtkXMLReader::vtkXMLReader()
@@ -382,7 +382,10 @@ int vtkXMLReader::CanReadFile(const char* name)
   // First make sure the file exists.  This prevents an empty file
   // from being created on older compilers.
   struct stat fs;
-  if(stat(name, &fs) != 0) { return 0; }
+  if(stat(name, &fs) != 0) 
+    { 
+    return 0; 
+    }
   
   // Test if the file with the given name is a VTKFile with the given
   // type.
@@ -399,12 +402,12 @@ int vtkXMLReader::CanReadFile(const char* name)
         {
         if(this->CanReadFileVersionString(version))
           {
-          result = 1;
+          result = 3;
           }
         }
       else
         {
-        result = 1;
+        result = 3;
         }
       }
     }
