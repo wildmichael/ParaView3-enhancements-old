@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMCubesReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-23 19:13:12 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1998-09-18 12:41:09 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,7 +44,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkMergePoints.h"
 #include "vtkByteSwap.h"
 
-// Description:
 // Construct object with FlipNormals turned off and Normals set to true.
 vtkMCubesReader::vtkMCubesReader()
 {
@@ -221,7 +220,6 @@ void vtkMCubesReader::Execute()
   if (this->Locator) this->Locator->Initialize(); //free storage
 }
 
-// Description:
 // Specify a spatial locator for merging points. By default, 
 // an instance of vtkMergePoints is used.
 void vtkMCubesReader::SetLocator(vtkPointLocator *locator)

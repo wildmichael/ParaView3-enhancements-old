@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractGeometry.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-06 19:14:31 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1998-09-18 12:41:02 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,7 +40,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkExtractGeometry.h"
 
-// Description:
 // Construct object with ExtractInside turned on.
 vtkExtractGeometry::vtkExtractGeometry(vtkImplicitFunction *f)
 {
@@ -48,7 +47,6 @@ vtkExtractGeometry::vtkExtractGeometry(vtkImplicitFunction *f)
   this->ExtractInside = 1;
 }
 
-// Description:
 // Overload standard modified time function. If implicit function is modified,
 // then this object is modified as well.
 unsigned long vtkExtractGeometry::GetMTime()

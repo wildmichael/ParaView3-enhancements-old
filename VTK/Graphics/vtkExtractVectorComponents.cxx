@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractVectorComponents.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-02 19:43:40 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1998-09-18 12:41:03 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,7 +60,6 @@ vtkExtractVectorComponents::~vtkExtractVectorComponents()
     }
 }
 
-// Description:
 // Get the output dataset containing the indicated component. The component is 
 // specified by an index between (0,2) corresponding to the x, y, or z vector
 // component. By default, the x component is extracted.
@@ -83,7 +82,6 @@ vtkDataSet *vtkExtractVectorComponents::GetOutput(int i)
   else return (vtkDataSet *)this->VzComponent;
 }
 
-// Description:
 // Get the output dataset representing velocity x-component. If output is NULL
 // then input hasn't been set, which is necessary for abstract objects. (Note:
 // this method returns the same information as the GetOutput() method with an
@@ -97,7 +95,6 @@ vtkDataSet *vtkExtractVectorComponents::GetVxComponent()
   return (vtkDataSet *)this->Output;
 }
 
-// Description:
 // Get the output dataset representing velocity y-component. If output is NULL
 // then input hasn't been set, which is necessary for abstract objects. (Note:
 // this method returns the same information as the GetOutput() method with an
@@ -111,7 +108,6 @@ vtkDataSet *vtkExtractVectorComponents::GetVyComponent()
   return this->VyComponent;
 }
 
-// Description:
 // Get the output dataset representing velocity z-component. If output is NULL
 // then input hasn't been set, which is necessary for abstract objects. (Note:
 // this method returns the same information as the GetOutput() method with an
@@ -125,7 +121,6 @@ vtkDataSet *vtkExtractVectorComponents::GetVzComponent()
   return this->VzComponent;
 }
 
-// Description:
 // Specify the input data or filter.
 void vtkExtractVectorComponents::SetInput(vtkDataSet *input)
 {
@@ -170,7 +165,6 @@ void vtkExtractVectorComponents::SetInput(vtkDataSet *input)
     }
 }
 
-// Description:
 // Update input to this filter and the filter itself. Note that we are 
 // overloading this method because the output is an abstract dataset type.
 // This requires special treatment.

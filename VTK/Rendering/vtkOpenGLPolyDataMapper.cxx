@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-07-28 19:34:56 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1998-09-18 12:41:12 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,14 +53,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkPolygon.h"
 #include "vtkTriangle.h"
 
-// Description:
 // Construct empty object.
 vtkOpenGLPolyDataMapper::vtkOpenGLPolyDataMapper()
 {
   this->ListId = 0;
 }
 
-// Description:
 // Construct empty object.
 vtkOpenGLPolyDataMapper::~vtkOpenGLPolyDataMapper()
 {
@@ -72,7 +70,6 @@ vtkOpenGLPolyDataMapper::~vtkOpenGLPolyDataMapper()
         }
 }
 
-// Description:
 // Get the lmcolor property, this is a pretty important little 
 // function.  It determines how vertex colors will be handled  
 // in gl.  When a PolyDataMapper has vertex colors it will use this 
@@ -1735,7 +1732,6 @@ void vtkOpenGLDrawNSTW(vtkCellArray *aPrim, GLenum,
 
 
 
-// Description:
 // Draw method for OpenGL.
 void vtkOpenGLPolyDataMapper::Draw(vtkRenderer *aren, vtkActor *act)
 {

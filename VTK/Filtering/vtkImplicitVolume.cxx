@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-23 19:13:10 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-09-18 12:41:07 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,7 +41,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkImplicitVolume.h"
 #include "vtkVoxel.h"
 
-// Description
 // Construct an vtkImplicitVolume with no initial volume; the OutValue
 // set to a large negative number; and the OutGradient set to (0,0,1).
 vtkImplicitVolume::vtkImplicitVolume()
@@ -54,7 +53,6 @@ vtkImplicitVolume::vtkImplicitVolume()
   this->OutGradient[2] = 1.0;
 }
 
-// Description
 // Evaluate the ImplicitVolume. This returns the interpolated scalar value
 // at x[3].
 float vtkImplicitVolume::EvaluateFunction(float x[3])
@@ -109,7 +107,6 @@ unsigned long vtkImplicitVolume::GetMTime()
 }
 
 
-// Description
 // Evaluate ImplicitVolume gradient.
 void vtkImplicitVolume::EvaluateGradient(float x[3], float n[3])
 {

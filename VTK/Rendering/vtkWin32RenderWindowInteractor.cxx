@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32RenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-08-03 13:00:26 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1998-09-18 12:41:39 $
+  Version:   $Revision: 1.23 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -59,7 +59,6 @@ void (*vtkWin32RenderWindowInteractor::ClassExitMethodArgDelete)(void *)
                                                   = (void (*)(void *))NULL;
 
 
-// Description:
 // Construct object so that light follows camera motion.
 vtkWin32RenderWindowInteractor::vtkWin32RenderWindowInteractor()
 {
@@ -110,7 +109,6 @@ void  vtkWin32RenderWindowInteractor::Start()
     }
 }
 
-// Description:
 // Begin processing keyboard strokes.
 void vtkWin32RenderWindowInteractor::Initialize()
 {
@@ -600,7 +598,6 @@ LRESULT CALLBACK vtkHandleMessage(HWND hWnd,UINT uMsg, WPARAM wParam, LPARAM lPa
 
 
 
-// Description:
 // Specify the default function to be called when an interactor needs to exit.
 // This callback is overridden by an instance ExitMethod that is defined.
 void
@@ -624,7 +621,6 @@ vtkWin32RenderWindowInteractor::SetClassExitMethod(void (*f)(void *),void *arg)
 }
 
 
-// Description:
 // Set the arg delete method.  This is used to free user memory.
 void
 vtkWin32RenderWindowInteractor::SetClassExitMethodArgDelete(void (*f)(void *))

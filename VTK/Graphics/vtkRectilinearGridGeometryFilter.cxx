@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:04:41 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-09-18 12:41:19 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,7 +40,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkRectilinearGridGeometryFilter.h"
 
-// Description:
 // Construct with initial extent (0,100, 0,100, 0,0) (i.e., a k-plane).
 vtkRectilinearGridGeometryFilter::vtkRectilinearGridGeometryFilter()
 {
@@ -279,7 +278,6 @@ void vtkRectilinearGridGeometryFilter::Execute()
     }
 }
 
-// Description:
 // Specify (imin,imax, jmin,jmax, kmin,kmax) indices.
 void vtkRectilinearGridGeometryFilter::SetExtent(int iMin, int iMax, int jMin,
                                                  int jMax, int kMin, int kMax)
@@ -296,7 +294,6 @@ void vtkRectilinearGridGeometryFilter::SetExtent(int iMin, int iMax, int jMin,
   this->SetExtent(extent);
 }
 
-// Description:
 // Specify (imin,imax, jmin,jmax, kmin,kmax) indices in array form.
 void vtkRectilinearGridGeometryFilter::SetExtent(int *extent)
 {

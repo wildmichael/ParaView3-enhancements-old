@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToCylinder.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-08 14:55:55 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1998-09-18 12:41:30 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,7 +43,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkLine.h"
 #include "vtkOBBTree.h"
 
-// Description:
 // Create object with cylinder axis parallel to z-axis (points (0,0,-0.5) 
 // and (0,0,0.5)). The PreventSeam ivar is set to true. The cylinder is 
 // automatically generated.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-07-01 12:17:52 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-09-18 12:41:06 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,7 +40,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkIdFilter.h"
 
-// Description:
 // Construct object with PointIds and CellIds on; and ids being generated
 // as scalars.
 vtkIdFilter::vtkIdFilter()

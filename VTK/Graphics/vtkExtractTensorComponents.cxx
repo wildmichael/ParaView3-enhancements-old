@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractTensorComponents.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-22 22:32:18 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-09-18 12:41:02 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,7 +45,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkNormals.h"
 #include "vtkTCoords.h"
 
-// Description:
 // Construct object to extract nothing and to not pass tensor data
 // through the pipeline.
 vtkExtractTensorComponents::vtkExtractTensorComponents()

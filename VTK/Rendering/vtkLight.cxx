@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLight.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-08-11 18:55:59 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1998-09-18 12:41:08 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,7 +44,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkRenderer.h"
 #include "vtkRenderWindow.h"
 
-// Description:
 // Create a light with the focal point at the origin and its position
 // set to (0,0,1). The lights color is white, intensity=1, and the light 
 // is turned on. 

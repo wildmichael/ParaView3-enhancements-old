@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCone.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:43:29 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1998-09-18 12:40:55 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,14 +41,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkCone.h"
 #include "vtkMath.h"
 
-// Description
 // Construct cone with angle of 45 degrees.
 vtkCone::vtkCone()
 {
   this->Angle = 45.0;
 }
 
-// Description
 // Evaluate cone equation.
 float vtkCone::EvaluateFunction(float x[3])
 {
@@ -57,7 +55,6 @@ float vtkCone::EvaluateFunction(float x[3])
   return x[1]*x[1] + x[2]*x[2] - x[0]*x[0]*tanTheta*tanTheta;
 }
 
-// Description
 // Evaluate cone normal.
 void vtkCone::EvaluateGradient(float x[3], float g[3])
 {

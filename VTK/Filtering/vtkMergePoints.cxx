@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergePoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-07-29 11:21:35 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1998-09-18 12:41:10 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,7 +40,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkMergePoints.h"
 
-// Description:
 // Determine whether point given by x[3] has been inserted into points list.
 // Return id of previously inserted point if this is true, otherwise return
 // -1.

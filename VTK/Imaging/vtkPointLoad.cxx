@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLoad.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-08-29 20:30:55 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1998-09-18 12:41:15 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,7 +42,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkMath.h"
 #include "vtkTensors.h"
 
-// Description:
 // Construct with ModelBounds=(-1,1,-1,1,-1,1), SampleDimensions=(50,50,50),
 // and LoadValue = 1.
 vtkPointLoad::vtkPointLoad()
@@ -64,7 +63,6 @@ vtkPointLoad::vtkPointLoad()
   this->PoissonsRatio = 0.3;
 }
 
-// Description:
 // Specify the dimensions of the volume. A stress tensor will be computed for
 // each point in the volume.
 void vtkPointLoad::SetSampleDimensions(int i, int j, int k)
@@ -78,7 +76,6 @@ void vtkPointLoad::SetSampleDimensions(int i, int j, int k)
   this->SetSampleDimensions(dim);
 }
 
-// Description:
 // Specify the dimensions of the volume. A stress tensor will be computed for
 // each point in the volume.
 void vtkPointLoad::SetSampleDimensions(int dim[3])

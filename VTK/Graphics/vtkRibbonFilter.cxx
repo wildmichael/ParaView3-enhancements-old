@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRibbonFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-08-20 20:13:27 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1998-09-18 12:41:21 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,7 +44,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkNormals.h"
 #include "vtkPolyLine.h"
 
-// Description:
 // Construct ribbon so that width is 0.1, the width does 
 // not vary with scalar values, and the width factor is 2.0.
 vtkRibbonFilter::vtkRibbonFilter()

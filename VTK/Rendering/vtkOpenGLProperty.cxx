@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-12 11:25:24 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-09-18 12:41:12 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,7 +43,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkOpenGLProperty.h"
 #include <GL/gl.h>
 
-// Description:
 // Implement base class method.
 void vtkOpenGLProperty::Render(vtkActor *vtkNotUsed(anActor),
 			     vtkRenderer *vtkNotUsed(ren))
@@ -118,7 +117,6 @@ void vtkOpenGLProperty::Render(vtkActor *vtkNotUsed(anActor),
   glShadeModel(method);
 }
 
-// Description:
 // Implement base class method.
 void vtkOpenGLProperty::BackfaceRender(vtkActor *vtkNotUsed(anActor),
 			     vtkRenderer *vtkNotUsed(ren))

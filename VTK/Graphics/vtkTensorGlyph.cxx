@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensorGlyph.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:05:07 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1998-09-18 12:41:29 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,7 +44,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkNormals.h"
 #include "vtkMath.h"
 
-// Description
 // Construct object with scaling on and scale factor 1.0. Eigenvalues are 
 // extracted, glyphs are colored with input scalar data, and logarithmic
 // scaling is turned off.
@@ -302,7 +301,6 @@ void vtkTensorGlyph::Execute()
   output->Squeeze();
 }
 
-// Description:
 // Override update method because execution can branch two ways (via Input 
 // and Source objects).
 void vtkTensorGlyph::Update()

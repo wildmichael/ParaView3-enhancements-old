@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-29 17:42:06 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1998-09-18 12:41:22 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,7 +46,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define ASCII 0
 #define BINARY 1
 
-// Description:
 // Construct object with merging set to true.
 vtkSTLReader::vtkSTLReader()
 {
@@ -65,7 +64,6 @@ vtkSTLReader::~vtkSTLReader()
     }
 }
 
-// Description:
 // Overload standard modified time function. If locator is modified,
 // then this object is modified as well.
 unsigned long vtkSTLReader::GetMTime()
@@ -304,7 +302,6 @@ int vtkSTLReader::GetSTLFileType(FILE *fp)
   return type;
 }
 
-// Description:
 // Specify a spatial locator for merging points. By
 // default an instance of vtkMergePoints is used.
 void vtkSTLReader::SetLocator(vtkPointLocator *locator)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointDataToCellData.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-08 17:16:15 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-09-18 12:41:14 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,7 +40,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkPointDataToCellData.h"
 
-// Description:
 // Instantiate object so that point data is not passed to output.
 vtkPointDataToCellData::vtkPointDataToCellData()
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-08-11 17:32:32 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-09-18 12:41:37 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,7 +43,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkVolumeRayCastMapper.h"
 #include "vtkVolume.h"
 
-// Description:
 // Grab everything we need for rendering now. This procedure will be called
 // during the initialization phase of ray casting. It is called once per 
 // image. All Gets are done here for both performance and multithreading

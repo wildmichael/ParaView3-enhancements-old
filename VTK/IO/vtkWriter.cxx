@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:05:37 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1998-09-18 12:41:40 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,14 +40,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkWriter.h"
 
-// Description:
 // Construct with no start and end write methods or arguments.
 vtkWriter::vtkWriter()
 {
   this->Input = NULL;
 }
 
-// Description:
 // Write data to output. Method executes subclasses WriteData() method, as 
 // well as StartMethod() and EndMethod() methods.
 void vtkWriter::Write()
@@ -69,7 +67,6 @@ void vtkWriter::Write()
   if ( this->Input->ShouldIReleaseData() ) this->Input->ReleaseData();
 }
 
-// Description:
 // Convenient alias for Write() method.
 void vtkWriter::Update()
 {

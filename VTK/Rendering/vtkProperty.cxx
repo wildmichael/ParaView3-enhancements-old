@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-08-11 18:56:01 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1998-09-18 12:41:18 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,7 +44,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkRenderWindow.h"
 #include "vtkActor.h"
 
-// Description:
 // Construct object with object color, ambient color, diffuse color,
 // specular color, and edge color white; ambient coefficient=0; diffuse 
 // coefficient=0; specular coefficient=0; specular power=1; Gouraud shading;
@@ -79,7 +78,6 @@ vtkProperty::vtkProperty()
   this->FrontfaceCulling = 0;
 }
 
-// Description:
 // Assign one property to another. 
 vtkProperty& vtkProperty::operator=(const vtkProperty& p)
 {
@@ -157,7 +155,6 @@ void vtkProperty::SetColor(float R,float G,float B)
   this->SetSpecularColor(R,G,B);
 }
 
-// Description:
 // Return composite color of object (ambient + diffuse + specular). Return value
 // is a pointer to rgb values.
 float *vtkProperty::GetColor()
@@ -177,7 +174,6 @@ float *vtkProperty::GetColor()
   return this->Color;  
 }
 
-// Description:
 // Copy composite color of object (ambient + diffuse + specular) into array 
 // provided.
 void vtkProperty::GetColor(float rgb[3])

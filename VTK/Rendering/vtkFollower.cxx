@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFollower.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-01 21:01:05 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1998-09-18 12:41:05 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,7 +44,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkFollower.h"
 #include "vtkCamera.h"
 
-// Description:
 // Creates a follower with no camera set
 vtkFollower::vtkFollower()
 {
@@ -62,7 +61,6 @@ vtkFollower::~vtkFollower()
   this->Device->Delete();
 }
 
-// Description:
 // Copy the follower's composite 4x4 matrix into the matrix provided.
 void vtkFollower::GetMatrix(vtkMatrix4x4& result)
 {
@@ -275,7 +273,6 @@ void vtkFollower::PrintSelf(ostream& os, vtkIndent indent)
     }
 }
 
-// Description:
 // This causes the actor to be rendered. It, in turn, will render the actor's
 // property and then mapper.  
 void vtkFollower::Render(vtkRenderer *ren)

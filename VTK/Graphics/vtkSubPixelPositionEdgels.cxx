@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSubPixelPositionEdgels.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-23 19:13:32 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1998-09-18 12:41:29 $
+  Version:   $Revision: 1.17 $
 
 Copyright (c) 1993-1997 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -335,7 +335,6 @@ void vtkSubPixelPositionEdgels::Move(int xdim, int ydim, int zdim,
 }
 
 
-// Description:
 // Override update method because execution can branch two ways 
 // (Input and GradMaps)
 void vtkSubPixelPositionEdgels::Update()
@@ -375,7 +374,6 @@ void vtkSubPixelPositionEdgels::Update()
   if ( this->GradMaps->ShouldIReleaseData() ) this->GradMaps->ReleaseData();
 }
 
-// Description:
 // Print the state of the class.
 void vtkSubPixelPositionEdgels::PrintSelf(ostream& os, vtkIndent indent)
 {

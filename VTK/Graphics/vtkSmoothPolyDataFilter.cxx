@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSmoothPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:04:53 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-09-18 12:41:23 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,7 +43,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkTriangleFilter.h"
 #include "vtkPolygon.h"
 
-// Description:
 // Construct object with number of iterations 20; relaxation factor .01;
 // feature edge smoothing turned off; feature 
 // angle 45 degrees; edge angle 15 degrees; and boundary smoothing turned 

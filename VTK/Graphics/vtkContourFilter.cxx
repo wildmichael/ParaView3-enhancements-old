@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:55:25 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 1998-09-18 12:40:56 $
+  Version:   $Revision: 1.56 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,7 +52,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkImageMarchingCubes.h"
 #endif
 
-// Description:
 // Construct object with initial range (0,1) and single contour value
 // of 0.0.
 vtkContourFilter::vtkContourFilter()
@@ -83,7 +82,6 @@ vtkContourFilter::~vtkContourFilter()
     }
 }
 
-// Description:
 // Overload standard modified time function. If contour values are modified,
 // then this object is modified as well.
 unsigned long vtkContourFilter::GetMTime()
@@ -316,7 +314,6 @@ void vtkContourFilter::StructuredPointsContour(int dim)
 }
 #endif
 
-// Description:
 // Specify a spatial locator for merging points. By default, 
 // an instance of vtkMergePoints is used.
 void vtkContourFilter::SetLocator(vtkPointLocator *locator)

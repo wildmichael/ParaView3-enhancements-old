@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractEdges.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-29 17:41:58 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1998-09-18 12:41:02 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,7 +42,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkEdgeTable.h"
 #include "vtkMergePoints.h"
 
-// Description:
 // Construct object.
 vtkExtractEdges::vtkExtractEdges()
 {
@@ -150,7 +149,6 @@ void vtkExtractEdges::Execute()
   output->Squeeze();
 }
 
-// Description:
 // Specify a spatial locator for merging points. By
 // default an instance of vtkMergePoints is used.
 void vtkExtractEdges::SetLocator(vtkPointLocator *locator)

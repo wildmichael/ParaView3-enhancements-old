@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThresholdPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:05:15 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1998-09-18 12:41:31 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,7 +50,6 @@ vtkThresholdPoints::vtkThresholdPoints()
   this->ThresholdFunction = &vtkThresholdPoints::Upper;
 }
 
-// Description:
 // Criterion is cells whose scalars are less than lower threshold.
 void vtkThresholdPoints::ThresholdByLower(float lower) 
 {
@@ -62,7 +61,6 @@ void vtkThresholdPoints::ThresholdByLower(float lower)
     }
 }
                            
-// Description:
 // Criterion is cells whose scalars are less than upper threshold.
 void vtkThresholdPoints::ThresholdByUpper(float upper)
 {
@@ -74,7 +72,6 @@ void vtkThresholdPoints::ThresholdByUpper(float upper)
     }
 }
                            
-// Description:
 // Criterion is cells whose scalars are between lower and upper thresholds.
 void vtkThresholdPoints::ThresholdBetween(float lower, float upper)
 {

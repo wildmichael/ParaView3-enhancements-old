@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStripper.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:05:00 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1998-09-18 12:41:26 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,7 +40,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkStripper.h"
 
-// Description:
 // Construct object with MaximumLength set to 1000.
 vtkStripper::vtkStripper()
 {

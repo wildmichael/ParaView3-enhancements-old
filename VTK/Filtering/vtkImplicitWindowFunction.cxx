@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitWindowFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:45:13 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-09-18 12:41:08 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,7 +40,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkImplicitWindowFunction.h"
 
-// Description:
 // Construct object with window range (0,1) and window values (0,1).
 vtkImplicitWindowFunction::vtkImplicitWindowFunction()
 {
@@ -57,7 +56,6 @@ vtkImplicitWindowFunction::~vtkImplicitWindowFunction()
 {
 }
 
-// Description
 // Evaluate window function.
 float vtkImplicitWindowFunction::EvaluateFunction(float x[3])
 {
@@ -104,7 +102,6 @@ float vtkImplicitWindowFunction::EvaluateFunction(float x[3])
   return value;
 }
 
-// Description
 // Evaluate window function gradient. Just return implicit function gradient.
 void vtkImplicitWindowFunction::EvaluateGradient(float x[3], float n[3])
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWorldPointPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-06 19:10:20 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-09-18 12:41:40 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,7 +51,6 @@ void vtkWorldPointPicker::Initialize()
   this->vtkPicker::Initialize();
 }
 
-// Description:
 // Perform pick operation with selection point provided. The z location
 // is recovered from the zBuffer. Always returns 0 since no actors are picked.
 int vtkWorldPointPicker::Pick(float selectionX, float selectionY, float selectionZ,

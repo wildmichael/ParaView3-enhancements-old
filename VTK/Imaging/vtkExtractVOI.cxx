@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractVOI.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-08-29 20:30:49 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1998-09-18 12:41:03 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,7 +40,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkExtractVOI.h"
 
-// Description:
 // Construct object to extract all of the input data.
 vtkExtractVOI::vtkExtractVOI()
 {

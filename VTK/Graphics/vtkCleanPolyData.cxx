@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCleanPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:55:20 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1998-09-18 12:40:54 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,7 +41,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkCleanPolyData.h"
 #include "vtkMergePoints.h"
 
-// Description:
 // Construct object with initial tolerance of 0.0.
 vtkCleanPolyData::vtkCleanPolyData()
 {
@@ -265,7 +264,6 @@ void vtkCleanPolyData::Execute()
     }
 }
 
-// Description:
 // Specify a spatial locator for speeding the search process. By
 // default an instance of vtkLocator is used.
 void vtkCleanPolyData::SetLocator(vtkPointLocator *locator)

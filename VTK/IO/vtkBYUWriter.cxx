@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:55:01 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1998-09-18 12:40:52 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,7 +40,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkBYUWriter.h"
 
-// Description:
 // Create object so that it writes displacement, scalar, and texture files
 // (if data is available).
 vtkBYUWriter::vtkBYUWriter()
@@ -75,7 +74,6 @@ vtkBYUWriter::~vtkBYUWriter()
     }
 }
 
-// Description:
 // Write out data in MOVIE.BYU format.
 void vtkBYUWriter::WriteData()
 {

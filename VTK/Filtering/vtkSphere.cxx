@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphere.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:47:33 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1998-09-18 12:41:23 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,7 +40,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkSphere.h"
 
-// Description
 // Construct sphere with center at (0,0,0) and radius=0.5.
 vtkSphere::vtkSphere()
 {
@@ -51,7 +50,6 @@ vtkSphere::vtkSphere()
   this->Center[2] = 0.0;
 }
 
-// Description
 // Evaluate sphere equation ((x-x0)^2 + (y-y0)^2 + (z-z0)^2) - R^2.
 float vtkSphere::EvaluateFunction(float x[3])
 {
@@ -61,7 +59,6 @@ float vtkSphere::EvaluateFunction(float x[3])
            this->Radius*this->Radius );
 }
 
-// Description
 // Evaluate sphere gradient.
 void vtkSphere::EvaluateGradient(float x[3], float n[3])
 {

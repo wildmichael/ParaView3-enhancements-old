@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDicer.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-31 12:54:41 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1998-09-18 12:41:00 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,7 +41,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkDicer.h"
 #include "vtkMath.h"
 
-// Description:
 // Create object with 5000 points per piece.
 vtkDicer::vtkDicer()
 {

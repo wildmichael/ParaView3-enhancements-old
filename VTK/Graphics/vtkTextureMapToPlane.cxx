@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToPlane.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-08 14:55:54 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1998-09-18 12:41:30 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,7 +42,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkMath.h"
 #include "vtkTCoords.h"
 
-// Description:
 // Construct with s,t range=(0,1) and automatic plane generation turned on.
 vtkTextureMapToPlane::vtkTextureMapToPlane()
 {

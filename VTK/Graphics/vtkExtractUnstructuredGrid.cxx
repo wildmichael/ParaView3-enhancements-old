@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-11 14:15:32 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-09-18 12:41:03 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,7 +41,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkExtractUnstructuredGrid.h"
 #include "vtkMergePoints.h"
 
-// Description:
 // Construct with all types of clipping turned off.
 vtkExtractUnstructuredGrid::vtkExtractUnstructuredGrid()
 {
@@ -66,7 +65,6 @@ vtkExtractUnstructuredGrid::vtkExtractUnstructuredGrid()
   this->Output->SetSource(this);
 }
 
-// Description:
 // Specify a (xmin,xmax, ymin,ymax, zmin,zmax) bounding box to clip data.
 void vtkExtractUnstructuredGrid::SetExtent(float xMin,float xMax, float yMin,
                                      float yMax, float zMin, float zMax)
@@ -83,7 +81,6 @@ void vtkExtractUnstructuredGrid::SetExtent(float xMin,float xMax, float yMin,
   this->SetExtent(extent);
 }
 
-// Description:
 // Specify a (xmin,xmax, ymin,ymax, zmin,zmax) bounding box to clip data.
 void vtkExtractUnstructuredGrid::SetExtent(float *extent)
 {

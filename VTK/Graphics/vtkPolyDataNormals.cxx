@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataNormals.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-23 19:13:18 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-09-18 12:41:16 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,7 +44,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkPolygon.h"
 #include "vtkTriangleStrip.h"
 
-// Description:
 // Construct with feature angle=30, splitting and consistency turned on, 
 // flipNormals turned off, and non-manifold traversal turned on.
 vtkPolyDataNormals::vtkPolyDataNormals()

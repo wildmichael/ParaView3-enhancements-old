@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-07-29 18:02:28 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1998-09-18 12:41:27 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,7 +40,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkStructuredGridGeometryFilter.h"
 
-// Description:
 // Construct with initial extent of all the data
 vtkStructuredGridGeometryFilter::vtkStructuredGridGeometryFilter()
 {
@@ -300,7 +299,6 @@ void vtkStructuredGridGeometryFilter::Execute()
     }
 }
 
-// Description:
 // Specify (imin,imax, jmin,jmax, kmin,kmax) indices.
 void vtkStructuredGridGeometryFilter::SetExtent(int iMin, int iMax, int jMin, int jMax, 
                                    int kMin, int kMax)
@@ -317,7 +315,6 @@ void vtkStructuredGridGeometryFilter::SetExtent(int iMin, int iMax, int jMin, in
   this->SetExtent(extent);
 }
 
-// Description:
 // Specify (imin,imax, jmin,jmax, kmin,kmax) indices in array form.
 void vtkStructuredGridGeometryFilter::SetExtent(int *extent)
 {

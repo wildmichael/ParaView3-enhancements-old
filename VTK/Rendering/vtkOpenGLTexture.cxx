@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-12 11:34:09 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1998-09-18 12:41:13 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,14 +45,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkOpenGLTexture.h"
 #include <GL/gl.h>
 
-// Description:
 // Initializes an instance, generates a unique index.
 vtkOpenGLTexture::vtkOpenGLTexture()
 {
   this->Index = 0;
 }
 
-// Description:
 // Implement base class method.
 void vtkOpenGLTexture::Load(vtkRenderer *vtkNotUsed(ren))
 {

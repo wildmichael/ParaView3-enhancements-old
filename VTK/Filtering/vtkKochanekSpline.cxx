@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKochanekSpline.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-07-17 14:26:40 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-09-18 12:41:08 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,7 +41,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include "vtkKochanekSpline.h"
 
-// Description:
 // Construct a KochanekSpline wth the following defaults:
 // DefaultBias = 0,
 // DefaultTension = 0,
@@ -53,7 +52,6 @@ vtkKochanekSpline::vtkKochanekSpline ()
   this->DefaultContinuity = 0.0;
 }
 
-// Description
 // Evaluate a 1D Spline
 float vtkKochanekSpline::Evaluate (float t)
 {
@@ -94,7 +92,6 @@ float vtkKochanekSpline::Evaluate (float t)
                       + *(coefficients + index * 4));
 }
 
-// Description:
 // Compute Kochanek Spline coefficients.
 void vtkKochanekSpline::Compute ()
 {
@@ -184,7 +181,6 @@ void vtkKochanekSpline::Compute ()
 
 #define EPSILON .0001
 
-// Description:
 // Compute the coefficients for a 1D spline
 void vtkKochanekSpline::Fit1D (int size, float *x, float *y,
                         float tension, float bias, float continuity,

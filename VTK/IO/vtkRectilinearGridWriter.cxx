@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:04:42 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-09-18 12:41:19 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,7 +40,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkRectilinearGridWriter.h"
 
-// Description:
 // Specify the input data or filter.
 void vtkRectilinearGridWriter::SetInput(vtkRectilinearGrid *input)
 {

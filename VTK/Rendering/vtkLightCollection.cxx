@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLightCollection.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-02 19:44:18 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-09-18 12:41:08 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,7 +48,6 @@ vtkLightCollection::~vtkLightCollection()
   this->RemoveAllItems();
 }
 
-// Description:
 // Add a light to the list.
 void vtkLightCollection::AddItem(vtkLight *a) 
 {
@@ -56,14 +55,12 @@ void vtkLightCollection::AddItem(vtkLight *a)
   this->vtkCollection::AddItem((vtkObject *)a);
 }
 
-// Description:
 // Remove a light from the list.
 void vtkLightCollection::RemoveItem(vtkLight *a) 
 {
   this->vtkCollection::RemoveItem((vtkObject *)a);
 }
 
-// Description:
 // Determine whether a particular light is present. Returns its position
 // in the list.
 int vtkLightCollection::IsItemPresent(vtkLight *a) 
@@ -71,7 +68,6 @@ int vtkLightCollection::IsItemPresent(vtkLight *a)
   return this->vtkCollection::IsItemPresent((vtkObject *)a);
 }
 
-// Description:
 // Get the next light in the list. NULL is returned when the collection is 
 // exhausted.
 vtkLight *vtkLightCollection::GetNextItem() 
@@ -79,7 +75,6 @@ vtkLight *vtkLightCollection::GetNextItem()
   return (vtkLight *)(this->GetNextItemAsObject());
 }
 
-// Description:
 // protected function to delete an element. Internal use only.
 void vtkLightCollection::DeleteElement(vtkCollectionElement *e)
 {

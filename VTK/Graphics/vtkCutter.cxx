@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:55:27 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 1998-09-18 12:40:56 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,7 +44,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkImplicitFunction.h"
 #include "vtkContourValues.h"
 
-// Description:
 // Construct with user-specified implicit function; initial value of 0.0; and
 // generating cut scalars turned off.
 vtkCutter::vtkCutter(vtkImplicitFunction *cf)
@@ -66,7 +65,6 @@ vtkCutter::~vtkCutter()
     }
 }
 
-// Description:
 // Overload standard modified time function. If cut functions is modified,
 // or contour values modified, then this object is modified as well.
 unsigned long vtkCutter::GetMTime()
@@ -292,7 +290,6 @@ void vtkCutter::Execute()
   output->Squeeze();
 }
 
-// Description:
 // Specify a spatial locator for merging points. By default, 
 // an instance of vtkMergePoints is used.
 void vtkCutter::SetLocator(vtkPointLocator *locator)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:54:51 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1998-09-18 12:40:51 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,7 +46,6 @@ vtkAppendPolyData::vtkAppendPolyData()
   this->Output->SetSource(this);
 }
 
-// Description:
 // Add a dataset to the list of data to append.
 void vtkAppendPolyData::AddInput(vtkPolyData *ds)
 {
@@ -57,7 +56,6 @@ void vtkAppendPolyData::AddInput(vtkPolyData *ds)
     }
 }
 
-// Description:
 // Remove a dataset from the list of data to append.
 void vtkAppendPolyData::RemoveInput(vtkPolyData *ds)
 {

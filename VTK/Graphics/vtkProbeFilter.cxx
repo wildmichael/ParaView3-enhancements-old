@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProbeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:04:37 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1998-09-18 12:41:16 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -93,7 +93,6 @@ void vtkProbeFilter::Execute()
   delete [] weights;
 }
 
-// Description:
 // Overload update method because execution can branch two ways (Input 
 // and Source). Also input and output are abstract.
 void vtkProbeFilter::Update()

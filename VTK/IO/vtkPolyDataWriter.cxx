@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:04:36 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-09-18 12:41:16 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,7 +40,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkPolyDataWriter.h"
 
-// Description:
 // Specify the input data or filter.
 void vtkPolyDataWriter::SetInput(vtkPolyData *input)
 {

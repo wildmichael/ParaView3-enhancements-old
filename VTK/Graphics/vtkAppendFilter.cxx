@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:54:50 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1998-09-18 12:40:51 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,7 +44,6 @@ vtkAppendFilter::vtkAppendFilter()
 {
 }
 
-// Description:
 // Add a dataset to the list of data to append.
 void vtkAppendFilter::AddInput(vtkDataSet *ds)
 {
@@ -55,7 +54,6 @@ void vtkAppendFilter::AddInput(vtkDataSet *ds)
     }
 }
 
-// Description:
 // Remove a dataset from the list of data to append.
 void vtkAppendFilter::RemoveInput(vtkDataSet *ds)
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorText.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-16 21:11:16 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1998-09-18 12:41:34 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1559,7 +1559,6 @@ char *VTK_VECTOR_TEXT_126 = "25 0.971429 "
 ;
 
 
-// Description:
 // Construct object with no string set and backing enabled.
 vtkVectorText::vtkVectorText()
 {

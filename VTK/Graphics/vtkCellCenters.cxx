@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellCenters.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:55:17 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-09-18 12:40:53 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,7 +40,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkCellCenters.h"
 
-// Description:
 // Construct object with vertex cell generation turned off.
 vtkCellCenters::vtkCellCenters()
 {

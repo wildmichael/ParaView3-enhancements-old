@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:55:21 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1998-09-18 12:40:54 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,7 +44,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkVoxel.h"
 #include "vtkDelaunay3D.h"
 
-// Description:
 // Construct with user-specified implicit function; InsideOut turned off; value
 // set to 0.0; and generate clip scalars turned off. The merge tolerance is set
 // to 0.01.
@@ -88,7 +87,6 @@ vtkClipVolume::~vtkClipVolume()
   this->Triangulator->Delete();
 }
 
-// Description:
 // Overload standard modified time function. If Clip functions is modified,
 // then this object is modified as well.
 unsigned long vtkClipVolume::GetMTime()
@@ -587,7 +585,6 @@ void vtkClipVolume::ClipVoxel(float value, vtkScalars& cellScalars,
 }
 
 
-// Description:
 // Specify a spatial locator for merging points. By default, 
 // an instance of vtkMergePoints is used.
 void vtkClipVolume::SetLocator(vtkPointLocator *locator)

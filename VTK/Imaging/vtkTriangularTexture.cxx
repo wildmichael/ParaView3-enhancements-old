@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangularTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:05:19 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-09-18 12:41:32 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,7 +42,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkMath.h"
 #include "vtkUnsignedCharArray.h"
 
-// Description:
 // Instantiate object with XSize and YSize = 64; the texture pattern =1
 // (opaque at centroid); and the scale factor set to 1.0.
 

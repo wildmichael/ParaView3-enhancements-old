@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorNorm.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-13 13:23:56 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1998-09-18 12:41:34 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,7 +41,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <math.h>
 #include "vtkVectorNorm.h"
 
-// Description:
 // Construct with normalize flag off.
 vtkVectorNorm::vtkVectorNorm()
 {
@@ -157,7 +156,6 @@ void vtkVectorNorm::Execute()
   outCD->PassNoReplaceData(cd);
 }
 
-// Description:
 // Return the method for generating scalar data as a string.
 char *vtkVectorNorm::GetAttributeModeAsString(void)
 {

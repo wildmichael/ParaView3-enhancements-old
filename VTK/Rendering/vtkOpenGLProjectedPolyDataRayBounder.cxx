@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLProjectedPolyDataRayBounder.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-16 17:48:26 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1998-09-18 12:41:12 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to Lisa Sobierajski Avila who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,7 +42,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkRenderer.h"
 #include "vtkRayCaster.h"
 
-// Description:
 // Construct a new vtkOpenGLProjectedPolyDataRayBounder.  The depth range
 // buffer is initially NULL and no display list has been created
 vtkOpenGLProjectedPolyDataRayBounder::vtkOpenGLProjectedPolyDataRayBounder()
@@ -51,7 +50,6 @@ vtkOpenGLProjectedPolyDataRayBounder::vtkOpenGLProjectedPolyDataRayBounder()
   this->DepthRangeBuffer    = NULL;
 }
 
-// Description:
 // Destruct the vtkOpenGLProjectedPolyDataRayBounder.  Free the 
 // DepthRangeBuffer if necessary
 vtkOpenGLProjectedPolyDataRayBounder::~vtkOpenGLProjectedPolyDataRayBounder()
@@ -60,7 +58,6 @@ vtkOpenGLProjectedPolyDataRayBounder::~vtkOpenGLProjectedPolyDataRayBounder()
     delete this->DepthRangeBuffer;
 }
 
-// Description:
 // Create a display list from the polygons contained in pdata.
 // Lines and vertices are ignored, polys and strips are used.
 void vtkOpenGLProjectedPolyDataRayBounder::Build( vtkPolyData *pdata )
@@ -124,7 +121,6 @@ void vtkOpenGLProjectedPolyDataRayBounder::Build( vtkPolyData *pdata )
   glEndList();
 }
 
-// Description:
 // Draw the display list and create the depth range buffer.
 //
 // Known problem:
@@ -358,7 +354,6 @@ float *vtkOpenGLProjectedPolyDataRayBounder::Draw( vtkRenderer *ren,
   return ( this->DepthRangeBuffer );
 }
 
-// Description:
 // Print the vtkOpenGLProjectedPolyDataRayBounder
 void vtkOpenGLProjectedPolyDataRayBounder::PrintSelf(ostream& os, 
 						     vtkIndent indent)

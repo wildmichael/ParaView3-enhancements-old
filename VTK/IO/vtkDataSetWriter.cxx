@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:03:35 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1998-09-18 12:40:58 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,7 +45,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkUnstructuredGridWriter.h"
 #include "vtkRectilinearGridWriter.h"
 
-// Description:
 // Specify the input data or filter.
 void vtkDataSetWriter::SetInput(vtkDataSet *input)
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-08-26 12:07:57 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1998-09-18 12:40:56 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -166,7 +166,6 @@ void vtkCubeSource::Execute()
   newPolys->Delete();
 }
 
-// Description:
 // Convenience method allows creation of cube by specifying bounding box.
 void vtkCubeSource::SetBounds(float xMin, float xMax,
 	                      float yMin, float yMax,

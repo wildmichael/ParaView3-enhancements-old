@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorDot.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:05:25 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1998-09-18 12:41:33 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,7 +41,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkVectorDot.h"
 #include "vtkMath.h"
 
-// Description:
 // Construct object with scalar range is (-1,1).
 vtkVectorDot::vtkVectorDot()
 {

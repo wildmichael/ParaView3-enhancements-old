@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:05:23 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1998-09-18 12:41:33 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,7 +41,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkUnstructuredGridWriter.h"
 #include "vtkByteSwap.h"
 
-// Description:
 // Specify the input data or filter.
 void vtkUnstructuredGridWriter::SetInput(vtkUnstructuredGrid *input)
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkElevationFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-08 14:55:56 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1998-09-18 12:41:01 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,7 +41,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkElevationFilter.h"
 #include "vtkMath.h"
 
-// Description:
 // Construct object with LowPoint=(0,0,0) and HighPoint=(0,0,1). Scalar
 // range is (0,1).
 vtkElevationFilter::vtkElevationFilter()

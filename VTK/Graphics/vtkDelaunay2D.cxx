@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:03:39 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1998-09-18 12:40:59 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,7 +42,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkMath.h"
 #include "vtkTriangle.h"
 
-// Description:
 // Construct object with Alpha = 0.0; Tolerance = 0.001; Offset = 1.25;
 // BoundingTriangulation turned off.
 vtkDelaunay2D::vtkDelaunay2D()

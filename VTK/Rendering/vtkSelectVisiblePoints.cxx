@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSelectVisiblePoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-07-05 19:24:15 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-09-18 12:41:22 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,7 +41,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkSelectVisiblePoints.h"
 #include "vtkRenderer.h"
 
-// Description:
 // Instantiate object with no renderer; window selection turned off; 
 // tolerance set to 0.01; and select invisible off.
 vtkSelectVisiblePoints::vtkSelectVisiblePoints()

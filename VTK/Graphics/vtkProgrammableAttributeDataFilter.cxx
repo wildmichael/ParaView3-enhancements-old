@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableAttributeDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-16 21:11:06 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-09-18 12:41:17 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,7 +56,6 @@ vtkProgrammableAttributeDataFilter::~vtkProgrammableAttributeDataFilter()
     }
 }
 
-// Description:
 // Add a dataset to the list of data to process.
 void vtkProgrammableAttributeDataFilter::AddInput(vtkDataSet *ds)
 {
@@ -67,7 +66,6 @@ void vtkProgrammableAttributeDataFilter::AddInput(vtkDataSet *ds)
     }
 }
 
-// Description:
 // Remove a dataset from the list of data to process.
 void vtkProgrammableAttributeDataFilter::RemoveInput(vtkDataSet *ds)
 {
@@ -78,7 +76,6 @@ void vtkProgrammableAttributeDataFilter::RemoveInput(vtkDataSet *ds)
     }
 }
 
-// Description:
 // Specify the function to use to operate on the point attribute data. Note
 // that the function takes a single (void *) argument.
 void vtkProgrammableAttributeDataFilter::SetExecuteMethod(void (*f)(void *), void *arg)
@@ -96,7 +93,6 @@ void vtkProgrammableAttributeDataFilter::SetExecuteMethod(void (*f)(void *), voi
     }
 }
 
-// Description:
 // Set the arg delete method. This is used to free user memory.
 void vtkProgrammableAttributeDataFilter::SetExecuteMethodArgDelete(void (*f)(void *))
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-23 19:13:09 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-09-18 12:41:07 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,7 +40,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkImplicitDataSet.h"
 
-// Description
 // Construct an vtkImplicitDataSet with no initial dataset; the OutValue
 // set to a large negative number; and the OutGradient set to (0,0,1).
 vtkImplicitDataSet::vtkImplicitDataSet()
@@ -62,7 +61,6 @@ vtkImplicitDataSet::~vtkImplicitDataSet()
   if ( this->Weights ) delete [] this->Weights;
 }
 
-// Description
 // Evaluate the implicit function. This returns the interpolated scalar value
 // at x[3].
 float vtkImplicitDataSet::EvaluateFunction(float x[3])
@@ -122,7 +120,6 @@ unsigned long vtkImplicitDataSet::GetMTime()
 }
 
 
-// Description
 // Evaluate implicit function gradient.
 void vtkImplicitDataSet::EvaluateGradient(float x[3], float n[3])
 {

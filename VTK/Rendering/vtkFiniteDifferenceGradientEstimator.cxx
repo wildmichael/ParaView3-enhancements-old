@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFiniteDifferenceGradientEstimator.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-08-26 12:09:13 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-09-18 12:41:04 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,7 +49,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkUnsignedLongArray.h"
 #include "vtkDoubleArray.h"
 
-// Description:
 // This is the templated function that actually computes the EncodedNormal
 // and the GradientMagnitude
 template <class T>
@@ -196,14 +195,12 @@ static void ComputeGradients(
 	}
 }
 
-// Description:
 // Construct a vtkFiniteDifferenceGradientEstimator 
 vtkFiniteDifferenceGradientEstimator::vtkFiniteDifferenceGradientEstimator()
 {
   this->SampleSpacingInVoxels      = 1;
 }
 
-// Description:
 // Destruct a vtkFiniteDifferenceGradientEstimator - free up any memory used
 vtkFiniteDifferenceGradientEstimator::~vtkFiniteDifferenceGradientEstimator()
 {
@@ -299,7 +296,6 @@ static VTK_THREAD_RETURN_TYPE vtkSwitchOnDataType( void *arg )
 }
 
 
-// Description:
 // This method is used to compute the encoded normal and the
 // magnitude of the gradient for each voxel location in the 
 // ScalarInput.
@@ -314,7 +310,6 @@ void vtkFiniteDifferenceGradientEstimator::UpdateNormals( )
   this->Threader.SingleMethodExecute();
 }
 
-// Description:
 // Print the vtkFiniteDifferenceGradientEstimator
 void vtkFiniteDifferenceGradientEstimator::PrintSelf(ostream& os, 
 						     vtkIndent indent)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinkEdgels.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:04:13 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1998-09-18 12:41:09 $
+  Version:   $Revision: 1.16 $
 
 Copyright (c) 1993-1997 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -41,7 +41,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkLinkEdgels.h"
 #include "vtkMath.h"
 
-// Description:
 // Construct instance of vtkLinkEdgels with GradientThreshold set to 
 // 0.1, PhiThreshold set to 90 degrees and LinkThreshold set to 90 degrees.
 vtkLinkEdgels::vtkLinkEdgels()
@@ -114,7 +113,6 @@ void vtkLinkEdgels::Execute()
   outVectors->Delete();
 }
 
-// Description:
 // This method links the edges for one image. 
 void vtkLinkEdgels::LinkEdgels(int xdim, int ydim, float *image, 
 				    vtkVectors *inVectors,

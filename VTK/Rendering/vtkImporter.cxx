@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-17 12:50:24 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-09-18 12:41:08 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -102,7 +102,6 @@ void vtkImporter::Read ()
     }
 }
 
-// Description:
 // Open an import file. Returns zero if error.
 int vtkImporter::OpenImportFile ()
 {
@@ -122,7 +121,6 @@ int vtkImporter::OpenImportFile ()
   return 1;
 }
 
-// Description:
 // Close an import file.
 void vtkImporter::CloseImportFile()
 {

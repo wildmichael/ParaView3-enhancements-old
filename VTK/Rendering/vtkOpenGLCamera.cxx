@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-07-16 12:01:49 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-09-18 12:41:11 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,7 +46,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <GL/gl.h>
 
 
-// Description:
 // Implement base class method.
 void vtkOpenGLCamera::Render(vtkRenderer *ren)
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUGFacetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-08-07 19:11:18 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1998-09-18 12:41:33 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,7 +42,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkByteSwap.h"
 #include "vtkMergePoints.h"
 
-// Description:
 // Construct object to extract all parts, and with point merging
 // turned on.
 vtkUGFacetReader::vtkUGFacetReader()
@@ -66,7 +65,6 @@ vtkUGFacetReader::~vtkUGFacetReader()
     }
 }
 
-// Description:
 // Overload standard modified time function. If locator is modified,
 // then this object is modified as well.
 unsigned long vtkUGFacetReader::GetMTime()
@@ -295,7 +293,6 @@ int vtkUGFacetReader::GetNumberOfParts()
   return numberOfParts;
 }
 
-// Description:
 // Retrieve color index for the parts in the file.
 short vtkUGFacetReader::GetPartColorIndex(int partId)
 {
@@ -315,7 +312,6 @@ short vtkUGFacetReader::GetPartColorIndex(int partId)
     }
 }
 
-// Description:
 // Specify a spatial locator for merging points. By
 // default an instance of vtkMergePoints is used.
 void vtkUGFacetReader::SetLocator(vtkPointLocator *locator)

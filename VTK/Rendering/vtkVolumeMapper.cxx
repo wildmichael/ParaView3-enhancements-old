@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-08-20 20:41:12 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-09-18 12:41:36 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,7 +40,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkVolumeMapper.h"
 
-// Description:
 // Construct a vtkVolumeMapper with empty scalar input and clipping off.
 vtkVolumeMapper::vtkVolumeMapper()
 {
@@ -56,7 +55,6 @@ void vtkVolumeMapper::Update()
     }
 }
 
-// Description:
 // Get the bounds of the ScalarInput
 float *vtkVolumeMapper::GetBounds()
 {
@@ -71,7 +69,6 @@ float *vtkVolumeMapper::GetBounds()
     }
 }
 
-// Description:
 // Print the vtkVolumeMapper
 void vtkVolumeMapper::PrintSelf(ostream& os, vtkIndent indent)
 {

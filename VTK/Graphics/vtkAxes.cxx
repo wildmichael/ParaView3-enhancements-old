@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAxes.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-08-18 15:58:52 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1998-09-18 12:40:52 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,7 +42,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkScalars.h"
 #include "vtkNormals.h"
 
-// Description:
 // Construct with origin=(0,0,0) and scale factor=1.
 vtkAxes::vtkAxes()
 {

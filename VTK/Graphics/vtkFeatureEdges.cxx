@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFeatureEdges.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:03:49 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1998-09-18 12:41:03 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,7 +43,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkPolygon.h"
 #include "vtkNormals.h"
 
-// Description:
 // Construct object with feature angle = 30; all types of edges extracted
 // and colored.
 vtkFeatureEdges::vtkFeatureEdges()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindowedSincPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:05:36 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-09-18 12:41:40 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,7 +46,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 
-// Description:
 // Construct object with number of iterations 20; passband .1;
 // feature edge smoothing turned off; feature 
 // angle 45 degrees; edge angle 15 degrees; and boundary smoothing turned 
