@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRendererCollection.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:58 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1999-10-05 17:15:38 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,17 +63,6 @@ class VTK_EXPORT vtkRendererCollection : public vtkCollection
   // Add a Renderer to the list.
   void AddItem(vtkRenderer *a) {
     this->vtkCollection::AddItem((vtkObject *)a);};
-  
-  // Description:
-  // Remove a Renderer from the list.
-  void RemoveItem(vtkRenderer *a) {
-    this->vtkCollection::RemoveItem((vtkObject *)a);};
-  
-  // Description:
-  // Determine whether a particular Renderer is present. Returns its
-  // position in the list.
-  int IsItemPresent(vtkRenderer *a) {
-    return this->vtkCollection::IsItemPresent((vtkObject *)a);};
   
   // Description:
   // Get the next Renderer in the list. Return NULL when at the end of the 

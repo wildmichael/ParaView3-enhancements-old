@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeCollection.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:15 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1999-10-05 17:15:38 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,17 +65,6 @@ class VTK_EXPORT vtkVolumeCollection : public vtkPropCollection
   void AddItem(vtkVolume *a) {
     this->vtkCollection::AddItem((vtkObject *)a);};
     
-  // Description:
-  // Remove a Volume from the list.
-  void RemoveItem(vtkVolume *a) {
-    this->vtkCollection::RemoveItem((vtkObject *)a);};
-  
-  // Description:
-  // Determine whether a particular Volume is present. Returns its
-  // position in the list.
-  int IsItemPresent(vtkVolume *a) {
-    return this->vtkCollection::IsItemPresent((vtkObject *)a);};
-  
   // Description:
   // Get the next Volume in the list. Return NULL when at the end of the 
   // list.

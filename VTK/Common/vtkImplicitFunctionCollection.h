@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitFunctionCollection.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:20:49 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-10-05 17:16:33 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,15 +63,6 @@ public:
   void AddItem(vtkImplicitFunction *);
 
   // Description:
-  // Remove an implicit function from the list.
-  void RemoveItem(vtkImplicitFunction *);
-
-  // Description:
-  // Determine whether a particular implicit function is present. Returns its
-  // position in the list.
-  int IsItemPresent(vtkImplicitFunction *);
-
-  // Description:
   // Get the next implicit function in the list.
   vtkImplicitFunction *GetNextItem();
   
@@ -86,16 +77,6 @@ protected:
 inline void vtkImplicitFunctionCollection::AddItem(vtkImplicitFunction *f) 
 {
   this->vtkCollection::AddItem((vtkObject *)f);
-}
-
-inline void vtkImplicitFunctionCollection::RemoveItem(vtkImplicitFunction *f) 
-{
-  this->vtkCollection::RemoveItem((vtkObject *)f);
-}
-
-inline int vtkImplicitFunctionCollection::IsItemPresent(vtkImplicitFunction *f) 
-{
-  return this->vtkCollection::IsItemPresent((vtkObject *)f);
 }
 
 inline vtkImplicitFunction *vtkImplicitFunctionCollection::GetNextItem() 
