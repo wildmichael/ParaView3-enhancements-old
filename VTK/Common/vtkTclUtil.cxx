@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTclUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-09-23 18:15:55 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1996-10-15 17:09:22 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Toolkit. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -244,3 +244,33 @@ void vtkTclVoidFuncArgDelete(void *arg)
   delete [] arg2->command;
   delete arg2;
 }
+
+void vtkTclListInstances(Tcl_Interp *interp, ClientData arg)
+{
+  Tcl_HashSearch srch;
+  Tcl_HashEntry *entry;
+  
+  // iteratively search hash table for command function
+  entry = Tcl_FirstHashEntry(&vtkCommandLookup, &srch);
+  if (!entry) 
+    {
+    interp->result[0] = '\0';
+    return;
+    }
+  if (Tcl_GetHashValue(entry) == arg)
+    {
+    Tcl_AppendResult(interp,Tcl_GetHashKey(&vtkCommandLookup,entry),NULL);
+    }
+  entry = Tcl_NextHashEntry(&srch);
+  while (entry)
+    {
+    if (Tcl_GetHashValue(entry) == arg)
+      {
+      Tcl_AppendResult(interp, " ", Tcl_GetHashKey(&vtkCommandLookup,entry), 
+		       NULL);
+      }
+    entry = Tcl_NextHashEntry(&srch);
+    }
+}
+
+  

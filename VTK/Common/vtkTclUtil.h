@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTclUtil.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-13 19:10:19 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1996-10-15 17:09:23 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Toolkit. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -25,6 +25,8 @@ extern void vtkTclGetObjectFromPointer(Tcl_Interp *interp,void *temp,
 extern void *vtkTclGetPointerFromObject(char *name,char *result_type);
 extern void vtkTclVoidFunc(void *);
 extern void vtkTclVoidFuncArgDelete(void *);
+extern void vtkTclListInstances(Tcl_Interp *interp, ClientData arg);
+
 typedef  struct _vtkTclVoidFuncArg 
 {
   Tcl_Interp *interp;
