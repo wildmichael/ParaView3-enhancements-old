@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridBunykRayCastFunction.h,v $
   Language:  C++
-  Date:      $Date: 2003-11-25 06:06:45 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-12-05 22:50:32 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -136,6 +136,10 @@ public:
   // Description:
   // Access to an internal structure for the templated method.
   vtkGetVectorMacro( ImageOrigin, int, 2 );
+
+  // Description:
+  // Access to an internal structure for the templated method.
+  vtkGetVectorMacro( ImageViewportSize, int, 2 );
 
   // Description:
   // Access to an internal structure for the templated method.
