@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 1994-09-27 09:49:44 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1994-09-28 16:53:26 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -36,13 +36,20 @@ public:
   char *GetClassName() {return "vlStructuredGrid";};
   char *GetDataType() {return "vlStructuredGrid";};
   void PrintSelf(ostream& os, vlIndent indent);
-
+ 
   // dataset interface
   vlDataSet *MakeObject() {return new vlStructuredGrid(*this);};
   void Initialize();
   int GetNumberOfPoints() {return vlPointSet::GetNumberOfPoints();};
   vlCell *GetCell(int cellId);
   int GetCellType(int cellId);
+  float *GetPoint(int ptId) {return this->vlPointSet::GetPoint(ptId);};
+  int FindCell(float x[3], vlCell *cell, float tol2, int& subId, float pcoords[3]) { return this->vlPointSet::FindCell(x,cell,tol2,subId,pcoords);}
+  int GetNumberOfCells() {return this->vlStructuredData::GetNumberOfCells();};
+  void GetCellPoints(int cellId, vlIdList& ptIds) {this->vlStructuredData::GetCellPoints(cellId,ptIds);};
+  void GetPointCells(int ptId, vlIdList& cellIds) {this->vlStructuredData::GetPointCells(ptId,cellIds);};
+  void GetCellNeighbors(int cellId, vlIdList& ptIds, vlIdList& cellIds) 
+    {this->vlStructuredData::GetCellNeighbors(cellId,ptIds,cellIds);};
 
 protected:
   // points inherited
