@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestCxxFeatures.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-03 13:00:33 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-10-16 19:49:35 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 // Provides a reference for the set of C++ features that can be used
 // by VTK.
 
-#include "vtkSystemIncludes.h"
+#include "vtkConfigure.h"
 
 //----------------------------------------------------------------------------
 
@@ -75,6 +75,20 @@
 #if !defined(VTK_CLASS_TEMPLATE_SPECIALIZATION)
 # define VTK_CLASS_TEMPLATE_SPECIALIZATION template <>
 #endif
+
+//----------------------------------------------------------------------------
+
+/* Test inclusion of iosfwd header.  */
+#if defined(VTK_USE_ANSI_STDLIB) && !defined(VTK_CXX_ACC)
+# include <iosfwd>
+#else
+// No iosfwd header.  Just see if forward declaring the class works.
+class ostream;
+#endif
+
+//----------------------------------------------------------------------------
+
+#include "vtkSystemIncludes.h"
 
 //----------------------------------------------------------------------------
 
