@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor2D.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:09 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2002-06-04 16:36:04 $
+  Version:   $Revision: 1.37 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -116,6 +116,20 @@ public:
   // The parameter window could be used to determine which graphic
   // resources to release.
   virtual void ReleaseGraphicsResources(vtkWindow *);
+
+  // Description:
+  // Return the actual vtkCoordinate reference that the mapper should use
+  // to position the actor. This is used internally by the mappers and should
+  // be overridden in specialized subclasses and otherwise ignored.
+  virtual vtkCoordinate *GetActualPositionCoordinate(void)
+    { return this->PositionCoordinate; }
+
+  // Description:
+  // Return the actual vtkCoordinate reference that the mapper should use
+  // to position the actor. This is used internally by the mappers and should
+  // be overridden in specialized subclasses and otherwise ignored.
+  virtual vtkCoordinate *GetActualPosition2Coordinate(void)
+    { return this->Position2Coordinate; }
 
 protected:
   vtkActor2D();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCocoaTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-16 13:43:54 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-06-04 16:36:04 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkCocoaTextMapper.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkCocoaTextMapper, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkCocoaTextMapper, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkCocoaTextMapper);
 
 vtkCocoaTextMapper::vtkCocoaTextMapper()
@@ -175,7 +175,7 @@ void vtkCocoaTextMapper::RenderOverlay(vtkViewport* viewport,
   // Get the position of the text actor
 //  POINT ptDestOff;
   int* actorPos = 
-    actor->GetPositionCoordinate()->GetComputedLocalDisplayValue(viewport);
+    actor->GetActualPositionCoordinate()->GetComputedLocalDisplayValue(viewport);
 //  ptDestOff.x = actorPos[0];
 //  ptDestOff.y = actorPos[1] - this->LineOffset;
 

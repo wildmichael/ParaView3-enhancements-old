@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCarbonTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-17 12:25:47 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-06-04 16:36:04 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkgluPickMatrix.h"
 #include "vtkString.h"
 
-vtkCxxRevisionMacro(vtkCarbonTextMapper, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkCarbonTextMapper, "$Revision: 1.5 $");
 vtkStandardNewMacro(vtkCarbonTextMapper);
 
 struct vtkFontStruct
@@ -307,7 +307,7 @@ void vtkCarbonTextMapper::RenderOverlay(vtkViewport* viewport,
   // Get the position of the text actor
   Point ptDestOff;
   int* actorPos = 
-    actor->GetPositionCoordinate()->GetComputedViewportValue(viewport);
+    actor->GetActualPositionCoordinate()->GetComputedViewportValue(viewport);
   ptDestOff.h = actorPos[0];
   ptDestOff.v = static_cast<long>(actorPos[1] - this->LineOffset);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCaptionActor2D.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-16 15:53:26 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-06-04 16:36:04 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -48,7 +48,7 @@
 // with the leader moving with the AttachmentPoint.
 
 // .SECTION See Also
-// vtkLegendBoxActor vtkTextMapper vtkScaledTextActor vtkTextMapper
+// vtkLegendBoxActor vtkTextMapper vtkTextActor vtkTextMapper
 // vtkCoordinate
 
 #ifndef __vtkCaptionActor2D_h
@@ -58,7 +58,7 @@
 
 class vtkPolyDataMapper2D;
 class vtkPolyDataMapper;
-class vtkScaledTextActor;
+class vtkTextActor;
 class vtkGlyph2D;
 class vtkGlyph3D;
 class vtkAppendPolyData;
@@ -232,8 +232,7 @@ protected:
   int   VerticalJustification;
 
 private:
-  vtkTextMapper      *CaptionMapper;
-  vtkScaledTextActor *CaptionActor;
+  vtkTextActor       *CaptionActor;
 
   vtkPolyData         *BorderPolyData;
   vtkPolyDataMapper2D *BorderMapper;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMesaTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-18 18:36:34 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-06-04 16:36:04 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkXMesaTextMapper.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkXMesaTextMapper, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkXMesaTextMapper, "$Revision: 1.16 $");
 vtkStandardNewMacro(vtkXMesaTextMapper);
 
 static void
@@ -363,7 +363,7 @@ void vtkXMesaTextMapper::RenderOverlay(vtkViewport* viewport,
 
   // Get the position of the text actor
   int* actorPos = 
-    actor->GetPositionCoordinate()->GetComputedViewportValue(viewport);
+    actor->GetActualPositionCoordinate()->GetComputedViewportValue(viewport);
 
   // Set up the font color from the text actor
   unsigned char red = 0;

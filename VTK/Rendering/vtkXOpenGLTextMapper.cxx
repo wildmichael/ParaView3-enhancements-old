@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-15 03:19:26 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2002-06-04 16:36:04 $
+  Version:   $Revision: 1.33 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkgluPickMatrix.h"
 
-vtkCxxRevisionMacro(vtkXOpenGLTextMapper, "$Revision: 1.32 $");
+vtkCxxRevisionMacro(vtkXOpenGLTextMapper, "$Revision: 1.33 $");
 vtkStandardNewMacro(vtkXOpenGLTextMapper);
 
 struct vtkFontStruct
@@ -206,7 +206,7 @@ void vtkXOpenGLTextMapper::RenderOverlay(vtkViewport* viewport,
 
   // Get the position of the text actor
   int* actorPos = 
-    actor->GetPositionCoordinate()->GetComputedViewportValue(viewport);
+    actor->GetActualPositionCoordinate()->GetComputedViewportValue(viewport);
 
   // Set up the font color from the text actor
   unsigned char red = 0;

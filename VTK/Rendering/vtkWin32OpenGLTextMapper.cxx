@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-29 21:25:49 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2002-06-04 16:36:04 $
+  Version:   $Revision: 1.42 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkgluPickMatrix.h"
 #include "vtkString.h"
 
-vtkCxxRevisionMacro(vtkWin32OpenGLTextMapper, "$Revision: 1.41 $");
+vtkCxxRevisionMacro(vtkWin32OpenGLTextMapper, "$Revision: 1.42 $");
 vtkStandardNewMacro(vtkWin32OpenGLTextMapper);
 
 struct vtkFontStruct
@@ -218,7 +218,7 @@ void vtkWin32OpenGLTextMapper::RenderOverlay(vtkViewport* viewport,
   // Get the position of the text actor
   POINT ptDestOff;
   int* actorPos = 
-    actor->GetPositionCoordinate()->GetComputedViewportValue(viewport);
+    actor->GetActualPositionCoordinate()->GetComputedViewportValue(viewport);
   ptDestOff.x = actorPos[0];
   ptDestOff.y = static_cast<long>(actorPos[1] - this->LineOffset);
 
