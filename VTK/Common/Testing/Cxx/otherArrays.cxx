@@ -1,8 +1,8 @@
 /************************************************************************
   Module:    $RCSfile: otherArrays.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-28 21:04:53 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-12-29 15:14:36 $
+  Version:   $Revision: 1.7 $
  ************************************************************************/
 
 #include "vtkDebugLeaks.h"
@@ -72,7 +72,8 @@ static int doArrayTest (ostream& strm, T *ptr, A *array, V value, int size)
     }
 
   strm << "CreateDefaultLookupTable" << endl;
-  ptr2->CreateDefaultLookupTable();
+  ptr->CreateDefaultLookupTable();
+  strm << *ptr;
 
   strm << "\tGetTuple(i)...";
   tuple2 = ptr->GetTuple (2);
