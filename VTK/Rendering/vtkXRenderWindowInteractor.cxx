@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-12 02:31:34 $
-  Version:   $Revision: 1.73 $
+  Date:      $Date: 1999-10-12 03:35:58 $
+  Version:   $Revision: 1.74 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -435,14 +435,20 @@ void vtkXRenderWindowInteractorCallback(Widget vtkNotUsed(w),
 	// just getting the last configure event
 	event = &result;
 	}
-	// only render if we are currently accepting events
+      if ((((XConfigureEvent *)event)->width != me->Size[0]) ||
+	  (((XConfigureEvent *)event)->height != me->Size[1]))
+	{
+	me->UpdateSize(((XConfigureEvent *)event)->width,
+		       ((XConfigureEvent *)event)->height); 
+	}
+      // only render if we are currently accepting events
       if (me->GetEnabled())
 	{
 	me->GetRenderWindow()->Render();
 	}
       }
       break;
-      
+            
     case ButtonPress: 
       {
       if (!me->Enabled) return;
