@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-07 10:37:53 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-07-11 14:59:19 $
+  Version:   $Revision: 1.18 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -228,7 +228,7 @@ void vtkXOpenGLTextMapper::RenderOpaqueGeometry(vtkViewport* viewport,
     }
 
   // Check for input
-  if (this->Input == NULL) 
+  if (this->Input == NULL || this->Input[0] == '\0') 
     {
     vtkDebugMacro (<<"Render - No input");
     return;
