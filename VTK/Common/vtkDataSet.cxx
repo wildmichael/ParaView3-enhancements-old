@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:08 $
-  Version:   $Revision: 1.78 $
+  Date:      $Date: 2001-03-08 13:50:04 $
+  Version:   $Revision: 1.79 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -355,8 +355,8 @@ void vtkDataSet::InternalDataSetCopy(vtkDataSet *src)
   this->ScalarRange[1] = src->ScalarRange[1];
   for (idx = 0; idx < 3; ++idx)
     {
-    this->Bounds[idx] = src->Bounds[idx];
-    this->Bounds[idx*2] = src->Bounds[idx*2];
+    this->Bounds[2*idx] = src->Bounds[2*idx];
+    this->Bounds[2*idx+1] = src->Bounds[2*idx+1];
     }
 }
 
