@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderer.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:06 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1998-11-17 22:54:59 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,6 +68,8 @@ public:
   // Internal method temporarily removes lights before reloading them
   // into graphics pipeline.
   void ClearLights(void);
+
+  void Clear(void);
 
   // Description:
   // Ask lights to load themselves into graphics pipeline.

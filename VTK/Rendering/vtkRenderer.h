@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-26 14:21:57 $
-  Version:   $Revision: 1.68 $
+  Date:      $Date: 1998-11-17 22:54:59 $
+  Version:   $Revision: 1.69 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -159,6 +159,10 @@ public:
   // Description:
   // Create an image. Subclasses of vtkRenderer must implement this method.
   virtual void DeviceRender() {};
+
+  // Description:
+  // Clear the image to the background color.
+  virtual void Clear() {};
 
   // Description:
   // Ask all actors to build and draw themselves.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:44:53 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1998-11-17 22:54:58 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -443,3 +443,16 @@ int vtkOpenGLRenderer::IsInViewport(int x,int y)
   
   return 0;
 }
+
+void vtkOpenGLRenderer::Clear(void)
+{
+  glClearColor( ((GLclampf)(this->Background[0])),
+                ((GLclampf)(this->Background[1])),
+                ((GLclampf)(this->Background[2])),
+                ((GLclampf)(1.0)) );
+
+  glClearDepth( (GLclampd)( 1.0 ) );
+  vtkDebugMacro(<< "glClear\n");
+  glClear((GLbitfield)(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT));
+}
+
