@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIVExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:56:30 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1999-12-28 20:07:06 $
+  Version:   $Revision: 1.22 $
   Thanks:    to Jon A. Webb of Visual Interface Inc.
 
 
@@ -716,6 +716,13 @@ void vtkIVExporter::PrintSelf(ostream& os, vtkIndent ind)
 {
   vtkExporter::PrintSelf(os,ind);
  
-  os << ind << "FileName: " << this->FileName << "\n";
+  if (this->FileName)
+    {
+    os << ind << "FileName: " << this->FileName << "\n";
+    }
+  else
+    {
+    os << ind << "FileName: (null)\n";
+    }
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBJExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:06:58 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1999-12-28 20:07:06 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -386,6 +386,13 @@ void vtkOBJExporter::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkExporter::PrintSelf(os,indent);
  
-  os << indent << "FilePrefix: " << this->FilePrefix << "\n";
+  if (this->FilePrefix)
+    {
+    os << indent << "FilePrefix: " << this->FilePrefix << "\n";
+    }
+  else
+    {
+    os << indent << "FilePrefix: (null)\n";      
+    }
 }
 

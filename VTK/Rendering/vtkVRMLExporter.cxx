@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:15 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1999-12-28 20:07:06 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -695,7 +695,14 @@ void vtkVRMLExporter::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkExporter::PrintSelf(os,indent);
  
-  os << indent << "File Name: " << this->FileName << "\n";
+  if (this->FileName)
+    {
+    os << indent << "FileName: " << this->FileName << "\n";
+    }
+  else
+    {
+    os << indent << "FileName: (null)\n";
+    }
   os << indent << "Speed: " << this->Speed << "\n";
 }
 
