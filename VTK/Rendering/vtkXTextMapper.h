@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXTextMapper.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:09:14 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-06-30 13:12:16 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -81,12 +81,21 @@ public:
   void GetSize(vtkViewport* viewport, int size[2]);
 
 protected:
-  vtkXTextMapper() {};
+  vtkXTextMapper();
   ~vtkXTextMapper() {};
   vtkXTextMapper(const vtkXTextMapper&) {};
   void operator=(const vtkXTextMapper&) {};
 
+  // Description:
+  // Actually get the size of the rectangle.
+  void DetermineSize(vtkViewport *viewport, int size[2]);
+
   Font CurrentFont;
+
+  // Size of the Text.
+  vtkTimeStamp  SizeMTime;
+  int           Size[2];
+  int           ViewportSize[2];
 };
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:09:14 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2000-06-30 13:12:16 $
+  Version:   $Revision: 1.22 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,6 +57,12 @@ vtkXTextMapper* vtkXTextMapper::New()
   return new vtkXTextMapper;
 }
 
+
+vtkXTextMapper::vtkXTextMapper()
+{
+  this->Size[0] = this->Size[1] = 0;
+  this->ViewportSize[0] = this->ViewportSize[1] = 0;
+}
 
 
 
@@ -117,7 +123,28 @@ void vtkXTextMapper::SetFontSize(int size)
   return;
 }
 
-void vtkXTextMapper::GetSize(vtkViewport* viewport, int *size)
+void vtkXTextMapper::GetSize(vtkViewport* viewport, int *s)
+{
+  int *vSize = viewport->GetSize();
+  
+  if (this->SizeMTime < this->MTime || this->SizeMTime < this->FontMTime ||
+      vSize[0] != this->ViewportSize[0] || vSize[1] != this->ViewportSize[1])
+    {
+    this->ViewportSize[0] = vSize[0];
+    this->ViewportSize[1] = vSize[1];    
+    DetermineSize(viewport, s);
+    this->SizeMTime.Modified();
+    this->Size[0] = s[0];
+    this->Size[1] = s[1];
+    }
+  else
+    {
+    s[0] = this->Size[0];
+    s[1] = this->Size[1];
+    }
+}
+
+void vtkXTextMapper::DetermineSize(vtkViewport *viewport, int *size)
 {
   if ( this->NumberOfLines > 1 )
     {
@@ -187,6 +214,8 @@ void vtkXTextMapper::GetSize(vtkViewport* viewport, int *size)
 
   vtkDebugMacro(<<"Render - Font specifier: " << fontname);
 
+  cerr << "Font specifier: " << fontname << ", " << displayId << endl;
+  
   // Set the font
   int cnt;
   char **fn = XListFonts(displayId, fontname, 1, &cnt);
@@ -198,6 +227,7 @@ void vtkXTextMapper::GetSize(vtkViewport* viewport, int *size)
     {
     sprintf(fontname,"9x15");
     }
+  cerr << "fontname: " << fontname << endl;
   Font font = XLoadFont(displayId,  fontname );
   int dir, as, des;
   XCharStruct overall;
