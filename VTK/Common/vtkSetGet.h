@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSetGet.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-28 15:36:42 $
-  Version:   $Revision: 1.86 $
+  Date:      $Date: 2001-09-19 20:13:18 $
+  Version:   $Revision: 1.87 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -227,23 +227,7 @@ virtual void Set##name (type* _arg) \
     if (this->name != NULL) { this->name->Register(this); } \
     this->Modified(); \
     } \
-  } 
-
-//
-// Identical to vtkSetObjectMacro. Left in for legacy compatibility.
-//
-#define vtkSetReferenceCountedObjectMacro(name,type) \
-virtual void Set##name (type* _arg) \
-  { \
-  vtkDebugMacro(<< this->GetClassName() << " (" << this << "): setting " << #name " to " << _arg ); \
-  if (this->name != _arg) \
-    { \
-    if (this->name != NULL) { this->name->UnRegister(this); }\
-    this->name = _arg; \
-    if (this->name != NULL) { this->name->Register(this); } \
-    this->Modified(); \
-    } \
-  } 
+  }
 
 //
 // Get pointer to object.  Creates member Get"name" (e.g., GetPoints()).
