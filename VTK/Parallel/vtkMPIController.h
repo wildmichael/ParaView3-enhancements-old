@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPIController.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-17 14:10:09 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-05-29 12:01:16 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -71,13 +71,19 @@ public:
   // otherwise command line arguments will not be correct (because
   // usually MPI implementations add their own arguments during
   // startup).
-  virtual void Initialize(int* argc, char*** arcv);
+  virtual void Initialize(int* argc, char*** argv) 
+    { this->Initialize(argc, argv, 0); }
+
+  virtual void Initialize(int* vtkNotUsed(argc), char*** vtkNotUsed(argv),
+                          int initializedExternally);
 
   // Description:
   // This method is for cleaning up and has to be called before
   // the end of the program if MPI was initialized with
   //Initialize()
-  virtual void Finalize();
+  virtual void Finalize() { this->Finalize(0); }
+
+  virtual void Finalize(int finalizedExternally);
 
   // Description:
   // Execute the SingleMethod (as define by SetSingleMethod) using

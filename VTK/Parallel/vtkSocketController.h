@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSocketController.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-17 01:50:34 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-05-29 12:01:16 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -50,13 +50,16 @@ public:
   // Description:
   // This method is for initialiazing sockets.
   // One of these is REQUIRED for Windows.
-  virtual void Initialize(int* , char***);
+  virtual void Initialize(int* argc, char*** argv, int intitalizedExternally)
+    { this->Initialize(argc,argv); }
+  virtual void Initialize(int* argc, char*** argv); 
   virtual void Initialize()
     { this->Initialize(0,0); }
 
   // Description:
   // Does not apply to sockets. Does nothing.
   void Finalize() {};
+  void Finalize(int finalizedExternally) {};
 
   // Description:
   //  Does not apply to sockets. Does nothing.

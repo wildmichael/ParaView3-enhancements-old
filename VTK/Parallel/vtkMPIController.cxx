@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPIController.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-17 01:50:34 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-05-29 12:01:16 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -66,9 +66,9 @@ void vtkMPIController::CreateOutputWindow()
   vtkOutputWindow::SetInstance(this->OutputWindow);
 }
 
-vtkCxxRevisionMacro(vtkMPIOutputWindow, "$Revision: 1.13 $");
+vtkCxxRevisionMacro(vtkMPIOutputWindow, "$Revision: 1.14 $");
 
-vtkCxxRevisionMacro(vtkMPIController, "$Revision: 1.13 $");
+vtkCxxRevisionMacro(vtkMPIController, "$Revision: 1.14 $");
 vtkStandardNewMacro(vtkMPIController);
 
 //----------------------------------------------------------------------------
@@ -146,7 +146,8 @@ int vtkMPIController::InitializeNumberOfProcesses()
 vtkMPICommunicator* vtkMPIController::WorldRMICommunicator=0;
 
 //----------------------------------------------------------------------------
-void vtkMPIController::Initialize(int* argc, char*** argv)
+void vtkMPIController::Initialize(int* argc, char*** argv, 
+                                  int initializedExternally)
 {
   if (vtkMPIController::Initialized)
     {
@@ -156,7 +157,10 @@ void vtkMPIController::Initialize(int* argc, char*** argv)
   
   // Can be done once in the program.
   vtkMPIController::Initialized = 1;
-  MPI_Init(argc, argv);
+  if (initializedExternally == 0)
+    {
+      MPI_Init(argc, argv);
+    }
   this->InitializeCommunicator(vtkMPICommunicator::GetWorldCommunicator());
   this->InitializeNumberOfProcesses();
 
@@ -184,15 +188,18 @@ const char* vtkMPIController::GetProcessorName()
 
 // Good-bye world
 // There should be no MPI calls after this.
-// (Except maybe MPI_XXX_free())
-void vtkMPIController::Finalize()
+// (Except maybe MPI_XXX_free()) unless finalized externally.
+void vtkMPIController::Finalize(int finalizedExternally)
 {
   if (vtkMPIController::Initialized)
     { 
     vtkMPIController::WorldRMICommunicator->Delete();
     vtkMPIController::WorldRMICommunicator = 0;
     vtkMPICommunicator::WorldCommunicator->Delete();
-    MPI_Finalize();
+    if (finalizedExternally == 0)
+      {
+        MPI_Finalize();
+      }
     vtkMPIController::Initialized = 0;
     this->Modified();
     }  

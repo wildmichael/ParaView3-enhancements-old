@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreadedController.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-17 01:50:34 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-05-29 12:01:16 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -43,8 +43,11 @@ public:
 
   // Description:
   // This method is for setting up the processes.
-  virtual void Initialize(int* argc, char*** arcv);
+  virtual void Initialize(int* argc, char*** argv, int initializedExternally)
+    { this->Initialize(argc, argv); }
+  virtual void Initialize(int* argc, char*** argv);
   virtual void Finalize() {}
+  virtual void Finalize(int finalizedExternally) {}
 
   // Description:
   // This method returns an integer from 0 to (NumberOfProcesses-1)
