@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkRenderWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-07 18:47:33 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1997-05-28 15:15:09 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -44,7 +44,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <tk.h>
 
 #include "vtkTkRenderWidget.h"
-#include "vtkRenderMaster.h"
 
 #ifdef _WIN32
 #include "vtkWin32OglrRenderWindow.h"
@@ -61,9 +60,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define MAX(a,b)	(((a)>(b))?(a):(b))
 #endif
     
-// This is for creating the render window associated with the widget.
-static vtkRenderMaster vtkTkRenderWidgetMaster;
-
 // These are the options that can be set when the widget is created
 // or with the command configure.  The only new one is "-rw" which allows
 // the uses to set their own render window.
@@ -414,7 +410,7 @@ static int vtkTkRenderWidget_MakeRenderWindow(struct vtkTkRenderWidget *self)
   if (self->RW[0] == '\0')
     {
     // Make the Render window.
-    self->RenderWindow = vtkTkRenderWidgetMaster.MakeRenderWindow();
+    self->RenderWindow = vtkRenderWindow::New();
     renderWindow = (vtkWin32OglrRenderWindow *)(self->RenderWindow);
     vtkTclGetObjectFromPointer(self->Interp, self->RenderWindow,
 			       vtkRenderWindowCommand);
@@ -558,7 +554,7 @@ vtkTkRenderWidget_MakeRenderWindow(struct vtkTkRenderWidget *self)
   if (self->RW[0] == '\0')
     {
     // Make the Render window.
-    self->RenderWindow = vtkTkRenderWidgetMaster.MakeRenderWindow();
+    self->RenderWindow = vtkRenderWindow::New();
     renderWindow = (vtkXRenderWindow *)(self->RenderWindow);
     vtkTclGetObjectFromPointer(self->Interp, self->RenderWindow,
 			       vtkRenderWindowCommand);
