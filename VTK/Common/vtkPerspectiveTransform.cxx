@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPerspectiveTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-30 21:37:20 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-06-12 11:09:33 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -116,7 +116,7 @@ void vtkPerspectiveTransform::Concatenate(vtkHomogeneousTransform *transform)
     }
   this->Concatenation->Concatenate(transform); 
   this->Modified(); 
-};
+}
 
 //----------------------------------------------------------------------------
 void vtkPerspectiveTransform::SetInput(vtkHomogeneousTransform *input)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-28 05:36:20 $
-  Version:   $Revision: 1.96 $
+  Date:      $Date: 2001-06-12 11:09:33 $
+  Version:   $Revision: 1.97 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -286,7 +286,7 @@ void vtkTransform::Concatenate(vtkLinearTransform *transform)
     }
   this->Concatenation->Concatenate(transform); 
   this->Modified(); 
-};
+}
 
 //----------------------------------------------------------------------------
 void vtkTransform::SetInput(vtkLinearTransform *input)
