@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastCompositeFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-29 14:53:39 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-01-07 18:51:49 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -282,7 +282,7 @@ static void CastRay_NN_Unshaded( vtkVolumeRayCastCompositeFunction *cast_functio
 
   if ( remaining_opacity < 1.0 )
     {
-    rayInfo->RayDepth = 0.0;
+    rayInfo->RayDepth = volumeInfo->CenterDistance;
     }
   else 
     {
@@ -582,7 +582,7 @@ static void CastRay_NN_Shaded( vtkVolumeRayCastCompositeFunction *cast_function,
   
   if ( remaining_opacity < 1.0 )
     {
-    rayInfo->RayDepth = 0.0;
+    rayInfo->RayDepth = volumeInfo->CenterDistance;
     }
   else 
     {
@@ -946,7 +946,7 @@ static void CastRay_TrilinSample_Unshaded(
 
   if ( remaining_opacity < 1.0 )
     {
-    rayInfo->RayDepth = 0.0;
+    rayInfo->RayDepth = volumeInfo->CenterDistance;
     }
   else 
     {
@@ -1000,6 +1000,7 @@ static void CastRay_TrilinSample_Shaded(
   float           gradient_opacity_constant;
   int             num_steps;
   float           *ray_start, *ray_increment;
+
 
   num_steps = rayInfo->VolumeRayNumberOfSamples;
   ray_start = rayInfo->VolumeRayStart;
@@ -1412,7 +1413,7 @@ static void CastRay_TrilinSample_Shaded(
 
   if ( remaining_opacity < 1.0 )
     {
-    rayInfo->RayDepth = 0.0;
+    rayInfo->RayDepth = volumeInfo->CenterDistance;
     }
   else 
     {
