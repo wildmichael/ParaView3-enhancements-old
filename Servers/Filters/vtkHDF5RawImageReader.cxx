@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHDF5RawImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-03-13 16:10:17 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-03-18 19:15:53 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -36,7 +36,7 @@
 #include <hdf5.h>
 
 //----------------------------------------------------------------------------
-vtkCxxRevisionMacro(vtkHDF5RawImageReader, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkHDF5RawImageReader, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkHDF5RawImageReader);
 
 //----------------------------------------------------------------------------
@@ -160,6 +160,27 @@ vtkHDF5RawImageReader::~vtkHDF5RawImageReader()
 void vtkHDF5RawImageReader::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->Superclass::PrintSelf(os,indent);
+  os << indent << "FileName: " << (this->FileName?this->FileName:"(none)") << "\n";
+  os << indent << "Stride: "
+     << this->Stride[0] << " "
+     << this->Stride[1] << " "
+     << this->Stride[2] << "\n";
+  if(this->PointDataArraySelection)
+    {
+    os << indent << "PointDataArraySelection: " << this->PointDataArraySelection;
+    }
+  else
+    {
+    os << indent << "PointDataArraySelection: (none)\n";
+    }
+  if(this->CellDataArraySelection)
+    {
+    os << indent << "CellDataArraySelection: " << this->CellDataArraySelection;
+    }
+  else
+    {
+    os << indent << "CellDataArraySelection: (none)\n";
+    }
 }
 
 //----------------------------------------------------------------------------
