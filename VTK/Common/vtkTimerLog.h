@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTimerLog.h,v $
   Language:  C++
-  Date:      $Date: 1996-12-06 14:20:44 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1996-12-12 15:24:19 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -109,8 +109,8 @@ protected:
   static int               MaxEntries;
   static int               NextEntry;
   static int               WrapFlag;
-  static vtkTimerLogEntry *TimerLog;
   static int               TicksPerSecond;
+  static vtkTimerLogEntry *TimerLog;
 
 #ifdef _WIN32
   static timeb             FirstWallTime;
@@ -133,5 +133,17 @@ protected:
   //ETX
 
 };
+
+
+
+
+//
+// Set built-in type.  Creates member Set"name"() (e.g., SetVisibility());
+//
+#define vtkTimerLogMacro(string) \
+  { \
+      vtkTimerLog::FormatAndMarkEvent("Mark: In %s, line %d, class %s: %s", \
+			      __FILE__, __LINE__, this->GetClassName(), string); \
+  }
 
 #endif
