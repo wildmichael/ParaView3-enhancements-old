@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEdgeTable.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:55:49 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1999-11-19 21:01:56 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,9 +40,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkEdgeTable.h"
 #include "vtkPoints.h"
+#include "vtkIdList.h"
 #include "vtkObjectFactory.h"
-
-
 
 //------------------------------------------------------------------------------
 vtkEdgeTable* vtkEdgeTable::New()
