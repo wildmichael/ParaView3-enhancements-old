@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuad.h,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:24:22 $
-  Version:   $Revision: 1.63 $
+  Date:      $Date: 2003-05-07 11:35:41 $
+  Version:   $Revision: 1.64 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,6 +28,7 @@
 #include "vtkCell.h"
 
 class vtkLine;
+class vtkTriangle;
 
 class VTK_COMMON_EXPORT vtkQuad : public vtkCell
 {
@@ -74,12 +75,12 @@ public:
   static void InterpolationFunctions(float pcoords[3], float sf[4]);
   static void InterpolationDerivs(float pcoords[3], float derivs[8]);
 
-
 protected:
   vtkQuad();
   ~vtkQuad();
 
-  vtkLine *Line;
+  vtkLine     *Line;
+  vtkTriangle *Triangle;
 
 private:
   vtkQuad(const vtkQuad&);  // Not implemented.
