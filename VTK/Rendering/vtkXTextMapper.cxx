@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-30 20:32:47 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-05-19 17:34:06 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -138,7 +138,8 @@ void vtkXTextMapper::Render(vtkViewport* viewport, vtkActor2D* actor)
   GC gc = (GC) window->GetGenericContext();
   Window windowId = (Window) window->GetGenericWindowId();
 
-  int* actorPos = actor->GetComputedDisplayPosition(viewport);
+  int* actorPos = 
+    actor->GetPositionCoordinate()->GetComputedLocalDisplayValue(viewport);
 
   // Set up the font color
   float* actorColor = actor->GetProperty()->GetColor();
@@ -266,7 +267,7 @@ void vtkXTextMapper::Render(vtkViewport* viewport, vtkActor2D* actor)
   char tempString[100];
  
   // Set width, pixels, point size
-  sprintf(tempString, "*-%d-*\0", 10*this->FontSize);
+  sprintf(tempString, "*-%d-*", 10*this->FontSize);
 
   strcat(fontname, tempString);
 

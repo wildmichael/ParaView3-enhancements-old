@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32ImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-10 20:03:39 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-05-19 17:33:59 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -118,6 +118,11 @@ protected:
   void MakeDefaultWindow();  
   // ###
   unsigned char *DIBPtr;	// the data in the DIBSection
+  int SwapFlag;
+  HDC compatHdc;
+  HDC oldHdc;
+  HBITMAP BackBuffer;
+  BITMAPINFO dataHeader;
 };
 
 #endif

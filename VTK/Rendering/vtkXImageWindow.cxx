@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-21 19:02:22 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-05-19 17:34:03 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -189,9 +189,6 @@ void vtkXImageWindow::SwapBuffers()
 
 void *vtkXImageWindow::GetGenericDrawable()
 {
-  static int pixWidth = 0;
-  static int pixHeight = 0;
-
   if (this->DoubleBuffer)
     {
     if (!this->Drawable)
@@ -199,15 +196,18 @@ void *vtkXImageWindow::GetGenericDrawable()
       this->Drawable = XCreatePixmap(this->DisplayId, this->WindowId, 
 				     this->Size[0], this->Size[1],
 				     this->VisualDepth);
-      pixWidth = this->Size[0];
-      pixHeight = this->Size[1];
+      this->PixmapWidth = this->Size[0];
+      this->PixmapHeight = this->Size[1];
       }
-    else if ((pixWidth != this->Size[0]) || (pixHeight != this->Size[1]))
+    else if ((this->PixmapWidth != this->Size[0]) || 
+	     (this->PixmapHeight != this->Size[1]))
       {
       XFreePixmap(this->DisplayId, this->Drawable);
       this->Drawable = XCreatePixmap(this->DisplayId, this->WindowId, 
 				      this->Size[0], this->Size[1],
 				      this->VisualDepth);       
+      this->PixmapWidth = this->Size[0];
+      this->PixmapHeight = this->Size[1];
       }
     return (void *) this->Drawable;
     }
@@ -231,6 +231,8 @@ vtkXImageWindow::vtkXImageWindow()
   this->IconPixmap = (Pixmap) NULL;
   this->Offset = 0;
   this->OwnDisplay = 0;
+  this->PixmapWidth = 0;
+  this->PixmapHeight = 0;
 }
 
 

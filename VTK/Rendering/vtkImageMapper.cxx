@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-09 17:45:23 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1998-05-19 17:33:56 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -139,7 +139,7 @@ void vtkImageMapper::Render(vtkViewport* viewport, vtkActor2D* actor)
   //float *scale = actor->GetScale();
 
   // get the position
-  int *pos = actor->GetComputedViewportPixelPosition(viewport);
+  int *pos = actor->GetPositionCoordinate()->GetComputedViewportValue(viewport);
   
   // Get the viewport coordinates
   float* vpt = viewport->GetViewport(); 

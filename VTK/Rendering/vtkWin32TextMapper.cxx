@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32TextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-30 20:32:48 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-05-19 17:34:01 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -106,8 +106,10 @@ void vtkWin32TextMapper::Render(vtkViewport* viewport, vtkActor2D* actor)
   POINT ptDestOff;
   int xOffset = 0;
   int yOffset = 0;
-//  this->GetActorOffset(viewport, actor, &xOffset, &yOffset);  
-  int* actorPos = actor->GetComputedDisplayPosition(viewport);
+
+  // Get the position of the text actor
+  int* actorPos = 
+    actor->GetPositionCoordinate()->GetComputedLocalDisplayValue(viewport);
   xOffset = actorPos[0];
   yOffset = actorPos[1];
 
