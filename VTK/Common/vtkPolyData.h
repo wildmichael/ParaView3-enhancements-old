@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1999-12-02 21:11:57 $
-  Version:   $Revision: 1.85 $
+  Date:      $Date: 1999-12-09 17:21:53 $
+  Version:   $Revision: 1.86 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -351,6 +351,11 @@ public:
   // We should changed this to be more like DataInformation.
   vtkUnstructuredExtent *GetUnstructuredUpdateExtent() 
     {return (vtkUnstructuredExtent*)(this->UpdateExtent);}
+  
+  // Description:
+  // Contains the extent actually in the data object.
+  vtkUnstructuredExtent *GetUnstructuredExtent() 
+    {return (vtkUnstructuredExtent*)(this->Extent);}
   
   // Description:
   // Return the amount of memory for the update piece.
