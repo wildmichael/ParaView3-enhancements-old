@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangle.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 21:03:46 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1996-09-26 20:53:07 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,7 +69,7 @@ public:
   void Contour(float value, vtkFloatScalars *cellScalars, 
                vtkPointLocator *locator, vtkCellArray *verts,
                vtkCellArray *lines, vtkCellArray *polys, 
-               vtkFloatScalars *s);
+               vtkPointData *inPd, vtkPointData *outPd);
   int EvaluatePosition(float x[3], float closestPoint[3],
                        int& subId, float pcoords[3],
                        float& dist2, float *weights);
@@ -77,7 +77,7 @@ public:
                         float *weights);
   int IntersectWithLine(float p1[3], float p2[3], float tol, float& t,
                         float x[3], float pcoords[3], int& subId);
-  int Triangulate(int index, vtkFloatPoints &pts);
+  int Triangulate(int index, vtkIdList &ptIds, vtkFloatPoints &pts);
   void Derivatives(int subId, float pcoords[3], float *values, 
                    int dim, float *derivs);
 
@@ -93,6 +93,10 @@ public:
                          float v1[2], float v2[2], float v3[2]);
   static void ComputeNormal(vtkPoints *p, int numPts, int *pts, float n[3]);
   static void ComputeNormal(float v1[3], float v2[3], float v3[3], float n[3]);
+
+  void Clip(float value, vtkFloatScalars *cellScalars, 
+            vtkPointLocator *locator, vtkCellArray *tris,
+            vtkPointData *inPd, vtkPointData *outPd, int insideOut);
 };
 
 // Description:

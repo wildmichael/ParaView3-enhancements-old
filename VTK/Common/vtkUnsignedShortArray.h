@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedShortArray.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 21:03:53 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1996-09-26 20:53:11 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -103,8 +103,9 @@ inline unsigned short *vtkUnsignedShortArray::GetPtr(const int id) {return this-
 // data values requested.
 inline unsigned short *vtkUnsignedShortArray::WritePtr(const int id, const int number) 
 {
-  if ( (id + number) > this->Size ) this->Resize(id+number);
-  this->MaxId = id + number - 1;
+  int newSize=id+number;
+  if ( newSize > this->Size ) this->Resize(newSize);
+  if ( (--newSize) > this->MaxId ) this->MaxId = newSize;
   return this->Array + id;
 }
 

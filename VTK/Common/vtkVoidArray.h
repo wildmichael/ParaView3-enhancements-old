@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoidArray.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 21:04:03 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1996-09-26 20:53:16 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -102,8 +102,9 @@ inline void** vtkVoidArray::GetPtr(const int id) {return this->Array + id;};
 // data values requested.
 inline void** vtkVoidArray::WritePtr(const int id, const int number) 
 {
-  if ( (id + number) > this->Size ) this->Resize(id+number);
-  this->MaxId = id + number - 1;
+  int newSize=id+number;
+  if ( newSize > this->Size ) this->Resize(newSize);
+  if ( (--newSize) > this->MaxId ) this->MaxId = newSize;
   return this->Array + id;
 }
 

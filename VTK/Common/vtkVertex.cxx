@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVertex.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 21:04:00 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1996-09-26 20:53:13 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -109,13 +109,16 @@ void vtkVertex::Contour(float value, vtkFloatScalars *cellScalars,
 			vtkCellArray *verts, 
 			vtkCellArray *vtkNotUsed(lines), 
 			vtkCellArray *vtkNotUsed(polys), 
-			vtkFloatScalars *scalars)
+                        vtkPointData *inPd, vtkPointData *outPd)
 {
   if ( value == cellScalars->GetScalar(0) )
     {
     int pts[1];
     pts[0] = locator->InsertNextPoint(this->Points.GetPoint(0));
-    scalars->InsertScalar(pts[0],value);
+    if ( outPd )
+      {   
+      outPd->CopyData(inPd,this->PointIds.GetId(0),pts[0]);
+      }
     verts->InsertNextCell(1,pts);
     }
 }
@@ -161,10 +164,12 @@ int vtkVertex::IntersectWithLine(float p1[3], float p2[3], float tol, float& t,
   return 0;
 }
 
-int vtkVertex::Triangulate(int vtkNotUsed(index), vtkFloatPoints &pts)
+int vtkVertex::Triangulate(int vtkNotUsed(index),vtkIdList &ptIds, vtkFloatPoints &pts)
 {
   pts.Reset();
+  ptIds.Reset();
   pts.InsertPoint(0,this->Points.GetPoint(0));
+  ptIds.InsertId(0,this->PointIds.GetId(0));
 
   return 1;
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 21:03:56 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1996-09-26 20:53:12 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -216,10 +216,6 @@ vtkCell *vtkUnstructuredGrid::GetCell(int cellId)
   loc = this->Cells->GetCellLocation(cellId);
   this->Connectivity->GetCell(loc,numPts,pts); 
 
-  // make sure there's enough storage; insert does an allocate, set doesn't
-  cell->PointIds.InsertId(numPts-1,pts[numPts-1]);
-  cell->Points.InsertPoint(numPts-1,this->Points->GetPoint(pts[numPts-1]));
-  
   for (i=0; i<numPts; i++)
     {
     cell->PointIds.SetId(i,pts[i]);
