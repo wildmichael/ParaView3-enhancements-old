@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiProcessController.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-02 13:51:22 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-08-14 19:54:46 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -47,10 +47,10 @@ protected:
   void operator=(const vtkMultiProcessControllerRMI&);
 };
 
-vtkCxxRevisionMacro(vtkMultiProcessControllerRMI, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkMultiProcessControllerRMI, "$Revision: 1.12 $");
 vtkStandardNewMacro(vtkMultiProcessControllerRMI);
 
-vtkCxxRevisionMacro(vtkMultiProcessController, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkMultiProcessController, "$Revision: 1.12 $");
 
 //----------------------------------------------------------------------------
 // An RMI function that will break the "ProcessRMIs" loop.
@@ -138,13 +138,16 @@ vtkMultiProcessController *vtkMultiProcessController::New()
     return vtkMPIController::New();
     }
 #endif
+
+#if defined(VTK_USE_SPROC) || defined(VTK_USE_WIN32_THREADS) || defined(VTK_USE_PTHREADS)
   if ( temp == NULL || !strcmp("Threaded",temp))
     {
     return vtkThreadedController::New();
     }
+#endif
 
-  vtkGenericWarningMacro("environment variable VTK_CONTROLLER set to unknown value "
-                       << temp << ". Try MPI or Threaded");
+  vtkGenericWarningMacro("No valid parallel library was found. "
+                         "Can not create controller.");
   return NULL;
 }
 
