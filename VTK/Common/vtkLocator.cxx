@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:47:47 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1995-07-29 11:36:13 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -233,7 +233,7 @@ int vtkLocator::FindClosestPoint(float x[3])
 // that maps unmerged point ids into new point ids.
 int *vtkLocator::MergePoints()
 {
-  float *bounds, tol2;
+  float tol2;
   int ptId, i, j, k;
   int numPts;
   int *index;
