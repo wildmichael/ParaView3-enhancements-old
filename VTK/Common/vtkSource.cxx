@@ -3,8 +3,8 @@
  Program:   Visualization Toolkit
  Module:    $RCSfile: vtkSource.cxx,v $
  Language:  C++
- Date:      $Date: 1999-09-30 19:57:39 $
- Version:   $Revision: 1.48 $
+ Date:      $Date: 1999-10-01 14:14:31 $
+ Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -381,7 +381,7 @@ void vtkSource::InternalUpdate(vtkDataObject *output)
 void vtkSource::PreUpdate(vtkDataObject *output)
 {
   int idx;
-  int numDivisions, division;
+  int numDivisions;
 
   // prevent chasing our tail
   if (this->Updating)
