@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGridSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-21 19:18:49 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2001-03-21 19:41:51 $
+  Version:   $Revision: 1.29 $
 
 
 
@@ -352,7 +352,7 @@ static void ContourGrid(vtkGridSynchronizedTemplates3D *self,
   // We need to know the edgePointId's for interpolating attributes.
   int edgePtId;
   vtkPointData *inPD = self->GetInput()->GetPointData();
-  vtkPointData *outPD = self->GetOutput()->GetPointData();  
+  vtkPointData *outPD = output->GetPointData();  
   // add point info all together (use to be locks).
   float fact1, fact2, fact3;
   float x1[3], x2[3], x3[3];
@@ -1052,9 +1052,6 @@ void vtkGridSynchronizedTemplates3D::Execute()
   vtkPolyData *threadOut;
   vtkPointData *threadPD;
   vtkCellArray *threadTris;
-  vtkScalars *threadScalars;
-  vtkVectors *threadGrads;
-  vtkNormals *threadNormals;
   vtkStructuredGrid *input = this->GetInput();
   int ext[6];
   int numPieces = output->GetUpdateNumberOfPieces();
@@ -1094,9 +1091,6 @@ void vtkGridSynchronizedTemplates3D::Execute()
 	{
 	offset = output->GetNumberOfPoints();
 	threadPD = threadOut->GetPointData();
-	threadScalars = threadPD->GetScalars();
-	threadGrads = threadPD->GetVectors();
-	threadNormals = threadPD->GetNormals();
 	num = threadOut->GetNumberOfPoints();
 	for (ptIdx = 0; ptIdx < num; ++ptIdx)
 	  {
