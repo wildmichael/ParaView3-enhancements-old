@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTIFFWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:09:29 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-11-23 21:38:14 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -486,7 +486,7 @@ void vtkTIFFWriter::WriteFile(ofstream *file, vtkImageData *data,
       rowLength = sizeof(unsigned char); 
       break;
     default:
-      vtkErrorMacro("PNMWriter only accepts unsigned char scalars!");
+      vtkErrorMacro("TIFFWriter only accepts unsigned char scalars!");
       return; 
     }
   rowLength *= data->GetNumberOfScalarComponents();
