@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLWriter.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-13 11:10:15 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1996-07-08 20:04:08 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,10 +50,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkSTLWriter_h
 
 #include <stdio.h>
-#include "vtkWriter.hh"
+#include "vtkPolyWriter.hh"
 #include "vtkPolyData.hh"
 
-class vtkSTLWriter : public vtkWriter
+class vtkSTLWriter : public vtkPolyWriter
 {
 public:
   vtkSTLWriter();
@@ -61,10 +61,6 @@ public:
   char *GetClassName() {return "vtkSTLWriter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
-  void SetInput(vtkPolyData *input);
-  void SetInput(vtkPolyData &input) {this->SetInput(&input);};
-  vtkPolyData *GetInput() {return (vtkPolyData *)this->Input;};
-                               
   // Description:
   // Specify the name of the file to write.
   vtkSetStringMacro(Filename);

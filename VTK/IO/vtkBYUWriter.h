@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUWriter.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:35:07 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1996-07-08 20:04:13 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,10 +51,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkBYUWriter_h
 
 #include <stdio.h>
-#include "vtkWriter.hh"
+#include "vtkPolyWriter.hh"
 #include "vtkPolyData.hh"
 
-class vtkBYUWriter : public vtkWriter
+class vtkBYUWriter : public vtkPolyWriter
 {
 public:
   vtkBYUWriter();
@@ -62,10 +62,6 @@ public:
   char *GetClassName() {return "vtkBYUWriter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
-  void SetInput(vtkPolyData *input);
-  void SetInput(vtkPolyData &input) {this->SetInput(&input);};
-  vtkPolyData *GetInput() {return (vtkPolyData *)this->Input;};
-                               
   // Description:
   // Specify the name of the geometry file to write.
   vtkSetStringMacro(GeometryFilename);
