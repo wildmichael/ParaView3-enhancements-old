@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArrayMapIterator.txx,v $
   Language:  C++
-  Date:      $Date: 2002-06-19 21:21:41 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-06-21 18:41:57 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -89,9 +89,9 @@ int vtkArrayMapIterator<KeyType,DataType>::IsDoneWithTraversal()
     = static_cast<vtkArrayMap<KeyType,DataType>*>(this->Container);
   if ( !lmap || this->Index < 0 || this->Index >= lmap->GetNumberOfItems() )
     {
-    return VTK_OK;
+    return 1;
     }
-  return VTK_ERROR;
+  return 0;
 }
 
 // Description:

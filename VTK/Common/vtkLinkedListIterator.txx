@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinkedListIterator.txx,v $
   Language:  C++
-  Date:      $Date: 2002-06-19 13:20:07 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-06-21 18:41:57 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -96,9 +96,9 @@ int vtkLinkedListIterator<DType>::IsDoneWithTraversal()
 {
   if ( !this->Pointer )
     {
-    return VTK_OK;
+    return 1;
     }
-  return VTK_ERROR;
+  return 0;
 }
 
 // Description:

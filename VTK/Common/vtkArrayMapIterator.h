@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArrayMapIterator.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-19 21:21:41 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-06-21 18:41:57 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -70,8 +70,8 @@ public:
   void InitTraversal();
 
   // Description:
-  // Check if the iterator is at the end of the container. Return 
-  // VTK_OK if it is.
+  // Check if the iterator is at the end of the container. Returns 1 for yes
+  // and 0 for no.
   int IsDoneWithTraversal();
 
   // Description:
