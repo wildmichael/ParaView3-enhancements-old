@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLPUnstructuredDataReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-23 15:49:47 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-05-05 14:42:30 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -64,6 +64,11 @@ protected:
   int ReadPieceData();
   void CopyCellArray(vtkIdType totalNumberOfCells, vtkCellArray* inCells,
                      vtkCellArray* outCells);
+  
+  // Get the number of points/cells in the given piece.  Valid after
+  // UpdateInformation.
+  virtual vtkIdType GetNumberOfPointsInPiece(int piece);
+  virtual vtkIdType GetNumberOfCellsInPiece(int piece);
   
   // The update request.
   int UpdatePiece;
