@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageBlockReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-06 19:58:19 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-09-07 20:17:31 $
+  Version:   $Revision: 1.2 $
   
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -76,7 +76,7 @@ vtkImageBlockReader::~vtkImageBlockReader()
 void vtkImageBlockReader::PrintSelf(ostream& os, vtkIndent indent)
 {
   int idx;
-  vtkProcessObject::PrintSelf(os,indent);
+  vtkImageSource::PrintSelf(os,indent);
   
   os << indent << "FilePattern: " << this->FilePattern << endl;
   os << indent << "Overlap: " << this->Overlap << endl;
