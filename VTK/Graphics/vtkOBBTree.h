@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBBTree.h,v $
   Language:  C++
-  Date:      $Date: 1999-06-18 16:27:10 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1999-06-22 16:38:23 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to Peter C. Everett <pce@world.std.com> for
              improvements and enhancements to vtkOBBTree class.
 
@@ -135,6 +135,7 @@ public:
                         float& t, float x[3], float pcoords[3],
                         int &subId, int &cellId);
 
+  //BTX
   // Description:
   // Returns true if nodeB and nodeA are disjoint after optional
   // transformation of nodeB with matrix XformBtoA
@@ -151,7 +152,6 @@ public:
                                      float p0[3], float p1[3],
                                      float p2[3], vtkMatrix4x4 *XformBtoA );
 
-  //BTX
   // Description:
   // For each intersecting leaf node pair, call function.
   // OBBTreeB is optionally transformed by XformBtoA before testing.
