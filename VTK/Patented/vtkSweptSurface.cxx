@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSweptSurface.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-11-06 16:39:48 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 1999-02-24 17:55:09 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -245,7 +245,7 @@ void vtkSweptSurface::Execute()
                                        position, orientation); 
       a->SetPosition(position);
       a->SetOrientation(orientation);
-      this->SampleInput(a->vtkProp::GetMatrixPointer(), inDim, inOrigin, 
+      this->SampleInput(a->vtkProp3D::GetMatrixPointer(), inDim, inOrigin, 
 			inSpacing, inScalars, newScalars);
       }
     }
@@ -253,7 +253,7 @@ void vtkSweptSurface::Execute()
   //finish off last step
   a->SetPosition(position2);
   a->SetOrientation(orient2);
-  this->SampleInput(a->vtkProp::GetMatrixPointer(), inDim, inOrigin, inSpacing,
+  this->SampleInput(a->vtkProp3D::GetMatrixPointer(), inDim, inOrigin, inSpacing,
                     inScalars, newScalars);
 
   // Cap if requested
