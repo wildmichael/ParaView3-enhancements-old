@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:54:48 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1996-08-27 17:53:30 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -158,7 +158,7 @@ void vtkProperty::SetPhong (void)
 
 void vtkProperty::SetPoints (void)
 {
-  this->Interpolation = VTK_POINTS;
+  this->Representation = VTK_POINTS;
 }
 
 void vtkProperty::SetWireframe (void)
