@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-03-03 15:27:29 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1997-03-05 13:41:58 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -294,7 +294,13 @@ void vtkVRMLExporter::WriteAnActor(vtkActor *anActor, FILE *fp)
     vtkColorScalars *mappedScalars;
     unsigned char *txtrData;
     
-    // get some info
+    // make sure it is updated and then get some info
+    if (aTexture->GetInput() == NULL)
+      {
+      vtkErrorMacro(<< "texture has no input!\n");
+      return;
+      }
+    aTexture->GetInput()->Update();
     size = aTexture->GetInput()->GetDimensions();
     scalars = (aTexture->GetInput()->GetPointData())->GetScalars();
 
