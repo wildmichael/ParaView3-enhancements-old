@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataSourceWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-08 21:36:03 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-06-09 16:58:47 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -85,9 +85,12 @@ protected:
   vtkPolyDataSourceWidget();
 
 private:
- 
-  vtkPolyDataSourceWidget(const vtkPolyDataSourceWidget&); // Not implemented
-  void operator=(const vtkPolyDataSourceWidget&); // Not implemented
+  // this copy constructor and assignment operator are deliberately not
+  // implemented so that any "accidental" invocation of a copy (pass by value)
+  // or assignment will trigger linker errors; the class is not meant to
+  // be used in these ways.  I couldn't resist adding this explanation. :)
+  vtkPolyDataSourceWidget(const vtkPolyDataSourceWidget&);  // Not implemented.
+  void operator=(const vtkPolyDataSourceWidget&);  // Not implemented.
 };
 
 #endif
