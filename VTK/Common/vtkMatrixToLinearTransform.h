@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMatrixToLinearTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-03-24 18:49:22 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-03-27 22:54:11 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -101,7 +101,7 @@ class VTK_EXPORT vtkMatrixToLinearTransform : public vtkLinearTransform
 protected:
   vtkMatrixToLinearTransform();
   ~vtkMatrixToLinearTransform();
-  vtkMatrixToLinearTransform(const vtkMatrixToLinearTransform& t) {};
+  vtkMatrixToLinearTransform(const vtkMatrixToLinearTransform&) {};
   void operator=(const vtkMatrixToLinearTransform&) {};
 };
 
