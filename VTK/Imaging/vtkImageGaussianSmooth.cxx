@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGaussianSmooth.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-01-16 15:08:54 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1998-03-20 14:02:56 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,7 +44,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 //----------------------------------------------------------------------------
 vtkImageGaussianSmooth::vtkImageGaussianSmooth()
 {
-  this->Dimensionality = 1; // note: this overrides Standard deviation.
+  this->Dimensionality = 3; // note: this overrides Standard deviation.
   this->StandardDeviations[0] = 2.0;
   this->StandardDeviations[1] = 2.0;
   this->StandardDeviations[2] = 2.0;

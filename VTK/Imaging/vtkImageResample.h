@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageResample.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 21:17:17 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-03-20 14:03:00 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,19 +40,16 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 // .NAME vtkImageResample - Resamples an image using linear interpolation.
 // .SECTION Description
-// vtkImageResample breaks the resampling of volumes into 1D operations.
-// The Magnification can be specified, or the desired OutputSpacing.
+// vtkImageResample 
 
 
 #ifndef __vtkImageResample_h
 #define __vtkImageResample_h
 
 
-#include "vtkImageDecomposedFilter.h"
-#include "vtkImageResample1D.h"
-#include "vtkImageSetGet.h"
+#include "vtkImageDecomposeFilter.h"
 
-class VTK_EXPORT vtkImageResample : public vtkImageDecomposedFilter
+class VTK_EXPORT vtkImageResample : public vtkImageDecomposeFilter
 {
 public:
   vtkImageResample();
@@ -60,18 +57,24 @@ public:
   const char *GetClassName() {return "vtkImageResample";};
 
   // Description:
-  // Set/Get Magnification factors.
-  // Zero is a reserved value indicating values have not been computed.
-  void SetAxisMagnificationFactor(int axis, float MagnificationFactor);
-  
-  // Description:
   // Set desired spacing.  
   // Zero is a reserved value indicating spacing has not been set.
-  void SetAxisOutputSpacing(int axis, float OutputSpacing);
-  
+  void SetAxisOutputSpacing(int axis, float spacing);
+
+  // Description:
+  // Set/Get Magnification factors.
+  // Zero is a reserved value indicating values have not been computed.
+  void SetAxisMagnificationFactor(int axis, float factor);
+  float GetAxisMagnificationFactor(int axis);
+
 protected:
-  float MagnificationFactors[4];
-  float OutputSpacing[4];
+  float MagnificationFactors[3];
+  float OutputSpacing[3];
+  
+  void ExecuteImageInformation();
+  void ComputeRequiredInputUpdateExtent(int inExt[6], int outExt[6]);
+  void ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
+		       int outExt[6], int threadId);
 };
 
 #endif

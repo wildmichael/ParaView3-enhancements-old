@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSFile: vtkImageDecomposeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-01-30 19:25:54 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-03-20 14:02:55 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,8 +48,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // Construct an instance of vtkImageDecomposeFilter fitler.
 vtkImageDecomposeFilter::vtkImageDecomposeFilter()
 {
-  this->Dimensionality = 2;
-  this->SetNumberOfIterations(2);
+  this->Dimensionality = 3;
+  this->SetNumberOfIterations(3);
 }
 
 
@@ -128,14 +128,14 @@ void vtkImageDecomposeFilter::PermuteIncrements(int *increments, int &inc0,
       inc2 = increments[2];
       break;
     case 1:
-      inc0 = increments[1];
       inc1 = increments[0];
+      inc0 = increments[1];
       inc2 = increments[2];
       break;
     case 2:
-      inc0 = increments[2];
       inc1 = increments[0];
       inc2 = increments[1];
+      inc0 = increments[2];
       break;
     }
 }
@@ -159,9 +159,9 @@ void vtkImageDecomposeFilter::PermuteExtent(int *extent, int &min0, int &max0,
       min2 = extent[4];       max2 = extent[5];
       break;
     case 2:
-      min2 = extent[0];       max2 = extent[1];
-      min0 = extent[2];       max0 = extent[3];
-      min1 = extent[4];       max1 = extent[5];
+      min1 = extent[0];       max1 = extent[1];
+      min2 = extent[2];       max2 = extent[3];
+      min0 = extent[4];       max0 = extent[5];
       break;
     }
 }

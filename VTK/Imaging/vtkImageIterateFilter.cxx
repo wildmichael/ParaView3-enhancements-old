@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIterateFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-02-05 12:09:41 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-03-20 14:02:58 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -229,6 +229,10 @@ void vtkImageIterateFilter::IterateRequiredInputUpdateExtent()
     // Set up tempoary input and output
     this->Input = this->IterationCaches[idx];
     this->Output = this->IterationCaches[idx+1];
+    
+    /* default value */
+    memcpy(this->Input->GetUpdateExtent(), this->Output->GetUpdateExtent(),
+	   6 * sizeof(int));
     
     this->ComputeRequiredInputUpdateExtent(this->Input->GetUpdateExtent(),
 					   this->Output->GetUpdateExtent());
