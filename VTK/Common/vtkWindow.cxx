@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-22 18:59:51 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-12-08 21:20:07 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -150,10 +150,12 @@ void vtkWindow::PrintSelf(ostream& os, vtkIndent indent)
     os << indent << "Window Name: (none)\n";
     }
 
-  temp = this->GetPosition();
-  os << indent << "Position: (" << temp[0] << ", " << temp[1] << ")\n";
-  temp = this->GetSize();
-  os << indent << "Size: (" << temp[0] << ", " << temp[1] << ")\n";
+	// Can only print out the ivars because the window may not have been
+	// created yet.
+	//  temp = this->GetPosition();
+  os << indent << "Position: (" << Position[0] << ", " << Position[1] << ")\n";
+	//  temp = this->GetSize();
+  os << indent << "Size: (" << Size[0] << ", " << Size[1] << ")\n";
   os << indent << "Mapped: " << this->Mapped << "\n";
   os << indent << "OffScreenRendering: " << this->OffScreenRendering << "\n";
   os << indent << "Double Buffered: " << this->DoubleBuffer << "\n";
