@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-18 19:12:24 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1998-03-18 22:16:49 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -386,9 +386,7 @@ void vtkTextSource::PrintSelf(ostream& os, vtkIndent indent)
 
   os << indent << "Text: " << (this->Text ? this->Text : "(none)") << "\n";
   os << indent << "ForegroundColor: (" << this->ForegroundColor[0] << ", " 
-     << this->ForegroundColor[1] << ", " << this->ForegroundColor[2] << ","
-     << this->ForegroundColor[3] << ")\n";
+     << this->ForegroundColor[1] << ", " << this->ForegroundColor[2]  << ")\n";
   os << indent << "BackgroundColor: (" << this->BackgroundColor[0] << ", " 
-     << this->BackgroundColor[1] << ", " << this->BackgroundColor[2] << ","
-     << this->BackgroundColor[3] << ")\n";
+     << this->BackgroundColor[1] << ", " << this->BackgroundColor[2] << ")\n";
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextSource.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-18 19:12:25 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1998-03-18 22:16:48 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -81,14 +81,14 @@ public:
   vtkBooleanMacro(Backing,int);
 
   // Description:
-  // Set/Get the foreground color. Default is white (1,1,1,1).
-  vtkSetVector4Macro(ForegroundColor,float);
-  vtkGetVectorMacro(ForegroundColor,float,4);
+  // Set/Get the foreground color. Default is white (1,1,1). ALpha is always 1.
+  vtkSetVector3Macro(ForegroundColor,float);
+  vtkGetVectorMacro(ForegroundColor,float,3);
 
   // Description:
-  // Set/Get the background color. Default is black (0,0,0,1).
-  vtkSetVector4Macro(BackgroundColor,float);
-  vtkGetVectorMacro(BackgroundColor,float,4);
+  // Set/Get the background color. Default is black (0,0,0). Alpha is always 1.
+  vtkSetVector3Macro(BackgroundColor,float);
+  vtkGetVectorMacro(BackgroundColor,float,3);
 
 protected:
   void Execute();
