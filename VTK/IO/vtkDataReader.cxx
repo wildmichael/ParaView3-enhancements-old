@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-08 12:49:19 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1995-10-16 17:06:48 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -744,8 +744,7 @@ int vtkDataReader::ReadCoScalarData(FILE *fp, vtkDataSet *ds, int numPts)
     else // ascii
       {
       float f;
-      unsigned char rgba[4];
-      rgba[1] = rgba[2] = rgba[3] = 0;
+      unsigned char g;
       for (i=0; i<numPts; i++)
         {
         if ((retStat=fscanf(fp,"%f",&f)) == EOF || retStat < 1)
@@ -753,8 +752,8 @@ int vtkDataReader::ReadCoScalarData(FILE *fp, vtkDataSet *ds, int numPts)
           vtkErrorMacro(<<"Error reading graymap!");
           return 0;
           }
-        rgba[0] = (unsigned char)((float)f*255.0);
-        scalars->SetColor(i,rgba);
+        g = (unsigned char)((float)f*255.0);
+        scalars->SetGrayValue(i,g);
         }
       }
     if ( ! skipScalar ) ds->GetPointData()->SetScalars(scalars);
@@ -778,8 +777,7 @@ int vtkDataReader::ReadCoScalarData(FILE *fp, vtkDataSet *ds, int numPts)
     else // ascii
       {
       float f[2];
-      unsigned char rgba[4];
-      rgba[1] = rgba[2] = 0;
+      unsigned char ga[2];
       for (i=0; i<numPts; i++)
         {
         if ((retStat=fscanf(fp,"%f %f",f,f+1)) == EOF || retStat < 2)
@@ -787,9 +785,9 @@ int vtkDataReader::ReadCoScalarData(FILE *fp, vtkDataSet *ds, int numPts)
           vtkErrorMacro(<<"Error reading alpha-graymap!");
           return 0;
           }
-        rgba[0] = (unsigned char)((float)f[0]*255.0);
-        rgba[3] = (unsigned char)((float)f[1]*255.0);
-        scalars->SetColor(i,rgba);
+        ga[0] = (unsigned char)((float)f[0]*255.0);
+        ga[1] = (unsigned char)((float)f[1]*255.0);
+        scalars->SetAGrayValue(i,ga);
         }
       }
     if ( ! skipScalar ) ds->GetPointData()->SetScalars(scalars);

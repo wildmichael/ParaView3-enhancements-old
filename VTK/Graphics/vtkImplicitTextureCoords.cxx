@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitTextureCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-08 12:46:27 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1995-10-16 17:06:42 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,12 +41,15 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkImplicitTextureCoords.hh"
 
 // Description:
-// Create object with texture dimension=2 and no r-s-t implicit functions defined.
+// Create object with texture dimension=2 and no r-s-t implicit functions
+// defined and FlipTexture turned off.
 vtkImplicitTextureCoords::vtkImplicitTextureCoords()
 {
   this->RFunction = NULL;
   this->SFunction = NULL;
   this->TFunction = NULL;
+
+  this->FlipTexture = 0;
 }
 
 void vtkImplicitTextureCoords::Execute()
@@ -137,6 +140,7 @@ void vtkImplicitTextureCoords::Execute()
       }
     }
 
+  if ( this->FlipTexture ) for (i=0; i<tcoordDim; i++) scale[i] *= (-1.0);
   for (ptId=0; ptId<numPts; ptId++)
     {
     tc = newTCoords->GetTCoord(ptId);
