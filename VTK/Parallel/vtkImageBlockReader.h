@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageBlockReader.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-06 19:58:20 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-09-24 16:23:22 $
+  Version:   $Revision: 1.2 $
   
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -118,6 +118,10 @@ protected:
   void ReadBlock(int xIdx, int yIdx, int zIdx, 
                  vtkImageData *data, int *ext);
 
+  // Description:
+  // Generate more than requested.  Called by the superclass before
+  // an execute, and before output memory is allocated.
+  void ModifyOutputUpdateExtent();
 
   // extents (min, max) of the divisions.
   int *XExtents;

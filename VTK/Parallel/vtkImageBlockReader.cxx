@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageBlockReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-07 20:17:31 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-09-24 16:23:22 $
+  Version:   $Revision: 1.3 $
   
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -359,4 +359,69 @@ void vtkImageBlockReader::DeleteBlockExtents()
   this->ZExtents = NULL;
 
 }
+
+//----------------------------------------------------------------------------
+// Don't split up blocks.
+void vtkImageBlockReader::ModifyOutputUpdateExtent()
+{
+  int updateExtent[6];
+  int min, max, num;
+  int i;
+
+  this->ComputeBlockExtents();
+
+  this->GetOutput()->GetUpdateExtent(updateExtent);
+ 
+  // start with the smallest min, and largest max, 
+  // and throw away as many blocks as possible.
+  // X -------------
+  num = this->Divisions[0];
+  for (i = 0; i < num; ++i)
+    {
+    if (XExtents[2*i] <= updateExtent[0])
+      {
+      min = XExtents[2*i];
+      }
+    if (XExtents[(num-i)*2 - 1] >= updateExtent[1])
+      {
+      max = XExtents[(num-i)*2 - 1];
+      }
+    }
+  updateExtent[0] = min;
+  updateExtent[1] = max;
+  // Y -------------
+  num = this->Divisions[1];
+  for (i = 0; i < num; ++i)
+    {
+    if (YExtents[2*i] <= updateExtent[2])
+      {
+      min = YExtents[2*i];
+      }
+    if (YExtents[(num-i)*2 - 1] >= updateExtent[3])
+      {
+      max = YExtents[(num-i)*2 - 1];
+      }
+    }
+  updateExtent[2] = min;
+  updateExtent[3] = max;
+  // Z -------------
+  num = this->Divisions[2];
+  for (i = 0; i < num; ++i)
+    {
+    if (ZExtents[2*i] <= updateExtent[4])
+      {
+      min = ZExtents[2*i];
+      }
+    if (ZExtents[(num-i)*2 - 1] >= updateExtent[5])
+      {
+      max = ZExtents[(num-i)*2 - 1];
+      }
+    }
+  updateExtent[4] = min;
+  updateExtent[5] = max;
+
+  this->GetOutput()->SetUpdateExtent(updateExtent);
+}
+
+
 
