@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-02-28 17:21:08 $
-  Version:   $Revision: 1.102 $
+  Date:      $Date: 2003-04-12 14:00:31 $
+  Version:   $Revision: 1.103 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkFieldData.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkSource, "$Revision: 1.102 $");
+vtkCxxRevisionMacro(vtkSource, "$Revision: 1.103 $");
 
 #ifndef NULL
 #define NULL 0
@@ -351,7 +351,7 @@ void vtkSource::UpdateData(vtkDataObject *output)
         }
       }
     }
-  this->Updating = 0;     
+
     
   // Initialize all the outputs
   for (idx = 0; idx < this->NumberOfOutputs; idx++)
@@ -424,6 +424,8 @@ void vtkSource::UpdateData(vtkDataObject *output)
         }
       }  
     }
+
+  this->Updating = 0;
   
 }
 
