@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObjectBase.h,v $
   Language:  C++
-  Date:      $Date: 2002-07-09 21:48:34 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-12-03 23:41:30 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -117,7 +117,16 @@ public:
   // Description:
   // Sets the reference count. (This is very dangerous, use with care.)
   void SetReferenceCount(int);
-
+  
+  // Description:
+  // Prints a list of the class .cxx file CVS revisions for all
+  // classes in the object's inheritance chain.  The format of the
+  // list is "vtkObjectBase 1.4\n" with one class per line.  The list
+  // always starts with the least-derived class (vtkObjectBase), and
+  // ends with the most-derived class.  This is useful for programs
+  // wishing to do serialization of VTK objects.
+  void PrintRevisions(ostream& os);
+  
 protected:
   vtkObjectBase(); 
   virtual ~vtkObjectBase(); 
