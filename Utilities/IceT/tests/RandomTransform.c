@@ -1,5 +1,5 @@
 /* -*- c -*- *****************************************************************
-** $Id: RandomTransform.c,v 1.1 2003-06-17 18:38:54 andy Exp $
+** $Id: RandomTransform.c,v 1.2 2003-06-19 19:08:28 kmorel Exp $
 **
 ** Copyright (C) 2003 Sandia Corporation
 ** Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -37,6 +37,8 @@ static void draw(void)
     glEnd();
     printf("Leaving draw\n");
 }
+
+#define DIFF(x, y)	((x) < (y) ? (y) - (x) : (x) - (y))
 
 int RandomTransform(int argc, char *argv[])
 {
@@ -280,9 +282,9 @@ int RandomTransform(int argc, char *argv[])
 
 		for (y = 0; y < local_height; y++) {
 		    for (x = 0; x < local_width; x++) {
-			if (   db[y*local_width + x]
-			    != refdbuf[(y+ref_off_y)*SCREEN_WIDTH
-				      +x + ref_off_x] ) {
+			if (DIFF(db[y*local_width + x],
+				 refdbuf[(y+ref_off_y)*SCREEN_WIDTH
+					+x + ref_off_x]) > 0x0000FFFF) {
 			  /* Uh, oh.  Pixels don't match.  This could be a  */
 			  /* genuine error or it could be a floating point  */
 			  /* offset when projecting edge boundries to	    */

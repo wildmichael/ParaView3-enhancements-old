@@ -1,4 +1,4 @@
-# $Id: CMakeLists.txt,v 1.1 2003-06-17 18:38:54 andy Exp $
+# $Id: CMakeLists.txt,v 1.2 2003-06-19 19:08:28 kmorel Exp $
 #
 ## Copyright 2003 Sandia Coporation
 ## Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -35,7 +35,7 @@ IF (ICET_MPIRUN_EXE)
   SET(POST_TEST_FLAGS ${ICET_MPI_POSTFLAGS})
 ENDIF (ICET_MPIRUN_EXE)
 
-SET(ICET_TEST_FLAGS "" CACHE STRING "Arguments given to the test program.")
+SET(ICET_TEST_FLAGS "-redirect" CACHE STRING "Arguments given to the test program.")
 MARK_AS_ADVANCED(ICET_TEST_FLAGS)
 SEPARATE_ARGUMENTS(ICET_TEST_FLAGS)
 
@@ -48,7 +48,7 @@ FOREACH (test ${MyTests})
 ENDFOREACH(test)
 
 IF (WIN32)
-  ADD_CUSTOM_TARGET(logclean erase log.????)
+  ADD_CUSTOM_TARGET(logclean erase log.???? *.ppm)
 ELSE (WIN32)
-  ADD_CUSTOM_TARGET(logclean rm -f log.????)
+  ADD_CUSTOM_TARGET(logclean rm -f log.???? *.ppm)
 ENDIF (WIN32)
