@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellArray.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:20:40 $
-  Version:   $Revision: 1.66 $
+  Date:      $Date: 1999-09-17 19:42:01 $
+  Version:   $Revision: 1.67 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -210,6 +210,15 @@ public:
   // Reclaim any extra memory.
   void Squeeze() {this->Ia->Squeeze();}
 
+  // Description:
+  // Return the memory in kilobytes consumed by this cell array. Used to
+  // support streaming and reading/writing data. The value returned is
+  // guaranteed to be greater than or equal to the memory required to
+  // actually represent the data represented by this object. The 
+  // information returned is valid only after the pipeline has 
+  // been updated.
+  unsigned long GetActualMemorySize();
+  
   // Description:
   // For legacy compatibility. Do not use.
   int InsertNextCell(vtkIdList &pts);

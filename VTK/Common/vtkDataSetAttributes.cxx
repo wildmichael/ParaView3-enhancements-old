@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-03 20:55:19 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-09-17 19:43:14 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1441,6 +1441,37 @@ void vtkDataSetAttributes::InterpolateTuple(vtkDataArray *fromData1,
     default:
       vtkErrorMacro(<<"Unsupported data type during interpolation!");
     }
+}
+
+unsigned long vtkDataSetAttributes::GetActualMemorySize()
+{
+  unsigned long size=0;
+
+  if ( this->Scalars )
+    {
+    size += this->Scalars->GetActualMemorySize();
+    }
+  if ( this->Vectors )
+    {
+    size += this->Vectors->GetActualMemorySize();
+    }
+  if ( this->Normals )
+    {
+    size += this->Normals->GetActualMemorySize();
+    }
+  if ( this->TCoords )
+    {
+    size += this->TCoords->GetActualMemorySize();
+    }
+  if ( this->Tensors )
+    {
+    size += this->Tensors->GetActualMemorySize();
+    }
+  if ( this->FieldData )
+    {
+    size += this->FieldData->GetActualMemorySize();
+    }
+  return size;
 }
 
 void vtkDataSetAttributes::PrintSelf(ostream& os, vtkIndent indent)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:01:25 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1999-09-17 19:41:53 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -108,3 +108,7 @@ void vtkCellArray::SetCells(int ncells, vtkIntArray *cells)
     }
 }
 
+unsigned long vtkCellArray::GetActualMemorySize()
+{
+  return this->Ia->GetActualMemorySize();
+}

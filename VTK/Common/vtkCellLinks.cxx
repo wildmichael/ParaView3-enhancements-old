@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLinks.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:01:26 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-09-17 19:42:09 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -192,4 +192,20 @@ int vtkCellLinks::InsertNextPoint(int numLinks)
     }
   this->Array[this->MaxId].cells = new int[numLinks];
   return this->MaxId;
+}
+
+unsigned long vtkCellLinks::GetActualMemorySize()
+{
+  unsigned long size=0;
+  int ptId;
+
+  for (ptId=0; ptId < (this->MaxId+1); ptId++)
+    {
+    size += this->GetNcells(ptId);
+    }
+
+  size *= sizeof(int *); //references to cells
+  size += (this->MaxId+1) * sizeof(_vtkLink_s); //list of cell lists
+
+  return (unsigned long) ceil((float)size/1000.0); //kilobytes
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:01:28 $
-  Version:   $Revision: 1.67 $
+  Date:      $Date: 1999-09-17 19:43:02 $
+  Version:   $Revision: 1.68 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -296,6 +296,14 @@ void vtkDataSet::Squeeze()
 {
   this->CellData->Squeeze();
   this->PointData->Squeeze();
+}
+
+unsigned long vtkDataSet::GetActualMemorySize()
+{
+  unsigned long size=this->vtkDataObject::GetActualMemorySize();
+  size += this->PointData->GetActualMemorySize();
+  size += this->CellData->GetActualMemorySize();
+  return size;
 }
 
 void vtkDataSet::PrintSelf(ostream& os, vtkIndent indent)

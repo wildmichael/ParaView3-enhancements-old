@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:20:42 $
-  Version:   $Revision: 1.83 $
+  Date:      $Date: 1999-09-17 19:43:08 $
+  Version:   $Revision: 1.84 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -294,6 +294,15 @@ public:
   // THIS METHOD IS THREAD SAFE
   virtual int GetMaxCellSize() = 0;
 
+  // Description:
+  // Return the actual size of the data in kilobytes. This number
+  // is valid only after the pipeline has updated. The memory size
+  // returned is guaranteed to be greater than or equal to the
+  // memory required to represent the data (e.g., extra space in
+  // arrays, etc. are not included in the return value). THIS METHOD
+  // IS THREAD SAFE.
+  unsigned long GetActualMemorySize();
+  
   // Description:
   // For legacy compatibility. Do not use.
   void GetCellPoints(int cellId, vtkIdList &ptIds)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAttributeData.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-11-08 00:32:05 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-09-17 19:41:27 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -215,6 +215,11 @@ void vtkAttributeData::DeepCopy(vtkAttributeData *da)
 void vtkAttributeData::ShallowCopy(vtkAttributeData *da)
 {
   this->SetData(da->GetData());
+}
+
+unsigned long vtkAttributeData::GetActualMemorySize()
+{
+  return this->Data->GetActualMemorySize();
 }
 
 void vtkAttributeData::PrintSelf(ostream& os, vtkIndent indent)

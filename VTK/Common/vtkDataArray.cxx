@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-14 14:50:28 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-09-17 19:42:38 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -193,6 +193,65 @@ int vtkDataArray::InsertNextTuple(const double * tuple)
   int ret = this->InsertNextTuple(ftuple);
   delete [] ftuple;
   return ret;
+}
+
+unsigned long vtkDataArray::GetActualMemorySize()
+{
+  unsigned long numPrims;
+  float size;
+  numPrims = this->GetNumberOfTuples() * this->GetNumberOfComponents();
+
+  switch (this->GetDataType())
+    {
+    case VTK_BIT:
+      size = (float)sizeof(char)/8.0;
+      break;
+
+    case VTK_CHAR:
+      size = (float)sizeof(char);
+      break;
+
+    case VTK_UNSIGNED_CHAR:
+      size = (float)sizeof(unsigned char);
+      break;
+
+    case VTK_SHORT:
+      size = (float)sizeof(short);
+      break;
+
+    case VTK_UNSIGNED_SHORT:
+      size = (float)sizeof(unsigned short);
+      break;
+
+    case VTK_INT:
+      size = (float)sizeof(int);
+      break;
+
+    case VTK_UNSIGNED_INT:
+      size = (float)sizeof(unsigned int);
+      break;
+
+    case VTK_LONG:
+      size = (float)sizeof(long);
+      break;
+
+    case VTK_UNSIGNED_LONG:
+      size = (float)sizeof(unsigned long);
+      break;
+
+    case VTK_FLOAT:
+      size = (float)sizeof(float);
+      break;
+
+    case VTK_DOUBLE:
+      size = (float)sizeof(double);
+      break;
+
+    default:
+      vtkErrorMacro(<<"Unsupported data type!");
+    }
+
+  return (unsigned long)ceil((size * numPrims)/1000.0); //kilobytes
 }
 
 void vtkDataArray::PrintSelf(ostream& os, vtkIndent indent)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-17 12:05:23 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1999-09-17 19:42:50 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -298,11 +298,8 @@ void vtkDataObject::PreUpdate()
   // For now does nothing
 }
 
-
-
-
-
-
-
-
-
+//----------------------------------------------------------------------------
+unsigned long vtkDataObject::GetActualMemorySize()
+{
+  return this->FieldData->GetActualMemorySize();
+}

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-16 16:47:56 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1999-09-17 19:42:56 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -172,8 +172,8 @@ public:
 
   // Description:
   // One of the variables set when UpdateInformation is called.
-  // the estimated size of the data (in kilobytes) after the whole
-  // extent is updated.
+  // It is the estimated size of the data (in kilobytes) after 
+  // the whole extent is updated.
   void SetEstimatedWholeMemorySize(unsigned long v);
   virtual unsigned long GetEstimatedWholeMemorySize();
   
@@ -184,6 +184,14 @@ public:
     { vtkErrorMacro(
       "Subclass did not implement 'GetEstimatedUpdateMemorySize'");
     return 0;}
+  
+  // Description:
+  // Return the actual size of the data in kilobytes. This number
+  // is valid only after the pipeline has updated. The memory size
+  // returned is guaranteed to be greater than or equal to the
+  // memory required to represent the data (e.g., extra space in
+  // arrays, etc. are not included in the return value).
+  virtual unsigned long GetActualMemorySize();
   
   // Description:
   // PipelineMTime is the maximum of all the upstream source object mtimes.

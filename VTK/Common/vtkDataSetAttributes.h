@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:20:43 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-09-17 19:43:21 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -234,6 +234,15 @@ public:
   void CopyTuple(vtkDataArray *fromData, vtkDataArray *toData, int fromId, 
                  int toId);
 
+  // Description:
+  // Return the memory in kilobytes consumed by this attribute data. 
+  // Used to support streaming and reading/writing data. The value 
+  // returned is guaranteed to be greater than or equal to the memory 
+  // required to actually represent the data represented by this object. 
+  // The information returned is valid only after the pipeline has 
+  // been updated.
+  unsigned long GetActualMemorySize();
+  
   // Description:
   // For legacy compatibility. Do not use.
   void DeepCopy(vtkDataSetAttributes &pd) {this->DeepCopy(&pd);}

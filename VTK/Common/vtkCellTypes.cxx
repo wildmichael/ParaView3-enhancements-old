@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellTypes.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:01:26 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-09-17 19:42:23 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -107,7 +107,7 @@ void vtkCellTypes::Reset()
 {
   this->MaxId = -1;
 }
-//
+
 // Private function does "reallocate"
 //
 _vtkCell_s *vtkCellTypes::Resize(int sz)
@@ -139,3 +139,9 @@ _vtkCell_s *vtkCellTypes::Resize(int sz)
   return this->Array;
 }
 
+unsigned long vtkCellTypes::GetActualMemorySize()
+{
+  unsigned long size=sizeof(_vtkCell_s)*this->GetNumberOfTypes();
+
+  return (unsigned long) ceil((float)size/1000.0); //kilobytes
+}

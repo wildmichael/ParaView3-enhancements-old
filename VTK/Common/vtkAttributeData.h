@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAttributeData.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:20:38 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-09-17 19:41:36 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -121,6 +121,15 @@ public:
   // entire data array assigning values.
   virtual void DeepCopy(vtkAttributeData *ad);
   virtual void ShallowCopy(vtkAttributeData *ad);
+
+  // Description:
+  // Return the memory in kilobytes consumed by this attribute data. 
+  // Used to support streaming and reading/writing data. The value 
+  // returned is guaranteed to be greater than or equal to the 
+  // memory required to actually represent the data represented 
+  // by this object. The information returned is valid only after
+  // the pipeline has been updated.
+  unsigned long GetActualMemorySize();
 
   // Description:
   // For legacy compatibility. Do not use.

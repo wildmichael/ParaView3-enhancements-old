@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldData.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-25 17:58:10 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-09-17 19:43:25 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -587,6 +587,21 @@ vtkDataArray *vtkFieldData::GetArray(char *arrayName)
       }
     }
   return NULL;
+}
+
+unsigned long vtkFieldData::GetActualMemorySize()
+{
+  unsigned long size=0;
+
+  for ( int i=0; i < this->NumberOfArrays; i++ )
+    {
+    if ( this->Data[i] != NULL )
+      {
+      size += this->Data[i]->GetActualMemorySize();
+      }
+    }
+
+  return size;
 }
 
 void vtkFieldData::PrintSelf(ostream& os, vtkIndent indent)

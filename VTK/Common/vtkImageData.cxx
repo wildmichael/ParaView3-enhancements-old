@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-10 12:24:27 $
-  Version:   $Revision: 1.67 $
+  Date:      $Date: 1999-09-17 19:43:37 $
+  Version:   $Revision: 1.68 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -1892,3 +1892,10 @@ vtkImageToStructuredPoints *vtkImageData::MakeImageToStructuredPoints()
     }
   return this->ImageToStructuredPoints;
 }
+
+//----------------------------------------------------------------------------
+unsigned long vtkImageData::GetActualMemorySize()
+{
+  return this->vtkDataSet::GetActualMemorySize();
+}
+
