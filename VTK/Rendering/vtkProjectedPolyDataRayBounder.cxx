@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProjectedPolyDataRayBounder.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-06-09 18:02:08 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1997-06-30 01:05:03 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to Lisa Sobierajski Avila who developed this class.
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
