@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLineSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-29 16:14:21 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1996-06-12 23:01:28 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -117,10 +117,12 @@ void vtkLineSource::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Resolution: " << this->Resolution << "\n";
 
   os << indent << "Point 1: (" << this->Point1[0] << ", "
-                                << this->Point1[1] << ", "
-                                << this->Point1[2] << ")\n";
+                               << this->Point1[1] << ", "
+                               << this->Point1[2] << ")\n";
 
   os << indent << "Point 2: (" << this->Point2[0] << ", "
-                                << this->Point2[1] << ", "
-                                << this->Point2[2] << ")\n";
+                               << this->Point2[1] << ", "
+                               << this->Point2[2] << ")\n";
+
+
 }
