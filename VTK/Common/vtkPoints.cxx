@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-09 19:55:42 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1994-11-15 11:08:04 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -14,8 +14,6 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 
 =========================================================================*/
 #include "Points.hh"
-#include "FPoints.hh"
-#include "IdList.hh"
 
 vlPoints::vlPoints()
 {
