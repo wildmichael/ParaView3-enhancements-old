@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-03-25 10:16:48 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-03-27 16:11:15 $
+  Version:   $Revision: 1.4 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -57,7 +57,7 @@ vlStructuredPoints::~vlStructuredPoints()
 {
 }
 
-int vlStructuredPoints::NumberOfCells()
+int vlStructuredPoints::GetNumberOfCells()
 {
   int nCells=1;
   int i;
@@ -69,7 +69,7 @@ int vlStructuredPoints::NumberOfCells()
   return nCells;
 }
 
-int vlStructuredPoints::NumberOfPoints()
+int vlStructuredPoints::GetNumberOfPoints()
 {
   return Dimension[0]*Dimension[1]*Dimension[2];
 }

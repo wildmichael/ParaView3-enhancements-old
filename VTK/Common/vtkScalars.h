@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkScalars.h,v $
   Language:  C++
-  Date:      $Date: 1994-02-28 22:16:19 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-03-27 16:11:11 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -30,7 +30,7 @@ public:
   vlScalars();
   virtual ~vlScalars() {};
   virtual vlScalars *MakeObject(int sze, int ext=1000) = 0;
-  virtual int NumberOfScalars() = 0;
+  virtual int GetNumberOfScalars() = 0;
   virtual float GetScalar(int i) = 0;
   virtual void SetScalar(int i, float s) = 0;     // fast insert
   virtual void InsertScalar(int i, float s) = 0;  // allocates memory as necessary

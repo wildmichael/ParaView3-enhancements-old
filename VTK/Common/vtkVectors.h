@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkVectors.h,v $
   Language:  C++
-  Date:      $Date: 1994-02-07 17:14:32 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1994-03-27 16:11:03 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -30,7 +30,7 @@ public:
  vlVectors();
   virtual ~vlVectors() {};
   virtual vlVectors *MakeObject(int sze, int ext=1000) = 0;
-  virtual int NumberOfVectors() = 0;
+  virtual int GetNumberOfVectors() = 0;
   virtual float *GetVector(int i) = 0;
   virtual void SetVector(int i,float x[3]) = 0;       // fast insert
   virtual void InsertVector(int i, float x[3]) = 0;   // allocates memory as necessary

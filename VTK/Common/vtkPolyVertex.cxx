@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPolyVertex.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-03-23 14:07:17 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-03-27 16:11:18 $
+  Version:   $Revision: 1.5 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -20,7 +20,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 
 float vlPolyPoints::EvaluatePosition(float x[3], int& subId, float pcoords[3])
 {
-  int numPts=this->Points.NumberOfPoints();
+  int numPts=this->Points.GetNumberOfPoints();
   float *X;
   float dist2, minDist2;
   int i;
@@ -64,7 +64,7 @@ void vlPolyPoints::Contour(float value, vlFloatScalars *cellScalars,
 {
   int i, pts[1];
 
-  for (i=0; i<this->Points.NumberOfPoints(); i++)
+  for (i=0; i<this->Points.GetNumberOfPoints(); i++)
     {
     if ( value == cellScalars->GetScalar(i) )
       {

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredPoints.h,v $
   Language:  C++
-  Date:      $Date: 1994-03-12 18:58:53 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-03-27 16:11:14 $
+  Version:   $Revision: 1.3 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -44,8 +44,8 @@ public:
 
   // dataset interface
   vlDataSet *MakeObject() {return new vlStructuredPoints(*this);};
-  int NumberOfCells();
-  int NumberOfPoints(); 
+  int GetNumberOfCells();
+  int GetNumberOfPoints(); 
   float *GetPoint(int ptId);
   vlCell *GetCell(int cellId);
   vlMapper *MakeMapper() {return (vlMapper *)0;};

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkShrinkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-07 17:14:41 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1994-03-27 16:11:09 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -51,7 +51,7 @@ void vlShrinkPolyData::Execute()
 // Count the number of new points and other primitives that 
 // need to be created.
 //
-  numNewPts = this->Input->NumberOfVerts();
+  numNewPts = this->Input->GetNumberOfVerts();
   numNewLines = 0;
   numNewPolys = 0;
   poly_alloc_size = 0;
@@ -77,7 +77,7 @@ void vlShrinkPolyData::Execute()
 //
   newPoints = new vlFloatPoints(numNewPts);
 
-  newVerts = new vlCellArray(this->Input->NumberOfVerts());
+  newVerts = new vlCellArray(this->Input->GetNumberOfVerts());
 
   newLines = new vlCellArray;
   newLines->Initialize(numNewLines*3);

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkSTLReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-03-09 21:17:40 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-03-27 16:11:12 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -51,7 +51,7 @@ void vlSTLReader::Execute()
     if ( this->ReadBinarySTL(fp,newPts,newPolys) ) return;
     }
 
-  vlDebugMacro(<< "Read " << newPts->NumberOfPoints() << " points");
+  vlDebugMacro(<< "Read " << newPts->GetNumberOfPoints() << " points");
   vlDebugMacro(<< "Read " << newPolys->GetNumberOfCells() << " triangles");
 //
 // Since we sized the dynamic arrays arbitrarily to begin with 
