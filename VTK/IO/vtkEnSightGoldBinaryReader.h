@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightGoldBinaryReader.h,v $
   Language:  C++
-  Date:      $Date: 2003-06-02 20:43:58 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2003-10-24 17:19:59 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -51,6 +51,9 @@ protected:
   vtkEnSightGoldBinaryReader();
   ~vtkEnSightGoldBinaryReader();
   
+  // Returns 1 if successful.  Sets file size as a side action.
+  int OpenFile(const char* filename);
+
   // Description:
   // Read the geometry file.  If an error occurred, 0 is returned; otherwise 1.
   virtual int ReadGeometryFile(char* fileName, int timeStep);
@@ -157,7 +160,10 @@ protected:
   int NodeIdsListed;
   int ElementIdsListed;
   
-  FILE *IFile;
+  ifstream *IFile;
+  // The size of the file could be used to choose byte order.
+  int FileSize;
+
 private:
   vtkEnSightGoldBinaryReader(const vtkEnSightGoldBinaryReader&);  // Not implemented.
   void operator=(const vtkEnSightGoldBinaryReader&);  // Not implemented.
