@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPlane.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-15 07:51:50 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-10-27 21:35:23 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPixel.h,v $
   Language:  C++
-  Date:      $Date: 1994-09-14 20:18:53 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-10-27 21:35:21 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -13,26 +13,26 @@ without the express written consent of the authors.
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-// .NAME vlRectangle - a cell that represents a orthogonal quadrilateral
+// .NAME vlPixel - a cell that represents a orthogonal quadrilateral
 // .SECTION Description
-// vlRectangle is a concrete implementation of vlCell to represent a 2D
+// vlPixel is a concrete implementation of vlCell to represent a 2D
 // orthogonal quadrilateral. Unlike vlQuad, the corners are at right angles,
 // leading to large increases in computational efficiency.
 
-#ifndef __vlRectangle_h
-#define __vlRectangle_h
+#ifndef __vlPixel_h
+#define __vlPixel_h
 
 #include "Cell.hh"
 
-class vlRectangle : public vlCell
+class vlPixel : public vlCell
 {
 public:
-  vlRectangle() {};
-  vlRectangle(const vlRectangle& r);
-  char *GetClassName() {return "vlRectangle";};
+  vlPixel() {};
+  vlPixel(const vlPixel& r);
+  char *GetClassName() {return "vlPixel";};
 
-  vlCell *MakeObject() {return new vlRectangle(*this);};
-  int GetCellType() {return vlRECTANGLE;};
+  vlCell *MakeObject() {return new vlPixel(*this);};
+  int GetCellType() {return vlPIXEL;};
   int GetCellDimension() {return 2;};
   int GetNumberOfEdges() {return 4;};
   int GetNumberOfFaces() {return 0;};

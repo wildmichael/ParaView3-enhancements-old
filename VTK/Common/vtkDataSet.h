@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataSet.h,v $
   Language:  C++
-  Date:      $Date: 1994-09-14 20:53:07 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1994-10-27 21:35:01 $
+  Version:   $Revision: 1.29 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -67,6 +67,11 @@ public:
   virtual float *GetPoint(int ptId) = 0;
 
   // Description:
+  // Copy point coordinates into user provided array x[3] for specified
+  // point id.
+  virtual void GetPoint(int id, float x[3]);
+
+  // Description:
   // Get cell with cellId such that: 0 <= cellId < NumberOfCells
   virtual vlCell *GetCell(int cellId) = 0;
 
@@ -117,6 +122,12 @@ protected:
   vlTimeStamp ComputeTime; // Time at which bounds, center, etc. computed
   float Bounds[6];  // (xmin,xmax, ymin,ymax, zmin,zmax) geometric bounds
 };
+
+inline void vlDataSet::GetPoint(int id, float x[3])
+{
+  float *pt = this->GetPoint(id);
+  x[0] = pt[0]; x[1] = pt[1]; x[2] = pt[2]; 
+}
 
 #endif
 

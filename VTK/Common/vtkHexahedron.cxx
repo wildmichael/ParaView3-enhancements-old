@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkHexahedron.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-29 14:05:19 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1994-10-27 21:35:07 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -15,7 +15,6 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 =========================================================================*/
 #include "Hexa.hh"
 #include "vlMath.hh"
-#include "Brick.hh"
 #include "Line.hh"
 #include "Quad.hh"
 #include "CellArr.hh"
