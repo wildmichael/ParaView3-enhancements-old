@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-26 15:19:39 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1997-05-13 20:57:31 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,11 +52,16 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // datasets. For example, this filter will extract the outer surface of a 
 // volume or structured grid dataset. (For structured data you may want to
 // use vtkStructuredPointsGeometryFilter, vtkStructuredGridGeometryFilter,
-// or vtkExtractVOI.)
+// vtkUnstructuredGridGeometryFilter, vtkRectilinearGridGeometryFilter, or 
+// vtkExtractVOI.)
 
 // .SECTION Caveats
-// When vtkGeometryFilter extracts cells (or boundaries of cells) it may create
-// duplicate points. Use vtkCleanPolyData to merge duplicate points.
+// When vtkGeometryFilter extracts cells (or boundaries of cells) it
+// will (by default) merge duplicate vertices. This may cause problems
+// in some cases. For example, if you've run vtkPolyNormals to
+// generate normals, which may split meshes and create duplicate
+// vertices, vtkGeometryFilter will merge these points back
+// together. Turn merging off to prevent this from occuring.
 
 // .SECTION See Also
 // vtkStructuredPointsGeometryFilter vtkStructuredGridGeometryFilter
