@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToImageFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-05 19:22:21 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-08-17 15:17:46 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -253,7 +253,8 @@ int vtkImageToImageFilter::GetNumberOfStreamDivisions()
   fraction = (ext[1]-ext[0]+1)*(ext[3]-ext[2]+1)*(ext[5]-ext[4]+1) / fraction;
   
   // Estimated memory size is of the WholeExtent
-  num =(int)(fraction*input->GetEstimatedMemorySize()/input->GetMemoryLimit());
+  num =(int)(fraction *
+	     input->GetEstimatedWholeMemorySize() / input->GetMemoryLimit());
   
   if (num < 1)
     {
