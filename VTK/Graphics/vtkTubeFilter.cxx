@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTubeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 21:25:03 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-09-04 21:32:42 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -73,9 +73,9 @@ void vtkTubeFilter::Execute()
   vtkPointData *pd, *outPD;
   vtkPolyData *input=(vtkPolyData *)this->Input;
   vtkPolyData *output=(vtkPolyData *)this->Output;
-//
-// Initialize
-//
+  //
+  // Initialize
+  //
   vtkDebugMacro(<<"Creating ribbon");
 
   if ( !(inPts=input->GetPoints()) || 
@@ -89,6 +89,7 @@ void vtkTubeFilter::Execute()
 
   // copy scalars, vectors, tcoords. Normals may be computed here.
   pd = input->GetPointData();
+  outPD = output->GetPointData();
   outPD->CopyNormalsOff();
   outPD->CopyAllocate(pd,numNewPts);
 
