@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:51:07 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1998-09-08 12:32:32 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -97,8 +97,13 @@ void vtkImplicitFunction::FunctionGradient(float x[3], float g[3])
     pt[2] = x[2];
     pt[3] = 1.0;
     this->Transform->MultiplyPoint(pt,pt);
-    if (pt[3] != 1.0 ) for (i=0; i<3; i++) pt[i] /= pt[3];
-
+    if (pt[3] != 1.0 )
+      {
+      for (i=0; i<3; i++)
+	{
+	pt[i] /= pt[3];
+	}
+      }
     this->EvaluateGradient((float *)pt,g);
     }
 }
