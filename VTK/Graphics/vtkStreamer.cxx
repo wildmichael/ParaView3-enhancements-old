@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStreamer.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-02-26 10:26:55 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1995-06-02 10:49:04 $
+  Version:   $Revision: 1.2 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -87,6 +87,19 @@ void vlStreamer::SetStartLocation(int cellId, int subId, float pcoords[3])
 }
 
 // Description:
+// Specify the start of the streamline in the cell coordinate system. That is,
+// cellId and subId (if composite cell), and parametric coordinates.
+void vlStreamer::SetStartLocation(int cellId, int subId, float r, float s, float t)
+{
+  float pcoords[3];
+  pcoords[0] = r;
+  pcoords[1] = s;
+  pcoords[2] = t;
+
+  this->SetStartLocation(cellId, subId, pcoords);
+}
+
+// Description:
 // Get the starting location of the streamline in the cell corrdinate system.
 int vlStreamer::GetStartLocation(int& subId, float pcoords[3])
 {
@@ -112,6 +125,19 @@ void vlStreamer::SetStartPosition(float x[3])
     this->StartPosition[1] = x[1];
     this->StartPosition[2] = x[2];
     }
+}
+
+// Description:
+// Specify the start of the streamline in the global coordinate system. Search
+// must be performed to find initial cell to strart integration from.
+void vlStreamer::SetStartPosition(float x, float y, float z)
+{
+  float pos[3];
+  pos[0] = x;
+  pos[1] = y;
+  pos[2] = z;
+
+  this->SetStartPosition(pos);
 }
 
 // Description:
