@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkBitArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-05 09:00:54 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-09-26 14:17:06 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -15,6 +15,14 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 =========================================================================*/
 #include "BArray.hh"
 
+
+// Description:
+// Get the data at a particular index.
+int vlBitArray::GetValue(const int id) 
+{
+  if (this->Array[id/8]&(0x80 >> (id%8))) return 1; return 0;
+};
+
 // Description:
 // Allocate memory for this array. Delete old storage if present.
 int vlBitArray::Allocate(const int sz, const int ext)
@@ -22,7 +30,7 @@ int vlBitArray::Allocate(const int sz, const int ext)
   if ( this->Array != NULL ) delete [] this->Array;
 
   this->Size = ( sz > 0 ? sz : 1);
-  if ( (this->Array = new char[(sz+7)/8]) == NULL ) return 0;
+  if ( (this->Array = new unsigned char[(sz+7)/8]) == NULL ) return 0;
   this->Extend = ( ext > 0 ? ext : 1);
   this->MaxId = -1;
 
@@ -47,7 +55,7 @@ void vlBitArray::Initialize()
 vlBitArray::vlBitArray(const int sz, const int ext)
 {
   this->Size = ( sz > 0 ? sz : 1);
-  this->Array = new char[(sz+7)/8];
+  this->Array = new unsigned char[(sz+7)/8];
   this->Extend = ( ext > 0 ? ext : 1);
   this->MaxId = -1;
 }
@@ -67,7 +75,7 @@ vlBitArray::vlBitArray(const vlBitArray& ia)
   this->Size = ia.Size;
   this->Extend = ia.Extend;
 
-  this->Array = new char[(this->Size+7)/8];
+  this->Array = new unsigned char[(this->Size+7)/8];
   for (i=0; i<this->MaxId; i++)
     this->Array[i] = ia.Array[i];
 
@@ -87,7 +95,7 @@ vlBitArray& vlBitArray::operator=(const vlBitArray& ia)
     this->Size = ia.Size;
     this->Extend = ia.Extend;
 
-    this->Array = new char[(this->Size+7)/8];
+    this->Array = new unsigned char[(this->Size+7)/8];
     for (i=0; i<=this->MaxId; i++)
       this->Array[i] = ia.Array[i];
     }
@@ -126,17 +134,17 @@ void vlBitArray::PrintSelf(ostream& os, vlIndent indent)
 //
 // Private function does "reallocate"
 //
-char *vlBitArray::Resize(const int sz)
+unsigned char *vlBitArray::Resize(const int sz)
 {
   int i;
-  char *newArray;
+  unsigned char *newArray;
   int newSize;
 
   if ( sz >= this->Size ) newSize = this->Size + 
     this->Extend*(((sz-this->Size)/this->Extend)+1);
   else newSize = sz;
 
-  if ( (newArray = new char[(newSize+7)/8]) == NULL )
+  if ( (newArray = new unsigned char[(newSize+7)/8]) == NULL )
     {
     vlErrorMacro(<< "Cannot allocate memory\n");
     return 0;
