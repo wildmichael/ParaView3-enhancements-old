@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCursor3D.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:51:00 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1997-04-26 15:18:30 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -81,7 +81,6 @@ public:
 
   // Description:
   // Turn on/off the wireframe axes.
-  // 
   vtkSetMacro(Axes,int);
   vtkGetMacro(Axes,int);
   vtkBooleanMacro(Axes,int);
@@ -115,6 +114,10 @@ public:
   // Description:
   // Get the focus for this filter.
   vtkPolyData *GetFocus() {return (vtkPolyData *)this->Focus;};
+
+  // Convenience methods turn all wires on or off.
+  void AllOn();
+  void AllOff();
 
 protected:
   void Execute();
