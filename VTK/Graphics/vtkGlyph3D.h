@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:05:21 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2000-03-17 11:11:37 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -62,7 +62,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // .SECTION Caveats
 // The scaling of the glyphs is controled by the ScaleFactor ivar multiplied
 // by the scalar value at each point (if VTK_SCALE_BY_SCALAR is set), or
-// multiplied by the vector magnitude (if VTK_SCALE_BY_VECTOR is set). The
+// multiplied by the vector magnitude (if VTK_SCALE_BY_VECTOR is set),
+// Alternatively (if VTK_SCALE_BY_VECTORCOMPONENTS is set), the scaling
+// may be specified for x,y,z using the vector components. The
 // scale factor can be further controlled by enabling clamping using the
 // Clamping ivar. If clamping is enabled, the scale is normalized by the
 // Range ivar, and then multiplied by the scale factor. The normalization
@@ -96,7 +98,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #define VTK_SCALE_BY_SCALAR 0
 #define VTK_SCALE_BY_VECTOR 1
-#define VTK_DATA_SCALING_OFF 2
+#define VTK_SCALE_BY_VECTORCOMPONENTS 2
+#define VTK_DATA_SCALING_OFF 3
 
 #define VTK_COLOR_BY_SCALE  0
 #define VTK_COLOR_BY_SCALAR 1
@@ -155,7 +158,9 @@ public:
     {this->SetScaleMode(VTK_SCALE_BY_SCALAR);};
   void SetScaleModeToScaleByVector() 
     {this->SetScaleMode(VTK_SCALE_BY_VECTOR);};
-  void SetScaleModeToDataScalingOff() 
+  void SetScaleModeToScaleByVectorComponents()
+    {this->SetScaleMode(VTK_SCALE_BY_VECTORCOMPONENTS);};
+  void SetScaleModeToDataScalingOff()
     {this->SetScaleMode(VTK_DATA_SCALING_OFF);};
   char *GetScaleModeAsString();
 
