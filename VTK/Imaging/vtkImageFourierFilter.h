@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFourierFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-17 12:06:56 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1997-06-17 16:25:59 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,7 +52,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkImageFilter.h"
 
 
-
+//BTX
 /*******************************************************************
 			COMPLEX number stuff
 *******************************************************************/
@@ -107,7 +107,7 @@ static vtkImageComplex _vtkImageComplexMultiplyTemp = {0.0, 0.0};
 }
 
 /******************* End of COMPLEX number stuff ********************/
-
+//ETX
 
 class VTK_EXPORT vtkImageFourierFilter : public vtkImageFilter
 {
