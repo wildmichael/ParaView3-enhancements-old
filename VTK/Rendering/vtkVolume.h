@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:25:30 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1998-10-15 13:45:28 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -136,7 +136,6 @@ protected:
   vtkVolumeMapper   *VolumeMapper;
 
   vtkVolumeProperty *VolumeProperty;
-  int		    SelfCreatedProperty;
 };
 
 #endif

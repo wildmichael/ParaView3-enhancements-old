@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexture.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:25 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1998-10-15 13:45:27 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -142,11 +142,13 @@ public:
 protected:
   int   Repeat;
   int   Interpolate;
-  int   SelfCreatedLookupTable;
   int   MapColorScalarsThroughLookupTable;
   vtkStructuredPoints *Input;
   vtkLookupTable *LookupTable;
   vtkScalars *MappedScalars;
+  
+  // this is to duplicated the previous behavior of SelfCreatedLookUpTable
+  int SelfAdjustingTableRange;
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:25:24 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 1998-10-15 13:45:26 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -270,7 +270,6 @@ protected:
 
   // for picking actors
   vtkPicker *Picker;
-  int SelfCreatedPicker;
   vtkOutlineSource *Outline;
   vtkPolyDataMapper *OutlineMapper;
   vtkActor *OutlineActor;

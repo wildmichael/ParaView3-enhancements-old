@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODActor.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:01 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1998-10-15 13:45:25 $
+  Version:   $Revision: 1.21 $
   
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -108,7 +108,6 @@ protected:
   vtkMapperCollection *LODMappers;
 
   // stuff for creating our own LOD mappers
-  int                 SelfCreatedLODs;
   vtkPointSource      *PointSource;
   vtkGlyph3D          *Glyph3D;
   vtkMaskPoints       *MaskPoints;
@@ -118,9 +117,9 @@ protected:
   vtkPolyDataMapper   *LowMapper;
   vtkPolyDataMapper   *MediumMapper;
 
-  void CreateLODs();
-  void UpdateSelfCreatedLODs();
-  void DeleteSelfCreatedLODs();
+  void CreateOwnLODs();
+  void UpdateOwnLODs();
+  void DeleteOwnLODs();
 };
 
 #endif

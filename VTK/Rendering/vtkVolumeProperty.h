@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProperty.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:30 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1998-10-15 13:45:28 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -202,19 +202,15 @@ protected:
 
   vtkPiecewiseFunction		*GrayTransferFunction;
   vtkTimeStamp			GrayTransferFunctionMTime;
-  int				SelfCreatedGTFun;
 
   vtkColorTransferFunction	*RGBTransferFunction;
   vtkTimeStamp			RGBTransferFunctionMTime;
-  int				SelfCreatedRGBTFun;
 
   vtkPiecewiseFunction		*ScalarOpacity;
   vtkTimeStamp			ScalarOpacityMTime;
-  int				SelfCreatedSOTFun;
 
   vtkPiecewiseFunction		*GradientOpacity;
   vtkTimeStamp			GradientOpacityMTime;
-  int				SelfCreatedGOTFun;
 
   int				Shade;
   float				Ambient;

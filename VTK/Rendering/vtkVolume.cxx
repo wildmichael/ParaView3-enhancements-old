@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:25:30 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1998-10-15 13:45:27 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,14 +52,15 @@ vtkVolume::vtkVolume()
   this->VolumeMapper	= NULL;
 
   this->VolumeProperty	= NULL;
-  this->SelfCreatedProperty = 0;
 }
 
 // Destruct a volume
 vtkVolume::~vtkVolume()
 {
-  if( this->SelfCreatedProperty && this->VolumeProperty )
-    this->VolumeProperty->Delete();
+  if (this->VolumeProperty )
+    {
+    this->VolumeProperty->UnRegister(this);
+    }
 }
 
 // Shallow copy of an volume.
@@ -260,11 +261,9 @@ void vtkVolume::SetVolumeProperty(vtkVolumeProperty *property)
 {
   if( this->VolumeProperty != property )
     {
-    if( this->SelfCreatedProperty )
-      this->VolumeProperty->Delete();
-
-    this->SelfCreatedProperty = 0;
+    if (this->VolumeProperty != NULL) {this->VolumeProperty->UnRegister(this);}
     this->VolumeProperty = property;
+    if (this->VolumeProperty != NULL) {this->VolumeProperty->Register(this);}
     this->Modified();
     }
 }
@@ -274,7 +273,8 @@ vtkVolumeProperty *vtkVolume::GetVolumeProperty()
   if( this->VolumeProperty == NULL )
     {
     this->VolumeProperty = vtkVolumeProperty::New();
-    this->SelfCreatedProperty = 1;
+    this->VolumeProperty->Register(this);
+    this->VolumeProperty->Delete();
     }
   return this->VolumeProperty;
 }
