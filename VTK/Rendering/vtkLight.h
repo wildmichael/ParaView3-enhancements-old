@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLight.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:01 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1999-04-27 19:07:12 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -87,11 +87,13 @@ public:
   // Set/Get the position of the light.
   vtkSetVector3Macro(Position,float);
   vtkGetVectorMacro(Position,float,3);
-
+  void SetPosition(double *a) {this->SetPosition(a[0],a[1],a[2]);};
+  
   // Description:
   // Set/Get the point at which the light is shining.
   vtkSetVector3Macro(FocalPoint,float);
   vtkGetVectorMacro(FocalPoint,float,3);
+  void SetFocalPoint(double *a) {this->SetFocalPoint(a[0],a[1],a[2]);};
 
   // Description:
   // Set/Get the brightness of the light (from one to zero).
