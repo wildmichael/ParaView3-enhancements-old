@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMemoryLimitImageDataStreamer.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:34:39 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-12-11 14:27:01 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -15,14 +15,15 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
-
 #include "vtkMemoryLimitImageDataStreamer.h"
+
+#include "vtkCommand.h"
+#include "vtkExtentTranslator.h"
 #include "vtkImageData.h"
 #include "vtkObjectFactory.h"
-#include "vtkCommand.h"
 #include "vtkPipelineSize.h"
 
-vtkCxxRevisionMacro(vtkMemoryLimitImageDataStreamer, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkMemoryLimitImageDataStreamer, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkMemoryLimitImageDataStreamer);
 
 //----------------------------------------------------------------------------
