@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 21:24:36 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1995-09-01 19:01:47 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -248,7 +248,7 @@ void vtkStructuredPointsReader::Execute()
           return;
           }
 
-        this->Reader.ReadPointData(fp, (vtkDataSet *)this, npts);
+        this->Reader.ReadPointData(fp, output, npts);
         break; //out of this loop
         }
 
@@ -272,7 +272,7 @@ void vtkStructuredPointsReader::Execute()
       vtkErrorMacro(<<"Cannot read point data!");
       return;
       }
-    this->Reader.ReadPointData(fp, (vtkDataSet *)this, numPts);
+    this->Reader.ReadPointData(fp, output, numPts);
     }
 
   else 
