@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageImport.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-24 19:28:08 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-08-02 20:34:45 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -112,7 +112,7 @@ void vtkImageImport::PrintSelf(ostream& os, vtkIndent indent)
 
 //----------------------------------------------------------------------------
 // This method returns the largest data that can be generated.
-void vtkImageImport::UpdateImageInformation()
+void vtkImageImport::UpdateInformation()
 {
   // set the extent
   this->GetOutput()->SetWholeExtent(this->DataExtent);
