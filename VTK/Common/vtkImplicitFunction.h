@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitFunction.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-30 18:39:05 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2000-05-05 18:40:06 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -102,12 +102,7 @@ public:
 
   // Description:
   // Set/Get a transformation to apply to input points before
-  // executing the implicit function.  Warning: if this transform
-  // contains a flip (i.e. the determinant of the 3x3 matrix is
-  // negative) then the function value is negated before it is
-  // returned.  This is the same interpretation as is applied to
-  // vtkPolyData that is flipped: the normals (i.e. gradient) are
-  // reversed and the volume is turned inside-out.
+  // executing the implicit function.
   vtkSetObjectMacro(Transform,vtkGeneralTransform);
   vtkGetObjectMacro(Transform,vtkGeneralTransform);
 
