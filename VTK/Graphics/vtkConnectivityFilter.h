@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConnectivityFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 17:56:22 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1997-04-14 20:21:57 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -78,6 +78,7 @@ class VTK_EXPORT vtkConnectivityFilter : public vtkDataSetToUnstructuredGridFilt
 {
 public:
   vtkConnectivityFilter();
+  ~vtkConnectivityFilter();
   char *GetClassName() {return "vtkConnectivityFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -132,7 +133,7 @@ protected:
   vtkIdList Seeds; //id's of points or cells used to seed regions
   int MaxRecursionDepth; //prevent excessive recursion
   vtkIdList SpecifiedRegionIds; //regions specified for extraction
-  vtkIntArray RegionSizes; //size (in cells) of each region extracted
+  vtkIntArray *RegionSizes; //size (in cells) of each region extracted
 
   int ScalarConnectivity;
   float ScalarRange[2];

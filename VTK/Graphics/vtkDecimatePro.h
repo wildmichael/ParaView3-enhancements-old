@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimatePro.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-08 22:03:14 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1997-04-14 20:22:00 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -282,7 +282,7 @@ protected:
   int PreserveTopology;
   int Degree;
   float InflectionPointRatio;
-  vtkFloatArray InflectionPoints;
+  vtkFloatArray *InflectionPoints;
 
 
   void SplitMesh();
