@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLPDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-05 20:13:55 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2003-05-08 14:57:02 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkCallbackCommand.h"
 #include "vtkDataSet.h"
 
-vtkCxxRevisionMacro(vtkXMLPDataWriter, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkXMLPDataWriter, "$Revision: 1.6 $");
 
 //----------------------------------------------------------------------------
 vtkXMLPDataWriter::vtkXMLPDataWriter()
@@ -227,7 +227,7 @@ char* vtkXMLPDataWriter::CreatePieceFileName(int index, const char* path)
 {
   ostrstream fn_with_warning_C4701;
   if(path) { fn_with_warning_C4701 << path; }
-  fn_with_warning_C4701 << this->FileNameBase << index;
+  fn_with_warning_C4701 << this->FileNameBase << "_" << index;
   if(this->PieceFileNameExtension) 
   { fn_with_warning_C4701 << this->PieceFileNameExtension; }
   //if(this->FileNameExtension) 
