@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractVOI.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-20 19:26:55 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2003-01-17 14:31:08 $
+  Version:   $Revision: 1.34 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,14 +22,14 @@
 #include "vtkObjectFactory.h"
 #include "vtkPointData.h"
 
-vtkCxxRevisionMacro(vtkExtractVOI, "$Revision: 1.33 $");
+vtkCxxRevisionMacro(vtkExtractVOI, "$Revision: 1.34 $");
 vtkStandardNewMacro(vtkExtractVOI);
 
 //-----------------------------------------------------------------------------
 // Construct object to extract all of the input data.
 vtkExtractVOI::vtkExtractVOI()
 {
-  this->VOI[0] = this->VOI[2] = this->VOI[4] = 0;
+  this->VOI[0] = this->VOI[2] = this->VOI[4] = -VTK_LARGE_INTEGER;
   this->VOI[1] = this->VOI[3] = this->VOI[5] = VTK_LARGE_INTEGER;
 
   this->SampleRate[0] = this->SampleRate[1] = this->SampleRate[2] = 1;
@@ -83,13 +83,21 @@ vtkExtractVOI::ExecuteInformation(vtkImageData *input, vtkImageData *output)
 
   for ( i=0; i < 3; i++ )
     {
-    if ( voi[2*i+1] >= wholeExtent[2*i+1] )
+    if ( voi[2*i+1] > wholeExtent[2*i+1] )
       {
       voi[2*i+1] = wholeExtent[2*i+1];
       }
-    else if ( voi[2*i+1] < wholeExtent[2*1] )
+    else if ( voi[2*i+1] < wholeExtent[2*i] )
       {
       voi[2*i+1] = wholeExtent[2*i];
+      }
+    if ( voi[2*i] < wholeExtent[2*i] )
+      {
+      voi[2*i] = wholeExtent[2*i];
+      }
+    else if ( voi[2*i] > wholeExtent[2*i+1] )
+      {
+      voi[2*i] = wholeExtent[2*i+1];
       }
 
     if ( voi[2*i] > voi[2*i+1] )
@@ -161,6 +169,14 @@ void vtkExtractVOI::ExecuteData(vtkDataObject *)
     else if ( voi[2*i+1] < wholeExtent[2*i] )
       {
       voi[2*i+1] = wholeExtent[2*i];
+      }
+    if ( voi[2*i] < wholeExtent[2*i] )
+      {
+      voi[2*i] = wholeExtent[2*i];
+      }
+    else if ( voi[2*i] > wholeExtent[2*i+1] )
+      {
+      voi[2*i] = wholeExtent[2*i+1];
       }
 
     if ( voi[2*i] > voi[2*i+1] )
