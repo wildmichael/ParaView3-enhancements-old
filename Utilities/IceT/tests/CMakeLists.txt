@@ -1,4 +1,4 @@
-# $Id: CMakeLists.txt,v 1.6 2004-04-01 21:29:46 berk Exp $
+# $Id: CMakeLists.txt,v 1.7 2004-05-20 20:43:37 martink Exp $
 #
 ## Copyright 2003 Sandia Coporation
 ## Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -13,7 +13,7 @@ SET(MyTests
 	BlankTiles.c
 	CompressionSize.c
 	DisplayNoDraw.c
-	RandomTransform.c
+#	RandomTransform.c
 	)
 
 SET(UTIL_SRCS init.c ppm.c)
