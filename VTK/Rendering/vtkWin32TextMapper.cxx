@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32TextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-19 19:35:18 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-08-02 01:56:36 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,16 +58,16 @@ vtkWin32TextMapper::~vtkWin32TextMapper()
 
 void vtkWin32TextMapper::GetSize(vtkViewport* viewport, int *size)
 {
+  if ( this->NumberOfLines > 1 )
+    {
+    this->GetMultiLineSize(viewport, size);
+    return;
+    }
+
   if (this->Input == NULL)
     {
     size[0] = 0;
     size[1] = 0;
-    return;
-    }
-
-  if ( this->NumberOfLines > 1 )
-    {
-    this->GetMultiLineSize(viewport, size);
     return;
     }
 
@@ -170,7 +170,7 @@ void vtkWin32TextMapper::RenderOverlay(vtkViewport* viewport,
   // Check for input
   if ( this->NumberOfLines > 1 )
     {
-    this->RenderMultipleLines(viewport, actor);
+    this->RenderOverlayMultipleLines(viewport, actor);
     return;
     }
 

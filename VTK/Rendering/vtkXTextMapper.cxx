@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-06 21:32:53 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-08-02 01:56:37 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -99,6 +99,12 @@ void vtkXTextMapper::SetFontSize(int size)
 
 void vtkXTextMapper::GetSize(vtkViewport* viewport, int *size)
 {
+  if ( this->NumberOfLines > 1 )
+    {
+    this->GetMultiLineSize(viewport, size);
+    return;
+    }
+
   if (this->Input == NULL)
     {
     size[0] = 0;
@@ -188,7 +194,7 @@ void vtkXTextMapper::RenderOverlay(vtkViewport* viewport, vtkActor2D* actor)
 
   if ( this->NumberOfLines > 1 )
     {
-    this->RenderMultipleLines(viewport, actor);
+    this->RenderOverlayMultipleLines(viewport, actor);
     return;
     }
 
