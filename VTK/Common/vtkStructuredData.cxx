@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredData.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-05-08 08:54:13 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1994-05-10 15:39:18 $
+  Version:   $Revision: 1.6 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -58,6 +58,8 @@ void vlStructuredDataSet::SetDimensions(int i, int j, int k)
 
 void vlStructuredDataSet::SetDimensions(int dim[3])
 {
+  vlDebugMacro(<< " setting Dimensions to (" << dim[0] << "," << dim[1] << "," << dim[2] << ")\n\n");
+
   if ( dim[0] != this->Dimensions[0] || dim[1] != Dimensions[1] ||
   dim[2] != Dimensions[2] )
     {
