@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLParser.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-05 22:55:15 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-12-09 18:49:44 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include <ctype.h>
 #include <sys/stat.h>
 
-vtkCxxRevisionMacro(vtkXMLParser, "$Revision: 1.13 $");
+vtkCxxRevisionMacro(vtkXMLParser, "$Revision: 1.14 $");
 vtkStandardNewMacro(vtkXMLParser);
 
 //----------------------------------------------------------------------------
@@ -33,6 +33,7 @@ vtkXMLParser::vtkXMLParser()
   this->FileName          = 0;
   this->InputString       = 0;
   this->InputStringLength = 0;
+  this->ParseError        = 0;
 }
 
 //----------------------------------------------------------------------------
@@ -145,6 +146,12 @@ int vtkXMLParser::Parse()
 //----------------------------------------------------------------------------
 int vtkXMLParser::InitializeParser()
 {
+  if ( this->Parser )
+    {
+    vtkErrorMacro("Parser already initialized");
+    this->ParseError = 1;
+    return 0;
+    }
   // Create the expat XML parser.
   this->Parser = XML_ParserCreate(0);
   XML_SetElementHandler(this->Parser,
@@ -160,6 +167,12 @@ int vtkXMLParser::InitializeParser()
 //----------------------------------------------------------------------------
 int vtkXMLParser::ParseChunk(const char* inputString, unsigned int length)
 {
+  if ( !this->Parser )
+    {
+    vtkErrorMacro("Parser not initialized");
+    this->ParseError = 1;
+    return 0;
+    }
   int res;
   res = this->ParseBuffer(inputString, length);
   if ( res == 0 )
@@ -172,6 +185,12 @@ int vtkXMLParser::ParseChunk(const char* inputString, unsigned int length)
 //----------------------------------------------------------------------------
 int vtkXMLParser::CleanupParser()
 {
+  if ( !this->Parser )
+    {
+    vtkErrorMacro("Parser not initialized");
+    this->ParseError = 1;
+    return 0;
+    }
   int result = !this->ParseError;
   if(result)
     {
