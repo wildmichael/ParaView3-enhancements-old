@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObjectFactory.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-17 22:22:54 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2001-10-30 16:24:39 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -626,6 +626,11 @@ int vtkObjectFactory::HasOverride(const char* className,
 
 vtkObjectFactoryCollection* vtkObjectFactory::GetRegisteredFactories()
 {
+  if(!vtkObjectFactory::RegisteredFactories)
+    {
+    vtkObjectFactory::Init();
+    }
+
   return vtkObjectFactory::RegisteredFactories;
 }
 
