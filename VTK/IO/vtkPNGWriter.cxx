@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNGWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-13 17:47:47 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-07-13 22:42:39 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -131,7 +131,6 @@ void vtkPNGWriter::WriteSlice(vtkImageData *data)
 {
   // Call the correct templated function for the output
   void *outPtr;
-  int bpp = data->GetNumberOfScalarComponents();
   unsigned int ui;
 
   // Call the correct templated function for the input
