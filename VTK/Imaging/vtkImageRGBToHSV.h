@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageRGBToHSV.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-11 20:13:08 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-07-15 16:15:41 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,7 +42,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .SECTION Description
 // For each pixel with red, blue, and green compnents this
 // filter output the color coded as hue, saturation and value.
-
+// Output type must be the same as input type.
 
 
 #ifndef __vtkImageRGBToHSV_h
@@ -63,12 +63,12 @@ public:
   // Hue is an angle. Maximum specifies when it maps back to 0.
   // HueMaximum defaults to 255 instead of 2PI, because unsigned char
   // is expected as input.
-  // Output type must be the same as input type.
-  vtkSetMacro(HueMaximum,float);
-  vtkGetMacro(HueMaximum,float);
+  // Maximum also specifies the maximum of the Saturation.
+  vtkSetMacro(Maximum,float);
+  vtkGetMacro(Maximum,float);
   
 protected:
-  float HueMaximum;
+  float Maximum;
   
   void Execute(vtkImageRegion *inRegion, vtkImageRegion *outRegion);
 };

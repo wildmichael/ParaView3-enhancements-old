@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSinusoidSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-15 13:26:22 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1997-07-15 16:15:44 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -151,11 +151,12 @@ void vtkImageSinusoidSource::Execute(vtkImageRegion *region)
   
   for (idx = min; idx <= max; ++idx)
     {
+    extent[0] = idx;
     // find dot product
     sum = 0.0;
     for (idx2 = 0; idx2 < 4; ++idx2)
       {
-      sum += (float)(extent[idx*2]) * this->Direction[idx];
+      sum += (float)(extent[idx2*2]) * this->Direction[idx2];
       }
     
     *ptr = this->Amplitude * 
