@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:23 $
-  Version:   $Revision: 1.94 $
+  Date:      $Date: 1999-07-22 19:12:51 $
+  Version:   $Revision: 1.95 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,7 +48,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkQuad.h"
 #include "vtkPolygon.h"
 #include "vtkEmptyCell.h"
-#include "vtkPolyDataWriter.h"
+//#include "vtkPolyDataWriter.h"
 
 //----------------------------------------------------------------------------
 // Initialize static member.  This member is used to simplify traversal
