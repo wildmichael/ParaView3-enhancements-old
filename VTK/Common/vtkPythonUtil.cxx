@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPythonUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-20 12:34:54 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2002-01-21 10:25:43 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -116,27 +116,6 @@ static PyObject *PyVTKObject_PyRepr(PyVTKObject *self)
           self->ob_type->tp_name,self);
   
   return PyString_FromString(buf);
-}
-
-//--------------------------------------------------------------------
-static PyObject *PyVTKObject_PyCall(PyVTKObject *self, PyObject *arg,
-                                    PyObject *kw)
-{
-  PyObject *func = PyObject_GetAttrString((PyObject *)self, "__call__");
-
-  if (func == NULL)
-    {
-    PyErr_Clear();
-    PyErr_Format(PyExc_AttributeError,
-                 "%.200s vtkobject has no __call__ method",
-                 PyString_AsString(self->vtk_class->vtk_name));
-    return NULL;
-    }
-
-  PyObject *res = PyEval_CallObjectWithKeywords(func, arg, kw);
-  Py_DECREF(func);
-
-  return res;
 }
 
 //--------------------------------------------------------------------
@@ -413,13 +392,13 @@ static PyTypeObject PyVTKObjectType = {
   0,                                     // tp_as_sequence
   0,                                     // tp_as_mapping
   (hashfunc)0,                           // tp_hash
-  (ternaryfunc)PyVTKObject_PyCall,       // tp_call
+  (ternaryfunc)0,                        // tp_call
   (reprfunc)PyVTKObject_PyString,        // tp_string
   (getattrofunc)PyVTKObject_PyGetAttr,   // tp_getattro
   (setattrofunc)PyVTKObject_PySetAttr,   // tp_setattro
   0,                                     // tp_as_buffer
   0,                                     // tp_flags
-  "A VTK object.  Special attributes are:  __class__ (the class that this object belongs to), __doc__ (the docstring for the class), __methods__ (a list of all methods for this object), and __this__ (a string that contains the hexidecimal address of the underlying VTK object)"  // tp_doc
+  "A VTK object.  Special attributes are:  __class__ (the class that this object belongs to), __dict__ (user-controlled attributes), __doc__ (the docstring for the class), __methods__ (a list of all methods for this object), and __this__ (a string that contains the hexidecimal address of the underlying VTK object)"  // tp_doc
 };
 
 int PyVTKObject_Check(PyObject *obj)
@@ -784,7 +763,7 @@ static PyTypeObject PyVTKClassType = {
   (setattrofunc)0,                       // tp_setattro
   0,                                     // tp_as_buffer
   0,                                     // tp_flags
-  "A generator for VTK objects.  Special attributes are: __bases__ (a tuple of base classes), __doc__ (the docstring for the class), __name__ (the name of class), __methods__ (methods for this class, not including inherited methods), and __module__ (module that the class is defined in)." // tp_doc
+  "A generator for VTK objects.  Special attributes are: __bases__ (a tuple of base classes), __dict__ (user-defined methods and attributes), __doc__ (the docstring for the class), __name__ (the name of class), __methods__ (methods for this class, not including inherited methods or user-defined methods), and __module__ (module that the class is defined in)." // tp_doc
 };
 
 int PyVTKClass_Check(PyObject *obj)
