@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-06-10 02:12:45 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1997-06-10 13:40:22 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -748,7 +748,7 @@ void vtkImageReader::SetDataScalarType(int type)
 //----------------------------------------------------------------------------
 // Description:
 // Sets the default ScalarType of the cache.
-vtkImageSource *vtkImageReader::GetOutput()
+vtkImageCache *vtkImageReader::GetOutput()
 {
   this->CheckCache();
   if (this->Output->GetScalarType() == VTK_VOID)

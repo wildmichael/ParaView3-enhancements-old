@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-10 02:12:47 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1997-06-10 13:40:23 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -121,7 +121,7 @@ public:
   int *GetDataMemoryOrder() {return this->DataMemoryOrder;};
   
   void UpdateImageInformation(vtkImageRegion *region);
-  vtkImageSource *GetOutput();
+  vtkImageCache *GetOutput();
   
   // Description:
   // Get the size of the header computed by this object.
