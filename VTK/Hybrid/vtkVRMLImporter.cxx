@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLImporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-24 14:11:55 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2001-12-21 04:05:30 $
+  Version:   $Revision: 1.46 $
   Thanks:    Tom Citriniti who implemented and contributed this class
 
 
@@ -102,7 +102,7 @@ void vtkVRMLAllocator::CleanUp()
 }
 char* vtkVRMLAllocator::StrDup(const char *str)
 {
-  return Heap->StrDup(str);
+  return Heap->vtkStrDup(str);
 }
 
 
