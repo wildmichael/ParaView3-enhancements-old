@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestImageIterator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-08 13:42:22 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-03-12 15:26:27 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 #include "vtkImageProgressIterator.h"
 #include "vtkImageData.h"
 
-template<typename T>
+template<class T>
 int DoTest(T*)
 {
   int ext[6] = { 0, 0, 0, 0, 0, 0 };
