@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitFunction.h,v $
   Language:  C++
-  Date:      $Date: 2000-03-29 00:24:11 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2000-03-29 01:14:21 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -94,10 +94,11 @@ public:
   // Evaluate function gradient at position x-y-z and pass back vector. Point
   // x[3] is transformed through transform (if provided).
   void FunctionGradient(const float x[3], float g[3]);
-  float *FunctionGradient(const float x[3]);
+  float *FunctionGradient(const float x[3]) {
+    this->FunctionGradient(x,this->ReturnValue);
+    return this->ReturnValue; };
   float *FunctionGradient(float x, float y, float z) {
     float xyz[3] = {x, y, z}; return this->FunctionGradient(xyz); };
-
 
   // Description:
   // Set/Get a transformation to apply to input points before
@@ -128,7 +129,7 @@ protected:
   void operator=(const vtkImplicitFunction&) {};
 
   vtkGeneralTransform *Transform;
-
+  float ReturnValue[3];
 };
 
 #endif
