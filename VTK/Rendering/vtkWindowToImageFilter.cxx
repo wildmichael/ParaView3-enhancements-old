@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindowToImageFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-03 15:06:04 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-01-03 19:45:40 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -280,7 +280,7 @@ void vtkWindowToImageFilter::ExecuteData(vtkDataObject *vtkNotUsed(data))
     aren = rc->GetNextItem();
     // store the old view angle & set the new
     cam = aren->GetActiveCamera();
-    cam->GetWindowCenter(windowCenters+i*2);
+    cam->SetWindowCenter(windowCenters[i*2],windowCenters[i*2+1]);
     cam->SetViewAngle(viewAngles[i]);
     cam->SetParallelScale(cam->GetParallelScale()*this->Magnification);
     }
@@ -289,6 +289,7 @@ void vtkWindowToImageFilter::ExecuteData(vtkDataObject *vtkNotUsed(data))
   
   // render each of the tiles required to fill this request
   this->Input->SetTileScale(1);
+  this->Input->SetTileViewport(0.0,0.0,1.0,1.0);
   this->Input->GetSize();
 }
 
