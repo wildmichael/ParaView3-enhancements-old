@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPIController.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-04 14:29:21 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-01-05 21:16:37 $
+  Version:   $Revision: 1.9 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -87,7 +87,9 @@ void vtkMPIController::CreateOutputWindow()
   vtkOutputWindow::SetInstance(this->OutputWindow);
 }
 
-vtkCxxRevisionMacro(vtkMPIController, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkMPIOutputWindow, "$Revision: 1.9 $");
+
+vtkCxxRevisionMacro(vtkMPIController, "$Revision: 1.9 $");
 vtkStandardNewMacro(vtkMPIController);
 
 //----------------------------------------------------------------------------
