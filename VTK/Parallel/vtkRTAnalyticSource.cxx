@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRTAnalyticSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:34:54 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-08-06 19:08:25 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkRTAnalyticSource.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkRTAnalyticSource, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkRTAnalyticSource, "$Revision: 1.10 $");
 vtkStandardNewMacro(vtkRTAnalyticSource);
 
 //----------------------------------------------------------------------------
@@ -117,7 +117,9 @@ void vtkRTAnalyticSource::ExecuteData(vtkDataObject *output)
     vtkErrorMacro("Execute: This source only outputs doubles");
     return;
     }
-  
+
+  data->GetPointData()->GetScalars()->SetName("RTData");
+
   outExt = data->GetExtent();
   whlExt = data->GetWholeExtent();
 
