@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkShortArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-05 09:00:59 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-09-30 18:30:47 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -127,7 +127,6 @@ void vlShortArray::PrintSelf(ostream& os, vlIndent indent)
 //
 short *vlShortArray::Resize(const int sz)
 {
-  int i;
   short *newArray;
   int newSize;
 
@@ -141,8 +140,8 @@ short *vlShortArray::Resize(const int sz)
     return 0;
     }
 
-  for (i=0; i<sz && i<this->Size; i++)
-      newArray[i] = this->Array[i];
+  memcpy(newArray, this->Array, 
+         (sz < this->Size ? sz : this->Size) * sizeof(short));
 
   this->Size = newSize;
   delete [] this->Array;

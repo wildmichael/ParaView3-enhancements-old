@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkUnsignedCharArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-29 14:03:26 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1994-09-30 18:30:44 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -131,7 +131,6 @@ void vlCharArray::PrintSelf(ostream& os, vlIndent indent)
 //
 char *vlCharArray::Resize(const int sz)
 {
-  int i;
   char *newArray;
   int newSize;
 
@@ -145,8 +144,8 @@ char *vlCharArray::Resize(const int sz)
     return 0;
     }
 
-  for (i=0; i<sz && i<this->Size; i++)
-      newArray[i] = this->Array[i];
+  memcpy(newArray, this->Array, 
+         (sz < this->Size ? sz : this->Size) * sizeof(char));
 
   this->Size = newSize;
   delete [] this->Array;

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkIntArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-07-19 08:02:47 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1994-09-30 18:30:46 $
+  Version:   $Revision: 1.14 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -127,7 +127,6 @@ void vlIntArray::PrintSelf(ostream& os, vlIndent indent)
 //
 int *vlIntArray::Resize(const int sz)
 {
-  int i;
   int *newArray;
   int newSize;
 
@@ -141,8 +140,8 @@ int *vlIntArray::Resize(const int sz)
     return 0;
     }
 
-  for (i=0; i<sz && i<this->Size; i++)
-      newArray[i] = this->Array[i];
+  memcpy(newArray, this->Array, 
+         (sz < this->Size ? sz : this->Size) * sizeof(int));
 
   this->Size = newSize;
   delete [] this->Array;
