@@ -3,8 +3,8 @@
   Program: 
   Module:    $RCSfile: otherTimerLog.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-15 22:40:09 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-12-06 03:45:17 $
+  Version:   $Revision: 1.7 $
 
   ==========================================================================*/
 
@@ -23,7 +23,7 @@
 void Test(ostream& strm)
 {
   // actual test
-  float a = 1.0, b = 2.0;
+  float a = 1.0;
   int i, j;
   strm << "Test vtkTimerLog Start" << endl;
   vtkTimerLog *timer1 = vtkTimerLog::New();
@@ -35,7 +35,7 @@ void Test(ostream& strm)
     timer1->FormatAndMarkEvent("%s%d", "start", j);
     for (i = 0; i < 10000000; i++)
       {
-      a *= b;
+      a *= a;
       }
 #ifndef WIN32
     sleep (1);
