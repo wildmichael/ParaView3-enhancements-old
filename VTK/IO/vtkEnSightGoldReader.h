@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightGoldReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-17 14:48:28 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-01-23 14:00:44 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -116,7 +116,8 @@ protected:
 
   // Description:
   // Read an unstructured part (partId) from the geometry file and create a
-  // vtkUnstructuredGrid output.  Return 0 if EOF reached.
+  // vtkUnstructuredGrid output.  Return 0 if EOF reached. Return -1 if
+  // an error occurred.
   virtual int CreateUnstructuredGridOutput(int partId, char line[256]);
   
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSight6Reader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-17 14:48:28 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-01-23 14:00:43 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -267,6 +267,9 @@ int vtkEnSight6Reader::ReadScalarsPerNode(char* fileName, char* description,
       }
     else
       {
+      // It does not matter which unstructured part we get the point data from because
+      // it is the same for all of them.
+      partId = this->UnstructuredPartIds->GetId(0);
       scalars = (vtkFloatArray*)(this->GetOutput(partId)->GetPointData()->GetFieldData()->
 	GetArray(description, arrayNum));
       }
