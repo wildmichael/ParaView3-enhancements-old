@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamer.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:56:42 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 1999-12-30 14:34:35 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -118,6 +118,7 @@ vtkStreamer::vtkStreamer()
   this->Vorticity = 0;
   this->TerminalSpeed = 0.0;
   this->SpeedScalars = 0;
+  this->NumberOfStreamers = 0;
   this->Threader = vtkMultiThreader::New();
   this->NumberOfThreads = this->Threader->GetNumberOfThreads();
 }
