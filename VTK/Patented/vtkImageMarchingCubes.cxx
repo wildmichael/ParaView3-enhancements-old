@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMarchingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-15 14:06:18 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1999-02-16 14:03:55 $
+  Version:   $Revision: 1.23 $
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -332,7 +332,7 @@ void vtkImageMarchingCubes::Execute()
 // b0 = 0 => no boundary conditions
 // b0 = +1 => pixel is on x axis maximum of region.
 template <class T>
-void vtkImageMarchingCubesComputePointGradient(T *ptr, float *g,
+static void vtkImageMarchingCubesComputePointGradient(T *ptr, float *g,
 					     int inc0, int inc1, int inc2,
 					     short b0, short b1, short b2)
 {
@@ -380,7 +380,7 @@ void vtkImageMarchingCubesComputePointGradient(T *ptr, float *g,
 //----------------------------------------------------------------------------
 // This method interpolates verticies to make a new point.
 template <class T>
-int vtkImageMarchingCubesMakeNewPoint(vtkImageMarchingCubes *self,
+static int vtkImageMarchingCubesMakeNewPoint(vtkImageMarchingCubes *self,
 					    int idx0, int idx1, int idx2,
 					    int inc0, int inc1, int inc2,
 					    T *ptr, int edge, 
@@ -557,7 +557,7 @@ int vtkImageMarchingCubesMakeNewPoint(vtkImageMarchingCubes *self,
 //----------------------------------------------------------------------------
 // This method runs marching cubes on one cube.
 template <class T>
-void vtkImageMarchingCubesHandleCube(vtkImageMarchingCubes *self,
+static void vtkImageMarchingCubesHandleCube(vtkImageMarchingCubes *self,
 					   int cellX, int cellY, int cellZ,
 					   vtkImageData *inData,
 					   T *ptr, int numContours, float *values)
@@ -643,7 +643,7 @@ void vtkImageMarchingCubesHandleCube(vtkImageMarchingCubes *self,
 
 //----------------------------------------------------------------------------
 template <class T>
-void vtkImageMarchingCubesMarch(vtkImageMarchingCubes *self,
+static void vtkImageMarchingCubesMarch(vtkImageMarchingCubes *self,
 				      vtkImageData *inData, T *ptr,
 				      int chunkMin, int chunkMax,
                                       int numContours, float *values)
