@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMatrix4x4.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-03-08 12:23:07 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1994-04-12 08:39:42 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -135,7 +135,6 @@ float vlMatrix4x4::Determinant (vlMatrix4x4 & in)
 {
   double ans;
   double a1, a2, a3, a4, b1, b2, b3, b4, c1, c2, c3, c4, d1, d2, d3, d4;
-  double det3x3();
 
   // assign to individual variable names to aid selecting
   //  correct elements
@@ -181,7 +180,6 @@ void vlMatrix4x4::Adjoint (vlMatrix4x4 & in,vlMatrix4x4 & out)
 
   double a1, a2, a3, a4, b1, b2, b3, b4;
   double c1, c2, c3, c4, d1, d2, d3, d4;
-  double det3x3();
 
   // assign to individual variable names to aid
   // selecting correct values
