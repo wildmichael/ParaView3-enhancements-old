@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-19 18:16:29 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2002-11-19 19:39:43 $
+  Version:   $Revision: 1.37 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -41,7 +41,6 @@
 #include "vtkIdList.h"
 #include "vtkObjectFactory.h"
 #include "vtkRendererCollection.h"
-#include "vtkString.h"
 
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
@@ -88,7 +87,7 @@ vtkXOpenGLRenderWindowInternal::vtkXOpenGLRenderWindowInternal(
 
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkXOpenGLRenderWindow, "$Revision: 1.36 $");
+vtkCxxRevisionMacro(vtkXOpenGLRenderWindow, "$Revision: 1.37 $");
 vtkStandardNewMacro(vtkXOpenGLRenderWindow);
 #endif
 
@@ -1252,7 +1251,8 @@ int vtkXOpenGLRenderWindow::IsDirect()
 
 void vtkXOpenGLRenderWindow::SetWindowName(const char * cname)
 {
-  char *name = vtkString::Duplicate(cname);
+  char *name = new char[ strlen(cname)+1 ];
+  strcpy(name, cname);
   XTextProperty win_name_text_prop;
 
   vtkOpenGLRenderWindow::SetWindowName( name );
