@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-09 19:56:06 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1995-01-02 11:44:45 $
+  Version:   $Revision: 1.19 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -267,6 +267,20 @@ int vlStructuredPoints::GetCellType(int cellId)
       vlErrorMacro(<<"Bad data description!");
       return vlNULL_ELEMENT;
     }
+}
+
+void vlStructuredPoints::ComputeBounds()
+{
+  this->Bounds[0] = this->Origin[0];
+  this->Bounds[2] = this->Origin[1];
+  this->Bounds[4] = this->Origin[2];
+
+  this->Bounds[1] = this->Origin[0] + 
+                    (this->Dimensions[0]-1) * this->AspectRatio[0];
+  this->Bounds[3] = this->Origin[1] + 
+                    (this->Dimensions[1]-1) * this->AspectRatio[1];
+  this->Bounds[5] = this->Origin[2] +
+                    (this->Dimensions[2]-1) * this->AspectRatio[2];
 }
 
 void vlStructuredPoints::PrintSelf(ostream& os, vlIndent indent)
