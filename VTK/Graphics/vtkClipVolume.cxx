@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:03:20 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-03-30 17:04:04 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -170,7 +170,9 @@ void vtkClipVolume::Execute()
     {
     vtkScalars *tmpScalars = vtkScalars::New();
     tmpScalars->Allocate(numPts);
-    inPD = new vtkPointData(*(input->GetPointData()));//copies original
+    inPD = vtkPointData::New();
+    inPD->ShallowCopy(*(input->GetPointData()));
+    //    inPD = new vtkPointData(*(input->GetPointData()));//copies original
     if ( this->GenerateClipScalars ) inPD->SetScalars(tmpScalars);
     for ( i=0; i < numPts; i++ )
       {
