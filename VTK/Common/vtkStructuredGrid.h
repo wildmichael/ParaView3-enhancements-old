@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:01 $
-  Version:   $Revision: 1.81 $
+  Date:      $Date: 2001-06-27 14:09:07 $
+  Version:   $Revision: 1.82 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -144,7 +144,7 @@ public:
   // Description:
   // Return non-zero value if specified point is visible. Use this method 
   // only if blanking has been enabled (with BlankingOn()).
-  unsigned char IsPointVisible(int ptId)
+  unsigned char IsPointVisible(vtkIdType ptId)
     {return (this->Blanking ? this->PointVisibility->GetValue(ptId) : 1);}
   
   // Description:
