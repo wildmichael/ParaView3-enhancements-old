@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-12-10 21:26:39 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 2001-12-11 18:27:16 $
+  Version:   $Revision: 1.62 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -153,7 +153,7 @@ public:
   // Description:
   // If you want to contour by an arbitrary array, then set its name here.
   // By default this in NULL and the filter will use the active scalar array.
-  //vtkGetStringMacro(InputScalarsSelection);
+  vtkGetStringMacro(InputScalarsSelection);
   void SelectInputScalars(const char *fieldName) 
     {this->SetInputScalarsSelection(fieldName);}
   

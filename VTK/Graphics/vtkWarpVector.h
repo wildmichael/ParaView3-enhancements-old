@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpVector.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:22 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2001-12-11 18:27:16 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -64,12 +64,23 @@ public:
   vtkSetMacro(ScaleFactor,float);
   vtkGetMacro(ScaleFactor,float);
 
+  // Description:
+  // If you want to warp by an arbitrary vector array, then set its name here.
+  // By default this in NULL and the filter will use the active vector array.
+  vtkGetStringMacro(InputVectorsSelection);
+  void SelectInputVectors(const char *fieldName) 
+    {this->SetInputVectorsSelection(fieldName);}
+  
 protected:
   vtkWarpVector();
   ~vtkWarpVector();
 
   void Execute();
   float ScaleFactor;
+
+  char *InputVectorsSelection;
+  vtkSetStringMacro(InputVectorsSelection);
+
 private:
   vtkWarpVector(const vtkWarpVector&);  // Not implemented.
   void operator=(const vtkWarpVector&);  // Not implemented.

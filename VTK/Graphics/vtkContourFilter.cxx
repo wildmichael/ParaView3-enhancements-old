@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-10 21:26:43 $
-  Version:   $Revision: 1.88 $
+  Date:      $Date: 2001-12-11 18:27:16 $
+  Version:   $Revision: 1.89 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -330,6 +330,12 @@ void vtkContourFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkDataSetToPolyDataFilter::PrintSelf(os,indent);
 
+  if (this->InputScalarsSelection)
+    {
+    os << indent << "InputScalarsSelection: " 
+       << this->InputScalarsSelection << endl;
+    }
+
   os << indent << "Compute Gradients: " 
      << (this->ComputeGradients ? "On\n" : "Off\n");
   os << indent << "Compute Normals: " 
@@ -349,16 +355,5 @@ void vtkContourFilter::PrintSelf(ostream& os, vtkIndent indent)
     {
     os << indent << "Locator: (none)\n";
     }
-
-  if (this->InputScalarsSelection)
-    {
-    os << indent << "InputScalarsSelection: "  
-       << this->InputScalarsSelection << endl;
-    }
-  else
-    {
-    os << indent << "InputScalarsSelection: Default Scalars\n";
-    }
-    
 }
 
