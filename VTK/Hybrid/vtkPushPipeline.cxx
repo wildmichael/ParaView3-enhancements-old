@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPushPipeline.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-07 12:59:26 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-08-12 14:47:39 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -103,7 +103,7 @@ public:
   vtkPushPipeline *PushPipeline;
 };
 
-vtkCxxRevisionMacro(vtkPushPipeline, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkPushPipeline, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkPushPipeline);
 
 vtkPushPipeline::vtkPushPipeline()
@@ -442,6 +442,7 @@ void vtkPushPipeline::Run(vtkSource *pusher)
       {
       this->RunState = 3;
       }
+    pmi->Delete();
     }
   // remove the observer now that we are done running
   pusher->RemoveObserver(tag);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarBarWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-09 12:41:20 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-08-12 14:47:39 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -42,6 +42,7 @@ class VTK_HYBRID_EXPORT vtkScalarBarWidget : public vtkInteractorObserver
 public:
   static vtkScalarBarWidget *New();
   vtkTypeRevisionMacro(vtkScalarBarWidget,vtkInteractorObserver);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Get the ScalarBar used by this Widget. One is created automatically.
