@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKWRemoteExecute.h,v $
   Language:  C++
-  Date:      $Date: 2003-04-21 16:53:49 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-04-23 20:59:16 $
+  Version:   $Revision: 1.5 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -66,7 +66,7 @@ public:
 
   // Description:
   // Run command.
-  int RunCommand(const char* command, const char* args[]);
+  int RunCommand(const char* args[]);
 
   static void* RunCommandThread(void*);
 
@@ -98,6 +98,11 @@ public:
   vtkGetMacro(Result, int);
 
   // Description:
+  // Set SSH user
+  vtkSetStringMacro(SSHUser);
+  vtkGetStringMacro(SSHUser);
+
+  // Description:
   // Set SSH command
   vtkSetStringMacro(SSHCommand);
   vtkGetStringMacro(SSHCommand);
@@ -116,6 +121,7 @@ protected:
 
   char* SSHCommand;
   char* SSHArguments;
+  char* SSHUser;
   char* RemoteHost;
   int ProcessRunning;
   int Result;
