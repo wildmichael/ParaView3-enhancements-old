@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetReader.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 17:56:35 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1997-03-28 20:09:55 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,6 +63,8 @@ public:
 
   void SetFilename(char *name);
   char *GetFilename();
+  void SetFileName(char *str){this->SetFilename(str);}
+  char *GetFileName(){return this->GetFilename();}
 
   // Description:
   // Specify the InputString for use when reading from a character array.

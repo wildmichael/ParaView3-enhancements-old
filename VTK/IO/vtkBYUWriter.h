@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUWriter.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 17:56:10 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1997-03-28 20:09:52 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,21 +66,29 @@ public:
   // Specify the name of the geometry file to write.
   vtkSetStringMacro(GeometryFilename);
   vtkGetStringMacro(GeometryFilename);
+  void SetGeometryFileName(char *str){this->SetGeometryFilename(str);}
+  char *GetGeometryFileName(){return this->GetGeometryFilename();}
 
   // Description:
   // Specify the name of the displacement file to write.
   vtkSetStringMacro(DisplacementFilename);
   vtkGetStringMacro(DisplacementFilename);
+  void SetDisplacementFileName(char *str){this->SetDisplacementFilename(str);}
+  char *GetDisplacementFileName(){return this->GetDisplacementFilename();}
 
   // Description:
   // Specify the name of the scalar file to write.
   vtkSetStringMacro(ScalarFilename);
   vtkGetStringMacro(ScalarFilename);
+  void SetScalarFileName(char *str){this->SetScalarFilename(str);}
+  char *GetScalarFileName(){return this->GetScalarFilename();}
 
   // Description:
   // Specify the name of the texture file to write.
   vtkSetStringMacro(TextureFilename);
   vtkGetStringMacro(TextureFilename);
+  void SetTextureFileName(char *str){this->SetTextureFilename(str);}
+  char *GetTextureFileName(){return this->GetTextureFilename();}
 
   // Description:
   // Turn on/off writing the displacement file.

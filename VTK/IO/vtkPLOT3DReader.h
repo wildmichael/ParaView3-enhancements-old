@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLOT3DReader.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-12 21:11:51 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1997-03-28 20:09:59 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -122,21 +122,30 @@ public:
   // Set/Get the PLOT3D geometry filename.
   vtkSetStringMacro(XYZFilename);
   vtkGetStringMacro(XYZFilename);
+  void SetXYZFileName(char *str){this->SetXYZFilename(str);}
+  char *GetXYZFileName(){return this->GetXYZFilename();}
 
   // Description:
   // Set/Get the PLOT3D solution filename.
   vtkSetStringMacro(QFilename);
   vtkGetStringMacro(QFilename);
+  void SetQFileName(char *str){this->SetQFilename(str);}
+  char *GetQFileName(){return this->GetQFilename();}
 
   // Description:
   // Set/Get the PLOT3D function filename.
   vtkSetStringMacro(FunctionFilename);
   vtkGetStringMacro(FunctionFilename);
+  void SetFunctionFileName(char *str){this->SetFunctionFilename(str);}
+  char *GetFunctionFileName(){return this->GetFunctionFilename();}
 
   // Description:
   // Set/Get the PLOT3D vector filename.
   vtkSetStringMacro(VectorFunctionFilename);
   vtkGetStringMacro(VectorFunctionFilename);
+  void SetVectorFunctionFileName(char *str)
+    {this->SetVectorFunctionFilename(str);}
+  char *GetVectorFunctionFileName(){return this->GetVectorFunctionFilename();}
 
   // Description:
   // Specify the grid to read.

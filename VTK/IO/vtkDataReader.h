@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-25 15:52:21 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1997-03-28 20:09:54 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,6 +67,8 @@ public:
   // Specify file name of vtk data file to read.
   vtkSetStringMacro(Filename);
   vtkGetStringMacro(Filename);
+  void SetFileName(char *str){this->SetFilename(str);}
+  char *GetFileName(){return this->GetFilename();}
 
   // Description:
   // Specify the InputString for use when reading from a character array.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLReader.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 17:58:26 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1997-03-28 20:10:06 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,6 +74,8 @@ public:
   // Specify file name of stereo lithography file.
   vtkSetStringMacro(Filename);
   vtkGetStringMacro(Filename);
+  void SetFileName(char *str){this->SetFilename(str);}
+  char *GetFileName(){return this->GetFilename();}
 
   // Description:
   // Turn on/off merging of points/triangles.

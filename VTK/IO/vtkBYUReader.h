@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUReader.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 17:56:09 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1997-03-28 20:09:50 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,21 +63,29 @@ public:
   // Specify name of geometry filename.
   vtkSetStringMacro(GeometryFilename);
   vtkGetStringMacro(GeometryFilename);
+  void SetGeometryFileName(char *str){this->SetGeometryFilename(str);}
+  char *GetGeometryFileName(){return this->GetGeometryFilename();}
 
   // Description:
   // Specify name of displacement filename.
   vtkSetStringMacro(DisplacementFilename);
   vtkGetStringMacro(DisplacementFilename);
+  void SetDisplacementFileName(char *str){this->SetDisplacementFilename(str);}
+  char *GetDisplacementFileName(){return this->GetDisplacementFilename();}
 
   // Description:
   // Specify name of scalar filename.
   vtkSetStringMacro(ScalarFilename);
   vtkGetStringMacro(ScalarFilename);
+  void SetScalarFileName(char *str){this->SetScalarFilename(str);}
+  char *GetScalarFileName(){return this->GetScalarFilename();}
 
   // Description:
   // Specify name of texture coordinates filename.
   vtkSetStringMacro(TextureFilename);
   vtkGetStringMacro(TextureFilename);
+  void SetTextureFileName(char *str){this->SetTextureFilename(str);}
+  char *GetTextureFileName(){return this->GetTextureFilename();}
 
   // Description:
   // Turn on/off the reading of the displacement file.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLExporter.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 17:59:24 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1997-03-28 20:10:13 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,6 +66,8 @@ public:
   // Specify the name of the VRML file to write.
   vtkSetStringMacro(Filename);
   vtkGetStringMacro(Filename);
+  void SetFileName(char *str){this->SetFilename(str);}
+  char *GetFileName(){return this->GetFilename();}
 
 protected:
   void WriteData();

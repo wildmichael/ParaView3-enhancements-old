@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUGFacetReader.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 17:59:19 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1997-03-28 20:10:11 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,6 +63,8 @@ public:
   // Specify Unigraphics file name.
   vtkSetStringMacro(Filename);
   vtkGetStringMacro(Filename);
+  void SetFileName(char *str){this->SetFilename(str);}
+  char *GetFileName(){return this->GetFilename();}
 
   // Special methods for interrogating data file.
   int GetNumberOfParts();

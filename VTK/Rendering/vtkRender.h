@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRender.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:54:54 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1997-03-28 20:10:03 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,4 +52,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define VTK_SURFACE   2
 
 #endif
+
+
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 17:58:18 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 1997-03-28 20:10:04 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -224,7 +224,8 @@ public:
   // method.
   vtkSetStringMacro(Filename);
   vtkGetStringMacro(Filename);
-
+  void SetFileName(char *str){this->SetFilename(str);}
+  char *GetFileName(){return this->GetFilename();}
 
   // Description:
   // Save the current image as a PPM file.
