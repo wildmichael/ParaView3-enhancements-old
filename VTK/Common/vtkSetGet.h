@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSetGet.h,v $
   Language:  C++
-  Date:      $Date: 1997-05-14 23:35:47 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1997-05-14 23:44:51 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -392,7 +392,7 @@ if (vtkObject::GetGlobalWarningDisplay()) cerr << "Generic Warning: In " __FILE_
 #define vtkDebugMacro(x)
 #else
 #define vtkDebugMacro(x) \
-if (Debug && vtkObject::GetGlobalWarningDIsplay()) cerr << "Debug: In " __FILE__ ", line " << __LINE__ << "\n" << this->GetClassName() << " (" << this << "): " x <<  "\n\n"
+if (Debug && vtkObject::GetGlobalWarningDisplay()) cerr << "Debug: In " __FILE__ ", line " << __LINE__ << "\n" << this->GetClassName() << " (" << this << "): " x <<  "\n\n"
 #endif
 //
 // This macro is used to print out warning messages.
