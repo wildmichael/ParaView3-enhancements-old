@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-17 11:12:53 $
-  Version:   $Revision: 1.70 $
+  Date:      $Date: 2000-11-08 22:13:02 $
+  Version:   $Revision: 1.71 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -475,7 +475,7 @@ int vtkDataWriter::WritePointData(ostream *fp, vtkDataSet *ds)
 // Template to handle writing data in ascii or binary
 // We could change the format into C++ io standard ...
 template <class T>
-static void WriteDataArray(ostream *fp, T *data, int fileType, char *format, int num, int numComp)
+static void WriteDataArray(ostream *fp, T *data, int fileType, const char *format, int num, int numComp)
 {
   int i, j, idx, sizeT;
   char str[1024];
@@ -519,7 +519,7 @@ static void WriteDataArray(ostream *fp, T *data, int fileType, char *format, int
 }
 
 // Write out data to file specified.
-int vtkDataWriter::WriteArray(ostream *fp, int dataType, vtkDataArray *data, char *format, 
+int vtkDataWriter::WriteArray(ostream *fp, int dataType, vtkDataArray *data, const char *format, 
 			      int num, int numComp)
 {
   int i, j, idx;
@@ -698,7 +698,7 @@ int vtkDataWriter::WriteScalarData(ostream *fp, vtkScalars *scalars, int num)
   
   if ( (lut=scalars->GetLookupTable()) == NULL || (size = lut->GetNumberOfColors()) <= 0 )
     {
-    name = "default";
+    name = (char *) "default";
     }
   else 
     {
@@ -857,7 +857,7 @@ int vtkDataWriter::WriteFieldData(ostream *fp, vtkFieldData *f)
   return 1;
 }
 
-int vtkDataWriter::WriteCells(ostream *fp, vtkCellArray *cells, char *label)
+int vtkDataWriter::WriteCells(ostream *fp, vtkCellArray *cells, const char *label)
 {
   int ncells=cells->GetNumberOfCells();
   int size=cells->GetNumberOfConnectivityEntries();

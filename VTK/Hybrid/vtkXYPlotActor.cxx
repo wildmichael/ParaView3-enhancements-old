@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXYPlotActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-06 17:40:48 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-11-08 22:13:01 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to Kitware & RPI/SCOREC who supported the development
              of this class.
 
@@ -544,7 +544,7 @@ int vtkXYPlotActor::RenderOpaqueGeometry(vtkViewport *viewport)
   return renderedSomething;
 }
 
-char *vtkXYPlotActor::GetXValuesAsString()
+const char *vtkXYPlotActor::GetXValuesAsString()
 {
   if ( this->XValues == VTK_XYPLOT_INDEX ) 
     {
@@ -564,7 +564,7 @@ char *vtkXYPlotActor::GetXValuesAsString()
     }
 }
 
-char *vtkXYPlotActor::GetDataObjectPlotModeAsString()
+const char *vtkXYPlotActor::GetDataObjectPlotModeAsString()
 {
   if ( this->XValues == VTK_XYPLOT_ROW ) 
     {
@@ -1309,12 +1309,12 @@ vtkPolyData *vtkXYPlotActor::GetPlotSymbol(int i)
   return this->LegendActor->GetEntrySymbol(i);
 }
 
-void vtkXYPlotActor::SetPlotLabel(int i, char *label)
+void vtkXYPlotActor::SetPlotLabel(int i, const char *label)
 {
   this->LegendActor->SetEntryString(i, label);
 }
 
-char *vtkXYPlotActor::GetPlotLabel(int i)
+const char *vtkXYPlotActor::GetPlotLabel(int i)
 {
   return this->LegendActor->GetEntryString(i);
 }

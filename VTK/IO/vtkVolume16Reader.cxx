@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume16Reader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:05 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2000-11-08 22:13:04 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -131,7 +131,7 @@ int vtkVolume16Reader::GetDataByteOrder()
 #endif
 }
 
-char *vtkVolume16Reader::GetDataByteOrderAsString()
+const char *vtkVolume16Reader::GetDataByteOrderAsString()
 {
 #ifdef VTK_WORDS_BIGENDIAN
   if ( this->SwapBytes )

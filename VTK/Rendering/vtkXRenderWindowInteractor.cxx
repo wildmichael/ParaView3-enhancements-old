@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-09 18:06:03 $
-  Version:   $Revision: 1.92 $
+  Date:      $Date: 2000-11-08 22:13:04 $
+  Version:   $Revision: 1.93 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -77,16 +77,16 @@ OptionsRec	Options;
 
 XtResource resources[] =
 {
-	{"visual", "Visual", XtRVisual, sizeof (Visual *),
+	{(char *) "visual", (char *) "Visual", XtRVisual, sizeof (Visual *),
 	XtOffsetOf (OptionsRec, visual), XtRImmediate, NULL},
-	{"depth", "Depth", XtRInt, sizeof (int),
+	{(char *) "depth", (char *) "Depth", XtRInt, sizeof (int),
 	XtOffsetOf (OptionsRec, depth), XtRImmediate, NULL},
 };
 
 XrmOptionDescRec Desc[] =
 {
-	{"-visual", "*visual", XrmoptionSepArg, NULL},
-	{"-depth", "*depth", XrmoptionSepArg, NULL}
+	{(char *) "-visual", (char *) "*visual", XrmoptionSepArg, NULL},
+	{(char *) "-depth", (char *) "*depth", XrmoptionSepArg, NULL}
 };
 
 

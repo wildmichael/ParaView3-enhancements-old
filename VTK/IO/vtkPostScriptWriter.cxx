@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPostScriptWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-26 11:59:55 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-11-08 22:13:04 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -167,7 +167,7 @@ void vtkPostScriptWriter::WriteFile(ofstream *file, vtkImageData *data,
   float area;
   int *wExtent;
   static int itemsperline = 0;
-  char* hexits = "0123456789abcdef";
+  char* hexits = (char *) "0123456789abcdef";
   
   // Make sure we actually have data.
   if ( !data->GetPointData()->GetScalars())

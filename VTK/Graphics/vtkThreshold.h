@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreshold.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:12:53 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2000-11-08 22:13:02 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -102,7 +102,7 @@ public:
     {this->SetAttributeMode(VTK_ATTRIBUTE_MODE_USE_POINT_DATA);};
   void SetAttributeModeToUseCellData() 
     {this->SetAttributeMode(VTK_ATTRIBUTE_MODE_USE_CELL_DATA);};
-  char *GetAttributeModeAsString();
+  const char *GetAttributeModeAsString();
 
   // Description:
   // If using scalars from point data, all scalars for all points in a cell 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleUser.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-11-02 22:20:21 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-11-08 22:13:02 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -94,7 +94,7 @@ vtkInteractorStyleUser::vtkInteractorStyleUser()
   this->LastPos[0] = this->LastPos[1] = 0;
   this->OldPos[0] = this->OldPos[1] = 0;
   this->Char = '\0';
-  this->KeySym = "";
+  this->KeySym = (char *) "";
   this->Button = 0;
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLegendBoxActor.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-24 09:39:57 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2000-11-08 22:13:01 $
+  Version:   $Revision: 1.4 $
   Thanks:    Tim Smith who sponsored and encouraged the development
              of this class.
 
@@ -118,13 +118,13 @@ public:
   // string and optionally a color. (If a color is not specified, then the
   // entry color is the same as this actor's color.) (Note: use the set
   // methods when you use SetNumberOfEntries().)
-  void SetEntry(int i, vtkPolyData *symbol, char* string, float color[3]);
+  void SetEntry(int i, vtkPolyData *symbol, const char* string, float color[3]);
   void SetEntrySymbol(int i, vtkPolyData *symbol);
-  void SetEntryString(int i, char* string);
+  void SetEntryString(int i, const char* string);
   void SetEntryColor(int i, float color[3]);
   void SetEntryColor(int i, float r, float g, float b);
   vtkPolyData *GetEntrySymbol(int i);
-  char* GetEntryString(int i);
+  const char* GetEntryString(int i);
   float *GetEntryColor(int i);
 
   // Description:

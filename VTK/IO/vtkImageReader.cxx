@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-11-07 17:43:40 $
-  Version:   $Revision: 1.74 $
+  Date:      $Date: 2000-11-08 22:13:04 $
+  Version:   $Revision: 1.75 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -328,7 +328,7 @@ int vtkImageReader::GetDataByteOrder()
 #endif
 }
 
-char *vtkImageReader::GetDataByteOrderAsString()
+const char *vtkImageReader::GetDataByteOrderAsString()
 {
 #ifdef VTK_WORDS_BIGENDIAN
   if ( this->SwapBytes )

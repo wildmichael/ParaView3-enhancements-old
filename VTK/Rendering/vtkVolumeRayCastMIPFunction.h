@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMIPFunction.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:10 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-11-08 22:13:04 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -85,7 +85,7 @@ public:
     {this->SetMaximizeMethod(VTK_MAXIMIZE_SCALAR_VALUE);}
   void SetMaximizeMethodToOpacity() 
     {this->SetMaximizeMethod(VTK_MAXIMIZE_OPACITY);}
-  char *GetMaximizeMethodAsString(void);
+  const char *GetMaximizeMethodAsString(void);
 
 //BTX
   void CastRay( VTKRayCastRayInfo *rayInfo,

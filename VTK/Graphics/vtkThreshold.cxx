@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreshold.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-05-10 11:30:18 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2000-11-08 22:13:02 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -253,7 +253,7 @@ void vtkThreshold::Execute()
 }
 
 // Return the method for manipulating scalar data as a string.
-char *vtkThreshold::GetAttributeModeAsString(void)
+const char *vtkThreshold::GetAttributeModeAsString(void)
 {
   if ( this->AttributeMode == VTK_ATTRIBUTE_MODE_DEFAULT )
     {

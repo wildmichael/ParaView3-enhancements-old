@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:14:08 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2000-11-08 22:13:04 $
+  Version:   $Revision: 1.22 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -208,7 +208,7 @@ void vtkPolyDataMapper2D::CreateDefaultLookupTable()
 }
 
 // Return the method of coloring scalar data.
-char *vtkPolyDataMapper2D::GetColorModeAsString(void)
+const char *vtkPolyDataMapper2D::GetColorModeAsString(void)
 {
   if ( this->ColorMode == VTK_COLOR_MODE_LUMINANCE )
     {

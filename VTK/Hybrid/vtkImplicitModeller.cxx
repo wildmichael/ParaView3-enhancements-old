@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitModeller.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-20 13:58:11 $
-  Version:   $Revision: 1.66 $
+  Date:      $Date: 2000-11-08 22:13:02 $
+  Version:   $Revision: 1.67 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -950,7 +950,7 @@ void vtkImplicitModeller::Cap(vtkScalars *s)
 }
 
 //----------------------------------------------------------------------------
-char *vtkImplicitModeller::GetProcessModeAsString()
+const char *vtkImplicitModeller::GetProcessModeAsString()
 {
   if (this->ProcessMode == VTK_CELL_MODE)
     {

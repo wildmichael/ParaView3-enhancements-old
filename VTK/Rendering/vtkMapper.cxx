@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-08 14:22:18 $
-  Version:   $Revision: 1.71 $
+  Date:      $Date: 2000-11-08 22:13:02 $
+  Version:   $Revision: 1.72 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -304,7 +304,7 @@ void vtkMapper::Update()
 
 
 // Return the method of coloring scalar data.
-char *vtkMapper::GetColorModeAsString(void)
+const char *vtkMapper::GetColorModeAsString(void)
 {
   if ( this->ColorMode == VTK_COLOR_MODE_LUMINANCE )
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableGlyphFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:12:20 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-11-08 22:13:02 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -139,7 +139,7 @@ public:
     {this->SetColorMode(VTK_COLOR_BY_INPUT);};
   void SetColorModeToColorBySource() 
     {this->SetColorMode(VTK_COLOR_BY_SOURCE);};
-  char *GetColorModeAsString();
+  const char *GetColorModeAsString();
 
 protected:
   vtkProgrammableGlyphFilter();

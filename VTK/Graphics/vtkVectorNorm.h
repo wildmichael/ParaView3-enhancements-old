@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorNorm.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:02 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2000-11-08 22:13:03 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -92,7 +92,7 @@ public:
     {this->SetAttributeMode(VTK_ATTRIBUTE_MODE_USE_POINT_DATA);};
   void SetAttributeModeToUseCellData() 
     {this->SetAttributeMode(VTK_ATTRIBUTE_MODE_USE_CELL_DATA);};
-  char *GetAttributeModeAsString();
+  const char *GetAttributeModeAsString();
 
 protected:
   vtkVectorNorm();

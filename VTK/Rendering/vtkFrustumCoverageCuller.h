@@ -4,8 +4,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFrustumCoverageCuller.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:11:42 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-11-08 22:13:02 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -101,7 +101,7 @@ public:
     {this->SetSortingStyle(VTK_CULLER_SORT_BACK_TO_FRONT);};
   void SetSortingStyleToFrontToBack()
     {this->SetSortingStyle(VTK_CULLER_SORT_FRONT_TO_BACK);};
-  char *GetSortingStyleAsString(void);
+  const char *GetSortingStyleAsString(void);
 
 //BTX
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitModeller.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:11:49 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2000-11-08 22:13:02 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -178,7 +178,7 @@ public:
   vtkGetMacro(ProcessMode, int);
   void SetProcessModeToPerVoxel() {this->SetProcessMode(VTK_VOXEL_MODE);}
   void SetProcessModeToPerCell()  {this->SetProcessMode(VTK_CELL_MODE);}
-  char *GetProcessModeAsString(void);
+  const char *GetProcessModeAsString(void);
 
   // Description:
   // Specify the level of the locator to use when using the per voxel

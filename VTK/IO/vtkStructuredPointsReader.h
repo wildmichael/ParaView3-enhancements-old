@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsReader.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-16 08:51:22 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2000-11-08 22:13:02 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -77,7 +77,7 @@ public:
   void SetInputString(char *in) {this->Reader->SetInputString(in);}
   void SetInputString(char *in,int len) {this->Reader->SetInputString(in,len);}
   char *GetInputString() { return this->Reader->GetInputString();}
-  void SetBinaryInputString(unsigned char *in, int len) {
+  void SetBinaryInputString(char *in, int len) {
       this->Reader->SetBinaryInputString(in,len);};
 
   // Description:

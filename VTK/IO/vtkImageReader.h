@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.h,v $
   Language:  C++
-  Date:      $Date: 2000-11-07 17:43:40 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2000-11-08 22:13:04 $
+  Version:   $Revision: 1.52 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -171,7 +171,7 @@ public:
   void SetDataByteOrderToLittleEndian();
   int GetDataByteOrder();
   void SetDataByteOrder(int);
-  char *GetDataByteOrderAsString();
+  const char *GetDataByteOrderAsString();
 
   // Description:
   // Set/Get the byte swapping to explicitly swap the bytes of a file.

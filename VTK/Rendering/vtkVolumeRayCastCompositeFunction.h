@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastCompositeFunction.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:08 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2000-11-08 22:13:04 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -74,7 +74,7 @@ public:
     {this->SetCompositeMethod(VTK_COMPOSITE_INTERPOLATE_FIRST);}
   void SetCompositeMethodToClassifyFirst() 
     {this->SetCompositeMethod(VTK_COMPOSITE_CLASSIFY_FIRST);}
-  char *GetCompositeMethodAsString(void);
+  const char *GetCompositeMethodAsString(void);
 
 //BTX
   void CastRay( VTKRayCastRayInfo *rayInfo,

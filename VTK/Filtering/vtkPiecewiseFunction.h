@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPiecewiseFunction.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:12:12 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2000-11-08 22:13:02 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -134,7 +134,7 @@ public:
   //    1 : NonDecreasing   (Always increasing or zero slope)
   //    2 : NonIncreasing   (Always decreasing or zero slope)
   //    3 : Varied          (Contains both decreasing and increasing slopes)
-  char  *GetType();
+  const char  *GetType();
 
   // Description:
   // Get the mtime of this object - override to consider the

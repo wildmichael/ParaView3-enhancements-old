@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-17 11:12:53 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2000-11-08 22:13:02 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -182,7 +182,7 @@ public:
 
   // Description:
   // Write out the cells of the data set.
-  int WriteCells(ostream *fp, vtkCellArray *cells, char *label);
+  int WriteCells(ostream *fp, vtkCellArray *cells, const char *label);
 
   // Description:
   // Write the cell data (e.g., scalars, vectors, ...) of a vtk dataset.
@@ -234,7 +234,7 @@ protected:
   char *LookupTableName;
   char *FieldDataName;
 
-  int WriteArray(ostream *fp, int dataType, vtkDataArray *data, char *format, 
+  int WriteArray(ostream *fp, int dataType, vtkDataArray *data, const char *format, 
 		 int num, int numComp);
   int WriteScalarData(ostream *fp, vtkScalars *s, int num);
   int WriteVectorData(ostream *fp, vtkVectors *v, int num);

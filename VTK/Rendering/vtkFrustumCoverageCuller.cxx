@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFrustumCoverageCuller.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-06 11:40:50 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2000-11-08 22:13:02 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -355,7 +355,7 @@ float vtkFrustumCoverageCuller::Cull( vtkRenderer *ren,
 
 // Description:
 // Return the sorting style as a descriptive character string.
-char *vtkFrustumCoverageCuller::GetSortingStyleAsString(void)
+const char *vtkFrustumCoverageCuller::GetSortingStyleAsString(void)
 {
   if( this->SortingStyle == VTK_CULLER_SORT_NONE )
     {

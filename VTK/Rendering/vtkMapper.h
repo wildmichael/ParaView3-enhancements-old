@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-03 14:10:25 $
-  Version:   $Revision: 1.64 $
+  Date:      $Date: 2000-11-08 22:13:02 $
+  Version:   $Revision: 1.65 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -158,7 +158,7 @@ public:
 
   // Description:
   // Return the method of coloring scalar data.
-  char *GetColorModeAsString();
+  const char *GetColorModeAsString();
 
   // Description:
   // Turn on/off flag to control whether data is rendered using

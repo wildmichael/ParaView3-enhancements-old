@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:14:08 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2000-11-08 22:13:04 $
+  Version:   $Revision: 1.20 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -111,7 +111,7 @@ public:
     {this->SetColorMode(VTK_COLOR_MODE_MAP_SCALARS);};
   void SetColorModeToLuminance() 
     {this->SetColorMode(VTK_COLOR_MODE_LUMINANCE);};
-  char *GetColorModeAsString();
+  const char *GetColorModeAsString();
 
   // Description:
   // Specify range in terms of scalar minimum and maximum (smin,smax). These

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGridTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-01 07:24:27 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2000-11-08 22:13:01 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -98,7 +98,7 @@ public:
     { this->SetInterpolationMode(VTK_GRID_LINEAR); };
   void SetInterpolationModeToCubic()
     { this->SetInterpolationMode(VTK_GRID_CUBIC); };
-  char *GetInterpolationModeAsString();
+  const char *GetInterpolationModeAsString();
 
   // Description:
   // Make another transform of the same type.
@@ -155,7 +155,7 @@ protected:
 //BTX
 
 //----------------------------------------------------------------------------
-inline char *vtkGridTransform::GetInterpolationModeAsString()
+inline const char *vtkGridTransform::GetInterpolationModeAsString()
 {
   switch (this->InterpolationMode)
     {

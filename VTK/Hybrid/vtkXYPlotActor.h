@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXYPlotActor.h,v $
   Language:  C++
-  Date:      $Date: 2000-10-03 16:39:49 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2000-11-08 22:13:02 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to Kitware & RPI/SCOREC who supported the development
              of this class.
 
@@ -177,7 +177,7 @@ public:
   void SetXValuesToNormalizedArcLength()
     {this->SetXValues(VTK_XYPLOT_NORMALIZED_ARC_LENGTH);};
   void SetXValuesToValue() {this->SetXValues(VTK_XYPLOT_VALUE);};
-  char *GetXValuesAsString();
+  const char *GetXValuesAsString();
 
   //---Data Object Input------------------------------------------------------
   // The following methods are used to plot input data objects. Datasets will
@@ -207,7 +207,7 @@ public:
     {this->SetDataObjectPlotMode(VTK_XYPLOT_ROW);}
   void SetDataObjectPlotModeToColumns()
     {this->SetDataObjectPlotMode(VTK_XYPLOT_COLUMN);}
-  char *GetDataObjectPlotModeAsString();
+  const char *GetDataObjectPlotModeAsString();
 
   // Description:
   // Specify which component of the input data object to use as the
@@ -240,8 +240,8 @@ public:
   float *GetPlotColor(int i);
   void SetPlotSymbol(int i,vtkPolyData *input);
   vtkPolyData *GetPlotSymbol(int i);
-  void SetPlotLabel(int i, char *label);
-  char *GetPlotLabel(int i);
+  void SetPlotLabel(int i, const char *label);
+  const char *GetPlotLabel(int i);
   //---end Per Curve Properties-----------------------------------------------
 
   // Description:

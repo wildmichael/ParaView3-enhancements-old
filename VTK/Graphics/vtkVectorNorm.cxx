@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorNorm.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:02 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2000-11-08 22:13:03 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -186,7 +186,7 @@ void vtkVectorNorm::Execute()
 }
 
 // Return the method for generating scalar data as a string.
-char *vtkVectorNorm::GetAttributeModeAsString(void)
+const char *vtkVectorNorm::GetAttributeModeAsString(void)
 {
   if ( this->AttributeMode == VTK_ATTRIBUTE_MODE_DEFAULT )
     {

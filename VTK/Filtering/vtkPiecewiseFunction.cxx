@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPiecewiseFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-17 17:16:07 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2000-11-08 22:13:02 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -173,7 +173,7 @@ int vtkPiecewiseFunction::GetSize()
 //    3 : Varied          (Contains both decreasing and increasing slopes)
 //    4 : Unknown         (Error condition)
 //
-char *vtkPiecewiseFunction::GetType()
+const char *vtkPiecewiseFunction::GetType()
 {
   int   i;
   float value;
