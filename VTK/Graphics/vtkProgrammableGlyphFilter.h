@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableGlyphFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-11-05 17:42:41 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-04-23 19:24:35 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -139,9 +139,9 @@ public:
   // Either color by the input or source scalar data.
   vtkSetMacro(ColorMode,int);
   vtkGetMacro(ColorMode,int);
-  void SetColorModeToColorByScale() 
+  void SetColorModeToColorByInput() 
     {this->SetColorMode(VTK_COLOR_BY_INPUT);};
-  void SetColorModeToColorByScalar() 
+  void SetColorModeToColorBySource() 
     {this->SetColorMode(VTK_COLOR_BY_SOURCE);};
   char *GetColorModeAsString();
 
