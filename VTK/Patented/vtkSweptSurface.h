@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSweptSurface.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-20 14:46:56 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 2002-07-01 19:17:10 $
+  Version:   $Revision: 1.53 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -151,7 +151,7 @@ protected:
   ~vtkSweptSurface();
 
   virtual void ExecuteData(vtkDataObject *);
-  virtual void ExecuteInformation();
+  virtual void ExecuteInformation(vtkImageData *inData, vtkImageData *outData);
   void ComputeInputUpdateExtent(int inExt[6], int outExt[6]);
 
   void ComputeBounds(float origin[3], float ar[3], float bbox[24]);

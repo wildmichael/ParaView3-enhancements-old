@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSweptSurface.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-20 14:46:56 $
-  Version:   $Revision: 1.73 $
+  Date:      $Date: 2002-07-01 19:17:10 $
+  Version:   $Revision: 1.74 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -36,7 +36,7 @@
 #include "vtkTransformCollection.h"
 #include "vtkVoxel.h"
 
-vtkCxxRevisionMacro(vtkSweptSurface, "$Revision: 1.73 $");
+vtkCxxRevisionMacro(vtkSweptSurface, "$Revision: 1.74 $");
 vtkStandardNewMacro(vtkSweptSurface);
 
 vtkCxxSetObjectMacro(vtkSweptSurface,Transforms, vtkTransformCollection);
@@ -102,11 +102,10 @@ void vtkSweptSurface::ComputeInputUpdateExtent(int inExt[6],
   memcpy(inExt, wholeExtent, 6*sizeof(int));
 }
 
-void vtkSweptSurface::ExecuteInformation()
+void vtkSweptSurface::ExecuteInformation(vtkImageData *input, 
+                                         vtkImageData *output)
 {
   float origin[3], spacing[3], bbox[24];
-  vtkImageData *input = this->GetInput();
-  vtkImageData *output = this->GetOutput();
 
   // make sure there is input
   if (input == NULL)
