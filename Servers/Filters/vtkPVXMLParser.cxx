@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVXMLParser.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-03 17:52:15 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-03-18 21:07:55 $
+  Version:   $Revision: 1.4 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -43,7 +43,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkPVXMLElement.h"
 
-vtkCxxRevisionMacro(vtkPVXMLParser, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkPVXMLParser, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkPVXMLParser);
 
 //----------------------------------------------------------------------------
@@ -158,7 +158,7 @@ void vtkPVXMLParser::PrintXML(ostream& os)
 }
 
 //----------------------------------------------------------------------------
-vtkPVXMLElement* vtkPVXMLParser::GetRootElement()
+vtkPVXMLElement* vtkPVXMLParser::GetRootElement() 
 {
   return this->RootElement;
 }
