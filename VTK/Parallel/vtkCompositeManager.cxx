@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCompositeManager.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-31 16:36:11 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-11-01 18:38:07 $
+  Version:   $Revision: 1.3 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -148,23 +148,6 @@ void vtkCompositeManagerEndRender(vtkObject *caller,
   self->EndRender();
 }
 
-//-------------------------------------------------------------------------
-void vtkCompositeManagerStartInteractor(vtkObject *vtkNotUsed(o),
-				     unsigned long vtkNotUsed(event), 
-                                     void *clientData, void *)
-{
-  vtkCompositeManager *self = (vtkCompositeManager *)clientData;
-  
-  // If we stay with event driven compositing, I think in the future
-  // we should pass all events through the RenderWindow.
-  //if (caller != self->GetRenderWindowInteractor) // private
-  //  { // Sanity check.
-  //  vtkGenericErrorMacro("Caller mismatch.");
-  //  return;
-  //  }
-
-  self->StartInteractor();
-}
 
 //-------------------------------------------------------------------------
 void vtkCompositeManagerExitInteractor(vtkObject *vtkNotUsed(o),
@@ -172,14 +155,6 @@ void vtkCompositeManagerExitInteractor(vtkObject *vtkNotUsed(o),
                                     void *clientData, void *)
 {
   vtkCompositeManager *self = (vtkCompositeManager *)clientData;
-  
-  // If we stay with event driven compositing, I think in the future
-  // we should pass all events through the RenderWindow.
-  //if (caller != self->GetRenderWindowInteractor) // private
-  //  { // Sanity check.
-  //  vtkGenericErrorMacro("Caller mismatch.");
-  //  return;
-  //  }
 
   self->ExitInteractor();
 }
@@ -345,11 +320,7 @@ vtkCompositeManager::SetRenderWindowInteractor(vtkRenderWindowInteractor *iren)
   
   if (this->RenderWindowInteractor)
     {
-    if (this->Controller->GetLocalProcessId() > 0)
-      {
-      this->RenderWindowInteractor->RemoveObserver(this->StartInteractorTag);
-      }
-    else
+    if (!this->Controller->GetLocalProcessId())
       {
       this->RenderWindowInteractor->RemoveObserver(this->EndInteractorTag);
       }
@@ -360,17 +331,8 @@ vtkCompositeManager::SetRenderWindowInteractor(vtkRenderWindowInteractor *iren)
     {
     iren->Register(this);
     this->RenderWindowInteractor = iren;
-
-    if (this->Controller->GetLocalProcessId() > 0)
-      {
-      vtkCallbackCommand *cbc;
-      cbc= new vtkCallbackCommand;
-      cbc->SetCallback(vtkCompositeManagerStartInteractor);
-      cbc->SetClientData((void*)this);
-      // IRen will delete the cbc when the observer is removed.
-      this->StartInteractorTag = iren->AddObserver(vtkCommand::StartEvent,cbc);
-      }
-    else
+    
+    if (!this->Controller->GetLocalProcessId())
       {
       vtkCallbackCommand *cbc;
       cbc= new vtkCallbackCommand;
@@ -478,8 +440,22 @@ void vtkCompositeManager::StartInteractor()
     }
 
   this->InitializeRMIs();
-  this->Controller->ProcessRMIs();
-  this->RenderWindowInteractor->TerminateApp();
+
+  if (!this->Controller->GetLocalProcessId())
+    {
+    if (!this->RenderWindowInteractor)
+      {
+      vtkErrorMacro("Missing interactor.");
+      this->ExitInteractor();
+      return;
+      }
+    this->RenderWindowInteractor->Initialize();
+    this->RenderWindowInteractor->Start();
+    }
+  else
+    {
+    this->Controller->ProcessRMIs();
+    }
 }
 
 //-------------------------------------------------------------------------
@@ -499,7 +475,6 @@ void vtkCompositeManager::ExitInteractor()
     {
     this->Controller->TriggerRMI(id, vtkMultiProcessController::BREAK_RMI_TAG);
     }
-  this->RenderWindowInteractor->TerminateApp();
 }
 
 
