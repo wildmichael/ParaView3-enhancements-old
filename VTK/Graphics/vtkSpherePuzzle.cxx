@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpherePuzzle.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-20 19:19:30 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-12-20 21:04:51 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -414,8 +414,8 @@ int vtkSpherePuzzle::SetPoint(float x, float y, float z)
   phi = 90.0 - asin(pt[2]) * 180 / vtkMath::Pi();
 
   // Compute the piece the point is in.
-  xi = theta * 8.0 / 360.0;
-  yi = phi * 8 / 360.0;
+  xi = (int)(theta * 8.0 / 360.0);
+  yi = (int)(phi * 8 / 360.0);
   xn = (theta/(360.0/8.0)) - (double)(xi);
   yn = (phi/(360.0/8.0)) - (double)(yi);
 
