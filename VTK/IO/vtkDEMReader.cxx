@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDEMReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-11 20:37:57 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-08-29 12:56:59 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -72,11 +72,45 @@ void ConvertDNotationToENotation (char *line);
 
 vtkDEMReader::vtkDEMReader()
 {
-  this->FileName = NULL;
-  this->MapLabel[0] = '\0';
+  int i, j;
   this->NumberOfColumns = 0;
   this->NumberOfRows = 0;
+  for (i = 0; i < 6; i++)
+    {
+    this->WholeExtent[i] = 0;
+    }
+  this->FileName = NULL;
+  for (i = 0; i < 145; i++)
+    {
+    this->MapLabel[i] = '\0';
+    }
+  this->DEMLevel = 0;
+  this->ElevationPattern = 0;
+  this->GroundSystem = 0;
   this->ProfileSeekOffset = 0;
+  this->GroundZone = 0;
+  for (i = 0; i < 15; i++)
+    {
+    this->ProjectionParameters[i] = 0;
+    }
+  this->PlaneUnitOfMeasure = 0;
+  this->ElevationUnitOfMeasure = 0;
+  this->PolygonSize = 0;
+  for (i = 0; i < 2; i++)
+    {
+    this->ElevationBounds[i] = 0;
+    this->ProfileDimension[i] = 0;
+    for (j = 0; j < 4; j++)
+      {
+      this->GroundCoords[j][i] = 0;
+      }
+    }
+  this->LocalRotation = 0;
+  this->AccuracyCode = 0;
+  for (i = 0; i < 2; i++)
+    {
+    this->SpatialResolution[i] = 0;
+    }
 }
 
 vtkDEMReader::~vtkDEMReader()
