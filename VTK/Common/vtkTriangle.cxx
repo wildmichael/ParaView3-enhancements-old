@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangle.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-01-03 14:46:44 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 1997-02-18 12:15:43 $
+  Version:   $Revision: 1.53 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -716,8 +716,6 @@ void vtkTriangle::Clip(float value, vtkFloatScalars *cellScalars,
 
         // calculate a preferred interpolation direction
         deltaScalar = (cellScalars->GetScalar(vert[1]) - cellScalars->GetScalar(vert[0]));
-        t = (value - cellScalars->GetScalar(vert[0])) / deltaScalar;
-
         if (deltaScalar > 0)
           {
 	  e1 = vert[0]; e2 = vert[1];
