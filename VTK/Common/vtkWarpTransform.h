@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:21 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-03-30 21:37:20 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -65,6 +65,12 @@ public:
   // The inverse transform is usually around five or six times as
   // computationally expensive as the forward transform.
   void Inverse();
+
+  // Description:
+  // Get the inverse flag of the transformation.  This flag is
+  // set to zero when the transformation is first created, and
+  // is flipped each time Inverse() is called.
+  vtkGetMacro(InverseFlag,int);
 
   // Description:
   // Set the tolerance for inverse transformation.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeneralTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:10 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2001-03-30 21:37:19 $
+  Version:   $Revision: 1.33 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -89,7 +89,19 @@ void vtkGeneralTransform::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->vtkAbstractTransform::PrintSelf(os,indent);
   os << indent << "Input: (" << this->Input << ")\n";
-  this->Concatenation->PrintSelf(os,indent);
+  os << indent << "InverseFlag: " << this->GetInverseFlag() << "\n";
+  os << indent << "NumberOfConcatenatedTransforms: " <<
+    this->GetNumberOfConcatenatedTransforms() << "\n";
+  if (this->GetNumberOfConcatenatedTransforms() != 0)
+    {
+    int n = this->GetNumberOfConcatenatedTransforms();
+    for (int i = 0; i < n; i++)
+      {
+      vtkAbstractTransform *t = this->GetConcatenatedTransform(i);
+      os << indent << "    " << i << ": " << t->GetClassName() << " at " <<
+	 t << "\n";
+      }
+    }
 }
 
 //------------------------------------------------------------------------
