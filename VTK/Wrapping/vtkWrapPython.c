@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapPython.c,v $
   Language:  C++
-  Date:      $Date: 2000-11-18 20:50:21 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2000-11-20 04:17:20 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -391,9 +391,13 @@ void outputFunction2(FILE *fp, FileInfo *data)
 	    }
 	  output_temp(fp, MAX_ARGS,currentFunction->ReturnType,
 		      currentFunction->ReturnClass,0);
-	  if (is_static)
+	  /* don't clear error first time around */
+	  if (occ != fnum)
 	    {
 	    fprintf(fp,"  PyErr_Clear();\n");
+	    }
+	  if (is_static)
+	    {
             fprintf(fp,"  if ((PyArg_ParseTuple(args, \"%s\"",
 		    get_format_string());
 	    }
