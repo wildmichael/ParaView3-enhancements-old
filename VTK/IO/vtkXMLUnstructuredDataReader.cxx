@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLUnstructuredDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-31 21:58:34 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2003-02-06 18:16:46 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkCellArray.h"
 #include "vtkPointSet.h"
 
-vtkCxxRevisionMacro(vtkXMLUnstructuredDataReader, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkXMLUnstructuredDataReader, "$Revision: 1.6 $");
 
 //----------------------------------------------------------------------------
 vtkXMLUnstructuredDataReader::vtkXMLUnstructuredDataReader()
@@ -406,9 +406,12 @@ int vtkXMLUnstructuredDataReader::ReadCellArray(vtkIdType numberOfCells,
     {
     return 1;
     }
-  else if(!eCells)
+  else 
     {
-    return 0;
+    if(!eCells)
+      {
+      return 0;
+      }
     }
   
   // Read the cell offsets.
@@ -451,7 +454,7 @@ int vtkXMLUnstructuredDataReader::ReadCellArray(vtkIdType numberOfCells,
   // Read the cell points.
   vtkIdType cpLength = cellOffsets->GetValue(numberOfCells-1);
   vtkXMLDataElement* eConn = this->FindDataArrayWithName(eCells, "connectivity");
-  if(!eCells)
+  if(!eConn)
     {
     vtkErrorMacro("Cannot read cell connectivity from " << eCells->GetName()
                   << " in piece " << this->Piece
