@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-12 19:23:01 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-04-16 14:13:17 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkCommand.h"
 
-vtkCxxRevisionMacro(vtkGenericRenderWindowInteractor, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkGenericRenderWindowInteractor, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkGenericRenderWindowInteractor);
 // Construct object so that light follows camera motion.
 vtkGenericRenderWindowInteractor::vtkGenericRenderWindowInteractor()
@@ -88,6 +88,15 @@ void vtkGenericRenderWindowInteractor::MiddleButtonReleaseEvent()
     return;
     }
   this->InvokeEvent(vtkCommand::MiddleButtonReleaseEvent, NULL);
+}
+
+void vtkGenericRenderWindowInteractor::ExposeEvent()
+{
+  if (!this->Enabled) 
+    {
+    return;
+    }
+  this->InvokeEvent(vtkCommand::ExposeEvent, NULL);
 }
 
 void vtkGenericRenderWindowInteractor::ConfigureEvent()

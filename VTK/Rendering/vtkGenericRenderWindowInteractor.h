@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-11 17:42:19 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-04-16 14:13:17 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -48,6 +48,7 @@ public:
   virtual void LeftButtonReleaseEvent();
   virtual void MiddleButtonPressEvent();
   virtual void MiddleButtonReleaseEvent();
+  virtual void ExposeEvent();
   virtual void ConfigureEvent();
   virtual void EnterEvent();
   virtual void LeaveEvent();
