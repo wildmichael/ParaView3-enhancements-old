@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32RenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-07 16:03:52 $
-  Version:   $Revision: 1.75 $
+  Date:      $Date: 2001-12-07 16:12:19 $
+  Version:   $Revision: 1.76 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -375,7 +375,7 @@ void vtkWin32RenderWindowInteractor::OnNCMouseMove(HWND, UINT nFlags,
     }
 }
 
-void vtkWin32RenderWindowInteractor::OnLButtonDown(HWND,UINT nFlags, 
+void vtkWin32RenderWindowInteractor::OnLButtonDown(HWND wnd,UINT nFlags, 
                                                    int X, int Y) 
 {
   if (!this->Enabled) 
@@ -401,7 +401,7 @@ void vtkWin32RenderWindowInteractor::OnLButtonUp(HWND,UINT nFlags,
   ReleaseCapture( );
 }
 
-void vtkWin32RenderWindowInteractor::OnMButtonDown(HWND,UINT nFlags, 
+void vtkWin32RenderWindowInteractor::OnMButtonDown(HWND wnd,UINT nFlags, 
                                                    int X, int Y) 
 {
   if (!this->Enabled) 
@@ -427,7 +427,7 @@ void vtkWin32RenderWindowInteractor::OnMButtonUp(HWND,UINT nFlags,
   ReleaseCapture( );
 }
 
-void vtkWin32RenderWindowInteractor::OnRButtonDown(HWND,UINT nFlags, 
+void vtkWin32RenderWindowInteractor::OnRButtonDown(HWND wnd,UINT nFlags, 
                                                    int X, int Y) 
 {
   if (!this->Enabled) 
