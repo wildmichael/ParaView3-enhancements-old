@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDicer.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-24 20:04:56 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1998-05-31 12:54:41 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,6 +57,8 @@ void vtkDicer::BuildTree(vtkIdList *ptIds, vtkOBBNode *OBBptr)
   vtkDataSet *input=(vtkDataSet *)this->Input;
 
   float size[3];
+
+  OBB.ReferenceCountingOff ();
 
   //
   // Gather all the points into a single list
