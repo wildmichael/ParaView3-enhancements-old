@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSurfaceReconstructionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-25 13:43:24 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-10-02 21:01:26 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to Tim Hutton (MINORI Project, Dental and Medical
              Informatics, Eastman Dental Institute, London, UK) who
              developed and contributed this class.
@@ -42,7 +42,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 #include "vtkSurfaceReconstructionFilter.h"
-#include "vtkScalars.h"
+#include "vtkFloatArray.h"
 #include "vtkPointLocator.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
@@ -439,7 +439,7 @@ void vtkSurfaceReconstructionFilter::Execute()
     }
 
   // go through the array probing the values
-  vtkScalars *volScalars = vtkScalars::New();
+  vtkFloatArray *volScalars = vtkFloatArray::New();
   int x,y,z;
   int iClosestPoint;
   int zOffset,yOffset,offset;
@@ -467,7 +467,7 @@ void vtkSurfaceReconstructionFilter::Execute()
         CopyBToA(temp,point);
         SubtractBFromA(temp,surfacePoints[iClosestPoint].loc);
         probeValue = vtkMath::Dot(temp,surfacePoints[iClosestPoint].n);
-        volScalars->InsertScalar(offset,probeValue);
+        volScalars->InsertValue(offset,probeValue);
         }
       }
     }
