@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCubeSource.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-10 08:05:57 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1994-11-21 11:25:55 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -46,11 +46,19 @@ public:
   vlSetClampMacro(ZLength,float,0.0,LARGE_FLOAT);
   vlGetMacro(ZLength,float);
 
+  // Description:
+  // Set the center of the cube.
+  vlSetVector3Macro(Center,float);
+  vlGetVectorMacro(Center,float,3);
+
+  void SetBounds(float bounds[6]);
+
 protected:
   void Execute();
   float XLength;
   float YLength;
   float ZLength;
+  float Center[3];
 };
 
 #endif
