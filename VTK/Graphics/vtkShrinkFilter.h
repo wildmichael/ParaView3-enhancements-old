@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkShrinkFilter.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-05 09:07:57 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1994-08-08 09:16:30 $
+  Version:   $Revision: 1.14 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -13,7 +13,6 @@ written consent of the authors.
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-
 // .NAME vlShrinkFilter - shrink cells composing an arbitrary data set
 // .SECTION Description
 // vlShrinkFilter shrinks cells composing an arbitrary data set 
@@ -37,10 +36,10 @@ public:
   char *GetClassName() {return "vlShrinkFilter";};
   void PrintSelf(ostream& os, vlIndent indent);
 
-  // Macro Description:
+  // Description:
   // Set the fraction of shrink for each cell.
   vlSetClampMacro(ShrinkFactor,float,0.0,1.0);
-  // Macro Description:
+  // Description:
   // Get the fraction of shrink for each cell.
   vlGetMacro(ShrinkFactor,float);
 

@@ -3,11 +3,9 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMaskPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-05-23 22:24:23 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-08-08 09:16:19 $
+  Version:   $Revision: 1.5 $
 
-Description:
----------------------------------------------------------------------------
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
 without the express written consent of the authors.

@@ -3,11 +3,9 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredPointsToStructuredPointsFilter.h,v $
   Language:  C++
-  Date:      $Date: 1994-06-08 09:30:36 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-08-08 09:16:29 $
+  Version:   $Revision: 1.2 $
 
-Description:
----------------------------------------------------------------------------
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
 without the express written consent of the authors.
@@ -15,10 +13,12 @@ without the express written consent of the authors.
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-//
-// StructuredPointsToStructuredPointsFilter are filters that take 
-// StructuredPoints as input and generate StructuredPoints data as output
-//
+// .NAME vlStructuredPointsToStructuredPointsFilter - abstract filter class
+// .SECTION Description
+// vlStructuredPointsToStructuredPointsFilter is an abstract filter class 
+// whose subclasses take on input structured points and generate
+// structured points on output.
+
 #ifndef __vlStructuredPointsToStructuredPointsFilter_h
 #define __vlStructuredPointsToStructuredPointsFilter_h
 

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkOutlineFilter.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-05 09:07:56 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-08-08 09:16:23 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -16,7 +16,8 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 // .NAME vlOutlineFilter - create wireframe outline for arbitrary data set
 // .SECTION Description
 // vlOutlineFilter is a filter that generates a wireframe outline of any 
-// data set. The outline consists of the twelve edges of the bounding box.
+// data set. The outline consists of the twelve edges of the dataset 
+// bounding box.
 
 #ifndef __vlOutlineFilter_h
 #define __vlOutlineFilter_h
