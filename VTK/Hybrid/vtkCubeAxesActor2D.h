@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeAxesActor2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-07 21:38:04 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-04-09 19:00:57 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -113,6 +113,15 @@ public:
   vtkGetMacro(NumberOfLabels, int);
   
   // Description:
+  // Set/Get the labels for the x, y, and z axes. By default, use "X", "Y" and "Z".
+  vtkSetStringMacro(XLabel);
+  vtkGetStringMacro(XLabel);
+  vtkSetStringMacro(YLabel);
+  vtkGetStringMacro(YLabel);
+  vtkSetStringMacro(ZLabel);
+  vtkGetStringMacro(ZLabel);
+
+  // Description:
   // Enable/Disable bolding annotation text.
   vtkSetMacro(Bold, int);
   vtkGetMacro(Bold, int);
@@ -176,6 +185,11 @@ protected:
   vtkAxisActor2D *ZAxis;
   
   int   NumberOfLabels;
+  char *XLabel;
+  char *YLabel;
+  char *ZLabel;
+  char *Labels[3];
+
   int   Bold;
   int   Italic;
   int   Shadow;
