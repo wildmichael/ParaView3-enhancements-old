@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCollection.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-13 12:44:48 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2001-09-25 14:56:46 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -76,7 +76,16 @@ vtkCollection::vtkCollection()
 // objects from the collection.
 vtkCollection::~vtkCollection()
 {
-  this->RemoveAllItems();
+  vtkCollectionElement *elem;
+
+  while (this->NumberOfItems )
+    {
+    elem = this->Top;
+    this->Top = elem->Next;
+    this->Current = elem->Next;
+    this->DeleteElement(elem);
+    this->NumberOfItems--;    
+    }
 }
 
 // protected function to delete an element. Internal use only.
