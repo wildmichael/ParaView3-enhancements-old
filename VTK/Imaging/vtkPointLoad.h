@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointLoad.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:51:02 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1995-08-01 10:27:21 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,9 +71,13 @@ public:
   void SetSampleDimensions(int dim[3]);
   vtkGetVectorMacro(SampleDimensions,int,3);
 
-  void SetModelBounds(float xmin, float xmax, float ymin, float ymax, float zmin, float zmax);
-  void SetModelBounds(float *bounds);
+  // Description:
+  // Specify the region in space over which the tensors are computed. The point
+  // load is assumed to be applied at top center of the volume.
+  vtkSetVectorMacro(ModelBounds,float,6);
   vtkGetVectorMacro(ModelBounds,float,6);
+  void SetModelBounds(float xmin, float xmax, float ymin, float ymax, 
+                      float zmin, float zmax);
 
   // Description:
   // Set/Get Poisson's ratio.
