@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: H5FDndgm.h,v 1.3 2003-05-09 17:29:42 clarke Exp $  */
+/*  Id : $Id: vtkXdmfXRenderWindowInteractor.h,v 1.1 2003-05-09 17:29:42 clarke Exp $  */
 /*  Date : $Date: 2003-05-09 17:29:42 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Version : $Revision: 1.1 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -22,18 +22,13 @@
 /*     for more information.                                       */
 /*                                                                 */
 /*******************************************************************/
-#ifndef H5FDndgm_H
-#define H5FDndgm_H
+#include <vtkXRenderWindowInteractor.h>
 
-#include "H5Ipublic.h"
-#include "H5pubconf.h"
-
-#include "XdmfExport.h"
-
-#define H5FD_NDGM  (H5FD_ndgm_init())
-
-XDMF_EXPORT hid_t H5FD_ndgm_init(void);
-XDMF_EXPORT herr_t H5Pset_fapl_ndgm(hid_t fapl_id, size_t increment, char *host);
-XDMF_EXPORT herr_t H5Pget_fapl_ndgm(hid_t fapl_id, size_t *increment/*out*/, char **host);
-
-#endif
+class VTK_EXPORT vtkXdmfXRenderWindowInteractor : public vtkXRenderWindowInteractor
+{
+public:
+  static vtkXdmfXRenderWindowInteractor *New();
+  vtkTypeMacro(vtkXdmfXRenderWindowInteractor,vtkXRenderWindowInteractor);
+  virtual void LoopOnce();
+  virtual void Start( int Block = 0 );
+};
