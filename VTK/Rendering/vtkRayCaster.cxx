@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRayCaster.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-02-26 14:14:19 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-04-07 12:08:49 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -201,6 +201,7 @@ vtkRayCaster::vtkRayCaster()
   this->ImageRenderTime[1]           = 0.0;
   this->StableImageScaleCounter      = 10;
   this->PreviousAllocatedTime        = 0.0;
+  this->TotalRenderTime              = 0.0;
   scale = 1.0;
   for ( i = 0; i < VTK_MAX_VIEW_RAYS_LEVEL; i++ )
     {
