@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPICommunicator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-21 14:04:28 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-06-21 18:33:21 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 
 #include "vtkMPI.h"
 
-vtkCxxRevisionMacro(vtkMPICommunicator, "$Revision: 1.18 $");
+vtkCxxRevisionMacro(vtkMPICommunicator, "$Revision: 1.19 $");
 vtkStandardNewMacro(vtkMPICommunicator);
 
 vtkCxxSetObjectMacro(vtkMPICommunicator,Group,vtkMPIGroup);
@@ -177,7 +177,7 @@ vtkMPICommunicator::~vtkMPICommunicator()
   // Free the handle if required and asked for.
   if (this->Comm->Handle && !this->KeepHandle )
     {
-    if (this->Comm->Handle != MPI_COMM_NULL)
+    if (*(this->Comm->Handle) != MPI_COMM_NULL)
       {
       MPI_Comm_free(this->Comm->Handle);
       }
