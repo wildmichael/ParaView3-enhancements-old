@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointData.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-21 22:37:03 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1995-09-04 21:31:39 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -316,7 +316,19 @@ void vtkPointData::InterpolateAllocate(vtkPointData* pd, int sze, int ext)
   static vtkFloatTensors cellTensors_s(MAX_CELL_SIZE,3);
   static vtkUserDefined cellUserDefined_s(MAX_CELL_SIZE);
   static vtkAPixmap cellColors_s(MAX_CELL_SIZE);
-
+  static int initialized = 0;
+  
+  if (!initialized)
+    {
+    cellScalars_s.ReferenceCountingOff();
+    cellVectors_s.ReferenceCountingOff();
+    cellNormals_s.ReferenceCountingOff();
+    cellTCoords_s.ReferenceCountingOff();
+    cellTensors_s.ReferenceCountingOff();
+    cellUserDefined_s.ReferenceCountingOff();
+    cellColors_s.ReferenceCountingOff();
+    }
+  
   cellScalars = &cellScalars_s;
   cellVectors = &cellVectors_s;
   cellNormals = &cellNormals_s;
