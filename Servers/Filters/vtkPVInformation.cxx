@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVInformation.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-06-03 18:59:31 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-06-05 16:00:50 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -45,7 +45,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkPVInformation);
-vtkCxxRevisionMacro(vtkPVInformation, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkPVInformation, "$Revision: 1.2 $");
 
 //----------------------------------------------------------------------------
 void vtkPVInformation::CopyFromObject(vtkObject*)
@@ -60,7 +60,7 @@ void vtkPVInformation::CopyFromMessage(unsigned char*)
 }
 
 //----------------------------------------------------------------------------
-void vtkPVInformation::AddInformation(vtkPVInformation* info)
+void vtkPVInformation::AddInformation(vtkPVInformation* vtkNotUsed(info))
 {
   vtkErrorMacro("AddInformation not implemented.");
 }
