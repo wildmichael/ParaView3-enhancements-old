@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPicker.h,v $
   Language:  C++
-  Date:      $Date: 1994-11-24 00:18:12 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1995-05-15 07:45:08 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -60,7 +60,9 @@ public:
   vlGetVectorMacro(SelectionPoint,float,3);
 
   // Description:
-  // Specify tolerance for performing pick operation.
+  // Specify tolerance for performing pick operation. Tolerance is specified
+  // as fraction of rendering window size. (Rendering window size is measured
+  // across diagonal).
   vlSetMacro(Tolerance,float);
   vlGetMacro(Tolerance,float);
 
