@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKitwareContourFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-13 12:39:08 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2003-04-16 14:30:23 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -69,6 +69,12 @@ public:
   // of 0.0.
   static vtkKitwareContourFilter *New();
 
+  // Description:
+  // Set/get which component of the scalar array to contour on; defaults to 0.
+  // Currently this feature only works if the input is a vtkImageData.
+  vtkSetMacro(ArrayComponent, int);
+  vtkGetMacro(ArrayComponent, int);
+
 protected:
   vtkKitwareContourFilter();
   ~vtkKitwareContourFilter();
@@ -83,6 +89,9 @@ protected:
   void StructuredGridContour(int dim);
   //default if not structured data
   void DataSetContour();
+  
+  int ArrayComponent;
+  
 private:
   vtkKitwareContourFilter(const vtkKitwareContourFilter&);  // Not implemented.
   void operator=(const vtkKitwareContourFilter&);  // Not implemented.

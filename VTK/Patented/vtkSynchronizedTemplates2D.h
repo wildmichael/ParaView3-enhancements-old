@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates2D.h,v $
   Language:  C++
-  Date:      $Date: 2003-03-25 14:59:51 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2003-04-16 14:30:23 $
+  Version:   $Revision: 1.28 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -123,6 +123,11 @@ public:
   void SelectInputScalars(const char *fieldName) 
     {this->SetInputScalarsSelection(fieldName);}
   
+  // Description:
+  // Set/get which component of the scalar array to contour on; defaults to 0.
+  vtkSetMacro(ArrayComponent, int);
+  vtkGetMacro(ArrayComponent, int);
+  
 protected:
   vtkSynchronizedTemplates2D();
   ~vtkSynchronizedTemplates2D();
@@ -131,7 +136,8 @@ protected:
   vtkContourValues *ContourValues;
 
   int ComputeScalars;
-
+  int ArrayComponent;
+  
   char *InputScalarsSelection;
   vtkSetStringMacro(InputScalarsSelection);
 

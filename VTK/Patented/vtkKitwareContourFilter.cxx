@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKitwareContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:18:12 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2003-04-16 14:30:23 $
+  Version:   $Revision: 1.30 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,13 +33,14 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkKitwareContourFilter, "$Revision: 1.29 $");
+vtkCxxRevisionMacro(vtkKitwareContourFilter, "$Revision: 1.30 $");
 vtkStandardNewMacro(vtkKitwareContourFilter);
 
 // Construct object with initial range (0,1) and single contour value
 // of 0.0.
 vtkKitwareContourFilter::vtkKitwareContourFilter()
 {
+  this->ArrayComponent = 0;
 }
 
 vtkKitwareContourFilter::~vtkKitwareContourFilter()
@@ -213,6 +214,7 @@ void vtkKitwareContourFilter::StructuredPointsContour(int dim)
     syncTemp2D->SetInput((vtkImageData *)this->GetInput());
     syncTemp2D->SetDebug(this->Debug);
     syncTemp2D->SetNumberOfContours(numContours);
+    syncTemp2D->SetArrayComponent(this->ArrayComponent);
     for (i=0; i < numContours; i++)
       {
       syncTemp2D->SetValue(i,values[i]);
@@ -241,6 +243,7 @@ void vtkKitwareContourFilter::StructuredPointsContour(int dim)
     syncTemp3D->SetComputeScalars (this->ComputeScalars);
     syncTemp3D->SetDebug(this->Debug);
     syncTemp3D->SetNumberOfContours(numContours);
+    syncTemp3D->SetArrayComponent(this->ArrayComponent);
     for (i=0; i < numContours; i++)
       {
       syncTemp3D->SetValue(i,values[i]);
@@ -333,4 +336,5 @@ void vtkKitwareContourFilter::DataSetContour()
 void vtkKitwareContourFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->Superclass::PrintSelf(os,indent);
+  os << indent << "ArrayComponent: " << this->ArrayComponent << endl;
 }
