@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdList.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-24 17:10:03 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1995-07-24 20:52:34 $
+  Version:   $Revision: 1.18 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -25,8 +25,9 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #include "Object.hh"
 #include "IntArray.hh"
 
-class vtkIdList {
-public:
+class vtkIdList : public vtkObject
+{
+ public:
   vtkIdList(const int sz=128, const int ext=100):Ia(sz,ext) {};
   ~vtkIdList() {};
   vtkIdList &operator=(const vtkIdList& ids) {this->Ia = ids.Ia; return *this;};
