@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMedian3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-09 17:08:03 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2002-10-15 12:09:32 $
+  Version:   $Revision: 1.33 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkImageData.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageMedian3D, "$Revision: 1.32 $");
+vtkCxxRevisionMacro(vtkImageMedian3D, "$Revision: 1.33 $");
 vtkStandardNewMacro(vtkImageMedian3D);
 
 //-----------------------------------------------------------------------------
@@ -445,7 +445,7 @@ void vtkImageMedian3D::ExecuteData(vtkDataObject *out)
   outArray->SetNumberOfTuples(output->GetNumberOfPoints());
   outArray->SetName(inArray->GetName());
   output->GetPointData()->SetScalars(outArray);
-
+  outArray->Delete();
 
   this->MultiThread(this->GetInput(),output);
 }
