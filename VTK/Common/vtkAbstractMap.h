@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractMap.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-04 22:55:23 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-04-04 23:06:47 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -74,11 +74,11 @@ public:
       { 
       return 1;
       }
-    return superclass::IsTypeOf(type);
+    return vtkContainer::IsTypeOf(type);
   }
   virtual int IsA(const char *type)
   {
-    return this->thisClass::IsTypeOf(type);
+    return this->vtkAbstractMap<KeyType,DataType>::IsTypeOf(type);
   }
   static vtkAbstractMap<KeyType,DataType>* SafeDownCast(vtkObject *o)
   {
