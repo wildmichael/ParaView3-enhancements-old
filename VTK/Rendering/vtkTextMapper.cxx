@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-20 20:41:19 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2002-06-22 15:28:43 $
+  Version:   $Revision: 1.40 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -47,7 +47,7 @@ int vtkTextMapper::GetGlobalAntiAliasing()
   return vtkTextMapperGlobalAntiAliasing;
 }
 
-vtkCxxRevisionMacro(vtkTextMapper, "$Revision: 1.39 $");
+vtkCxxRevisionMacro(vtkTextMapper, "$Revision: 1.40 $");
 
 // Creates a new text mapper with Font size 12, bold off, italic off,
 // and Arial font
@@ -124,6 +124,7 @@ void vtkTextMapper::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "FontFamily: " << this->FontFamily << "\n";
   os << indent << "FontSize: " << this->FontSize << "\n";
   os << indent << "Input: " << (this->Input ? this->Input : "(none)") << "\n";
+  os << indent << "AntiAliasing: " << this->AntiAliasing << "\n";
   os << indent << "Justification: ";
   switch (this->Justification)
     {
