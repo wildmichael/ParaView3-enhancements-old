@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32RenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:07:55 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2000-02-23 21:41:48 $
+  Version:   $Revision: 1.28 $
   
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -120,6 +120,8 @@ public:
   virtual void OnLButtonUp  (HWND wnd, UINT nFlags, int X, int Y);
   virtual void OnSize       (HWND wnd, UINT nType,  int X, int Y);
   virtual void OnTimer      (HWND wnd, UINT nIDEvent);
+  virtual void OnKeyDown    (HWND wnd, UINT nChar, UINT nRepCnt, UINT nFlags);
+  virtual void OnKeyUp      (HWND wnd, UINT nChar, UINT nRepCnt, UINT nFlags);
   virtual void OnChar       (HWND wnd, UINT nChar, UINT nRepCnt, UINT nFlags);
   //ETX
 
