@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPythonUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-02 21:50:52 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2002-11-19 19:37:16 $
+  Version:   $Revision: 1.48 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,6 @@
 #include "vtkObject.h"
 #include "vtkTimeStamp.h"
 #include "vtkObjectFactory.h"
-#include "vtkString.h"
 #include "vtkHashMap.txx"
 #include "vtkHashMapIterator.txx"
 
@@ -785,7 +784,7 @@ static PyObject *vtkBuildDocString(char *docstring[])
 
   for (i = 0; i < n; i++)
     {
-    m[i] = vtkString::Length(docstring[i]);
+    m[i] = static_cast<int>(strlen(docstring[i]));
     total += m[i];
     }
 
