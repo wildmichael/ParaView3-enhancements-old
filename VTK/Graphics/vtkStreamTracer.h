@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamTracer.h,v $
   Language:  C++
-  Date:      $Date: 2002-12-01 10:09:11 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2003-01-09 19:21:05 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -280,14 +280,6 @@ public:
   vtkSetMacro(RotationScale, float);
   vtkGetMacro(RotationScale, float);
 
-  // Description:
-  // If you want to generate traces using an arbitrary vector array, 
-  // then set its name here. By default this in NULL and the filter will 
-  // use the active vector array.
-  vtkGetStringMacro(InputVectorsSelection);
-  void SelectInputVectors(const char *fieldName) 
-    {this->SetInputVectorsSelection(fieldName);}
-  
   // Description:
   // Add a dataset to the list inputs
   void AddInput(vtkDataSet *in);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:18:12 $
-  Version:   $Revision: 1.69 $
+  Date:      $Date: 2003-01-09 19:21:05 $
+  Version:   $Revision: 1.70 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -50,7 +50,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkSynchronizedTemplates3D, "$Revision: 1.69 $");
+vtkCxxRevisionMacro(vtkSynchronizedTemplates3D, "$Revision: 1.70 $");
 vtkStandardNewMacro(vtkSynchronizedTemplates3D);
 
 //----------------------------------------------------------------------------
@@ -266,7 +266,8 @@ if (ComputeScalars) \
 //
 template <class T>
 void ContourImage(vtkSynchronizedTemplates3D *self, int *exExt,
-                  vtkImageData *data, vtkPolyData *output, T *ptr, int threadId)
+                  vtkImageData *data, vtkPolyData *output, T *ptr, 
+                  int threadId, const char* inputScalars)
 {
   int *inExt = self->GetInput()->GetExtent();
   int xdim = exExt[1] - exExt[0] + 1;
@@ -540,7 +541,7 @@ void ContourImage(vtkSynchronizedTemplates3D *self, int *exExt,
   if (newScalars)
     {
     // Lets set the name of the scalars here.
-    vtkDataArray *inScalars = inPD->GetArray(self->GetInputScalarsSelection());
+    vtkDataArray *inScalars = inPD->GetArray(inputScalars);
     if (inScalars)
       {
       newScalars->SetName(inScalars->GetName());
@@ -631,8 +632,9 @@ void vtkSynchronizedTemplates3D::ThreadedExecute(vtkImageData *data,
     ptr = data->GetArrayPointerForExtent(inScalars, exExt);
     switch (inScalars->GetDataType())
       {
-      vtkTemplateMacro6(ContourImage, this, exExt, data, output, 
-                         (VTK_TT *)ptr, threadId);
+      vtkTemplateMacro7(ContourImage, this, exExt, data, output, 
+                         (VTK_TT *)ptr, threadId, 
+                        this->GetInputScalarsSelection());
       }
     }  
   else //multiple components - have to convert

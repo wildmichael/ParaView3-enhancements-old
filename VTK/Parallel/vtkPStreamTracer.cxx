@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPStreamTracer.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:17:42 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2003-01-09 19:21:05 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,7 +29,7 @@
 #include "vtkPolyData.h"
 #include "vtkRungeKutta2.h"
 
-vtkCxxRevisionMacro(vtkPStreamTracer, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkPStreamTracer, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkPStreamTracer);
 
 vtkCxxSetObjectMacro(vtkPStreamTracer, Controller, vtkMultiProcessController);
@@ -370,4 +370,7 @@ void vtkPStreamTracer::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->Superclass::PrintSelf(os,indent);
   os << indent << "Controller: " << this->Controller << endl;
+  os << indent << "InputVectorsSelection: " 
+     << (this->InputVectorsSelection ? this->InputVectorsSelection : "(none)")
+     << endl;
 }

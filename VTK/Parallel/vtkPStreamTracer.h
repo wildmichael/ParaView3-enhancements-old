@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPStreamTracer.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-15 03:37:36 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-01-09 19:21:05 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -44,6 +44,14 @@ public:
   // other methods.
   void SetController(vtkMultiProcessController* controller);
   vtkGetObjectMacro(Controller, vtkMultiProcessController);
+
+  // Description:
+  // If you want to generate traces using an arbitrary vector array, 
+  // then set its name here. By default this in NULL and the filter will 
+  // use the active vector array.
+  vtkGetStringMacro(InputVectorsSelection);
+  void SelectInputVectors(const char *fieldName) 
+    {this->SetInputVectorsSelection(fieldName);}
   
 protected:
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates3D.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-28 19:01:58 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2003-01-09 19:21:05 $
+  Version:   $Revision: 1.31 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -154,6 +154,10 @@ public:
   void SetInputMemoryLimit(unsigned long limit);
   unsigned long GetInputMemoryLimit();  
 
+protected:
+  vtkSynchronizedTemplates3D();
+  ~vtkSynchronizedTemplates3D();
+
   // Description:
   // If you want to contour by an arbitrary array, then set its name here.
   // By default this in NULL and the filter will use the active scalar array.
@@ -161,9 +165,6 @@ public:
   void SelectInputScalars(const char *fieldName) 
     {this->SetInputScalarsSelection(fieldName);}
   
-protected:
-  vtkSynchronizedTemplates3D();
-  ~vtkSynchronizedTemplates3D();
 
   int ComputeNormals;
   int ComputeGradients;

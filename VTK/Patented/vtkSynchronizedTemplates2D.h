@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates2D.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-13 12:39:08 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2003-01-09 19:21:05 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -116,6 +116,10 @@ public:
   vtkGetMacro(ComputeScalars,int);
   vtkBooleanMacro(ComputeScalars,int);
 
+protected:
+  vtkSynchronizedTemplates2D();
+  ~vtkSynchronizedTemplates2D();
+
   // Description:
   // If you want to contour by an arbitrary array, then set its name here.
   // By default this in NULL and the filter will use the active scalar array.
@@ -123,10 +127,6 @@ public:
   void SelectInputScalars(const char *fieldName) 
     {this->SetInputScalarsSelection(fieldName);}
   
-protected:
-  vtkSynchronizedTemplates2D();
-  ~vtkSynchronizedTemplates2D();
-
   void Execute();
   vtkContourValues *ContourValues;
 

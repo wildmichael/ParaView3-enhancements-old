@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourGrid.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-03 22:51:55 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2003-01-09 19:21:05 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -129,17 +129,25 @@ public:
   // specified. The locator is used to merge coincident points.
   void CreateDefaultLocator();
 
+protected:
+  vtkContourGrid();
+  ~vtkContourGrid();
+
+//BTX
+
+  // This is temporary solution. The vtkContourFilter must be able
+  // to call SelectInputScalars().
+  friend class vtkContourFilter;
+
   // Description:
   // If you want to contour by an arbitrary array, then set its name here.
   // By default this in NULL and the filter will use the active scalar array.
   vtkGetStringMacro(InputScalarsSelection);
   void SelectInputScalars(const char *fieldName) 
     {this->SetInputScalarsSelection(fieldName);}
-  
-protected:
-  vtkContourGrid();
-  ~vtkContourGrid();
 
+//ETX
+  
   void Execute();
 
   vtkContourValues *ContourValues;

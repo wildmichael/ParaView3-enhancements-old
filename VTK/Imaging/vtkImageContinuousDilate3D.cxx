@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageContinuousDilate3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-17 02:03:53 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2003-01-09 19:21:05 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkPointData.h"
 #include "vtkDataArray.h"
 
-vtkCxxRevisionMacro(vtkImageContinuousDilate3D, "$Revision: 1.24 $");
+vtkCxxRevisionMacro(vtkImageContinuousDilate3D, "$Revision: 1.25 $");
 vtkStandardNewMacro(vtkImageContinuousDilate3D);
 
 //----------------------------------------------------------------------------
@@ -121,7 +121,8 @@ void vtkImageContinuousDilate3DExecute(vtkImageContinuousDilate3D *self,
                                        vtkImageData *mask,
                                        vtkImageData *inData, T *inPtr, 
                                        vtkImageData *outData, 
-                                       int *outExt, T *outPtr, int id)
+                                       int *outExt, T *outPtr, int id,
+                                       const char* inputScalars)
 {
   int *kernelMiddle, *kernelSize;
   // For looping though output (and input) pixels.
@@ -149,7 +150,7 @@ void vtkImageContinuousDilate3DExecute(vtkImageContinuousDilate3D *self,
   vtkDataArray *inArray;
   int *inExt;
 
-  inArray=inData->GetPointData()->GetScalars(self->GetInputScalarsSelection());
+  inArray=inData->GetPointData()->GetScalars(inputScalars);
   inExt = inData->GetExtent();
 
   // Get information to march through data
@@ -313,9 +314,10 @@ void vtkImageContinuousDilate3D::ThreadedExecute(vtkImageData *inData,
 
   switch (inArray->GetDataType())
     {
-    vtkTemplateMacro8(vtkImageContinuousDilate3DExecute, this, 
+    vtkTemplateMacro9(vtkImageContinuousDilate3DExecute, this, 
                       mask, inData, (VTK_TT *)(inPtr), 
-                      outData, outExt, (VTK_TT *)(outPtr), id);
+                      outData, outExt, (VTK_TT *)(outPtr), id,
+                      this->InputScalarsSelection);
     default:
       vtkErrorMacro(<< "Execute: Unknown ScalarType");
       return;
