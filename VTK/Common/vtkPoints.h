@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPoints.h,v $
   Language:  C++
-  Date:      $Date: 1994-07-09 06:40:20 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-07-15 13:20:30 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -34,6 +34,7 @@ public:
   virtual float *GetPoint(int i) = 0;
   virtual void SetPoint(int i,float x[3]) = 0;       // fast insert
   virtual void InsertPoint(int i, float x[3]) = 0;   // allocates memory as necessary
+  virtual int InsertNextPoint(float x[3]) = 0;
   virtual void Squeeze() = 0; // reclaim memory
 
   void GetPoints(vlIdList& ptId, vlFloatPoints& fp);

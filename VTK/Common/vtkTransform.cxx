@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-07-13 16:29:27 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1994-07-15 13:20:36 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -629,7 +629,8 @@ float *vlTransform::GetPoint()
 }
 
 // Description:
-// Multiplies list of points by current transformation matrix.
+// Multiplies list of points (inPts) by current transformation matrix.
+// Transformed points are appended to output list (outPts).
 void vlTransform::MultiplyPoints(vlPoints *inPts, vlPoints *outPts)
 {
   float newX[4];
@@ -648,12 +649,13 @@ void vlTransform::MultiplyPoints(vlPoints *inPts, vlPoints *outPts)
                 (**this->Stack).Element[i][3];
       }
 
-    outPts->SetPoint(ptId, newX);
+    outPts->InsertNextPoint(newX);
     }
 }
 
 // Description:
-// Multiplies list of vectors by current transformation matrix.
+// Multiplies list of vectors (inVectors) by current transformation matrix. 
+// Transformed vectors are appended to output list (outVectors).
 // Special multiplication since these are vectors. Multiplies vectors
 // by the transposed inverse of the matrix, ignoring the translational
 // components.
@@ -681,13 +683,14 @@ void vlTransform::MultiplyVectors(vlVectors *inVectors, vlVectors *outVectors)
       }
 
     math.Normalize(newV);
-    outVectors->SetVector(ptId, newV);
+    outVectors->InsertNextVector(newV);
     }
   this->Pop();
 }
 
 // Description:
-// Multiplies list of normals by current transformation matrix.
+// Multiplies list of normals (inNormals) by current transformation matrix.
+// Transformed normals are appended to output list (outNormals).
 // Special multiplication since these are vectors. Multiplies vectors
 // by the transposed inverse of the matrix, ignoring the translational
 // components.
@@ -715,7 +718,7 @@ void vlTransform::MultiplyNormals(vlNormals *inNormals, vlNormals *outNormals)
       }
 
     math.Normalize(newN);
-    outNormals->SetNormal(ptId, newN);
+    outNormals->InsertNextNormal(newN);
     }
   this->Pop();
 }
