@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeneralTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-06 01:24:53 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2000-06-09 17:00:18 $
+  Version:   $Revision: 1.30 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -245,7 +245,14 @@ void vtkGeneralTransform::InternalUpdate()
   // update the input
   if (this->Input)
     {
-    this->Input->Update();
+    if (this->Concatenation->GetInverseFlag())
+      {
+      this->Input->GetInverse()->Update();
+      }
+    else
+      {
+      this->Input->Update();
+      }
     }
 
   // update the concatenation
