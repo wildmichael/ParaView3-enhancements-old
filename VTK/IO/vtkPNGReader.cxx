@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNGReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-06 19:08:29 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-08-12 14:00:31 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 
 #include <png.h>
 
-vtkCxxRevisionMacro(vtkPNGReader, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkPNGReader, "$Revision: 1.13 $");
 vtkStandardNewMacro(vtkPNGReader);
 
 void vtkPNGReader::ExecuteInformation()
@@ -52,7 +52,8 @@ void vtkPNGReader::ExecuteInformation()
      NULL, NULL);
   if (!png_ptr)
     {
-    vtkErrorMacro(<<"Unable to read PNG file!");
+    vtkErrorMacro(<<"Unknown file type! " << this->InternalFileName 
+                  <<" is not a PNG!");
     fclose(fp);
     return;
     }
@@ -62,7 +63,8 @@ void vtkPNGReader::ExecuteInformation()
     {
     png_destroy_read_struct(&png_ptr,
                             (png_infopp)NULL, (png_infopp)NULL);
-    vtkErrorMacro(<<"Unable to read PNG file!");
+    vtkErrorMacro(<<"Unknown file type! " << this->InternalFileName 
+                  <<" is not a PNG!");
     fclose(fp);
     return;
     }

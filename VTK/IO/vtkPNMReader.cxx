@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNMReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-31 23:13:18 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-08-12 14:00:31 $
+  Version:   $Revision: 1.27 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkPNMReader.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkPNMReader, "$Revision: 1.26 $");
+vtkCxxRevisionMacro(vtkPNMReader, "$Revision: 1.27 $");
 vtkStandardNewMacro(vtkPNMReader);
 
 char vtkPNMReaderGetChar(FILE *fp)
@@ -161,7 +161,8 @@ void vtkPNMReader::ExecuteInformation()
     }
   else
     {
-    vtkErrorMacro(<<"Unknown file type! Not a binary PGM or PPM");
+    vtkErrorMacro(<<"Unknown file type! " << this->InternalFileName 
+                  <<" is not a binary PGM or PPM!");
     return;
     }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBMPReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-06 19:08:29 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2002-08-12 14:00:31 $
+  Version:   $Revision: 1.35 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkByteSwap.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkBMPReader, "$Revision: 1.34 $");
+vtkCxxRevisionMacro(vtkBMPReader, "$Revision: 1.35 $");
 vtkStandardNewMacro(vtkBMPReader);
 
 #ifdef read
@@ -86,7 +86,8 @@ void vtkBMPReader::ExecuteInformation()
   // compare magic number to determine file type
   if ((fgetc(fp) != 'B')||(fgetc(fp) != 'M'))
     {
-    vtkErrorMacro(<<"Unknown file type! Not a Windows BMP file!");
+    vtkErrorMacro(<<"Unknown file type! " << this->InternalFileName 
+                  <<" is not a Windows BMP file!");
     fclose(fp);
     return;
     }
@@ -119,7 +120,8 @@ void vtkBMPReader::ExecuteInformation()
     // error checking
     if ((infoSize != 40)&&(infoSize != 12))
       {
-      vtkErrorMacro(<<"Unknown file type! Not a Windows BMP file!");
+      vtkErrorMacro(<<"Unknown file type! " << this->InternalFileName 
+                    <<" is not a Windows BMP file!");
       fclose(fp);
       return;
       }
@@ -152,7 +154,8 @@ void vtkBMPReader::ExecuteInformation()
     // error checking
     if ((infoSize != 40)&&(infoSize != 12))
       {
-      vtkErrorMacro(<<"Unknown file type! Not a Windows BMP file!");
+      vtkErrorMacro(<<"Unknown file type! " << this->InternalFileName 
+                    <<" is not a Windows BMP file!");
       fclose(fp);
       return;
       }
