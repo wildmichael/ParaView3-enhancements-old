@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeneralTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-05-03 20:53:32 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2000-06-01 13:11:01 $
+  Version:   $Revision: 1.25 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -147,7 +147,7 @@ public:
 
   // Description:
   // Make this transform into an identity transformation.
-  virtual void Identity() = 0;
+  virtual void Identity() {};
 
   // Description:
   // Copy this transform from another of the same type.
