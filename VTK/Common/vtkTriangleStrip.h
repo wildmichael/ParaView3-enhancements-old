@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleStrip.h,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:29:43 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1995-07-14 16:49:43 $
+  Version:   $Revision: 1.14 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -34,6 +34,7 @@ public:
   vtkTriangleStrip(const vtkTriangleStrip& ts);
   char *GetClassName() {return "vtkTriangleStrip";};
 
+  // cell methods
   vtkCell *MakeObject() {return new vtkTriangleStrip(*this);};
   int GetCellType() {return vtkTRIANGLE_STRIP;};
   int GetCellDimension() {return 2;};
@@ -54,6 +55,9 @@ public:
                         float weights[MAX_CELL_SIZE]);
   int IntersectWithLine(float p1[3], float p2[3], float tol, float& t,
                         float x[3], float pcoords[3], int& subId);
+  int Triangulate(int index, vtkFloatPoints &pts);
+  void Derivatives(int subId, float pcoords[3], float *values, 
+                   int dim, float *derivs);
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolygon.h,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:28:56 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1995-07-14 16:49:41 $
+  Version:   $Revision: 1.16 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -36,6 +36,7 @@ public:
   void ComputeNormal(float v1[3], float v2[3], float v3[3], float n[3]);
   void ComputeNormal(vtkFloatPoints *p, float n[3]);
 
+  // Cell interface
   vtkCell *MakeObject() {return new vtkPolygon(*this);};
   int GetCellType() {return vtkPOLYGON;};
   int GetCellDimension() {return 2;};
@@ -55,7 +56,11 @@ public:
                         float weights[MAX_CELL_SIZE]);
   int IntersectWithLine(float p1[3], float p2[3], float tol, float& t,
                         float x[3], float pcoords[3], int& subId);
+  int Triangulate(int index, vtkFloatPoints &pts);
+  void Derivatives(int subId, float pcoords[3], float *values, 
+                   int dim, float *derivs);
 
+  // Polygon specific
   void ComputeWeights(float x[3], float weights[MAX_CELL_SIZE]);
 
   int ParameterizePolygon(float p0[3], float p10[3], float &l10, 
