@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBBTree.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-03 04:04:06 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2001-07-05 13:21:16 $
+  Version:   $Revision: 1.43 $
   Thanks:    Thanks to Peter C. Everett <pce@world.std.com> for
              improvements and enhancements to vtkOBBTree class.
 
@@ -771,11 +771,11 @@ int vtkOBBTree::IntersectWithLine(const float p1[3], const float p2[3],
 	      float *tmpDistanceList = new float[listMaxSize];
 	      vtkIdType *tmpCellList = new vtkIdType[listMaxSize];
 	      char *tmpSenseList = new char[listMaxSize];
-	      for (int i = 0; i < listSize; i++)
+	      for (int k = 0; k < listSize; k++)
 		{
-		tmpDistanceList[i] = distanceList[i];
-		tmpCellList[i] = cellList[i];
-		tmpSenseList[i] = senseList[i];
+		tmpDistanceList[k] = distanceList[k];
+		tmpCellList[k] = cellList[k];
+		tmpSenseList[k] = senseList[k];
 		}
 	      delete [] distanceList;
 	      distanceList = tmpDistanceList;
