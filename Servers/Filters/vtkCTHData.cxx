@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCTHData.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-11-13 14:32:42 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2003-12-02 18:28:09 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -41,7 +41,7 @@
 #include "vtkVoxel.h"
 #include "vtkImageData.h"
 
-vtkCxxRevisionMacro(vtkCTHData, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkCTHData, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkCTHData);
 
 //----------------------------------------------------------------------------
@@ -1311,8 +1311,7 @@ void vtkCTHData::PrintSelf(ostream& os, vtkIndent indent)
     os << "\tCellExt: (" << e[0] << ", " << e[1] << ", " << e[2]
        << e[3] << ", " << e[4] << ", " << e[5] << ")\n";
     }
-  os << indent << "NumberOfGhostLevels: " << this->NumberOfGhostLevels
-     << endl;
+  os << indent << "NumberOfGhostLevels: " << this->NumberOfGhostLevels << endl;
 }
 
 //----------------------------------------------------------------------------

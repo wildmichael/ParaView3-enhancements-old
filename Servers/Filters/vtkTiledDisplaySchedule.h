@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTiledDisplaySchedule.h,v $
   Language:  C++
-  Date:      $Date: 2003-09-10 19:41:55 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-12-02 18:28:09 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -88,10 +88,6 @@ protected:
                           vtkTiledDisplayElement* e,
                           int pId);
 
-  // Dependency in element is not used.
-  // It must be dependent on all previous receives.
-  int CheckDependency(vtkTiledDisplayProcess* p, 
-                      vtkTiledDisplayElement* e);
 
   int NumberOfProcesses; // User set.
   int NumberOfTiles;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHDF5RawImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-18 19:37:07 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2003-12-02 18:28:09 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -36,7 +36,7 @@
 #include <hdf5.h>
 
 //----------------------------------------------------------------------------
-vtkCxxRevisionMacro(vtkHDF5RawImageReader, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkHDF5RawImageReader, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkHDF5RawImageReader);
 
 //----------------------------------------------------------------------------
@@ -744,4 +744,18 @@ void vtkHDF5RawImageReader::SetCellArrayStatus(const char* name, int status)
     {
     this->CellDataArraySelection->DisableArray(name);
     }
+}
+
+//----------------------------------------------------------------------------
+int vtkHDF5RawImageReader::CanReadFile(const char* name)
+{
+H5E_BEGIN_TRY {
+  hid_t file = H5Fopen (name, H5F_ACC_RDONLY, H5P_DEFAULT);
+  if(file >= 0)
+    {
+    H5Fclose(file);
+    return 1;
+    }
+} H5E_END_TRY;
+  return 0;
 }

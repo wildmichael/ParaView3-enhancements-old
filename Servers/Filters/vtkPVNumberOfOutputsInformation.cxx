@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVNumberOfOutputsInformation.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-10-07 12:53:50 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-12-02 18:28:10 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -21,7 +21,7 @@ modification, are permitted provided that the following conditions are met:
    and/or other materials provided with the distribution.
 
  * Neither the name of Kitware nor the names of any contributors may be used
-   to endorse or promote products derived from this software without specific 
+   to endorse or promote products derived from this software without specific
    prior written permission.
 
  * Modified source versions must be plainly marked as such, and must not be
@@ -41,47 +41,63 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 #include "vtkPVNumberOfOutputsInformation.h"
 
+#include "vtkClientServerStream.h"
 #include "vtkObjectFactory.h"
 #include "vtkSource.h"
 
 vtkStandardNewMacro(vtkPVNumberOfOutputsInformation);
-vtkCxxRevisionMacro(vtkPVNumberOfOutputsInformation, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkPVNumberOfOutputsInformation, "$Revision: 1.3 $");
 
+//----------------------------------------------------------------------------
 vtkPVNumberOfOutputsInformation::vtkPVNumberOfOutputsInformation()
 {
-  this->NumberOfOutputs = 0;
   this->RootOnly = 1;
+  this->NumberOfOutputs = 0;
 }
 
+//----------------------------------------------------------------------------
 vtkPVNumberOfOutputsInformation::~vtkPVNumberOfOutputsInformation()
 {
 }
 
-void vtkPVNumberOfOutputsInformation::CopyFromObject(vtkObject *data)
+//----------------------------------------------------------------------------
+void vtkPVNumberOfOutputsInformation::PrintSelf(ostream &os, vtkIndent indent)
 {
-  vtkSource *src = vtkSource::SafeDownCast(data);
-  if (!src)
+  this->Superclass::PrintSelf(os, indent);
+  os << indent << "NumberOfOutputs: " << this->NumberOfOutputs << "\n";
+}
+
+//----------------------------------------------------------------------------
+void vtkPVNumberOfOutputsInformation::CopyFromObject(vtkObject* obj)
+{
+  this->NumberOfOutputs = 0;
+  vtkSource* src = vtkSource::SafeDownCast(obj);
+  if(!src)
     {
     vtkErrorMacro("Could not downcast vtkSource.");
     return;
     }
-  
   this->NumberOfOutputs = src->GetNumberOfOutputs();
 }
 
-void vtkPVNumberOfOutputsInformation::CopyFromMessage(unsigned char *msg)
+//----------------------------------------------------------------------------
+void vtkPVNumberOfOutputsInformation::AddInformation(vtkPVInformation*)
 {
-  memcpy((unsigned char*)&this->NumberOfOutputs, msg, sizeof(int));
 }
 
-void vtkPVNumberOfOutputsInformation::WriteMessage(unsigned char *msg)
+//----------------------------------------------------------------------------
+void
+vtkPVNumberOfOutputsInformation::CopyToStream(vtkClientServerStream* css) const
 {
-  memcpy(msg, (unsigned char*)&this->NumberOfOutputs, sizeof(int));
+  css->Reset();
+  *css << vtkClientServerStream::Reply << this->NumberOfOutputs
+       << vtkClientServerStream::End;
 }
 
-void vtkPVNumberOfOutputsInformation::PrintSelf(ostream &os, vtkIndent indent)
+//----------------------------------------------------------------------------
+void
+vtkPVNumberOfOutputsInformation
+::CopyFromStream(const vtkClientServerStream* css)
 {
-  this->Superclass::PrintSelf(os, indent);
-  
-  os << indent << "NumberOfOutputs: " << this->NumberOfOutputs << endl;
+  css->GetArgument(0, 0, &this->NumberOfOutputs);
 }

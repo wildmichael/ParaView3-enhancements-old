@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHDF5RawImageReader.h,v $
   Language:  C++
-  Date:      $Date: 2003-03-11 16:34:44 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-12-02 18:28:09 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -62,7 +62,7 @@ public:
   // Description:
   // Test whether the file with the given name can be read by this
   // reader.
-  //virtual int CanReadFile(const char* name);
+  virtual int CanReadFile(const char* name);
   
   // Description:
   // Get the data array selection tables used to configure which data

@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVEnSightMasterServerReader.h,v $
   Language:  C++
-  Date:      $Date: 2003-10-16 19:32:29 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-12-02 18:28:09 $
+  Version:   $Revision: 1.5 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -68,6 +68,10 @@ public:
   // this class on the client process even if MPI is not compiled in.
   virtual vtkMultiProcessController* GetController();
   virtual void SetController(vtkMultiProcessController* controller);
+
+  // Description:
+  // Return whether we can read the file given.
+  virtual int CanReadFile(const char*);
   
   // Description:
   // Get the number of pieces in the file.  Valid after

@@ -5,8 +5,8 @@
   Program:   Visualization Toolkit
   Module:  $RCSfile: vtkKdTree.cxx,v $
   Language:  C++
-  Date:    $Date: 2003-11-05 23:45:22 $
-  Version:   $Revision: 1.11 $
+  Date:    $Date: 2003-12-02 18:28:09 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -45,7 +45,7 @@
 
 #include <algorithm>
 
-vtkCxxRevisionMacro(vtkKdTree, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkKdTree, "$Revision: 1.12 $");
 
 // methods for vtkKdNode -------------------------------------------
 
@@ -2932,6 +2932,49 @@ int vtkKdTree::IntersectsFrustum(int *ids, int len, vtkRenderer *ren,
   planes->Delete();
 
   return howmany;
+}
+
+void vtkKdTree::OmitXPartitioning() 
+{
+  this->Modified();
+  this->ValidDirections = (1 << vtkKdTree::ydim) | (1 << vtkKdTree::zdim);
+}
+
+void vtkKdTree::OmitYPartitioning()    
+{
+  this->Modified();
+  this->ValidDirections = (1 << vtkKdTree::zdim) | (1 << vtkKdTree::xdim);
+}
+
+void vtkKdTree::OmitZPartitioning()    
+{
+  this->Modified();
+  this->ValidDirections = (1 << vtkKdTree::xdim) | (1 << vtkKdTree::ydim);
+}
+
+void vtkKdTree::OmitXYPartitioning()
+{
+  this->Modified();
+  this->ValidDirections = (1 << vtkKdTree::zdim);
+}
+
+void vtkKdTree::OmitYZPartitioning()
+{
+  this->Modified();
+  this->ValidDirections = (1 << vtkKdTree::xdim);
+}
+
+void vtkKdTree::OmitZXPartitioning()
+{
+  this->Modified();
+  this->ValidDirections = (1 << vtkKdTree::ydim);
+}
+
+void vtkKdTree::OmitNoPartitioning()
+{
+  this->Modified();
+  this->ValidDirections =
+    ((1 << vtkKdTree::xdim)|(1 << vtkKdTree::ydim)|(1 << vtkKdTree::zdim));
 }
 
 //---------------------------------------------------------------------------
