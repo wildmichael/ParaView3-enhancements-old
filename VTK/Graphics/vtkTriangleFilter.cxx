@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-12-22 11:59:54 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1997-12-31 20:55:15 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -86,7 +86,7 @@ void vtkTriangleFilter::Execute()
 
     if ( ! (cellNum % 5000) ) //manage progress reports / early abort
       {
-      this->UpdateProgress (cellNum / numCells);
+      this->UpdateProgress ((float)cellNum / numCells);
       if ( this->GetAbortExecute() ) break;
       }
     }//for each polygon
