@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMCubesWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:42:46 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-11-13 14:30:34 $
+  Version:   $Revision: 1.25 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -69,7 +69,7 @@ vtkMCubesWriter::~vtkMCubesWriter()
     }
 }
 static void WriteMCubes(FILE *fp, vtkPoints *pts, vtkDataArray *normals, 
-			vtkCellArray *polys);
+                        vtkCellArray *polys);
 static void WriteLimits(FILE *fp, float *bounds);
 
 // Write out data in MOVIE.BYU format.
@@ -125,7 +125,7 @@ void vtkMCubesWriter::WriteData()
 }
 
 void WriteMCubes(FILE *fp, vtkPoints *pts, vtkDataArray *normals, 
-		 vtkCellArray *polys)
+                 vtkCellArray *polys)
 {
   typedef struct {float x[3], n[3];} pointType;
   pointType point;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-27 19:05:37 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2001-11-13 14:30:30 $
+  Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -135,7 +135,7 @@ void vtkDataSetReader::Execute()
       vtkPolyDataReader *preader = vtkPolyDataReader::New();
       preader->SetFileName(this->GetFileName());
       preader->SetInputString(this->GetInputString(),
-			      this->GetInputStringLength());
+                              this->GetInputStringLength());
       preader->SetReadFromInputString(this->GetReadFromInputString());
       preader->SetScalarsName(this->GetScalarsName());
       preader->SetVectorsName(this->GetVectorsName());
@@ -164,7 +164,7 @@ void vtkDataSetReader::Execute()
       vtkStructuredPointsReader *preader = vtkStructuredPointsReader::New();
       preader->SetFileName(this->GetFileName());
       preader->SetInputString(this->GetInputString(),
-			      this->GetInputStringLength());
+                              this->GetInputStringLength());
       preader->SetReadFromInputString(this->GetReadFromInputString());
       preader->SetScalarsName(this->GetScalarsName());
       preader->SetVectorsName(this->GetVectorsName());
@@ -194,7 +194,7 @@ void vtkDataSetReader::Execute()
       vtkStructuredGridReader *preader = vtkStructuredGridReader::New();
       preader->SetFileName(this->GetFileName());
       preader->SetInputString(this->GetInputString(),
-			      this->GetInputStringLength());
+                              this->GetInputStringLength());
       preader->SetReadFromInputString(this->GetReadFromInputString());
       preader->SetScalarsName(this->GetScalarsName());
       preader->SetVectorsName(this->GetVectorsName());
@@ -224,7 +224,7 @@ void vtkDataSetReader::Execute()
       vtkRectilinearGridReader *preader = vtkRectilinearGridReader::New();
       preader->SetFileName(this->GetFileName());
       preader->SetInputString(this->GetInputString(),
-			      this->GetInputStringLength());
+                              this->GetInputStringLength());
       preader->SetReadFromInputString(this->GetReadFromInputString());
       preader->SetScalarsName(this->GetScalarsName());
       preader->SetVectorsName(this->GetVectorsName());
@@ -254,7 +254,7 @@ void vtkDataSetReader::Execute()
       vtkUnstructuredGridReader *preader = vtkUnstructuredGridReader::New();
       preader->SetFileName(this->GetFileName());
       preader->SetInputString(this->GetInputString(),
-			      this->GetInputStringLength());
+                              this->GetInputStringLength());
       preader->SetReadFromInputString(this->GetReadFromInputString());
       preader->SetScalarsName(this->GetScalarsName());
       preader->SetVectorsName(this->GetVectorsName());

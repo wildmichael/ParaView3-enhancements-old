@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObjectReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:33 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-11-13 14:30:30 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -105,10 +105,10 @@ void vtkDataObjectReader::Execute()
       {
       field = this->ReadFieldData(); //reads named field (or first found)
       if ( field != NULL )
-	{
-	this->GetOutput()->SetFieldData(field);
-	field->Delete();
-	}
+        {
+        this->GetOutput()->SetFieldData(field);
+        field->Delete();
+        }
       }
 
     else if ( !strncmp(this->LowerCase(line),"dataset",(unsigned long)7) )

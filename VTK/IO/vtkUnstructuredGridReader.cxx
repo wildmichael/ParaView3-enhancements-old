@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-21 15:21:52 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 2001-11-13 14:30:36 $
+  Version:   $Revision: 1.61 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -180,11 +180,11 @@ void vtkUnstructuredGridReader::Execute()
         }
 
       if (! strncmp(this->LowerCase(line), "field", 5))
-	{
-	vtkFieldData* fd = this->ReadFieldData();
-	output->SetFieldData(fd);
-	fd->Delete(); // ?
-	}
+        {
+        vtkFieldData* fd = this->ReadFieldData();
+        output->SetFieldData(fd);
+        fd->Delete(); // ?
+        }
       else if ( ! strncmp(line, "points",6) )
         {
         if (!this->Read(&numPts))

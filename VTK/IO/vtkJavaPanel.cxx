@@ -3,8 +3,8 @@
   Program:   Java Wrapper for VTK
   Module:    $RCSfile: vtkJavaPanel.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:41 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-11-13 14:30:33 $
+  Version:   $Revision: 1.8 $
 
 This file's contents may be copied, reproduced or altered in any way 
 without the express written consent of the author.
@@ -80,7 +80,7 @@ struct CanvasData {
 #include "vtkRenderWindow.h"
 
 void vtk_vtkPanel_setWindow(struct Hvtk_vtkPanel *me,
-			    struct Hvtk_vtkRenderWindow *id0)
+                            struct Hvtk_vtkRenderWindow *id0)
 {
   void *temp;
   vtkRenderWindow *op;

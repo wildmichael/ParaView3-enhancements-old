@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNGWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 13:53:30 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-11-13 14:30:35 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -83,8 +83,8 @@ void vtkPNGWriter::Write()
   // Make sure the file name is allocated
   this->InternalFileName = 
     new char[(this->FileName ? strlen(this->FileName) : 1) +
-	    (this->FilePrefix ? strlen(this->FilePrefix) : 1) +
-	    (this->FilePattern ? strlen(this->FilePattern) : 1) + 10];
+            (this->FilePrefix ? strlen(this->FilePrefix) : 1) +
+            (this->FilePattern ? strlen(this->FilePattern) : 1) + 10];
   
   // Fill in image information.
   this->GetInput()->UpdateInformation();

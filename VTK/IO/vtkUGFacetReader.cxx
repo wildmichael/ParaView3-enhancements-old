@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUGFacetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-19 18:16:48 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2001-11-13 14:30:36 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -263,9 +263,9 @@ void vtkUGFacetReader::Execute()
 
       if ( nodes[0] != nodes[1] && nodes[0] != nodes[2] && 
       nodes[1] != nodes[2] )
-	{
+        {
         mergedPolys->InsertNextCell(3,nodes);
-	}
+        }
       }
 
       newPts->Delete();

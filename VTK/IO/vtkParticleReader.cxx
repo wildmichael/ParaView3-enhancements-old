@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParticleReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-27 18:06:43 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-11-13 14:30:34 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -215,7 +215,7 @@ void vtkParticleReader::Execute()
   if ( ! this->File->read((char *)data, length*4*sizeof(float)))
     {
     vtkErrorMacro("Could not read points: " << start 
-	   << " to " << next-1);
+           << " to " << next-1);
     delete [] data;
     return;
     }

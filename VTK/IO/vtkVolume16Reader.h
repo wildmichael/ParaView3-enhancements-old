@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume16Reader.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:35 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2001-11-13 14:30:29 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -165,7 +165,7 @@ protected:
   vtkUnsignedShortArray *ReadImage(int ImageNumber);
   vtkUnsignedShortArray *ReadVolume(int FirstImage, int LastImage);
   int Read16BitImage(FILE *fp, unsigned short *pixels, int xsize, int ysize, 
-		     int skip, int swapBytes);
+                     int skip, int swapBytes);
 
 private:
   vtkVolume16Reader(const vtkVolume16Reader&);  // Not implemented.

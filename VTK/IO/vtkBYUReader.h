@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:28 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2001-11-13 14:30:27 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -111,7 +111,7 @@ protected:
   void Execute();
   // This source does not know how to generate pieces yet.
   int ComputeDivisionExtents(vtkDataObject *output, 
-			     int idx, int numDivisions);
+                             int idx, int numDivisions);
 
   char *GeometryFileName;
   char *DisplacementFileName;

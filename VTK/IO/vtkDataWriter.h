@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:29 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2001-11-13 14:30:27 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -220,7 +220,7 @@ protected:
   char *FieldDataName;
 
   int WriteArray(ostream *fp, int dataType, vtkDataArray *data, const char *format, 
-		 int num, int numComp);
+                 int num, int numComp);
   int WriteScalarData(ostream *fp, vtkDataArray *s, int num);
   int WriteVectorData(ostream *fp, vtkDataArray *v, int num);
   int WriteNormalData(ostream *fp, vtkDataArray *n, int num);

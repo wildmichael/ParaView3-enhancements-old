@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJPEGWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-11 16:55:40 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-11-13 14:30:33 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -87,8 +87,8 @@ void vtkJPEGWriter::Write()
   // Make sure the file name is allocated
   this->InternalFileName = 
     new char[(this->FileName ? strlen(this->FileName) : 1) +
-	    (this->FilePrefix ? strlen(this->FilePrefix) : 1) +
-	    (this->FilePattern ? strlen(this->FilePattern) : 1) + 10];
+            (this->FilePrefix ? strlen(this->FilePrefix) : 1) +
+            (this->FilePattern ? strlen(this->FilePattern) : 1) + 10];
   
   // Fill in image information.
   this->GetInput()->UpdateInformation();
@@ -174,7 +174,7 @@ void vtkJPEGWriter::WriteSlice(vtkImageData *data)
   width = uExtent[1] - uExtent[0] + 1;
   height = uExtent[3] - uExtent[2] + 1;  
 
-  cinfo.image_width = width; 	/* image width and height, in pixels */
+  cinfo.image_width = width;    /* image width and height, in pixels */
   cinfo.image_height = height;
 
   cinfo.input_components = data->GetNumberOfScalarComponents();
