@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLine.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:24:21 $
-  Version:   $Revision: 1.78 $
+  Date:      $Date: 2003-07-21 20:44:19 $
+  Version:   $Revision: 1.79 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkPointLocator.h"
 #include "vtkPoints.h"
 
-vtkCxxRevisionMacro(vtkLine, "$Revision: 1.78 $");
+vtkCxxRevisionMacro(vtkLine, "$Revision: 1.79 $");
 vtkStandardNewMacro(vtkLine);
 
 // Construct the line with two points.
@@ -240,8 +240,8 @@ void vtkLine::Contour(float value, vtkDataArray *cellScalars,
       {
       if ( outPd ) 
         {
-        int p1 = this->PointIds->GetId(vert[0]);
-        int p2 = this->PointIds->GetId(vert[1]);
+        vtkIdType p1 = this->PointIds->GetId(vert[0]);
+        vtkIdType p2 = this->PointIds->GetId(vert[1]);
         outPd->InterpolateEdge(inPd,pts[0],p1,p2,t);
         }
       }
@@ -557,8 +557,8 @@ void vtkLine::Clip(float value, vtkDataArray *cellScalars,
 
         if ( locator->InsertUniquePoint(x, pts[i]) )
           {
-          int p1 = this->PointIds->GetId(0);
-          int p2 = this->PointIds->GetId(1);
+          vtkIdType p1 = this->PointIds->GetId(0);
+          vtkIdType p2 = this->PointIds->GetId(1);
           outPd->InterpolateEdge(inPd,pts[i],p1,p2,t);
           }
         }

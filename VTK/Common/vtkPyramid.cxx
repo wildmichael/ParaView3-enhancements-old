@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPyramid.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-02-06 03:25:50 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2003-07-21 20:44:19 $
+  Version:   $Revision: 1.31 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,7 @@
 #include "vtkTriangle.h"
 #include "vtkUnstructuredGrid.h"
 
-vtkCxxRevisionMacro(vtkPyramid, "$Revision: 1.30 $");
+vtkCxxRevisionMacro(vtkPyramid, "$Revision: 1.31 $");
 vtkStandardNewMacro(vtkPyramid);
 
 static const float VTK_DIVERGED = 1.e6;
@@ -394,8 +394,8 @@ void vtkPyramid::Contour(float value, vtkDataArray *cellScalars,
         {
         if ( outPd ) 
           {
-          int p1 = this->PointIds->GetId(v1);
-          int p2 = this->PointIds->GetId(v2);
+          vtkIdType p1 = this->PointIds->GetId(v1);
+          vtkIdType p2 = this->PointIds->GetId(v2);
           outPd->InterpolateEdge(inPd,pts[i],p1,p2,t);
           }
         }

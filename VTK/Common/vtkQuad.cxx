@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuad.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-08 17:24:40 $
-  Version:   $Revision: 1.86 $
+  Date:      $Date: 2003-07-21 20:44:19 $
+  Version:   $Revision: 1.87 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,7 +29,7 @@
 #include "vtkPoints.h"
 #include "vtkTriangle.h"
 
-vtkCxxRevisionMacro(vtkQuad, "$Revision: 1.86 $");
+vtkCxxRevisionMacro(vtkQuad, "$Revision: 1.87 $");
 vtkStandardNewMacro(vtkQuad);
 
 static const float VTK_DIVERGED = 1.e6;
@@ -470,8 +470,8 @@ void vtkQuad::Contour(float value, vtkDataArray *cellScalars,
         {
         if ( outPd ) 
           {
-          int p1 = this->PointIds->GetId(e1);
-          int p2 = this->PointIds->GetId(e2);
+          vtkIdType p1 = this->PointIds->GetId(e1);
+          vtkIdType p2 = this->PointIds->GetId(e2);
           outPd->InterpolateEdge(inPd,pts[i],p1,p2,t);
           }
         }
@@ -890,8 +890,8 @@ void vtkQuad::Clip(float value, vtkDataArray *cellScalars,
 
         if ( locator->InsertUniquePoint(x, pts[i]) )
           {
-          int p1 = this->PointIds->GetId(e1);
-          int p2 = this->PointIds->GetId(e2);
+          vtkIdType p1 = this->PointIds->GetId(e1);
+          vtkIdType p2 = this->PointIds->GetId(e2);
           outPd->InterpolateEdge(inPd,pts[i],p1,p2,t);
           }
         }
