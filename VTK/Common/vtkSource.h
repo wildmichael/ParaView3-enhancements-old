@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-19 19:58:03 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2001-02-01 13:57:37 $
+  Version:   $Revision: 1.58 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -103,26 +103,6 @@ public:
 
   // Description:
   virtual void UpdateData(vtkDataObject *output);
-
-  // Description:
-  // Propagate the computation of the size of the pipeline. The first
-  // size is the size of the pipeline after this source has finished
-  // executing (and potentially freeing some input data). The second
-  // size is the size of the specified output. The third size is the
-  // maximum pipeline size encountered so far during this propagation.
-  // All sizes are in kilobytes.
-  void ComputeEstimatedPipelineMemorySize( vtkDataObject *output,
-					   unsigned long size[3] );
-
-  // Description:
-  // The estimated size of the specified output after execution of
-  // this source is stored in the first size entry. The second size
-  // is the sum of all estimated output memory. The size of all inputs
-  // is given to help this filter in the estimation.
-  // All sizes are in kilobytes.
-  virtual void ComputeEstimatedOutputMemorySize( vtkDataObject *output,
-						 unsigned long *inputSize,
-						 unsigned long size[2] );
 
   // Description:
   // What is the input update extent that is required to produce the
