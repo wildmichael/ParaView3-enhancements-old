@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLegendBoxActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-15 17:06:09 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-03-24 21:55:01 $
+  Version:   $Revision: 1.15 $
   Thanks:    Tim Smith who sponsored and encouraged the development
              of this class.
 
@@ -431,7 +431,7 @@ int vtkLegendBoxActor::RenderOpaqueGeometry(vtkViewport *viewport)
     //
     //Find the longest string and symbol width ratio
     int length, maxLength;
-    int maxTextMapper;
+    int maxTextMapper = 0;
     char *str;
     int tempi[2], fontSize;
     float sf, twr, swr, *bounds;

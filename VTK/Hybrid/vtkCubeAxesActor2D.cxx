@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeAxesActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:22 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2001-03-24 21:55:01 $
+  Version:   $Revision: 1.22 $
   Thanks:    Thorsten Dowe who modified and improved this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -210,11 +210,11 @@ int vtkCubeAxesActor2D::RenderOverlay(vtkViewport *viewport)
 // with the boundary of the viewport (minus borders).
 int vtkCubeAxesActor2D::RenderOpaqueGeometry(vtkViewport *viewport)
 {
-  float bounds[6], slope, minSlope, num, den;
+  float bounds[6], slope = 0.0, minSlope, num, den;
   float pts[8][3], d2, d2Min, min;
-  int i, idx;
-  int xIdx, yIdx, zIdx, zIdx2, renderedSomething=0;
-  int xAxes, yAxes, zAxes;
+  int i, idx = 0;
+  int xIdx, yIdx = 0, zIdx = 0, zIdx2, renderedSomething=0;
+  int xAxes = 0, yAxes, zAxes;
 
   // Initialization
   if ( !this->Camera )

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSurfaceReconstructionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:26 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-03-24 21:55:01 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to Tim Hutton (MINORI Project, Dental and Medical
              Informatics, Eastman Dental Institute, London, UK) who
              developed and contributed this class.
@@ -306,7 +306,7 @@ void vtkSurfaceReconstructionFilter::Execute()
       }
     
     float cost,lowestCost;
-    int cheapestNearby,connectedVisited;
+    int cheapestNearby = 0, connectedVisited = 0;
     
     // repeat until nearby is empty:
     while(nearby->GetNumberOfIds()>0)
