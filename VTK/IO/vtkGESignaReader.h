@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGESignaReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-31 23:53:13 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-02-14 17:03:45 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -44,6 +44,21 @@ public:
   virtual vtkImageReader2* MakeObject() { return vtkGESignaReader::New();}
   // Description: is the given file name a GESigna file?
   virtual int CanReadFile(const char* fname);
+
+  // Description:
+  // Valid extentsions
+  virtual const char* GetFileExensions()
+    {
+      return ".MR .CT";
+    }
+
+  // Description: 
+  // A descriptive name for this format
+  virtual const char* GetDescriptiveName()
+    {
+      return "GESigna";
+    }
+
 protected:
   vtkGESignaReader() {};
   ~vtkGESignaReader() {};
