@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkRenderWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-16 21:23:17 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1997-07-23 20:58:38 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -354,6 +354,12 @@ LRESULT APIENTRY vtkTkRenderWidgetProc(HWND hWnd, UINT message,
     SetWindowLong(hWnd,GWL_USERDATA,(LONG)self->RenderWindow);
     tmp(hWnd, WM_USER+13,26,(LONG)self->OldProc);
     SetWindowLong(hWnd,GWL_USERDATA,(LONG)self);
+    self->OldProc = tmp;
+    return 1;
+    }
+  if ((message == WM_USER+14)&&(wParam == 28))
+    {
+    WNDPROC tmp = (WNDPROC)lParam;
     self->OldProc = tmp;
     return 1;
     }

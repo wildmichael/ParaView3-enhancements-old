@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:49:36 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1997-07-23 20:58:39 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,6 +66,7 @@ public:
   int       MultiSamples;
 public:
   vtkWin32OpenGLRenderWindow();
+  ~vtkWin32OpenGLRenderWindow();
   static vtkWin32OpenGLRenderWindow *New() {return new vtkWin32OpenGLRenderWindow;};
   const char *GetClassName() {return "vtkWin32OpenGLRenderWindow";};
   void PrintSelf(ostream& os, vtkIndent indent);
