@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJavaUtil.h,v $
   Language:  C++
-  Date:      $Date: 2001-02-28 23:55:50 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-11-14 21:00:20 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -86,8 +86,6 @@ extern JNIEXPORT void vtkJavaVoidFuncArgDelete(void *);
 class vtkJavaCommand : public vtkCommand
 {
 public:
-  vtkJavaCommand();
-  ~vtkJavaCommand();
   static vtkJavaCommand *New() { return new vtkJavaCommand; };
 
   void SetGlobalRef(jobject obj) { this->uobj = obj; };
@@ -99,6 +97,9 @@ public:
   JavaVM *vm;
   jobject  uobj;
   jmethodID mid;
+protected:
+  vtkJavaCommand();
+  ~vtkJavaCommand();
 };
 
 #endif
