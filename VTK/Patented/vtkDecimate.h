@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimate.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:51:59 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1996-09-17 12:04:30 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -181,7 +181,7 @@ public:
   // Description:
   // Specify the maximum number of iterations to attempt. If decimation target
   // is reached first, this value will not be reached.
-  vtkSetClampMacro(MaximumIterations,int,1,VTK_LARGE_INTEGER);
+  vtkSetClampMacro(MaximumIterations,int,0,VTK_LARGE_INTEGER);
   vtkGetMacro(MaximumIterations,int);
 
   // Description:
