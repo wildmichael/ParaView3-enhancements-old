@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCleanPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1994-09-29 07:53:36 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-09-30 19:37:03 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -20,6 +20,9 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 // points (within specified tolerance) and transforms degenerate 
 // topology into appropriate form (for example, triangle is converted
 // into line if two points of triangle are merged).
+//    If tolerance is specified precisely=0.0, then this object will use
+// the vlMergePoints object to merge points (very fast). Otherwise the 
+// slower vlLocator is used.
 // .SECTION Caveats
 // Merging points can alter topology including introducing non-manifold 
 // forms. Tolerance should be chosen carefully to avoid these problems.

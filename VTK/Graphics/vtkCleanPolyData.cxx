@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCleanPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-29 14:07:48 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1994-09-30 19:37:02 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -14,6 +14,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 
 =========================================================================*/
 #include "CleanP.hh"
+#include "MergePts.hh"
 
 // Description:
 // Construct object with initial tolerance of 0.0.
@@ -67,6 +68,13 @@ void vlCleanPolyData::Execute()
 
   // compute merge list
   Index = this->Locator->MergePoints();
+  this->Locator->Initialize(); //release memory.
+  if (this->SelfCreatedLocator) // in case tolerance is changed
+    {
+    this->SelfCreatedLocator = 0;
+    delete this->Locator;
+    this->Locator = NULL;
+    }
 //
 //  Load new array of points using index.
 //
@@ -200,7 +208,12 @@ void vlCleanPolyData::SetLocator(vlLocator *locator)
 void vlCleanPolyData::CreateDefaultLocator()
 {
   if ( this->SelfCreatedLocator ) delete this->Locator;
-  this->Locator = new vlLocator;
+
+  if ( this->Tolerance <= 0.0 )
+    this->Locator = new vlMergePoints;
+  else
+    this->Locator = new vlLocator;
+
   this->SelfCreatedLocator = 1;
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkConnectivityFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-11 08:56:03 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-09-30 19:37:05 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -22,7 +22,7 @@ vlConnectivityFilter::vlConnectivityFilter()
   this->ExtractionMode = EXTRACT_LARGEST_REGIONS;
   this->ColorRegions = 0;
   this->NumberOfRegionsToExtract = 1;
-  this->RecursionDepth = 10000;
+  this->MaxRecursionDepth = 10000;
 }
 
 static NumExceededMaxDepth;
@@ -31,7 +31,6 @@ static vlFloatScalars *NewScalars;
 static int RecursionDepth;
 static int RegionNumber, PointNumber;    
 static int NumCellsInRegion;
-static int MaxDepth;
 static  vlIdList *RecursionSeeds;
 
 void vlConnectivityFilter::Execute()
@@ -199,7 +198,7 @@ void vlConnectivityFilter::TraverseAndMark (int cellId)
   Visited[cellId] = RegionNumber;
   NumCellsInRegion++;
 
-  if ( RecursionDepth++ > MaxDepth ) 
+  if ( RecursionDepth++ > this->MaxRecursionDepth ) 
     {
     RecursionSeeds->InsertNextId(cellId);
     NumExceededMaxDepth++;
@@ -354,7 +353,7 @@ void vlConnectivityFilter::PrintSelf(ostream& os, vlIndent indent)
       }
 
     os << indent << "Color Regions: " << (this->ColorRegions ? "On\n" : "Off\n");
-    os << indent << "Recursion Depth: " << this->RecursionDepth << "\n";
+    os << indent << "Maximum Recursion Depth: " << this->MaxRecursionDepth << "\n";
     }
 }
 
