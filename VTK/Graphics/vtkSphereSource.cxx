@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-16 10:59:47 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2000-08-16 15:22:11 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -278,10 +278,15 @@ void vtkSphereSource::Execute()
 
   // Generate mesh connectivity
   base = phiResolution * ghostThetaResolution;
- 
+  
+  if (fabs(ghostStartTheta - ghostEndTheta) < 360.0)
+    {
+    --ghostThetaResolution;
+    }
+  
   if ( this->StartPhi <= 0.0 )  // around north pole
     {
-    for (i=0; i < ghostThetaResolution - 1; i++)
+    for (i=0; i < ghostThetaResolution; i++)
       {
       pts[0] = phiResolution*i + numPoles;
       pts[1] = (phiResolution*(i+1) % base) + numPoles;
@@ -310,7 +315,7 @@ void vtkSphereSource::Execute()
     numOffset = phiResolution - 1 + numPoles;
 
 
-    for (i=0; i < ghostThetaResolution - 1; i++)
+    for (i=0; i < ghostThetaResolution; i++)
       {
       pts[0] = phiResolution*i + numOffset;
       pts[2] = ((phiResolution*(i+1)) % base) + numOffset;
@@ -335,7 +340,7 @@ void vtkSphereSource::Execute()
     }
 
   // bands inbetween poles
-  for (i=0; i < ghostThetaResolution - 1; i++)
+  for (i=0; i < ghostThetaResolution; i++)
     {
     for (j=0; j < (phiResolution-1); j++)
       {
