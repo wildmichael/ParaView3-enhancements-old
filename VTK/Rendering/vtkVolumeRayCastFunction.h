@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastFunction.h,v $
   Language:  C++
-  Date:      $Date: 1999-03-12 22:12:19 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-04-22 14:14:36 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,72 +55,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkVolumeRayCastFunction_h
 
 #include "vtkObject.h"
+#include "vtkRayCastStructures.h"
+#include "vtkVolumeRayCastStructures.h"
 
 class vtkRenderer;
 class vtkVolume;
 class vtkVolumeRayCastMapper;
-
-struct VolumeRayCastRayInfoStruct 
-{
-  // These are the input values
-  float RayOrigin[3];
-  float RayDirection[3];
-  int   RayPixel[2];
-  int   ImageWidth;
-
-  // These are input values but may be changed
-  // along the way
-  float RayNearClip;
-  float RayFarClip;
-
-  // These are computed along the way
-  float VolumeRayStart[4];
-  float VolumeRayEnd[4];
-  float VolumeRayDirection[4];
-  float VolumeRayIncrement[3];
-  int   VolumeRayNumberOfSamples;
-
-  // These are the return values
-  float RayColor[4];
-  float RayDepth;
-  int   VolumeRayStepsTaken;
-
-};
-
-struct VolumeRayCastVolumeInfoStruct 
-{
-  float                        WorldToVolumeMatrix[16];
-  float                        ViewToVolumeMatrix[16];
-  vtkVolume                    *Volume;
-  int                          *RowBounds;
-  int                          RowBoundsSize;
-  float                        CenterDistance;
-  int                          ScalarDataType;
-  void                         *ScalarDataPointer;
-  unsigned char                *RGBDataPointer;
-  int                          Shading;
-  int                          ColorChannels;
-  float                        Color[3];
-  int                          InterpolationType;
-  float                        *RedDiffuseShadingTable;
-  float                        *GreenDiffuseShadingTable;
-  float                        *BlueDiffuseShadingTable;
-  float                        *RedSpecularShadingTable;
-  float                        *GreenSpecularShadingTable;
-  float                        *BlueSpecularShadingTable;
-  int                          DataIncrement[3];
-  int                          DataSize[3];
-  float                        DataSpacing[3];
-  float                        DataOrigin[3];
-  int                          RGBDataIncrement[3];
-  int                          RGBDataSize[3];
-  float                        RGBDataSpacing[3];
-  float                        RGBDataOrigin[3];
-  float                        RGBTextureCoefficient;
-  unsigned short               *EncodedNormals;
-  unsigned char                *GradientMagnitudes;
-};
-
 
 class VTK_EXPORT vtkVolumeRayCastFunction : public vtkObject
 {
@@ -136,11 +76,11 @@ public:
 //BTX
   void FunctionInitialize( vtkRenderer *ren,
 			   vtkVolume   *vol,
-			   struct VolumeRayCastVolumeInfoStruct *volumeInfo,
+			   VTKRayCastVolumeInfo *volumeInfo,
 			   vtkVolumeRayCastMapper *mapper );
 
-  virtual void CastRay( struct VolumeRayCastRayInfoStruct *rayInfo,
-			struct VolumeRayCastVolumeInfoStruct *volumeInfo )=0;
+  virtual void CastRay( VTKRayCastRayInfo *rayInfo,
+			VTKRayCastVolumeInfo *volumeInfo )=0;
 //ETX
 
   // Description:
@@ -156,7 +96,7 @@ protected:
 //BTX
   virtual void SpecificFunctionInitialize( vtkRenderer *ren,
 					   vtkVolume   *vol,
-					   struct VolumeRayCastVolumeInfoStruct *volumeInfo,
+					   VTKRayCastVolumeInfo *volumeInfo,
 					   vtkVolumeRayCastMapper *mapper )=0;
 //ETX
 };

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp3D.h,v $
   Language:  C++
-  Date:      $Date: 1999-02-25 20:52:51 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-04-22 14:14:24 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,6 +59,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkTransform.h"
 
 class vtkRenderer;
+class vtkAbstractMapper;
 
 class VTK_EXPORT vtkProp3D : public vtkProp
 {
@@ -84,6 +85,16 @@ class VTK_EXPORT vtkProp3D : public vtkProp
   // rotations take place.
   vtkSetVector3Macro(Origin,float);
   vtkGetVectorMacro(Origin,float,3);
+
+  // Description:
+  // Set/Get the scale of the actor. Scaling in performed independently on the
+  // X, Y and Z axis. A scale of zero is illegal and will be replaced with one.
+  vtkSetVector3Macro(Scale,float);
+  vtkGetVectorMacro(Scale,float,3);
+
+  // Description:
+  // Method to set the scale isotropically
+  void SetScale(float s) {this->SetScale(s,s,s);};
 
   // Description:
   // Set/Get the pickable instance variable.  This determines if the Prop3D
@@ -122,8 +133,10 @@ class VTK_EXPORT vtkProp3D : public vtkProp
 
   // Description:
   // Return a reference to the Prop3D's 4x4 composite matrix.
+  // Get the matrix from the position, origin, scale and orientation This
+  // matrix is cached, so multiple GetMatrix() calls will be efficient.
   vtkMatrix4x4 *GetMatrixPointer();
-  virtual void GetMatrix(vtkMatrix4x4 *m) = 0;
+  void GetMatrix(vtkMatrix4x4 *m);
 
   // Description:
   // Get the bounds for this Prop3D as (Xmin,Xmax,Ymin,Ymax,Zmin,Zmax).
@@ -241,6 +254,7 @@ protected:
   float         Origin[3];
   float         Position[3];
   float         Orientation[3];
+  float         Scale[3];
   float         Center[3];
   int           Pickable;
   void          (*PickMethod)(void *);

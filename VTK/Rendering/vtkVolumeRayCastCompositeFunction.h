@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastCompositeFunction.h,v $
   Language:  C++
-  Date:      $Date: 1999-01-22 02:58:21 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-04-22 14:14:35 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -84,14 +84,14 @@ public:
   char *GetCompositeMethodAsString(void);
 
 //BTX
-  void CastRay( struct VolumeRayCastRayInfoStruct *rayInfo,
-		struct VolumeRayCastVolumeInfoStruct *volumeInfo);
+  void CastRay( VTKRayCastRayInfo *rayInfo,
+		VTKRayCastVolumeInfo *volumeInfo);
 //ETX
 protected:
 //BTX
   void SpecificFunctionInitialize( vtkRenderer *ren,
 				   vtkVolume   *vol,
-				   struct VolumeRayCastVolumeInfoStruct *volumeInfo,
+				   VTKRayCastVolumeInfo *volumeInfo,
 				   vtkVolumeRayCastMapper *mapper );
 //ETX
   

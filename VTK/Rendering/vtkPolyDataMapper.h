@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:25:22 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-04-22 14:14:23 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,10 +61,6 @@ public:
   // Description:
   // Implement required Render method. Just a dummy routine here.
   virtual void Render(vtkRenderer *, vtkActor *) {};
-
-  // Description:
-  // Return the bounds of the poly data.
-  float *GetBounds();
 
   // Description:
   // Specify the input data to map.

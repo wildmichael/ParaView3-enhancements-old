@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-31 14:08:38 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-04-22 14:14:22 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -98,18 +98,5 @@ void vtkPolyDataMapper::SetInput(vtkPolyData *in)
     }
 }
 
-//
-// Return bounding box of data
-//
-float *vtkPolyDataMapper::GetBounds()
-{
-  if ( this->Input ) 
-    {
-    this->Input->Update();
-    this->Input->GetBounds(this->Bounds);
-    }
-
-  return this->Bounds;
-}
 
 

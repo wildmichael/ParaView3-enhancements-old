@@ -1,10 +1,11 @@
 /*=========================================================================
 
   Program:   Visualization Toolkit
-  Module:    $RCSfile: vtkProp.cxx,v $
+  Module:    $RCSfile: vtkRayCastStructures.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-22 14:14:11 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-04-22 14:14:12 $
+  Version:   $Revision: 1.1 $
+
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -37,27 +38,57 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkProp.h"
 
-// Creates an Prop with the following defaults: visibility on.
-vtkProp::vtkProp()
+// .NAME vtkRayCastStructures - the structure definitions for ray casting
+
+// .SECTION Description
+// These are the structures required for ray casting.
+
+// .SECTION See Also
+// vtkRayCaster
+
+#ifndef __vtkRayCastStructures_h
+#define __vtkRayCastStructures_h
+
+typedef struct 
 {
-  this->Visibility = 1;  // ON
-  this->AllocatedRenderTime = 10.0;
-  this->EstimatedRenderTime = 0.0;
-}
+  // These are the input values that define the ray
+  float Origin[3];
+  float Direction[3];
+  int   Pixel[2];
 
-void vtkProp::PrintSelf(ostream& os, vtkIndent indent)
-{
-  this->vtkObject::PrintSelf(os,indent);
+  // This input value defines the size of the image
+  int   ImageSize[2];
 
-  os << indent << "AllocatedRenderTime: " 
-     << this->AllocatedRenderTime << endl;
-  os << indent << "EstimatedRenderTime: " 
-     << this->EstimatedRenderTime << endl;
-  os << indent << "Visibility: " << (this->Visibility ? "On\n" : "Off\n");
-}
+  // These are input values for clipping but may be changed
+  // along the way
+  float NearClip;
+  float FarClip;
+
+  // These are the return values - RGBA and Z
+  float Color[4];
+  float Depth;
 
 
+  // Some additional space that may be useful for the
+  // specific implementation of the ray caster. This structure
+  // is a convenient place to put it, since there is one
+  // per thread so that writing to these locations is safe
 
+  // Ray information transformed into local coordinates
+  float                        TransformedStart[4];
+  float                        TransformedEnd[4];
+  float                        TransformedDirection[4];
+  float                        TransformedIncrement[3];
+  
+  // The number of steps we want to take if this is
+  // a ray caster that takes steps
+  int                          NumberOfStepsToTake;
+  
+  // The number of steps we actually take if this is
+  // a ray caster that takes steps
+  int                          NumberOfStepsTaken;
 
+} VTKRayCastRayInfo;
+
+#endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEncodedGradientShader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-07 20:33:36 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-04-22 14:14:14 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -216,7 +216,7 @@ void vtkEncodedGradientShader::UpdateShadingTable( vtkRenderer *ren,
   vtkLight              *light;
   float                 norm;
   int                   update_flag;
-  vtkVolumeProperty     *volumeProperty;
+  vtkVolumeProperty     *property;
   vtkTransform          *transform;
   vtkMatrix4x4          *m;
   float                 in[4], out[4], zero[4];
@@ -258,12 +258,12 @@ void vtkEncodedGradientShader::UpdateShadingTable( vtkRenderer *ren,
   transform->SetMatrix(*m);
   transform->Inverse();
   
-  volumeProperty = vol->GetVolumeProperty();
+  property = vol->GetProperty();
 
-  material[0] = volumeProperty->GetAmbient();
-  material[1] = volumeProperty->GetDiffuse();
-  material[2] = volumeProperty->GetSpecular();
-  material[3] = volumeProperty->GetSpecularPower();
+  material[0] = property->GetAmbient();
+  material[1] = property->GetDiffuse();
+  material[2] = property->GetSpecular();
+  material[3] = property->GetSpecularPower();
 
   // Set up the lights for traversal
   lightCollection = ren->GetLights();
