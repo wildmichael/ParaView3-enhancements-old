@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleTerrain.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-20 10:11:49 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-04-21 12:55:19 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkPolyDataMapper.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyleTerrain, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkInteractorStyleTerrain, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkInteractorStyleTerrain);
 
 vtkInteractorStyleTerrain::vtkInteractorStyleTerrain()
@@ -315,7 +315,7 @@ void vtkInteractorStyleTerrain::OnMouseMove (int vtkNotUsed(ctrl), int shift,
   
     if ( shift )
       {
-      if ( fabs(OldX-X) >= fabs(OldY-Y) )
+      if ( fabs((float)(OldX-X)) >= fabs((float)(OldY-Y)) )
         {
         e = 0.0;
         }
