@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAxisActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-07 21:32:26 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-04-08 13:40:48 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to Kitware & RPI/SCOREC who supported the development
              of this class.
 
@@ -255,13 +255,13 @@ void vtkAxisActor2D::PrintSelf(ostream& os, vtkIndent indent)
      << (this->AxisVisibility ? "On\n" : "Off\n");
   
   os << indent << "Tick Visibility: " 
-     << (this->AxisVisibility ? "On\n" : "Off\n");
+     << (this->TickVisibility ? "On\n" : "Off\n");
   
   os << indent << "Label Visibility: " 
-     << (this->AxisVisibility ? "On\n" : "Off\n");
+     << (this->LabelVisibility ? "On\n" : "Off\n");
   
   os << indent << "Title Visibility: " 
-     << (this->AxisVisibility ? "On\n" : "Off\n");
+     << (this->TitleVisibility ? "On\n" : "Off\n");
   
   os << indent << "Point1 Coordinate: " << this->Point1Coordinate << "\n";
   this->Point1Coordinate->PrintSelf(os, indent.GetNextIndent());
