@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-07 14:29:17 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 1999-01-28 19:02:58 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -272,6 +272,25 @@ vtkCell *vtkUnstructuredGrid::GetCell(int cellId)
     }
 
   return cell;
+}
+
+void vtkUnstructuredGrid::GetCell(int cellId, vtkGenericCell *cell)
+{
+  int i, loc, numPts, *pts;
+
+  cell->SetCellType(this->Cells->GetCellType(cellId));
+
+  loc = this->Cells->GetCellLocation(cellId);
+  this->Connectivity->GetCell(loc,numPts,pts); 
+
+  cell->PointIds->SetNumberOfIds(numPts);
+  cell->Points->SetNumberOfPoints(numPts);
+
+  for (i=0; i<numPts; i++)
+    {
+    cell->PointIds->SetId(i,pts[i]);
+    cell->Points->SetPoint(i,this->Points->GetPoint(pts[i]));
+    }
 }
 
 int vtkUnstructuredGrid::GetMaxCellSize()

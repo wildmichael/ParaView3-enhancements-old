@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.h,v $
   Language:  C++
-  Date:      $Date: 1998-12-02 19:45:13 $
-  Version:   $Revision: 1.75 $
+  Date:      $Date: 1999-01-28 19:02:52 $
+  Version:   $Revision: 1.76 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,7 +67,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkPoints.h"
 #include "vtkCellData.h"
 #include "vtkPointData.h"
-#include "vtkCell.h"
+#include "vtkGenericCell.h"
 
 class VTK_EXPORT vtkDataSet : public vtkDataObject
 {
@@ -113,6 +113,12 @@ public:
   // Description:
   // Get cell with cellId such that: 0 <= cellId < NumberOfCells.
   virtual vtkCell *GetCell(int cellId) = 0;
+
+  // Description:
+  // Get cell with cellId such that: 0 <= cellId < NumberOfCells. 
+  // This is a thread-safe alternative to the previous GetCell()
+  // method.
+  virtual void GetCell(int cellId, vtkGenericCell *cell) = 0;
 
   // Description:
   // Get type of cell with cellId such that: 0 <= cellId < NumberOfCells.

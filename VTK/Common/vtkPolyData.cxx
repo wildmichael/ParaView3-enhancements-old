@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-07 21:02:06 $
-  Version:   $Revision: 1.88 $
+  Date:      $Date: 1999-01-28 19:02:52 $
+  Version:   $Revision: 1.89 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -273,6 +273,81 @@ vtkCell *vtkPolyData::GetCell(int cellId)
 
   return cell;
 }
+
+void vtkPolyData::GetCell(int cellId, vtkGenericCell *cell)
+{
+  int i, loc, numPts, *pts;
+  unsigned char type;
+
+  if ( !this->Cells )
+    {
+    this->BuildCells();
+    }
+
+  type = this->Cells->GetCellType(cellId);
+  loc = this->Cells->GetCellLocation(cellId);
+
+  switch (type)
+    {
+    case VTK_VERTEX:
+      cell->SetCellTypeToVertex();
+      this->Verts->GetCell(loc,numPts,pts);
+      break;
+
+    case VTK_POLY_VERTEX:
+      cell->SetCellTypeToPolyVertex();
+      this->Verts->GetCell(loc,numPts,pts);
+      cell->PointIds->SetNumberOfIds(numPts); //reset number of points
+      cell->Points->SetNumberOfPoints(numPts);
+      break;
+
+    case VTK_LINE: 
+      cell->SetCellTypeToLine();
+      this->Lines->GetCell(loc,numPts,pts);
+      break;
+
+    case VTK_POLY_LINE:
+      cell->SetCellTypeToPolyLine();
+      this->Lines->GetCell(loc,numPts,pts);
+      cell->PointIds->SetNumberOfIds(numPts); //reset number of points
+      cell->Points->SetNumberOfPoints(numPts);
+      break;
+
+    case VTK_TRIANGLE:
+      cell->SetCellTypeToTriangle();
+      this->Polys->GetCell(loc,numPts,pts);
+      break;
+
+    case VTK_QUAD:
+      cell->SetCellTypeToQuad();
+      this->Polys->GetCell(loc,numPts,pts);
+      break;
+
+    case VTK_POLYGON:
+      cell->SetCellTypeToPolygon();
+      this->Polys->GetCell(loc,numPts,pts);
+      cell->PointIds->SetNumberOfIds(numPts); //reset number of points
+      cell->Points->SetNumberOfPoints(numPts);
+      break;
+
+    case VTK_TRIANGLE_STRIP:
+      cell->SetCellTypeToTriangleStrip();
+      this->Strips->GetCell(loc,numPts,pts);
+      cell->PointIds->SetNumberOfIds(numPts); //reset number of points
+      cell->Points->SetNumberOfPoints(numPts);
+      break;
+
+    default:
+      cell->SetCellTypeToEmptyCell();
+    }
+
+  for (i=0; i < numPts; i++)
+    {
+    cell->PointIds->SetId(i,pts[i]);
+    cell->Points->SetPoint(i,this->Points->GetPoint(pts[i]));
+    }
+}
+
 
 // Set the cell array defining vertices.
 void vtkPolyData::SetVerts (vtkCellArray* v) 
