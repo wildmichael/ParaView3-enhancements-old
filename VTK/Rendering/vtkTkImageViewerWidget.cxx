@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkImageViewerWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:53:36 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1998-11-17 18:36:25 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -484,9 +484,21 @@ static int vtkTkImageViewerWidget_MakeImageViewer(struct vtkTkImageViewerWidget 
     }
   else
     {
-    self->ImageViewer = (vtkImageViewer *)
-      vtkTclGetPointerFromObject(self->IV, "vtkImageViewer", self->Interp, new_flag);
-    ImageViewer = (vtkImageViewer *)(self->ImageViewer);
+    ImageViewer = (vtkImageViewer *)
+      vtkTclGetPointerFromObject(self->IV, "vtkImageViewer", self->Interp,
+				 new_flag);
+    if (ImageViewer != self->ImageViewer)
+      {
+      if (self->ImageViewer != NULL)
+	{
+	self->ImageViewer->UnRegister(NULL);
+	}
+      self->ImageViewer = (vtkImageViewer *)(ImageViewer);
+      if (self->ImageViewer != NULL)
+	{
+	self->ImageViewer->Register(NULL);
+	}
+      }
     }
   
   // Set the size
@@ -636,8 +648,20 @@ vtkTkImageViewerWidget_MakeImageViewer(struct vtkTkImageViewerWidget *self)
   else
     {
     ImageViewer = (vtkImageViewer *)
-      vtkTclGetPointerFromObject(self->IV,"vtkImageViewer",self->Interp, new_flag);
-    self->ImageViewer = ImageViewer;
+      vtkTclGetPointerFromObject(self->IV, "vtkImageViewer", self->Interp,
+				 new_flag);
+    if (ImageViewer != self->ImageViewer)
+      {
+      if (self->ImageViewer != NULL)
+	{
+	self->ImageViewer->UnRegister(NULL);
+	}
+      self->ImageViewer = (vtkImageViewer *)(ImageViewer);
+      if (self->ImageViewer != NULL)
+	{
+	self->ImageViewer->Register(NULL);
+	}
+      }
     }
   
   // Set the size
