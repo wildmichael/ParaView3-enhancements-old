@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-25 13:14:54 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1995-10-28 12:42:15 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -442,7 +442,6 @@ void vtkCamera::CalcViewTransform()
 {
   vtkMatrix4x4  matrix;
   vtkMath math;
-  float ftemp;
   float *Rz, Rx[3], Ry[3];
   float p1[4],PRP[4];
   
@@ -710,8 +709,6 @@ void vtkCamera::Dolly(float amount)
 // occupies the viewport. A value > 1 is a zoom-in. A value < 1 is a zoom-out.
 void vtkCamera::Zoom(float amount)
 {
-  float	distance;
-  
   if (amount <= 0.0) return;
   
   this->ViewAngle = this->ViewAngle/amount;
