@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyLine.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-03 14:33:27 $
-  Version:   $Revision: 1.71 $
+  Date:      $Date: 2002-11-12 18:32:04 $
+  Version:   $Revision: 1.72 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkPolyLine, "$Revision: 1.71 $");
+vtkCxxRevisionMacro(vtkPolyLine, "$Revision: 1.72 $");
 vtkStandardNewMacro(vtkPolyLine);
 
 vtkPolyLine::vtkPolyLine()
@@ -354,7 +354,8 @@ void vtkPolyLine::Contour(float value, vtkDataArray *cellScalars,
                           vtkCellData *outCd)
 {
   int i, numLines=this->Points->GetNumberOfPoints() - 1;
-  vtkDataArray *lineScalars=cellScalars->MakeObject();
+  vtkDataArray *lineScalars=cellScalars->NewInstance();
+  lineScalars->SetNumberOfComponents(cellScalars->GetNumberOfComponents());
   lineScalars->SetNumberOfTuples(2);
 
   for ( i=0; i < numLines; i++)

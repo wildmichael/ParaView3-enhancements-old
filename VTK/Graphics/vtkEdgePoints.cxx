@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEdgePoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-03 22:51:55 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2002-11-12 18:32:04 $
+  Version:   $Revision: 1.49 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkEdgePoints, "$Revision: 1.48 $");
+vtkCxxRevisionMacro(vtkEdgePoints, "$Revision: 1.49 $");
 vtkStandardNewMacro(vtkEdgePoints);
 
 // Construct object with contour value of 0.0.
@@ -92,7 +92,8 @@ void vtkEdgePoints::Execute()
   newPts->Allocate(estimatedSize, estimatedSize/2);
   newVerts = vtkCellArray::New();
   newVerts->Allocate(estimatedSize, estimatedSize/2);
-  cellScalars = inScalars->MakeObject();
+  cellScalars = inScalars->NewInstance();
+  cellScalars->SetNumberOfComponents(inScalars->GetNumberOfComponents());
   cellScalars->Allocate(VTK_CELL_SIZE*inScalars->GetNumberOfComponents());
   
   this->Locator->InitPointInsertion (newPts, input->GetBounds());

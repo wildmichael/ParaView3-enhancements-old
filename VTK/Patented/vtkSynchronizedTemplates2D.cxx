@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-30 21:05:16 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-11-12 18:32:04 $
+  Version:   $Revision: 1.27 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -44,7 +44,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkSynchronizedTemplates2D, "$Revision: 1.26 $");
+vtkCxxRevisionMacro(vtkSynchronizedTemplates2D, "$Revision: 1.27 $");
 vtkStandardNewMacro(vtkSynchronizedTemplates2D);
 
 //----------------------------------------------------------------------------
@@ -439,7 +439,8 @@ void vtkSynchronizedTemplates2D::Execute()
     void *scalars = inScalars->GetVoidPointer(0);
     if (this->ComputeScalars)
       {
-      newScalars = inScalars->MakeObject();
+      newScalars = inScalars->NewInstance();
+      newScalars->SetNumberOfComponents(inScalars->GetNumberOfComponents());
       newScalars->SetName(inScalars->GetName());
       newScalars->Allocate(5000,25000);
       }

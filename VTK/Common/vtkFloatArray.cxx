@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFloatArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-07 19:39:00 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 2002-11-12 18:32:04 $
+  Version:   $Revision: 1.56 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,15 +18,8 @@
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkFloatArray, "$Revision: 1.55 $");
+vtkCxxRevisionMacro(vtkFloatArray, "$Revision: 1.56 $");
 vtkStandardNewMacro(vtkFloatArray);
-
-vtkDataArray *vtkFloatArray::MakeObject()
-{
-  vtkDataArray *a = vtkFloatArray::New();
-  a->SetNumberOfComponents(this->NumberOfComponents);
-  return a;
-}
 
 // Instantiate object with 1 components.
 vtkFloatArray::vtkFloatArray(vtkIdType numComp)

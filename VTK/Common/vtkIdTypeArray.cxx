@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdTypeArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:26 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-11-12 18:32:04 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,15 +18,8 @@
 #include "vtkIdTypeArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkIdTypeArray, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkIdTypeArray, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkIdTypeArray);
-
-vtkDataArray *vtkIdTypeArray::MakeObject()
-{
-  vtkDataArray *a = vtkIdTypeArray::New();
-  a->SetNumberOfComponents(this->NumberOfComponents);
-  return a;
-}
 
 // Instantiate object.
 vtkIdTypeArray::vtkIdTypeArray(vtkIdType numComp)

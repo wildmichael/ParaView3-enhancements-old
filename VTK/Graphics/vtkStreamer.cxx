@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamer.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-06 20:12:00 $
-  Version:   $Revision: 1.80 $
+  Date:      $Date: 2002-11-12 18:32:04 $
+  Version:   $Revision: 1.81 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkRungeKutta2.h"
 
-vtkCxxRevisionMacro(vtkStreamer, "$Revision: 1.80 $");
+vtkCxxRevisionMacro(vtkStreamer, "$Revision: 1.81 $");
 vtkCxxSetObjectMacro(vtkStreamer,Integrator,vtkInitialValueProblemSolver);
 
 #define VTK_START_FROM_POSITION 0
@@ -239,7 +239,8 @@ VTK_THREAD_RETURN_TYPE vtkStreamer::ThreadedIntegrate( void *arg )
   cellVectors->Allocate(3*VTK_CELL_SIZE);
   if (inScalars)
     {
-    cellScalars = inScalars->MakeObject();
+    cellScalars = inScalars->NewInstance();
+    cellScalars->SetNumberOfComponents(inScalars->GetNumberOfComponents());
     cellScalars->Allocate(inScalars->GetNumberOfComponents()*VTK_CELL_SIZE);
     }
 
@@ -480,7 +481,8 @@ void vtkStreamer::Integrate()
 
   if (inScalars)
     {
-    cellScalars = inScalars->MakeObject();
+    cellScalars = inScalars->NewInstance();
+    cellScalars->SetNumberOfComponents(cellScalars->GetNumberOfComponents());
     cellScalars->Allocate(cellScalars->GetNumberOfComponents()*VTK_CELL_SIZE);
     }
   

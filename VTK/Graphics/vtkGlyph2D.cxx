@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-15 13:03:38 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-11-12 18:32:04 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 #include "vtkTransform.h"
 #include "vtkUnsignedCharArray.h"
 
-vtkCxxRevisionMacro(vtkGlyph2D, "$Revision: 1.17 $");
+vtkCxxRevisionMacro(vtkGlyph2D, "$Revision: 1.18 $");
 vtkStandardNewMacro(vtkGlyph2D);
 
 void vtkGlyph2D::Execute()
@@ -177,7 +177,8 @@ void vtkGlyph2D::Execute()
   newPts->Allocate(numPts*numSourcePts);
   if ( this->ColorMode == VTK_COLOR_BY_SCALAR && inScalars )
     {
-    newScalars = inScalars->MakeObject ();
+    newScalars = inScalars->NewInstance();
+    newScalars->SetNumberOfComponents(inScalars->GetNumberOfComponents());
     newScalars->Allocate(inScalars->GetNumberOfComponents()*numPts*numSourcePts);
     }
   else if ( (this->ColorMode == VTK_COLOR_BY_SCALE) && inScalars)

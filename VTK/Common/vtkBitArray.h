@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBitArray.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-07 19:39:00 $
-  Version:   $Revision: 1.64 $
+  Date:      $Date: 2002-11-12 18:32:03 $
+  Version:   $Revision: 1.65 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -44,7 +44,6 @@ public:
   void Initialize();
 
   // satisfy vtkDataArray API
-  vtkDataArray *MakeObject();
   int GetDataType() {return VTK_BIT;};
   int GetDataTypeSize() { return 0; }
   

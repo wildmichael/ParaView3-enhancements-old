@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleStrip.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:26:31 $
-  Version:   $Revision: 1.68 $
+  Date:      $Date: 2002-11-12 18:32:04 $
+  Version:   $Revision: 1.69 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkTriangleStrip, "$Revision: 1.68 $");
+vtkCxxRevisionMacro(vtkTriangleStrip, "$Revision: 1.69 $");
 vtkStandardNewMacro(vtkTriangleStrip);
 
 vtkTriangleStrip::vtkTriangleStrip()
@@ -135,7 +135,8 @@ void vtkTriangleStrip::Contour(float value, vtkDataArray *cellScalars,
                                vtkCellData *outCd)
 {
   int i, numTris=this->Points->GetNumberOfPoints()-2;
-  vtkDataArray *triScalars=cellScalars->MakeObject();
+  vtkDataArray *triScalars=cellScalars->NewInstance();
+  triScalars->SetNumberOfComponents(cellScalars->GetNumberOfComponents());
   triScalars->SetNumberOfTuples(3);
 
   for ( i=0; i < numTris; i++)
@@ -286,7 +287,8 @@ void vtkTriangleStrip::Clip(float value, vtkDataArray *cellScalars,
 {
   int i, numTris=this->Points->GetNumberOfPoints()-2;
   int id1, id2, id3;
-  vtkDataArray *triScalars=cellScalars->MakeObject();
+  vtkDataArray *triScalars=cellScalars->NewInstance();
+  triScalars->SetNumberOfComponents(cellScalars->GetNumberOfComponents());
   triScalars->SetNumberOfTuples(3);
 
   for ( i=0; i < numTris; i++)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLongArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-07 19:39:00 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2002-11-12 18:32:04 $
+  Version:   $Revision: 1.34 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,15 +18,8 @@
 #include "vtkLongArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkLongArray, "$Revision: 1.33 $");
+vtkCxxRevisionMacro(vtkLongArray, "$Revision: 1.34 $");
 vtkStandardNewMacro(vtkLongArray);
-
-vtkDataArray *vtkLongArray::MakeObject()
-{
-  vtkDataArray *a = vtkLongArray::New();
-  a->SetNumberOfComponents(this->NumberOfComponents);
-  return a;
-}
 
 // Instantiate object.
 vtkLongArray::vtkLongArray(vtkIdType numComp)

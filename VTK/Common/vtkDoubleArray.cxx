@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDoubleArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-07 19:39:00 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2002-11-12 18:32:04 $
+  Version:   $Revision: 1.46 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,15 +18,8 @@
 #include "vtkDoubleArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkDoubleArray, "$Revision: 1.45 $");
+vtkCxxRevisionMacro(vtkDoubleArray, "$Revision: 1.46 $");
 vtkStandardNewMacro(vtkDoubleArray);
-
-vtkDataArray *vtkDoubleArray::MakeObject()
-{
-  vtkDataArray *a = vtkDoubleArray::New();
-  a->SetNumberOfComponents(this->NumberOfComponents);
-  return a;
-}
 
 // Instantiate object.
 vtkDoubleArray::vtkDoubleArray(vtkIdType numComp)

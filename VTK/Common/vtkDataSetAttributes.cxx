@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-06 20:58:39 $
-  Version:   $Revision: 1.67 $
+  Date:      $Date: 2002-11-12 18:32:04 $
+  Version:   $Revision: 1.68 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,7 +33,7 @@
 #include "vtkIdTypeArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkDataSetAttributes, "$Revision: 1.67 $");
+vtkCxxRevisionMacro(vtkDataSetAttributes, "$Revision: 1.68 $");
 vtkStandardNewMacro(vtkDataSetAttributes);
 
 //--------------------------------------------------------------------------
@@ -106,7 +106,7 @@ void vtkDataSetAttributes::DeepCopy(vtkFieldData *fd)
     for ( int i=0; i < numArrays; i++ )
       {
       data = fd->GetArray(i);
-      newData = data->MakeObject(); //instantiate same type of object
+      newData = data->NewInstance(); //instantiate same type of object
       newData->DeepCopy(data);
       newData->SetName(data->GetName());
       if ((attributeType=dsa->IsArrayAnAttribute(i)) != -1)
@@ -473,7 +473,8 @@ void vtkDataSetAttributes::CopyAllocate(vtkDataSetAttributes* pd,
       {
       // Create all required arrays
       da = pd->GetArray(i);
-      newDA = da->MakeObject();
+      newDA = da->NewInstance();
+      newDA->SetNumberOfComponents(da->GetNumberOfComponents());
       newDA->SetName(da->GetName());
       if ( sze > 0 )
         {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoidArray.h,v $
   Language:  C++
-  Date:      $Date: 2002-02-13 22:46:31 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2002-11-12 18:32:04 $
+  Version:   $Revision: 1.52 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -42,10 +42,6 @@ public:
   // Description:
   // Release storage and reset array to initial state.
   void Initialize();
-
-  // Description:
-  // Create a similar type object
-  vtkDataArray *MakeObject() {return vtkVoidArray::New();};
 
   // Description:
   // Get the data type.

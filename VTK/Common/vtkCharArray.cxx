@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCharArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-07 19:39:00 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2002-11-12 18:32:03 $
+  Version:   $Revision: 1.36 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,15 +18,8 @@
 #include "vtkCharArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkCharArray, "$Revision: 1.35 $");
+vtkCxxRevisionMacro(vtkCharArray, "$Revision: 1.36 $");
 vtkStandardNewMacro(vtkCharArray);
-
-vtkDataArray *vtkCharArray::MakeObject()
-{
-  vtkDataArray *a = vtkCharArray::New();
-  a->SetNumberOfComponents(this->NumberOfComponents);
-  return a;
-}
 
 // Instantiate object.
 vtkCharArray::vtkCharArray(vtkIdType numComp)

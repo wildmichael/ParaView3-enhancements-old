@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedLongArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-07 19:39:00 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2002-11-12 18:32:04 $
+  Version:   $Revision: 1.33 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,15 +18,8 @@
 #include "vtkUnsignedLongArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkUnsignedLongArray, "$Revision: 1.32 $");
+vtkCxxRevisionMacro(vtkUnsignedLongArray, "$Revision: 1.33 $");
 vtkStandardNewMacro(vtkUnsignedLongArray);
-
-vtkDataArray *vtkUnsignedLongArray::MakeObject()
-{
-  vtkDataArray *a = vtkUnsignedLongArray::New();
-  a->SetNumberOfComponents(this->NumberOfComponents);
-  return a;
-}
 
 // Instantiate object.
 vtkUnsignedLongArray::vtkUnsignedLongArray(vtkIdType numComp)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLStructuredDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-23 15:49:47 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-11-12 18:32:04 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkXMLDataParser.h"
 #include "vtkDataSet.h"
 
-vtkCxxRevisionMacro(vtkXMLStructuredDataReader, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkXMLStructuredDataReader, "$Revision: 1.4 $");
 
 //----------------------------------------------------------------------------
 vtkXMLStructuredDataReader::vtkXMLStructuredDataReader()
@@ -340,7 +340,8 @@ vtkXMLStructuredDataReader
       unsigned int rowTuples = subDimensions[0];
       unsigned int partialSliceTuples = inDimensions[0]*subDimensions[1];
       unsigned long tupleSize = components*array->GetDataTypeSize();
-      vtkDataArray* temp = array->MakeObject();
+      vtkDataArray* temp = array->NewInstance();
+      temp->SetNumberOfComponents(array->GetNumberOfComponents());
       temp->SetNumberOfTuples(partialSliceTuples);
       int k;
       for(k=0;k < subDimensions[2];++k)

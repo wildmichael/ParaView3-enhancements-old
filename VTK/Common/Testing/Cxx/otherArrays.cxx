@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: otherArrays.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-05 20:55:32 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-11-12 18:32:04 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -77,23 +77,6 @@ int doArrayTest (ostream& strm, T *ptr, A *array, V value, int size)
   strm << "\tSetVoidArray...";
   ptr->SetVoidArray(array, size, 1); 
   strm << "OK" << endl;
-
-  strm << "\tMakeObject...";
-  if (ptr2 = ptr->SafeDownCast(ptr->MakeObject()))
-    {
-    if (ptr2->GetNumberOfComponents() == 10) strm << "OK" << endl;
-  else
-    {
-    errors++;
-    strm << "FAILED" << endl;
-    }
-    ptr2->Delete();
-    }
-  else
-    {
-    errors++;
-    strm << "FAILED" << endl;
-    }
 
   strm << "CreateDefaultLookupTable" << endl;
   ptr->CreateDefaultLookupTable();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-03 15:57:43 $
-  Version:   $Revision: 1.95 $
+  Date:      $Date: 2002-11-12 18:32:04 $
+  Version:   $Revision: 1.96 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,7 +29,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkContourFilter, "$Revision: 1.95 $");
+vtkCxxRevisionMacro(vtkContourFilter, "$Revision: 1.96 $");
 vtkStandardNewMacro(vtkContourFilter);
 vtkCxxSetObjectMacro(vtkContourFilter,ScalarTree,vtkScalarTree);
 
@@ -156,7 +156,8 @@ void vtkContourFilter::Execute()
     newLines->Allocate(estimatedSize,estimatedSize);
     newPolys = vtkCellArray::New();
     newPolys->Allocate(estimatedSize,estimatedSize);
-    cellScalars = inScalars->MakeObject();
+    cellScalars = inScalars->NewInstance();
+    cellScalars->SetNumberOfComponents(inScalars->GetNumberOfComponents());
     cellScalars->Allocate(cellScalars->GetNumberOfComponents()*VTK_CELL_SIZE);
     
     // locator used to merge potentially duplicate points

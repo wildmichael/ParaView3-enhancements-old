@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBitArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-07 19:39:00 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2002-11-12 18:32:03 $
+  Version:   $Revision: 1.54 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,15 +18,8 @@
 #include "vtkBitArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkBitArray, "$Revision: 1.53 $");
+vtkCxxRevisionMacro(vtkBitArray, "$Revision: 1.54 $");
 vtkStandardNewMacro(vtkBitArray);
-
-vtkDataArray *vtkBitArray::MakeObject()
-{
-  vtkDataArray *a = vtkBitArray::New();
-  a->SetNumberOfComponents(this->NumberOfComponents);
-  return a;
-}
 
 // Instantiate object.
 vtkBitArray::vtkBitArray(vtkIdType numComp)
