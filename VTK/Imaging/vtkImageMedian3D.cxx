@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMedian3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:09:05 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-11-19 12:53:29 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -83,11 +83,12 @@ void vtkImageMedian3D::PrintSelf(ostream& os, vtkIndent indent)
 void vtkImageMedian3D::SetKernelSize(int size0, int size1, int size2)
 {  
   int volume;
+  int modified = 1;
   
   if (this->KernelSize[0] == size0 && this->KernelSize[1] == size1 && 
       this->KernelSize[2] == size2)
     {
-    return;
+  	modified = 0;
     }
   
   // Set the kernel size and middle
@@ -103,7 +104,10 @@ void vtkImageMedian3D::SetKernelSize(int size0, int size1, int size2)
   volume *= size2;
 
   this->NumberOfElements = volume;
-  this->Modified();
+  if ( modified )
+  {
+	  this->Modified();
+  }
 }
 
 //----------------------------------------------------------------------------
