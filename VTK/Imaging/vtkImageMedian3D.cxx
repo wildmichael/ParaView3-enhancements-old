@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMedian3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-12-17 16:41:39 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1997-12-18 18:30:29 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -240,12 +240,12 @@ static void vtkImageMedian3DExecute(vtkImageMedian3D *self,
   hoodStartMin1 = hoodMin1;    hoodStartMax1 = hoodMax1;
   
   // The portion of the output that needs no boundary computation.
-  middleMin0 += kernelMiddle[0];
-  middleMax0 -= (kernelSize[0] - 1) - kernelMiddle[0];
-  middleMin1 += kernelMiddle[1];
-  middleMax1 -= (kernelSize[1] - 1) - kernelMiddle[1];
-  middleMin2 += kernelMiddle[2];
-  middleMax2 -= (kernelSize[2] - 1) - kernelMiddle[2];
+  middleMin0 = inExt[0] + kernelMiddle[0];
+  middleMax0 = inExt[1] - (kernelSize[0] - 1) + kernelMiddle[0];
+  middleMin1 = inExt[2] + kernelMiddle[1];
+  middleMax1 = inExt[3] - (kernelSize[1] - 1) + kernelMiddle[1];
+  middleMin2 = inExt[4] + kernelMiddle[2];
+  middleMax2 = inExt[5] - (kernelSize[2] - 1) + kernelMiddle[2];
   
   // loop through pixel of output
   inPtr2 = inPtr;
