@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-22 20:52:18 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 1998-08-14 17:41:22 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -316,7 +316,20 @@ static void WriteDataArray(FILE *fp, T *data, int fileType, char *format, int nu
     }
   else
     {
-    fwrite (data, sizeof(T), num*numComp, fp);
+    // need to byteswap ??
+    switch (sizeof(T))
+      {
+      case 2:
+	// typecast doesn't have to be valid here
+	vtkByteSwap::SwapWrite2BERange((short *)data,num*numComp, fp);
+	break;
+      case 4:
+	// typecast doesn't have to be valid here
+	vtkByteSwap::SwapWrite4BERange((float *)data,num*numComp, fp);
+	break;
+      default:
+	fwrite (data, sizeof(T), num*numComp, fp);
+      }
     }
   fprintf (fp,"\n");
 }
