@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCleanPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:11:12 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2000-05-17 16:05:12 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -439,7 +439,14 @@ void vtkCleanPolyData::CreateDefaultLocator() {
     if (this->ToleranceIsAbsolute) {
         tol = this->AbsoluteTolerance;
     } else {
-        tol = this->Tolerance*this->GetInput()->GetLength();
+        if (this->GetInput())
+        {
+          tol = this->Tolerance*this->GetInput()->GetLength();
+        }
+        else
+        {
+          tol = this->Tolerance;
+        }
     }
     //
     if ( this->Locator == NULL) {
