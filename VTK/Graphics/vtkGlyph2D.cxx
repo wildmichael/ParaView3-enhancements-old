@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-07 07:39:39 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-09-25 20:13:49 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -100,7 +100,7 @@ void vtkGlyph2D::Execute()
   numPts = input->GetNumberOfPoints();
   if (numPts < 1)
     {
-    vtkErrorMacro(<<"No points to glyph!");
+    vtkDebugMacro(<<"No points to glyph!");
     return;
     }
 
