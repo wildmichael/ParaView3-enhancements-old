@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadraticEdge.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-07 15:33:05 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-03-08 16:50:22 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkLine.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkQuadraticEdge, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkQuadraticEdge, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkQuadraticEdge);
 
 // Construct the line with two points.
@@ -261,7 +261,7 @@ void vtkQuadraticEdge::Tesselate(vtkIdType cellId,
   
   //the error divided by the maximum permissable error is an approximation to
   //the number of subdivisions.
-  int numDivs = ceil( d2/(l2*e2) );
+  int numDivs = int(ceil( d2/(l2*e2) ));
   int numPts = numDivs + 1;
   
   //add new points to the output
