@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-19 21:53:15 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-06-18 20:47:04 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,6 +41,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include "vtkImporter.h"
 #include "vtkRendererCollection.h"
+
+vtkSafeSetStringMacro2(FileName,vtkImporter);
 
 vtkImporter::vtkImporter ()
 {

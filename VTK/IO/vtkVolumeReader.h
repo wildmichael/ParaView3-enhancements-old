@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeReader.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:31 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-06-18 20:47:12 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -81,12 +81,12 @@ public:
 
   // Description:
   // Specify file prefix for the image file(s).
-  vtkSetStringMacro(FilePrefix);
+  vtkSafeSetStringMacro(FilePrefix);
   vtkGetStringMacro(FilePrefix);
 
   // Description:
   // The sprintf format used to build filename from FilePrefix and number.
-  vtkSetStringMacro(FilePattern);
+  vtkSafeSetStringMacro(FilePattern);
   vtkGetStringMacro(FilePattern);
 
   // Description:

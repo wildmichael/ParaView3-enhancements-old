@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-06 15:11:13 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 1999-06-18 20:47:08 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,6 +45,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #define VTK_ASCII 0
 #define VTK_BINARY 1
+
+vtkSafeSetStringMacro2(FileName,vtkSTLReader);
 
 // Construct object with merging set to true.
 vtkSTLReader::vtkSTLReader()

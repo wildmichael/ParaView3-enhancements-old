@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:40:52 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1999-06-18 20:47:02 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkBYUWriter.h"
+
+vtkSafeSetStringMacro2(GeometryFileName,vtkBYUWriter);
+vtkSafeSetStringMacro2(DisplacementFileName,vtkBYUWriter);
+vtkSafeSetStringMacro2(ScalarFileName,vtkBYUWriter);
+vtkSafeSetStringMacro2(TextureFileName,vtkBYUWriter);
 
 // Create object so that it writes displacement, scalar, and texture files
 // (if data is available).

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUWriter.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-07 13:11:00 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1999-06-18 20:47:02 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,22 +67,22 @@ public:
 
   // Description:
   // Specify the name of the geometry file to write.
-  vtkSetStringMacro(GeometryFileName);
+  vtkSafeSetStringMacro(GeometryFileName);
   vtkGetStringMacro(GeometryFileName);
 
   // Description:
   // Specify the name of the displacement file to write.
-  vtkSetStringMacro(DisplacementFileName);
+  vtkSafeSetStringMacro(DisplacementFileName);
   vtkGetStringMacro(DisplacementFileName);
 
   // Description:
   // Specify the name of the scalar file to write.
-  vtkSetStringMacro(ScalarFileName);
+  vtkSafeSetStringMacro(ScalarFileName);
   vtkGetStringMacro(ScalarFileName);
 
   // Description:
   // Specify the name of the texture file to write.
-  vtkSetStringMacro(TextureFileName);
+  vtkSafeSetStringMacro(TextureFileName);
   vtkGetStringMacro(TextureFileName);
 
   // Description:

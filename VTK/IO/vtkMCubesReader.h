@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMCubesReader.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:25:19 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1999-06-18 20:47:05 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -92,12 +92,12 @@ public:
 
   // Description:
   // Specify file name of marching cubes file.
-  vtkSetStringMacro(FileName);
+  vtkSafeSetStringMacro(FileName);
   vtkGetStringMacro(FileName);
 
   // Description:
   // Set / get the file name of the marching cubes limits file.
-  vtkSetStringMacro(LimitsFileName);
+  vtkSafeSetStringMacro(LimitsFileName);
   vtkGetStringMacro(LimitsFileName);
 
   // Description:

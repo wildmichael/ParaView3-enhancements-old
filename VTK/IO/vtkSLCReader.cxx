@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSLCReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-14 15:00:47 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1999-06-18 20:47:07 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,6 +41,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <ctype.h>
 
 #include "vtkSLCReader.h"
+
+vtkSafeSetStringMacro2(FileName,vtkSLCReader);
 
 // Constructor for a vtkSLCReader.
 vtkSLCReader::vtkSLCReader()

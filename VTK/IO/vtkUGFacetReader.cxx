@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUGFacetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-06 15:11:13 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1999-06-18 20:47:09 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,6 +41,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkUGFacetReader.h"
 #include "vtkByteSwap.h"
 #include "vtkMergePoints.h"
+
+vtkSafeSetStringMacro2(FileName,vtkUGFacetReader);
 
 // Construct object to extract all parts, and with point merging
 // turned on.
