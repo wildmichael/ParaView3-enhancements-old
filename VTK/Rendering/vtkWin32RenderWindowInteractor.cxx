@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32RenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-21 15:11:54 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1999-02-10 18:07:54 $
+  Version:   $Revision: 1.38 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -531,8 +531,7 @@ LRESULT CALLBACK vtkHandleMessage(HWND hWnd,UINT uMsg, WPARAM wParam, LPARAM lPa
         if (me->StartInteractionPickMethod)
           {
 	  (*me->StartInteractionPickMethod)(me->StartInteractionPickMethodArg);
-          }
-        
+          }        
 	me->InteractionPicker->Pick(LOWORD(lParam), 
                                     me->Size[1]-HIWORD(lParam)-1,
                                     0.0, me->CurrentRenderer);
