@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-07 22:43:17 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-02-24 17:37:35 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,7 +51,6 @@ void vtkOpenGLCamera::Render(vtkRenderer *ren)
 {
   float aspect[2];
   float *vport;
-  float *bg_color;
   int left,right,bottom,top;
   int  *size;
   vtkMatrix4x4 *matrix = vtkMatrix4x4::New();
@@ -145,9 +144,6 @@ void vtkOpenGLCamera::Render(vtkRenderer *ren)
   
   // insert camera view transformation 
   glMultMatrixf(matrix->Element[0]);
-
-  // get the background color
-  bg_color = ren->GetBackground();
 
   if ((ren->GetRenderWindow())->GetErase()) 
     {
