@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDecimate.h,v $
   Language:  C++
-  Date:      $Date: 1994-11-29 15:51:14 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1995-01-11 09:32:23 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -94,6 +94,8 @@ typedef struct _vlLocalTri
 //
 // Special classes for manipulating data
 //
+//BTX - begin tcl exclude
+//
 class vlVertexArray { //;prevent man page generation
 public:
   vlVertexArray(const int sz) 
@@ -123,6 +125,8 @@ public:
   vlLocalTri *Array;  // pointer to data
   int MaxId;            // maximum index inserted thus far
 };
+//ETX - end tcl exclude
+//
 
 //
 //  Static variables used by object
