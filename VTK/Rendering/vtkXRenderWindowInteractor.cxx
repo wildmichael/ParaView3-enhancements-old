@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkXRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-09 19:58:44 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-11-11 08:08:23 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -348,6 +348,7 @@ void vlXRenderWindowInteractorTimer(XtPointer client_data,XtIntervalId *id)
 	{
 	/* get the first light */
 	me->CurrentLight->SetPosition(me->CurrentCamera->GetPosition());
+	me->CurrentLight->SetFocalPoint(me->CurrentCamera->GetFocalPoint());
 	}
       me->RenderWindow->Render();
       XtAppAddTimeOut(me->App,10,vlXRenderWindowInteractorTimer,client_data);
