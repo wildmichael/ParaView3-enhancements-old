@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-07-11 19:32:43 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1996-07-12 13:01:39 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -296,7 +296,7 @@ void ContourVolume(T *scalars, int dims[3], float origin[3], float aspectRatio[3
 	  }
         for (contNum=0; contNum < numValues; contNum++)
           {
-          value = (T) values[contNum];
+          value = values[contNum];
           // Build the case table
           for ( ii=0, index = 0; ii < 8; ii++)
               if ( s[ii] >= value )
