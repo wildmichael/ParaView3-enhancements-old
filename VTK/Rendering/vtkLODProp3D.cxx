@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODProp3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:41 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-03-24 22:04:27 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -855,7 +855,7 @@ void vtkLODProp3D::SetAllocatedRenderTime( float t, vtkViewport *vp )
   int    i;
   int    index = -1;
   float  bestTime;
-  float  bestLevel;
+  float  bestLevel = 0;
   float  targetTime;
   float  estimatedTime;
   float  newTime;
