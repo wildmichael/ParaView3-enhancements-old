@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-04-08 08:07:57 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-04-08 10:48:33 $
+  Version:   $Revision: 1.2 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -23,6 +23,8 @@ vlPointSet::vlPointSet ()
 
 void vlPointSet::ComputeBounds()
 {
+  float *bounds;
+
   if ( this->Points )
     {
     bounds = this->Points->GetBounds();
@@ -35,8 +37,8 @@ unsigned long int vlPointSet::GetMTime()
 {
   unsigned long int dsTime = vlDataSet::GetMTime();
 
-  if ( this->Points.GetMTime() > dsTime ) dsTime = this->Points.GetMtime();
-  if ( this->Locator.GetMTime() > dsTime ) dsTime = this->Locator.GetMtime();
+  if ( this->Points.GetMTime() > dsTime ) dsTime = this->Points.GetMTime();
+  if ( this->Locator.GetMTime() > dsTime ) dsTime = this->Locator.GetMTime();
 
   return dsTime;
 }
@@ -57,7 +59,8 @@ int vlPointSet::FindCell(float x[3], float tol2)
 {
   int i;
   int closestCell = 0;
-  int cellId;
+  vlCell *cell;
+  int ptId, cellId;
   float dist2;
   static vlIdList cellIds(MAX_CELL_SIZE);
 
@@ -79,12 +82,12 @@ int vlPointSet::FindCell(float x[3], float tol2)
 
   if ( (ptId = this->Locator->FindClosestPoint(x)) >= 0 )
     {
-    this->GetPointCells(ptId, cellIds);
+    this->GetPointCells(ptId, &cellIds);
     for (i=0; i<cellIds.GetNumberOfIds(); i++)
       {
       cellId = cellIds.GetId(i);
       cell = this->GetCell(cellId);
-      cell->EvaluatePosition(,,,dist2);
+//      cell->EvaluatePosition(,,,dist2);
       if ( dist2 == 0.0 ) return cellId;
  
       if ( dist2 < tol2 )
