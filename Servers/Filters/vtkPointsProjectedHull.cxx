@@ -5,14 +5,14 @@
   Program:   Visualization Toolkit
   Module:  $RCSfile: vtkPointsProjectedHull.cxx,v $
   Language:  C++
-  Date:    $Date: 2003-09-24 18:15:40 $
-  Version:   $Revision: 1.4 $
+  Date:    $Date: 2003-09-25 20:32:17 $
+  Version:   $Revision: 1.5 $
 
 =========================================================================*/
 
 #include "vtkPointsProjectedHull.h"
 
-vtkCxxRevisionMacro(vtkPointsProjectedHull, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkPointsProjectedHull, "$Revision: 1.5 $");
 vtkStandardNewMacro(vtkPointsProjectedHull);
 
 static const int xdim=0, ydim=1, zdim=2;
@@ -199,6 +199,10 @@ int i,j;
   if ((this->npts == 0) || (this->GetMTime() > this->ptsTime)){
     getPoints();
   }
+  if ( this->npts == 0 )
+    {
+    return 0;
+    }
 
   switch (dir){
     case xdim:
