@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTclUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-13 19:10:42 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1996-03-13 13:59:24 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Toolkit. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -59,10 +59,7 @@ int vtkTclDeleteObjectFromHash(ClientData cd)
     cerr << "vtkTcl Attempting to free object named " << temp << "\n";
     }
   // if it isn't a temp object (i.e. we created it) then delete it 
-  // except for two classes
-  if (strncmp(temp,"vtkTemp",7)||
-      (command == vtkRenderWindowCommand)||
-      (command == vtkRendererCommand))
+  if (strncmp(temp,"vtkTemp",7))
     {
     // finally free the name we got from the hash table
     // it was created using strdup
