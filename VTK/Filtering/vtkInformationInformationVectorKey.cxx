@@ -17,12 +17,13 @@
 #include "vtkGarbageCollector.h"
 #include "vtkInformationVector.h"
 
-vtkCxxRevisionMacro(vtkInformationInformationVectorKey, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkInformationInformationVectorKey, "$Revision: 1.3 $");
 
 //----------------------------------------------------------------------------
 vtkInformationInformationVectorKey::vtkInformationInformationVectorKey(const char* name, const char* location):
   vtkInformationKey(name, location)
 {
+  vtkFilteringInformationKeyManager::Register(this);
 }
 
 //----------------------------------------------------------------------------

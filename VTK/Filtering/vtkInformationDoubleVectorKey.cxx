@@ -18,7 +18,7 @@
 
 #include <vtkstd/vector>
 
-vtkCxxRevisionMacro(vtkInformationDoubleVectorKey, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkInformationDoubleVectorKey, "$Revision: 1.5 $");
 
 //----------------------------------------------------------------------------
 vtkInformationDoubleVectorKey
@@ -26,6 +26,7 @@ vtkInformationDoubleVectorKey
                                  int length):
   vtkInformationKey(name, location), RequiredLength(length)
 {
+  vtkFilteringInformationKeyManager::Register(this);
 }
 
 //----------------------------------------------------------------------------
