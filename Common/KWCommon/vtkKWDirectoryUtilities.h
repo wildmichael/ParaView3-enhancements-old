@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKWDirectoryUtilities.h,v $
   Language:  C++
-  Date:      $Date: 2003-03-04 19:06:17 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-03-06 22:10:26 $
+  Version:   $Revision: 1.4 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -75,7 +75,7 @@ public:
   
   // Description:
   // Tests the existence of a file.  Returns 1 for exists, 0 otherwise.
-  int FileExists(const char* filename);
+  static int FileExists(const char* filename);
   
   // Description:
   // Tests whether a file is a directory.  Returns 1 for yes, 0 for no.
@@ -104,10 +104,16 @@ public:
   const char* FindSelfPath(const char* argv0);
   
   // Description:
-  // Extract the path to a given filename (i.e. its directory path) and 
+  // Extract the path of a given filename (i.e. its directory path) and 
   // write it to 'path'.
   // Return a pointer to the path (i.e. 'path').
   static const char* GetFilenamePath(const char *filename, char *path);
+
+  // Description:
+  // Extract the name of a given filename (i.e. the filename without its 
+  // directory path) and write it to 'name'.
+  // Return a pointer to the name (i.e. 'name').
+  static const char* GetFilenameName(const char *filename, char *name);
 
 protected:
   vtkKWDirectoryUtilities();
