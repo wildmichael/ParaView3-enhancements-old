@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArrayMap.txx,v $
   Language:  C++
-  Date:      $Date: 2002-06-28 11:35:39 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-08-02 15:18:43 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -126,6 +126,19 @@ int vtkArrayMap<KeyType,DataType>::GetItem(const KeyType& key, DataType& data)
     return VTK_OK;
     }
   return VTK_ERROR;
+}
+
+// Description:
+// Is a key present
+template<class KeyType, class DataType>
+int vtkArrayMap<KeyType,DataType>::IsItemPresent(const KeyType &key) 
+{
+  vtkAbstractMapItem<KeyType,DataType> *item = this->FindDataItem(key);
+  if ( item )
+    {
+    return 1;
+    }
+  return 0;
 }
 
 template<class KeyType, class DataType>

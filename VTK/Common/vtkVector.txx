@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVector.txx,v $
   Language:  C++
-  Date:      $Date: 2002-06-18 22:24:11 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-08-02 15:18:43 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -247,6 +247,23 @@ int vtkVector<DType>::FindItem(DType a, vtkIdType &res)
 }
 
 // Description:
+// Find an item in the vector. Return one if it was found, zero if it was
+// not found. 
+template <class DType>
+int vtkVector<DType>::IsItemPresent(DType a) 
+{
+  vtkIdType i;
+  for (i = 0; i < this->NumberOfItems; ++i)
+    {
+    if (vtkContainerCompareMethod(this->Array[i], a) == 0 )
+      {
+      return 1;
+      }
+    }
+  return 0;
+}
+
+// Description:
 // Find an item in the vector using a comparison routine. 
 // Return VTK_OK if it was found, VTK_ERROR if it was
 // not found. The location of the item is returned in res.
@@ -345,6 +362,20 @@ vtkVectorIterator<DType> *vtkVector<DType>::NewIterator()
   it->SetContainer(this);
   it->InitTraversal();
   return it;
+}
+
+// Description:
+// Copy items from one vector to another
+template <class DType>
+void vtkVector<DType>::CopyItems(vtkVector<DType> *in) 
+{
+  int i;
+  DType iref;
+  for (i = 0; i < in->GetNumberOfItems(); ++i)
+    {
+    in->GetItem(i,iref);
+    this->AppendItem(iref);
+    }
 }
 
 #if defined ( _MSC_VER )

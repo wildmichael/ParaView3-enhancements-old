@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArrayMap.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-19 21:21:41 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-08-02 15:18:43 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -106,6 +106,11 @@ public:
   // different from GetSize which is provided for some containers. GetSize
   // will return how many items the container can currently hold.
   vtkIdType GetNumberOfItems() const;
+
+  // Description:
+  // Find an item in the vector. Return one if it was found, zero if it was
+  // not found.
+  int IsItemPresent(const KeyType& key);
 
   void DebugList();
 
