@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestCxxFeatures.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-10-01 15:48:22 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2003-10-01 23:25:32 $
+  Version:   $Revision: 1.32 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -364,7 +364,7 @@ int TestMixedTypeTemplate()
     cerr << "TestMixedTypeTemplateFunction(&x3) != 3\n";
     result = 0;
     }
-  return 0;
+  return result;
 }
 
 //----------------------------------------------------------------------------
