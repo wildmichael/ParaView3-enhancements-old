@@ -3,11 +3,9 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCutter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-12 21:19:23 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-12-09 18:35:14 $
+  Version:   $Revision: 1.7 $
 
-Description:
----------------------------------------------------------------------------
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
 without the express written consent of the authors.
