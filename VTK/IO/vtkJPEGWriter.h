@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJPEGWriter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:16 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-04-10 21:17:15 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -50,17 +50,31 @@ public:
   vtkSetMacro(Progressive, unsigned int);
   vtkGetMacro(Progressive, unsigned int);
   vtkBooleanMacro(Progressive, unsigned int);
-
+  
+  // Description:
+  // Write the image to memory (a vtkUnsignedCharArray)
+  vtkSetMacro(WriteToMemory, unsigned int);
+  vtkGetMacro(WriteToMemory, unsigned int);
+  vtkBooleanMacro(WriteToMemory, unsigned int);
+  
+  // Description:
+  // When writing to memory this is the result, it will be NULL until the 
+  // data is written the first time
+  vtkSetObjectMacro(Result, vtkUnsignedCharArray);
+  vtkGetObjectMacro(Result, vtkUnsignedCharArray);
+  
 protected:
   vtkJPEGWriter();
-  ~vtkJPEGWriter() {};
+  ~vtkJPEGWriter();
   
   void WriteSlice(vtkImageData *data);
 
 private:
   int Quality;
   unsigned int Progressive;
-
+  unsigned int WriteToMemory;
+  vtkUnsignedCharArray *Result;
+  
 private:
   vtkJPEGWriter(const vtkJPEGWriter&);  // Not implemented.
   void operator=(const vtkJPEGWriter&);  // Not implemented.
