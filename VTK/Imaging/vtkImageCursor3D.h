@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCursor3D.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:04 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-03-12 19:28:15 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -84,11 +84,7 @@ protected:
   int CursorRadius;
   
   // not threaded because it's too simple a filter
-  void Execute(vtkImageData *inData, vtkImageData *outData);
-  // defined in superclass, but hidden by Execute().
-  void Execute() { this->vtkImageInPlaceFilter::Execute(); };
-  void Execute(vtkImageData *outData)
-    { this->vtkImageToImageFilter::Execute(outData);};
+  void ExecuteData(vtkDataObject *outData);
 };
 
 

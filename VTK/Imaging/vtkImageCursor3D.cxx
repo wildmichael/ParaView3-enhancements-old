@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCursor3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:04 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2001-03-12 19:28:15 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -149,10 +149,14 @@ static void vtkImageCursor3DExecute(vtkImageCursor3D *self,
 
 //----------------------------------------------------------------------------
 // Split up into finished and border datas.  Fill the border datas.
-void vtkImageCursor3D::Execute(vtkImageData *vtkNotUsed(inData), 
-			       vtkImageData *outData)
+void vtkImageCursor3D::ExecuteData(vtkDataObject *out)
 {
   void *ptr = NULL;
+  
+  // let superclass allocate data
+  this->vtkImageInPlaceFilter::ExecuteData(out);
+
+  vtkImageData *outData = this->GetOutput();
   
   switch (outData->GetScalarType())
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageInPlaceFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:07 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2001-03-12 19:28:15 $
+  Version:   $Revision: 1.30 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -62,14 +62,11 @@ vtkImageInPlaceFilter* vtkImageInPlaceFilter::New()
 
 //----------------------------------------------------------------------------
 
-void vtkImageInPlaceFilter::Execute()
+void vtkImageInPlaceFilter::ExecuteData(vtkDataObject *out)
 {
   vtkImageData *output = this->GetOutput();
   int *inExt, *outExt;
-
-  output->SetExtent(output->GetUpdateExtent());
-  output->AllocateScalars();
-
+  
   inExt = this->GetInput()->GetUpdateExtent();
   outExt = this->GetOutput()->GetUpdateExtent();
 
@@ -83,13 +80,14 @@ void vtkImageInPlaceFilter::Execute()
     {
     // pass the data
     output->GetPointData()->PassData(input->GetPointData());
+    output->SetExtent(this->GetInput()->GetExtent());
     }
   else
     {
+    output->SetExtent(output->GetUpdateExtent());
+    output->AllocateScalars();
     this->CopyData(input,output);
     }
-    
-  this->Execute(input, output);
 }
   
   
