@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGridSynchronizedTemplates3D.h,v $
   Language:  C++
-  Date:      $Date: 2001-03-21 19:18:49 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-03-28 17:37:07 $
+  Version:   $Revision: 1.18 $
 
 
 
@@ -156,7 +156,6 @@ public:
   // Description:
   // Needed by templated functions.
   int *GetExecuteExtent() {return this->ExecuteExtent;}
-  int SplitExtent(int piece, int numPieces, int *ext);
   void ThreadedExecute(int *exExt, int threadId);
 
   // Description:
