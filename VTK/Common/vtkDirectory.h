@@ -3,12 +3,12 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDirectory.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-18 14:03:50 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-01-26 17:37:31 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to William A. Hoffman who developed this class
   
 
-Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless

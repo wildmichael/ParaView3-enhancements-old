@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32Header.h,v $
   Language:  C++
-  Date:      $Date: 1998-07-31 14:27:48 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2000-01-26 17:38:29 $
+  Version:   $Revision: 1.6 $
   Thanks:    to Horst Schreiber for developing this MFC code
 
-Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless

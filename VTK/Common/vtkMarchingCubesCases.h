@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingCubesCases.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:40:43 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-01-26 17:37:50 $
+  Version:   $Revision: 1.12 $
 
 
-Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless
