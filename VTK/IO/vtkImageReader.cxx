@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-08-27 20:49:34 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1997-08-28 20:38:42 $
+  Version:   $Revision: 1.29 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -939,15 +939,16 @@ void vtkImageReader::ComputeTransformedExtent(int inExtent[8],
   float transformedExtent[4];
   int temp;
   int idx;
+  int dataExtent[8];
   
   if (!this->Transform)
     {
     memcpy (outExtent, inExtent, 8 * sizeof (int));
+    memcpy (dataExtent, this->DataExtent, 8 * sizeof(int));
     }
   else
     {
     // need to know how far to translate to start at 000
-    int dataExtent[8];
     // first transform the data extent
     transformedExtent[0] = this->DataExtent[0];
     transformedExtent[1] = this->DataExtent[2];
@@ -995,6 +996,7 @@ void vtkImageReader::ComputeTransformedExtent(int inExtent[8],
     outExtent[1] = (int) transformedExtent[0];
     outExtent[3] = (int) transformedExtent[1];
     outExtent[5] = (int) transformedExtent[2];
+    }
 
     for (idx = 0; idx < 6; idx += 2)
       {
@@ -1016,7 +1018,6 @@ void vtkImageReader::ComputeTransformedExtent(int inExtent[8],
     << outExtent[2] << ", " << outExtent[3] << ", "
     << outExtent[4] << ", " << outExtent[5] << ", "
     << outExtent[6] << ", " << outExtent[7]);
-    }
 }
 
 void vtkImageReader::ComputeInverseTransformedExtent(int inExtent[8],
@@ -1029,6 +1030,13 @@ void vtkImageReader::ComputeInverseTransformedExtent(int inExtent[8],
   if (!this->Transform)
     {
     memcpy (outExtent, inExtent, 8 * sizeof (int));
+    for (idx = 0; idx < 6; idx += 2)
+      {
+      // do the slide to 000 origin by subtracting the minimum extent
+      outExtent[idx] += this->DataExtent[idx];
+      outExtent[idx+1] += this->DataExtent[idx];
+      }
+
     }
   else
     {
@@ -1101,6 +1109,7 @@ void vtkImageReader::ComputeInverseTransformedExtent(int inExtent[8],
 	outExtent[idx+1] = temp;
 	}
       }
+    }
     
     outExtent[6] = inExtent[6];
     outExtent[7] = inExtent[7];
@@ -1109,7 +1118,6 @@ void vtkImageReader::ComputeInverseTransformedExtent(int inExtent[8],
     << outExtent[2] << ", " << outExtent[3] << ", "
     << outExtent[4] << ", " << outExtent[5] << ", "
     << outExtent[6] << ", " << outExtent[7]);
-    }
 }
 
 void vtkImageReader::ComputeTransformedIncrements(int inIncr[4],
