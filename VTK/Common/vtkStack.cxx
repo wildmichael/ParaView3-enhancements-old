@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStack.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-09 13:04:26 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-09-29 14:03:27 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -56,7 +56,6 @@ void vlStack::Push(vlObject *a)
 // Remove an object from the top of the list.
 vlObject *vlStack::Pop()
 {
-  int i;
   vlObject *item;
   vlStackElement *next;
   

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkUnsignedCharArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-05 09:00:56 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-09-29 14:03:26 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -21,7 +21,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 
 // Description:
 // Allocate memory for this array. Delete old storage if present.
-vlCharArray::Allocate(const int sz, const int ext)
+int vlCharArray::Allocate(const int sz, const int ext)
 {
   if ( this->Array != NULL ) delete [] this->Array;
 
