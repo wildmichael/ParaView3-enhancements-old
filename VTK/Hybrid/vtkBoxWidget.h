@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBoxWidget.h,v $
   Language:  C++
-  Date:      $Date: 2003-06-18 18:56:43 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2003-06-18 19:13:39 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -66,9 +66,15 @@
 // .SECTION Caveats
 // Note that handles can be picked even when they are "behind" other actors.
 // This is an intended feature and not a bug.
+//
+// The box widget can be oriented by specifying a transformation matrix.
+// This transformation is applied to the initial bounding box as defined by
+// the PlaceWidget() method. DO NOT ASSUME that the transformation is applied
+// to a unit box centered at the origin; this is wrong!
 
 // .SECTION See Also
-// vtk3DWidget vtkLineWidget
+// vtk3DWidget vtkPointWidget vtkLineWidget vtkPlaneWidget 
+// vtkImplicitPlaneWidget vtkImagePlaneWidget
 
 #ifndef __vtkBoxWidget_h
 #define __vtkBoxWidget_h
