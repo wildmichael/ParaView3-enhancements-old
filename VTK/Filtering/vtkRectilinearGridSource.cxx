@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:06 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-07-27 18:20:55 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,6 +44,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 vtkRectilinearGridSource::vtkRectilinearGridSource()
 {
   this->vtkSource::SetOutput(0,vtkRectilinearGrid::New());
+  this->Outputs[0]->Delete();
   this->ExecuteExtent[0] = this->ExecuteExtent[2] = this->ExecuteExtent[4] = 0;
   this->ExecuteExtent[1] = this->ExecuteExtent[3] = this->ExecuteExtent[5] = 0;
 }

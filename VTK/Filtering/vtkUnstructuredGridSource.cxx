@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:18 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-07-27 18:20:55 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,6 +44,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 vtkUnstructuredGridSource::vtkUnstructuredGridSource()
 {
   this->vtkSource::SetOutput(0, vtkUnstructuredGrid::New());
+  this->Outputs[0]->Delete();
 }
 
 //----------------------------------------------------------------------------
