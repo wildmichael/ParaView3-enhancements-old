@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-26 14:01:56 $
-  Version:   $Revision: 1.116 $
+  Date:      $Date: 2001-05-14 20:06:48 $
+  Version:   $Revision: 1.117 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -1566,6 +1566,8 @@ void vtkImageData::AllocateScalars()
     SetNumberOfScalars((this->Extent[1] - this->Extent[0] + 1)*
 		       (this->Extent[3] - this->Extent[2] + 1)*
 		       (this->Extent[5] - this->Extent[4] + 1));
+  // Give them a default name.
+  this->PointData->GetScalars()->GetData()->SetName("Scalars");
 }
 
 

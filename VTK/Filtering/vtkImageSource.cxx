@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-01 00:00:47 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2001-05-14 20:07:11 $
+  Version:   $Revision: 1.50 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -100,7 +100,8 @@ void vtkImageSource::Execute()
   // in a subclass.  We cannot be sure all outputs are images.
   output->SetExtent(output->GetUpdateExtent());
   output->AllocateScalars();
-
+  output->GetPointData()->GetScalars()->GetData()->SetName("Scalars");
+  
   this->Execute(this->GetOutput());
 }
 
