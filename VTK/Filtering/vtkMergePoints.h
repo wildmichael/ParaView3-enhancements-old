@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergePoints.h,v $
   Language:  C++
-  Date:      $Date: 1996-05-17 21:13:34 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1996-06-08 13:13:00 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,7 +59,7 @@ public:
   char *GetClassName() {return "vtkMergePoints";};
 
   int *MergePoints();
-  int InsertPoint(float x[3]);
+  int IsInsertedPoint(float x[3]);
 };
 
 #endif

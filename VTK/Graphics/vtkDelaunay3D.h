@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay3D.h,v $
   Language:  C++
-  Date:      $Date: 1996-03-13 20:42:21 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1996-06-08 13:12:59 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -155,6 +155,8 @@ protected:
   float Tolerance;
   int BoundingTriangulation;
   float Offset;
+
+  vtkPointLocator Locator; //help locate points faster
 
 };
 
