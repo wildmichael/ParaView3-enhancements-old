@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-02 14:34:19 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2002-08-02 16:13:34 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -86,7 +86,7 @@ vtkXOpenGLRenderWindowInternal::vtkXOpenGLRenderWindowInternal(
 
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkXOpenGLRenderWindow, "$Revision: 1.25 $");
+vtkCxxRevisionMacro(vtkXOpenGLRenderWindow, "$Revision: 1.26 $");
 vtkStandardNewMacro(vtkXOpenGLRenderWindow);
 #endif
 
@@ -354,7 +354,6 @@ void vtkXOpenGLRenderWindow::SetStereoCapableWindow(int capable)
 // Initialize the window for rendering.
 void vtkXOpenGLRenderWindow::WindowInitialize (void)
 {
-  cout << "WINDOWINITIALIZE" << endl;
   XVisualInfo  *v, matcher;
   XSetWindowAttributes  attr;
   int x, y, width, height, nItems;
@@ -540,7 +539,6 @@ void vtkXOpenGLRenderWindow::WindowInitialize (void)
 // Initialize the rendering window.
 void vtkXOpenGLRenderWindow::Initialize (void)
 {
-  cout << "INITIALIZE" << endl;
   // make sure we havent already been initialized 
   if (this->Internal->ContextId 
 #ifdef VTK_OPENGL_HAS_OSMESA
@@ -683,7 +681,6 @@ void vtkXOpenGLRenderWindow::WindowRemap()
 // Begin the rendering process.
 void vtkXOpenGLRenderWindow::Start(void)
 {
-  cout << "START" << endl;
   // if the renderer has not been initialized, do so now
   if (!this->Internal->ContextId
 #ifdef VTK_OPENGL_HAS_OSMESA
@@ -867,7 +864,6 @@ void vtkXOpenGLRenderWindow::MakeCurrent()
     {
     if (this->Internal->ContextId && (this->Internal->ContextId != glXGetCurrentContext()) || this->ForceMakeCurrent)
       {
-        cout << "MAKING CURRENT" << endl;
       glXMakeCurrent(this->DisplayId,this->WindowId,this->Internal->ContextId);
       this->ForceMakeCurrent = 0;
       }
