@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   $RCSfile: vtkMILVideoSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:10:47 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2000-12-06 22:05:12 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -118,8 +118,6 @@ vtkMILVideoSource::~vtkMILVideoSource()
 //----------------------------------------------------------------------------
 void vtkMILVideoSource::PrintSelf(ostream& os, vtkIndent indent)
 {
-  int idx;
-  
   vtkVideoSource::PrintSelf(os,indent);
   
   os << indent << "VideoChannel: " << this->VideoChannel << "\n";
@@ -658,7 +656,7 @@ void vtkMILVideoSource::Stop()
   MdigHookFunction(this->MILDigID,M_GRAB_FRAME_END,
 		   (MDIGHOOKFCTPTR)this->OldHookFunction,
 		   OldUserDataPtr);
-  this->OldHookFunction == 0;
+  this->OldHookFunction = 0;
   MdigGrabWait(this->MILDigID,M_GRAB_END);
 
   this->Modified();
