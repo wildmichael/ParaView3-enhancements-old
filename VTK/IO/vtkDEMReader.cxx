@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDEMReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:09 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2002-08-05 15:37:33 $
+  Version:   $Revision: 1.29 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkDEMReader.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkDEMReader, "$Revision: 1.28 $");
+vtkCxxRevisionMacro(vtkDEMReader, "$Revision: 1.29 $");
 vtkStandardNewMacro(vtkDEMReader);
 
 #define VTK_SW  0
@@ -173,8 +173,8 @@ int vtkDEMReader::ReadTypeARecord ()
   //
   // read the record. it is always 1024 characters long
   //
-
-  fscanf(fp, "%1024c", record);
+  fscanf(fp, "%512c", record); 
+  fscanf(fp, "%512c", record+512); 
   record[1024] = '\0';
 
   //
