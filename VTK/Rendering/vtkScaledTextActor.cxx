@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScaledTextActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-04 16:36:04 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2002-06-05 12:11:20 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkScaledTextActor.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkScaledTextActor, "$Revision: 1.25 $");
+vtkCxxRevisionMacro(vtkScaledTextActor, "$Revision: 1.26 $");
 vtkStandardNewMacro(vtkScaledTextActor);
 
 vtkScaledTextActor::vtkScaledTextActor()
@@ -27,7 +27,5 @@ vtkScaledTextActor::vtkScaledTextActor()
   this->PositionCoordinate->SetCoordinateSystemToNormalizedViewport();
   this->PositionCoordinate->SetValue(0.2,0.85);
   this->SetScaledText(1);
-  vtkGenericWarningMacro("vtkScaledTextActor is being deprecated in VTK 4.1. \n"
-    << "Use vtkTextActor with ScaledText = true insead.");
 }
 
