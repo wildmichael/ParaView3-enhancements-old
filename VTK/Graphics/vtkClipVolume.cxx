@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-21 16:01:26 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2001-05-21 20:06:48 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -76,6 +76,9 @@ vtkClipVolume::vtkClipVolume(vtkImplicitFunction *cf)
   this->Mesh = NULL;
 
   this->Triangulator = vtkOrderedTriangulator::New();
+  this->Triangulator->PreSortedOn();
+  
+  // optional clipped output
   this->vtkSource::SetNthOutput(1,vtkUnstructuredGrid::New());
   this->Outputs[1]->Delete();
 }
@@ -417,7 +420,7 @@ void vtkClipVolume::ClipVoxel(float value, vtkScalars *cellScalars,
 {
   float x[3], *xPtr, s1, s2, t, voxelOrigin[3];
   float bounds[6], p1[3], p2[3];
-  int i, edgeNum, numPts, tPts[4];
+  int i, edgeNum, numPts, id;
   int ptId;
   vtkUnstructuredGrid *output=this->GetOutput();
   vtkUnstructuredGrid *clippedOutput=this->GetClippedOutput();
@@ -438,9 +441,9 @@ void vtkClipVolume::ClipVoxel(float value, vtkScalars *cellScalars,
   // Initialize Delaunay insertion process with voxel triangulation.
   // No more than 20 points (8 corners + 12 edges) may be inserted.
   this->Triangulator->InitTriangulation(bounds,20);
-  this->Triangulator->PreSortedOn();
 
-  // Inject ordered voxel corner points into triangulation
+  // Inject ordered voxel corner points into triangulation. Recall
+  // that the PreSortedOn() flag was set in the triangulator.
   int type;
   int internalId[8]; //used to merge points if nearby edge intersection
   for (numPts=0; numPts<8; numPts++)
@@ -460,11 +463,11 @@ void vtkClipVolume::ClipVoxel(float value, vtkScalars *cellScalars,
       }
 
     xPtr = cellPts->GetPoint(ptId);
-    if ( this->Locator->InsertUniquePoint(xPtr, tPts[0]) )
+    if ( this->Locator->InsertUniquePoint(xPtr, id) )
       {
-      outPD->CopyData(inPD,cellIds->GetId(ptId),tPts[0]);
+      outPD->CopyData(inPD,cellIds->GetId(ptId), id);
       }
-    internalId[ptId] = this->Triangulator->InsertPoint(tPts[0], xPtr, type);
+    internalId[ptId] = this->Triangulator->InsertPoint(id, xPtr, type);
     }//for eight voxel corner points
   
   // For each edge intersection point, insert into triangulation. Edge
