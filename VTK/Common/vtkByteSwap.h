@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkByteSwap.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:01 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2001-11-01 21:21:21 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,6 +58,7 @@ public:
   // Description:
   // Swap 2 byte word to be LE.
   static void Swap2LE(short *s);
+  static void Swap2LE(unsigned short *s);
 
   // Description:
   // Swap four byte word to be LE.
@@ -101,6 +102,7 @@ public:
   // Description:
   // Swap 2 byte word to BE.
   static void Swap2BE(short *s);
+  static void Swap2BE(unsigned short *s);
 
   // Description:
   // For writing, swap four byte word to be BE.
