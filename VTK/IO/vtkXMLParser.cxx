@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLParser.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-29 18:07:59 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-05-29 19:42:50 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #define VTK_IOS_NOCREATE | ios::nocreate
 #endif
 
-vtkCxxRevisionMacro(vtkXMLParser, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkXMLParser, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkXMLParser);
 
 //----------------------------------------------------------------------------
@@ -59,6 +59,8 @@ void vtkXMLParser::PrintSelf(ostream& os, vtkIndent indent)
     {
     os << indent << "Stream: (none)\n";
     }
+  os << indent << "FileName: " << (this->FileName? this->FileName : "(none)")
+     << "\n";
 }
 
 //----------------------------------------------------------------------------
