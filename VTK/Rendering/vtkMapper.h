@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:45:32 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1997-08-25 14:31:36 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -106,6 +106,20 @@ public:
   vtkSetMacro(ImmediateModeRendering,int);
   vtkGetMacro(ImmediateModeRendering,int);
   vtkBooleanMacro(ImmediateModeRendering,int);
+
+  // Description:
+  // Turn on/off flag to control whether data is rendered using
+  // immediate mode or note. Immediate mode rendering
+  // tends to be slower but it can handle larger datasets.
+  // The default value is immediate mode off. If you are 
+  // having problems rendering a large dataset you might
+  // want to consider using imediate more rendering.
+  void SetGlobalImmediateModeRendering(int val);
+  void GlobalImmediateModeRenderingOn() 
+  {this->SetGlobalImmediateModeRendering(1);};
+  void GlobalImmediateModeRenderingOff() 
+  {this->SetGlobalImmediateModeRendering(0);};
+  int  GetGlobalImmediateModeRendering();
 
   // Description:
   // Specify range in terms of scalar minimum and maximum (smin,smax). These

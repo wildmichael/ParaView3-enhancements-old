@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-17 21:30:47 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-08-25 14:31:37 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -137,7 +137,8 @@ void vtkOpenGLPolyDataMapper::Render(vtkRenderer *ren, vtkActor *act)
     // sets this->Colors as side effect
     this->GetColors();
 
-    if (!this->ImmediateModeRendering)
+    if (!this->ImmediateModeRendering && 
+	!this->GetGlobalImmediateModeRendering())
       {
       // free any old display lists
       if (this->ListId)
@@ -156,7 +157,8 @@ void vtkOpenGLPolyDataMapper::Render(vtkRenderer *ren, vtkActor *act)
   // if nothing changed but we are using display lists, draw it
   else
     {
-    if (!this->ImmediateModeRendering)
+    if (!this->ImmediateModeRendering && 
+	!this->GetGlobalImmediateModeRendering())
       {
       glCallList(this->ListId);
       }
@@ -164,7 +166,8 @@ void vtkOpenGLPolyDataMapper::Render(vtkRenderer *ren, vtkActor *act)
    
   // if we are in immediate mode rendering we always
   // want to draw the primitives here
-  if (this->ImmediateModeRendering)
+  if (this->ImmediateModeRendering ||
+      this->GetGlobalImmediateModeRendering())
     {
     this->Draw(ren,act);
     }
