@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapJava.c,v $
   Language:  C++
-  Date:      $Date: 1999-06-15 19:51:08 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-06-16 20:00:20 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -552,11 +552,11 @@ void vtkParseOutput(FILE *fp, FileInfo *data)
   
   for (i = 0; i < data->NumberOfSuperClasses; i++)
     {
-    fprintf(fp,"extern void *%s_Typecast(void *op,char *dType);\n",
+    fprintf(fp,"extern \"C\" JNIEXPORT void* %s_Typecast(void *op,char *dType);\n",
 	    data->SuperClasses[i]);
     }
   
-  fprintf(fp,"\nvoid *%s_Typecast(void *me,char *dType)\n{\n",data->ClassName);
+  fprintf(fp,"\nextern \"C\" JNIEXPORT void* %s_Typecast(void *me,char *dType)\n{\n",data->ClassName);
   fprintf(fp,"  void* res;\n");
   fprintf(fp,"  if (!strcmp(\"%s\",dType)) { return me; }\n", data->ClassName);
   /* check our superclasses */
