@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSelectVisiblePoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-31 19:48:28 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-11-01 20:04:25 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -167,6 +167,10 @@ void vtkSelectVisiblePoints::Execute()
       {
 	decimal += 0.1;
 	this->UpdateProgress(decimal);
+	if (this->GetAbortExecute())
+	  {
+	    break; 
+	  }
       }
 
     // check whether visible and in selection window 
