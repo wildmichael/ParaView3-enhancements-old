@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 18:32:04 $
-  Version:   $Revision: 1.68 $
+  Date:      $Date: 2003-07-02 17:20:56 $
+  Version:   $Revision: 1.69 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,6 @@
 #include "vtkDataSetAttributes.h"
 #include "vtkCell.h"
 #include "vtkMath.h"
-#include "vtkVoidArray.h"
 #include "vtkBitArray.h"
 #include "vtkCharArray.h"
 #include "vtkUnsignedCharArray.h"
@@ -33,7 +32,7 @@
 #include "vtkIdTypeArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkDataSetAttributes, "$Revision: 1.68 $");
+vtkCxxRevisionMacro(vtkDataSetAttributes, "$Revision: 1.69 $");
 vtkStandardNewMacro(vtkDataSetAttributes);
 
 //--------------------------------------------------------------------------
@@ -1724,9 +1723,6 @@ void vtkDataSetAttributes::CopyAllocate(vtkDataSetAttributes::FieldList& list,
       {
       switch (list.FieldTypes[i])
         {
-        case VTK_VOID:
-          newDA = vtkVoidArray::New();
-          break;
         case VTK_BIT:
           newDA = vtkBitArray::New();
           break;
