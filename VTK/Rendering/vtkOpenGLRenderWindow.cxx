@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-26 15:40:05 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 2002-03-26 16:53:47 $
+  Version:   $Revision: 1.60 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,7 +29,7 @@
 #include "vtkUnsignedCharArray.h"
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkOpenGLRenderWindow, "$Revision: 1.59 $");
+vtkCxxRevisionMacro(vtkOpenGLRenderWindow, "$Revision: 1.60 $");
 #endif
 
 #define MAX_LIGHTS 8
@@ -702,8 +702,8 @@ int vtkOpenGLRenderWindow::SetRGBAPixelData(int x1, int y1, int x2, int y2,
     return VTK_ERROR;
     }
 
-  this->SetRGBAPixelData(x1, y1, x2, y2, data->GetPointer(0), front,
-			 blend);
+  return this->SetRGBAPixelData(x1, y1, x2, y2, data->GetPointer(0), front,
+				blend);
 }
 
 int vtkOpenGLRenderWindow::SetRGBAPixelData(int x1, int y1, int x2, int y2,
