@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor2D.h,v $
   Language:  C++
-  Date:      $Date: 1997-12-09 19:55:25 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-12-11 20:29:28 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -73,7 +73,7 @@ public:
   ~vtkActor2D();
 
   static vtkActor2D* New() {return new vtkActor2D;};
-
+  void PrintSelf(ostream& os, vtkIndent indent);
   const char *GetClassName() {return "vtkActor2D";};
 
   void Render(vtkViewport *viewport);
