@@ -3,11 +3,9 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkAppendFilter.h,v $
   Language:  C++
-  Date:      $Date: 1994-06-06 16:16:33 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-08-13 08:49:10 $
+  Version:   $Revision: 1.3 $
 
-Description:
----------------------------------------------------------------------------
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
 without the express written consent of the authors.
@@ -15,9 +13,15 @@ without the express written consent of the authors.
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-//
-// Appends one or more datasets together into a single UnstructuredGrid.
-//
+// .NAME vlAppendFilter - appends one or more datasets together into a single unstructured grid
+// .SECTION Description
+// vlAppendFilter is a filter that appends one of more datasets into a single
+// unstructured grid. All geometry is extracted and appended, but point 
+// attributes (i.e., scalars, vectors, normals) are extracted and appended
+// only if all datasets have the point attributes available. (For example, 
+// if one dataset has scalars but another does not, scalars will not be 
+// appended.)
+
 #ifndef __vlAppendFilter_h
 #define __vlAppendFilter_h
 

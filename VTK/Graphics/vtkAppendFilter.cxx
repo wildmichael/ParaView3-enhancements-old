@@ -3,11 +3,9 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkAppendFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-05 09:06:43 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-08-13 08:49:09 $
+  Version:   $Revision: 1.5 $
 
-Description:
----------------------------------------------------------------------------
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
 without the express written consent of the authors.
@@ -33,6 +31,8 @@ vlAppendFilter::~vlAppendFilter()
     }
 }
 
+// Description:
+// Add a dataset to the list of data to append.
 void vlAppendFilter::AddInput(vlDataSet *ds)
 {
   if ( ! this->Input.IsItemPresent(ds) )
@@ -43,6 +43,8 @@ void vlAppendFilter::AddInput(vlDataSet *ds)
     }
 }
 
+// Description:
+// Remove a dataset from the list of data to append.
 void vlAppendFilter::RemoveInput(vlDataSet *ds)
 {
   if ( this->Input.IsItemPresent(ds) )
