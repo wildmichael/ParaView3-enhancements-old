@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-23 17:48:07 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1999-08-26 15:12:38 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -73,6 +73,8 @@ vtkOpenGLTexture::~vtkOpenGLTexture()
       GLuint tempIndex;
 #ifdef GL_VERSION_1_1
       tempIndex = this->Index;
+      // NOTE: Sun's OpenGL seems to require disabling of texture before delete
+      glDisable(GL_TEXTURE_2D);
       glDeleteTextures(1, &tempIndex);
 #else
       glDeleteLists(this->Index,1);
@@ -93,6 +95,8 @@ void vtkOpenGLTexture::ReleaseGraphicsResources(vtkWindow *vtkNotUsed(renWin))
     GLuint tempIndex;
 #ifdef GL_VERSION_1_1
     tempIndex = this->Index;
+    // NOTE: Sun's OpenGL seems to require disabling of texture before delete
+    glDisable(GL_TEXTURE_2D);
     glDeleteTextures(1, &tempIndex);
 #else
     glDeleteLists(this->Index,1);
