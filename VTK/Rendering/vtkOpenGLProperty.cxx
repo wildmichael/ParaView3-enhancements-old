@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-28 16:40:17 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-06-09 18:44:01 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,9 +41,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <math.h>
 #include "vtkOpenGLRenderer.h"
 #include "vtkOpenGLProperty.h"
-#ifdef _WIN32
-#include <afxwin.h>
-#endif
 #include <GL/gl.h>
 
 // Description:

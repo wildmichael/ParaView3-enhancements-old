@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-28 14:51:08 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-06-09 18:44:02 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,11 +38,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#ifdef _WIN32
-#include <afxwin.h>
-#endif
-#include <GL/gl.h>
-
 #include <math.h>
 #include "vtkOpenGLRenderer.h"
 #include "vtkRenderWindow.h"
@@ -50,6 +45,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkOpenGLCamera.h"
 #include "vtkOpenGLLight.h"
 #include "vtkNewVolumeRenderer.h"
+#include <GL/gl.h>
+
 
 #define MAX_LIGHTS 8
 

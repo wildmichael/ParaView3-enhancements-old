@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkRenderWidget.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-16 21:31:41 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1997-06-09 18:44:04 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -59,8 +59,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkTkRenderWidget_h
 #define __vtkTkRenderWidget_h
 
-#include "vtkTclUtil.h"
 #include "vtkRenderWindow.h"
+#include "vtkTclUtil.h"
 
 struct vtkTkRenderWidget
 {

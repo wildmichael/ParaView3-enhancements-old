@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-06 12:45:01 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-06-09 18:43:59 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,14 +47,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkOpenGLPolyDataMapper_h
 #define __vtkOpenGLPolyDataMapper_h
 
+#include "vtkPolyDataMapper.h"
 #include <stdlib.h>
-
-#ifdef _WIN32
-#include <afxwin.h>
-#endif
 #include <GL/gl.h>
 
-#include "vtkPolyDataMapper.h"
 
 class vtkOpenGLRenderer;
 class vtkProperty;

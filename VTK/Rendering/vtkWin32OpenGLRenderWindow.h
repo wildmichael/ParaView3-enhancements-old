@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1997-05-28 16:40:24 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-06-09 18:44:06 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,7 +48,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkWin32OpenGLRenderWindow_h
 
 #include <stdlib.h>
-#include <afxwin.h>
 #include "vtkRenderWindow.h"
 
 class VTK_EXPORT vtkWin32OpenGLRenderWindow : public vtkRenderWindow
@@ -87,9 +86,9 @@ public:
   int *GetPosition();
   //BTX
   HWND      GetWindowId();
-  void      SetWindowId(void *foo) {this->SetWindowId((HWND)foo);};
+//  void      SetWindowId(void *foo) {this->SetWindowId((HWND)foo);};
   void		SetWindowId(HWND);
-  void    SetParentId(void *foo) {this->SetParentId((HWND)foo);};
+//  void    SetParentId(void *foo) {this->SetParentId((HWND)foo);};
   void		SetParentId(HWND);
   void		SetContextId(HGLRC);	// hsr
   void		SetDeviceContext(HDC);	// hsr
