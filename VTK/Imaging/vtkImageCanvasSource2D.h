@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCanvasSource2D.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:31:57 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2002-03-11 20:10:45 $
+  Version:   $Revision: 1.29 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -109,6 +109,12 @@ public:
   vtkSetMacro(DefaultZ, int);
   vtkGetMacro(DefaultZ, int);
 
+  // Description:
+  // Set/Get Ratio. This is the value that is used to pre-multiply each
+  // (x, y, z) drawing coordinates (including DefaultZ).
+  vtkSetVector3Macro(Ratio, float);
+  vtkGetVector3Macro(Ratio, float);
+
 protected:
   vtkImageCanvasSource2D();
   // Destructor: Deleting a vtkImageCanvasSource2D automatically deletes the
@@ -119,6 +125,7 @@ protected:
   vtkImageData *ImageData;
   float DrawColor[4];
   int DefaultZ;
+  float Ratio[3];
   
   int ClipSegment(int &a0, int &a1, int &b0, int &b1);
 private:
