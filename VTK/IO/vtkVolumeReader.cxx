@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-07 12:09:53 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-04-16 21:11:19 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,7 +55,12 @@ vtkVolumeReader::vtkVolumeReader()
 
 vtkVolumeReader::~vtkVolumeReader ()
 {
-  delete this->FilePattern;
+  if (this->FilePrefix)
+    {
+    delete [] this->FilePrefix;
+    }
+  
+  delete [] this->FilePattern;
 }
 
 void vtkVolumeReader::PrintSelf(ostream& os, vtkIndent indent)

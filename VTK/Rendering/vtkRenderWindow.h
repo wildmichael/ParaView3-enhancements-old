@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-10 22:27:55 $
-  Version:   $Revision: 1.66 $
+  Date:      $Date: 1998-04-16 21:11:10 $
+  Version:   $Revision: 1.67 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -103,13 +103,6 @@ public:
   // Performed at the end of the rendering process to generate image.
   // This is typically done right before swapping buffers.
   virtual void CopyResultFrame();
-
-  // Description:
-  // Create a device specific renderer. This is the only way to create
-  // a renderer that will work. This method is implemented in the
-  // subclasses of vtkRenderWindow so that each subclass will return
-  // the correct renderer for its graphics library.
-  virtual vtkRenderer  *MakeRenderer();
 
   static char *GetRenderLibrary();
   

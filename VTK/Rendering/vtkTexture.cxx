@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:05:09 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1998-04-16 21:11:11 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,6 +57,19 @@ vtkTexture::vtkTexture()
   this->SelfCreatedLookupTable = 0;
 }
 
+vtkTexture::~vtkTexture()
+{
+  if (this->MappedScalars)
+    {
+    this->MappedScalars->Delete();
+    }
+
+  if ( this->SelfCreatedLookupTable && this->LookupTable != NULL) 
+    {
+    this->LookupTable->Delete();
+    }
+}
+
 #ifdef VTK_USE_GLR
 #include "vtkGLTexture.h"
 #endif
@@ -94,6 +107,17 @@ vtkTexture *vtkTexture::New()
 #endif
   
   return new vtkTexture;
+}
+
+void vtkTexture::SetLookupTable(vtkLookupTable *lut)
+{
+  if ( this->LookupTable != lut ) 
+    {
+    if ( this->SelfCreatedLookupTable ) this->LookupTable->Delete();
+    this->SelfCreatedLookupTable = 0;
+    this->LookupTable = lut;
+    this->Modified();
+    }
 }
 
 void vtkTexture::PrintSelf(ostream& os, vtkIndent indent)

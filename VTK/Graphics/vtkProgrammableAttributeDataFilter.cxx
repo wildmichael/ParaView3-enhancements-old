@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableAttributeDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:04:38 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-04-16 21:11:06 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,6 +44,16 @@ vtkProgrammableAttributeDataFilter::vtkProgrammableAttributeDataFilter()
 {
   this->ExecuteMethod = NULL;
   this->ExecuteMethodArg = NULL;
+  this->ExecuteMethodArgDelete = NULL;
+}
+
+vtkProgrammableAttributeDataFilter::~vtkProgrammableAttributeDataFilter()
+{
+  // delete the current arg if there is one and a delete meth
+  if ((this->ExecuteMethodArg)&&(this->ExecuteMethodArgDelete))
+    {
+    (*this->ExecuteMethodArgDelete)(this->ExecuteMethodArg);
+    }
 }
 
 // Description:

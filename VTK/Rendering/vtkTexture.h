@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexture.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:05:10 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1998-04-16 21:11:12 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -76,6 +76,7 @@ class VTK_EXPORT vtkTexture : public vtkObject
 {
 public:
   vtkTexture();
+  ~vtkTexture();
   static vtkTexture *New();
   const char *GetClassName() {return "vtkTexture";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -126,7 +127,7 @@ public:
   
   // Description:
   // Specify the lookup table to convert scalars if necessary
-  vtkSetObjectMacro(LookupTable,vtkLookupTable);
+  void SetLookupTable(vtkLookupTable *);
   vtkGetObjectMacro(LookupTable,vtkLookupTable);
 
   // Description:

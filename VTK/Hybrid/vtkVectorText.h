@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorText.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:49:12 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1998-04-16 21:11:18 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,6 +52,7 @@ class VTK_EXPORT vtkVectorText : public vtkPolyDataSource
 {
 public:
   vtkVectorText();
+  ~vtkVectorText();
   static vtkVectorText *New() {return new vtkVectorText;};
   const char *GetClassName() {return "vtkVectorText";};
   void PrintSelf(ostream& os, vtkIndent indent);

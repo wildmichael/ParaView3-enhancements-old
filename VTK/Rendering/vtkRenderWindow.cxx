@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-02-13 16:06:31 $
-  Version:   $Revision: 1.64 $
+  Date:      $Date: 1998-04-16 21:11:09 $
+  Version:   $Revision: 1.65 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -89,6 +89,11 @@ vtkRenderWindow::~vtkRenderWindow()
     {
     delete [] this->ResultFrame;
     this->ResultFrame = NULL;
+    }
+  // delete the current arg if there is one and a delete meth
+  if ((this->AbortCheckMethodArg)&&(this->AbortCheckMethodArgDelete))
+    {
+    (*this->AbortCheckMethodArgDelete)(this->AbortCheckMethodArg);
     }
 }
 
@@ -204,16 +209,6 @@ vtkRenderWindow *vtkRenderWindow::New()
 #endif
   
   return new vtkRenderWindow;
-}
-
-vtkRenderer *vtkRenderWindow::MakeRenderer()
-{
-  vtkRenderer *ren = vtkRenderer::New();
-  this->AddRenderer(ren);
-
-  // by default we are its parent
-  ren->SetRenderWindow(this);
-  return ren;
 }
 
 // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkRenderWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-20 20:52:08 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1998-04-16 21:11:13 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -227,6 +227,7 @@ static int vtkTkRenderWidget_Cmd(ClientData clientData, Tcl_Interp *interp,
   self->Height = 0;
   self->RenderWindow = NULL;
   self->RW = NULL;
+  self->SelfCreatedRenderWindow = 0;
   
   // ...
   // Create command event handler
@@ -305,7 +306,7 @@ static void vtkTkRenderWidget_EventProc(ClientData clientData,
     case MapNotify:
       break;
     case DestroyNotify:
-      // Tcl_EventuallyFree( (ClientData) self, vtkTkRenderWidget_Destroy );
+      Tcl_EventuallyFree((ClientData) self, vtkTkRenderWidget_Destroy );
       break;
     default:
       // nothing
@@ -313,6 +314,35 @@ static void vtkTkRenderWidget_EventProc(ClientData clientData,
     }
 }
 
+/*
+ *----------------------------------------------------------------------
+ *
+ * vtkTkRenderWidget_Destroy ---
+ *
+ *	This procedure is invoked by Tcl_EventuallyFree or Tcl_Release
+ *	to clean up the internal structure of a canvas at a safe time
+ *	(when no-one is using it anymore).
+ *
+ * Results:
+ *	None.
+ *
+ * Side effects:
+ *	Everything associated with the canvas is freed up.
+ *
+ *----------------------------------------------------------------------
+ */
+
+static void vtkTkRenderWidget_Destroy(char *memPtr)
+{
+  struct vtkTkRenderWidget *self = (struct vtkTkRenderWidget *)memPtr;
+
+  if (self->SelfCreatedRenderWindow && this->RenderWindow)
+    {
+    self->RenderWindow->Delete();
+    self->RenderWindow = NULL;
+    }
+  ckfree((char *) memPtr);
+}
 
 
 //----------------------------------------------------------------------------
@@ -466,6 +496,7 @@ static int vtkTkRenderWidget_MakeRenderWindow(struct vtkTkRenderWidget *self)
     {
     // Make the Render window.
     self->RenderWindow = vtkRenderWindow::New();
+    self->SelfCreatedRenderWindow = 1;
     renderWindow = (vtkWin32OpenGLRenderWindow *)(self->RenderWindow);
     vtkTclGetObjectFromPointer(self->Interp, self->RenderWindow,
 			       vtkRenderWindowCommand);
@@ -617,6 +648,7 @@ vtkTkRenderWidget_MakeRenderWindow(struct vtkTkRenderWidget *self)
     {
     // Make the Render window.
     self->RenderWindow = vtkRenderWindow::New();
+    self->SelfCreatedRenderWindow = 1;
     renderWindow = (vtkXRenderWindow *)(self->RenderWindow);
     vtkTclGetObjectFromPointer(self->Interp, self->RenderWindow,
 			       vtkRenderWindowCommand);

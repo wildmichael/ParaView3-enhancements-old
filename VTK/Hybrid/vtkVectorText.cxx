@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorText.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:05:28 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1998-04-16 21:11:16 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1746,4 +1746,12 @@ void vtkVectorText::PrintSelf(ostream& os, vtkIndent indent)
   vtkPolyDataSource::PrintSelf(os,indent);
 
   os << indent << "Text: " << (this->Text ? this->Text : "(none)") << "\n";
+}
+
+vtkVectorText::~vtkVectorText()
+{
+  if (this->Text)
+    {
+    delete [] this->Text;
+    }
 }

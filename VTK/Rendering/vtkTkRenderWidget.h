@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkRenderWidget.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:48:43 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-04-16 21:11:14 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -70,6 +70,7 @@ struct vtkTkRenderWidget
   int Height;
   vtkRenderWindow *RenderWindow;
   char *RW;
+  int SelfCreatedRenderWindow;  
 #ifdef _WIN32
   WNDPROC OldProc;
 #endif
