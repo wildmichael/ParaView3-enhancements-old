@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCollection.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 20:34:02 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1998-11-09 19:05:51 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,6 +69,10 @@ class vtkCollectionElement //;prevents pick-up by man page generator
 class VTK_EXPORT vtkCollection : public vtkObject
 {
 public:
+  void PrintSelf(ostream& os, vtkIndent indent);
+  static vtkCollection *New() {return new vtkCollection;};
+  const char *GetClassName() {return "vtkCollection";};
+
   // Description:
   // Construct with empty list.
   vtkCollection();
@@ -77,10 +81,6 @@ public:
   // Desctructor for the vtkCollection class. This removes all 
   // objects from the collection.
   virtual ~vtkCollection();
-
-  void PrintSelf(ostream& os, vtkIndent indent);
-  static vtkCollection *New() {return new vtkCollection;};
-  const char *GetClassName() {return "vtkCollection";};
 
   // Description:
   // Add an object to the list. Does not prevent duplicate entries.
