@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParse.y,v $
   Language:  C++
-  Date:      $Date: 2001-06-12 10:31:13 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2001-06-12 13:07:29 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -46,6 +46,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <string.h>
 #define yyerror(a) fprintf(stderr,"%s\n",a)
 #define yywrap() 1
+
+void output_function();
 
 #include "vtkParse.h"
     
