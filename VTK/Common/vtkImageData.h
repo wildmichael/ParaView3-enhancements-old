@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.h,v $
   Language:  C++
-  Date:      $Date: 1996-06-07 13:55:09 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1996-06-17 16:18:57 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -68,6 +68,9 @@ public:
   vtkGetVector3Macro(Size,int);
   vtkSetVector3Macro(Offset,int);
   vtkGetVector3Macro(Offset,int);
+  
+  // HACK DONT USE
+  void SetData(float *data){this->Data = data;};
 
   // Description:
   // Gets the increments between columns, rows, and images.  These
