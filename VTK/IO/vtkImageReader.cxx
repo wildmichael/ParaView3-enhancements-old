@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-06-04 12:55:25 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1997-06-09 12:48:58 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -393,7 +393,8 @@ void vtkImageReader::SetHeaderSize(int size)
 // automatically determine the header size.
 void vtkImageReader::Initialize()
 {
-  int idx, inc;
+  int idx;
+  int fileDataLength;
   
   if (this->Initialized)
     {
@@ -410,31 +411,30 @@ void vtkImageReader::Initialize()
   switch (this->DataScalarType)
     {
     case VTK_FLOAT:
-      this->PixelSize = sizeof(float);
+      fileDataLength = sizeof(float);
       break;
     case VTK_INT:
-      this->PixelSize = sizeof(int);
+      fileDataLength = sizeof(int);
       break;
     case VTK_SHORT:
-      this->PixelSize = sizeof(short);
+      fileDataLength = sizeof(short);
       break;
     case VTK_UNSIGNED_SHORT:
-      this->PixelSize = sizeof(unsigned short);
+      fileDataLength = sizeof(unsigned short);
       break;
     case VTK_UNSIGNED_CHAR:
-      this->PixelSize = sizeof(unsigned char);
+      fileDataLength = sizeof(unsigned char);
       break;
     default:
       vtkErrorMacro(<< "Initialize: Unknown DataScalarType");
       return;
     }
 
-  // compute the increments (in units of bytes)
-  inc = this->PixelSize;
+  // compute the fileDataLength (in units of bytes)
   for (idx = 0; idx < VTK_IMAGE_DIMENSIONS; ++idx)
     {
-    this->FileIncrements[idx] = inc;
-    inc *= this->DataDimensions[idx];
+    this->FileIncrements[idx] = fileDataLength;
+    fileDataLength *= this->DataDimensions[idx];
     }
   
   // Close file from any previous image
@@ -463,9 +463,10 @@ void vtkImageReader::Initialize()
   this->FileSize = this->File->tellg();
   if ( ! this->ManualHeaderSize)
     {
-    this->HeaderSize = this->FileSize - this->FileIncrements[4];
+    this->HeaderSize = this->FileSize - fileDataLength;
     vtkDebugMacro(<< "Initialize: Header " << this->HeaderSize 
-                  << " bytes, fileLength = " << this->FileSize << " bytes.");
+                  << " bytes, fileLength = " << this->FileSize 
+                  << " bytes, fileDataLength = " << fileDataLength);
     }
   
   this->Initialized = 1;
@@ -596,7 +597,7 @@ static void vtkImageReaderUpdate2(vtkImageReader *self, vtkImageRegion *region,
 	// handle swapping (legacy)
 	if (self->SwapBytes)
 	  {
-	  vtkByteSwap::SwapVoidRange(buf, pixelRead, self->PixelSize);
+	  vtkByteSwap::SwapVoidRange(buf, pixelRead, sizeof(IT));
 	  }
 	
 	// copy the bytes into the typed region

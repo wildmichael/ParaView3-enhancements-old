@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageClip.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-15 23:24:18 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1997-06-09 12:48:55 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -364,7 +364,7 @@ void vtkImageClip::ComputeOutputImageExtent()
     {
     vtkErrorMacro("ComputeOutputImageExtent: No Input.");
     }
-  region = this->Input->GetOutput()->Update();
+  region = this->Input->GetOutput()->UpdateRegion();
   region->SetAxes(5, this->GetAxes());
 
   // Look through every pixel.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-04 12:55:27 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1997-06-09 12:48:59 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -174,7 +174,6 @@ public:
   int SwapBytes;
   // Flips are flags for each axis specifying whether "reflect" the data.
   int Flips[VTK_IMAGE_DIMENSIONS];
-  int PixelSize;
   
 protected:
   int ManualHeaderSize;
