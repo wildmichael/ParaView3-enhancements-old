@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: pipe1.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-16 13:59:21 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-09-30 20:37:43 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -15,8 +15,10 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
+#include "vtkImageData.h"
 #include "vtkOutputPort.h"
 #include "vtkRTAnalyticSource.h"
+
 #include "PipelineParallelism.h"
 
 static float XFreq = 60;

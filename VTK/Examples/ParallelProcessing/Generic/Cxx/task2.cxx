@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: task2.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-28 03:33:50 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-09-30 20:37:43 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,6 +16,8 @@
 
 =========================================================================*/
 #include "TaskParallelism.h"
+
+#include "vtkImageData.h"
 #include "vtkPolyDataMapper.h"
 
 // Task 2 for TaskParallelism.

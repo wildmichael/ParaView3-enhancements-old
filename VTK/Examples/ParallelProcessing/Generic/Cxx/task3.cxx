@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: task3.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-28 03:33:50 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-09-30 20:37:43 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,11 +16,14 @@
 
 =========================================================================*/
 #include "TaskParallelismWithPorts.h"
+
 #include "vtkAppendPolyData.h"
+#include "vtkImageData.h"
 #include "vtkInputPort.h"
+#include "vtkPolyData.h"
+#include "vtkPolyDataMapper.h"
 #include "vtkRenderWindow.h"
 #include "vtkRenderWindowInteractor.h"
-#include "vtkPolyDataMapper.h"
 
 // Task 3 for TaskParallelismWithPorts.
 // See TaskParallelismWithPorts.cxx for more information.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: task4.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-07 13:54:43 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-09-30 20:37:43 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,7 +16,10 @@
 
 =========================================================================*/
 #include "TaskParallelismWithPorts.h"
+
+#include "vtkImageData.h"
 #include "vtkOutputPort.h"
+#include "vtkPolyData.h"
 
 // Task 4 for TaskParallelism.
 // See TaskParallelismWithPorts.cxx for more information.
