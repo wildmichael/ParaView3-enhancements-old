@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageButterworthLowPass.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-15 18:30:14 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-09-16 12:55:58 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -176,13 +176,13 @@ void vtkImageButterworthLowPass::ThreadedExecute(vtkImageData *inData,
     // Convert location into normalized cycles/world unit
     temp2 = temp2 * norm2;
 
-    for (idx1 = ext[2]; !self->AbortExecute && idx1 <= ext[3]; ++idx1)
+    for (idx1 = ext[2]; !this->AbortExecute && idx1 <= ext[3]; ++idx1)
       {
       if (!id) 
 	{
 	if (!(count%target))
 	  {
-	  self->UpdateProgress(count/(50.0*target));
+	  this->UpdateProgress(count/(50.0*target));
 	  }
 	count++;
 	}
