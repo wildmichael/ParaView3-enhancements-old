@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDepthSortPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-16 02:03:50 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-07-09 14:08:18 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkTransform.h"
 #include "vtkUnsignedIntArray.h"
 
-vtkCxxRevisionMacro(vtkDepthSortPolyData, "$Revision: 1.23 $");
+vtkCxxRevisionMacro(vtkDepthSortPolyData, "$Revision: 1.24 $");
 vtkStandardNewMacro(vtkDepthSortPolyData);
 
 vtkCxxSetObjectMacro(vtkDepthSortPolyData,Camera,vtkCamera);
@@ -74,36 +74,42 @@ typedef struct _vtkSortValues {
   vtkIdType cellId;
 } vtkSortValues;
 
-static int CompareBackToFront(const void *val1, const void *val2)
-{
-  if (((vtkSortValues *)val1)->z > ((vtkSortValues *)val2)->z)
-    {
-    return (-1);
-    }
-  else if (((vtkSortValues *)val1)->z < ((vtkSortValues *)val2)->z)
-    {
-    return (1);
-    }
-  else
-    {
-    return (0);
-    }
+extern "C" 
+{  
+  static int CompareBackToFront(const void *val1, const void *val2)
+  {
+    if (((vtkSortValues *)val1)->z > ((vtkSortValues *)val2)->z)
+      {
+      return (-1);
+      }
+    else if (((vtkSortValues *)val1)->z < ((vtkSortValues *)val2)->z)
+      {
+      return (1);
+      }
+    else
+      {
+      return (0);
+      }
+  }
 }
 
-static int CompareFrontToBack(const void *val1, const void *val2)
+extern "C" 
 {
-  if (((vtkSortValues *)val1)->z < ((vtkSortValues *)val2)->z)
-    {
-    return (-1);
-    }
-  else if (((vtkSortValues *)val1)->z > ((vtkSortValues *)val2)->z)
-    {
-    return (1);
-    }
-  else
-    {
-    return (0);
-    }
+  static int CompareFrontToBack(const void *val1, const void *val2)
+  {
+    if (((vtkSortValues *)val1)->z < ((vtkSortValues *)val2)->z)
+      {
+      return (-1);
+      }
+    else if (((vtkSortValues *)val1)->z > ((vtkSortValues *)val2)->z)
+      {
+      return (1);
+      }
+    else
+      {
+      return (0);
+      }
+  }
 }
 
 void vtkDepthSortPolyData::Execute()
