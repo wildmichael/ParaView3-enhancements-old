@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGaussianSplatter.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:11:42 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2000-05-15 15:05:55 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -164,6 +164,21 @@ protected:
   float ScalarSampling(float s) {return this->ScaleFactor * s;};
   float PositionSampling(float) {return this->ScaleFactor;};
   void SetScalar(int idx, float dist2);
+
+//BTX
+private:
+  vtkScalars *NewScalars;
+  float Radius2;
+  float (vtkGaussianSplatter::*Sample)(float x[3]);
+  float (vtkGaussianSplatter::*SampleFactor)(float s);
+  char *Visited;
+  float Eccentricity2;
+  float *P;
+  float *N;
+  float S;
+  float Origin[3];
+  float Spacing[3];
+//ETX
 
 };
 
