@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaPolyDataMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:44 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-04-12 14:49:01 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -37,7 +37,7 @@ public:
 
   // Description:
   // Actually draw the poly data.
-  void RenderOpaqueGeometry(vtkViewport* viewport, vtkActor2D* actor);
+  void RenderOverlay(vtkViewport* viewport, vtkActor2D* actor);
 
 protected:
   vtkMesaPolyDataMapper2D() {};
