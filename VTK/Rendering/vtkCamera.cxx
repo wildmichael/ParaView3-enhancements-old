@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-14 22:41:01 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1995-08-22 16:07:22 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -414,7 +414,7 @@ void vtkCamera::SetRoll(float roll)
   this->Transform.PointMultiply(temp,temp);
   
   // now store the result
-  this->SetViewUp(temp);
+  this->SetViewUp((float *)temp);
 
   this->Transform.Pop();
 }
