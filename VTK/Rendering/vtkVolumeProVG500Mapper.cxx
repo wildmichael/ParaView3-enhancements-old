@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProVG500Mapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:18:09 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2001-12-17 20:03:49 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -490,12 +490,12 @@ void vtkVolumeProVG500Mapper::UpdateCropping( vtkRenderer * vtkNotUsed(ren), vtk
 
   crop = new VLICrop;
 
-  crop->SetSlabs( this->CroppingRegionPlanes[0], 
-                  this->CroppingRegionPlanes[1],
-                  this->CroppingRegionPlanes[2], 
-                  this->CroppingRegionPlanes[3],
-                  this->CroppingRegionPlanes[4], 
-                  this->CroppingRegionPlanes[5] );
+  crop->SetSlabs( this->VoxelCroppingRegionPlanes[0], 
+                  this->VoxelCroppingRegionPlanes[1],
+                  this->VoxelCroppingRegionPlanes[2], 
+                  this->VoxelCroppingRegionPlanes[3],
+                  this->VoxelCroppingRegionPlanes[4], 
+                  this->VoxelCroppingRegionPlanes[5] );
 
   if ( !this->Cropping )
     {
@@ -1054,6 +1054,8 @@ void vtkVolumeProVG500Mapper::Render( vtkRenderer *ren, vtkVolume *vol )
     this->GetInput()->Update();
     } 
 
+  this->ConvertCroppingRegionPlanesToVoxels();
+  
   this->UpdateCamera( ren, vol );
 
   this->UpdateLights( ren, vol);
