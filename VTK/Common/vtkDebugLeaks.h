@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDebugLeaks.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-15 09:12:56 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-09-16 09:00:28 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -71,7 +71,7 @@ public:
   static void PrintCurrentLeaks();
   // Clean up the table memory
   static void DeleteTable();
-private:
+protected:
   vtkDebugLeaks(){}; 
   virtual ~vtkDebugLeaks(){}; 
   vtkDebugLeaks(const vtkDebugLeaks&) {};
