@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDividingCubes.h,v $
   Language:  C++
-  Date:      $Date: 1995-06-16 08:38:01 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1995-06-17 13:56:42 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -62,8 +62,6 @@ protected:
 
   // wworking variables
   int Count;
-  vlFloatPoints *NewPts;
-  vlCellArray *NewVerts;
 };
 
 #endif
