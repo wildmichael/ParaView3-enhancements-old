@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataToPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-04 20:43:44 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2003-10-16 17:55:46 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,12 +19,11 @@
 
 #include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkPolyDataToPolyDataFilter, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkPolyDataToPolyDataFilter, "$Revision: 1.16 $");
 
 //----------------------------------------------------------------------------
 vtkPolyDataToPolyDataFilter::vtkPolyDataToPolyDataFilter() 
 {
-  this->vtkProcessObject::SetNumberOfInputs(1);
   this->NumberOfRequiredInputs = 1;
 }
 //----------------------------------------------------------------------------
