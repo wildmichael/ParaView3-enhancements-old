@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMatrix4x4.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:40:47 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1998-06-17 17:12:16 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -289,6 +289,7 @@ vtkMatrix4x4& vtkMatrix4x4::operator= (const vtkMatrix4x4& source)
       this->Element[i][j] = source.Element[i][j];
       }
     }
+  this->Modified ();
   return *this;
 }
 
