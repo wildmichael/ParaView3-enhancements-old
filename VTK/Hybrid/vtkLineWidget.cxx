@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLineWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-30 12:50:29 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-06-12 11:37:10 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,8 +31,9 @@
 #include "vtkProperty.h"
 #include "vtkRenderWindowInteractor.h"
 #include "vtkSphereSource.h"
+#include "vtkRenderWindow.h"
 
-vtkCxxRevisionMacro(vtkLineWidget, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkLineWidget, "$Revision: 1.16 $");
 vtkStandardNewMacro(vtkLineWidget);
 
 vtkLineWidget::vtkLineWidget()
@@ -488,6 +489,13 @@ void vtkLineWidget::OnLeftButtonUp()
   this->EventCallbackCommand->SetAbortFlag(1);
   this->EndInteraction();
   this->InvokeEvent(vtkCommand::EndInteractionEvent,NULL);
+
+  vtkRenderWindow *renWin = this->Interactor->GetRenderWindow();
+  if (renWin)
+    {
+    renWin->SetDesiredUpdateRate(this->Interactor->GetStillUpdateRate());
+    }
+
   this->Interactor->Render();
 }
 
