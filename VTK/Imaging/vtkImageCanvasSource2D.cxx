@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCanvasSource2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-03 16:48:10 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-11-10 14:07:29 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -187,7 +187,7 @@ void vtkImageCanvasSource2D::FillBox(int min0, int max0, int min1, int max1)
   max1 = (max1 < extent[2]) ? extent[2] : max1;
   min1 = (min1 > extent[3]) ? extent[3] : min1;
   max1 = (max1 > extent[3]) ? extent[3] : max1;
-  
+   
   ptr = this->ImageData->GetScalarPointer(min0, min1, extent[4]);
   switch (this->ImageData->GetScalarType())
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageClip.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-08 02:04:23 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1999-11-10 14:07:29 $
+  Version:   $Revision: 1.27 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -216,6 +216,12 @@ void vtkImageClip::InternalUpdate(vtkDataObject *outObject)
   outExt = outData->GetUpdateExtent();
   inData->SetUpdateExtent(outExt);
   inData->Update();
+  
+  if (inData->GetDataReleased())
+    { // special case for pipeline parallelism
+    return;
+    }
+  
   inExt = inData->GetExtent(); 
 
   if (this->ClipData && 
@@ -226,11 +232,13 @@ void vtkImageClip::InternalUpdate(vtkDataObject *outObject)
     outData->SetExtent(outExt);
     outData->AllocateScalars();
     this->CopyData(inData, outData, outExt);
+    outData->DataHasBeenGenerated();
     }
   else
     {
     outData->SetExtent(inExt);
     outData->GetPointData()->PassData(inData->GetPointData());
+    outData->DataHasBeenGenerated();
     }
 
   // release input data
