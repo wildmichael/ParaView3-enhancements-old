@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.h,v $
   Language:  C++
-  Date:      $Date: 1998-11-10 00:46:45 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 1998-11-13 14:04:08 $
+  Version:   $Revision: 1.57 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -153,6 +153,10 @@ public:
   static void GlobalWarningDisplayOff() 
     {vtkObject::SetGlobalWarningDisplay(0);};
   static int  GetGlobalWarningDisplay();
+
+  // Description: 
+  // Return the version of vtk this object is a part of.
+  static const char *GetVTKVersion() {return "2.2";};
   
   // Description:
   // Increase the reference count (mark as used by another object).
