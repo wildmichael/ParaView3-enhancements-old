@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericEnSightReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-12 11:48:38 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2002-06-20 16:49:40 $
+  Version:   $Revision: 1.30 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkEnSightGoldReader.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkGenericEnSightReader, "$Revision: 1.29 $");
+vtkCxxRevisionMacro(vtkGenericEnSightReader, "$Revision: 1.30 $");
 vtkStandardNewMacro(vtkGenericEnSightReader);
 
 vtkCxxSetObjectMacro(vtkGenericEnSightReader,TimeSets, 
@@ -165,7 +165,14 @@ void vtkGenericEnSightReader::Execute()
   
   for (i = 0; i < this->Reader->GetNumberOfOutputs(); i++)
     {
-    this->SetNthOutput(i, this->Reader->GetOutput(i));
+    if ( ! this->GetOutput(i))
+      {
+      this->SetNthOutput(i, this->Reader->GetOutput(i));
+      }
+    else
+      {
+      this->GetOutput(i)->ShallowCopy(this->Reader->GetOutput(i));
+      }
     }
   for (i = 0; i < this->Reader->GetNumberOfVariables(); i++)
     {
@@ -260,7 +267,7 @@ int vtkGenericEnSightReader::DetermineEnSightVersion()
           if (!fileName)
             {
             vtkErrorMacro(
-	      "A GeometryFileName must be specified in the case file.");
+              "A GeometryFileName must be specified in the case file.");
             return 0;
             }
           if (strrchr(fileName, '*') != NULL)
@@ -341,7 +348,7 @@ int vtkGenericEnSightReader::DetermineEnSightVersion()
         if (!fileName)
           {
           vtkErrorMacro(
-	    "A GeometryFileName must be specified in the case file.");
+            "A GeometryFileName must be specified in the case file.");
           return 0;
           }
         if (strrchr(fileName, '*') != NULL)

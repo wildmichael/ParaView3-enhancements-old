@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightGoldBinaryReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-14 20:55:33 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2002-06-20 16:49:40 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 
 #include <ctype.h>
 
-vtkCxxRevisionMacro(vtkEnSightGoldBinaryReader, "$Revision: 1.22 $");
+vtkCxxRevisionMacro(vtkEnSightGoldBinaryReader, "$Revision: 1.23 $");
 vtkStandardNewMacro(vtkEnSightGoldBinaryReader);
 
 //----------------------------------------------------------------------------
@@ -783,6 +783,8 @@ int vtkEnSightGoldBinaryReader::ReadMeasuredGeometryFile(char* fileName,
   vtkPoints *points = vtkPoints::New();
   vtkPolyData *pd = vtkPolyData::New();
   
+  this->NumberOfNewOutputs++;
+
   // Initialize
   //
   if (!fileName)
@@ -805,6 +807,14 @@ int vtkEnSightGoldBinaryReader::ReadMeasuredGeometryFile(char* fileName,
   if (this->IFile == NULL)
     {
     vtkErrorMacro("Unable to open file: " << line);
+    return 0;
+    }
+  
+  if (this->GetOutput(this->NumberOfGeometryParts) &&
+      ! this->GetOutput(this->NumberOfGeometryParts)->IsA("vtkPolyData"))
+    {
+    vtkErrorMacro("Cannot change type of output");
+    this->OutputsAreValid = 0;
     return 0;
     }
   
@@ -1981,6 +1991,8 @@ int vtkEnSightGoldBinaryReader::CreateUnstructuredGridOutput(int partId,
   int idx, cellId, cellType;
   float *xCoords, *yCoords, *zCoords;
   
+  this->NumberOfNewOutputs++;
+  
   if (this->GetOutput(partId) == NULL)
     {
     vtkDebugMacro("creating new unstructured output");
@@ -1990,6 +2002,13 @@ int vtkEnSightGoldBinaryReader::CreateUnstructuredGridOutput(int partId,
     
     this->UnstructuredPartIds->InsertNextId(partId);
     }
+  else if ( ! this->GetOutput(partId)->IsA("vtkUnstructuredGrid"))
+    {
+    vtkErrorMacro("Cannot change type of output");
+    this->OutputsAreValid = 0;
+    return 0;
+    }
+  
   ((vtkUnstructuredGrid *)this->GetOutput(partId))->Allocate(1000);
   
   idx = this->UnstructuredPartIds->IsId(partId);
@@ -2559,12 +2578,20 @@ int vtkEnSightGoldBinaryReader::CreateStructuredGridOutput(int partId,
   int numPts;
   float *xCoords, *yCoords, *zCoords;
   
+  this->NumberOfNewOutputs++;
+  
   if (this->GetOutput(partId) == NULL)
     {
     vtkDebugMacro("creating new structured grid output");
     vtkStructuredGrid* sgrid = vtkStructuredGrid::New();
     this->SetNthOutput(partId, sgrid);
     sgrid->Delete();
+    }
+  else if ( ! this->GetOutput(partId)->IsA("vtkStructuredGrid"))
+    {
+    vtkErrorMacro("Cannot change type of output");
+    this->OutputsAreValid = 0;
+    return 0;
     }
   
   if (sscanf(line, " %*s %s", subLine) == 1)
@@ -2634,12 +2661,20 @@ int vtkEnSightGoldBinaryReader::CreateRectilinearGridOutput(int partId,
   float *tempCoords;
   int numPts;
   
+  this->NumberOfNewOutputs++;
+  
   if (this->GetOutput(partId) == NULL)
     {
-    vtkDebugMacro("creating new structured grid output");
+    vtkDebugMacro("creating new rectilinear grid output");
     vtkRectilinearGrid* rgrid = vtkRectilinearGrid::New();
     this->SetNthOutput(partId, rgrid);
     rgrid->Delete();
+    }
+  else if ( ! this->GetOutput(partId)->IsA("vtkRectilinearGrid"))
+    {
+    vtkErrorMacro("Cannot change type of output");
+    this->OutputsAreValid = 0;
+    return 0;
     }
   
   if (sscanf(line, " %*s %*s %s", subLine) == 1)
@@ -2708,12 +2743,20 @@ int vtkEnSightGoldBinaryReader::CreateImageDataOutput(int partId,
   float origin[3], delta[3];
   int numPts;
   
+  this->NumberOfNewOutputs++;
+  
   if (this->GetOutput(partId) == NULL)
     {
-    vtkDebugMacro("creating new structured grid output");
+    vtkDebugMacro("creating new image data output");
     vtkImageData* idata = vtkImageData::New();
     this->SetNthOutput(partId, idata);
     idata->Delete();
+    }
+  else if ( ! this->GetOutput(partId)->IsA("vtkImageData"))
+    {
+    vtkErrorMacro("Cannot change output type");
+    this->OutputsAreValid = 0;
+    return 0;
     }
   
   if (sscanf(line, " %*s %*s %s", subLine) == 1)
