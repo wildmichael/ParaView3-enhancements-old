@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-22 19:13:54 $
-  Version:   $Revision: 1.110 $
+  Date:      $Date: 1999-04-23 20:53:03 $
+  Version:   $Revision: 1.111 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -366,7 +366,7 @@ void vtkRenderer::AllocateTime()
 
     // If we don't have an outer cull method in any of the cullers,
     // then the allocated render time has not yet been initialized
-    renderTime = (initialized)?(aProp->GetAllocatedRenderTime()):(1.0);
+    renderTime = (initialized)?(aProp->GetRenderTimeMultiplier()):(1.0);
 
     // We need to divide by total time so that the total rendering time
     // (all prop's AllocatedRenderTime added together) would be equal

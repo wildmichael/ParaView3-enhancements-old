@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-22 19:55:41 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1999-04-23 20:53:04 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -348,6 +348,7 @@ int vtkVolume::RenderTranslucentGeometry( vtkViewport *vp )
     {
     renderedSomething = 1;
     this->Mapper->Render( (vtkRenderer *)vp, this );
+    this->EstimatedRenderTime += this->Mapper->GetTimeToDraw();
     }
 
   return renderedSomething;
