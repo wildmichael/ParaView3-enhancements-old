@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OutputWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-28 14:06:15 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-01-02 19:38:34 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -168,7 +168,9 @@ int vtkWin32OutputWindow::Initialize()
     wndClass.lpfnWndProc = vtkWin32OutputWindow::WndProc;
     wndClass.cbClsExtra = 0;
     wndClass.hInstance = GetModuleHandle(NULL);
-//    wndClass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
+#ifndef _WIN32_WCE
+    wndClass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
+#endif
     wndClass.hCursor = LoadCursor(NULL, IDC_ARROW);
     wndClass.hbrBackground = (HBRUSH)GetStockObject(BLACK_BRUSH);
     wndClass.lpszMenuName = NULL;
