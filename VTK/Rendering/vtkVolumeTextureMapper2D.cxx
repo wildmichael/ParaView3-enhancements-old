@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeTextureMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:43 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2002-02-02 18:21:53 $
+  Version:   $Revision: 1.40 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -462,7 +462,7 @@ VolumeTextureMapper2D_TraverseVolume( T *data_ptr,
 
 }
 
-vtkCxxRevisionMacro(vtkVolumeTextureMapper2D, "$Revision: 1.39 $");
+vtkCxxRevisionMacro(vtkVolumeTextureMapper2D, "$Revision: 1.40 $");
 
 vtkVolumeTextureMapper2D::vtkVolumeTextureMapper2D()
 {
@@ -898,7 +898,7 @@ void vtkVolumeTextureMapper2D::GenerateTexturesAndRenderQuads( vtkRenderer *ren,
         break;
       default:
         vtkErrorMacro(
-          "vtkVolumeTextureMapper2D only works with short or char data.\n" << 
+          "vtkVolumeTextureMapper2D only works with unsigned short and unsigned char data.\n" << 
           "Input type: " << inputType << " given.");
       }
     }
