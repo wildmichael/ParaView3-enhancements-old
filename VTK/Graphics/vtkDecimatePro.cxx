@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimatePro.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-27 13:24:31 $
-  Version:   $Revision: 1.64 $
+  Date:      $Date: 2001-07-03 12:56:25 $
+  Version:   $Revision: 1.65 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -247,7 +247,7 @@ void vtkDecimatePro::Execute()
   if ( this->AccumulateError )
     {
     this->VertexError = vtkFloatArray::New();
-    this->VertexError->Allocate(numPts,(vtkIdType) ((float)0.25*numPts));
+    this->VertexError->Allocate(numPts,((vtkIdType)0.25*numPts));
     for (i=0; i<numPts; i++)
       {
       this->VertexError->SetValue(i, 0.0);
