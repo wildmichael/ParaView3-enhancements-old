@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkImplicitModeller.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-05-15 19:21:47 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1994-06-08 08:27:57 $
+  Version:   $Revision: 1.12 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -80,7 +80,7 @@ void vlImplicitModeller::SetModelBounds(float xmin, float xmax, float ymin, floa
     this->Origin[1] = ymin;
     this->Origin[2] = zmin;
 
-    if ( (length = xmin - xmax) == 0.0 ) length = 1.0;
+    if ( (length = xmax - xmin) == 0.0 ) length = 1.0;
     this->AspectRatio[0] = 1.0;
     this->AspectRatio[1] = (ymax - ymin) / length;
     this->AspectRatio[2] = (zmax - zmin) / length;
