@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestCxxFeatures.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-31 21:43:49 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2003-02-03 15:25:37 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -316,6 +316,7 @@ int TestNonTypeTemplate()
 
 //----------------------------------------------------------------------------
 
+#if !defined(VTK_CXX_SGI)
 int TestBinaryWriting()
 {
   int result = 1;
@@ -327,6 +328,7 @@ int TestBinaryWriting()
     }
   return result;
 }
+#endif
 
 //----------------------------------------------------------------------------
 
@@ -344,6 +346,8 @@ int main()
   DO_TEST(TestFullySpecializedClass);
   DO_TEST(TestIfScope);
   DO_TEST(TestNonTypeTemplate);
+#if !defined(VTK_CXX_SGI)
   DO_TEST(TestBinaryWriting);
+#endif
   return result;
 }
