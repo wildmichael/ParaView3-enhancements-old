@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyLine.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 21:03:11 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1996-09-13 16:39:57 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -463,7 +463,7 @@ void vtkPolyLine::Contour(float value, vtkFloatScalars *cellScalars,
                          vtkFloatScalars *scalars)
 {
   int i;
-  vtkFloatScalars lineScalars(2);
+  vtkFloatScalars lineScalars(2); lineScalars.ReferenceCountingOff();
   static vtkLine line;
 
   for ( i=0; i<this->Points.GetNumberOfPoints()-1; i++)

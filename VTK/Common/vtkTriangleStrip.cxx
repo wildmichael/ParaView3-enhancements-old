@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleStrip.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 21:03:47 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1996-09-13 16:39:59 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -164,7 +164,7 @@ void vtkTriangleStrip::Contour(float value, vtkFloatScalars *cellScalars,
                               vtkFloatScalars *scalars)
 {
   int i;
-  vtkFloatScalars triScalars(3);
+  vtkFloatScalars triScalars(3); triScalars.ReferenceCountingOff();
   static vtkTriangle tri;
 
   for ( i=0; i<this->Points.GetNumberOfPoints()-2; i++)
