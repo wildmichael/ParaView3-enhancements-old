@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-03-01 19:42:25 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1999-04-15 18:56:32 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,7 +72,8 @@ public:
   // Specify the input data to map.
   void SetInput(vtkDataSet *in);
   void SetInput(vtkImageCache *cache)
-    {this->SetInput(cache->GetImageToStructuredPoints()->GetOutput());}
+    {vtkImageToStructuredPoints *tmp = cache->MakeImageToStructuredPoints();
+    this->SetInput(tmp->GetOutput()); tmp->Delete();}
   
   // Description:
   // Get the internal poly data mapper used to map data set to graphics system.
