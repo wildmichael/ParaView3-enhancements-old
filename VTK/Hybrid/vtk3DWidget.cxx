@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtk3DWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-03 14:33:41 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-04-04 18:52:44 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkCallbackCommand.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtk3DWidget, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtk3DWidget, "$Revision: 1.7 $");
 
 vtk3DWidget::vtk3DWidget()
 {
@@ -71,7 +71,7 @@ void vtk3DWidget::PlaceWidget()
 }
 
 void vtk3DWidget::PlaceWidget(float xmin, float xmax, float ymin, float ymax, 
-                            float zmin, float zmax)
+                              float zmin, float zmax)
 {
   float bounds[6];
 

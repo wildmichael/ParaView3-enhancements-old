@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBoxWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-03 14:52:29 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-04-04 18:52:44 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -97,6 +97,12 @@ public:
   // Methods that satisfy the superclass' API.
   virtual void SetEnabled(int);
   virtual void PlaceWidget(float bounds[6]);
+  void PlaceWidget()
+    {this->Superclass::PlaceWidget();}
+  void PlaceWidget(float xmin, float xmax, float ymin, float ymax, 
+                   float zmin, float zmax)
+    {this->Superclass::PlaceWidget(xmin,xmax,ymin,ymax,zmin,zmax);}
+
 
   // Description:
   // Get the planes describing the implicit function defined by the box

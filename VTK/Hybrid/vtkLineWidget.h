@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLineWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-03 14:53:26 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-04-04 18:52:44 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -95,6 +95,11 @@ public:
   // Methods that satisfy the superclass' API.
   virtual void SetEnabled(int);
   virtual void PlaceWidget(float bounds[6]);
+  void PlaceWidget()
+    {this->Superclass::PlaceWidget();}
+  void PlaceWidget(float xmin, float xmax, float ymin, float ymax, 
+                   float zmin, float zmax)
+    {this->Superclass::PlaceWidget(xmin,xmax,ymin,ymax,zmin,zmax);}
 
   // Description:
   // Set/Get the resolution (number of subdivisions) of the line.
@@ -159,8 +164,8 @@ public:
   // Description:
   // Get the line properties. The properties of the line when selected 
   // and unselected can be manipulated.
-  vtkSetObjectMacro(LineProperty,vtkProperty);
   vtkGetObjectMacro(LineProperty,vtkProperty);
+  vtkGetObjectMacro(SelectedLineProperty,vtkProperty);
   
 protected:
   vtkLineWidget();
