@@ -1,4 +1,4 @@
-/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_strip.c,v 1.1 2002-01-29 22:38:23 andy Exp $ */
+/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_strip.c,v 1.2 2002-02-04 14:31:08 andy Exp $ */
 
 /*
  * Copyright (c) 1991-1997 Sam Leffler
@@ -159,7 +159,7 @@ _TIFFDefaultStripSize(TIFF* tif, uint32 s)
  * stored as separate planes.
  */
 tsize_t
-TIFFScanlineSize(TIFF* tif)
+TEXPORT TIFFScanlineSize(TIFF* tif)
 {
         TIFFDirectory *td = &tif->tif_dir;
         tsize_t scanline;

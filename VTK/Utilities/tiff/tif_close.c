@@ -1,4 +1,4 @@
-/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_close.c,v 1.1 2002-01-29 22:38:19 andy Exp $ */
+/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_close.c,v 1.2 2002-02-04 14:31:08 andy Exp $ */
 
 /*
  * Copyright (c) 1988-1997 Sam Leffler
@@ -30,7 +30,7 @@
 #include "tiffiop.h"
 
 void
-TIFFClose(TIFF* tif)
+TEXPORT TIFFClose(TIFF* tif)
 {
         if (tif->tif_mode != O_RDONLY)
                 /*

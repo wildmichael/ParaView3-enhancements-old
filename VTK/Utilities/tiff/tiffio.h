@@ -1,4 +1,4 @@
-/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tiffio.h,v 1.2 2002-02-04 01:53:22 andy Exp $ */
+/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tiffio.h,v 1.3 2002-02-04 14:31:08 andy Exp $ */
 
 /*
  * Copyright (c) 1988-1997 Sam Leffler
@@ -280,14 +280,14 @@ extern  int TIFFReassignTagToIgnore(enum TIFFIgnoreSense, int);
 
 #if defined(c_plusplus) || defined(__cplusplus)
 extern  void TIFFPrintDirectory(TIFF*, FILE*, long = 0);
-extern  int TIFFReadScanline(TIFF*, tdata_t, uint32, tsample_t = 0);
+TEXTERN int TEXPORT TIFFReadScanline(TIFF*, tdata_t, uint32, tsample_t = 0);
 extern  int TIFFWriteScanline(TIFF*, tdata_t, uint32, tsample_t = 0);
-TEXTERN  int TEXPORT TIFFReadRGBAImage(TIFF*, uint32, uint32, uint32*, int = 0);
+TEXTERN int TEXPORT TIFFReadRGBAImage(TIFF*, uint32, uint32, uint32*, int = 0);
 #else
 extern  void TIFFPrintDirectory(TIFF*, FILE*, long);
-extern  int TIFFReadScanline(TIFF*, tdata_t, uint32, tsample_t);
+TEXTERN int TEXPORT TIFFReadScanline(TIFF*, tdata_t, uint32, tsample_t);
 extern  int TIFFWriteScanline(TIFF*, tdata_t, uint32, tsample_t);
-TEXTERN  int TEXPORT TIFFReadRGBAImage(TIFF*, uint32, uint32, uint32*, int);
+TEXTERN int TEXPORT TIFFReadRGBAImage(TIFF*, uint32, uint32, uint32*, int);
 #endif
 
 extern  int TIFFReadRGBAStrip(TIFF*, tstrip_t, uint32 * );
