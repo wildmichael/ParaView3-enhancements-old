@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLY.h,v $
   Language:  C++
-  Date:      $Date: 2002-07-08 20:30:31 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-07-08 20:49:48 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -158,13 +158,13 @@ public:
   //standard PLY library interface
   static PlyFile *ply_write(FILE *, int, const char **, int);
   static PlyFile *ply_open_for_writing(char *, int, const char **, int, float *);
-  static void ply_describe_element(PlyFile *, char *, int, int, PlyProperty *);
-  static void ply_describe_property(PlyFile *, char *, PlyProperty *);
-  static void ply_element_count(PlyFile *, char *, int);
+  static void ply_describe_element(PlyFile *, const char *, int, int, PlyProperty *);
+  static void ply_describe_property(PlyFile *, const char *, PlyProperty *);
+  static void ply_element_count(PlyFile *, const char *, int);
   static void ply_header_complete(PlyFile *);
   static void ply_put_element_setup(PlyFile *, char *);
   static void ply_put_element(PlyFile *, void *);
-  static void ply_put_comment(PlyFile *, char *);
+  static void ply_put_comment(PlyFile *, const char *);
   static void ply_put_obj_info(PlyFile *, char *);
   static PlyFile *ply_read(FILE *, int *, char ***);
   static PlyFile *ply_open_for_reading( char *, int *, char ***, int *, float *);
@@ -186,7 +186,7 @@ public:
   // These methods are internal to the PLY library in the normal distribution
   // They should be used carefully
   static int equal_strings(const char *, const char *);
-  static PlyElement *find_element(PlyFile *, char *);
+  static PlyElement *find_element(PlyFile *, const char *);
   static PlyProperty *find_property(PlyElement *, const char *, int *);
   static void write_scalar_type (FILE *, int);
   static char **get_words(FILE *, int *, char **);
