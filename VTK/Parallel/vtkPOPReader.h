@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPOPReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:34:48 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-02-27 16:28:28 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -64,6 +64,11 @@ public:
   vtkSetVector6Macro(ClipExtent, int);
   vtkGetVector6Macro(ClipExtent, int);
 
+  // Description:
+  // Set the number of ghost levels to include in the data
+  vtkSetMacro(NumberOfGhostLevels, int);
+  vtkGetMacro(NumberOfGhostLevels, int);
+
 protected:
   vtkPOPReader();
   ~vtkPOPReader();
@@ -88,7 +93,8 @@ protected:
 
   float Radius;
   vtkFloatArray *DepthValues;
-  
+  int NumberOfGhostLevels;
+
   void DeleteArrays();
   void AddArray(char *arrayName, char *fileName, unsigned long offset);
   void AddArrayName(char *arrayName, char *fileName, unsigned long offset);

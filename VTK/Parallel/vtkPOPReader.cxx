@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPOPReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-07 19:34:14 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-02-27 16:28:28 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkImageWrapPad.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkPOPReader, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtkPOPReader, "$Revision: 1.11 $");
 vtkStandardNewMacro(vtkPOPReader);
 
 //----------------------------------------------------------------------------
@@ -59,6 +59,8 @@ vtkPOPReader::vtkPOPReader()
   this->ClipExtent[3] = VTK_LARGE_INTEGER;
   this->ClipExtent[4] = -VTK_LARGE_INTEGER;
   this->ClipExtent[5] = VTK_LARGE_INTEGER;
+
+  this->NumberOfGhostLevels = 1;
 } 
 
 //----------------------------------------------------------------------------
@@ -162,29 +164,54 @@ void vtkPOPReader::ExecuteInformation()
   zDim = this->DepthValues->GetNumberOfTuples();  
 
   // Clip should be no larger than the whole extent.
-  if (this->ClipExtent[0] < 0)
+  if (this->ClipExtent[0] < 0 ||
+      this->ClipExtent[0] - this->NumberOfGhostLevels < 0)
     {
     this->ClipExtent[0] = 0;
     }
-  if (this->ClipExtent[2] < 0)
+  else
+    {
+    this->ClipExtent[0] -= this->NumberOfGhostLevels;
+    }
+  if (this->ClipExtent[2] < this->NumberOfGhostLevels)
     {
     this->ClipExtent[2] = 0;
     }
-  if (this->ClipExtent[4] < 0)
+  else
+    {
+    this->ClipExtent[2] -= this->NumberOfGhostLevels;
+    }
+  if (this->ClipExtent[4] < this->NumberOfGhostLevels)
     {
     this->ClipExtent[4] = 0;
     }
-  if (this->ClipExtent[1] > xDim-1)
+  else
+    {
+    this->ClipExtent[4] -= this->NumberOfGhostLevels;
+    }
+  if (this->ClipExtent[1] > xDim-1 - this->NumberOfGhostLevels)
     {
     this->ClipExtent[1] = xDim-1;
     }
-  if (this->ClipExtent[3] > yDim-1)
+  else
+    {
+    this->ClipExtent[1] += this->NumberOfGhostLevels;
+    }
+  if (this->ClipExtent[3] > yDim-1 - this->NumberOfGhostLevels)
     {
     this->ClipExtent[3] = yDim-1;
     }
-  if (this->ClipExtent[5] > zDim-1)
+  else
+    {
+    this->ClipExtent[3] += this->NumberOfGhostLevels;
+    }
+  if (this->ClipExtent[5] > zDim-1 - this->NumberOfGhostLevels)
     {
     this->ClipExtent[5] = zDim-1;
+    }
+  else
+    {
+    this->ClipExtent[5] += this->NumberOfGhostLevels;
     }
 
   this->GetOutput()->SetWholeExtent(this->ClipExtent);
