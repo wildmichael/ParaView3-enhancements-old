@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkShrinkFilter.h,v $
   Language:  C++
-  Date:      $Date: 1994-05-31 14:16:07 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1994-07-13 16:32:32 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -13,9 +13,17 @@ written consent of the authors.
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-//
-// Shrinks arbitrary input
-//
+
+// .NAME vlShrinkFilter - shrink cells composing an arbitrary data set
+// .SECTION Description
+// vlShrinkFilter shrinks cells composing an arbitrary data set 
+// towards their centroid. The centroid of a cell is computed as 
+// the average position of the cell points. Shrinking results in 
+// disconencting the cells from one another.
+// .SECTION Caveats
+// It is possible to turn cells inside out or cause self intersection
+// in special cases.
+
 #ifndef __vlShrinkFilter_h
 #define __vlShrinkFilter_h
 
@@ -24,12 +32,16 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 class vlShrinkFilter : public vlDataSetToUnstructuredGridFilter
 {
 public:
-  vlShrinkFilter(const float sf=0.5) {this->ShrinkFactor = sf;};
+  vlShrinkFilter(float sf=0.5) {this->ShrinkFactor = sf;};
   ~vlShrinkFilter() {};
   char *GetClassName() {return "vlShrinkFilter";};
   void PrintSelf(ostream& os, vlIndent indent);
 
-  vlSetMacro(ShrinkFactor,float);
+  // Description:
+  // Set the fraction of shrink for each cell.
+  vlSetClampMacro(ShrinkFactor,float,0.0,1.0);
+  // Description:
+  // Get the fraction of shrink for each cell.
   vlGetMacro(ShrinkFactor,float);
 
 protected:

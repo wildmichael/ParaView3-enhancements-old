@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTransformFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-07-09 06:44:17 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-07-13 16:32:38 $
+  Version:   $Revision: 1.3 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -27,15 +27,26 @@ void vlTransformFilter::Execute()
   float *x, *v, *n, newX[3];
   vlPointData *pd;
   vlVectors *inVectors;
-  vlFloatVectors *newVectors=0;
+  vlFloatVectors *newVectors=NULL;
   vlNormals *inNormals;
-  vlFloatNormals *newNormals=0;
+  vlFloatNormals *newNormals=NULL;
   int numPts;
   vlTransform trans;
+
+  vlDebugMacro(<<"Executing transformation");
 //
 // Initialize
 //
   this->Initialize();
+
+//
+// Check input
+//
+  if ( this->Transform == NULL )
+    {
+    vlErrorMacro(<<"No transform defined!");
+    return;
+    }
 
   inPts = this->Input->GetPoints();
   pd = this->Input->GetPointData();
@@ -55,18 +66,18 @@ void vlTransformFilter::Execute()
 //
 // Loop over all points, updating position
 //
-  trans.MultiplyPoints(inPts,newPts);
+  this->Transform->MultiplyPoints(inPts,newPts);
 //
 // Ditto for vectors and normals
 //
   if ( inVectors )
     {
-    trans.MultiplyVectors(inVectors,newVectors);
+    this->Transform->MultiplyVectors(inVectors,newVectors);
     }
 
   if ( inNormals )
     {
-    trans.MultiplyNormals(inNormals,newNormals);
+    this->Transform->MultiplyNormals(inNormals,newNormals);
     }
 //
 // Update ourselves

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkShrinkFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-07-09 08:19:14 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1994-07-13 16:32:30 $
+  Version:   $Revision: 1.15 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -13,14 +13,8 @@ written consent of the authors.
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-//
-// Methods for shrink filter
-//
 #include "ShrinkF.hh"
 
-//
-// Shrink cells towards their centroid
-//
 void vlShrinkFilter::Execute()
 {
   vlIdList ptIds(MAX_CELL_SIZE), newPtIds(MAX_CELL_SIZE);

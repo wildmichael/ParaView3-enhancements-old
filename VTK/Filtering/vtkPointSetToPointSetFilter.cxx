@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointSetToPointSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-06-10 08:31:48 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-07-13 16:32:26 $
+  Version:   $Revision: 1.4 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -33,8 +33,12 @@ vlPointSetToPointSetFilter::~vlPointSetToPointSetFilter()
 void vlPointSetToPointSetFilter::Update()
 {
   vlPointData *pd;
+  vlPoints *points;
 
   vlPointSetFilter::Update();
+  // Copy data from this filter to internal data set.
+  pd = this->PointSet->GetPointData();
+  *pd = this->PointData;
 }
 
 void vlPointSetToPointSetFilter::Initialize()

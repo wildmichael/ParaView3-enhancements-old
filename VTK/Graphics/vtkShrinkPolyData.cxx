@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkShrinkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-05-15 19:17:18 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1994-07-13 16:32:34 $
+  Version:   $Revision: 1.15 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -13,15 +13,8 @@ written consent of the authors.
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-//
-// Methods for shrink filter
-//
 #include "ShrinkP.hh"
 
-//
-// Shrink verts, lines, polygons, triangle strips towards their centroid.
-// Polylines and triangle strips are broken into pieces.
-//
 void vlShrinkPolyData::Execute()
 {
   int i, j, k;
