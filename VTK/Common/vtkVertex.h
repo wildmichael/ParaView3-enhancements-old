@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVertex.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:38:59 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1995-08-23 16:32:19 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,8 +59,8 @@ public:
   int GetCellDimension() {return 0;};
   int GetNumberOfEdges() {return 0;};
   int GetNumberOfFaces() {return 0;};
-  vtkCell *GetEdge(int edgeId) {return 0;};
-  vtkCell *GetFace(int faceId) {return 0;};
+  vtkCell *GetEdge(int) {return 0;};
+  vtkCell *GetFace(int) {return 0;};
   int CellBoundary(int subId, float pcoords[3], vtkIdList& pts);
 
   void Contour(float value, vtkFloatScalars *cellScalars, 

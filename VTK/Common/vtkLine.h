@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLine.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:36:54 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1995-08-23 16:32:11 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,8 +60,8 @@ public:
   int GetCellDimension() {return 1;};
   int GetNumberOfEdges() {return 0;};
   int GetNumberOfFaces() {return 0;};
-  vtkCell *GetEdge(int edgeId) {return 0;};
-  vtkCell *GetFace(int faceId) {return 0;};
+  vtkCell *GetEdge(int) {return 0;};
+  vtkCell *GetFace(int) {return 0;};
 
   int CellBoundary(int subId, float pcoords[3], vtkIdList& pts);
   void Contour(float value, vtkFloatScalars *cellScalars, 

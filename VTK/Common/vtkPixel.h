@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPixel.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:37:28 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-08-23 16:32:13 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,7 +63,7 @@ public:
   int GetNumberOfEdges() {return 4;};
   int GetNumberOfFaces() {return 0;};
   vtkCell *GetEdge(int edgeId);
-  vtkCell *GetFace(int faceId) {return 0;};
+  vtkCell *GetFace(int) {return 0;};
 
   int CellBoundary(int subId, float pcoords[3], vtkIdList& pts);
   void Contour(float value, vtkFloatScalars *cellScalars, 

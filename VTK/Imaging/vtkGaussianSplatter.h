@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGaussianSplatter.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-01 10:45:42 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-08-23 16:32:20 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -149,7 +149,7 @@ protected:
   float Gaussian(float x[3]);  
   float EccentricGaussian(float x[3]);  
   float ScalarSampling(float s) {return this->ScaleFactor * s;};
-  float PositionSampling(float s) {return this->ScaleFactor;};
+  float PositionSampling(float) {return this->ScaleFactor;};
   void SetScalar(int idx, float dist2);
 
 };
