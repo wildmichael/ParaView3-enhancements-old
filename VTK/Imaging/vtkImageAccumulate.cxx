@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAccumulate.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:47:59 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-01-19 19:57:11 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -162,7 +162,8 @@ static void vtkImageAccumulateExecute(vtkImageAccumulate *self,
 	for (idxC = 0; idxC < numC; ++idxC)
 	  {
 	  // compute the index
-	  outIdx = (int)((*inPtrC - origin[idxC]) / spacing[idxC]);
+	  outIdx = (int)((*inPtrC - origin[idxC]) / spacing[idxC])
+	    - outExtent[idxC*2];
 	  if (outIdx < outExtent[idxC*2] || outIdx > outExtent[idxC*2+1])
 	    {
 	    // Out of bin range
