@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfVtkSupport.h,v 1.1 2002-12-02 17:11:03 clarke Exp $  */
-/*  Date : $Date: 2002-12-02 17:11:03 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfVtkSupport.h,v 1.2 2003-09-29 16:00:41 andy Exp $  */
+/*  Date : $Date: 2003-09-29 16:00:41 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -24,6 +24,7 @@
 /*******************************************************************/
 #ifndef __XdmfVtkSupport_h
 #define __XdmfVtkSupport_h
+
 
 
 #ifndef SWIG

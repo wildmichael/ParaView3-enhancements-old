@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfParameter.h,v 1.2 2003-04-09 19:57:26 andy Exp $  */
-/*  Date : $Date: 2003-04-09 19:57:26 $ */
-/*  Version : $Revision: 1.2 $ */
+/*  Id : $Id: XdmfParameter.h,v 1.3 2003-09-29 16:00:41 andy Exp $  */
+/*  Date : $Date: 2003-09-29 16:00:41 $ */
+/*  Version : $Revision: 1.3 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -28,8 +28,7 @@
 #define XDMF_PARAMETER_RANGE_TYPE  1
 #define XDMF_PARAMETER_LIST_TYPE  2
 
-#include "XdmfArray.h"
-#include "XdmfXNode.h"
+#include "XdmfObject.h"
 
 /*!
 This is the basic "looping" mechanism inside the XdmfDom.
@@ -37,6 +36,10 @@ It is used to enclose a group of elements, particularly
 for timesteps, so that data names with patterns can be easily
 defined.
 */
+
+class XdmfArray;
+class XdmfXNode;
+
 class XDMF_EXPORT XdmfParameter : public XdmfObject {
 
 public:

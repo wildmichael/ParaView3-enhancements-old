@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfXMLParser.h,v 1.1 2002-12-02 17:11:03 clarke Exp $  */
-/*  Date : $Date: 2002-12-02 17:11:03 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfXMLParser.h,v 1.2 2003-09-29 16:00:41 andy Exp $  */
+/*  Date : $Date: 2003-09-29 16:00:41 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -25,9 +25,13 @@
 #ifndef __XdmfXMLParser_h 
 #define __XdmfXMLParser_h
 
-#include <stdio.h>
-#include "expat.h"
 #include "XdmfDice.h"
+
+#if defined(__cplusplus)
+extern "C" {
+#endif 
+
+#include "expat.h"
 
 typedef struct {
         XDMF_TREE_NODE *Root;
@@ -62,6 +66,10 @@ extern int C_FindXMLNode(XDMF_TREE_NODE *tree, void *clientData);
 extern int C_FindXMLNodeByAttribute(XDMF_TREE_NODE *tree, void *clientData);
 extern int C_FindXMLNumberOfNodes(XDMF_TREE_NODE *tree, void *clientData);
 extern int C_FindXMLNumberOfNodesByAttribute(XDMF_TREE_NODE *tree, void *clientData);
+
+#if defined(__cplusplus)
+}
+#endif
 
 #endif 
 

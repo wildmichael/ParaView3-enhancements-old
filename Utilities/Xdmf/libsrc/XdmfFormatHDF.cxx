@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfFormatHDF.cxx,v 1.2 2003-03-04 15:24:31 andy Exp $  */
-/*  Date : $Date: 2003-03-04 15:24:31 $ */
-/*  Version : $Revision: 1.2 $ */
+/*  Id : $Id: XdmfFormatHDF.cxx,v 1.3 2003-09-29 16:00:41 andy Exp $  */
+/*  Date : $Date: 2003-09-29 16:00:41 $ */
+/*  Version : $Revision: 1.3 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -24,6 +24,10 @@
 /*******************************************************************/
 #include "XdmfFormatHDF.h"
 
+#include "XdmfDOM.h"
+#include "XdmfHDF.h"
+#include "XdmfArray.h"
+#include "XdmfDataDesc.h"
 
 #ifndef _WIN32
 #include <unistd.h>

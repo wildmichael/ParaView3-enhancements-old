@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfXNode.h,v 1.2 2003-06-26 18:02:27 andy Exp $  */
-/*  Date : $Date: 2003-06-26 18:02:27 $ */
-/*  Version : $Revision: 1.2 $ */
+/*  Id : $Id: XdmfXNode.h,v 1.3 2003-09-29 16:00:41 andy Exp $  */
+/*  Date : $Date: 2003-09-29 16:00:41 $ */
+/*  Version : $Revision: 1.3 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -29,14 +29,9 @@
 
 #ifdef __cplusplus
 
-#include <stdio.h>
-// #include <string>
-
-extern "C" {
-#include "XdmfDice.h"
-}
-
 #include "XdmfObject.h"
+
+#include "XdmfDice.h"
 
 /*!
 XdmfXNode : XDMF Runtime Expandable Structure.

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfArray.cxx,v 1.5 2003-09-18 14:38:51 andy Exp $  */
-/*  Date : $Date: 2003-09-18 14:38:51 $ */
-/*  Version : $Revision: 1.5 $ */
+/*  Id : $Id: XdmfArray.cxx,v 1.6 2003-09-29 16:00:41 andy Exp $  */
+/*  Date : $Date: 2003-09-29 16:00:41 $ */
+/*  Version : $Revision: 1.6 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -23,6 +23,8 @@
 /*                                                                 */
 /*******************************************************************/
 #include "XdmfArray.h"
+
+#include "XdmfArrayCopyMacro.h"
 
 #ifndef _WIN32
 #include <unistd.h>

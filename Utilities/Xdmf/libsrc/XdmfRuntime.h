@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfRuntime.h,v 1.3 2003-04-02 18:22:24 clarke Exp $  */
-/*  Date : $Date: 2003-04-02 18:22:24 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: XdmfRuntime.h,v 1.4 2003-09-29 16:00:41 andy Exp $  */
+/*  Date : $Date: 2003-09-29 16:00:41 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -25,12 +25,7 @@
 #ifndef __XdmfRuntime_h
 #define __XdmfRuntime_h
 
-#include "XdmfArray.h"
-#include "XdmfCharArray.h"
-
-
 #include "XdmfNDGM.h"
-#include "XdmfDOM.h"
 
 #define XDMF_FREE_RUN    0
 #define XDMF_SAFE    1
@@ -44,6 +39,10 @@ object and can access the code's internal data values.
 This object is used to listen for requests and set up
 the DOM so the parse routine can just walk the tree
 */
+
+class XdmfCharArray;
+class XdmfDOM;
+
 class XdmfRuntime : public XdmfNDGM {
 
 public:

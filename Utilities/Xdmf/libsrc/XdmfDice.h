@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDice.h,v 1.3 2003-08-29 12:10:09 andy Exp $  */
-/*  Date : $Date: 2003-08-29 12:10:09 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: XdmfDice.h,v 1.4 2003-09-29 16:00:41 andy Exp $  */
+/*  Date : $Date: 2003-09-29 16:00:41 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -24,6 +24,10 @@
 /*******************************************************************/
 #ifndef XDMF_LIST_INCLUDED
 #define XDMF_LIST_INCLUDED
+
+#if defined(__cplusplus)
+extern "C" {
+#endif 
 
 #include "ice.h"
 #include "stdio.h"
@@ -93,5 +97,9 @@ extern   ICE_32_INT  XdmfTree_walk(XDMF_TREE_NODE *this_node,
         ICE_32_INT (*node_list_call)(XDMF_TREE_NODE *, void *),
         void *clientdata);
 
+
+#if defined(__cplusplus)
+}
+#endif
 
 #endif /* XDMF_LIST_INCLUDED */

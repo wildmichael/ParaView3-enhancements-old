@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDOM.h,v 1.4 2003-06-26 18:02:26 andy Exp $  */
-/*  Date : $Date: 2003-06-26 18:02:26 $ */
-/*  Version : $Revision: 1.4 $ */
+/*  Id : $Id: XdmfDOM.h,v 1.5 2003-09-29 16:00:41 andy Exp $  */
+/*  Date : $Date: 2003-09-29 16:00:41 $ */
+/*  Version : $Revision: 1.5 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -27,25 +27,13 @@
 
 
 #include "XdmfObject.h"
-#include "XdmfParameter.h"
 #include "XdmfXNode.h"
-#include "XdmfHDF.h"
-#include "XdmfArray.h"
 
 #ifndef SWIG
-
-extern "C" {
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <string.h>
-#include "expat.h"
-#include "XdmfDice.h"
-#include "XdmfXMLParser.h"
-}
-
+#  include "XdmfXMLParser.h"
 #endif
 
-#include "XdmfExport.h"
+class XdmfParameter;
 
 /*!
 This is the Base XML Parsing Object. A XdmfDOM will 

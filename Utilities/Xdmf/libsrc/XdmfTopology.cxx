@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfTopology.cxx,v 1.2 2003-03-04 15:24:32 andy Exp $  */
-/*  Date : $Date: 2003-03-04 15:24:32 $ */
-/*  Version : $Revision: 1.2 $ */
+/*  Id : $Id: XdmfTopology.cxx,v 1.3 2003-09-29 16:00:41 andy Exp $  */
+/*  Date : $Date: 2003-09-29 16:00:41 $ */
+/*  Version : $Revision: 1.3 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -23,8 +23,12 @@
 /*                                                                 */
 /*******************************************************************/
 #include "XdmfTopology.h"
+
 #include "XdmfTransform.h"
 #include "XdmfFormatMulti.h"
+#include "XdmfArray.h"
+#include "XdmfDOM.h"
+#include "XdmfHDF.h"
 
 XdmfTopology *HandleToXdmfTopology( char *Source ){
   XdmfObject  *TempObj;
@@ -39,7 +43,8 @@ XdmfTopology::XdmfTopology() {
   XdmfInt64 Dimensions = 1;
   this->TopologyType = XDMF_NOTOPOLOGY;
   this->NodesPerElement = 0;
-  this->Shape.SetShape( 1, &Dimensions );
+  this->Shape = new XdmfDataDesc;
+  this->Shape->SetShape( 1, &Dimensions );
   this->Connectivity = NULL;
   this->ConnectivityIsMine = 1;
   this->OrderIsDefault = 1;
@@ -48,6 +53,11 @@ XdmfTopology::XdmfTopology() {
 
 XdmfTopology::~XdmfTopology() {
   if( this->ConnectivityIsMine && this->Connectivity ) delete this->Connectivity;
+  delete this->Shape;
+  }
+
+XdmfInt64 XdmfTopology::GetNumberOfElements( void ) {
+  return( this->Shape->GetNumberOfElements() );
   }
 
 XdmfInt32

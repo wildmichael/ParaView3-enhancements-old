@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDOM.cxx,v 1.4 2003-09-16 19:07:40 andy Exp $  */
-/*  Date : $Date: 2003-09-16 19:07:40 $ */
-/*  Version : $Revision: 1.4 $ */
+/*  Id : $Id: XdmfDOM.cxx,v 1.5 2003-09-29 16:00:41 andy Exp $  */
+/*  Date : $Date: 2003-09-29 16:00:41 $ */
+/*  Version : $Revision: 1.5 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -23,7 +23,9 @@
 /*                                                                 */
 /*******************************************************************/
 #include "XdmfDOM.h"
+
 #include "XdmfCharArray.h"
+#include "XdmfParameter.h"
 
 XdmfDOM *HandleToXdmfDOM( char *Source ){
   XdmfObject  *TempObj;

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfNDGM.h,v 1.3 2003-06-26 18:02:26 andy Exp $  */
-/*  Date : $Date: 2003-06-26 18:02:26 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: XdmfNDGM.h,v 1.4 2003-09-29 16:00:41 andy Exp $  */
+/*  Date : $Date: 2003-09-29 16:00:41 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -25,6 +25,8 @@
 #ifndef __XdmfNDGM_h
 #define __XdmfNDGM_h
 
+#include "XdmfDataDesc.h"
+
 #ifndef SWIG
 extern "C" {
 #ifdef HAVE_NDGM
@@ -38,13 +40,11 @@ extern "C" {
 }
 #endif /* SWIG */
 
-#include "XdmfHeavyData.h"
-#include "XdmfArray.h"
-
 #define XDMF_NDGM_MSG_SERVER  0
 #define XDMF_NDGM_MSG_CLIENT  1
 #define XDMF_NDGM_CLIENT  2
 
+class XdmfArray;
 
 /*!
 Object to Handle Low level NDGM Details

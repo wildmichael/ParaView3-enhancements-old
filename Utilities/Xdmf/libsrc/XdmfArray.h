@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfArray.h,v 1.2 2003-03-04 15:24:31 andy Exp $  */
-/*  Date : $Date: 2003-03-04 15:24:31 $ */
-/*  Version : $Revision: 1.2 $ */
+/*  Id : $Id: XdmfArray.h,v 1.3 2003-09-29 16:00:41 andy Exp $  */
+/*  Date : $Date: 2003-09-29 16:00:41 $ */
+/*  Version : $Revision: 1.3 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -25,9 +25,7 @@
 #ifndef __XdmfArray_h
 #define __XdmfArray_h
 
-#include "XdmfExport.h"
 #include "XdmfDataDesc.h"
-#include "XdmfArrayCopyMacro.h"
 
 #define XDMF_LONGEST_LENGTH     (XdmfInt64)~0
 #define XDMF_ARRAY_TAG_LENGTH  80

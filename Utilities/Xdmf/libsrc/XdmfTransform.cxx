@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfTransform.cxx,v 1.3 2003-09-18 14:39:11 andy Exp $  */
-/*  Date : $Date: 2003-09-18 14:39:11 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: XdmfTransform.cxx,v 1.4 2003-09-29 16:00:41 andy Exp $  */
+/*  Date : $Date: 2003-09-29 16:00:41 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -23,9 +23,12 @@
 /*                                                                 */
 /*******************************************************************/
 #include "XdmfTransform.h"
+
 #include "XdmfFormatMulti.h"
 #include "XdmfExpression.h"
 #include "XdmfArray.h"
+#include "XdmfXNode.h"
+#include "XdmfDOM.h"
 
 XdmfTransform::XdmfTransform() {
   strcpy( this->DataTransform, "XML" );
