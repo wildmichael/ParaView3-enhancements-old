@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:41:58 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1999-06-23 18:19:03 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -103,6 +103,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #define VTK_USE_VECTOR 0
 #define VTK_USE_NORMAL 1
+#define VTK_VECTOR_ROTATION_OFF 2
 
 #define VTK_INDEXING_OFF 0
 #define VTK_INDEXING_BY_SCALAR 1
@@ -205,6 +206,8 @@ public:
   vtkGetMacro(VectorMode,int);
   void SetVectorModeToUseVector() {this->SetVectorMode(VTK_USE_VECTOR);};
   void SetVectorModeToUseNormal() {this->SetVectorMode(VTK_USE_NORMAL);};
+  void SetVectorModeToVectorRotationOff() 
+    {this->SetVectorMode(VTK_VECTOR_ROTATION_OFF);};
   char *GetVectorModeAsString();
 
   // Description:
@@ -278,9 +281,13 @@ inline char *vtkGlyph3D::GetVectorModeAsString(void)
     {
     return "UseVector";
     }
-  else 
+  else if ( this->VectorMode == VTK_USE_NORMAL) 
     {
     return "UseNormal";
+    }
+  else 
+    {
+    return "VectorRotationOff";
     }
 }
 
