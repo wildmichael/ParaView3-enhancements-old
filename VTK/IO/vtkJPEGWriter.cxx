@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJPEGWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-31 23:13:18 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-07-10 18:20:29 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@ extern "C" {
 #include <jpeglib.h>
 }
 
-vtkCxxRevisionMacro(vtkJPEGWriter, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkJPEGWriter, "$Revision: 1.13 $");
 vtkStandardNewMacro(vtkJPEGWriter);
 
 vtkCxxSetObjectMacro(vtkJPEGWriter,Result,vtkUnsignedCharArray);
@@ -112,53 +112,62 @@ void vtkJPEGWriter::Write()
 }
 
 // these three routines are for wqriting into memory
-void vtkJPEGWriteToMemoryInit(j_compress_ptr cinfo)
+extern "C"
 {
-  vtkJPEGWriter *self = vtkJPEGWriter::SafeDownCast(
-    static_cast<vtkObject *>(cinfo->client_data));
-  if (self)
-    {
-    vtkUnsignedCharArray *uc = self->GetResult();
-    if (!uc || uc->GetReferenceCount() > 1)
+  void vtkJPEGWriteToMemoryInit(j_compress_ptr cinfo)
+  {
+    vtkJPEGWriter *self = vtkJPEGWriter::SafeDownCast(
+      static_cast<vtkObject *>(cinfo->client_data));
+    if (self)
       {
-      uc = vtkUnsignedCharArray::New();
-      self->SetResult(uc);
-      uc->Delete();
-      // start out with 10K as a guess for the image size
-      uc->Allocate(10000);
+      vtkUnsignedCharArray *uc = self->GetResult();
+      if (!uc || uc->GetReferenceCount() > 1)
+        {
+        uc = vtkUnsignedCharArray::New();
+        self->SetResult(uc);
+        uc->Delete();
+        // start out with 10K as a guess for the image size
+        uc->Allocate(10000);
+        }
+      cinfo->dest->next_output_byte = uc->GetPointer(0);
+      cinfo->dest->free_in_buffer = uc->GetSize();
       }
-    cinfo->dest->next_output_byte = uc->GetPointer(0);
-    cinfo->dest->free_in_buffer = uc->GetSize();
-    }
+  }
 }
 
-boolean vtkJPEGWriteToMemoryEmpty(j_compress_ptr cinfo)
+extern "C"
 {
-  vtkJPEGWriter *self = vtkJPEGWriter::SafeDownCast(
-    static_cast<vtkObject *>(cinfo->client_data));
-  if (self)
-    {
-    vtkUnsignedCharArray *uc = self->GetResult();
-    // we must grow the array, we grow by 50% each time
-    int oldSize = uc->GetSize();
-    uc->Resize(oldSize + oldSize/2);
-    cinfo->dest->next_output_byte = uc->GetPointer(oldSize);
-    cinfo->dest->free_in_buffer = oldSize/2;
-    }
-  return TRUE;
+  boolean vtkJPEGWriteToMemoryEmpty(j_compress_ptr cinfo)
+  {
+    vtkJPEGWriter *self = vtkJPEGWriter::SafeDownCast(
+      static_cast<vtkObject *>(cinfo->client_data));
+    if (self)
+      {
+      vtkUnsignedCharArray *uc = self->GetResult();
+      // we must grow the array, we grow by 50% each time
+      int oldSize = uc->GetSize();
+      uc->Resize(oldSize + oldSize/2);
+      cinfo->dest->next_output_byte = uc->GetPointer(oldSize);
+      cinfo->dest->free_in_buffer = oldSize/2;
+      }
+    return TRUE;
+  }
 }
 
-void vtkJPEGWriteToMemoryTerm(j_compress_ptr cinfo)
+extern "C"
 {
-  vtkJPEGWriter *self = vtkJPEGWriter::SafeDownCast(
-    static_cast<vtkObject *>(cinfo->client_data));
-  if (self)
-    {
-    vtkUnsignedCharArray *uc = self->GetResult();
-    // we must close the array
-    vtkIdType oldSize = uc->GetSize();
-    uc->SetNumberOfTuples(oldSize - static_cast<vtkIdType>(cinfo->dest->free_in_buffer));
-    }
+  void vtkJPEGWriteToMemoryTerm(j_compress_ptr cinfo)
+  {
+    vtkJPEGWriter *self = vtkJPEGWriter::SafeDownCast(
+      static_cast<vtkObject *>(cinfo->client_data));
+    if (self)
+      {
+      vtkUnsignedCharArray *uc = self->GetResult();
+      // we must close the array
+      vtkIdType oldSize = uc->GetSize();
+      uc->SetNumberOfTuples(oldSize - static_cast<vtkIdType>(cinfo->dest->free_in_buffer));
+      }
+  }
 }
 
 void vtkJPEGWriter::WriteSlice(vtkImageData *data)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-08 18:05:10 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-07-10 18:20:40 $
+  Version:   $Revision: 1.22 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -83,7 +83,7 @@ vtkXOpenGLRenderWindowInternal::vtkXOpenGLRenderWindowInternal(
 
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkXOpenGLRenderWindow, "$Revision: 1.21 $");
+vtkCxxRevisionMacro(vtkXOpenGLRenderWindow, "$Revision: 1.22 $");
 vtkStandardNewMacro(vtkXOpenGLRenderWindow);
 #endif
 
@@ -871,17 +871,20 @@ void vtkXOpenGLRenderWindow::MakeCurrent()
 
 int vtkXOpenGLRenderWindowFoundMatch;
 
-Bool vtkXOpenGLRenderWindowPredProc(Display *vtkNotUsed(disp), XEvent *event, 
-                              char *arg)
+extern "C"
 {
-  Window win = (Window)arg;
-  
-  if (((reinterpret_cast<XAnyEvent *>(event))->window == win) &&
-      ((event->type == ButtonPress)))
-    vtkXOpenGLRenderWindowFoundMatch = 1;
-
-  return 0;
-  
+  Bool vtkXOpenGLRenderWindowPredProc(Display *vtkNotUsed(disp), 
+                                      XEvent *event, 
+                                      char *arg)
+  {
+    Window win = (Window)arg;
+    
+    if (((reinterpret_cast<XAnyEvent *>(event))->window == win) &&
+        ((event->type == ButtonPress)))
+      vtkXOpenGLRenderWindowFoundMatch = 1;
+    
+    return 0; 
+  }
 }
 
 void *vtkXOpenGLRenderWindow::GetGenericContext()

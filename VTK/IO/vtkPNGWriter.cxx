@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNGWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-31 23:13:18 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-07-10 18:20:29 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 
 #include <png.h>
 
-vtkCxxRevisionMacro(vtkPNGWriter, "$Revision: 1.13 $");
+vtkCxxRevisionMacro(vtkPNGWriter, "$Revision: 1.14 $");
 vtkStandardNewMacro(vtkPNGWriter);
 
 vtkCxxSetObjectMacro(vtkPNGWriter,Result,vtkUnsignedCharArray);
@@ -107,23 +107,29 @@ void vtkPNGWriter::Write()
   this->InternalFileName = NULL;
 }
 
-void vtkPNGWriteInit(png_structp png_ptr, png_bytep data, 
-                     png_size_t sizeToWrite)
+extern "C"
 {
-  vtkPNGWriter *self = 
-    vtkPNGWriter::SafeDownCast(static_cast<vtkObject *>
-                               (png_get_io_ptr(png_ptr)));
-  if (self)
-    {
+  void vtkPNGWriteInit(png_structp png_ptr, png_bytep data, 
+                       png_size_t sizeToWrite)
+  {
+    vtkPNGWriter *self = 
+      vtkPNGWriter::SafeDownCast(static_cast<vtkObject *>
+                                 (png_get_io_ptr(png_ptr)));
+    if (self)
+      {
       vtkUnsignedCharArray *uc = self->GetResult();
       // write to the uc array
       unsigned char *ptr = uc->WritePointer(uc->GetMaxId()+1,sizeToWrite);
       memcpy(ptr, data, sizeToWrite);
-    }
+      }
+  }
 }
 
-void vtkPNGWriteFlush(png_structp vtkNotUsed(png_ptr))
+extern "C"
 {
+  void vtkPNGWriteFlush(png_structp vtkNotUsed(png_ptr))
+  {
+  }
 }
 
 
