@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGraphLayoutFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-26 15:17:26 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-09-10 20:38:45 $
+  Version:   $Revision: 1.4 $
   Thanks:    Scott Hill of RPI for developing this class
              Mark Lacy for Procter & Gamble for support
 
@@ -177,7 +177,12 @@ void vtkGraphLayoutFilter::Execute()
   float volume = (this->GraphBounds[1] - this->GraphBounds[0]) *
     (this->GraphBounds[3] - this->GraphBounds[2]) *
     (this->GraphBounds[5] - this->GraphBounds[4]);
-  float temp = 1000.0;
+  float temp = sqrt( (this->GraphBounds[1]-this->GraphBounds[0])*
+                     (this->GraphBounds[1]-this->GraphBounds[0]) +
+                     (this->GraphBounds[3]-this->GraphBounds[2])*
+                     (this->GraphBounds[3]-this->GraphBounds[2]) +
+                     (this->GraphBounds[5]-this->GraphBounds[4])*
+                     (this->GraphBounds[5]-this->GraphBounds[4]) );
   // The optimal distance between vertices.
   float k = pow((double)volume/numPts,0.33333);
 
