@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-29 20:48:23 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2003-08-15 20:52:28 $
+  Version:   $Revision: 1.38 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkPiecewiseFunction.h"
 #include "vtkColorTransferFunction.h"
 
-vtkCxxRevisionMacro(vtkVolumeProperty, "$Revision: 1.37 $");
+vtkCxxRevisionMacro(vtkVolumeProperty, "$Revision: 1.38 $");
 vtkStandardNewMacro(vtkVolumeProperty);
 
 // Construct a new vtkVolumeProperty with default values
@@ -43,7 +43,7 @@ vtkVolumeProperty::vtkVolumeProperty()
     this->DefaultGradientOpacity[i]          = NULL;
     this->DisableGradientOpacity[i]          = 0;
     
-    this->ComponentWeight[i]                 = 0.0;
+    this->ComponentWeight[i]                 = 1.0;
 
     this->Shade[i]                           = 0;  
     this->Ambient[i]                         = 0.1;
@@ -51,8 +51,6 @@ vtkVolumeProperty::vtkVolumeProperty()
     this->Specular[i]                        = 0.2;
     this->SpecularPower[i]                   = 10.0;
     }
-
-  this->ComponentWeight[0]                   = 1.0;
 }
 
 // Destruct a vtkVolumeProperty
