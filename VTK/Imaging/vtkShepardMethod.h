@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShepardMethod.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:47:25 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1998-08-29 20:31:00 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -90,10 +90,8 @@ public:
 
   // Description:
   // Specify the position in space to perform the sampling.
-  vtkSetVectorMacro(ModelBounds,float,6);
+  vtkSetVector6Macro(ModelBounds,float);
   vtkGetVectorMacro(ModelBounds,float,6);
-  void SetModelBounds(float xmin, float xmax, float ymin, float ymax, 
-                      float zmin, float zmax);
 
   // Description:
   // Set the Null value for output points not receiving a contribution from the

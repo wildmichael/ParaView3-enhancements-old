@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutlineSource.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:46:01 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1998-08-29 20:30:54 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,7 +58,7 @@ public:
 
   // Description:
   // Specify the bounding box for this object.
-  vtkSetVectorMacro(Bounds,float,6);
+  vtkSetVector6Macro(Bounds,float);
   vtkGetVectorMacro(Bounds,float,6);
 
 protected:

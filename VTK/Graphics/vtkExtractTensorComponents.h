@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractTensorComponents.h,v $
   Language:  C++
-  Date:      $Date: 1998-07-01 12:41:28 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-08-29 20:30:48 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -117,7 +117,7 @@ public:
   // Description:
   // Specify the ((row,column)0,(row,column)1,(row,column)2) tensor
   // components to extract as a vector.
-  vtkSetVectorMacro(VectorComponents,int,6);
+  vtkSetVector6Macro(VectorComponents,int);
   vtkGetVectorMacro(VectorComponents,int,6);
 
 
@@ -137,7 +137,7 @@ public:
   // Description:
   // Specify the ((row,column)0,(row,column)1,(row,column)2) tensor
   // components to extract as a vector.
-  vtkSetVectorMacro(NormalComponents,int,6);
+  vtkSetVector6Macro(NormalComponents,int);
   vtkGetVectorMacro(NormalComponents,int,6);
 
 
@@ -156,7 +156,7 @@ public:
   // Specify the ((row,column)0,(row,column)1,(row,column)2) tensor
   // components to extract as a vector. Up to NumberOfTCoords
   // components are extracted.
-  vtkSetVectorMacro(TCoordComponents,int,6);
+  vtkSetVector6Macro(TCoordComponents,int);
   vtkGetVectorMacro(TCoordComponents,int,6);
 
 protected:

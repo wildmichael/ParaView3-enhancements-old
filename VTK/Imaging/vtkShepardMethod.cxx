@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShepardMethod.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-23 19:13:27 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1998-08-29 20:30:59 $
+  Version:   $Revision: 1.23 $
   Thanks:    Paul A, Hsieh for bug fixes
 
 
@@ -62,20 +62,6 @@ vtkShepardMethod::vtkShepardMethod()
   this->SampleDimensions[2] = 50;
 
   this->NullValue = 0.0;
-}
-
-void vtkShepardMethod::SetModelBounds(float xmin, float xmax, float ymin, float ymax, float zmin, float zmax)
-{
-  float bounds[6];
-
-  bounds[0] = xmin;
-  bounds[1] = xmax;
-  bounds[2] = ymin;
-  bounds[3] = ymax;
-  bounds[4] = zmin;
-  bounds[5] = zmax;
-
-  this->SetModelBounds(bounds);
 }
 
 // Description:

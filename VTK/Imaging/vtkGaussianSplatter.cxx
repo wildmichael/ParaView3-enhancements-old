@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGaussianSplatter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:04:01 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1998-08-29 20:30:51 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,21 +70,6 @@ vtkGaussianSplatter::vtkGaussianSplatter()
 
   this->Capping = 1;
   this->CapValue = 0.0;
-}
-
-void vtkGaussianSplatter::SetModelBounds(float xmin, float xmax, float ymin, 
-                                         float ymax, float zmin, float zmax)
-{
-  float bounds[6];
-
-  bounds[0] = xmin;
-  bounds[1] = xmax;
-  bounds[2] = ymin;
-  bounds[3] = ymax;
-  bounds[4] = zmin;
-  bounds[5] = zmax;
-
-  this->SetModelBounds(bounds);
 }
 
 //

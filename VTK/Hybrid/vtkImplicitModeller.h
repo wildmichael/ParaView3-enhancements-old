@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitModeller.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:04:09 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1998-08-29 20:30:54 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -101,9 +101,8 @@ public:
   // Description:
   // Specify the region in space in which to perform the sampling. If
   // not specified, it will be computed automatically.
-  vtkSetVectorMacro(ModelBounds,float,6);
+  vtkSetVector6Macro(ModelBounds,float);
   vtkGetVectorMacro(ModelBounds,float,6);
-  void SetModelBounds(float xmin, float xmax, float ymin, float ymax, float zmin, float zmax);
 
   // Description:
   // Control how the model bounds are computed. If the ivar AdjustBounds

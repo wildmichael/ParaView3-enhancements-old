@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractVOI.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:44:31 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1998-08-29 20:30:50 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -76,9 +76,8 @@ public:
   // Specify i-j-k (min,max) pairs to extract. The resulting structured points
   // dataset can be of any topological dimension (i.e., point, line, image, 
   // or volume). 
-  vtkSetVectorMacro(VOI,int,6);
+  vtkSetVector6Macro(VOI,int);
   vtkGetVectorMacro(VOI,int,6);
-  void SetVOI(int imin, int imax, int jmin, int jmax, int kmin, int kmax);
 
   // Description:
   // Set the sampling rate in the i, j, and k directisons. If the rate is > 1, 

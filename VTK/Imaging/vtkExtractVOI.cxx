@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractVOI.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-23 19:13:08 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1998-08-29 20:30:49 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,21 +48,6 @@ vtkExtractVOI::vtkExtractVOI()
   this->VOI[1] = this->VOI[3] = this->VOI[5] = VTK_LARGE_INTEGER;
 
   this->SampleRate[0] = this->SampleRate[1] = this->SampleRate[2] = 1;
-}
-
-void vtkExtractVOI::SetVOI(int imin, int imax, int jmin, int jmax, 
-                                       int kmin, int kmax)
-{
-  int dim[6];
-
-  dim[0] = imin < imax ? imin : imax;
-  dim[1] = imax > imin ? imax : imin;
-  dim[2] = jmin < jmax ? jmin : jmax;
-  dim[3] = jmax > jmin ? jmax : jmin;
-  dim[4] = kmin < kmax ? kmin : kmax;
-  dim[5] = kmax > kmin ? kmax : kmin;
-
-  this->SetVOI(dim);
 }
 
 void vtkExtractVOI::Execute()

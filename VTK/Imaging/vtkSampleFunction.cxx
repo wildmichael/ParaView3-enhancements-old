@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSampleFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-23 19:13:26 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1998-08-29 20:30:57 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -102,23 +102,6 @@ void vtkSampleFunction::SetSampleDimensions(int dim[3])
       this->SampleDimensions[i] = (dim[i] > 0 ? dim[i] : 1);
     this->Modified();
     }
-}
-
-// Description:
-// Specify the region in space over which the sampling occurs.
-void vtkSampleFunction::SetModelBounds(float xmin, float xmax, float ymin, 
-                                       float ymax, float zmin, float zmax)
-{
-  float bounds[6];
-
-  bounds[0] = xmin;
-  bounds[1] = xmax;
-  bounds[2] = ymin;
-  bounds[3] = ymax;
-  bounds[4] = zmin;
-  bounds[5] = zmax;
-
-  this->SetModelBounds(bounds);
 }
 
 void vtkSampleFunction::Execute()
