@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBandedPolyDataContourFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-17 14:30:07 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-01-20 17:48:01 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -118,6 +118,21 @@ public:
     {this->SetScalarMode(VTK_SCALAR_MODE_VALUE);}
   
   // Description:
+  // Turn on/off a flag to control whether contour edges are generated.
+  // Contour edges are the edges between bands. If enabled, they are 
+  // generated from polygons/triangle strips and placed into the second
+  // output (the ContourEdgesOutput).
+  vtkSetMacro(GenerateContourEdges,int);
+  vtkGetMacro(GenerateContourEdges,int);
+  vtkBooleanMacro(GenerateContourEdges,int);
+
+  // Description:
+  // Get the second output which contains the edges divinding the contour 
+  // bands. This output is empty unless GenerateContourEdges is enabled.
+  vtkPolyData *GetContourEdgesOutput()
+    {return static_cast<vtkPolyData *>(this->Outputs[1]);}
+
+  // Description:
   // Overload GetMTime because we delegate to vtkContourValues so its
   // modified time must be taken into account.
   unsigned long GetMTime();
@@ -147,6 +162,9 @@ protected:
   float *ClipValues;
   int   NumberOfClipValues;
   int ClipIndex[2]; //indices outside of this range (inclusive) are clipped
+  
+  //the second output
+  int GenerateContourEdges;
   
 private:
   vtkBandedPolyDataContourFilter(const vtkBandedPolyDataContourFilter&);  // Not implemented.
