@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPICommunicator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-21 14:50:02 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-08-22 12:42:12 $
+  Version:   $Revision: 1.27 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 
 #include "vtkMPI.h"
 
-vtkCxxRevisionMacro(vtkMPICommunicator, "$Revision: 1.26 $");
+vtkCxxRevisionMacro(vtkMPICommunicator, "$Revision: 1.27 $");
 vtkStandardNewMacro(vtkMPICommunicator);
 
 vtkCxxSetObjectMacro(vtkMPICommunicator,Group,vtkMPIGroup);
@@ -1094,13 +1094,15 @@ int vtkMPICommunicator::ReduceSum(double* data, double* to,
 int vtkMPICommunicator::ReduceAnd(bool* data, bool* to,
                                   int size, int root)
 {
+  int i;
+
   int *intsbuffer;
   int *intrbuffer;
 
   intsbuffer = new int[size]; 
   intrbuffer = new int[size]; 
 
-  for (int i = 0; i < size; ++i)
+  for (i = 0; i < size; ++i)
     {
     intsbuffer[i] = (data[i] ? 1 : 0);
     }
@@ -1110,7 +1112,7 @@ int vtkMPICommunicator::ReduceAnd(bool* data, bool* to,
                                  root, size, MPI_INT, 
                                  MPI_LAND, this->Comm->Handle));
 
-  for (int i = 0; i < size; ++i)
+  for (i = 0; i < size; ++i)
     {
     to[i] = (intrbuffer[i] == 1);
     }
@@ -1126,11 +1128,12 @@ int vtkMPICommunicator::ReduceOr(bool* data, bool* to,
 {
   int *intsbuffer;
   int *intrbuffer;
+  int i;
 
   intsbuffer = new int[size]; 
   intrbuffer = new int[size]; 
 
-  for (int i = 0; i < size; ++i)
+  for (i = 0; i < size; ++i)
     {
     intsbuffer[i] = (data[i] ? 1 : 0);
     }
@@ -1140,7 +1143,7 @@ int vtkMPICommunicator::ReduceOr(bool* data, bool* to,
                                  root, size, MPI_INT, 
                                  MPI_LOR, this->Comm->Handle));
 
-  for (int i = 0; i < size; ++i)
+  for (i = 0; i < size; ++i)
     {
     to[i] = (intrbuffer[i] == 1);
     }
