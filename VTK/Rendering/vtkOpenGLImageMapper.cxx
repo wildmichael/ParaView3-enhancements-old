@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-22 19:40:53 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2000-06-22 23:22:51 $
+  Version:   $Revision: 1.33 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -110,6 +110,12 @@ vtkOpenGLImageMapper::~vtkOpenGLImageMapper()
   (x) = (unsigned char)(val); \
 } 
 
+// pad an integer to a multiply of four, for OpenGL
+static inline vtkPadToFour(int n)
+{
+  return (((n+3)/4)*4);
+}
+
 //---------------------------------------------------------------
 // render the image by doing the following:
 // 1) apply shift and scale to pixel values
@@ -155,7 +161,7 @@ static void vtkOpenGLImageMapperRender(vtkOpenGLImageMapper *self,
   unsigned char *newPtr;
   if (bpp < 4)
     {
-    newPtr = new unsigned char[3*width*height + (3*width*height)%4];
+    newPtr = new unsigned char[vtkPadToFour(3*width*height)];
     }
   else
     {
@@ -285,7 +291,7 @@ static void vtkOpenGLImageMapperRenderShort(vtkOpenGLImageMapper *self,
   unsigned char *newPtr;
   if (bpp < 4)
     {
-    newPtr = new unsigned char[3*width*height + (4 - (3*width*height)%4)%4];
+    newPtr = new unsigned char[vtkPadToFour(3*width*height)];
     }
   else
     {
@@ -411,7 +417,7 @@ static void vtkOpenGLImageMapperRenderChar(vtkOpenGLImageMapper *self,
     unsigned char *newPtr;
     if (bpp < 4)
       {
-      newPtr = new unsigned char[3*width*height + (3*width*height)%4];
+      newPtr = new unsigned char[vtkPadToFour(3*width*height)];
       }
     else
       {
