@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRTAnalyticSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-06 19:08:25 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-08-28 12:38:08 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkRTAnalyticSource.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkRTAnalyticSource, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtkRTAnalyticSource, "$Revision: 1.11 $");
 vtkStandardNewMacro(vtkRTAnalyticSource);
 
 //----------------------------------------------------------------------------
@@ -142,7 +142,10 @@ void vtkRTAnalyticSource::ExecuteData(vtkDataObject *output)
   for (idxZ = 0; idxZ <= maxZ; idxZ++)
     {
     z = this->Center[2] - (idxZ + outExt[4]);
-    z /= (whlExt[5] - whlExt[4]);
+    if (whlExt[5] > whlExt[4])
+      {
+      z /= (whlExt[5] - whlExt[4]);
+      }
     zContrib = z * z;
     for (idxY = 0; !this->AbortExecute && idxY <= maxY; idxY++)
       {
@@ -152,14 +155,20 @@ void vtkRTAnalyticSource::ExecuteData(vtkDataObject *output)
         }
       count++;
       y = this->Center[1] - (idxY + outExt[2]);
-      y /= (whlExt[3] - whlExt[2]);
+      if (whlExt[3] > whlExt[2])
+        {
+        y /= (whlExt[3] - whlExt[2]);
+        }
       yContrib = y * y;
       for (idxX = 0; idxX <= maxX; idxX++)
         {
         // Pixel operation
         sum = zContrib + yContrib;
         x = this->Center[0] - (idxX + outExt[0]);
-        x /= (whlExt[1] - whlExt[0]);
+        if (whlExt[1] > whlExt[0])
+          {
+          x /= (whlExt[1] - whlExt[0]);
+          }
         sum = sum + (x * x);
         *outPtr = this->Maximum * exp(-sum * temp2) 
           + this->XMag*sin(this->XFreq*x)
