@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensors.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-13 22:12:44 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1995-07-19 16:49:35 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -22,8 +22,8 @@ vtkTensors::vtkTensors(int dim)
 
 void vtkTensors::GetTensor(int id, vtkTensor &ft)
 {
-  vtkTensor& t = this->GetTensor(id);
-  ft = t;
+  vtkTensor *t = this->GetTensor(id);
+  ft = *t;
 }
 
 void vtkTensors::InsertTensor(int id, float t11, float t12, float t13, 
