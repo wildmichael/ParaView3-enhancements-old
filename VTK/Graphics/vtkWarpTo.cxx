@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpTo.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-23 19:13:47 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1998-10-08 18:45:13 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,6 +40,13 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkWarpTo.h"
 #include "vtkMath.h"
+
+vtkWarpTo::vtkWarpTo() 
+{
+  this->ScaleFactor = 0.5; 
+  this->Absolute = 0;
+  this->Position[0] = this->Position[1] = this->Position[2] = 0.0;
+}
 
 void vtkWarpTo::Execute()
 {
