@@ -5,8 +5,8 @@
   Program:   Visualization Toolkit
   Module:  $RCSfile: vtkKdTree.cxx,v $
   Language:  C++
-  Date:    $Date: 2003-10-06 20:49:14 $
-  Version:   $Revision: 1.8 $
+  Date:    $Date: 2003-10-15 20:46:57 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -45,7 +45,7 @@
 
 #include <algorithm>
 
-vtkCxxRevisionMacro(vtkKdTree, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkKdTree, "$Revision: 1.9 $");
 
 // methods for vtkKdNode -------------------------------------------
 
@@ -1386,7 +1386,7 @@ void vtkKdTree::_Select(int dim, float *X, int L, int R, int K)
 
       N = R - L + 1;
       I = K - L + 1;
-      Z = log(N);
+      Z = log(static_cast<float>(N));
       S = static_cast<int>(.5 * exp(2*Z/3));
       SD = static_cast<int>(.5 * sqrt(Z*S*(N-S)/N) * sign(1 - N/2));
       LL = max(L, K - (I*S/N) + SD);
