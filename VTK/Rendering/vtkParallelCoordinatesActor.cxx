@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParallelCoordinatesActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-28 13:33:50 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-07-03 15:12:38 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to Kitware & RPI/SCOREC who supported the development
              of this class.
 
@@ -245,7 +245,7 @@ int vtkParallelCoordinatesActor::RenderOpaqueGeometry(vtkViewport *viewport)
 
 int vtkParallelCoordinatesActor::PlaceAxes(vtkViewport *viewport, int *vtkNotUsed(size))
 {
-  int i, j, id;
+  vtkIdType i, j, id;
   vtkDataObject *input = this->GetInput();
   vtkFieldData *field = input->GetFieldData();
   float v;
@@ -259,8 +259,8 @@ int vtkParallelCoordinatesActor::PlaceAxes(vtkViewport *viewport, int *vtkNotUse
   
   // Determine the shape of the field
   int numColumns = field->GetNumberOfComponents(); //number of "columns"
-  int numRows = VTK_LARGE_ID; //figure out number of rows
-  int numTuples;
+  vtkIdType numRows = VTK_LARGE_ID; //figure out number of rows
+  vtkIdType numTuples;
   vtkDataArray *array;
   for (i=0; i<field->GetNumberOfArrays(); i++)
     {
@@ -494,6 +494,4 @@ void vtkParallelCoordinatesActor::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Italic: " << (this->Italic ? "On\n" : "Off\n");
   os << indent << "Shadow: " << (this->Shadow ? "On\n" : "Off\n");
   os << indent << "Label Format: " << this->LabelFormat << "\n";
-  
-
 }

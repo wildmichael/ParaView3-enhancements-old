@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParallelCoordinatesActor.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:13 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2001-07-03 15:12:38 $
+  Version:   $Revision: 1.10 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -176,7 +176,7 @@ private:
   vtkDataObject *Input; //list of data sets to plot
 
   int IndependentVariables; //use column or row
-  int N; //the number of independent variables
+  vtkIdType N; //the number of independent variables
   vtkAxisActor2D **Axes; //an array of axes
   float *Mins; //minimum data value along this row/column
   float *Maxs; //maximum data value along this row/column

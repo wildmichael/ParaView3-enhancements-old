@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSelectPolyData.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:52 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-07-03 15:12:38 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -203,8 +203,7 @@ protected:
 
 private:
   vtkPolyData *Mesh;
-  void GetPointNeighbors (int ptId, vtkIdList *nei);
-
+  void GetPointNeighbors (vtkIdType ptId, vtkIdList *nei);
 };
 
 // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarTree.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-27 13:24:32 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2001-07-03 15:12:38 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -143,12 +143,12 @@ protected:
 
 private:
   float ScalarValue; //current scalar value for traversal
-  int TreeIndex; //traversal location within tree
-  int LeafOffset; //offset to leaf nodes of tree
+  vtkIdType TreeIndex; //traversal location within tree
+  vtkIdType LeafOffset; //offset to leaf nodes of tree
   int ChildNumber; //current child in traversal
   vtkIdType CellId; //current cell id being examined
-  int FindStartLeaf(int index, int level);
-  int FindNextLeaf(int index,int level);
+  int FindStartLeaf(vtkIdType index, int level);
+  int FindNextLeaf(vtkIdType index,int level);
 };
 
 #endif
