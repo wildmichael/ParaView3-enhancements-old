@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssignAttribute.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-25 21:02:43 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-09-26 22:12:35 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -104,6 +104,7 @@ void vtkAssignAttribute::Assign(const char* fieldName, int attributeType,
     return;
     }
 
+  this->Modified();
   delete[] this->FieldName;
   this->FieldName = new char[strlen(fieldName)+1];
   strcpy(this->FieldName, fieldName);
@@ -132,6 +133,7 @@ void vtkAssignAttribute::Assign(int inputAttributeType, int attributeType,
     return;
     }
 
+  this->Modified();
   this->AttributeType = attributeType;
   this->InputAttributeType = inputAttributeType;
   this->AttributeLocation = attributeLoc;

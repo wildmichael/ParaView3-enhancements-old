@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRearrangeFields.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-26 15:39:54 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-09-26 22:12:36 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -347,6 +347,7 @@ int vtkRearrangeFields::AddOperation(int operationType, const char* name,
   op->AttributeType = 0;
 
   this->AddOperation(op);
+  this->Modified();
   
   return op->Id;
 }
@@ -393,6 +394,7 @@ int vtkRearrangeFields::AddOperation(int operationType, int attributeType,
   op->Id = this->LastId++;
 
   this->AddOperation(op);
+  this->Modified();
 
   return op->Id;
 }
@@ -499,6 +501,7 @@ int vtkRearrangeFields::RemoveOperation(int operationType, const char* name,
   op = this->FindOperation(operationType, name, fromFieldLoc, toFieldLoc,
 			   before);
   if (!op) { return 0;}
+  this->Modified();
   this->DeleteOperation(op, before);
   return 1;
 }
@@ -511,6 +514,7 @@ int vtkRearrangeFields::RemoveOperation(int operationType, int attributeType,
   op = this->FindOperation(operationType, attributeType, fromFieldLoc, 
 			   toFieldLoc,  before);
   if (!op) { return 0;}
+  this->Modified();
   this->DeleteOperation(op, before);
   return 1;
 }

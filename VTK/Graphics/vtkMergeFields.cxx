@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeFields.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-26 21:32:26 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-09-26 22:12:35 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -96,6 +96,7 @@ void vtkMergeFields::SetOutputField(const char* name, int fieldLoc)
     return;
     }
 
+  this->Modified();
   this->FieldLocation = fieldLoc;
 
   delete[] this->FieldName;
@@ -142,6 +143,7 @@ void vtkMergeFields::Merge(int component, const char* arrayName,
     return;
     }
 
+  this->Modified();
   Component* comp = this->FindComponent(component);
   if ( comp )
     {

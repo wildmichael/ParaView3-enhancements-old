@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRearrangeFields.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-26 02:08:15 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-09-26 22:12:35 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -150,7 +150,12 @@ public:
 
   // Description:
   // Remove all operations.
-  void RemoveAllOperations() { this->LastId = 0; this->DeleteAllOperations(); }
+  void RemoveAllOperations() 
+    { 
+    this->Modified();
+    this->LastId = 0; 
+    this->DeleteAllOperations(); 
+    }
   
 //BTX
   enum FieldType

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSplitField.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-26 15:39:55 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-09-26 22:12:35 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -103,6 +103,7 @@ void vtkSplitField::SetInputField(const char* name, int fieldLoc)
     return;
     }
 
+  this->Modified();
   this->FieldLocation = fieldLoc;
   this->FieldType = vtkSplitField::NAME;
 
@@ -120,6 +121,7 @@ void vtkSplitField::SetInputField(int attributeType, int fieldLoc)
     return;
     }
 
+  this->Modified();
   this->FieldLocation = fieldLoc;
   this->FieldType = vtkSplitField::ATTRIBUTE;
   this->AttributeType = attributeType;
@@ -182,6 +184,7 @@ void vtkSplitField::Split(int component, const char* arrayName)
     return;
     }
 
+  this->Modified();
   Component* comp = this->FindComponent(component);
   // If component is already there, just reset the information
   if ( comp )
