@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConnectivityFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-05-30 13:53:49 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1996-07-03 19:04:31 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -314,7 +314,7 @@ void vtkConnectivityFilter::TraverseAndMark (int cellId)
 // Obtain the number of connected regions.
 int vtkConnectivityFilter::GetNumberOfExtractedRegions()
 {
-  return this->RegionSizes.GetSize();
+  return this->RegionSizes.GetMaxId() + 1;
 }
 
 // Description:
