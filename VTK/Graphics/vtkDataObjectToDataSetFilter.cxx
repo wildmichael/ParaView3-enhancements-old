@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObjectToDataSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-19 15:50:56 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-04-20 23:51:48 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1314,11 +1314,30 @@ void vtkDataObjectToDataSetFilter::UnRegister(vtkObject *o)
   // If we have two references and one of them is my data
   // and I am not being unregistered by my data, break the loop.
   if (this->ReferenceCount == 6 &&
-      this->PolyData->GetReferenceCount() == 1 &&
+      this->PolyData != o && this->StructuredGrid != o &&
+      this->UnstructuredGrid != o && this->StructuredPoints != o &&
+      this->RectilinearGrid != o &&
+      this->PolyData->GetNetReferenceCount() == 1 &&
       this->StructuredGrid->GetNetReferenceCount() == 1 &&
       this->UnstructuredGrid->GetNetReferenceCount() == 1 &&
       this->StructuredPoints->GetNetReferenceCount() == 1 &&
       this->RectilinearGrid->GetNetReferenceCount() == 1)
+    {
+    this->PolyData->SetSource(NULL);
+    this->StructuredGrid->SetSource(NULL);
+    this->UnstructuredGrid->SetSource(NULL);
+    this->StructuredPoints->SetSource(NULL);
+    this->RectilinearGrid->SetSource(NULL);
+    }
+  if (this->ReferenceCount == 5 &&
+      (this->PolyData == o || this->StructuredGrid == o ||
+       this->UnstructuredGrid == o || this->RectilinearGrid == o ||
+       this->StructuredPoints == o) &&
+      (this->PolyData->GetNetReferenceCount() +
+       this->StructuredPoints->GetNetReferenceCount() +
+       this->RectilinearGrid->GetNetReferenceCount() +
+       this->StructuredGrid->GetNetReferenceCount() +
+       this->UnstructuredGrid->GetNetReferenceCount()) == 6)
     {
     this->PolyData->SetSource(NULL);
     this->StructuredGrid->SetSource(NULL);
