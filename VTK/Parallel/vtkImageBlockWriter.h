@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageBlockWriter.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-06 19:58:18 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-10-06 12:39:53 $
+  Version:   $Revision: 1.2 $
   
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -86,6 +86,8 @@ public:
 protected:
   vtkImageBlockWriter();
   ~vtkImageBlockWriter();
+  vtkImageBlockWriter(const vtkImageBlockWriter&) {};
+  void operator=(const vtkImageBlockWriter&) {};
   
   char *FilePattern;
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageBlockReader.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-24 16:23:22 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-10-06 12:39:53 $
+  Version:   $Revision: 1.3 $
   
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -93,6 +93,8 @@ public:
 protected:
   vtkImageBlockReader();
   ~vtkImageBlockReader();
+  vtkImageBlockReader(const vtkImageBlockReader&) {};
+  void operator=(const vtkImageBlockReader&) {};
   
   char *FilePattern;
 
