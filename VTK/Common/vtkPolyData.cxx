@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:41:06 $
-  Version:   $Revision: 1.80 $
+  Date:      $Date: 1997-07-17 16:40:49 $
+  Version:   $Revision: 1.81 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,7 +66,11 @@ vtkPolyData::vtkPolyData ()
   this->Strips = NULL;
 
   // static variable, initialized only once.
-  if (!this->Dummy) this->Dummy = &StaticDummyObject;
+  if (!this->Dummy) 
+    {
+    this->Dummy = &StaticDummyObject;
+    this->Dummy->ReferenceCountingOff();
+    }
 
   this->Cells = NULL;
   this->Links = NULL;
