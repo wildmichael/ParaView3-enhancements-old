@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-08-25 14:50:45 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 1997-10-31 21:07:48 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -121,6 +121,9 @@ vtkColorScalars *vtkMapper::GetColors()
   int i, numPts;
   vtkColorScalars *colors;
   
+  // make sure we have an input
+  if (!this->Input) return NULL;
+    
   // get point data and scalars
   pd=this->Input->GetPointData();
   scalars=pd->GetScalars();
