@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangle.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-14 16:48:15 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1995-07-15 09:58:34 $
+  Version:   $Revision: 1.24 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -110,14 +110,17 @@ int vtkTriangle::EvaluatePosition(float x[3], float closestPoint[3],
     if ( pcoords[0] < 0.0 && pcoords[1] < 0.0 )
       {
       dist2 = math.Distance2BetweenPoints(x,pt3);
+      for (i=0; i<3; i++) closestPoint[i] = pt3[i];
       }
     else if ( pcoords[1] < 0.0 && pcoords[2] < 0.0 )
       {
       dist2 = math.Distance2BetweenPoints(x,pt1);
+      for (i=0; i<3; i++) closestPoint[i] = pt1[i];
       }
     else if ( pcoords[0] < 0.0 && pcoords[2] < 0.0 )
       {
       dist2 = math.Distance2BetweenPoints(x,pt2);
+      for (i=0; i<3; i++) closestPoint[i] = pt2[i];
       }
     else if ( pcoords[0] < 0.0 )
       {
