@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: Arrays.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-27 11:44:19 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-02-11 20:27:12 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,16 +20,17 @@
 // well as attribute data explicitly.
 
 // first include the required header files for the vtk classes we are using
+#include "vtkActor.h"
+#include "vtkCellArray.h"
+#include "vtkDoubleArray.h"
 #include "vtkFloatArray.h"
 #include "vtkIntArray.h"
-#include "vtkDoubleArray.h"
-#include "vtkCellArray.h"
+#include "vtkPointData.h"
 #include "vtkPoints.h"
+#include "vtkPolyData.h"
 #include "vtkPolyDataMapper.h"
 #include "vtkRenderWindow.h"
 #include "vtkRenderWindowInteractor.h"
-#include "vtkPolyData.h"
-#include "vtkActor.h"
 #include "vtkRenderer.h"
 
 int main( int argc, char *argv[] )

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: Example1.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:27:31 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-02-11 20:27:31 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,12 +16,17 @@
 
 =========================================================================*/
 // include OS specific include file to mix in X code
-#include "vtkRenderWindow.h"
-#include "vtkXRenderWindowInteractor.h"
-#include "vtkSphereSource.h"
+
+#include "vtkActor.h"
 #include "vtkConeSource.h"
 #include "vtkGlyph3D.h"
+#include "vtkPolyData.h"
 #include "vtkPolyDataMapper.h"
+#include "vtkRenderWindow.h"
+#include "vtkRenderer.h"
+#include "vtkSphereSource.h"
+#include "vtkXRenderWindowInteractor.h"
+
 #include <Xm/PushB.h>
 void quit_cb(Widget,XtPointer,XtPointer);
 main (int argc, char *argv[])

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: SGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-25 14:03:33 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-02-11 20:27:12 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,6 +28,7 @@
 #include "vtkFloatArray.h"
 #include "vtkHedgeHog.h"
 #include "vtkMath.h"
+#include "vtkPointData.h"
 #include "vtkPoints.h"
 #include "vtkPolyDataMapper.h"
 #include "vtkProperty.h"
