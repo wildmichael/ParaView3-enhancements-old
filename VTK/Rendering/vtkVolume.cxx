@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-24 17:30:49 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1999-02-24 19:27:47 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -304,8 +304,10 @@ void vtkVolume::Render( vtkRenderer *ren )
     }
 }
 
-void vtkVolume::ReleaseGraphicsResources(vtkRenderWindow *renWin)
+void vtkVolume::ReleaseGraphicsResources(vtkWindow *win)
 {
+  vtkRenderWindow *renWin = (vtkRenderWindow *)win;
+
   // pass this information onto the mapper
   if (this->VolumeMapper)
     {

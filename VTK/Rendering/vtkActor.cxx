@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-24 17:30:48 $
-  Version:   $Revision: 1.76 $
+  Date:      $Date: 1999-02-24 19:27:45 $
+  Version:   $Revision: 1.77 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -254,8 +254,10 @@ void vtkActor::RenderTranslucentGeometry(vtkViewport *vp)
     }
 }
 
-void vtkActor::ReleaseGraphicsResources(vtkRenderWindow *renWin)
+void vtkActor::ReleaseGraphicsResources(vtkWindow *win)
 {
+  vtkRenderWindow *renWin = (vtkRenderWindow *)win;
+
   // pass this information onto the mapper
   if (this->Mapper)
     {

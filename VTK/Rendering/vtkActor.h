@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.h,v $
   Language:  C++
-  Date:      $Date: 1999-02-24 17:30:48 $
-  Version:   $Revision: 1.65 $
+  Date:      $Date: 1999-02-24 19:27:45 $
+  Version:   $Revision: 1.66 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -100,14 +100,14 @@ class VTK_EXPORT vtkActor : public vtkProp3D
   virtual void Render(vtkRenderer *, vtkMapper *) {};
 
   // Description:
+  // Shallow copy of an actor.
+  vtkActor &operator=(const vtkActor& actor);
+
+  // Description:
   // Release any graphics resources that are being consumed by this actor.
   // The parameter RenderWindow could be used to determine which graphic
   // resources to release.
-  void ReleaseGraphicsResources(vtkRenderWindow *);
-
-  // Description:
-  // Shallow copy of an actor.
-  vtkActor &operator=(const vtkActor& actor);
+  void ReleaseGraphicsResources(vtkWindow *);
 
   // Description: 
   // Set/Get the property object that controls this actors surface

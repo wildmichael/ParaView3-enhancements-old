@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssembly.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-24 17:34:45 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1999-02-24 19:27:46 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkAssembly.h"
+#include "vtkRenderWindow.h"
 
 // Construct object with no children.
 vtkAssembly::vtkAssembly()
