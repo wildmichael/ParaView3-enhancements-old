@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-11 14:45:53 $
-  Version:   $Revision: 1.84 $
+  Date:      $Date: 2001-09-20 13:16:59 $
+  Version:   $Revision: 1.85 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -293,6 +293,7 @@ void vtkAppendPolyData::Execute()
   pPolys = newPolys->WritePointer(numPolys, sizePolys);
 
   // These are created manually for faster execution
+  // Uses the properties of the last input
   if ( ptList.IsAttributePresent(vtkDataSetAttributes::SCALARS) > -1 )
     {
     outputPD->CopyScalarsOff();
@@ -304,24 +305,28 @@ void vtkAppendPolyData::Execute()
     {
     outputPD->CopyVectorsOff();
     newPtVectors = inPD->GetActiveVectors()->MakeObject();
+    newPtVectors->SetName(inPD->GetActiveVectors()->GetName());
     newPtVectors->SetNumberOfTuples(numPts);
     }
   if ( ptList.IsAttributePresent(vtkDataSetAttributes::TENSORS) > -1 )
     {
     outputPD->CopyTensorsOff();
     newPtTensors = inPD->GetActiveTensors()->MakeObject();
+    newPtTensors->SetName(inPD->GetActiveTensors()->GetName());
     newPtTensors->SetNumberOfTuples(numPts);
     }
   if ( ptList.IsAttributePresent(vtkDataSetAttributes::NORMALS) > -1 )
     {
     outputPD->CopyNormalsOff();
     newPtNormals = inPD->GetActiveNormals()->MakeObject();
+    newPtNormals->SetName(inPD->GetActiveNormals()->GetName());
     newPtNormals->SetNumberOfTuples(numPts);
     }
   if ( ptList.IsAttributePresent(vtkDataSetAttributes::TCOORDS) > -1 )
     {
     outputPD->CopyTCoordsOff();
     newPtTCoords = inPD->GetActiveTCoords()->MakeObject();
+    newPtTCoords->SetName(inPD->GetActiveTCoords()->GetName());
     newPtTCoords->SetNumberOfTuples(numPts);
     }
 
