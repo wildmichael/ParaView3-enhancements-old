@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkApproximatingSubdivisionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:11:03 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2000-11-14 15:20:20 $
+  Version:   $Revision: 1.9 $
   Thanks:    This work was supported bt PHS Research Grant No. 1 P41 RR13218-01
              from the National Center for Research Resources
 
@@ -133,10 +133,42 @@ void vtkApproximatingSubdivisionFilter::Execute()
     inputDS->Squeeze();
     } // each level
 
-  output->SetPoints(inputDS->GetPoints());
-  output->SetPolys(inputDS->GetPolys());
-  output->GetPointData()->PassData(inputDS->GetPointData());
-  output->GetCellData()->PassData(inputDS->GetCellData());
+  // Get rid of ghost cells if we have to.
+  vtkGhostLevels *ghostLevels = inputDS->GetCellData()->GetGhostLevels();
+  int updateGhostLevel = output->GetUpdateGhostLevel();
+  
+  if (input->GetGhostLevel() > updateGhostLevel && ghostLevels != NULL)
+    { // filter the ghost cells.
+    vtkIdList *idList = vtkIdList::New();
+    vtkCellArray *tmpPolys = vtkCellArray::New();
+    int idx, num;
+
+    // Build up an id list.
+    num = inputDS->GetNumberOfCells();
+    for (idx = 0; idx < num; ++idx)
+      {
+      if (ghostLevels->GetGhostLevel(idx) <= updateGhostLevel)
+	{
+	idList->InsertNextId(idx);
+	}
+      }
+    
+    tmpPolys->Allocate(outputPolys->GetNumberOfCells() * 4);
+    output->SetPolys(tmpPolys);
+    output->CopyCells(inputDS, idList);
+    output->Squeeze();
+    tmpPolys->Delete();
+    tmpPolys = NULL;
+    idList->Delete();
+    idList = NULL;
+    }
+  else
+    { // just copy
+    output->SetPoints(inputDS->GetPoints());
+    output->SetPolys(inputDS->GetPolys());
+    output->GetPointData()->PassData(inputDS->GetPointData());
+    output->GetCellData()->PassData(inputDS->GetCellData());
+    }
   inputDS->Delete();
 }
 

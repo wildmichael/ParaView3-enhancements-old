@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLoopSubdivisionFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-01 16:28:27 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2000-11-14 15:20:20 $
+  Version:   $Revision: 1.6 $
   Thanks:    This work was supported bt PHS Research Grant No. 1 P41 RR13218-01
              from the National Center for Research Resources
 
@@ -89,6 +89,8 @@ protected:
   void GenerateSubdivisionPoints (vtkPolyData *inputDS, vtkIntArray *edgeData, vtkPoints *outputPts, vtkPointData *outputPD);
   void GenerateEvenStencil (int p1, vtkPolyData *polys, vtkIdList *stencilIds, float *weights);
   void GenerateOddStencil (int p1, int p2, vtkPolyData *polys, vtkIdList *stencilIds, float *weights);
+
+  void ComputeInputUpdateExtents(vtkDataObject *output);
 };
 
 #endif
