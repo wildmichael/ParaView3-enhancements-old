@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-27 14:27:44 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-08-22 18:39:30 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,7 +30,7 @@
 #include <math.h>
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkOpenGLActor, "$Revision: 1.24 $");
+vtkCxxRevisionMacro(vtkOpenGLActor, "$Revision: 1.25 $");
 vtkStandardNewMacro(vtkOpenGLActor);
 #endif
 
@@ -108,3 +108,8 @@ void vtkOpenGLActor::Render(vtkRenderer *ren, vtkMapper *mapper)
     }
 }
 
+//----------------------------------------------------------------------------
+void vtkOpenGLActor::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
+}

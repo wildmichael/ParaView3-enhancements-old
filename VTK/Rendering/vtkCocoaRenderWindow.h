@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCocoaRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-16 13:43:54 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-08-22 18:39:29 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -35,7 +35,7 @@ class VTK_RENDERING_EXPORT vtkCocoaRenderWindow : public vtkOpenGLRenderWindow
 {
 public:
   static vtkCocoaRenderWindow *New();
-  vtkTypeRevisionMacro(vtkCocoaRenderWindow,vtkRenderWindow);
+  vtkTypeRevisionMacro(vtkCocoaRenderWindow,vtkOpenGLRenderWindow);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

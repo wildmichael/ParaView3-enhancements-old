@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLVolumeProVG500Mapper.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:59 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-08-22 18:39:31 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -50,6 +50,7 @@ class VTK_VOLUMEPRO_EXPORT vtkOpenGLVolumeProVG500Mapper : public vtkVolumeProVG
 public:
   vtkTypeRevisionMacro(vtkOpenGLVolumeProVG500Mapper,vtkVolumeProVG500Mapper);
   static vtkOpenGLVolumeProVG500Mapper *New();
+  virtual void PrintSelf(ostream& os, vtkIndent indent);
 
 protected:
   vtkOpenGLVolumeProVG500Mapper() {};

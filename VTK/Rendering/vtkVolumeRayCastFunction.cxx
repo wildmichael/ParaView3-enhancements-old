@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-27 16:26:57 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-08-22 18:39:32 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkVolume.h"
 #include "vtkVolumeRayCastMapper.h"
 
-vtkCxxRevisionMacro(vtkVolumeRayCastFunction, "$Revision: 1.19 $");
+vtkCxxRevisionMacro(vtkVolumeRayCastFunction, "$Revision: 1.20 $");
 
 // Grab everything we need for rendering now. This procedure will be called
 // during the initialization phase of ray casting. It is called once per 
@@ -130,5 +130,8 @@ void vtkVolumeRayCastFunction::FunctionInitialize(
   this->SpecificFunctionInitialize( ren, vol, staticInfo, mapper );
 }
 
-
-
+//----------------------------------------------------------------------------
+void vtkVolumeRayCastFunction::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
+}

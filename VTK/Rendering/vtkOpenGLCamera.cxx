@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-13 20:44:11 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 2002-08-22 18:39:30 $
+  Version:   $Revision: 1.53 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,7 +30,7 @@
 #include "vtkgluPickMatrix.h"
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkOpenGLCamera, "$Revision: 1.52 $");
+vtkCxxRevisionMacro(vtkOpenGLCamera, "$Revision: 1.53 $");
 vtkStandardNewMacro(vtkOpenGLCamera);
 #endif
 
@@ -244,3 +244,8 @@ void vtkOpenGLCamera::UpdateViewport(vtkRenderer *ren)
   glScissor(lowerLeft[0],lowerLeft[1], usize, vsize);
 }
 
+//----------------------------------------------------------------------------
+void vtkOpenGLCamera::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
+}

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaPolyDataMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-12 14:49:01 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-08-22 18:39:30 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -34,6 +34,7 @@ class VTK_RENDERING_EXPORT vtkMesaPolyDataMapper2D : public vtkPolyDataMapper2D
 public:
   vtkTypeRevisionMacro(vtkMesaPolyDataMapper2D,vtkPolyDataMapper2D);
   static vtkMesaPolyDataMapper2D *New();
+  virtual void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Actually draw the poly data.

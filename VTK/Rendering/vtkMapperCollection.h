@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapperCollection.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-28 03:33:51 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-08-22 18:39:30 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -35,6 +35,7 @@ class VTK_RENDERING_EXPORT vtkMapperCollection : public vtkCollection
  public:
   static vtkMapperCollection *New();
   vtkTypeRevisionMacro(vtkMapperCollection,vtkCollection);
+  virtual void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Add an mapper to the list.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-28 03:33:51 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 2002-08-22 18:39:30 $
+  Version:   $Revision: 1.62 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,7 +29,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkLODActor, "$Revision: 1.61 $");
+vtkCxxRevisionMacro(vtkLODActor, "$Revision: 1.62 $");
 vtkStandardNewMacro(vtkLODActor);
 
 //----------------------------------------------------------------------------
@@ -375,4 +375,3 @@ void vtkLODActor::ShallowCopy(vtkProp *prop)
   // Now do superclass
   this->vtkActor::ShallowCopy(prop);
 }
-

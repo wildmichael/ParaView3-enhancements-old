@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-03 18:56:29 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2002-08-22 18:39:32 $
+  Version:   $Revision: 1.47 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #include "vtkTextProperty.h"
 #include "vtkViewport.h"
 
-vtkCxxRevisionMacro(vtkWin32OpenGLTextMapper, "$Revision: 1.46 $");
+vtkCxxRevisionMacro(vtkWin32OpenGLTextMapper, "$Revision: 1.47 $");
 vtkStandardNewMacro(vtkWin32OpenGLTextMapper);
 
 struct vtkFontStruct
@@ -444,3 +444,7 @@ void vtkWin32OpenGLTextMapper::RenderOverlay(vtkViewport* viewport,
   SelectObject(hdc, hOldFont);
 }
 
+void vtkWin32OpenGLTextMapper::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
+}

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLProperty.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:53 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-08-22 18:39:31 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,6 +32,7 @@ class VTK_RENDERING_EXPORT vtkOpenGLProperty : public vtkProperty
 public:
   static vtkOpenGLProperty *New();
   vtkTypeRevisionMacro(vtkOpenGLProperty,vtkProperty);
+  virtual void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Implement base class method.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLightCollection.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-28 03:33:51 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-08-22 18:39:30 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkLightCollection, "$Revision: 1.13 $");
+vtkCxxRevisionMacro(vtkLightCollection, "$Revision: 1.14 $");
 vtkStandardNewMacro(vtkLightCollection);
 
 // Add a light to the list.
@@ -38,9 +38,8 @@ vtkLight *vtkLightCollection::GetNextItem()
   return static_cast<vtkLight *>(this->GetNextItemAsObject());
 }
 
-
-
-
-
-
-
+//----------------------------------------------------------------------------
+void vtkLightCollection::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
+}

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32TextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-16 00:45:21 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2002-08-22 18:39:32 $
+  Version:   $Revision: 1.33 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkTextProperty.h"
 #include "vtkViewport.h"
 
-vtkCxxRevisionMacro(vtkWin32TextMapper, "$Revision: 1.32 $");
+vtkCxxRevisionMacro(vtkWin32TextMapper, "$Revision: 1.33 $");
 
 //----------------------------------------------------------------------------
 // Needed when we don't use the vtkStandardNewMacro.
@@ -190,5 +190,7 @@ void vtkWin32TextMapper::GetSize(vtkViewport* viewport, int *size)
   SelectObject(hdc, hOldFont);
 }
 
-
-
+void vtkWin32TextMapper::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
+}

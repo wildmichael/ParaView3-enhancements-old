@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaVolumeRayCastMapper.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-12 11:49:45 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-08-22 18:39:30 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -36,6 +36,7 @@ class VTK_RENDERING_EXPORT vtkMesaVolumeRayCastMapper : public vtkVolumeRayCastM
 public:
   static vtkMesaVolumeRayCastMapper *New();
   vtkTypeRevisionMacro(vtkMesaVolumeRayCastMapper,vtkVolumeRayCastMapper);
+  virtual void PrintSelf(ostream& os, vtkIndent indent);
 
 protected:
   vtkMesaVolumeRayCastMapper();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLLight.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:49 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-08-22 18:39:31 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,7 +30,7 @@
 
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkOpenGLLight, "$Revision: 1.17 $");
+vtkCxxRevisionMacro(vtkOpenGLLight, "$Revision: 1.18 $");
 vtkStandardNewMacro(vtkOpenGLLight);
 #endif
 
@@ -118,3 +118,8 @@ void vtkOpenGLLight::Render(vtkRenderer *vtkNotUsed(ren),int light_index)
   }
 }
 
+//----------------------------------------------------------------------------
+void vtkOpenGLLight::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
+}

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOOGLExporter.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-27 14:48:16 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-08-22 18:39:30 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -55,8 +55,8 @@ protected:
   char *FileName;
 
 private:
-  vtkOOGLExporter(const vtkOOGLExporter&);
-  void operator=(const vtkOOGLExporter&);
+  vtkOOGLExporter(const vtkOOGLExporter&); // Not implemented
+  void operator=(const vtkOOGLExporter&); // Not implemented
 };
 
 #endif

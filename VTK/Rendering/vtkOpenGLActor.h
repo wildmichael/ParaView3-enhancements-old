@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLActor.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:48 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-08-22 18:39:30 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -34,6 +34,7 @@ protected:
 public:
   static vtkOpenGLActor *New();
   vtkTypeRevisionMacro(vtkOpenGLActor,vtkActor);
+  virtual void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Actual actor render method.

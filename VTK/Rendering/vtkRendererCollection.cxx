@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRendererCollection.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-11 19:37:38 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2002-08-22 18:39:31 $
+  Version:   $Revision: 1.30 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 
 #include <stdlib.h>
 
-vtkCxxRevisionMacro(vtkRendererCollection, "$Revision: 1.29 $");
+vtkCxxRevisionMacro(vtkRendererCollection, "$Revision: 1.30 $");
 vtkStandardNewMacro(vtkRendererCollection);
 
 // Forward the Render() method to each renderer in the list.
@@ -66,5 +66,8 @@ void vtkRendererCollection::Render()
     }
 }
 
-
-
+//----------------------------------------------------------------------------
+void vtkRendererCollection::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
+}

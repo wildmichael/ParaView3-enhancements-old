@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-16 20:13:38 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2002-08-22 18:39:31 $
+  Version:   $Revision: 1.49 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -45,7 +45,7 @@
 
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkOpenGLTexture, "$Revision: 1.48 $");
+vtkCxxRevisionMacro(vtkOpenGLTexture, "$Revision: 1.49 $");
 vtkStandardNewMacro(vtkOpenGLTexture);
 #endif
 
@@ -435,4 +435,9 @@ unsigned char *vtkOpenGLTexture::ResampleToPowerOfTwo(int &xs, int &ys, unsigned
   ys = ysize;
   
   return tptr;
+}
+
+void vtkOpenGLTexture::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
 }

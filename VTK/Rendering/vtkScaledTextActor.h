@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScaledTextActor.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-05 10:25:20 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-08-22 18:39:31 $
+  Version:   $Revision: 1.27 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,6 +32,7 @@ class VTK_RENDERING_EXPORT vtkScaledTextActor : public vtkTextActor
 {
 public:
   vtkTypeRevisionMacro(vtkScaledTextActor,vtkTextActor);
+  virtual void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Instantiate object with a rectangle in normaled view coordinates

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEncodedGradientEstimator.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-27 14:36:48 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2002-08-22 18:39:30 $
+  Version:   $Revision: 1.30 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -44,7 +44,7 @@ class VTK_RENDERING_EXPORT vtkEncodedGradientEstimator : public vtkObject
 {
 public:
   vtkTypeRevisionMacro(vtkEncodedGradientEstimator,vtkObject);
-  void PrintSelf( ostream& os, vtkIndent index );
+  void PrintSelf( ostream& os, vtkIndent indent );
 
   // Description:
   // Set/Get the scalar input for which the normals will be 

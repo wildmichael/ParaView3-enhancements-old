@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLFreeTypeTextMapper.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-05 20:18:32 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-08-22 18:39:30 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -38,6 +38,7 @@ class VTK_RENDERING_EXPORT vtkOpenGLFreeTypeTextMapper : public vtkTextMapper
 public:
   vtkTypeRevisionMacro(vtkOpenGLFreeTypeTextMapper,vtkTextMapper);
   static vtkOpenGLFreeTypeTextMapper *New();
+  virtual void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Actally draw the text.

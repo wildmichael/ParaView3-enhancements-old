@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLVolumeTextureMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:02 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-08-22 18:39:31 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,7 +33,7 @@ class VTK_RENDERING_EXPORT vtkOpenGLVolumeTextureMapper2D : public vtkVolumeText
 {
 public:
   vtkTypeRevisionMacro(vtkOpenGLVolumeTextureMapper2D,vtkVolumeTextureMapper2D);
-  void PrintSelf( ostream& os, vtkIndent index );
+  void PrintSelf( ostream& os, vtkIndent indent );
 
   static vtkOpenGLVolumeTextureMapper2D *New();
   

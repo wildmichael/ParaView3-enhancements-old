@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMesaTextMapper.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-18 18:36:34 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-08-22 18:39:32 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -34,6 +34,7 @@ class VTK_RENDERING_EXPORT vtkXMesaTextMapper : public vtkXTextMapper
 public:
   vtkTypeRevisionMacro(vtkXMesaTextMapper,vtkXTextMapper);
   static vtkXMesaTextMapper *New();
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Actally draw the text.

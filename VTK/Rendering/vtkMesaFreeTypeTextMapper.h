@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaFreeTypeTextMapper.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-05 23:30:21 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-08-22 18:39:30 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -38,6 +38,7 @@ class VTK_RENDERING_EXPORT vtkMesaFreeTypeTextMapper : public vtkTextMapper
 public:
   vtkTypeRevisionMacro(vtkMesaFreeTypeTextMapper,vtkTextMapper);
   static vtkMesaFreeTypeTextMapper *New();
+  virtual void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Actally draw the text.

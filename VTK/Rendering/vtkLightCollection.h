@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLightCollection.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-28 03:33:51 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2002-08-22 18:39:30 $
+  Version:   $Revision: 1.43 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -36,6 +36,7 @@ class VTK_RENDERING_EXPORT vtkLightCollection : public vtkCollection
  public:
   static vtkLightCollection *New();
   vtkTypeRevisionMacro(vtkLightCollection,vtkCollection);
+  virtual void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Add a light to the list.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXPolyDataMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:58 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-08-22 18:39:32 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -35,6 +35,7 @@ class VTK_RENDERING_EXPORT vtkXPolyDataMapper2D : public vtkPolyDataMapper2D
 public:
   vtkTypeRevisionMacro(vtkXPolyDataMapper2D,vtkPolyDataMapper2D);
   static vtkXPolyDataMapper2D *New();
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Actually draw the poly data.

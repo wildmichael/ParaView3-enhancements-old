@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParallelCoordinatesActor.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-30 00:02:15 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-08-22 18:39:31 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -56,9 +56,13 @@
 #ifndef __vtkParallelCoordinatesActor_h
 #define __vtkParallelCoordinatesActor_h
 
-#include "vtkAxisActor2D.h"
+#include "vtkActor2D.h"
 
+class vtkAxisActor2D;
 class vtkDataObject;
+class vtkPolyData;
+class vtkPolyDataMapper2D;
+class vtkTextMapper;
 class vtkTextProperty;
 
 #define VTK_IV_COLUMN 0

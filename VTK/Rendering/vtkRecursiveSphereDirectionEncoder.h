@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRecursiveSphereDirectionEncoder.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:17 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-08-22 18:39:31 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -35,7 +35,7 @@ class VTK_RENDERING_EXPORT vtkRecursiveSphereDirectionEncoder : public vtkDirect
 {
 public:
   vtkTypeRevisionMacro(vtkRecursiveSphereDirectionEncoder,vtkDirectionEncoder);
-  void PrintSelf( ostream& os, vtkIndent index );
+  void PrintSelf( ostream& os, vtkIndent indent );
 
 // Description:
 // Construct the object. Initialize the index table which will be

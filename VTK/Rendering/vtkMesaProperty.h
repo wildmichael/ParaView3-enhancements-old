@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaProperty.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:45 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-08-22 18:39:30 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,6 +32,7 @@ class VTK_RENDERING_EXPORT vtkMesaProperty : public vtkProperty
 public:
   static vtkMesaProperty *New();
   vtkTypeRevisionMacro(vtkMesaProperty,vtkProperty);
+  virtual void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Implement base class method.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLLight.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:50 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-08-22 18:39:31 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,6 +32,7 @@ class VTK_RENDERING_EXPORT vtkOpenGLLight : public vtkLight
 public:
   static vtkOpenGLLight *New();
   vtkTypeRevisionMacro(vtkOpenGLLight,vtkLight);
+  virtual void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Implement base class method.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-27 14:27:44 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-08-22 18:39:30 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -47,7 +47,7 @@
 
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkOpenGLImageActor, "$Revision: 1.14 $");
+vtkCxxRevisionMacro(vtkOpenGLImageActor, "$Revision: 1.15 $");
 vtkStandardNewMacro(vtkOpenGLImageActor);
 #endif
 
@@ -404,5 +404,7 @@ void vtkOpenGLImageActor::Load(vtkRenderer *ren)
   glEnable( GL_LIGHTING );
 }
 
-
-
+void vtkOpenGLImageActor::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
+}

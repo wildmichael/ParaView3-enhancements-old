@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLTextMapper.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-15 03:19:26 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-08-22 18:39:32 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -34,6 +34,7 @@ class VTK_RENDERING_EXPORT vtkWin32OpenGLTextMapper : public vtkWin32TextMapper
 public:
   vtkTypeRevisionMacro(vtkWin32OpenGLTextMapper,vtkWin32TextMapper);
   static vtkWin32OpenGLTextMapper *New();
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Actally draw the text.

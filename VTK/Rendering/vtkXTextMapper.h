@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXTextMapper.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-30 00:57:05 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-08-22 18:39:32 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -41,6 +41,7 @@ class VTK_RENDERING_EXPORT vtkXTextMapper : public vtkTextMapper
 public:
   vtkTypeRevisionMacro(vtkXTextMapper,vtkTextMapper);
   static vtkXTextMapper *New();
+  virtual void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // What is the size of the rectangle required to draw this

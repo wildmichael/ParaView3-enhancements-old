@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLVolumeProVP1000Mapper.h,v $
   Language:  C++
-  Date:      $Date: 2002-02-01 16:31:06 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-08-22 18:39:31 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -50,12 +50,11 @@ class VTK_EXPORT vtkOpenGLVolumeProVP1000Mapper : public vtkVolumeProVP1000Mappe
 public:
   vtkTypeRevisionMacro(vtkOpenGLVolumeProVP1000Mapper,vtkVolumeProVP1000Mapper);
   static vtkOpenGLVolumeProVP1000Mapper *New();
+  virtual void PrintSelf(ostream& os, vtkIndent indent);
 
 protected:
-  vtkOpenGLVolumeProVP1000Mapper() {};
-  ~vtkOpenGLVolumeProVP1000Mapper() {};
-  vtkOpenGLVolumeProVP1000Mapper(const vtkOpenGLVolumeProVP1000Mapper&);
-  void operator=(const vtkOpenGLVolumeProVP1000Mapper&);
+  vtkOpenGLVolumeProVP1000Mapper();
+  ~vtkOpenGLVolumeProVP1000Mapper();
 
   // Render the hexagon returned by the hardware to the screen.
   void RenderImageBuffer( vtkRenderer  *ren,
@@ -71,6 +70,10 @@ protected:
   // Render a bounding box of the volume because the texture map would be
   // too large
   virtual void RenderBoundingBox(vtkRenderer *ren, vtkVolume *vol);
+
+private:
+  vtkOpenGLVolumeProVP1000Mapper(const vtkOpenGLVolumeProVP1000Mapper&); // Not implemented
+  void operator=(const vtkOpenGLVolumeProVP1000Mapper&); // Not implemented
 };
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLVolumeRayCastMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-31 17:26:24 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-08-22 18:39:31 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,7 +29,7 @@
 #include "vtkRenderer.h"
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkOpenGLVolumeRayCastMapper, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkOpenGLVolumeRayCastMapper, "$Revision: 1.16 $");
 vtkStandardNewMacro(vtkOpenGLVolumeRayCastMapper);
 #endif
 
@@ -387,3 +387,7 @@ void vtkOpenGLVolumeRayCastMapper::RenderTexture( vtkVolume *vol,
 #endif
 }
 
+void vtkOpenGLVolumeRayCastMapper::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
+}

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagingFactory.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-05 23:30:21 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-08-22 18:39:30 $
+  Version:   $Revision: 1.27 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -86,7 +86,7 @@
 static vtkSimpleCriticalSection vtkUseMesaClassesCriticalSection;
 int vtkImagingFactory::UseMesaClasses = 0;
 
-vtkCxxRevisionMacro(vtkImagingFactory, "$Revision: 1.26 $");
+vtkCxxRevisionMacro(vtkImagingFactory, "$Revision: 1.27 $");
 vtkStandardNewMacro(vtkImagingFactory);
 
 const char *vtkImagingFactoryGetRenderLibrary()
@@ -274,4 +274,10 @@ void vtkImagingFactory::SetUseMesaClasses(int use)
 int vtkImagingFactory::GetUseMesaClasses()
 {
   return vtkImagingFactory::UseMesaClasses;
+}
+
+//----------------------------------------------------------------------------
+void vtkImagingFactory::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
 }

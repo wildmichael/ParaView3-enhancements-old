@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastCompositeFunction.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:38 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2002-08-22 18:39:32 $
+  Version:   $Revision: 1.28 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -39,7 +39,7 @@ class VTK_RENDERING_EXPORT vtkVolumeRayCastCompositeFunction : public vtkVolumeR
 public:
   static vtkVolumeRayCastCompositeFunction *New();
   vtkTypeRevisionMacro(vtkVolumeRayCastCompositeFunction,vtkVolumeRayCastFunction);
-  void PrintSelf( ostream& os, vtkIndent index );
+  void PrintSelf( ostream& os, vtkIndent indent );
 
   // Description:
   // Set the CompositeMethod to either Classify First or Interpolate First

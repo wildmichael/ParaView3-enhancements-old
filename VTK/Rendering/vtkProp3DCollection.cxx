@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp3DCollection.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:09 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-08-22 18:39:31 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,5 +18,11 @@
 #include "vtkProp3DCollection.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkProp3DCollection, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkProp3DCollection, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkProp3DCollection);
+
+//----------------------------------------------------------------------------
+void vtkProp3DCollection::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
+}

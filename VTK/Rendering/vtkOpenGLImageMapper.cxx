@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-18 08:36:03 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2002-08-22 18:39:31 $
+  Version:   $Revision: 1.51 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -34,7 +34,7 @@
 #include <limits.h>
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkOpenGLImageMapper, "$Revision: 1.50 $");
+vtkCxxRevisionMacro(vtkOpenGLImageMapper, "$Revision: 1.51 $");
 vtkStandardNewMacro(vtkOpenGLImageMapper);
 #endif
 
@@ -673,4 +673,9 @@ void vtkOpenGLImageMapper::RenderData(vtkViewport* viewport,
 #if defined(sparc) && defined(GL_VERSION_1_1)
   glEnable(GL_BLEND);
 #endif
+}
+
+void vtkOpenGLImageMapper::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
 }

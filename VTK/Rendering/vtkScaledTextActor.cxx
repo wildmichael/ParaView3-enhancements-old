@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScaledTextActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-05 12:11:20 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-08-22 18:39:31 $
+  Version:   $Revision: 1.27 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkScaledTextActor.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkScaledTextActor, "$Revision: 1.26 $");
+vtkCxxRevisionMacro(vtkScaledTextActor, "$Revision: 1.27 $");
 vtkStandardNewMacro(vtkScaledTextActor);
 
 vtkScaledTextActor::vtkScaledTextActor()
@@ -29,3 +29,7 @@ vtkScaledTextActor::vtkScaledTextActor()
   this->SetScaledText(1);
 }
 
+void vtkScaledTextActor::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
+}

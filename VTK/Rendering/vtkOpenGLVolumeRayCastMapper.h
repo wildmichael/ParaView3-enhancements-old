@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLVolumeRayCastMapper.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:01 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-08-22 18:39:31 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -43,6 +43,7 @@ class VTK_RENDERING_EXPORT vtkOpenGLVolumeRayCastMapper : public vtkVolumeRayCas
 public:
   static vtkOpenGLVolumeRayCastMapper *New();
   vtkTypeRevisionMacro(vtkOpenGLVolumeRayCastMapper,vtkVolumeRayCastMapper);
+  virtual void PrintSelf(ostream& os, vtkIndent indent);
 
 protected:
   vtkOpenGLVolumeRayCastMapper();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEncodedGradientShader.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:31 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-08-22 18:39:30 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -49,7 +49,7 @@ public:
 
   // Description:
   // Print the vtkEncodedGradientShader
-  void PrintSelf( ostream& os, vtkIndent index );
+  void PrintSelf( ostream& os, vtkIndent indent );
 
   // Description:
   // Set / Get the intensity diffuse / specular light used for the
