@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMatrix4x4.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-28 05:43:58 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2001-05-28 05:46:12 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -125,13 +125,6 @@ void vtkMatrix4x4::PointMultiply(const double Elements[16],
   double newElements[16];
   vtkMatrix4x4::Transpose(Elements,newElements);
   vtkMatrix4x4::MultiplyPoint(newElements,in,result);
-}
-
-//----------------------------------------------------------------------------
-void vtkMatrix4x4::PointMultiply(const double in[4],double result[4])
-{
-  vtkMatrix4x4::PointMultiply(&this->Element[0][0], in, result);
-  VTK_LEGACY_METHOD(PointMultiply,"3.2");
 }
 
 //----------------------------------------------------------------------------
