@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-09 07:38:02 $
-  Version:   $Revision: 1.63 $
+  Date:      $Date: 2000-08-13 22:10:38 $
+  Version:   $Revision: 1.64 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -51,7 +51,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkPyramid.h"
 
 
-//------------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 vtkGeometryFilter* vtkGeometryFilter::New()
 {
   // First try to create the object from the vtkObjectFactory
@@ -160,6 +160,11 @@ void vtkGeometryFilter::Execute()
   vtkPolyData *output = this->GetOutput();
   vtkPointData *outputPD = output->GetPointData();
   vtkCellData *outputCD = output->GetCellData();
+
+  if (numCells == 0)
+    {
+    return;
+    }
 
   switch (input->GetDataObjectType())
     {
