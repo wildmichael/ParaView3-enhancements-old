@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkSweptSurface.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-13 14:46:51 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-10-30 13:09:30 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -292,7 +292,8 @@ unsigned long int vtkSweptSurface::GetMTime()
   unsigned long int transMtime;
   vtkTransform *t;
 
-  for (this->Transforms->InitTraversal(); t = this->Transforms->GetNextItem(); )
+  for (this->Transforms->InitTraversal(); 
+       (t = this->Transforms->GetNextItem()); )
     {
     transMtime = t->GetMTime();
     if ( transMtime > mtime ) mtime = transMtime;
