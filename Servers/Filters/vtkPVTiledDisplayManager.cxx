@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVTiledDisplayManager.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-03-18 21:07:19 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-03-19 21:18:50 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -43,7 +43,7 @@
  #include <mpi.h>
 #endif
 
-vtkCxxRevisionMacro(vtkPVTiledDisplayManager, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkPVTiledDisplayManager, "$Revision: 1.5 $");
 vtkStandardNewMacro(vtkPVTiledDisplayManager);
 
 vtkCxxSetObjectMacro(vtkPVTiledDisplayManager, RenderView, vtkObject);
@@ -593,6 +593,7 @@ vtkPVTiledDisplayManager::vtkPVTiledDisplayManager()
 
   this->RenderWindow = NULL;
   this->Controller = vtkMultiProcessController::GetGlobalController();
+  this->NumberOfProcesses = this->Controller->GetNumberOfProcesses();
 
   if (this->Controller)
     {
@@ -1248,7 +1249,7 @@ void vtkPVTiledDisplayManager::EndRender()
 //----------------------------------------------------------------------------
 void vtkPVTiledDisplayManager::PrintSelf(ostream& os, vtkIndent indent)
 {
-  this->vtkObject::PrintSelf(os, indent);
+  this->Superclass::PrintSelf(os, indent);
   
   if ( this->RenderWindow )
     {

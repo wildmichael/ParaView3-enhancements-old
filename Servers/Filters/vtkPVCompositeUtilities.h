@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVCompositeUtilities.h,v $
   Language:  C++
-  Date:      $Date: 2003-03-18 21:07:19 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-03-19 21:18:50 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -39,13 +39,6 @@ public:
   static vtkPVCompositeUtilities *New();
   vtkTypeRevisionMacro(vtkPVCompositeUtilities,vtkObject);
   void PrintSelf(ostream& os, vtkIndent indent);
-
-  // Description:
-  // We are creating this object for tiled displays initialially.
-  // This would be the full size of the render window.
-  // This variable is not used currently, but could be used for a minimum
-  // buffer size.
-  //vtkSetVector2Macro(Size, int);
 
   // Description:
   // Get a data array of the specified size and type.

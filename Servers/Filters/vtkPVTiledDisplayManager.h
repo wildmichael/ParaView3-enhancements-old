@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVTiledDisplayManager.h,v $
   Language:  C++
-  Date:      $Date: 2003-03-18 21:07:19 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-03-19 21:18:50 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -81,13 +81,6 @@ public:
   // display array.  There has to be NxM+1 processes.
   vtkSetVector2Macro(TileDimensions, int);
   vtkGetVector2Macro(TileDimensions, int);
-
-  // Description:
-  // Set the total number of processes.
-  // Will be replaced by MPI num procs eventually.
-  vtkSetMacro(NumberOfProcesses,int);
-  vtkGetMacro(NumberOfProcesses,int);
-
 
 //BTX
   enum Tags {
