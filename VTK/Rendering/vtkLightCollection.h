@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLightCollection.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-15 17:19:43 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1995-09-12 12:09:16 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -88,7 +88,7 @@ inline int vtkLightCollection::IsItemPresent(vtkLight *a)
 
 // Description:
 // Get the next light in the list. NULL is returned when the collection is 
-// exausted.
+// exhausted.
 inline vtkLight *vtkLightCollection::GetNextItem() 
 { 
   return (vtkLight *)(this->vtkCollection::GetNextItem());
