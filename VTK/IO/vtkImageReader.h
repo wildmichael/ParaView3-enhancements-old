@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:35 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1999-09-24 16:06:32 $
+  Version:   $Revision: 1.37 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -186,7 +186,7 @@ public:
 
 //BTX
   ifstream *GetFile() {return this->File;}
-  vtkGetVectorMacro(DataIncrements,int,4);
+  vtkGetVectorMacro(DataIncrements,unsigned long,4);
 //ETX
 
   // Warning !!!
@@ -226,7 +226,7 @@ protected:
   int FileLowerLeft;
 
   ifstream *File;
-  int DataIncrements[4];
+  unsigned long DataIncrements[4];
   int DataExtent[6];
   unsigned short DataMask;  // Mask each pixel with ...
   int SwapBytes;
