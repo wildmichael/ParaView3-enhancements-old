@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-16 21:33:13 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 1999-04-17 11:57:46 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -309,6 +309,7 @@ int vtkPointSet::GetNetReferenceCount()
     {    
     return this->ReferenceCount - 1;
     }
+  return this->ReferenceCount;
 }
 
 
