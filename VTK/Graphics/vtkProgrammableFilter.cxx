@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-16 19:50:24 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-04-16 21:20:59 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -253,27 +253,27 @@ int vtkProgrammableFilter::InRegisterLoop(vtkObject *o)
   if (this->OutputStructuredPoints->GetSource() == this)
     {
     num++;
-    cnum += this->OutputStructuredPoints->GetReferenceCount();
+    cnum += this->OutputStructuredPoints->GetNetReferenceCount();
     }
   if (this->OutputRectilinearGrid->GetSource() == this)
     {
     num++;
-    cnum += this->OutputRectilinearGrid->GetReferenceCount();
+    cnum += this->OutputRectilinearGrid->GetNetReferenceCount();
     }
   if (this->OutputPolyData->GetSource() == this)
     {
     num++;
-    cnum += this->OutputPolyData->GetReferenceCount();
+    cnum += this->OutputPolyData->GetNetReferenceCount();
     }
   if (this->OutputStructuredGrid->GetSource() == this)
     {
     num++;
-    cnum += this->OutputStructuredGrid->GetReferenceCount();
+    cnum += this->OutputStructuredGrid->GetNetReferenceCount();
     }
   if (this->OutputUnstructuredGrid->GetSource() == this)
     {
     num++;
-    cnum += this->OutputUnstructuredGrid->GetReferenceCount();
+    cnum += this->OutputUnstructuredGrid->GetNetReferenceCount();
     }
   
   // if no one outside is using us

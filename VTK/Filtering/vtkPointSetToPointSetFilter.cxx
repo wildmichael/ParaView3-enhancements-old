@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSetToPointSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-16 19:50:23 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1999-04-16 21:20:59 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -223,17 +223,17 @@ int vtkPointSetToPointSetFilter::InRegisterLoop(vtkObject *o)
   if (this->PolyData->GetSource() == this)
     {
     num++;
-    cnum += this->PolyData->GetReferenceCount();
+    cnum += this->PolyData->GetNetReferenceCount();
     }
   if (this->StructuredGrid->GetSource() == this)
     {
     num++;
-    cnum += this->StructuredGrid->GetReferenceCount();
+    cnum += this->StructuredGrid->GetNetReferenceCount();
     }
   if (this->UnstructuredGrid->GetSource() == this)
     {
     num++;
-    cnum += this->UnstructuredGrid->GetReferenceCount();
+    cnum += this->UnstructuredGrid->GetNetReferenceCount();
     }
   
   // if no one outside is using us
