@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-12 13:23:51 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-10-12 15:52:03 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -216,7 +216,7 @@ vtkXOpenGLRenderWindow::vtkXOpenGLRenderWindow()
   this->OffScreenContextId = NULL;
   this->OffScreenWindow = NULL;
   this->OffScreenRendering = 0;
-  this->ScreenMapped;
+  this->ScreenMapped = this->Mapped;
   this->ScreenDoubleBuffer = this->DoubleBuffer;
 #endif
 }
