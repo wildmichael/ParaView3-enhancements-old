@@ -21,7 +21,7 @@
 #include "vtkPolyData.h"
 #include "vtkCollection.h"
 
-vtkCxxRevisionMacro(vtkPVUpdateSuppressor, "$Revision: 1.17 $");
+vtkCxxRevisionMacro(vtkPVUpdateSuppressor, "$Revision: 1.18 $");
 vtkStandardNewMacro(vtkPVUpdateSuppressor);
 vtkCxxSetObjectMacro(vtkPVUpdateSuppressor,Input,vtkDataSet);
 
@@ -98,6 +98,7 @@ void vtkPVUpdateSuppressor::ForceUpdate()
 
   input->SetUpdatePiece(this->UpdatePiece);
   input->SetUpdateNumberOfPieces(this->UpdateNumberOfPieces);
+  input->SetUpdateGhostLevel(0);
   input->Update();
 
   unsigned long t2;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericDataSetToPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 2004-08-21 14:22:38 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2004-09-29 13:36:14 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -49,13 +49,10 @@ public:
   virtual void ComputeInputUpdateExtents( vtkDataObject *output );
 
 protected:
-  vtkGenericDataSetToPolyDataFilter()
-    {
-      this->NumberOfRequiredInputs = 1;
-    }
-  ~vtkGenericDataSetToPolyDataFilter()
-    {
-    }
+  vtkGenericDataSetToPolyDataFilter();
+  ~vtkGenericDataSetToPolyDataFilter() {};
+  virtual int FillInputPortInformation(int, vtkInformation*);
+
   
 private:
   vtkGenericDataSetToPolyDataFilter(const vtkGenericDataSetToPolyDataFilter&); // Not implemented
