@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCacheFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-24 19:11:03 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-09-30 15:07:58 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,9 +50,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include "vtkImageToImageFilter.h"
 
-// defined statically for now.
-#define VTK_CACHE_NUMBER 16
-
 class VTK_EXPORT vtkImageCacheFilter : public vtkImageToImageFilter
 {
 public:
@@ -62,15 +59,20 @@ public:
 
   void InternalUpdate(vtkDataObject *outData);
 
+  void SetCacheSize(int size);
+  vtkGetMacro(CacheSize, int);
+  
 protected:
   vtkImageCacheFilter();
   ~vtkImageCacheFilter();
   vtkImageCacheFilter(const vtkImageCacheFilter&) {};
   void operator=(const vtkImageCacheFilter&) {};
 
-  vtkImageData *Data[VTK_CACHE_NUMBER];
+  int CacheSize;
+  
+  vtkImageData **Data;
   // I do not have write acces to UpdateTime.
-  unsigned long Times[VTK_CACHE_NUMBER];
+  unsigned long *Times;
 };
 
 
