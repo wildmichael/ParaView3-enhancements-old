@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetSurfaceFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-17 18:28:56 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-04-19 18:09:07 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -425,9 +425,6 @@ void vtkDataSetSurfaceFilter::ExecuteFaceQuads(vtkDataSet *input,
   int          inId, outId;
   int          ib, ic;
   int          aA2, bA2, cA2;
-  int          rotatedFlag;
-  int          *stripArray;
-  int          stripArrayIdx;
 
   output = this->GetOutput();
   outPts = output->GetPoints();
@@ -730,7 +727,6 @@ void vtkDataSetSurfaceFilter::UnstructuredGridExecute()
   int progressCount;
   int cellId, i, j, newCellId;
   int *cellPointer;
-  int numCellPts;
   int cellType;
   vtkUnstructuredGrid *input = vtkUnstructuredGrid::SafeDownCast(this->GetInput());
   int numPts=input->GetNumberOfPoints();
