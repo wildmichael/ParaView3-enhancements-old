@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxelModeller.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:39:03 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-08-17 19:26:37 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,13 +38,16 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkVoxelModeller - convert arbitrary dataset to voxel (structured point) representation
+// .NAME vtkVoxelModeller - convert an arbitrary dataset to a voxel representation
 // .SECTION Description
 // vtkVoxelModeller is a filter that converts an arbitrary data set to a
-// structured point (i.e., voxel) representation.
+// structured point (i.e., voxel) representation. It is very similar to 
+// the ImplicitModeller except that it doesn't record distance it records
+// occupancy. As such it stores its results in the more compact form of
+// 
 
-#ifndef __vtkVoxelModeller_h
-#define __vtkVoxelModeller_h
+#ifndef __vtkVoxelModeller_hh
+#define __vtkVoxelModeller_hh
 
 #include "vtkDataSetToStructuredPointsFilter.hh"
 
