@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightReader.h,v $
   Language:  C++
-  Date:      $Date: 2003-04-15 19:18:55 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2003-06-02 20:43:58 $
+  Version:   $Revision: 1.22 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -156,12 +156,16 @@ protected:
   // Description:
   // Read an unstructured part (partId) from the geometry file and create a
   // vtkUnstructuredGrid output.  Return 0 if EOF reached.
-  virtual int CreateUnstructuredGridOutput(int partId, char line[256]) = 0;
+  virtual int CreateUnstructuredGridOutput(int partId, 
+                                           char line[256],
+                                           const char* name) = 0;
   
   // Description:
   // Read a structured part from the geometry file and create a
   // vtkStructuredGridOutput.  Return 0 if EOF reached.
-  virtual int CreateStructuredGridOutput(int partId, char line[256]) = 0;
+  virtual int CreateStructuredGridOutput(int partId, 
+                                         char line[256],
+                                         const char* name) = 0;
   
   // Description:
   // Set/Get the Model file name.

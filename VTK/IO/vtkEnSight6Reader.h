@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSight6Reader.h,v $
   Language:  C++
-  Date:      $Date: 2002-09-01 13:03:05 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2003-06-02 20:43:58 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -107,12 +107,16 @@ protected:
   // Description:
   // Read an unstructured part (partId) from the geometry file and create a
   // vtkUnstructuredGrid output.  Return 0 if EOF reached.
-  virtual int CreateUnstructuredGridOutput(int partId, char line[256]);
+  virtual int CreateUnstructuredGridOutput(int partId, 
+                                           char line[256], 
+                                           const char* name);
   
   // Description:
   // Read a structured part from the geometry file and create a
   // vtkStructuredGridOutput.  Return 0 if EOF reached.
-  virtual int CreateStructuredGridOutput(int partId, char line[256]);
+  virtual int CreateStructuredGridOutput(int partId, 
+                                         char line[256],
+                                         const char* name);
   
   // global list of points for the unstructured parts of the model
   int NumberOfUnstructuredPoints;
