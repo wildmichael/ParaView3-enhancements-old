@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDynamicLoader.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:10 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-12-19 03:30:24 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to William A. Hoffman who developed this class
 
 
@@ -57,7 +57,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 # include <dl.h>
   typedef shl_t vtkLibHandle;
 #elif defined(_WIN32)
-# include "windows.h"
+# include "vtkWin32Header.h"
   typedef HMODULE vtkLibHandle;
 #else
   typedef void* vtkLibHandle;

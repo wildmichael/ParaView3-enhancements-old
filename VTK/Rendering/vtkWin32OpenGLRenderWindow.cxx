@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-07 16:03:43 $
-  Version:   $Revision: 1.77 $
+  Date:      $Date: 2001-12-19 03:30:25 $
+  Version:   $Revision: 1.78 $
   Thanks:    to Horst Schreiber for developing this MFC code
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -40,6 +40,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 
+#include "vtkWin32Header.h"
 #include <stdlib.h>
 #include <math.h>
 #include <stdio.h>
