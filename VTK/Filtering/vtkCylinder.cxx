@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCylinder.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:04:53 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2000-04-25 13:28:27 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -87,7 +87,7 @@ void vtkCylinder::EvaluateGradient(float xyz[3], float g[3])
   g[2] = 2.0 * (z - this->Center[2]);
 }
 
-void vtkCylinder::PrintSelf(ostream& os, vtkIndent indent)
+void vtkCylinder::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkImplicitFunction::PrintSelf(os,indent);
 

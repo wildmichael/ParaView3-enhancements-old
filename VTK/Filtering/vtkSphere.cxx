@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphere.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:06:53 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2000-04-25 13:29:47 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -87,7 +87,7 @@ void vtkSphere::EvaluateGradient(float x[3], float n[3])
   n[2] = 2.0 * (x[2] - this->Center[2]);
 }
 
-void vtkSphere::PrintSelf(ostream& os, vtkIndent indent)
+void vtkSphere::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkImplicitFunction::PrintSelf(os,indent);
 

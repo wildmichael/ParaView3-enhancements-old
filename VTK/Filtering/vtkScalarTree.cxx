@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarTree.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:06:45 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-04-25 13:29:42 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -359,7 +359,7 @@ vtkCell *vtkScalarTree::GetNextCell(int& cellId, vtkIdList* &cellPts,
 }
 
 
-void vtkScalarTree::PrintSelf(ostream& os, vtkIndent indent)
+void vtkScalarTree::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkObject::PrintSelf(os,indent);
 

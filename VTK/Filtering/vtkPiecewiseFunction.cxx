@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPiecewiseFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-13 14:33:17 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2000-04-25 13:29:19 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -783,7 +783,7 @@ void vtkPiecewiseFunction::IncreaseArraySize()
 }
 
 // Print method for tkPiecewiseFunction
-void vtkPiecewiseFunction::PrintSelf(ostream& os, vtkIndent indent)
+void vtkPiecewiseFunction::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   int i;
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:04:44 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 2000-04-25 13:28:18 $
+  Version:   $Revision: 1.61 $
   
     
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1637,7 +1637,7 @@ float vtkCellLocator::Distance2ToBounds(float x[3], float bounds[6])
 }
 
 
-void vtkCellLocator::PrintSelf(ostream& os, vtkIndent indent)
+void vtkCellLocator::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkLocator::PrintSelf(os,indent);
 

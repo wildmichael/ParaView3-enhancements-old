@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitSelectionLoop.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:05:28 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2000-04-25 13:28:56 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -216,7 +216,7 @@ unsigned long int vtkImplicitSelectionLoop::GetMTime()
   return mTime;
 }
 
-void vtkImplicitSelectionLoop::PrintSelf(ostream& os, vtkIndent indent)
+void vtkImplicitSelectionLoop::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkImplicitFunction::PrintSelf(os,indent);
 

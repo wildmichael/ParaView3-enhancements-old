@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitWindowFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:05:30 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-04-25 13:28:58 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -151,7 +151,7 @@ unsigned long int vtkImplicitWindowFunction::GetMTime()
   return mtime;
 }
 
-void vtkImplicitWindowFunction::PrintSelf(ostream& os, vtkIndent indent)
+void vtkImplicitWindowFunction::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkImplicitFunction::PrintSelf(os,indent);
 
