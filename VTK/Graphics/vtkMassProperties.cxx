@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMassProperties.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-05 11:03:54 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-10-06 14:46:12 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,7 +63,7 @@ vtkMassProperties::~vtkMassProperties()
   if (this->Input)
     {
     this->Input->UnRegister(this);
-    this->Input == NULL;
+    this->Input = NULL;
     }
 }
 
