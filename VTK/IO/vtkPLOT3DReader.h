@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLOT3DReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-30 18:39:34 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2002-08-30 20:05:42 $
+  Version:   $Revision: 1.52 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -78,6 +78,7 @@
 #include "vtkStructuredGridSource.h"
 
 class vtkIntArray;
+class vtkStructuredGrid;
 
 class VTK_IO_EXPORT vtkPLOT3DReader : public vtkStructuredGridSource 
 {
@@ -111,8 +112,7 @@ public:
 
   // Description:
   // Replace an output.
-  void SetOutput(int idx, vtkStructuredGrid *output)
-    { this->Superclass::SetNthOutput(idx, output); }
+  void SetOutput(int idx, vtkStructuredGrid *output);
   
   // Description:
   // Is the file to be read written in binary format (as opposed
@@ -217,11 +217,9 @@ public:
   // Specify additional functions to read. These are placed into the
   // point data as data arrays. Later on they can be used by labeling
   // them as scalars, etc.
-  void AddFunction(int functionNumber)
-    {this->FunctionList->InsertNextValue(functionNumber); this->Modified();}
+  void AddFunction(int functionNumber);
   void RemoveFunction(int);
-  void RemoveAllFunctions()
-    {this->FunctionList->Reset();this->Modified();}
+  void RemoveAllFunctions();
 
   // Description:
   // Return 1 if the reader can read the given file name. Only meaningful
