@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingSquares.h,v $
   Language:  C++
-  Date:      $Date: 1996-07-12 13:08:25 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1996-07-18 18:20:13 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -91,11 +91,13 @@ public:
   float GetValue(int i) {return this->Values[i];};
 
   // Description:
-  // Return array of contour values (size of numContours).
+  // Retrieve an array of contour values (NumberOfContours values will be returned).
   vtkGetVectorMacro(Values,float,VTK_MAX_CONTOURS);
 
   // Description:
-  // Return the number of contour values.
+  // Set/get the number of contour values. The number of values set (using SetValue)
+  // should match the NumberOfContours ivar value.
+  vtkSetMacro(NumberOfContours,int);
   vtkGetMacro(NumberOfContours,int);
 
   void GenerateValues(int numContours, float range[2]);

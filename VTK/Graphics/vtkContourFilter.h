@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourFilter.h,v $
   Language:  C++
-  Date:      $Date: 1996-07-10 20:03:26 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1996-07-18 18:20:10 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -83,7 +83,9 @@ public:
   vtkGetVectorMacro(Values,float,VTK_MAX_CONTOURS);
 
   // Description:
-  // Return the number of contour values.
+  // Return the number of contour values. The number of values set (using SetValue)
+  // should match the NumberOfContours ivar value.
+  vtkSetMacro(NumberOfContours,int);
   vtkGetMacro(NumberOfContours,int);
 
   // Description:

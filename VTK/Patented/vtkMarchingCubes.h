@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingCubes.h,v $
   Language:  C++
-  Date:      $Date: 1996-07-10 20:03:31 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1996-07-18 18:20:11 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,7 +79,9 @@ public:
   vtkGetVectorMacro(Values,float,VTK_MAX_CONTOURS);
 
   // Description:
-  // Return the number of contour values.
+  // Set/get the number of contour values. The number of values set (using SetValue)
+  // should match the NumberOfContours ivar value.
+  vtkSetMacro(NumberOfContours,int);
   vtkGetMacro(NumberOfContours,int);
 
   // Description:
