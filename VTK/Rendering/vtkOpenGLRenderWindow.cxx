@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-16 21:08:18 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1998-04-17 12:33:46 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -363,12 +363,6 @@ void vtkOpenGLRenderWindow::WindowInitialize (void)
 		       &matcher, &nItems);
     }
 
-  // free the visual info
-  if (v)
-    {
-    XFree(v);
-    }
-  
   // RESIZE THE WINDOW TO THE DESIRED SIZE
   vtkDebugMacro(<< "Resizing the xwindow\n");
   XResizeWindow(this->DisplayId,this->WindowId,
@@ -410,6 +404,12 @@ void vtkOpenGLRenderWindow::WindowInitialize (void)
   glAlphaFunc(GL_GREATER,0);
   
   this->Mapped = 1;
+
+  // free the visual info
+  if (v)
+    {
+    XFree(v);
+    }
 }
 
 // Description:
