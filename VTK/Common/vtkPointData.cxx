@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointData.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-24 17:09:06 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1995-07-27 13:37:11 $
+  Version:   $Revision: 1.33 $
 
 This file is part of the Visualization Toolkit. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -446,7 +446,7 @@ void vtkPointData::NullPoint (int ptId)
 
   if ( this->Tensors )
     {
-    this->Tensors->InsertTensor(ptId,nullTensor);
+    this->Tensors->InsertTensor(ptId,&nullTensor);
     }
 
   if ( this->UserDefined )

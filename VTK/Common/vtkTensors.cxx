@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensors.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-19 16:49:35 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1995-07-27 13:36:58 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -41,7 +41,7 @@ void vtkTensors::InsertTensor(int id, float t11, float t12, float t13,
   t.SetComponent(2,1,t32);
   t.SetComponent(2,2,t33);
 
-  this->InsertTensor(id,t);
+  this->InsertTensor(id,&t);
 }
 
 int vtkTensors::InsertNextTensor(float t11, float t12, float t13, 
@@ -59,7 +59,7 @@ int vtkTensors::InsertNextTensor(float t11, float t12, float t13,
   t.SetComponent(2,1,t32);
   t.SetComponent(2,2,t33);
 
-  return this->InsertNextTensor(t);
+  return this->InsertNextTensor(&t);
 }
 
 // Description:
