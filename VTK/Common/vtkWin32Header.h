@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32Header.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-20 20:52:37 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2001-02-13 20:52:27 $
+  Version:   $Revision: 1.11 $
   Thanks:    to Horst Schreiber for developing this MFC code
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -46,6 +46,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #ifndef __vtkWIN32Header_h
 #define __vtkWIN32Header_h
+
+#include "vtkConfigure.h"
 
 //
 // Windows specific stuff------------------------------------------
