@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingSquaresCases.h,v $
   Language:  C++
-  Date:      $Date: 2001-03-05 01:49:45 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-07-10 18:20:31 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -50,23 +50,5 @@ typedef struct {
        EDGE_LIST edges[5];
 } LINE_CASES;
 
-static LINE_CASES lineCases[] = { 
-  {{-1, -1, -1, -1, -1}},
-  {{0, 3, -1, -1, -1}},
-  {{1, 0, -1, -1, -1}},
-  {{1, 3, -1, -1, -1}},
-  {{2, 1, -1, -1, -1}},
-  {{0, 3, 2, 1, -1}},
-  {{2, 0, -1, -1, -1}},
-  {{2, 3, -1, -1, -1}},
-  {{3, 2, -1, -1, -1}},
-  {{0, 2, -1, -1, -1}},
-  {{1, 0, 3, 2, -1}},
-  {{1, 2, -1, -1, -1}},
-  {{3, 1, -1, -1, -1}},
-  {{0, 1, -1, -1, -1}},
-  {{3, 0, -1, -1, -1}},
-  {{-1, -1, -1, -1, -1}}
-};
-
+extern LINE_CASES VTK_MARCHING_SQUARES_LINECASES[];
 #endif

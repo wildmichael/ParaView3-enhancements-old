@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxel.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-22 19:12:49 $
-  Version:   $Revision: 1.66 $
+  Date:      $Date: 2001-07-10 18:20:31 $
+  Version:   $Revision: 1.67 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -354,7 +354,7 @@ void vtkVoxel::Contour(float value, vtkScalars *cellScalars,
       }
     }
   
-  triCase = triCases + index;
+  triCase = VTK_MARCHING_CUBES_TRICASES + index;
   edge = triCase->edges;
 
   for ( ; edge[0] > -1; edge += 3 )

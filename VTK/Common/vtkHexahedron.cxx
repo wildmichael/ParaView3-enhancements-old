@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHexahedron.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-22 19:12:48 $
-  Version:   $Revision: 1.70 $
+  Date:      $Date: 2001-07-10 18:20:31 $
+  Version:   $Revision: 1.71 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -426,7 +426,7 @@ void vtkHexahedron::Contour(float value, vtkScalars *cellScalars,
       }
     }
 
-  triCase = triCases + index;
+  triCase = VTK_MARCHING_CUBES_TRICASES + index;
   edge = triCase->edges;
 
   for ( ; edge[0] > -1; edge += 3 )

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSliceCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-18 11:11:49 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2001-07-10 18:20:59 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -387,7 +387,7 @@ static int vtkSliceCubesContour(T *slice, S *scalars, int imageRange[2], int dim
         ComputePointGradient(i,j+1, k+1, dims, Spacing, grad[7],
                              slice1, slice2, slice3);
 
-        triCase = triCases + index;
+        triCase = VTK_MARCHING_CUBES_TRICASES + index;
         edge = triCase->edges;
 
         for ( ; edge[0] > -1; edge += 3 )

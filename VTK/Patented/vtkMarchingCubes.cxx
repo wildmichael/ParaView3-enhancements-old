@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:04 $
-  Version:   $Revision: 1.69 $
+  Date:      $Date: 2001-07-10 18:20:59 $
+  Version:   $Revision: 1.70 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -344,7 +344,7 @@ static void vtkMarchingCubesComputeGradient(vtkMarchingCubes *self,T *scalars, i
 	    {
 	    continue;
 	    }
-          triCase = triCases + index;
+          triCase = VTK_MARCHING_CUBES_TRICASES + index;
           edge = triCase->edges;
 
           for ( ; edge[0] > -1; edge += 3 )
