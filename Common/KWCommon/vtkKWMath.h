@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKWMath.h,v $
   Language:  C++
-  Date:      $Date: 2003-09-06 01:07:28 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2003-10-09 15:48:26 $
+  Version:   $Revision: 1.7 $
 
 Copyright (c) 1998-2003 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -48,7 +48,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkObject.h"
 
+class vtkColorTransferFunction;
 class vtkDataArray;
+class vtkPiecewiseFunction;
 
 class VTK_EXPORT vtkKWMath : public vtkObject
 {
@@ -90,6 +92,16 @@ public:
   static int GetScalarTypeFittingRange(
     double range_min, double range_max, 
     double scale = 1.0, double shift = 0.0);
+ 
+  // Description:
+  // Remove points out of the adjusted range of the array for a given 
+  // component (see GetAdjustedScalarRange), and make sure there is a point
+  // at each end of that range.
+  // Return 1 on success, 0 otherwise.
+  static int FixTransferFunctionPointsOutOfRange(
+    vtkPiecewiseFunction *func, float range[2]);
+  static int FixTransferFunctionPointsOutOfRange(
+    vtkColorTransferFunction *func, float range[2]);
  
 protected:
   vtkKWMath() {};
