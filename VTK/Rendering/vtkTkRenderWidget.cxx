@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkRenderWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-03 14:01:05 $
-  Version:   $Revision: 1.72 $
+  Date:      $Date: 2002-09-03 14:44:01 $
+  Version:   $Revision: 1.73 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -81,7 +81,7 @@ static int vtkTkRenderWidget_MakeRenderWindow(struct vtkTkRenderWidget *self);
 extern int vtkRenderWindowCommand(ClientData cd, Tcl_Interp *interp,
                                   int argc, char *argv[]);
 extern "C" {
-int VTK_TK_EXPORT vtkImageDataToTkPhoto_Cmd (ClientData clientData, Tcl_Interp *interp, 
+int vtkImageDataToTkPhoto_Cmd (ClientData clientData, Tcl_Interp *interp, 
                          int argc, char **argv)
 {
   int status = 0;
@@ -143,7 +143,7 @@ int VTK_TK_EXPORT vtkImageDataToTkPhoto_Cmd (ClientData clientData, Tcl_Interp *
     }
     
   int extent[6];
-  image->GetExtent ( extent );
+  image->GetWholeExtent ( extent );
   if ( z < extent[4] || z > extent[5] )
     {
     Tcl_SetResult ( interp, "z is outside the image extent", NULL );
