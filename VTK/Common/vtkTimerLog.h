@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTimerLog.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-01 07:23:56 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2000-11-20 17:06:32 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -97,6 +97,10 @@ typedef struct
   char Event[VTK_LOG_EVENT_LENGTH];
 } vtkTimerLogEntry;
 //ETX
+
+// The microsoft compiler defines this as a macro, so
+// undefine it here
+#undef GetCurrentTime
 
 class VTK_EXPORT vtkTimerLog : public vtkObject 
 {
