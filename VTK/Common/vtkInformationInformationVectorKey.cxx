@@ -14,10 +14,11 @@
 =========================================================================*/
 #include "vtkInformationInformationVectorKey.h"
 
-vtkCxxRevisionMacro(vtkInformationInformationVectorKey, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkInformationInformationVectorKey, "$Revision: 1.2 $");
 
 //----------------------------------------------------------------------------
-vtkInformationInformationVectorKey::vtkInformationInformationVectorKey()
+vtkInformationInformationVectorKey::vtkInformationInformationVectorKey(const char* name, const char* location):
+  vtkInformationKey(name, location)
 {
 }
 
