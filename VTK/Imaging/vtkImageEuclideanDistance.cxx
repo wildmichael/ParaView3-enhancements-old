@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageEuclideanDistance.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-06 02:52:16 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-12-07 01:10:01 $
+  Version:   $Revision: 1.8 $
   Thanks:    Olivier Cuisenaire who developed this class
              URL: http://ltswww.epfl.ch/~cuisenai
              Email: Olivier.Cuisenaire@epfl.ch
@@ -745,6 +745,9 @@ void vtkImageEuclideanDistance::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkImageDecomposeFilter::PrintSelf(os,indent);
 
+  os << indent << "Initialize: " 
+     << (this->Initialize ? "On\n" : "Off\n");
+  
   os << indent << "Consider Anisotropy: " 
      << (this->ConsiderAnisotropy ? "On\n" : "Off\n");
   
