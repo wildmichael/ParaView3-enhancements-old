@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:54:56 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 1996-10-15 20:15:03 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,7 +70,7 @@ vtkRenderWindow::vtkRenderWindow()
   this->SubFrames = 0;
   this->AccumulationBuffer = NULL;
   this->CurrentSubFrame = 0;
-  this->DesiredUpdateRate = 0;
+  this->DesiredUpdateRate = 0.0001;
   this->ResultFrame = NULL;
   this->Filename = NULL;
   this->Erase = 1;
