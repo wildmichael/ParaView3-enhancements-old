@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVDataInformation.h,v $
   Language:  C++
-  Date:      $Date: 2003-03-05 13:57:41 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-03-20 15:37:29 $
+  Version:   $Revision: 1.4 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -96,8 +96,16 @@ public:
   vtkGetMacro(NumberOfPoints, int);
   vtkGetMacro(NumberOfCells, int);
   vtkGetMacro(MemorySize, unsigned long);
+  vtkGetMacro(GeometryMemorySize, unsigned long);
+  vtkGetMacro(LODMemorySize, unsigned long);
   vtkGetVector6Macro(Bounds, double);
   void GetBounds(float* bds);
+
+  // Description:
+  // These values are not copied from data so they have to be set
+  // by the process module.
+  vtkSetMacro(GeometryMemorySize,unsigned long);
+  vtkSetMacro(LODMemorySize,unsigned long);
 
   // Description:
   // Of course Extent is only valid for structured data sets.
@@ -130,6 +138,8 @@ protected:
   int            NumberOfPoints;
   int            NumberOfCells;
   unsigned long  MemorySize;
+  unsigned long  GeometryMemorySize;
+  unsigned long  LODMemorySize;
   double         Bounds[6];
   int            Extent[6];
   char*          Name;

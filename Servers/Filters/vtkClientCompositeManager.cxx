@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClientCompositeManager.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-03-05 13:57:41 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2003-03-20 15:37:28 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -50,7 +50,7 @@
  #include <mpi.h>
 #endif
 
-vtkCxxRevisionMacro(vtkClientCompositeManager, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkClientCompositeManager, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkClientCompositeManager);
 
 vtkCxxSetObjectMacro(vtkClientCompositeManager,Compositer,vtkCompositer);
@@ -1528,8 +1528,6 @@ void vtkClientCompositeManager::SquirtCompress(vtkUnsignedCharArray *in,
   int comp_index=0;
   int end_index;
   unsigned int current_color;
-  static int total_size=0, total_compress=0;
-  static float max_ratio=0;
   unsigned int compress_mask;
 
   // Set bitmask based on compress_level
@@ -1587,7 +1585,8 @@ void vtkClientCompositeManager::SquirtCompress(vtkUnsignedCharArray *in,
   out->SetNumberOfTuples(comp_index);
 
   // Doesn't do much good to keep stats on the server.
-
+  //static int total_size=0, total_compress=0;
+  //static float max_ratio=0;
   // Keep stats
   //total_size += end_index;
   //total_compress += comp_index;
