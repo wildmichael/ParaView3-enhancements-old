@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPiecewiseFunction.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 20:02:30 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2003-01-17 18:22:28 $
+  Version:   $Revision: 1.32 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -69,7 +69,9 @@ public:
 
   // Description:
   // Returns a pointer to the data stored in the table.
+  // Fills from a pointer to data stored in a similar table.
   float *GetDataPointer() {return this->Function;};
+  void FillFromDataPointer(int, float*);
 
   // Description:
   // Returns the min and max point locations of the function.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkColorTransferFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-03 20:33:58 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2003-01-17 18:22:28 $
+  Version:   $Revision: 1.44 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkPiecewiseFunction.h"
 
-vtkCxxRevisionMacro(vtkColorTransferFunction, "$Revision: 1.43 $");
+vtkCxxRevisionMacro(vtkColorTransferFunction, "$Revision: 1.44 $");
 vtkStandardNewMacro(vtkColorTransferFunction);
 
 // Construct a new vtkColorTransferFunction with default values
@@ -1075,5 +1075,20 @@ void vtkColorTransferFunction::MapScalarsThroughTable2(void *input,
     }
 }
 
+void vtkColorTransferFunction::FillFromDataPointer(int nb, float *ptr)
+{
+  if (nb <= 0 || !ptr)
+    {
+    return;
+    }
 
+  this->RemoveAllPoints();
+
+  while (nb)
+    {
+    this->AddRGBPoint(ptr[0], ptr[1], ptr[2], ptr[3]);
+    ptr += 4;
+    nb--;
+    }
+}
 

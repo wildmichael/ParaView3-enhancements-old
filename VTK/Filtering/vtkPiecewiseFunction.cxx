@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPiecewiseFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 20:02:30 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2003-01-17 18:22:28 $
+  Version:   $Revision: 1.33 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkSource.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkPiecewiseFunction, "$Revision: 1.32 $");
+vtkCxxRevisionMacro(vtkPiecewiseFunction, "$Revision: 1.33 $");
 vtkStandardNewMacro(vtkPiecewiseFunction);
 
 // Construct a new vtkPiecewiseFunction with default values
@@ -738,6 +738,23 @@ void vtkPiecewiseFunction::IncreaseArraySize()
     }
 
   delete [] old_function;
+}
+
+void vtkPiecewiseFunction::FillFromDataPointer(int nb, float *ptr)
+{
+  if (nb <= 0 || !ptr)
+    {
+    return;
+    }
+
+  this->RemoveAllPoints();
+
+  while (nb)
+    {
+    this->AddPoint(ptr[0], ptr[1]);
+    ptr += 2;
+    nb--;
+    }
 }
 
 // Print method for tkPiecewiseFunction

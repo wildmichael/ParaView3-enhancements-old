@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkColorTransferFunction.h,v $
   Language:  C++
-  Date:      $Date: 2002-09-03 20:33:49 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2003-01-17 18:22:28 $
+  Version:   $Revision: 1.38 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -115,7 +115,9 @@ public:
     
   // Description:
   // Returns a list of all nodes
+  // Fills from a pointer to data stored in a similar list of nodes.
   float *GetDataPointer() {return this->Function;};
+  void FillFromDataPointer(int, float*);
 
   // Description:
   // map a set of scalars through the lookup table
