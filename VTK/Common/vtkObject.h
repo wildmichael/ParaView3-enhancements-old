@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:40:53 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 1997-07-10 21:10:28 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,7 +72,7 @@ public:
   void SetDebug(unsigned char debugFlag);
 
   // modified time
-  virtual unsigned long int GetMTime();
+  virtual unsigned long GetMTime();
   virtual void Modified();
 
   // printing

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTimeStamp.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:41:44 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1997-07-10 21:10:31 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,7 +75,7 @@ public:
 
   int operator>(vtkTimeStamp& ts) {return (this->ModifiedTime > ts.ModifiedTime);};
   int operator<(vtkTimeStamp& ts) {return (this->ModifiedTime < ts.ModifiedTime);};
-  operator unsigned long int() {return this->ModifiedTime;};
+  operator unsigned long() {return this->ModifiedTime;};
 
 private:
   unsigned long ModifiedTime;

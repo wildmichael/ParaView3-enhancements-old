@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLocator.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:40:38 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1997-07-10 21:10:27 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -150,7 +150,7 @@ public:
   // data.
   virtual void GenerateRepresentation(int level, vtkPolyData *pd) = 0;
 
-  vtkGetMacro(BuildTime, int);
+  vtkGetMacro(BuildTime, unsigned long);
 
 protected:
   vtkDataSet *DataSet;

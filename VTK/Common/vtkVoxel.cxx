@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxel.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:42:08 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 1997-07-10 21:10:32 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -511,10 +511,14 @@ void vtkVoxel::Derivatives(int vtkNotUsed(subId), float pcoords[3],
     }
 }
 
-void vtkVoxel::Clip(float value, vtkFloatScalars *cellScalars, 
-                    vtkPointLocator *locator, vtkCellArray *tetras,
-                    vtkPointData *inPd, vtkPointData *outPd,
-                    int insideOut)
+void vtkVoxel::Clip(float vtkNotUsed(value), 
+			 vtkFloatScalars *vtkNotUsed(cellScalars), 
+                         vtkPointLocator *vtkNotUsed(locator), 
+			 vtkCellArray *vtkNotUsed(tetras),
+                         vtkPointData *vtkNotUsed(inPd), 
+			 vtkPointData *vtkNotUsed(outPd),
+                         int insideOut)
 {
 
 }
+

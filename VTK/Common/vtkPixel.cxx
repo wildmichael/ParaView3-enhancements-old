@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPixel.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:40:54 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1997-07-10 21:10:29 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -441,10 +441,14 @@ void vtkPixel::Derivatives(int vtkNotUsed(subId),
     }
 }
 
-void vtkPixel::Clip(float value, vtkFloatScalars *cellScalars, 
-                    vtkPointLocator *locator, vtkCellArray *tris,
-                    vtkPointData *inPd, vtkPointData *outPd,
-                    int insideOut)
+void vtkPixel::Clip(float vtkNotUsed(value), 
+		    vtkFloatScalars *vtkNotUsed(cellScalars), 
+		    vtkPointLocator *vtkNotUsed(locator), 
+		    vtkCellArray *vtkNotUsed(tetras),
+		    vtkPointData *vtkNotUsed(inPd), 
+		    vtkPointData *vtkNotUsed(outPd),
+		    int insideOut)
 {
 
 }
+
