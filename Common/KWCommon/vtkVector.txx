@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVector.txx,v $
   Language:  C++
-  Date:      $Date: 2002-04-10 15:54:41 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-04-11 12:44:02 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -320,7 +320,8 @@ template <class DType>
 void vtkVector<DType>::DebugList()
 {
   vtkIdType cc;
-  cout << "List: " << this->GetClassName() << endl;
+  cout << "List: " << this << " type: " << this->GetClassName() << endl;
+  cout << "Number of items: " << this->GetNumberOfItems() << endl;
   for ( cc = 0; cc < this->NumberOfItems; cc ++ )
     {
     cout << "Item [" << cc << "]: " << this->Array[cc] << endl;
