@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLandmarkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-21 23:23:41 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-09-24 08:18:19 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to Tim Hutton and David G. Gobbi who developed this class.
 
 Redistribution and use in source and binary forms, with or without
@@ -255,14 +255,12 @@ void vtkLandmarkTransform::InternalUpdate()
     this->SourceLandmarks->GetPoint(1,s1);
     this->TargetLandmarks->GetPoint(1,t1);
 
-    double ds[3],dt[3],as[3],at[3];
+    double ds[3],dt[3];
     double rs = 0, rt = 0;
     for (i = 0; i < 3; i++)
       {
-      as[i] = (s0[i] + s1[i])/2;  // average of endpoints
       ds[i] = s1[i] - s0[i];      // vector between points
       rs += ds[i]*ds[i];
-      at[i] = (t0[i] + t1[i])/2;
       dt[i] = t1[i] - t0[i];
       rt += dt[i]*dt[i];
       }
