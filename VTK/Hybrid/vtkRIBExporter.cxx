@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-18 00:05:05 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2002-03-20 03:11:45 $
+  Version:   $Revision: 1.41 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,7 +29,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkFieldData.h"
 
-vtkCxxRevisionMacro(vtkRIBExporter, "$Revision: 1.40 $");
+vtkCxxRevisionMacro(vtkRIBExporter, "$Revision: 1.41 $");
 vtkStandardNewMacro(vtkRIBExporter);
 
 typedef float RtColor[3];
@@ -1373,6 +1373,7 @@ void vtkRIBExporter::ModifyArrayName(char *newname, const char* name)
   if ( !name )
     {
     *newname = 0;
+    return;
     }
   int cc = 0;
   for ( cc =0; name[cc]; cc++ )
