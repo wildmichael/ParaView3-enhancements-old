@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMirrorPad.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:08:39 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2000-05-16 19:55:25 $
+  Version:   $Revision: 1.24 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -264,46 +264,8 @@ void vtkImageMirrorPad::ThreadedExecute(vtkImageData *inData,
   
   switch (inData->GetScalarType())
     {
-    case VTK_DOUBLE:
-      vtkImageMirrorPadExecute(this, inData, outData, 
-			       (double *)(outPtr), outExt, id);
-      break;
-    case VTK_FLOAT:
-      vtkImageMirrorPadExecute(this, inData, outData, 
-			       (float *)(outPtr), outExt, id);
-      break;
-    case VTK_LONG:
-      vtkImageMirrorPadExecute(this, inData, outData, 
-			       (long *)(outPtr), outExt, id);
-      break;
-    case VTK_UNSIGNED_LONG:
-      vtkImageMirrorPadExecute(this, inData, outData, 
-			       (unsigned long *)(outPtr), outExt, id);
-      break;
-    case VTK_INT:
-      vtkImageMirrorPadExecute(this, inData, outData, 
-			       (int *)(outPtr), outExt, id);
-      break;
-    case VTK_UNSIGNED_INT:
-      vtkImageMirrorPadExecute(this, inData, outData, 
-			       (unsigned int *)(outPtr), outExt, id);
-      break;
-    case VTK_SHORT:
-      vtkImageMirrorPadExecute(this, inData, outData, 
-			       (short *)(outPtr), outExt, id);
-      break;
-    case VTK_UNSIGNED_SHORT:
-      vtkImageMirrorPadExecute(this, inData, outData, 
-			       (unsigned short *)(outPtr), outExt, id);
-      break;
-    case VTK_CHAR:
-      vtkImageMirrorPadExecute(this, inData, outData, 
-			       (char *)(outPtr), outExt, id);
-      break;
-    case VTK_UNSIGNED_CHAR:
-      vtkImageMirrorPadExecute(this, inData, outData, 
-			       (unsigned char *)(outPtr), outExt, id);
-      break;
+    vtkTemplateMacro6(vtkImageMirrorPadExecute, this, inData, outData, 
+                      (VTK_TT *)(outPtr), outExt, id);
     default:
       vtkErrorMacro(<< "Execute: Unknown ScalarType");
       return;

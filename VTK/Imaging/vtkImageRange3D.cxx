@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageRange3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:55 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-05-16 19:55:27 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -348,46 +348,9 @@ void vtkImageRange3D::ThreadedExecute(vtkImageData *inData,
 
   switch (inData->GetScalarType())
     {
-    case VTK_DOUBLE:
-      vtkImageRange3DExecute(this, mask, inData, (double *)(inPtr), 
-				outData, outExt, (float *)(outPtr), id);
-      break;
-    case VTK_FLOAT:
-      vtkImageRange3DExecute(this, mask, inData, (float *)(inPtr), 
-				outData, outExt, (float *)(outPtr), id);
-      break;
-    case VTK_LONG:
-      vtkImageRange3DExecute(this, mask, inData, (long *)(inPtr), 
-				outData, outExt, (float *)(outPtr), id);
-      break;
-    case VTK_UNSIGNED_LONG:
-      vtkImageRange3DExecute(this, mask, inData, (unsigned long *)(inPtr), 
-				outData, outExt, (float *)(outPtr), id);
-      break;
-    case VTK_INT:
-      vtkImageRange3DExecute(this, mask, inData, (int *)(inPtr), 
-				outData, outExt, (float *)(outPtr), id);
-      break;
-    case VTK_UNSIGNED_INT:
-      vtkImageRange3DExecute(this, mask, inData, (unsigned int *)(inPtr), 
-				outData, outExt, (float *)(outPtr), id);
-      break;
-    case VTK_SHORT:
-      vtkImageRange3DExecute(this, mask, inData, (short *)(inPtr), 
-				outData, outExt, (float *)(outPtr), id);
-      break;
-    case VTK_UNSIGNED_SHORT:
-      vtkImageRange3DExecute(this, mask, inData, (unsigned short *)(inPtr), 
-				outData, outExt, (float *)(outPtr), id);
-      break;
-    case VTK_CHAR:
-      vtkImageRange3DExecute(this, mask, inData, (char *)(inPtr), 
-				outData, outExt, (float *)(outPtr), id);
-      break;
-    case VTK_UNSIGNED_CHAR:
-      vtkImageRange3DExecute(this, mask, inData, (unsigned char *)(inPtr), 
-				outData, outExt, (float *)(outPtr), id);
-      break;
+    vtkTemplateMacro8(vtkImageRange3DExecute, this, mask, inData, 
+                      (VTK_TT *)(inPtr), outData, outExt, 
+                      (float *)(outPtr), id);
     default:
       vtkErrorMacro(<< "Execute: Unknown ScalarType");
       return;

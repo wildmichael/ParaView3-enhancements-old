@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageShrink3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:58 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2000-05-16 19:55:29 $
+  Version:   $Revision: 1.46 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -575,56 +575,9 @@ void vtkImageShrink3D::ThreadedExecute(vtkImageData *inData,
   
   switch (inData->GetScalarType())
     {
-    case VTK_DOUBLE:
-      vtkImageShrink3DExecute(this, 
-			      inData, (double *)(inPtr), 
-			      outData, (double *)(outPtr), outExt, id);
-      break;
-    case VTK_FLOAT:
-      vtkImageShrink3DExecute(this, 
-			      inData, (float *)(inPtr), 
-			      outData, (float *)(outPtr), outExt, id);
-      break;
-    case VTK_LONG:
-      vtkImageShrink3DExecute(this, 
-			      inData, (long *)(inPtr), 
-			      outData, (long *)(outPtr), outExt, id);
-      break;
-    case VTK_UNSIGNED_LONG:
-      vtkImageShrink3DExecute(this, 
-			      inData, (unsigned long *)(inPtr), 
-			      outData, (unsigned long *)(outPtr), outExt, id);
-      break;
-    case VTK_INT:
-      vtkImageShrink3DExecute(this, 
-			      inData, (int *)(inPtr), 
-			      outData, (int *)(outPtr), outExt, id);
-      break;
-    case VTK_UNSIGNED_INT:
-      vtkImageShrink3DExecute(this, 
-			      inData, (unsigned int *)(inPtr), 
-			      outData, (unsigned int *)(outPtr), outExt, id);
-      break;
-    case VTK_SHORT:
-      vtkImageShrink3DExecute(this, 
-			      inData, (short *)(inPtr), 
-			      outData, (short *)(outPtr), outExt, id);
-      break;
-    case VTK_UNSIGNED_SHORT:
-      vtkImageShrink3DExecute(this, 
-			      inData, (unsigned short *)(inPtr), 
-			      outData, (unsigned short *)(outPtr), outExt, id);
-      break;
-    case VTK_CHAR:
-      vtkImageShrink3DExecute(this, 
-			      inData, (char *)(inPtr), 
-			      outData, (char *)(outPtr), outExt, id);
-      break;
-    case VTK_UNSIGNED_CHAR:
-      vtkImageShrink3DExecute(this, 
-			      inData, (unsigned char *)(inPtr), 
-			      outData, (unsigned char *)(outPtr), outExt, id);
-      break;
+    vtkTemplateMacro7(vtkImageShrink3DExecute, this, inData, 
+                      (VTK_TT *)(inPtr), outData, (VTK_TT *)(outPtr), 
+                      outExt, id);
     default:
       vtkErrorMacro(<< "Execute: Unknown ScalarType");
       return;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageRGBToHSV.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:54 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-05-16 19:55:27 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -196,60 +196,8 @@ void vtkImageRGBToHSV::ThreadedExecute(vtkImageData *inData,
 
   switch (inData->GetScalarType())
     {
-    case VTK_DOUBLE:
-      vtkImageRGBToHSVExecute(this, 
-			      inData, (double *)(inPtr), 
-			      outData, (double *)(outPtr), outExt, id);
-      break;
-    case VTK_FLOAT:
-      vtkImageRGBToHSVExecute(this, 
-			      inData, (float *)(inPtr), 
-			      outData, (float *)(outPtr), outExt, id);
-      break;
-    case VTK_LONG:
-      vtkImageRGBToHSVExecute(this, 
-			      inData, (long *)(inPtr), 
-			      outData, (long *)(outPtr), outExt, id);
-      break;
-    case VTK_UNSIGNED_LONG:
-      vtkImageRGBToHSVExecute(this, 
-			      inData, (unsigned long *)(inPtr), 
-			      outData, (unsigned long *)(outPtr), 
-			      outExt, id);
-      break;
-    case VTK_INT:
-      vtkImageRGBToHSVExecute(this, 
-			      inData, (int *)(inPtr), 
-			      outData, (int *)(outPtr), outExt, id);
-      break;
-    case VTK_UNSIGNED_INT:
-      vtkImageRGBToHSVExecute(this, 
-			      inData, (unsigned int *)(inPtr), 
-			      outData, (unsigned int *)(outPtr), 
-			      outExt, id);
-      break;
-    case VTK_SHORT:
-      vtkImageRGBToHSVExecute(this, 
-			      inData, (short *)(inPtr), 
-			      outData, (short *)(outPtr), outExt, id);
-      break;
-    case VTK_UNSIGNED_SHORT:
-      vtkImageRGBToHSVExecute(this, 
-			      inData, (unsigned short *)(inPtr), 
-			      outData, (unsigned short *)(outPtr), 
-			      outExt, id);
-      break;
-    case VTK_CHAR:
-      vtkImageRGBToHSVExecute(this, 
-			      inData, (char *)(inPtr), 
-			      outData, (char *)(outPtr), outExt, id);
-      break;
-    case VTK_UNSIGNED_CHAR:
-      vtkImageRGBToHSVExecute(this, 
-			      inData, (unsigned char *)(inPtr), 
-			      outData, (unsigned char *)(outPtr), 
-			      outExt, id);
-      break;
+    vtkTemplateMacro7(vtkImageRGBToHSVExecute, this, inData,(VTK_TT *)(inPtr), 
+                      outData, (VTK_TT *)(outPtr), outExt, id);
     default:
       vtkErrorMacro(<< "Execute: Unknown ScalarType");
       return;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSobel2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:14:00 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2000-05-16 19:55:30 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -239,56 +239,9 @@ void vtkImageSobel2D::ThreadedExecute(vtkImageData *inData,
   
   switch (inData->GetScalarType())
     {
-    case VTK_DOUBLE:
-      vtkImageSobel2DExecute(this,
-			  inData, (double *)(inPtr), 
-			  outData, outExt, (float *)(outPtr),id);
-      break;
-    case VTK_FLOAT:
-      vtkImageSobel2DExecute(this,
-			  inData, (float *)(inPtr), 
-			  outData, outExt, (float *)(outPtr),id);
-      break;
-    case VTK_LONG:
-      vtkImageSobel2DExecute(this, 
-			  inData, (long *)(inPtr), 
-			  outData, outExt, (float *)(outPtr),id);
-      break;
-    case VTK_UNSIGNED_LONG:
-      vtkImageSobel2DExecute(this, 
-			  inData, (unsigned long *)(inPtr), 
-			  outData, outExt, (float *)(outPtr),id);
-      break;
-    case VTK_INT:
-      vtkImageSobel2DExecute(this, 
-			  inData, (int *)(inPtr), 
-			  outData, outExt, (float *)(outPtr),id);
-      break;
-    case VTK_UNSIGNED_INT:
-      vtkImageSobel2DExecute(this, 
-			  inData, (unsigned int *)(inPtr), 
-			  outData, outExt, (float *)(outPtr),id);
-      break;
-    case VTK_SHORT:
-      vtkImageSobel2DExecute(this, 
-			  inData, (short *)(inPtr), 
-			  outData, outExt, (float *)(outPtr),id);
-      break;
-    case VTK_UNSIGNED_SHORT:
-      vtkImageSobel2DExecute(this, 
-			  inData, (unsigned short *)(inPtr), 
-			  outData, outExt, (float *)(outPtr),id);
-      break;
-    case VTK_CHAR:
-      vtkImageSobel2DExecute(this, 
-			  inData, (char *)(inPtr), 
-			  outData, outExt, (float *)(outPtr),id);
-      break;
-    case VTK_UNSIGNED_CHAR:
-      vtkImageSobel2DExecute(this, 
-			  inData, (unsigned char *)(inPtr), 
-			  outData, outExt, (float *)(outPtr),id);
-      break;
+    vtkTemplateMacro7(vtkImageSobel2DExecute, this, inData, 
+                      (VTK_TT *)(inPtr), outData, outExt, 
+                      (float *)(outPtr),id);
     default:
       vtkErrorMacro(<< "Execute: Unknown ScalarType");
       return;

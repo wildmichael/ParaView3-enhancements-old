@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageRFFT.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:08:44 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2000-05-16 19:55:27 $
+  Version:   $Revision: 1.22 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -230,46 +230,9 @@ void vtkImageRFFT::ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
   // choose which templated function to call.
   switch (inData->GetScalarType())
     {
-    case VTK_DOUBLE:
-      vtkImageRFFTExecute(this, inData, inExt, (double *)(inPtr), 
-			 outData, outExt, (float *)(outPtr), threadId);
-      break;
-    case VTK_FLOAT:
-      vtkImageRFFTExecute(this, inData, inExt, (float *)(inPtr), 
-			 outData, outExt, (float *)(outPtr), threadId);
-      break;
-    case VTK_LONG:
-      vtkImageRFFTExecute(this, inData, inExt, (long *)(inPtr),
-			 outData, outExt, (float *)(outPtr), threadId);
-      break;
-    case VTK_UNSIGNED_LONG:
-      vtkImageRFFTExecute(this, inData, inExt, (unsigned long *)(inPtr), 
-			 outData, outExt, (float *)(outPtr), threadId);
-      break;
-    case VTK_INT:
-      vtkImageRFFTExecute(this, inData, inExt, (int *)(inPtr),
-			 outData, outExt, (float *)(outPtr), threadId);
-      break;
-    case VTK_UNSIGNED_INT:
-      vtkImageRFFTExecute(this, inData, inExt, (unsigned int *)(inPtr), 
-			 outData, outExt, (float *)(outPtr), threadId);
-      break;
-    case VTK_SHORT:
-      vtkImageRFFTExecute(this, inData, inExt, (short *)(inPtr),
-			 outData, outExt, (float *)(outPtr), threadId);
-      break;
-    case VTK_UNSIGNED_SHORT:
-      vtkImageRFFTExecute(this, inData, inExt, (unsigned short *)(inPtr), 
-			 outData, outExt, (float *)(outPtr), threadId);
-      break;
-    case VTK_CHAR:
-      vtkImageRFFTExecute(this, inData, inExt, (char *)(inPtr),
-			 outData, outExt, (float *)(outPtr), threadId);
-      break;
-    case VTK_UNSIGNED_CHAR:
-      vtkImageRFFTExecute(this, inData, inExt, (unsigned char *)(inPtr),
-			 outData, outExt, (float *)(outPtr), threadId);
-      break;
+    vtkTemplateMacro8(vtkImageRFFTExecute, this, inData, inExt, 
+                      (VTK_TT *)(inPtr), outData, outExt, 
+                      (float *)(outPtr), threadId);
     default:
       vtkErrorMacro(<< "Execute: Unknown ScalarType");
       return;
