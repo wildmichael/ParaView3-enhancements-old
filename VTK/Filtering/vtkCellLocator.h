@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLocator.h,v $
   Language:  C++
-  Date:      $Date: 1999-06-24 15:17:17 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1999-06-25 18:38:07 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -82,6 +82,16 @@ public:
   // Specify the average number of cells in each octant.
   vtkSetClampMacro(NumberOfCellsPerBucket,int,1,VTK_LARGE_INTEGER);
   vtkGetMacro(NumberOfCellsPerBucket,int);
+
+  // Description:
+  // Boolean controls whether the bounds of each cell are computed only
+  // once and then saved.  Should be 10 to 20% faster if repeatedly 
+  // calling any of the FindCl.oestPoint routines and the extra memory
+  // won't cause disk caching (24 extra bytes per cell are required to
+  // save the bounds).
+  vtkSetMacro(CacheCellBounds,int);
+  vtkGetMacro(CacheCellBounds,int);
+  vtkBooleanMacro(CacheCellBounds,int);
 
   // Description:
   // Return intersection point (if any) of finite line with cells contained
@@ -179,6 +189,10 @@ protected:
   vtkNeighborCells *Buckets;
   unsigned char *CellHasBeenVisited;
   unsigned char QueryNumber;
+  int CacheCellBounds;
+//BTX - begin tcl exclude
+  float (*CellBounds)[6];
+//ETX - end tcl exclude
 };
 
 #endif
