@@ -5,8 +5,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointsProjectedHull.h,v $
   Language:  C++
-  Date:      $Date: 2003-10-01 00:23:36 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-10-16 18:46:35 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -39,10 +39,9 @@
 #ifndef __vtkPointsProjectedHull_h
 #define __vtkPointsProjectedHull_h
 
-//#include <vtksnlGraphicsWin32Header.h>
-#include <vtkObjectFactory.h>
-#include <vtkSetGet.h>
-#include <vtkPoints.h>
+#include "vtkObjectFactory.h"
+#include "vtkSetGet.h"
+#include "vtkPoints.h"
 
 
 class VTK_EXPORT vtkPointsProjectedHull : public vtkPoints

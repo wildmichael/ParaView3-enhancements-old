@@ -5,8 +5,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractCells.h,v $
   Language:  C++
-  Date:      $Date: 2003-09-22 20:12:25 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-10-16 18:46:35 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -35,7 +35,10 @@
 //    executes, it will set up the ugrid, point and cell arrays, with no points, 
 //    cells or data.
 
-#include <vtkDataSetToUnstructuredGridFilter.h>
+#ifndef __vtkExtractCells_h
+#define __vtkExtractCells_h
+
+#include "vtkDataSetToUnstructuredGridFilter.h"
 #include <vtkstd/set>     // for the internal cell ID list
 
 class vtkIdList;
@@ -97,3 +100,4 @@ private:
   int SubSetUGridCellArraySize;
   char InputIsUgrid;
 };
+#endif
