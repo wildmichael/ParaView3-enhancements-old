@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-12 13:18:59 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2001-06-13 11:55:16 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -344,52 +344,40 @@ vtkDataArray* vtkDataArray::CreateDataArray(int dataType)
     {
     case VTK_BIT:
       return vtkBitArray::New();
-      break;
 
     case VTK_CHAR:
       return vtkCharArray::New();
-      break;
 
     case VTK_UNSIGNED_CHAR:
       return vtkUnsignedCharArray::New();
-      break;
 
     case VTK_SHORT:
       return vtkShortArray::New();
-      break;
 
     case VTK_UNSIGNED_SHORT:
       return vtkUnsignedShortArray::New();
-      break;
 
     case VTK_INT:
       return vtkIntArray::New();
-      break;
 
     case VTK_UNSIGNED_INT:
       return vtkUnsignedIntArray::New();
-      break;
 
     case VTK_LONG:
       return vtkLongArray::New();
-      break;
 
     case VTK_UNSIGNED_LONG:
       return vtkUnsignedLongArray::New();
-      break;
 
     case VTK_FLOAT:
       return vtkFloatArray::New();
-      break;
 
     case VTK_DOUBLE:
       return vtkDoubleArray::New();
-      break;
 
     default:
       vtkGenericWarningMacro(<<"Unsupported data type! Setting to VTK_FLOAT");
       return vtkFloatArray::New();
-      break;
     }
 }
 
