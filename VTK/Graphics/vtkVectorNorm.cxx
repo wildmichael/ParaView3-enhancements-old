@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorNorm.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-05 16:16:15 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1996-08-02 20:01:31 $
+  Version:   $Revision: 1.13 $
 
 
-Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless
@@ -38,8 +38,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
+#include <math.h>
 #include "vtkVectorNorm.hh"
-#include "vtkMath.hh"
 #include "vtkFloatScalars.hh"
 
 // Description:

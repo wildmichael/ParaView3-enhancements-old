@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-05-30 13:54:10 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1996-08-02 19:56:45 $
+  Version:   $Revision: 1.35 $
 
 
-Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless
@@ -88,7 +88,6 @@ void vtkGlyph3D::Execute()
   int orient, scaleSource, ptIncr, cellId;
   float scale = 1;
   float den;
-  vtkMath math;
   vtkPolyData *output = this->GetOutput();
   vtkPointData *outputPD = output->GetPointData();
   
@@ -200,7 +199,7 @@ void vtkGlyph3D::Execute()
         v = inNormals->GetNormal(inPtId);
       else
         v = inVectors->GetVector(inPtId);
-      scale = math.Norm(v);
+      scale = vtkMath::Norm(v);
 
       // Copy Input vector
       for (i=0; i < numSourcePts; i++) 

@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDiskSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 21:22:48 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1996-08-02 19:55:58 $
+  Version:   $Revision: 1.12 $
 
 
-Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless
@@ -59,7 +59,6 @@ void vtkDiskSource::Execute()
   float cosTheta, sinTheta;
   vtkFloatPoints *newPoints; 
   vtkCellArray *newPolys;
-  vtkMath math;
   vtkPolyData *output = this->GetOutput();
   
   //
@@ -75,7 +74,7 @@ void vtkDiskSource::Execute()
 //
 // Create disk
 //
-  theta = 2.0 * math.Pi() / ((float)this->CircumferentialResolution);
+  theta = 2.0 * vtkMath::Pi() / ((float)this->CircumferentialResolution);
   deltaRadius = (this->OuterRadius - InnerRadius) / 
                        ((float)this->RadialResolution);
 

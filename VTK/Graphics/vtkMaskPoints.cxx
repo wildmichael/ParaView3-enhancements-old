@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMaskPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-08 12:48:41 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1996-08-02 19:57:47 $
+  Version:   $Revision: 1.18 $
 
 
-Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless
@@ -89,7 +89,6 @@ void vtkMaskPoints::Execute()
   //
   if ( this->RandomMode ) // retro mode
     {
-    vtkMath math;
     float cap;
     
     if (((float)numPts/this->OnRatio) > this->MaximumNumberOfPoints)
@@ -103,7 +102,7 @@ void vtkMaskPoints::Execute()
 
     for (ptId = this->Offset; 
     (ptId < numPts) && (id < this->MaximumNumberOfPoints);  
-    ptId += (1 + (int)((float)math.Random()*cap)) )
+    ptId += (1 + (int)((float)vtkMath::Random()*cap)) )
       {
       x =  this->Input->GetPoint(ptId);
       id = newPts->InsertNextPoint(x);

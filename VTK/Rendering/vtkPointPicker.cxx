@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-05-22 20:54:30 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1996-08-02 19:58:46 $
+  Version:   $Revision: 1.10 $
 
 
-Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless
@@ -49,7 +49,6 @@ vtkPointPicker::vtkPointPicker()
 void vtkPointPicker::IntersectWithLine(float p1[3], float p2[3], float tol, 
                                     vtkActor *assem, vtkActor *a, vtkMapper *m)
 {
-  static vtkMath math;
   vtkDataSet *input=m->GetInput();
   int numPts;
   int ptId, i, minPtId;
@@ -60,7 +59,7 @@ void vtkPointPicker::IntersectWithLine(float p1[3], float p2[3], float tol,
 //   Determine appropriate info
 //
   for (i=0; i<3; i++) ray[i] = p2[i] - p1[i];
-  if (( rayFactor = math.Dot(ray,ray)) == 0.0 ) 
+  if (( rayFactor = vtkMath::Dot(ray,ray)) == 0.0 ) 
     {
     vtkErrorMacro("Cannot process points");
     return;

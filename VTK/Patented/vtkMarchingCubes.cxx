@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-07-19 04:16:35 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1996-08-02 19:57:44 $
+  Version:   $Revision: 1.28 $
 
 
-Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless
@@ -191,8 +191,6 @@ void ContourVolume(T *scalars, int dims[3], float origin[3], float aspectRatio[3
                    vtkCellArray *newPolys, float *values, int numValues)
 {
   float s[8], value;
-
-  static vtkMath math;
   int i, j, k, sliceSize;
   static int CASE_MASK[8] = {1,2,4,8,16,32,64,128};
   TRIANGLE_CASES *triCase;
@@ -341,7 +339,7 @@ void ContourVolume(T *scalars, int dims[3], float origin[3], float aspectRatio[3
 	          if (ComputeGradients) newGradients->InsertVector(ptIds[ii],n);
                   if (ComputeNormals)
 		    {
- 		    math.Normalize(n);
+ 		    vtkMath::Normalize(n);
 		    newNormals->InsertNormal(ptIds[ii],n);
 		    }	
 	          }

@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRecursiveDividingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-07-12 13:03:48 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1996-08-02 19:59:22 $
+  Version:   $Revision: 1.11 $
 
 
-Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless
@@ -191,7 +191,6 @@ void vtkRecursiveDividingCubes::SubDivide(float origin[3], float h[3],
   int i;
   float hNew[3];
   static vtkVoxel voxel;
-  static vtkMath math;
 
   for (i=0; i<3; i++) hNew[i] = h[i] / 2.0;
 
@@ -216,7 +215,7 @@ void vtkRecursiveDividingCubes::SubDivide(float origin[3], float h[3],
 	n[1] += Normals[i][1]*w[i];
 	n[2] += Normals[i][2]*w[i];
 	}
-      math.Normalize(n);
+      vtkMath::Normalize(n);
       NewNormals->InsertNormal(id,n);
 
       if ( !(NewPts->GetNumberOfPoints() % POINTS_PER_POLY_VERTEX) )

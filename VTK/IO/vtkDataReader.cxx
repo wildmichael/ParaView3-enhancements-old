@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-06-19 18:54:20 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1996-08-02 19:55:36 $
+  Version:   $Revision: 1.36 $
 
 
-Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless
@@ -491,7 +491,7 @@ int vtkDataReader::ReadScalarData(vtkDataSet *ds, int numPts)
       {
       // suck up newline
       this->IS->getline(line,256);
-      this->IS->read(ptr,sizeof(unsigned char)*(numPts+7)/8);
+      this->IS->read((char *)ptr,sizeof(unsigned char)*(numPts+7)/8);
       if (this->IS->eof())
         {
         vtkErrorMacro(<<"Error reading binary bit scalars!");
@@ -524,7 +524,7 @@ int vtkDataReader::ReadScalarData(vtkDataSet *ds, int numPts)
       {
       // suck up newline
       this->IS->getline(line,256);
-      this->IS->read(ptr,sizeof(unsigned char)*numPts);
+      this->IS->read((char *)ptr,sizeof(unsigned char)*numPts);
       if (this->IS->eof())
         {
         vtkErrorMacro(<<"Error reading binary char scalars!");
@@ -898,7 +898,7 @@ int vtkDataReader::ReadCoScalarData(vtkDataSet *ds, int numPts)
       {
       // suck up newline
       this->IS->getline(line,256);
-      this->IS->read(ptr,sizeof(unsigned char)*numPts);
+      this->IS->read((char *)ptr,sizeof(unsigned char)*numPts);
       if (this->IS->eof())
         {
         vtkErrorMacro(<<"Error reading binary graymap!");
@@ -933,7 +933,7 @@ int vtkDataReader::ReadCoScalarData(vtkDataSet *ds, int numPts)
       {
       // suck up newline
       this->IS->getline(line,256);
-      this->IS->read(ptr,sizeof(unsigned char)*2*numPts);
+      this->IS->read((char *)ptr,sizeof(unsigned char)*2*numPts);
       if (this->IS->eof())
         {
         vtkErrorMacro(<<"Error reading binary alpha-graymap!");
@@ -969,7 +969,7 @@ int vtkDataReader::ReadCoScalarData(vtkDataSet *ds, int numPts)
       {
       // suck up newline
       this->IS->getline(line,256);
-      this->IS->read(ptr,sizeof(unsigned char)*3*numPts);
+      this->IS->read((char *)ptr,sizeof(unsigned char)*3*numPts);
       if (this->IS->eof())
         {
         vtkErrorMacro(<<"Error reading binary pixmap!");
@@ -1008,7 +1008,7 @@ int vtkDataReader::ReadCoScalarData(vtkDataSet *ds, int numPts)
       {
       // suck up newline
       this->IS->getline(line,256);
-      this->IS->read(ptr,sizeof(unsigned char)*4*numPts);
+      this->IS->read((char *)ptr,sizeof(unsigned char)*4*numPts);
       if (this->IS->eof())
         {
         vtkErrorMacro(<<"Error reading binary alpha-pixmap!");
@@ -1157,7 +1157,7 @@ int vtkDataReader::ReadLutData(vtkDataSet *ds)
     {
     // suck up newline
     this->IS->getline(line,256);
-    this->IS->read(ptr,sizeof(unsigned char)*4*size);
+    this->IS->read((char *)ptr,sizeof(unsigned char)*4*size);
     if (this->IS->eof())
       {
       vtkErrorMacro(<<"Error reading binary lookup table!");

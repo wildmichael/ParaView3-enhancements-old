@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSampleFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-06-08 13:06:14 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1996-08-02 19:59:45 $
+  Version:   $Revision: 1.24 $
 
 
-Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless
@@ -119,7 +119,6 @@ void vtkSampleFunction::Execute()
   vtkFloatNormals *newNormals=NULL;
   int numPts;
   float *p, s, ar[3], origin[3];
-  vtkMath math;
   vtkStructuredPoints *output=(vtkStructuredPoints *)this->Output;
 
   vtkDebugMacro(<< "Sampling implicit function");
@@ -174,7 +173,7 @@ void vtkSampleFunction::Execute()
       {
       p = output->GetPoint(ptId);
       this->ImplicitFunction->FunctionGradient(p, n);
-      math.Normalize(n);
+      vtkMath::Normalize(n);
       newNormals->SetNormal(ptId,n);
       }
     }

@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingSquares.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-07-19 04:16:37 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1996-08-02 19:57:45 $
+  Version:   $Revision: 1.6 $
 
 
-Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless
@@ -38,11 +38,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
+#include <math.h>
 #include "vtkMarchingSquares.hh"
 #include "vtkMarchingSquaresCases.hh"
 #include "vtkStructuredPoints.hh"
 #include "vtkMergePoints.hh"
-#include "vtkMath.hh"
 #include "vtkUnsignedCharScalars.hh"
 #include "vtkShortScalars.hh"
 #include "vtkFloatScalars.hh"

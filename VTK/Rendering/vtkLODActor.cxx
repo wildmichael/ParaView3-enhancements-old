@@ -3,10 +3,10 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-06-14 11:13:22 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1996-08-02 19:57:18 $
+  Version:   $Revision: 1.10 $
   
-Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless
@@ -51,7 +51,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkLODActor.hh"
 #include "vtkActorDevice.hh"
 #include "vtkRenderWindow.hh"
-#include "vtkMath.hh"
 
 // Description:
 // Creates a vtkLODActor with the following defaults: origin(0,0,0) 
@@ -70,7 +69,6 @@ vtkLODActor::vtkLODActor()
 // property and then mapper.  
 void vtkLODActor::Render(vtkRenderer *ren)
 {
-  static vtkMath math;
   int choice;
 #ifdef _WIN32
   struct timeb time1, time2;

@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-05-08 18:48:30 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1996-08-02 20:01:44 $
+  Version:   $Revision: 1.2 $
 
 
-Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless
