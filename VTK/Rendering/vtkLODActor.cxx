@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:34:19 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1995-09-04 19:47:09 $
+  Version:   $Revision: 1.6 $
   
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -71,7 +71,7 @@ void vtkLODActor::Render(vtkRenderer *ren)
   static vtkMath math;
   int choice;
 #ifdef _WIN32
-  astruct timeb time1, time2;
+  struct timeb time1, time2;
 #else
   struct timeval time1,time2;
   struct timezone zone;
