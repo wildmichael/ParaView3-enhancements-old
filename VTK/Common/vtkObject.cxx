@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-11-15 01:26:15 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2000-11-18 20:22:41 $
+  Version:   $Revision: 1.58 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -254,7 +254,7 @@ class vtkObserver
 {
  public:
   vtkObserver()
-    {Event = 0; Next = NULL; Command = NULL; Tag = 0;};
+    {this->Event = 0; this->Next = NULL; this->Command = NULL; this->Tag = 0;};
   ~vtkObserver();
 
   vtkCommand *Command;

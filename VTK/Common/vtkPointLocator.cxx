@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-23 18:30:40 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2000-11-18 20:22:41 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -84,7 +84,7 @@ public:
 
   int *GetPoint(int i) 
     {
-      return (this->Count > i ?  &(P[3*i]) : 0);
+      return (this->Count > i ?  &(this->P[3*i]) : 0);
     }
 
   int InsertNextPoint(int *x) 
@@ -110,9 +110,9 @@ public:
 	  }
  	}
 
-      this->P[3*Count] = x[0];
-      this->P[3*Count+1] = x[1];
-      this->P[3*Count+2] = x[2];
+      this->P[3*this->Count] = x[0];
+      this->P[3*this->Count+1] = x[1];
+      this->P[3*this->Count+2] = x[2];
       this->Count++;
       return this->Count-1;
     }

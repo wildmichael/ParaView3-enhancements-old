@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutputWindow.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-01 07:23:22 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2000-11-18 20:22:41 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,10 +58,10 @@ class VTK_EXPORT vtkOutputWindow;
 class VTK_EXPORT vtkOutputWindowSmartPointer
 {
 public:
-  vtkOutputWindowSmartPointer(vtkOutputWindow* p) { Pointer=p; };
+  vtkOutputWindowSmartPointer(vtkOutputWindow* p) { this->Pointer=p; };
   void SetPointer(vtkOutputWindow* obj)
     {
-      Pointer = obj;
+      this->Pointer = obj;
     }
   ~vtkOutputWindowSmartPointer();
 private:

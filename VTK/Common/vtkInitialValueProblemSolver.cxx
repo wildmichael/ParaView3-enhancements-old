@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInitialValueProblemSolver.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-18 13:19:18 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-11-18 20:22:41 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -99,8 +99,9 @@ void vtkInitialValueProblemSolver::PrintSelf(ostream& os, vtkIndent indent)
 void vtkInitialValueProblemSolver::Initialize()
 {
   if (!FunctionSet || this->Initialized)
+    {
     return;
-
+    }
   this->Vals = new float[this->FunctionSet->GetNumberOfIndependentVariables()];
   this->Derivs = new float[this->FunctionSet->GetNumberOfFunctions()];
   this->Initialized = 1;
