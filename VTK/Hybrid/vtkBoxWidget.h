@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBoxWidget.h,v $
   Language:  C++
-  Date:      $Date: 2003-07-01 19:58:11 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2003-07-02 13:02:10 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -161,6 +161,12 @@ public:
   // set.
   vtkGetObjectMacro(HandleProperty,vtkProperty);
   vtkGetObjectMacro(SelectedHandleProperty,vtkProperty);
+
+  // Description:
+  // Switches handles (the spheres) on or off by manipulating the actor
+  // visibility.
+  void HandlesOn();
+  void HandlesOff();
   
   // Description:
   // Get the face properties (the faces of the box). The 
@@ -179,17 +185,19 @@ public:
   // Description:
   // Control the representation of the outline. This flag enables
   // face wires. By default face wires are off.
-  vtkSetMacro(OutlineFaceWires,int);
+  void SetOutlineFaceWires(int);
   vtkGetMacro(OutlineFaceWires,int);
-  vtkBooleanMacro(OutlineFaceWires,int);
+  void OutlineFaceWiresOn() {this->SetOutlineFaceWires(1);}
+  void OutlineFaceWiresOff() {this->SetOutlineFaceWires(0);}
 
   // Description:
   // Control the representation of the outline. This flag enables
   // the cursor lines running between the handles. By default cursor
   // wires are on.
-  vtkSetMacro(OutlineCursorWires,int);
+  void SetOutlineCursorWires(int);
   vtkGetMacro(OutlineCursorWires,int);
-  vtkBooleanMacro(OutlineCursorWires,int);
+  void OutlineCursorWiresOn() {this->SetOutlineCursorWires(1);}
+  void OutlineCursorWiresOff() {this->SetOutlineCursorWires(0);}
 
   // Description:
   // Control the behavior of the widget. Translation, rotation, and
@@ -251,8 +259,6 @@ protected:
   vtkPolyDataMapper **HandleMapper;
   vtkSphereSource   **HandleGeometry;
   virtual void PositionHandles();
-  void HandlesOn(double length);
-  void HandlesOff();
   int HighlightHandle(vtkProp *prop); //returns cell id
   void HighlightFace(int cellId);
   void HighlightOutline(int highlight);
