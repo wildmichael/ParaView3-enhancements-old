@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtk3DSImporter.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:29 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-04-04 20:13:13 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -63,6 +63,22 @@ public:
   vtkTypeMacro(vtk3DSImporter,vtkImporter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
+  // Description:
+  // Specify the name of the file to read.
+  vtkSetStringMacro(FileName);
+  vtkGetStringMacro(FileName);
+
+  // Description:
+  // Set/Get the computation of normals. If on, imported geometry will
+  // be run through vtkPolyDataNormals.
+  vtkSetMacro(ComputeNormals,int);
+  vtkGetMacro(ComputeNormals,int);
+  vtkBooleanMacro(ComputeNormals,int);
+
+  // Description:
+  // Return the file pointer to the open file.
+  FILE *GetFileFD() {return this->FileFD;};
+
   OmniLight *OmniList;
   SpotLight *SpotLightList;
   Camera    *CameraList;
@@ -76,13 +92,18 @@ protected:
   vtk3DSImporter(const vtk3DSImporter&) {};
   void operator=(const vtk3DSImporter&) {};
 
-  int ImportBegin ();
-  void ImportActors (vtkRenderer *renderer);
-  void ImportCameras (vtkRenderer *renderer);
-  void ImportLights (vtkRenderer *renderer);
-  void ImportProperties (vtkRenderer *renderer);
+  virtual int ImportBegin ();
+  virtual void ImportEnd ();
+  virtual void ImportActors (vtkRenderer *renderer);
+  virtual void ImportCameras (vtkRenderer *renderer);
+  virtual void ImportLights (vtkRenderer *renderer);
+  virtual void ImportProperties (vtkRenderer *renderer);
   vtkPolyData *GeneratePolyData (Mesh *meshPtr);
   int Read3DS ();
+
+  char *FileName;
+  FILE *FileFD;
+  int ComputeNormals;
 };
 
 #endif
