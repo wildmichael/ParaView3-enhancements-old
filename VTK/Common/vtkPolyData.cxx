@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-03-17 08:58:47 $
-  Version:   $Revision: 1.151 $
+  Date:      $Date: 2003-04-01 19:12:16 $
+  Version:   $Revision: 1.152 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -34,7 +34,7 @@
 #include "vtkTriangleStrip.h"
 #include "vtkVertex.h"
 
-vtkCxxRevisionMacro(vtkPolyData, "$Revision: 1.151 $");
+vtkCxxRevisionMacro(vtkPolyData, "$Revision: 1.152 $");
 vtkStandardNewMacro(vtkPolyData);
 
 //----------------------------------------------------------------------------
@@ -988,7 +988,7 @@ void vtkPolyData::DeleteLinks()
 //----------------------------------------------------------------------------
 // Create upward links from points to cells that use each point. Enables
 // topologically complex queries.
-void vtkPolyData::BuildLinks()
+void vtkPolyData::BuildLinks(int initialSize)
 {
   if ( this->Links )
     {
@@ -1001,7 +1001,14 @@ void vtkPolyData::BuildLinks()
     }
 
   this->Links = vtkCellLinks::New();
-  this->Links->Allocate(this->GetNumberOfPoints());
+  if ( initialSize > 0 )
+    {
+    this->Links->Allocate(initialSize);
+    }
+  else
+    {
+    this->Links->Allocate(this->GetNumberOfPoints());
+    }
   this->Links->Register(this);
   this->Links->Delete();
 
@@ -1387,6 +1394,15 @@ void vtkPolyData::ReverseCell(vtkIdType cellId)
     default:
       break;
     }
+}
+
+//----------------------------------------------------------------------------
+// Add a point to the cell data structure (after cell pointers have been
+// built). This method allocates memory for the links to the cells.  (To 
+// use this method, make sure points are available and BuildLinks() has been invoked.)
+int vtkPolyData::InsertNextLinkedPoint(int numLinks)
+{
+  return this->Links->InsertNextPoint(numLinks);
 }
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 2003-03-17 08:58:47 $
-  Version:   $Revision: 1.123 $
+  Date:      $Date: 2003-04-01 19:12:16 $
+  Version:   $Revision: 1.124 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -200,8 +200,10 @@ public:
 
   // Description:
   // Create upward links from points to cells that use each point. Enables
-  // topologically complex queries.
-  void BuildLinks();
+  // topologically complex queries. Normally the links array is allocated
+  // based on the number of points in the vtkPolyData. The optional 
+  // initialSize parameter can be used to allocate a larger size initially.
+  void BuildLinks(int initialSize=0);
 
   // Description:
   // Release data structure that allows random access of the cells. This must
@@ -270,7 +272,9 @@ public:
   // Add a point to the cell data structure (after cell pointers have been
   // built). This method adds the point and then allocates memory for the
   // links to the cells.  (To use this method, make sure points are available
-  // and BuildLinks() has been invoked.)
+  // and BuildLinks() has been invoked.) Of the two methods below, one inserts
+  // a point coordinate and the other just makes room for cell links.
+  int InsertNextLinkedPoint(int numLinks); 
   int InsertNextLinkedPoint(float x[3], int numLinks); 
   
   // Description:
