@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1996-09-27 18:58:32 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1996-09-30 16:32:42 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,6 +74,7 @@ class vtkClipPolyData : public vtkPolyToPolyFilter
 {
 public:
   vtkClipPolyData(vtkImplicitFunction *cf=NULL);
+  ~vtkClipPolyData();
   char *GetClassName() {return "vtkClipPolyData";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -105,6 +106,15 @@ public:
   vtkGetMacro(GenerateClipScalars,int);
   vtkBooleanMacro(GenerateClipScalars,int);
 
+  // Description:
+  // Control whether second output is generated. The second output
+  // contains the polygonal data that's been clipped away.
+  vtkSetMacro(GenerateClippedOutput,int);
+  vtkGetMacro(GenerateClippedOutput,int);
+  vtkBooleanMacro(GenerateClippedOutput,int);
+
+  vtkPolyData *GetClippedOutput() {return this->ClippedOutput;};
+
   void SetLocator(vtkPointLocator *locator);
   void SetLocator(vtkPointLocator& locator) {this->SetLocator(&locator);};
   vtkGetObjectMacro(Locator,vtkPointLocator);
@@ -125,6 +135,9 @@ protected:
   int InsideOut;
   float Value;
   int GenerateClipScalars;
+
+  int GenerateClippedOutput;
+  vtkPolyData *ClippedOutput;
 };
 
 #endif
