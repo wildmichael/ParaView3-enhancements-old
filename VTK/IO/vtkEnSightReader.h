@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-16 18:30:08 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-01-17 14:48:28 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -165,7 +165,8 @@ protected:
   // Description:
   // Read scalars per node for this dataset.  If an error occurred, 0 is
   // returned; otherwise 1.
-  virtual int ReadScalarsPerNode(char* fileName, char* description) = 0;
+  virtual int ReadScalarsPerNode(char* fileName, char* description,
+				 int numberOfComponents = 1, int component = 0) = 0;
   
   // Description:
   // Read vectors per node for this dataset.  If an error occurred, 0 is
@@ -180,7 +181,8 @@ protected:
   // Description:
   // Read scalars per element for this dataset.  If an error occurred, 0 is
   // returned; otherwise 1.
-  virtual int ReadScalarsPerElement(char* fileName, char* description) = 0;
+  virtual int ReadScalarsPerElement(char* fileName, char* description,
+				    int numberOfComponents = 1, int component = 0) = 0;
 
   // Description:
   // Read vectors per element for this dataset.  If an error occurred, 0 is

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-16 18:30:08 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-01-17 14:48:28 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -806,14 +806,10 @@ int vtkEnSightReader::ReadVariableFiles()
     switch (this->ComplexVariableTypes[i])
       {
       case VTK_COMPLEX_SCALAR_PER_NODE:
-        strcpy(description, this->ComplexVariableDescriptions[i]);
-        strcat(description, "_r");
         this->ReadScalarsPerNode(this->ComplexVariableFileNames[2*i],
-                                 description);
-        strcpy(description, this->ComplexVariableDescriptions[i]);
-        strcat(description, "_i");
+                                 this->ComplexVariableDescriptions[i], 2);
         this->ReadScalarsPerNode(this->ComplexVariableFileNames[2*i+1],
-                                 description);
+                                 this->ComplexVariableDescriptions[i], 2, 1);
         break;
       case VTK_COMPLEX_VECTOR_PER_NODE:
         strcpy(description, this->ComplexVariableDescriptions[i]);
@@ -826,14 +822,10 @@ int vtkEnSightReader::ReadVariableFiles()
                                  description);
         break;
       case VTK_COMPLEX_SCALAR_PER_ELEMENT:
-        strcpy(description, this->ComplexVariableDescriptions[i]);
-        strcat(description, "_r");
         this->ReadScalarsPerElement(this->ComplexVariableFileNames[2*i],
-                                    description);
-        strcpy(description, this->ComplexVariableDescriptions[i]);
-        strcat(description, "_i");
+                                    this->ComplexVariableDescriptions[i], 2);
         this->ReadScalarsPerElement(this->ComplexVariableFileNames[2*i+1],
-                                    description);
+                                    this->ComplexVariableDescriptions[i], 2, 1);
         break;
       case VTK_COMPLEX_VECTOR_PER_ELEMENT:
         strcpy(description, this->ComplexVariableDescriptions[i]);
