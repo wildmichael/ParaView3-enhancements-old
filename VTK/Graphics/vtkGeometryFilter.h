@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-11 07:41:27 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1995-05-03 08:55:34 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -13,7 +13,7 @@ without the express written consent of the authors.
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-// .NAME vlGeometryFilter - extract geometry from data
+// .NAME vlGeometryFilter - extract geometry from data (or convert data to polygonal type)
 // .SECTION Description
 // vlGeometryFilter is a filter to extract geometry (and associated data)
 // from a dataset. Geometry is obtained as follows: all 0D, 1D, and 2D cells
@@ -21,6 +21,9 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 // boundary faces) are extracted. It is also possible to specify conditions
 // on point ids, cell ids, and on bounding box to control the extraction 
 // process.
+//    This filter may be also used to convert any type of data to polygonal
+// type. The conversion process may be less than satisfactory for some 3D
+// datasets.
 
 #ifndef __vlGeometryFilter_h
 #define __vlGeometryFilter_h
