@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXPolyDataMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:09:14 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2000-09-09 13:13:09 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -181,13 +181,15 @@ void vtkXPolyDataMapper2D::RenderOverlay(vtkViewport* viewport, vtkActor2D* acto
     { 
     if (c) 
       {
+      // if cell scalars are present, color poly with those, otherwise
+      // use the color of the first point
       if (cellScalars) 
 	{
 	rgba = c->GetColor(cellNum);
 	}
       else
 	{
-	rgba = c->GetColor(pts[j]);
+	rgba = c->GetColor(pts[0]);
 	}
       aColor.red = (unsigned short) (rgba[0] * 256);
       aColor.green = (unsigned short) (rgba[1] * 256);
