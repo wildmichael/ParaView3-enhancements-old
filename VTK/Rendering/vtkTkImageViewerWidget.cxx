@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkImageViewerWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-12-08 19:20:51 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1999-12-08 20:03:39 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -180,7 +180,7 @@ int vtkTkImageViewerWidget_Widget(ClientData clientData, Tcl_Interp *interp,
     {
     // Unknown method name.
     Tcl_AppendResult(interp, "vtkTkImageViewerWidget: Unknown option: ", argv[1], 
-		     "\n", "Try: configure or GetImageViewerWindow\n", NULL);
+		     "\n", "Try: configure or GetImageViewer\n", NULL);
     result = TCL_ERROR;
     }
 
