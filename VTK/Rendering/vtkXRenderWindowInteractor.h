@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-24 09:37:31 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-07-28 11:19:17 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Toolkit. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -60,7 +60,7 @@ public:
   void EndZoom();
   void StartPan();
   void EndPan();
-
+  void SetWidget(Widget);
   void SetupNewWindow(int Stereo = 0);
   void FinishSettingUpNewWindow();
   
