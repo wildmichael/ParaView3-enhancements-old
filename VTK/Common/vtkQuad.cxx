@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuad.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-15 19:12:23 $
-  Version:   $Revision: 1.80 $
+  Date:      $Date: 2002-12-10 18:43:18 $
+  Version:   $Revision: 1.81 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #include "vtkPointLocator.h"
 #include "vtkTriangle.h"
 
-vtkCxxRevisionMacro(vtkQuad, "$Revision: 1.80 $");
+vtkCxxRevisionMacro(vtkQuad, "$Revision: 1.81 $");
 vtkStandardNewMacro(vtkQuad);
 
 static const float VTK_DIVERGED = 1.e6;
@@ -501,22 +501,29 @@ int vtkQuad::IntersectWithLine(float p1[3], float p2[3], float tol, float& t,
 
   subId = 0;
   pcoords[0] = pcoords[1] = pcoords[2] = 0.0;
-  //
+
   // Get normal for triangle
   //
   pt1 = this->Points->GetPoint(0);
   pt2 = this->Points->GetPoint(1);
   pt3 = this->Points->GetPoint(2);
-
   vtkTriangle::ComputeNormal (pt1, pt2, pt3, n);
+  
+  // If first three points are co-linear, then use fourth point
   //
+  if ( n[0] == 0.0 && n[1] == 0.0 && n[2] == 0.0 )
+    {
+    pt3 = this->Points->GetPoint(3);
+    vtkTriangle::ComputeNormal (pt1, pt2, pt3, n);
+    }
+
   // Intersect plane of triangle with line
   //
   if ( ! vtkPlane::IntersectWithLine(p1,p2,n,pt1,t,x) )
     {
     return 0;
     }
-  //
+
   // See whether point is in triangle by evaluating its position.
   //
   if ( this->EvaluatePosition(x, closestPoint, subId,
