@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapJava.c,v $
   Language:  C++
-  Date:      $Date: 2001-02-12 20:21:08 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2001-02-19 17:23:55 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -321,8 +321,10 @@ void do_return(FILE *fp)
       fprintf(fp,"  if (!tempH)\n    {\n");
       fprintf(fp,"    tempH = vtkJavaCreateNewJavaStubForObject(env, (vtkObject *)temp%i);\n", MAX_ARGS);
       fprintf(fp,"    if (!tempH)\n      {\n");
-	  fprintf(fp,"      // no java stub for this class exists? Use function return type\n");
-	  fprintf(fp,"      tempH = vtkJavaCreateNewJavaStub(env, \"vtk/%s\", (void *)temp%i);\n",
+      fprintf(fp,"      // clear the exception first\n");
+      fprintf(fp,"      env->ExceptionClear();\n");
+      fprintf(fp,"      // no java stub for this class exists? Use function return type\n");
+      fprintf(fp,"      tempH = vtkJavaCreateNewJavaStub(env, \"vtk/%s\", (void *)temp%i);\n",
 		  currentFunction->ReturnClass, MAX_ARGS);
       fprintf(fp,"      }\n");
       fprintf(fp,"    }\n");      
