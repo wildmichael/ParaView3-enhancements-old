@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangularTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:33:49 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-06-12 17:33:45 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkUnsignedCharArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkTriangularTexture, "$Revision: 1.19 $");
+vtkCxxRevisionMacro(vtkTriangularTexture, "$Revision: 1.20 $");
 vtkStandardNewMacro(vtkTriangularTexture);
 
 // Instantiate object with XSize and YSize = 64; the texture pattern =1
@@ -78,8 +78,8 @@ static void OpaqueAtElementCentroid (int XSize, int YSize, float ScaleFactor,
         opacity = 1.0;
         }
       AGrayValue[1] = (unsigned char) (opacity * 255);
-      newScalars->InsertNextValue (AGrayValue[0]);
-      newScalars->InsertNextValue (AGrayValue[1]);
+      newScalars->SetValue ((XSize*j + i)*2, AGrayValue[0]);
+      newScalars->SetValue ((XSize*j + i)*2 + 1, AGrayValue[1]);
       }         
     }
 }
@@ -130,28 +130,33 @@ static void OpaqueAtVertices (int XSize, int YSize, float ScaleFactor,
         }
       opacity = 1.0 - opacity;
       AGrayValue[1] = (unsigned char) (opacity * 255);
-      newScalars->InsertNextValue (AGrayValue[0]);
-      newScalars->InsertNextValue (AGrayValue[1]);
+      newScalars->SetValue ((XSize*j + i)*2, AGrayValue[0]);
+      newScalars->SetValue ((XSize*j + i)*2 + 1, AGrayValue[1]);
       }         
     }
 }
 
-void vtkTriangularTexture::Execute()
+//----------------------------------------------------------------------------
+void vtkTriangularTexture::ExecuteInformation()
 {
-  int numPts;
-  vtkUnsignedCharArray *newScalars;
-  vtkStructuredPoints *output = this->GetOutput();
+  vtkImageData *output = this->GetOutput();
   
-  if ( (numPts = this->XSize * this->YSize) < 1 )
+  output->SetWholeExtent(0,this->XSize -1, 0, this->YSize - 1, 0,0);
+  output->SetScalarType(VTK_UNSIGNED_CHAR);
+  output->SetNumberOfScalarComponents(2);
+}
+
+void vtkTriangularTexture::ExecuteData(vtkDataObject *outp)
+{
+  vtkImageData *output = this->AllocateOutputData(outp);
+  vtkUnsignedCharArray *newScalars = 
+    vtkUnsignedCharArray::SafeDownCast(output->GetPointData()->GetScalars());
+  
+  if (this->XSize*this->YSize < 1)
     {
     vtkErrorMacro(<<"Bad texture (xsize,ysize) specification!");
     return;
     }
-
-  output->SetDimensions(this->XSize,this->YSize,1);
-  newScalars = vtkUnsignedCharArray::New();
-  newScalars->SetNumberOfComponents(2);
-  newScalars->Allocate(2*numPts);
 
   switch (this->TexturePattern) 
     {
@@ -167,12 +172,6 @@ void vtkTriangularTexture::Execute()
       vtkErrorMacro(<<"Opaque vertex rings not implemented");
       break;
     }
-
-//
-// Update the output data
-//
-  output->GetPointData()->SetScalars(newScalars);
-  newScalars->Delete();
 }
 
 void vtkTriangularTexture::PrintSelf(ostream& os, vtkIndent indent)
