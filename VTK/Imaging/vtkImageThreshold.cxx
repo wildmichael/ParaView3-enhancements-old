@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageThreshold.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-10-16 12:28:15 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1996-10-17 15:12:04 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -171,7 +171,7 @@ void vtkImageThresholdExecute(vtkImageThreshold *self,
 			      vtkImageRegion *inRegion, T *inPtr,
 			      vtkImageRegion *outRegion)
 {
-  void *outPtr = outRegion->GetScalarWritePointer();
+  void *outPtr = outRegion->GetScalarPointer();
   
   switch (outRegion->GetScalarType())
     {
