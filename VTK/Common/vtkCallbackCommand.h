@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCallbackCommand.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-14 20:52:32 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-01-09 19:21:42 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -56,6 +56,8 @@ public:
 
   void SetClientData(void *cd) 
     {this->ClientData = cd;};
+  void* GetClientData()
+    {return this->ClientData; }
   void SetCallback(void (*f)(vtkObject *, unsigned long, void *, void *)) 
     {this->Callback = f;};
   void SetClientDataDeleteCallback(void (*f)(void *))
