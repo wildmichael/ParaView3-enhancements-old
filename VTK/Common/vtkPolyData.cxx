@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-05-15 19:19:54 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1994-05-17 08:31:51 $
+  Version:   $Revision: 1.27 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -294,7 +294,7 @@ vlMapper *vlPolyData::MakeMapper()
 {
   vlPolyMapper *mapper;
 
-  if ( ! this->Mapper )
+  if ( this->Mapper == NULL  )
     {
     this->Mapper = mapper = new vlPolyMapper;
     this->Mapper->Register(this);

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkUnstructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 1994-05-15 19:17:04 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-05-17 08:31:53 $
+  Version:   $Revision: 1.3 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -45,7 +45,7 @@ public:
 
   // dataset interface
   vlDataSet *MakeObject() {return new vlUnstructuredGrid(*this);};
-  vlMapper *MakeMapper() {return (vlMapper *)0;};
+  vlMapper *MakeMapper();
   void Initialize();
   int GetNumberOfCells();
   vlCell *GetCell(int cellId);
