@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLOT3DReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-30 18:12:19 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2002-08-30 18:39:34 $
+  Version:   $Revision: 1.51 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -107,6 +107,7 @@ public:
   // is invoked, the header file is opened and part of the header 
   // is read.
   int GetNumberOfOutputs();
+  int GetNumberOfGrids() { return this->GetNumberOfOutputs(); }
 
   // Description:
   // Replace an output.
