@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-16 15:58:17 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1998-11-14 16:59:40 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,6 +48,13 @@ vtkImplicitFunction::vtkImplicitFunction()
 vtkImplicitFunction::~vtkImplicitFunction()
 {
   this->SetTransform(NULL);
+}
+
+float vtkImplicitFunction::EvaluateFunction(float x, float y, float z)
+{
+  float xyz[3];
+  xyz[0] = x; xyz[1] = y; xyz[2] = z;
+  return this->EvaluateFunction (xyz);
 }
 
 // Evaluate function at position x-y-z and return value. Point x[3] is
