@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkReverseSense.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:21 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-12-24 13:34:33 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -82,7 +82,8 @@ void vtkReverseSense::Execute()
       }
     }
 
-  //If specified and normals available, reverse orientation of normals
+  //If specified and normals available, reverse orientation of normals.
+  // Using MakeObject() creates normals of the same data type.
   if ( this->ReverseNormals && normals )
     {
     int numPoints=input->GetNumberOfPoints();
@@ -98,6 +99,7 @@ void vtkReverseSense::Execute()
       }
 
     output->GetPointData()->SetNormals(outNormals);
+    outNormals->Delete();
     }
 }
 
