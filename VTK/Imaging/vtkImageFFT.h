@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFFT.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:09:09 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-04-18 20:57:26 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,7 +56,7 @@ class VTK_EXPORT vtkImageFFT : public vtkImageDecomposedFilter
 {
 public:
   vtkImageFFT();
-  vtkImageFFT *New() {return new vtkImageFFT;};
+  static vtkImageFFT *New() {return new vtkImageFFT;};
   char *GetClassName() {return "vtkImageFFT";};
 
   void SetDimensionality(int num);

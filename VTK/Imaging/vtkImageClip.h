@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageClip.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:08:58 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-04-18 20:57:16 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,7 +58,7 @@ class VTK_EXPORT vtkImageClip : public vtkImageInPlaceFilter
 {
 public:
   vtkImageClip();
-  vtkImageClip *New() {return new vtkImageClip;};
+  static vtkImageClip *New() {return new vtkImageClip;};
   char *GetClassName() {return "vtkImageClip";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

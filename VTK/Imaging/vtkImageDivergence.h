@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDivergence.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:09:07 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-04-18 20:57:24 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,7 +56,7 @@ class VTK_EXPORT vtkImageDivergence : public vtkImageFilter
 {
 public:
   vtkImageDivergence();
-  vtkImageDivergence *New() {return new vtkImageDivergence;};
+  static vtkImageDivergence *New() {return new vtkImageDivergence;};
   char *GetClassName() {return "vtkImageDivergence";};
   
 protected:

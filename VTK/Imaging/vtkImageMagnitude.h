@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMagnitude.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:09:22 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-04-18 20:57:43 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,7 +58,7 @@ class VTK_EXPORT vtkImageMagnitude : public vtkImageFilter
 {
 public:
   vtkImageMagnitude();
-  vtkImageMagnitude *New() {return new vtkImageMagnitude;};
+  static vtkImageMagnitude *New() {return new vtkImageMagnitude;};
   char *GetClassName() {return "vtkImageMagnitude";};
 
   // Description:
