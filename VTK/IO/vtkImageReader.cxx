@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:10 $
-  Version:   $Revision: 1.76 $
+  Date:      $Date: 2001-01-29 20:07:52 $
+  Version:   $Revision: 1.77 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -474,19 +474,6 @@ void vtkImageReader::ExecuteInformation()
 
   output->SetScalarType(this->DataScalarType);
   output->SetNumberOfScalarComponents(this->NumberOfScalarComponents);
-
-  // What if we are trying to process a VERY large 2D image?
-  mem = output->GetScalarSize();
-  mem = mem * (extent[1] - extent[0] + 1);
-  mem = mem * (extent[3] - extent[2] + 1);
-  mem = mem / 1000;
-  mem = mem * (extent[5] - extent[4] + 1);
-  if (mem < 1)
-    {
-    mem = 1;
-    }
-  
-  //  output->SetEstimatedWholeMemorySize(mem);
 }
 
 
