@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArray.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-22 13:17:39 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2001-06-27 18:09:50 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -183,6 +183,23 @@ public:
   // Deep copy of data. Copies data from different data arrays even if
   // they are different types (using floating-point exchange).
   virtual void DeepCopy(vtkDataArray *da);
+
+  // Description:
+  // Fill a component of a data array with a specified value. This method
+  // sets the specified component to specified value for all tuples in the
+  // data array.  This methods can be used to initialize or reinitialize a
+  // single component of a multi-component array.
+  virtual void FillComponent(const int j, const float c);
+
+  // Description:
+  // Copy a component from one data array into a component on this data array.
+  // This method copies the specified component ("fromComponent") from the
+  // specified data array ("from") to the specified component ("j") over all
+  // the tuples in this data array.  This method can be used to extract
+  // a component (column) from one data array and paste that data into
+  // a component on this data array.
+  virtual void CopyComponent(const int j, vtkDataArray *from,
+                             const int fromComponent);
 
   // Description:
   // Return a void pointer. For image pipeline interface and other 

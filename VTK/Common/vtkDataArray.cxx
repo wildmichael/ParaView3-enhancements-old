@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-22 13:17:39 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2001-06-27 18:09:50 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -434,6 +434,57 @@ void vtkDataArray::GetTuples(vtkIdList *ptIds, vtkDataArray *da)
     default:
       vtkErrorMacro(<<"Sanity check failed: Unsupported data type.");
       return;
+    }
+}
+
+
+void vtkDataArray::FillComponent(const int j, const float c)
+{
+  if (j < 0 || j >= this->GetNumberOfComponents())
+    {
+    vtkErrorMacro(<< "Specified component " << j << " is not in [0, "
+    << this->GetNumberOfComponents() << ")" );
+    return;
+    }
+  
+  vtkIdType i;
+
+  for (i = 0; i < this->GetNumberOfTuples(); i++)
+    {
+    this->SetComponent(i, j, c);
+    }
+}
+
+
+void vtkDataArray::CopyComponent(const int j, vtkDataArray *from,
+                                 const int fromComponent)
+{
+  if (this->GetNumberOfTuples() != from->GetNumberOfTuples())
+    {
+    vtkErrorMacro(<< "Number of tuples in 'from' ("
+    << from->GetNumberOfTuples() << ") and 'to' ("
+    << this->GetNumberOfTuples() << ") do not match.");
+    return;
+    }
+
+  if (j < 0 || j >= this->GetNumberOfComponents())
+    {
+    vtkErrorMacro(<< "Specified component " << j << " in 'to' array is not in [0, "
+    << this->GetNumberOfComponents() << ")" );
+    return;
+    }
+
+  if (fromComponent < 0 || fromComponent >= from->GetNumberOfComponents())
+    {
+    vtkErrorMacro(<< "Specified component " << fromComponent << " in 'from' array is not in [0, "
+    << from->GetNumberOfComponents() << ")" );
+    return;
+    }
+
+  vtkIdType i;
+  for (i = 0; i < this->GetNumberOfTuples(); i++)
+    {
+    this->SetComponent(i, j, from->GetComponent(i, fromComponent));
     }
 }
 
