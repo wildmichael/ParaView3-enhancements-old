@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataNormals.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-12-11 18:15:55 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-01-19 15:29:21 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -130,6 +130,7 @@ void vtkPolyDataNormals::Execute()
     polys = inPolys;
     }
   OldMesh->BuildLinks();
+  this->UpdateProgress(0.10);
   
   pd = input->GetPointData();
   outPD = output->GetPointData();
@@ -192,6 +193,7 @@ void vtkPolyDataNormals::Execute()
 
     Seeds->Delete();
     }
+  this->UpdateProgress(0.333);
 //
 //  Compute polygon normals
 //
@@ -259,6 +261,8 @@ void vtkPolyDataNormals::Execute()
     outPD->CopyNormalsOff();
     outPD->PassData(pd);
     }
+  this->UpdateProgress(0.66);
+
   //
   //  Finally, traverse all elements, computing polygon normals and
   //  accumalating them at the vertices.
