@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageEuclideanToPolar.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-15 16:46:16 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-07-18 15:54:13 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,7 +70,11 @@ static void vtkImageEuclideanToPolarExecute(vtkImageEuclideanToPolar *self,
   inPtr += inInc;
   Y = (float)(*inPtr);
 
-  Theta = atan2(X, Y) * thetaMax;
+  Theta = atan2(X, Y) * thetaMax / 6.2831853;
+  if (Theta < 0.0)
+    {
+    Theta += thetaMax;
+    }
   R = sqrt(X*X + Y*Y);
 
   // assign output.

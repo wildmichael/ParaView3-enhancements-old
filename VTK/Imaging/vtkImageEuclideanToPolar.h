@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageEuclideanToPolar.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-15 16:15:34 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-07-18 15:54:14 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,7 +40,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 // .NAME vtkImageEuclideanToPolar - Converts 2D Euclidean coordinates to polar.
 // .SECTION Description
-// For each pixel with vector components x,y, this filter outputs theta radius.
+// For each pixel with vector components x,y, this filter outputs 
+// theta in component0, and radius in component1.
 
 #ifndef __vtkImageEuclideanToPolar_h
 #define __vtkImageEuclideanToPolar_h

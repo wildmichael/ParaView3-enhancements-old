@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageNonMaximumSuppression.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-17 14:30:04 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1997-07-18 15:54:16 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,10 +50,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 vtkImageNonMaximumSuppression::vtkImageNonMaximumSuppression()
 {
   this->NumberOfFilteredAxes = 3;
-
-  // execute methods operates of component axis too.
-  this->SetExecutionAxes(VTK_IMAGE_X_AXIS, VTK_IMAGE_Y_AXIS, VTK_IMAGE_Z_AXIS,
-			 VTK_IMAGE_COMPONENT_AXIS);
+  this->NumberOfExecutionAxes = 3;
   
   this->SetOutputScalarType(VTK_FLOAT);
 }

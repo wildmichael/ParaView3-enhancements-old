@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSkeleton2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-18 10:41:56 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1997-07-18 15:54:17 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -85,6 +85,7 @@ static void vtkImageSkeleton2DExecute(vtkImageSkeleton2D *self,
   int wholeMin0, wholeMax0, wholeMin1, wholeMax1;
   int prune = self->GetPrune();
   float n[8];
+  int countFaces, countCorners;
 
   // Get information to march through data
   inRegion->GetIncrements(inInc0, inInc1); 
@@ -116,27 +117,48 @@ static void vtkImageSkeleton2DExecute(vtkImageSkeleton2D *self,
 	n[7] = (idx1<wholeMax1)&&(idx0>wholeMin0) 
 	  ? *(inPtr0+inInc1-inInc0) : 0;
 
+	countFaces = (n[0]>1)+(n[2]>1)+(n[4]>1)+(n[6]>1);
+	countCorners = (n[1]>1)+(n[3]>1)+(n[5]>1)+(n[7]>1);
+
+	// special case
+	if (prune && ((countFaces + countCorners) <= 1))
+	  {
+	  *inPtr0 = 1;
+	  }
+	
 	// one of four face neighbors has to be off
 	if (n[0] == 0 || n[2] == 0 ||
 	    n[4] == 0 || n[6] == 0)
-	  { // remaining pixels need to be face connected.
+	  { // remaining pixels need to be connected.
 	  // across corners
-	  if ((n[0] <= 1 || n[2] <= 1 || n[1] > 1) &&
-	      (n[2] <= 1 || n[4] <= 1 || n[3] > 1) &&
-	      (n[4] <= 1 || n[6] <= 1 || n[5] > 1) &&
-	      (n[6] <= 1 || n[0] <= 1 || n[7] > 1))
+	  if (1)
+	    //(n[0] == 0 || n[2] == 0 || n[1] > 0) &&
+	    //  (n[2] == 0 || n[4] == 0 || n[3] > 0) &&
+	    //  (n[4] == 0 || n[6] == 0 || n[5] > 0) &&
+	    //  (n[6] == 0 || n[0] == 0 || n[7] > 0))
 	    {
-	    // opposite faces
-	    if ((n[0] <= 1 || n[4] <= 1 || n[2] > 1 || n[6] > 1) &&
-		(n[2] <= 1 || n[6] <= 1 || n[0] > 1 || n[4] > 1))
+	    // do not break corner connectivity
+	    if ((n[1] <= 1 || n[0] > 1 || n[2] > 1) &&
+		(n[3] <= 1 || n[2] > 1 || n[4] > 1) &&
+		(n[5] <= 1 || n[4] > 1 || n[6] > 1) &&
+		(n[7] <= 1 || n[6] > 1 || n[0] > 1))
 	      {
-	      // check for pruning???
-	      *inPtr0 = 1;
+	      // opposite faces (special conedition so double thick lines
+	      // will not be completely eroded)
+	      if ((n[0] == 0 || n[4] == 0 || n[2] > 1 || n[6] > 1) &&
+		  (n[2] == 0 || n[6] == 0 || n[0] > 1 || n[4] > 1))
+		{
+		// check to stop pruning (sort of a hack huristic)
+		if (prune || (countFaces > 2) || 
+		    ((countFaces == 2) && (countCorners > 1)))
+		  {
+		  *inPtr0 = 1;
+		  }
+		}
 	      }
 	    }
 	  }
 	}
-      
       inPtr0 += inInc0;
       }
     inPtr1 += inInc1;
@@ -158,7 +180,7 @@ static void vtkImageSkeleton2DExecute(vtkImageSkeleton2D *self,
 	{
 	*outPtr0 = *inPtr0;
 	}
-      *outPtr0 = *inPtr0;
+      // *outPtr0 = *inPtr0; // for debugging
       
       inPtr0 += inInc0;
       outPtr0 += outInc0;      
