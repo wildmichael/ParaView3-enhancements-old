@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-12-19 11:53:33 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 1996-12-23 12:02:08 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -530,11 +530,7 @@ float *vtkTransform::GetOrientationWXYZ ()
   float	scaleX, scaleY, scaleZ;
   vtkTransform *temp1 = new vtkTransform;
   vtkMatrix4x4 temp;
-  float cT, sT;
-  float cP, sP;
-  float cS, sS;
   float quat[4];
-  float *orient;
   static float WXYZ[4];
   float mag;
   
