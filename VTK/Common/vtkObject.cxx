@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-10 21:12:23 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1997-07-25 15:27:03 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,6 +46,12 @@ static int vtkObjectGlobalWarningDisplay = 1;
 
 // avoid dll boundary problems
 #ifdef _WIN32
+void* vtkObject::operator new(size_t nSize, const char *, int)
+{
+void* p=malloc(nSize);
+return p;
+}
+
 void* vtkObject::operator new(size_t nSize)
 {
 void* p=malloc(nSize);
