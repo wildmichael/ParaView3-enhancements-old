@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRotationalExtrusionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-05-21 14:45:41 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1995-05-22 10:15:54 $
+  Version:   $Revision: 1.2 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -39,13 +39,14 @@ void vlRotationalExtrusionFilter::Execute()
   vlPoints *inPts;
   vlCellArray *inVerts, *inLines, *inPolys, *inStrips;
   int npts, *pts, numEdges, cellId, dim;
-  int ptId, ncellsl;
+  int ptId, ncells;
   float *x, newX[3], radius, angleIncr, radIncr, transIncr;
   vlFloatPoints *newPts;
   vlCellArray *newLines=NULL, *newPolys=NULL, *newStrips=NULL;
   vlCell *cell, *edge;
   vlIdList cellIds(MAX_CELL_SIZE), *cellPts;
   vlMath math;
+  int i, j, k, p1, p2;
 //
 // Initialize / check input
 //
