@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimatePro.h,v $
   Language:  C++
-  Date:      $Date: 1998-12-29 22:13:06 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1998-12-31 15:16:48 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -132,8 +132,9 @@ public:
     {this->MaxId = -1; this->Array = new vtkProLocalVertex[sz];};
   ~vtkVertexArray()
     {
+    if (this->Array)
       {
-      if (this->Array) delete [] this->Array;
+      delete [] this->Array;
       }
     };
   int GetNumberOfVertices() {return this->MaxId + 1;};
