@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSkeleton2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:09:16 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1999-11-04 20:48:28 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,7 +43,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 
-//------------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 vtkImageSkeleton2D* vtkImageSkeleton2D::New()
 {
   // First try to create the object from the vtkObjectFactory
@@ -66,6 +66,7 @@ vtkImageSkeleton2D* vtkImageSkeleton2D::New()
 vtkImageSkeleton2D::vtkImageSkeleton2D()
 {
   this->Prune = 0;
+  this->SetNumberOfThreads(1); // temporary fix
 }
 
 //----------------------------------------------------------------------------
