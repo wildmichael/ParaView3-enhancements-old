@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAnisotropicDiffusion2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-09-06 19:00:15 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1996-09-11 18:43:02 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -108,7 +108,6 @@ void vtkImage2dAnisotropicDiffusionFilter::Execute2d(vtkImageRegion *inRegion,
 
   inRegion->GetAspectRatio2d(ar0, ar1);
   inRegion->GetBounds3d (bounds);
-  bounds[4] = bounds[5] = inRegion->GetDefaultCoordinate2 ();
 
   // make the temporary regions to iterate over.
   in = new vtkImageRegion;
