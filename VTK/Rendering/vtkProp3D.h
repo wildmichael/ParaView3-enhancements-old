@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp3D.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-06 07:20:14 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2000-12-07 14:35:29 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -244,8 +244,6 @@ public:
 #ifndef VTK_REMOVE_LEGACY_CODE
   // Description:
   // For legacy compatibility. Do not use.
-  //  virtual vtkMatrix4x4& GetMatrix() 
-  //    {VTK_LEGACY_METHOD(GetMatrixPointer,"3.2"); return *(this->GetMatrixPointer());}
   virtual void GetMatrix(vtkMatrix4x4 &m) 
     {VTK_LEGACY_METHOD(GetMatrix,"3.2"); this->GetMatrix(&m);}
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPropAssembly.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-13 16:15:36 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-12-07 14:35:29 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -381,7 +381,7 @@ void vtkPropAssembly::UpdatePaths()
           (prop = this->Parts->GetNextProp()); )
       {
       // add a matrix, if any
-      path->AddNode(prop,prop->GetMatrixPointer());
+      path->AddNode(prop,prop->GetMatrix());
 
       // dive into the hierarchy
       prop->BuildPaths(this->Paths,path);
