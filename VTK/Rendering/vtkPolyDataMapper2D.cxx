@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-26 14:22:09 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-02-18 12:50:52 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,6 +57,8 @@ vtkPolyDataMapper2D::vtkPolyDataMapper2D()
   this->ScalarRange[0] = 0.0; this->ScalarRange[1] = 1.0;
 
   this->ColorMode = VTK_COLOR_MODE_DEFAULT;
+  
+  this->TransformCoordinate = NULL;
 }
 
 vtkPolyDataMapper2D::~vtkPolyDataMapper2D()
@@ -243,6 +245,17 @@ void vtkPolyDataMapper2D::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Scalar Range: (" << range[0] << ", " << range[1] << ")\n";
   
   os << indent << "Color Mode: " << this->GetColorModeAsString() << endl;
+
+  if ( this->TransformCoordinate )
+    {
+    os << indent << "Transform Coordinate: " 
+       << this->TransformCoordinate << "\n";
+    this->TransformCoordinate->PrintSelf(os, indent.GetNextIndent());
+    }
+  else
+    {
+    os << indent << "No Transform Coordinate\n";
+    }
 }
 
 

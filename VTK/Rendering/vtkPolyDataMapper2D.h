@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-26 14:22:09 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-02-18 12:50:53 $
+  Version:   $Revision: 1.8 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -37,12 +37,17 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkPolyDataMapper2D - draw vtkPolyData onto image plane
+// .NAME vtkPolyDataMapper2D - draw vtkPolyData onto the image plane
 // .SECTION Description
 // vtkPolyDataMapper2D is a mapper that renders 3D polygonal data 
 // (vtkPolyData) onto the 2D image plane (i.e., the renderer's viewport).
-// The 3D data is transformed into 2D data by ignoring the z-coordinate
-// of the 3D points in vtkPolyData.
+// By default, the 3D data is transformed into 2D data by ignoring the 
+// z-coordinate of the 3D points in vtkPolyData, and taking the x-y values 
+// as local display values (i.e., pixel coordinates). Alternatively, you
+// can provide a vtkCoordinate object that will transform the data into
+// local display coordinates (use the vtkCoordinate::SetCoordinateSystem()
+// methods to indicate which coordinate system you are transforming the
+// data from).
 
 // .SECTION See Also
 // vtkMapper2D vtkActor2D
@@ -132,9 +137,16 @@ public:
   virtual unsigned long GetMTime();
 
   // Description:
+  // Specify a vtkCoordinate object to be used to transform the vtkPolyData
+  // point coordinates. By default (no vtkCoordinate specified), the point 
+  // coordinates are taken as local display coordinates.
+  vtkSetObjectMacro(TransformCoordinate, vtkCoordinate);
+  vtkGetObjectMacro(TransformCoordinate, vtkCoordinate);
+
+  // Description:
   // Obsolete methods for legacy compatability. Do not use.
   void SetLookupTable(vtkLookupTable& lut) {this->SetLookupTable(&lut);};
-
+  
 protected:
   vtkPolyData* Input;
   vtkScalars *Colors;
@@ -143,6 +155,8 @@ protected:
   vtkTimeStamp BuildTime;
   float ScalarRange[2];
   int ColorMode;
+  
+  vtkCoordinate *TransformCoordinate;
 
 };
 
