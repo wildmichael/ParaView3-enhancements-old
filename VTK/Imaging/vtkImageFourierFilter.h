@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFourierFilter.h,v $
   Language:  C++
-  Date:      $Date: 1996-09-16 18:07:45 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1996-11-11 18:11:05 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -116,18 +116,20 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
   
   // public for templated functions of this object
+  //BTX
   void ExecuteFft(vtkImageComplex *in, vtkImageComplex *out, int N);
   void ExecuteRfft(vtkImageComplex *in, vtkImageComplex *out, int N);
-
+  //ETX
   
 protected:
-
+  //BTX
   void ExecuteFftStep2(vtkImageComplex *p_in, vtkImageComplex *p_out, 
 		       int N, int bsize, int fb);
   void ExecuteFftStepN(vtkImageComplex *p_in, vtkImageComplex *p_out,
 		       int N, int bsize, int n, int fb);
   void ExecuteFftForwardBackward(vtkImageComplex *in, vtkImageComplex *out, 
 				 int N, int fb);
+  //ETX
 };
 
 
