@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSampleFunction.h,v $
   Language:  C++
-  Date:      $Date: 2002-12-11 14:26:22 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2003-07-29 10:11:59 $
+  Version:   $Revision: 1.46 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -92,7 +92,8 @@ public:
   vtkGetVectorMacro(SampleDimensions,int,3);
 
   // Description:
-  // Specify the region in space over which the sampling occurs.
+  // Specify the region in space over which the sampling occurs. The
+  // bounds is specified as (xMin,xMax, yMin,yMax, zMin,zMax).
   vtkSetVector6Macro(ModelBounds,float);
   vtkGetVectorMacro(ModelBounds,float,6);
 
