@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVideoSource.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-07 23:12:10 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-09-11 17:46:32 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,6 @@
 // .SECTION Caveats
 // You must call the ReleaseSystemResources() method before the application
 // exits.  Otherwise the application might hang while trying to exit.
-
 // .SECTION See Also
 // vtkWin32VideoSource vtkMILVideoSource
 
@@ -195,7 +194,12 @@ public:
   // a number (negative or positive) to specify the position of the
   // video frame relative to the current frame.
   virtual double GetFrameTimeStamp(int frame);
-  virtual double GetFrameTimeStamp() { return this->GetFrameTimeStamp(0); };
+
+  // Description:
+  // Get a time stamp in seconds (resolution of milliseconds) for
+  // the Output.  Time began on Jan 1, 1970.  This timestamp is only
+  // valid after the Output has been Updated.
+  double GetFrameTimeStamp() { return this->FrameTimeStamp; };
 
   // Description:
   // Initialize the hardware.  This is called automatically
@@ -206,8 +210,7 @@ public:
   // Description:
   // Release the video driver.  This method must be called before
   // application exit, or else the application might hang during
-  // exit.  This is called automatically when the vtkVideoSource
-  // is destroyed, but it is much safer to call this method manually.
+  // exit.  
   virtual void ReleaseSystemResources();
 
   // Description:
@@ -252,6 +255,7 @@ protected:
   int FrameCount;
   int FrameIndex;
   double StartTimeStamp;
+  double FrameTimeStamp;
 
   int AutoAdvance;
   int NumberOfOutputFrames;
