@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOrderedTriangulator.h,v $
   Language:  C++
-  Date:      $Date: 2003-07-03 21:08:55 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2003-07-04 11:58:15 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -68,12 +68,12 @@
 
 #include "vtkObject.h"
 
-class vtkUnstructuredGrid;
-class vtkOTMesh;
-class vtkCellArray;
-class vtkHeap;
-class vtkIdList;
-class vtkPoints;
+class  vtkUnstructuredGrid;
+class  vtkCellArray;
+class  vtkHeap;
+class  vtkIdList;
+class  vtkPoints;
+struct vtkOTMesh;
 
 class VTK_COMMON_EXPORT vtkOrderedTriangulator : public vtkObject
 {
