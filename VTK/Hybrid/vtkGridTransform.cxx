@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGridTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:30:29 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-05-13 21:44:42 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,12 +16,17 @@
 
 =========================================================================*/
 #include "vtkGridTransform.h"
-#include "vtkObjectFactory.h"
+
+#include "vtkImageData.h"
 #include "vtkMath.h"
+#include "vtkObjectFactory.h"
+
 #include "math.h"
 
-vtkCxxRevisionMacro(vtkGridTransform, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkGridTransform, "$Revision: 1.16 $");
 vtkStandardNewMacro(vtkGridTransform);
+
+vtkCxxSetObjectMacro(vtkGridTransform,DisplacementGrid,vtkImageData);
 
 //----------------------------------------------------------------------------
 // fast floor() function for converting a float to an int
