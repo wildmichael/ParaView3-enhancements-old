@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-26 20:46:43 $
-  Version:   $Revision: 1.76 $
+  Date:      $Date: 2001-02-01 16:37:16 $
+  Version:   $Revision: 1.77 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -329,6 +329,13 @@ vtkScalars *vtkMapper::GetColors()
 
 void vtkMapper::ColorByArrayComponent(int arrayNum, int component)
 {
+  if (this->ArrayId == arrayNum && component == this->ArrayComponent &&
+      this->ArrayAccessMode == VTK_GET_ARRAY_BY_ID)
+    {
+    return;
+    }
+  this->Modified();
+  
   this->ArrayId = arrayNum;
   this->ArrayComponent = component;
   this->ArrayAccessMode = VTK_GET_ARRAY_BY_ID;
@@ -336,6 +343,13 @@ void vtkMapper::ColorByArrayComponent(int arrayNum, int component)
 
 void vtkMapper::ColorByArrayComponent(char* arrayName, int component)
 {
+  if (strcmp(this->ArrayName, arrayName) == 0 && component == this->ArrayComponent &&
+      this->ArrayAccessMode == VTK_GET_ARRAY_BY_ID)
+    {
+    return;
+    }
+  this->Modified();
+  
   strcpy(this->ArrayName, arrayName);
   this->ArrayComponent = component;
   this->ArrayAccessMode = VTK_GET_ARRAY_BY_NAME;
