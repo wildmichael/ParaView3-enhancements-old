@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-19 21:24:23 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 1999-06-21 17:58:52 $
+  Version:   $Revision: 1.42 $
   
     
   Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -603,6 +603,7 @@ vtkCellLocator::FindClosestPointWithinRadius(float x[3], float radius,
   
   float refinedRadius, radius2, refinedRadius2, distance2ToBucket;
   float distance2ToCellBounds, cellBounds[6], currentRadius;
+  float distance2ToDataBounds, maxDistance;
   int ii, radiusLevels[3], radiusLevel;
   
   
@@ -721,6 +722,14 @@ vtkCellLocator::FindClosestPointWithinRadius(float x[3], float radius,
     refinedRadius = radius;
     refinedRadius2 = radius2;
     }
+
+  distance2ToDataBounds = this->Distance2ToBounds(x, this->Bounds);
+  maxDistance = sqrt(distance2ToDataBounds) + this->DataSet->GetLength();
+  if (refinedRadius > maxDistance)
+    {
+    refinedRadius = maxDistance;
+    refinedRadius2 = maxDistance*maxDistance;
+    }
   
   radiusLevels[0] = refinedRadius/this->H[0];
   radiusLevels[1] = refinedRadius/this->H[1];
@@ -734,6 +743,11 @@ vtkCellLocator::FindClosestPointWithinRadius(float x[3], float radius,
     {
     radiusLevel = 1;
     }
+  if (radiusLevel > this->NumberOfDivisions)
+    {
+    radiusLevel = this->NumberOfDivisions;
+    }
+  
   
   // radius schedule increases the radius each iteration, this is currently
   // implemented by decreasing ii by 1 each iteration.  another alternative
