@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMatrix4x4.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-04 16:42:17 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 1999-11-04 20:51:22 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -91,6 +91,14 @@ class VTK_EXPORT vtkMatrix4x4 : public vtkObject
 //BTX
   static void Zero(double Elements[16]);
 //ETX  
+
+  // Description:
+  // Set equal to Identity matrix
+  void Identity();
+//BTX
+  static void Identity(double Elements[16]);
+//ETX  
+
 
   // Description:
   // Matrix Inversion (adapted from Richard Carling in "Graphics Gems," 
