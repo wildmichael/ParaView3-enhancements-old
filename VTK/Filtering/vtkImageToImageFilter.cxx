@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToImageFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:14:02 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2000-09-27 11:09:10 $
+  Version:   $Revision: 1.31 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -209,7 +209,7 @@ VTK_THREAD_RETURN_TYPE vtkImageThreadedExecute( void *arg )
   threadCount = ((ThreadInfoStruct *)(arg))->NumberOfThreads;
 
   str = (vtkImageThreadStruct *)(((ThreadInfoStruct *)(arg))->UserData);
-  output = str->Filter->GetOutput();
+  output = str->Output;
   output->GetUpdateExtent( ext );
 
   // execute the actual method with appropriate extent
