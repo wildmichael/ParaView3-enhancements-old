@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-01 21:06:41 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-04-13 18:28:03 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -171,6 +171,7 @@ vtkXImageWindow::vtkXImageWindow()
   this->Drawable = (Pixmap) NULL;
   this->IconPixmap = (Pixmap) NULL;
   this->Offset = 0;
+  this->OwnDisplay = 0;
 }
 
 
@@ -187,6 +188,10 @@ vtkXImageWindow::~vtkXImageWindow()
   if (this->DisplayId)
     {
     XSync(this->DisplayId,0);
+    }
+  if (this->OwnDisplay && this->DisplayId)
+    {
+    XCloseDisplay(this->DisplayId);
     }
 }
 
@@ -451,6 +456,7 @@ void vtkXImageWindow::MakeDefaultWindow()
       cerr <<"cannot connect to X server"<< XDisplayName((char *)NULL)<< endl;
       exit(-1);
       }
+    this->OwnDisplay = 1;
     }
   
   
@@ -731,11 +737,13 @@ void vtkXImageWindow::SetDisplayId(Display  *arg)
 //  vtkDebugMacro(<< "Setting DisplayId to " << (void *)arg << "\n"); 
 
   this->DisplayId = arg;
+  this->OwnDisplay = 0;
 }
 void vtkXImageWindow::SetDisplayId(void *arg)
 {
 //  vtkDebugMacro(<< "Setting DisplayId to " << (void *)arg << "\n"); 
   this->SetDisplayId((Display *)arg);
+  this->OwnDisplay = 0;
 }
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-10 20:03:40 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-04-13 18:28:02 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -167,6 +167,7 @@ protected:
   XColor               Colors[256];
   int                  NumberOfColors;
   Pixmap               Drawable;
+  int                  OwnDisplay;
   
   void MakeDefaultWindow();
   void GetDefaultVisualInfo(XVisualInfo *info);
