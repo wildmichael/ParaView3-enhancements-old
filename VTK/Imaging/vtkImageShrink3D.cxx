@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageShrink3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-10-21 18:51:21 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1996-10-31 14:06:41 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,6 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
+#include <math.h>
 #include "vtkImageShrink3D.h"
 #include "vtkImageCache.h"
 
@@ -111,10 +112,12 @@ void vtkImageShrink3D::ComputeOutputImageInformation(
   for (idx = 0; idx < 3; ++idx)
     {
     // Scale the output extent
-    imageExtent[2*idx] = (imageExtent[2*idx] - this->Shift[idx]) 
-      / this->ShrinkFactors[idx];
-    imageExtent[2*idx+1] = (imageExtent[2*idx+1] - this->Shift[idx])
-      / this->ShrinkFactors[idx];
+    imageExtent[2*idx] = 
+      (int)(ceil((float)(imageExtent[2*idx] - this->Shift[idx]) 
+      / (float)(this->ShrinkFactors[idx])));
+    imageExtent[2*idx+1] = 
+      (int)(ceil((float)(imageExtent[2*idx+1] - this->Shift[idx]) 
+      / (float)(this->ShrinkFactors[idx]))) - 1;
     // Change the aspect ratio.
     aspectRatio[idx] *= (float)(this->ShrinkFactors[idx]);
     }
