@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-15 14:28:41 $
-  Version:   $Revision: 1.79 $
+  Date:      $Date: 2001-04-05 14:32:42 $
+  Version:   $Revision: 1.80 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -450,6 +450,14 @@ const char *vtkMapper::GetScalarModeAsString(void)
   else if ( this->ScalarMode == VTK_SCALAR_MODE_USE_POINT_DATA ) 
     {
     return "UsePointData";
+    }
+  else if ( this->ScalarMode == VTK_SCALAR_MODE_USE_POINT_FIELD_DATA )
+    {
+    return "UsePointFieldData";
+    }
+  else if ( this->ScalarMode == VTK_SCALAR_MODE_USE_CELL_FIELD_DATA )
+    {
+    return "UseCellFieldData";
     }
   else 
     {

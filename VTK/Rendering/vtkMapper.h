@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-03-08 00:40:52 $
-  Version:   $Revision: 1.69 $
+  Date:      $Date: 2001-04-05 14:32:46 $
+  Version:   $Revision: 1.70 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -235,6 +235,13 @@ public:
   void ColorByArrayComponent(int arrayNum, int component);
   void ColorByArrayComponent(char* arrayName, int component);
   
+  // Description:
+  // Get the array name or number and component to color by.
+  char* GetArrayName() { return this->ArrayName; }
+  int GetArrayId() { return this->ArrayId; }
+  int GetArrayAccessMode() { return this->ArrayAccessMode; }
+  int GetArrayComponent() { return this->ArrayComponent; }
+
   // Description:
   // Return the method for obtaining scalar data.
   const char *GetScalarModeAsString();
