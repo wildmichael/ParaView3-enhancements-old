@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:07 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2000-06-28 11:33:03 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -248,12 +248,8 @@ vtkColorTransferFunction *vtkVolumeProperty::GetRGBTransferFunction()
     this->RGBTransferFunction = vtkColorTransferFunction::New();
     this->RGBTransferFunction->Register(this);
     this->RGBTransferFunction->Delete();
-    this->RGBTransferFunction->AddRedPoint(      0, 0.0 );
-    this->RGBTransferFunction->AddRedPoint(   1024, 1.0 );
-    this->RGBTransferFunction->AddGreenPoint(    0, 0.0 );
-    this->RGBTransferFunction->AddGreenPoint( 1024, 1.0 );
-    this->RGBTransferFunction->AddBluePoint(     0, 0.0 );
-    this->RGBTransferFunction->AddBluePoint(  1024, 1.0 );
+    this->RGBTransferFunction->AddRGBPoint(      0, 0.0, 0.0, 0.0 );
+    this->RGBTransferFunction->AddRGBPoint(   1024, 1.0, 1.0, 1.0 );
     }
 
   return this->RGBTransferFunction;
