@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIslandRemoval2D.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-22 13:05:24 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1996-09-12 17:29:16 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -37,15 +37,15 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkImage2dIslandRemovalFilter - Removes small clusters in masks.
+// .NAME vtkImageIslandRemoval2d - Removes small clusters in masks.
 // .SECTION Description
-// vtkImage2dIslandRemovalFilter computes the area of separate islands in 
+// vtkImageIslandRemoval2d computes the area of separate islands in 
 // a mask image.  It removes any island that has less than AreaThreshold
 // pixels.  Output has the same DataType as input.
 
 
-#ifndef __vtkImage2dIslandRemovalFilter_h
-#define __vtkImage2dIslandRemovalFilter_h
+#ifndef __vtkImageIslandRemoval2d_h
+#define __vtkImageIslandRemoval2d_h
 
 
 #include "vtkImageFilter.h"
@@ -61,11 +61,11 @@ typedef struct{
 
 
 
-class vtkImage2dIslandRemovalFilter : public vtkImageFilter
+class vtkImageIslandRemoval2d : public vtkImageFilter
 {
 public:
-  vtkImage2dIslandRemovalFilter();
-  char *GetClassName() {return "vtkImage2dIslandRemovalFilter";};
+  vtkImageIslandRemoval2d();
+  char *GetClassName() {return "vtkImageIslandRemoval2d";};
   void PrintSelf(ostream& os, vtkIndent indent);
   
   void InterceptCacheUpdate(vtkImageRegion *region);

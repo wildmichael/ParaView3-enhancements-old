@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageShrink3D.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-22 13:05:46 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1996-09-12 17:29:47 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -37,23 +37,23 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkImage3dShrinkFilter - Subsamples an image.
+// .NAME vtkImageShrink3d - Subsamples an image.
 // .SECTION Description
-// vtkImage3dShrinkFilter shrinks an image by sub sampling on a 
+// vtkImageShrink3d shrinks an image by sub sampling on a 
 // uniform grid. (integer multiples)
 
 
-#ifndef __vtkImage3dShrinkFilter_h
-#define __vtkImage3dShrinkFilter_h
+#ifndef __vtkImageShrink3d_h
+#define __vtkImageShrink3d_h
 
 
 #include "vtkImageFilter.h"
 
-class vtkImage3dShrinkFilter : public vtkImageFilter
+class vtkImageShrink3d : public vtkImageFilter
 {
 public:
-  vtkImage3dShrinkFilter();
-  char *GetClassName() {return "vtkImage3dShrinkFilter";};
+  vtkImageShrink3d();
+  char *GetClassName() {return "vtkImageShrink3d";};
   void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:
