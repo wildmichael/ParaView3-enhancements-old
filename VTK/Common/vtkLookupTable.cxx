@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLookupTable.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:10:07 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 2000-12-07 03:12:39 $
+  Version:   $Revision: 1.57 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -114,6 +114,11 @@ void  vtkLookupTable
     return;
     }
 
+  if (this->TableRange[0] != min ||
+      this->TableRange[1] != max)
+    {
+    this->Modified();
+    }
   this->TableRange[0] = min;
   this->TableRange[1] = max;
 }
