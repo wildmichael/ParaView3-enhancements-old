@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridOutlineFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-18 13:04:39 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1999-09-16 16:46:08 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -325,9 +325,6 @@ void vtkStructuredGridOutlineFilter::UpdateInformation()
 
   input->UpdateInformation();
   
-  // for MPI stuff
-  output->SetLocality(input->GetLocality() + 1);
-
   // this portion could be done in superclass.
   t1 = input->GetPipelineMTime();
   t2 = this->GetMTime();
