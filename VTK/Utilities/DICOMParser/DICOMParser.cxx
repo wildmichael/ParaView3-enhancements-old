@@ -3,8 +3,8 @@
   Program:   DICOMParser
   Module:    $RCSfile: DICOMParser.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-08-27 18:49:00 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2003-09-05 17:05:48 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 2003 Matt Turek
   All rights reserved.
@@ -118,7 +118,7 @@ bool DICOMParser::OpenFile(const dicom_stl::string& filename)
 
   
 #ifdef DEBUG_DICOM
-  if (this->ParserOutputFile.is_open())
+  if (this->ParserOutputFile.rdbuf()->is_open())
     {
     this->ParserOutputFile.flush();
     this->ParserOutputFile.close();

@@ -3,8 +3,8 @@
   Program:   DICOMParser
   Module:    $RCSfile: DICOMFile.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-08-27 18:49:00 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2003-09-05 17:05:48 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 2003 Matt Turek
   All rights reserved.
@@ -87,9 +87,11 @@ void DICOMFile::operator=(const DICOMFile& in)
 
 bool DICOMFile::Open(const dicom_stl::string& filename)
 {
-  InputStream.open(filename.c_str(), dicom_stream::ios::binary | dicom_stream::ios::in);
+  // InputStream.open(filename.c_str(), dicom_stream::ios::binary | dicom_stream::ios::in);
+  InputStream.open(filename.c_str(), dicom_stream::ios::in);
 
-  if (InputStream.is_open())
+  //if (InputStream.is_open())
+  if (InputStream.rdbuf()->is_open())
     {
     return true;
     }
