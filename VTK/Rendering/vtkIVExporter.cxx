@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIVExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:05:24 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2000-02-15 19:46:58 $
+  Version:   $Revision: 1.25 $
   Thanks:    to Jon A. Webb of Visual Interface Inc.
 
 
@@ -585,12 +585,13 @@ void vtkIVExporter::WriteAnActor(vtkActor *anActor, FILE *fp)
 	fprintf(fp,"%s", indent);
 	for (i = 0; i < npts; i++)
 	  {
-	  c = ((vtkUnsignedCharArray *)colors->GetData())->GetPointer(4*indx[i]);
+	  c = (unsigned char *)colors->GetColor(i);
 	  fprintf (fp,"%#lx, ", 
-		   ((unsigned long)255 << 24) // opaque
-		   |	(((unsigned long)c[2]) << 16) 
-		   | (((unsigned long)c[1]) << 8) 
-		   |	 ((unsigned long)c[0]));
+		   ((unsigned long)c[3] << 24) |
+		   (((unsigned long)c[2])<<16) |
+		   (((unsigned long)c[1])<<8) |
+		   ((unsigned long)c[0]));
+
 	  if (((i+1)%5) == 0)
 	    {
 	    fprintf(fp, "\n%s", indent);
@@ -693,22 +694,23 @@ void vtkIVExporter::WritePointData(vtkPoints *points, vtkNormals *normals,
 	fprintf(fp,"%s", indent);
     for (i = 0; i < colors->GetNumberOfScalars(); i++)
       {
-      c = ((vtkUnsignedCharArray *)colors->GetData())->GetPointer(4*i);
-      fprintf (fp,"%#lx, ",
-		   ((unsigned long)255 << 24) | // opaque
-		  (((unsigned long)c[2])<<16) | 
-		  (((unsigned long)c[1])<<8) |
-		   ((unsigned long)c[0]));
-	  if (((i+1)%5)==0)
-	    {
-	    fprintf(fp, "\n%s", indent);
-	    }
+      c = (unsigned char *)colors->GetColor(i);
+      fprintf (fp,"%#lx, ", 
+	       ((unsigned long)c[3] << 24) |
+	       (((unsigned long)c[2])<<16) |
+	       (((unsigned long)c[1])<<8) |
+	       ((unsigned long)c[0]));
+
+      if (((i+1)%5)==0)
+	{
+	fprintf(fp, "\n%s", indent);
+	}
       }
     fprintf(fp,"\n%s]\n", indent);
-	VTK_INDENT_LESS;
+    VTK_INDENT_LESS;
     fprintf(fp,"%s}\n", indent);
-	VTK_INDENT_LESS;
-	fprintf(fp,"%sMaterialBinding { value PER_VERTEX_INDEXED }\n", indent);
+    VTK_INDENT_LESS;
+    fprintf(fp,"%sMaterialBinding { value PER_VERTEX_INDEXED }\n", indent);
     }
 }
 
