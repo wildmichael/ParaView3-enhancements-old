@@ -1,10 +1,10 @@
-n/*=========================================================================
+/*=========================================================================
 
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLDataParser.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-08-13 17:56:37 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2003-08-13 18:31:15 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@ n/*=========================================================================
 #include "vtkObjectFactory.h"
 #include "vtkXMLDataElement.h"
 
-vtkCxxRevisionMacro(vtkXMLDataParser, "$Revision: 1.17 $");
+vtkCxxRevisionMacro(vtkXMLDataParser, "$Revision: 1.18 $");
 vtkStandardNewMacro(vtkXMLDataParser);
 vtkCxxSetObjectMacro(vtkXMLDataParser, Compressor, vtkDataCompressor);
 
