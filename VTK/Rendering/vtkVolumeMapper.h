@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeMapper.h,v $
   Language:  C++
-  Date:      $Date: 2000-07-28 15:05:15 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2000-08-14 16:29:53 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -137,8 +137,9 @@ public:
 //BTX
   // Description:
   // WARNING: INTERNAL METHOD - NOT INTENDED FOR GENERAL USE
-  virtual void GetGradientMagnitudeRange( float range[2] )
-    { range[0] = 0.0; range[1] = 1.0; };
+  virtual float GetGradientMagnitudeScale() {return 1.0;};
+  virtual float GetGradientMagnitudeBias()  {return 0.0;};
+  
 
   // Description:
   // WARNING: INTERNAL METHOD - NOT INTENDED FOR GENERAL USE

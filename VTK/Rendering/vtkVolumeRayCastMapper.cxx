@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-28 15:05:15 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 2000-08-14 16:29:53 $
+  Version:   $Revision: 1.57 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -135,21 +135,26 @@ void vtkVolumeRayCastMapper::SetGradientEstimator( vtkEncodedGradientEstimator *
   this->Modified();
 }
 
-void vtkVolumeRayCastMapper::GetGradientMagnitudeRange( float range[2] )
+float vtkVolumeRayCastMapper::GetGradientMagnitudeScale()
 {
-  if ( this->GradientEstimator == NULL )
+  if ( !this->GradientEstimator ) 
     {
-    range[0] = 0.0;
-    range[1] = 1.0;
+    vtkErrorMacro( "You must have a gradient estimator set to get the scale" );
+    return 1.0;
     }
-  else
+  
+  return this->GradientEstimator->GetGradientMagnitudeScale();  
+}
+
+float vtkVolumeRayCastMapper::GetGradientMagnitudeBias()
+{
+  if ( !this->GradientEstimator ) 
     {
-    range[0] = -(this->GradientEstimator->GetGradientMagnitudeBias());
-    range[1] = 
-      ( 255.0 / 
-	this->GradientEstimator->GetGradientMagnitudeScale() ) -
-      this->GradientEstimator->GetGradientMagnitudeBias();
+    vtkErrorMacro( "You must have a gradient estimator set to get the bias" );
+    return 1.0;
     }
+  
+  return this->GradientEstimator->GetGradientMagnitudeBias();  
 }
 
 void vtkVolumeRayCastMapper::ReleaseGraphicsResources(vtkWindow *renWin)

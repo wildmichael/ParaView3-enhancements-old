@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:11 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2000-08-14 16:29:53 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -143,10 +143,6 @@ public:
 
   // Description:
   // WARNING: INTERNAL METHOD - NOT INTENDED FOR GENERAL USE
-  virtual void GetGradientMagnitudeRange( float range[2] );
-
-  // Description:
-  // WARNING: INTERNAL METHOD - NOT INTENDED FOR GENERAL USE
   void CastViewRay( VTKRayCastRayInfo *rayInfo,
 		    VTKRayCastVolumeInfo *volumeInfo );
 
@@ -159,6 +155,12 @@ public:
   // This is a ray cast mapper.
   virtual int IsARayCastMapper() {return 1;};
 
+  // Description:
+  // WARNING: INTERNAL METHOD - NOT INTENDED FOR GENERAL USE
+  // Values needed by the volume
+  virtual float GetGradientMagnitudeScale();
+  virtual float GetGradientMagnitudeBias();
+  
 //ETX
 
 protected:

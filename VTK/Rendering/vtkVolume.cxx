@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-28 15:05:15 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2000-08-14 16:29:53 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -628,12 +628,19 @@ void vtkVolume::UpdateTransferFunctions( vtkRenderer *vtkNotUsed(ren) )
 
   if ( gradient_opacity_tf_needs_updating )
     {
-    // Get values 0-255 (256 values)
-    gradient_opacity_transfer_function->GetTable(
-					  (float)(0x00),
-					  (float)(0xff),  
-					  (int)(0x100), 
-					  this->GradientOpacityArray );
+    
+    // Get values according to scale/bias from mapper 256 values are
+    // in the table, the scale / bias values control what those 256 values
+    // mean. 
+    float scale = this->Mapper->GetGradientMagnitudeScale();
+    float bias  = this->Mapper->GetGradientMagnitudeBias();
+    
+    float low   = -bias;
+    float high  = 255 / scale - bias;
+    
+    gradient_opacity_transfer_function->GetTable( low, high,
+                                                  (int)(0x100), 
+                                                  this->GradientOpacityArray );
     if ( !strcmp(gradient_opacity_transfer_function->GetType(), "Constant") )
       {
       this->GradientOpacityConstant = this->GradientOpacityArray[128];

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeTextureMapper.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:12 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-08-14 16:29:53 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -82,10 +82,6 @@ public:
 
   // Description:
   // WARNING: INTERNAL METHOD - NOT INTENDED FOR GENERAL USE
-  virtual void GetGradientMagnitudeRange( float range[2] );
-
-  // Description:
-  // WARNING: INTERNAL METHOD - NOT INTENDED FOR GENERAL USE
   virtual int GetMapperType() {return VTK_FRAMEBUFFER_VOLUME_MAPPER;};
 
   // Description:
@@ -112,6 +108,12 @@ public:
   // Render the volume
   virtual void Render(vtkRenderer *ren, vtkVolume *vol)=0;
 
+  // Description:
+  // WARNING: INTERNAL METHOD - NOT INTENDED FOR GENERAL USE
+  // Values needed by the volume
+  virtual float GetGradientMagnitudeScale();
+  virtual float GetGradientMagnitudeBias();
+  
 //ETX
 
 
