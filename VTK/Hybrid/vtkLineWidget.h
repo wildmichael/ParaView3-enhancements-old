@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLineWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-09-05 11:53:07 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-11-18 20:20:00 $
+  Version:   $Revision: 1.22 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -208,7 +208,7 @@ protected:
   void OnMiddleButtonUp();
   void OnRightButtonDown();
   void OnRightButtonUp();
-  void OnMouseMove();
+  virtual void OnMouseMove();
 
   // controlling ivars
   int Align;
