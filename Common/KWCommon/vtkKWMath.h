@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKWMath.h,v $
   Language:  C++
-  Date:      $Date: 2003-05-29 13:49:17 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-05-30 18:12:49 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 1998-2003 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -71,8 +71,12 @@ public:
 
   // Description:
   // Get the data's scalar range given a component
+  // WARNING: the 'double' version does *not* cache the ranges, it 
+  // iterates over the data each time (whereas the 'float' version is
+  // just a proxy to vtkDataArray::GetRange)
   // Return 1 on success, 0 otherwise.
   static int GetScalarRange(vtkDataArray *array, int comp, float range[2]);
+  static int GetScalarRange(vtkDataArray *array, int comp, double range[2]);
  
   // Description:
   // Get the data's scalar range given a component. This range is adjusted
