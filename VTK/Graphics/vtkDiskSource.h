@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDiskSource.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:44:16 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1998-09-14 14:51:17 $
+  Version:   $Revision: 1.21 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -43,7 +43,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // disk has zero height. The user can specify the inner and outer radius
 // of the disk, and the radial and circumferential resolution of the 
 // polygonal representation. 
-// .SECTION SEE ALSO
+// .SECTION See Also
 // vtkLinearExtrusionFilter
 
 #ifndef __vtkDiskSource_h
