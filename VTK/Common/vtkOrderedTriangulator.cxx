@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOrderedTriangulator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-21 15:30:17 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-05-21 20:48:39 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -132,7 +132,7 @@ public:
 template <class T>
 class vtkOTLinkedList
 {
-private:
+public:
   class ListContainer //the container for the data
   {
   public:
@@ -510,6 +510,8 @@ void vtkOTTetra::GetFacePoints(int i, vtkOTFace& face)
   }
 
 //------------------------------------------------------------------------
+ 
+extern "C" {
 static int SortOnPointIds(const void *val1, const void *val2)
 {
   if (((vtkOTPoint *)val1)->Id < ((vtkOTPoint *)val2)->Id)
@@ -525,7 +527,7 @@ static int SortOnPointIds(const void *val1, const void *val2)
     return (0);
     }
 }
-
+}
 //------------------------------------------------------------------------
 // See whether point is in sphere of tetrahedron
 int vtkOTTetra::InSphere(double x[3])
