@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-01 09:59:50 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1995-09-01 10:51:26 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,7 +63,7 @@ vtkPointSet::~vtkPointSet ()
 
 // Description:
 // Copy the geometric structure of an input point set object.
-void vtkPolyData::CopyStructure(vtkDataSet *ds)
+void vtkPointSet::CopyStructure(vtkDataSet *ds)
 {
   vtkPointSet *ps=(vtkPointSet *)ds;
   this->Initialize();
