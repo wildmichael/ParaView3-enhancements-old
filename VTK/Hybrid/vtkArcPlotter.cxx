@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArcPlotter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:21:21 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2003-11-07 18:32:16 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 #include "vtkPointData.h"
 #include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkArcPlotter, "$Revision: 1.20 $");
+vtkCxxRevisionMacro(vtkArcPlotter, "$Revision: 1.21 $");
 vtkStandardNewMacro(vtkArcPlotter);
 
 vtkCxxSetObjectMacro(vtkArcPlotter,Camera,vtkCamera);
@@ -79,7 +79,7 @@ void vtkArcPlotter::Execute()
   int id;
   vtkIdType *pts = 0;
   vtkIdType npts = 0;
-  float *x1, *x2, x21[3], n[3];
+  float x1[3], x2[3], x21[3], n[3];
   vtkFloatArray *lineNormals;
   vtkPoints *newPts;
   vtkCellArray *newLines;
@@ -168,8 +168,8 @@ void vtkArcPlotter::Execute()
       // Compute normals on each line segment perpendicular to view normal
       for (i=0; i < (npts-1); i++)
         {
-        x1 = projPts->GetPoint(pts[i]);
-        x2 = projPts->GetPoint(pts[i+1]);
+        projPts->GetPoint(pts[i], x1);
+        projPts->GetPoint(pts[i+1], x2);
         for (j=0; j<3; j++)
           {
           x21[j] = x2[j] - x1[j];

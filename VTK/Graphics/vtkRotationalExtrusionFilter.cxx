@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRotationalExtrusionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-17 02:05:39 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2003-11-07 18:32:16 $
+  Version:   $Revision: 1.48 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkPointData.h"
 #include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkRotationalExtrusionFilter, "$Revision: 1.47 $");
+vtkCxxRevisionMacro(vtkRotationalExtrusionFilter, "$Revision: 1.48 $");
 vtkStandardNewMacro(vtkRotationalExtrusionFilter);
 
 // Create object with capping on, angle of 360 degrees, resolution = 12, and
@@ -52,7 +52,7 @@ void vtkRotationalExtrusionFilter::Execute()
   vtkIdType *pts = 0;
   vtkIdType npts = 0;
   vtkIdType cellId, ptId, ncells;
-  float *x, newX[3], radius, angleIncr, radIncr, transIncr;
+  float x[3], newX[3], radius, angleIncr, radIncr, transIncr;
   float psi, theta;
   vtkPoints *newPts;
   vtkCellArray *newLines=NULL, *newPolys=NULL, *newStrips=NULL;
@@ -130,7 +130,7 @@ void vtkRotationalExtrusionFilter::Execute()
     this->UpdateProgress(0.1 + 0.5*(i-1)/this->Resolution);
     for (ptId=0; ptId < numPts; ptId++)
       {
-      x = inPts->GetPoint(ptId);
+      inPts->GetPoint(ptId, x);
       //convert to cylindrical
       radius = sqrt(x[0]*x[0] + x[1]*x[1]);
       if (radius > 0.0)

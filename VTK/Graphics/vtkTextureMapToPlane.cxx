@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToPlane.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-17 02:05:39 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2003-11-07 18:32:16 $
+  Version:   $Revision: 1.46 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkPointData.h"
 
-vtkCxxRevisionMacro(vtkTextureMapToPlane, "$Revision: 1.45 $");
+vtkCxxRevisionMacro(vtkTextureMapToPlane, "$Revision: 1.46 $");
 vtkStandardNewMacro(vtkTextureMapToPlane);
 
 // Construct with s,t range=(0,1) and automatic plane generation turned on.
@@ -58,7 +58,7 @@ void vtkTextureMapToPlane::Execute()
   float *bounds;
   float proj, minProj, axis[3], sAxis[3], tAxis[3];
   int dir = 0;
-  float s, t, sSf, tSf, *p;
+  float s, t, sSf, tSf, p[3];
   vtkDataSet *input = this->GetInput();
   vtkDataSet *output = this->GetOutput();
   int abort=0;
@@ -150,7 +150,7 @@ void vtkTextureMapToPlane::Execute()
         abort = this->GetAbortExecute();
         }
 
-      p = output->GetPoint(i);
+      output->GetPoint(i, p);
       for (j=0; j<3; j++)
         {
         axis[j] = p[j] - bounds[2*j];
@@ -190,7 +190,7 @@ void vtkTextureMapToPlane::Execute()
         this->UpdateProgress((float)i/numPts);
         abort = this->GetAbortExecute();
         }
-      p = output->GetPoint(i);
+      output->GetPoint(i, p);
       for (j=0; j<3; j++)
         {
         axis[j] = p[j] - this->Origin[j];
@@ -224,7 +224,7 @@ void vtkTextureMapToPlane::ComputeNormal()
 {
   vtkDataSet *output = this->GetOutput();
   vtkIdType numPts=output->GetNumberOfPoints();
-  float m[9], v[3], *x;
+  float m[9], v[3], x[3];
   vtkIdType ptId;
   int dir = 0, i;
   float length, w, *c1, *c2, *c3, det;
@@ -270,7 +270,7 @@ void vtkTextureMapToPlane::ComputeNormal()
 
   for (ptId=0; ptId < numPts; ptId++) 
     {
-    x = output->GetPoint(ptId);
+    output->GetPoint(ptId, x);
 
     v[0] += x[0]*x[2];
     v[1] += x[1]*x[2];

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProbeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-17 02:05:39 $
-  Version:   $Revision: 1.76 $
+  Date:      $Date: 2003-11-07 18:32:16 $
+  Version:   $Revision: 1.77 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkPointData.h"
 
-vtkCxxRevisionMacro(vtkProbeFilter, "$Revision: 1.76 $");
+vtkCxxRevisionMacro(vtkProbeFilter, "$Revision: 1.77 $");
 vtkStandardNewMacro(vtkProbeFilter);
 
 //----------------------------------------------------------------------------
@@ -63,7 +63,7 @@ vtkDataSet *vtkProbeFilter::GetSource()
 void vtkProbeFilter::Execute()
 {
   vtkIdType ptId, numPts;
-  float *x, tol2;
+  float x[3], tol2;
   vtkCell *cell;
   vtkPointData *pd, *outPD;
   int subId;
@@ -124,7 +124,7 @@ void vtkProbeFilter::Execute()
       }
 
     // Get the xyz coordinate of the point in the input dataset
-    x = input->GetPoint(ptId);
+    input->GetPoint(ptId, x);
 
     // Find the cell that contains xyz and get it
     cell = source->FindAndGetCell(x,NULL,-1,tol2,subId,pcoords,weights);

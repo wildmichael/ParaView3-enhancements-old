@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpTo.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-17 02:05:39 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2003-11-07 18:32:16 $
+  Version:   $Revision: 1.39 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkPointSet.h"
 #include "vtkPoints.h"
 
-vtkCxxRevisionMacro(vtkWarpTo, "$Revision: 1.38 $");
+vtkCxxRevisionMacro(vtkWarpTo, "$Revision: 1.39 $");
 vtkStandardNewMacro(vtkWarpTo);
 
 vtkWarpTo::vtkWarpTo() 
@@ -39,7 +39,7 @@ void vtkWarpTo::Execute()
   vtkPoints *newPts;
   vtkIdType ptId, numPts;
   int i;
-  float *x, newX[3];
+  float x[3], newX[3];
   vtkPointSet *input = this->GetInput();
   vtkPointSet *output = this->GetOutput();
   float mag;
@@ -66,7 +66,7 @@ void vtkWarpTo::Execute()
     minMag = 1.0e10;
     for (ptId=0; ptId < numPts; ptId++)
       {
-      x = inPts->GetPoint(ptId);
+      inPts->GetPoint(ptId, x);
       mag = sqrt(vtkMath::Distance2BetweenPoints(this->Position,x));
       if (mag < minMag)
         {
@@ -80,7 +80,7 @@ void vtkWarpTo::Execute()
   //
   for (ptId=0; ptId < numPts; ptId++)
     {
-    x = inPts->GetPoint(ptId);
+    inPts->GetPoint(ptId, x);
     if (this->Absolute)
       {
       mag = sqrt(vtkMath::Distance2BetweenPoints(this->Position,x));

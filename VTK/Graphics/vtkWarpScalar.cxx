@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpScalar.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-17 02:05:39 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2003-11-07 18:32:16 $
+  Version:   $Revision: 1.44 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkPointSet.h"
 #include "vtkPoints.h"
 
-vtkCxxRevisionMacro(vtkWarpScalar, "$Revision: 1.43 $");
+vtkCxxRevisionMacro(vtkWarpScalar, "$Revision: 1.44 $");
 vtkStandardNewMacro(vtkWarpScalar);
 
 vtkWarpScalar::vtkWarpScalar()
@@ -72,7 +72,7 @@ void vtkWarpScalar::Execute()
   vtkPointData *pd;
   int i;
   vtkIdType ptId, numPts;
-  float *x, *n, s, newX[3];
+  float x[3], *n, s, newX[3];
   vtkPointSet *input = this->GetInput();
   vtkPointSet *output = this->GetOutput();
   
@@ -126,7 +126,7 @@ void vtkWarpScalar::Execute()
         }
       }
 
-    x = inPts->GetPoint(ptId);
+    inPts->GetPoint(ptId, x);
     n = (this->*(this->PointNormal))(ptId,inNormals);
     if ( this->XYPlane )
       {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformTextureCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-17 02:05:39 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2003-11-07 18:32:16 $
+  Version:   $Revision: 1.33 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkPointData.h"
 #include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkTransformTextureCoords, "$Revision: 1.32 $");
+vtkCxxRevisionMacro(vtkTransformTextureCoords, "$Revision: 1.33 $");
 vtkStandardNewMacro(vtkTransformTextureCoords);
 
 // Create instance with Origin (0.5,0.5,0.5); Position (0,0,0); and Scale
@@ -67,7 +67,7 @@ void vtkTransformTextureCoords::Execute()
   int i, j, texDim;
   vtkTransform *transform;
   vtkMatrix4x4 *matrix;
-  float *TC, newTC[3];
+  float TC[3], newTC[3];
 
   vtkDebugMacro(<<"Transforming texture coordinates...");
 
@@ -132,7 +132,7 @@ void vtkTransformTextureCoords::Execute()
       abort = this->GetAbortExecute();
       }
 
-    TC = inTCoords->GetTuple(ptId);
+    inTCoords->GetTuple(ptId, TC);
     for (i=0; i<texDim; i++)
       {
       newTC[i] = matrix->Element[i][3];

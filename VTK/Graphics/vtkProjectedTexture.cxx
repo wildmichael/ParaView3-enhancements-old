@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProjectedTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-17 02:05:39 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2003-11-07 18:32:16 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkPointData.h"
 
-vtkCxxRevisionMacro(vtkProjectedTexture, "$Revision: 1.25 $");
+vtkCxxRevisionMacro(vtkProjectedTexture, "$Revision: 1.26 $");
 vtkStandardNewMacro(vtkProjectedTexture);
 
 // Description:
@@ -91,7 +91,7 @@ void vtkProjectedTexture::Execute()
   float rightv[3], upv[3], diff[3];
   float sScale, tScale, sOffset, tOffset, sSize, tSize, s, t;
   vtkDataSet *input = this->GetInput();
-  float  *p;
+  float p[3];
   vtkDataSet *output = this->GetOutput();
 
   vtkDebugMacro(<<"Generating texture coordinates!");
@@ -130,7 +130,7 @@ void vtkProjectedTexture::Execute()
   // compute s-t coordinates
   for (i = 0; i < numPts; i++) 
     {
-      p = output->GetPoint(i);
+      output->GetPoint(i, p);
 
       for (j = 0; j < 3; j++) 
         {

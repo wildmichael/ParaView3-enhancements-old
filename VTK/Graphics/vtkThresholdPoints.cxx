@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThresholdPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-17 02:05:39 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2003-11-07 18:32:16 $
+  Version:   $Revision: 1.35 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkPoints.h"
 #include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkThresholdPoints, "$Revision: 1.34 $");
+vtkCxxRevisionMacro(vtkThresholdPoints, "$Revision: 1.35 $");
 vtkStandardNewMacro(vtkThresholdPoints);
 
 // Construct with lower threshold=0, upper threshold=1, and threshold 
@@ -79,7 +79,7 @@ void vtkThresholdPoints::Execute()
   vtkPointData *pd, *outPD;
   vtkCellArray *verts;
   vtkIdType ptId, numPts, pts[1];
-  float *x;
+  float x[3];
   vtkDataSet *input = this->GetInput();
   vtkPolyData *output = this->GetOutput();
 
@@ -114,7 +114,7 @@ void vtkThresholdPoints::Execute()
 
     if ( (this->*(this->ThresholdFunction))(inScalars->GetComponent(ptId,0)) ) 
       {
-      x = input->GetPoint(ptId);
+      input->GetPoint(ptId, x);
       pts[0] = newPoints->InsertNextPoint(x);
       outPD->CopyData(pd,ptId,pts[0]);
       verts->InsertNextCell(1,pts);

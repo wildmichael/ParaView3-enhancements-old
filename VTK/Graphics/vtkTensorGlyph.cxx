@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensorGlyph.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-11 20:22:31 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2003-11-07 18:32:16 $
+  Version:   $Revision: 1.51 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #include "vtkPolyData.h"
 #include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkTensorGlyph, "$Revision: 1.50 $");
+vtkCxxRevisionMacro(vtkTensorGlyph, "$Revision: 1.51 $");
 vtkStandardNewMacro(vtkTensorGlyph);
 
 // Construct object with scaling on and scale factor 1.0. Eigenvalues are 
@@ -55,7 +55,7 @@ vtkTensorGlyph::~vtkTensorGlyph()
 void vtkTensorGlyph::Execute()
 {
   vtkDataArray *inTensors;
-  float *tensor;
+  float tensor[9];
   vtkDataArray *inScalars;
   vtkIdType numPts, numSourcePts, numSourceCells, inPtId, i;
   int j;
@@ -65,7 +65,7 @@ void vtkTensorGlyph::Execute()
   vtkPoints *newPts;
   vtkFloatArray *newScalars=NULL;
   vtkFloatArray *newNormals=NULL;
-  float *x, s;
+  float x[3], s;
   vtkTransform *trans;
   vtkCell *cell;
   vtkIdList *cellPts;
@@ -210,7 +210,7 @@ void vtkTensorGlyph::Execute()
 
     // Translation is postponed
 
-    tensor = inTensors->GetTuple(inPtId);
+    inTensors->GetTuple(inPtId, tensor);
 
     // compute orientation vectors and scale factors from tensor
     if ( this->ExtractEigenvalues ) // extract appropriate eigenfunctions
@@ -299,7 +299,7 @@ void vtkTensorGlyph::Execute()
       trans->Identity();
 
       // translate Source to Input point
-      x = input->GetPoint(inPtId);
+      input->GetPoint(inPtId, x);
       trans->Translate(x[0], x[1], x[2]);
 
       // normalized eigenvectors rotate object for eigen direction 0

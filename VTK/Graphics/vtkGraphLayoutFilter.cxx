@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGraphLayoutFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-17 02:05:38 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2003-11-07 18:32:16 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkPointData.h"
 #include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkGraphLayoutFilter, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkGraphLayoutFilter, "$Revision: 1.10 $");
 vtkStandardNewMacro(vtkGraphLayoutFilter);
 
 vtkGraphLayoutFilter::vtkGraphLayoutFilter()
@@ -220,7 +220,7 @@ void vtkGraphLayoutFilter::Execute()
     {
     newPts->SetPoint(i,v[i].x);
     }
-  float bounds[6], sf[3], *x, xNew[3];
+  float bounds[6], sf[3], x[3], xNew[3];
   float center[3], graphCenter[3];
   newPts->GetBounds(bounds);
   for (i=0; i<3; i++)
@@ -240,7 +240,7 @@ void vtkGraphLayoutFilter::Execute()
 
   for (i=0; i<numPts; i++)
     {
-    x = newPts->GetPoint(i);
+    newPts->GetPoint(i, x);
     for (j=0; j<3; j++)
       {
       xNew[j] = graphCenter[j] + scale*(x[j]-center[j]);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToSphere.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-17 02:05:39 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2003-11-07 18:32:16 $
+  Version:   $Revision: 1.30 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkPointData.h"
 
-vtkCxxRevisionMacro(vtkTextureMapToSphere, "$Revision: 1.29 $");
+vtkCxxRevisionMacro(vtkTextureMapToSphere, "$Revision: 1.30 $");
 vtkStandardNewMacro(vtkTextureMapToSphere);
 
 // Create object with Center (0,0,0) and the PreventSeam ivar is set to true. The 
@@ -44,7 +44,7 @@ void vtkTextureMapToSphere::Execute()
   vtkDataSet *output = this->GetOutput();
   vtkIdType numPts=input->GetNumberOfPoints();
   vtkIdType ptId;
-  float *x, rho, r, tc[2], phi=0.0, thetaX, thetaY;
+  float x[3], rho, r, tc[2], phi=0.0, thetaX, thetaY;
   double diff, PiOverTwo=vtkMath::Pi()/2.0;
 
   vtkDebugMacro(<<"Generating Spherical Texture Coordinates");
@@ -63,7 +63,7 @@ void vtkTextureMapToSphere::Execute()
     this->Center[0] = this->Center[1] = this->Center[2] = 0.0;
     for ( ptId=0; ptId < numPts; ptId++ )
       {
-      x = input->GetPoint(ptId);
+      input->GetPoint(ptId, x);
       this->Center[0] += x[0];
       this->Center[1] += x[1];
       this->Center[2] += x[2];
@@ -83,7 +83,7 @@ void vtkTextureMapToSphere::Execute()
   newTCoords->SetNumberOfTuples(numPts);
   for ( ptId=0; ptId < numPts; ptId++ )
     {
-    x = input->GetPoint(ptId);
+    input->GetPoint(ptId, x);
     rho = sqrt((double)vtkMath::Distance2BetweenPoints(x,this->Center));
     if ( rho != 0.0 )
       {

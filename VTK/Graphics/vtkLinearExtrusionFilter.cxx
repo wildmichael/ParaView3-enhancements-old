@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearExtrusionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-17 02:05:38 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 2003-11-07 18:32:16 $
+  Version:   $Revision: 1.57 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 #include "vtkPointData.h"
 #include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkLinearExtrusionFilter, "$Revision: 1.56 $");
+vtkCxxRevisionMacro(vtkLinearExtrusionFilter, "$Revision: 1.57 $");
 vtkStandardNewMacro(vtkLinearExtrusionFilter);
 
 // Create object with normal extrusion type, capping on, scale factor=1.0,
@@ -43,10 +43,10 @@ vtkLinearExtrusionFilter::vtkLinearExtrusionFilter()
 float *vtkLinearExtrusionFilter::ViaNormal(float x[3], vtkIdType id,
                                            vtkDataArray *n)
 {
-  static float xNew[3], *normal;
+  static float xNew[3], normal[3];
   int i;
 
-  normal = n->GetTuple(id);
+  n->GetTuple(id, normal);
   for (i=0; i<3; i++) 
     {
     xNew[i] = x[i] + this->ScaleFactor*normal[i];
@@ -99,7 +99,7 @@ void vtkLinearExtrusionFilter::Execute()
   vtkIdType npts = 0;
   vtkIdType ptId, ncells, p1, p2;
   int i, j;
-  float *x;
+  float x[3];
   vtkPoints *newPts;
   vtkCellArray *newLines=NULL, *newPolys=NULL, *newStrips=NULL;
   vtkCell *edge;
@@ -197,7 +197,7 @@ void vtkLinearExtrusionFilter::Execute()
       this->UpdateProgress (0.25*ptId/numPts);
       }
 
-    x = inPts->GetPoint(ptId);
+    inPts->GetPoint(ptId, x);
     newPts->SetPoint(ptId,x);
     newPts->SetPoint(ptId+numPts,
                      (this->*(this->ExtrudePoint))(x,ptId,inNormals));

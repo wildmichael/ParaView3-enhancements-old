@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHull.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-17 02:05:38 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2003-11-07 18:32:16 $
+  Version:   $Revision: 1.33 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkPlanes.h"
 #include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkHull, "$Revision: 1.32 $");
+vtkCxxRevisionMacro(vtkHull, "$Revision: 1.33 $");
 vtkStandardNewMacro(vtkHull);
 
 // Construct an the hull object with no planes
@@ -266,7 +266,8 @@ void  vtkHull::SetPlanes( vtkPlanes *planes )
       {
       for (i=0; i<planes->GetNumberOfPlanes(); i++)
         {
-        float *point = points->GetPoint(i);
+        float point[3];
+        points->GetPoint(i, point);
         if ( (idx=this->AddPlane(normals->GetTuple(i))) >= 0)
           { 
           idx *= 4;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitTextureCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-17 02:05:38 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2003-11-07 18:32:16 $
+  Version:   $Revision: 1.45 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkPointData.h"
 
-vtkCxxRevisionMacro(vtkImplicitTextureCoords, "$Revision: 1.44 $");
+vtkCxxRevisionMacro(vtkImplicitTextureCoords, "$Revision: 1.45 $");
 vtkStandardNewMacro(vtkImplicitTextureCoords);
 vtkCxxSetObjectMacro(vtkImplicitTextureCoords,SFunction,vtkImplicitFunction);
 vtkCxxSetObjectMacro(vtkImplicitTextureCoords,RFunction,vtkImplicitFunction);
@@ -54,7 +54,7 @@ void vtkImplicitTextureCoords::Execute()
   int tcoordDim;
   vtkFloatArray *newTCoords;
   float min[3], max[3], scale[3];
-  float tCoord[3], *tc, *x;
+  float tCoord[3], tc[3], x[3];
   int i;
   vtkDataSet *input = this->GetInput();
   vtkDataSet *output = this->GetOutput();
@@ -113,7 +113,7 @@ void vtkImplicitTextureCoords::Execute()
     }
   for (ptId=0; ptId<numPts; ptId++) //compute texture coordinates
     {
-    x = input->GetPoint(ptId);
+    input->GetPoint(ptId, x);
     tCoord[0] = this->RFunction->FunctionValue(x);
     if ( this->SFunction )
       {
@@ -175,7 +175,7 @@ void vtkImplicitTextureCoords::Execute()
     }
   for (ptId=0; ptId<numPts; ptId++)
     {
-    tc = newTCoords->GetTuple(ptId);
+     newTCoords->GetTuple(ptId, tc);
     for (i=0; i<tcoordDim; i++)
       {
       tCoord[i] = 0.5 + scale[i] * tc[i];

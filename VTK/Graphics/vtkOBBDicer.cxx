@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBBDicer.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-17 02:05:39 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2003-11-07 18:32:16 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #include "vtkPoints.h"
 #include "vtkShortArray.h"
 
-vtkCxxRevisionMacro(vtkOBBDicer, "$Revision: 1.16 $");
+vtkCxxRevisionMacro(vtkOBBDicer, "$Revision: 1.17 $");
 vtkStandardNewMacro(vtkOBBDicer);
 
 void vtkOBBDicer::BuildTree(vtkIdList *ptIds, vtkOBBNode *OBBptr)
@@ -70,7 +70,7 @@ void vtkOBBDicer::BuildTree(vtkIdList *ptIds, vtkOBBNode *OBBptr)
     RHlist->Allocate(numPts/2);
     LHnode->Parent = OBBptr;
     RHnode->Parent = OBBptr;
-    float n[3], p[3], *x, val;
+    float n[3], p[3], x[3], val;
 
     //split the longest axis down the middle
     for (i=0; i < 3; i++) //compute split point
@@ -90,7 +90,7 @@ void vtkOBBDicer::BuildTree(vtkIdList *ptIds, vtkOBBNode *OBBptr)
     for ( i=0; i < numPts; i++ )
       {
       ptId = ptIds->GetId(i);
-      x = input->GetPoint(ptId);
+      input->GetPoint(ptId, x);
       val = n[0]*(x[0]-p[0]) + n[1]*(x[1]-p[1]) + n[2]*(x[2]-p[2]);
 
       if ( val < 0.0 ) 

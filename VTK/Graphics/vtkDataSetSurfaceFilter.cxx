@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetSurfaceFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-11-05 14:46:01 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2003-11-07 18:32:16 $
+  Version:   $Revision: 1.28 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -36,7 +36,7 @@
 #include "vtkVoxel.h"
 #include "vtkWedge.h"
 
-vtkCxxRevisionMacro(vtkDataSetSurfaceFilter, "$Revision: 1.27 $");
+vtkCxxRevisionMacro(vtkDataSetSurfaceFilter, "$Revision: 1.28 $");
 vtkStandardNewMacro(vtkDataSetSurfaceFilter);
 
 //----------------------------------------------------------------------------
@@ -537,7 +537,7 @@ void vtkDataSetSurfaceFilter::DataSetExecute()
   vtkIdType numCells=input->GetNumberOfCells();
   vtkGenericCell *cell;
   vtkCell *face;
-  float *x;
+  float x[3];
   vtkIdList *cellIds;
   vtkIdList *pts;
   vtkPoints *newPts;
@@ -596,7 +596,7 @@ void vtkDataSetSurfaceFilter::DataSetExecute()
         for ( i=0; i < npts; i++)
           {
           ptId = cell->GetPointId(i);
-          x = input->GetPoint(ptId);
+          input->GetPoint(ptId, x);
           pt = newPts->InsertNextPoint(x);
           outputPD->CopyData(pd,ptId,pt);
           pts->InsertId(i,pt);
@@ -616,7 +616,7 @@ void vtkDataSetSurfaceFilter::DataSetExecute()
             for ( i=0; i < npts; i++)
               {
               ptId = face->GetPointId(i);
-              x = input->GetPoint(ptId);
+              input->GetPoint(ptId, x);
               pt = newPts->InsertNextPoint(x);
               outputPD->CopyData(pd,ptId,pt);
               pts->InsertId(i,pt);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLandmarkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:21:21 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2003-11-07 18:32:16 $
+  Version:   $Revision: 1.22 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkPoints.h"
 
-vtkCxxRevisionMacro(vtkLandmarkTransform, "$Revision: 1.21 $");
+vtkCxxRevisionMacro(vtkLandmarkTransform, "$Revision: 1.22 $");
 vtkStandardNewMacro(vtkLandmarkTransform);
 
 //----------------------------------------------------------------------------
@@ -107,14 +107,14 @@ void vtkLandmarkTransform::InternalUpdate()
 
   float source_centroid[3]={0,0,0};
   float target_centroid[3]={0,0,0};
-  float *p;
+  float p[3];
   for(i=0;i<N_PTS;i++)
     {
-    p = this->SourceLandmarks->GetPoint(i);
+    this->SourceLandmarks->GetPoint(i, p);
     source_centroid[0] += p[0];
     source_centroid[1] += p[1];
     source_centroid[2] += p[2];
-    p = this->TargetLandmarks->GetPoint(i);
+    this->TargetLandmarks->GetPoint(i, p);
     target_centroid[0] += p[0];
     target_centroid[1] += p[1];
     target_centroid[2] += p[2];

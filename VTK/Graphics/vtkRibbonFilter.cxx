@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRibbonFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-17 02:05:39 $
-  Version:   $Revision: 1.69 $
+  Date:      $Date: 2003-11-07 18:32:16 $
+  Version:   $Revision: 1.70 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #include "vtkPolyData.h"
 #include "vtkPolyLine.h"
 
-vtkCxxRevisionMacro(vtkRibbonFilter, "$Revision: 1.69 $");
+vtkCxxRevisionMacro(vtkRibbonFilter, "$Revision: 1.70 $");
 vtkStandardNewMacro(vtkRibbonFilter);
 
 // Construct ribbon so that width is 0.1, the width does 
@@ -263,7 +263,7 @@ int vtkRibbonFilter::GeneratePoints(vtkIdType offset,
   float pNext[3];
   float sNext[3];
   float sPrev[3];
-  float *n;
+  float n[3];
   float s[3], sp[3], sm[3], v[3];
   double bevelAngle;
   float w[3];
@@ -308,7 +308,7 @@ int vtkRibbonFilter::GeneratePoints(vtkIdType offset,
         }
       }
 
-    n = inNormals->GetTuple(pts[j]);
+    inNormals->GetTuple(pts[j], n);
 
     if ( vtkMath::Normalize(sNext) == 0.0 )
       {

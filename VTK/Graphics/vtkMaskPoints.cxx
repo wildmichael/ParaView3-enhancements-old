@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMaskPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-10-14 17:28:24 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2003-11-07 18:32:16 $
+  Version:   $Revision: 1.43 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkPoints.h"
 #include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkMaskPoints, "$Revision: 1.42 $");
+vtkCxxRevisionMacro(vtkMaskPoints, "$Revision: 1.43 $");
 vtkStandardNewMacro(vtkMaskPoints);
 
 //----------------------------------------------------------------------------
@@ -44,7 +44,7 @@ void vtkMaskPoints::Execute()
   vtkPoints *newPts;
   vtkPointData *pd;
   vtkIdType numNewPts;
-  float *x;
+  float x[3];
   vtkIdType ptId, id;
   vtkPolyData *output = this->GetOutput();
   vtkPointData *outputPD = output->GetPointData();
@@ -95,7 +95,7 @@ void vtkMaskPoints::Execute()
     (ptId < numPts) && (id < this->MaximumNumberOfPoints) && !abort;  
     ptId += (1 + (int)((float)vtkMath::Random()*cap)) )
       {
-      x =  input->GetPoint(ptId);
+      input->GetPoint(ptId, x);
       id = newPts->InsertNextPoint(x);
       outputPD->CopyData(pd,ptId,id);
       if ( ! (id % progressInterval) ) //abort/progress
@@ -111,7 +111,7 @@ void vtkMaskPoints::Execute()
     (ptId < numPts) && (id < (this->MaximumNumberOfPoints-1)) && !abort;
     ptId += this->OnRatio )
       {
-      x =  input->GetPoint(ptId);
+      input->GetPoint(ptId, x);
       id = newPts->InsertNextPoint(x);
       outputPD->CopyData(pd,ptId,id);
       if ( ! (id % progressInterval) ) //abort/progress

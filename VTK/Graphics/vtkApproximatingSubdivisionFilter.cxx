@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkApproximatingSubdivisionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-17 02:05:38 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2003-11-07 18:32:15 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 #include "vtkPolyData.h"
 #include "vtkUnsignedCharArray.h"
 
-vtkCxxRevisionMacro(vtkApproximatingSubdivisionFilter, "$Revision: 1.24 $");
+vtkCxxRevisionMacro(vtkApproximatingSubdivisionFilter, "$Revision: 1.25 $");
 
 // Construct object with number of subdivisions set to 1.
 vtkApproximatingSubdivisionFilter::vtkApproximatingSubdivisionFilter()
@@ -193,7 +193,7 @@ vtkIdType vtkApproximatingSubdivisionFilter::InterpolatePosition (
         vtkPoints *inputPts, vtkPoints *outputPts,
         vtkIdList *stencil, float *weights)
 {
-  float *xx, x[3];
+  float xx[3], x[3];
   vtkIdType i;
   int j;
 
@@ -204,7 +204,7 @@ vtkIdType vtkApproximatingSubdivisionFilter::InterpolatePosition (
 
   for (i = 0; i < stencil->GetNumberOfIds(); i++)
     {
-    xx = inputPts->GetPoint(stencil->GetId(i));
+    inputPts->GetPoint(stencil->GetId(i), xx);
     for (j = 0; j < 3; j++)
       {
       x[j] += xx[j] * weights[i];

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-17 02:05:39 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 2003-11-07 18:32:16 $
+  Version:   $Revision: 1.57 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkPolyData.h"
 #include "vtkStructuredGrid.h"
 
-vtkCxxRevisionMacro(vtkStructuredGridGeometryFilter, "$Revision: 1.56 $");
+vtkCxxRevisionMacro(vtkStructuredGridGeometryFilter, "$Revision: 1.57 $");
 vtkStandardNewMacro(vtkStructuredGridGeometryFilter);
 
 // Construct with initial extent of all the data
@@ -50,7 +50,7 @@ void vtkStructuredGridGeometryFilter::Execute()
   vtkCellArray *newPolys=0;
   vtkIdType totPoints, pos, cellPos;
   int offset[3], cellOffset[3], numPolys;
-  float *x;
+  float x[3];
   vtkPointData *pd, *outPD;
   vtkCellData *cd, *outCD;
   vtkStructuredGrid *input = this->GetInput();
@@ -211,7 +211,7 @@ void vtkStructuredGridGeometryFilter::Execute()
       for (i=0; i<totPoints; i++) 
         {
         idx = startIdx + i*offset[0];
-        x = input->GetPoint(idx);
+        input->GetPoint(idx, x);
         ptIds[0] = newPts->InsertNextPoint(x);
         outPD->CopyData(pd,idx,ptIds[0]);
         }
@@ -284,7 +284,7 @@ void vtkStructuredGridGeometryFilter::Execute()
         for (i=0; i < (diff[dir[0]]+1); i++) 
           {
           idx = pos + i*offset[0];
-          x = input->GetPoint(idx);
+          input->GetPoint(idx, x);
           ptIds[0] = newPts->InsertNextPoint(x);
           outPD->CopyData(pd,idx,ptIds[0]);
           }
@@ -346,7 +346,7 @@ void vtkStructuredGridGeometryFilter::Execute()
             {
             if ( input->IsPointVisible(pos+i) ) 
               {
-              x = input->GetPoint(pos+i);
+              input->GetPoint(pos+i, x);
               ptIds[0] = newPts->InsertNextPoint(x);
               outPD->CopyData(pd,pos+i,ptIds[0]);
               cellId = newVerts->InsertNextCell(1,ptIds);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLegendBoxActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:21:21 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2003-11-07 18:32:16 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,7 +31,7 @@
 #include "vtkTransformPolyDataFilter.h"
 #include "vtkViewport.h"
 
-vtkCxxRevisionMacro(vtkLegendBoxActor, "$Revision: 1.25 $");
+vtkCxxRevisionMacro(vtkLegendBoxActor, "$Revision: 1.26 $");
 vtkStandardNewMacro(vtkLegendBoxActor);
 
 vtkCxxSetObjectMacro(vtkLegendBoxActor,EntryTextProperty,vtkTextProperty);
@@ -311,7 +311,8 @@ void vtkLegendBoxActor::SetEntryColor(int i, float color[3])
 {
   if ( i >= 0 && i < this->NumberOfEntries )
     {
-    float *oldColor = this->Colors->GetTuple(i);
+    float oldColor[3];
+    this->Colors->GetTuple(i, oldColor);
     
     if ( oldColor[0] != color[0] || oldColor[1] != color[1] || 
          oldColor[2] != color[2] )
@@ -565,7 +566,7 @@ int vtkLegendBoxActor::RenderOpaqueGeometry(vtkViewport *viewport)
       }
 
     //Place text strings
-    float *color;
+    float color[3];
     float posY;
     float posX = p1[0] + this->Padding + 
                  symbolSize*(p2[0] - p1[0] - 2.0*this->Padding);
@@ -575,7 +576,7 @@ int vtkLegendBoxActor::RenderOpaqueGeometry(vtkViewport *viewport)
       this->TextActor[i]->SetPosition(posX,posY);
       this->TextMapper[i]->GetTextProperty()->SetFontSize(fontSize);
       this->TextActor[i]->GetProperty()->DeepCopy(this->GetProperty());
-      color = this->Colors->GetTuple(i);
+      this->Colors->GetTuple(i, color);
       if ( color[0] >= 0.0 && color[1] >= 0.0 && color[2] >= 0.0 )
         {
         this->TextMapper[i]->GetTextProperty()->SetColor(color);
@@ -623,7 +624,7 @@ int vtkLegendBoxActor::RenderOpaqueGeometry(vtkViewport *viewport)
         this->Transform[i]->Scale(0.5*sf, 0.5*sf, 1);
         this->SymbolMapper[i]->SetScalarVisibility(this->ScalarVisibility);
         this->SymbolActor[i]->GetProperty()->DeepCopy(this->GetProperty());
-        color = this->Colors->GetTuple(i);
+        this->Colors->GetTuple(i, color);
         if ( color[0] >= 0.0 && color[1] >= 0.0 && color[2] >= 0.0 )
           {
           this->SymbolActor[i]->GetProperty()->SetColor(color);

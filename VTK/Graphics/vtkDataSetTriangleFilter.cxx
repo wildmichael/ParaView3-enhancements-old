@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetTriangleFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-10-31 14:09:07 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2003-11-07 18:32:16 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,7 +30,7 @@
 #include "vtkUnstructuredGrid.h"
 #include "vtkRectilinearGrid.h"
 
-vtkCxxRevisionMacro(vtkDataSetTriangleFilter, "$Revision: 1.19 $");
+vtkCxxRevisionMacro(vtkDataSetTriangleFilter, "$Revision: 1.20 $");
 vtkStandardNewMacro(vtkDataSetTriangleFilter);
 
 vtkDataSetTriangleFilter::vtkDataSetTriangleFilter()
@@ -199,7 +199,7 @@ void vtkDataSetTriangleFilter::UnstructuredExecute()
   int numPts, type;
   int numSimplices, dim;
   vtkIdType pts[4];
-  float *xPtr;
+  float x[3];
 
   if (numCells == 0)
     {
@@ -239,8 +239,8 @@ void vtkDataSetTriangleFilter::UnstructuredExecute()
       for (p=pPtr, j=0; j<numPts; j++, p+=3)
         {
         ptId = cell->PointIds->GetId(j);
-        xPtr = cell->Points->GetPoint(j);
-        this->Triangulator->InsertPoint(ptId, xPtr, p, 0);
+        cell->Points->GetPoint(j, x);
+        this->Triangulator->InsertPoint(ptId, x, p, 0);
         }//for all cell points
       if ( cell->IsPrimaryCell() ) //use templates if topology is fixed
         {

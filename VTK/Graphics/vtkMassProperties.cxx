@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMassProperties.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-17 02:05:38 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2003-11-07 18:32:16 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkMassProperties, "$Revision: 1.24 $");
+vtkCxxRevisionMacro(vtkMassProperties, "$Revision: 1.25 $");
 vtkStandardNewMacro(vtkMassProperties);
 
 #define  VTK_CUBE_ROOT(x) \
@@ -118,7 +118,7 @@ void vtkMassProperties::Execute()
   vtkIdList *ptIds;
   vtkPolyData *input = this->GetInput();
   vtkIdType cellId, numCells, numPts, numIds;
-  float *p;
+  float p[3];
   
   numCells=input->GetNumberOfCells();
   numPts = input->GetNumberOfPoints();
@@ -169,7 +169,7 @@ void vtkMassProperties::Execute()
     //
     for (idx=0; idx < numIds; idx++)
       {
-      p = input->GetPoint(ptIds->GetId(idx));
+      input->GetPoint(ptIds->GetId(idx), p);
       x[idx] = p[0]; y[idx] = p[1]; z[idx] = p[2];
       }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractTensorComponents.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-17 02:05:38 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2003-11-07 18:32:16 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkPointData.h"
 
-vtkCxxRevisionMacro(vtkExtractTensorComponents, "$Revision: 1.24 $");
+vtkCxxRevisionMacro(vtkExtractTensorComponents, "$Revision: 1.25 $");
 vtkStandardNewMacro(vtkExtractTensorComponents);
 
 // Construct object to extract nothing and to not pass tensor data
@@ -60,7 +60,7 @@ vtkExtractTensorComponents::vtkExtractTensorComponents()
 void vtkExtractTensorComponents::Execute()
 {
   vtkDataArray *inTensors;
-  float *tensor;
+  float tensor[9];
   vtkDataSet *input = this->GetInput();
   vtkPointData *pd = input->GetPointData();
   vtkPointData *outPD = this->GetOutput()->GetPointData();
@@ -133,7 +133,7 @@ void vtkExtractTensorComponents::Execute()
   //
   for (ptId=0; ptId < numPts; ptId++)
     {
-    tensor = inTensors->GetTuple(ptId);
+    inTensors->GetTuple(ptId, tensor);
 
     if ( this->ExtractScalars )
       {

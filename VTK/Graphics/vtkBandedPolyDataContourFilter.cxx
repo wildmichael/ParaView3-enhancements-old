@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBandedPolyDataContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-29 09:41:19 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2003-11-07 18:32:15 $
+  Version:   $Revision: 1.32 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,7 @@
 
 #include <float.h>
 
-vtkCxxRevisionMacro(vtkBandedPolyDataContourFilter, "$Revision: 1.31 $");
+vtkCxxRevisionMacro(vtkBandedPolyDataContourFilter, "$Revision: 1.32 $");
 vtkStandardNewMacro(vtkBandedPolyDataContourFilter);
 
 // Construct object.
@@ -89,11 +89,12 @@ int vtkBandedPolyDataContourFilter::ClipEdge(int v1, int v2,
                                              vtkPointData *outPD)
 {
   float x[3], t;
+  float x1[3], x2[3];
   int ptId;
   int reverse = (v1 < v2 ? 0 : 1);
 
-  float *x1 = newPts->GetPoint(v1);
-  float *x2 = newPts->GetPoint(v2);
+  newPts->GetPoint(v1, x1);
+  newPts->GetPoint(v2, x2);
 
   float s1 = scalars->GetTuple1(v1);
   float s2 = scalars->GetTuple1(v2);

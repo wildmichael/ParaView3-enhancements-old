@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHyperStreamline.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-26 12:07:14 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2003-11-07 18:32:16 $
+  Version:   $Revision: 1.54 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkPointData.h"
 #include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkHyperStreamline, "$Revision: 1.53 $");
+vtkCxxRevisionMacro(vtkHyperStreamline, "$Revision: 1.54 $");
 vtkStandardNewMacro(vtkHyperStreamline);
 
 //
@@ -329,7 +329,7 @@ void vtkHyperStreamline::Execute()
   vtkPointData *pd=input->GetPointData();
   vtkDataArray *inScalars;
   vtkDataArray *inTensors;
-  float *tensor;
+  float tensor[9];
   vtkHyperPoint *sNext, *sPtr;
   int i, j, k, ptId, subId, iv, ix, iy;
   vtkCell *cell;
@@ -433,7 +433,7 @@ void vtkHyperStreamline::Execute()
       }
     for (k=0; k < cell->GetNumberOfPoints(); k++)
       {
-      tensor = cellTensors->GetTuple(k);
+      cellTensors->GetTuple(k, tensor);
       for (j=0; j<3; j++) 
         {
         for (i=0; i<3; i++) 
@@ -509,7 +509,7 @@ void vtkHyperStreamline::Execute()
         }
       for (k=0; k < cell->GetNumberOfPoints(); k++)
         {
-        tensor = cellTensors->GetTuple(k);
+        cellTensors->GetTuple(k, tensor);
         for (j=0; j<3; j++) 
           {
           for (i=0; i<3; i++) 
@@ -569,7 +569,7 @@ void vtkHyperStreamline::Execute()
           }
         for (k=0; k < cell->GetNumberOfPoints(); k++)
           {
-          tensor = cellTensors->GetTuple(k);
+          cellTensors->GetTuple(k, tensor);
           for (j=0; j<3; j++) 
             {
             for (i=0; i<3; i++) 

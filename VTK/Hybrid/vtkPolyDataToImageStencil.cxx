@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataToImageStencil.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-10-17 17:54:00 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2003-11-07 18:32:16 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkPolyDataToImageStencil, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkPolyDataToImageStencil, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkPolyDataToImageStencil);
 
 //----------------------------------------------------------------------------
@@ -126,7 +126,8 @@ void vtkTurnPointsIntoList(vtkPoints *points, int *&clist, int &clistlen,
   int npoints = points->GetNumberOfPoints();
   for (int idP = 0; idP < npoints; idP++)
     {
-    float *point = points->GetPoint(idP);
+    float point[3];
+    points->GetPoint(idP, point);
     int r = (int)ceil((point[dim] - origin[dim])/spacing[dim]);
     if (r < extent[2*dim])
       {
