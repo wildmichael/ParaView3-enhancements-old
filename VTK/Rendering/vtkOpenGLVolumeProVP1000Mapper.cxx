@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLVolumeProVP1000Mapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:00 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-02-01 16:31:05 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkRenderWindow.h"
 #include "vtkOpenGLRenderWindow.h"
 
-vtkCxxRevisionMacro(vtkOpenGLVolumeProVP1000Mapper, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkOpenGLVolumeProVP1000Mapper, "$Revision: 1.10 $");
 vtkStandardNewMacro(vtkOpenGLVolumeProVP1000Mapper);
 
 void vtkOpenGLVolumeProVP1000Mapper::RenderImageBuffer(vtkRenderer  *ren,
@@ -199,3 +199,51 @@ void vtkOpenGLVolumeProVP1000Mapper::GetDepthBufferValues(vtkRenderer *ren,
 #endif
 }
 
+
+void vtkOpenGLVolumeProVP1000Mapper::RenderBoundingBox(vtkRenderer *ren,
+                                                       vtkVolume *vol)
+{
+  float bounds[6], background[3], color[3];
+  ren->GetBackground(background);
+  if (background[0] > 0.5 && background[1] > 0.5 && background[2] > 0.5)
+    {
+    // black
+    color[0] = color[1] = color[2] = 0.0;
+    }
+  else
+    {
+    // white
+    color[0] = color[1] = color[2] = 1.0;
+    }
+  
+  vol->GetBounds(bounds);
+
+  glColor3fv(color);
+  glDisable( GL_LIGHTING );
+  
+  glBegin( GL_LINE_LOOP );
+  glVertex3f(bounds[0], bounds[2], bounds[4]);
+  glVertex3f(bounds[1], bounds[2], bounds[4]);
+  glVertex3f(bounds[1], bounds[2], bounds[5]);
+  glVertex3f(bounds[0], bounds[2], bounds[5]);
+  glEnd();
+  glBegin( GL_LINE_LOOP );
+  glVertex3f(bounds[0], bounds[3], bounds[4]);
+  glVertex3f(bounds[1], bounds[3], bounds[4]);
+  glVertex3f(bounds[1], bounds[3], bounds[5]);
+  glVertex3f(bounds[0], bounds[3], bounds[5]);
+  glEnd();
+  glBegin( GL_LINES );
+  glVertex3f(bounds[0], bounds[2], bounds[4]);
+  glVertex3f(bounds[0], bounds[3], bounds[4]);
+  glVertex3f(bounds[1], bounds[2], bounds[4]);
+  glVertex3f(bounds[1], bounds[3], bounds[4]);
+  glVertex3f(bounds[1], bounds[2], bounds[5]);
+  glVertex3f(bounds[1], bounds[3], bounds[5]);
+  glVertex3f(bounds[0], bounds[2], bounds[5]);
+  glVertex3f(bounds[0], bounds[3], bounds[5]);
+  glEnd();
+  
+  glEnable( GL_LIGHTING );
+  glFlush();
+}

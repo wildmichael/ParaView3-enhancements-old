@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLVolumeProVP1000Mapper.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:00 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-02-01 16:31:06 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -67,6 +67,10 @@ protected:
   // VolumePro board
   virtual void GetDepthBufferValues( vtkRenderer *ren, int size[2],
                                      unsigned int *outData);
+  
+  // Render a bounding box of the volume because the texture map would be
+  // too large
+  virtual void RenderBoundingBox(vtkRenderer *ren, vtkVolume *vol);
 };
 
 
