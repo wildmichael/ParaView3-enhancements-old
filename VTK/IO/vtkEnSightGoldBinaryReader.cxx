@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightGoldBinaryReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-11-12 14:50:16 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2003-11-12 19:23:59 $
+  Version:   $Revision: 1.44 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -34,7 +34,7 @@
 #include <ctype.h>
 #include <vtkstd/string>
 
-vtkCxxRevisionMacro(vtkEnSightGoldBinaryReader, "$Revision: 1.43 $");
+vtkCxxRevisionMacro(vtkEnSightGoldBinaryReader, "$Revision: 1.44 $");
 vtkStandardNewMacro(vtkEnSightGoldBinaryReader);
 
 //----------------------------------------------------------------------------
@@ -2790,6 +2790,7 @@ int vtkEnSightGoldBinaryReader::ReadLine(char result[80])
 {
   if ( this->IFile->read(result, 80) == 0)
     {
+    vtkErrorMacro("Read failed");
     return 0;
     }
   
@@ -2807,6 +2808,7 @@ int vtkEnSightGoldBinaryReader::ReadPartId(int *result)
   // first swap like normal.
   if (this->ReadInt(result) == 0)
     {
+    vtkErrorMacro("Read failed");
     return 0;
     }
   
@@ -2841,6 +2843,7 @@ int vtkEnSightGoldBinaryReader::ReadInt(int *result)
 {
   if ( this->IFile->read((char*)result, sizeof(int)) == 0)
     {
+    vtkErrorMacro("Read failed");
     return 0;
     }
 
@@ -2861,6 +2864,11 @@ int vtkEnSightGoldBinaryReader::ReadInt(int *result)
 int vtkEnSightGoldBinaryReader::ReadIntArray(int *result,
                                              int numInts)
 {
+  if (numInts <= 0)
+    {
+    return 1;
+    }
+  
   if (this->IFile->read((char*)result, sizeof(int)*numInts) == 0)
     {
     vtkErrorMacro("Read failed.");
@@ -2884,8 +2892,14 @@ int vtkEnSightGoldBinaryReader::ReadIntArray(int *result,
 int vtkEnSightGoldBinaryReader::ReadFloatArray(float *result,
                                                int numFloats)
 {
+  if (numFloats <= 0)
+    {
+    return 1;
+    }
+
   if (this->IFile->read((char*)result, sizeof(float)*numFloats) == 0)
     {
+    vtkErrorMacro("Read failed");
     return 0;
     }
 
