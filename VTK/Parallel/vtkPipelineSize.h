@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPipelineSize.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-19 19:30:46 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-02-01 19:51:14 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -47,6 +47,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObject.h"
 class vtkSource;
 class vtkDataObject;
+class vtkPolyDataMapper;
 
 class VTK_EXPORT vtkPipelineSize : public vtkObject
 {
@@ -61,6 +62,12 @@ public:
   // calculations in here do not take into account the specifics of many
   // sources and filters.
   unsigned long GetEstimatedSize(vtkDataObject *input);
+
+  // Description:
+  // Determine how many subpieces a mapper should use to fit a target memory 
+  // limit. This takes into account the mapper's Piece and NumberOfPieces.
+  unsigned long GetNumberOfSubPieces(unsigned long memoryLimit, 
+                                     vtkPolyDataMapper *mapper);
   
 protected:
   void GenericComputeSourcePipelineSize(vtkSource *src, 

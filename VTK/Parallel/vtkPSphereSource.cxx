@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPSphereSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-26 20:56:14 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-02-01 19:51:14 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -281,7 +281,7 @@ unsigned long vtkPSphereSource::GetEstimatedMemorySize()
   sz = sz + sz2;
 
   // convert to kilobytes
-  sz >> 10;
+  sz >>= 10;
   
   return sz.CastToUnsignedLong();
 }
