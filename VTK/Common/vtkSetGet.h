@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSetGet.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-22 15:37:58 $
-  Version:   $Revision: 1.100 $
+  Date:      $Date: 2002-04-09 22:26:11 $
+  Version:   $Revision: 1.101 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -624,7 +624,7 @@ virtual float *Get##name() \
   { \
     if ( o && o->IsA(#thisClass) ) \
       { \
-      return (thisClass *)o; \
+      return static_cast<thisClass *>(o); \
       } \
     return NULL;\
   }
