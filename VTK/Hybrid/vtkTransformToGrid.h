@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformToGrid.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:30:40 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-05-13 21:11:07 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,8 @@
 #define __vtkTransformToGrid_h
 
 #include "vtkImageSource.h"
-#include "vtkAbstractTransform.h"
+
+class vtkAbstractTransform;
 
 class VTK_HYBRID_EXPORT vtkTransformToGrid : public vtkImageSource
 {
@@ -39,7 +40,7 @@ public:
 
   // Description:
   // Set/Get the transform which will be converted into a grid.
-  vtkSetObjectMacro(Input,vtkAbstractTransform);
+  virtual void SetInput(vtkAbstractTransform*);
   vtkGetObjectMacro(Input,vtkAbstractTransform);
 
   // Description:
