@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKWIcon.h,v $
   Language:  C++
-  Date:      $Date: 2003-04-02 16:50:52 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2003-04-30 20:16:30 $
+  Version:   $Revision: 1.11 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -43,8 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // .SECTION Description
 // A simple icon wrapper. It can either be used with file icons.h to 
 // provide a unified interface for internal icons or a wrapper for 
-// custom icons. The icons are defined with width, height, pixel_size, and array
-// of unsigned char values.
+// custom icons. The icons are defined with width, height, pixel_size, 
+// and array of unsigned char values.
 
 #ifndef __vtkKWIcon_h
 #define __vtkKWIcon_h
@@ -85,6 +85,8 @@ public:
     ICON_LAYOUT,
     ICON_MACROS,
     ICON_MATERIAL,
+    ICON_MINUS,
+    ICON_PLUS,
     ICON_PREFERENCES,
     ICON_QUESTION,
     ICON_SHRINK,
@@ -114,7 +116,8 @@ public:
 
   // Description:
   // Set icon to the custom data.
-  void SetData(const unsigned char* data, int width, int height, int pixel_size);
+  void SetData(const unsigned char* data, 
+               int width, int height, int pixel_size);
 
   // Description:
   // Get the raw image data.
@@ -131,7 +134,7 @@ public:
   // Description:
   // Get the pixel size of the image.
   vtkGetMacro(PixelSize, int);
-  
+
 protected:
   vtkKWIcon();
   ~vtkKWIcon();
@@ -154,7 +157,4 @@ private:
   void operator=(const vtkKWIcon&); // Not implemented
 };
 
-
 #endif
-
-
