@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:08:56 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2000-03-23 20:48:09 $
+  Version:   $Revision: 1.30 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -553,9 +553,19 @@ void vtkImageWriter::WriteFile(ofstream *file, vtkImageData *data,
 			   (extent[3]-extent[2]+1)/(50.0*area));
   target++;
 
+  int ystart = extent[3];
+  int yend = extent[2] - 1;
+  int yinc = -1;
+  if (this->FileLowerLeft)
+    {
+    ystart = extent[2];
+    yend = extent[3]+1;
+    yinc = 1;
+    }
+  
   for (idxZ = extent[4]; idxZ <= extent[5]; ++idxZ)
     {
-    for (idxY = extent[3]; idxY >= extent[2]; idxY--)
+    for (idxY = ystart; idxY != yend; idxY = idxY + yinc)
       {
       if (!(count%target))
 	{
