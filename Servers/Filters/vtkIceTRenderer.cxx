@@ -1,6 +1,6 @@
 /* -*- c++ -*- *******************************************************/
 
-/* $Id: vtkIceTRenderer.cxx,v 1.5 2003-11-06 17:10:28 lawcc Exp $ */
+/* $Id: vtkIceTRenderer.cxx,v 1.6 2003-12-15 16:25:29 henderson Exp $ */
 
 #include "vtkIceTRenderer.h"
 
@@ -24,7 +24,7 @@ static vtkIceTRenderer *currentRenderer;
 // vtkIceTRenderer implementation.
 //******************************************************************
 
-vtkCxxRevisionMacro(vtkIceTRenderer, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkIceTRenderer, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkIceTRenderer);
 
 vtkIceTRenderer::vtkIceTRenderer()
@@ -46,7 +46,7 @@ void vtkIceTRenderer::ComputeAspect()
     return;
     }
 
-  float aspect[2];
+  double aspect[2];
   this->GetAspect(aspect);
 
   int global_viewport[4];

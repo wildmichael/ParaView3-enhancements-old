@@ -5,8 +5,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDesktopDeliveryClient.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-12-08 14:15:03 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2003-12-15 16:25:28 $
+  Version:   $Revision: 1.8 $
 
 =========================================================================*/
 
@@ -23,13 +23,13 @@
 #include <vtkLight.h>
 #include <vtkTimerLog.h>
 #include <vtkLightCollection.h>
-#include <vtkFloatArray.h>
+#include <vtkDoubleArray.h>
 #include <vtkUnsignedCharArray.h>
 #include "vtkMultiProcessController.h"
 
 //#include <vtkRef.h>
 
-vtkCxxRevisionMacro(vtkDesktopDeliveryClient, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkDesktopDeliveryClient, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkDesktopDeliveryClient);
 
 vtkDesktopDeliveryClient::vtkDesktopDeliveryClient()

@@ -5,8 +5,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDesktopDeliveryServer.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-09-22 16:59:41 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-12-15 16:25:29 $
+  Version:   $Revision: 1.4 $
 
 =========================================================================*/
 
@@ -40,7 +40,7 @@ static void SatelliteEndParallelRender(vtkObject *caller,
                        unsigned long vtkNotUsed(event),
                        void *clientData, void *);
 
-vtkCxxRevisionMacro(vtkDesktopDeliveryServer, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkDesktopDeliveryServer, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkDesktopDeliveryServer);
 
 vtkDesktopDeliveryServer::vtkDesktopDeliveryServer()
@@ -202,7 +202,7 @@ void vtkDesktopDeliveryServer::PreRenderProcessing()
       int i;
       for (rens->InitTraversal(), i = 0; (ren = rens->GetNextItem()); i++)
         {
-        float *viewport = ren->GetViewport();
+        double *viewport = ren->GetViewport();
         ren->SetViewport(viewport[0]*this->ImageReductionFactor,
           viewport[1]*this->ImageReductionFactor,
           viewport[2]*this->ImageReductionFactor,
