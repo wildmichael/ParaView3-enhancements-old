@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-06-27 15:33:18 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-07-02 18:45:34 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -150,7 +150,7 @@ void vtkOpenGLCamera::Render(vtkRenderer *ren)
   ren->SetAspect(aspect);
 
   glMatrixMode( GL_PROJECTION);
-  matrix = this->GetPerspectiveTransform(aspect[0]/aspect[1],0,1);
+  matrix = this->GetPerspectiveTransform(aspect[0]/aspect[1],-1,1);
   matrix.Transpose();
   // insert camera view transformation 
   glLoadMatrixf(matrix[0]);
