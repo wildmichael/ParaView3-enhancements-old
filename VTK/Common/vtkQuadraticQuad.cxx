@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadraticQuad.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-07 10:24:43 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-06-09 16:57:09 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkQuadraticQuad, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkQuadraticQuad, "$Revision: 1.9 $");
 vtkStandardNewMacro(vtkQuadraticQuad);
 
 // Construct the line with two points.
@@ -415,7 +415,7 @@ void vtkQuadraticQuad::Derivatives(int vtkNotUsed(subId),
 // Clip this quadratic quad using scalar value provided. Like contouring, 
 // except that it cuts the quad to produce other quads and triangles.
 void vtkQuadraticQuad::Clip(float value, 
-                            vtkDataArray* cellScalars, 
+                            vtkDataArray* vtkNotUsed(cellScalars), 
                             vtkPointLocator* locator,
                             vtkCellArray* polys,
                             vtkPointData* inPd, 
