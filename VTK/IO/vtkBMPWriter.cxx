@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBMPWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-10-01 18:00:44 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-10-01 21:54:41 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,38 +62,38 @@ void vtkBMPWriter::WriteFileHeader(ofstream *file, vtkImageCache *cache)
   dataWidth = ((width*3+3)/4)*4;
 
   // spit out the BMP header
-  file->put(66);
-  file->put(77);
+  file->put((char)66);
+  file->put((char)77);
   temp = (long)(dataWidth*height) + 54L;
   file->put((char)(temp%256));
   file->put((char)((temp%65536L)/256));
   file->put((char)(temp/65536L));
-  for (row = 0; row < 5; row++) file->put(0);
-  file->put(54);
-  file->put(0);
-  file->put(0);
-  file->put(0);
+  for (row = 0; row < 5; row++) file->put((char)0);
+  file->put((char)54);
+  file->put((char)0);
+  file->put((char)0);
+  file->put((char)0);
   
   // info header
-  file->put(40);
-  file->put(0);
-  file->put(0);
-  file->put(0);
+  file->put((char)40);
+  file->put((char)0);
+  file->put((char)0);
+  file->put((char)0);
   
-  file->put(width%256);
-  file->put(width/256);
-  file->put(0);
-  file->put(0);
+  file->put((char)(width%256));
+  file->put((char)(width/256));
+  file->put((char)0);
+  file->put((char)0);
   
-  file->put(height%256);
-  file->put(height/256);
-  file->put(0);
-  file->put(0);
+  file->put((char)(height%256));
+  file->put((char)(height/256));
+  file->put((char)0);
+  file->put((char)0);
   
-  file->put(1);
-  file->put(0);
-  file->put(24);
-  for (row = 0; row < 25; row++) file->put(0);
+  file->put((char)1);
+  file->put((char)0);
+  file->put((char)24);
+  for (row = 0; row < 25; row++) file->put((char)0);
 }
 
 
@@ -187,7 +187,7 @@ void vtkBMPWriter::WriteFile(ofstream *file, vtkImageRegion *region)
 	    file->put(ptr[i*4]);
 	    }
 	  }
-	for (i = 0; i < rowAdder; i++) file->put(0);
+	for (i = 0; i < rowAdder; i++) file->put((char)0);
 	}
       }
     }
