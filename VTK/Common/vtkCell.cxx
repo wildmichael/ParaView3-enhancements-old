@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:46:56 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1995-07-31 22:34:27 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "Cell.hh"
+#include "vtkCell.hh"
 
 // Description:
 // Construct cell.

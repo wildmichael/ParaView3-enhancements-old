@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBitArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:46:51 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-07-31 22:34:23 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "BArray.hh"
+#include "vtkBitArray.hh"
 
 
 // Description:
