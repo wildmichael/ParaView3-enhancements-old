@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:41:33 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 1997-12-05 19:11:39 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -104,6 +104,7 @@ void vtkStructuredPoints::CopyStructure(vtkDataSet *ds)
     this->Origin[i] = sPts->Origin[i];
     this->Spacing[i] = sPts->Spacing[i];
     }
+  this->DataDescription = sPts->DataDescription;
  }
 
 vtkCell *vtkStructuredPoints::GetCell(int cellId)
