@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataDesc.cxx,v 1.9 2003-10-21 19:37:10 andy Exp $  */
-/*  Date : $Date: 2003-10-21 19:37:10 $ */
-/*  Version : $Revision: 1.9 $ */
+/*  Id : $Id: XdmfDataDesc.cxx,v 1.10 2004-01-05 02:28:31 andy Exp $  */
+/*  Date : $Date: 2004-01-05 02:28:31 $ */
+/*  Version : $Revision: 1.10 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -786,7 +786,7 @@ XdmfInt32 Rank = H5Sget_simple_extent_ndims(this->DataSpace );
 cout << "Rank " << Rank << endl;
 H5Sget_simple_extent_dims( this->DataSpace, Dimensions, NULL );
 for( i = 0 ; i < (hsize_t)Rank ; i++ ){
-  cout << "Dimansion[" << (int)i << "] " << (int)Dimensions[i] << endl;
+  cout << "Dimension[" << (int)i << "] " << (int)Dimensions[i] << endl;
   }
 cout << "Selection Type : " << this->GetSelectionTypeAsString() << endl;
 if( this->SelectionType == XDMF_COORDINATES ){
