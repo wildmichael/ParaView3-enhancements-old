@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObjectToDataSetFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:47 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2001-10-10 14:22:15 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -90,8 +90,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkSource.h"
 #include "vtkFieldData.h"
+#include "vtkDataSet.h"
 
-class vtkDataSet;
 class vtkPointSet;
 class vtkPolyData;
 class vtkStructuredPoints;
@@ -135,7 +135,7 @@ public:
   // aborted due to inconsistent data.)
   vtkDataSet *GetOutput();
   vtkDataSet *GetOutput(int idx)
-    {return (vtkDataSet *) this->vtkSource::GetOutput(idx); };
+    {return static_cast<vtkDataSet *>(this->vtkSource::GetOutput(idx)); };
   vtkPolyData *GetPolyDataOutput();
   vtkStructuredPoints *GetStructuredPointsOutput();
   vtkStructuredGrid *GetStructuredGridOutput();
