@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKWIcon.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-30 20:16:30 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2003-05-01 21:01:19 $
+  Version:   $Revision: 1.14 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -52,7 +52,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro( vtkKWIcon );
-vtkCxxRevisionMacro(vtkKWIcon, "$Revision: 1.13 $");
+vtkCxxRevisionMacro(vtkKWIcon, "$Revision: 1.14 $");
 
 //----------------------------------------------------------------------------
 vtkKWIcon::vtkKWIcon()
@@ -442,6 +442,14 @@ void vtkKWIcon::SetImageData(int image)
         image_transfer_width, image_transfer_height,
         image_transfer_pixel_size, 
         image_transfer_buffer_length);
+      break;
+      
+    case vtkKWIcon::ICON_TRASHCAN:
+      this->SetImageData(
+        image_trashcan, 
+        image_trashcan_width, image_trashcan_height,
+        image_trashcan_pixel_size, 
+        image_trashcan_buffer_length);
       break;
       
     case vtkKWIcon::ICON_WARNING:
