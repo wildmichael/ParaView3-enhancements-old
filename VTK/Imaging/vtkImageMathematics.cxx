@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMathematics.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-04 13:42:58 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2002-04-12 13:34:47 $
+  Version:   $Revision: 1.38 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageMathematics, "$Revision: 1.37 $");
+vtkCxxRevisionMacro(vtkImageMathematics, "$Revision: 1.38 $");
 vtkStandardNewMacro(vtkImageMathematics);
 
 //----------------------------------------------------------------------------
@@ -107,6 +107,7 @@ static void vtkImageMathematicsExecute1(vtkImageMathematics *self,
   in1Data->GetContinuousIncrements(outExt, inIncX, inIncY, inIncZ);
   outData->GetContinuousIncrements(outExt, outIncX, outIncY, outIncZ);
 
+  int DivideByZeroToC = self->GetDivideByZeroToC();
   double constantk = self->GetConstantK();
   double constantc = self->GetConstantC();
   // Loop through ouput pixels
@@ -128,7 +129,21 @@ static void vtkImageMathematicsExecute1(vtkImageMathematics *self,
         switch (op)
           {
           case VTK_INVERT:
-            *outPtr = (T)(1.0 / *in1Ptr);
+            if (*outPtr)
+              {
+              *outPtr = (T)(1.0 / *in1Ptr);
+              }
+            else
+              {
+              if ( DivideByZeroToC )
+                {
+                *outPtr = (T)constantc;
+                }
+              else
+                {
+                *outPtr = 1e5;
+                }
+              }
             break;
           case VTK_SIN:
             *outPtr = (T)(sin((double)*in1Ptr));
