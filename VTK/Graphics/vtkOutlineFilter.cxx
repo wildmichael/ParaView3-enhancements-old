@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkOutlineFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-03-27 16:14:21 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-03-27 16:34:49 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -22,6 +22,8 @@ void vlOutlineFilter::Execute()
   float *bounds;
   float x[3];
   int pts[2];
+  vlFloatPoints *newPts;
+  vlCellArray *newLines;
 
   vlDebugMacro(<< "Creating dataset outline");
 //
