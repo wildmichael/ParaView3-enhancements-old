@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPythonUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-18 19:08:49 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 2003-05-13 14:38:13 $
+  Version:   $Revision: 1.59 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -43,6 +43,9 @@
 #if (PY_MAJOR_VERSION == 2) && (PY_MINOR_VERSION == 2)
 #define VTK_PYTHON_UTIL_SUPRESS_UNINITIALIZED \
   0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+#elif (PY_MAJOR_VERSION == 2) && (PY_MINOR_VERSION == 1)
+#define VTK_PYTHON_UTIL_SUPRESS_UNINITIALIZED \
+  0,0,0,0,
 #else
 #define VTK_PYTHON_UTIL_SUPRESS_UNINITIALIZED
 #endif
