@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTubeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-09-23 15:02:08 $
-  Version:   $Revision: 1.73 $
+  Date:      $Date: 2003-10-31 15:44:50 $
+  Version:   $Revision: 1.74 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 #include "vtkPolyData.h"
 #include "vtkPolyLine.h"
 
-vtkCxxRevisionMacro(vtkTubeFilter, "$Revision: 1.73 $");
+vtkCxxRevisionMacro(vtkTubeFilter, "$Revision: 1.74 $");
 vtkStandardNewMacro(vtkTubeFilter);
 
 // Construct object with radius 0.5, radius variation turned off, the number 
@@ -79,6 +79,7 @@ void vtkTubeFilter::Execute()
   vtkFloatArray *newTCoords=NULL;
   int abort=0;
   vtkIdType inCellId;
+  float oldRadius;
 
   // Check input and initialize
   //
@@ -153,6 +154,16 @@ void vtkTubeFilter::Execute()
         vtkWarningMacro(<< "Scalar range is zero!");
         }
       range[1] = range[0] + 1.0;
+      }
+    if (this->VaryRadius == VTK_VARY_RADIUS_BY_ABSOLUTE_SCALAR)
+      {
+      // temporarily set the radius to 1.0 so that radius*scalar = scalar
+      oldRadius = this->Radius;
+      this->Radius = 1.0;
+      if (range[0] < 0.0)
+        {
+        vtkWarningMacro(<< "Scalar values fall below zero when using absolute radius values!");
+        }
       }
     }
   if ( inVectors )
@@ -382,6 +393,16 @@ int vtkTubeFilter::GeneratePoints(vtkIdType offset,
       if ( sFactor > this->RadiusFactor )
         {
         sFactor = this->RadiusFactor;
+        }
+      }
+    else if ( inScalars && 
+              this->VaryRadius == VTK_VARY_RADIUS_BY_ABSOLUTE_SCALAR )
+      {
+      sFactor = inScalars->GetComponent(pts[j],0);
+      if (sFactor < 0.0) 
+        {
+        vtkWarningMacro(<<"Scalar value less than zero, skipping line");
+        return 0;
         }
       }
 
@@ -702,6 +723,10 @@ const char *vtkTubeFilter::GetVaryRadiusAsString(void)
   else if ( this->VaryRadius == VTK_VARY_RADIUS_BY_SCALAR ) 
     {
     return "VaryRadiusByScalar";
+    }
+  else if ( this->VaryRadius == VTK_VARY_RADIUS_BY_ABSOLUTE_SCALAR )
+    {
+    return "VaryRadiusByAbsoluteScalar";
     }
   else 
     {
