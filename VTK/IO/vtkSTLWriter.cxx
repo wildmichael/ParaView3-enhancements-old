@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-05-30 13:54:34 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1996-06-26 21:13:38 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -151,7 +151,7 @@ void vtkSTLWriter::WriteBinarySTL(vtkPoints *pts, vtkCellArray *polys)
 //
 //  Write header
 //
-  vtkDebugMacro("Writing ASCII sla file");
+  vtkDebugMacro("Writing Binary sla file");
   fwrite (header, 1, 80, fp);
 
   ulint = (unsigned long int) polys->GetNumberOfCells();
