@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLPDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-03 02:07:08 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-12-06 02:32:38 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkXMLPDataWriter.h"
 #include "vtkDataSet.h"
 
-vtkCxxRevisionMacro(vtkXMLPDataWriter, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkXMLPDataWriter, "$Revision: 1.3 $");
 
 //----------------------------------------------------------------------------
 vtkXMLPDataWriter::vtkXMLPDataWriter()
@@ -72,19 +72,11 @@ void vtkXMLPDataWriter::SetWriteSummaryFile(int flag)
 //----------------------------------------------------------------------------
 int vtkXMLPDataWriter::Write()
 {
-  // Make sure we have input.
-  if(!this->Inputs || !this->Inputs[0])
+  // Make sure there are enough settings to write (Input, FileName, etc).
+  if(!this->IsSafeToWrite())
     {
-    vtkErrorMacro("No input provided!");
     return 0;
-    }
-  
-  // Make sure we have a file to write.
-  if(!this->FileName)
-    {
-    vtkErrorMacro("Write() called with no FileName set.");
-    return 0;
-    }
+    }  
   
   // Prepare the file name.
   this->SplitFileName();
@@ -127,7 +119,7 @@ int vtkXMLPDataWriter::WriteData()
 {
   // Write the summary file.
   ostream& os = *(this->Stream);
-  vtkIndent indent;
+  vtkIndent indent = vtkIndent().GetNextIndent();
   vtkIndent nextIndent = indent.GetNextIndent();
   
   this->StartFile();
