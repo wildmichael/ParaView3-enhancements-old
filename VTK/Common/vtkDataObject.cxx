@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-08 16:04:56 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2000-02-08 19:02:13 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -314,7 +314,7 @@ void vtkDataObject::ComputeEstimatedPipelineMemorySize(unsigned long sizes[3])
     } 
   else
     {
-    int size = this->GetActualMemorySize();
+    unsigned long size = this->GetActualMemorySize();
     sizes[0] = size;
     sizes[1] = size;
     sizes[2] = size;
