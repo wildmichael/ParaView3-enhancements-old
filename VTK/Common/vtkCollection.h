@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCollection.h,v $
   Language:  C++
-  Date:      $Date: 2003-01-21 19:51:07 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2003-04-16 12:44:41 $
+  Version:   $Revision: 1.48 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -117,6 +117,7 @@ public:
   // Less bloated way to get the next object as a collection. Just pass the
   // same cookie back and forth. 
   vtkObject *GetNextItemAsObject(void *&cookie);
+  //ETX
   
   // Description:
   // Get an iterator to traverse the objects in this collection.
