@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuad.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-09-30 16:30:11 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 1997-02-10 13:25:35 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -430,7 +430,7 @@ int vtkQuad::IntersectWithLine(float p1[3], float p2[3], float tol, float& t,
 //
 // See whether point is in triangle by evaluating its position.
 //
-  if ( this->EvaluatePosition(x, closestPoint, subId, pcoords, dist2, weights) )
+  if ( this->EvaluatePosition(x, closestPoint, subId, pcoords, dist2, weights) == 1)
     if ( dist2 <= tol2 ) return 1;
 
   return 0;
