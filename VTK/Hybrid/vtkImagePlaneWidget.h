@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePlaneWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-07-30 18:59:06 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-08-16 18:36:29 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -64,7 +64,7 @@
 // vtkTextProperty; the cross-hair cursor. In addition there are methods to
 // constrain the plane so that it is aligned along the x-y-z axes.  Finally,
 // one can specify the degree of interpolation (vtkImageReslice): nearest
-// neighbour, linear, and cubic.  Turning off texture interpolation
+// neighbour, linear, and cubic.
 
 // .SECTION Thanks
 // Thanks to Dean Inglis for developing and contributing this class.
@@ -161,6 +161,14 @@ public:
   // Get the normal to the plane.
   float* GetNormal();
   void GetNormal(float xyz[3]);
+
+  // Description:
+  // Get the vector from the plane origin to point1.
+  void GetVector1(float v1[3]);
+
+  // Description:
+  // Get the vector from the plane origin to point2.
+  void GetVector2(float v2[3]);  
 
   // Description:
   // Get the slice position in terms of the data extent.
@@ -290,9 +298,11 @@ protected:
   enum WidgetState
   {
     Start=0,
+    Cursoring,
     WindowLevelling,
     Pushing,
-    Cursoring,
+    Spinning,
+    Rotating,
     Outside
   };
 //ETX
@@ -340,11 +350,13 @@ protected:
   // Methods to manipulate the plane.
   void WindowLevel(int X, int Y);
   void Push(double *p1, double *p2);
-
+  void Spin(double *p1, double *p2);
+  void Rotate(double *p1, double *p2, double *vpn);
+  
   // Plane normal, normalized
   float Normal[3];
 
-  vtkTransform         *DummyTransform;
+  vtkTransform         *Transform;
   vtkMatrix4x4         *ResliceAxes;
   vtkTextureMapToPlane *TexturePlaneCoords;
   vtkImageReslice      *Reslice;
@@ -384,10 +396,14 @@ protected:
   void  GenerateCursor();
   void  GenerateText();
   void  ComputeImageToWorldCoords(float* in, float* out);
-  void  ComputeWorldToImageCoords(float* in, int* out, float* out2);
+  void  ComputeWorldToImageCoords(float* in, float* out);
   int   CurrentCursorPosition[3];
-  float CurrentImageValue;  // Set to VTK_FLOAT_MAX when invalid
+  float CurrentImageValue;       // Set to VTK_FLOAT_MAX when invalid
 
+  // Oblique reslice control
+  float RotateAxis[3];
+  float RadiusVector[3];
+  void  AdjustState(int X, int Y);
 
 private:
   vtkImagePlaneWidget(const vtkImagePlaneWidget&);  //Not implemented
