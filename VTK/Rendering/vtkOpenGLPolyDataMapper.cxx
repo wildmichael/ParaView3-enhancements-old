@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-06 16:50:33 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1998-05-08 17:21:11 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1834,7 +1834,8 @@ void vtkOpenGLPolyDataMapper::Draw(vtkRenderer *aren, vtkActor *act)
     {
     c = this->Colors;
     c->InitColorTraversal(tran, this->LookupTable, this->ColorMode);
-    if (!input->GetPointData()->GetScalars())
+    if ( this->ScalarMode == VTK_SCALAR_MODE_USE_CELL_DATA ||
+    !input->GetPointData()->GetScalars() )	 
       {
       cellScalars = 1;
       }
