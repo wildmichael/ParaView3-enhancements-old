@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractVolumeMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-11-26 03:55:28 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-12-05 18:19:59 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 
 #include "vtkDataSet.h"
 
-vtkCxxRevisionMacro(vtkAbstractVolumeMapper, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkAbstractVolumeMapper, "$Revision: 1.3 $");
 
 // Construct a vtkAbstractVolumeMapper 
 vtkAbstractVolumeMapper::vtkAbstractVolumeMapper()
@@ -56,7 +56,15 @@ float *vtkAbstractVolumeMapper::GetBounds()
   else
     {
     this->Update();
-    this->GetDataSetInput()->GetBounds(this->Bounds);
+    // TODO: clean up when mapper API switched to double
+    double *dbounds = this->GetDataSetInput()->GetBounds();
+    this->Bounds[0] = (float)dbounds[0];
+    this->Bounds[1] = (float)dbounds[1];
+    this->Bounds[2] = (float)dbounds[2];
+    this->Bounds[3] = (float)dbounds[3];
+    this->Bounds[4] = (float)dbounds[4];
+    this->Bounds[5] = (float)dbounds[5];
+    //this->GetDataSetInput()->GetBounds(this->Bounds);
     return this->Bounds;
     }
 }
