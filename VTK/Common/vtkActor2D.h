@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor2D.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-19 17:33:05 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1998-05-22 18:23:07 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -92,11 +92,14 @@ public:
   vtkProperty2D* GetProperty();
   vtkSetObjectMacro(Property, vtkProperty2D);
 
-  vtkSetReferenceCountedObjectMacro(PositionCoordinate,vtkCoordinate);
-  vtkGetObjectMacro(PositionCoordinate,vtkCoordinate);
-
+  // Description:
+  // Get the PositionCoordinate instance of vtkCoordinate
+  // This is used for for complicated or relative positioning
+  vtkViewportCoordinateMacro(Position);
+  
   void SetDisplayPosition(int,int);
   
+  unsigned long int GetMTime();//overload superclasses' implementation
 
 protected:
   float Orientation;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCoordinate.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-19 17:33:07 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-05-22 18:23:09 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -97,15 +97,29 @@ public:
   vtkSetReferenceCountedObjectMacro(ReferenceCoordinate,vtkCoordinate);
   vtkGetObjectMacro(ReferenceCoordinate,vtkCoordinate);
 
+  // Description:
+  // If you want this coordinate to be relative to a specific
+  // vtkViewport (vtkRenderer, vtkImager) then you can specify
+  // that here.
+  vtkSetObjectMacro(Viewport,vtkViewport);
+  vtkGetObjectMacro(Viewport,vtkViewport);
+
   float *GetComputedWorldValue(vtkViewport *);
   int *GetComputedViewportValue(vtkViewport *);
   int *GetComputedDisplayValue(vtkViewport *);
   int *GetComputedLocalDisplayValue(vtkViewport *);
 
+  // GetComputed Value will return either World, Viewport or 
+  // Display based on what has been set as the coordinate system
+  // This is good for objects like vtkLineSource, where the
+  // user might want to use them as World or Viewport coordinates
+  float *GetComputedValue(vtkViewport *);
+  
 protected:
   float Value[3];
   int   CoordinateSystem;
   vtkCoordinate *ReferenceCoordinate;
+  vtkViewport *Viewport;
   float ComputedWorldValue[3];
   int   ComputedDisplayValue[2];
   int   ComputedViewportValue[2];
