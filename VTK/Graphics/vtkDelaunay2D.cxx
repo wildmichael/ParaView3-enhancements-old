@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-26 17:13:19 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2001-12-06 02:51:56 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1104,6 +1104,7 @@ void vtkDelaunay2D::PrintSelf(ostream& os, vtkIndent indent)
   vtkPolyDataSource::PrintSelf(os,indent);
 
   os << indent << "Alpha: " << this->Alpha << "\n";
+  os << indent << "Transform: " << (this->Transform ? "specified" : "none") << "\n";
   os << indent << "Tolerance: " << this->Tolerance << "\n";
   os << indent << "Offset: " << this->Offset << "\n";
   os << indent << "Bounding Triangulation: "

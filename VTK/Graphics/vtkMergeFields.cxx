@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeFields.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:13:55 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-12-06 02:51:56 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -443,6 +443,7 @@ void vtkMergeFields::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Field location: " << this->FieldLocation << endl;
   os << indent << "Linked list head: " << this->Head << endl;
   os << indent << "Linked list tail: " << this->Tail << endl;
+  os << indent << "NumberOfComponents: " << this->NumberOfComponents << endl;
   os << indent << "Components: " << endl;
   this->PrintAllComponents(os, indent.GetNextIndent());
 }

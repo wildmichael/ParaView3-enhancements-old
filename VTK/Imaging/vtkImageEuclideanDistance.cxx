@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageEuclideanDistance.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:49 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-12-06 02:52:16 $
+  Version:   $Revision: 1.7 $
   Thanks:    Olivier Cuisenaire who developed this class
              URL: http://ltswww.epfl.ch/~cuisenai
              Email: Olivier.Cuisenaire@epfl.ch
@@ -748,6 +748,7 @@ void vtkImageEuclideanDistance::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Consider Anisotropy: " 
      << (this->ConsiderAnisotropy ? "On\n" : "Off\n");
   
+  os << indent << "Initialize: " << this->Initialize << "\n";
   os << indent << "Maximum Distance: " << this->MaximumDistance << "\n";
 
   os << indent << "Algorithm: ";

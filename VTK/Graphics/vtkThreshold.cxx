@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreshold.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-29 20:52:43 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2001-12-06 02:51:56 $
+  Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -291,6 +291,9 @@ void vtkThreshold::PrintSelf(ostream& os, vtkIndent indent)
   vtkDataSetToUnstructuredGridFilter::PrintSelf(os,indent);
 
   os << indent << "Attribute Mode: " << this->GetAttributeModeAsString() << endl;
+  os << indent << "Array Name: " 
+     << (this->ArrayName ? this->ArrayName : "(unspecified)") << "\n";
+
   os << indent << "All Scalars: " << this->AllScalars << "\n";;
   if ( this->ThresholdFunction == &vtkThreshold::Upper )
     {
