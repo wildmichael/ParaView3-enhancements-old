@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:26:31 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-07-21 16:27:08 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -59,10 +59,8 @@ void vtkSTLWriter::WriteData()
     return;
     }
 
-  this->StartWrite(this->StartWriteArg);
   if ( this->WriteMode == STL_BINARY ) this->WriteBinarySTL(pts,polys);
   else this->WriteAsciiSTL(pts,polys);
-  this->EndWrite(this->EndWriteArg);
 }
 
 static char header[]="Visualization Toolkit generated SLA File                                        ";
