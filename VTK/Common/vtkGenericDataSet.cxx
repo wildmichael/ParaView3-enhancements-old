@@ -23,7 +23,7 @@
 #include "vtkGenericAdaptorCell.h"
 #include "vtkGenericCellTessellator.h"
 
-vtkCxxRevisionMacro(vtkGenericDataSet, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkGenericDataSet, "$Revision: 1.2 $");
 vtkCxxSetObjectMacro(vtkGenericDataSet, Tessellator,vtkGenericCellTessellator);
 
 //----------------------------------------------------------------------------
@@ -62,6 +62,8 @@ void vtkGenericDataSet::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Release Data: " << (this->ReleaseDataFlag ? "On\n" : "Off\n")
 ;
 
+  os << indent << "Tessellator:" << this->Tessellator << endl;
+  
 }
 
 //----------------------------------------------------------------------------
