@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkImageViewerWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-01 12:40:28 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-06-09 18:44:46 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,10 +39,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include <stdlib.h>
-#include <tcl.h>
-#include <tk.h>
 
 #include "vtkTkImageViewerWidget.h"
+#include <tcl.h>
+#include <tk.h>
 
 #ifdef _WIN32
 #include "vtkImageWin32Viewer.h"
