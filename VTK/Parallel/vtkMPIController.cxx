@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPIController.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:34:35 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-01-28 18:37:21 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,6 +20,7 @@
 #include "vtkOutputWindow.h"
 
 int vtkMPIController::Initialized = 0;
+char vtkMPIController::ProcessorName[MPI_MAX_PROCESSOR_NAME] = "";
 
 // Output window which prints out the process id
 // with the error or warning messages
@@ -64,9 +65,9 @@ void vtkMPIController::CreateOutputWindow()
   vtkOutputWindow::SetInstance(this->OutputWindow);
 }
 
-vtkCxxRevisionMacro(vtkMPIOutputWindow, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtkMPIOutputWindow, "$Revision: 1.11 $");
 
-vtkCxxRevisionMacro(vtkMPIController, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtkMPIController, "$Revision: 1.11 $");
 vtkStandardNewMacro(vtkMPIController);
 
 //----------------------------------------------------------------------------
@@ -158,6 +159,8 @@ void vtkMPIController::Initialize(int* argc, char*** argv)
   this->InitializeCommunicator(vtkMPICommunicator::GetWorldCommunicator());
   this->InitializeNumberOfProcesses();
 
+  int tmp;
+  MPI_Get_processor_name(ProcessorName, &tmp);
   // Make a copy of MPI_COMM_WORLD creating a new context.
   // This is used in the creating of the communicators after
   // Initialize() has been called. It has to be done here
@@ -170,6 +173,11 @@ void vtkMPIController::Initialize(int* argc, char*** argv)
   this->RMICommunicator->Register(this);
 
   this->Modified();
+}
+
+const char* vtkMPIController::GetProcessorName()
+{
+  return ProcessorName;
 }
 
 // Good-bye world
