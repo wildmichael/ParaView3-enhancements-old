@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.h,v $
   Language:  C++
-  Date:      $Date: 1996-10-17 15:01:19 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1996-10-17 21:01:07 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,7 +58,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 // It would be nice to get rid of this hard coding of dimensionality.
-// Could each region/filter have its own dimensionality? (NumberOfAxes).
+// Could each region/filter have its own dimensionality? (Dimensionality).
 #define VTK_IMAGE_DIMENSIONS 5
 #define VTK_IMAGE_EXTENT_DIMENSIONS 10
 
