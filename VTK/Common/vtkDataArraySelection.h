@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArraySelection.h,v $
   Language:  C++
-  Date:      $Date: 2003-01-08 13:20:16 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2003-04-14 13:57:11 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -93,10 +93,12 @@ public:
   // Description:
   // Set the list of arrays that have entries.  For arrays that
   // already have entries, the settings are copied.  For arrays that
-  // don't already have an entry, they are assumed to be enabled.
+  // don't already have an entry, they are assigned the given default
+  // status.  If no default status is given, it is assumed to be on.
   // There will be no more entries than the names given.  This method
   // should be called only by the filter owning this object.
   void SetArrays(const char* const* names, int numArrays);
+  void SetArrays(const char* const* names, int numArrays, int defaultStatus);  
   //ETX
   
   // Description:
