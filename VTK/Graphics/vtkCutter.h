@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-11 10:56:58 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1997-06-25 12:44:49 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -161,7 +161,7 @@ inline float *vtkCutter::GetValues()
 
 // Description:
 // Fill a supplied list with contour values. There will be
-// GetNumberOfContours() values in the list.Make sure you allocate
+// GetNumberOfContours() values in the list. Make sure you allocate
 // enough memory to hold the list.
 inline void vtkCutter::GetValues(float *contourValues)
 {this->ContourValues->GetValues(contourValues);};
@@ -176,7 +176,7 @@ inline void vtkCutter::SetNumberOfContours(int number)
 // Description:
 // Get the number of contours in the list of contour values.
 inline int vtkCutter::GetNumberOfContours()
-{return this->GetNumberOfContours();};
+{return this->ContourValues->GetNumberOfContours();};
 
 // Description:
 // Generate numContours equally spaced contour values between specified
