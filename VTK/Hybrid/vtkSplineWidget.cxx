@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSplineWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-16 20:35:26 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2003-01-29 21:34:01 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -37,8 +37,13 @@
 #include "vtkSpline.h"
 #include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkSplineWidget, "$Revision: 1.14 $");
+vtkCxxRevisionMacro(vtkSplineWidget, "$Revision: 1.15 $");
 vtkStandardNewMacro(vtkSplineWidget);
+
+vtkCxxSetObjectMacro(vtkSplineWidget, HandleProperty, vtkProperty);
+vtkCxxSetObjectMacro(vtkSplineWidget, SelectedHandleProperty, vtkProperty);
+vtkCxxSetObjectMacro(vtkSplineWidget, LineProperty, vtkProperty);
+vtkCxxSetObjectMacro(vtkSplineWidget, SelectedLineProperty, vtkProperty);
 
 vtkSplineWidget::vtkSplineWidget()
 {
@@ -524,7 +529,7 @@ void vtkSplineWidget::PrintSelf(ostream& os, vtkIndent indent)
     }
   else
     {
-    os << indent << "SelectedHandle Property: (none)\n";
+    os << indent << "Selected Handle Property: (none)\n";
     }
   if ( this->LineProperty )
     {
@@ -1447,5 +1452,37 @@ void vtkSplineWidget::SizeHandles()
     {
     this->HandleGeometry[i]->SetRadius(radius);
     }
+}
+
+float vtkSplineWidget::GetSummedLength()
+{
+  vtkPoints* points = this->LineData->GetPoints();
+  int npts = points->GetNumberOfPoints();
+
+  if (npts < 2) { return 0.0f; }
+
+  float a[3];
+  float b[3];
+  float sum = 0.0f;
+  int i = 0;
+  points->GetPoint(i,a);
+  int imax = (npts%2 == 0)?npts-2:npts-1;
+
+  while(i<imax)
+    {
+    points->GetPoint(i+1,b);
+    sum = sum + sqrt(vtkMath::Distance2BetweenPoints(a,b));
+    i = i + 2;
+    points->GetPoint(i,a);
+    sum = sum + sqrt(vtkMath::Distance2BetweenPoints(a,b));
+    }
+
+  if(npts%2 == 0)
+    {
+    points->GetPoint(i+1,b);
+    sum = sum + sqrt(vtkMath::Distance2BetweenPoints(a,b));
+    }
+
+  return sum;
 }
 
