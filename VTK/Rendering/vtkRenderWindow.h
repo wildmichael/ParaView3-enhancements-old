@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1997-08-26 18:33:27 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 1997-09-05 13:49:33 $
+  Version:   $Revision: 1.61 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -258,6 +258,7 @@ public:
   virtual void *GetGenericDisplayId() {return NULL;};
   virtual void *GetGenericWindowId() {return NULL;};
   virtual void *GetGenericParentId() {return NULL;};
+  virtual void *GetGenericContext() {return NULL;};
   virtual void SetWindowInfo(char *) {};
 
 protected:
