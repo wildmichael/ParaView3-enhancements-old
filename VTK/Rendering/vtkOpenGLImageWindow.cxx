@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-05-06 01:05:38 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-05-07 11:27:19 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -115,7 +115,10 @@ vtkOpenGLImageWindow::vtkOpenGLImageWindow()
     delete [] this->WindowName;
   this->WindowName = new char[strlen("Visualization Toolkit - OpenGL")+1];
     strcpy( this->WindowName, "Visualization Toolkit - OpenGL" );
-  this->DoubleBuffer = 1;
+
+  // Default to double buffer off since some systems cannot get deep grayscale
+  // visuals. This is inconsistent with the WIn32 class, but necessary.
+  this->DoubleBuffer = 0;
   this->Erase = 1;
 }
 
