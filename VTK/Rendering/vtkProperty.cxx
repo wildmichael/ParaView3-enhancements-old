@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-17 09:26:20 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2001-04-26 19:32:42 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -191,6 +191,7 @@ void vtkProperty::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Representation: ";
   switch (this->Representation) 
     {
+    case VTK_POINTS: os << "VTK_POINTS\n"; break;
     case VTK_WIREFRAME: os << "VTK_WIREFRAME\n"; break;
     case VTK_SURFACE: os << "VTK_SURFACE\n"; break;
     default: os << "unknown\n";
