@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEncodedGradientEstimator.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-08 20:12:42 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-04-13 12:52:17 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -345,10 +345,6 @@ void vtkEncodedGradientEstimator::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Cylinder Clip: " 
      << ((this->CylinderClip)?"On":"Off") << endl;
 
-  // I don't want to print out this->UseCylinderClip
-  // os << indent << "Use Cylinder Clip: " 
-  //    << this->UseCylinderClip << endl;
-
   os << indent << "Number Of Threads: " 
      << this->NumberOfThreads << endl;
 
@@ -358,4 +354,14 @@ void vtkEncodedGradientEstimator::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Last Update Time In CPU Seconds: " 
      << this->LastUpdateTimeInCPUSeconds << endl;
 
+  // I don't want to print out these variables - they are
+  // internal and the get methods are included only for access
+  // within the threaded function
+  // os << indent << "Use Cylinder Clip: " 
+  //    << this->UseCylinderClip << endl;
+  // os << indent << "Scalar Input Size: " 
+  //    << this->ScalarInputSize << endl;
+  // os << indent << "Scalar Input Aspect Clip: " 
+  //    << this->ScalarInputAspect << endl;
+  
 }
