@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVector.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-29 00:15:36 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-04-03 23:49:00 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -147,7 +147,7 @@ protected:
 };
 
 #ifdef VTK_NO_EXPLICIT_TEMPLATE_INSTANTIATION
-#include "vtkImageIterator.txx"
+#include "vtkVector.txx"
 #endif 
 
 #endif
