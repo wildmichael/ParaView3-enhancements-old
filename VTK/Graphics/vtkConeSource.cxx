@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConeSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-08 12:46:45 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1995-09-30 14:16:04 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,6 +44,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <math.h>
 #include "vtkConeSource.hh"
 
+// Description:
+// Construct with default resolution 6, height 1.0, radius 0.5, and capping
+// on.
 vtkConeSource::vtkConeSource(int res)
 {
   res = (res < 0 ? 0 : res);
