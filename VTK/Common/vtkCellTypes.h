@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellTypes.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:01 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-04-12 18:10:42 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -130,7 +130,12 @@ public:
   // The information returned is valid only after the pipeline has 
   // been updated.
   unsigned long GetActualMemorySize();
-  
+
+  // Description:
+  // Standard DeepCopy method.  Since this object contains no reference
+  // to other objects, there is no ShallowCopy.
+  void DeepCopy(vtkCellTypes *src);
+
 protected:
   vtkCellTypes() : Array(NULL),Size(0),MaxId(-1),Extend(1000) {};
   ~vtkCellTypes();

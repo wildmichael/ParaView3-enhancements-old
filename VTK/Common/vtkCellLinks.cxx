@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLinks.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:00 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-04-12 18:10:41 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -297,3 +297,11 @@ unsigned long vtkCellLinks::GetActualMemorySize()
 
   return (unsigned long) ceil((float)size/1000.0); //kilobytes
 }
+
+void vtkCellLinks::DeepCopy(vtkCellLinks *src)
+{
+  this->Allocate(src->Size, src->Extend);
+  memcpy(this->Array, src->Array, this->Size * sizeof(_vtkLink_s));
+  this->MaxId = src->MaxId;
+}
+

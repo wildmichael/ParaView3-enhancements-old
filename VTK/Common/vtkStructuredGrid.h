@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 2000-03-21 16:47:14 $
-  Version:   $Revision: 1.62 $
+  Date:      $Date: 2000-04-12 18:10:48 $
+  Version:   $Revision: 1.63 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -171,6 +171,11 @@ public:
   // IS THREAD SAFE.
   unsigned long GetActualMemorySize();
 
+  // Description:
+  // Shallow and Deep copy.
+  void ShallowCopy(vtkDataObject *src);  
+  void DeepCopy(vtkDataObject *src);
+
 protected:
   vtkStructuredGrid();
   ~vtkStructuredGrid();
@@ -191,6 +196,9 @@ protected:
   int Blanking;
   vtkScalars *PointVisibility;
   void AllocatePointVisibility();
+
+  // Internal method used by DeepCopy and ShallowCopy.
+  void InternalCopy(vtkStructuredGrid *src);
 
 private:
   // Description:

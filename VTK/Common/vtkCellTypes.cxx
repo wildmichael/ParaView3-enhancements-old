@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellTypes.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:00 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-04-12 18:10:42 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -165,3 +165,12 @@ unsigned long vtkCellTypes::GetActualMemorySize()
 
   return (unsigned long) ceil((float)size/1000.0); //kilobytes
 }
+
+
+void vtkCellTypes::DeepCopy(vtkCellTypes *src)
+{
+  this->Allocate(src->Size, src->Extend);
+  memcpy(this->Array, src->Array, this->Size * sizeof(_vtkCell_s));
+  this->MaxId = src->MaxId;
+}
+

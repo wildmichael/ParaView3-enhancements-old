@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:45 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2000-04-12 18:10:47 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -919,6 +919,53 @@ void vtkRectilinearGrid::GetCellNeighbors(int cellId, vtkIdList *ptIds,
     default:
       this->vtkDataSet::GetCellNeighbors(cellId, ptIds, cellIds);
     }
+}
+//----------------------------------------------------------------------------
+void vtkRectilinearGrid::ShallowCopy(vtkDataObject *dataObject)
+{
+  vtkRectilinearGrid *grid = vtkRectilinearGrid::SafeDownCast(dataObject);
+
+  if ( grid != NULL )
+    {
+    this->SetDimensions(grid->GetDimensions());
+    this->DataDescription = grid->DataDescription;
+    
+    this->SetXCoordinates(grid->GetXCoordinates());
+    this->SetYCoordinates(grid->GetYCoordinates());
+    this->SetZCoordinates(grid->GetZCoordinates());
+    }
+
+  // Do superclass
+  this->vtkDataSet::ShallowCopy(dataObject);
+}
+
+//----------------------------------------------------------------------------
+void vtkRectilinearGrid::DeepCopy(vtkDataObject *dataObject)
+{
+  vtkRectilinearGrid *grid = vtkRectilinearGrid::SafeDownCast(dataObject);
+
+  if ( grid != NULL )
+    {
+    vtkScalars *s;
+    this->SetDimensions(grid->GetDimensions());
+    this->DataDescription = grid->DataDescription;
+    
+    s = vtkScalars::New();
+    s->DeepCopy(grid->GetXCoordinates());
+    this->SetXCoordinates(s);
+    s->Delete();
+    s = vtkScalars::New();
+    s->DeepCopy(grid->GetYCoordinates());
+    this->SetYCoordinates(s);
+    s->Delete();
+    s = vtkScalars::New();
+    s->DeepCopy(grid->GetZCoordinates());
+    this->SetZCoordinates(s);
+    s->Delete();
+    }
+
+  // Do superclass
+  this->vtkDataSet::DeepCopy(dataObject);
 }
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.h,v $
   Language:  C++
-  Date:      $Date: 2000-03-29 18:01:57 $
-  Version:   $Revision: 1.62 $
+  Date:      $Date: 2000-04-12 18:10:44 $
+  Version:   $Revision: 1.63 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -318,6 +318,11 @@ public:
 
   int GetMemoryLimit() { return 0; };
 
+  // Description:
+  // Shallow and Deep copy.
+  void ShallowCopy(vtkDataObject *src);  
+  void DeepCopy(vtkDataObject *src);
+  
 protected:
   vtkImageData();
   ~vtkImageData();
@@ -346,7 +351,9 @@ protected:
   int NumberOfScalarComponents;
 
   void ComputeIncrements();
+  void InternalCopy(vtkImageData *src);
 };
+
 
 inline void vtkImageData::GetPoint(int id, float x[3])
 {

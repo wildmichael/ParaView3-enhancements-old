@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:37 $
-  Version:   $Revision: 1.92 $
+  Date:      $Date: 2000-04-12 18:10:46 $
+  Version:   $Revision: 1.93 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -376,6 +376,11 @@ public:
   // IS THREAD SAFE.
   unsigned long GetActualMemorySize();
   
+  // Description:
+  // Shallow and Deep copy.
+  void ShallowCopy(vtkDataObject *src);  
+  void DeepCopy(vtkDataObject *src);
+
 protected:
   vtkPolyData();
   ~vtkPolyData();

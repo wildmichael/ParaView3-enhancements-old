@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-23 20:47:37 $
-  Version:   $Revision: 1.81 $
+  Date:      $Date: 2000-04-12 18:10:44 $
+  Version:   $Revision: 1.82 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -1705,4 +1705,55 @@ unsigned long vtkImageData::GetActualMemorySize()
 {
   return this->vtkDataSet::GetActualMemorySize();
 }
+
+
+//----------------------------------------------------------------------------
+void vtkImageData::ShallowCopy(vtkDataObject *dataObject)
+{
+  vtkImageData *imageData = vtkImageData::SafeDownCast(dataObject);
+
+  if ( imageData != NULL )
+    {
+    this->InternalCopy(imageData);
+    }
+
+  // Do superclass
+  this->vtkDataSet::ShallowCopy(dataObject);
+}
+
+//----------------------------------------------------------------------------
+void vtkImageData::DeepCopy(vtkDataObject *dataObject)
+{
+  vtkImageData *imageData = vtkImageData::SafeDownCast(dataObject);
+
+  if ( imageData != NULL )
+    {
+    this->InternalCopy(imageData);
+    }
+
+  // Do superclass
+  this->vtkDataSet::DeepCopy(dataObject);
+}
+
+//----------------------------------------------------------------------------
+// This copies all the local variables (but not objects).
+void vtkImageData::InternalCopy(vtkImageData *src)
+{
+  int idx;
+
+  this->DataDescription = src->DataDescription;
+  this->ScalarType = src->ScalarType;
+  this->NumberOfScalarComponents = src->NumberOfScalarComponents;
+  for (idx = 0; idx < 3; ++idx)
+    {
+    this->Dimensions[idx] = src->Dimensions[idx];
+    this->Increments[idx] = src->Increments[idx];
+    this->Origin[idx] = src->Origin[idx];
+    this->Spacing[idx] = src->Spacing[idx];
+    }
+}
+
+
+
+
 

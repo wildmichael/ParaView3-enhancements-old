@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLinks.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:00 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-04-12 18:10:41 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -141,6 +141,11 @@ public:
   // been updated.
   unsigned long GetActualMemorySize();
   
+  // Description:
+  // Standard DeepCopy method.  Since this object contains no reference
+  // to other objects, there is no ShallowCopy.
+  void DeepCopy(vtkCellLinks *src);
+
 protected:
   vtkCellLinks():Array(NULL),Size(0),MaxId(-1),Extend(1000) {};
   ~vtkCellLinks();
