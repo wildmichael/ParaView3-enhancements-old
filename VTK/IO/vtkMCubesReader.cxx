@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMCubesReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-09 16:44:01 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-11-05 17:17:44 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -217,8 +217,10 @@ void vtkMCubesReader::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkPolySource::PrintSelf(os,indent);
 
-  os << indent << "Filename: " << this->Filename << "\n";
-  os << indent << "Limits Filename: " << this->LimitsFilename << "\n";
+  os << indent << "Filename: " 
+     << (this->Filename ? this->Filename : "(none)") << "\n";
+  os << indent << "Limits Filename: " 
+     << (this->LimitsFilename ? this->LimitsFilename : "(none)") << "\n";
   os << indent << "Normals: " << (this->Normals ? "On\n" : "Off\n");
   os << indent << "FlipNormals: " << (this->FlipNormals ? "On\n" : "Off\n");
 }

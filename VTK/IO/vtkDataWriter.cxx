@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-25 23:45:24 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1995-11-05 17:17:55 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -691,10 +691,8 @@ void vtkDataWriter::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkWriter::PrintSelf(os,indent);
 
-  if ( this->Filename )
-    os << indent << "Filename: " << this->Filename << "\n";
-  else
-    os << indent << "Filename: (None)\n";
+  os << indent << "Filename: " 
+     << (this->Filename ? this->Filename : "(none)") << "\n";
 
   if ( this->FileType == VTK_BINARY )
     os << indent << "File Type: BINARY\n";

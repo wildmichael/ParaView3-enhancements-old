@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-30 11:31:40 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1995-11-05 17:17:47 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -566,10 +566,8 @@ void vtkRenderWindow::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Stereo Render: " 
      << (this->StereoRender ? "On\n":"Off\n");
 
-  if ( this->Filename )
-    os << indent << "Filename: " << this->Filename << "\n";
-  else
-    os << indent << "Filename: (None)\n";
+  os << indent << "Filename: " 
+     << (this->Filename ? this->Filename : "(none)") << "\n";
 }
 
 

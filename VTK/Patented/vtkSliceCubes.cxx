@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSliceCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-28 13:11:51 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1995-11-05 17:18:00 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -366,13 +366,8 @@ void vtkSliceCubes::PrintSelf(ostream& os, vtkIndent indent)
     os << indent << "Reader: (none)\n";
     }
 
-  if ( this->Filename )
-    os << indent << "Filename: " << this->Filename << "\n";
-  else
-    os << indent << "Filename: (None)\n";
-
-  if ( this->LimitsFilename )
-    os << indent << "Limits Filename: " << this->LimitsFilename << "\n";
-  else
-    os << indent << "Limits Filename: (None)\n";
+  os << indent << "Filename: " 
+     << (this->Filename ? this->Filename : "(none)") << "\n";
+  os << indent << "Limits Filename: " 
+     << (this->LimitsFilename ? this->LimitsFilename : "(none)") << "\n";
 }
