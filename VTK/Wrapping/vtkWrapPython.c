@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapPython.c,v $
   Language:  C++
-  Date:      $Date: 2000-10-25 14:15:24 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2000-10-25 14:28:14 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -46,7 +46,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 int numberOfWrappedFunctions = 0;
 FunctionInfo *wrappedFunctions[1000];
-FunctionInfo *currentFunction;
+extern FunctionInfo *currentFunction;
 
 /* when the cpp file doesn't have enough info use the hint file */
 void use_hints(FILE *fp)

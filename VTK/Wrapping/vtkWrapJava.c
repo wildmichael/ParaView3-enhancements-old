@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapJava.c,v $
   Language:  C++
-  Date:      $Date: 2000-07-12 15:08:05 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2000-10-25 14:28:14 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -46,7 +46,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 int numberOfWrappedFunctions = 0;
 FunctionInfo *wrappedFunctions[1000];
-FunctionInfo *currentFunction;
+extern FunctionInfo *currentFunction;
 FileInfo *CurrentData;
 
 void output_proto_vars(FILE *fp, int i)
