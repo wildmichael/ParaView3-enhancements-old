@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetReader.h,v $
   Language:  C++
-  Date:      $Date: 1998-11-24 18:38:51 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1999-08-09 11:35:05 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -156,6 +156,10 @@ public:
   vtkRectilinearGrid *GetRectilinearGridOutput() {
     return (vtkRectilinearGrid *)this->GetOutput();};
 
+  // Description:
+  // If there is no output, execute anyway.  Execute creates an output.
+  void Update();
+  
 protected:
   void Execute();
   vtkDataReader *Reader;

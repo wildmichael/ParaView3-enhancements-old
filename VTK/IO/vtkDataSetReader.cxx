@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-06 14:39:15 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1999-08-09 11:35:05 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -372,6 +372,20 @@ void vtkDataSetReader::Execute()
   
 
   return;
+}
+
+//----------------------------------------------------------------------------
+void vtkDataSetReader::Update()
+{
+  if (this->GetOutput())
+    {
+    this->GetOutput()->Update();
+    }
+  else
+    {
+    // execute creates an output
+    this->InternalUpdate(NULL);
+    }
 }
 
 static int recursing = 0;
