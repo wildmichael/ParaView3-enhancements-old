@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConeSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:11 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 2002-01-29 18:07:20 $
+  Version:   $Revision: 1.57 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkConeSource, "$Revision: 1.56 $");
+vtkCxxRevisionMacro(vtkConeSource, "$Revision: 1.57 $");
 vtkStandardNewMacro(vtkConeSource);
 
 //----------------------------------------------------------------------------
@@ -57,7 +57,7 @@ void vtkConeSource::Execute()
   
   piece = output->GetUpdatePiece();
   numPieces = output->GetUpdateNumberOfPieces();
-  maxPieces = this->Resolution;
+  maxPieces = this->Resolution != 0 ? this->Resolution : 1;
   if (numPieces > maxPieces)
     {
     numPieces = maxPieces;
