@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-08 00:28:44 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2002-11-21 14:34:40 $
+  Version:   $Revision: 1.51 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -79,7 +79,8 @@ public:
   // Given a position x and a radius r, return the id of the point 
   // closest to the point in that radius.
   // These methods are thread safe if BuildLocator() is directly or
-  // indirectly called from a single thread first.
+  // indirectly called from a single thread first. dist2 returns the squared
+  // distance to the point.
   vtkIdType FindClosestPointWithinRadius(float radius, const float x[3],
                                          float& dist2);
   vtkIdType FindClosestPointWithinRadius(float radius, const float x[3], 
