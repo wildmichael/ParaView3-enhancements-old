@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-27 19:32:45 $
-  Version:   $Revision: 1.64 $
+  Date:      $Date: 1999-04-27 19:56:55 $
+  Version:   $Revision: 1.65 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -484,9 +484,11 @@ double *vtkCamera::GetOrientation ()
   // calculate a new orientation
   //  this->ComputePerspectiveTransform(1,0,1);
   this->ComputeViewTransform();
-  this->PerspectiveTransform->GetOrientation (this->Orientation[0],
-					     this->Orientation[1],
-					     this->Orientation[2]);
+  float tmp[3];
+  this->PerspectiveTransform->GetOrientation (tmp[0],tmp[1],tmp[2]);
+  this->Orientation[0] = tmp[0];
+  this->Orientation[1] = tmp[1];
+  this->Orientation[2] = tmp[2];
 
   vtkDebugMacro(<< " Returning Orientation of ( " <<  this->Orientation[0] 
   << ", " << this->Orientation[1] << ", " << this->Orientation[2] << ")");
