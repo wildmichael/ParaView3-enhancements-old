@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractMap.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-09 15:44:45 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-04-09 17:36:03 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -186,5 +186,9 @@ void vtkAbstractMapKeyIsString(const vtkAbstractMap<KeyType,DataType>*);
 template<class KeyType, class DataType>
 void vtkAbstractMapDataIsReferenceCounted(
   const vtkAbstractMap<KeyType,DataType>*);
+
+#ifdef VTK_NO_EXPLICIT_TEMPLATE_INSTANTIATION
+#include "vtkAbstractMap.txx"
+#endif 
 
 #endif
