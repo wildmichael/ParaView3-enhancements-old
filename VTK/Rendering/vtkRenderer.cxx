@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-12-17 22:48:32 $
-  Version:   $Revision: 1.128 $
+  Date:      $Date: 1999-12-22 16:31:13 $
+  Version:   $Revision: 1.129 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1101,7 +1101,6 @@ vtkProp* vtkRenderer::PickProp(float selectionX, float selectionY)
 void vtkRenderer::PickRender()
 {
   double   t1, t2;
-  int      i;
   vtkProp  *aProp;
   vtkPropCollection* props;
   if(this->PickFromProps)

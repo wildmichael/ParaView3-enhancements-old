@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPropPicker.h,v $
   Language:  C++
-  Date:      $Date: 1999-12-17 22:48:32 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-12-22 16:31:13 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,11 +69,15 @@ public:
   // picked, a 1 is returned, otherwise 0 is returned.  Use the GetPickedProp
   // method to get the prop picked.  Props are picked from the renerers list
   // of pickable Props.
-  int Pick(float selectionX, float selectionY, float selectionZ, vtkRenderer *renderer);
-  int Pick(float selectionX, float selectionY, vtkRenderer *renderer);  
+  int PickProp(float selectionX, float selectionY, vtkRenderer *renderer);  
   // Description:
   // Perform a pick from the collection contents and not the cotents of the renderer
-  int Pick(float selectionX, float selectionY, vtkRenderer *renderer, vtkPropCollection* pickfrom);  
+  int PickProp(float selectionX, float selectionY, vtkRenderer *renderer, 
+	       vtkPropCollection* pickfrom);  
+  // Description:
+  // Overide parent Pick function
+  int Pick(float selectionX, float selectionY, float selectionZ, 
+           vtkRenderer *renderer);  
   vtkGetObjectMacro(PickedProp, vtkProp);
 protected:
   vtkPropPicker();
