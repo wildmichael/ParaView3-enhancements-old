@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePlaneWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-15 20:10:44 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-04-18 16:21:47 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -110,6 +110,8 @@ public:
                    float zmin, float zmax)
     {this->Superclass::PlaceWidget(xmin,xmax,ymin,ymax,zmin,zmax);}
 
+  // Description:
+  // Set the image data and generate a default texture plane.  
   void SetInput(vtkImageData* input)
     {this->Superclass::SetInput(input);
      this->ImageData = input;
