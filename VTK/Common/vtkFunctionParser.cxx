@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFunctionParser.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-13 19:56:34 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-02-13 20:04:30 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,7 +42,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkFunctionParser.h"
 #include "vtkObjectFactory.h"
-
+#include <ctype.h>
 
 vtkFunctionParser* vtkFunctionParser::New()
 {
