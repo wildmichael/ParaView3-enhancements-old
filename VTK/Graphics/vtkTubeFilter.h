@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTubeFilter.h,v $
   Language:  C++
-  Date:      $Date: 1996-05-31 15:34:42 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1996-07-03 19:02:04 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -99,7 +99,7 @@ public:
   // Set the default normal to use if no normals are supplied, and the
   // DefaultNormalOn is set.
   vtkSetVector3Macro(DefaultNormal,float);
-  vtkGetVector3Macro(DefaultNormal,float);
+  vtkGetVectorMacro(DefaultNormal,float,3);
 
   // Description:
   // Set a boolean to control whether to use default normals.
