@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMath.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-18 14:03:57 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2000-01-24 01:01:28 $
+  Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -104,6 +104,17 @@ public:
   // Normalize (in place) a 3-vector. Returns norm of vector
   // (double-precision version).
   static double Normalize(double x[3]);
+
+  // Description:
+  // Given a unit vector x, find two unit vectors y and z such that 
+  // x cross y = z (i.e. the vectors are perpendicular to each other).
+  // There is an infinite number of such vectors, specify an angle theta 
+  // to choose one set.  If you want only one perpendicular vector, 
+  // specify NULL for z.
+  static void Perpendiculars(const double x[3], double y[3], double z[3], 
+			     double theta);
+  static void Perpendiculars(const float x[3], float y[3], float z[3],
+			     double theta);
 
   // Description:
   // Compute distance squared between two points.
