@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSelectPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-22 13:29:16 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-05-04 14:36:11 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -122,7 +122,7 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
-  // Set/Get the flag to control beahvior of the filter. If
+  // Set/Get the flag to control behavior of the filter. If
   // GenerateSelectionScalars is on, then the output of the filter
   // is the same as the input, except that scalars are generated.
   // If off, the filter outputs the cells laying inside the loop, and
