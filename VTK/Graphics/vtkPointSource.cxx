@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-05 13:01:39 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-02-06 08:05:39 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -44,12 +44,12 @@ void vlPointSource::Execute()
 
   for (i=0; i<this->NumPoints; i++)
     {
-    radius = this->Radius * math.Random();
-    theta = 2.0*math.Pi() * math.Random()  - math.Pi();
     phi = math.Pi() * math.Random();
-    x[0] = radius * cos(theta);
-    x[1] = radius * sin(theta);
-    x[2] = radius * cos(phi);
+    radius = this->Radius * sin((double)phi) * math.Random();
+    theta = 2.0*math.Pi() * math.Random();
+    x[0] = this->Center[0] + radius * cos((double)theta);
+    x[1] = this->Center[1] + radius * sin((double)theta);
+    x[2] = this->Center[2];// + radius * cos((double)phi);
     pts[0] = newPoints->InsertNextPoint(x);
     newVerts->InsertNextCell(1,pts);
     }
