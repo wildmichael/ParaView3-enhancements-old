@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:27:11 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1995-07-09 13:51:31 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Toolkit. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -31,6 +31,16 @@ vtkXRenderWindow::vtkXRenderWindow()
 // Get the size of the screen in pixels
 int *vtkXRenderWindow::GetScreenSize()
 {
+  // get the default display connection 
+  if (!this->DisplayId)
+    {
+    this->DisplayId = XOpenDisplay((char *)NULL); 
+    if (this->DisplayId == NULL) 
+      {
+      vtkErrorMacro(<< "bad X server connection.\n");
+      }
+    }
+
   this->ScreenSize[0] = 
     DisplayWidth(this->DisplayId, DefaultScreen(this->DisplayId));
   this->ScreenSize[1] = 
