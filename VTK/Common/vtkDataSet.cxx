@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-12-17 01:23:52 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 1998-03-10 15:41:54 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -81,7 +81,7 @@ void vtkDataSet::Initialize()
 // no modification when initialized.
 //
   this->PointData.Initialize();
-};
+}
 
 void vtkDataSet::SetGlobalReleaseDataFlag(int val)
 {
