@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-12 22:24:50 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 1995-09-13 07:15:27 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -185,7 +185,7 @@ public:
   virtual void Initialize();
 
   // Description:
-  // Convieniance method to get the range of the scalar data if there is any.
+  // Convenience method to get the range of the scalar data if there is any.
   // otherwise it will return 0 to 1.
   float *GetScalarRange();
   
