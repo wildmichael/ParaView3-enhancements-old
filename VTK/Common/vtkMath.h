@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMath.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 21:21:07 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1995-09-12 12:19:58 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -122,7 +122,7 @@ inline float vtkMath::Determinant2x2(float c1[2], float c2[2])
 }
 
 // Description:
-// Calculate the determinent of a 2x2 matrix: | a b |
+// Calculate the determinant of a 2x2 matrix: | a b |
 //                                            | c d |
 inline double vtkMath::Determinant2x2(double a, double b, double c, double d)
 {
