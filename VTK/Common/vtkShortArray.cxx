@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShortArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 16:28:26 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1998-09-02 01:55:27 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -143,7 +143,7 @@ void vtkShortArray::DeepCopy(vtkDataArray& sa)
     this->SaveUserArray = 0;
 
     this->Array = new short[this->Size];
-    memcpy(this->Array, (long *)sa.GetVoidPointer(0), this->Size*sizeof(long)); 
+    memcpy(this->Array, (short *)sa.GetVoidPointer(0), this->Size*sizeof(short)); 
     }
 }
 
