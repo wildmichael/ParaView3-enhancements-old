@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.h,v $
   Language:  C++
-  Date:      $Date: 2002-09-10 15:08:21 $
-  Version:   $Revision: 1.112 $
+  Date:      $Date: 2002-11-21 16:17:09 $
+  Version:   $Revision: 1.113 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -305,16 +305,6 @@ public:
   // RenderOpaqueGeometry or RenderTranslucentGeometry call.
   // This is used to know if something is in the frame buffer.
   vtkGetMacro( NumberOfPropsRendered, int );
-
-#ifndef VTK_REMOVE_LEGACY_CODE
-  // Description:
-  // FOR LEGACY COMPATIBILITY ONLY, DO NOT USE.
-  virtual int GetNumberOfPropsRenderedAsGeometry()
-    {
-      VTK_LEGACY_METHOD(GetNumberOfPropsRenderedAsGeometry,"4.0");
-      return this->GetNumberOfPropsRendered();
-    }
-#endif
 
   // Description:
   // Return the prop (via a vtkAssemblyPath) that has the highest z value 
