@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkSphereSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-05-15 19:17:16 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-08-09 15:24:54 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -13,15 +13,14 @@ written consent of the authors.
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-//
-// Methods for Sphere generator
-//
 #include <math.h>
 #include "SpherSrc.hh"
 #include "FPoints.hh"
 #include "FNormals.hh"
 #include "vlMath.hh"
 
+// Description:
+// Construct sphere with radius=0.5.
 vlSphereSource::vlSphereSource(int res)
 {
   res = res < 4 ? 4 : res;
