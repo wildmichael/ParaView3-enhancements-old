@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRungeKutta2.h,v $
   Language:  C++
-  Date:      $Date: 2000-10-18 13:19:18 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-10-18 17:18:44 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -70,8 +70,8 @@ public:
   // It returns an estimated value for the error (not implemented yet)
   // or -1 on failure (for example, if the integration moves out of
   // a data set)
-  virtual float ComputeNextStep(float* xprev, float* xnext, float t,
-				float delT);
+  virtual float ComputeNextStep(float* xprev, float* dxprev, float* xnext, 
+				float t, float delT);
 
   // Description:
   // Create concrete instance of this object.
