@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGraphLayoutFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-24 20:54:25 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-08-24 21:16:24 $
+  Version:   $Revision: 1.2 $
   Thanks:    Scott Hill of RPI for developing this class
              Mark Lacy for Procter & Gamble for support
 
@@ -104,27 +104,6 @@ static inline float forceRepulse(float x, float k)
   else
     {
     return VTK_LARGE_FLOAT;
-    }
-}
-
-// Returns the minimum of the absolute value of the three numbers x, y, and z.
-static float forceMin(float x, float y, float z)
-{
-  x = fabs(x);
-  y = fabs(y);
-  z = fabs(z);
-  if(x>y)
-    {
-    if(y>z) {return z;}
-    else {return y;}
-    }
-  else if(x>z)
-    {
-    return z;
-    }
-  else
-    {
-    return x;
     }
 }
 
