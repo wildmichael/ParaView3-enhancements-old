@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFunctionParser.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-13 20:04:30 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-02-13 20:13:46 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -754,7 +754,7 @@ int vtkFunctionParser::CheckSyntax()
   char* ptr;
   int functionNumber;
   
-  while (true)
+  while (1)
     {
     currentChar = this->Function[index];
     
