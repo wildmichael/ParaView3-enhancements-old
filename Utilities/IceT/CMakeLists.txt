@@ -1,4 +1,4 @@
-# $Id: CMakeLists.txt,v 1.5 2003-07-14 18:54:21 lawcc Exp $
+# $Id: CMakeLists.txt,v 1.6 2003-07-14 19:58:55 kmorel Exp $
 #
 ## Copyright 2003 Sandia Coporation
 ## Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -13,8 +13,8 @@ PROJECT(ICET C)
 
 # Set the current ICE-T version.
 SET(ICET_MAJOR_VERSION 0)
-SET(ICET_MINOR_VERSION 4)
-SET(ICET_PATCH_VERSION 1)
+SET(ICET_MINOR_VERSION 5)
+SET(ICET_PATCH_VERSION 0)
 SET(ICET_VERSION "${ICET_MAJOR_VERSION}.${ICET_MINOR_VERSION}.${ICET_PATCH_VERSION}")
 
 # Set output paths.

@@ -8,7 +8,7 @@
  * of authorship are reproduced on all copies.
  */
 
-/* $Id: tiles.c,v 1.1 2003-06-17 18:38:54 andy Exp $ */
+/* $Id: tiles.c,v 1.2 2003-07-14 19:58:55 kmorel Exp $ */
 
 #include <GL/ice-t.h>
 
@@ -61,7 +61,7 @@ int  icetAddTile(GLint x, GLint y, GLsizei width, GLsizei height,
 
   /* Get display node information. */
     icetGetIntegerv(ICET_RANK, &rank);
-    icetGetIntegerv(ICET_NUM_PROCESSORS, &num_processors);
+    icetGetIntegerv(ICET_NUM_PROCESSES, &num_processors);
     display_nodes = malloc((num_tiles+1)*4*sizeof(GLint));
     icetGetIntegerv(ICET_DISPLAY_NODES, display_nodes);
 

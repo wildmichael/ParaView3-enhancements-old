@@ -1,4 +1,4 @@
-# $Id: CMakeLists.txt,v 1.1 2003-07-08 18:48:29 kmorel Exp $
+# $Id: CMakeLists.txt,v 1.2 2003-07-14 19:58:55 kmorel Exp $
 #
 ## Copyright 2003 Sandia Coporation
 ## Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -12,9 +12,10 @@ SET(MAN3_FILES
     man3/icetAddTile.3 
     man3/icetBoundingBox.3 
     man3/icetBoundingVertices.3 
+    man3/icetCompositeOrder.3
     man3/icetCopyState.3 
     man3/icetCreateContext.3 
-    man3/icetCreateMPICommunicator.3 
+    man3/icetCreateMPICommunicator.3
     man3/icetDestroyContext.3 
     man3/icetDestroyMPICommunicator.3 
     man3/icetDiagnostics.3 

@@ -8,7 +8,7 @@
  * of authorship are reproduced on all copies.
  */
 
-/* $Id: image.h,v 1.1 2003-06-17 18:38:54 andy Exp $ */
+/* $Id: image.h,v 1.2 2003-07-14 19:58:55 kmorel Exp $ */
 
 #ifndef _ICET_IMAGE_H_
 #define _ICET_IMAGE_H_
@@ -74,13 +74,16 @@ ICET_EXPORT GLuint icetDecompressImage(const IceTSparseImage compressedBuffer,
 				       IceTImage imageBuffer);
 
 ICET_EXPORT void   icetComposite(IceTImage destBuffer,
-				 const IceTImage srcBuffer);
+				 const IceTImage srcBuffer,
+				 int srcOnTop);
 
 ICET_EXPORT void   icetCompressedComposite(IceTImage destBuffer,
-					   const IceTSparseImage srcBuffer);
+					   const IceTSparseImage srcBuffer,
+					   int srcOnTop);
 
 ICET_EXPORT void   icetCompressedSubComposite(IceTImage destBuffer,
 					      GLuint offset, GLuint pixels,
-					      const IceTSparseImage srcBuffer);
+					      const IceTSparseImage srcBuffer,
+					      int srcOnTop);
 
 #endif /* _ICET_IMAGE_H_ */

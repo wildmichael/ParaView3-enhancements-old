@@ -8,7 +8,7 @@
  * of authorship are reproduced on all copies.
  */
 
-/* $Id: split.c,v 1.1 2003-06-17 18:38:54 andy Exp $ */
+/* $Id: split.c,v 1.2 2003-07-14 19:58:55 kmorel Exp $ */
 
 #include <GL/ice-t.h>
 #include <image.h>
@@ -67,7 +67,7 @@ static IceTImage splitStrategy(void)
     icetRaiseDebug("In splitStrategy");
 
     icetGetIntegerv(ICET_RANK, &rank);
-    icetGetIntegerv(ICET_NUM_PROCESSORS, &num_proc);
+    icetGetIntegerv(ICET_NUM_PROCESSES, &num_proc);
     icetGetIntegerv(ICET_NUM_TILES, &num_tiles);
     icetGetIntegerv(ICET_TILE_MAX_PIXELS, &max_pixels);
     tile_contribs = icetUnsafeStateGet(ICET_TILE_CONTRIB_COUNTS);
@@ -199,7 +199,7 @@ static IceTImage splitStrategy(void)
 	} else {
 	    icetRaiseDebug1("Got subsequent image (%d).", index);
 	    icetCompressedComposite(imageFragment,
-				    incoming[index]);
+				    incoming[index], 1);
 	}
     }
 

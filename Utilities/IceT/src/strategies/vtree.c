@@ -8,7 +8,7 @@
  * of authorship are reproduced on all copies.
  */
 
-/* $Id: vtree.c,v 1.1 2003-06-17 18:38:54 andy Exp $ */
+/* $Id: vtree.c,v 1.2 2003-07-14 19:58:55 kmorel Exp $ */
 
 #include <GL/ice-t.h>
 
@@ -72,7 +72,7 @@ static IceTImage vtreeCompose(void)
 
   /* Get state. */
     icetGetIntegerv(ICET_RANK, &rank);
-    icetGetIntegerv(ICET_NUM_PROCESSORS, &num_proc);
+    icetGetIntegerv(ICET_NUM_PROCESSES, &num_proc);
     icetGetIntegerv(ICET_NUM_TILES, &num_tiles);
     icetGetIntegerv(ICET_TILE_MAX_PIXELS, &max_pixels);
     display_nodes = icetUnsafeStateGet(ICET_DISPLAY_NODES);
@@ -370,7 +370,7 @@ static void do_send_receive(struct node_info *my_info, int tile_held,
 	}
 
 	if (tile_held == my_info->tile_receiving) {
-	    icetCompressedComposite(imageBuffer, inImage);
+	    icetCompressedComposite(imageBuffer, inImage, 1);
 	} else {
 	    icetDecompressImage(inImage, imageBuffer);
 	}

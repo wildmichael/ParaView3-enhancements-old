@@ -1,5 +1,5 @@
 /* -*- c -*- *****************************************************************
-** $Id: RandomTransform.c,v 1.2 2003-06-19 19:08:28 kmorel Exp $
+** $Id: RandomTransform.c,v 1.3 2003-07-14 19:58:55 kmorel Exp $
 **
 ** Copyright (C) 2003 Sandia Corporation
 ** Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -53,7 +53,7 @@ int RandomTransform(int argc, char *argv[])
     int rank, num_proc;
 
     icetGetIntegerv(ICET_RANK, &rank);
-    icetGetIntegerv(ICET_NUM_PROCESSORS, &num_proc);
+    icetGetIntegerv(ICET_NUM_PROCESSES, &num_proc);
 
   /* Set up OpenGL. */
     glClearColor(0.0, 0.0, 0.0, 0.0);
