@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtk3DS.h,v $
   Language:  C++
-  Date:      $Date: 1998-04-17 12:51:41 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-12-28 17:09:35 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -97,6 +97,7 @@ typedef struct {
     float  hotspot;        /* Hotspot angle (degrees) */
     float  falloff;        /* Falloff angle (degrees) */
     int    shadow_flag;    /* Shadow flag (not used) */
+    vtkLight *aLight;
 } SpotLight;
 
 
