@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConnectivityFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-25 23:45:26 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1995-11-03 13:12:49 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,7 +49,7 @@ vtkConnectivityFilter::vtkConnectivityFilter()
   this->MaxRecursionDepth = 10000;
 }
 
-static NumExceededMaxDepth;
+static int NumExceededMaxDepth;
 static int *Visited, *PointMap;
 static vtkFloatScalars *NewScalars;
 static int RecursionDepth;
