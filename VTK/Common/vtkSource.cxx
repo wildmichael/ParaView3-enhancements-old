@@ -3,8 +3,8 @@
  Program:   Visualization Toolkit
  Module:    $RCSfile: vtkSource.cxx,v $
  Language:  C++
- Date:      $Date: 2001-08-01 18:23:19 $
- Version:   $Revision: 1.81 $
+ Date:      $Date: 2001-09-14 15:48:40 $
+ Version:   $Revision: 1.82 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -657,6 +657,20 @@ void vtkSource::ExecuteInformation()
         {
         output->CopyInformation(input);
         }  
+      }
+    }
+  else
+    {
+    for (int idx = 0; idx < this->NumberOfOutputs; ++idx)
+      {
+      output = this->GetOutput(idx);
+      if (output)
+        {
+        // Since most unstructured filters in VTK generate all their data once,
+        // make it the default.
+        // protected: if ( output->GetExtentType() == VTK_PIECES_EXTENT )
+        output->SetMaximumNumberOfPieces(1);
+        }
       }
     }
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-12 13:21:01 $
-  Version:   $Revision: 1.138 $
+  Date:      $Date: 2001-09-14 15:48:40 $
+  Version:   $Revision: 1.139 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1731,6 +1731,10 @@ void vtkPolyData::DeepCopy(vtkDataObject *dataObject)
 
   // Do superclass
   this->vtkPointSet::DeepCopy(dataObject);
+}
+
+void vtkPolyData::Crop()
+{
 }
 
 

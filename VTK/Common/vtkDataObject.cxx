@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-27 19:06:30 $
-  Version:   $Revision: 1.69 $
+  Date:      $Date: 2001-09-14 15:48:40 $
+  Version:   $Revision: 1.70 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -95,6 +95,7 @@ vtkDataObject::vtkDataObject()
   // created by the user and this is piece 0 of 1 pieces.
   this->Piece          =  0;
   this->NumberOfPieces =  1;
+  this->MaximumNumberOfPieces = -1;
 
   this->UpdatePiece          =   0;
   this->UpdateNumberOfPieces =   1;
@@ -677,6 +678,10 @@ void vtkDataObject::CopyInformation( vtkDataObject *data )
        data->GetExtentType() == VTK_3D_EXTENT )
     {
     memcpy( this->WholeExtent, data->GetWholeExtent(), 6*sizeof(int) );
+    }
+  else
+    {
+    this->MaximumNumberOfPieces = data->GetMaximumNumberOfPieces();
     }
 }
 

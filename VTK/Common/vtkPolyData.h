@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:45 $
-  Version:   $Revision: 1.111 $
+  Date:      $Date: 2001-09-14 15:48:40 $
+  Version:   $Revision: 1.112 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -420,6 +420,13 @@ protected:
   // built only when necessary
   vtkCellTypes *Cells;
   vtkCellLinks *Links;
+
+  // This method is called during an update.  
+  // If the CropFilter is set, the user reqquested a piece which the 
+  // source cannot generate, then it will break up the
+  // data set in order to satisfy the request.
+  virtual void Crop();
+
 
 private:
   // Hide these from the user and the compiler.
