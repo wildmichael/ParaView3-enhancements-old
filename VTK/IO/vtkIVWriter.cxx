@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIVWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:32 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-08-01 18:47:16 $
+  Version:   $Revision: 1.11 $
   Thanks:    to Jon A. Webb for contributing this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -78,8 +78,6 @@ void vtkIVWriter::WritePolyData(vtkPolyData *pd, FILE *fp)
 {
   vtkPointData *pntData;
   vtkPoints *points = NULL;
-  vtkNormals *normals = NULL;
-  vtkTCoords *tcoords = NULL;
   int i;
   vtkCellArray *cells;
   int npts, *indx;
@@ -91,8 +89,6 @@ void vtkIVWriter::WritePolyData(vtkPolyData *pd, FILE *fp)
   
   points = pd->GetPoints();
   pntData = pd->GetPointData();
-  normals = pntData->GetNormals();
-  tcoords = pntData->GetTCoords();
   colors  = pm->GetColors();
   
   fprintf(fp,"Separator {\n");

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:34 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-08-01 18:47:16 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -360,7 +360,6 @@ void vtkRIBExporter::WriteProperty (vtkProperty *aProperty, vtkTexture *aTexture
 
 void vtkRIBExporter::WriteLight (vtkLight *aLight, int count)
 {
-  float	dx, dy, dz;
   float	color[4];
   float *Color, *Position, *FocalPoint;
   float Intensity;
@@ -375,9 +374,6 @@ void vtkRIBExporter::WriteLight (vtkLight *aLight, int count)
 
   FocalPoint = aLight->GetFocalPoint();
   Position   = aLight->GetPosition();
-  dx = FocalPoint[0] - Position[0];
-  dy = FocalPoint[1] - Position[1];
-  dz = FocalPoint[2] - Position[2];
 
 //
 // Now we need to check to see if an RIBLight has been specified
