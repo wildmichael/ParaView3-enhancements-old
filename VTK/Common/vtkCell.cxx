@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-19 21:36:48 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1999-11-23 13:37:16 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,7 +72,12 @@ void vtkCell::Initialize(int npts, int *pts, vtkPoints *p)
 void vtkCell::ShallowCopy(vtkCell *c)
 {
   this->Points->ShallowCopy(c->Points);
-  this->PointIds->DeepCopy(c->PointIds);
+  if ( this->PointIds )
+    {
+    this->PointIds->Delete();
+    this->PointIds = c->PointIds;
+    this->PointIds->Register(this);
+    }
 }
 
 void vtkCell::DeepCopy(vtkCell *c)
