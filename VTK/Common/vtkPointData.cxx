@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointData.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-09-27 19:52:04 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 1997-01-17 14:09:10 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -119,6 +119,50 @@ vtkPointData& vtkPointData::operator=(vtkPointData& pd)
   this->CopyUserDefined = pd.CopyUserDefined;
 
   return *this;
+}
+
+unsigned long int vtkPointData::GetMTime()
+{
+  unsigned long int mtime = this->MTime;
+  unsigned long int otherMTime;
+
+  if (this->Scalars)
+    {
+    otherMTime = this->Scalars->GetMTime();
+    if ( otherMTime > mtime ) mtime = otherMTime;
+    }
+
+  if (this->Vectors)
+    {
+    otherMTime = this->Vectors->GetMTime();
+    if ( otherMTime > mtime ) mtime = otherMTime;
+    }
+
+  if (this->Normals)
+    {
+    otherMTime = this->Normals->GetMTime();
+    if ( otherMTime > mtime ) mtime = otherMTime;
+    }
+
+  if(this->TCoords) 
+    {
+    otherMTime = this->TCoords->GetMTime();
+    if ( otherMTime > mtime ) mtime = otherMTime;
+    }
+
+  if(this->Tensors) 
+    {
+    otherMTime = this->Tensors->GetMTime();
+    if ( otherMTime > mtime ) mtime = otherMTime;
+    }
+
+  if(this->UserDefined) 
+    {
+    otherMTime = this->UserDefined->GetMTime();
+    if ( otherMTime > mtime ) mtime = otherMTime;
+    }
+
+  return mtime;
 }
 
 // Description:

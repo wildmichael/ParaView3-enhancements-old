@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointData.h,v $
   Language:  C++
-  Date:      $Date: 1996-09-26 20:51:34 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1997-01-17 14:09:08 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -88,6 +88,9 @@ public:
 
   // Reclaim memory
   void Squeeze();
+
+  // Need to check component pieces for modified time
+  unsigned long int GetMTime();
 
   // Description:
   // Set scalar data.
