@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-19 18:16:29 $
-  Version:   $Revision: 1.131 $
+  Date:      $Date: 2002-12-02 14:59:36 $
+  Version:   $Revision: 1.132 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -324,13 +324,11 @@ public:
   virtual void ClearInRenderStatus() { this->InRender = 0; }
 
   // Description:
-  // Specify a function to be called to check and see if an abort
-  // of the rendering in progress is desired.
+  // For legacy compatibility.  Do not use.
+#ifndef VTK_REMOVE_LEGACY_CODE
   void SetAbortCheckMethod(void (*f)(void *), void *arg);
-
-  // Description:
-  // Set the arg delete method. This is used to free user memory.
   void SetAbortCheckMethodArgDelete(void (*f)(void *));
+#endif
 
   // Description:
   // Set/Get the desired update rate. This is used with
