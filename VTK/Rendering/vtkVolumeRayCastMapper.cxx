@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-17 17:50:19 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1997-07-22 19:21:22 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1114,8 +1114,8 @@ void vtkVolumeRayCastMapper::UpdateShadingTables( vtkRenderer *ren,
   shading = volume_property->GetShade();
 
   // Update the normals if necessary
-  if ( shading && this->NormalEncoder.GetEncodedNormals () == NULL ||
-       this->NormalEncoder.GetMTime() < this->ScalarInput->GetMTime() )
+  if ( shading && ( this->NormalEncoder.GetEncodedNormals () == NULL ||
+       this->NormalEncoder.GetMTime() < this->ScalarInput->GetMTime() ) )
     {
     this->NormalEncoder.SetScalarInput( this->ScalarInput );
     this->NormalEncoder.UpdateNormals();
