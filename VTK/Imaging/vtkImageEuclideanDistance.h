@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageEuclideanDistance.h,v $
   Language:  C++
-  Date:      $Date: 2001-07-23 19:35:08 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-07-24 17:38:18 $
+  Version:   $Revision: 1.2 $
   Thanks:    Olivier Cuisenaire who developed this class
              URL: http://ltswww.epfl.ch/~cuisenai
 	     Email: Olivier.Cuisenaire@epfl.ch
@@ -136,6 +136,8 @@ protected:
   int Algorithm;
 
   void ExecuteInformation(vtkImageData *input, vtkImageData *output);
+  void ExecuteInformation()
+    {this->vtkImageToImageFilter::ExecuteInformation();}
   void ComputeInputUpdateExtent(int inExt[6], int outExt[6]);
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
 		       int outExt[6], int threadId);
