@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-04 16:53:59 $
-  Version:   $Revision: 1.140 $
+  Date:      $Date: 2002-10-29 20:49:43 $
+  Version:   $Revision: 1.141 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -35,7 +35,7 @@
 #include "vtkDoubleArray.h"
 #include "vtkBitArray.h"
 
-vtkCxxRevisionMacro(vtkImageData, "$Revision: 1.140 $");
+vtkCxxRevisionMacro(vtkImageData, "$Revision: 1.141 $");
 vtkStandardNewMacro(vtkImageData);
 
 //----------------------------------------------------------------------------
@@ -980,7 +980,8 @@ int vtkImageData::ComputeStructuredCoordinates(float x[3], int ijk[3],
     {
     d = x[i] - origin[i];
     floatLoc = d / spacing[i];
-    ijk[i] = (int) floatLoc;
+    // Floor for negtive indexes.
+    ijk[i] = (int) (floor(floatLoc));
     if ( ijk[i] >= this->Extent[i*2] && ijk[i] < this->Extent[i*2 + 1] )
       {
       pcoords[i] = floatLoc - (float)ijk[i];

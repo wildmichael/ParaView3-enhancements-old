@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:26:22 $
-  Version:   $Revision: 1.90 $
+  Date:      $Date: 2002-10-29 20:49:43 $
+  Version:   $Revision: 1.91 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -167,6 +167,11 @@ public:
   // Shallow and Deep copy.
   void ShallowCopy(vtkDataObject *src);  
   void DeepCopy(vtkDataObject *src);
+
+  // Description:
+  // This method calls the superclass then 
+  // generates ghost levels if necessary.
+  virtual void UpdateData();
 
 protected:
   vtkStructuredGrid();
