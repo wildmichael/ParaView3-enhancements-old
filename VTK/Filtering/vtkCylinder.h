@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCylinder.h,v $
   Language:  C++
-  Date:      $Date: 1996-12-19 11:56:57 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1997-03-04 17:56:27 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,7 +55,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include "vtkImplicitFunction.h"
 
-class vtkCylinder : public vtkImplicitFunction
+class VTK_EXPORT vtkCylinder : public vtkImplicitFunction
 {
 public:
   vtkCylinder();

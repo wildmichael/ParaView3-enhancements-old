@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCursor3D.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:51:20 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1997-03-04 17:56:25 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,7 +55,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include "vtkPolySource.h"
 
-class vtkCursor3D : public vtkPolySource 
+class VTK_EXPORT vtkCursor3D : public vtkPolySource 
 {
 public:
   vtkCursor3D();

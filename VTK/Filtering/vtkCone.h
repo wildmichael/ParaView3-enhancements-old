@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCone.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:51:10 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1997-03-04 17:56:20 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,7 +55,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include "vtkImplicitFunction.h"
 
-class vtkCone : public vtkImplicitFunction
+class VTK_EXPORT vtkCone : public vtkImplicitFunction
 {
 public:
   vtkCone();

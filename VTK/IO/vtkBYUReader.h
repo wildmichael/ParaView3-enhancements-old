@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUReader.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:50:44 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1997-03-04 17:56:09 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,7 +51,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <stdio.h>
 #include "vtkPolySource.h"
 
-class vtkBYUReader : public vtkPolySource 
+class VTK_EXPORT vtkBYUReader : public vtkPolySource 
 {
 public:
   vtkBYUReader();

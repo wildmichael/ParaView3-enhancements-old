@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay3D.h,v $
   Language:  C++
-  Date:      $Date: 1996-10-17 12:54:25 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1997-03-04 17:56:45 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -112,7 +112,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkPointSetFilter.h"
 #include "vtkUnstructuredGrid.h"
 
-class vtkDelaunay3D : public vtkPointSetFilter
+class VTK_EXPORT vtkDelaunay3D : public vtkPointSetFilter
 {
 public:
   vtkDelaunay3D();

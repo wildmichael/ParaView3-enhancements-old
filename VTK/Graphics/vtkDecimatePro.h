@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimatePro.h,v $
   Language:  C++
-  Date:      $Date: 1997-01-24 19:04:30 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1997-03-04 17:56:43 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -89,7 +89,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // This file is included to grab structure definitions and include files
 #include "vtkDecimate.h"
 
-class vtkDecimatePro : public vtkPolyToPolyFilter
+class VTK_EXPORT vtkDecimatePro : public vtkPolyToPolyFilter
 {
 public:
   vtkDecimatePro();
