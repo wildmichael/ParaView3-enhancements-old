@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-11-15 16:09:45 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 1996-12-31 17:13:43 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -348,7 +348,7 @@ void vtkCamera::SetRoll(float roll)
   this->Transform.PreMultiply();
 
   // rotate about view plane normal
-  this->Transform.RotateWXYZ(-1.0*roll,this->ViewPlaneNormal[0],
+  this->Transform.RotateWXYZ(-roll,this->ViewPlaneNormal[0],
 			     this->ViewPlaneNormal[1],
 			     this->ViewPlaneNormal[2]);
   
@@ -357,7 +357,7 @@ void vtkCamera::SetRoll(float roll)
   temp[1] = this->ViewUp[1];
   temp[2] = this->ViewUp[2];
   temp[3] = 1.0;
-  this->Transform.PointMultiply(temp,temp);
+  this->Transform.MultiplyPoint(temp,temp);
   
   // now store the result
   this->SetViewUp((float *)temp);
