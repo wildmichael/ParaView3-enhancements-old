@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLookupTable.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-09 11:52:50 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 2000-12-10 16:39:30 $
+  Version:   $Revision: 1.60 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -327,7 +327,7 @@ static void vtkLookupTableMapData(vtkLookupTable *self, T *input,
 	findx = maxIndex;
 	}
       cptr = &table[4*(int)findx];
-      *output++ = (cptr[0]*77 + cptr[1]*151 + cptr[2]*28) >> 8;
+      *output++ = (unsigned char)(cptr[0]*0.30+cptr[1]*0.59+cptr[2]*0.11+0.5);
       *output++ = cptr[3];
       input += inIncr;
       }
@@ -346,7 +346,7 @@ static void vtkLookupTableMapData(vtkLookupTable *self, T *input,
 	findx = maxIndex;
 	}
       cptr = &table[4*(int)findx];
-      *output++ = (cptr[0]*77 + cptr[1]*151 + cptr[2]*28) >> 8;
+      *output++ = (unsigned char)(cptr[0]*0.30+cptr[1]*0.59+cptr[2]*0.11+0.5);
       input += inIncr;
       }
     }
