@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-22 13:55:46 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2002-08-23 17:53:08 $
+  Version:   $Revision: 1.41 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -40,7 +40,7 @@
 #include "vtkTextureMapToPlane.h"
 #include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.40 $");
+vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.41 $");
 vtkStandardNewMacro(vtkImagePlaneWidget);
 
 vtkCxxSetObjectMacro(vtkImagePlaneWidget, PlaneProperty, vtkProperty);
@@ -1084,10 +1084,13 @@ void vtkImagePlaneWidget::SetInput(vtkDataSet* input)
 
   if( ! this->ImageData )
     {
-    vtkErrorMacro(<<"Must call SetInput() with vtkImageData*!");
+  // If NULL is passed, remove any reference that Reslice had
+  // on the old ImageData
+  //
+    this->Reslice->SetInput(NULL);
     return;
     }
-    
+
   float range[2];
   this->ImageData->GetScalarRange(range);
 
@@ -1988,6 +1991,11 @@ void vtkImagePlaneWidget::SetTextProperty(vtkTextProperty* tprop)
 vtkTextProperty* vtkImagePlaneWidget::GetTextProperty()
 {
   return this->TextActor->GetTextProperty();
+}
+
+vtkTexture *vtkImagePlaneWidget::GetTexture()
+{
+  return this->Texture;
 }
 
 void vtkImagePlaneWidget::GetVector1(float v1[3])
