@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAsynchronousBuffer.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-17 21:31:18 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-09-16 16:50:39 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,6 +40,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 //#include <unistd.h>
 #include "vtkAsynchronousBuffer.h"
+#include "vtkDataInformation.h"
 
 //----------------------------------------------------------------------------
 vtkAsynchronousBuffer::vtkAsynchronousBuffer()
@@ -154,7 +155,7 @@ void vtkAsynchronousBuffer::NonblockingUpdateInformation()
     }
   
   // Do the typical update information stuff (as if we were a simple source).
-  output->SetLocality(0);
+  output->GetDataInformation()->SetLocality(1.0);
   t1 = this->GetMTime();
   t2 = output->GetMTime();
   if (t2 > t1)
