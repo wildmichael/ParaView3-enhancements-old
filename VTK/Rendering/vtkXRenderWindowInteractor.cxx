@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:43 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 1998-10-07 13:08:52 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -206,7 +206,6 @@ void vtkXRenderWindowInteractor::Initialize()
 				   XtNinput, True,
 				   XtNmappedWhenManaged, 0,
 				   NULL);
-
     XtRealizeWidget(this->top);
     XSync(this->DisplayId,False);
     ren->SetWindowId(XtWindow(this->top));
@@ -227,7 +226,6 @@ void vtkXRenderWindowInteractor::Initialize()
     ren->SetSize(size[0], size[1]);
     }
 
-  /* add callback */
   this->WindowId = XtWindow(this->top);
   ren->Render();
   XtAddEventHandler(this->top,
