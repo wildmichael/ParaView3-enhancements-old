@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:27:10 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-07-10 18:33:26 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -370,9 +370,9 @@ void vtkXRenderWindowInteractorCallback(Widget w,XtPointer client_data,
           me->Picker->Pick(((XButtonEvent*)event)->x,
                              me->Size[1] - ((XButtonEvent*)event)->y, 0.0,
                              me->CurrentRenderer);
+          me->HighlightActor(me->Picker->GetActor());
           if ( me->EndPickMethod ) 
             (*me->EndPickMethod)(me->EndPickMethodArg);
-          me->HighlightActor(me->Picker->GetActor());
           }
 	  break;
         }
