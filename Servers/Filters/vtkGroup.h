@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGroup.h,v $
   Language:  C++
-  Date:      $Date: 2003-01-17 14:59:46 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-01-24 20:50:31 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -53,7 +53,7 @@ public:
   virtual int GetNumberOfOutputs();
   vtkDataSet *GetOutput(int idx);
   vtkDataSet *GetOutput() 
-    {return this->GetInput( 0 );}
+    {return this->GetOutput( 0 );}
   
 protected:
   vtkGroup();
