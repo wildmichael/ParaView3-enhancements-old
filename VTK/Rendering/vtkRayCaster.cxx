@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRayCaster.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-06 19:09:39 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1998-12-09 02:47:31 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1076,7 +1076,7 @@ void vtkRayCaster::Render(vtkRenderer *ren, int raycastCount,
   // after geometry rendering, and therefore we will not correctly account 
   // for the background color. Check to see if this is the case so we
   // can handle it.
-  this->NeedBackgroundBlend;
+  this->NeedBackgroundBlend = 0;
   if ( this->FirstBlend )
     {
     ren->GetBackground( this->Background );
@@ -1110,6 +1110,7 @@ void vtkRayCaster::Render(vtkRenderer *ren, int raycastCount,
     // Delete the structures that we created during
     // ray casting.
     delete this->RayCastVolumes;
+    delete this->VolumeInfo;
     }
 
   // If we have any volumes with software buffer mappers, render them
