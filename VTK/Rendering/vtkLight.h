@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLight.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-27 15:12:41 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 2002-09-06 18:24:41 $
+  Version:   $Revision: 1.53 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -176,13 +176,14 @@ public:
   // located at the camera's position.  CameraLights are defined in a 
   // coordinate space where the camera is located at (0, 0, 1), looking
   // towards (0, 0, 0) at a distance of 1, with up being (0, 1, 0).
-
   vtkSetMacro(LightType, int);
   vtkGetMacro(LightType, int);
-
-  void SetLightTypeToHeadlight();
-  void SetLightTypeToSceneLight();
-  void SetLightTypeToCameraLight();
+  void SetLightTypeToHeadlight()
+    {this->SetLightType(VTK_LIGHT_TYPE_HEADLIGHT);}
+  void SetLightTypeToSceneLight()
+    {this->SetLightType(VTK_LIGHT_TYPE_SCENE_LIGHT);}
+  void SetLightTypeToCameraLight()
+    {this->SetLightType(VTK_LIGHT_TYPE_CAMERA_LIGHT);}
 
   // Description:
   // Query the type of the light.
