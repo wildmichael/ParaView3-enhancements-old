@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTiledDisplaySchedule.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-03-25 17:13:49 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-06-16 20:29:03 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkObjectFactory.h"
 
 
-vtkCxxRevisionMacro(vtkTiledDisplaySchedule, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkTiledDisplaySchedule, "$Revision: 1.5 $");
 vtkStandardNewMacro(vtkTiledDisplaySchedule);
 
 
@@ -436,6 +436,11 @@ void vtkTiledDisplaySchedule::InitializeTiles(int numTiles, int numProcs)
   vtkTiledDisplayProcess* p;
   int i, j;
 
+  if (numProcs == 1 && numTiles > 1)
+    { // We must be running client server, and we must be the client.
+    return;
+    }
+      
   this->NumberOfProcesses = numProcs;
   this->NumberOfTiles = numTiles;
 

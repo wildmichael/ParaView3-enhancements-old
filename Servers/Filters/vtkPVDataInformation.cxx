@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVDataInformation.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-06-09 16:57:10 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2003-06-16 20:29:03 $
+  Version:   $Revision: 1.12 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -55,7 +55,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkPVDataInformation);
-vtkCxxRevisionMacro(vtkPVDataInformation, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkPVDataInformation, "$Revision: 1.12 $");
 
 
 //----------------------------------------------------------------------------
@@ -491,6 +491,11 @@ void vtkPVDataInformation::CopyFromMessage(unsigned char *msg)
   unsigned char* tmp;
   int attrMsgLength;
   int idx;
+
+  if (msg == NULL)
+    { // Something really bad has happend ...
+    return;
+    }
 
 #ifdef VTK_WORDS_BIGENDIAN
   bigEndianFlag = (unsigned char)(1);
