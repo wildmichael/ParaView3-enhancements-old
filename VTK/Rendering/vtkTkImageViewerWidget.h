@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkImageViewerWidget.h,v $
   Language:  C++
-  Date:      $Date: 2003-06-06 20:48:21 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2003-06-16 17:58:12 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,8 +32,8 @@
 #define __vtkTkImageViewerWidget_h
 
 #include "vtkImageViewer.h"
-#include <vtkTcl.h>
-#include <vtkTk.h>
+#include "vtkTcl.h"
+#include "vtkTk.h"
 #ifndef VTK_PYTHON_BUILD
 #include "vtkTclUtil.h"
 #endif

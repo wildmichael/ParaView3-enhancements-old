@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkRenderWidget.h,v $
   Language:  C++
-  Date:      $Date: 2003-06-06 20:48:21 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2003-06-16 17:58:12 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,13 +33,13 @@
 #define __vtkTkRenderWidget_h
 
 #include "vtkRenderWindow.h"
-#include <vtkTcl.h>
+#include "vtkTcl.h"
 
 // For the moment, we are not compatable w/Photo compositing
 // By defining USE_COMPOSITELESS_PHOTO_PUT_BLOCK, we use the compatable
 // call.
 #define USE_COMPOSITELESS_PHOTO_PUT_BLOCK
-#include <vtkTk.h>
+#include "vtkTk.h"
 
 #ifndef VTK_PYTHON_BUILD
 #include "vtkTclUtil.h"
