@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.h,v $
   Language:  C++
-  Date:      $Date: 2003-04-14 21:34:48 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2003-04-16 17:53:18 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -192,6 +192,7 @@ protected:
   vtkXdmfReaderInternal* Internals;
 
   int Stride[3];
+  int OutputsInitialized;
 
 private:
   vtkXdmfReader(const vtkXdmfReader&); // Not implemented
