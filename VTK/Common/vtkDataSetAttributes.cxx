@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-17 19:34:48 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2001-09-17 20:13:30 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -256,7 +256,7 @@ void vtkDataSetAttributes::DeepCopy(vtkFieldData *fd)
       newData->Delete();
       }
     // Copy the copy flags
-    for(int attributeType=0; attributeType<NUM_ATTRIBUTES; attributeType++)
+    for(attributeType=0; attributeType<NUM_ATTRIBUTES; attributeType++)
       {
       this->CopyAttributeFlags[attributeType] = 
 	dsa->CopyAttributeFlags[attributeType];
@@ -305,7 +305,7 @@ void vtkDataSetAttributes::ShallowCopy(vtkFieldData *fd)
 	}
       }
     // Copy the copy flags
-    for(int attributeType=0; attributeType<NUM_ATTRIBUTES; attributeType++)
+    for(attributeType=0; attributeType<NUM_ATTRIBUTES; attributeType++)
       {
       this->CopyAttributeFlags[attributeType] = 
 	dsa->CopyAttributeFlags[attributeType];
