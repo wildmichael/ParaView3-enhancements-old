@@ -8,12 +8,12 @@
  * of authorship are reproduced on all copies.
  */
 
-/* $Id: ice-t_buckets.h,v 1.1 2003-06-17 18:38:54 andy Exp $ */
+/* $Id: ice-t_buckets.h,v 1.2 2003-07-10 18:31:15 andy Exp $ */
 
 #ifndef _ICET_BUCKETS_H_
 #define _ICET_BUCKETS_H_
 
-#include "ice-t_config.h"
+#include "GL/ice-t_config.h"
 
 #include <GL/gl.h>
 
