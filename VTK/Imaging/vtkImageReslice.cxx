@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReslice.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-16 19:20:32 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-11-12 21:13:59 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to David G Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1191,6 +1191,7 @@ int vtkTrilinearInterpolation(T *&outPtr, const T *inPtr,
 // coefficients
 
 template <class T>
+static
 void vtkTricubicInterpCoeffs(T F[4], int l, int h, T f)
 {
   const static T half = T(0.5);
