@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCastToConcrete.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:51:02 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1997-05-13 20:56:20 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,6 +52,8 @@ vtkCastToConcrete::vtkCastToConcrete()
   this->StructuredGrid->SetSource(this);
   this->UnstructuredGrid = new vtkUnstructuredGrid;
   this->UnstructuredGrid->SetSource(this);
+  this->RectilinearGrid = new vtkRectilinearGrid;
+  this->RectilinearGrid->SetSource(this);
 }
 
 vtkCastToConcrete::~vtkCastToConcrete()
@@ -60,6 +62,7 @@ vtkCastToConcrete::~vtkCastToConcrete()
   this->StructuredPoints->Delete();
   this->StructuredGrid->Delete();
   this->UnstructuredGrid->Delete();
+  this->RectilinearGrid->Delete();
   this->Output = NULL;
 }
 
@@ -117,6 +120,12 @@ void vtkCastToConcrete::Execute()
     {
     this->UnstructuredGrid->CopyStructure(this->Input);
     this->UnstructuredGrid->GetPointData()->PassData(this->Input->GetPointData());
+    }
+
+  else if ( ! strcmp(this->Input->GetDataType(),"vtkRectilinearGrid") )
+    {
+    this->RectilinearGrid->CopyStructure(this->Input);
+    this->RectilinearGrid->GetPointData()->PassData(this->Input->GetPointData());
     }
 
   else
@@ -219,5 +228,26 @@ vtkUnstructuredGrid *vtkCastToConcrete::GetUnstructuredGridOutput()
     }
 
   return this->UnstructuredGrid;
+}
+
+// Description:
+// Get the output of this filter as type vtkUnstructuredGrid. Performs run-time
+// checking on type. Returns NULL if wrong type.
+vtkRectilinearGrid *vtkCastToConcrete::GetRectilinearGridOutput()
+{
+  if ( this->Input == NULL )
+    {
+    vtkErrorMacro(<<"Filter requires input to be set before output can be retrieved");
+    }
+  else
+    {
+    if ( strcmp(this->Input->GetDataType(),"vtkRectilinearGrid") )
+      {
+      vtkErrorMacro(<<"Cannot cast to type requested");
+      return NULL;
+      }
+    }
+
+  return this->RectilinearGrid;
 }
 

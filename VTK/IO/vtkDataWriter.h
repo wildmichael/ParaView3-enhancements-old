@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-28 20:09:56 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1997-05-13 20:56:28 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,7 +53,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include <stdio.h>
 #include "vtkWriter.h"
-#include "vtkDataSet.h"
+
+class vtkDataSet;
+class vtkPoints;
+class vtkCellArray;
+class vtkScalars;
 
 class VTK_EXPORT vtkDataWriter : public vtkWriter
 {
@@ -118,6 +122,7 @@ public:
   FILE *OpenVTKFile();
   int WriteHeader(FILE *fp);
   int WritePoints(FILE *fp, vtkPoints *p);
+  int WriteCoordinates(FILE *fp, vtkScalars *coords, int axes);
   int WriteCells(FILE *fp, vtkCellArray *cells, char *label);
   int WritePointData(FILE *fp, vtkDataSet *ds);
   void CloseVTKFile(FILE *fp);

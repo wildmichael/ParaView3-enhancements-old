@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCastToConcrete.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:50:48 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1997-05-13 20:56:21 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,6 +69,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkStructuredGrid.h"
 #include "vtkStructuredPoints.h"
 #include "vtkUnstructuredGrid.h"
+#include "vtkRectilinearGrid.h"
 
 class VTK_EXPORT vtkCastToConcrete : public vtkDataSetFilter
 {
@@ -87,6 +88,7 @@ public:
   vtkStructuredPoints *GetStructuredPointsOutput();
   vtkStructuredGrid *GetStructuredGridOutput();
   vtkUnstructuredGrid *GetUnstructuredGridOutput();
+  vtkRectilinearGrid *GetRectilinearGridOutput();
 
 protected:
   void Execute(); //insures compatibility; satisfies abstract api in vtkFilter
@@ -96,6 +98,8 @@ protected:
   vtkStructuredPoints *StructuredPoints;
   vtkStructuredGrid *StructuredGrid;
   vtkUnstructuredGrid *UnstructuredGrid;
+  vtkRectilinearGrid *RectilinearGrid;
+
 };
 
 #endif
