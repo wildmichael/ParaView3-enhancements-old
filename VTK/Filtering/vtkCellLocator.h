@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLocator.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-14 19:21:38 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1999-04-15 13:27:11 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -132,7 +132,7 @@ protected:
   void ClearCellHasBeenVisited();
   void ClearCellHasBeenVisited(int id);
 
-  float Distance2ToBucket(float x[3], int ijk[3], int nei[3]);
+  float Distance2ToBucket(float x[3], int nei[3]);
   float Distance2ToBounds(float x[3], float bounds[6]);
   
   int NumberOfCellsPerBucket; // cells per octant
