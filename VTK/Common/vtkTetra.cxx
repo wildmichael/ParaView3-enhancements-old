@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTetra.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:48:48 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1995-07-29 11:53:09 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -103,7 +103,7 @@ int vtkTetra::EvaluatePosition(float x[3], float closestPoint[3],
     }
   else
     { //could easily be sped up using parametric localization - next release
-    float t, dist2, w[3], closest[3], pc[3];
+    float dist2, w[3], closest[3], pc[3];
     int sub;
     vtkTriangle *triangle;
 
