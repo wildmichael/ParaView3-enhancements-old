@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-10 20:03:41 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-03-20 14:23:55 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -465,6 +465,13 @@ void vtkXImageWindow::MakeDefaultWindow()
     this->ParentId = RootWindow(this->DisplayId, screen);
     }
 
+  // if size not set use default of 256
+  if (this->Size[0] == 0) 
+    {
+    this->Size[0] = 256;
+    this->Size[1] = 256;
+    }
+    
   window = XCreateWindow(this->DisplayId, this->ParentId,
 			 0, 0, this->Size[0], this->Size[1], 0, info.depth, 
 			 InputOutput, info.visual,

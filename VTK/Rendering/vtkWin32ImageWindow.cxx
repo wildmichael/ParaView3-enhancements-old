@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32ImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-10 20:03:38 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-03-20 14:23:56 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -780,6 +780,12 @@ void vtkWin32ImageWindow::MakeDefaultWindow()
         RegisterClass(&wndClass);
         }
     
+    // if size not set use default of 256
+    if (this->Size[0] == 0) 
+      {
+      this->Size[0] = 256;
+      this->Size[1] = 256;
+      }
 	
     /* create window */
     // use poor mans mutex
