@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: quadraticEvaluation.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-02-11 03:34:11 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2003-02-12 17:00:40 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -93,8 +93,8 @@ int TestQE(ostream& strm)
   edge->GetPointIds()->SetId(2,2);
 
   edge->GetPoints()->SetPoint(0, 0, 0, 0);
-  edge->GetPoints()->SetPoint(1, 1, 0, 0);
-  edge->GetPoints()->SetPoint(2, 0.5, 0.25, 0);
+  edge->GetPoints()->SetPoint(1, 1, 0, .5);
+  edge->GetPoints()->SetPoint(2, 0.5, 0.25, .2);
 
   edge->EvaluatePosition(edgePoint[0], edgeClosest, subId, edgePCoords, 
                          dist2, edgeWeights);
@@ -257,10 +257,10 @@ int TestQE(ostream& strm)
   //-------------------------------------------------------------
   strm << "Test vtkCell::CellDerivs Start" << endl;
 
-  // vtkQuadraticEdge
-  float edgeValues[3], edgeDerivs[3];
-  ComputeDataValues(edge->Points,edgeValues);
-  edge->Derivatives(subId, edgePCoords, edgeValues, 1, edgeDerivs);
+  // vtkQuadraticEdge - temporarily commented out
+//  float edgeValues[3], edgeDerivs[3];
+//  ComputeDataValues(edge->Points,edgeValues);
+//  edge->Derivatives(subId, edgePCoords, edgeValues, 1, edgeDerivs);
   
   // vtkQuadraticTriangle
   float triValues[6], triDerivs[3];
