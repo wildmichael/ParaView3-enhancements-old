@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToImageFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-03 10:41:08 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-08-04 17:23:42 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -124,7 +124,10 @@ protected:
   void ExecuteInformation();
   virtual void ExecuteImageInformation() {};
 
-  int ComputeInputUpdateExtents(vtkDataObject *output);
+  int GetNumberOfStreamDivisions();
+  
+  int ComputeDivisionExtents(vtkDataObject *output, 
+			     int division, int numDivisions);
   virtual void ComputeInputUpdateExtent(int inExt[6],int outExt[6]);
 
   void Execute();
