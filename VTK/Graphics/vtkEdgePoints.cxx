@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEdgePoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-08 12:47:00 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1995-09-11 08:02:09 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -96,7 +96,7 @@ void vtkEdgePoints::Execute()
     cell = this->Input->GetCell(cellId);
     inScalars->GetScalars(cell->PointIds,cellScalars);
 
-    // loop over cell points to check if cell straddles iso-surface value
+    // loop over cell points to check if cell straddles isosurface value
     for ( above=below=0, ptId=0; ptId < cell->GetNumberOfPoints(); ptId++ )
       {
       if ( cellScalars.GetScalar(ptId) >= this->Value )
