@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkUnsignedCharArray.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-05 09:00:57 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-09-27 09:14:10 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -45,7 +45,7 @@ public:
   // special operators
   vlCharArray &operator=(const vlCharArray& ia);
   void operator+=(const vlCharArray& ia);
-  void operator+=(const char i) {this->InsertNextValue(i);};
+  void operator+=(const char i);
   char& operator[](const int i);
 
   // miscellaneous methods
@@ -87,6 +87,10 @@ inline int vlCharArray::InsertNextValue(const char i)
 {
   this->InsertValue (++this->MaxId,i); 
   return this->MaxId;
+}
+void vlCharArray::operator+=(const char i) 
+{
+  this->InsertNextValue(i);
 }
 
 // Description:
