@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdList.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-19 21:01:56 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1999-11-20 15:07:53 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -90,7 +90,6 @@ int vtkIdList::Allocate(const int sz, const int vtkNotUsed(strategy))
       return 0;
       }
     }
-
   this->NumberOfIds = 0;
   return 1;
 }
@@ -177,13 +176,13 @@ void vtkIdList::DeleteId(int id)
 
 void vtkIdList::DeepCopy(vtkIdList *ids)
 {
-  ids->Initialize();
-  ids->NumberOfIds = this->NumberOfIds;
-  ids->Size = this->Size;
-  ids->Ids = new int [this->Size];
-  for (int i=0; i < this->NumberOfIds; i++)
+  this->Initialize();
+  this->NumberOfIds = ids->NumberOfIds;
+  this->Size = ids->Size;
+  this->Ids = new int [ids->Size];
+  for (int i=0; i < ids->NumberOfIds; i++)
     {
-    ids->Ids[i] = this->Ids[i];
+    this->Ids[i] = ids->Ids[i];
     }
 }
 
