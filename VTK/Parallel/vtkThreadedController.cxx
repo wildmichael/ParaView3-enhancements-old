@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreadedController.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-21 15:10:48 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-02-25 23:11:20 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -68,9 +68,9 @@ private:
   void operator=(const vtkThreadedControllerOutputWindow&);
 };
 
-vtkCxxRevisionMacro(vtkThreadedControllerOutputWindow, "$Revision: 1.13 $");
+vtkCxxRevisionMacro(vtkThreadedControllerOutputWindow, "$Revision: 1.14 $");
 
-vtkCxxRevisionMacro(vtkThreadedController, "$Revision: 1.13 $");
+vtkCxxRevisionMacro(vtkThreadedController, "$Revision: 1.14 $");
 vtkStandardNewMacro(vtkThreadedController);
 
 void vtkThreadedController::CreateOutputWindow()
@@ -232,6 +232,12 @@ void vtkThreadedController::Barrier()
     {
     vtkThreadedController::WaitForPreviousBarrierToEnd();
     }
+#ifdef VTK_USE_WIN32_THREADS
+  else
+    {
+    ResetEvent(vtkThreadedController::BarrierEndedEvent);
+    }
+#endif
 
   // All processes increment the counter (which is initially 0) by 1
   vtkThreadedController::CounterLock.Lock();
@@ -249,8 +255,9 @@ void vtkThreadedController::Barrier()
     // If you are not the last process, wait until someone unlocks 
     // the barrier
     vtkThreadedController::WaitForNextThread();
+    vtkThreadedController::CounterLock.Lock();
     vtkThreadedController::Counter--;
-
+    vtkThreadedController::CounterLock.Unlock();
     if (vtkThreadedController::Counter == 1)
       {
       // If you are the last process to pass the barrier
