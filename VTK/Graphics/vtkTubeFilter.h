@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTubeFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-18 14:05:31 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2000-01-21 17:10:39 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -121,7 +121,14 @@ public:
   vtkGetMacro(UseDefaultNormal,int);
   vtkBooleanMacro(UseDefaultNormal,int);
 
+  // Description:
+  // Turn on/off whether to cap the ends with polygons.
+  vtkSetMacro(Capping,int);
+  vtkGetMacro(Capping,int);
+  vtkBooleanMacro(Capping,int);
+
 protected:
+
   vtkTubeFilter();
   ~vtkTubeFilter() {};
   vtkTubeFilter(const vtkTubeFilter&) {};
@@ -136,6 +143,8 @@ protected:
   float RadiusFactor; //maxium allowablew radius
   float DefaultNormal[3];
   int UseDefaultNormal;
+
+  int Capping;
   
 };
 
