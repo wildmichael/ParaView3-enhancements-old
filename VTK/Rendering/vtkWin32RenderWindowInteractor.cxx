@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32RenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-27 12:56:37 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 1999-09-08 15:59:31 $
+  Version:   $Revision: 1.48 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -351,31 +351,31 @@ LRESULT CALLBACK vtkHandleMessage(HWND hWnd,UINT uMsg, WPARAM wParam,
       break;
       
     case WM_LBUTTONDOWN:
-      me->OnLButtonDown(hWnd,wParam,LOWORD(lParam),HIWORD(lParam));
+      me->OnLButtonDown(hWnd,wParam,MAKEPOINTS(lParam).x,MAKEPOINTS(lParam).y);
       break;
       
     case WM_LBUTTONUP:
-      me->OnLButtonUp(hWnd,wParam,LOWORD(lParam),HIWORD(lParam));
+      me->OnLButtonUp(hWnd,wParam,MAKEPOINTS(lParam).x,MAKEPOINTS(lParam).y);
       break;
       
     case WM_MBUTTONDOWN:
-      me->OnMButtonDown(hWnd,wParam,LOWORD(lParam),HIWORD(lParam));
+      me->OnMButtonDown(hWnd,wParam,MAKEPOINTS(lParam).x,MAKEPOINTS(lParam).y);
       break;
       
     case WM_MBUTTONUP:
-      me->OnMButtonUp(hWnd,wParam,LOWORD(lParam),HIWORD(lParam));
+      me->OnMButtonUp(hWnd,wParam,MAKEPOINTS(lParam).x,MAKEPOINTS(lParam).y);
       break;
       
     case WM_RBUTTONDOWN:
-      me->OnRButtonDown(hWnd,wParam,LOWORD(lParam),HIWORD(lParam));
+      me->OnRButtonDown(hWnd,wParam,MAKEPOINTS(lParam).x,MAKEPOINTS(lParam).y);
       break;
       
     case WM_RBUTTONUP:
-      me->OnRButtonUp(hWnd,wParam,LOWORD(lParam),HIWORD(lParam));
+      me->OnRButtonUp(hWnd,wParam,MAKEPOINTS(lParam).x,MAKEPOINTS(lParam).y);
       break;
       
     case WM_MOUSEMOVE:
-      me->OnMouseMove(hWnd,wParam,LOWORD(lParam),HIWORD(lParam));
+      me->OnMouseMove(hWnd,wParam,MAKEPOINTS(lParam).x,MAKEPOINTS(lParam).y);
       break;
       
     case WM_CLOSE:
