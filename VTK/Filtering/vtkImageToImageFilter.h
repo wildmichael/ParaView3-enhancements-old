@@ -1,10 +1,10 @@
 /*=========================================================================
 
   Program:   Visualization Toolkit
-  Module:    $RCSfile: vtkImageMultipleInputFilter.h,v $
+  Module:    $RCSfile: vtkImageToImageFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:46 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1999-07-22 12:13:56 $
+  Version:   $Revision: 1.1 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,89 +38,89 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkImageMultipleInputFilter - Generic filter that has N inputs.
+// .NAME vtkImageToImageFilter - Generic filter that has one input..
 // .SECTION Description
-// vtkImageMultipleInputFilter is a super class for filters that 
-// have any number of inputs. Steaming is not available in this class yet.
-
-// .SECTION See Also
-// vtkImageToImageFilter vtImageInPlaceFilter vtkImageTwoInputFilter
-// vtkImageTwoOutputFilter
+// vtkImageToImageFilter is a filter superclass that hides much of the pipeline 
+// complexity. It handles breaking the pipeline execution into smaller
+// extents so that the vtkImageData memory limits are observed. It 
+// also provides support for multithreading.
 
 
 
-#ifndef __vtkImageMultipleInputFilter_h
-#define __vtkImageMultipleInputFilter_h
+#ifndef __vtkImageToImageFilter_h
+#define __vtkImageToImageFilter_h
 
 
 #include "vtkImageSource.h"
 #include "vtkMultiThreader.h"
 
-
-class VTK_EXPORT vtkImageMultipleInputFilter : public vtkImageSource
+class VTK_EXPORT vtkImageToImageFilter : public vtkImageSource
 {
 public:
-  vtkImageMultipleInputFilter();
-  ~vtkImageMultipleInputFilter();
-  static vtkImageMultipleInputFilter *New() 
-    {return new vtkImageMultipleInputFilter;};
-  const char *GetClassName() {return "vtkImageMultipleInputFilter";};
+  vtkImageToImageFilter();
+  ~vtkImageToImageFilter();
+  static vtkImageToImageFilter *New() {return new vtkImageToImageFilter;};
+  const char *GetClassName() {return "vtkImageToImageFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
-  // Set an Input of this filter. 
-  virtual void SetInput(int num, vtkImageData *input);
-
-  // Description:
-  // Adds an input to the first null position in the input list.
-  // Expands the list memory if necessary
-  virtual void AddInput(vtkImageData *input);
+  // Set the Input of a filter. 
+  void SetInput(vtkImageData *input);
+  vtkImageData *GetInput();
   
   // Description:
-  // Called by the cache
-  void InternalUpdate(vtkDataObject *outData);
-
+  // This method is called by the cache.  It eventually calls the
+  // Execute(vtkImageData *, vtkImageData *) method.
+  // Information has already been updated by this point, 
+  // and outRegion is in local coordinates.
+  // This method will stream to get the input, and loops over extra axes.
+  // Only the UpdateExtent from output will get updated.
+  virtual void InternalUpdate(vtkDataObject *outData);
+  
   // Description:
-  // This method gets the boundary of the inputs then computes and returns 
-  // the boundary of the largest region that can be generated. 
-  void UpdateInformation();
+  // This method sets the WholeExtent, Spacing and Origin of the output.
+  virtual void UpdateInformation();
+
 
   // Description:
   // This Method returns the MTime of the pipeline up to and including this
   // filter Note: current implementation may create a cascade of
   // GetPipelineMTime calls.  Each GetPipelineMTime call propagates the call
-  // all the way to the original source.  This works, but is not elegant. 
+  // all the way to the original source.
   unsigned long int GetPipelineMTime();
 
   // Description:
-  // Get one input to this filter.
-  vtkImageData *GetInput(int num);
-  vtkImageData *GetInput();
-
-  // Description:
   // Turning bypass on will cause the filter to turn off and
-  // simply pass the data from the first input (input0) through.  
-  // It is implemented for consistancy with vtkImageToImageFilter.
+  // simply pass the data through.  This main purpose for this functionality
+  // is support for vtkImageDecomposedFilter.  InputMemoryLimit is ignored
+  // when Bypass in on.
   vtkSetMacro(Bypass,int);
   vtkGetMacro(Bypass,int);
   vtkBooleanMacro(Bypass,int);
 
+  // Description:
+  // The InputMemoryLimit will cause this filter to initiate streaming.
+  // The problem is divided up until the memory used by the input data
+  // is less than this limit. (units kiloBytes)
+  void SetInputMemoryLimit(int limit);
+  long GetInputMemoryLimit();
+  
   // Description:
   // Get/Set the number of threads to create when rendering
   vtkSetClampMacro( NumberOfThreads, int, 1, VTK_MAX_THREADS );
   vtkGetMacro( NumberOfThreads, int );
 
   // Description:
-  // The execute method created by the subclass.
-  virtual void ThreadedExecute(vtkImageData **inDatas, 
+  // subclasses should define this function
+  virtual void ThreadedExecute(vtkImageData *inData, 
 			       vtkImageData *outData,
 			       int extent[6], int threadId);
-
+  
   // Description:
   // Putting this here until I merge graphics and imaging streaming.
   virtual int SplitExtent(int splitExt[6], int startExt[6], 
 			  int num, int total);
-
+  
 protected:
   vtkMultiThreader *Threader;
   int Bypass;
@@ -128,11 +128,10 @@ protected:
   int NumberOfThreads;
   
   virtual void ExecuteInformation();
-  virtual void ComputeInputUpdateExtent(int inExt[6], int outExt[6],
-						int whichInput);
-  virtual void RecursiveStreamUpdate(vtkImageData *outData);
-  virtual void Execute(vtkImageData **inDatas, vtkImageData *outData);
+  virtual void ComputeInputUpdateExtent(int inExt[6],int outExt[6]);
 
+  virtual void RecursiveStreamUpdate(vtkImageData *outData);
+  virtual void Execute(vtkImageData *inData, vtkImageData *outData);
 };
 
 #endif

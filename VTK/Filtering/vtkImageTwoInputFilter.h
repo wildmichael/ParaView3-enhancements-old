@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageTwoInputFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-15 18:52:05 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-07-22 12:13:57 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,23 +61,17 @@ public:
   // Description:
   // Set the Input1 of this filter. If a ScalarType has not been set,
   // then the ScalarType of the input is used.
-  virtual void SetInput1(vtkImageCache *input);
-  void SetInput1(vtkStructuredPoints *spts)
-    {vtkStructuredPointsToImage *tmp = spts->MakeStructuredPointsToImage();
-     this->SetInput1(tmp->GetOutput()); tmp->Delete();}
+  virtual void SetInput1(vtkImageData *input);
   
   // Description:
   // Set the Input2 of this filter. If a ScalarType has not been set,
   // then the ScalarType of the input is used.
-  virtual void SetInput2(vtkImageCache *input);
-  void SetInput2(vtkStructuredPoints *spts)
-    {vtkStructuredPointsToImage *tmp = spts->MakeStructuredPointsToImage();
-     this->SetInput2(tmp->GetOutput()); tmp->Delete();}
+  virtual void SetInput2(vtkImageData *input);
   
   // Description:
   // Get the inputs to this filter.
-  vtkImageCache *GetInput1() {return this->Inputs[0];}
-  vtkImageCache *GetInput2() {return this->Inputs[1];}
+  vtkImageData *GetInput1() {return (vtkImageData *)this->Inputs[0];}
+  vtkImageData *GetInput2() {return (vtkImageData *)this->Inputs[1];}
 
 };
 

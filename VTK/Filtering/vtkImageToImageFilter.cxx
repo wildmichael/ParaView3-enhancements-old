@@ -1,10 +1,10 @@
 /*=========================================================================
 
   Program:   Visualization Toolkit
-  Module:    $RCSfile: vtkImageMultipleInputFilter.cxx,v $
+  Module:    $RCSfile: vtkImageToImageFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:46 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1999-07-22 12:13:56 $
+  Version:   $Revision: 1.1 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,128 +38,100 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkImageMultipleInputFilter.h"
-
+#include "vtkImageToImageFilter.h"
 
 //----------------------------------------------------------------------------
-vtkImageMultipleInputFilter::vtkImageMultipleInputFilter()
+vtkImageToImageFilter::vtkImageToImageFilter()
 {
-  this->NumberOfInputs = 0;
   this->Bypass = 0;
   this->Updating = 0;
-
   this->Threader = vtkMultiThreader::New();
   this->NumberOfThreads = this->Threader->GetNumberOfThreads();
 }
 
 //----------------------------------------------------------------------------
-vtkImageMultipleInputFilter::~vtkImageMultipleInputFilter()
+vtkImageToImageFilter::~vtkImageToImageFilter()
 {
-  int idx;
-  
-  for (idx = 0; idx < this->NumberOfInputs; ++idx)
-    {
-    if (this->Inputs[idx])
-      {
-      this->Inputs[idx]->UnRegister(this);
-      this->Inputs[idx] = NULL;
-      }
-    }
-      
   this->Threader->Delete();
 }
 
 //----------------------------------------------------------------------------
-void vtkImageMultipleInputFilter::PrintSelf(ostream& os, vtkIndent indent)
+void vtkImageToImageFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  int idx;
-  
-  os << indent << "NumberOfThreads: " << this->NumberOfThreads << "\n";
   os << indent << "Bypass: " << this->Bypass << "\n";
-  
+  os << indent << "NumberOfThreads: " << this->NumberOfThreads << "\n";
+
   vtkImageSource::PrintSelf(os,indent);
 }
 
 //----------------------------------------------------------------------------
-unsigned long int vtkImageMultipleInputFilter::GetPipelineMTime()
+void vtkImageToImageFilter::SetInput(vtkImageData *input)
+{
+  this->vtkProcessObject::SetInput(0, input);
+}
+
+//----------------------------------------------------------------------------
+vtkImageData *vtkImageToImageFilter::GetInput()
+{
+  if (this->NumberOfInputs < 1)
+    {
+    return NULL;
+    }
+  
+  return (vtkImageData *)(this->Inputs[0]);
+}
+
+
+
+//----------------------------------------------------------------------------
+// This Method returns the MTime of the pipeline upto and including this filter
+// Note: current implementation may create a cascade of GetPipelineMTime calls.
+// Each GetPipelineMTime call propagates the call all the way to the original
+// source.  
+unsigned long int vtkImageToImageFilter::GetPipelineMTime()
 {
   unsigned long int time1, time2;
-  int idx;
 
   // This objects MTime
   // (Super class considers cache in case cache did not originate message)
   time1 = this->GetMTime();
-  // Look at input modified times.
-  for (idx = 0; idx < this->NumberOfInputs; ++idx)
+  if ( ! this->GetInput())
     {
-    if ( ! this->Inputs[idx])
-      {
-      time2 = time1;
-      }
-    else
-      {
-      this->Inputs[idx]->UpdateInformation();
-      time2 = this->Inputs[idx]->GetPipelineMTime();
-      }
-    
-    // Keep the larger of the two 
-    if (time2 > time1)
-      {
-      time1 = time2;
-      }
+    vtkWarningMacro(<< "GetPipelineMTime: Input not set.");
+    return time1;
     }
   
+  // Pipeline mtime 
+  time2 = this->GetInput()->GetPipelineMTime();
+  
+  // Return the larger of the two 
+  if (time2 > time1)
+    {
+    time1 = time2;
+    }
+
   return time1;
 }
 
 
 //----------------------------------------------------------------------------
-// Adds an input to the first null position in the input list.
-// Expands the list memory if necessary
-void vtkImageMultipleInputFilter::AddInput(vtkImageData *input)
+// This method is called by the cache.  It eventually calls the
+// Execute(vtkImageData *, vtkImageData *) method.
+// Information has already been updated by this point, 
+// and outRegion is in local coordinates.
+// This method will stream to get the input, and loops over extra axes.
+// Only the UpdateExtent from output will get updated.
+void vtkImageToImageFilter::InternalUpdate(vtkDataObject *data)
 {
-  int idx;
-  
-  this->vtkProcessObject::AddInput(input);
-}
+  vtkImageData *outData = (vtkImageData *)data;
 
-//----------------------------------------------------------------------------
-// Set an Input of this filter. 
-void vtkImageMultipleInputFilter::SetInput(int idx, vtkImageData *input)
-{
-  this->vtkProcessObject::SetInput(idx, input);
-}
-
-//----------------------------------------------------------------------------
-vtkImageData *vtkImageMultipleInputFilter::GetInput()
-{
-  return this->GetInput(0);
-}
-
-//----------------------------------------------------------------------------
-vtkImageData *vtkImageMultipleInputFilter::GetInput(int idx)
-{
-  if (this->NumberOfInputs <= idx)
+  // Make sure the Input has been set.
+  if ( ! this->GetInput())
     {
-    return NULL;
-    }
-  
-  return (vtkImageData*)(this->Inputs[idx]);
-}
-
-//----------------------------------------------------------------------------
-// Called by cache
-void vtkImageMultipleInputFilter::InternalUpdate(vtkDataObject *data)
-{
-  vtkImageData *outData = (vtkImageData *)(data);
-    
-  // We could handle NULLs in our input list, but ...
-  if ( ! this->Inputs || ! this->Inputs[0])
-    {
-    vtkErrorMacro("First input is not set.");
+    vtkErrorMacro(<< "Input is not set.");
     return;
     }
-  
+
   // prevent infinite update loops.
   if (this->Updating)
     {
@@ -167,11 +139,11 @@ void vtkImageMultipleInputFilter::InternalUpdate(vtkDataObject *data)
     }
   this->Updating = 1;
   this->AbortExecute = 0;
-  
+
   // In case this update is called directly.
   this->UpdateInformation();
   this->GetOutput()->ClipUpdateExtentWithWholeExtent();
-  
+
   // since cache no longer exists we must allocate the scalars here
   // This may be a bad place to allocate data (before input->update)
   this->InterceptCacheUpdate();
@@ -183,9 +155,9 @@ void vtkImageMultipleInputFilter::InternalUpdate(vtkDataObject *data)
     {
     vtkImageData *inData;
 
-    this->GetInput(0)->SetUpdateExtent(this->GetOutput()->GetUpdateExtent());
-    this->GetInput(0)->Update();
-    inData = this->GetInput(0);
+    this->GetInput()->SetUpdateExtent(this->GetOutput()->GetUpdateExtent());
+    this->GetInput()->InternalUpdate();
+    inData = this->GetInput();
     if (!inData)
       {
       vtkWarningMacro("No input data provided!");
@@ -196,92 +168,56 @@ void vtkImageMultipleInputFilter::InternalUpdate(vtkDataObject *data)
       }
 
     // release input data
-    if (this->GetInput(0)->ShouldIReleaseData())
+    if (this->GetInput()->ShouldIReleaseData())
       {
-      this->GetInput(0)->ReleaseData();
+      this->GetInput()->ReleaseData();
       }
     this->Updating = 0;
     return;
-    }  
+    }
   
   this->RecursiveStreamUpdate(outData);
 
   this->Updating = 0;
 }
 
+
+
+  
 //----------------------------------------------------------------------------
 // This method can be called recursively for streaming.
 // The extent of the outRegion changes, dim remains the same.
-void vtkImageMultipleInputFilter::RecursiveStreamUpdate(vtkImageData *outData)
+void vtkImageToImageFilter::RecursiveStreamUpdate(vtkImageData *outData)
 {
-  int idx;
-  int memory, divide;
+  int memory;
+  vtkImageData *inData;
   int inExt[6], outExt[6], splitExt[6];
-  
-  memory = 0;
+    
+  // abort if required
+  if (this->AbortExecute) 
+    {
+    return;
+    }
   
   // Compute the required input region extent.
   // Copy to fill in extent of extra dimensions.
-  divide = 0;
-  for (idx = 0; idx < this->NumberOfInputs; idx++)
-    {
-    if (this->Inputs[idx])
-      {
-      this->ComputeInputUpdateExtent(inExt,
-			 this->GetOutput()->GetUpdateExtent(),idx);
-      this->GetInput(idx)->SetUpdateExtent(inExt),
-      // determine the amount of memory that will be used by the input region.
-      memory = this->GetInput(idx)->GetUpdateExtentMemorySize();
-      if (memory > this->GetInput(idx)->GetMemoryLimit())
-	{
-	divide = 1;
-	}
-      }
-    }
+  this->ComputeInputUpdateExtent(inExt, this->GetOutput()->GetUpdateExtent());
+  this->GetInput()->SetUpdateExtent(inExt),    
+  
+  // determine the amount of memory that will be used by the input region.
+  memory = this->GetInput()->GetUpdateExtentMemorySize();
   
   // Split the inRegion if we are streaming.
-  if (divide)
+  if ((memory > this->GetInput()->GetMemoryLimit()))
     {
     this->GetOutput()->GetUpdateExtent(outExt);
-    if (this->SplitExtent(splitExt, outExt, 0, 2) > 1)
-      { // yes we can split
-      vtkDebugMacro(<< "RecursiveStreamUpdate: Splitting " 
-                    << " : memory = " << memory);
-      this->GetOutput()->SetUpdateExtent(splitExt);
-      this->RecursiveStreamUpdate(outData);
-      // Set the second half to update
-      this->SplitExtent(splitExt, outExt, 1, 2);
-      this->GetOutput()->SetUpdateExtent(splitExt);
-      this->RecursiveStreamUpdate(outData);
-      // Restore the original extent
-      this->GetOutput()->SetUpdateExtent(outExt);
-      return;
-      }
-    else
-      {
-      // Cannot split any more.  Ignore memory limit and continue.
-      vtkWarningMacro(<< "RecursiveStreamUpdate: Cannot split. memory = "
-        << memory << endl);
-      }
+    vtkWarningMacro("RecursiveStreamUpdate: Streaming disabled ")
     }
-
+  
   // No Streaming required.
-  vtkImageData **inDatas;
-  inDatas = new vtkImageData *[this->NumberOfInputs];
-  for (idx = 0; idx < this->NumberOfInputs; ++idx)
-    {
-    if (this->Inputs[idx])
-      {
-      // Get the input region (Update extent was set at start of this method).
-      this->GetInput(idx)->InternalUpdate();
-      inDatas[idx] = this->GetInput(idx);
-      }
-    else
-      {  
-      // Input does not presently exist.
-      inDatas[idx] = NULL;
-      }  
-    }
+  // Get the input region (Update extent was set at start of this method).
+  this->GetInput()->InternalUpdate();
+  inData = this->GetInput();
 
   // The StartMethod call is placed here to be after updating the input.
   if ( this->StartMethod )
@@ -289,55 +225,50 @@ void vtkImageMultipleInputFilter::RecursiveStreamUpdate(vtkImageData *outData)
     (*this->StartMethod)(this->StartMethodArg);
     }
   // fill the output region 
-  this->Execute(inDatas, outData);
+  this->Execute(inData, outData);
   if ( this->EndMethod )
     {
     (*this->EndMethod)(this->EndMethodArg);
     }
   
   // Like the graphics pipeline this source releases inputs data.
-  for (idx = 0; idx < this->NumberOfInputs; ++idx)
+  if (this->GetInput()->ShouldIReleaseData())
     {
-    if (this->Inputs && this->Inputs[idx] &&
-	this->Inputs[idx]->ShouldIReleaseData())
-      {
-      this->Inputs[idx]->ReleaseData();
-      }
+    this->GetInput()->ReleaseData();
     }
-  
-  delete [] inDatas;
 }
 
+
 //----------------------------------------------------------------------------
-// This method gets the boundary of the inputs then computes and returns 
-// the boundary of the largest region that can be generated. 
-void vtkImageMultipleInputFilter::UpdateInformation()
+// This method sets the WholeExtent, Spacing and Origin of the output.
+void vtkImageToImageFilter::UpdateInformation()
 {
-  int idx;
+  vtkImageData *input = this->GetInput();
+  vtkImageData *output = this->GetOutput();
   
   // Make sure the Input has been set.
-  // we require that input 1 be set.
-  if ( ! this->Inputs[0])
+  if ( ! input)
     {
     vtkErrorMacro(<< "UpdateInformation: Input is not set.");
     return;
     }
-  
-  for (idx = 0; idx < this->NumberOfInputs; ++idx)
+
+  this->vtkSource::UpdateInformation();
+
+  // I do not like setting up the defaults here because it could modify
+  // the output which would cause more Executes than necessary.
+  output->SetWholeExtent(input->GetWholeExtent());
+  output->SetSpacing(input->GetSpacing());
+  output->SetOrigin(input->GetOrigin());
+  if (output->GetScalarType() == VTK_VOID)
     {
-    if (this->Inputs[idx])
-      {
-      this->Inputs[idx]->UpdateInformation();
-      }
+    output->SetScalarType(input->GetScalarType());
     }
-  
-  // Set the defaults from input1
-  this->GetOutput()->SetWholeExtent(this->GetInput(0)->GetWholeExtent());
-  this->GetOutput()->SetSpacing(this->GetInput(0)->GetSpacing());
-  this->GetOutput()->SetOrigin(this->GetInput(0)->GetOrigin());
-  this->GetOutput()->SetScalarType(this->GetInput(0)->GetScalarType());
-  this->GetOutput()->SetNumberOfScalarComponents(
-			    this->GetInput(0)->GetNumberOfScalarComponents());
+  if (output->GetNumberOfScalarComponents() == 0)
+    {
+    output->SetNumberOfScalarComponents(input->GetNumberOfScalarComponents());
+    }
+
   if ( ! this->Bypass)
     {
     // Let the subclass modify the default.
@@ -346,68 +277,57 @@ void vtkImageMultipleInputFilter::UpdateInformation()
 }
 
 
-
 //----------------------------------------------------------------------------
-// This method is passed an inRegion that holds the image information
-// (image extent ...) of this filters input, and fills outRegion with
-// the image information after this filter is finished.
-// outImage is identical to inImage when this method is envoked, and
-// outImage may be the same object as in image.
-void vtkImageMultipleInputFilter::ExecuteInformation()
+// This method can be overriden in a subclass to compute the output
+// Information: WholeExtent, Spacing and Origin.
+void vtkImageToImageFilter::ExecuteInformation()
 {
-  // Default: Image information does not change (do nothing).
 }
 
-
-
 //----------------------------------------------------------------------------
-// This method computes the extent of the input region necessary to generate
-// an output region.  Before this method is called "region" should have the 
-// extent of the output region.  After this method finishes, "region" should 
-// have the extent of the required input region.  The default method assumes
-// the required input extent are the same as the output extent.
-// Note: The splitting methods call this method with outRegion = inRegion.
-void vtkImageMultipleInputFilter::ComputeInputUpdateExtent(int inExt[6],
-							   int outExt[6],
-							   int whichInput)
+// This method can be overriden in a subclass to compute the input
+// UpdateExtent needed to generate the output UpdateExtent.
+// By default the input is set to the same as the output before this
+// method is called.
+void vtkImageToImageFilter::ComputeInputUpdateExtent(int inExt[6], int outExt[6])
 {
-  whichInput = whichInput;
   memcpy(inExt,outExt,sizeof(int)*6);
 }
 
-
-struct vtkImageMultiThreadStruct
+struct vtkImageThreadStruct
 {
-  vtkImageMultipleInputFilter *Filter;
-  vtkImageData   **Inputs;
+  vtkImageToImageFilter *Filter;
+  vtkImageData   *Input;
   vtkImageData   *Output;
 };
-  
+
+
+
 // this mess is really a simple function. All it does is call
 // the ThreadedExecute method after setting the correct
 // extent for this thread. Its just a pain to calculate
 // the correct extent.
-VTK_THREAD_RETURN_TYPE vtkImageMultiThreadedExecute( void *arg )
+VTK_THREAD_RETURN_TYPE vtkImageThreadedExecute( void *arg )
 {
-  vtkImageMultiThreadStruct *str;
+  vtkImageThreadStruct *str;
   int ext[6], splitExt[6], total;
   int threadId, threadCount;
   
   threadId = ((ThreadInfoStruct *)(arg))->ThreadID;
   threadCount = ((ThreadInfoStruct *)(arg))->NumberOfThreads;
-  
-  str = (vtkImageMultiThreadStruct *)(((ThreadInfoStruct *)(arg))->UserData);
-  
-  memcpy(ext,str->Filter->GetOutput()->GetUpdateExtent(),
+
+  str = (vtkImageThreadStruct *)(((ThreadInfoStruct *)(arg))->UserData);
+  memcpy(ext,str->Output->GetUpdateExtent(),
 	 sizeof(int)*6);
 
   // execute the actual method with appropriate extent
   // first find out how many pieces extent can be split into.
   total = str->Filter->SplitExtent(splitExt, ext, threadId, threadCount);
-    
+  //total = 1;
+  
   if (threadId < total)
     {
-    str->Filter->ThreadedExecute(str->Inputs, str->Output, splitExt, threadId);
+    str->Filter->ThreadedExecute(str->Input, str->Output, splitExt, threadId);
     }
   // else
   //   {
@@ -415,40 +335,38 @@ VTK_THREAD_RETURN_TYPE vtkImageMultiThreadedExecute( void *arg )
   //   break up very well and it is just as efficient to leave a 
   //   few threads idle.
   //   }
-
+  
   return VTK_THREAD_RETURN_VALUE;
 }
 
-//----------------------------------------------------------------------------
-// The execute method created by the subclass.
-void vtkImageMultipleInputFilter::Execute(vtkImageData **inDatas, 
-					  vtkImageData *outData)
+
+void vtkImageToImageFilter::Execute(vtkImageData *inData, 
+				    vtkImageData *outData)
 {
-  vtkImageMultiThreadStruct str;
+  vtkImageThreadStruct str;
   
   str.Filter = this;
-  str.Inputs = inDatas;
+  str.Input = inData;
   str.Output = outData;
   
   this->Threader->SetNumberOfThreads(this->NumberOfThreads);
   
   // setup threading and the invoke threadedExecute
-  this->Threader->SetSingleMethod(vtkImageMultiThreadedExecute, &str);
+  this->Threader->SetSingleMethod(vtkImageThreadedExecute, &str);
   this->Threader->SingleMethodExecute();
 }
 
+
 //----------------------------------------------------------------------------
 // The execute method created by the subclass.
-void vtkImageMultipleInputFilter::ThreadedExecute(vtkImageData 
-				  **vtkNotUsed(inData), 
-				  vtkImageData *vtkNotUsed(outData),
-				  int extent[6], int vtkNotUsed(threadId))
+void vtkImageToImageFilter::ThreadedExecute(vtkImageData *vtkNotUsed(inData), 
+				     vtkImageData *vtkNotUsed(outData),
+				     int extent[6], int vtkNotUsed(threadId))
 {
   extent = extent;
-  vtkErrorMacro("subclase should override this method!!!");
+  vtkErrorMacro("subclass should override this method!!!");
 }
 
-  
 //----------------------------------------------------------------------------
 // For streaming and threads.  Splits output update extent into num pieces.
 // This method needs to be called num times.  Results must not overlap for
@@ -456,8 +374,8 @@ void vtkImageMultipleInputFilter::ThreadedExecute(vtkImageData
 // This method returns the number of peices resulting from a successful split.
 // This can be from 1 to "total".  
 // If 1 is returned, the extent cannot be split.
-int vtkImageMultipleInputFilter::SplitExtent(int splitExt[6], int startExt[6], 
-					     int num, int total)
+int vtkImageToImageFilter::SplitExtent(int splitExt[6], int startExt[6], 
+				       int num, int total)
 {
   int splitAxis;
   int min, max;
@@ -510,11 +428,29 @@ int vtkImageMultipleInputFilter::SplitExtent(int splitExt[6], int startExt[6],
 
 
 
+//----------------------------------------------------------------------------
+void vtkImageToImageFilter::SetInputMemoryLimit(int limit)
+{
+  vtkImageData *input = this->GetInput();
+  
+  if ( input == NULL)
+    {
+    vtkErrorMacro("Input must be set before InputMemoryLimit.");
+    }
+  
+  input->SetMemoryLimit(limit);
+}
 
-
-
-
-
-
-
-
+//----------------------------------------------------------------------------
+long vtkImageToImageFilter::GetInputMemoryLimit()
+{
+  vtkImageData *input = this->GetInput();
+  
+  if ( input == NULL)
+    {
+    vtkErrorMacro("Input must be set before you can get InputMemoryLimit.");
+    return 1000000;
+    }
+  
+  return input->GetMemoryLimit();
+}
