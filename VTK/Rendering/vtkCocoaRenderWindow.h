@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCocoaRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2003-02-05 20:38:10 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2003-03-16 17:54:54 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -189,7 +189,6 @@ public:
   
   // Description:
   // Initialize OpenGL for this window.
-  virtual void OpenGLInit();
   virtual void SetupPalette(void *hDC);
   virtual void SetupPixelFormat(void *hDC, void *dwFlags, int debug, 
                                 int bpp=16, int zbpp=16);
