@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-02-26 14:59:23 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 1996-05-22 20:54:32 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -228,7 +228,6 @@ void vtkRenderer::DoActors()
 void vtkRenderer::ResetCamera()
 {
   vtkVolume *aVolume;
-  vtkActorCollection *pc;
   vtkActor *anActor, *aPart;
   float *bounds;
   float allBounds[6];
@@ -240,11 +239,10 @@ void vtkRenderer::ResetCamera()
   // loop through actors (and their parts)
   for (this->Actors.InitTraversal(); (anActor = this->Actors.GetNextItem());)
     {
-    pc = anActor->GetComposingParts();
-    for ( pc->InitTraversal(); (aPart = pc->GetNextItem()); )
+    for ( anActor->InitPartTraversal(); aPart = anActor->GetNextPart(); )
       {
       // if it's invisible, or has no geometry, we can skip the rest 
-      if ( aPart->GetVisibility() && aPart->GetMapper() != NULL )
+      if ( aPart->GetVisibility() )
         {
         nothingVisible = 0;
         bounds = aPart->GetBounds();

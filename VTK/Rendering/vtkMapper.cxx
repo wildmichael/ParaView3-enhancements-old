@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-12-27 10:53:09 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1996-05-22 20:54:28 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -189,6 +189,16 @@ float *vtkMapper::GetCenter()
   bounds = this->GetBounds();
   for (int i=0; i<3; i++) center[i] = (bounds[2*i+1] + bounds[2*i]) / 2.0;
   return center;
+}
+
+// Description:
+// Update the network connected to this mapper.
+void vtkMapper::Update()
+{
+  if ( this->Input )
+    {
+    this->Input->Update();
+    }
 }
 
 void vtkMapper::PrintSelf(ostream& os, vtkIndent indent)
