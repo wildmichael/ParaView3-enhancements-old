@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.h,v $
   Language:  C++
-  Date:      $Date: 1996-06-26 20:38:32 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1996-07-16 15:33:07 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -182,6 +182,7 @@ class vtkActor : public vtkObject
   void SetOrientation(float,float,float);
   void SetOrientation(float a[3]);
   float *GetOrientation();
+  float *GetOrientationWXYZ();
   void AddOrientation(float,float,float);
   void AddOrientation(float a[3]);
 
