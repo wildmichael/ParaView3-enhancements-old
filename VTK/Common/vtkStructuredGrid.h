@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 1994-05-08 08:54:09 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-05-13 13:45:35 $
+  Version:   $Revision: 1.3 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -23,7 +23,6 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 
 #include "PointSet.hh"
 #include "StrData.hh"
-#include "CArray.hh"
 
 class vlStructuredGrid : public vlPointSet, public vlStructuredDataSet {
 public:
