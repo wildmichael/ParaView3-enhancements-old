@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCaptionActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-04 17:02:00 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-10-05 14:19:56 $
+  Version:   $Revision: 1.5 $
   Thanks:    Tim Smith who sponsored and encouraged the development
              of this class.
 
@@ -95,6 +95,8 @@ vtkCaptionActor2D::vtkCaptionActor2D()
   this->Italic = 1;
   this->Shadow = 1;
   this->FontFamily = VTK_ARIAL;
+  this->Justification = VTK_TEXT_LEFT;
+  this->VerticalJustification = VTK_TEXT_BOTTOM;
 
   // What is actually drawn
   this->CaptionMapper = vtkTextMapper::New();
