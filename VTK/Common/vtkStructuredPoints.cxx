@@ -3,8 +3,8 @@
 
   Module:    $RCSfile: vtkStructuredPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:11 $
-  Version:   $Revision: 1.78 $
+  Date:      $Date: 2000-01-07 08:57:17 $
+  Version:   $Revision: 1.79 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -40,7 +40,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <math.h>
 #include "vtkStructuredPoints.h"
 #include "vtkImageToStructuredPoints.h"
-#include "vtkStructuredExtent.h"
 #include "vtkObjectFactory.h"
 
 
@@ -59,35 +58,17 @@ vtkStructuredPoints* vtkStructuredPoints::New()
 }
 
 
-
-
 vtkStructuredPoints::vtkStructuredPoints()
 {
   this->SetScalarType(VTK_FLOAT);
 }
 
-
-int vtkStructuredPoints::ClipUpdateExtentWithWholeExtent()
+void vtkStructuredPoints::ModifyExtentForUpdateExtent()
 {
-  this->GetStructuredUpdateExtent()->SetExtent(this->GetWholeExtent());
-  return 1;
+  // Make sure the extent is the whole extent
+  this->SetUpdateExtent( this->WholeExtent );
 }
 
-// I trying to solve a problem with image information.
-// vtkDataSetToDataSetFilters do not have the same methods 
-// to fill in information as vtkStructuredPointsSource.
-void vtkStructuredPoints::InternalUpdate()
-{
-  vtkScalars *scalars;
-
-  this->vtkImageData::InternalUpdate();
-  scalars = this->GetPointData()->GetScalars();
-  if (scalars)
-    {
-    this->SetScalarType(scalars->GetDataType());
-    this->SetNumberOfScalarComponents(scalars->GetNumberOfComponents());
-    }
-}
 
 
 

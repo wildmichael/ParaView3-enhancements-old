@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToStructuredPoints.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:55:43 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2000-01-07 08:57:13 $
+  Version:   $Revision: 1.24 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -91,7 +91,7 @@ protected:
   
   void Execute();
   void ExecuteInformation();
-  int ComputeInputUpdateExtents(vtkDataObject *data);
+  void ComputeInputUpdateExtents(vtkDataObject *data);
 
   
 };

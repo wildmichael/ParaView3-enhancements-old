@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToStructuredPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-23 15:23:48 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2000-01-07 08:57:12 $
+  Version:   $Revision: 1.34 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -313,7 +313,7 @@ void vtkImageToStructuredPoints::ExecuteInformation()
 }
 
 //----------------------------------------------------------------------------
-int vtkImageToStructuredPoints::ComputeInputUpdateExtents(vtkDataObject *data)
+void vtkImageToStructuredPoints::ComputeInputUpdateExtents(vtkDataObject *data)
 {
   vtkStructuredPoints *output = (vtkStructuredPoints*)data;
   int ext[6];
@@ -338,8 +338,6 @@ int vtkImageToStructuredPoints::ComputeInputUpdateExtents(vtkDataObject *data)
     {
     input->SetUpdateExtent(ext);
     }
-  
-  return 1;
 }
 
 
