@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:24:22 $
-  Version:   $Revision: 1.90 $
+  Date:      $Date: 2003-07-24 12:44:05 $
+  Version:   $Revision: 1.91 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -70,10 +70,6 @@ public:
   int InsertNextCell(int type, int npts, vtkIdType *pts);
   int InsertNextCell(int type, vtkIdList *ptIds);
   void Reset();
-  void SetCells(int *types, vtkCellArray *cells);
-  void SetCells(vtkUnsignedCharArray *cellTypes, vtkIntArray *cellLocations, 
-                vtkCellArray *cells);
-  vtkCellArray *GetCells() {return this->Connectivity;};
   virtual void CopyStructure(vtkDataSet *ds);
   vtkIdType GetNumberOfCells();
   virtual vtkCell *GetCell(vtkIdType cellId);
@@ -92,6 +88,15 @@ public:
   vtkCellLinks *GetCellLinks() {return this->Links;};
   virtual void GetCellPoints(vtkIdType cellId, vtkIdType& npts,
                              vtkIdType* &pts);
+
+  // Description:
+  // Special methods specific to vtkUnstructuredGrid for defining the cells
+  // composing the dataset.
+  void SetCells(int type, vtkCellArray *cells);
+  void SetCells(int *types, vtkCellArray *cells);
+  void SetCells(vtkUnsignedCharArray *cellTypes, vtkIntArray *cellLocations, 
+                vtkCellArray *cells);
+  vtkCellArray *GetCells() {return this->Connectivity;};
   void ReplaceCell(vtkIdType cellId, int npts, vtkIdType *pts);
   int InsertNextLinkedCell(int type, int npts, vtkIdType *pts);
   void RemoveReferenceToCell(vtkIdType ptId, vtkIdType cellId);
