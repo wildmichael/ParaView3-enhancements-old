@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShrinkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-11-18 20:24:14 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2000-11-29 16:14:09 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -142,7 +142,7 @@ void vtkShrinkPolyData::Execute()
       newVerts->InsertCellPoint(newId);
       pointData->CopyData(pd,pts[j],newId);
       }    
-    abortExecute = GetAbortExecute();
+    abortExecute = this->GetAbortExecute();
     }
   this->UpdateProgress (0.10);
 
@@ -175,7 +175,7 @@ void vtkShrinkPolyData::Execute()
 
       newLines->InsertNextCell(2,newIds);
       }
-    abortExecute = GetAbortExecute();
+    abortExecute = this->GetAbortExecute();
     }
   this->UpdateProgress (0.25);
 
@@ -209,7 +209,7 @@ void vtkShrinkPolyData::Execute()
       newPolys->InsertCellPoint(newId);
       pointData->CopyData(pd,pts[j],newId);
       }
-    abortExecute = GetAbortExecute();
+    abortExecute = this->GetAbortExecute();
     }
   this->UpdateProgress (0.75);
 
@@ -258,7 +258,7 @@ void vtkShrinkPolyData::Execute()
         }
       newPolys->InsertNextCell(3,newIds);
       }
-    abortExecute = GetAbortExecute();
+    abortExecute = this->GetAbortExecute();
     }
 
   // Update self and release memory
