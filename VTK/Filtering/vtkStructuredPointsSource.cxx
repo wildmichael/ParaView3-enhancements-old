@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-07 09:13:50 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2000-01-14 21:30:42 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -94,6 +94,19 @@ vtkStructuredPoints *vtkStructuredPointsSource::GetOutput()
 // structured points sources compute information
 void vtkStructuredPointsSource::ExecuteInformation()
 {
+  vtkStructuredPoints *output = this->GetOutput();
+  vtkScalars *scalars;
+
+  output->UpdateData();
+  scalars = output->GetPointData()->GetScalars();
+
+  if (scalars)
+    {
+    output->SetScalarType(scalars->GetDataType());
+    output->SetNumberOfScalarComponents(scalars->GetNumberOfComponents());
+    }
+
+  output->SetWholeExtent(output->GetExtent());
 }
 
 
