@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPieceScalars.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-12 16:09:44 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-09-13 12:57:53 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -116,7 +116,6 @@ vtkIntArray *vtkPieceScalars::MakePieceScalars(int piece, vtkIdType num)
 {
   vtkIdType i;
   vtkIntArray *pieceColors = NULL;
-  vtkIntArray *ia;
 
   pieceColors = vtkIntArray::New();
   pieceColors->SetNumberOfTuples(num);
