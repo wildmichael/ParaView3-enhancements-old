@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSplitField.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:12:03 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-10-04 09:27:40 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -112,7 +112,7 @@ public:
   void Split(int component, const char* arrayName);
 
 //BTX
-  enum FieldLocation
+  enum FieldLocations
   {
     DATA_OBJECT=0,
     POINT_DATA=1,
@@ -144,7 +144,7 @@ public:
 protected:
 
 //BTX
-  enum FieldType
+  enum FieldTypes
   {
     NAME,
     ATTRIBUTE

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeFields.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:56 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-10-04 09:27:40 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -104,7 +104,7 @@ public:
   vtkSetMacro(NumberOfComponents, int);
 
 //BTX
-  enum FieldLocation
+  enum FieldLocations
   {
     DATA_OBJECT=0,
     POINT_DATA=1,
