@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-06-04 20:36:23 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 1996-06-14 11:12:24 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -143,7 +143,7 @@ void vtkActor::Render(vtkRenderer *ren)
     // force creation of a property
     this->GetProperty();
     }
-  this->Property->Render(ren);
+  this->Property->Render(ren, this);
 
   // render the texture */
   if (this->Texture) this->Texture->Render(ren);
