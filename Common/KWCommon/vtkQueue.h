@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQueue.h,v $
   Language:  C++
-  Date:      $Date: 2002-12-20 17:51:41 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-02-27 17:42:32 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -86,8 +86,6 @@ public:
 protected:
   vtkQueue();
   virtual ~vtkQueue();
-
-  vtkIdType GetNumberOfItemsInTheQueue();
 
   vtkIdType Start;
   vtkIdType End;
