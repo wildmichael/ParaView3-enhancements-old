@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-30 21:49:49 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-05-02 14:16:42 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -38,7 +38,7 @@
 
 #define ABS(x) ((x)<0 ? -(x) : (x))
 
-vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.16 $");
+vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.17 $");
 vtkStandardNewMacro(vtkImagePlaneWidget);
 
 vtkImagePlaneWidget::vtkImagePlaneWidget()
@@ -111,6 +111,8 @@ vtkImagePlaneWidget::vtkImagePlaneWidget()
   this->TexturePlaneMapper = vtkDataSetMapper::New();
   this->TexturePlaneActor = vtkActor::New();
   this->DummyTransform = vtkTransform::New();
+
+  this->ImageData = 0;
 }
 
 vtkImagePlaneWidget::~vtkImagePlaneWidget()
