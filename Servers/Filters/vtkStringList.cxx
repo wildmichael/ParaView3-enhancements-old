@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkStringList.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-07 21:16:28 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2003-03-05 13:57:43 $
+  Version:   $Revision: 1.7 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -47,7 +47,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkStringList);
-vtkCxxRevisionMacro(vtkStringList, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkStringList, "$Revision: 1.7 $");
 
 //----------------------------------------------------------------------------
 vtkStringList::vtkStringList()
@@ -189,6 +189,13 @@ void vtkStringList::Reallocate(int num)
 //----------------------------------------------------------------------------
 void vtkStringList::PrintSelf(ostream& os, vtkIndent indent)
 {
+  int idx, num;
+
   this->Superclass::PrintSelf(os,indent);
-  os << indent << "NumberOfStrings: " << this->GetNumberOfStrings() << endl;
+  num = this->GetNumberOfStrings();
+  os << indent << "NumberOfStrings: " << num << endl;
+  for (idx = 0; idx < num; ++idx)
+    {
+    os << idx << ": " << this->GetString(idx) << endl;
+    }
 }

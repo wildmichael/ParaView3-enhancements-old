@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVTreeComposite.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-28 19:49:46 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2003-03-05 13:57:42 $
+  Version:   $Revision: 1.37 $
   
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -59,7 +59,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 //-------------------------------------------------------------------------
 vtkStandardNewMacro(vtkPVTreeComposite);
-vtkCxxRevisionMacro(vtkPVTreeComposite, "$Revision: 1.36 $");
+vtkCxxRevisionMacro(vtkPVTreeComposite, "$Revision: 1.37 $");
 
 vtkCxxSetObjectMacro(vtkPVTreeComposite, RenderView, vtkPVRenderView);
 
@@ -187,14 +187,24 @@ int vtkPVTreeComposite::ShouldIComposite()
 // Only called in process 0.
 void vtkPVTreeComposite::StartRender()
 {
-  if ( ! this->ShouldIComposite() )
+  // 1st: ShouldIComposite (check for data) is broken.
+  // 2nd: vtkPVRenderView now makes the decision to use compositing
+  // based on data information which was already collected.
+  //if ( ! this->ShouldIComposite() )
+  //  {
+  //  // We have to disable the end render also.
+  //  this->UseCompositing = 0;
+  //  }
+  //else
+  //  {
+  //  this->UseCompositing = 1;
+  //  this->vtkCompositeManager::StartRender();
+  //  }
+
+  // I do not know if the composite manager check this flag.
+  // I believe it does, but just in case ...
+  if (this->UseCompositing)
     {
-    // We have to disable the end render also.
-    this->UseCompositing = 0;
-    }
-  else
-    {
-    this->UseCompositing = 1;
     this->vtkCompositeManager::StartRender();
     }
 }

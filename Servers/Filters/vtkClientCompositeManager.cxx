@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClientCompositeManager.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-21 16:27:25 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2003-03-05 13:57:41 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -50,7 +50,7 @@
  #include <mpi.h>
 #endif
 
-vtkCxxRevisionMacro(vtkClientCompositeManager, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkClientCompositeManager, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkClientCompositeManager);
 
 vtkCxxSetObjectMacro(vtkClientCompositeManager,Compositer,vtkCompositer);
@@ -133,6 +133,7 @@ vtkClientCompositeManager::vtkClientCompositeManager()
   this->BaseArray = NULL;
 
   this->SquirtCompression = 0;
+  this->UseCompositing = 1;
 }
 
   
@@ -246,6 +247,12 @@ void vtkClientCompositeManager::StartRender()
   static int firstRender = 1;
   float updateRate = this->RenderWindow->GetDesiredUpdateRate();
   
+  if ( ! this->UseCompositing)
+    {
+    this->RenderWindow->EraseOn();
+    return;
+    }
+
   if (firstRender)
     {
     firstRender = 0;
@@ -267,6 +274,7 @@ void vtkClientCompositeManager::StartRender()
 
   if (controller == NULL)
     {
+    this->RenderWindow->EraseOn();
     return;
     }
 

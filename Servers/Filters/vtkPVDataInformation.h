@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVDataInformation.h,v $
   Language:  C++
-  Date:      $Date: 2003-01-17 14:59:46 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-03-05 13:57:41 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -72,7 +72,8 @@ public:
 
   // Description:
   // Transfer information about a single vtk data object into
-  // this object.
+  // this object. Note:  CopyFromData does not set 
+  // the GeometryMemorySize or LODMemorySize.
   void CopyFromData(vtkDataSet* data);
   void DeepCopy(vtkPVDataInformation* info);
 

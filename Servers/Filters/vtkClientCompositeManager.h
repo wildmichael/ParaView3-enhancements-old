@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClientCompositeManager.h,v $
   Language:  C++
-  Date:      $Date: 2003-01-21 16:27:31 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-03-05 13:57:41 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -142,6 +142,12 @@ public:
   };
 //ETX
 
+  // Description:
+  // Switch between local client rendering and distributed compositing.
+  vtkSetMacro(UseCompositing, int);
+  vtkGetMacro(UseCompositing, int);
+  vtkBooleanMacro(UseCompositing, int);
+
 protected:
   vtkClientCompositeManager();
   ~vtkClientCompositeManager();
@@ -213,6 +219,7 @@ protected:
   int UseChar;
   int UseRGB;
 
+  int UseCompositing;
 
 private:
   vtkClientCompositeManager(const vtkClientCompositeManager&); // Not implemented
