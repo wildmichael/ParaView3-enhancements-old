@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:03 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-07-02 13:05:04 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -75,15 +75,15 @@ void vtkRectilinearGridGeometryFilter::Execute()
 {
   int *dims, dimension, dir[3], diff[3];
   int i, j, k, extent[6];
-  int idx, startIdx, startCellIdx;
+  vtkIdType idx, startIdx, startCellIdx;
   vtkIdType ptIds[4];
-  int cellId;
+  vtkIdType cellId;
   vtkPoints *newPts=0;
   vtkCellArray *newVerts=0;
   vtkCellArray *newLines=0;
   vtkCellArray *newPolys=0;
-  int totPoints, numPolys;
-  int offset[3], pos;
+  vtkIdType totPoints, pos;
+  int offset[3], numPolys;
   float *x;
   vtkPointData *pd, *outPD;
   vtkCellData *cd, *outCD;

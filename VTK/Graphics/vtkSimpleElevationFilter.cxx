@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSimpleElevationFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-02 12:54:39 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-07-02 13:05:04 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -71,7 +71,7 @@ vtkSimpleElevationFilter::vtkSimpleElevationFilter()
 //
 void vtkSimpleElevationFilter::Execute()
 {
-  int i, numPts;
+  vtkIdType i, numPts;
   vtkScalars *newScalars;
   float s, x[3];
   vtkDataSet *input = this->GetInput();
@@ -106,7 +106,7 @@ void vtkSimpleElevationFilter::Execute()
   // Compute dot product
   //
   int abort=0;
-  int progressInterval=numPts/20 + 1;
+  vtkIdType progressInterval=numPts/20 + 1;
   for (i=0; i<numPts && !abort; i++)
     {
     if ( ! (i % progressInterval) ) 

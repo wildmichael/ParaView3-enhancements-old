@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSmoothPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:52 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-07-02 13:05:04 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -216,10 +216,6 @@ protected:
   int GenerateErrorVectors;
 
   vtkSmoothPoints *SmoothPoints;
-
 };
 
-
 #endif
-
-

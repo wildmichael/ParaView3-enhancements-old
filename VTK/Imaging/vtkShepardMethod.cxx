@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShepardMethod.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:52 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2001-07-02 13:05:04 $
+  Version:   $Revision: 1.34 $
   Thanks:    Paul A, Hsieh for bug fixes
 
 
@@ -132,13 +132,14 @@ float vtkShepardMethod::ComputeModelBounds(float origin[3], float spacing[3])
 
 void vtkShepardMethod::Execute()
 {
-  int ptId, i, j, k;
+  vtkIdType ptId, i;
+  int j, k;
   float *px, x[3], s, *sum, spacing[3], origin[3];
   
   float maxDistance, distance2, inScalar;
   vtkScalars *inScalars;
   vtkScalars *newScalars;
-  int numPts, numNewPts, idx;
+  vtkIdType numPts, numNewPts, idx;
   int min[3], max[3];
   int jkFactor;
   vtkDataSet *input = this->GetInput();

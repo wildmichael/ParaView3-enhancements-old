@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRuledSurfaceFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-21 15:21:52 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-07-02 13:05:04 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -80,7 +80,7 @@ vtkRuledSurfaceFilter::~vtkRuledSurfaceFilter()
 void vtkRuledSurfaceFilter::Execute()
 {
   vtkPoints *inPts, *newPts = NULL;
-  int i, numPts, numLines;
+  vtkIdType i, numPts, numLines;
   vtkCellArray *inLines, *newPolys, *newStrips;
   vtkPolyData *input = this->GetInput();
   vtkPolyData *output = this->GetOutput();
@@ -190,7 +190,8 @@ void  vtkRuledSurfaceFilter::Resample(vtkPolyData *output, vtkPoints *inPts,
                                       int npts, vtkIdType *pts, 
                                       int npts2, vtkIdType *pts2)
 {
-  int i, j, id, offset;
+  vtkIdType offset, id;
+  int i, j;
   float length, length2;
   vtkCellArray *newStrips;
   vtkPointData *inPD=this->GetInput()->GetPointData();

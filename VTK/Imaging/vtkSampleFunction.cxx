@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSampleFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:51 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 2001-07-02 13:05:04 $
+  Version:   $Revision: 1.53 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -155,9 +155,9 @@ void vtkSampleFunction::ExecuteInformation()
 
 void vtkSampleFunction::Execute()
 {
-  int ptId;
+  vtkIdType ptId;
   vtkNormals *newNormals=NULL;
-  int numPts;
+  vtkIdType numPts;
   float *p, s;
   vtkStructuredPoints *output = this->GetOutput();
 
@@ -251,7 +251,7 @@ unsigned long vtkSampleFunction::GetMTime()
 void vtkSampleFunction::Cap(vtkScalars *s)
 {
   int i,j,k;
-  int idx;
+  vtkIdType idx;
   int d01=this->SampleDimensions[0]*this->SampleDimensions[1];
 
 // i-j planes

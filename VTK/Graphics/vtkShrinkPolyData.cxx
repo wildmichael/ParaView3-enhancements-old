@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShrinkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-21 15:21:52 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2001-07-02 13:05:04 $
+  Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -72,7 +72,7 @@ static void vtkShrinkPolyDataExecute(vtkShrinkPolyData *self,
   vtkCellArray *newVerts, *newLines, *newPolys;
   vtkPointData *pd;
   vtkCellArray *inVerts,*inLines,*inPolys,*inStrips;
-  int numNewPts, numNewLines, numNewPolys, polyAllocSize;
+  vtkIdType numNewPts, numNewLines, numNewPolys, polyAllocSize;
   vtkIdType npts;
   vtkIdType *pts, newIds[3];
   vtkPoints *newPoints;
@@ -130,7 +130,7 @@ static void vtkShrinkPolyDataExecute(vtkShrinkPolyData *self,
   newPoints->Allocate(numNewPts);
   newPoints->SetNumberOfPoints(numNewPts);
   T *outPts = (T *)newPoints->GetVoidPointer(0);
-  int outCount = 0;
+  vtkIdType outCount = 0;
   
   // Copy vertices (no shrinking necessary)
   //
@@ -227,7 +227,7 @@ static void vtkShrinkPolyDataExecute(vtkShrinkPolyData *self,
 
   // Triangle strips need to be shrunk and split into separate pieces.
   //
-  int tmp;
+  vtkIdType tmp;
   for (inStrips->InitTraversal(); 
        inStrips->GetNextCell(npts,pts) && !abortExecute; )
     {
@@ -297,8 +297,6 @@ static void vtkShrinkPolyDataExecute(vtkShrinkPolyData *self,
   output->GetCellData()->PassData(input->GetCellData());
 }
 
-
-
 void vtkShrinkPolyData::Execute()
 {
   // Initialize
@@ -317,7 +315,6 @@ void vtkShrinkPolyData::Execute()
     }
 
 }
-
 
 void vtkShrinkPolyData::PrintSelf(ostream& os, vtkIndent indent)
 {

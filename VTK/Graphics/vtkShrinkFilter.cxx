@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShrinkFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-18 13:30:21 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 2001-07-02 13:05:04 $
+  Version:   $Revision: 1.53 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,9 +42,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkShrinkFilter.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 vtkShrinkFilter* vtkShrinkFilter::New()
 {
   // First try to create the object from the vtkObjectFactory
@@ -57,9 +55,6 @@ vtkShrinkFilter* vtkShrinkFilter::New()
   return new vtkShrinkFilter;
 }
 
-
-
-
 vtkShrinkFilter::vtkShrinkFilter(float sf)
 {
   sf = ( sf < 0.0 ? 0.0 : (sf > 1.0 ? 1.0 : sf));
@@ -69,14 +64,15 @@ vtkShrinkFilter::vtkShrinkFilter(float sf)
 void vtkShrinkFilter::Execute()
 {
   vtkPoints *newPts;
-  int i, j, cellId, numCells, numPts;
-  int oldId, newId, numIds;
+  int i, j, numIds;
+  vtkIdType cellId, numCells, numPts;
+  vtkIdType oldId, newId;
   float center[3], *p, pt[3];
   vtkPointData *pd, *outPD;;
   vtkIdList *ptIds, *newPtIds;
   vtkDataSet *input= this->GetInput();
   vtkUnstructuredGrid *output = this->GetOutput();
-  int   tenth;
+  vtkIdType tenth;
   float decimal;
 
   vtkDebugMacro(<<"Shrinking cells");

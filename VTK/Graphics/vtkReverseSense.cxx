@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkReverseSense.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-28 12:49:54 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-07-02 13:05:04 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -78,11 +78,11 @@ void vtkReverseSense::Execute()
 
   //If specified, traverse all cells and reverse them
   int abort=0;
-  int progressInterval;
+  vtkIdType progressInterval;
   
   if ( this->ReverseCells )
     {
-    int numCells=input->GetNumberOfCells();
+    vtkIdType numCells=input->GetNumberOfCells();
     vtkCellArray *verts, *lines, *polys, *strips;
 
     //Instantiate necessary topology arrays
@@ -101,7 +101,7 @@ void vtkReverseSense::Execute()
     output->SetStrips(strips);  strips->Delete();
 
     progressInterval=numCells/10+1;
-    for ( int cellId=0; cellId < numCells && !abort; cellId++ )
+    for (vtkIdType cellId=0; cellId < numCells && !abort; cellId++ )
       {
       if ( ! (cellId % progressInterval) ) //manage progress / early abort
         {
@@ -117,7 +117,7 @@ void vtkReverseSense::Execute()
   if ( this->ReverseNormals && normals )
     {
     //first do point normals
-    int numPoints=input->GetNumberOfPoints();
+    vtkIdType numPoints=input->GetNumberOfPoints();
     vtkNormals *outNormals=(vtkNormals *)normals->MakeObject();
     outNormals->SetNumberOfNormals(numPoints);
     float n[3];
@@ -142,13 +142,13 @@ void vtkReverseSense::Execute()
   //now do cell normals
   if ( this->ReverseNormals && cellNormals )
     {
-    int numCells=input->GetNumberOfCells();
+    vtkIdType numCells=input->GetNumberOfCells();
     vtkNormals *outNormals=(vtkNormals *)cellNormals->MakeObject();
     outNormals->SetNumberOfNormals(numCells);
     float n[3];
 
     progressInterval=numCells/5+1;
-    for ( int cellId=0; cellId < numCells; cellId++ )
+    for (vtkIdType cellId=0; cellId < numCells; cellId++ )
       {
       if ( ! (cellId % progressInterval) ) //manage progress / early abort
         {
