@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:38:00 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1995-08-13 16:34:36 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -176,7 +176,7 @@ public:
 
   virtual int  GetRemapWindow();
   virtual void WindowRemap() {};
-
+  
   // Description:
   // Turn on/off erasing the screen between images. Allows multiple exposure
   // sequences if turned on.
@@ -225,6 +225,11 @@ public:
   vtkGetMacro(SubFrames,int);
   vtkSetMacro(SubFrames,int);
 
+  // Description:
+  // Set/Get the desired update rate.
+  void SetDesiredUpdateRate(float);
+  vtkGetMacro(DesiredUpdateRate,float);
+
 protected:
   virtual void DoStereoRender();
   virtual void DoFDRender();
@@ -253,6 +258,7 @@ protected:
   unsigned char* ResultFrame;  // used for any non immediate rendering
   int   Erase;
   int   SwapBuffers;
+  float DesiredUpdateRate;
 };
 
 #endif
