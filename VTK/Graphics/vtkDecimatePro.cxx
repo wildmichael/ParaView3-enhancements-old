@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimatePro.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-11-13 16:23:05 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1997-11-14 15:04:14 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -117,7 +117,7 @@ vtkDecimatePro::~vtkDecimatePro()
 {
   this->InflectionPoints->Delete();
   if ( this->Queue ) delete this->Queue;
-  if ( this->VertexError ) delete this->VertexError;
+  if ( this->VertexError ) this->VertexError->Delete();
 }
 
 //
