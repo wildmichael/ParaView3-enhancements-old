@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorTopology.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:04:28 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2000-03-17 11:10:04 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -76,9 +76,9 @@ void vtkVectorTopology::Execute()
   vtkVectors *inVectors;
   vtkPoints *newPts;
   vtkCellArray *newVerts;
-  vtkDataSet *input=(vtkDataSet *)this->Input;
+  vtkDataSet *input=(vtkDataSet *)this->GetInput();
   vtkPointData *pd=input->GetPointData();
-  vtkPolyData *output=(vtkPolyData *)this->Output;
+  vtkPolyData *output=(vtkPolyData *)this->GetOutput();
   vtkPointData *outputPD=output->GetPointData();
   float *weights=new float[input->GetMaxCellSize()];
 //
