@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-11 13:22:33 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1998-11-05 14:28:40 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -946,8 +946,22 @@ void vtkRIBExporter::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkExporter::PrintSelf(os,indent);
  
-  os << indent << "FilePrefix: " << this->FilePrefix << "\n";
-  os << indent << "TexturePrefix: " << this->TexturePrefix << "\n";
+  if (this->FilePrefix)
+    {
+    os << indent << "FilePrefix: " << this->FilePrefix << "\n";
+    }
+  else
+    {
+    os << indent << "FilePrefix: (none)\n";
+    }
+  if (this->TexturePrefix)
+    {
+    os << indent << "TexturePrefix: " << this->TexturePrefix << "\n";
+    }
+  else
+    {
+    os << indent << "TexturePrefix: (none)\n";
+    }
   os << indent << "Background: " << (this->Background ? "On\n" : "Off\n");
   os << indent << "Size: " << this->Size[0] << " " << this->Size[1] << "\n";
   os << indent << "PixelSamples: " << this->PixelSamples[0] << " " 
