@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-24 15:25:45 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-06-24 21:46:57 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkTextProperty.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkTextProperty, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkTextProperty, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkTextProperty);
 
 //----------------------------------------------------------------------------
@@ -57,9 +57,9 @@ int vtkTextProperty::GetGlobalAntiAliasing()
 
 vtkTextProperty::vtkTextProperty()
 {
-  this->Color[0] = 0;
-  this->Color[1] = 0;
-  this->Color[2] = 0;
+  this->Color[0] = 1.0;
+  this->Color[1] = 1.0;
+  this->Color[2] = 1.0;
 
   this->FontFamily = VTK_ARIAL;
   this->FontSize = 12;
