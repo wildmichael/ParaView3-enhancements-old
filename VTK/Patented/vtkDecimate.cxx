@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimate.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-28 21:37:18 $
-  Version:   $Revision: 1.71 $
+  Date:      $Date: 2002-12-26 18:18:12 $
+  Version:   $Revision: 1.72 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,6 +31,7 @@
 =========================================================================*/
 #include "vtkDecimate.h"
 
+#include "vtkCellArray.h"
 #include "vtkFloatArray.h"
 #include "vtkLine.h"
 #include "vtkMath.h"
@@ -40,7 +41,7 @@
 #include "vtkPolyData.h"
 #include "vtkTriangle.h"
 
-vtkCxxRevisionMacro(vtkDecimate, "$Revision: 1.71 $");
+vtkCxxRevisionMacro(vtkDecimate, "$Revision: 1.72 $");
 vtkStandardNewMacro(vtkDecimate);
 
 //-----  This hack needed to compile using gcc3 on OSX until new stdc++.dylib

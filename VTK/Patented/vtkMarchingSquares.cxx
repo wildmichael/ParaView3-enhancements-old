@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingSquares.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-28 21:37:18 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2002-12-26 18:18:12 $
+  Version:   $Revision: 1.54 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,6 +32,7 @@
 =========================================================================*/
 #include "vtkMarchingSquares.h"
 
+#include "vtkCellArray.h"
 #include "vtkCharArray.h"
 #include "vtkDoubleArray.h"
 #include "vtkFloatArray.h"
@@ -40,6 +41,7 @@
 #include "vtkMarchingSquaresCases.h"
 #include "vtkMergePoints.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 #include "vtkPolyData.h"
 #include "vtkShortArray.h"
 #include "vtkStructuredPoints.h"
@@ -50,7 +52,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkMarchingSquares, "$Revision: 1.53 $");
+vtkCxxRevisionMacro(vtkMarchingSquares, "$Revision: 1.54 $");
 vtkStandardNewMacro(vtkMarchingSquares);
 
 // Description:

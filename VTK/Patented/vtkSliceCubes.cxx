@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSliceCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-28 21:37:18 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 2002-12-26 18:18:12 $
+  Version:   $Revision: 1.60 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -42,6 +42,7 @@
 #include "vtkMarchingCubesCases.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 #include "vtkShortArray.h"
 #include "vtkUnsignedCharArray.h"
 #include "vtkUnsignedIntArray.h"
@@ -49,7 +50,7 @@
 #include "vtkUnsignedShortArray.h"
 #include "vtkVolumeReader.h"
 
-vtkCxxRevisionMacro(vtkSliceCubes, "$Revision: 1.59 $");
+vtkCxxRevisionMacro(vtkSliceCubes, "$Revision: 1.60 $");
 vtkStandardNewMacro(vtkSliceCubes);
 
 vtkCxxSetObjectMacro(vtkSliceCubes,Reader,vtkVolumeReader);

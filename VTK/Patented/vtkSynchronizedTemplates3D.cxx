@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-28 22:55:56 $
-  Version:   $Revision: 1.68 $
+  Date:      $Date: 2002-12-26 18:18:12 $
+  Version:   $Revision: 1.69 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,6 +28,8 @@
 =========================================================================*/
 #include "vtkSynchronizedTemplates3D.h"
 
+#include "vtkCellArray.h"
+#include "vtkCellData.h"
 #include "vtkCharArray.h"
 #include "vtkDoubleArray.h"
 #include "vtkExtentTranslator.h"
@@ -37,6 +39,7 @@
 #include "vtkMath.h"
 #include "vtkMultiThreader.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 #include "vtkPolyData.h"
 #include "vtkShortArray.h"
 #include "vtkStructuredPoints.h"
@@ -47,7 +50,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkSynchronizedTemplates3D, "$Revision: 1.68 $");
+vtkCxxRevisionMacro(vtkSynchronizedTemplates3D, "$Revision: 1.69 $");
 vtkStandardNewMacro(vtkSynchronizedTemplates3D);
 
 //----------------------------------------------------------------------------
