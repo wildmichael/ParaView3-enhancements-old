@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-21 14:05:05 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-10-30 21:48:45 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -170,7 +170,7 @@ vtkDataArray *vtkAbstractMapper::GetScalars(vtkDataSet *input,
          !(offset < scalars->GetNumberOfComponents()) )
       {
       offset=0;
-      vtkGenericWarningMacro(<<"Data array (used for coloring) not found");
+      //vtkGenericWarningMacro(<<"Data array (used for coloring) not found");
       }
     }
   else if ( scalarMode == VTK_SCALAR_MODE_USE_CELL_FIELD_DATA )
@@ -189,7 +189,7 @@ vtkDataArray *vtkAbstractMapper::GetScalars(vtkDataSet *input,
          !(offset < scalars->GetNumberOfComponents()) )
       {
       offset=0;
-      vtkGenericWarningMacro(<<"Data array (used for coloring) not found");
+      //vtkGenericWarningMacro(<<"Data array (used for coloring) not found");
       }
     }
   
