@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkColorTransferFunction.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-07 13:11:03 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-04-27 12:41:12 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -129,6 +129,12 @@ public:
   void SetClamping(int val);
   int  GetClamping();
 
+  // Description:
+  // Get the underlying Reg Green and Blue Piecewise Functions
+  vtkPiecewiseFunction *GetRedFunction(){return this->Red;};
+  vtkPiecewiseFunction *GetGreenFunction(){return this->Green;};
+  vtkPiecewiseFunction *GetBlueFunction(){return this->Blue;};
+  
 protected:
   // Determines the function value outside of defined points
   // in each of the R,G,B transfer functions.
