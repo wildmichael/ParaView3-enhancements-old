@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-16 15:58:17 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1999-04-14 14:00:21 $
+  Version:   $Revision: 1.32 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -296,7 +296,8 @@ void vtkImageSource::UnRegister(vtkObject *o)
   // If we have two references and one of them is my cache
   // and I am not being unregistered by my cache, break the loop.
   if (this->ReferenceCount == 2 && this->Output != NULL &&
-      this->Output->GetSource() == this && o != this->Output)
+      this->Output->GetSource() == this && o != this->Output &&
+      this->Output->GetReferenceCount() == 1)
     {
     this->Output->SetSource(NULL);
     }

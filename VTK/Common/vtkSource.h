@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSource.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-16 15:58:19 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1999-04-14 14:00:20 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -99,6 +99,15 @@ public:
   virtual int GetDataReleased();
   virtual void SetDataReleased(int flag);
 
+  // Description:
+  // Handle the source/data loop.
+  void UnRegister(vtkObject *o);
+  
+  // Description:
+  // Get the output as a DataObject, useful highlevel get output method.
+  vtkDataObject *GetOutputAsDataObject() {return this->Output;};
+  
+  
 protected:
   virtual void Execute();
   vtkTimeStamp ExecuteTime;

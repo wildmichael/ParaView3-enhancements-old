@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.h,v $
   Language:  C++
-  Date:      $Date: 1998-12-23 20:18:38 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-04-14 14:00:20 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,7 +60,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include "vtkObject.h"
 #include "vtkFieldData.h"
-
 class vtkSource;
 
 class VTK_EXPORT vtkDataObject : public vtkObject
@@ -77,8 +76,9 @@ public:
   virtual vtkDataObject *MakeObject() {return new vtkDataObject;};
 
   // Description:
-  // Get the source object creating this data object.
+  // Set/Get the source object creating this data object.
   vtkGetObjectMacro(Source,vtkSource);
+  void SetSource(vtkSource *s);
   
   // Description:
   // Data objects are composite objects and need to check each part for MTime.
@@ -132,13 +132,9 @@ public:
   vtkSetObjectMacro(FieldData,vtkFieldData);
   vtkGetObjectMacro(FieldData,vtkFieldData);
 
-  //BTX - begin tcl exclude
   // Description:
-  // This method is to be used only by the source (i.e., the filter generating
-  // this data object). The source is not reference counted by this data object to
-  // avoid mutually referencing loops.
-  void SetSource(vtkSource *source);
-  //ETX
+  // Handle the source/data loop.
+  void UnRegister(vtkObject *o);
   
 protected:
   vtkSource *Source;
