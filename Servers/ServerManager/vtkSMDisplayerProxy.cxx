@@ -25,10 +25,9 @@
 #include "vtkSMSourceProxy.h"
 #include "vtkSMStringVectorProperty.h"
 #include "vtkSMDisplayWindowProxy.h"
-#include "vtkProcessModule.h"
 
 vtkStandardNewMacro(vtkSMDisplayerProxy);
-vtkCxxRevisionMacro(vtkSMDisplayerProxy, "$Revision: 1.13 $");
+vtkCxxRevisionMacro(vtkSMDisplayerProxy, "$Revision: 1.14 $");
 
 //---------------------------------------------------------------------------
 vtkSMDisplayerProxy::vtkSMDisplayerProxy()
