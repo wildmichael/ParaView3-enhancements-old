@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-21 15:21:51 $
-  Version:   $Revision: 1.134 $
+  Date:      $Date: 2001-06-22 17:14:03 $
+  Version:   $Revision: 1.135 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1130,6 +1130,9 @@ void vtkPolyData::Allocate(vtkIdType numCells, int extSize)
     {
     this->Cells = vtkCellTypes::New();
     this->Cells->Allocate(numCells,3*numCells);
+    // Consistent Register/UnRegister. (ShallowCopy).
+    this->Cells->Register(this);
+    this->Cells->Delete();
     }
 
   cells = vtkCellArray::New();
@@ -1683,7 +1686,7 @@ void vtkPolyData::ShallowCopy(vtkDataObject *dataObject)
     // I do not know if this is correct but.
     if (this->Cells)
       {
-      this->Cells->Delete();
+      this->Cells->UnRegister(this);
       }
     this->Cells = polyData->Cells;
     if (this->Cells)
