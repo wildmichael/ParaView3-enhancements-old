@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: BoxWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-09 13:17:29 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-08-12 11:58:38 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -527,18 +527,18 @@ int BoxWidget( int argc, char *argv[] )
     }
 
   // Clean up
-  renderer->Delete();
-  renWin->Delete();
-  iren->Delete();
+  t->Delete();
+  myCallback->Delete();
+  boxWidget->Delete();
   sphere->Delete();
   cone->Delete();
   glyph->Delete();
   append->Delete();
   maceMapper->Delete();
   maceActor->Delete();
-  boxWidget->Delete();
-  t->Delete();
-  myCallback->Delete();
+  renderer->Delete();
+  renWin->Delete();
+  iren->Delete();
 
   return !retVal;
 }
