@@ -3,8 +3,9 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeAxesActor2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-09 19:00:57 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-04-30 16:02:31 $
+  Version:   $Revision: 1.3 $
+  Thanks:    Thorsten Dowe who modified and improved this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -175,6 +176,18 @@ public:
   // resources to release.
   void ReleaseGraphicsResources(vtkWindow *);
 
+  // Description:
+  // Turn on and off the visibility of each axis.
+  vtkSetMacro(XAxisVisibility,int);
+  vtkGetMacro(XAxisVisibility,int);
+  vtkBooleanMacro(XAxisVisibility,int);
+  vtkSetMacro(YAxisVisibility,int);
+  vtkGetMacro(YAxisVisibility,int);
+  vtkBooleanMacro(YAxisVisibility,int);
+  vtkSetMacro(ZAxisVisibility,int);
+  vtkGetMacro(ZAxisVisibility,int);
+  vtkBooleanMacro(ZAxisVisibility,int);
+
 protected:
   vtkDataSet *Input;
   vtkCamera *Camera;
@@ -189,6 +202,10 @@ protected:
   char *YLabel;
   char *ZLabel;
   char *Labels[3];
+
+  int XAxisVisibility;
+  int YAxisVisibility;
+  int ZAxisVisibility;
 
   int   Bold;
   int   Italic;
