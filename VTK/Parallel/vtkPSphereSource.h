@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPSphereSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-19 20:58:21 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-01-26 20:56:14 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -56,6 +56,10 @@ public:
   // and Theta directions. Theta ranges from (0,360) and phi (0,180) degrees.
   static vtkPSphereSource *New();
 
+  // Description:
+  // Get the estimated memory size in 1024 bytes
+  unsigned long GetEstimatedMemorySize();
+  
 protected:
   vtkPSphereSource() {};
   ~vtkPSphereSource() {};
@@ -63,7 +67,6 @@ protected:
   void operator=(const vtkPSphereSource&) {};
 
   void Execute();
-  void ExecuteInformation();
 };
 
 #endif
