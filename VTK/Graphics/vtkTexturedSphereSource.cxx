@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexturedSphereSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:05:14 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-04-07 16:24:19 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,6 +52,8 @@ vtkTexturedSphereSource::vtkTexturedSphereSource(int res)
   this->Radius = 0.5;
   this->ThetaResolution = res;
   this->PhiResolution = res;
+  this->Theta = 0.0;
+  this->Phi = 0.0;
 }
 
 void vtkTexturedSphereSource::Execute()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:04:55 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1998-04-07 16:24:18 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,6 +57,8 @@ vtkSphereSource::vtkSphereSource(int res)
 
   this->ThetaResolution = res;
   this->PhiResolution = res;
+  this->Theta = 0.0;
+  this->Phi = 0.0;
 }
 
 void vtkSphereSource::Execute()
