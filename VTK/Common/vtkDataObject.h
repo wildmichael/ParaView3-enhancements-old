@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-17 15:30:11 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-08-17 20:59:12 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -183,7 +183,7 @@ public:
   virtual unsigned long GetEstimatedUpdateExtentMemorySize()
     { vtkErrorMacro(
       "Subclass did not implement 'GetEstimatedUpdateExtentMemorySize'");
-    }
+    return 0;}
   
   // Description:
   // Method implemented in the subclasses to make sure the update extent
