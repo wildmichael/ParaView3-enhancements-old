@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageHybridMedian2D.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:32:43 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2003-04-24 22:04:38 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 // vtkImageHybridMedian2D is a median filter that preserves thin lines and
 // corners.  It operates on a 5x5 pixel neighborhood.  It computes two values
 // initially: the median of the + neighbors and the median of the x
-// neighbors.  It the computes the median of these two values plus the center
+// neighbors.  It then computes the median of these two values plus the center
 // pixel.  This result of this second median is the output pixel value.
 
 
@@ -44,7 +44,6 @@ protected:
 
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
                        int outExt[6], int id);
-  float ComputeMedian(float *array, int size);
 private:
   vtkImageHybridMedian2D(const vtkImageHybridMedian2D&);  // Not implemented.
   void operator=(const vtkImageHybridMedian2D&);  // Not implemented.
