@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:09:37 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2001-12-07 14:35:12 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -484,7 +484,7 @@ void vtkDataArray::InsertNextTuple2(float val0, float val1)
                   << numComp << " != 2");
     }
   tuple[0] = val0;
-  tuple[1] = val0;
+  tuple[1] = val1;
   this->InsertNextTuple(tuple);
 }
 void vtkDataArray::InsertNextTuple3(float val0, float val1, 
