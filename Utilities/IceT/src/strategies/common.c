@@ -8,7 +8,7 @@
  * of authorship are reproduced on all copies.
  */
 
-/* $Id: common.c,v 1.9 2004-05-25 19:02:49 martink Exp $ */
+/* $Id: common.c,v 1.10 2004-05-25 20:44:47 berk Exp $ */
 
 #include "common.h"
 
@@ -68,7 +68,7 @@ static GLint allocatedTileSize = 0;
 void icetRenderTransferFullImages(IceTImage imageBuffer,
                                   IceTSparseImage inImage,
                                   IceTSparseImage outImage,
-                                  GLint /* num_receiving */, 
+                                  GLint num_receiving , 
                                   GLint *tile_image_dest)
 {
     GLint num_sending;
@@ -77,6 +77,9 @@ void icetRenderTransferFullImages(IceTImage imageBuffer,
     GLint num_tiles;
 
     GLint i;
+
+    /* To remove warning */
+    (void)num_receiving;
 
     rtfi_imageBuffer = imageBuffer;
     rtfi_inImage = inImage;

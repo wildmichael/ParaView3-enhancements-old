@@ -1,5 +1,5 @@
 /* -*- c -*- *****************************************************************
-** $Id: BlankTiles.c,v 1.3 2004-05-25 19:02:50 martink Exp $
+** $Id: BlankTiles.c,v 1.4 2004-05-25 20:44:47 berk Exp $
 **
 ** Copyright (C) 2003 Sandia Corporation
 ** Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -33,12 +33,16 @@ static void draw(void)
     printf("Leaving draw\n");
 }
 
-int BlankTiles(int, char *[])
+int BlankTiles(int argc, char *argv[])
 {
     int i, j, x, y;
     GLubyte *cb;
     int result = TEST_PASSED;
     int rank, num_proc;
+
+    /* To remove warning */
+    (void)argc;
+    (void)argv;
 
     icetGetIntegerv(ICET_RANK, &rank);
     icetGetIntegerv(ICET_NUM_PROCESSES, &num_proc);

@@ -1,5 +1,5 @@
 /* -*- c -*- *****************************************************************
-** $Id: CompressionSize.c,v 1.3 2004-05-25 19:02:50 martink Exp $
+** $Id: CompressionSize.c,v 1.4 2004-05-25 20:44:47 berk Exp $
 **
 ** Copyright (C) 2003 Sandia Corporation
 ** Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -161,9 +161,13 @@ static int DoCompressionTest(int num_buffers)
     return result;
 }
 
-int CompressionSize(int, char *[])
+int CompressionSize(int argc, char *argv[])
 {
     int result;
+
+    /* To remove warning */
+    (void)argc;
+    (void)argv;
 
     icetStrategy(ICET_STRATEGY_REDUCE);
 

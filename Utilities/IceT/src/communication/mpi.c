@@ -8,7 +8,7 @@
  * of authorship are reproduced on all copies.
  */
 
-/* $Id: mpi.c,v 1.4 2004-05-25 19:02:49 martink Exp $ */
+/* $Id: mpi.c,v 1.5 2004-05-25 20:44:47 berk Exp $ */
 
 #define USE_STDARG
 #include <GL/ice-t_mpi.h>
@@ -251,9 +251,12 @@ static IceTCommRequest Irecv(IceTCommunicator self,
     return icet_request;
 }
 
-static void Waitone(IceTCommunicator /* self */, IceTCommRequest *request)
+static void Waitone(IceTCommunicator self , IceTCommRequest *request)
 {
     MPI_Status status;
+
+    /* To remove warning */
+    (void)self;
 
     if (*request == ICET_COMM_REQUEST_NULL) return;
 
@@ -262,13 +265,15 @@ static void Waitone(IceTCommunicator /* self */, IceTCommRequest *request)
     *request = ICET_COMM_REQUEST_NULL;
 }
 
-static int  Waitany(IceTCommunicator /* self */,
+static int  Waitany(IceTCommunicator  self,
                     int count, IceTCommRequest *array_of_requests)
 {
     MPI_Status status;
     MPI_Request *requests;
     int index;
 
+    /* To remove warning */
+    (void)self;
     requests = malloc(sizeof(MPI_Request)*count);
     for (index = 0; index < count; index++) {
         requests[index] = ICETREQ2MPIREQ(array_of_requests[index]);

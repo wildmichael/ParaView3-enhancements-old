@@ -1,5 +1,5 @@
 /* -*- c -*- *****************************************************************
-** $Id: SimpleExample.c,v 1.3 2004-05-25 19:02:50 martink Exp $
+** $Id: SimpleExample.c,v 1.4 2004-05-25 20:44:47 berk Exp $
 **
 ** Copyright (C) 2003 Sandia Corporation
 ** Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -53,9 +53,13 @@ static void draw(void)
     glPopMatrix();
 }
 
-int SimpleExample(int, char *[])
+int SimpleExample(int argc, char * argv[])
 {
     float angle;
+
+    /* To remove warning */
+    (void)argc;
+    (void)argv;
 
   /* Normally, the first thing that you do is set up your communication and
    * then create at least one ICE-T context.  This has already been done in
