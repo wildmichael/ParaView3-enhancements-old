@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarBarActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-16 18:12:42 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2003-05-21 14:56:48 $
+  Version:   $Revision: 1.49 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,7 +29,7 @@
 #include "vtkWindow.h"
 #include "vtkLogLookupTable.h"
 
-vtkCxxRevisionMacro(vtkScalarBarActor, "$Revision: 1.48 $");
+vtkCxxRevisionMacro(vtkScalarBarActor, "$Revision: 1.49 $");
 vtkStandardNewMacro(vtkScalarBarActor);
 
 vtkCxxSetObjectMacro(vtkScalarBarActor,LookupTable,vtkScalarsToColors);
@@ -354,7 +354,7 @@ int vtkScalarBarActor::RenderOpaqueGeometry(vtkViewport *viewport)
         {
         float rgbval = log10(range[0]) + 
           i*(log10(range[1])-log10(range[0]))/(numColors -1);
-        rgba = lut->MapValue(pow(10,rgbval));
+        rgba = lut->MapValue(pow(10.0f,rgbval));
         }
       else
         {
