@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageExport.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 19:15:32 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-08-09 20:15:43 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 
@@ -133,11 +133,6 @@ protected:
 
   int ImageLowerLeft;
   int DataDimensions[3];
-
-  void FinalExport(vtkImageData *data, int extent[6],
-		   void **output);
-  void RecursiveExport(int axis, vtkImageData *data,
-		       void **output);
 };
 
 #endif
