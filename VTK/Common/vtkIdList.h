@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdList.h,v $
   Language:  C++
-  Date:      $Date: 1997-01-09 02:59:30 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1997-01-23 20:27:52 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -123,7 +123,7 @@ inline int vtkIdList::getChunk(const int sz)
 // Description:
 // If id is not already in list, insert it and return location in
 // list. Otherwise return just location in list.
-inline int vtkIdList::InsertUniqueId(int id)
+inline int vtkIdList::InsertUniqueId(const int id)
 {
   for (int i=0; i<this->GetNumberOfIds(); i++) 
     if (id == this->GetId(i)) return i;

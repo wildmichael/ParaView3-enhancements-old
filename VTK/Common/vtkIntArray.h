@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIntArray.h,v $
   Language:  C++
-  Date:      $Date: 1997-01-09 03:03:31 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1997-01-23 20:27:54 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -107,7 +107,7 @@ inline void vtkIntArray::SetNumberOfValues(const int number)
 // Description:
 // Set the data at a particular index. Does not do range checking. Make sure
 // you use the method SetNumberOfValues() before inserting data.
-inline void vtkIntArray::SetValue(const int id, int value) 
+inline void vtkIntArray::SetValue(const int id, const int value) 
 {
   this->Array[id] = value;
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPriorityQueue.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-01-09 02:58:48 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-01-23 20:27:55 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,7 +66,7 @@ ItemLocation(sz,ext)
   this->MaxId = -1;
 }
 
-vtkPriorityQueue::~vtkPriorityQueue(const int sz, const int ext)
+vtkPriorityQueue::~vtkPriorityQueue()
 {
   if ( this->Array != NULL ) delete [] this->Array;
 }
