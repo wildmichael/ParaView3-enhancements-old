@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalars.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-22 19:12:49 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2001-09-28 20:30:10 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -249,6 +249,8 @@ double vtkScalars::GetDataTypeMax()
 int vtkScalars::InitColorTraversal(float alpha, vtkScalarsToColors *lut,
                                    int colorMode)
 {
+  VTK_LEGACY_METHOD("GetColors", "4.0");
+
   int numComp=this->GetNumberOfComponents();
   int blend=0;
 
@@ -303,10 +305,6 @@ int vtkScalars::InitColorTraversal(float alpha, vtkScalarsToColors *lut,
       }
     }
   
-  else if ( colorMode == VTK_COLOR_MODE_LUMINANCE )
-    {
-    this->CurrentColorFunction = &vtkScalars::Luminance;
-    }
   
   else //have to be going through lookup table
     {

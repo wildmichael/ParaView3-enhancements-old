@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalars.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:46 $
-  Version:   $Revision: 1.74 $
+  Date:      $Date: 2001-09-28 20:30:09 $
+  Version:   $Revision: 1.75 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -65,10 +65,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define __vtkScalars_h
 
 #include "vtkAttributeData.h"
-
-#define VTK_COLOR_MODE_DEFAULT 0
-#define VTK_COLOR_MODE_MAP_SCALARS 1
-#define VTK_COLOR_MODE_LUMINANCE 2
 
 class vtkIdList;
 class vtkScalars;
@@ -187,14 +183,18 @@ public:
   // scalar data. The color mode parameter controls how the scalar data 
   // is mapped to colors (see vtkMapper::ColorMode methods for a definition).
   int InitColorTraversal(float alpha, vtkScalarsToColors *lut, 
-			 int colorMode=VTK_COLOR_MODE_DEFAULT);
+			 int colorMode=0);
   
   // Description:
   // Get the color value at a particular id. Returns a pointer to a 4-byte
   // array of rgba. Make sure you call InitColorTraversal() before
-  // invoking this method.
-  unsigned char *GetColor(vtkIdType id) {
-    return (this->*(this->CurrentColorFunction))(id);};
+  // invoking this method. (This method is obsolete; use the 
+  // vtkMapper::MapScalars() method.)
+  unsigned char *GetColor(vtkIdType id) 
+    {
+    VTK_LEGACY_METHOD("GetColor", "4.0");
+    return (this->*(this->CurrentColorFunction))(id);
+    }
 
 protected:
   vtkScalars();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:44 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-09-28 20:30:09 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,7 +57,18 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkPlane.h"
 #include "vtkPlanes.h"
 #include "vtkTimerLog.h"
+
+#define VTK_SCALAR_MODE_DEFAULT 0
+#define VTK_SCALAR_MODE_USE_POINT_DATA 1
+#define VTK_SCALAR_MODE_USE_CELL_DATA 2
+#define VTK_SCALAR_MODE_USE_POINT_FIELD_DATA 3
+#define VTK_SCALAR_MODE_USE_CELL_FIELD_DATA 4
+
+#define VTK_GET_ARRAY_BY_ID 0
+#define VTK_GET_ARRAY_BY_NAME 1
+
 class vtkWindow;
+class vtkDataSet;
 
 class VTK_EXPORT vtkAbstractMapper : public vtkProcessObject
 {
@@ -97,6 +108,15 @@ public:
   // in the supplied instance of the implicit function vtkPlanes.
   void SetClippingPlanes(vtkPlanes *planes);
 
+  // Description:
+  // Internal helper function for getting the active scalars. The scalar
+  // mode indicates where the scalars come from; the arrayAccessMode
+  // is used to indicate how to retrieve the scalars from field data (if
+  // the scalarMode indicates that). The component is used to indicate which
+  // component in the data array to use as the scalars.
+  static vtkDataArray *GetScalars(vtkDataSet *input, int scalarMode,
+                                  int arrayAccessMode, int arrayId, 
+                                  const char *arrayName, int& component);
 protected:
   vtkAbstractMapper();
   ~vtkAbstractMapper();
