@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLParser.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-03 13:30:41 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-06-03 15:47:03 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -84,9 +84,6 @@ protected:
   // be replaced by subclasses to change how input is read.
   virtual int ParseXML();
   
-  // Legacy method.  Deprecated.  Use ParseXML instead.
-  virtual int ParseStream();
-  
   // Called before each block of input is read from the stream to
   // check if parsing is complete.  Can be replaced by subclasses to
   // change the terminating condition for parsing.  Parsing always
@@ -136,8 +133,6 @@ protected:
   // Utility for convenience of subclasses.  Wraps isspace C library
   // routine.
   static int IsSpace(char c);  
-  
-  int LegacyHack;
   
   //BTX
   friend void vtkXMLParserStartElement(void*, const char*, const char**);
