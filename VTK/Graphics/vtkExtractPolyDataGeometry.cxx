@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractPolyDataGeometry.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-05 13:18:55 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-07-08 12:34:34 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -99,9 +99,9 @@ void vtkExtractPolyDataGeometry::Execute()
   vtkPointData *outputPD = output->GetPointData();
   vtkCellData *outputCD = output->GetCellData();
   vtkPoints *inPts=input->GetPoints();
-  vtkIdType numPts, i, cellId, newId;
+  vtkIdType numPts, i, cellId = -1, newId;
   float multiplier;
-  vtkCellArray *inVerts, *inLines, *inPolys, *inStrips;
+  vtkCellArray *inVerts=NULL, *inLines=NULL, *inPolys=NULL, *inStrips=NULL;
   vtkCellArray *newVerts=NULL, *newLines=NULL, *newPolys=NULL, *newStrips=NULL;
 
   vtkDebugMacro(<< "Extracting poly data geometry");

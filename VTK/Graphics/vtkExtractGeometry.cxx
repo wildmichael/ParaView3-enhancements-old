@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractGeometry.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-03 15:42:37 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2001-07-08 12:34:34 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -145,7 +145,7 @@ void vtkExtractGeometry::Execute()
   newPts->Allocate(numPts/4,numPts);
   outputPD->CopyAllocate(pd);
   outputCD->CopyAllocate(cd);
-  vtkFloatArray *newScalars;
+  vtkFloatArray *newScalars = NULL;
   
   if ( ! this->ExtractBoundaryCells )
     {
