@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBMPReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:57:07 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1999-12-28 19:01:40 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,6 +70,7 @@ vtkBMPReader::vtkBMPReader()
 {
   this->Colors = NULL;
   this->SetDataByteOrderToLittleEndian();
+  this->Depth = 0;
 }
 
 //----------------------------------------------------------------------------

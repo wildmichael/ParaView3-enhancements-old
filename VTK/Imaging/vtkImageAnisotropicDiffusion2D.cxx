@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAnisotropicDiffusion2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:37 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1999-12-28 19:01:41 $
+  Version:   $Revision: 1.32 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,6 +70,8 @@ vtkImageAnisotropicDiffusion2D::vtkImageAnisotropicDiffusion2D()
   this->SetNumberOfIterations(4);
   this->DiffusionThreshold = 5.0;
   this->DiffusionFactor = 1;
+  this->Faces = 0;
+  this->FacesOn();
   this->Edges = 0;
   this->EdgesOn();
   this->Corners = 0;
