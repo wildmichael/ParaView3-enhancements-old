@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-06-09 18:44:01 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-06-16 10:56:16 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -128,4 +128,47 @@ void vtkOpenGLProperty::Render(vtkActor *vtkNotUsed(anActor),
   glShadeModel(method);
 }
 
+// Description:
+// Implement base class method.
+void vtkOpenGLProperty::BackfaceRender(vtkActor *vtkNotUsed(anActor),
+			     vtkRenderer *vtkNotUsed(ren))
+{
+  int i;
+  float Info[4];
+  GLenum Face;
+
+  Face = GL_BACK;
+
+  Info[3] = this->Opacity;
+
+  // deal with blending if necc
+  if (Info[3] < 1.0)
+    {
+    glEnable(GL_BLEND);
+    }
+  else
+    {
+    glDisable( GL_BLEND);
+    }
+  
+  for (i=0; i < 3; i++) 
+    {
+    Info[i] = this->Ambient*this->AmbientColor[i];
+    }
+  glMaterialfv( Face, GL_AMBIENT, Info );
+  for (i=0; i < 3; i++) 
+    {
+    Info[i] = this->Diffuse*this->DiffuseColor[i];
+    }
+  glMaterialfv( Face, GL_DIFFUSE, Info );
+  for (i=0; i < 3; i++) 
+    {
+    Info[i] = this->Specular*this->SpecularColor[i];
+    }
+  glMaterialfv( Face, GL_SPECULAR, Info );
+
+  Info[0] = this->SpecularPower;
+  glMaterialfv( Face, GL_SHININESS, Info );
+
+}
 

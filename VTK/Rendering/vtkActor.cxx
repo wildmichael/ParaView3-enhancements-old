@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-28 15:13:54 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 1997-06-16 10:56:12 $
+  Version:   $Revision: 1.58 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,6 +53,7 @@ vtkActor::vtkActor()
   this->UserMatrix = NULL;
   this->Mapper = NULL;
   this->Property = NULL;
+  this->BackfaceProperty = NULL;
   this->Texture = NULL;
 
   this->Scale[0] = 1.0;
@@ -79,6 +80,7 @@ vtkActor& vtkActor::operator=(const vtkActor& actor)
   this->UserMatrix = actor.UserMatrix;
   this->Mapper = actor.Mapper;
   this->Property = actor.Property;
+  this->BackfaceProperty = actor.BackfaceProperty;
   this->Texture = actor.Texture;
 
   *((vtkProp *)this) = actor;
@@ -148,6 +150,12 @@ void vtkActor::Render(vtkRenderer *ren)
     }
   this->Property->Render(this, ren);
 
+  // render the backface property
+  if (this->BackfaceProperty)
+    {
+    this->BackfaceProperty->BackfaceRender(this, ren);
+    }
+
   // render the texture */
   if (this->Texture) this->Texture->Render(ren);
 
@@ -173,6 +181,20 @@ vtkProperty *vtkActor::GetProperty()
     this->SelfCreatedProperty = 1;
     }
   return this->Property;
+}
+
+void vtkActor::SetBackfaceProperty(vtkProperty *lut)
+{
+  if ( this->BackfaceProperty != lut ) 
+    {
+    this->BackfaceProperty = lut;
+    this->Modified();
+    }
+}
+
+vtkProperty *vtkActor::GetBackfaceProperty()
+{
+  return this->BackfaceProperty;
 }
 
 // Description:

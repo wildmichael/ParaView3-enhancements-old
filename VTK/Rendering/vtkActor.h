@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-06 12:43:24 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 1997-06-16 10:56:11 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -91,6 +91,10 @@ class VTK_EXPORT vtkActor : public vtkProp
   void SetProperty(vtkProperty& lut) {this->SetProperty(&lut);};
   vtkProperty *GetProperty();
 
+  void SetBackfaceProperty(vtkProperty *lut);
+  void SetBackfaceProperty(vtkProperty& lut) {this->SetBackfaceProperty(&lut);};
+  vtkProperty *GetBackfaceProperty();
+
   // Description: 
   // Set/Get the texture object to control rendering
   // texture maps.  This will be a vtkTexture object. An actor does
@@ -158,6 +162,7 @@ class VTK_EXPORT vtkActor : public vtkProp
 
 protected:
   vtkProperty *Property; 
+  vtkProperty *BackfaceProperty; 
   vtkTexture *Texture; 
   vtkMapper *Mapper;
   float Scale[3];
