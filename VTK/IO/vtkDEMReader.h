@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDEMReader.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:30 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-08-23 18:43:02 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -137,11 +137,6 @@ public:
   // to read the whole file, this method also sets the UpdateExtent.
   void UpdateInformation();
 
-  // Description:
-  // This method is call by the superclass before an update.  It sets
-  // the UpdateExtent to the WholeExtent.
-  void InterceptCacheUpdate();
-  
 protected:
   vtkTimeStamp ReadHeaderTime;
   int NumberOfColumns;
@@ -168,6 +163,10 @@ protected:
   int ReadTypeARecord ();
   int ReadProfiles (vtkImageData *data);
   void Execute(vtkImageData *outData);
+  // Description:
+  // This method is call by the superclass before an update.  It sets
+  // the UpdateExtent to the WholeExtent.
+  void ModifyOutputUpdateExtent();
 };
 
 #endif

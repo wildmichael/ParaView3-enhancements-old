@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDEMReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-01 18:47:15 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-08-23 18:43:02 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -91,7 +91,7 @@ void vtkDEMReader::UpdateInformation()
 }
 
 
-void vtkDEMReader::InterceptCacheUpdate()
+void vtkDEMReader::ModifyOutputUpdateExtent()
 {
   this->GetOutput()->SetUpdateExtent(this->GetOutput()->GetWholeExtent());
 }
