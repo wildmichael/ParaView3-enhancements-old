@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAmoebaMinimizer.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-07 15:59:45 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-06-08 22:35:39 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -90,19 +90,28 @@ public:
   double GetParameterValue(int i) { return this->Parameters[i]; };
 
   // Description:
+  // For completeness, an unchecked method to get the name for particular
+  // parameter (the result will be NULL if no name was set).  
+  const char *GetParameterName(int i) { return this->ParameterNames[i]; };
+
+  // Description:
+  // Get the number of parameters that have been set.
+  int GetNumberOfParameters() { return this->NumberOfParameters; };
+
+  // Description:
   // Iterate until the minimum is found to within the specified tolerance,
   // or until the MaxIterations has been reached. 
-  void Minimize();
+  virtual void Minimize();
 
   // Description:
   // Initialize the minimization (this must be called before Iterate,
   // but is not necessary before Minimize).
-  int Initialize();
+  virtual int Initialize();
 
   // Description:
   // Perform one iteration of minimization.  Returns zero if the tolerance
   // stopping criterion has been met.  
-  int Iterate();
+  virtual int Iterate();
 
   // Description:
   // Get the function value resulting from the minimization.
