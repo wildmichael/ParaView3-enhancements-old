@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:21:29 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1998-10-06 20:36:36 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,7 +54,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // 1) define an implicit function
 // 2) set it with the SetClipFunction method
 // 3) apply the GenerateClipScalarsOn method
-// If a ClipFunction is not specified, or GenerateClipScalrs is off
+// If a ClipFunction is not specified, or GenerateClipScalars is off
 // (the default), then the input's scalar data will be used to clip
 // the polydata.
 //
