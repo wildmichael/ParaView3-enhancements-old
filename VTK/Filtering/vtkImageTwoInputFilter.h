@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageTwoInputFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-17 14:30:32 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1998-01-05 21:49:44 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,13 +49,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkImageTwoInputFilter_h
 #define __vtkImageTwoInputFilter_h
 
-
 #include "vtkImageMultipleInputFilter.h"
-#include "vtkStructuredPointsToImage.h"
-#include "vtkStructuredPoints.h"
-class vtkImageRegion;
-class vtkImageCache;
-
 
 class VTK_EXPORT vtkImageTwoInputFilter : public vtkImageMultipleInputFilter
 {
@@ -76,11 +70,6 @@ public:
   vtkImageCache *GetInput1() {return this->Inputs[0];}
   vtkImageCache *GetInput2() {return this->Inputs[1];}
 
-protected:
-
-  void Execute(vtkImageRegion **inRegions, vtkImageRegion *outRegion);
-  virtual void Execute(vtkImageRegion *inRegion1, vtkImageRegion *inRegion2, 
-		       vtkImageRegion *outRegion);  
 };
 
 #endif

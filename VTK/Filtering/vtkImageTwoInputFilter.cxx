@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageTwoInputFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-17 14:30:30 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-01-05 21:49:43 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,8 +38,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkImageRegion.h"
-#include "vtkImageCache.h"
 #include "vtkImageTwoInputFilter.h"
 
 
@@ -94,28 +92,6 @@ void vtkImageTwoInputFilter::SetInput2(vtkImageCache *input)
 
 
 
-//----------------------------------------------------------------------------
-// Description:
-//  Just call the less general execute method.
-void vtkImageTwoInputFilter::Execute(vtkImageRegion **inRegions, 
-				     vtkImageRegion *outRegion)
-{
-  this->Execute(inRegions[0], inRegions[1], outRegion);
-}
-
-
-//----------------------------------------------------------------------------
-// Description:
-// The execute method created by the subclass.
-void vtkImageTwoInputFilter::Execute(vtkImageRegion *inRegion1, 
-				     vtkImageRegion *inRegion2, 
-				     vtkImageRegion *outRegion)
-{
-  inRegion1 = inRegion2 = outRegion;
-  vtkErrorMacro(<< "Subclass needs to supply an execute function.");
-}
-
-  
 
 
 

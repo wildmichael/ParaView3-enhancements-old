@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePadFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-12-17 01:27:29 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1998-01-05 21:49:38 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -76,7 +76,7 @@ protected:
   int OutputNumberOfScalarComponents;
 
   void ExecuteImageInformation();
-  void ComputeRequiredInputUpdateExtent();
+  void ComputeRequiredInputUpdateExtent(int inExt[6], int outExt[6]);
 };
 
 #endif

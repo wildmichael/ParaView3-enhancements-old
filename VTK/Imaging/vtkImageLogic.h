@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageLogic.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-11 20:12:51 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-01-05 21:49:34 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -90,9 +90,8 @@ protected:
   int Operation;
   unsigned char OutputTrueValue;
   
-  void Execute(vtkImageRegion *inRegion1, 
-	       vtkImageRegion *inRegion2, 
-	       vtkImageRegion *outRegion);
+  void ThreadedExecute(vtkImageData **inDatas, vtkImageData *outData,
+		       int extent[6], int id);
 };
 
 #endif
