@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSystemIncludes.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:41:21 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-12-28 14:46:02 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -81,14 +81,18 @@ using std::ifstream;
 
 // otherwise, non-ANSI -----------------------------------------------------
 #else
-#include <iostream.h>
-#if defined(_MSC_VER)
-#include <strstrea.h>
+#ifdef _WIN32_WCE
+  #include "vtkWinCE.h"
 #else
-#include <strstream.h>
-#endif
-#include <fstream.h>
-#endif
+  #include <iostream.h>
+  #if defined(_MSC_VER)
+    #include <strstrea.h>
+  #else
+    #include <strstream.h>
+  #endif
+  #include <fstream.h>
+#endif // Win CE
+#endif 
 
 #define VTK_HAS_ID_TYPE
 #ifdef VTK_USE_64BIT_IDS
