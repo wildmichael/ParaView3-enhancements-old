@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTubeFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:54 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2002-02-05 21:48:46 $
+  Version:   $Revision: 1.46 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -104,6 +104,12 @@ public:
   vtkBooleanMacro(UseDefaultNormal,int);
 
   // Description:
+  // Set a boolean to control whether tube sides should share vertices
+  vtkSetMacro(SidesShareVertices, int);
+  vtkGetMacro(SidesShareVertices, int);
+  vtkBooleanMacro(SidesShareVertices, int);
+
+  // Description:
   // Turn on/off whether to cap the ends with polygons.
   vtkSetMacro(Capping,int);
   vtkGetMacro(Capping,int);
@@ -136,6 +142,7 @@ protected:
   float RadiusFactor; //maxium allowablew radius
   float DefaultNormal[3];
   int UseDefaultNormal;
+  int SidesShareVertices;
   int Capping;
   int OnRatio; //control the generation of the sides of the tube
   int Offset;  //control the generation of the sides
