@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDataStreamer.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-24 16:13:54 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-01-08 14:11:49 $
+  Version:   $Revision: 1.17 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -97,13 +97,13 @@ public:
   // Slab mode first breaks up the Z axis.  If it gets to one slice,
   // then it starts breaking up other axes.
   void SetSplitModeToBlock()
-    {this->SplitMode = VTK_IMAGE_DATA_STREAMER_BLOCK_MODE;}
+    {this->SplitMode = vtkImageDataStreamer::BLOCK_MODE;}
   void SetSplitModeToXSlab()
-    {this->SplitMode = VTK_IMAGE_DATA_STREAMER_X_SLAB_MODE;}
+    {this->SplitMode = vtkImageDataStreamer::X_SLAB_MODE;}
  void SetSplitModeToYSlab()
-    {this->SplitMode = VTK_IMAGE_DATA_STREAMER_Y_SLAB_MODE;}
+    {this->SplitMode = vtkImageDataStreamer::Y_SLAB_MODE;}
  void SetSplitModeToZSlab()
-    {this->SplitMode = VTK_IMAGE_DATA_STREAMER_Z_SLAB_MODE;}
+    {this->SplitMode = vtkImageDataStreamer::Z_SLAB_MODE;}
   
   // Description:
   // Need to override since this is where the check for incremental will
@@ -149,10 +149,10 @@ protected:
 // to indicate array indices.
 
   enum Modes {
-    VTK_IMAGE_DATA_STREAMER_X_SLAB_MODE=0,
-    VTK_IMAGE_DATA_STREAMER_Y_SLAB_MODE=1,
-    VTK_IMAGE_DATA_STREAMER_Z_SLAB_MODE=2,
-    VTK_IMAGE_DATA_STREAMER_BLOCK_MODE= 3
+    X_SLAB_MODE=0,
+    Y_SLAB_MODE=1,
+    Z_SLAB_MODE=2,
+    BLOCK_MODE= 3
   };
 
 //ETX
