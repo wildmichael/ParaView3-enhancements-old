@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkWidgetsInit.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-03-20 13:17:20 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2003-06-06 20:48:21 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -15,8 +15,8 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
-#include <tcl.h>
-#include <tk.h>
+#include <vtkTcl.h>
+#include <vtkTk.h>
 
 #include "vtkTkImageViewerWidget.h"
 #include "vtkTkRenderWidget.h"

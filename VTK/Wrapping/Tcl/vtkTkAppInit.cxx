@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkAppInit.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-27 16:09:16 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2003-06-06 20:48:29 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -44,9 +44,9 @@
 #endif
 
 #ifdef VTK_USE_RENDERING
-# include "tk.h"
+# include "vtkTk.h"
 #else
-# include "tcl.h"
+# include "vtkTcl.h"
 #endif
 
 /*

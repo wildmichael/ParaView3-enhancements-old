@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkRenderWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-02-03 16:18:28 $
-  Version:   $Revision: 1.89 $
+  Date:      $Date: 2003-06-06 20:48:21 $
+  Version:   $Revision: 1.90 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,8 +18,6 @@
 #include <stdlib.h>
 
 #include "vtkTkRenderWidget.h"
-#include <tcl.h>
-#include <tk.h>
 #include "vtkRenderWindowInteractor.h"
 #include "vtkImageData.h"
 #include "vtkTclUtil.h"
