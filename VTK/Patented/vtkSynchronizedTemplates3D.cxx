@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-08 09:09:32 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2000-08-13 22:12:27 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -66,6 +66,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkSynchronizedTemplates3D.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
+#include "vtkExtentTranslator.h"
 
 
 
@@ -109,12 +110,6 @@ vtkSynchronizedTemplates3D::vtkSynchronizedTemplates3D()
     {
     this->Threads[idx] = NULL;
     }
-
-  this->ExtentTranslator = NULL;
-  vtkExtentTranslator *t = vtkExtentTranslator::New();
-  this->SetExtentTranslator(t);
-  t->Delete();
-  t = NULL;
 }
 
 //----------------------------------------------------------------------------
@@ -122,8 +117,6 @@ vtkSynchronizedTemplates3D::~vtkSynchronizedTemplates3D()
 {
   this->ContourValues->Delete();
   this->Threader->Delete();
-  
-  this->SetExtentTranslator(NULL);
 }
 
 //----------------------------------------------------------------------------
@@ -703,7 +696,7 @@ VTK_THREAD_RETURN_TYPE vtkSyncTempThreadedExecute( void *arg )
   ext[4] = tmp[4];
   ext[5] = tmp[5];
   
-  vtkExtentTranslator *translator = self->GetExtentTranslator();
+  vtkExtentTranslator *translator = self->GetInput()->GetExtentTranslator();
   if (translator == NULL)
     {
     // No translator means only do one thread.
@@ -830,6 +823,7 @@ void vtkSynchronizedTemplates3D::ComputeInputUpdateExtents(vtkDataObject *out)
   int piece, numPieces;
   int *wholeExt;
   int ext[6];
+  vtkExtentTranslator *translator = input->GetExtentTranslator();
 
   if (input == NULL)
     {
@@ -846,7 +840,7 @@ void vtkSynchronizedTemplates3D::ComputeInputUpdateExtents(vtkDataObject *out)
   input->GetWholeExtent(ext);  
 
   // get the extent associated with the piece.
-  if (this->ExtentTranslator == NULL)
+  if (translator == NULL)
     {
     // Default behavior
     if (piece != 0)
@@ -857,11 +851,11 @@ void vtkSynchronizedTemplates3D::ComputeInputUpdateExtents(vtkDataObject *out)
     }
   else
     {    
-    this->ExtentTranslator->SetWholeExtent(ext);
-    this->ExtentTranslator->SetPiece(piece);
-    this->ExtentTranslator->SetNumberOfPieces(numPieces);
-    this->ExtentTranslator->PieceToExtent();
-    this->ExtentTranslator->GetExtent(ext);
+    translator->SetWholeExtent(ext);
+    translator->SetPiece(piece);
+    translator->SetNumberOfPieces(numPieces);
+    translator->PieceToExtent();
+    translator->GetExtent(ext);
     }
   
   // As a side product of this call, ExecuteExtent is set.
@@ -950,9 +944,6 @@ void vtkSynchronizedTemplates3D::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Compute Gradients: " << (this->ComputeGradients ? "On\n" : "Off\n");
   os << indent << "Compute Scalars: " << (this->ComputeScalars ? "On\n" : "Off\n");
   os << indent << "Number Of Threads: " << this->NumberOfThreads << "\n";
-  
-  os << indent << "ExtentTranslator: " << this->ExtentTranslator << endl;
-  
 }
 
 

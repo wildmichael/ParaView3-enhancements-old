@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates3D.h,v $
   Language:  C++
-  Date:      $Date: 2000-08-08 09:09:33 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-08-13 22:12:27 $
+  Version:   $Revision: 1.14 $
 
 
 
@@ -71,7 +71,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkImageData.h"
 #include "vtkContourValues.h"
 #include "vtkMultiThreader.h"
-#include "vtkExtentTranslator.h"
 
 class VTK_EXPORT vtkSynchronizedTemplates3D : public vtkPolyDataSource
 {
@@ -176,14 +175,7 @@ public:
   // collector: ask for many input pieces, but generate one output.  Limit is
   // in KBytes
   void SetInputMemoryLimit(unsigned long limit);
-  unsigned long GetInputMemoryLimit();
-
-  // Description:
-  // By changing this object, you sould be able to select how the structured
-  // extent is resolved (ie, blocks vs slabs).
-  vtkSetObjectMacro(ExtentTranslator, vtkExtentTranslator);
-  vtkGetObjectMacro(ExtentTranslator, vtkExtentTranslator);
-  
+  unsigned long GetInputMemoryLimit();  
 
 protected:
   vtkSynchronizedTemplates3D();
@@ -200,8 +192,6 @@ protected:
   void ExecuteInformation();
 
   void ComputeInputUpdateExtents(vtkDataObject *output);
-
-  vtkExtentTranslator *ExtentTranslator;
   
   int ExecuteExtent[6];
 
