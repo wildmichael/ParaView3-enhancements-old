@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastFunction.h,v $
   Language:  C++
-  Date:      $Date: 1999-01-21 00:30:24 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-01-21 16:44:06 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -92,6 +92,8 @@ struct VolumeRayCastVolumeInfoStruct
   float                        WorldToVolumeMatrix[16];
   float                        ViewToVolumeMatrix[16];
   vtkVolume                    *Volume;
+  int                          *RowBounds;
+  int                          RowBoundsSize;
   float                        CenterDistance;
   int                          ScalarDataType;
   void                         *ScalarDataPointer;
