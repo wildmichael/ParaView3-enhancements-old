@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFollower.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-09-11 18:28:01 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1998-06-01 21:01:05 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,6 +54,11 @@ vtkFollower::vtkFollower()
 
 vtkFollower::~vtkFollower()
 {
+  if (this->Camera)
+    {
+    this->Camera->UnRegister(this);
+    }
+  
   this->Device->Delete();
 }
 

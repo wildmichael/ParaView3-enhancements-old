@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-11 21:13:27 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 1998-06-01 21:01:02 $
+  Version:   $Revision: 1.53 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -167,7 +167,6 @@ protected:
   vtkTexture *Texture; 
   vtkMapper *Mapper;
   float Scale[3];
-  int SelfCreatedProperty;
 
   // this stuff supports multiple-part actors (e.g. assemblies)
   int TraversalLocation;

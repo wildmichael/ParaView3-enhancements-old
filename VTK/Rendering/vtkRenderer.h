@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-26 16:29:06 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 1998-06-01 21:01:13 $
+  Version:   $Revision: 1.61 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -194,8 +194,6 @@ protected:
 
   float Ambient[3];  
   vtkRenderWindow *RenderWindow;
-  int   SelfCreatedCamera;
-  int   SelfCreatedLight;
   float AllocatedRenderTime;
   int   TwoSidedLighting;
   int   BackingStore;

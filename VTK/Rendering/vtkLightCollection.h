@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLightCollection.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:45:19 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1998-06-01 21:01:09 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,12 +63,15 @@ class VTK_EXPORT vtkLightCollection : public vtkCollection
   void RemoveItem(vtkLight *a);
   int IsItemPresent(vtkLight *a);
   vtkLight *GetNextItem();
+protected:
+  virtual void DeleteElement(vtkCollectionElement *); 
 };
 
 // Description:
 // Add a light to the list.
 inline void vtkLightCollection::AddItem(vtkLight *a) 
 {
+  a->Register(this);
   this->vtkCollection::AddItem((vtkObject *)a);
 }
 
@@ -94,6 +97,15 @@ inline vtkLight *vtkLightCollection::GetNextItem()
 { 
   return (vtkLight *)(this->GetNextItemAsObject());
 }
+
+// Description:
+// protected function to delete an element. Internal use only.
+inline void vtkLightCollection::DeleteElement(vtkCollectionElement *e)
+{
+  ((vtkLight *)(e->Item))->UnRegister(this); 
+  vtkCollection::DeleteElement(e);
+}
+
 
 #endif
 
