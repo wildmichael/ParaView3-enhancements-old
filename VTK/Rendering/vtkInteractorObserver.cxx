@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorObserver.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-12 11:09:47 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2003-01-16 19:54:30 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,9 @@
 #include "vtkRenderWindow.h"
 #include "vtkRenderWindowInteractor.h"
 
-vtkCxxRevisionMacro(vtkInteractorObserver, "$Revision: 1.20 $");
+vtkCxxRevisionMacro(vtkInteractorObserver, "$Revision: 1.21 $");
+
+vtkCxxSetObjectMacro(vtkInteractorObserver,CurrentRenderer,vtkRenderer);
 
 vtkInteractorObserver::vtkInteractorObserver()
 {
@@ -227,6 +229,7 @@ void vtkInteractorObserver::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->Superclass::PrintSelf(os,indent);
   
+  os << indent << "Current Renderer: " << this->CurrentRenderer << "\n";
   os << indent << "Enabled: " << this->Enabled << "\n";
   os << indent << "Priority: " << this->Priority << "\n";
   os << indent << "Interactor: " << this->Interactor << "\n";

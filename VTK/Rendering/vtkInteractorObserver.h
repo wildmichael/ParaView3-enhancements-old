@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorObserver.h,v $
   Language:  C++
-  Date:      $Date: 2003-01-06 20:36:14 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2003-01-16 19:54:30 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -108,6 +108,16 @@ public:
   // press until SetInteractor(NULL)/SetInteractor(iren) is called.
   vtkSetMacro(KeyPressActivationValue,char);
   vtkGetMacro(KeyPressActivationValue,char);
+
+  // Description:
+  // Specify the renderer to use when activiating the interactor observer.
+  // Normally when the widget is activated (SetEnabled(1) or when 
+  // keypress activation takes place), the renderer over which the mouse
+  // pointer is positioned is used. Alternatively, you can specify the
+  // renderer to bind the interactor to when the interactor observer is
+  // activated.
+  virtual void SetCurrentRenderer(vtkRenderer*);
+  vtkGetObjectMacro(CurrentRenderer,vtkRenderer);
 
   // Sets up the keypress-i event. 
   virtual void OnChar();
