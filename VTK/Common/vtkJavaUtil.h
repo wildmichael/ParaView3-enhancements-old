@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJavaUtil.h,v $
   Language:  C++
-  Date:      $Date: 1998-08-03 13:15:19 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-11-03 17:53:41 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,8 +42,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <string.h>
 #include <jni.h>
 
-extern JNIEXPORT void vtkJavaAddObjectToHash(JNIEnv *env,jobject obj,void *anInstance,
-				   void *tcFunc, int);
+extern JNIEXPORT void vtkJavaAddObjectToHash(JNIEnv *env,jobject obj,
+					     void *anInstance,
+					     void *tcFunc);
 extern JNIEXPORT void *vtkJavaGetPointerFromObject(JNIEnv *env,jobject obj, 
 					 char *result_type);
 extern JNIEXPORT void vtkJavaDeleteObjectFromHash(JNIEnv *env, int id);
