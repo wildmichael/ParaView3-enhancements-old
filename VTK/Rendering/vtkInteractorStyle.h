@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-01 04:56:53 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2002-05-06 21:19:25 $
+  Version:   $Revision: 1.43 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -264,10 +264,6 @@ public:
 protected:
   vtkInteractorStyle();
   ~vtkInteractorStyle();
-
-  // Description:
-  // Will the clipping range be automatically adjust before each render?
-  void ResetCameraClippingRange();
   
   // Description:
   // Main process event method

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleUnicam.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-01 04:56:53 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-05-06 21:19:25 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,7 +32,7 @@
 #include "vtkSphereSource.h"
 #include "vtkPolyDataMapper.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyleUnicam, "$Revision: 1.23 $");
+vtkCxxRevisionMacro(vtkInteractorStyleUnicam, "$Revision: 1.24 $");
 vtkStandardNewMacro(vtkInteractorStyleUnicam);
 
 vtkInteractorStyleUnicam::vtkInteractorStyleUnicam()
@@ -652,6 +652,9 @@ void vtkInteractorStyleUnicam::MyTranslateCamera(float v[3])
   camera->SetPosition  (newP);
   camera->SetFocalPoint(newF);
 
-  this->ResetCameraClippingRange();
+  if (this->AutoAdjustCameraClippingRange)
+    {
+    this->CurrentRenderer->ResetCameraClippingRange();
+    }
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleFlight.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-01 04:56:53 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2002-05-06 21:19:25 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkRenderWindowInteractor.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyleFlight, "$Revision: 1.22 $");
+vtkCxxRevisionMacro(vtkInteractorStyleFlight, "$Revision: 1.23 $");
 vtkStandardNewMacro(vtkInteractorStyleFlight);
 
 //---------------------------------------------------------------------------
@@ -123,19 +123,16 @@ void vtkInteractorStyleFlight::OnTimer()
       {
       camera->SetViewUp(this->FixedUpVector);
       }
-    this->ResetCameraClippingRange();
+
+    if (this->AutoAdjustCameraClippingRange)
+      {
+      this->CurrentRenderer->ResetCameraClippingRange();
+      }
 
     vtkRenderWindowInteractor *rwi = this->Interactor;
-
-    // Make sure light follows camera if desired
     if (rwi->GetLightFollowCamera()) 
       {
-      vtkLight* light = this->CurrentRenderer->GetFirstLight();
-      if (light != NULL) 
-        {
-        light->SetPosition(camera->GetPosition());
-        light->SetFocalPoint(camera->GetFocalPoint());
-        }
+      this->CurrentRenderer->UpdateLightsGeometryToFollowCamera();
       }
 
     rwi->Render();
@@ -330,19 +327,18 @@ void vtkInteractorStyleFlight::JumpTo(double campos[3], double focpos[3])
     {
     camera->SetViewUp(this->FixedUpVector);
     }
-  this->ResetCameraClippingRange();
 
-  // Make sure light follows camera if desired
+  if (this->AutoAdjustCameraClippingRange)
+    {
+    this->CurrentRenderer->ResetCameraClippingRange();
+    }
+
   vtkRenderWindowInteractor *rwi = this->Interactor;
   if (rwi->GetLightFollowCamera()) 
     {
-    vtkLight* light = this->CurrentRenderer->GetFirstLight();
-    if (light != NULL) 
-      {
-      light->SetPosition(camera->GetPosition());
-      light->SetFocalPoint(camera->GetFocalPoint());
-      }
+    this->CurrentRenderer->UpdateLightsGeometryToFollowCamera();
     }
+
   rwi->Render();
 }
 
