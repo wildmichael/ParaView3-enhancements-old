@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkGlyph3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-03-01 22:23:40 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-03-03 18:25:51 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -25,6 +25,14 @@ vlGlyph3D::vlGlyph3D()
   this->ScaleFactor = 1.0;
   this->Range[0] = 0.0;
   this->Range[0] = 1.0;
+}
+
+vlGlyph3D::~vlGlyph3D()
+{
+  if (this->Source)
+    {
+    this->Source->UnRegister((void *)this);
+    }
 }
 
 void vlGlyph3D::PrintSelf(ostream& os, vlIndent indent)

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkGlyph3D.h,v $
   Language:  C++
-  Date:      $Date: 1994-03-01 22:23:39 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-03-03 18:25:50 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -30,12 +30,12 @@ class vlGlyph3D : public vlDataSetToPolyFilter
 {
 public:
   vlGlyph3D();
-  ~vlGlyph3D() {};
+  ~vlGlyph3D();
   char *GetClassName() {return "vlGlyph3D";};
   void PrintSelf(ostream& os, vlIndent indent);
 
-  vlSetMacro(Source,vlPolyData*);
-  vlGetMacro(Source,vlPolyData*);
+  vlSetObjectMacro(Source,vlPolyData);
+  vlGetObjectMacro(Source,vlPolyData);
 
   vlBooleanMacro(Scaling,int);
   vlSetMacro(Scaling,int);
