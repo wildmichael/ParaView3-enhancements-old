@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.h,v $
   Language:  C++
-  Date:      $Date: 2000-05-02 03:59:48 $
-  Version:   $Revision: 1.64 $
+  Date:      $Date: 2000-05-08 21:10:13 $
+  Version:   $Revision: 1.65 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -171,13 +171,6 @@ class VTK_EXPORT vtkCamera : public vtkObject
   // Rotate the focal point about the cross product of the view up vector 
   // and the direction of projection, centered at the camera's position.
   void Pitch(double angle);
-
-  // Description:
-  // Return the view transform.  This transform converts world coordinates
-  // to camera coordinates, and is set up using the above camera positioning  
-  // methods.  It contains only rotation and translation transformations.
-  vtkLinearTransform *GetViewTransform() { 
-    return this->ViewTransform; };
 
   // Description: 
   // Set/Get the value of the ParallelProjection instance variable. This
@@ -351,6 +344,21 @@ class VTK_EXPORT vtkCamera : public vtkObject
   void SetViewPlaneNormal(const float a[3]) {
     this->SetViewPlaneNormal(a[0], a[1], a[2]); };
 
+  // Description:
+  // For legacy compatibility. Do not use.
+  vtkMatrix4x4 &GetViewTransform(){
+    vtkWarningMacro("GetViewTransform: This method is deprecated, use GetViewTransformMatrix instead");
+    return *this->GetViewTransformMatrix();}
+  vtkMatrix4x4 &GetPerspectiveTransform(double aspect,double nearz,
+					double farz) {
+    vtkWarningMacro("GetPerspectiveTransform: This method is deprecated, use GetPerspectiveTransformMatrix instead");
+    return *this->GetPerspectiveTransformMatrix(aspect, nearz, farz);}
+  vtkMatrix4x4 &GetCompositePerspectiveTransform(double aspect, 
+						 double nearz, 
+  						 double farz) {
+    vtkWarningMacro("GetCompositePerspectiveTransform: This method is deprecated, use GetPerspectiveTransformMatrix instead");
+    return *this->GetCompositePerspectiveTransformMatrix(aspect,nearz,farz);}
+  
 protected:
   vtkCamera();
   ~vtkCamera();
