@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointData.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-04-30 16:31:23 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1995-05-03 21:15:37 $
+  Version:   $Revision: 1.27 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -478,7 +478,7 @@ void vlPointData::PrintSelf(ostream& os, vlIndent indent)
     }
   else
     {
-    os << indent << "Scalar: (none)\n";
+    os << indent << "Scalars: (none)\n";
     }
 
   if ( this->Vectors )

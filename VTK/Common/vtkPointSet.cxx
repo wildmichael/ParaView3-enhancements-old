@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-02-26 10:17:45 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-05-03 21:15:36 $
+  Version:   $Revision: 1.17 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -79,8 +79,8 @@ void vlPointSet::PrintSelf(ostream& os, vlIndent indent)
   vlDataSet::PrintSelf(os,indent);
 
   os << indent << "Number Of Points: " << this->GetNumberOfPoints() << "\n";
-  os << indent << "Point Data: " << this->Points;
-  os << indent << "Locator: " << this->Locator;
+  os << indent << "Point Data: " << this->Points << "\n";
+  os << indent << "Locator: " << this->Locator << "\n";
 }
 
 int vlPointSet::FindCell(float x[3], vlCell *cell, float tol2, int& subId,
