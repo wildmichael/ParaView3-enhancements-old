@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRayCaster.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:55 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1999-09-15 21:15:14 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -290,6 +290,7 @@ protected:
   float         CameraInverse23;
   float         CameraInverse32;
   float         CameraInverse33;
+  float         CameraPosition[3];
   float         *ParallelStartPosition;
   float         *ParallelIncrements;
   int           ParallelProjection;
