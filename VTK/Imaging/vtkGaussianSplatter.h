@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGaussianSplatter.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:51:30 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1995-08-01 10:26:16 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -90,9 +90,13 @@ public:
   vtkSetClampMacro(Eccentricity,float,0.001,LARGE_FLOAT);
   vtkGetMacro(Eccentricity,float);
 
-  void SetModelBounds(float *bounds);
-  void SetModelBounds(float xmin, float xmax, float ymin, float ymax, float zmin, float zmax);
+  // Description:
+  // Set the (xmin,xmax, ymin,ymax, zmin,zmax) bounding box in which the 
+  // sampling is performed.
+  vtkSetVectorMacro(ModelBounds,float,6);
   vtkGetVectorMacro(ModelBounds,float,6);
+  void SetModelBounds(float xmin, float xmax, float ymin, float ymax, 
+                      float zmin, float zmax);
 
   // Description:
   // Turn on/off the generation of elliptical splats.

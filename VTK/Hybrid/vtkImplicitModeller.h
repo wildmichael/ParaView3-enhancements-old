@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitModeller.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:50:20 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-08-01 10:26:09 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,10 +71,12 @@ public:
   vtkSetClampMacro(MaximumDistance,float,0.0,1.0);
   vtkGetMacro(MaximumDistance,float);
 
-  // Specify the position in space to perform the sampling.
-  void SetModelBounds(float *bounds);
-  void SetModelBounds(float xmin, float xmax, float ymin, float ymax, float zmin, float zmax);
+  // Description:
+  // Specify the region in space in which to perform the sampling.
+  vtkSetVectorMacro(ModelBounds,float,6);
   vtkGetVectorMacro(ModelBounds,float,6);
+  void SetModelBounds(float xmin, float xmax, float ymin, float ymax, 
+                      float zmin, float zmax);
 
   // Description:
   // The outer boundary of the structured point set can be assigned a 
