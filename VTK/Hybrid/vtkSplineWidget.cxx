@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSplineWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-07 11:29:31 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-11-08 18:57:29 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -34,7 +34,7 @@
 #include "vtkSphereSource.h"
 #include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkSplineWidget, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkSplineWidget, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkSplineWidget);
 
 vtkSplineWidget::vtkSplineWidget()
@@ -1207,6 +1207,11 @@ void vtkSplineWidget::SetResolution(int resolution)
   this->LineData->Update();
   this->LineMapper->Update();
   this->LineActor->Modified();
+}
+
+void vtkSplineWidget::GetPolyData(vtkPolyData *pd)
+{ 
+  pd->ShallowCopy(this->LineData); 
 }
 
 void vtkSplineWidget::SizeHandles()

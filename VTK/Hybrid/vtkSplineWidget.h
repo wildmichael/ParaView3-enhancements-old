@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSplineWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-06 21:57:03 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-11-08 18:57:29 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -79,7 +79,6 @@
 #define __vtkSplineWidget_h
 
 #include "vtk3DWidget.h"
-#include "vtkPolyData.h"
 
 class vtkActor;
 class vtkCardinalSpline;
@@ -154,8 +153,7 @@ public:
   // are guaranteed to be up-to-date when either the
   // InteractionEvent or EndInteraction events are invoked. The user provides
   // the vtkPolyData and the points and polyline are added to it.
-  void GetPolyData(vtkPolyData *pd)
-    { pd->ShallowCopy(this->LineData); }
+  void GetPolyData(vtkPolyData *pd);
 
   // Description:
   // Get the handle properties (the little balls are the handles). The
