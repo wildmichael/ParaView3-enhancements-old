@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractEdges.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-11-04 17:43:47 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1998-11-05 12:29:02 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -97,6 +97,8 @@ void vtkExtractEdges::Execute()
   pd = input->GetPointData();
   outPD = output->GetPointData();
   outPD->CopyAllocate(pd,numPts);
+
+  cd = input->GetCellData();
   outCD = output->GetCellData();
   outCD->CopyAllocate(cd,numCells);
   
