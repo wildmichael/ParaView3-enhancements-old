@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIdealHighPass.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:46 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-11-13 14:32:36 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -82,7 +82,7 @@ protected:
   float CutOff[3];
   
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
-		       int outExt[6], int id);
+                       int outExt[6], int id);
 private:
   vtkImageIdealHighPass(const vtkImageIdealHighPass&);  // Not implemented.
   void operator=(const vtkImageIdealHighPass&);  // Not implemented.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageRGBToHSV.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:51 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-11-13 14:32:41 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -74,7 +74,7 @@ protected:
   float Maximum;
   
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
-		       int ext[6], int id);
+                       int ext[6], int id);
 private:
   vtkImageRGBToHSV(const vtkImageRGBToHSV&);  // Not implemented.
   void operator=(const vtkImageRGBToHSV&);  // Not implemented.

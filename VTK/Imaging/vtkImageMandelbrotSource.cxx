@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMandelbrotSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:42:51 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2001-11-13 14:32:54 $
+  Version:   $Revision: 1.28 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -173,8 +173,8 @@ void vtkImageMandelbrotSource::SetWholeExtent(int extent[6])
 
 //----------------------------------------------------------------------------
 void vtkImageMandelbrotSource::SetWholeExtent(int minX, int maxX, 
-					    int minY, int maxY,
-					    int minZ, int maxZ)
+                                            int minY, int maxY,
+                                            int minZ, int maxZ)
 {
   int extent[6];
   
@@ -292,7 +292,7 @@ void vtkImageMandelbrotSource::ExecuteData(vtkDataObject *output)
   ptr = (float *)(data->GetScalarPointerForExtent(ext));
 
   vtkDebugMacro("Generating Extent: " << ext[0] << " -> " << ext[1] << ", "
-		<< ext[2] << " -> " << ext[3]);
+                << ext[2] << " -> " << ext[3]);
 
   // Get min and max of axis 0 because it is the innermost loop.
   min0 = ext[0];
@@ -325,14 +325,14 @@ void vtkImageMandelbrotSource::ExecuteData(vtkDataObject *output)
       count++;
       p[a1] = (double)(origin[a1]) + (double)(idx1)*(sample[a1]);
       for (idx0 = min0; idx0 <= max0; ++idx0)
-	{
+        {
         p[a0] = (double)(origin[a0]) + (double)(idx0)*(sample[a0]);
 
         *ptr = (float)(this->EvaluateSet(p));
 
-	++ptr;
-	// inc0 is 0
-	}
+        ++ptr;
+        // inc0 is 0
+        }
       ptr += inc1;
       }
     ptr += inc2;
@@ -369,12 +369,12 @@ void vtkImageMandelbrotSource::SuperSample(vtkImageData *data)
       {
       ptr0 = ptr1;
       for (idx0 = min0+1; idx0 < max0; ++idx0)
-	{
+        {
         *ptr0 = (float*)(this->EvaluateSet(p));
 
-	++ptr0;
-	// inc0 is 1
-	}
+        ++ptr0;
+        // inc0 is 1
+        }
       ptr1 += inc1;
       }
     ptr2 += inc2;

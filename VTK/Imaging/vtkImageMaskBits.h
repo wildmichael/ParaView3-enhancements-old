@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMaskBits.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:49 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-11-13 14:32:38 $
+  Version:   $Revision: 1.15 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -86,7 +86,7 @@ protected:
   ~vtkImageMaskBits() {};
 
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData, 
-		       int ext[6], int id);
+                       int ext[6], int id);
 
   unsigned int Masks[4];
   int Operation;      

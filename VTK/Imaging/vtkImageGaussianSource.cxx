@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGaussianSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-08 13:51:07 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-11-13 14:32:51 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -79,8 +79,8 @@ vtkImageGaussianSource::vtkImageGaussianSource()
 
 //----------------------------------------------------------------------------
 void vtkImageGaussianSource::SetWholeExtent(int xMin, int xMax, 
-					    int yMin, int yMax,
-					    int zMin, int zMax)
+                                            int yMin, int yMax,
+                                            int zMin, int zMax)
 {
   int modified = 0;
   
@@ -174,21 +174,21 @@ void vtkImageGaussianSource::ExecuteData(vtkDataObject *output)
     for (idxY = 0; !this->AbortExecute && idxY <= maxY; idxY++)
       {
       if (!(count%target))
-	{
-	this->UpdateProgress(count/(50.0*target));
-	}
+        {
+        this->UpdateProgress(count/(50.0*target));
+        }
       count++;
       yContrib = this->Center[1] - (idxY + outExt[2]);
       yContrib = yContrib*yContrib;
       for (idxX = 0; idxX <= maxX; idxX++)
-	{
-	// Pixel operation
-	sum = zContrib + yContrib;
-	temp = this->Center[0] - (idxX + outExt[0]);
-	sum = sum + (temp * temp);
-	*outPtr = this->Maximum * exp(-sum * temp2);
-	outPtr++;
-	}
+        {
+        // Pixel operation
+        sum = zContrib + yContrib;
+        temp = this->Center[0] - (idxX + outExt[0]);
+        sum = sum + (temp * temp);
+        *outPtr = this->Maximum * exp(-sum * temp2);
+        outPtr++;
+        }
       outPtr += outIncY;
       }
     outPtr += outIncZ;

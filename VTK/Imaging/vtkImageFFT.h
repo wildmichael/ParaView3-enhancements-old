@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFFT.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:43 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2001-11-13 14:32:34 $
+  Version:   $Revision: 1.30 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -71,7 +71,7 @@ public:
   // successful split.  This can be from 1 to "total".  
   // If 1 is returned, the extent cannot be split.
   int SplitExtent(int splitExt[6], int startExt[6], 
-		  int num, int total);
+                  int num, int total);
 
   virtual void IterativeExecuteData(vtkImageData *in, vtkImageData *out) 
     { this->MultiThread(in,out); };
@@ -86,7 +86,7 @@ protected:
   void ExecuteInformation(){this->vtkImageIterateFilter::ExecuteInformation();};
   
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
-		       int outExt[6], int threadId);
+                       int outExt[6], int threadId);
 private:
   vtkImageFFT(const vtkImageFFT&);  // Not implemented.
   void operator=(const vtkImageFFT&);  // Not implemented.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMandelbrotSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:48 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2001-11-13 14:32:38 $
+  Version:   $Revision: 1.26 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -67,7 +67,7 @@ public:
   // Set/Get the extent of the whole output Volume.
   void SetWholeExtent(int extent[6]);
   void SetWholeExtent(int minX, int maxX, int minY, int maxY, 
-			    int minZ, int maxZ);
+                            int minZ, int maxZ);
   vtkGetVector6Macro(WholeExtent,int);
   
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageClip.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-19 13:21:39 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2001-11-13 14:32:46 $
+  Version:   $Revision: 1.41 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -131,8 +131,8 @@ void vtkImageClip::SetOutputWholeExtent(int extent[6])
 
 //----------------------------------------------------------------------------
 void vtkImageClip::SetOutputWholeExtent(int minX, int maxX, 
-					     int minY, int maxY,
-					     int minZ, int maxZ)
+                                             int minY, int maxY,
+                                             int minZ, int maxZ)
 {
   int extent[6];
   
@@ -158,7 +158,7 @@ void vtkImageClip::GetOutputWholeExtent(int extent[6])
 //----------------------------------------------------------------------------
 // Change the WholeExtent
 void vtkImageClip::ExecuteInformation(vtkImageData *inData, 
-				      vtkImageData *outData)
+                                      vtkImageData *outData)
 {
   int idx, extent[6];
   
@@ -172,12 +172,12 @@ void vtkImageClip::ExecuteInformation(vtkImageData *inData,
   for (idx = 0; idx < 3; ++idx)
     {
     if (this->OutputWholeExtent[idx*2] >= extent[idx*2] && 
-	this->OutputWholeExtent[idx*2] <= extent[idx*2+1])
+        this->OutputWholeExtent[idx*2] <= extent[idx*2+1])
       {
       extent[idx*2] = this->OutputWholeExtent[idx*2];
       }
     if (this->OutputWholeExtent[idx*2+1] >= extent[idx*2] && 
-	this->OutputWholeExtent[idx*2+1] <= extent[idx*2+1])
+        this->OutputWholeExtent[idx*2+1] <= extent[idx*2+1])
       {
       extent[idx*2+1] = this->OutputWholeExtent[idx*2+1];
       }

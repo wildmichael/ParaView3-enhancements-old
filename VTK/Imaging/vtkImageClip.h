@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageClip.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:39 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2001-11-13 14:32:32 $
+  Version:   $Revision: 1.33 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -67,7 +67,7 @@ public:
   // The whole extent of the output has to be set explicitly.
   void SetOutputWholeExtent(int extent[6]);
   void SetOutputWholeExtent(int minX, int maxX, int minY, int maxY, 
-			    int minZ, int maxZ);
+                            int minZ, int maxZ);
   void GetOutputWholeExtent(int extent[6]);
   int *GetOutputWholeExtent() {return this->OutputWholeExtent;}
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGaussianSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:44 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2001-11-13 14:32:36 $
+  Version:   $Revision: 1.23 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,7 +60,7 @@ public:
   // Description:
   // Set/Get the extent of the whole output image.
   void SetWholeExtent(int xMinx, int xMax, int yMin, int yMax,
-		      int zMin, int zMax);
+                      int zMin, int zMax);
   
   // Description:
   // Set/Get the center of the Gaussian.

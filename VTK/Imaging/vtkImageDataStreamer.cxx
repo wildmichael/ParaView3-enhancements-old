@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDataStreamer.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-06 12:19:36 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-11-13 14:32:47 $
+  Version:   $Revision: 1.24 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -177,9 +177,9 @@ void vtkImageDataStreamer::UpdateData(vtkDataObject *vtkNotUsed(out))
     if (this->Inputs[idx] != NULL)
       {
       if ( this->Inputs[idx]->ShouldIReleaseData() )
-	{
-	this->Inputs[idx]->ReleaseData();
-	}
+        {
+        this->Inputs[idx]->ReleaseData();
+        }
       }  
     }
   

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageVariance3D.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:55 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-11-13 14:32:43 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -78,7 +78,7 @@ protected:
   void ExecuteInformation(vtkImageData *inData, vtkImageData *outData);
   void ExecuteInformation(){this->vtkImageToImageFilter::ExecuteInformation();};
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData, 
-		       int extent[6], int id);
+                       int extent[6], int id);
 private:
   vtkImageVariance3D(const vtkImageVariance3D&);  // Not implemented.
   void operator=(const vtkImageVariance3D&);  // Not implemented.

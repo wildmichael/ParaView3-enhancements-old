@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageNoiseSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-08 13:50:35 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-11-13 14:32:56 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -77,8 +77,8 @@ vtkImageNoiseSource::vtkImageNoiseSource()
 
 //----------------------------------------------------------------------------
 void vtkImageNoiseSource::SetWholeExtent(int xMin, int xMax, 
-					 int yMin, int yMax,
-					 int zMin, int zMax)
+                                         int yMin, int yMax,
+                                         int zMin, int zMax)
 {
   int modified = 0;
   
@@ -164,17 +164,17 @@ void vtkImageNoiseSource::ExecuteData(vtkDataObject *output)
     for (idxY = 0; !this->AbortExecute && idxY <= maxY; idxY++)
       {
       if (!(count%target))
-	{
-	this->UpdateProgress(count/(50.0*target));
-	}
+        {
+        this->UpdateProgress(count/(50.0*target));
+        }
       count++;
       for (idxR = 0; idxR < rowLength; idxR++)
-	{
-	// Pixel operation
-	*outPtr = this->Minimum +
-	  (this->Maximum - this->Minimum) * vtkMath::Random();
-	outPtr++;
-	}
+        {
+        // Pixel operation
+        *outPtr = this->Minimum +
+          (this->Maximum - this->Minimum) * vtkMath::Random();
+        outPtr++;
+        }
       outPtr += outIncY;
       }
     outPtr += outIncZ;

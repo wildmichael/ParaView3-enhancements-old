@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSinusoidSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-16 15:00:01 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2001-11-13 14:32:59 $
+  Version:   $Revision: 1.30 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -117,8 +117,8 @@ void vtkImageSinusoidSource::SetDirection(float v0, float v1, float v2)
 
 //----------------------------------------------------------------------------
 void vtkImageSinusoidSource::SetWholeExtent(int xMin, int xMax, 
-					    int yMin, int yMax,
-					    int zMin, int zMax)
+                                            int yMin, int yMax,
+                                            int zMin, int zMax)
 {
   int modified = 0;
   
@@ -207,21 +207,21 @@ void vtkImageSinusoidSource::ExecuteData(vtkDataObject *output)
     for (idxY = 0; !this->AbortExecute && idxY <= maxY; idxY++)
       {
       if (!(count%target))
-	{
-	this->UpdateProgress(count/(50.0*target));
-	}
+        {
+        this->UpdateProgress(count/(50.0*target));
+        }
       count++;
       yContrib = this->Direction[1] * (idxY + outExt[2]);
       for (idxX = 0; idxX <= maxX; idxX++)
-	{
-	xContrib = this->Direction[0] * (float)(idxX + outExt[0]);
-	// find dot product
-	sum = zContrib + yContrib + xContrib;
-	
-	*outPtr = this->Amplitude * 
-	  cos((6.2831853 * sum / this->Period) - this->Phase);
-    	outPtr++;
-	}
+        {
+        xContrib = this->Direction[0] * (float)(idxX + outExt[0]);
+        // find dot product
+        sum = zContrib + yContrib + xContrib;
+        
+        *outPtr = this->Amplitude * 
+          cos((6.2831853 * sum / this->Period) - this->Phase);
+        outPtr++;
+        }
       outPtr += outIncY;
       }
     outPtr += outIncZ;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMathematics.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:49 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2001-11-13 14:32:39 $
+  Version:   $Revision: 1.27 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -126,7 +126,7 @@ protected:
   void ExecuteInformation(vtkImageData **inDatas, vtkImageData *outData);
   void ExecuteInformation(){this->vtkImageTwoInputFilter::ExecuteInformation();};
   void ThreadedExecute(vtkImageData **inDatas, vtkImageData *outData,
-		       int extent[6], int id);
+                       int extent[6], int id);
 private:
   vtkImageMathematics(const vtkImageMathematics&);  // Not implemented.
   void operator=(const vtkImageMathematics&);  // Not implemented.

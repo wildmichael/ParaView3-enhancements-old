@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageChangeInformation.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-08 18:37:58 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-11-13 14:32:45 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -138,7 +138,7 @@ void vtkImageChangeInformation::PrintSelf(ostream& os, vtkIndent indent)
 //----------------------------------------------------------------------------
 // Change the information
 void vtkImageChangeInformation::ExecuteInformation(vtkImageData *inData, 
-						   vtkImageData *outData)
+                                                   vtkImageData *outData)
 {
   int i;
   int extent[6], inExtent[6];
@@ -234,7 +234,7 @@ void vtkImageChangeInformation::ExecuteData(vtkDataObject *data)
 
 //----------------------------------------------------------------------------
 void vtkImageChangeInformation::ComputeInputUpdateExtent(int inExt[6], 
-							 int outExt[6])
+                                                         int outExt[6])
 {
   if (this->FinalExtentTranslation[0] == VTK_INT_MAX)
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDilateErode3D.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:41 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2001-11-13 14:32:33 $
+  Version:   $Revision: 1.29 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -88,7 +88,7 @@ protected:
   float ErodeValue;
     
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData, 
-		       int extent[6], int id);
+                       int extent[6], int id);
 private:
   vtkImageDilateErode3D(const vtkImageDilateErode3D&);  // Not implemented.
   void operator=(const vtkImageDilateErode3D&);  // Not implemented.

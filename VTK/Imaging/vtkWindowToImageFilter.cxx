@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindowToImageFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-17 21:27:37 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-11-13 14:33:02 $
+  Version:   $Revision: 1.15 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -121,8 +121,8 @@ void vtkWindowToImageFilter::ExecuteInformation()
   
   // set the extent, if the VOI has not been set then default to
   out->SetWholeExtent(0, this->Input->GetSize()[0] - 1,
-		      0, this->Input->GetSize()[1] - 1,
-		      0, 0);
+                      0, this->Input->GetSize()[1] - 1,
+                      0, 0);
   
   // set the spacing
   out->SetSpacing(1.0, 1.0, 1.0);

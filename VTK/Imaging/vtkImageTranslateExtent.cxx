@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageTranslateExtent.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-08 20:33:41 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-11-13 14:33:01 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -89,7 +89,7 @@ void vtkImageTranslateExtent::PrintSelf(ostream& os, vtkIndent indent)
 //----------------------------------------------------------------------------
 // Change the WholeExtent
 void vtkImageTranslateExtent::ExecuteInformation(vtkImageData *inData, 
-						 vtkImageData *outData)
+                                                 vtkImageData *outData)
 {
   int idx, extent[6];
   float *spacing, origin[3];
@@ -133,7 +133,7 @@ void vtkImageTranslateExtent::ExecuteData(vtkDataObject *data)
 
 //----------------------------------------------------------------------------
 void vtkImageTranslateExtent::ComputeInputUpdateExtent(int extent[6], 
-						       int inExtent[6])
+                                                       int inExtent[6])
 {
   extent[0] = inExtent[0] - this->Translation[0];
   extent[1] = inExtent[1] - this->Translation[0];

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageExport.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-24 22:08:51 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-11-13 14:32:49 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 
@@ -172,11 +172,11 @@ void vtkImageExport::Export(void *output)
       {
       ptr = (void *)(((char *)ptr) + ysize*xsize*csize);
       for (int j = 0; j < ysize; j++)
-	{
-	ptr = (void *)(((char *)ptr) - xsize*csize);
-	memcpy(output, ptr, xsize*csize);
-	output = (void *)(((char *)output) + xsize*csize);
-	}
+        {
+        ptr = (void *)(((char *)ptr) - xsize*csize);
+        memcpy(output, ptr, xsize*csize);
+        output = (void *)(((char *)output) + xsize*csize);
+        }
       ptr = (void *)(((char *)ptr) + ysize*xsize*csize);
       }
     }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSeedConnectivity.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-13 18:45:27 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-11-13 14:32:58 $
+  Version:   $Revision: 1.24 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -175,15 +175,15 @@ void vtkImageSeedConnectivity::ExecuteData(vtkDataObject *)
   // Pick an intermediate value (In some cases, we could eliminate the last threshold.)
   temp1 = 1;
   while (temp1 == this->InputConnectValue || 
-	 temp1 == this->OutputUnconnectedValue ||
-	 temp1 == this->OutputConnectedValue)
+         temp1 == this->OutputUnconnectedValue ||
+         temp1 == this->OutputConnectedValue)
     {
     ++temp1;
     }
   temp2 = temp1 + 1;
   while (temp2 == this->InputConnectValue || 
-	 temp2 == this->OutputUnconnectedValue ||
-	 temp2 == this->OutputConnectedValue)
+         temp2 == this->OutputUnconnectedValue ||
+         temp2 == this->OutputConnectedValue)
     {
     ++temp2;
     }
@@ -271,7 +271,7 @@ void vtkImageSeedConnectivity::ExecuteData(vtkDataObject *)
   this->Connector->SetUnconnectedValue(temp1);
   this->Connector->SetConnectedValue(temp2);
   this->Connector->MarkData(outData, this->Dimensionality, 
-			    this->GetOutput()->GetExtent());
+                            this->GetOutput()->GetExtent());
 
   this->UpdateProgress(0.9);
   if (this->AbortExecute)
@@ -294,7 +294,7 @@ void vtkImageSeedConnectivity::ExecuteData(vtkDataObject *)
           {
           *outPtr0 = this->OutputConnectedValue;
           }
-	else
+        else
           {
           *outPtr0 = this->OutputUnconnectedValue;
           }

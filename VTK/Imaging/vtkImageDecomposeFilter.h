@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDecomposeFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:41 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-11-13 14:32:33 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -80,7 +80,7 @@ public:
   // Private methods kept public for template execute functions.
   void PermuteIncrements(int *increments, int &inc0, int &inc1, int &inc2);
   void PermuteExtent(int *extent, int &min0, int &max0, int &min1, int &max1,
-		     int &min2, int &max2);
+                     int &min2, int &max2);
   
 protected:
   vtkImageDecomposeFilter();

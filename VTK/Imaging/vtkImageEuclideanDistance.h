@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageEuclideanDistance.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:42 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-11-13 14:32:33 $
+  Version:   $Revision: 1.8 $
   Thanks:    Olivier Cuisenaire who developed this class
              URL: http://ltswww.epfl.ch/~cuisenai
-	     Email: Olivier.Cuisenaire@epfl.ch
+             Email: Olivier.Cuisenaire@epfl.ch
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -93,7 +93,7 @@ public:
   // successful split.  This can be from 1 to "total".  
   // If 1 is returned, the extent cannot be split.
   int SplitExtent(int splitExt[6], int startExt[6], 
-		  int num, int total);
+                  int num, int total);
 
   // Description:
   // Used to set all non-zero voxels to MaximumDistance before starting
@@ -146,7 +146,7 @@ protected:
     {this->vtkImageIterateFilter::ExecuteInformation();}
   void ComputeInputUpdateExtent(int inExt[6], int outExt[6]);
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
-		       int outExt[6], int threadId);
+                       int outExt[6], int threadId);
 private:
   vtkImageEuclideanDistance(const vtkImageEuclideanDistance&);  // Not implemented.
   void operator=(const vtkImageEuclideanDistance&);  // Not implemented.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGradient.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:45 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2001-11-13 14:32:36 $
+  Version:   $Revision: 1.32 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -85,7 +85,7 @@ protected:
   void ComputeInputUpdateExtent(int inExt[6], int outExt[6]);
   void ExecuteInformation(){this->vtkImageToImageFilter::ExecuteInformation();};
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
-		       int extent[6], int id);
+                       int extent[6], int id);
 private:
   vtkImageGradient(const vtkImageGradient&);  // Not implemented.
   void operator=(const vtkImageGradient&);  // Not implemented.

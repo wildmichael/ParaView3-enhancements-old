@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSimpleImageFilterExample.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-08 20:37:08 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-11-13 14:33:02 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -61,8 +61,8 @@ vtkSimpleImageFilterExample* vtkSimpleImageFilterExample::New()
 // This is not always the case.
 template <class IT>
 static void vtkSimpleImageFilterExampleExecute(vtkImageData* input,
-					       vtkImageData* output,
-					       IT* inPtr, IT* outPtr)
+                                               vtkImageData* output,
+                                               IT* inPtr, IT* outPtr)
 {
   int dims[3];
   input->GetDimensions(dims);

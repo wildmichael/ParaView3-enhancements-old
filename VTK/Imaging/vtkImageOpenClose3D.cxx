@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageOpenClose3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:09 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-11-13 14:32:56 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -87,10 +87,10 @@ vtkImageOpenClose3D::vtkImageOpenClose3D()
   // create the filter chain 
   this->Filter0 = vtkImageDilateErode3D::New();
   this->Filter0->SetProgressMethod(vtkImageOpenClose3DUpdateProgress0,
-				   (void *)this);
+                                   (void *)this);
   this->Filter1 = vtkImageDilateErode3D::New();
   this->Filter1->SetProgressMethod(vtkImageOpenClose3DUpdateProgress1, 
-				   (void *)this); 
+                                   (void *)this); 
   this->SetOpenValue(0.0);
   this->SetCloseValue(255.0);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDifference.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:41 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-11-13 14:32:33 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -118,10 +118,10 @@ protected:
   
   void ExecuteInformation(vtkImageData **inputs, vtkImageData *output); 
   void ComputeInputUpdateExtent(int inExt[6], int outExt[6],
-				int whichInput);
+                                int whichInput);
   void ExecuteInformation(){this->vtkImageTwoInputFilter::ExecuteInformation();};
   void ThreadedExecute(vtkImageData **inDatas, vtkImageData *outData,
-		       int extent[6], int id);  
+                       int extent[6], int id);  
   
 private:
   vtkImageDifference(const vtkImageDifference&);  // Not implemented.

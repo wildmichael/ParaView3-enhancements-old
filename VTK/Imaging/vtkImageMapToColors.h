@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapToColors.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:48 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-11-13 14:32:38 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -102,7 +102,7 @@ protected:
   void ExecuteInformation() {
     this->vtkImageToImageFilter::ExecuteInformation(); };
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
-		       int extent[6], int id);
+                       int extent[6], int id);
   
   void ExecuteData(vtkDataObject *output);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCast.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:38 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2001-11-13 14:32:31 $
+  Version:   $Revision: 1.34 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -101,7 +101,7 @@ protected:
   void UpdateData(vtkDataObject *data);
   void ExecuteInformation(){this->vtkImageToImageFilter::ExecuteInformation();};
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData, 
-		       int ext[6], int id);
+                       int ext[6], int id);
 
 private:
   vtkImageCast(const vtkImageCast&);  // Not implemented.

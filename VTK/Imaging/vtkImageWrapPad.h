@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWrapPad.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:55 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2001-11-13 14:32:43 $
+  Version:   $Revision: 1.22 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -66,7 +66,7 @@ protected:
   void ComputeInputUpdateExtent(int inExt[6], int outExt[6]);
 
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outRegion, 
-		       int ext[6], int id);
+                       int ext[6], int id);
 private:
   vtkImageWrapPad(const vtkImageWrapPad&);  // Not implemented.
   void operator=(const vtkImageWrapPad&);  // Not implemented.

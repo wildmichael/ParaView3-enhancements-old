@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSFile: vtkImageDecomposeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-29 12:27:03 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-11-13 14:32:47 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -124,7 +124,7 @@ void vtkImageDecomposeFilter::SetFilteredAxes(int axis0, int axis1, int axis2)
 
 //----------------------------------------------------------------------------
 void vtkImageDecomposeFilter::PermuteIncrements(int *increments, int &inc0, 
-						int &inc1, int &inc2)
+                                                int &inc1, int &inc2)
 {
   switch (this->Iteration)
     {
@@ -149,8 +149,8 @@ void vtkImageDecomposeFilter::PermuteIncrements(int *increments, int &inc0,
 
 //----------------------------------------------------------------------------
 void vtkImageDecomposeFilter::PermuteExtent(int *extent, int &min0, int &max0, 
-					    int &min1, int &max1,
-					    int &min2, int &max2)
+                                            int &min1, int &max1,
+                                            int &min2, int &max2)
 {
   switch (this->Iteration)
     {

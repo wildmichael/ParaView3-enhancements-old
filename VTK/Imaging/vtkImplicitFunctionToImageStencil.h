@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitFunctionToImageStencil.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:55 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-11-13 14:32:43 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -78,7 +78,7 @@ protected:
   void operator=(const vtkImplicitFunctionToImageStencil&);
 
   void ThreadedExecute(vtkImageStencilData *output,
-		       int extent[6], int threadId);
+                       int extent[6], int threadId);
 
   vtkImplicitFunction *Input;
   float Threshold;

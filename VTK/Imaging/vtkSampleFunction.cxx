@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSampleFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:42:54 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 2001-11-13 14:33:02 $
+  Version:   $Revision: 1.56 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -131,8 +131,8 @@ void vtkSampleFunction::ExecuteInformation()
   output->SetScalarType(VTK_FLOAT);
   output->SetNumberOfScalarComponents(1);
   output->SetWholeExtent(0, this->SampleDimensions[0]-1,
-			 0, this->SampleDimensions[1]-1,
-			 0, this->SampleDimensions[2]-1);
+                         0, this->SampleDimensions[1]-1,
+                         0, this->SampleDimensions[2]-1);
 
   for (i=0; i < 3; i++)
     {

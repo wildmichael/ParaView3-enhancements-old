@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMask.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:48 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2001-11-13 14:32:38 $
+  Version:   $Revision: 1.30 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -105,7 +105,7 @@ protected:
   void ExecuteInformation(){this->vtkImageTwoInputFilter::ExecuteInformation();};
  
   void ThreadedExecute(vtkImageData **inDatas, vtkImageData *outData,
-		       int extent[6], int id);
+                       int extent[6], int id);
 private:
   vtkImageMask(const vtkImageMask&);  // Not implemented.
   void operator=(const vtkImageMask&);  // Not implemented.

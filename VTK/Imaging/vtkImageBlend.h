@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageBlend.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:37 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-11-13 14:32:31 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to David G. Gobbi and Sebastien Barre who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -121,9 +121,9 @@ public:
                    VTK_IMAGE_BLEND_MODE_COMPOUND );
   vtkGetMacro(BlendMode,int);
   void SetBlendModeToNormal() 
-	{this->SetBlendMode(VTK_IMAGE_BLEND_MODE_NORMAL);};
+        {this->SetBlendMode(VTK_IMAGE_BLEND_MODE_NORMAL);};
   void SetBlendModeToCompound() 
-	{this->SetBlendMode(VTK_IMAGE_BLEND_MODE_COMPOUND);};
+        {this->SetBlendMode(VTK_IMAGE_BLEND_MODE_COMPOUND);};
   const char *GetBlendModeAsString(void);
 
   // Description:
@@ -137,7 +137,7 @@ protected:
   ~vtkImageBlend();
 
   void ComputeInputUpdateExtent(int inExt[6], int outExt[6],
-				int whichInput);
+                                int whichInput);
 
   void ExecuteInformation() {
     this->vtkImageMultipleInputFilter::ExecuteInformation(); };
@@ -146,7 +146,7 @@ protected:
 
   void ThreadedExecute(vtkImageData **inDatas, 
                        vtkImageData *outData,
-		       int extent[6], 
+                       int extent[6], 
                        int id);
 
   void ExecuteData(vtkDataObject *output);

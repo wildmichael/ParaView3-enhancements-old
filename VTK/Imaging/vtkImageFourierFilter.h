@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFourierFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:44 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2001-11-13 14:32:35 $
+  Version:   $Revision: 1.30 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -54,7 +54,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 //BTX
 /*******************************************************************
-			COMPLEX number stuff
+                        COMPLEX number stuff
 *******************************************************************/
 
 
@@ -140,11 +140,11 @@ protected:
 
   //BTX
   void ExecuteFftStep2(vtkImageComplex *p_in, vtkImageComplex *p_out, 
-		       int N, int bsize, int fb);
+                       int N, int bsize, int fb);
   void ExecuteFftStepN(vtkImageComplex *p_in, vtkImageComplex *p_out,
-		       int N, int bsize, int n, int fb);
+                       int N, int bsize, int n, int fb);
   void ExecuteFftForwardBackward(vtkImageComplex *in, vtkImageComplex *out, 
-				 int N, int fb);
+                                 int N, int fb);
   //ETX
 private:
   vtkImageFourierFilter(const vtkImageFourierFilter&);  // Not implemented.

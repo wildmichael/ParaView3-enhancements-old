@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCityBlockDistance.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-13 18:45:26 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-11-13 14:32:45 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -93,7 +93,7 @@ void vtkImageCityBlockDistance::AllocateOutputScalars(vtkImageData *outData)
 // This method tells the superclass that the whole input array is needed
 // to compute any output region.
 void vtkImageCityBlockDistance::ComputeInputUpdateExtent(int inExt[6],
-							 int outExt[6])
+                                                         int outExt[6])
 {
   int *wholeExtent;
 
@@ -160,93 +160,93 @@ void vtkImageCityBlockDistance::IterativeExecuteData(vtkImageData *inData,
     for (idx1 = min1; !this->AbortExecute && idx1 <= max1; ++idx1)
       {
       if (!(count%target))
-	{
-	this->UpdateProgress(count/(50.0*target));
-	}
+        {
+        this->UpdateProgress(count/(50.0*target));
+        }
       count++;
       inPtrC = inPtr1;
       outPtrC = outPtr1;
       for (idxC = 0; idxC < numberOfComponents; ++idxC)
-	{
-	// execute forward pass
-	distP = big;
-	distN = -big;
-	inPtr0 = inPtrC;
-	outPtr0 = outPtrC;
-	for (idx0 = min0; idx0 <= max0; ++idx0)
-	  { // preserve sign
-	  if (*inPtr0 >= 0)
-	    {
-	    distN = 0;
-	    if (distP > *inPtr0)
-	      {
-	      distP = *inPtr0;
-	      }
-	    *outPtr0 = distP;
-	    }
-	  if (*inPtr0 <= 0)
-	    {
-	    distP = 0;
-	    if (distN < *inPtr0)
-	      {
-	      distN = *inPtr0;
-	      }
-	    *outPtr0 = distN;
-	    }
-	  
-	  if (distP < big)
-	    {
-	    ++distP;
-	    }
-	  if (distN > -big)
-	    {
-	    --distN;
-	    }
-	  
-	  inPtr0 += inInc0;
-	  outPtr0 += outInc0;
-	  }
-	
-	// backward pass
-	distP = big;
-	distN = -big;
-	// Undo the last increment to put us at the last pixel
-	// (input is no longer needed)
-	outPtr0 -= outInc0;  
-	for (idx0 = max0; idx0 >= min0; --idx0)
-	  {
-	  if (*outPtr0 >= 0)
-	    {
-	    if (distP > *outPtr0)
-	      {
-	      distP = *outPtr0;
-	      }
-	    *outPtr0 = distP;
-	    }
-	  if (*outPtr0 <= 0)
-	    {
-	    if (distN < *outPtr0)
-	      {
-	      distN = *outPtr0;
-	      }
-	    *outPtr0 = distN;
-	    }
-	  
-	  if (distP < big)
-	    {
-	    ++distP;
-	    }
-	  if (distN > -big)
-	    {
-	    --distN;
-	    }
-	  
-	  outPtr0 -= outInc0;
-	  }
-	
-	inPtrC += 1;
-	outPtrC += 1;
-	}
+        {
+        // execute forward pass
+        distP = big;
+        distN = -big;
+        inPtr0 = inPtrC;
+        outPtr0 = outPtrC;
+        for (idx0 = min0; idx0 <= max0; ++idx0)
+          { // preserve sign
+          if (*inPtr0 >= 0)
+            {
+            distN = 0;
+            if (distP > *inPtr0)
+              {
+              distP = *inPtr0;
+              }
+            *outPtr0 = distP;
+            }
+          if (*inPtr0 <= 0)
+            {
+            distP = 0;
+            if (distN < *inPtr0)
+              {
+              distN = *inPtr0;
+              }
+            *outPtr0 = distN;
+            }
+          
+          if (distP < big)
+            {
+            ++distP;
+            }
+          if (distN > -big)
+            {
+            --distN;
+            }
+          
+          inPtr0 += inInc0;
+          outPtr0 += outInc0;
+          }
+        
+        // backward pass
+        distP = big;
+        distN = -big;
+        // Undo the last increment to put us at the last pixel
+        // (input is no longer needed)
+        outPtr0 -= outInc0;  
+        for (idx0 = max0; idx0 >= min0; --idx0)
+          {
+          if (*outPtr0 >= 0)
+            {
+            if (distP > *outPtr0)
+              {
+              distP = *outPtr0;
+              }
+            *outPtr0 = distP;
+            }
+          if (*outPtr0 <= 0)
+            {
+            if (distN < *outPtr0)
+              {
+              distN = *outPtr0;
+              }
+            *outPtr0 = distN;
+            }
+          
+          if (distP < big)
+            {
+            ++distP;
+            }
+          if (distN > -big)
+            {
+            --distN;
+            }
+          
+          outPtr0 -= outInc0;
+          }
+        
+        inPtrC += 1;
+        outPtrC += 1;
+        }
       inPtr1 += inInc1;
       outPtr1 += outInc1;
       }

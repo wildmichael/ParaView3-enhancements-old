@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCheckerboard.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:39 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-11-13 14:32:31 $
+  Version:   $Revision: 1.4 $
   Thanks:    This work was supported by PHS Research Grant No. 1 P41 RR13218-01
              from the National Center for Research Resources
 
@@ -70,7 +70,7 @@ protected:
   ~vtkImageCheckerboard() {};
 
   void ThreadedExecute(vtkImageData **inDatas, vtkImageData *outData,
-		       int extent[6], int id);
+                       int extent[6], int id);
   int NumberOfDivisions[3];
 private:
   vtkImageCheckerboard(const vtkImageCheckerboard&) {};  // Not implemented.

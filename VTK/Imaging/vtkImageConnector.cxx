@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageConnector.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:04 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-11-13 14:32:46 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -186,7 +186,7 @@ void vtkImageConnector::MarkData(vtkImageData *data, int numberOfAxes, int exten
         if (*ptr == this->UnconnectedValue)
           { // add a new seed
           --(*pIndex);
-	  *ptr = this->ConnectedValue;
+          *ptr = this->ConnectedValue;
           this->AddSeedToEnd(this->NewSeed(newIndex, ptr));
           ++(*pIndex);
           }
@@ -199,7 +199,7 @@ void vtkImageConnector::MarkData(vtkImageData *data, int numberOfAxes, int exten
         if (*ptr == this->UnconnectedValue)
           { // add a new seed
           ++(*pIndex);
-	  *ptr = this->ConnectedValue;
+          *ptr = this->ConnectedValue;
           this->AddSeedToEnd(this->NewSeed(newIndex, ptr));
           --(*pIndex);
           }
