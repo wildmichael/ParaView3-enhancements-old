@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGridTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:24 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2001-03-21 18:03:42 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1207,21 +1207,20 @@ void vtkGridTransform::InverseTransformDerivative(const float inPoint[3],
     derivative[j][j] += 1.0f;
     }
 
-  // convert point
-  outPoint[0] = inverse[0]*spacing[0] + origin[0];
-  outPoint[1] = inverse[1]*spacing[1] + origin[1];
-  outPoint[2] = inverse[2]*spacing[2] + origin[2];
-
   vtkDebugMacro("Inverse Iterations: " << (i+1));
 
   if (i >= this->InverseIterations)
     {
     vtkWarningMacro("InverseTransformPoint: no convergence (" <<
-		    point[0] << ", " << point[1] << ", " << point[2] << 
+		    inPoint[0] << ", " << inPoint[1] << ", " << inPoint[2] << 
 		    ") error = " << sqrt(errorSquared) << " after " <<
 		    i << " iterations.");
     }
 
+  // convert point
+  outPoint[0] = inverse[0]*spacing[0] + origin[0];
+  outPoint[1] = inverse[1]*spacing[1] + origin[1];
+  outPoint[2] = inverse[2]*spacing[2] + origin[2];
 }
 
 //----------------------------------------------------------------------------

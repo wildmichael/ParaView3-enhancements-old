@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:21 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-03-21 18:03:42 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -248,10 +248,6 @@ static inline void vtkWarpInverseTransformPoint(vtkWarpTransform *self,
       }
     }
 
-  output[0] = inverse[0];
-  output[1] = inverse[1];
-  output[2] = inverse[2];
-
   if (self->GetDebug())
     {
     vtkGenericWarningMacro(<<"Debug: In " __FILE__ ", line "<< __LINE__ <<"\n" 
@@ -270,6 +266,9 @@ static inline void vtkWarpInverseTransformPoint(vtkWarpTransform *self,
 	 i << " iterations.");
     }
 
+  output[0] = inverse[0];
+  output[1] = inverse[1];
+  output[2] = inverse[2];
 }
 
 void vtkWarpTransform::InverseTransformPoint(const float point[3], 
