@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-28 14:15:08 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2002-01-03 15:08:32 $
+  Version:   $Revision: 1.34 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -392,10 +392,11 @@ vtkDebugMacro (<< "RenderOpaqueGeometry");
     rect.left++; rect.bottom--;
     // set the colors for the foreground
     glColor4ub(shadowRed, shadowGreen, shadowBlue, alpha);
-    glRasterPos3f((2.0 * (GLfloat)(rect.left) / vsize[0] - 1), 
-                  (2.0 * (GLfloat)(rect.bottom) / vsize[1] - 1), 
-                  (front)?(-1):(.9999));
+    glRasterPos3f(0,0,(front)?(-1):(.99999));
 
+    // required for clipping to work correctly
+    glBitmap(0, 0, 0, 0, rect.left - vsize[0]/2, rect.bottom - vsize[1]/2, NULL);
+    
     // Draw the shadow text
     glCallLists (strlen(this->Input), GL_UNSIGNED_BYTE, this->Input);  
     rect.left--;  rect.bottom++; 
@@ -403,9 +404,10 @@ vtkDebugMacro (<< "RenderOpaqueGeometry");
   
   // set the colors for the foreground
   glColor4ub(red, green, blue, alpha);
-  glRasterPos3f((2.0 * (GLfloat)(rect.left) / vsize[0] - 1), 
-                (2.0 * (GLfloat)(rect.bottom) / vsize[1] - 1), 
-                (front)?(-1):(.9999));
+  glRasterPos3f(0,0,(front)?(-1):(.99999));
+
+  // required for clipping to work correctly
+  glBitmap(0, 0, 0, 0, rect.left - vsize[0]/2, rect.bottom - vsize[1]/2, NULL);
 
   // display a string: // indicate start of glyph display lists 
   glCallLists (strlen(this->Input), GL_UNSIGNED_BYTE, this->Input);  

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-19 03:30:25 $
-  Version:   $Revision: 1.78 $
+  Date:      $Date: 2002-01-03 15:08:32 $
+  Version:   $Revision: 1.79 $
   Thanks:    to Horst Schreiber for developing this MFC code
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -655,21 +655,19 @@ void vtkWin32OpenGLRenderWindow::Initialize (void)
 // Get the current size of the window.
 int *vtkWin32OpenGLRenderWindow::GetSize(void)
 {
-  RECT rect;
-
   // if we aren't mapped then just return the ivar 
-  if (!this->Mapped)
+  if (this->Mapped)
     {
-    return(this->Size);
+    RECT rect;
+
+    //  Find the current window size 
+    GetClientRect(this->WindowId, &rect);
+    
+    this->Size[0] = rect.right;
+    this->Size[1] = rect.bottom;
     }
 
-  //  Find the current window size 
-  GetClientRect(this->WindowId, &rect);
-
-  this->Size[0] = rect.right;
-  this->Size[1] = rect.bottom;
-  
-  return this->Size;
+  return(this->vtkOpenGLRenderWindow::GetSize());
 }
 
 // Get the current size of the window.
