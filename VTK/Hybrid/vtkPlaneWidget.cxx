@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-21 20:02:41 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-05-21 20:43:10 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,7 +32,7 @@
 #include "vtkPolyDataMapper.h"
 #include "vtkSphereSource.h"
 
-vtkCxxRevisionMacro(vtkPlaneWidget, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkPlaneWidget, "$Revision: 1.12 $");
 vtkStandardNewMacro(vtkPlaneWidget);
 
 vtkCxxSetObjectMacro(vtkPlaneWidget,PlaneProperty,vtkProperty);
@@ -1291,4 +1291,11 @@ void vtkPlaneWidget::GetNormal(float xyz[3])
 void vtkPlaneWidget::GetPolyData(vtkPolyData *pd)
 { 
   pd->ShallowCopy(this->PlaneSource->GetOutput()); 
+}
+
+
+void vtkPlaneWidget::RealiseGeometry(void)
+{
+  this->PlaneSource->Update();
+  this->PositionHandles();
 }

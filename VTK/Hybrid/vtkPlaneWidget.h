@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlaneWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-13 21:05:25 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-05-21 20:43:10 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -188,6 +188,8 @@ public:
   // EndInteraction events are invoked. The user provides the vtkPolyData and
   // the points and polyplane are added to it.
   void GetPolyData(vtkPolyData *pd);
+   
+  void RealiseGeometry(void);
 
   // Description:
   // Get the handle properties (the little balls are the handles). The 
