@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestCxxFeatures.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-03 19:34:00 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2003-01-06 15:19:58 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -92,6 +92,17 @@
 
 /* Test inclusion of some stl headers.  */
 #include <vector>
+#ifndef VTK_NO_STD_NAMESPACE
+# define vtkstd std
+#else
+# define vtkstd
+#endif
+
+void UsingStdVector()
+{
+  using vtkstd::vector;
+  vector<int>();
+}
 
 //----------------------------------------------------------------------------
 
