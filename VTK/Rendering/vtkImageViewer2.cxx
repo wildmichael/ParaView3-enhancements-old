@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer2.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-24 13:45:26 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-05-28 03:33:50 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,11 +16,15 @@
 
 =========================================================================*/
 #include "vtkImageViewer2.h"
-#include "vtkObjectFactory.h"
-#include "vtkInteractorStyleImage.h"
-#include "vtkCommand.h"
 
-vtkCxxRevisionMacro(vtkImageViewer2, "$Revision: 1.13 $");
+#include "vtkCamera.h"
+#include "vtkCommand.h"
+#include "vtkImageMapToWindowLevelColors.h"
+#include "vtkInteractorStyleImage.h"
+#include "vtkObjectFactory.h"
+#include "vtkRenderWindowInteractor.h"
+
+vtkCxxRevisionMacro(vtkImageViewer2, "$Revision: 1.14 $");
 vtkStandardNewMacro(vtkImageViewer2);
 
 //----------------------------------------------------------------------------

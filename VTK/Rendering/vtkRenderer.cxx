@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-24 15:35:43 $
-  Version:   $Revision: 1.181 $
+  Date:      $Date: 2002-05-28 03:33:51 $
+  Version:   $Revision: 1.182 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,22 +16,22 @@
 
 =========================================================================*/
 #include "vtkRenderer.h"
-#include "vtkRenderWindow.h"
-#include "vtkMath.h"
-#include "vtkVolume.h"
-#include "vtkTimerLog.h"
+
+#include "vtkAssemblyNode.h"
+#include "vtkCamera.h"
+#include "vtkCommand.h"
 #include "vtkCuller.h"
 #include "vtkFrustumCoverageCuller.h"
 #include "vtkGraphicsFactory.h"
+#include "vtkLight.h"
+#include "vtkMath.h"
 #include "vtkOutputWindow.h"
-#include "vtkAssemblyNode.h"
 #include "vtkPicker.h"
-#include "vtkCommand.h"
+#include "vtkRenderWindow.h"
+#include "vtkTimerLog.h"
+#include "vtkVolume.h"
 
-#include <stdlib.h>
-#include <string.h>
-
-vtkCxxRevisionMacro(vtkRenderer, "$Revision: 1.181 $");
+vtkCxxRevisionMacro(vtkRenderer, "$Revision: 1.182 $");
 
 // Create a vtkRenderer with a black background, a white ambient light, 
 // two-sided lighting turned on, a viewport of (0,0,1,1), and backface culling

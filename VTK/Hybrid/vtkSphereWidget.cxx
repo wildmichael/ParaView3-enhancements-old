@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-27 14:27:44 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-05-28 03:33:50 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,18 +17,20 @@
 =========================================================================*/
 #include "vtkSphereWidget.h"
 
-#include "vtkMath.h"
-#include "vtkPolyDataMapper.h"
-#include "vtkSphereSource.h"
-#include "vtkCellPicker.h"
 #include "vtkAssemblyNode.h"
-#include "vtkDoubleArray.h"
-#include "vtkSphere.h"
 #include "vtkCallbackCommand.h"
+#include "vtkCamera.h"
+#include "vtkCellPicker.h"
+#include "vtkDoubleArray.h"
+#include "vtkMath.h"
 #include "vtkObjectFactory.h"
+#include "vtkPolyDataMapper.h"
 #include "vtkProperty.h"
+#include "vtkRenderWindowInteractor.h"
+#include "vtkSphere.h"
+#include "vtkSphereSource.h"
 
-vtkCxxRevisionMacro(vtkSphereWidget, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkSphereWidget, "$Revision: 1.13 $");
 vtkStandardNewMacro(vtkSphereWidget);
 
 vtkSphereWidget::vtkSphereWidget()

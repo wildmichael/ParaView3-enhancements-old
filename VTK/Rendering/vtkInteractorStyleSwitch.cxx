@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleSwitch.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-27 19:34:32 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-05-28 03:33:50 $
+  Version:   $Revision: 1.22 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,15 +16,17 @@
 
 =========================================================================*/
 #include "vtkInteractorStyleSwitch.h"
-#include "vtkObjectFactory.h"
-#include "vtkCommand.h"
+
 #include "vtkCallbackCommand.h"
+#include "vtkCommand.h"
 #include "vtkInteractorStyleJoystickActor.h"
 #include "vtkInteractorStyleJoystickCamera.h"
 #include "vtkInteractorStyleTrackballActor.h"
 #include "vtkInteractorStyleTrackballCamera.h"
+#include "vtkObjectFactory.h"
+#include "vtkRenderWindowInteractor.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyleSwitch, "$Revision: 1.21 $");
+vtkCxxRevisionMacro(vtkInteractorStyleSwitch, "$Revision: 1.22 $");
 vtkStandardNewMacro(vtkInteractorStyleSwitch);
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWorldPointPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:52 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-05-28 03:33:51 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,10 +16,13 @@
 
 =========================================================================*/
 #include "vtkWorldPointPicker.h"
-#include "vtkObjectFactory.h"
-#include "vtkCommand.h"
 
-vtkCxxRevisionMacro(vtkWorldPointPicker, "$Revision: 1.15 $");
+#include "vtkCamera.h"
+#include "vtkCommand.h"
+#include "vtkObjectFactory.h"
+#include "vtkRenderer.h"
+
+vtkCxxRevisionMacro(vtkWorldPointPicker, "$Revision: 1.16 $");
 vtkStandardNewMacro(vtkWorldPointPicker);
 
 vtkWorldPointPicker::vtkWorldPointPicker()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPropPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:10 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-05-28 03:33:51 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,12 +16,14 @@
 
 =========================================================================*/
 #include "vtkPropPicker.h"
-#include "vtkWorldPointPicker.h"
-#include "vtkAssemblyNode.h"
-#include "vtkObjectFactory.h"
-#include "vtkCommand.h"
 
-vtkCxxRevisionMacro(vtkPropPicker, "$Revision: 1.19 $");
+#include "vtkAssemblyNode.h"
+#include "vtkCommand.h"
+#include "vtkObjectFactory.h"
+#include "vtkRenderer.h"
+#include "vtkWorldPointPicker.h"
+
+vtkCxxRevisionMacro(vtkPropPicker, "$Revision: 1.20 $");
 vtkStandardNewMacro(vtkPropPicker);
 
 vtkPropPicker::vtkPropPicker()

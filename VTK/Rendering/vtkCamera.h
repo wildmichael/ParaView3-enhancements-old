@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-18 19:19:30 $
-  Version:   $Revision: 1.84 $
+  Date:      $Date: 2002-05-28 03:33:50 $
+  Version:   $Revision: 1.85 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,10 +30,11 @@
 #define __vtkCamera_h
 
 #include "vtkObject.h"
-#include "vtkTransform.h"
-#include "vtkPerspectiveTransform.h"
 
+class vtkMatrix4x4;
+class vtkPerspectiveTransform;
 class vtkRenderer;
+class vtkTransform;
 
 class VTK_RENDERING_EXPORT vtkCamera : public vtkObject
 {
@@ -275,8 +276,7 @@ class VTK_RENDERING_EXPORT vtkCamera : public vtkObject
 
   // Description:
   // Return the matrix of the view transform.
-  vtkMatrix4x4 *GetViewTransformMatrix() { 
-    return this->ViewTransform->GetMatrix(); };
+  vtkMatrix4x4 *GetViewTransformMatrix();
   
   // Description:
   // Return the perspective transform matrix, which converts from camera
@@ -324,10 +324,8 @@ class VTK_RENDERING_EXPORT vtkCamera : public vtkObject
 
   // Description:
   // Get the orientation of the camera.
-  float *GetOrientation() { 
-    return this->ViewTransform->GetOrientation(); };
-  float *GetOrientationWXYZ() { 
-    return this->ViewTransform->GetOrientationWXYZ(); };
+  float *GetOrientation();
+  float *GetOrientationWXYZ();
 
   // Description:
   // These methods have been deprecated.  The view plane normal is 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODProp3D.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:39 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2002-05-28 03:33:51 $
+  Version:   $Revision: 1.28 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,7 +31,6 @@
 #define __vtkLODProp3D_h
 
 #include "vtkProp3D.h"
-#include "vtkTransform.h"
 
 class vtkRenderer;
 class vtkMapper;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCullerCollection.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:29 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-05-28 03:33:50 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,7 @@
 #define __vtkCullerC_h
 
 #include "vtkCollection.h"
-#include "vtkCuller.h"
+#include "vtkCuller.h" // for inline functions
 
 class VTK_RENDERING_EXPORT vtkCullerCollection : public vtkCollection
 {

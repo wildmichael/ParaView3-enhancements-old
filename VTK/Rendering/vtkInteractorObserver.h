@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorObserver.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-01 04:56:53 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-05-28 03:33:50 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -44,9 +44,10 @@
 #ifndef __vtkInteractorObserver_h
 #define __vtkInteractorObserver_h
 
-#include "vtkRenderWindowInteractor.h"
-#include "vtkCommand.h"
+#include "vtkObject.h"
 
+class vtkRenderWindowInteractor;
+class vtkRenderer;
 class vtkCallbackCommand;
 
 class VTK_RENDERING_EXPORT vtkInteractorObserver : public vtkObject

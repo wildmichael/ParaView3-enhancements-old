@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TimeRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-27 14:27:44 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-05-28 03:33:51 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -15,20 +15,21 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
-#include "vtkRenderer.h"
-#include "vtkRenderWindow.h"
+#include "vtkActor.h"
+#include "vtkCamera.h"
+#include "vtkCellArray.h"
 #include "vtkConeSource.h"
 #include "vtkCubeSource.h"
 #include "vtkGlyph3D.h"
-#include "vtkCellArray.h"
 #include "vtkPoints.h"
 #include "vtkPolyData.h"
 #include "vtkPolyDataMapper.h"
-#include "vtkActor.h"
-#include "vtkTriangleFilter.h"
+#include "vtkProperty.h"
+#include "vtkRenderWindow.h"
+#include "vtkRenderer.h"
 #include "vtkStripper.h"
 #include "vtkTimerLog.h"
-#include "vtkProperty.h"
+#include "vtkTriangleFilter.h"
 
 int main( int argc, char *argv[] )
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAxisActor2D.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-03 14:18:39 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-05-28 03:33:50 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -53,8 +53,10 @@
 #define __vtkAxisActor2D_h
 
 #include "vtkActor2D.h"
-#include "vtkPolyDataMapper2D.h"
-#include "vtkTextMapper.h"
+
+class vtkPolyDataMapper2D;
+class vtkPolyData;
+class vtkTextMapper;
 
 #define VTK_MAX_LABELS 25
 

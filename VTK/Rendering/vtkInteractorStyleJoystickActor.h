@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleJoystickActor.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-01 04:56:53 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-05-28 03:33:50 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -35,9 +35,10 @@
 #define __vtkInteractorStyleJoystickActor_h
 
 #include "vtkInteractorStyle.h"
-#include "vtkCellPicker.h"
 
-// Motion flags
+class vtkCellPicker;
+
+// motion flags
 
 class VTK_RENDERING_EXPORT vtkInteractorStyleJoystickActor : public vtkInteractorStyle
 {

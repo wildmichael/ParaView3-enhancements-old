@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSelectVisiblePoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-07 13:54:44 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-05-28 03:33:51 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,11 +16,13 @@
 
 =========================================================================*/
 #include "vtkSelectVisiblePoints.h"
-#include "vtkRenderer.h"
-#include "vtkRenderWindow.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkSelectVisiblePoints, "$Revision: 1.24 $");
+#include "vtkCamera.h"
+#include "vtkObjectFactory.h"
+#include "vtkRenderWindow.h"
+#include "vtkRenderer.h"
+
+vtkCxxRevisionMacro(vtkSelectVisiblePoints, "$Revision: 1.25 $");
 vtkStandardNewMacro(vtkSelectVisiblePoints);
 
 // Instantiate object with no renderer; window selection turned off; 

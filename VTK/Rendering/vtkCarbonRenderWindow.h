@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCarbonRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-18 19:39:15 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-05-28 03:33:50 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,12 +24,12 @@
 #ifndef __vtkCarbonRenderWindow_h
 #define __vtkCarbonRenderWindow_h
 
-#include <stdlib.h>
 #include "vtkOpenGLRenderWindow.h"
+
+// Carbon and MAC specific
 #include <Carbon/Carbon.h>
 #include <OpenGL/gl.h>
 #include <AGL/agl.h>
-#endif
 
 class vtkIdList;
 
@@ -232,3 +232,4 @@ private:
   void operator=(const vtkCarbonRenderWindow&);  // Not implemented.
 };
 
+#endif

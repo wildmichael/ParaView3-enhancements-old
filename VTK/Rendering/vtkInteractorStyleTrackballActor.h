@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleTrackballActor.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-01 04:56:53 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-05-28 03:33:51 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -35,7 +35,8 @@
 #define __vtkInteractorStyleTrackballActor_h
 
 #include "vtkInteractorStyle.h"
-#include "vtkCellPicker.h"
+
+class vtkCellPicker;
 
 class VTK_RENDERING_EXPORT vtkInteractorStyleTrackballActor : public vtkInteractorStyle
 {

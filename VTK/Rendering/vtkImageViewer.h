@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-22 04:51:19 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2002-05-28 03:33:50 $
+  Version:   $Revision: 1.50 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,8 +30,9 @@
 #define __vtkImageViewer_h
 
 #include "vtkObject.h"
-#include "vtkImageMapper.h"
-#include "vtkRenderWindow.h"
+
+#include "vtkImageMapper.h" // For all the inline methods
+#include "vtkRenderWindow.h" // For all the inline methods
 
 class vtkInteractorStyleImage;
 

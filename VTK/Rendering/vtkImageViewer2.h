@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer2.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:33 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-05-28 03:33:50 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,9 +31,10 @@
 #define __vtkImageViewer2_h
 
 #include "vtkObject.h"
-#include "vtkRenderWindow.h"
-#include "vtkImageActor.h"
-#include "vtkImageMapToWindowLevelColors.h"
+
+#include "vtkRenderWindow.h" // For inline methods
+#include "vtkImageActor.h" // For inline methods
+#include "vtkImageMapToWindowLevelColors.h" // For inline methods
 
 class vtkInteractorStyleImage;
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: BoxWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-06 11:03:45 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-05-28 03:33:50 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -15,17 +15,18 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
-#include "vtkRenderer.h"
-#include "vtkRenderWindow.h"
-#include "vtkRenderer.h"
-#include "vtkRenderWindowInteractor.h"
-#include "vtkBoxWidget.h"
-#include "vtkConeSource.h"
-#include "vtkSphereSource.h"
-#include "vtkGlyph3D.h"
 #include "vtkAppendPolyData.h"
-#include "vtkTransform.h"
+#include "vtkBoxWidget.h"
+#include "vtkCommand.h"
+#include "vtkConeSource.h"
+#include "vtkGlyph3D.h"
 #include "vtkPolyDataMapper.h"
+#include "vtkRenderWindow.h"
+#include "vtkRenderWindowInteractor.h"
+#include "vtkRenderer.h"
+#include "vtkRenderer.h"
+#include "vtkSphereSource.h"
+#include "vtkTransform.h"
 
 #include "vtkRegressionTestImage.h"
 #include "vtkDebugLeaks.h"

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleFlight.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-06 21:19:25 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-05-28 03:33:50 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,12 +16,14 @@
 
 =========================================================================*/
 #include "vtkInteractorStyleFlight.h"
-#include "vtkMath.h"
-#include "vtkCellPicker.h"
-#include "vtkRenderWindowInteractor.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyleFlight, "$Revision: 1.23 $");
+#include "vtkCamera.h"
+#include "vtkCellPicker.h"
+#include "vtkMath.h"
+#include "vtkObjectFactory.h"
+#include "vtkRenderWindowInteractor.h"
+
+vtkCxxRevisionMacro(vtkInteractorStyleFlight, "$Revision: 1.24 $");
 vtkStandardNewMacro(vtkInteractorStyleFlight);
 
 //---------------------------------------------------------------------------

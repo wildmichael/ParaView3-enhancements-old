@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-04 12:43:28 $
-  Version:   $Revision: 1.98 $
+  Date:      $Date: 2002-05-28 03:33:51 $
+  Version:   $Revision: 1.99 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,11 @@
 
 =========================================================================*/
 #include "vtkMapper.h"
-#include "vtkLookupTable.h"
 
-vtkCxxRevisionMacro(vtkMapper, "$Revision: 1.98 $");
+#include "vtkLookupTable.h"
+#include "vtkDataSet.h"
+
+vtkCxxRevisionMacro(vtkMapper, "$Revision: 1.99 $");
 
 // Initialize static member that controls global immediate mode rendering
 static int vtkMapperGlobalImmediateModeRendering = 0;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:48 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2002-05-28 03:33:51 $
+  Version:   $Revision: 1.48 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,21 +17,24 @@
 =========================================================================*/
 
 #include "vtkOpenGLImageMapper.h"
-#include "vtkProperty2D.h"
-#include "vtkWindow.h"
-#include "vtkViewport.h"
+
 #include "vtkActor2D.h"
+#include "vtkImageData.h"
+#include "vtkObjectFactory.h"
+#include "vtkProperty2D.h"
+#include "vtkViewport.h"
+#include "vtkWindow.h"
+#include "vtkgluPickMatrix.h"
+
 #ifdef __APPLE__
  #include <OpenGL/gl.h>
 #else
  #include <GL/gl.h>
 #endif
 #include <limits.h>
-#include "vtkObjectFactory.h"
-#include "vtkgluPickMatrix.h"
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkOpenGLImageMapper, "$Revision: 1.47 $");
+vtkCxxRevisionMacro(vtkOpenGLImageMapper, "$Revision: 1.48 $");
 vtkStandardNewMacro(vtkOpenGLImageMapper);
 #endif
 

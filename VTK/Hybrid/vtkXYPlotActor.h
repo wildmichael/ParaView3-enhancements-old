@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXYPlotActor.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:30:47 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-05-28 03:33:50 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -81,6 +81,7 @@
 #define VTK_XYPLOT_COLUMN 1
 
 #include "vtkAxisActor2D.h"
+
 class vtkDataSetCollection;
 class vtkDataObjectCollection;
 class vtkGlyphSource2D;
@@ -89,6 +90,8 @@ class vtkLegendBoxActor;
 class vtkAppendPolyData;
 class vtkPlanes;
 class vtkIntArray;
+class vtkDataSet;
+class vtkDataObject;
 
 class VTK_HYBRID_EXPORT vtkXYPlotActor : public vtkActor2D
 {

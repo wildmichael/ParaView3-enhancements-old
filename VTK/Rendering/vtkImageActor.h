@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageActor.h,v $
   Language:  C++
-  Date:      $Date: 2002-02-14 19:21:40 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-05-28 03:33:50 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -36,10 +36,10 @@
 #define __vtkImageActor_h
 
 #include "vtkProp.h"
-#include "vtkImageData.h"
 
 class vtkPropCollection;
 class vtkRenderer;
+class vtkImageData;
 
 class VTK_RENDERING_EXPORT vtkImageActor : public vtkProp
 {

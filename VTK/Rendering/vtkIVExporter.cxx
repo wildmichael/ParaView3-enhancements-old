@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIVExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-27 14:48:16 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2002-05-28 03:33:50 $
+  Version:   $Revision: 1.45 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,16 +18,18 @@
 #include "vtkIVExporter.h"
 
 #include "vtkAssemblyNode.h"
+#include "vtkCamera.h"
 #include "vtkGeometryFilter.h"
+#include "vtkLight.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
 #include "vtkPolyDataMapper.h"
 #include "vtkProperty.h"
+#include "vtkRenderWindow.h"
 #include "vtkTexture.h"
 #include "vtkUnsignedCharArray.h"
-#include "vtkRenderWindow.h"
 
-vtkCxxRevisionMacro(vtkIVExporter, "$Revision: 1.44 $");
+vtkCxxRevisionMacro(vtkIVExporter, "$Revision: 1.45 $");
 vtkStandardNewMacro(vtkIVExporter);
 
 vtkIVExporter::vtkIVExporter()

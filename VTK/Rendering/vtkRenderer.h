@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-24 15:35:43 $
-  Version:   $Revision: 1.107 $
+  Date:      $Date: 2002-05-28 03:33:51 $
+  Version:   $Revision: 1.108 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,19 +32,23 @@
 #ifndef __vtkRenderer_h
 #define __vtkRenderer_h
 
-#include "vtkMatrix4x4.h"
+#include "vtkViewport.h"
+
+//#include "vtkMatrix4x4.h"
 #include "vtkLightCollection.h"
 #include "vtkVolumeCollection.h"
 #include "vtkCullerCollection.h"
-#include "vtkCamera.h"
-#include "vtkActor.h"
-#include "vtkActor2D.h"
-#include "vtkViewport.h"
+//#include "vtkCamera.h"
+//#include "vtkActor.h"
+//#include "vtkActor2D.h"
 #include "vtkActorCollection.h"
 
 class vtkRenderWindow;
 class vtkVolume;
 class vtkCuller;
+class vtkActor;
+class vtkActor2D;
+class vtkCamera;
 
 class VTK_RENDERING_EXPORT vtkRenderer : public vtkViewport
 {

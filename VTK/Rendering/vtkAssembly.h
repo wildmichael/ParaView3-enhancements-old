@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssembly.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:28 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2002-05-28 03:33:50 $
+  Version:   $Revision: 1.49 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -56,7 +56,6 @@
 #define __vtkAssembly_h
 
 #include "vtkProp3D.h"
-#include "vtkAbstractMapper3D.h"
 
 class vtkAssemblyPaths;
 class vtkProp3DCollection;

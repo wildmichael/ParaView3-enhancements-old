@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeAxesActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-16 15:52:50 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2002-05-28 03:33:50 $
+  Version:   $Revision: 1.33 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,13 +16,15 @@
 
 =========================================================================*/
 #include "vtkCubeAxesActor2D.h"
+
 #include "vtkCamera.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
 #include "vtkDataSet.h"
 #include "vtkAxisActor2D.h"
+#include "vtkViewport.h"
 
-vtkCxxRevisionMacro(vtkCubeAxesActor2D, "$Revision: 1.32 $");
+vtkCxxRevisionMacro(vtkCubeAxesActor2D, "$Revision: 1.33 $");
 vtkStandardNewMacro(vtkCubeAxesActor2D);
 
 vtkCxxSetObjectMacro(vtkCubeAxesActor2D,Input, vtkDataSet);

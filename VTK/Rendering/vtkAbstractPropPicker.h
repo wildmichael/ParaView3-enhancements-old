@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractPropPicker.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-27 13:44:53 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-05-28 03:33:50 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -70,6 +70,8 @@ class vtkAssembly;
 class vtkActor;
 class vtkVolume;
 class vtkProp3D;
+class vtkAssemblyPath;
+class vtkActor2D;
 
 class VTK_RENDERING_EXPORT vtkAbstractPropPicker : public vtkAbstractPicker
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-11 19:37:38 $
-  Version:   $Revision: 1.123 $
+  Date:      $Date: 2002-05-28 03:33:51 $
+  Version:   $Revision: 1.124 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,17 +16,15 @@
 
 =========================================================================*/
 #include "vtkRenderWindow.h"
+
+#include "vtkCamera.h"
+#include "vtkCommand.h"
+#include "vtkGraphicsFactory.h"
+#include "vtkMath.h"
 #include "vtkRenderWindowInteractor.h"
 #include "vtkTransform.h"
-#include "vtkMath.h"
-#include "vtkGraphicsFactory.h"
-#include "vtkCommand.h"
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-
-vtkCxxRevisionMacro(vtkRenderWindow, "$Revision: 1.123 $");
+vtkCxxRevisionMacro(vtkRenderWindow, "$Revision: 1.124 $");
 
 // Construct an instance of  vtkRenderWindow with its screen size 
 // set to 300x300, borders turned on, positioned at (0,0), double 

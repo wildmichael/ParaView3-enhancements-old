@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-03 03:01:36 $
-  Version:   $Revision: 1.80 $
+  Date:      $Date: 2002-05-28 03:33:51 $
+  Version:   $Revision: 1.81 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -56,8 +56,7 @@
 #define __vtkMapper_h
 
 #include "vtkAbstractMapper3D.h"
-#include "vtkScalarsToColors.h"
-#include "vtkDataSet.h"
+#include "vtkScalarsToColors.h" // For VTK_COLOR_MODE_DEFAULT and _MAP_SCALARS
 
 #define VTK_RESOLVE_OFF 0
 #define VTK_RESOLVE_POLYGON_OFFSET 1
@@ -69,6 +68,7 @@
 class vtkWindow;
 class vtkRenderer;
 class vtkActor;
+class vtkDataSet;
 
 class VTK_RENDERING_EXPORT vtkMapper : public vtkAbstractMapper3D
 {

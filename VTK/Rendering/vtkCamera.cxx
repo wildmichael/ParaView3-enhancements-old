@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-18 19:19:30 $
-  Version:   $Revision: 1.101 $
+  Date:      $Date: 2002-05-28 03:33:50 $
+  Version:   $Revision: 1.102 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,13 +16,16 @@
 
 =========================================================================*/
 #include "vtkCamera.h"
+
 #include "vtkMath.h"
 #include "vtkTimeStamp.h"
 #include "vtkGraphicsFactory.h"
+#include "vtkPerspectiveTransform.h"
+#include "vtkTransform.h"
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkCamera, "$Revision: 1.101 $");
+vtkCxxRevisionMacro(vtkCamera, "$Revision: 1.102 $");
 
 //----------------------------------------------------------------------------
 // Construct camera instance with its focal point at the origin, 
@@ -938,3 +941,12 @@ void vtkCamera::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "WindowCenter: (" << this->WindowCenter[0] << ", " 
      << this->WindowCenter[1] << ")\n";
 }
+
+vtkMatrix4x4 *vtkCamera::GetViewTransformMatrix() 
+{ return this->ViewTransform->GetMatrix(); }
+
+float *vtkCamera::GetOrientation() 
+{ return this->ViewTransform->GetOrientation(); };
+
+float *vtkCamera::GetOrientationWXYZ() 
+{ return this->ViewTransform->GetOrientationWXYZ(); };

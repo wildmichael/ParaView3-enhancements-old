@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAxisActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-27 15:42:04 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-05-28 03:33:50 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,8 +19,10 @@
 
 #include "vtkObjectFactory.h"
 #include "vtkPolyData.h"
+#include "vtkPolyDataMapper2D.h"
+#include "vtkTextMapper.h"
 
-vtkCxxRevisionMacro(vtkAxisActor2D, "$Revision: 1.24 $");
+vtkCxxRevisionMacro(vtkAxisActor2D, "$Revision: 1.25 $");
 vtkStandardNewMacro(vtkAxisActor2D);
 
 // Instantiate this object.

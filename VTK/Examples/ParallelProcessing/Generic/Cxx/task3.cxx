@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: task3.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-07 13:54:43 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-05-28 03:33:50 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,6 +20,7 @@
 #include "vtkInputPort.h"
 #include "vtkRenderWindow.h"
 #include "vtkRenderWindowInteractor.h"
+#include "vtkPolyDataMapper.h"
 
 // Task 3 for TaskParallelismWithPorts.
 // See TaskParallelismWithPorts.cxx for more information.
