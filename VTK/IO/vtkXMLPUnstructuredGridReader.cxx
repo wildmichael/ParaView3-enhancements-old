@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLPUnstructuredGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-03-27 15:00:33 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-05-08 14:43:53 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkXMLDataElement.h"
 #include "vtkXMLUnstructuredGridReader.h"
 
-vtkCxxRevisionMacro(vtkXMLPUnstructuredGridReader, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkXMLPUnstructuredGridReader, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkXMLPUnstructuredGridReader);
 
 //----------------------------------------------------------------------------
@@ -186,6 +186,10 @@ void vtkXMLPUnstructuredGridReader::CopyArrayForCells(vtkDataArray* inArray,
                                                       vtkDataArray* outArray)
 {
   if(!this->PieceReaders[this->Piece])
+    {
+    return;
+    }
+  if(!inArray || !outArray)
     {
     return;
     }

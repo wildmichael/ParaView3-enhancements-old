@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLPStructuredDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-05 15:29:15 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2003-05-08 14:43:53 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkXMLDataElement.h"
 #include "vtkXMLStructuredDataReader.h"
 
-vtkCxxRevisionMacro(vtkXMLPStructuredDataReader, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkXMLPStructuredDataReader, "$Revision: 1.6 $");
 
 //----------------------------------------------------------------------------
 vtkXMLPStructuredDataReader::vtkXMLPStructuredDataReader()
@@ -255,6 +255,10 @@ int vtkXMLPStructuredDataReader::ReadPieceData()
 void vtkXMLPStructuredDataReader::CopyArrayForPoints(vtkDataArray* inArray,
                                                      vtkDataArray* outArray)
 {
+  if(!inArray || !outArray)
+    {
+    return;
+    }
   this->CopySubExtent(this->SubPieceExtent,
                       this->SubPiecePointDimensions,
                       this->SubPiecePointIncrements,
@@ -267,6 +271,10 @@ void vtkXMLPStructuredDataReader::CopyArrayForPoints(vtkDataArray* inArray,
 void vtkXMLPStructuredDataReader::CopyArrayForCells(vtkDataArray* inArray,
                                                     vtkDataArray* outArray)
 {
+  if(!inArray || !outArray)
+    {
+    return;
+    }
   this->CopySubExtent(this->SubPieceExtent,
                       this->SubPieceCellDimensions,
                       this->SubPieceCellIncrements,
