@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDividingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:25:32 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1999-02-19 15:30:50 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,6 +54,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkDividingCubes.h"
 #include "vtkMath.h"
 #include "vtkVoxel.h"
+#include "vtkFloatArray.h"
 
 // Description:
 // Construct object with Value=0.0, Distance=0.1, and Increment=1.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingSquares.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-16 14:03:56 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1999-02-19 15:30:51 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,6 +65,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkLongArray.h"
 #include "vtkUnsignedLongArray.h"
 #include "vtkDoubleArray.h"
+#include "vtkFloatArray.h"
 
 // Description:
 // Construct object with initial scalar range (0,1) and single contour value
