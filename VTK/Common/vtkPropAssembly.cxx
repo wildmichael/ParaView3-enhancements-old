@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPropAssembly.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-11 11:54:34 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-06-30 11:27:17 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -390,6 +390,7 @@ void vtkPropAssembly::UpdatePaths()
       path->DeleteLastNode();
       }
 
+    path->Delete();
     this->PathTime.Modified();
     }
 }
