@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfObject.h,v 1.18 2004-01-15 21:43:56 andy Exp $  */
-/*  Date : $Date: 2004-01-15 21:43:56 $ */
-/*  Version : $Revision: 1.18 $ */
+/*  Id : $Id: XdmfObject.h,v 1.19 2004-01-15 21:55:04 andy Exp $  */
+/*  Date : $Date: 2004-01-15 21:55:04 $ */
+/*  Version : $Revision: 1.19 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -438,7 +438,9 @@ XDMF_EXPORT XdmfString GetUnique( XdmfConstString Pattern = NULL );
 extern XDMF_EXPORT XdmfString XdmfObjectToHandle( XdmfObject *Source );
 extern XDMF_EXPORT XdmfObject *HandleToXdmfObject( XdmfConstString Source );
 
+#ifndef SWIG
 extern XDMF_EXPORT istrstream& ICE_READ_STREAM64(istrstream& istr, ICE_64_INT& i);
+#endif
 
 #endif /* __cplusplus */
 
