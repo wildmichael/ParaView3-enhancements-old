@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-26 14:22:02 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-11-04 19:19:33 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,9 +40,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 // .NAME vtkTransformPolyDataFilter - transform points and associated normals and vectors for polygonal dataset
 // .SECTION Description
-// vtkTransformPolyDataFilter is a filter to transform point coordinates and 
-// associated point normals and vectors. Other point data is passed
-// through the filter. This filter is specialized for polygonal data. See
+// vtkTransformPolyDataFilter is a filter to transform point
+// coordinates and associated point and cell normals and
+// vectors. Other point and cell data is passed through the filter
+// unchanged. This filter is specialized for polygonal data. See
 // vtkTransformFilter for more general data.
 //
 // An alternative method of transformation is to use vtkActor's methods
