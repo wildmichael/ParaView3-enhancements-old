@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkConnectivityFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-09 19:50:18 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1995-05-24 12:24:21 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -45,7 +45,7 @@ void vlConnectivityFilter::Execute()
   vlDebugMacro(<<"Executing connectivity filter.");
   this->Initialize();
 //
-//  Check input
+//  Check input/allocate storage
 //
   if ( (numPts=this->Input->GetNumberOfPoints()) < 1 ||
   (numCells=this->Input->GetNumberOfCells()) < 1 )
@@ -53,6 +53,7 @@ void vlConnectivityFilter::Execute()
     vlDebugMacro(<<"No data to connect!");
     return;
     }
+  this->Allocate(numCells,numCells);
 //
 // Initialize.  Keep track of points and cells visited.
 //
@@ -69,7 +70,7 @@ void vlConnectivityFilter::Execute()
 // starts a new connected region.  Note: have to truncate recursion
 // and keep track of seeds to start up again.
 //
-  RecursionSeeds = new vlIdList(1000,1000);
+  RecursionSeeds = new vlIdList(1000,10000);
 
   NumExceededMaxDepth = 0;
   RegionNumber = 0;
