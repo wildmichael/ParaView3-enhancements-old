@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadraticQuad.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:24:22 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2003-05-07 12:25:35 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #include "vtkQuad.h"
 #include "vtkQuadraticEdge.h"
 
-vtkCxxRevisionMacro(vtkQuadraticQuad, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkQuadraticQuad, "$Revision: 1.16 $");
 vtkStandardNewMacro(vtkQuadraticQuad);
 
 // Construct the line with two points.
@@ -67,7 +67,7 @@ vtkQuadraticQuad::~vtkQuadraticQuad()
 vtkCell *vtkQuadraticQuad::GetEdge(int edgeId)
 {
   edgeId = (edgeId < 0 ? 0 : (edgeId > 3 ? 3 : edgeId ));
-  int p = (edgeId+1) % 3;
+  int p = (edgeId+1) % 4;
 
   // load point id's
   this->Edge->PointIds->SetId(0,this->PointIds->GetId(edgeId));
