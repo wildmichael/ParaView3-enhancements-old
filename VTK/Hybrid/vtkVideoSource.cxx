@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVideoSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:27 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-12-21 00:00:24 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -513,8 +513,6 @@ static void *vtkVideoSourceGrabThread(struct ThreadInfoStruct *data)
       // using Sleep() instead of vtkTimerLog::Sleep() seemed
       // to fix.
       Sleep((int)(1000*remaining));
-#else
-      vtkTimerLog::Sleep((int)(1000*remaining));
 #endif
       }
     }
