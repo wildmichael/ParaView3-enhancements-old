@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-05-09 20:07:13 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1996-06-12 23:00:33 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -194,7 +194,7 @@ void vtkPointSet::PrintSelf(ostream& os, vtkIndent indent)
   vtkDataSet::PrintSelf(os,indent);
 
   os << indent << "Number Of Points: " << this->GetNumberOfPoints() << "\n";
-  os << indent << "Point Data: " << this->Points << "\n";
+  os << indent << "Point Coordinates: " << this->Points << "\n";
   os << indent << "Locator: " << this->Locator << "\n";
 }
 
