@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleTrackballCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-19 10:25:30 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-07-19 15:10:50 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -226,6 +226,11 @@ void vtkInteractorStyleTrackballCamera::SpinXY(int x, int y, int oldX, int oldY)
 {
   vtkRenderWindowInteractor *rwi = this->Interactor;
   vtkCamera *cam;
+
+  if (this->CurrentRenderer == NULL)
+    {
+    return;
+    }
 
   double newAngle = atan2((double)(y - this->Center[1]),
                          (double)(x - this->Center[0]));
