@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCGMWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:09 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-05-31 22:01:38 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,9 @@
 #include "vtkMath.h"
 #include "vtkUnsignedCharArray.h"
 
-vtkCxxRevisionMacro(vtkCGMWriter, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkCGMWriter, "$Revision: 1.8 $");
+
+vtkCxxSetObjectMacro(vtkCGMWriter, Viewport, vtkViewport);
 
 vtkCGMWriter::vtkCGMWriter()
 {
