@@ -32,7 +32,7 @@
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkPVSimpleRenderModule);
-vtkCxxRevisionMacro(vtkPVSimpleRenderModule, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkPVSimpleRenderModule, "$Revision: 1.6 $");
 
 
 //----------------------------------------------------------------------------
@@ -135,8 +135,8 @@ void vtkPVSimpleRenderModule::RemoveDisplay(vtkSMDisplay* disp)
     {
     return;
     }
-  this->Displays->RemoveItem(disp);
   disp->RemoveFromRenderer(this->RendererID);
+  this->Displays->RemoveItem(disp);
 }
 
 
