@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVLODPartDisplayInformation.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-06-03 18:59:31 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-06-04 17:08:20 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -43,11 +43,12 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkDataObject.h"
 #include "vtkQuadricClustering.h"
+#include "vtkByteSwap.h"
 
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkPVLODPartDisplayInformation);
-vtkCxxRevisionMacro(vtkPVLODPartDisplayInformation, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkPVLODPartDisplayInformation, "$Revision: 1.2 $");
 
 //----------------------------------------------------------------------------
 void vtkPVLODPartDisplayInformation::CopyFromObject(vtkObject* object)
@@ -90,9 +91,25 @@ void vtkPVLODPartDisplayInformation::CopyFromObject(vtkObject* object)
 //----------------------------------------------------------------------------
 void vtkPVLODPartDisplayInformation::CopyFromMessage(unsigned char* msg)
 {
-  memcpy((unsigned char*)&this->GeometryMemorySize, msg, sizeof(unsigned long));
-  msg += sizeof(unsigned long);
-  memcpy((unsigned char*)&this->LODGeometryMemorySize, msg, sizeof(unsigned long));  
+  int endianMarker;
+
+  memcpy((unsigned char*)&endianMarker, msg, sizeof(int));
+  if (endianMarker != 1)
+    {
+    // Mismatch endian between client and server.
+    vtkByteSwap::SwapVoidRange((void*)msg, 3, sizeof(int));
+    memcpy((unsigned char*)&endianMarker, msg, sizeof(int));
+    if (endianMarker != 1)
+      {
+      vtkErrorMacro("Could not decode information.");
+      this->GeometryMemorySize = this->GeometryMemorySize = 0;
+      return;
+      }
+    }
+  msg += sizeof(int);
+  memcpy((unsigned char*)&this->GeometryMemorySize, msg, sizeof(int));
+  msg += sizeof(int);
+  memcpy((unsigned char*)&this->LODGeometryMemorySize, msg, sizeof(int));  
 }
 
 //----------------------------------------------------------------------------
@@ -108,15 +125,19 @@ void vtkPVLODPartDisplayInformation::AddInformation(vtkPVInformation* info)
 //----------------------------------------------------------------------------
 int vtkPVLODPartDisplayInformation::GetMessageLength()
 {
-  return 2 * static_cast<int>(sizeof(unsigned long));
+  return 3 * static_cast<int>(sizeof(int));
 }
 
 //----------------------------------------------------------------------------
 void vtkPVLODPartDisplayInformation::WriteMessage(unsigned char* msg)
 {
-  memcpy(msg, (unsigned char*)&this->GeometryMemorySize, sizeof(unsigned long));
-  msg += sizeof(unsigned long);
-  memcpy(msg, (unsigned char*)&this->LODGeometryMemorySize, sizeof(unsigned long));  
+  int endianMarker = 1;
+
+  memcpy(msg, (unsigned char*)&endianMarker, sizeof(int));
+  msg += sizeof(int);
+  memcpy(msg, (unsigned char*)&this->GeometryMemorySize, sizeof(int));
+  msg += sizeof(int);
+  memcpy(msg, (unsigned char*)&this->LODGeometryMemorySize, sizeof(int));  
 }
 
 //----------------------------------------------------------------------------

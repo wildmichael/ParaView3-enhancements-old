@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVDataInformation.h,v $
   Language:  C++
-  Date:      $Date: 2003-06-03 18:59:31 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2003-06-04 17:08:20 $
+  Version:   $Revision: 1.7 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -99,7 +99,7 @@ public:
   int DataSetTypeIsA(const char* type);
   vtkGetMacro(NumberOfPoints, vtkIdType);
   vtkGetMacro(NumberOfCells, vtkIdType);
-  vtkGetMacro(MemorySize, unsigned long);
+  vtkGetMacro(MemorySize, int);
   vtkGetVector6Macro(Bounds, double);
   void GetBounds(float* bds);
 
@@ -127,7 +127,7 @@ protected:
   int            DataSetType;
   vtkIdType      NumberOfPoints;
   vtkIdType      NumberOfCells;
-  unsigned long  MemorySize;
+  int            MemorySize;
   double         Bounds[6];
   int            Extent[6];
   char*          Name;

@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVLODPartDisplayInformation.h,v $
   Language:  C++
-  Date:      $Date: 2003-06-03 18:59:31 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-06-04 17:08:20 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -62,8 +62,8 @@ public:
   // Description:
   // Memory sizes of full resolution geometry and decimated geometry 
   // summed over all processes.
-  vtkGetMacro(GeometryMemorySize, unsigned long);
-  vtkGetMacro(LODGeometryMemorySize, unsigned long);
+  vtkGetMacro(GeometryMemorySize, int);
+  vtkGetMacro(LODGeometryMemorySize, int);
 
   // Description:
   // Transfer information about a single object into
@@ -84,8 +84,10 @@ protected:
   vtkPVLODPartDisplayInformation() {};
   ~vtkPVLODPartDisplayInformation() {};
 
-  unsigned long GeometryMemorySize;
-  unsigned long LODGeometryMemorySize;
+  // These used to be unsigned long, but I changed them to int
+  // incase client is 32bit and server is 64bit.
+  int GeometryMemorySize;
+  int LODGeometryMemorySize;
 
   vtkPVLODPartDisplayInformation(const vtkPVLODPartDisplayInformation&); // Not implemented
   void operator=(const vtkPVLODPartDisplayInformation&); // Not implemented

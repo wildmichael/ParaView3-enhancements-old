@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVDataSetAttributesInformation.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-08 14:55:49 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2003-06-04 17:08:20 $
+  Version:   $Revision: 1.7 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -45,10 +45,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkCollection.h"
 #include "vtkPVArrayInformation.h"
+#include "vtkByteSwap.h"
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkPVDataSetAttributesInformation);
-vtkCxxRevisionMacro(vtkPVDataSetAttributesInformation, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkPVDataSetAttributesInformation, "$Revision: 1.7 $");
 
 
 //----------------------------------------------------------------------------
@@ -314,7 +315,8 @@ int vtkPVDataSetAttributesInformation::WriteMessage(unsigned char *msg)
 }
 
 //----------------------------------------------------------------------------
-int vtkPVDataSetAttributesInformation::CopyFromMessage(unsigned char *msg)
+int vtkPVDataSetAttributesInformation::CopyFromMessage(unsigned char *msg,
+                                                       int swap)
 {
   int length = 0;
   int idx;
@@ -326,6 +328,7 @@ int vtkPVDataSetAttributesInformation::CopyFromMessage(unsigned char *msg)
   this->ArrayInformation->RemoveAllItems();
 
   // Standard attributes
+  if (swap) {vtkByteSwap::SwapVoidRange((void *)msg, 5, sizeof(short));}
   for (idx = 0; idx < 5; ++idx)
     {
     memcpy((unsigned char*)&this->AttributeIndices[idx], msg, sizeof(short));
@@ -333,13 +336,14 @@ int vtkPVDataSetAttributesInformation::CopyFromMessage(unsigned char *msg)
     length += sizeof(short);
     }
   // Number of arrays
+  if (swap) {vtkByteSwap::SwapVoidRange((void *)msg, 1, sizeof(short));}
   memcpy((unsigned char*)&num, msg, sizeof(short));
   msg += sizeof(short);
   length += sizeof(short);
   for (idx = 0; idx < num; ++idx)
     {
     ai = vtkPVArrayInformation::New();
-    arrayMsgLength = ai->CopyFromMessage(msg);
+    arrayMsgLength = ai->CopyFromMessage(msg, swap);
     msg += arrayMsgLength;
     length += arrayMsgLength;
     this->ArrayInformation->AddItem(ai);

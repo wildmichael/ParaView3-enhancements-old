@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVArrayInformation.h,v $
   Language:  C++
-  Date:      $Date: 2002-12-04 19:05:23 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-06-04 17:08:20 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -106,7 +106,7 @@ public:
   // message (same as message length after call).
   int GetMessageLength();
   int WriteMessage(unsigned char *msg);
-  int CopyFromMessage(unsigned char *msg);
+  int CopyFromMessage(unsigned char *msg, int swap);
 
 protected:
   vtkPVArrayInformation();
