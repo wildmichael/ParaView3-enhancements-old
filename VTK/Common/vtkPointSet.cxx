@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-09 15:11:46 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1994-09-12 21:22:39 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -28,7 +28,6 @@ vlDataSet(ps)
   if (this->Points) this->Points->Register(this);
 
   this->Locator = ps.Locator;
-  if (this->Locator) this->Locator->Register(this);
 }
 
 void vlPointSet::Initialize()
@@ -43,8 +42,7 @@ void vlPointSet::Initialize()
 
   if ( this->Locator ) 
   {
-    this->Locator->UnRegister(this);
-    this->Locator = NULL;
+    this->Locator->Initialize();
   }
 }
 void vlPointSet::ComputeBounds()

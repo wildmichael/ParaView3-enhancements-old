@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTCoords.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-09 15:23:33 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-09-12 21:22:56 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -25,12 +25,12 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #ifndef __vlTCoords_h
 #define __vlTCoords_h
 
-#include "Object.hh"
+#include "RefCount.hh"
 
 class vlIdList;
 class vlFloatTCoords;
 
-class vlTCoords : public vlObject 
+class vlTCoords : public vlRefCount
 {
 public:
   vlTCoords(int dim=2);

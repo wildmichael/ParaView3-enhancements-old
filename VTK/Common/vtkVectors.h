@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkVectors.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-09 15:23:36 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1994-09-12 21:22:59 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -23,12 +23,12 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #ifndef __vlVectors_h
 #define __vlVectors_h
 
-#include "Object.hh"
+#include "RefCount.hh"
 
 class vlIdList;
 class vlFloatVectors;
 
-class vlVectors : public vlObject 
+class vlVectors : public vlRefCount 
 {
 public:
   vlVectors();

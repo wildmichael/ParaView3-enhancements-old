@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredData.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-15 07:47:12 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1994-09-12 21:22:50 $
+  Version:   $Revision: 1.14 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -23,7 +23,7 @@ vlStructuredDataSet::vlStructuredDataSet()
   this->DataDescription = SINGLE_POINT;
   
   this->Blanking = 0;
-  this->PointVisibility = 0;
+  this->PointVisibility = NULL;
 }
 
 vlStructuredDataSet::vlStructuredDataSet(const vlStructuredDataSet& sds) :
@@ -35,7 +35,10 @@ vlDataSet(sds)
   this->DataDescription = sds.DataDescription;
 
   this->Blanking = sds.Blanking;
-  this->PointVisibility = sds.PointVisibility;
+  if ( sds.PointVisibility != NULL )
+    this->PointVisibility = new vlBitArray(*sds.PointVisibility);
+  else
+    this->PointVisibility = NULL;
 }
 
 vlStructuredDataSet::~vlStructuredDataSet()
@@ -198,8 +201,8 @@ void vlStructuredDataSet::Initialize()
 
   if ( this->PointVisibility )
     {
-    this->PointVisibility->UnRegister(this);
-    this->PointVisibility = 0;
+    delete this->PointVisibility;
+    this->PointVisibility = NULL;
     }
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointData.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-09 15:22:37 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1994-09-12 21:22:45 $
+  Version:   $Revision: 1.19 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -61,22 +61,22 @@ public:
 
   // Description:
   // Set the scalar data.
-  vlSetObjectMacro (Scalars, vlScalars);
+  vlSetRefCountedObjectMacro (Scalars, vlScalars);
   vlGetObjectMacro (Scalars, vlScalars);
 
   // Description:
   // Set the vector data.
-  vlSetObjectMacro (Vectors, vlVectors);
+  vlSetRefCountedObjectMacro (Vectors, vlVectors);
   vlGetObjectMacro (Vectors, vlVectors);
 
   // Description:
   // Set the normal data.
-  vlSetObjectMacro (Normals, vlNormals);
+  vlSetRefCountedObjectMacro (Normals, vlNormals);
   vlGetObjectMacro (Normals, vlNormals);
 
   // Description:
   // Set the texture coordinate data.
-  vlSetObjectMacro (TCoords, vlTCoords);
+  vlSetRefCountedObjectMacro (TCoords, vlTCoords);
   vlGetObjectMacro (TCoords, vlTCoords);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredData.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-15 07:47:13 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1994-09-12 21:22:51 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -71,6 +71,8 @@ protected:
   vlBitArray *PointVisibility;
 };
 
+// Description:
+// Return non-zero value if specified point is visible.
 inline int vlStructuredDataSet::IsPointVisible(int ptId) 
 {
   if (!this->Blanking) return 1; 

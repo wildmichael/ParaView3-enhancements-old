@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkScalars.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-09 15:23:31 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1994-09-12 21:22:49 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -23,12 +23,12 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #ifndef __vlScalars_h
 #define __vlScalars_h
 
-#include "Object.hh"
+#include "RefCount.hh"
 
 class vlIdList;
 class vlFloatScalars;
 
-class vlScalars : public vlObject 
+class vlScalars : public vlRefCount 
 {
 public:
   vlScalars();

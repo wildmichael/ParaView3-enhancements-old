@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPoints.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-09 15:11:49 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1994-09-12 21:22:42 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -23,12 +23,12 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #ifndef __vlPoints_h
 #define __vlPoints_h
 
-#include "Object.hh"
+#include "RefCount.hh"
 
 class vlFloatPoints;
 class vlIdList;
 
-class vlPoints : public vlObject 
+class vlPoints : public vlRefCount 
 {
 public:
   vlPoints();

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkLocator.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-15 07:51:48 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1994-09-12 21:22:35 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -43,7 +43,7 @@ public:
 
   // Description:
   // Set list of points to insert into locator.
-  vlSetObjectMacro(Points,vlPoints);
+  vlSetRefCountedObjectMacro(Points,vlPoints);
   vlGetObjectMacro(Points,vlPoints);
 
   // Description:
