@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIterateFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:32:49 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2002-02-27 12:40:28 $
+  Version:   $Revision: 1.32 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,7 +17,7 @@
 =========================================================================*/
 #include "vtkImageIterateFilter.h"
 
-vtkCxxRevisionMacro(vtkImageIterateFilter, "$Revision: 1.31 $");
+vtkCxxRevisionMacro(vtkImageIterateFilter, "$Revision: 1.32 $");
 
 //----------------------------------------------------------------------------
 vtkImageIterateFilter::vtkImageIterateFilter()
@@ -204,7 +204,7 @@ void vtkImageIterateFilter::SetNumberOfIterations(int num)
     {
     for (idx = 1; idx < this->NumberOfIterations; ++idx)
       {
-      this->IterationData[idx]->UnRegister(this);
+      this->IterationData[idx]->Delete();
       this->IterationData[idx] = NULL;
       }
     delete [] this->IterationData;
