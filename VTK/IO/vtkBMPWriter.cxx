@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBMPWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-12-17 01:27:22 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-12-17 16:41:38 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,7 +47,7 @@ vtkBMPWriter::vtkBMPWriter()
 
 void vtkBMPWriter::WriteFileHeader(ofstream *file, vtkImageCache *cache)
 {
-  int min0, max0, min1, max1, min2, max2, min3, max3;
+  int min0, max0, min1, max1, min2, max2;
   int bpp;
   long temp;
   int width, height, dataWidth;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMedian3D.h,v $
   Language:  C++
-  Date:      $Date: 1997-08-26 17:40:34 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-12-17 16:41:40 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,23 +51,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkImageMedian3D_h
 
 
-#include "vtkImageMedianFilter.h"
+#include "vtkImageSpatialFilter.h"
 
-class VTK_EXPORT vtkImageMedian3D : public vtkImageMedianFilter
+class VTK_EXPORT vtkImageMedian3D : public vtkImageSpatialFilter
 {
 public:
   vtkImageMedian3D();
   static vtkImageMedian3D *New() {return new vtkImageMedian3D;};
   const char *GetClassName() {return "vtkImageMedian3D";};
 
-  void SetFilteredAxes(int axis0, int axis1, int axis2);
-  
   // Set the size of the neighood.
   void SetKernelSize(int size0, int size1, int size2);
+
+  // used in median calc
+  int NumberOfElements;
   
 protected:
 
-  void Execute(vtkImageRegion *inRegion, vtkImageRegion *outRegion);
+  void ThreadedExecute(vtkImageData *inData, vtkImageData *outData, 
+		       int extent[6]);
 
 };
 

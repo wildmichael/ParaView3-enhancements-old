@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-12-17 01:27:29 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1997-12-17 16:41:41 $
+  Version:   $Revision: 1.36 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -524,7 +524,7 @@ static void vtkImageReaderUpdate2(vtkImageReader *self, vtkImageData *data,
   OT *outPtr0, *outPtr1, *outPtr2;
   long streamSkip0, streamSkip1;
   long streamRead;
-  int idx0, idx1, idx2, idx3, pixelRead;
+  int idx0, idx1, idx2, pixelRead;
   unsigned char *buf;
   int inExtent[6];
   int dataExtent[6];
