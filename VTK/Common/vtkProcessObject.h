@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProcessObject.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:50:20 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-04-16 21:06:43 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -76,6 +76,7 @@ class VTK_EXPORT vtkProcessObject : public vtkObject
 {
 public:
   vtkProcessObject();
+  ~vtkProcessObject();
   static vtkProcessObject *New() {return new vtkProcessObject;};
   const char *GetClassName() {return "vtkProcessObject";};
   void PrintSelf(ostream& os, vtkIndent indent);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:50:10 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1998-04-16 21:06:42 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -90,6 +90,7 @@ vtkPointLocator::vtkPointLocator()
 
 vtkPointLocator::~vtkPointLocator()
 {
+  if ( this->Points ) this->Points->UnRegister(this);
   this->FreeSearchStructure();
 }
 

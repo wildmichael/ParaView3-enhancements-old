@@ -3,8 +3,8 @@
  Program:   Visualization Toolkit
  Module:    $RCSfile: vtkProcessObject.cxx,v $
  Language:  C++
- Date:      $Date: 1998-03-26 22:50:19 $
- Version:   $Revision: 1.1 $
+ Date:      $Date: 1998-04-16 21:06:43 $
+ Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,6 +55,22 @@ vtkProcessObject::vtkProcessObject()
   this->EndMethodArg = NULL;
   this->AbortExecute = 0;
   this->Progress = 0.0;
+}
+
+vtkProcessObject::~vtkProcessObject()
+{
+  if ((this->StartMethodArg)&&(this->StartMethodArgDelete))
+    {
+    (*this->StartMethodArgDelete)(this->StartMethodArg);
+    }
+  if ((this->ProgressMethodArg)&&(this->ProgressMethodArgDelete))
+    {
+    (*this->ProgressMethodArgDelete)(this->ProgressMethodArg);
+    }
+  if ((this->EndMethodArg)&&(this->EndMethodArgDelete))
+    {
+    (*this->EndMethodArgDelete)(this->EndMethodArg);
+    }
 }
 
 // Description:
