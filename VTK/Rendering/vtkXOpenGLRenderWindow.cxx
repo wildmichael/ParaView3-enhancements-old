@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-08 22:03:02 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-06-28 14:36:03 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -76,12 +76,14 @@ vtkXOpenGLRenderWindowInternal::vtkXOpenGLRenderWindowInternal(
   this->OffScreenWindow = NULL;
   this->ScreenMapped = rw->GetMapped();
   this->ScreenDoubleBuffer = rw->GetDoubleBuffer();
-#endif  
+#else
+  rw = 0;
+#endif
 }
 
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkXOpenGLRenderWindow, "$Revision: 1.19 $");
+vtkCxxRevisionMacro(vtkXOpenGLRenderWindow, "$Revision: 1.20 $");
 vtkStandardNewMacro(vtkXOpenGLRenderWindow);
 #endif
 
