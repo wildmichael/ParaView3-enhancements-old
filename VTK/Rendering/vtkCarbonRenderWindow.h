@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCarbonRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-09-27 23:45:02 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-10-24 11:48:27 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -158,6 +158,12 @@ public:
   void MakeCurrent();
 
   // Description:
+  // If called, allow MakeCurrent() to skip cache-check when called.
+  // MakeCurrent() reverts to original behavior of cache-checking
+  // on the next render.
+  void SetForceMakeCurrent() {this->ForceMakeCurrent = 1;};
+
+  // Description:
   // Check to see if an event is pending for this window.
   // This is a useful check to abort a long render.
   virtual  int GetEventPending();
@@ -220,6 +226,7 @@ protected:
   void *ScreenContextId;
 
   int CursorHidden;
+  int ForceMakeCurrent;
 
   void CreateAWindow(int x, int y, int width, int height);
   void InitializeApplication();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCocoaRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-28 16:44:22 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-10-24 11:48:27 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -158,6 +158,12 @@ public:
   void MakeCurrent();
 
   // Description:
+  // If called, allow MakeCurrent() to skip cache-check when called.
+  // MakeCurrent() reverts to original behavior of cache-checking
+  // on the next render.
+  void SetForceMakeCurrent() {this->ForceMakeCurrent = 1;};
+
+  // Description:
   // Check to see if an event is pending for this window.
   // This is a useful check to abort a long render.
   virtual  int GetEventPending();
@@ -230,6 +236,7 @@ protected:
   void *ScreenContextId;
 
   int CursorHidden;
+  int ForceMakeCurrent;
 
 private:
   vtkCocoaRenderWindow(const vtkCocoaRenderWindow&);  // Not implemented.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWinCEOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:50 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-10-24 11:48:27 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,7 +31,7 @@
 #include "vtkOpenGLPolyDataMapper.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkWinCEOpenGLRenderWindow, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkWinCEOpenGLRenderWindow, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkWinCEOpenGLRenderWindow);
 
 #define VTK_MAX_LIGHTS 8
@@ -58,6 +58,7 @@ vtkWinCEOpenGLRenderWindow::vtkWinCEOpenGLRenderWindow()
   this->DeviceContext = (HDC)0;         // hsr
   this->StereoType = VTK_STEREO_CRYSTAL_EYES;  
   this->CursorHidden = 0;
+  this->ForceMakeCurrent = 0;
 }
 
 vtkWinCEOpenGLRenderWindow::~vtkWinCEOpenGLRenderWindow()
@@ -161,7 +162,7 @@ int vtkWinCEOpenGLRenderWindow::GetEventPending()
 
 void vtkWinCEOpenGLRenderWindow::MakeCurrent()
 {
-  if (this->OffScreenContextId) 
+  if (this->OffScreenContextId || this->ForceMakeCurrent) 
     {
       if (OSMesaMakeCurrent(this->OffScreenContextId, 
                             this->OffScreenWindow, GL_UNSIGNED_BYTE, 
@@ -169,6 +170,7 @@ void vtkWinCEOpenGLRenderWindow::MakeCurrent()
         {
          vtkWarningMacro("failed call to OSMesaMakeCurrent");
         }
+      this->ForceMakeCurrent = 0;
     }
 }
 
