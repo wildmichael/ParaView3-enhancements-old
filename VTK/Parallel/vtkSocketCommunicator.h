@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSocketCommunicator.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-25 23:30:13 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-03-28 13:13:14 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -136,6 +136,10 @@ public:
   // has maximum length of maxlength. It's actual length
   // is stored in length.
   int ReceiveMessage(char *data, int *length, int maxlength);
+
+  // Description:
+  // Send message. 
+  int SendMessage(const char *data, int length);
 
 protected:
 
