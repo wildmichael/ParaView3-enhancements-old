@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageActor.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-22 18:39:31 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2003-09-06 21:02:34 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -51,13 +51,15 @@ protected:
   vtkOpenGLImageActor();
   ~vtkOpenGLImageActor();
 
-  unsigned char *MakeDataSuitable(int &xsize, int &ysize, int &release);
+  unsigned char *MakeDataSuitable(int &xsize, int &ysize,
+                                  int &release, int &reuseTexture);
 
   vtkTimeStamp   LoadTime;
   long          Index;
   vtkRenderWindow *RenderWindow;   // RenderWindow used for previous render
   float Coords[12];
   float TCoords[8];
+  int TextureSize[2];
 private:
   vtkOpenGLImageActor(const vtkOpenGLImageActor&);  // Not implemented.
   void operator=(const vtkOpenGLImageActor&);  // Not implemented.
