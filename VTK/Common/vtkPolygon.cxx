@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolygon.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:24:54 $
-  Version:   $Revision: 1.62 $
+  Date:      $Date: 1998-10-15 11:08:40 $
+  Version:   $Revision: 1.63 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1017,7 +1017,7 @@ void vtkPolygon::ComputeWeights(float x[3], float *weights)
 int vtkPolygon::IntersectWithLine(float p1[3], float p2[3], float tol,float& t,
                                  float x[3], float pcoords[3], int& subId)
 {
-  float *pt1, *pt2, *pt3, n[3];
+  float *pt1, n[3];
   float tol2 = tol*tol;
   float closestPoint[3];
   float dist2;
