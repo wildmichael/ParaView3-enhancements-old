@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVArrayInformation.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-01 18:23:50 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-05-02 14:05:49 $
+  Version:   $Revision: 1.5 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -46,7 +46,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkPVArrayInformation);
-vtkCxxRevisionMacro(vtkPVArrayInformation, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkPVArrayInformation, "$Revision: 1.5 $");
 
 //----------------------------------------------------------------------------
 vtkPVArrayInformation::vtkPVArrayInformation()
@@ -324,7 +324,7 @@ int vtkPVArrayInformation::WriteMessage(unsigned char *msg)
     }
 
   // Short for name length.
-  *((short*)msg) = nameLength;
+  memcpy(msg, &nameLength, sizeof(nameLength));
   msg += sizeof(short); 
   length += sizeof(short);
   if (this->Name)
@@ -378,7 +378,7 @@ int vtkPVArrayInformation::CopyFromMessage(unsigned char *msg)
     }
 
   // Short for name length.
-  nameLength = *((short*)msg);
+  memcpy(&nameLength, msg, sizeof(nameLength));
   msg += sizeof(short); 
   length += sizeof(short);
 
