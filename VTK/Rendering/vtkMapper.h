@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMapper.h,v $
   Language:  C++
-  Date:      $Date: 1994-09-12 21:10:13 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1994-09-12 21:16:07 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -51,6 +51,7 @@ public:
   virtual void Render(vlRenderer *) = 0;
 
   void SetLookupTable(vlLookupTable *lut);
+  void SetLookupTable(vlLookupTable& lut) {this->SetLookupTable(&lut);};
   vlGetObjectMacro(LookupTable,vlLookupTable);
 
   // Description:
