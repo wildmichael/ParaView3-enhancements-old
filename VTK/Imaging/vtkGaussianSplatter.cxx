@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGaussianSplatter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-25 16:00:02 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1999-09-04 12:34:29 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -85,7 +85,7 @@ static float Origin[3], Spacing[3];
 
 void vtkGaussianSplatter::Execute()
 {
-  int numSplatPts, numPts;
+  int numPts;
   int ptId, i, j, k;
   vtkPointData *pd;
   vtkNormals *inNormals=NULL;
@@ -102,7 +102,7 @@ void vtkGaussianSplatter::Execute()
   //
   //  Make sure points are available
   //
-  if ( (numSplatPts=input->GetNumberOfPoints()) < 1 )
+  if ( input->GetNumberOfPoints() < 1 )
     {
     vtkErrorMacro(<<"No points to splat!");
     return;

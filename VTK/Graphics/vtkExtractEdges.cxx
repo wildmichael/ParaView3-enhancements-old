@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractEdges.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-20 19:32:03 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1999-09-04 12:34:29 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,8 +64,8 @@ void vtkExtractEdges::Execute()
   vtkPolyData *output= this->GetOutput();
   vtkPoints *newPts;
   vtkCellArray *newLines;
-  int numCells, cellNum, numEdges, edgeNum, numEdgePts, numCellEdges;
-  int numPts, numNewPts, i, pts[2], pt2, newId;
+  int numCells, cellNum, edgeNum, numEdgePts, numCellEdges;
+  int numPts, i, pts[2], pt2, newId;
   int pt1 = 0;
   float *x;
   vtkEdgeTable *edgeTable;
@@ -86,8 +86,6 @@ void vtkExtractEdges::Execute()
 
   // Set up processing
   //
-  numNewPts = 0;
-  numEdges = 0;
   edgeTable = vtkEdgeTable::New();
   edgeTable->InitEdgeInsertion(numPts);
   newPts = vtkPoints::New();
