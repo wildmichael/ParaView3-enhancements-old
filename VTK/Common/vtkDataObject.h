@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.h,v $
   Language:  C++
-  Date:      $Date: 2001-03-13 20:26:06 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 2001-07-24 11:26:22 $
+  Version:   $Revision: 1.56 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -395,6 +395,10 @@ protected:
   // this image will crop itself.  This functionality used to be in 
   // ImageToStructuredPoints.
   int RequestExactExtent;
+
+  // This method cops the data object (if necesary) so that the extent
+  // matches the update extent.
+  virtual void Crop();
   
   int GhostLevel;
   int UpdateGhostLevel;

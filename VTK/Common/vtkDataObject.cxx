@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-14 20:05:59 $
-  Version:   $Revision: 1.67 $
+  Date:      $Date: 2001-07-24 11:26:22 $
+  Version:   $Revision: 1.68 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -403,6 +403,12 @@ void vtkDataObject::UpdateData()
       this->GhostLevel = this->UpdateGhostLevel;
       } 
     } 
+
+  // Filters, that can't handle more data than they request, set this flag.
+  if (this->RequestExactExtent)
+    { // clip the data down to the UpdateExtent.
+    this->Crop();
+    }
 }
 
 //----------------------------------------------------------------------------
@@ -749,6 +755,11 @@ vtkExtentTranslator *vtkDataObject::GetExtentTranslator()
   return this->ExtentTranslator;
 }
 
+//----------------------------------------------------------------------------
+// This should be a pure virutal method.
+void vtkDataObject::Crop()
+{
+}
 
 //----------------------------------------------------------------------------
 void vtkDataObject::PrintSelf(ostream& os, vtkIndent indent)

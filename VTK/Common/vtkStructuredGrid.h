@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-27 14:09:07 $
-  Version:   $Revision: 1.82 $
+  Date:      $Date: 2001-07-24 11:26:22 $
+  Version:   $Revision: 1.83 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -205,6 +205,12 @@ protected:
   // The extent type is a 3D extent
   int GetExtentType() { return VTK_3D_EXTENT; }
   
+  // Description:
+  // Reallocates and copies to set the Extent to the UpdateExtent.
+  // This is used internally when the exact extent is requested, 
+  // and the source generated more than the update extent. 
+  virtual void Crop();
+
   int Dimensions[3];
   int DataDescription;
   int Blanking;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:00 $
-  Version:   $Revision: 1.84 $
+  Date:      $Date: 2001-07-24 11:26:22 $
+  Version:   $Revision: 1.85 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -253,7 +253,7 @@ public:
   // Reallocates and copies to set the Extent to the UpdateExtent.
   // This is used internally when the exact extent is requested, 
   // and the source generated more than the update extent. 
-  void Crop();
+  virtual void Crop();
 
   // Description:
   // Return the actual size of the data in kilobytes. This number
