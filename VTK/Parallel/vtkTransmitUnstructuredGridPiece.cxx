@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransmitUnstructuredGridPiece.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-03-24 18:16:51 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2003-04-04 17:49:00 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkPointData.h"
 #include "vtkUnstructuredGrid.h"
 
-vtkCxxRevisionMacro(vtkTransmitUnstructuredGridPiece, "$Revision: 1.13 $");
+vtkCxxRevisionMacro(vtkTransmitUnstructuredGridPiece, "$Revision: 1.14 $");
 vtkStandardNewMacro(vtkTransmitUnstructuredGridPiece);
 
 vtkCxxSetObjectMacro(vtkTransmitUnstructuredGridPiece,Controller,
@@ -88,6 +88,7 @@ void vtkTransmitUnstructuredGridPiece::ExecuteInformation()
     vtkErrorMacro("Missing output");
     return;
     }
+  this->GetOutput()->CopyInformation(this->GetInput());
   this->GetOutput()->SetMaximumNumberOfPieces(-1);
 }
   

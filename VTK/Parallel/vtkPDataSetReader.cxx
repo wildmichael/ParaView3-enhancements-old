@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPDataSetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-03-11 13:10:38 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2003-04-04 17:49:00 $
+  Version:   $Revision: 1.22 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,8 +32,9 @@
 #include "vtkStructuredPoints.h"
 #include "vtkStructuredPointsReader.h"
 #include "vtkUnstructuredGrid.h"
+#include "vtkExtentTranslator.h"
 
-vtkCxxRevisionMacro(vtkPDataSetReader, "$Revision: 1.21 $");
+vtkCxxRevisionMacro(vtkPDataSetReader, "$Revision: 1.22 $");
 vtkStandardNewMacro(vtkPDataSetReader);
 
 //----------------------------------------------------------------------------
@@ -983,7 +984,14 @@ void vtkPDataSetReader::Execute()
       return;
       }
 
+    // Do not copy the ExtentTranslator (hack) 
+    // reader should probably set the extent translator
+    // not paraview.
+    vtkExtentTranslator *tmp = output->GetExtentTranslator();
+    tmp->Register(this);
     output->CopyStructure(data);
+    output->SetExtentTranslator(tmp);
+    tmp->UnRegister(tmp);
     output->GetCellData()->PassData(data->GetCellData());
     output->GetPointData()->PassData(data->GetPointData());
     this->SetNumberOfPieces(0);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransmitPolyDataPiece.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-03-24 18:16:45 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2003-04-04 17:49:00 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkPointData.h"
 #include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkTransmitPolyDataPiece, "$Revision: 1.14 $");
+vtkCxxRevisionMacro(vtkTransmitPolyDataPiece, "$Revision: 1.15 $");
 vtkStandardNewMacro(vtkTransmitPolyDataPiece);
 
 vtkCxxSetObjectMacro(vtkTransmitPolyDataPiece,Controller,
@@ -95,6 +95,7 @@ void vtkTransmitPolyDataPiece::ExecuteInformation()
     vtkErrorMacro("Missing output");
     return;
     }
+  this->GetOutput()->CopyInformation(this->GetInput());
   this->GetOutput()->SetMaximumNumberOfPieces(-1);
 }
   
