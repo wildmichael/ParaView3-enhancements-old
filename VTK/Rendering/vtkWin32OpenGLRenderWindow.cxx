@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-27 15:56:35 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1997-07-29 19:25:33 $
+  Version:   $Revision: 1.13 $
   Thanks:    to Horst Schreiber for developing this MFC code
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -475,6 +475,17 @@ void vtkWin32OpenGLRenderWindow::WindowInitialize (void)
      
 		  this->OwnWindow = 1;
 		  }
+    else
+      {
+      this->DeviceContext = GetDC(this->WindowId);
+      //DescribePixelFormat(this->DeviceContext, 
+      //  PFD_DRAW_TO_WINDOW | PFD_SUPPORT_OPENGL | PFD_DOUBLEBUFFER, 0, NULL);
+      vtkWin32OpenGLSetupPixelFormat(this->DeviceContext);
+      vtkWin32OpenGLSetupPalette(this->DeviceContext,this);
+		  this->ContextId = wglCreateContext(this->DeviceContext);
+      wglMakeCurrent(this->DeviceContext, this->ContextId);
+      vtkWin32OpenGLInit();
+      }
     this->Mapped = 1;
 
 	  // wglMakeCurrent(GetDC(this->WindowId), this->ContextId);
