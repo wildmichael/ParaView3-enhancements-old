@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGraphLayoutFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:22 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-05-08 13:34:14 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkGraphLayoutFilter, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkGraphLayoutFilter, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkGraphLayoutFilter);
 
 vtkGraphLayoutFilter::vtkGraphLayoutFilter()
@@ -80,7 +80,8 @@ void vtkGraphLayoutFilter::Execute()
   int numPts = input->GetNumberOfPoints();  //Number of points/vertices.
   float diff[3], len;  //The difference vector.
   int i, j, l;  //Iteration variables.
-  vtkIdType npts, *cellPts;
+  vtkIdType npts = 0;
+  vtkIdType *cellPts = 0;
   float fa, fr, minimum;
 
   vtkDebugMacro(<<"Drawing graph");

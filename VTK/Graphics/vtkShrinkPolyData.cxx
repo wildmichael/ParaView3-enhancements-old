@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShrinkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:44 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 2002-05-08 13:34:14 $
+  Version:   $Revision: 1.60 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkShrinkPolyData.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkShrinkPolyData, "$Revision: 1.59 $");
+vtkCxxRevisionMacro(vtkShrinkPolyData, "$Revision: 1.60 $");
 vtkStandardNewMacro(vtkShrinkPolyData);
 
 vtkShrinkPolyData::vtkShrinkPolyData(float sf)
@@ -39,8 +39,9 @@ static void vtkShrinkPolyDataExecute(vtkShrinkPolyData *self,
   vtkPointData *pd;
   vtkCellArray *inVerts,*inLines,*inPolys,*inStrips;
   vtkIdType numNewPts, numNewLines, numNewPolys, polyAllocSize;
-  vtkIdType npts;
-  vtkIdType *pts, newIds[3];
+  vtkIdType npts = 0;
+  vtkIdType *pts = 0;
+  vtkIdType newIds[3];
   vtkPoints *newPoints;
   T *p1, *p2, *p3;
   vtkPolyData *input = self->GetInput();

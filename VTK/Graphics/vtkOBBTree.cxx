@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBBTree.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:31 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2002-05-08 13:34:14 $
+  Version:   $Revision: 1.50 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkMatrix4x4.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkOBBTree, "$Revision: 1.49 $");
+vtkCxxRevisionMacro(vtkOBBTree, "$Revision: 1.50 $");
 vtkStandardNewMacro(vtkOBBTree);
 
 #define vtkCELLTRIANGLES(CELLPTIDS, TYPE, IDX, PTID0, PTID1, PTID2) \
@@ -677,8 +677,8 @@ int vtkOBBTree::IntersectWithLine(const float p1[3], const float p2[3],
   char *senseList = new char[listMaxSize];
 
   float point[3];
-  float distance;
-  int sense;
+  float distance = 0;
+  int sense = 0;
   vtkIdType cellId;
 
   // compute line vector from p1 to p2

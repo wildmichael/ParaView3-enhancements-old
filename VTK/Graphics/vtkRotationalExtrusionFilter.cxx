@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRotationalExtrusionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:43 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2002-05-08 13:34:14 $
+  Version:   $Revision: 1.45 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkIdList.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkRotationalExtrusionFilter, "$Revision: 1.44 $");
+vtkCxxRevisionMacro(vtkRotationalExtrusionFilter, "$Revision: 1.45 $");
 vtkStandardNewMacro(vtkRotationalExtrusionFilter);
 
 // Create object with capping on, angle of 360 degrees, resolution = 12, and
@@ -44,7 +44,9 @@ void vtkRotationalExtrusionFilter::Execute()
   vtkPoints *inPts;
   vtkCellArray *inVerts, *inLines, *inPolys, *inStrips;
   int numEdges, dim;
-  vtkIdType *pts, npts, cellId, ptId, ncells;
+  vtkIdType *pts = 0;
+  vtkIdType npts = 0;
+  vtkIdType cellId, ptId, ncells;
   float *x, newX[3], radius, angleIncr, radIncr, transIncr;
   float psi, theta;
   vtkPoints *newPts;

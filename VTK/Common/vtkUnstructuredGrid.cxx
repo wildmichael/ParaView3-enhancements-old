@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-14 20:07:26 $
-  Version:   $Revision: 1.103 $
+  Date:      $Date: 2002-05-08 13:34:14 $
+  Version:   $Revision: 1.104 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,7 +33,7 @@
 #include "vtkQuadraticEdge.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkUnstructuredGrid, "$Revision: 1.103 $");
+vtkCxxRevisionMacro(vtkUnstructuredGrid, "$Revision: 1.104 $");
 vtkStandardNewMacro(vtkUnstructuredGrid);
 
 vtkUnstructuredGrid::vtkUnstructuredGrid ()
@@ -383,7 +383,8 @@ int vtkUnstructuredGrid::InsertNextCell(int type, int npts, vtkIdType *pts)
 void vtkUnstructuredGrid::SetCells(int *types, vtkCellArray *cells)
 {
   int i;
-  vtkIdType *pts, npts;
+  vtkIdType *pts = 0;
+  vtkIdType npts = 0;
   
   // set cell array
   if ( this->Connectivity )

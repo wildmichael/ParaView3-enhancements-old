@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangularTCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:54 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2002-05-08 13:34:14 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkTriangularTCoords, "$Revision: 1.22 $");
+vtkCxxRevisionMacro(vtkTriangularTCoords, "$Revision: 1.23 $");
 vtkStandardNewMacro(vtkTriangularTCoords);
 
 void vtkTriangularTCoords::Execute()
@@ -34,7 +34,9 @@ void vtkTriangularTCoords::Execute()
   vtkIdType numNewPts, numNewPolys, polyAllocSize;
   vtkFloatArray *newTCoords;
   vtkIdType newId, numCells, cellId;
-  vtkIdType *pts, newIds[3], npts;
+  vtkIdType *pts = 0;
+  vtkIdType newIds[3];
+  vtkIdType npts = 0;;
   int errorLogging = 1;
   vtkPoints *newPoints;
   vtkCellArray *newPolys;

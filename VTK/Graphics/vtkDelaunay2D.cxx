@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-07 19:41:54 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 2002-05-08 13:34:14 $
+  Version:   $Revision: 1.53 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkDoubleArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkDelaunay2D, "$Revision: 1.52 $");
+vtkCxxRevisionMacro(vtkDelaunay2D, "$Revision: 1.53 $");
 vtkStandardNewMacro(vtkDelaunay2D);
 
 // Construct object with Alpha = 0.0; Tolerance = 0.00001; Offset = 1.25;
@@ -293,7 +293,10 @@ void vtkDelaunay2D::Execute()
   vtkPointSet *input= this->GetInput();
   vtkPolyData *output= this->GetOutput();
   int ncells;
-  vtkIdType nodes[4][3], *neiPts, *triPts, numNeiPts, npts;
+  vtkIdType nodes[4][3], *neiPts;
+  vtkIdType *triPts = 0;
+  vtkIdType numNeiPts;
+  vtkIdType npts = 0;
   vtkIdType pts[3];
   vtkIdList *neighbors, *cells;
   double center[3], radius, tol, x[3];
@@ -736,7 +739,9 @@ int *vtkDelaunay2D::RecoverBoundary()
   vtkPolyData *source=this->GetSource();
   vtkCellArray *lines=source->GetLines();
   vtkCellArray *polys=source->GetPolys();
-  vtkIdType *pts, npts, i, p1, p2;
+  vtkIdType *pts = 0;
+  vtkIdType npts = 0;
+  vtkIdType i, p1, p2;
   int *triUse;
   
   // Recover the edges of the mesh
@@ -990,7 +995,10 @@ void vtkDelaunay2D::FillPolygons(vtkCellArray *polys, int *triUse)
 {
   vtkIdType p1, p2, j, kk;
   int i, k;
-  vtkIdType *pts, *triPts, npts, numPts;
+  vtkIdType *pts = 0;
+  vtkIdType *triPts;
+  vtkIdType npts = 0;
+  vtkIdType numPts;
   static double xyNormal[3]={0.0,0.0,1.0};
   double negDir[3], x21[3], x1[3], x2[3], x[3];
   vtkIdList *neis=vtkIdList::New();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFeatureEdges.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:21 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 2002-05-08 13:34:14 $
+  Version:   $Revision: 1.60 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkFeatureEdges, "$Revision: 1.59 $");
+vtkCxxRevisionMacro(vtkFeatureEdges, "$Revision: 1.60 $");
 vtkStandardNewMacro(vtkFeatureEdges);
 
 // Construct object with feature angle = 30; all types of edges, except 
@@ -64,8 +64,8 @@ void vtkFeatureEdges::Execute()
   float scalar, n[3], x1[3], x2[3];
   float cosAngle = 0;
   vtkIdType lineIds[2];
-  vtkIdType npts;
-  vtkIdType *pts;
+  vtkIdType npts = 0;
+  vtkIdType *pts = 0;
   vtkCellArray *inPolys, *inStrips, *newPolys;
   vtkFloatArray *polyNormals = NULL;
   vtkIdType numPts, numCells, numPolys, numStrips, nei;

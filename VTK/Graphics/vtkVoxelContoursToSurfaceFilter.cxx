@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxelContoursToSurfaceFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:55 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-05-08 13:34:14 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkAppendPolyData.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkVoxelContoursToSurfaceFilter, "$Revision: 1.18 $");
+vtkCxxRevisionMacro(vtkVoxelContoursToSurfaceFilter, "$Revision: 1.19 $");
 vtkStandardNewMacro(vtkVoxelContoursToSurfaceFilter);
 
 vtkVoxelContoursToSurfaceFilter::vtkVoxelContoursToSurfaceFilter()
@@ -484,8 +484,8 @@ void vtkVoxelContoursToSurfaceFilter::Execute()
   int                  i, j;
   int                  numberOfInputCells;
   int                  currentInputCellIndex;
-  vtkIdType            npts;
-  vtkIdType            *pts;
+  vtkIdType            npts = 0;
+  vtkIdType            *pts = 0;
   float                point1[3], point2[3];
   float                currentZ;
   vtkStructuredPoints  *volume;

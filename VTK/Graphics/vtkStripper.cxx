@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStripper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-08 21:02:30 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 2002-05-08 13:34:14 $
+  Version:   $Revision: 1.60 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkStripper.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkStripper, "$Revision: 1.59 $");
+vtkCxxRevisionMacro(vtkStripper, "$Revision: 1.60 $");
 vtkStandardNewMacro(vtkStripper);
 
 // Construct object with MaximumLength set to 1000.
@@ -34,14 +34,17 @@ void vtkStripper::Execute()
   vtkIdType numLines, numStrips, nei;
   vtkCellArray *newStrips=NULL, *inStrips, *newLines=NULL, *inLines, *inPolys;
   vtkCellArray *newPolys=0;
-  vtkIdType numLinePts;
+  vtkIdType numLinePts = 0;
   vtkIdList *cellIds;
   int foundOne;
   vtkIdType *pts, neighbor=0;
   vtkPolyData *Mesh;
   char *visited;
-  vtkIdType numStripPts;
-  vtkIdType *stripPts, *linePts, *triPts, numTriPts;
+  vtkIdType numStripPts = 0;
+  vtkIdType *stripPts = 0;
+  vtkIdType *linePts = 0;
+  vtkIdType *triPts;
+  vtkIdType numTriPts;
   vtkPolyData *input= this->GetInput();
   vtkPolyData *output= this->GetOutput();
   vtkPointData *pd=input->GetPointData();

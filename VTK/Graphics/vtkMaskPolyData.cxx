@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMaskPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:29 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2002-05-08 13:34:14 $
+  Version:   $Revision: 1.38 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkMaskPolyData.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkMaskPolyData, "$Revision: 1.37 $");
+vtkCxxRevisionMacro(vtkMaskPolyData, "$Revision: 1.38 $");
 vtkStandardNewMacro(vtkMaskPolyData);
 
 vtkMaskPolyData::vtkMaskPolyData()
@@ -40,7 +40,8 @@ void vtkMaskPolyData::Execute()
   vtkIdType id, interval;
   vtkPointData *pd;
   vtkIdType numCells;
-  vtkIdType *pts, npts;
+  vtkIdType *pts = 0;
+  vtkIdType npts = 0;
   vtkPolyData *input= this->GetInput();
   vtkPolyData *output = this->GetOutput();
   

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSmoothPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:45 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2002-05-08 13:34:14 $
+  Version:   $Revision: 1.33 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkSmoothPolyDataFilter, "$Revision: 1.32 $");
+vtkCxxRevisionMacro(vtkSmoothPolyDataFilter, "$Revision: 1.33 $");
 vtkStandardNewMacro(vtkSmoothPolyDataFilter);
 
 // The following code defines a helper class for performing mesh smoothing
@@ -156,8 +156,8 @@ void vtkSmoothPolyDataFilter::Execute()
 {
   vtkIdType numPts, numCells, i, numPolys, numStrips;
   int j, k;
-  vtkIdType npts;
-  vtkIdType *pts;
+  vtkIdType npts = 0;
+  vtkIdType *pts = 0;
   vtkIdType p1, p2;
   float *x, *y, deltaX[3], xNew[3], conv, maxDist, dist, factor;
   float x1[3], x2[3], x3[3], l1[3], l2[3];

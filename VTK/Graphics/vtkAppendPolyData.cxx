@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:01 $
-  Version:   $Revision: 1.88 $
+  Date:      $Date: 2002-05-08 13:34:14 $
+  Version:   $Revision: 1.89 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkAppendPolyData.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkAppendPolyData, "$Revision: 1.88 $");
+vtkCxxRevisionMacro(vtkAppendPolyData, "$Revision: 1.89 $");
 vtkStandardNewMacro(vtkAppendPolyData);
 
 //----------------------------------------------------------------------------
@@ -124,7 +124,10 @@ void vtkAppendPolyData::Execute()
   vtkDataArray *newPtTCoords = NULL;
   vtkDataArray *newPtTensors = NULL;
   int i;
-  vtkIdType *pts, *pPolys, npts, ptId, cellId;
+  vtkIdType *pts = 0;
+  vtkIdType *pPolys;
+  vtkIdType npts = 0;
+  vtkIdType ptId, cellId;
   
   vtkDebugMacro(<<"Appending polydata");
 

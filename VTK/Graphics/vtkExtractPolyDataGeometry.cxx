@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractPolyDataGeometry.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:19 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-05-08 13:34:14 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkExtractPolyDataGeometry, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkExtractPolyDataGeometry, "$Revision: 1.16 $");
 vtkStandardNewMacro(vtkExtractPolyDataGeometry);
 
 // Construct object with ExtractInside turned on.
@@ -109,7 +109,8 @@ void vtkExtractPolyDataGeometry::Execute()
   // with the verts, then lines, then polys, then strips.
   //
   int numIn;
-  vtkIdType npts, *pts;
+  vtkIdType npts = 0;
+  vtkIdType *pts = 0;
   if ( input->GetNumberOfVerts() )
     {
     inVerts = input->GetVerts();

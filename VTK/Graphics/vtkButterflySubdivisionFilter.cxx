@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkButterflySubdivisionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:08 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-05-08 13:34:14 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkEdgeTable.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkButterflySubdivisionFilter, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtkButterflySubdivisionFilter, "$Revision: 1.11 $");
 vtkStandardNewMacro(vtkButterflySubdivisionFilter);
 
 static float butterflyWeights[8] =
@@ -30,10 +30,10 @@ void vtkButterflySubdivisionFilter::GenerateSubdivisionPoints(
   vtkPointData *outputPD)
 {
   float *weights, *weights1, *weights2;
-  vtkIdType *pts;
+  vtkIdType *pts = 0;
   vtkIdType cellId, newId, i, j;
   int edgeId;
-  vtkIdType npts;
+  vtkIdType npts = 0;
   vtkIdType p1, p2;
   int valence1, valence2;
   vtkCellArray *inputPolys=inputDS->GetPolys();

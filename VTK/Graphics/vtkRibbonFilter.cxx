@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRibbonFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-07 01:07:35 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 2002-05-08 13:34:14 $
+  Version:   $Revision: 1.59 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkRibbonFilter, "$Revision: 1.58 $");
+vtkCxxRevisionMacro(vtkRibbonFilter, "$Revision: 1.59 $");
 vtkStandardNewMacro(vtkRibbonFilter);
 
 // Construct ribbon so that width is 0.1, the width does 
@@ -54,8 +54,8 @@ void vtkRibbonFilter::Execute()
   vtkPoints *newPts;
   vtkFloatArray *newNormals;
   vtkCellArray *newStrips;
-  vtkIdType npts;
-  vtkIdType *pts;
+  vtkIdType npts = 0;
+  vtkIdType *pts = 0;
   float p[3], pNext[3];
   float *n;
   float s[3], sNext[3], sPrev[3], w[3];

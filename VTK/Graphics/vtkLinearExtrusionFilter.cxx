@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearExtrusionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:26 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2002-05-08 13:34:14 $
+  Version:   $Revision: 1.54 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkLinearExtrusionFilter.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkLinearExtrusionFilter, "$Revision: 1.53 $");
+vtkCxxRevisionMacro(vtkLinearExtrusionFilter, "$Revision: 1.54 $");
 vtkStandardNewMacro(vtkLinearExtrusionFilter);
 
 // Create object with normal extrusion type, capping on, scale factor=1.0,
@@ -87,7 +87,9 @@ void vtkLinearExtrusionFilter::Execute()
   vtkCellArray *inVerts, *inLines, *inPolys, *inStrips;
   vtkIdType inCellId, outCellId;
   int numEdges, dim;
-  vtkIdType *pts, npts, ptId, ncells, p1, p2;
+  vtkIdType *pts = 0;
+  vtkIdType npts = 0;
+  vtkIdType ptId, ncells, p1, p2;
   int i, j;
   float *x;
   vtkPoints *newPts;

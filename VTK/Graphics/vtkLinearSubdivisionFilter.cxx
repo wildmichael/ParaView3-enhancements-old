@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearSubdivisionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:26 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-05-08 13:34:14 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,12 +19,12 @@
 #include "vtkEdgeTable.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkLinearSubdivisionFilter, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkLinearSubdivisionFilter, "$Revision: 1.12 $");
 vtkStandardNewMacro(vtkLinearSubdivisionFilter);
 
 void vtkLinearSubdivisionFilter::GenerateSubdivisionPoints (vtkPolyData *inputDS, vtkIntArray *edgeData, vtkPoints *outputPts, vtkPointData *outputPD)
 {
-  vtkIdType *pts;
+  vtkIdType *pts = 0;
   int edgeId;
   vtkIdType npts, cellId, newId;
   vtkIdType p1, p2;

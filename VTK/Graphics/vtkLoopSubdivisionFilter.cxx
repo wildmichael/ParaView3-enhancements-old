@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLoopSubdivisionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-07 19:41:55 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-05-08 13:34:14 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkEdgeTable.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkLoopSubdivisionFilter, "$Revision: 1.14 $");
+vtkCxxRevisionMacro(vtkLoopSubdivisionFilter, "$Revision: 1.15 $");
 vtkStandardNewMacro(vtkLoopSubdivisionFilter);
 
 static float LoopWeights[4] =
@@ -28,7 +28,7 @@ static float LoopWeights[4] =
 void vtkLoopSubdivisionFilter::GenerateSubdivisionPoints (vtkPolyData *inputDS,vtkIntArray *edgeData, vtkPoints *outputPts, vtkPointData *outputPD)
 {
   float *weights;
-  vtkIdType *pts;
+  vtkIdType *pts = 0;
   vtkIdType numPts, cellId, newId;
   int edgeId;
   vtkIdType npts;

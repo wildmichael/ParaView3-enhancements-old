@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:53 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2002-05-08 13:34:14 $
+  Version:   $Revision: 1.47 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,14 +20,17 @@
 #include "vtkTriangleStrip.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkTriangleFilter, "$Revision: 1.46 $");
+vtkCxxRevisionMacro(vtkTriangleFilter, "$Revision: 1.47 $");
 vtkStandardNewMacro(vtkTriangleFilter);
 
 void vtkTriangleFilter::Execute()
 {
   vtkPolyData *input = this->GetInput();
   vtkIdType numCells=input->GetNumberOfCells();
-  vtkIdType cellNum=0, numPts, newId, npts, *pts;
+  vtkIdType cellNum=0;
+  vtkIdType numPts, newId;
+  vtkIdType npts = 0;
+  vtkIdType *pts = 0;
   int i, j;
   vtkPolyData *output=this->GetOutput();
   vtkCellData *inCD=input->GetCellData();

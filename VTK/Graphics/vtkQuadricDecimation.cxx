@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadricDecimation.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:41 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-05-08 13:34:14 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkQuadricDecimation, "$Revision: 1.17 $");
+vtkCxxRevisionMacro(vtkQuadricDecimation, "$Revision: 1.18 $");
 vtkStandardNewMacro(vtkQuadricDecimation);
 
 //----------------------------------------------------------------------------
@@ -66,7 +66,8 @@ void vtkQuadricDecimation::Execute()
   vtkIdType numPts = input->GetNumberOfPoints();
   vtkIdType edgeId, i, newCellPts[3];
   int j;
-  vtkIdType *cellPts, numCellPts;
+  vtkIdType *cellPts = 0;
+  vtkIdType numCellPts;
   float cost, x[3];
   vtkPoints *targetPoints = vtkPoints::New();
   vtkPointData *targetPointData = vtkPointData::New();
