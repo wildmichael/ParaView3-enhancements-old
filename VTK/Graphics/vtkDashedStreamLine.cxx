@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDashedStreamLine.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-23 10:47:09 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1995-07-24 11:03:10 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -80,7 +80,7 @@ void vtkDashedStreamLine::Execute()
 //
 // Search for end of dash...create end of one dash, beginning of next
 //
-      if ( (sPtr->t - tOffset) > this->DashTime )
+      if ( (sPtr->t - tOffset) > this->StepLength )
         {
         while ( tOffset < sPtr->t )
           {
@@ -120,7 +120,7 @@ void vtkDashedStreamLine::Execute()
             }
           if ( newScalars ) scalarPrev = s;
 
-          tOffset += this->DashTime;
+          tOffset += this->StepLength;
           } // while
 
         } //if dash should be created
