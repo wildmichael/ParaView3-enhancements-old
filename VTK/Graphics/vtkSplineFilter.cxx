@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSplineFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-16 11:06:30 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-08-19 02:11:41 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkFloatArray.h"
 #include "vtkMath.h"
 
-vtkCxxRevisionMacro(vtkSplineFilter, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkSplineFilter, "$Revision: 1.5 $");
 vtkStandardNewMacro(vtkSplineFilter);
 
 vtkSplineFilter::vtkSplineFilter()
@@ -343,6 +343,8 @@ const char *vtkSplineFilter::GetGenerateTCoordsAsString(void)
 
 void vtkSplineFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
+  this->Superclass::PrintSelf(os,indent);
+
   os << indent << "Subdivide: :" << this->GetSubdivideAsString() << "\n";
   os << indent << "Maximum Number of Subdivisions: "
      << this->MaximumNumberOfSubdivisions << "\n";
