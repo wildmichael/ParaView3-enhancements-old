@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:48:53 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1998-10-11 13:22:33 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -135,6 +135,11 @@ void vtkRIBExporter::WriteData()
   ac = ren->GetActors();
   for ( ac->InitTraversal (); (anActor = ac->GetNextItem()); )
     {
+    // see if the actor has a mapper. it could be an assembly
+    if (anActor->GetMapper() == NULL)
+      {
+      continue;
+      }
     // if it's invisible, don't make the texture
     if ( anActor->GetVisibility () )
       {
@@ -560,6 +565,12 @@ void vtkRIBExporter::WriteActor(vtkActor *anActor)
   vtkGeometryFilter *geometryFilter = NULL;
   vtkMatrix4x4 *matrix = vtkMatrix4x4::New();
   
+  // see if the actor has a mapper. it could be an assembly
+  if (anActor->GetMapper() == NULL)
+    {
+    return;
+    }
+
   fprintf (this->FilePtr, "AttributeBegin\n");
 
   fprintf (this->FilePtr, "TransformBegin\n");
