@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBitArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:09:34 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2001-11-16 13:01:59 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -414,4 +414,14 @@ void vtkBitArray::InsertComponent(const vtkIdType i, const int j,
 {
   this->InsertValue(i*this->NumberOfComponents + j, 
                     static_cast<const int>(c));
+}
+
+// Set the data component at the ith tuple and jth component location.
+// Note that i<NumberOfTuples and j<NumberOfComponents. Make sure enough
+// memory has been allocated (use SetNumberOfTuples() and 
+// SetNumberOfComponents()).
+void vtkBitArray::SetComponent(const vtkIdType i, const int j,
+                               const float c)
+{
+  this->SetValue(i*this->NumberOfComponents + j, (int)c);
 }

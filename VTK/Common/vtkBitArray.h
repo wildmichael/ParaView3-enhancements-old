@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBitArray.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-12 18:57:33 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 2001-11-16 13:01:59 $
+  Version:   $Revision: 1.60 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -100,6 +100,13 @@ public:
   // Insert (memory allocation performed) the tuple onto the end of the array.
   vtkIdType InsertNextTuple(const float * tuple);
   vtkIdType InsertNextTuple(const double * tuple);
+
+  // Description:
+  // Set the data component at the ith tuple and jth component location.
+  // Note that i is less then NumberOfTuples and j is less then 
+  // NumberOfComponents. Make sure enough memory has been allocated (use 
+  // SetNumberOfTuples() and  SetNumberOfComponents()).
+  void SetComponent(const vtkIdType i, const int j, const float c);
 
   // Description:
   // Free any unneeded memory.
