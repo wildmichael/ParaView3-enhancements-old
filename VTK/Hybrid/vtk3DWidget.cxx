@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtk3DWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-25 21:39:52 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-03-26 12:31:51 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkCallbackCommand.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtk3DWidget, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtk3DWidget, "$Revision: 1.2 $");
 
 vtk3DWidget::vtk3DWidget()
 {
@@ -79,7 +79,7 @@ void vtk3DWidget::PlaceWidget()
 }
 
 // Description:
-// transform from display to world coordinates.
+// Transform from display to world coordinates.
 // WorldPt has to be allocated as 4 vector
 void vtk3DWidget::ComputeDisplayToWorld(double x, double y,
                                          double z, double *worldPt)
@@ -97,7 +97,7 @@ void vtk3DWidget::ComputeDisplayToWorld(double x, double y,
 }
 
 // Description:
-// transform from world to display coordinates.
+// Transform from world to display coordinates.
 // displayPt has to be allocated as 3 vector
 void vtk3DWidget::ComputeWorldToDisplay(double x, double y,
                                          double z, double *displayPt)
