@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfTransform.cxx,v 1.9 2004-01-21 20:25:34 andy Exp $  */
-/*  Date : $Date: 2004-01-21 20:25:34 $ */
-/*  Version : $Revision: 1.9 $ */
+/*  Id : $Id: XdmfTransform.cxx,v 1.10 2004-01-23 18:15:16 martink Exp $  */
+/*  Date : $Date: 2004-01-23 18:15:16 $ */
+/*  Version : $Revision: 1.10 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -193,7 +193,7 @@ if( XDMF_WORD_CMP( Attribute, "Function" ) ){
     ReturnArray->ReformFromString(CData);
    }
 
-  delete StreamString;
+  delete [] StreamString;
   while( NTmp ){
     NTmp--;
     XdmfDebug("Deleteing TmpArray " << ArrayToDelete[ NTmp ]->GetTagName() );
