@@ -23,7 +23,7 @@
 #include "vtkSocketController.h"
 #include "vtkTiledDisplaySchedule.h"
 
-vtkCxxRevisionMacro(vtkPVDuplicatePolyData, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkPVDuplicatePolyData, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkPVDuplicatePolyData);
 
 vtkCxxSetObjectMacro(vtkPVDuplicatePolyData,Controller, vtkMultiProcessController);
@@ -53,6 +53,7 @@ vtkPVDuplicatePolyData::~vtkPVDuplicatePolyData()
     }
 
   this->SetController(0);
+  this->SetSocketController(0);
 }
 
 
