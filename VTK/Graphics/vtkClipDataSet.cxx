@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-04 14:25:06 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-01-14 15:05:26 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -46,7 +46,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkClipDataSet, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkClipDataSet, "$Revision: 1.13 $");
 vtkStandardNewMacro(vtkClipDataSet);
 
 //----------------------------------------------------------------------------
@@ -142,7 +142,8 @@ void vtkClipDataSet::Execute()
   vtkUnsignedCharArray *types[2];
   vtkIntArray *locs[2];
   int numOutputs = 1;
- 
+  vtkIdType newCellId;
+  
   vtkDebugMacro(<< "Clipping dataset");
   
   // Initialize self; create output objects
@@ -236,12 +237,11 @@ void vtkClipDataSet::Execute()
     }
   outPD->InterpolateAllocate(inPD,estimatedSize,estimatedSize/2);
   outCD[0] = output->GetCellData();
-  // ClipCell does not yet copy the cell data.
-  //outCD[0]->CopyAllocate(inCD,estimatedSize,estimatedSize/2);
+  outCD[0]->CopyAllocate(inCD,estimatedSize,estimatedSize/2);
   if ( this->GenerateClippedOutput )
     {
     outCD[1] = clippedOutput->GetCellData();
-    //outCD[1]->CopyAllocate(inCD,estimatedSize,estimatedSize/2);
+    outCD[1]->CopyAllocate(inCD,estimatedSize,estimatedSize/2);
     }
 
   //Process all cells and clip each in turn
@@ -312,7 +312,9 @@ void vtkClipDataSet::Execute()
             cellType = VTK_TETRA;
             break;
           } //switch
-        types[i]->InsertNextValue(cellType);
+
+        newCellId = types[i]->InsertNextValue(cellType);
+        outCD[i]->CopyData(inCD, cellId, newCellId);
         } //for each new cell
       } //for both outputs
     } //for each cell
