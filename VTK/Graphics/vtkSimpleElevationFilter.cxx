@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSimpleElevationFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:52 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-03-02 12:54:39 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -105,15 +105,14 @@ void vtkSimpleElevationFilter::Execute()
 
   // Compute dot product
   //
-  for (i=0; i<numPts; i++)
+  int abort=0;
+  int progressInterval=numPts/20 + 1;
+  for (i=0; i<numPts && !abort; i++)
     {
-    if ( ! (i % 10000) ) 
+    if ( ! (i % progressInterval) ) 
       {
       this->UpdateProgress ((float)i/numPts);
-      if (this->GetAbortExecute())
-	{
-	break;
-	}
+      abort = this->GetAbortExecute();
       }
 
     input->GetPoint(i,x);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:56 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2001-03-02 12:54:39 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -80,20 +80,14 @@ void vtkTriangleFilter::Execute()
   output->Allocate(numPoints, numPoints);
   outCD->CopyAllocate(inCD,numPoints);
 
-  updateInterval = (int)(numCells/100.0);
-  if (updateInterval < 1)
-    {
-    updateInterval = 1;
-    }
-  for (cellNum=0; cellNum < numCells; cellNum++)
+  int abort=0;
+  updateInterval = numCells/100 + 1;
+  for (cellNum=0; cellNum < numCells && !abort; cellNum++)
     {
     if ( ! (cellNum % updateInterval) ) //manage progress reports / early abort
       {
       this->UpdateProgress ((float)cellNum / numCells);
-      if ( this->GetAbortExecute() ) 
-        {
-        break;
-        }
+      abort = this->GetAbortExecute();
       }
 
     cell = input->GetCell(cellNum);
