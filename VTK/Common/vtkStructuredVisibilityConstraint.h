@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredVisibilityConstraint.h,v $
   Language:  C++
-  Date:      $Date: 2003-11-05 14:49:14 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-11-06 19:46:19 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,7 +31,7 @@
 
 #include "vtkObject.h"
 
-#include "vtkUnsignedCharArray.h"
+#include "vtkUnsignedCharArray.h" // Needed for inline methods.
 
 class VTK_COMMON_EXPORT vtkStructuredVisibilityConstraint : public vtkObject 
 {
@@ -98,10 +98,8 @@ protected:
   unsigned char Initialized;
 
 private:
-  vtkStructuredVisibilityConstraint(
-    const vtkStructuredVisibilityConstraint&);  // Not implemented.
-  void operator=(
-    const vtkStructuredVisibilityConstraint&);  // Not implemented.
+  vtkStructuredVisibilityConstraint(const vtkStructuredVisibilityConstraint&);  // Not implemented.
+  void operator=(const vtkStructuredVisibilityConstraint&);  // Not implemented.
 };
 
 //----------------------------------------------------------------------------
