@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-05 10:25:20 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-06-05 10:27:18 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkTextActor.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkTextActor, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkTextActor, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkTextActor);
 // ----------------------------------------------------------------------------
 vtkTextActor::vtkTextActor()
@@ -296,6 +296,8 @@ void vtkTextActor::PrintSelf(ostream& os, vtkIndent indent)
 
   os << indent << "MaximumLineHeight: " << this->MaximumLineHeight << endl;
   os << indent << "MinimumSize: " << this->MinimumSize[0] << " " << this->MinimumSize[1] << endl;
+  os << indent << "ScaledText: " << this->ScaledText << endl;
+  os << indent << "AlignmentPoint: " << this->AlignmentPoint << endl;
 }
 // ----------------------------------------------------------------------------
 #define SetStuffMacro(function,param)          \
