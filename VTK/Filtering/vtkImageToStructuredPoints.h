@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToStructuredPoints.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:47:44 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-05-05 19:50:26 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -67,6 +67,8 @@ public:
   // Set/Get the scalar input object from the image pipeline.
   vtkSetObjectMacro(ScalarInput,vtkImageSource);
   vtkGetObjectMacro(ScalarInput,vtkImageSource);
+  void SetInput(vtkImageSource *input) {this->SetScalarInput(input);} 
+  vtkImageSource *GetInput() {return this->GetScalarInput();} 
 
   // Description:
   // Set/Get the vector input object from the image pipeline.
