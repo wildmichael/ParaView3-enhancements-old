@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-12 20:33:39 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2001-07-24 14:21:26 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -128,6 +128,10 @@ void vtkClipPolyData::Execute()
 {
   vtkPolyData *input = this->GetInput();
   vtkPolyData *output = this->GetOutput();
+  if (!input || !output)
+    {
+    return;
+    }
   vtkIdType cellId, i, updateTime;
   vtkPoints *cellPts;
   vtkDataArray *clipScalars;
