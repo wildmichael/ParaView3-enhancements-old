@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-04 08:34:30 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2000-09-17 11:12:07 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -287,6 +287,8 @@ protected:
   int ReadCoScalarData(vtkDataSetAttributes *a, int num);
   int ReadLutData(vtkDataSetAttributes *a);
   int ReadTCoordsData(vtkDataSetAttributes *a, int num);
+
+  int ReadDataSetData(vtkDataSet *ds);
 
   char *Header;
 

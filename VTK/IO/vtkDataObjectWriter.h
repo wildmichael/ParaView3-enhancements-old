@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObjectWriter.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:11:23 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-09-17 11:12:07 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -71,7 +71,7 @@ public:
               
   // Description:
   // Methods delegated to vtkDataWriter, see vtkDataWriter.
-  void SetFileName(char *filename) {this->Writer->SetFileName(filename);};
+  void SetFileName(const char *filename) {this->Writer->SetFileName(filename);};
   char *GetFileName() {return this->Writer->GetFileName();};
   void SetHeader(char *header) {this->Writer->SetHeader(header);};
   char *GetHeader() {return this->Writer->GetHeader();};
