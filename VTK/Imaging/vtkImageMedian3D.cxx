@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMedian3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-29 17:07:01 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1998-12-30 16:30:39 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,6 +48,14 @@ vtkImageMedian3D::vtkImageMedian3D()
 {
   this->SetKernelSize(1,1,1);
   this->HandleBoundaries = 1;
+}
+
+//----------------------------------------------------------------------------
+void vtkImageMedian3D::PrintSelf(ostream& os, vtkIndent indent)
+{
+  vtkImageSpatialFilter::PrintSelf(os, indent);
+
+  os << indent << "NumberOfElements: " << this->NumberOfElements << endl;
 }
 
 //----------------------------------------------------------------------------

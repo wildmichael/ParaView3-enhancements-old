@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMedian3D.h,v $
   Language:  C++
-  Date:      $Date: 1998-12-29 17:07:01 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1998-12-30 16:30:39 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,6 +60,7 @@ public:
 
   static vtkImageMedian3D *New() {return new vtkImageMedian3D;};
   const char *GetClassName() {return "vtkImageMedian3D";};
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // This method sets the size of the neighborhood.  It also sets the 

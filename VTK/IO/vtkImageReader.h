@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.h,v $
   Language:  C++
-  Date:      $Date: 1998-12-29 17:07:02 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1998-12-30 16:30:40 $
+  Version:   $Revision: 1.33 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -192,8 +192,10 @@ public:
   vtkGetMacro(SwapBytes,int);
   vtkBooleanMacro(SwapBytes,int);
 
+//BTX
   vtkGetMacro(File,ifstream *);
   vtkGetVectorMacro(DataIncrements,int,4);
+//ETX
 
   // Warning !!!
   // following should only be used by methods or template helpers, not users

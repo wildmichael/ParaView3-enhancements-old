@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-29 17:07:02 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 1998-12-30 16:30:39 $
+  Version:   $Revision: 1.48 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -315,7 +315,8 @@ void vtkImageReader::PrintSelf(ostream& os, vtkIndent indent)
   int idx;
   
   vtkImageSource::PrintSelf(os,indent);
-  
+
+  // this->File, this->Colors need not be printed  
   os << indent << "FileName: " <<
     (this->FileName ? this->FileName : "(none)") << "\n";
   os << indent << "FilePrefix: " << 
@@ -337,6 +338,13 @@ void vtkImageReader::PrintSelf(ostream& os, vtkIndent indent)
 
   os << indent << "Swap Bytes: " << (this->SwapBytes ? "On\n" : "Off\n");
 
+  os << indent << "DataIncrements: (" << this->DataIncrements[0];
+  for (idx = 1; idx < 2; ++idx)
+    {
+    os << ", " << this->DataIncrements[idx];
+    }
+  os << ")\n";
+  
   os << indent << "DataExtent: (" << this->DataExtent[0];
   for (idx = 1; idx < 6; ++idx)
     {
