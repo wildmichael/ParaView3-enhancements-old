@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRecursiveDividingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-09 16:44:19 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-10-28 13:07:09 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,7 +59,7 @@ static vtkCellArray *NewVerts; //verts being generated
 
 void vtkRecursiveDividingCubes::Execute()
 {
-  int i, j, k, idx, ii;
+  int i, j, k, idx;
   vtkScalars *inScalars;
   vtkIdList voxelPts(8);
   float origin[3];
