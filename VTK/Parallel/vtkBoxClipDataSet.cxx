@@ -1,11 +1,11 @@
 /*=========================================================================
 
-  Program:   ParaView
+  Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBoxClipDataSet.cxx,v $
 
-  Copyright (c) Kitware, Inc.
+  Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
-  See Copyright.txt or http://www.paraview.org/HTML/Copyright.html for details.
+  See Copyright.txt or http://www.kitware.com/Copyright.htm for details.
 
      This software is distributed WITHOUT ANY WARRANTY; without even
      the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
@@ -33,7 +33,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkBoxClipDataSet, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtkBoxClipDataSet, "$Revision: 1.11 $");
 vtkStandardNewMacro(vtkBoxClipDataSet);
 
 //----------------------------------------------------------------------------
