@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArray.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:20:42 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-09-15 19:36:36 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -205,7 +205,8 @@ public:
   // from deleting the array when it cleans up or reallocates memory.
   // The class uses the actual array provided; it does not copy the data 
   // from the suppled array.
-  virtual void SetVoidArray(void *array,int size, int save) {};
+  virtual void SetVoidArray(void *vtkNotUsed(array),int vtkNotUsed(size),
+			    int vtkNotUsed(save)) {};
 
 protected:
   // Construct object with default tuple dimension (number of components) of 1.

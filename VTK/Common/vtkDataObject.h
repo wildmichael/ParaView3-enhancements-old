@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:20:42 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1999-09-15 19:36:36 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -161,7 +161,7 @@ public:
   // Description:
   // A generic way of specifying an update extent.  Subclasses
   // must decide what a piece is.
-  virtual void SetUpdateExtent(int piece, int numPieces)
+  virtual void SetUpdateExtent(int vtkNotUsed(piece),int vtkNotUsed(numPieces))
     { vtkErrorMacro("Subclass did not implement 'SetUpdateExtent'");}
   
   // Description:
@@ -207,7 +207,7 @@ public:
   // CopyUpdateExtent method).
   virtual vtkExtent *GetGenericUpdateExtent()
     {vtkErrorMacro("Subclass did not implent GetGenericUpdateExtent"); return NULL;}
-  virtual void CopyGenericUpdateExtent(vtkExtent *ext)
+  virtual void CopyGenericUpdateExtent(vtkExtent *vtkNotUsed(ext))
     {vtkErrorMacro("Subclass did not implent CopyGenericUpdateExtent");}  
   
   // Description:
