@@ -1,4 +1,4 @@
-# $Id: CMakeLists.txt,v 1.11 2004-05-18 14:56:08 hoffman Exp $
+# $Id: CMakeLists.txt,v 1.12 2004-06-08 20:33:24 kmorel Exp $
 #
 ## Copyright 2003 Sandia Coporation
 ## Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -73,11 +73,12 @@ ENDIF (MPI_EXTRA_LIBRARY)
 
 # Configure MPI testing support.
 IF (BUILD_TESTING)
+  OPTION(ICET_BUILD_TESTING "Build and run the ICE-T tests." ON)
   FIND_PROGRAM(ICET_MPIRUN_EXE NAMES mpirun lamexec)
   SET(ICET_MPI_PREFLAGS "-np;2" CACHE STRING "Flags used by MPI start program.")
   SET(ICET_MPI_POSTFLAGS "" CACHE STRING "Flags used by MPI start program.")
   SET(ICET_MPI_MAX_NUMPROCS "2" CACHE STRING "Maximum number of processors available to run parallel applications.")
-  MARK_AS_ADVANCED(ICET_MPIRUN_EXE ICET_MPI_PREFLAGS ICET_MPI_POSTFLAGS ICET_MPI_MAX_NUMPROCS)
+  MARK_AS_ADVANCED(ICET_BUILD_TESTING ICET_MPIRUN_EXE ICET_MPI_PREFLAGS ICET_MPI_POSTFLAGS ICET_MPI_MAX_NUMPROCS)
   SEPARATE_ARGUMENTS(ICET_MPI_PREFLAGS)
   SEPARATE_ARGUMENTS(ICET_MPI_POSTFLAGS)
 ENDIF (BUILD_TESTING)
@@ -103,9 +104,9 @@ IF(NOT WIN32)
   SUBDIRS(doc)
 ENDIF(NOT WIN32)
 
-IF (BUILD_TESTING)
+IF (ICET_BUILD_TESTING)
   SUBDIRS(tests)
-ENDIF (BUILD_TESTING)
+ENDIF (ICET_BUILD_TESTING)
 
 # Save the CMake settings so another project can import them.  Loaded by:
 #  INCLUDE(${CMAKE_ROOT}/Modules/CMakeImportBuildSettings.cmake)
