@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSpatialFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-09-26 21:10:09 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1996-10-03 12:06:03 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -85,6 +85,29 @@ void vtkImageSpatialFilter::PrintSelf(ostream& os, vtkIndent indent)
 }
 
 
+//----------------------------------------------------------------------------
+void vtkImageSpatialFilter::GetKernelSize(int num, int *size)
+{
+  int idx;
+  
+  for (idx = 0; idx < num; ++idx)
+    {
+    size[idx] = this->KernelSize[idx];
+    }
+}
+
+
+
+//----------------------------------------------------------------------------
+void vtkImageSpatialFilter::GetKernelMiddle(int num, int *middle)
+{
+  int idx;
+  
+  for (idx = 0; idx < num; ++idx)
+    {
+    middle[idx] = this->KernelMiddle[idx];
+    }
+}
 
 
 
