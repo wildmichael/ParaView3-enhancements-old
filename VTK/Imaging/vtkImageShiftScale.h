@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageShiftScale.h,v $
   Language:  C++
-  Date:      $Date: 1996-09-13 14:17:01 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1996-09-18 14:05:48 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,7 +71,7 @@ protected:
   float Shift;
   float Scale;
 
-  void Execute2d(vtkImageRegion *inRegion, vtkImageRegion *outRegion);
+  void Execute(vtkImageRegion *inRegion, vtkImageRegion *outRegion);
 };
 
 #endif
