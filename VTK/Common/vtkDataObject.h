@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:16 $
-  Version:   $Revision: 1.64 $
+  Date:      $Date: 2002-02-12 20:34:48 $
+  Version:   $Revision: 1.65 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -304,10 +304,10 @@ public:
   
   // Description:
   // Add or remove or get or check a consumer, 
-  void AddConsumer(vtkProcessObject *c);
-  void RemoveConsumer(vtkProcessObject *c);
-  vtkProcessObject *GetConsumer(int i);
-  int IsConsumer(vtkProcessObject *c);
+  void AddConsumer(vtkObject *c);
+  void RemoveConsumer(vtkObject *c);
+  vtkObject *GetConsumer(int i);
+  int IsConsumer(vtkObject *c);
 
   
 protected:
@@ -326,7 +326,7 @@ protected:
 
   // how many consumers does this object have
   int NumberOfConsumers;
-  vtkProcessObject **Consumers;
+  vtkObject **Consumers;
   
   // Description:
   // Return non zero if the UpdateExtent is outside of the Extent
