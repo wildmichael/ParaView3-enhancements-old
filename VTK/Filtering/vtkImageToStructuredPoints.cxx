@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToStructuredPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 16:18:04 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1999-07-23 11:48:41 $
+  Version:   $Revision: 1.28 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -276,7 +276,7 @@ void vtkImageToStructuredPoints::ExecuteInformation()
   whole[1] -= whole[0];
   whole[3] -= whole[2];
   whole[5] -= whole[4];
-  whole[0] = whole[2] = whole[4];
+  whole[0] = whole[2] = whole[4] = 0;
   
   output->SetWholeExtent(whole);
   // Now should Origin and Spacing really be part of information?
