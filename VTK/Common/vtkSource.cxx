@@ -3,8 +3,8 @@
  Program:   Visualization Toolkit
  Module:    $RCSfile: vtkSource.cxx,v $
  Language:  C++
- Date:      $Date: 1999-04-16 19:47:57 $
- Version:   $Revision: 1.35 $
+ Date:      $Date: 1999-04-19 15:49:23 $
+ Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -157,8 +157,7 @@ void vtkSource::PrintSelf(ostream& os, vtkIndent indent)
 
 int vtkSource::InRegisterLoop(vtkObject *o)
 {
-  if (this->ReferenceCount == 2 &&
-    this->Output == o)
+  if (this->ReferenceCount == 1 && this->Output == o)
     {
     return 1;
     }
@@ -172,7 +171,7 @@ void vtkSource::UnRegister(vtkObject *o)
   // and I am not being unregistered by my data, break the loop.
   if (this->ReferenceCount == 2 && this->Output != NULL &&
       this->Output->GetSource() == this && o != this->Output &&
-      this->Output->GetReferenceCount() == 1)
+      this->Output->GetNetReferenceCount() == 1)
     {
     this->Output->SetSource(NULL);
     }
