@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRenderer.h,v $
   Language:  C++
-  Date:      $Date: 1994-03-08 12:26:16 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1994-03-25 15:32:55 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -85,6 +85,7 @@ public:
   void ResetCamera();
 
   void SetRenderWindow(vlRenderWindow *);
+  vlRenderWindow *GetRenderWindow() {return RenderWindow;};
   
   vlSetVector3Macro(DisplayPoint,float);
   vlGetVectorMacro(DisplayPoint,float);
