@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.h,v $
   Language:  C++
-  Date:      $Date: 1997-08-22 13:29:18 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1997-09-03 12:55:15 $
+  Version:   $Revision: 1.22 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -117,7 +117,7 @@ public:
 
   // Description:
   // The number of dimensions stored in a file. This defaults to two.
-  virtual GetFileDimensions();
+  virtual int GetFileDimensions();
   
   // Description:
   // Set/Get the spacing of the data in the file.
