@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDicer.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-06 14:43:19 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1998-10-07 14:21:28 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -184,6 +184,8 @@ void vtkDicer::Execute()
 //
   output->GetPointData()->CopyScalarsOff();
   output->GetPointData()->PassData(input->GetPointData());
+
+  output->GetCellData()->PassData(input->GetCellData());
 
   output->GetPointData()->SetScalars(groupIds);
   groupIds->Delete();
