@@ -4,8 +4,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPKdTree.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-09-10 19:41:55 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-09-24 18:15:40 $
+  Version:   $Revision: 1.3 $
 =========================================================================*/
 
 #include <vtkPKdTree.h>
@@ -20,7 +20,7 @@
 #include <queue>
 #include <algorithm>
 
-vtkCxxRevisionMacro(vtkPKdTree, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkPKdTree, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkPKdTree);
 
 const int vtkPKdTree::NoRegionAssignment = 0;   // default
@@ -578,12 +578,12 @@ int vtkPKdTree::BreadthFirstDivide(float *volBounds)
     vtkNodeInfo info = Queue.front();
     Queue.pop();
 
-    vtkKdNode *kd = info->kd;
+    kd = info->kd;
     int L = info->L;
     int level = info->level;
     int tag   = info->tag;
 
-    int midpt = this->DivideRegion(kd, L, level, tag);
+    midpt = this->DivideRegion(kd, L, level, tag);
 
     if (midpt > 0){
 
@@ -3212,7 +3212,7 @@ void vtkPKdTree::PrintTables(ostream & os, vtkIndent indent)
 
       n = this->NumBlocksInRegion[r];
 
-      int *blockList = this->BlockList[r];
+      blockList = this->BlockList[r];
 
       if (!blockList) continue;
 
@@ -3316,11 +3316,11 @@ void vtkPKdTree::PrintSelf(ostream& os, vtkIndent indent)
 //    contiguous set of process Ids.
 //
 
-vtkSubGroup::vtkSubGroup(int p0, int p1, int me, int tag, vtkCommunicator *c)
+vtkSubGroup::vtkSubGroup(int p0, int p1, int me, int itag, vtkCommunicator *c)
 {
   int i, ii;
   this->nmembers = p1 - p0 + 1;
-  this->tag = tag;
+  this->tag = itag;
   this->comm = c;
 
   this->members = new int [this->nmembers];

@@ -5,8 +5,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKdTree.h,v $
   Language:  C++
-  Date:      $Date: 2003-09-22 16:58:48 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-09-24 18:15:40 $
+  Version:   $Revision: 1.5 $
 
 =========================================================================*/
 
@@ -187,6 +187,7 @@ public:
     //   Get one of the data sets included in spatial paritioning
 
     vtkDataSet *GetDataSet(int i){return this->DataSets[i];}
+    vtkDataSet *GetDataSet(){ return this->GetDataSet(0); }
 
     // Description:
     //   Get handle for one of the data sets included in spatial paritioning.
@@ -465,7 +466,7 @@ private:
     vtkKdTree(const vtkKdTree&);
 
 //BTX
-    virtual int DivideRegion(vtkKdNode *kd, float *c1, int nlevels);
+    int DivideRegion(vtkKdNode *kd, float *c1, int nlevels);
     void SelfRegister(vtkKdNode *kd);
 //ETX
 
