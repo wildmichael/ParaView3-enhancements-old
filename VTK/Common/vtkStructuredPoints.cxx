@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-16 15:58:20 $
-  Version:   $Revision: 1.64 $
+  Date:      $Date: 1999-01-07 15:03:37 $
+  Version:   $Revision: 1.65 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -431,7 +431,7 @@ int vtkStructuredPoints::GetCellType(int vtkNotUsed(cellId))
 
     default:
       vtkErrorMacro(<<"Bad data description!");
-      return VTK_NULL_ELEMENT;
+      return VTK_EMPTY_CELL;
     }
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-22 20:33:31 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-01-07 15:03:36 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -422,7 +422,7 @@ int vtkRectilinearGrid::GetCellType(int vtkNotUsed(cellId))
 
     default:
       vtkErrorMacro(<<"Bad data description!");
-      return VTK_NULL_ELEMENT;
+      return VTK_EMPTY_CELL;
     }
 }
 

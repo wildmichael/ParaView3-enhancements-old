@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-11-03 20:24:53 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1999-01-07 15:03:36 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -150,7 +150,7 @@ int vtkStructuredGrid::GetCellType(int vtkNotUsed(cellId))
 
     default:
       vtkErrorMacro(<<"Bad data description!");
-      return VTK_NULL_ELEMENT;
+      return VTK_EMPTY_CELL;
     }
 }
 
