@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPriorityQueue.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:41:14 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1997-07-11 20:57:29 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -137,7 +137,7 @@ int vtkPriorityQueue::Pop(float &priority, int location)
   this->ItemLocation->SetValue(id,-1);
 
   // percolate into the tree
-  for ( i=location; i <= (this->MaxId-1)/2; i=j )
+  for ( j=0, i=location; i <= (this->MaxId-1)/2; i=j )
     {
     idx = 2*i + 1;
 
