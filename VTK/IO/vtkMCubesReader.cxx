@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMCubesReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-07-03 20:41:11 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1996-07-11 19:12:52 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,7 +44,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkByteSwap.hh"
 
 // Description:
-// Construct object with FlipNormals and Normals set to true.
+// Construct object with FlipNormals turned off and Normals set to true.
 vtkMCubesReader::vtkMCubesReader()
 {
   this->Filename = NULL;
@@ -53,7 +53,7 @@ vtkMCubesReader::vtkMCubesReader()
   this->Locator = NULL;
   this->SelfCreatedLocator = 0;
 
-  this->FlipNormals = 1;
+  this->FlipNormals = 0;
   this->Normals = 1;
 }
 
@@ -156,7 +156,7 @@ void vtkMCubesReader::Execute()
   if ( this->Locator == NULL ) this->CreateDefaultLocator();
   this->Locator->InitPointInsertion (newPts, bounds);
 
-  direction = this->FlipNormals ? 1.0 : -1.0;
+  direction = this->FlipNormals ? -1.0 : 1.0;
 
   for ( i=0; i<numTris; i++) 
     {
