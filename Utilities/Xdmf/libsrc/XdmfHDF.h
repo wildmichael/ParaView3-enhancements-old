@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfHDF.h,v 1.7 2003-11-06 21:57:03 clarke Exp $  */
-/*  Date : $Date: 2003-11-06 21:57:03 $ */
-/*  Version : $Revision: 1.7 $ */
+/*  Id : $Id: XdmfHDF.h,v 1.8 2003-11-26 19:31:17 clarke Exp $  */
+/*  Date : $Date: 2003-11-26 19:31:17 $ */
+/*  Version : $Revision: 1.8 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -100,6 +100,10 @@ public:
   XdmfSetValueMacro(Compression, XdmfInt32);
 //! Get Compression Level
   XdmfGetValueMacro(Compression, XdmfInt32);
+//! Use Serial File Interface even if Parallel is Available
+  XdmfSetValueMacro(UseSerialFile, XdmfInt32);
+//! Get Value of Use Serial
+  XdmfGetValueMacro(UseSerialFile, XdmfInt32);
 //! Set the current internal HDF "Group" for creation
   XdmfInt32 SetCwdName( XdmfString Directory );
 //! Get the current internal HDF "Group"
@@ -181,6 +185,7 @@ protected:
 
   char    CwdName[XDMF_MAX_STRING_LENGTH];
   XdmfInt32  Compression;
+  XdmfInt32  UseSerialFile;
   XdmfInt64  NumberOfChildren;
   XdmfString  Child[1024];
 
