@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoidArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-18 12:21:08 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2001-04-18 12:34:18 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -191,7 +191,7 @@ void** vtkVoidArray::ResizeAndExtend(const int sz)
   return this->Array;
 }
 
-void vtkVoidArray::Resize(const int sz)
+void vtkVoidArray::Resize(int sz)
 {
   void** newArray;
   int newSize = sz*this->NumberOfComponents;
