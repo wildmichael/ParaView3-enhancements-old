@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-07 14:03:09 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-12-17 13:58:14 $
+  Version:   $Revision: 1.4 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -107,10 +107,15 @@ void vtkPVGeometryFilter::Execute()
   if (input->IsA("vtkUnstructuredGrid"))
     {
     this->UnstructuredGridExecute((vtkUnstructuredGrid*)input);
+    // I think this filter is misbehaving.
+    this->GetOutput()->CheckAttributes();
     return;
     }
 
+  this->GetInput()->CheckAttributes();
   this->vtkDataSetSurfaceFilter::Execute();
+  // I think this filter is misbehaving.
+  this->GetOutput()->CheckAttributes();
   return;
 }
 
