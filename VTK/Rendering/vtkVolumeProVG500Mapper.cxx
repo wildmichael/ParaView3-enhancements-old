@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProVG500Mapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-30 21:04:23 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2003-02-26 13:58:12 $
+  Version:   $Revision: 1.38 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,6 +27,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkOpenGLVolumeProVG500Mapper.h"
 #include "vtkPiecewiseFunction.h"
+#include "vtkPointData.h"
 #include "vtkRenderWindow.h"
 #include "vtkRenderer.h"
 #include "vtkToolkits.h"
@@ -36,7 +37,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkVolumeProVG500Mapper, "$Revision: 1.37 $");
+vtkCxxRevisionMacro(vtkVolumeProVG500Mapper, "$Revision: 1.38 $");
 
 //----------------------------------------------------------------------------
 // Needed when we don't use the vtkStandardNewMacro.
