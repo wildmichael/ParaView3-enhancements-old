@@ -8,7 +8,7 @@
  * of authorship are reproduced on all copies.
  */
 
-/* $Id: ice-t.h,v 1.2 2003-07-14 19:58:55 kmorel Exp $ */
+/* $Id: ice-t.h,v 1.3 2003-07-16 23:20:03 kmorel Exp $ */
 
 #ifndef _ICET_H_
 #define _ICET_H_
@@ -115,6 +115,7 @@ ICET_EXPORT GLuint  *icetGetDepthBuffer(void);
 typedef GLuint *IceTImage;
 typedef struct _IceTStrategy {
     char *name;
+    GLboolean supports_ordering;
     IceTImage (*compose)(void);
 } IceTStrategy;
 
@@ -170,6 +171,8 @@ ICET_EXPORT void icetDiagnostics(GLbitfield mask);
 #define ICET_INPUT_BUFFERS	(ICET_STATE_ENGINE_START | 0x0026)
 #define ICET_OUTPUT_BUFFERS	(ICET_STATE_ENGINE_START | 0x0027)
 #define ICET_COMPOSITE_ORDER	(ICET_STATE_ENGINE_START | 0x0028)
+#define ICET_PROCESS_ORDERS	(ICET_STATE_ENGINE_START | 0x0029)
+#define ICET_STRATEGY_SUPPORTS_ORDERING (ICET_STATE_ENGINE_START | 0x002A)
 
 #define ICET_DRAW_FUNCTION	(ICET_STATE_ENGINE_START | 0x0030)
 #define ICET_READ_BUFFER	(ICET_STATE_ENGINE_START | 0x0031)

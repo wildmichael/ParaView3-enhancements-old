@@ -8,7 +8,7 @@
  * of authorship are reproduced on all copies.
  */
 
-/* $Id: common.h,v 1.2 2003-07-14 19:58:55 kmorel Exp $ */
+/* $Id: common.h,v 1.3 2003-07-16 23:20:03 kmorel Exp $ */
 
 #ifndef _ICET_STRATEGY_COMMON_H_
 #define _ICET_STRATEGY_COMMON_H_
@@ -82,6 +82,7 @@ typedef void *(*IceTGenerateData)(int id, int dest, int *size);
 typedef void *(*IceTHandleData)(void *, int src);
 void icetSendRecvLargeMessages(int numMessagesSending,
 			       int *messageDestinations,
+			       int messagesInOrder,
 			       IceTGenerateData generateDataFunc,
 			       IceTHandleData handleDataFunc,
 			       void *incomingBuffer,

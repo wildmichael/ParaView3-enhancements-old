@@ -8,7 +8,7 @@
  * of authorship are reproduced on all copies.
  */
 
-/* $Id: state.h,v 1.1 2003-06-17 18:38:54 andy Exp $ */
+/* $Id: state.h,v 1.2 2003-07-16 23:20:03 kmorel Exp $ */
 
 #ifndef _ICET_STATE_H_
 #define _ICET_STATE_H_
@@ -46,7 +46,9 @@ ICET_EXPORT void icetStateSetInteger(GLenum pname, GLint value);
 ICET_EXPORT void icetStateSetBoolean(GLenum pname, GLboolean value);
 ICET_EXPORT void icetStateSetPointer(GLenum pname, GLvoid *value);
 
-ICET_EXPORT unsigned long icetGetTime(GLenum pname);
+ICET_EXPORT GLenum icetStateGetType(GLenum pname);
+ICET_EXPORT GLint icetStateGetSize(GLenum pname);
+ICET_EXPORT unsigned long icetStateGetTime(GLenum pname);
 
 ICET_EXPORT void icetUnsafeStateSet(GLenum pname, GLint size, GLenum type,
 				    GLvoid *data);

@@ -11,7 +11,7 @@
 
 /* 
  * This code opens up a GL window in X
- * $Id: glwin_glx.c,v 1.1 2003-06-17 18:38:54 andy Exp $
+ * $Id: glwin_glx.c,v 1.2 2003-07-16 23:20:03 kmorel Exp $
  *
  */ 
 
@@ -44,6 +44,7 @@ int wincreat( int x, int y, int width, int height, char *title)
 					  GLX_RED_SIZE, 8, 
 					  GLX_GREEN_SIZE, 8, 
 					  GLX_BLUE_SIZE, 8,
+					  GLX_ALPHA_SIZE, 8,
 					  GLX_DOUBLEBUFFER,
 					  None }; 
 

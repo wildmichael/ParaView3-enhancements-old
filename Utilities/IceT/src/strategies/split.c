@@ -8,7 +8,7 @@
  * of authorship are reproduced on all copies.
  */
 
-/* $Id: split.c,v 1.2 2003-07-14 19:58:55 kmorel Exp $ */
+/* $Id: split.c,v 1.3 2003-07-16 23:20:03 kmorel Exp $ */
 
 #include <GL/ice-t.h>
 #include <image.h>
@@ -27,7 +27,7 @@
 static IceTImage splitStrategy(void);
 
 IceTStrategy ICET_STRATEGY_SPLIT
-    = { "Image Split and Delegate", splitStrategy };
+    = { "Image Split and Delegate", ICET_FALSE, splitStrategy };
 
 static IceTImage splitStrategy(void)
 {

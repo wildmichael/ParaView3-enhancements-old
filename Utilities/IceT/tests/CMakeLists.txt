@@ -1,4 +1,4 @@
-# $Id: CMakeLists.txt,v 1.3 2003-07-14 18:53:59 lawcc Exp $
+# $Id: CMakeLists.txt,v 1.4 2003-07-16 23:20:03 kmorel Exp $
 #
 ## Copyright 2003 Sandia Coporation
 ## Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -52,5 +52,5 @@ ENDFOREACH(test)
 IF (WIN32)
   ADD_CUSTOM_TARGET(logclean erase log.???? *.ppm)
 ELSE (WIN32)
-  ADD_CUSTOM_TARGET(logclean rm -f log.???? *.ppm)
+  ADD_CUSTOM_TARGET(logclean rm -f log.???? *.ppm core.*)
 ENDIF (WIN32)

@@ -10,7 +10,7 @@
 /* 
  * This code opens up a GL window on Windows
  * Author: Various
- * $Id: glwin_wgl.c,v 1.1 2003-06-17 18:38:54 andy Exp $
+ * $Id: glwin_wgl.c,v 1.2 2003-07-16 23:20:03 kmorel Exp $
  *
  */ 
 
@@ -185,6 +185,7 @@ bSetupPixelFormat(HDC hdc)
     ppfd->cRedBits = 4;
     ppfd->cGreenBits = 4;
     ppfd->cBlueBits = 4;
+    ppfd->cAlphaBits = 4;
     ppfd->cDepthBits = 16; 
     ppfd->cAccumBits = 0; 
     ppfd->cStencilBits = 0; 

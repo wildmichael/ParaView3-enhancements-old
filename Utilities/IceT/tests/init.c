@@ -8,7 +8,7 @@
  * of authorship are reproduced on all copies.
  */
 
-/* $Id: init.c,v 1.1 2003-06-17 18:38:54 andy Exp $ */
+/* $Id: init.c,v 1.2 2003-07-16 23:20:03 kmorel Exp $ */
 
 #include "test-util.h"
 
@@ -83,6 +83,7 @@ static void checkIceTError(void)
 /* Just in case I need to actually print stuff out to the screen in the
    future. */
 static FILE *realstdout;
+#if 0
 static void realprintf(const char *fmt, ...)
 {
     va_list ap;
@@ -94,6 +95,7 @@ static void realprintf(const char *fmt, ...)
 	fflush(realstdout);
     }
 }
+#endif
 
 static IceTContext context;
 

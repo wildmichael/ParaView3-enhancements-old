@@ -8,7 +8,7 @@
  * of authorship are reproduced on all copies.
  */
 
-/* $Id: vtree.c,v 1.2 2003-07-14 19:58:55 kmorel Exp $ */
+/* $Id: vtree.c,v 1.3 2003-07-16 23:20:03 kmorel Exp $ */
 
 #include <GL/ice-t.h>
 
@@ -49,7 +49,8 @@ static void do_send_receive(struct node_info *my_info, int tile_held,
 			    IceTImage imageBuffer,
 			    IceTSparseImage inImage, IceTSparseImage outImage);
 
-IceTStrategy ICET_STRATEGY_VTREE = { "Virtual Trees", vtreeCompose };
+IceTStrategy ICET_STRATEGY_VTREE
+    = { "Virtual Trees", ICET_FALSE, vtreeCompose };
 
 static IceTImage vtreeCompose(void)
 {

@@ -8,7 +8,7 @@
  * of authorship are reproduced on all copies.
  */
 
-/* $Id: direct.c,v 1.1 2003-06-17 18:38:54 andy Exp $ */
+/* $Id: direct.c,v 1.2 2003-07-16 23:20:03 kmorel Exp $ */
 
 #include <GL/ice-t.h>
 
@@ -21,7 +21,7 @@
 
 static IceTImage directCompose(void);
 
-IceTStrategy ICET_STRATEGY_DIRECT = { "Direct", directCompose };
+IceTStrategy ICET_STRATEGY_DIRECT = { "Direct", ICET_TRUE, directCompose };
 
 static IceTImage directCompose(void)
 {

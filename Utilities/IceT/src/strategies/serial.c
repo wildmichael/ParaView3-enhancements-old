@@ -8,7 +8,7 @@
  * of authorship are reproduced on all copies.
  */
 
-/* $Id: serial.c,v 1.2 2003-07-14 19:58:55 kmorel Exp $ */
+/* $Id: serial.c,v 1.3 2003-07-16 23:20:03 kmorel Exp $ */
 
 #include <GL/ice-t.h>
 
@@ -20,7 +20,7 @@
 
 static IceTImage serialCompose(void);
 
-IceTStrategy ICET_STRATEGY_SERIAL = { "Serial", serialCompose };
+IceTStrategy ICET_STRATEGY_SERIAL = { "Serial", ICET_TRUE, serialCompose };
 
 static IceTImage serialCompose(void)
 {
@@ -88,9 +88,6 @@ static IceTImage serialCompose(void)
 	icetGetTileImage(i, ibuf);
 	icetBswapCompose(compose_group, num_proc, image_dest,
 			 ibuf, inImage, outImage);
-
-      /* Restore compose_group for next tile. */
-	compose_group[d_node] = d_node;
     }
 
     return myImage;

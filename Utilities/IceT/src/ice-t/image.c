@@ -8,7 +8,7 @@
  * of authorship are reproduced on all copies.
  */
 
-/* $Id: image.c,v 1.2 2003-07-14 19:58:55 kmorel Exp $ */
+/* $Id: image.c,v 1.3 2003-07-16 23:20:03 kmorel Exp $ */
 
 #include <image.h>
 #include <projections.h>
@@ -777,8 +777,8 @@ static void renderTile(int tile, GLint *screen_viewport, GLint *target_viewport)
 	    screen_viewport[3] = target_viewport[3];
 	}
 
-	if (  icetGetTime(ICET_RENDERED_VIEWPORT)
-	    > icetGetTime(ICET_IS_DRAWING_FRAME) ) {
+	if (  icetStateGetTime(ICET_RENDERED_VIEWPORT)
+	    > icetStateGetTime(ICET_IS_DRAWING_FRAME) ) {
 	  /* Already rendered image for this tile. */
 	    return;
 	}

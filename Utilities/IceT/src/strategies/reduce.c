@@ -8,7 +8,7 @@
  * of authorship are reproduced on all copies.
  */
 
-/* $Id: reduce.c,v 1.2 2003-07-14 19:58:55 kmorel Exp $ */
+/* $Id: reduce.c,v 1.3 2003-07-16 23:20:03 kmorel Exp $ */
 
 #include <GL/ice-t.h>
 #include <image.h>
@@ -27,7 +27,7 @@ static int delegate(int **tile_image_destp,
 		    int buffer_size);
 
 
-IceTStrategy ICET_STRATEGY_REDUCE = { "Reduce", reduceCompose };
+IceTStrategy ICET_STRATEGY_REDUCE = { "Reduce", ICET_FALSE, reduceCompose };
 
 static IceTImage reduceCompose(void)
 {
