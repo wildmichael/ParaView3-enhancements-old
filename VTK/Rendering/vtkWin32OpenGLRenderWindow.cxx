@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-30 13:22:10 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-06-05 12:11:47 $
+  Version:   $Revision: 1.4 $
   Thanks:    to Horst Schreiber for developing this MFC code
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -402,7 +402,7 @@ void vtkWin32OpenGLRenderWindow::WindowInitialize (void)
         }
       else
         {
-        this->ApplicationInstance = AfxGetInstanceHandle();
+        this->ApplicationInstance = GetModuleHandle(NULL); /*AfxGetInstanceHandle();*/
         }
       }
 	  if (!this->WindowId)
