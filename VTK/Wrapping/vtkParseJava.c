@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParseJava.c,v $
   Language:  C++
-  Date:      $Date: 2002-07-08 13:08:08 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-07-08 16:21:37 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -402,7 +402,7 @@ void vtkParseOutput(FILE *fp, FileInfo *data)
       fprintf(fp,"  protected void finalize() { this.VTKDelete();};\n");
       }
     }
-  // Special case for vtkObject
+  /* Special case for vtkObject */
   else if ( strcmp("vtkObject",data->ClassName) == 0 )
     {
     fprintf(fp,"\n  public %s() { super(); this.VTKInit(); };\n",
