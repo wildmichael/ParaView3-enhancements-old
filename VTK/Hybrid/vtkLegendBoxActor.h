@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLegendBoxActor.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:30:34 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-06-08 01:08:03 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -38,14 +38,15 @@
 #define __vtkLegendBoxActor_h
 
 #include "vtkActor2D.h"
-#include "vtkTextMapper.h"
 
 class vtkActor;
+class vtkFloatArray;
 class vtkPolyData;
-class vtkPolyDataMapper;
 class vtkPolyDataMapper2D;
-class vtkTransformPolyDataFilter;
+class vtkPolyDataMapper;
+class vtkTextMapper;
 class vtkTransform;
+class vtkTransformPolyDataFilter;
 
 class VTK_HYBRID_EXPORT vtkLegendBoxActor : public vtkActor2D
 {

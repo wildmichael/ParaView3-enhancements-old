@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:26:20 $
-  Version:   $Revision: 1.93 $
+  Date:      $Date: 2002-06-08 01:08:03 $
+  Version:   $Revision: 1.94 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,12 +16,14 @@
 
 =========================================================================*/
 #include "vtkSource.h"
-#include "vtkDataObject.h"
-#include "vtkObjectFactory.h"
-#include "vtkCommand.h"
-#include "vtkErrorCode.h"
 
-vtkCxxRevisionMacro(vtkSource, "$Revision: 1.93 $");
+#include "vtkCommand.h"
+#include "vtkDataObject.h"
+#include "vtkErrorCode.h"
+#include "vtkFieldData.h"
+#include "vtkObjectFactory.h"
+
+vtkCxxRevisionMacro(vtkSource, "$Revision: 1.94 $");
 
 #ifndef NULL
 #define NULL 0

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObjectReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:10 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-06-08 01:08:03 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,11 @@
 
 =========================================================================*/
 #include "vtkDataObjectReader.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkDataObjectReader, "$Revision: 1.15 $");
+#include "vtkObjectFactory.h"
+#include "vtkFieldData.h"
+
+vtkCxxRevisionMacro(vtkDataObjectReader, "$Revision: 1.16 $");
 vtkStandardNewMacro(vtkDataObjectReader);
 
 vtkDataObjectReader::vtkDataObjectReader()

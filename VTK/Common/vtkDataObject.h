@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.h,v $
   Language:  C++
-  Date:      $Date: 2002-02-12 20:34:48 $
-  Version:   $Revision: 1.65 $
+  Date:      $Date: 2002-06-08 01:08:03 $
+  Version:   $Revision: 1.66 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -36,8 +36,8 @@
 #define __vtkDataObject_h
 
 #include "vtkObject.h"
-#include "vtkFieldData.h"
 
+class vtkFieldData;
 class vtkProcessObject;
 class vtkSource;
 class vtkExtentTranslator;
@@ -104,7 +104,7 @@ public:
 
   // Description:
   // Assign or retrieve field data to this data object.
-  vtkSetObjectMacro(FieldData,vtkFieldData);
+  virtual void SetFieldData(vtkFieldData*);
   vtkGetObjectMacro(FieldData,vtkFieldData);
   
   // Handle the source/data loop.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractMapper.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-07 23:36:37 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2002-06-08 01:08:03 $
+  Version:   $Revision: 1.29 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -39,12 +39,13 @@
 #define VTK_GET_ARRAY_BY_ID 0
 #define VTK_GET_ARRAY_BY_NAME 1
 
-class vtkWindow;
+class vtkDataArray;
 class vtkDataSet;
-class vtkPlaneCollection;
 class vtkPlane;
+class vtkPlaneCollection;
 class vtkPlanes;
 class vtkTimerLog;
+class vtkWindow;
 
 class VTK_COMMON_EXPORT vtkAbstractMapper : public vtkProcessObject
 {

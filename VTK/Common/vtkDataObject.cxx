@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-15 16:35:30 $
-  Version:   $Revision: 1.83 $
+  Date:      $Date: 2002-06-08 01:08:03 $
+  Version:   $Revision: 1.84 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,12 +16,16 @@
 
 =========================================================================*/
 #include "vtkDataObject.h"
-#include "vtkSource.h"
-#include "vtkObjectFactory.h"
-#include "vtkExtentTranslator.h"
 
-vtkCxxRevisionMacro(vtkDataObject, "$Revision: 1.83 $");
+#include "vtkExtentTranslator.h"
+#include "vtkFieldData.h"
+#include "vtkObjectFactory.h"
+#include "vtkSource.h"
+
+vtkCxxRevisionMacro(vtkDataObject, "$Revision: 1.84 $");
 vtkStandardNewMacro(vtkDataObject);
+
+vtkCxxSetObjectMacro(vtkDataObject,FieldData,vtkFieldData);
 
 // Initialize static member that controls global data release 
 // after use by filter

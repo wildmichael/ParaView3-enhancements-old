@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSharedMemoryCommunicator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-17 01:50:34 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-06-08 01:08:03 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,10 +17,12 @@
 =========================================================================*/
 
 #include "vtkSharedMemoryCommunicator.h"
-#include "vtkDataObject.h"
-#include "vtkObjectFactory.h"
-#include "vtkMultiProcessController.h"
+
 #include "vtkCriticalSection.h"
+#include "vtkDataArray.h"
+#include "vtkDataObject.h"
+#include "vtkMultiProcessController.h"
+#include "vtkObjectFactory.h"
 
 class vtkSharedMemoryCommunicatorMessage
 {
@@ -35,7 +37,7 @@ public:
   vtkSharedMemoryCommunicatorMessage* Previous;
 };
 
-vtkCxxRevisionMacro(vtkSharedMemoryCommunicator, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkSharedMemoryCommunicator, "$Revision: 1.16 $");
 vtkStandardNewMacro(vtkSharedMemoryCommunicator);
 
 void vtkSharedMemoryCommunicator::PrintSelf(ostream& os, vtkIndent indent)
