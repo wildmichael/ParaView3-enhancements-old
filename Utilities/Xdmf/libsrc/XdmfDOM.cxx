@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDOM.cxx,v 1.14 2004-02-13 21:20:14 andy Exp $  */
-/*  Date : $Date: 2004-02-13 21:20:14 $ */
-/*  Version : $Revision: 1.14 $ */
+/*  Id : $Id: XdmfDOM.cxx,v 1.15 2004-04-26 15:34:22 clarke Exp $  */
+/*  Date : $Date: 2004-04-26 15:34:22 $ */
+/*  Version : $Revision: 1.15 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -336,6 +336,8 @@ while(*size <= 0) {
   *size = *size + BLOCKSIZE;
   blocks++;
 }
+// Add a gratuitous block to cover for extra chars
+blocks++;
 len = strlen(this->xml);
 // Round up to nearest block
 len = (( len / BLOCKSIZE ) + 1 ) * BLOCKSIZE;
