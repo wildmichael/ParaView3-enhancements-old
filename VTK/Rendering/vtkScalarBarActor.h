@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarBarActor.h,v $
   Language:  C++
-  Date:      $Date: 1999-03-03 21:05:38 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-03-11 18:32:32 $
+  Version:   $Revision: 1.11 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -106,6 +106,12 @@ public:
   int RenderOpaqueGeometry(vtkViewport* viewport);
   int RenderTranslucentGeometry(vtkViewport* viewport) { return 0; };
   int RenderOverlay(vtkViewport* viewport);
+
+  // Description:
+  // Release any graphics resources that are being consumed by this actor.
+  // The parameter window could be used to determine which graphic
+  // resources to release.
+  virtual void ReleaseGraphicsResources(vtkWindow *);
 
   // Description:
   // Set/Get the vtkLookupTable to use. The lookup table specifies the number

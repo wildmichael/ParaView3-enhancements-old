@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarBarActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-03 21:05:38 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-03-11 18:32:33 $
+  Version:   $Revision: 1.12 $
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -89,6 +89,23 @@ vtkScalarBarActor::vtkScalarBarActor()
   this->LastSize[0] = 0;
   this->LastSize[1] = 0;
 }
+
+// Release any graphics resources that are being consumed by this actor.
+// The parameter window could be used to determine which graphic
+// resources to release.
+void vtkScalarBarActor::ReleaseGraphicsResources(vtkWindow *win)
+{
+  this->TitleActor->ReleaseGraphicsResources(win);
+  if (this->TextMappers != NULL )
+    {
+    for (int i=0; i < this->NumberOfLabelsBuilt; i++)
+      {
+      this->TextActors[i]->ReleaseGraphicsResources(win);
+      }
+    }
+  this->ScalarBarActor->ReleaseGraphicsResources(win);
+}
+
 
 vtkScalarBarActor::~vtkScalarBarActor()
 {
