@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFrustumCoverageCuller.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-05-15 20:14:59 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-06-06 11:40:50 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -142,7 +142,7 @@ float vtkFrustumCoverageCuller::Cull( vtkRenderer *ren,
     if (bounds)
       {
       // a duff dataset like a polydata with no cells will have bad bounds
-      if (bounds[0] == -VTK_LARGE_FLOAT)
+      if ((bounds[0] == -VTK_LARGE_FLOAT) || (bounds[0] == VTK_LARGE_FLOAT))
         {
 	      coverage = 0.0;
 	      i = 7;
