@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLOT3DReader.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:48 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1999-10-11 12:38:17 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -202,8 +202,8 @@ protected:
   vtkPLOT3DReader(const vtkPLOT3DReader&) {};
   void operator=(const vtkPLOT3DReader&) {};
 
-  void Execute();
   void ExecuteInformation();
+  void Execute();
   int GetFileType(FILE *fp);
 
   //plot3d FileNames

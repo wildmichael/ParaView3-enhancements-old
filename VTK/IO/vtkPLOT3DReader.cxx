@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLOT3DReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-18 13:04:38 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 1999-10-11 12:38:17 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -101,6 +101,7 @@ vtkPLOT3DReader::~vtkPLOT3DReader()
     delete [] this->VectorFunctionFileName;
     }
 }
+
 
 void vtkPLOT3DReader::ExecuteInformation()
 {
