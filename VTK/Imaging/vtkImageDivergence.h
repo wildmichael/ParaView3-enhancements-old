@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDivergence.h,v $
   Language:  C++
-  Date:      $Date: 1998-04-09 19:45:46 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1998-06-29 19:10:31 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,6 +57,8 @@ public:
   static vtkImageDivergence *New() {return new vtkImageDivergence;};
   const char *GetClassName() {return "vtkImageDivergence";};
   
+  void PrintSelf(ostream& os, vtkIndent indent);
+
   // Description:
   // Determines how the input is interpreted (set of 2d slices ...)
   vtkSetClampMacro(Dimensionality,int,2,3);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFlip.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-01-06 14:03:12 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1998-06-29 19:10:34 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -232,18 +232,9 @@ void vtkImageFlip::ThreadedExecute(vtkImageData *inData,
     }
 }
 
+void vtkImageFlip::PrintSelf(ostream& os, vtkIndent indent)
+{
+  vtkImageFilter::PrintSelf(os,indent);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePermute.h,v $
   Language:  C++
-  Date:      $Date: 1998-01-18 17:12:19 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-06-29 19:11:03 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,6 +57,8 @@ public:
   vtkImagePermute();
   static vtkImagePermute *New() {return new vtkImagePermute;};
   const char *GetClassName() {return "vtkImagePermute";};
+
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // The filtered axes are the input axes that get relabeled to X,Y,Z.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAccumulate.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-02-03 12:57:25 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-06-29 19:10:17 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -284,7 +284,9 @@ void vtkImageAccumulate::InterceptCacheUpdate()
   this->Output->SetUpdateExtent(wholeExtent);
 }
 
+void vtkImageAccumulate::PrintSelf(ostream& os, vtkIndent indent)
+{
+  vtkImageFilter::PrintSelf(os,indent);
 
-
-
+}
 

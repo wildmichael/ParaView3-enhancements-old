@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageButterworthHighPass.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-01-30 19:25:47 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-06-29 19:10:19 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -229,9 +229,9 @@ void vtkImageButterworthHighPass::ThreadedExecute(vtkImageData *inData,
     }
 }
 
-      
-  
+void vtkImageButterworthHighPass::PrintSelf(ostream& os, vtkIndent indent)
+{
+  vtkImageFilter::PrintSelf(os,indent);
 
-
-
+}
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageConstantPad.h,v $
   Language:  C++
-  Date:      $Date: 1997-12-23 19:32:35 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-06-29 19:10:29 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,6 +57,8 @@ public:
   vtkImageConstantPad();
   static vtkImageConstantPad *New() {return new vtkImageConstantPad;};
   const char *GetClassName() {return "vtkImageConstantPad";};
+
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Set/Get the pad value.
   vtkSetMacro(Constant, float);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32ImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-19 17:33:59 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-06-29 19:11:14 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,7 +68,6 @@ public:
   ~vtkWin32ImageWindow();
   static vtkWin32ImageWindow *New() {return new vtkWin32ImageWindow;};
   const char *GetClassName() {return "vtkWin32ImageWindow";};
-  void PrintSelf(ostream& os, vtkIndent indent);
 
   // output to the viewer.
   vtkWin32ImageWindow *GetOutput(){return this;};

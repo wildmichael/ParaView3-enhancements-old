@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAccumulate.h,v $
   Language:  C++
-  Date:      $Date: 1998-02-03 12:57:26 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-06-29 19:10:18 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,6 +58,8 @@ public:
   vtkImageAccumulate();
   static vtkImageAccumulate *New() {return new vtkImageAccumulate;};
   const char *GetClassName() {return "vtkImageAccumulate";};
+
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Always generate the whole data set.
   void InterceptCacheUpdate();

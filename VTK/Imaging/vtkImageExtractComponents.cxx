@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageExtractComponents.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-01-18 17:12:14 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-06-29 19:10:32 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -287,21 +287,9 @@ void vtkImageExtractComponents::ThreadedExecute(vtkImageData *inData,
     }
 }
 
+void vtkImageExtractComponents::PrintSelf(ostream& os, vtkIndent indent)
+{
+  vtkImageFilter::PrintSelf(os,indent);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 

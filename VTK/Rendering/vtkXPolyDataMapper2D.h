@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXPolyDataMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-19 17:34:05 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-06-29 19:11:20 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -58,6 +58,7 @@ public:
 
   static vtkXPolyDataMapper2D *New() 
     {return new vtkXPolyDataMapper2D;};
+
   int GetCompositingMode(vtkActor2D* actor);
 
   void Render(vtkViewport* viewport, vtkActor2D* actor);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGaussianSource.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 17:26:43 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-06-29 19:10:37 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,6 +56,8 @@ public:
   static vtkImageGaussianSource *New() {return new vtkImageGaussianSource;};
   const char *GetClassName() {return "vtkImageGaussianSource";};
   
+  void PrintSelf(ostream& os, vtkIndent indent);
+
   // Description:
   // Set/Get the extent of the whole output image.
   void SetWholeExtent(int xMinx, int xMax, int yMin, int yMax,

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMathematics.h,v $
   Language:  C++
-  Date:      $Date: 1998-02-24 16:55:21 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-06-29 19:10:55 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,6 +75,8 @@ public:
   vtkImageMathematics();
   static vtkImageMathematics *New() {return new vtkImageMathematics;};
   const char *GetClassName() {return "vtkImageMathematics";};
+
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Set/Get the Operation to perform.

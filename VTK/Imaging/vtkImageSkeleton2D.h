@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSkeleton2D.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-13 20:18:43 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-06-29 19:11:10 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,6 +63,8 @@ public:
   vtkImageSkeleton2D();
   static vtkImageSkeleton2D *New() {return new vtkImageSkeleton2D;};
   const char *GetClassName() {return "vtkImageSkeleton2D";};
+
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // When prune is on, only closed loops are left un changed.

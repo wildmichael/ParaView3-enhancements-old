@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSkeleton2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-29 17:42:38 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-06-29 19:11:08 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -333,10 +333,9 @@ void vtkImageSkeleton2D::ThreadedExecute(vtkImageData *inData,
   tempData->Delete();
 }
 
+void vtkImageSkeleton2D::PrintSelf(ostream& os, vtkIndent indent)
+{
+  vtkImageIterateFilter::PrintSelf(os,indent);
 
-
-  
-
-
-
+}
 

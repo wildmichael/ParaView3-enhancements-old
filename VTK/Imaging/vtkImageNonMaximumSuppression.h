@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageNonMaximumSuppression.h,v $
   Language:  C++
-  Date:      $Date: 1998-01-19 20:17:16 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1998-06-29 19:10:59 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,6 +61,8 @@ public:
   vtkImageNonMaximumSuppression();
   static vtkImageNonMaximumSuppression *New() {return new vtkImageNonMaximumSuppression;};
   const char *GetClassName() {return "vtkImageNonMaximumSuppression";};
+
+  void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:
   // Rename the inputs.

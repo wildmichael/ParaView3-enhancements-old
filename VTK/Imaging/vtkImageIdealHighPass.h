@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIdealHighPass.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-11 14:59:28 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-06-29 19:10:41 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,6 +61,7 @@ public:
   static vtkImageIdealHighPass *New() 
     {return new vtkImageIdealHighPass;};
   const char *GetClassName() {return "vtkImageIdealHighPass";};
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Set/Get the cutoff frequency for each axis.

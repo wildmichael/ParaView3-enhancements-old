@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageLogarithmicScale.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-12 14:41:18 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-06-29 19:10:46 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,6 +58,8 @@ public:
   vtkImageLogarithmicScale();
   static vtkImageLogarithmicScale *New() {return new vtkImageLogarithmicScale;};
   const char *GetClassName() {return "vtkImageLogarithmicScale";};
+
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   vtkSetMacro(Constant,float);
   vtkGetMacro(Constant,float);

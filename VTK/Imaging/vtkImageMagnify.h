@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMagnify.h,v $
   Language:  C++
-  Date:      $Date: 1998-01-15 03:14:22 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-06-29 19:10:50 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,6 +56,8 @@ public:
   vtkImageMagnify();
   static vtkImageMagnify *New() {return new vtkImageMagnify;};
   const char *GetClassName() {return "vtkImageMagnify";};
+
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Set/Get Magnification factors

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMathematics.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-02-24 16:55:20 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-06-29 19:10:54 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -397,18 +397,9 @@ void vtkImageMathematics::ThreadedExecute(vtkImageData **inData,
     }
 }
 
+void vtkImageMathematics::PrintSelf(ostream& os, vtkIndent indent)
+{
+  vtkImageTwoInputFilter::PrintSelf(os,indent);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 

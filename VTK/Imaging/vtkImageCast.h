@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCast.h,v $
   Language:  C++
-  Date:      $Date: 1997-12-23 19:32:34 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1998-06-29 19:10:24 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,6 +58,7 @@ public:
   vtkImageCast();
   static vtkImageCast *New() {return new vtkImageCast;};
   const char *GetClassName() {return "vtkImageCast";};
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   void SetOutputScalarTypeToFloat(){this->SetOutputScalarType(VTK_FLOAT);}
   void SetOutputScalarTypeToInt(){this->SetOutputScalarType(VTK_INT);}

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageLogic.h,v $
   Language:  C++
-  Date:      $Date: 1998-01-07 21:38:16 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-06-29 19:10:48 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,6 +69,8 @@ public:
   vtkImageLogic();
   static vtkImageLogic *New() {return new vtkImageLogic;};
   const char *GetClassName() {return "vtkImageLogic";};
+
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Set/Get the Operation to perform.

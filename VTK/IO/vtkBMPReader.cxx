@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBMPReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-18 17:38:09 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-06-29 19:10:14 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -418,3 +418,11 @@ void vtkBMPReader::Execute(vtkImageData *data)
       vtkErrorMacro(<< "Execute: Unknown data type");
     }  
 }
+
+void vtkBMPReader::PrintSelf(ostream& os, vtkIndent indent)
+{
+  vtkImageReader::PrintSelf(os,indent);
+
+}
+
+

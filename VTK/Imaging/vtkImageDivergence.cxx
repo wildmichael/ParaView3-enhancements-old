@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDivergence.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-09 19:45:45 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-06-29 19:10:30 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -239,8 +239,9 @@ void vtkImageDivergence::ThreadedExecute(vtkImageData *inData,
     }
 }
 
+void vtkImageDivergence::PrintSelf(ostream& os, vtkIndent indent)
+{
+  vtkImageFilter::PrintSelf(os,indent);
 
-
-
-
+}
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCast.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-01-16 19:52:44 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1998-06-29 19:10:23 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -225,3 +225,10 @@ void vtkImageCast::ThreadedExecute(vtkImageData *inData,
       return;
     }
 }
+
+void vtkImageCast::PrintSelf(ostream& os, vtkIndent indent)
+{
+  vtkImageFilter::PrintSelf(os,indent);
+
+}
+

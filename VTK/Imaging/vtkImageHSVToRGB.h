@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageHSVToRGB.h,v $
   Language:  C++
-  Date:      $Date: 1998-01-05 21:49:32 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-06-29 19:10:39 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,6 +59,8 @@ public:
   static vtkImageHSVToRGB *New() 
     {return new vtkImageHSVToRGB;};
   const char *GetClassName() {return "vtkImageHSVToRGB";};
+
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Hue is an angle. Maximum specifies when it maps back to 0.

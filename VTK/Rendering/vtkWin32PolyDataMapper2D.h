@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32PolyDataMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-07 13:15:35 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-06-29 19:11:15 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -55,9 +55,9 @@ class VTK_EXPORT vtkWin32PolyDataMapper2D : public vtkPolyDataMapper2D
 {
 public:
   const char *GetClassName() {return "vtkWin32PolyDataMapper2D";};
-
   static vtkWin32PolyDataMapper2D *New() 
     {return new vtkWin32PolyDataMapper2D;};
+
   int GetCompositingMode(vtkActor2D* actor);
 
   void Render(vtkViewport* viewport, vtkActor2D* actor);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXTextMapper.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-09 19:29:15 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-06-29 19:11:21 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,13 +63,12 @@ class VTK_EXPORT vtkXTextMapper : public vtkTextMapper
 {
 public:
   const char *GetClassName() {return "vtkXTextMapper";};
+  static vtkXTextMapper *New() {return new vtkXTextMapper;};
 
   // Description:
   // Set the font size used by the mapper.  If the font size is 
   // available, the code will use the nearest available size.
   void SetFontSize(int size);
-
-  static vtkXTextMapper *New() {return new vtkXTextMapper;};
 
   // Description:
   // Return the X compositing mode being used.

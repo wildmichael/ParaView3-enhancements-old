@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageNonMaximumSuppression.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-01-19 20:17:15 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1998-06-29 19:10:58 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -354,3 +354,12 @@ void vtkImageNonMaximumSuppression::ThreadedExecute(vtkImageData **inData,
       return;
     }
 }
+
+
+void vtkImageNonMaximumSuppression::PrintSelf(ostream& os, vtkIndent indent)
+{
+  vtkImageTwoInputFilter::PrintSelf(os,indent);
+
+}
+
+

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFlip.h,v $
   Language:  C++
-  Date:      $Date: 1998-01-06 14:03:11 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1998-06-29 19:10:35 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,6 +60,8 @@ public:
   vtkImageFlip();
   static vtkImageFlip *New() {return new vtkImageFlip;};
   const char *GetClassName() {return "vtkImageFlip";};
+
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Specify which axes will be flipped.

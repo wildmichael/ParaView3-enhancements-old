@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSinusoidSource.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 17:24:39 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-06-29 19:11:07 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,6 +56,8 @@ public:
   static vtkImageSinusoidSource *New() {return new vtkImageSinusoidSource;};
   const char *GetClassName() {return "vtkImageSinusoidSource";};
   
+  void PrintSelf(ostream& os, vtkIndent indent);
+
   // Description:
   // Set/Get the extent of the whole output image.
   void SetWholeExtent(int xMinx, int xMax, int yMin, int yMax,

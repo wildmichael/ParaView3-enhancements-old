@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMask.h,v $
   Language:  C++
-  Date:      $Date: 1998-02-19 18:52:37 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-06-29 19:10:52 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,6 +63,8 @@ public:
   vtkImageMask();
   static vtkImageMask *New() {return new vtkImageMask;};
   const char *GetClassName() {return "vtkImageMask";};
+
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // SetGet the value of the output pixel replaced by mask.
