@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCoordinate.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-01 22:39:50 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-03-04 20:01:10 $
+  Version:   $Revision: 1.16 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -113,8 +113,22 @@ void vtkCoordinate::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Coordinate System: " << this->GetCoordinateSystemAsString() << "\n";
   os << indent << "Value: (" << this->Value[0] << "," 
      << this->Value[1] << "," << this->Value[2] << ")\n";
-  os << indent << "ReferenceCoordinate: " << this->ReferenceCoordinate << "\n";
-  os << indent << "Viewport: " << this->Viewport << "\n";
+  if (this->ReferenceCoordinate)
+    {
+    os << indent << "ReferenceCoordinate: " << this->ReferenceCoordinate << "\n";
+    }
+  else
+    {
+    os << indent << "ReferenceCoordinate: (none)\n";
+    }
+  if (this->Viewport)
+    {
+    os << indent << "Viewport: " << this->Viewport << "\n";
+    }
+  else
+    {
+    os << indent << "Viewport: (none)\n";
+    }
 }
 
 
