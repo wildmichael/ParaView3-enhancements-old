@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSocketCommunicator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-19 22:43:11 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2001-06-19 22:48:10 $
+  Version:   $Revision: 1.10 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -109,21 +109,17 @@ static inline int checkForError(int id, int maxId)
 template <class T>
 static int sendMessage(T* data, int length, int tag, int sock, int maxSize)
 {
-  vtkGenericWarningMacro("Sending tag " << tag);
   // Need to check the return value of these
   send(sock, (char *)&tag, sizeof(int), 0);
 
   int totalLength = length*sizeof(T);
   if ( totalLength < maxSize )
     {
-      vtkGenericWarningMacro("<max size, Sending size" << totalLength);
       send(sock, (char *)data, totalLength, 0);
     }
   else
     {
     int num = totalLength/maxSize;
-    vtkGenericWarningMacro(">=max size, Sending size" << maxSize << " "
-		    << num << " times");
     for(int i=0; i<num; i++)
       {
       send(sock, &(((char *)data)[i*maxSize]), 
