@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.h,v $
   Language:  C++
-  Date:      $Date: 1997-02-12 18:55:55 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-02-13 14:12:14 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,8 +60,8 @@ public:
 
   // Description:
   // Set/Get the file format.  Pixels are this type in the file.
-  vtkSetMacro(InputScalarType, int);
-  vtkGetMacro(InputScalarType, int);
+  vtkSetMacro(DataScalarType, int);
+  vtkGetMacro(DataScalarType, int);
   
   // Description:
   // Get/Set the image extent.  This is an alternative way of setting
@@ -124,7 +124,7 @@ public:
 
   
   // following should only be used by methods or template helpers, not users
-  int InputScalarType;
+  int DataScalarType;
   ifstream *File;
   int FileSize;
   int HeaderSize;
