@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKWDirectoryUtilities.h,v $
   Language:  C++
-  Date:      $Date: 2003-03-28 22:46:30 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2003-04-01 16:21:44 $
+  Version:   $Revision: 1.7 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -128,6 +128,11 @@ public:
   static const char* LocateFileInDir(const char *filename, 
                                      const char *dir, char *try_fname);
 
+  // Description:
+  // Check if the file has a given signature (set of bytes).
+  static int FileHasSignature(const char *filename, 
+                              const char *signature, unsigned long offset = 0);
+  
 protected:
   vtkKWDirectoryUtilities();
   ~vtkKWDirectoryUtilities();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKWDirectoryUtilities.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-03-28 22:46:30 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2003-04-01 16:21:44 $
+  Version:   $Revision: 1.6 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -85,7 +85,7 @@ static inline int Chdir(const char* dir)
 }
 #endif
 
-vtkCxxRevisionMacro(vtkKWDirectoryUtilities, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkKWDirectoryUtilities, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkKWDirectoryUtilities);
 
 //----------------------------------------------------------------------------
@@ -582,3 +582,36 @@ const char* vtkKWDirectoryUtilities::LocateFileInDir(const char *filename,
 
   return res;
 }
+
+//----------------------------------------------------------------------------
+int vtkKWDirectoryUtilities::FileHasSignature(const char *filename,
+                                              const char *signature, 
+                                              unsigned long offset)
+{
+  if (!filename || !signature)
+    {
+    return 0;
+    }
+
+  FILE *fp;
+  fp = fopen(filename, "rb");
+  if (!fp)
+    {
+    return 0;
+    }
+
+  fseek(fp, offset, SEEK_SET);
+
+  int res = 0;
+  size_t signature_len = strlen(signature);
+  char *buffer = new char [signature_len];
+
+  if (fread(buffer, 1, signature_len, fp) == signature_len)
+    {
+    res = (!strncmp(buffer, signature, signature_len) ? 1 : 0);
+    }
+
+  fclose(fp);
+  return res;
+}
+
