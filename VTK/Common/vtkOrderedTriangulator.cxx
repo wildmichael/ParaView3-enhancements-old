@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOrderedTriangulator.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-07 14:02:41 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2003-07-07 14:31:20 $
+  Version:   $Revision: 1.55 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,7 +29,7 @@
 #include <vtkstd/vector>
 #include <vtkstd/stack>
 
-vtkCxxRevisionMacro(vtkOrderedTriangulator, "$Revision: 1.54 $");
+vtkCxxRevisionMacro(vtkOrderedTriangulator, "$Revision: 1.55 $");
 vtkStandardNewMacro(vtkOrderedTriangulator);
 
 #ifdef _WIN32_WCE
@@ -48,9 +48,15 @@ vtkStandardNewMacro(vtkOrderedTriangulator);
 # endif
 #endif
 
-/* Old HP compiler does not support operator delete that is called
-   when a constructor called by operator new throws.  */
-#if defined(__HP_aCC) && (__HP_aCC <= 012100)
+// Old HP compiler does not support operator delete that is called
+// when a constructor called by operator new throws.
+// Might be supported in newer versions && (__HP_aCC <= 012100)
+#if defined(__HP_aCC)
+# define VTK_NO_EXCEPTION_OPERATOR_DELETE
+#endif
+// Old SGI compiler does not support operator delete that is called
+// when a constructor called by operator new throws.
+#if defined(__sgi) && !defined(__GNUC__) && !defined(_COMPILER_VERSION)
 # define VTK_NO_EXCEPTION_OPERATOR_DELETE
 #endif
 
