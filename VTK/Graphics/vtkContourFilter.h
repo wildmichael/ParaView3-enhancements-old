@@ -1,5 +1,20 @@
+/*=========================================================================
+
+  Program:   Visualization Library
+  Module:    $RCSfile: vtkContourFilter.h,v $
+  Language:  C++
+  Date:      $Date: 1994-02-04 12:51:13 $
+  Version:   $Revision: 1.2 $
+
+This file is part of the Visualization Library. No part of this file or its 
+contents may be copied, reproduced or altered in any way without the express
+written consent of the authors.
+
+Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
+
+=========================================================================*/
 //
-// Abstract class for specifying contourFilter behaviour
+// Contours arbitrary input
 //
 #ifndef __vlContourFilter_h
 #define __vlContourFilter_h
