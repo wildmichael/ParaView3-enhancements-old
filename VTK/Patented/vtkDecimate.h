@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimate.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:14:15 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2000-10-26 00:36:27 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -101,7 +101,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // form non-manifold attachments).
 
 // .SECTION See Also
-// vtkDecimatePro
+// vtkDecimatePro vtkQuadricClustering vtkQuadricDecimation
 
 #ifndef __vtkDecimate_h
 #define __vtkDecimate_h

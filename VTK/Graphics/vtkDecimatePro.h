@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimatePro.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-01 16:27:22 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2000-10-26 00:36:09 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -97,7 +97,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // Once mesh splitting begins, the feature angle is set to the split angle.
 
 // .SECTION See Also
-// vtkDecimate
+// vtkDecimate vtkQuadricClustering vtkQuadricDecimation
 
 
 #ifndef __vtkDecimatePro_h
