@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXYZMolReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-14 21:19:06 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2003-11-07 14:04:58 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -50,7 +50,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <sys/stat.h>
 
 //----------------------------------------------------------------------------
-vtkCxxRevisionMacro(vtkXYZMolReader, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkXYZMolReader, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkXYZMolReader);
 
 //----------------------------------------------------------------------------
@@ -80,7 +80,7 @@ char* vtkXYZMolReader::GetNextLine(FILE* fp, char* line, int maxlen)
       //cout << "Problem when reading. EOF?" << endl;
       return 0;
       }
-    len = strlen(line);
+    len = static_cast<int>(strlen(line));
     for ( cc = 0; cc < len; cc ++ )
       {
       int ch = line[cc];
@@ -101,7 +101,7 @@ char* vtkXYZMolReader::GetNextLine(FILE* fp, char* line, int maxlen)
     } 
   while ( comment );
   //cout << "Have line that is not a comment: [" << line << "]" << endl;
-  len = strlen(line);
+  len = static_cast<int>(strlen(line));
   int ft = 0;
   ptr = line;
   for ( cc = 0; cc < len; cc ++ )
