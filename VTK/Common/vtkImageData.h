@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-22 17:30:26 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1998-08-18 15:53:44 $
+  Version:   $Revision: 1.35 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -77,6 +77,12 @@ public:
   void SetScalarType(int);
   int GetScalarType();
 
+  // Description:
+  // These returns the minimum and maximum values the ScalarType can hold
+  // without overflowing.
+  double GetScalarTypeMin();
+  double GetScalarTypeMax();
+  
   // Description:
   // Set the size of the scalar type in bytes.
   int GetScalarSize();

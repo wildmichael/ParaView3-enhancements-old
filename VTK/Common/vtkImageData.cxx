@@ -3,8 +3,8 @@
 
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-08-14 17:10:41 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 1998-08-18 15:53:43 $
+  Version:   $Revision: 1.47 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,8 +39,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include <math.h>
+#include <limits.h>
 #include "vtkImageData.h"
 #include "vtkScalars.h"
+
 
 //----------------------------------------------------------------------------
 // Description:
@@ -553,4 +555,49 @@ void vtkImageData::CopyAndCastFrom(vtkImageData *inData, int extent[6])
     }
 }
 
+
+
+
+//----------------------------------------------------------------------------
+double vtkImageData::GetScalarTypeMin()
+{
+  switch (this->GetScalarType())
+    {
+    case VTK_FLOAT:
+      return (double)(FLT_MIN);
+    case VTK_INT:
+      return (double)(INT_MIN);
+    case VTK_SHORT:
+      return (double)(SHRT_MIN);
+    case VTK_UNSIGNED_SHORT:
+      return (double)(0.0);
+    case VTK_UNSIGNED_CHAR:
+      return (double)(0.0);
+    default:
+      vtkErrorMacro("Cannot handle scalar type " << this->ScalarType);
+      return 0.0;
+    }
+}
+
+
+//----------------------------------------------------------------------------
+double vtkImageData::GetScalarTypeMax()
+{
+  switch (this->GetScalarType())
+    {
+    case VTK_FLOAT:
+      return (double)(FLT_MAX);
+    case VTK_INT:
+      return (double)(INT_MAX);
+    case VTK_SHORT:
+      return (double)(SHRT_MAX);
+    case VTK_UNSIGNED_SHORT:
+      return (double)(USHRT_MAX);
+    case VTK_UNSIGNED_CHAR:
+      return (double)(UCHAR_MAX);
+    default:
+      vtkErrorMacro("Cannot handle scalar type " << this->ScalarType);
+      return 0.0;
+    }
+}
 
