@@ -13,7 +13,6 @@
 
 =========================================================================*/
 #include <sys/stat.h>
-#include "vtkPVServerInformation.h"
 #include "vtkPVCaveRenderModule.h"
 #include "vtkToolkits.h"
 #include "vtkObjectFactory.h"
@@ -31,7 +30,7 @@
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkPVCaveRenderModule);
-vtkCxxRevisionMacro(vtkPVCaveRenderModule, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkPVCaveRenderModule, "$Revision: 1.6 $");
 
 
 
