@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSpatialFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-20 18:42:54 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1996-08-22 13:06:27 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include <math.h>
-#include "vtkImageSpatialFilter.hh"
+#include "vtkImageSpatialFilter.h"
 
 
 //----------------------------------------------------------------------------

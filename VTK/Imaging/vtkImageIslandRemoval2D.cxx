@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIslandRemoval2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 19:25:34 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1996-08-22 13:05:23 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -37,8 +37,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkImage2dIslandRemovalFilter.hh"
-#include "vtkImageCache.hh"
+#include "vtkImage2dIslandRemovalFilter.h"
+#include "vtkImageCache.h"
 
 
 

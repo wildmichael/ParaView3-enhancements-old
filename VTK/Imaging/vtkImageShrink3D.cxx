@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageShrink3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-01 19:20:48 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1996-08-22 13:05:45 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -37,8 +37,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkImage3dShrinkFilter.hh"
-#include "vtkImageCache.hh"
+#include "vtkImage3dShrinkFilter.h"
+#include "vtkImageCache.h"
 
 
 //----------------------------------------------------------------------------

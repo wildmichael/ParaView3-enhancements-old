@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFourierFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-16 16:01:11 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1996-08-22 13:06:02 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -39,7 +39,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include <math.h>
-#include "vtkImageFourierFilter.hh"
+#include "vtkImageFourierFilter.h"
 
 
 
