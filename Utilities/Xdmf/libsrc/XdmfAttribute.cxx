@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfAttribute.cxx,v 1.6 2004-01-15 21:43:56 andy Exp $  */
-/*  Date : $Date: 2004-01-15 21:43:56 $ */
-/*  Version : $Revision: 1.6 $ */
+/*  Id : $Id: XdmfAttribute.cxx,v 1.7 2004-08-19 21:22:35 andy Exp $  */
+/*  Date : $Date: 2004-08-19 21:22:35 $ */
+/*  Version : $Revision: 1.7 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -35,6 +35,7 @@ XdmfAttribute::XdmfAttribute() {
   this->ValuesAreMine = 1;
   this->Values = NULL;
   this->ShapeDesc = new XdmfDataDesc();
+  this->Active = 0;
   }
 
 XdmfAttribute::~XdmfAttribute() {
@@ -145,6 +146,14 @@ if( Attribute ){
   this->SetAttributeTypeFromString( Attribute );
 } else {
   this->AttributeType = XDMF_ATTRIBUTE_TYPE_SCALAR;
+}
+
+Attribute = this->DOM->Get( Element, "Active" );
+this->Active = 0;
+if ( Attribute ){
+  if( XDMF_WORD_CMP( Attribute, "1" ) ) {
+    this->Active = 1;
+  }
 }
 
 Attribute = this->DOM->Get( Element, "Center" );
