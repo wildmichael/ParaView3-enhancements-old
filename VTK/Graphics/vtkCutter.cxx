@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:25:08 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-07-25 15:36:11 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -100,35 +100,20 @@ void vtkCutter::Execute()
 // polys we've created, take care to reclaim memory. 
 //
   this->SetPoints(newPoints);
+  newPoints->Delete();
 
-  if (newVerts->GetNumberOfCells()) 
-    {
-    this->SetVerts(newVerts);
-    }
-  else
-    {
-    delete newVerts;
-    }
+  if (newVerts->GetNumberOfCells()) this->SetVerts(newVerts);
+  newVerts->Delete();
 
-  if (newLines->GetNumberOfCells()) 
-    {
-    this->SetLines(newLines);
-    }
-  else
-    {
-    delete newLines;
-    }
+  if (newLines->GetNumberOfCells()) this->SetLines(newLines);
+  newLines->Delete();
 
-  if (newPolys->GetNumberOfCells()) 
-    {
-    this->SetPolys(newPolys);
-    }
-  else
-    {
-    delete newPolys;
-    }
+  if (newPolys->GetNumberOfCells()) this->SetPolys(newPolys);
+  newPolys->Delete();
 
   this->PointData.SetScalars(newScalars);
+  newScalars->Delete();
+
   this->Squeeze();
 }
 

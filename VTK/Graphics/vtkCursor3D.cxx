@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCursor3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:25:07 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1995-07-25 15:36:09 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -291,10 +291,13 @@ void vtkCursor3D::Execute()
       }
     }
 //
-// Update ourselves
+// Update ourselves and release memory
 //
   this->SetPoints(newPts);
+  newPts->Delete();
+
   this->SetLines(newLines);
+  newLines->Delete();
 }
 
 // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:25:07 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1995-07-25 15:36:08 $
+  Version:   $Revision: 1.16 $
 
 This file is part of the Visualization Toolkit. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -113,13 +113,17 @@ void vtkCubeSource::Execute()
   pts[0] += 4; pts[1] +=4; pts[2] +=4; pts[3] += 4; 
   newPolys->InsertNextCell(4,pts);
 //
-// Update ourselves
+// Update ourselves and release memory
 //
   this->SetPoints(newPoints);
+  newPoints->Delete();
+
   this->PointData.SetNormals(newNormals);
+  newNormals->Delete();
 
   newPolys->Squeeze(); // since we've estimated size; reclaim some space
   this->SetPolys(newPolys);
+  newPolys->Delete();
 }
 
 void vtkCubeSource::SetBounds(float bounds[6])
