@@ -3,8 +3,8 @@
   Program: 
   Module:    $RCSfile: otherTimerLog.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-10 12:39:16 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-10-11 13:28:23 $
+  Version:   $Revision: 1.3 $
 
   ==========================================================================*/
 
@@ -12,6 +12,7 @@
 // .SECTION Description
 // this program tests the TimerLog
 
+#include <stdio.h>
 #include "vtkTimerLog.h"
 #include "vtkDebugLeaks.h"
 
