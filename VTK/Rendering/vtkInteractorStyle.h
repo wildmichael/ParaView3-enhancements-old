@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.h,v $
   Language:  C++
-  Date:      $Date: 2002-07-12 18:24:42 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2002-07-12 19:51:26 $
+  Version:   $Revision: 1.46 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -95,9 +95,9 @@
 #define VTKIS_DOLLY        4
 #define VTKIS_ZOOM         5
 #define VTKIS_USCALE       6
-#define VTKIS_FORWARDFLY   7
-#define VTKIS_REVERSEFLY   8
-#define VTKIS_TIMER        9
+#define VTKIS_TIMER        7
+#define VTKIS_FORWARDFLY   8
+#define VTKIS_REVERSEFLY   9
 
 #define VTKIS_ANIM_OFF 0
 #define VTKIS_ANIM_ON  1
