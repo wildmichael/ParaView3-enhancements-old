@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGridSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-05-16 19:56:05 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2000-08-01 08:54:22 $
+  Version:   $Revision: 1.20 $
 
 
 
@@ -754,7 +754,6 @@ void vtkGridSynchronizedTemplates3D::ThreadedExecute(int *exExt, int threadId)
       vtkTemplateMacro9(ContourGrid, this, threadId, exExt, (VTK_TT *)scalars, 
                         newPts, newScalars, newPolys, newNormals, 
                         newGradients);
-      break;
       }//switch
     }
   else //multiple components - have to convert

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-05-16 19:56:06 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2000-08-01 08:54:22 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -539,7 +539,6 @@ void vtkSynchronizedTemplates3D::ThreadedExecute(vtkImageData *data,
       {
       vtkTemplateMacro9(ContourImage, this, exExt, data, newPts, newScalars, 
                         newPolys, newNormals, newGradients,(VTK_TT *)ptr);
-      break;
       }
     }
   else //multiple components - have to convert
