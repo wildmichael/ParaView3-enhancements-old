@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-07 17:07:49 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2002-06-08 21:34:02 $
+  Version:   $Revision: 1.52 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -120,7 +120,7 @@ public:
   // be supported for every type of window and on some windows you may
   // need to invoke this prior to the first render.
   void SetOffScreenRendering(int);
-  int GetOffScreenRendering(int);
+  int GetOffScreenRendering();
   void OffScreenRenderingOn();
   void OffScreenRenderingOff();
 
