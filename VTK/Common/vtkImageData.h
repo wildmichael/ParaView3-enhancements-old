@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.h,v $
   Language:  C++
-  Date:      $Date: 1996-10-16 12:23:07 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1996-10-17 15:01:19 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -111,6 +111,7 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
 
   void SetScalars(vtkScalars *scalars);
+  vtkScalars *GetScalars(){return this->PointData.GetScalars();};
   
   // return pointer to this dataset's point data
   vtkPointData *GetPointData() {return &this->PointData;};
