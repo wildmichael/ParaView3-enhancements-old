@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:40:59 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1998-09-29 11:33:26 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -364,6 +364,7 @@ void vtkDelaunay2D::Execute()
         Mesh->ReplaceCell(tri[0], 3, nodes[0]);
         nodes[1][0] = ptId; nodes[1][1] = p2; nodes[1][2] = nei[1];
         Mesh->ReplaceCell(nei[0], 3, nodes[1]);
+	Mesh->ResizeCellList(ptId, 2);
         Mesh->AddReferenceToCell(ptId,tri[0]);
         Mesh->AddReferenceToCell(ptId,nei[0]);
 
