@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-12 10:23:25 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2000-09-25 11:20:34 $
+  Version:   $Revision: 1.58 $
   Thanks:    to Horst Schreiber for developing this MFC code
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -867,6 +867,7 @@ int vtkWin32OpenGLRenderWindow::GetDepthBufferSize()
 
   if ( this->Mapped )
     {
+    this->MakeCurrent();
     size = 0;
     glGetIntegerv( GL_DEPTH_BITS, &size );
     return (int) size;
