@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-30 05:45:43 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-07-09 18:46:02 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkTextProperty.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkTextProperty, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkTextProperty, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkTextProperty);
 
 //----------------------------------------------------------------------------
@@ -83,6 +83,8 @@ vtkTextProperty::vtkTextProperty()
 
   this->LineOffset = 0.0;
   this->LineSpacing = 1.0;
+
+  this->FaceFileName = NULL;
 }
 
 //----------------------------------------------------------------------------
@@ -111,11 +113,57 @@ void vtkTextProperty::ShallowCopy(vtkTextProperty *tprop)
 
   this->SetLineOffset(tprop->GetLineOffset());
   this->SetLineSpacing(tprop->GetLineSpacing());
+
+  this->SetFaceFileName(tprop->GetFaceFileName());
 }
 
 //----------------------------------------------------------------------------
 vtkTextProperty::~vtkTextProperty()
 {
+  if (this->FaceFileName)
+    {
+    delete [] this->FaceFileName;
+    this->FaceFileName = NULL;
+    }
+}
+
+//----------------------------------------------------------------------------
+void vtkTextProperty::SetFaceFileName(const char *name)
+{
+  // Same name
+
+  if (this->FaceFileName && name && (!strcmp(this->FaceFileName, name)))
+    {
+    return;
+    }
+
+  // Both empty ?
+
+  if (!name && !this->FaceFileName)
+    {
+    return;
+    }
+
+  // Release old name
+
+  if (this->FaceFileName)
+    {
+    delete [] this->FaceFileName;
+    }
+
+  // Copy
+
+  if (name)
+    {
+    this->FaceFileName = new char[strlen(name) + 1];
+    strcpy(this->FaceFileName, name);
+    }
+  else
+    {
+    this->FaceFileName = NULL;
+    }
+
+  this->Modified();
 }
 
 //----------------------------------------------------------------------------
@@ -144,4 +192,5 @@ void vtkTextProperty::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Line Offset: " << this->LineOffset << "\n";
   os << indent << "Line Spacing: " << this->LineSpacing << "\n";
   os << indent << "AntiAliasing: " << this->AntiAliasing << "\n";
+  os << indent << "FaceFileName: " << this->FaceFileName << "\n";
 }

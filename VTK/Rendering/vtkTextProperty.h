@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextProperty.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-30 00:02:15 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-07-09 18:46:02 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -143,6 +143,12 @@ public:
   // Shallow copy of a text property.
   void ShallowCopy(vtkTextProperty *tprop);
   
+  // Description:
+  // Specify a face file name (unsupported feature). A face filename will
+  // override the font family as well as the bold and italic attributes.
+  void SetFaceFileName(const char *);
+  vtkGetStringMacro(FaceFileName);
+
 protected:
   vtkTextProperty();
   ~vtkTextProperty();
@@ -159,6 +165,7 @@ protected:
   int   VerticalJustification;
   float LineOffset;
   float LineSpacing;
+  char  *FaceFileName;
   
 private:
   vtkTextProperty(const vtkTextProperty&);  // Not implemented.
