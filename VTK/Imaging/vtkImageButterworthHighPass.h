@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageButterworthHighPass.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:31 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-12-07 14:02:28 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -41,6 +41,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 // .NAME vtkImageButterworthHighPass - Frequency domain high pass.
 // .SECTION Description
+// This filter only works on an image after it has been converted to
+// frequency domain by a vtkImageFFT filter.  A vtkImageRFFT filter
+// can be used to convert the output back into the spatial domain.
 // vtkImageButterworthHighPass  the frequency components around 0 are
 // attenuated.  Input and output are in floats, with two components
 // (complex numbers).

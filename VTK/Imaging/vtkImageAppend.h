@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAppend.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:30 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-12-07 14:02:28 $
+  Version:   $Revision: 1.24 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -65,7 +65,10 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:
-  // This axis is expanded to hold the multiple images.
+  // This axis is expanded to hold the multiple images.  
+  // The default AppendAxis is the X axis.
+  // If you want to create a volue from a series of XY images, then you should
+  // set the AppendAxis to 2 (Z axis).
   vtkSetMacro(AppendAxis, int);
   vtkGetMacro(AppendAxis, int);
   
