@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractVOI.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-02 19:09:02 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2002-08-05 15:00:37 $
+  Version:   $Revision: 1.31 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -70,6 +70,7 @@ protected:
   vtkExtractVOI();
   ~vtkExtractVOI() {};
 
+  virtual void ComputeInputUpdateExtent(int inExt[6], int outExt[6]);
   virtual void ExecuteInformation();
   virtual void ExecuteData(vtkDataObject *);
 
