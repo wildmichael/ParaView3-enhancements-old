@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLightKit.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-13 21:10:10 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-12-15 13:32:18 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkLightKit, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkLightKit, "$Revision: 1.10 $");
 vtkStandardNewMacro(vtkLightKit);
 
 vtkLightKit::vtkLightKit() {
@@ -229,6 +229,7 @@ void vtkLightKit::PrintSelf(ostream& os, vtkIndent indent) {
   os << indent << "KeyLightIntensity: " << this->KeyLightIntensity << "\n";
   os << indent << "KeyToFillRatio: " << this->KeyToFillRatio << "\n";
   os << indent << "KeyToHeadRatio: " << this->KeyToHeadRatio << "\n";
+  os << indent << "KeyToBackRatio: " << this->KeyToBackRatio << "\n";
 
   os << indent << "KeyLightWarmth: " << this->KeyLightWarmth << "\n";
   os << indent << "KeyLightAngle: (" 
