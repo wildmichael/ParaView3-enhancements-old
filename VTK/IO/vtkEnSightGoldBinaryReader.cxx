@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightGoldBinaryReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-14 17:26:22 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-06-14 17:41:59 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -375,6 +375,7 @@ int vtkEnSightGoldBinaryReader::SkipStructuredGrid(char line[256])
 
   // reading next line to check for EOF
   lineRead = this->ReadLine(line);
+  return lineRead;
 }
 
 //----------------------------------------------------------------------------
