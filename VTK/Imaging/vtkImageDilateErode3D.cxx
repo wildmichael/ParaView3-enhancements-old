@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDilateErode3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-09-27 12:34:44 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1996-09-30 12:48:25 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -282,8 +282,8 @@ void vtkImageDilateErode3DExecute(vtkImageDilateErode3D *self,
 // templated function for the input and output region types.
 // This function deals with regions that are in the center of the image and 
 // need no boundary checking.
-void vtkImageDilateErode3D::ExecuteCenter3d(vtkImageRegion *inRegion, 
-						  vtkImageRegion *outRegion)
+void vtkImageDilateErode3D::ExecuteCenter(vtkImageRegion *inRegion, 
+					  vtkImageRegion *outRegion)
 {
   void *inPtr = inRegion->GetScalarPointer();
   void *outPtr = outRegion->GetScalarPointer();

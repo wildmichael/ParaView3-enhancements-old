@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDilateErode3D.h,v $
   Language:  C++
-  Date:      $Date: 1996-09-27 12:34:53 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1996-09-30 12:48:34 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -77,7 +77,7 @@ protected:
   float ErodeValue;
   vtkImageRegion *Mask;
     
-  void ExecuteCenter3d(vtkImageRegion *inRegion, vtkImageRegion *outRegion);
+  void ExecuteCenter(vtkImageRegion *inRegion, vtkImageRegion *outRegion);
   void Execute(vtkImageRegion *inRegion, vtkImageRegion *outRegion);
 };
 
