@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:00 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2000-05-11 19:43:30 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -45,7 +45,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 
-//------------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 vtkUnstructuredGridWriter* vtkUnstructuredGridWriter::New()
 {
   // First try to create the object from the vtkObjectFactory
@@ -119,7 +119,7 @@ void vtkUnstructuredGridWriter::WriteData()
   else
     {
     // swap the bytes if necc
-    //vtkByteSwap::SwapWrite4BERange(types,ncells,fp);
+    vtkByteSwap::SwapWrite4BERange(types,ncells,fp);
     }
   *fp << "\n";
   delete [] types;
