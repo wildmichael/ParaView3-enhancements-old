@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataNormals.h,v $
   Language:  C++
-  Date:      $Date: 2002-09-03 12:52:23 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2002-11-21 16:13:15 $
+  Version:   $Revision: 1.30 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -103,18 +103,6 @@ public:
   vtkSetMacro(NonManifoldTraversal,int);
   vtkGetMacro(NonManifoldTraversal,int);
   vtkBooleanMacro(NonManifoldTraversal,int);
-
-#ifndef VTK_REMOVE_LEGACY_CODE
-  // Description:
-  // FOR LEGACY COMPATIBILITY ONLY, DO NOT USE.
-  // The connectivity extraction algorithm works recursively. In some systems 
-  // the stack depth is limited. This methods specifies the maximum recursion 
-  // depth.
-  void SetMaxRecursionDepth(int) 
-    {VTK_LEGACY_METHOD(SetMaxRecursionDepth,"4.0");}
-  int GetMaxRecursionDepth()
-    {VTK_LEGACY_METHOD(GetMaxRecursionDepth,"4.0"); return 0;}
-#endif
   
 protected:
   vtkPolyDataNormals();
