@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearExtrusionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-28 12:49:54 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2001-03-06 13:13:21 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -204,9 +204,9 @@ void vtkLinearExtrusionFilter::Execute()
   // copy points
   for (ptId=0; ptId < numPts; ptId++)
     { 
-    if ( ! (cellId % progressInterval) ) //manage progress / early abort
+    if ( ! (ptId % progressInterval) ) //manage progress / early abort
       {
-      this->UpdateProgress (0.25*cellId/numCells);
+      this->UpdateProgress (0.25*ptId/numPts);
       }
 
     x = inPts->GetPoint(ptId);
