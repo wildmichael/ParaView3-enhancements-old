@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCastToConcrete.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-07 13:11:01 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-01-29 18:16:11 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -83,6 +83,10 @@ public:
   // Description:
   // Special method just passes Update through pipeline.
   void Update();
+
+  // Description:
+  // Specify the input data or filter.
+  void SetInput(vtkDataSet *input);
 
   // Description:
   // Get the output of this filter. If output is NULL then input hasn't been
