@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:09:55 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2000-05-02 05:11:15 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -628,6 +628,17 @@ int vtkFieldData::AddArray(vtkDataArray *array, char *name)
   int n = this->AddArray(array);
   this->SetArrayName(n,name);
   return n;
+}
+
+int vtkFieldData::AddNoReplaceArray(vtkDataArray *array, char *name)
+{
+  // check an array with this name isn't already present
+  if (this->GetArray(name))
+    {
+    vtkDebugMacro(<<"Array named " << name << " already exists, AddArray aborted");
+    return -1;
+    }
+  return this->AddArray(array,name);
 }
 
 unsigned long vtkFieldData::GetActualMemorySize()
