@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPiecewiseFunction.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:06 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-02-02 14:50:38 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,9 +48,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkPiecewiseFunction_h
 #define __vtkPiecewiseFunction_h
 
-#include "vtkObject.h"
+#include "vtkDataObject.h"
 
-class VTK_EXPORT vtkPiecewiseFunction : public vtkObject
+class VTK_EXPORT vtkPiecewiseFunction : public vtkDataObject
 {
 public:
   vtkPiecewiseFunction();
@@ -58,6 +58,10 @@ public:
   static vtkPiecewiseFunction *New() {return new vtkPiecewiseFunction;};
   const char *GetClassName() {return "vtkPiecewiseFunction";};
   void PrintSelf(ostream& os, vtkIndent indent);
+
+  vtkDataObject *MakeObject();
+  void Initialize();
+  void DeepCopy( vtkPiecewiseFunction *f );
 
   // Description:
   // Get the number of points used to specify the function
@@ -155,5 +159,4 @@ protected:
 };
 
 #endif
-
 
