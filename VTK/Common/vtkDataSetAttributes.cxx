@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-01 14:46:32 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2001-10-04 09:26:18 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,6 +58,12 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 
 //--------------------------------------------------------------------------
+char vtkDataSetAttributes::AttributeNames[vtkDataSetAttributes::NUM_ATTRIBUTES][10] =
+  { "Scalars",
+    "Vectors",
+    "Normals",
+    "TCoords",
+    "Tensors" };
 
 vtkDataSetAttributes* vtkDataSetAttributes::New()
 {
@@ -1391,28 +1397,21 @@ int vtkDataSetAttributes::SetActiveAttribute(int index, int attributeType)
     }
 }
 
-// Scalars set to NOLIMIT and 1024 (limit is arbitrary, so make it big.)
-int vtkDataSetAttributes::NumberOfAttributeComponents[vtkDataSetAttributes::NUM_ATTRIBUTES] 
-= { 0, 
-    3, 
-    3, 
-    3, 
+    // Scalars set to NOLIMIT and 1024 (limit is arbitrary, so make it big.)
+int vtkDataSetAttributes::NumberOfAttributeComponents[vtkDataSetAttributes::NUM_ATTRIBUTES]
+= { 0,
+    3,
+    3,
+    3,
     9};
 
 int vtkDataSetAttributes::AttributeLimits[vtkDataSetAttributes::NUM_ATTRIBUTES]
-= { NOLIMIT, 
-    EXACT, 
-    EXACT, 
+= { NOLIMIT,
+    EXACT,
+    EXACT,
     MAX,
     EXACT };
 
-char vtkDataSetAttributes::AttributeNames[vtkDataSetAttributes::NUM_ATTRIBUTES][10] 
-= { "Scalars",
-    "Vectors",
-    "Normals",
-    "TCoords",
-    "Tensors" };
- 
 int vtkDataSetAttributes::CheckNumberOfComponents(vtkDataArray* da,
 						  int attributeType)
 {
