@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimatePro.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-28 22:55:56 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2002-10-29 14:59:15 $
+  Version:   $Revision: 1.55 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -292,6 +292,8 @@ protected:
   };
   typedef LocalTri *LocalTriPtr;
 
+  class VertexArray;
+  friend class VertexArray;
   class VertexArray { //;prevent man page generation
   public:
     VertexArray(const vtkIdType sz) 
@@ -313,6 +315,8 @@ protected:
     vtkIdType MaxId;             // maximum index inserted thus far
   };
 
+  class TriArray;
+  friend class TriArray;
   class TriArray { //;prevent man page generation
   public:
     TriArray(const vtkIdType sz) 
