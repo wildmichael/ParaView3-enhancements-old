@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkGlyph3D.h,v $
   Language:  C++
-  Date:      $Date: 1994-09-14 08:14:59 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1995-06-18 14:37:51 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -20,6 +20,8 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 // along the input vectors or normals, and it may be scaled according
 // to scalar data or vector magnitude. The geometry is supplied via the 
 // Source instance variable; the points come from the Input.
+// .SECTION See Also
+// vlTensorEllipsoid
 
 #ifndef __vlGlyph3D_h
 #define __vlGlyph3D_h
