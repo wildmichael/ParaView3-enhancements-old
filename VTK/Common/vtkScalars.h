@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkScalars.h,v $
   Language:  C++
-  Date:      $Date: 1995-01-11 13:02:21 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1995-01-11 15:19:32 $
+  Version:   $Revision: 1.19 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -97,7 +97,6 @@ public:
   virtual void CreateDefaultLookupTable();
 
   void SetLookupTable(vlLookupTable *lut);
-  void SetLookupTable(vlLookupTable& lut) {this->SetLookupTable(&lut);};
   vlGetObjectMacro(LookupTable,vlLookupTable);
 
 protected:
@@ -110,6 +109,5 @@ protected:
 // all other classes necessary for compilation are also included. 
 #include "IdList.hh"
 #include "FScalars.hh"
-#include "Lut.hh"
 
 #endif
