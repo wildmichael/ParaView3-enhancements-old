@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-16 20:20:03 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2003-03-10 12:04:20 $
+  Version:   $Revision: 1.33 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -41,7 +41,7 @@
 #include "vtkSphereSource.h"
 #include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkPlaneWidget, "$Revision: 1.32 $");
+vtkCxxRevisionMacro(vtkPlaneWidget, "$Revision: 1.33 $");
 vtkStandardNewMacro(vtkPlaneWidget);
 
 vtkCxxSetObjectMacro(vtkPlaneWidget,PlaneProperty,vtkProperty);
@@ -584,6 +584,11 @@ void vtkPlaneWidget::OnLeftButtonDown()
         this->State = vtkPlaneWidget::Rotating;
         this->HighlightNormal(1);
         }
+      else if (this->Interactor->GetControlKey())
+        {
+        this->State = vtkPlaneWidget::Spinning;
+        this->HighlightNormal(1);
+        }
       else
         {
         this->State = vtkPlaneWidget::Moving;
@@ -830,6 +835,12 @@ void vtkPlaneWidget::OnMouseMove()
     camera->GetViewPlaneNormal(vpn);
     this->Rotate(X, Y, prevPickPoint, pickPoint, vpn);
     }
+  else if ( this->State == vtkPlaneWidget::Spinning )
+    {
+      camera->GetViewPlaneNormal(vpn);
+      this->Spin(X, Y, prevPickPoint, pickPoint, vpn);
+    }
+
 
   // Interact, if desired
   this->EventCallbackCommand->SetAbortFlag(1);
@@ -1081,6 +1092,46 @@ void vtkPlaneWidget::Rotate(int X, int Y, double *p1, double *p2, double *vpn)
   this->PlaneSource->SetPoint2(pt2New);
   this->PlaneSource->Update();
 
+  this->PositionHandles();
+}
+
+void vtkPlaneWidget::Spin(int X, int Y, double *p1, double *p2, double *vpn)
+{
+  float *o = this->PlaneSource->GetOrigin();
+  float *pt1 = this->PlaneSource->GetPoint1();
+  float *pt2 = this->PlaneSource->GetPoint2();
+  float *center = this->PlaneSource->GetCenter();
+
+  float *c1 = center;
+  
+  double newAngle = 
+    atan2((double)p1[1] - (double)c1[1],
+          (double)p1[0] - (double)c1[0]);
+  
+  double oldAngle = 
+   atan2((double)p2[1] - (double)c1[1],
+         (double)p2[0] - (double)c1[0]);
+    
+  newAngle *= vtkMath::RadiansToDegrees();
+  oldAngle *= vtkMath::RadiansToDegrees();
+    
+  //Manipulate the transform to reflect the rotation
+  this->Transform->Identity();
+  this->Transform->Translate(center[0],center[1],center[2]);
+  this->Transform->RotateWXYZ(oldAngle-newAngle,this->GetNormal());
+  this->Transform->Translate(-center[0],-center[1],-center[2]);
+    
+  //Set the corners
+  float oNew[3], pt1New[3], pt2New[3];   
+  this->Transform->TransformPoint(o,oNew);
+  this->Transform->TransformPoint(pt1,pt1New);
+  this->Transform->TransformPoint(pt2,pt2New);
+    
+  this->PlaneSource->SetOrigin(oNew);
+  this->PlaneSource->SetPoint1(pt1New);
+  this->PlaneSource->SetPoint2(pt2New);
+  this->PlaneSource->Update();
+  
   this->PositionHandles();
 }
 
