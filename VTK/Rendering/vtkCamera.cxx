@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-28 12:42:15 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1995-12-04 09:39:36 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -457,6 +457,7 @@ void vtkCamera::CalcViewTransform()
   // Rz just equals the VPN
   Rz = this->ViewPlaneNormal;
   math.Cross(this->ViewUp,Rz,Rx);
+  math.Normalize(Rx);
   math.Cross(Rz,Rx,Ry);
   
   matrix[0][0] = Rx[0];
@@ -527,6 +528,7 @@ void vtkCamera::CalcPerspectiveTransform(float aspect,
   // Rz just equals the VPN
   Rz = this->ViewPlaneNormal;
   math.Cross(this->ViewUp,Rz,Rx);
+  math.Normalize(Rx);
   math.Cross(Rz,Rx,Ry);
   
   matrix[0][0] = Rx[0];
