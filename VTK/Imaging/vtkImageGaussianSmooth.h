@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGaussianSmooth.h,v $
   Language:  C++
-  Date:      $Date: 1998-01-09 20:33:55 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1998-01-14 13:21:23 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,6 +64,10 @@ public:
   void SetStandardDeviation(float std) {SetStandardDeviations(std,std,std);}
   void SetStandardDeviations(float a,float b) {SetStandardDeviations(a,b,0.0);}
   vtkGetVector3Macro(StandardDeviations, float);
+  // for compatability with old scripts
+  void SetStandardDeviation(float a,float b) {SetStandardDeviations(a,b,0.0);}
+  void SetStandardDeviation(float a,float b,float c) 
+  {SetStandardDeviations(a,b,c);}
 
   vtkSetVector3Macro(RadiusFactors, float);
   void SetRadiusFactors(float f, float f2) {SetRadiusFactors(f,f2,1.5);}
