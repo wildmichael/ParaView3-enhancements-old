@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkColorTransferFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-09 11:52:50 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2000-12-09 12:00:48 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -871,7 +871,7 @@ vtkColorTransferFunctionMapData(vtkColorTransferFunction *self,
 {
   float          x;
   int            i = length;
-  float          *rgb;
+  float          rgb[3];
   unsigned char  *optr = output;
   T              *iptr = input;
   
@@ -884,7 +884,7 @@ vtkColorTransferFunctionMapData(vtkColorTransferFunction *self,
   while (--i >= 0) 
     {
     x = (float) *iptr;
-    rgb = self->GetColor(x);
+    self->GetColor(x, rgb);
     
     if (outFormat == VTK_RGB || outFormat == VTK_RGBA)
       {
