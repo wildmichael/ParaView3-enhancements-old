@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMatrix4x4.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:42 $
-  Version:   $Revision: 1.62 $
+  Date:      $Date: 2002-11-21 16:09:26 $
+  Version:   $Revision: 1.63 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -167,7 +167,6 @@ public:
     {return &(this->Element[i][0]);}
   const double *operator[](unsigned int i) const
     { return &(this->Element[i][0]); }  
-  void operator= (double element);
   void Adjoint(vtkMatrix4x4 &in,vtkMatrix4x4 &out)
     {this->Adjoint(&in,&out);}
   double Determinant(vtkMatrix4x4 &in) 
