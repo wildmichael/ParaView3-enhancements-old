@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-01-02 11:52:26 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-02-26 10:25:02 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -180,7 +180,7 @@ void vlGeometryFilter::Execute()
               for ( i=0; i < npts; i++)
                 {
                 ptId = cell->GetPointId(i);
-                x = this->GetPoint(ptId);
+                x = this->Input->GetPoint(ptId);
                 pts[i] = newPts->InsertNextPoint(x);
                 this->PointData.CopyData(pd,ptId,pts[i]);
                 }

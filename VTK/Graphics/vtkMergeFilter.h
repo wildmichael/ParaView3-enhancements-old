@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMergeFilter.h,v $
   Language:  C++
-  Date:      $Date: 1994-11-15 11:10:46 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-02-26 10:25:00 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -45,8 +45,8 @@ public:
     {this->Geometry->GetCellPoints(cellId, ptIds);};
   void GetPointCells(int ptId, vlIdList& cellIds)
     {this->Geometry->GetPointCells(ptId, cellIds);};
-  int FindCell(float x[3], vlCell *cell, float tol2, int& subId, float pc[3]) 
-    {return this->Geometry->FindCell(x,cell,tol2,subId,pc);};
+  int FindCell(float x[3], vlCell *cell, float tol2, int& subId, float pc[3], float weights[MAX_CELL_SIZE]) 
+    {return this->Geometry->FindCell(x,cell,tol2,subId,pc,weights);};
 
   void ComputeBounds() {this->Geometry->ComputeBounds();};
 
@@ -99,6 +99,10 @@ protected:
   vlDataSet *TCoords;  // texture coords
   vlDataSet *Tensors;  // tensors
   vlDataSet *UserDefined;  // user defined
+
+  //Filter interface
+  int GetDataReleased();
+  void SetDataReleased(int flag);
 };
 
 #endif

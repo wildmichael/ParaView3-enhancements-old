@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkAppendFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-15 16:47:42 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-02-26 10:25:05 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -174,5 +174,15 @@ void vlAppendFilter::PrintSelf(ostream& os, vlIndent indent)
 
   os << indent << "Input DataSets:\n";
   this->InputList.PrintSelf(os,indent.GetNextIndent());
+}
+
+int vlAppendFilter::GetDataReleased()
+{
+  return this->DataReleased;
+}
+
+void vlAppendFilter::SetDataReleased(int flag)
+{
+  this->DataReleased = flag;
 }
 

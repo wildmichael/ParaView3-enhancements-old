@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkAppendPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1994-11-06 19:37:27 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1995-02-26 10:25:12 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -52,6 +52,10 @@ protected:
 
   // list of data sets to append together
   vlPolyDataCollection InputList;
+
+  //Filter interface
+  int GetDataReleased();
+  void SetDataReleased(int flag);
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkProbeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-15 16:49:21 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-02-26 10:24:58 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -49,11 +49,10 @@ void vlProbeFilter::Execute()
   for (ptId=0; ptId < this->Source->GetNumberOfPoints(); ptId++)
     {
     x = this->Source->GetPoint(ptId);
-    cellId = this->Input->FindCell(x,NULL,tol2,subId,pcoords);
+    cellId = this->Input->FindCell(x,NULL,tol2,subId,pcoords,weights);
     if ( cellId >= 0 )
       {
       cell = this->Input->GetCell(cellId);
-      cell->EvaluateLocation(subId,pcoords,x,weights);
       this->PointData.InterpolatePoint(pd,ptId,&(cell->PointIds),weights);
       }
     else
@@ -61,6 +60,8 @@ void vlProbeFilter::Execute()
       this->PointData.NullPoint(ptId);
       }
     }
+
+  this->Modified(); //since we aren't setting anything to modify data
 }
 
 void vlProbeFilter::Initialize()

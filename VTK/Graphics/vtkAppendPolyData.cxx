@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkAppendPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-15 16:49:17 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-02-26 10:25:13 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -212,6 +212,16 @@ void vlAppendPolyData::Execute()
   this->SetPolys(newPolys);
   this->SetStrips(newStrips);
 
+}
+
+int vlAppendPolyData::GetDataReleased()
+{
+  return this->DataReleased;
+}
+
+void vlAppendPolyData::SetDataReleased(int flag)
+{
+  this->DataReleased = flag;
 }
 
 void vlAppendPolyData::PrintSelf(ostream& os, vlIndent indent)

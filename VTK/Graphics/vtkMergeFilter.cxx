@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMergeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-15 16:49:20 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1995-02-26 10:25:04 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -125,43 +125,14 @@ void vlMergeFilter::Initialize()
     }
 }
 
-void vlMergeFilter::PrintSelf(ostream& os, vlIndent indent)
+int vlMergeFilter::GetDataReleased()
 {
-  vlFilter::_PrintSelf(os,indent);
-  vlDataSet::PrintSelf(os,indent);
+  return this->DataReleased;
+}
 
-  os << indent << "Geometry: (" << this->Geometry << ")\n";
-  os << indent << "Geometry type: " << this->Geometry->GetClassName() << "\n";
-
-  if ( this->Scalars )
-    os << indent << "Scalars: (" << this->Scalars << ")\n";
-  else
-    os << indent << "Scalars: (none)\n";
-
-  if ( this->Vectors )
-    os << indent << "Vectors: (" << this->Vectors << ")\n";
-  else
-    os << indent << "Vectors: (none)\n";
-
-  if ( this->Normals )
-    os << indent << "Normals: (" << this->Normals << ")\n";
-  else
-    os << indent << "Normals: (none)\n";
-
-  if ( this->TCoords )
-    os << indent << "TCoords: (" << this->TCoords << ")\n";
-  else
-    os << indent << "TCoords: (none)\n";
-
-  if ( this->Tensors )
-    os << indent << "Tensors: (" << this->Tensors << ")\n";
-  else
-    os << indent << "Tensors: (none)\n";
-
-  if ( this->UserDefined )
-    os << indent << "UserDefined: (" << this->UserDefined << ")\n";
-  else
-    os << indent << "UserDefined: (none)\n";
+void vlMergeFilter::SetDataReleased(int flag)
+{
+  this->DataReleased = flag;
 }
 
 // Merge it all together
@@ -249,3 +220,43 @@ void vlMergeFilter::Execute()
   if ( numPts == numUserDefined )
     this->PointData.SetUserDefined(ud);
 }
+
+void vlMergeFilter::PrintSelf(ostream& os, vlIndent indent)
+{
+  vlFilter::_PrintSelf(os,indent);
+  vlDataSet::PrintSelf(os,indent);
+
+  os << indent << "Geometry: (" << this->Geometry << ")\n";
+  os << indent << "Geometry type: " << this->Geometry->GetClassName() << "\n";
+
+  if ( this->Scalars )
+    os << indent << "Scalars: (" << this->Scalars << ")\n";
+  else
+    os << indent << "Scalars: (none)\n";
+
+  if ( this->Vectors )
+    os << indent << "Vectors: (" << this->Vectors << ")\n";
+  else
+    os << indent << "Vectors: (none)\n";
+
+  if ( this->Normals )
+    os << indent << "Normals: (" << this->Normals << ")\n";
+  else
+    os << indent << "Normals: (none)\n";
+
+  if ( this->TCoords )
+    os << indent << "TCoords: (" << this->TCoords << ")\n";
+  else
+    os << indent << "TCoords: (none)\n";
+
+  if ( this->Tensors )
+    os << indent << "Tensors: (" << this->Tensors << ")\n";
+  else
+    os << indent << "Tensors: (none)\n";
+
+  if ( this->UserDefined )
+    os << indent << "UserDefined: (" << this->UserDefined << ")\n";
+  else
+    os << indent << "UserDefined: (none)\n";
+}
+
