@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVImageContinuousErode3D.h,v $
   Language:  C++
-  Date:      $Date: 2003-01-09 19:06:42 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-06-04 19:09:39 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,7 +30,7 @@ public:
   // Construct an instance of vtkPVImageContinuousErode3D filter.
   // By default zero values are eroded.
   static vtkPVImageContinuousErode3D *New();
-  vtkTypeRevisionMacro(vtkPVImageContinuousErode3D,vtkImageSpatialFilter);
+  vtkTypeRevisionMacro(vtkPVImageContinuousErode3D,vtkImageContinuousErode3D);
   void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:

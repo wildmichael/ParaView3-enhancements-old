@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVImageGradientMagnitude.h,v $
   Language:  C++
-  Date:      $Date: 2003-01-09 19:06:42 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-06-04 19:09:39 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@ class VTK_EXPORT vtkPVImageGradientMagnitude : public vtkImageGradientMagnitude
 {
 public:
   static vtkPVImageGradientMagnitude *New();
-  vtkTypeRevisionMacro(vtkPVImageGradientMagnitude,vtkImageToImageFilter);
+  vtkTypeRevisionMacro(vtkPVImageGradientMagnitude,vtkImageGradientMagnitude);
   void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:
