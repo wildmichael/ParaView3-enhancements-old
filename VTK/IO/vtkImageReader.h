@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.h,v $
   Language:  C++
-  Date:      $Date: 1997-05-23 20:39:36 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1997-05-27 19:44:31 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,6 +49,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <iostream.h>
 #include <fstream.h>
 #include "vtkImageCachedSource.h"
+
+#define VTK_FILE_BYTE_ORDER_BIG_ENDIAN 0
+#define VTK_FILE_BYTE_ORDER_LITTLE_ENDIAN 1
 
 class VTK_EXPORT vtkImageReader : public vtkImageCachedSource
 {
@@ -137,10 +140,13 @@ public:
   // the same file on a LittleEndian machine will result in swapping.
   // As a quick note most UNIX machines are BigEndian while PC's
   // and VAX tend to be LittleEndian. So if the file you are reading
-  // in was generated on a VAX or PC, SetFileTypeLittleEndian otherwise
-  // SetFileTypeBigEndian. 
-  void SetFileTypeBigEndian();
-  void SetFileTypeLittleEndian();
+  // in was generated on a VAX or PC, SetFileByteOrderToLittleEndian 
+  // otherwise SetFileByteOrderToBigEndian. 
+  void SetFileByteOrderToBigEndian();
+  void SetFileByteOrderToLittleEndian();
+  int GetFileByteOrder();
+  void SetFileByteOrder(int);
+  char *GetFileByteOrderAsString();
 
   // Description:
   // Set/Get the byte swapping to explicitely swap the bytes of a file.

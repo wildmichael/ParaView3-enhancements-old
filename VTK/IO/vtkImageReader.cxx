@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-23 20:39:35 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1997-05-27 19:44:29 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -99,7 +99,7 @@ vtkImageReader::~vtkImageReader()
     }
 }
 
-void vtkImageReader::SetFileTypeBigEndian()
+void vtkImageReader::SetFileByteOrderToBigEndian()
 {
 #ifndef WORDS_BIGENDIAN
   this->SwapBytesOn();
@@ -108,7 +108,7 @@ void vtkImageReader::SetFileTypeBigEndian()
 #endif
 }
 
-void vtkImageReader::SetFileTypeLittleEndian()
+void vtkImageReader::SetFileByteOrderToLittleEndian()
 {
 #ifdef WORDS_BIGENDIAN
   this->SwapBytesOn();
@@ -116,6 +116,45 @@ void vtkImageReader::SetFileTypeLittleEndian()
   this->SwapBytesOff();
 #endif
 }
+
+void vtkImageReader::SetFileByteOrder(int byteOrder)
+{
+  if ( byteOrder == VTK_FILE_BYTE_ORDER_BIG_ENDIAN )
+    this->SetFileByteOrderToBigEndian();
+  else
+    this->SetFileByteOrderToLittleEndian();
+}
+
+int vtkImageReader::GetFileByteOrder()
+{
+#ifdef WORDS_BIGENDIAN
+  if ( this->SwapBytes )
+    return VTK_FILE_BYTE_ORDER_LITTLE_ENDIAN;
+  else
+    return VTK_FILE_BYTE_ORDER_BIG_ENDIAN;
+#else
+  if ( this->SwapBytes )
+    return VTK_FILE_BYTE_ORDER_BIG_ENDIAN;
+  else
+    return VTK_FILE_BYTE_ORDER_LITTLE_ENDIAN;
+#endif
+}
+
+char *vtkImageReader::GetFileByteOrderAsString()
+{
+#ifdef WORDS_BIGENDIAN
+  if ( this->SwapBytes )
+    return "LittleEndian";
+  else
+    return "BigEndian";
+#else
+  if ( this->SwapBytes )
+    return "BigEndian";
+  else
+    return "LittleEndian";
+#endif
+}
+
 
 //----------------------------------------------------------------------------
 void vtkImageReader::PrintSelf(ostream& os, vtkIndent indent)
