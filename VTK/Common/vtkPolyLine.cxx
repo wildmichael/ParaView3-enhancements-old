@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyLine.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-07 21:13:37 $
-  Version:   $Revision: 1.70 $
+  Date:      $Date: 2002-10-03 14:33:27 $
+  Version:   $Revision: 1.71 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkPolyLine, "$Revision: 1.70 $");
+vtkCxxRevisionMacro(vtkPolyLine, "$Revision: 1.71 $");
 vtkStandardNewMacro(vtkPolyLine);
 
 vtkPolyLine::vtkPolyLine()
@@ -94,34 +94,54 @@ int vtkPolyLine::GenerateSlidingNormals(vtkPoints *pts, vtkCellArray *lines,
 
           if ( vtkMath::Normalize(sNext) == 0.0 )
             {
-            vtkErrorMacro(<<"Coincident points in polyline...can't compute normals");
+            vtkErrorMacro(
+              <<"Coincident points in polyline...can't compute normals");
             return 0;
             }
 
           // the following logic will produce a normal orthogonal
           // to the first line segment. If we have three points
           // we use special logic to select a normal orthogonal
-          // too the first two line segments
+          // to the first two line segments
+          int foundNormal=0;
           if (npts > 2)
             {
-            float ftmp[3];
+            int ipt;
+
+            // Look at the line segments (0,1), (ipt-1, ipt)
+            // until a pair which meets the following criteria
+            // is found: ||(0,1)x(ipt-1,ipt)|| > 1.0E-3.
+            // This is used to eliminate nearly parallel cases.
+            for(ipt=2; ipt < npts; ipt++)
+              {
+              float ftmp[3], ftmp2[3];
             
-            pts->GetPoint(linePts[2],ftmp);
-            for (i=0; i<3; i++) 
-              {
-              ftmp[i] = ftmp[i] - pNext[i];
+              pts->GetPoint(linePts[ipt-1],ftmp);
+              pts->GetPoint(linePts[ipt]  ,ftmp2);
+
+              for (i=0; i<3; i++) 
+                {
+                ftmp[i] = ftmp2[i] - ftmp[i];
+                }
+
+              if ( vtkMath::Normalize(ftmp) == 0.0 )
+                {
+                continue;
+                }
+
+              // now the starting normal should simply be the cross product
+              // in the following if statement we check for the case where
+              // the two segments are parallel 
+              vtkMath::Cross(sNext,ftmp,normal);
+              if ( vtkMath::Norm(normal) > 1.0E-3 )
+                {
+                foundNormal = 1;
+                break;
+                }
               }
-            if ( vtkMath::Normalize(ftmp) == 0.0 )
-              {
-              vtkErrorMacro(<<"Coincident points in polyline...can't compute normals");
-              return 0;
-              }
-            // now the starting normal should simply be the cross product
-            // in the following if statement we check for the case where
-            /// the first three points are colinear 
-            vtkMath::Cross(sNext,ftmp,normal);
             }
-          if ((npts <= 2)|| (vtkMath::Normalize(normal) == 0.0)) 
+
+          if ((npts <= 2)|| !foundNormal) 
             {
             for (i=0; i<3; i++) 
               {
