@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator.h,v $
   Language:  C++
-  Date:      $Date: 2000-07-25 15:13:22 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2000-08-28 10:28:25 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -155,7 +155,8 @@ public:
 
   // Description:
   // Given a position x, return the id of the point closest to it. This method
-  // is used when performing incremental point insertion.
+  // is used when performing incremental point insertion. Note that -1 
+  // indicates that no point was found.
   virtual int FindClosestInsertedPoint(float x[3]);
 
   // Description:
@@ -183,6 +184,12 @@ public:
   virtual void FindPointsWithinRadius(float R, float x, float y, float z, 
 				      vtkIdList *result);
   
+  // Description:
+  // Given a position x, return the list of points in the bucket that
+  // contains the point. It is possible that NULL is returned. The user
+  // provides an ijk array that is the indices into the locator.
+  virtual vtkIdList *GetPointsInBucket(float x[3], int ijk[3]);
+
   // Description:
   // See vtkLocator interface documentation.
   void Initialize();

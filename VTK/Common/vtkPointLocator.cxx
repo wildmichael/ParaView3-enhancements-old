@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-01 08:12:41 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2000-08-28 10:28:25 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1552,6 +1552,42 @@ int vtkPointLocator::FindClosestInsertedPoint(float x[3])
       }
 
     return closest;
+}
+
+// Return the list of points in the bucket containing x.
+vtkIdList *vtkPointLocator::GetPointsInBucket(float x[3], int ijk[3])
+{
+  int i;
+
+  //  Make sure candidate point is in bounds.  If not, it is outside.
+  //
+  for (i=0; i<3; i++)
+    {
+    if ( x[i] < this->Bounds[2*i] || x[i] > this->Bounds[2*i+1] )
+      {
+      return NULL;
+      }
+    }
+
+  //  Find bucket point is in.  
+  //
+  for (i=0; i<3; i++) 
+    {
+    ijk[i] = (int)(((x[i] - this->Bounds[2*i]) / 
+        (this->Bounds[2*i+1] - this->Bounds[2*i])) * (this->Divisions[i]-1));
+    }
+  
+  // Get the id list, if any
+  //
+  if ( this->HashTable )
+    {
+    int idx = ijk[0] + ijk[1]*this->Divisions[0] + 
+              ijk[2]*this->Divisions[0]*this->Divisions[1];
+
+    return this->HashTable[idx];
+    }
+
+  return NULL;
 }
 
 
