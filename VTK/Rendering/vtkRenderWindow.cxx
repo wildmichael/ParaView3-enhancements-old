@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-28 12:27:26 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1995-10-30 11:31:40 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -98,7 +98,7 @@ void vtkRenderWindow::SetDesiredUpdateRate(float rate)
   if (this->DesiredUpdateRate != rate)
     {
     for (this->Renderers.InitTraversal(); 
-	 aren = this->Renderers.GetNextItem(); )
+	 (aren = this->Renderers.GetNextItem()); )
       {
       aren->SetAllocatedRenderTime(1.0/
 				   (rate*this->Renderers.GetNumberOfItems()));
@@ -281,7 +281,7 @@ void vtkRenderWindow::DoAARender()
       offsets[1] = math.Random() - 0.5;
 
       for (this->Renderers.InitTraversal(); 
-	   aren = this->Renderers.GetNextItem(); )
+	   (aren = this->Renderers.GetNextItem()); )
 	{
 	acam = aren->GetActiveCamera();
 
@@ -315,7 +315,7 @@ void vtkRenderWindow::DoAARender()
 
       // restore the jitter to normal
       for (this->Renderers.InitTraversal(); 
-	   aren = this->Renderers.GetNextItem(); )
+	   (aren = this->Renderers.GetNextItem()); )
 	{
 	acam = aren->GetActiveCamera();
 
@@ -421,7 +421,7 @@ void vtkRenderWindow::DoFDRender()
 
       // store offsets for each renderer 
       for (this->Renderers.InitTraversal(); 
-	   aren = this->Renderers.GetNextItem(); )
+	   (aren = this->Renderers.GetNextItem()); )
 	{
 	acam = aren->GetActiveCamera();
 	focalDisk = acam->GetFocalDisk()*offsets[0];
@@ -450,7 +450,7 @@ void vtkRenderWindow::DoFDRender()
       // restore the jitter to normal
       j = 0;
       for (this->Renderers.InitTraversal(); 
-	   aren = this->Renderers.GetNextItem(); )
+	   (aren = this->Renderers.GetNextItem()); )
 	{
 	acam = aren->GetActiveCamera();
 	acam->SetPosition(orig + j*3);
