@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIceTRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-06-25 19:15:08 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-06-27 19:15:38 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,6 +20,8 @@
 
 #include <vtkObjectFactory.h>
 #include <vtkLightCollection.h>
+
+#include <GL/ice-t.h>
 
 #define VTK41 1
 
@@ -37,7 +39,7 @@ static vtkIceTRenderer *currentRenderer;
 // vtkIceTRenderer implementation.
 //******************************************************************
 
-vtkCxxRevisionMacro(vtkIceTRenderer, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkIceTRenderer, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkIceTRenderer);
 
 vtkIceTRenderer::vtkIceTRenderer()
@@ -282,6 +284,7 @@ int vtkIceTRenderer::UpdateGeometry()
 void vtkIceTRenderer::PrintSelf(ostream &os, vtkIndent indent)
 {
   this->vtkOpenGLRenderer::PrintSelf(os, indent);
+  os << indent << "ComposeNextFrame: " << this->ComposeNextFrame << endl;
 }
 
 //******************************************************************

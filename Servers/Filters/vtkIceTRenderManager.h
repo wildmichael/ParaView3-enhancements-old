@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIceTRenderManager.h,v $
   Language:  C++
-  Date:      $Date: 2003-06-25 19:12:55 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-06-27 19:15:38 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -49,10 +49,9 @@
 
 #include "vtkParallelRenderManager.h"
 
-#include <GL/ice-t.h>
+#include <GL/ice-t.h> // Needed for IceTContext
 
-class VTK_EXPORT vtkIceTRenderManager
-    : public vtkParallelRenderManager
+class VTK_EXPORT vtkIceTRenderManager : public vtkParallelRenderManager
 {
 public:
   static vtkIceTRenderManager *New();
@@ -140,8 +139,8 @@ protected:
   virtual void ReadReducedImage();
 
 private:
-  vtkIceTRenderManager(const vtkIceTRenderManager&);
-  void operator=(const vtkIceTRenderManager&);
+  vtkIceTRenderManager(const vtkIceTRenderManager&); // Not implemented
+  void operator=(const vtkIceTRenderManager&); //Not implemented
 };
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIceTRenderer.h,v $
   Language:  C++
-  Date:      $Date: 2003-06-25 19:12:55 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-06-27 19:15:38 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,8 +26,6 @@
 #define __vtkIceTRenderer_h
 
 #include "vtkOpenGLRenderer.h"
-
-#include <GL/ice-t.h>
 
 class VTK_EXPORT vtkIceTRenderer : public vtkOpenGLRenderer
 {
@@ -62,6 +60,10 @@ protected:
   virtual int UpdateGeometry();
 
   int ComposeNextFrame;
+
+private:
+  vtkIceTRenderer(const vtkIceTRenderer&); // Not implemented
+  void operator=(const vtkIceTRenderer&); // Not implemented
 };
 
 #endif //__vtkIceTRenderer_h

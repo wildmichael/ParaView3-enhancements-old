@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIceTFactory.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-06-25 19:15:08 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-06-27 19:15:38 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,6 +23,8 @@
 #include "vtkCrOpenGLRenderer.h"
 #include "vtkCrOpenGLRenderWindow.h"
 #endif
+
+vtkCxxRevisionMacro(vtkIceTFactory, "$Revision: 1.2 $");
 
 VTK_FACTORY_INTERFACE_IMPLEMENT(vtkIceTFactory);
 

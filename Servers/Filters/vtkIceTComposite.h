@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIceTComposite.h,v $
   Language:  C++
-  Date:      $Date: 2003-06-25 19:12:55 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-06-27 19:15:38 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -40,13 +40,11 @@
 
 #include "vtkCompositeManager.h"
 
-#include <GL/ice-t.h>
-
 class VTK_EXPORT vtkIceTComposite : public vtkCompositeManager
 {
 public:
   static vtkIceTComposite *New();
-  vtkTypeMacro(vtkIceTComposite, vtkCompositeManager);
+  vtkTypeRevisionMacro(vtkIceTComposite, vtkCompositeManager);
   virtual void PrintSelf(ostream &os, vtkIndent indent);
 
   // Description:
@@ -144,8 +142,8 @@ protected:
   int StrategyDirty;
 
 private:
-  vtkIceTComposite(const vtkIceTComposite&);
-  void operator=(const vtkIceTComposite&);
+  vtkIceTComposite(const vtkIceTComposite&); // Not implemented
+  void operator=(const vtkIceTComposite&); // Not implemented
 };
 
 

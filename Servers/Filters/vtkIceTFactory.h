@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIceTFactory.h,v $
   Language:  C++
-  Date:      $Date: 2003-06-25 19:12:55 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-06-27 19:15:38 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -37,14 +37,16 @@
 class VTK_EXPORT vtkIceTFactory : public vtkObjectFactory
 {
 public:
-  vtkTypeMacro(vtkIceTFactory, vtkObjectFactory);
+  vtkTypeRevisionMacro(vtkIceTFactory, vtkObjectFactory);
   static vtkIceTFactory *New();
   void PrintSelf(ostream& os, vtkIndent indent);
   virtual const char *GetVTKSourceVersion();
   virtual const char *GetDescription();
+
 protected:
   vtkIceTFactory();
   virtual ~vtkIceTFactory() { }
+
 private:
   vtkIceTFactory(const vtkIceTFactory &); // Not implemented.
   void operator=(const vtkIceTFactory &); // Not implemented.
