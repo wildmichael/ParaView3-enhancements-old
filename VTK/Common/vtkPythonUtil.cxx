@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPythonUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-24 14:18:55 $
-  Version:   $Revision: 1.63 $
+  Date:      $Date: 2003-09-16 14:22:44 $
+  Version:   $Revision: 1.64 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,9 +18,9 @@
 
 // This include allows VTK to build on some platforms with broken Python
 // header files.
-#include "vtkSystemIncludes.h"
-
 #include "vtkPythonUtil.h"
+
+#include "vtkSystemIncludes.h"
 
 #include "vtkObject.h"
 #include "vtkObjectFactory.h"
