@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMathematics.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-11-10 18:16:52 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-05-06 02:21:59 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -324,11 +324,32 @@ void vtkImageMathematics::ThreadedExecute(vtkImageData **inData,
     void *inPtr2 = inData[1]->GetScalarPointerForExtent(outExt);
 
     // this filter expects that input is the same type as output.
-    if (inData[0]->GetScalarType() != outData->GetScalarType() ||
-	inData[1]->GetScalarType() != outData->GetScalarType())
+    if (inData[0]->GetScalarType() != outData->GetScalarType())
       {
-      vtkErrorMacro(<< "Execute: input ScalarType, " << inData[0]->GetScalarType()
-      << ", must match out ScalarType " << outData->GetScalarType());
+      vtkErrorMacro(<< "Execute: input1 ScalarType, "
+                    <<  inData[0]->GetScalarType()
+                    << ", must match output ScalarType "
+                    << outData->GetScalarType());
+      return;
+      }
+  
+    if (inData[1]->GetScalarType() != outData->GetScalarType())
+      {
+      vtkErrorMacro(<< "Execute: input2 ScalarType, "
+                    << inData[1]->GetScalarType()
+                    << ", must match output ScalarType "
+                  << outData->GetScalarType());
+      return;
+      }
+  
+    // this filter expects that inputs that have the same number of components
+    if (inData[0]->GetNumberOfScalarComponents() != 
+        inData[1]->GetNumberOfScalarComponents())
+      {
+      vtkErrorMacro(<< "Execute: input1 NumberOfScalarComponents, "
+                    << inData[0]->GetNumberOfScalarComponents()
+                    << ", must match out input2 NumberOfScalarComponents "
+                    << inData[1]->GetNumberOfScalarComponents());
       return;
       }
     
