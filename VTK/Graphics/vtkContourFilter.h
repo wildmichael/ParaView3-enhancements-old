@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-23 12:04:44 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 1999-08-06 14:38:41 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -168,6 +168,8 @@ protected:
   int UseScalarTree;
   vtkScalarTree *ScalarTree;
   
+  //special contouring for structured grids
+  void StructuredGridContour(int dim); 
   //special contouring for structured points
   void StructuredPointsContour(int dim); 
   //special contouring for image data

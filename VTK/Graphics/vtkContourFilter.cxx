@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-05 19:53:30 $
-  Version:   $Revision: 1.66 $
+  Date:      $Date: 1999-08-06 14:38:40 $
+  Version:   $Revision: 1.67 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,6 +50,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkMarchingSquares.h"
 #include "vtkMarchingCubes.h"
 #include "vtkImageMarchingCubes.h"
+#include "vtkGridSynchronizedTemplates3D.h"
 #endif
 
 // Construct object with initial range (0,1) and single contour value
@@ -136,6 +137,21 @@ void vtkContourFilter::Execute()
 
   // If structured points, use more efficient algorithms
 #ifdef VTK_USE_PATENTED
+  // Disable StructuredGrid until Information is computed by sources.
+  if ( (input->GetDataObjectType() == VTK_STRUCTURED_GRID) && 0)
+    {
+    if (inScalars->GetDataType() != VTK_BIT)
+      {
+      int dim = input->GetCell(0)->GetCellDimension();
+      
+      if ( input->GetCell(0)->GetCellDimension() > 2 ) 
+	{
+	this->StructuredGridContour(dim);
+	return;
+	}
+      }
+    }
+  
   if ( (input->GetDataObjectType() == VTK_STRUCTURED_POINTS))
     {
     if (inScalars->GetDataType() != VTK_BIT)
@@ -288,9 +304,36 @@ void vtkContourFilter::Execute()
 // Special method handles structured points
 //
 #ifndef VTK_USE_PATENTED  
+void vtkContourFilter::StructuredGridContour(int vtkNotUsed(dim)) { }
 void vtkContourFilter::StructuredPointsContour(int vtkNotUsed(dim)) { }
 void vtkContourFilter::ImageContour(int vtkNotUsed(dim)) { }
 #else
+void vtkContourFilter::StructuredGridContour(int dim)
+{
+  vtkPolyData *output = this->GetOutput();
+  vtkPolyData *thisOutput = this->GetOutput();
+  int numContours=this->ContourValues->GetNumberOfContours();
+  float *values=this->ContourValues->GetValues();
+  vtkGridSynchronizedTemplates3D *st;
+  int i;
+    
+  st = vtkGridSynchronizedTemplates3D::New();
+  st->SetInput((vtkStructuredGrid *)this->GetInput());
+  st->SetOutput(output);
+  st->SetComputeNormals (this->ComputeNormals);
+  st->SetComputeGradients (this->ComputeGradients);
+  st->SetComputeScalars (this->ComputeScalars);
+  st->SetDebug(this->Debug);
+  st->SetNumberOfContours(numContours);
+  for (i=0; i < numContours; i++)
+    {
+    st->SetValue(i,values[i]);
+    }
+  
+  st->Update();
+  this->SetOutput(output);
+  st->Delete();
+}
 void vtkContourFilter::StructuredPointsContour(int dim)
 {
   vtkPolyData *output;
