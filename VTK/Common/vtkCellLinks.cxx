@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLinks.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:37:59 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-12-07 21:19:20 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -106,7 +106,7 @@ _vtkLink_s *vtkCellLinks::Resize(int sz)
 
   if ( sz >= this->Size )
     {
-    newSize = this->Size +  this->Extend*(((sz-this->Size)/this->Extend)+1);
+    newSize = this->Size + sz;
     }
   else
     {
@@ -115,7 +115,7 @@ _vtkLink_s *vtkCellLinks::Resize(int sz)
 
   newArray = new _vtkLink_s[newSize];
 
-  for (i=0; i<newSize && i<this->Size; i++)
+  for (i=0; i<sz && i<this->Size; i++)
     {
     newArray[i] = this->Array[i];
     }
@@ -184,7 +184,7 @@ int vtkCellLinks::InsertNextPoint(int numLinks)
 {
   if ( ++this->MaxId >= this->Size )
     {
-    this->Resize(this->MaxId);
+    this->Resize(this->MaxId + 1);
     }
   this->Array[this->MaxId].cells = new int[numLinks];
   return this->MaxId;

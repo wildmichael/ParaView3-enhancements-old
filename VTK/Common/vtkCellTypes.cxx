@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellTypes.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:38:31 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-12-07 21:19:20 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,7 +80,7 @@ void vtkCellTypes::InsertCell(int cellId, unsigned char type, int loc)
 
   if ( cellId >= this->Size )
     {
-    this->Resize(cellId);
+    this->Resize(cellId + 1);
     }
   if ( cellId > this->MaxId )
     {
@@ -123,7 +123,7 @@ _vtkCell_s *vtkCellTypes::Resize(int sz)
 
   if ( sz >= this->Size )
     {
-    newSize = this->Size + this->Extend*(((sz-this->Size)/this->Extend)+1);
+    newSize = this->Size + sz;
     }
   else
     {

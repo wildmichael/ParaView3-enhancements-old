@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPriorityQueue.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:38:42 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1998-12-07 21:19:22 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -98,7 +98,7 @@ void vtkPriorityQueue::Insert(float priority, int id)
   // start by placing new entry at bottom of tree
   if ( ++this->MaxId >= this->Size )
     {
-    this->Resize(this->MaxId);
+    this->Resize(this->MaxId + 1);
     }
   this->Array[this->MaxId].priority = priority;
   this->Array[this->MaxId].id = id;
@@ -197,11 +197,16 @@ vtkPriorityItem *vtkPriorityQueue::Resize(const int sz)
 
   if (sz >= this->Size)
     {
-    newSize = this->Size + this->Extend*(((sz-this->Size)/this->Extend)+1);
+    newSize = this->Size + sz;
     }
   else
     {
     newSize = sz;
+    }
+
+  if (newSize <= 0)
+    {
+    newSize = 1;
     }
 
   newArray = new vtkPriorityItem[newSize];

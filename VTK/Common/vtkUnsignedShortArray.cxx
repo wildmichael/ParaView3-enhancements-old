@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedShortArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:25:02 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1998-12-07 21:19:23 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -167,7 +167,7 @@ unsigned short *vtkUnsignedShortArray::Resize(const int sz)
 
   if ( sz > this->Size )
     {
-    newSize = this->Size + this->Extend*(((sz-this->Size)/this->Extend)+1);
+    newSize = this->Size + sz;
     }
   else if (sz == this->Size)
     {
@@ -176,6 +176,12 @@ unsigned short *vtkUnsignedShortArray::Resize(const int sz)
   else
     {
     newSize = sz;
+    }
+
+  if (newSize <= 0)
+    {
+    this->Initialize();
+    return 0;
     }
 
   if ( (newArray = new unsigned short[newSize]) == NULL )

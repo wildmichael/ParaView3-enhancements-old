@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLongArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:24:49 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1998-12-07 21:19:22 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -167,7 +167,7 @@ long *vtkLongArray::Resize(const int sz)
 
   if ( sz > this->Size ) 
     {
-    newSize = this->Size + this->Extend*(((sz-this->Size)/this->Extend)+1);
+    newSize = this->Size + sz;
     }
   else if (sz == this->Size)
     {
@@ -178,6 +178,12 @@ long *vtkLongArray::Resize(const int sz)
     newSize = sz;
     }
 
+  if (newSize <= 0)
+    {
+    this->Initialize();
+    return 0;
+    }
+  
   if ( (newArray = new long[newSize]) == NULL )
     {
     vtkErrorMacro(<< "Cannot allocate memory\n");

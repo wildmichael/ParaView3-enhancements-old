@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCharArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-11-06 13:53:57 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1998-12-07 21:19:20 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -160,7 +160,7 @@ char *vtkCharArray::Resize(const int sz)
 
   if ( sz > this->Size ) 
     {
-    newSize = this->Size + this->Extend*(((sz-this->Size)/this->Extend)+1);
+    newSize = this->Size + sz;
     }
   else if (sz == this->Size)
     {
@@ -169,6 +169,12 @@ char *vtkCharArray::Resize(const int sz)
   else
     {
     newSize = sz;
+    }
+
+  if (newSize <= 0)
+    {
+    this->Initialize();
+    return 0;
     }
 
   if ( (newArray = new char[newSize]) == NULL )
