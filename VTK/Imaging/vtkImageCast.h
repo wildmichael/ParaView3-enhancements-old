@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCast.h,v $
   Language:  C++
-  Date:      $Date: 1997-12-22 14:57:02 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1997-12-23 19:32:34 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -76,7 +76,8 @@ protected:
   int OutputScalarType;
   void ExecuteImageInformation();
   void InternalUpdate(vtkImageData *data);
-  void ThreadedExecute(vtkImageData *inData, vtkImageData *outData, int ext[6]);
+  void ThreadedExecute(vtkImageData *inData, vtkImageData *outData, 
+		       int ext[6], int id);
 };
 
 #endif

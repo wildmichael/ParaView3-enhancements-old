@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageShiftScale.h,v $
   Language:  C++
-  Date:      $Date: 1997-12-17 01:27:32 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1997-12-23 19:32:47 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,7 +68,7 @@ public:
   vtkGetMacro(Scale,float);
 
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
-		       int extent[6]);
+		       int extent[6], int id);
   
 protected:
   float Shift;

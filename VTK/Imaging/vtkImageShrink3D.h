@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageShrink3D.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-17 14:30:19 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1997-12-23 19:32:49 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -88,7 +88,8 @@ protected:
 
   void ExecuteImageInformation();
   void ComputeRequiredInputUpdateExtent();
-  void Execute(vtkImageRegion *inRegion, vtkImageRegion *outRegion);  
+  void ThreadedExecute(vtkImageData *inData, vtkImageData *outData, 
+		       int ext[6], int id);  
 };
 
 #endif
