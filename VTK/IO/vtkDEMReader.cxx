@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDEMReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-29 12:56:59 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-08-30 14:33:32 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -107,7 +107,7 @@ vtkDEMReader::vtkDEMReader()
     }
   this->LocalRotation = 0;
   this->AccuracyCode = 0;
-  for (i = 0; i < 2; i++)
+  for (i = 0; i < 3; i++)
     {
     this->SpatialResolution[i] = 0;
     }
