@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestCxxFeatures.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-13 22:22:24 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2003-01-03 19:34:00 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -87,6 +87,11 @@
 #if defined(VTK_CXX_GCC_3)
 # include <sstream>
 #endif
+
+//----------------------------------------------------------------------------
+
+/* Test inclusion of some stl headers.  */
+#include <vector>
 
 //----------------------------------------------------------------------------
 
