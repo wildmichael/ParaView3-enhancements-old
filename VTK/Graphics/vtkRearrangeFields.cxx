@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRearrangeFields.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:42 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-02-07 19:41:55 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkDataSetAttributes.h"
 
-vtkCxxRevisionMacro(vtkRearrangeFields, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkRearrangeFields, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkRearrangeFields);
 
 typedef vtkRearrangeFields::Operation Operation;
@@ -89,7 +89,7 @@ void vtkRearrangeFields::Execute()
 vtkFieldData* vtkRearrangeFields::GetFieldDataFromLocation(vtkDataSet* ds, 
                                                            int fieldLoc)
 {
-  vtkFieldData* fd;
+  vtkFieldData* fd=0;
 
   switch (fieldLoc)
     {

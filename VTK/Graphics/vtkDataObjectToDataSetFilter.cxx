@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObjectToDataSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-04 16:22:10 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2002-02-07 19:41:54 $
+  Version:   $Revision: 1.41 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkCellArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkDataObjectToDataSetFilter, "$Revision: 1.40 $");
+vtkCxxRevisionMacro(vtkDataObjectToDataSetFilter, "$Revision: 1.41 $");
 vtkStandardNewMacro(vtkDataObjectToDataSetFilter);
 
 //----------------------------------------------------------------------------
@@ -252,7 +252,7 @@ void vtkDataObjectToDataSetFilter::ExecuteInformation()
 void vtkDataObjectToDataSetFilter::Execute()
 {
   vtkIdType npts;
-  vtkDataObject *input = this->GetInput();
+  //vtkDataObject *input = this->GetInput();
 
   vtkDebugMacro(<<"Generating dataset from field data");
 

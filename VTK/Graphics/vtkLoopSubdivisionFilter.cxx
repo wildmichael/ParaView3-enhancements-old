@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLoopSubdivisionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:27 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-02-07 19:41:55 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkEdgeTable.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkLoopSubdivisionFilter, "$Revision: 1.13 $");
+vtkCxxRevisionMacro(vtkLoopSubdivisionFilter, "$Revision: 1.14 $");
 vtkStandardNewMacro(vtkLoopSubdivisionFilter);
 
 static float LoopWeights[4] =
@@ -260,7 +260,7 @@ void vtkLoopSubdivisionFilter::GenerateOddStencil (vtkIdType p1, vtkIdType p2,
   vtkCell *cell;
   int i;
   vtkIdType cell0, cell1;
-  vtkIdType p3, p4;
+  vtkIdType p3=0, p4=0;
 
   polys->GetCellEdgeNeighbors (-1, p1, p2, cellIds);
   cell0 = cellIds->GetId(0);

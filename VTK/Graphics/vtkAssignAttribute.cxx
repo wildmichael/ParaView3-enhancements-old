@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssignAttribute.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:04 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-02-07 19:41:53 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkDataSetAttributes.h"
 
-vtkCxxRevisionMacro(vtkAssignAttribute, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkAssignAttribute, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkAssignAttribute);
 
 char vtkAssignAttribute::AttributeLocationNames[2][12] 
@@ -186,7 +186,7 @@ void vtkAssignAttribute::Execute()
   if ((this->AttributeType != -1) &&
       (this->AttributeLocation != -1) && (this->FieldType != -1))
     {
-    vtkDataSetAttributes* ods;
+    vtkDataSetAttributes* ods=0;
     // Get the appropriate output DataSetAttributes
     switch (this->AttributeLocation)
       {

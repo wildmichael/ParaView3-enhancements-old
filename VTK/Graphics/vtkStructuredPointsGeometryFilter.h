@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:49 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2002-02-07 19:41:56 $
+  Version:   $Revision: 1.37 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -37,6 +37,8 @@ public:
 protected:
   vtkStructuredPointsGeometryFilter();
   ~vtkStructuredPointsGeometryFilter() {};
+  vtkStructuredPointsGeometryFilter(const vtkStructuredPointsGeometryFilter&);
+  void operator=(const vtkStructuredPointsGeometryFilter&);
 };
 
 #endif

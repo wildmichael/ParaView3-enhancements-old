@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSelectPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:44 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2002-02-07 19:41:55 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkSelectPolyData, "$Revision: 1.22 $");
+vtkCxxRevisionMacro(vtkSelectPolyData, "$Revision: 1.23 $");
 vtkStandardNewMacro(vtkSelectPolyData);
 
 // Description:
@@ -61,7 +61,7 @@ void vtkSelectPolyData::Execute()
   vtkPolyData *triMesh;
   vtkPointData *inPD, *outPD=output->GetPointData();
   vtkCellData *inCD, *outCD=output->GetCellData();
-  vtkIdType closest, numPolys, i, j;
+  vtkIdType closest=0, numPolys, i, j;
   int k;
   vtkIdList *loopIds, *edgeIds, *neighbors;
   float x[3], xLoop[3], closestDist2, dist2, t;

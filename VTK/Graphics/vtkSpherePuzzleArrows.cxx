@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpherePuzzleArrows.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:46 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-02-07 19:41:56 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkSpherePuzzleArrows, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkSpherePuzzleArrows, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkSpherePuzzleArrows);
 
 //----------------------------------------------------------------------------
@@ -88,7 +88,7 @@ void vtkSpherePuzzleArrows::AppendArrow(int id1, int id2,
 {
   float phi1, phi2, dPhi;
   float theta1, theta2, dTheta;
-  float phi, theta, phiOff, thetaOff;
+  float phi=0, theta=0, phiOff, thetaOff;
   float length;
   float x, y, z;
   int num, idx;

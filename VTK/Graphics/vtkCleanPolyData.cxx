@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCleanPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:10 $
-  Version:   $Revision: 1.66 $
+  Date:      $Date: 2002-02-07 19:41:54 $
+  Version:   $Revision: 1.67 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkMergePoints.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkCleanPolyData, "$Revision: 1.66 $");
+vtkCxxRevisionMacro(vtkCleanPolyData, "$Revision: 1.67 $");
 vtkStandardNewMacro(vtkCleanPolyData);
 
 //---------------------------------------------------------------------------
@@ -135,7 +135,7 @@ void vtkCleanPolyData::Execute()
   vtkIdType *pts;
   float x[3];
   float newx[3];
-  vtkIdType *pointMap; //used if no merging
+  vtkIdType *pointMap=0; //used if no merging
 
   vtkCellArray *inVerts  = input->GetVerts(),  *newVerts  = NULL;
   vtkCellArray *inLines  = input->GetLines(),  *newLines  = NULL;

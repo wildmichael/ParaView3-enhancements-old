@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:22 $
-  Version:   $Revision: 1.100 $
+  Date:      $Date: 2002-02-07 19:41:54 $
+  Version:   $Revision: 1.101 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkUnsignedCharArray.h"
 #include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkGlyph3D, "$Revision: 1.100 $");
+vtkCxxRevisionMacro(vtkGlyph3D, "$Revision: 1.101 $");
 vtkStandardNewMacro(vtkGlyph3D);
 
 // Construct object with scaling on, scaling mode is by scalar value,
@@ -84,7 +84,7 @@ void vtkGlyph3D::Execute()
   vtkDataSet *input = this->GetInput();
   int numberOfSources = this->GetNumberOfSources();
   vtkPolyData *defaultSource = NULL;
-  vtkIdTypeArray *pointIds;
+  vtkIdTypeArray *pointIds=0;
   
   vtkDebugMacro(<<"Generating glyphs");
 
