@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-09 19:52:58 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1995-01-05 13:40:00 $
+  Version:   $Revision: 1.21 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -62,6 +62,9 @@ void vlActor::Render(vlRenderer *ren)
 {
   /* render the property */
   this->Property->Render(ren);
+
+  /* render the texture */
+  if (this->Texture) this->Texture->Render(ren);
 
   /* send a render to the modeller */
   this->Mapper->Render(ren);
