@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetReader.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-07 13:11:07 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1998-11-21 13:35:01 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -129,8 +129,9 @@ public:
   char *GetFieldDataName();
 
   // Description:
-  // Get the output of this source.
-  vtkDataSet *GetOutput() {return (vtkDataSet *)this->Output;};
+  // Get the output of this source. Since we need to know the type
+  // of the data, the FileName must be set before GetOutput is apploed.
+  vtkDataSet *GetOutput();
 
 protected:
   void Execute();
