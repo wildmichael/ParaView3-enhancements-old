@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-11 18:53:43 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1999-03-12 00:12:37 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -299,7 +299,7 @@ int vtkVolume::RenderTranslucentGeometry( vtkViewport *vp )
 
   if ( !this->VolumeMapper )
     {
-    return;
+    return 0;
     }
 
   // Force the creation of a property
