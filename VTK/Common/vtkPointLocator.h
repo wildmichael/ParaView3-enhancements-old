@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator.h,v $
   Language:  C++
-  Date:      $Date: 1999-01-06 20:21:01 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1999-08-29 19:01:40 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,15 +71,13 @@ class vtkNeighborPoints;
 class VTK_EXPORT vtkPointLocator : public vtkLocator
 {
 public:
-  ~vtkPointLocator();
-  static vtkPointLocator *New() {return new vtkPointLocator;};
-  const char *GetClassName() {return "vtkPointLocator";};
-  void PrintSelf(ostream& os, vtkIndent indent);
-
   // Description:
   // Construct with automatic computation of divisions, averaging
   // 25 points per bucket.
-  vtkPointLocator();
+  static vtkPointLocator *New() {return new vtkPointLocator;};
+
+  const char *GetClassName() {return "vtkPointLocator";};
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Set the number of divisions in x-y-z directions.
@@ -188,6 +186,9 @@ public:
   void GenerateRepresentation(int level, vtkPolyData *pd);
 
 protected:
+  vtkPointLocator();
+  ~vtkPointLocator();
+
   // place points in appropriate buckets
   void GetBucketNeighbors(int ijk[3], int ndivs[3], int level);
   void GetOverlappingBuckets(float x[3], int ijk[3], float dist, int level);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLongArray.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-25 21:12:23 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-08-29 19:01:36 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,9 +52,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkLongArray : public vtkDataArray
 {
 public:
-  vtkLongArray(int numComp=1);
-  ~vtkLongArray();
   static vtkLongArray *New() {return new vtkLongArray;};
+
   const char *GetClassName() {return "vtkLongArray";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -159,6 +158,9 @@ public:
   void DeepCopy(vtkDataArray &da) {this->DeepCopy(&da);}
 
 private:
+  vtkLongArray(int numComp=1);
+  ~vtkLongArray();
+
   long *Array;   // pointer to data
   long *Resize(const int sz);  // function to resize data
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCone.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-07 13:11:03 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1999-08-29 19:02:07 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,14 +59,13 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkCone : public vtkImplicitFunction
 {
 public:
-  vtkCone();
-  const char *GetClassName() {return "vtkCone";};
-  void PrintSelf(ostream& os, vtkIndent indent);
-  
   // Description
   // Construct cone with angle of 45 degrees.
   static vtkCone *New() {return new vtkCone;};
 
+  const char *GetClassName() {return "vtkCone";};
+  void PrintSelf(ostream& os, vtkIndent indent);
+  
   // Description
   // Evaluate cone equation.
   float EvaluateFunction(float x[3]);
@@ -81,6 +80,9 @@ public:
   vtkGetMacro(Angle,float);
 
 protected:
+  vtkCone();
+  ~vtkCone() {};
+
   float Angle;
 
 };

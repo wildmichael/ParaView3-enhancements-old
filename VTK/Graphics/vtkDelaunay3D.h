@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay3D.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:51 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1999-08-29 19:02:16 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -116,8 +116,6 @@ class vtkSphereArray;
 class VTK_EXPORT vtkDelaunay3D : public vtkUnstructuredGridSource
 {
 public:
-  vtkDelaunay3D();
-  ~vtkDelaunay3D();
   const char *GetClassName() {return "vtkDelaunay3D";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -233,6 +231,9 @@ public:
     this->InsertPoint(Mesh, points, id, x, &holeTetras);}; 
     
 protected:
+  vtkDelaunay3D();
+  ~vtkDelaunay3D();
+
   void Execute();
 
   float Alpha;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAxes.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-30 11:26:56 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1999-08-29 19:02:02 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,7 +69,7 @@ void vtkAxes::Execute()
 
   newPts = vtkPoints::New();
   newPts->Allocate(numPts);
-  newLines = new vtkCellArray();
+  newLines = vtkCellArray::New();
   newLines->Allocate(newLines->EstimateSize(numLines,2));
   newScalars = vtkScalars::New();
   newScalars->Allocate(numPts);

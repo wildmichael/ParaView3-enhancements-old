@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedShortArray.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-25 21:12:24 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1999-08-29 19:01:51 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,9 +52,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkUnsignedShortArray : public vtkDataArray 
 {
 public:
-  vtkUnsignedShortArray(int numComp=1);
-  ~vtkUnsignedShortArray();
   static vtkUnsignedShortArray *New() {return new vtkUnsignedShortArray;};
+
   const char *GetClassName() {return "vtkUnsignedShortArray";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -179,6 +178,9 @@ public:
   
 
 private:
+  vtkUnsignedShortArray(int numComp=1);
+  ~vtkUnsignedShortArray();
+
   unsigned short *Array;   // pointer to data
   unsigned short *Resize(const int sz);  // function to resize data
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableDataObjectSource.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:04 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-08-29 19:02:37 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,8 +64,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkProgrammableDataObjectSource : public vtkSource
 {
 public:
-  vtkProgrammableDataObjectSource();
-  ~vtkProgrammableDataObjectSource();
   static vtkProgrammableDataObjectSource *New() {return new vtkProgrammableDataObjectSource;};
   const char *GetClassName() {return "vtkProgrammableDataObjectSource";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -84,6 +82,8 @@ public:
   vtkDataObject *GetOutput();
 
 protected:
+  vtkProgrammableDataObjectSource();
+  ~vtkProgrammableDataObjectSource();
   void Execute();
 
   void (*ExecuteMethod)(void *); //function to invoke

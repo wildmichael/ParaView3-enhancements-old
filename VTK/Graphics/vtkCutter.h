@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-26 14:21:46 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1999-08-29 19:02:09 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,8 +61,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkCutter : public vtkDataSetToPolyDataFilter
 {
 public:
-  vtkCutter(vtkImplicitFunction *cf=NULL);
-  ~vtkCutter();
   const char *GetClassName() {return "vtkCutter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -166,6 +164,9 @@ public:
   void SetLocator(vtkPointLocator& locator) {this->SetLocator(&locator);};
 
 protected:
+  vtkCutter(vtkImplicitFunction *cf=NULL);
+  ~vtkCutter();
+
   void Execute();
   vtkImplicitFunction *CutFunction;
   

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEmptyCell.h,v $
   Language:  C++
-  Date:      $Date: 1999-01-07 14:14:22 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-08-29 19:01:31 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,13 +51,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkEmptyCell : public vtkCell
 {
 public:
-  vtkEmptyCell() {};
   static vtkEmptyCell *New() {return new vtkEmptyCell;};
   const char *GetClassName() {return "vtkEmptyCell";};
-
-  // Description:
-  // Deep copy of cell.
-  vtkEmptyCell(const vtkEmptyCell& p);
 
   // Description:
   // See the vtkCell API for descriptions of these methods.
@@ -95,6 +90,13 @@ public:
     {return this->CellBoundary(subId, pcoords, &pts);}
   int Triangulate(int index, vtkIdList &ptIds, vtkPoints &pts)
     {return this->Triangulate(index, &ptIds, &pts);}
+  
+protected:
+  vtkEmptyCell() {};
+  vtkEmptyCell(const vtkEmptyCell& p);
+  ~vtkEmptyCell() {};
+
+
 };
 
 #endif

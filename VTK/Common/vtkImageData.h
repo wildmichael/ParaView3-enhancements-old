@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-24 13:24:08 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 1999-08-29 19:01:34 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,10 +62,8 @@ class vtkStructuredExtent;
 class VTK_EXPORT vtkImageData : public vtkDataSet
 {
 public:
-  vtkImageData();
-  vtkImageData(const vtkImageData& v);
-  ~vtkImageData();
   static vtkImageData *New() {return new vtkImageData;};
+
   const char *GetClassName() {return "vtkImageData";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -330,6 +328,10 @@ public:
   
   
 protected:
+  vtkImageData();
+  vtkImageData(const vtkImageData& v);
+  ~vtkImageData();
+
   vtkImageToStructuredPoints *ImageToStructuredPoints;
 
   // for the GetCell method

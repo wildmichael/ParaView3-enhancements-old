@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkByteSwap.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:18 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1999-08-29 19:01:25 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -157,6 +157,10 @@ public:
   // Swaps the bytes of a buffer.  Uses an arbitrary word size, but
   // assumes the word size is divisible by two.
   static void SwapVoidRange(void *buffer, int numWords, int wordSize);
+
+protected:
+  vtkByteSwap() {};
+  ~vtkByteSwap() {};
 
 };
 

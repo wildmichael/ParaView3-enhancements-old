@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.h,v $
   Language:  C++
-  Date:      $Date: 1998-12-02 21:15:28 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-08-29 19:01:29 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,19 +63,18 @@ class VTK_EXPORT vtkDataSetAttributes : public vtkObject
 public:
   // Description:
   // Construct object with copying turned on for all data.
-  vtkDataSetAttributes();
+  static vtkDataSetAttributes *New() {return new vtkDataSetAttributes;};
   
+  const char *GetClassName() {return "vtkDataSetAttributes";};
+  void PrintSelf(ostream& os, vtkIndent indent);
+
   // Description:
   // Initialize all of the object's data to NULL
   void Initialize();
 
   // Description:
-  // Destructor for the vtkDataSetAttributes objects.
-  ~vtkDataSetAttributes();
-
-  static vtkDataSetAttributes *New() {return new vtkDataSetAttributes;};
-  const char *GetClassName() {return "vtkDataSetAttributes";};
-  void PrintSelf(ostream& os, vtkIndent indent);
+  // Attributes have a chance to bring themselves up to date; right
+  // now this is ignored.
   virtual void Update() {};
 
   // Description:
@@ -241,6 +240,9 @@ public:
   void ShallowCopy(vtkDataSetAttributes &pd) {this->ShallowCopy(&pd);}
   
 protected:
+  vtkDataSetAttributes();
+  ~vtkDataSetAttributes();
+
   // special methods to support managing data
   void InterpolateTuple(vtkDataArray *fromData, vtkDataArray *toData, int toId,
                         vtkIdList *ptIds, float *weights);

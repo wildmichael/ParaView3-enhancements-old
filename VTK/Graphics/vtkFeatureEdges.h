@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFeatureEdges.h,v $
   Language:  C++
-  Date:      $Date: 1998-11-04 17:43:48 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1999-08-29 19:02:19 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,8 +66,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkFeatureEdges : public vtkPolyDataToPolyDataFilter
 {
 public:
-  vtkFeatureEdges();
-  ~vtkFeatureEdges();
   const char *GetClassName() {return "vtkFeatureEdges";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -126,6 +124,9 @@ public:
   unsigned long GetMTime();
 
 protected:
+  vtkFeatureEdges();
+  ~vtkFeatureEdges();
+
   // Usual data generation method
   void Execute();
 

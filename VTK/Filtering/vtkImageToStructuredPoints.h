@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToStructuredPoints.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 16:18:10 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-08-29 19:01:35 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -59,8 +59,6 @@ class vtkVectors;
 class VTK_EXPORT vtkImageToStructuredPoints : public vtkSource
 {
 public:
-  vtkImageToStructuredPoints();
-  ~vtkImageToStructuredPoints();
   static vtkImageToStructuredPoints *New() 
     {return new vtkImageToStructuredPoints;};
   const char *GetClassName() {return "vtkImageToStructuredPoints";};
@@ -81,6 +79,9 @@ public:
   vtkStructuredPoints *GetOutput();
   
 protected:
+  vtkImageToStructuredPoints();
+  ~vtkImageToStructuredPoints();
+
   // to translate the wholeExtent to have min 0 ( I do not like this hack).
   int Translate[3];
   

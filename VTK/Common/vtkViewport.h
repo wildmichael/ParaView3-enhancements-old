@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewport.h,v $
   Language:  C++
-  Date:      $Date: 1999-06-03 20:32:33 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-08-29 19:01:53 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,14 +64,6 @@ class vtkWindow;
 class VTK_EXPORT vtkViewport : public vtkObject
 {
 public:
-
-  // Description:
-  // Create a vtkViewport with a black background, a white ambient light, 
-  // two-sided lighting turned on, a viewport of (0,0,1,1), and backface 
-  // culling turned off.
-  vtkViewport();
-
-  ~vtkViewport();
   const char *GetClassName() {return "vtkViewport";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -227,6 +219,13 @@ public:
   int *GetOrigin();
 
 protected:
+  // Create a vtkViewport with a black background, a white ambient light, 
+  // two-sided lighting turned on, a viewport of (0,0,1,1), and backface 
+  // culling turned off.
+  vtkViewport();
+  ~vtkViewport();
+
+
   vtkPropCollection *Props;
   vtkActor2DCollection *Actors2D;
   vtkWindow *VTKWindow;

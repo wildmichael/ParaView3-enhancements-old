@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarTree.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:25:26 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-08-29 19:02:45 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,8 +71,6 @@ typedef struct _vtkScalarRange
 class VTK_EXPORT vtkScalarTree : public vtkObject
 {
 public:
-  vtkScalarTree();
-  ~vtkScalarTree();
   const char *GetClassName() {return "vtkScalarTree";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -136,6 +134,8 @@ public:
     
 
 protected:
+  vtkScalarTree();
+  ~vtkScalarTree();
   vtkDataSet *DataSet;
   vtkScalars *Scalars;
   int MaxLevel;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridToStructuredGridFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:13 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-08-29 19:02:49 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,6 +69,8 @@ public:
   void ExecuteInformation();
   
 protected:
+  vtkStructuredGridToStructuredGridFilter() {};
+  ~vtkStructuredGridToStructuredGridFilter() {};
   
   // Since we know Inputs[0] is the same type as Outputs[0] we can
   // use CopyUpdateExtent of the data object to propagate extents.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-06 14:38:40 $
-  Version:   $Revision: 1.67 $
+  Date:      $Date: 1999-08-29 19:02:08 $
+  Version:   $Revision: 1.68 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -245,7 +245,7 @@ void vtkContourFilter::Execute()
     {
     if ( this->ScalarTree == NULL )
       {
-      this->ScalarTree = new vtkScalarTree;
+		this->ScalarTree = vtkScalarTree::New();
       }
     this->ScalarTree->SetDataSet(input);
     //

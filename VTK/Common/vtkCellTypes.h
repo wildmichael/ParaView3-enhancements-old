@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellTypes.h,v $
   Language:  C++
-  Date:      $Date: 1999-01-07 14:16:04 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-08-29 19:01:27 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,9 +70,6 @@ struct _vtkCell_s {
 class VTK_EXPORT vtkCellTypes : public vtkObject 
 {
 public:
-  vtkCellTypes() : Array(NULL),Size(0),MaxId(-1),Extend(1000) {};
-  vtkCellTypes(int sz, int ext);
-  ~vtkCellTypes();
   static vtkCellTypes *New() {return new vtkCellTypes;};
   const char *GetClassName() {return "vtkCellTypes";};
 
@@ -125,10 +122,13 @@ public:
   void Reset();
 
 private:
+  vtkCellTypes() : Array(NULL),Size(0),MaxId(-1),Extend(1000) {};
+  ~vtkCellTypes();
+
   _vtkCell_s *Array;   // pointer to data
-  int Size;       // allocated size of data
-  int MaxId;     // maximum index inserted thus far
-  int Extend;     // grow array by this point
+  int Size;            // allocated size of data
+  int MaxId;           // maximum index inserted thus far
+  int Extend;          // grow array by this point
   _vtkCell_s *Resize(int sz);  // function to resize data
 };
 

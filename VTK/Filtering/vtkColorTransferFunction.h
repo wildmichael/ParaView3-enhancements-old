@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkColorTransferFunction.h,v $
   Language:  C++
-  Date:      $Date: 1999-06-24 00:57:22 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-08-29 19:02:07 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,8 +56,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkColorTransferFunction : public vtkScalarsToColors 
 {
 public:
-  vtkColorTransferFunction();
-  ~vtkColorTransferFunction();
   static vtkColorTransferFunction *New() {
     return new vtkColorTransferFunction;};
   const char *GetClassName() {return "vtkColorTransferFunction";};
@@ -148,6 +146,9 @@ public:
                                        int inputIncrement);
   
 protected:
+  vtkColorTransferFunction();
+  ~vtkColorTransferFunction();
+
   // Determines the function value outside of defined points
   // in each of the R,G,B transfer functions.
   // Zero = always return 0.0 outside of defined points

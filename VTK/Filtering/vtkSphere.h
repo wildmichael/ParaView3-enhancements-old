@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphere.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:18 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1999-08-29 19:02:47 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,7 +51,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkSphere : public vtkImplicitFunction
 {
 public:
-  vtkSphere();
   const char *GetClassName() {return "vtkSphere";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -78,6 +77,9 @@ public:
   vtkGetVectorMacro(Center,float,3);
 
 protected:
+  vtkSphere();
+  ~vtkSphere() {};
+
   float Radius;
   float Center[3];
 

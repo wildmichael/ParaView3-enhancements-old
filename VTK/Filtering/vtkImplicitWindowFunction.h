@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitWindowFunction.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:00 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-08-29 19:02:24 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,8 +62,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImplicitWindowFunction : public vtkImplicitFunction
 {
 public:
-  vtkImplicitWindowFunction();
-  ~vtkImplicitWindowFunction();
   const char *GetClassName() {return "vtkImplicitWindowFunction";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -103,6 +101,9 @@ public:
   unsigned long GetMTime();
 
 protected:
+  vtkImplicitWindowFunction();
+  ~vtkImplicitWindowFunction();
+
   vtkImplicitFunction *ImplicitFunction;
   float WindowRange[2];
   float WindowValues[2];

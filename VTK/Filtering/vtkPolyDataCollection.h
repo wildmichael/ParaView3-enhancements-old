@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataCollection.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:08 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1999-08-29 19:02:35 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -78,6 +78,9 @@ public:
   // Get the next poly data in the list.
   vtkPolyData *GetNextItem() { 
     return (vtkPolyData *)(this->GetNextItemAsObject());};
+protected:  
+  vtkPolyDataCollection() {};
+  ~vtkPolyDataCollection() {};
 };
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObjectSource.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:42 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-08-29 19:02:10 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -85,7 +85,6 @@ class vtkDataObject;
 class VTK_EXPORT vtkDataObjectSource : public vtkSource
 {
 public:
-  vtkDataObjectSource();
   static vtkDataObjectSource *New() {return new vtkDataObjectSource;};
   const char *GetClassName() {return "vtkDataObjectSource";};
 
@@ -93,6 +92,11 @@ public:
   // Get the output field of this source.
   vtkDataObject *GetOutput();
   void SetOutput(vtkDataObject *);
+  
+protected:
+  vtkDataObjectSource();
+  ~vtkDataObjectSource() {};
+
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractVectorComponents.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:51 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-08-29 19:02:19 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,8 +59,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkExtractVectorComponents : public vtkSource
 {
 public:
-  vtkExtractVectorComponents();
-  ~vtkExtractVectorComponents();
   static vtkExtractVectorComponents *New() {
     return new vtkExtractVectorComponents;};
   const char *GetClassName() {return "vtkExtractVectorComponents";};
@@ -105,6 +103,9 @@ public:
   void SetInput(vtkDataSet &input) {this->SetInput(&input);};
 
 protected:
+  vtkExtractVectorComponents();
+  ~vtkExtractVectorComponents();
+
   void Execute();
   int ComputeInputUpdateExtents(vtkDataObject *output);
 };

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkReverseSense.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-25 16:00:06 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-08-29 19:02:43 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,10 +66,14 @@ void vtkReverseSense::Execute()
     vtkCellArray *verts, *lines, *polys, *strips;
 
     //Instantiate necessary topology arrays
-    verts = new vtkCellArray(*(input->GetVerts()));
-    lines = new vtkCellArray(*(input->GetLines()));
-    polys = new vtkCellArray(*(input->GetPolys()));
-    strips = new vtkCellArray(*(input->GetStrips()));
+    verts = vtkCellArray::New();
+    verts->DeepCopy(input->GetVerts());
+    lines = vtkCellArray::New();
+    lines->DeepCopy(input->GetLines());
+    polys = vtkCellArray::New();
+    polys->DeepCopy(input->GetPolys());
+    strips = vtkCellArray::New();
+    strips->DeepCopy(input->GetStrips());
 
     output->SetVerts(verts); verts->Delete();
     output->SetLines(lines); lines->Delete();

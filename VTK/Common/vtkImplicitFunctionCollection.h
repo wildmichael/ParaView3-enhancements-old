@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitFunctionCollection.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-02 19:42:12 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1999-08-29 19:01:35 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,6 +74,11 @@ public:
   // Description:
   // Get the next implicit function in the list.
   vtkImplicitFunction *GetNextItem();
+  
+protected:
+  vtkImplicitFunctionCollection() {};
+  ~vtkImplicitFunctionCollection() {};
+  
 };
 
 inline void vtkImplicitFunctionCollection::AddItem(vtkImplicitFunction *f) 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:18 $
-  Version:   $Revision: 1.66 $
+  Date:      $Date: 1999-08-29 19:01:28 $
+  Version:   $Revision: 1.67 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -102,13 +102,13 @@ void vtkDataSet::ComputeBounds()
       for (j=0; j<3; j++)
         {
         if ( x[j] < this->Bounds[2*j] )
-	  {
-	  this->Bounds[2*j] = x[j];
-	  }
+          {
+          this->Bounds[2*j] = x[j];
+          }
         if ( x[j] > this->Bounds[2*j+1] )
-	  {
-	  this->Bounds[2*j+1] = x[j];
-	  }
+          {
+          this->Bounds[2*j+1] = x[j];
+          }
         }
       }
 

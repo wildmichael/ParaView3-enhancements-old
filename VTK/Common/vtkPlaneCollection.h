@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlaneCollection.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-03 17:25:47 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-08-29 19:01:39 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,6 +74,11 @@ public:
   // Description:
   // Get the next plane in the list.
   vtkPlane *GetNextItem();
+  
+protected:
+  vtkPlaneCollection() {};
+  ~vtkPlaneCollection() {};
+  
 };
 
 inline void vtkPlaneCollection::AddItem(vtkPlane *f) 

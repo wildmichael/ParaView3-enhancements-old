@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDashedStreamLine.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-07 13:11:06 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-08-29 19:02:10 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,7 +63,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkDashedStreamLine : public vtkStreamLine
 {
 public:
-  vtkDashedStreamLine();
   static vtkDashedStreamLine *New() {return new vtkDashedStreamLine;};
   const char *GetClassName() {return "vtkDashedStreamLine";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -76,6 +75,9 @@ public:
   vtkGetMacro(DashFactor,float);
 
 protected:
+  vtkDashedStreamLine();
+  ~vtkDashedStreamLine() {};
+
   // Convert streamer array into vtkPolyData
   void Execute();
 

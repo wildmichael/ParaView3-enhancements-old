@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBrownianPoints.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-07 13:11:01 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1999-08-29 19:02:03 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,7 +52,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkBrownianPoints : public vtkDataSetToDataSetFilter
 {
 public:
-  vtkBrownianPoints();
   static vtkBrownianPoints *New() {return new vtkBrownianPoints;};
   const char *GetClassName() {return "vtkBrownianPoints";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -68,6 +67,9 @@ public:
   vtkGetMacro(MaximumSpeed,float);
 
 protected:
+  vtkBrownianPoints();
+  ~vtkBrownianPoints() {};
+
   void Execute();
   float MinimumSpeed;
   float MaximumSpeed;

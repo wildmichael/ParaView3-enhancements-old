@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-23 18:37:58 $
-  Version:   $Revision: 1.76 $
+  Date:      $Date: 1999-08-29 19:01:41 $
+  Version:   $Revision: 1.77 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -83,10 +83,8 @@ class vtkUnstructuredExtent;
 class VTK_EXPORT vtkPolyData : public vtkPointSet 
 {
 public:
-  vtkPolyData();
-  vtkPolyData(const vtkPolyData& pd);
-  ~vtkPolyData();
   static vtkPolyData *New() {return new vtkPolyData;};
+
   const char *GetClassName() {return "vtkPolyData";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -362,6 +360,10 @@ public:
   unsigned long GetEstimatedUpdateMemorySize();
 
 protected:
+  vtkPolyData();
+  vtkPolyData(const vtkPolyData& pd);
+  ~vtkPolyData();
+
   // constant cell objects returned by GetCell called.
   vtkVertex *Vertex;
   vtkPolyVertex *PolyVertex;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectors.h,v $
   Language:  C++
-  Date:      $Date: 1999-02-03 20:55:21 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1999-08-29 19:01:52 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,9 +54,9 @@ class vtkVectors;
 class VTK_EXPORT vtkVectors : public vtkAttributeData
 {
 public:
-  vtkVectors(int dataType=VTK_FLOAT);
   static vtkVectors *New(int dataType=VTK_FLOAT) {
     return new vtkVectors(dataType);};
+
   const char *GetClassName() {return "vtkVectors";};
   void PrintSelf(ostream& os, vtkIndent indent);
   
@@ -126,6 +126,9 @@ public:
 
 
 protected:
+  vtkVectors(int dataType=VTK_FLOAT);
+  ~vtkVectors() {};
+
   float MaxNorm;
   vtkTimeStamp ComputeTime; // Time at which MaxNorm computed
 };

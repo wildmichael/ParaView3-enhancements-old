@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:50 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1999-08-29 19:02:15 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -335,9 +335,12 @@ int vtkDelaunay3D::FindEnclosingFaces(float x[3], int tetra,
     }
 
   // quick fix
-  boundaryPts = new vtkIdList(3);
-  checkedTetras = new vtkIdList(25);
-  neiTetras = new vtkIdList(2);
+  boundaryPts = vtkIdList::New();
+  boundaryPts->Allocate(3);
+  checkedTetras = vtkIdList::New();
+  checkedTetras->Allocate(25);
+  neiTetras = vtkIdList::New();
+  neiTetras->Allocate(2);
 
   tetras->Reset();
   faces->Reset();
@@ -489,8 +492,10 @@ void vtkDelaunay3D::Execute()
     return;
     }
 
-  cells = new vtkIdList(64);
-  holeTetras = new vtkIdList(12);
+  cells = vtkIdList::New();
+  cells->Allocate(64);
+  holeTetras = vtkIdList::New();
+  holeTetras->Allocate(12);
 
   numPoints = inPoints->GetNumberOfPoints();
   this->NumberOfDuplicatePoints = 0;
@@ -579,8 +584,10 @@ void vtkDelaunay3D::Execute()
 
     edges = vtkEdgeTable::New();
     edges->InitEdgeInsertion(numPoints+6);
-    boundaryPts = new vtkIdList(3);
-    neiTetras = new vtkIdList(2);
+    boundaryPts = vtkIdList::New();
+    boundaryPts->Allocate(3);
+    neiTetras = vtkIdList::New();
+    neiTetras->Allocate(2);
 
     for (ptId=0; ptId < (numPoints+6); ptId++)
       {
@@ -929,8 +936,10 @@ void vtkDelaunay3D::InsertPoint(vtkUnstructuredGrid *Mesh, vtkPoints *points,
   int tetraNum, numTetras;
   vtkIdList *tetras, *faces;
 
-  tetras = new vtkIdList(5);
-  faces = new vtkIdList(15);
+  tetras = vtkIdList::New();
+  tetras->Allocate(5);
+  faces = vtkIdList::New();
+  faces->Allocate(15);
 
   // Find faces containing point. (Faces are found by deleting
   // one or more tetrahedra "containing" point.) Tetrahedron contain point when 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-23 18:38:27 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 1999-08-29 19:01:47 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,10 +59,8 @@ class vtkHexahedron;
 
 class VTK_EXPORT vtkStructuredGrid : public vtkPointSet {
 public:
-  vtkStructuredGrid();
-  vtkStructuredGrid(const vtkStructuredGrid& sg);
-  ~vtkStructuredGrid();
   static vtkStructuredGrid *New() {return new vtkStructuredGrid;};
+
   const char *GetClassName() {return "vtkStructuredGrid";};
   void PrintSelf(ostream& os, vtkIndent indent);
  
@@ -185,6 +183,10 @@ public:
   unsigned long GetEstimatedUpdateMemorySize();  
   
 protected:
+  vtkStructuredGrid();
+  vtkStructuredGrid(const vtkStructuredGrid& sg);
+  ~vtkStructuredGrid();
+
   // for the GetCell method
   vtkVertex *Vertex;
   vtkLine *Line;

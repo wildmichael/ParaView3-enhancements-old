@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCylinder.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-07 13:11:05 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1999-08-29 19:02:09 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,7 +59,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkCylinder : public vtkImplicitFunction
 {
 public:
-  vtkCylinder();
   const char *GetClassName() {return "vtkCylinder";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -85,6 +84,9 @@ public:
   vtkSetVector3Macro(Center,float);
   vtkGetVectorMacro(Center,float,3);
 protected:
+  vtkCylinder();
+  ~vtkCylinder() {};
+
   float Radius;
   float Center[3];
 

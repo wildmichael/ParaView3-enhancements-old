@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataNormals.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-07 19:07:57 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-08-29 19:02:36 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,7 +66,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkPolyDataNormals : public vtkPolyDataToPolyDataFilter
 {
 public:
-  vtkPolyDataNormals();
   const char *GetClassName() {return "vtkPolyDataNormals";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -118,6 +117,9 @@ public:
   vtkBooleanMacro(NonManifoldTraversal,int);
 
 protected:
+  vtkPolyDataNormals();
+  ~vtkPolyDataNormals() {};
+
   // Usual data generation method
   void Execute();
 

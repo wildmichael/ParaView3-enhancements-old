@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMassProperties.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:34 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-08-29 19:01:56 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -148,7 +148,8 @@ void vtkMassProperties::Execute()
       return;
     }
   
-  ptIds = new vtkIdList(VTK_CELL_SIZE);
+  ptIds = vtkIdList::New();
+  ptIds->Allocate(VTK_CELL_SIZE);
   
   //
   // Traverse all cells, obtaining node coordinates.

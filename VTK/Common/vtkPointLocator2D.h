@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-03-09 23:48:18 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-08-29 19:01:40 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,10 +74,8 @@ public:
   // Description:
   // Construct with automatic computation of divisions, averaging
   // 25 points per bucket.
-  vtkPointLocator2D();
-
-  ~vtkPointLocator2D();
   static vtkPointLocator2D *New() {return new vtkPointLocator2D;};
+
   const char *GetClassName() {return "vtkPointLocator2D";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -138,6 +136,9 @@ public:
   vtkGetObjectMacro(Points,vtkPoints);
   
 protected:
+  vtkPointLocator2D();
+  ~vtkPointLocator2D();
+
   // place points in appropriate buckets
   void GetBucketNeighbors(int ijk[2], int ndivs[2], int level);
   void GetOverlappingBuckets(float x[2], int ijk[2], float dist, int level);

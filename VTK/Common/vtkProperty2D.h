@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-30 14:58:27 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-08-29 19:01:44 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,10 +56,8 @@ class vtkViewport;
 class VTK_EXPORT vtkProperty2D : public vtkObject
 {
 public:
-  vtkProperty2D();
-  ~vtkProperty2D();
-  void PrintSelf(ostream& os, vtkIndent indent);
   const char *GetClassName() {return "vtkProperty2D";};
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Creates a vtkProperty2D with the following default values:
@@ -81,6 +79,9 @@ public:
   void Render (vtkViewport* vtkNotUsed(viewport))  {}
   
 protected:
+  vtkProperty2D();
+  ~vtkProperty2D();
+
   float Color[3];
   float   Opacity;
 };

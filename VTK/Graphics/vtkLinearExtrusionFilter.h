@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearExtrusionFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:01 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1999-08-29 19:02:27 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -83,7 +83,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkLinearExtrusionFilter : public vtkPolyDataToPolyDataFilter 
 {
 public:
-  vtkLinearExtrusionFilter();
   const char *GetClassName() {return "vtkLinearExtrusionFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -128,6 +127,9 @@ public:
   vtkGetVectorMacro(ExtrusionPoint,float,3);
 
 protected:
+  vtkLinearExtrusionFilter();
+  ~vtkLinearExtrusionFilter() {};
+
   void Execute();
   int ExtrusionType;
   int Capping;

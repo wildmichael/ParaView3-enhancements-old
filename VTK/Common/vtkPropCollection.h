@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPropCollection.h,v $
   Language:  C++
-  Date:      $Date: 1999-03-23 13:55:36 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-08-29 19:01:44 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,6 +79,11 @@ class VTK_EXPORT vtkPropCollection : public vtkCollection
   // Description:
   // Get the last Prop in the list.
   vtkProp *GetLastProp();
+  
+protected:
+  vtkPropCollection() {};
+  ~vtkPropCollection() {};
+  
 };
 
 inline void vtkPropCollection::AddItem(vtkProp *a) 

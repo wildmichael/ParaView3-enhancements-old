@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataNormals.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-25 16:00:04 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1999-08-29 19:02:35 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -122,7 +122,8 @@ void vtkPolyDataNormals::Execute()
     vtkTriangleStrip *strip = vtkTriangleStrip::New();
     if ( numPolys > 0 )
       {
-      polys = new vtkCellArray(*(inPolys));
+      polys = vtkCellArray::New();
+      polys->DeepCopy(inPolys);
       }
     else 
       {
@@ -152,7 +153,8 @@ void vtkPolyDataNormals::Execute()
   NewMesh = vtkPolyData::New();
   NewMesh->SetPoints(inPts);
   // create a copy because we're modifying it
-  newPolys = new vtkCellArray(*(polys));
+  newPolys = vtkCellArray::New();
+  newPolys->DeepCopy(polys);
   NewMesh->SetPolys(newPolys);
   NewMesh->BuildCells(); //builds connectivity
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:25:23 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-08-29 19:02:39 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,7 +66,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkRectilinearGridGeometryFilter : public vtkRectilinearGridToPolyDataFilter
 {
 public:
-  vtkRectilinearGridGeometryFilter();
   const char *GetClassName() {return "vtkRectilinearGridGeometryFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -89,6 +88,8 @@ public:
   void SetExtent(int *extent);
 
 protected:
+  vtkRectilinearGridGeometryFilter();
+  ~vtkRectilinearGridGeometryFilter() {};
   void Execute();
   int Extent[6];
 };

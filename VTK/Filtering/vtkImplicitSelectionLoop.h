@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitSelectionLoop.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-26 14:21:49 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-08-29 19:02:23 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -77,8 +77,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImplicitSelectionLoop : public vtkImplicitFunction
 {
 public:
-  vtkImplicitSelectionLoop();
-  ~vtkImplicitSelectionLoop();
   const char *GetClassName() {return "vtkImplicitSelectionLoop";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -118,6 +116,9 @@ public:
   unsigned long GetMTime();
 
 protected:
+  vtkImplicitSelectionLoop();
+  ~vtkImplicitSelectionLoop();
+
   vtkPoints *Loop;
   float Normal[3];
   int AutomaticNormalGeneration;

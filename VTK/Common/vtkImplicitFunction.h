@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitFunction.h,v $
   Language:  C++
-  Date:      $Date: 1998-11-14 17:00:16 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1999-08-29 19:01:35 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,8 +74,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImplicitFunction : public vtkObject
 {
 public:
-  vtkImplicitFunction();
-  ~vtkImplicitFunction();
   const char *GetClassName() {return "vtkImplicitFunction";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -111,6 +109,9 @@ public:
   vtkGetObjectMacro(Transform,vtkTransform);
 
 protected:
+  vtkImplicitFunction();
+  ~vtkImplicitFunction();
+
   vtkTransform *Transform;
 
 };

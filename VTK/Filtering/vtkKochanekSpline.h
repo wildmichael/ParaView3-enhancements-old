@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKochanekSpline.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:01 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-08-29 19:02:25 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,7 +75,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkKochanekSpline : public vtkSpline
 {
 public:
-  vtkKochanekSpline();
   const char *GetClassName() {return "vtkKochanekSpline";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -108,6 +107,9 @@ public:
   vtkGetMacro(DefaultContinuity,float);
 
 protected:
+  vtkKochanekSpline();
+  ~vtkKochanekSpline() {};
+
   void Fit1D (int n, float *x, float *y,
               float tension, float bias, float continuity,
               float coefficients[][4],

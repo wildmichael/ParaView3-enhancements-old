@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:25:17 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1999-08-29 19:02:21 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,8 +75,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkGeometryFilter : public vtkDataSetToPolyDataFilter
 {
 public:
-  vtkGeometryFilter();
-  ~vtkGeometryFilter();
   static vtkGeometryFilter *New() {return new vtkGeometryFilter;};
   const char *GetClassName() {return "vtkGeometryFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -156,6 +154,9 @@ public:
   void SetLocator(vtkPointLocator& locator) {this->SetLocator(&locator);};
   
 protected:
+  vtkGeometryFilter();
+  ~vtkGeometryFilter();
+
   void Execute();
   int PointMinimum;
   int PointMaximum;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell.h,v $
   Language:  C++
-  Date:      $Date: 1999-02-19 15:26:05 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 1999-08-29 19:01:25 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,11 +79,13 @@ class vtkCellData;
 class VTK_EXPORT vtkCell : public vtkObject
 {
 public:
-  vtkCell();
-  ~vtkCell();
-  void Initialize(int npts, int *pts, vtkPoints *p);
   const char *GetClassName() {return "vtkCell";};
   void PrintSelf(ostream& os, vtkIndent indent);
+
+  // Description:
+  // Initialize cell from outside with point ids and point
+  // coordinates specified.
+  void Initialize(int npts, int *pts, vtkPoints *p);
 
   // Description:
   // Create concrete copy of this cell. Initially, the copy is made by
@@ -292,6 +294,9 @@ public:
   void ShallowCopy(vtkCell &c) {this->ShallowCopy(&c);}
 
 protected:
+  vtkCell();
+  ~vtkCell();
+
   float Bounds[6];
 
 };

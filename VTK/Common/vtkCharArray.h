@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCharArray.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-25 21:12:22 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-08-29 19:01:27 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,9 +52,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkCharArray : public vtkDataArray
 {
 public:
-  vtkCharArray(int numComp=1);
-  ~vtkCharArray();
   static vtkCharArray *New() {return new vtkCharArray;};
+
   const char *GetClassName() {return "vtkCharArray";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -178,6 +177,9 @@ public:
   void DeepCopy(vtkDataArray &ia) {this->DeepCopy(&ia);}  
 
 private:
+  vtkCharArray(int numComp=1);
+  ~vtkCharArray();
+
   char *Array;    // pointer to data
   char *Resize(const int sz);  // function to resize data
 

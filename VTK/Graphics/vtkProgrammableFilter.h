@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:05 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-08-29 19:02:37 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,8 +68,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkProgrammableFilter : public vtkDataSetToDataSetFilter
 {
 public:
-  vtkProgrammableFilter();
-  ~vtkProgrammableFilter();
   static vtkProgrammableFilter *New() {return new vtkProgrammableFilter;};
   const char *GetClassName() {return "vtkProgrammableFilter";};
 
@@ -106,6 +104,8 @@ public:
   vtkRectilinearGrid *GetRectilinearGridInput();
 
 protected:
+  vtkProgrammableFilter();
+  ~vtkProgrammableFilter();
   void Execute();
 
   void (*ExecuteMethod)(void *); //function to invoke

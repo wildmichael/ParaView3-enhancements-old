@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpline.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-30 16:32:37 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-08-29 19:02:47 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,7 +47,7 @@ vtkSpline::vtkSpline ()
 {
   this->ComputeTime = 0;
   this->ClampValue = 0;
-  this->PiecewiseFunction = new vtkPiecewiseFunction;
+  this->PiecewiseFunction = vtkPiecewiseFunction::New();
   this->Intervals = NULL;
   this->Coefficients = NULL;
   this->LeftConstraint = 1;

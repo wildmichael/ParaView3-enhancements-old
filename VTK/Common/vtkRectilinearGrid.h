@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGrid.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-23 18:38:09 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1999-08-29 19:01:45 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,17 +69,18 @@ class vtkVoxel;
 class VTK_EXPORT vtkRectilinearGrid : public vtkDataSet
 {
 public:
-  vtkRectilinearGrid();
-  vtkRectilinearGrid(const vtkRectilinearGrid& v);
-  ~vtkRectilinearGrid();
   static vtkRectilinearGrid *New() {return new vtkRectilinearGrid;};
+
   const char *GetClassName() {return "vtkRectilinearGrid";};
-  int GetDataObjectType() {return VTK_RECTILINEAR_GRID;};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Create a similar type object
   vtkDataObject *MakeObject() {return new vtkRectilinearGrid;};
+
+  // Description:
+  // Return what type of dataset this is.
+  int GetDataObjectType() {return VTK_RECTILINEAR_GRID;};
 
   // Description:
   // Copy the geometric and topological structure of an input rectilinear grid
@@ -227,6 +228,10 @@ public:
   unsigned long GetEstimatedUpdateMemorySize();
   
 protected:
+  vtkRectilinearGrid();
+  vtkRectilinearGrid(const vtkRectilinearGrid& v);
+  ~vtkRectilinearGrid();
+
   // for the GetCell method
   vtkVertex *Vertex;
   vtkLine *Line;

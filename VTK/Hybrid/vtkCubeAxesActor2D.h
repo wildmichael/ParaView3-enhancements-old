@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeAxesActor2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-06 17:43:30 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-08-29 19:01:55 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thorsten Dowe who modified and improved this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,8 +75,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkCubeAxesActor2D : public vtkActor2D
 {
 public:
-  vtkCubeAxesActor2D();
-  ~vtkCubeAxesActor2D();
   const char *GetClassName() {return "vtkCubeAxesActor2D";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -222,6 +220,9 @@ public:
   vtkBooleanMacro(ZAxisVisibility,int);
 
 protected:
+  vtkCubeAxesActor2D();
+  ~vtkCubeAxesActor2D();
+
   vtkDataSet *Input;    //Define bounds from input data, or
   vtkProp    *Prop;     //Define bounds from actor/assembly, or
   float      Bounds[6]; //Define bounds explicitly

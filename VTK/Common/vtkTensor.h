@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensor.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:24:58 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1999-08-29 19:01:48 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,7 +57,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkTensor : public vtkObject
 {
 public:
-  vtkTensor();
   static vtkTensor *New() {return new vtkTensor;};
   const char *GetClassName() {return "vtkTensor";};
 
@@ -97,6 +96,9 @@ public:
   
   
 protected: 
+  vtkTensor();
+  ~vtkTensor() {};
+
   float Storage[9];
 };
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellData.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:18:53 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-08-29 19:01:26 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,12 +55,18 @@ class VTK_EXPORT vtkCellData : public vtkDataSetAttributes
 {
 public:
   static vtkCellData *New() {return new vtkCellData;};
+
   const char *GetClassName() {return "vtkCellData";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Set cell data to null values
   void NullCell(int cellId);
+  
+protected:
+  vtkCellData() {}; //make sure constructor and desctructor are protected
+  ~vtkCellData() {};
+  
 };
 
 #endif

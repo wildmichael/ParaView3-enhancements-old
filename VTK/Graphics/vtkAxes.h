@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAxes.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-30 11:27:08 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1999-08-29 19:02:02 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,8 +53,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkAxes : public vtkPolyDataSource 
 {
 public:
-  vtkAxes();
   static vtkAxes *New() {return new vtkAxes;};
+
   const char *GetClassName() {return "vtkAxes";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -75,6 +75,9 @@ public:
   vtkBooleanMacro(Symmetric,int);
 
 protected:
+  vtkAxes();
+  ~vtkAxes() {};
+
   void Execute();
   // This source does not know how to generate pieces yet.
   int ComputeDivisionExtents(vtkDataObject *output, 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSet.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-06 14:37:51 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1999-08-29 19:01:40 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,9 +58,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkPointSet : public vtkDataSet
 {
 public:
-  vtkPointSet();
-  ~vtkPointSet();
-  vtkPointSet(const vtkPointSet& ps);
   const char *GetClassName() {return "vtkPointSet";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -113,6 +110,10 @@ public:
   virtual int GetNetReferenceCount();
 
 protected:
+  vtkPointSet();
+  vtkPointSet(const vtkPointSet& ps);
+  ~vtkPointSet();
+
   vtkPoints *Points;
   vtkPointLocator *Locator;
 

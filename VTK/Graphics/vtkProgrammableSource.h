@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableSource.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:06 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-08-29 19:02:38 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,8 +72,6 @@ class vtkRectilinearGrid;
 class VTK_EXPORT vtkProgrammableSource : public vtkSource
 {
 public:
-  vtkProgrammableSource();
-  ~vtkProgrammableSource();
   static vtkProgrammableSource *New() {return new vtkProgrammableSource;};
   const char *GetClassName() {return "vtkProgrammableSource";};
 
@@ -110,6 +108,8 @@ public:
   vtkRectilinearGrid *GetRectilinearGridOutput();
 
 protected:
+  vtkProgrammableSource();
+  ~vtkProgrammableSource();
   void Execute();
 
   void (*ExecuteMethod)(void *); //function to invoke

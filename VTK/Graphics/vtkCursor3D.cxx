@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCursor3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:40:56 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1999-08-29 19:02:09 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -152,7 +152,7 @@ void vtkCursor3D::Execute()
     {
     newPts = vtkPoints::New();
     newPts->Allocate(numPts);
-    newLines = new vtkCellArray;
+    newLines = vtkCellArray::New();
     newLines->Allocate(newLines->EstimateSize(numLines,2));
     }
   else

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellTypes.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-07 21:19:20 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-08-29 19:01:26 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,14 +40,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkCellTypes.h"
 
-vtkCellTypes::vtkCellTypes(int sz, int ext)
-{
-  this->Size = sz;
-  this->Array = new _vtkCell_s[sz];
-  this->Extend = ext;
-  this->MaxId = -1;
-}
-
 vtkCellTypes::~vtkCellTypes()
 {
   delete [] this->Array;
@@ -58,7 +50,10 @@ int vtkCellTypes::Allocate(int sz, int ext)
 {
   if ( sz > this->Size || this->Array == NULL )
     {
-    delete [] this->Array;
+    if ( this->Array != NULL )
+      {
+      delete [] this->Array;
+      }
 
     this->Size = ( sz > 0 ? sz : 1);
     if ( (this->Array = new _vtkCell_s[this->Size]) == NULL )

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-23 18:38:37 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 1999-08-29 19:01:51 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,10 +70,8 @@ class vtkPyramid;
 
 class VTK_EXPORT vtkUnstructuredGrid : public vtkPointSet {
 public:
-  vtkUnstructuredGrid();
-  vtkUnstructuredGrid(const vtkUnstructuredGrid& up);
-  ~vtkUnstructuredGrid();
   static vtkUnstructuredGrid *New() {return new vtkUnstructuredGrid;};
+
   const char *GetClassName() {return "vtkUnstructuredGrid";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -127,6 +125,10 @@ public:
   unsigned long GetEstimatedUpdateMemorySize();
 
 protected:
+  vtkUnstructuredGrid();
+  vtkUnstructuredGrid(const vtkUnstructuredGrid& up);
+  ~vtkUnstructuredGrid();
+
   // used by GetCell method
   vtkVertex *Vertex;
   vtkPolyVertex *PolyVertex;

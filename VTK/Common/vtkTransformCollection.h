@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformCollection.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 20:34:18 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-08-29 19:01:49 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -76,6 +76,11 @@ public:
   // Get the next Transform in the list. Return NULL when the end of the
   // list is reached.
   vtkTransform *GetNextItem();
+
+protected:
+  vtkTransformCollection() {};
+  ~vtkTransformCollection() {};
+
 };
 
 inline void vtkTransformCollection::AddItem(vtkTransform *t) 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSetSource.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:01 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-08-29 19:02:34 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,7 +51,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkPointSetSource : public vtkSource
 {
 public:
-  vtkPointSetSource();
   static vtkPointSetSource *New() {return new vtkPointSetSource;};
   const char *GetClassName() {return "vtkPointSetSource";};
 
@@ -59,6 +58,10 @@ public:
   // Get the output of this source.
   vtkPointSet *GetOutput();
   void SetOutput(vtkPointSet *output);
+  
+protected:
+  vtkPointSetSource();
+  ~vtkPointSetSource() {};
 
 };
 

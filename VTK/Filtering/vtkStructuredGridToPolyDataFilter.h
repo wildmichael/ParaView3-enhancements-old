@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridToPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:12 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-08-29 19:02:49 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,6 +63,10 @@ public:
   // Set / get the input Grid or filter.
   void SetInput(vtkStructuredGrid *input);
   vtkStructuredGrid *GetInput();
+  
+protected:  
+  vtkStructuredGridToPolyDataFilter() {};
+  ~vtkStructuredGridToPolyDataFilter() {};
 
 };
 

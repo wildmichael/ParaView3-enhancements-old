@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFloatArray.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-25 21:12:23 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 1999-08-29 19:01:31 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,8 +52,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkFloatArray : public vtkDataArray
 {
 public:
-  vtkFloatArray(int numComp=1);
-  ~vtkFloatArray();
   static vtkFloatArray *New() {return new vtkFloatArray;};
   const char *GetClassName() {return "vtkFloatArray";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -177,6 +175,9 @@ public:
   
   
 private:
+  vtkFloatArray(int numComp=1);
+  ~vtkFloatArray();
+
   float *Array;  // pointer to data
   float *Resize(const int sz);  // function to reallocate data
 

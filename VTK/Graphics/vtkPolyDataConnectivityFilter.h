@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataConnectivityFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:08 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-08-29 19:02:35 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,8 +79,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkPolyDataConnectivityFilter : public vtkPolyDataToPolyDataFilter
 {
 public:
-  vtkPolyDataConnectivityFilter();
-  ~vtkPolyDataConnectivityFilter();
   const char *GetClassName() {return "vtkPolyDataConnectivityFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -170,6 +168,9 @@ public:
   vtkBooleanMacro(ColorRegions,int);
 
 protected:
+  vtkPolyDataConnectivityFilter();
+  ~vtkPolyDataConnectivityFilter();
+
   // Usual data generation method
   void Execute();
 

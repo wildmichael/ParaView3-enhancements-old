@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-06 14:37:51 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 1999-08-29 19:01:40 $
+  Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -175,8 +175,10 @@ int vtkPointSet::FindCell(float x[3], vtkCell *cell, vtkGenericCell *gencell,
     return -1;
     }
 
-  cellIds = new vtkIdList(8,100);
-  ptIds = new vtkIdList(8,100);
+  cellIds = vtkIdList::New();
+  cellIds->Allocate(8,100);
+  ptIds = vtkIdList::New();
+  ptIds->Allocate(8,100);
 
   if ( !this->Locator )
     {

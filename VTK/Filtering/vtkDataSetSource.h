@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetSource.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:46 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-08-29 19:02:12 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,7 +51,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkDataSetSource : public vtkSource
 {
 public:
-  vtkDataSetSource();
   static vtkDataSetSource *New() {return new vtkDataSetSource;};
   const char *GetClassName() {return "vtkDataSetSource";};
 
@@ -59,6 +58,11 @@ public:
   // Get the output of this source.
   vtkDataSet *GetOutput();
   void SetOutput(vtkDataSet *);
+  
+protected:  
+  vtkDataSetSource();
+  ~vtkDataSetSource() {};
+
 };
 
 #endif

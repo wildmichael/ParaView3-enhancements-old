@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAttributeData.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:24:41 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-08-29 19:01:24 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,15 +57,15 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkAttributeData : public vtkObject 
 {
 public:
-  // Description:
-  // Construct object with an initial data array of type dataType (by default
-  // dataType is VTK_FLOAT.
-  vtkAttributeData(int dataType=VTK_FLOAT);
-
-  ~vtkAttributeData();
   const char *GetClassName() {return "vtkAttributeData";};
   void PrintSelf(ostream& os, vtkIndent indent);
+
+  // Description:
+  // Allocate initial memory size.
   virtual int Allocate(const int sz, const int ext=1000);
+  
+  // Description:
+  // Return object to instantiated state.
   virtual void Initialize();
 
   // Description:
@@ -128,6 +128,11 @@ public:
   void ShallowCopy(vtkAttributeData &ad) {this->ShallowCopy(&ad);}
   
 protected:
+  // Construct object with an initial data array of type dataType (by default
+  // dataType is VTK_FLOAT.
+  vtkAttributeData(int dataType=VTK_FLOAT);
+  ~vtkAttributeData();
+
   vtkDataArray *Data;  // Array which represents data
 
 };

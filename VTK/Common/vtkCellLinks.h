@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLinks.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:37:59 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-08-29 19:01:26 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,11 +62,13 @@ struct _vtkLink_s {
 class VTK_EXPORT vtkCellLinks : public vtkObject 
 {
 public:
-  vtkCellLinks():Array(NULL),Size(0),MaxId(-1),Extend(1000) {};
-  vtkCellLinks(int sz, int ext=1000);
-  ~vtkCellLinks();
   static vtkCellLinks *New() {return new vtkCellLinks;};
   const char *GetClassName() {return "vtkCellLinks";};
+
+  // Description:
+  // Allocate the specified number of links (i.e., number of points) that
+  // will be built.
+  void Allocate(int numLinks, int ext=1000);
 
   // Description:
   // Get a link structure given a point id.
@@ -125,6 +127,9 @@ public:
   void Reset();
 
 private:
+  vtkCellLinks():Array(NULL),Size(0),MaxId(-1),Extend(1000) {};
+  ~vtkCellLinks();
+
   // Description:
   // Increment the count of the number of cells using the point.
   void IncrementLinkCount(int ptId) { this->Array[ptId].ncells++;};

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:40 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-08-29 19:02:06 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -421,9 +421,12 @@ void vtkClipVolume::ClipVoxel(float value, vtkScalars *cellScalars,
                              {1,2,4,7,0,3,5,6}};//injection order based on flip
 
   // quick fix until constructors are changed
-  holeTetras = new vtkIdList(10);
-  cells = new vtkIdList(64);
-  mergedPts = new vtkIdList(12);
+  holeTetras = vtkIdList::New();
+  holeTetras->Allocate(10);
+  cells = vtkIdList::New();
+  cells->Allocate(64);
+  mergedPts = vtkIdList::New();
+  mergedPts->Allocate(12);
   
   // compute bounds for voxel and initialize
   cellPts->GetPoint(0,voxelOrigin);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkNormals.h,v $
   Language:  C++
-  Date:      $Date: 1999-01-28 00:51:20 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1999-08-29 19:01:38 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,8 +55,8 @@ class vtkNormals;
 class VTK_EXPORT vtkNormals : public vtkAttributeData
 {
 public:
-  vtkNormals(int dataType=VTK_FLOAT);
   static vtkNormals *New(int dataType=VTK_FLOAT) {return new vtkNormals(dataType);};
+
   const char *GetClassName() {return "vtkNormals";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -114,6 +114,10 @@ public:
   // Description:
   // For legacy compatibility. 
   void GetNormals(vtkIdList& ptId, vtkNormals& fn) {this->GetNormals(&ptId, &fn);}
+  
+protected:
+  vtkNormals(int dataType=VTK_FLOAT);
+  ~vtkNormals() {};
   
 };
 

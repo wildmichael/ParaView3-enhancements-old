@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetCollection.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-19 16:36:47 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-08-29 19:01:30 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,6 +80,10 @@ public:
   // Get the ith dataset in the list.
   vtkDataSet *GetItem(int i) { 
     return (vtkDataSet *)(this->GetItemAsObject(i));};
+  
+protected:
+  vtkDataSetCollection() {};
+  ~vtkDataSetCollection() {};
 
 };
 

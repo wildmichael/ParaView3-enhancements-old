@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-02 21:11:32 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1999-08-29 19:01:25 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,13 +57,12 @@ vtkCellArray::vtkCellArray(const int sz, const int ext)
   this->TraversalLocation = 0;
 }
 
-vtkCellArray::vtkCellArray (const vtkCellArray& ca)
+void vtkCellArray::DeepCopy (vtkCellArray *ca)
 {
-  this->Ia = vtkIntArray::New();
-  this->NumberOfCells = ca.NumberOfCells;
+  this->Ia->DeepCopy(ca->Ia);
+  this->NumberOfCells = ca->NumberOfCells;
   this->InsertLocation = 0;
   this->TraversalLocation = 0;
-  this->Ia->DeepCopy(ca.Ia);
 }
 
 vtkCellArray::~vtkCellArray()

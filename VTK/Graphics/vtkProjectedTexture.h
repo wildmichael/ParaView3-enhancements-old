@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProjectedTexture.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-06 20:40:43 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-08-29 19:01:57 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,7 +60,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkProjectedTexture : public vtkDataSetToDataSetFilter 
 {
 public:
-  vtkProjectedTexture();
   static vtkProjectedTexture *New() {return new vtkProjectedTexture;};
   const char *GetClassName() {return "vtkProjectedTexture";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -104,6 +103,9 @@ public:
   vtkGetVectorMacro(TRange,float,2);
   
 protected:
+  vtkProjectedTexture();
+  ~vtkProjectedTexture() {};
+
   void Execute();
   void ComputeNormal();
 

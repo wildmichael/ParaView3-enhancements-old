@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:40 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1999-08-29 19:02:06 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -88,8 +88,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkClipPolyData : public vtkPolyDataToPolyDataFilter
 {
 public:
-  vtkClipPolyData(vtkImplicitFunction *cf=NULL);
-  ~vtkClipPolyData();
   const char *GetClassName() {return "vtkClipPolyData";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -163,6 +161,9 @@ public:
   void SetLocator(vtkPointLocator& locator) {this->SetLocator(&locator);};
 
 protected:
+  vtkClipPolyData(vtkImplicitFunction *cf=NULL);
+  ~vtkClipPolyData();
+
   void Execute();
   vtkImplicitFunction *ClipFunction;
   

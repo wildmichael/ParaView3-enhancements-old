@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVertex.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:25:04 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 1999-08-29 19:01:53 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,7 +50,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkVertex : public vtkCell
 {
 public:
-  vtkVertex();
   static vtkVertex *New() {return new vtkVertex;};
   const char *GetClassName() {return "vtkVertex";};
   
@@ -119,6 +118,10 @@ public:
     {return this->CellBoundary(subId, pcoords, &pts);}
   int Triangulate(int index, vtkIdList &ptIds, vtkPoints &pts)
     {return this->Triangulate(index, &ptIds, &pts);}
+  
+protected:
+  vtkVertex();
+  ~vtkVertex() {};
   
 };
 

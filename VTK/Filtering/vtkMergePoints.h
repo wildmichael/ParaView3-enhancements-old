@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergePoints.h,v $
   Language:  C++
-  Date:      $Date: 1999-01-06 15:11:13 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1999-08-29 19:02:29 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,6 +72,11 @@ public:
   // Note this combines the functionality of IsInsertedPoint() followed
   // by a call to InsertNextPoint().
   int InsertUniquePoint(float x[3], int &ptId);
+  
+protected:
+  vtkMergePoints() {};
+  ~vtkMergePoints() {};
+  
 };
 
 #endif

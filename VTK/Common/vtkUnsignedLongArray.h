@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedLongArray.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-25 21:12:24 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-08-29 19:01:51 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,9 +52,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkUnsignedLongArray : public vtkDataArray 
 {
 public:
-  vtkUnsignedLongArray(int numComp=1);
-  ~vtkUnsignedLongArray();
   static vtkUnsignedLongArray *New() {return new vtkUnsignedLongArray;};
+
   const char *GetClassName() {return "vtkUnsignedLongArray";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -162,6 +161,9 @@ public:
 
 
 private:
+  vtkUnsignedLongArray(int numComp=1);
+  ~vtkUnsignedLongArray();
+
   unsigned long *Array;   // pointer to data
   unsigned long *Resize(const int sz);  // function to resize data
 

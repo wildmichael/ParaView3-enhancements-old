@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLocator.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-26 14:21:40 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1999-08-29 19:01:36 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -82,8 +82,6 @@ class vtkPolyData;
 class VTK_EXPORT vtkLocator : public vtkObject
 {
 public:
-  vtkLocator();
-  ~vtkLocator();
   const char *GetClassName() {return "vtkLocator";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -155,6 +153,9 @@ public:
   vtkGetMacro(BuildTime, unsigned long);
 
 protected:
+  vtkLocator();
+  ~vtkLocator();
+
   vtkDataSet *DataSet;
   int Automatic; // boolean controls automatic subdivision (or uses user spec.)
   float Tolerance; // for performing merging

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointDataToCellData.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:07 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-08-29 19:02:33 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,7 +64,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkPointDataToCellData : public vtkDataSetToDataSetFilter
 {
 public:
-  vtkPointDataToCellData();
   static vtkPointDataToCellData *New() {return new vtkPointDataToCellData;};
   const char *GetClassName() {return "vtkPointDataToCellData";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -78,6 +77,9 @@ public:
   vtkBooleanMacro(PassPointData,int);
 
 protected:
+  vtkPointDataToCellData();
+  ~vtkPointDataToCellData() {};
+
   void Execute();
 
   int PassPointData;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsToStructuredPointsFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:15 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1999-08-29 19:02:51 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,6 +74,8 @@ public:
   void ExecuteInformation();
 
 protected:
+  vtkStructuredPointsToStructuredPointsFilter() {};
+  ~vtkStructuredPointsToStructuredPointsFilter() {};
   
   // Since we know Inputs[0] is the same type as Outputs[0] we can
   // use CopyUpdateExtent of the data object to propagate extents.

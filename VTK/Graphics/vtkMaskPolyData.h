@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMaskPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:03 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1999-08-29 19:02:29 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,7 +51,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkMaskPolyData : public vtkPolyDataToPolyDataFilter
 {
 public:
-  vtkMaskPolyData();
   static vtkMaskPolyData *New() {return new vtkMaskPolyData;};
   const char *GetClassName() {return "vtkMaskPolyData";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -67,6 +66,9 @@ public:
   vtkGetMacro(Offset,int);
 
 protected:
+  vtkMaskPolyData();
+  ~vtkMaskPolyData() {};
+
   void Execute();
   int OnRatio; // every OnRatio entity is on; all others are off.
   int Offset;  // offset (or starting point id)

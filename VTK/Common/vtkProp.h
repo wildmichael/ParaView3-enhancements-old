@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-25 19:11:51 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-08-29 19:01:44 $
+  Version:   $Revision: 1.10 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -59,14 +59,12 @@ class vtkWindow;
 class VTK_EXPORT vtkProp : public vtkObject
 {
 public:
-  static vtkProp* New() {return new vtkProp;};
-  void PrintSelf(ostream& os, vtkIndent indent);
-  const char *GetClassName() {return "vtkProp";};
-
   // Description:
   // Creates a Prop with visibility on.
-  vtkProp();
+  static vtkProp* New() {return new vtkProp;};
 
+  const char *GetClassName() {return "vtkProp";};
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description: 
   // For some exporters and other other operations we must be
@@ -212,6 +210,9 @@ public:
 //ETX
 
 protected:
+  vtkProp();
+  ~vtkProp() {};
+
   int Visibility;
   float AllocatedRenderTime;
   float EstimatedRenderTime;

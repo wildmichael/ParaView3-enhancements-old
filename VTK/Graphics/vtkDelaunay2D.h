@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:50 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1999-08-29 19:02:15 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -129,8 +129,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkDelaunay2D : public vtkPolyDataSource
 {
 public:
-  vtkDelaunay2D();
-  ~vtkDelaunay2D();
   const char *GetClassName() {return "vtkDelaunay2D";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -182,6 +180,9 @@ public:
   vtkPointSet *GetInput();
 
 protected:
+  vtkDelaunay2D();
+  ~vtkDelaunay2D();
+
   void Execute();
 
   double Alpha;

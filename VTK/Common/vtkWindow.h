@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindow.h,v $
   Language:  C++
-  Date:      $Date: 1998-12-22 21:43:19 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-08-29 19:01:54 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,8 +55,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkWindow : public vtkObject
 {
 public:
-  vtkWindow();
-  ~vtkWindow();
   const char *GetClassName() {return "vtkWindow";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -135,6 +133,9 @@ public:
   vtkSetClampMacro(DPI,int,1,3000);
   
 protected:
+  vtkWindow();
+  ~vtkWindow();
+
   char *WindowName;
   int Size[2];
   int Position[2];

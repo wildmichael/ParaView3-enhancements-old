@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalars.h,v $
   Language:  C++
-  Date:      $Date: 1999-06-24 00:56:38 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 1999-08-29 19:01:46 $
+  Version:   $Revision: 1.57 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -78,10 +78,9 @@ class vtkScalarsToColors;
 class VTK_EXPORT vtkScalars : public vtkAttributeData
 {
 public:
-  vtkScalars(int dataType=VTK_FLOAT, int numComp=1);
-  ~vtkScalars();
   static vtkScalars *New(int dataType=VTK_FLOAT, int numComp=1) 
     {return new vtkScalars(dataType,numComp);};
+
   const char *GetClassName() {return "vtkScalars";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -204,6 +203,9 @@ public:
     {this->GetScalars(p1, p2, &fs);}
 
 protected:
+  vtkScalars(int dataType=VTK_FLOAT, int numComp=1);
+  ~vtkScalars();
+
   float Range[8];
   vtkTimeStamp ComputeTime;
   vtkLookupTable *LookupTable;

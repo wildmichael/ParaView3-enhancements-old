@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsCollection.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:22 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-08-29 19:02:50 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,6 +79,11 @@ public:
   // is exhausted.
   vtkStructuredPoints *GetNextItem() {
     return (vtkStructuredPoints *)(this->GetNextItemAsObject());};
+  
+protected:
+  vtkStructuredPointsCollection() {};
+  ~vtkStructuredPointsCollection() {};
+  
   
 };
 

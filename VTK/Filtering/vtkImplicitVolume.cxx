@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-05 13:11:36 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-08-29 19:02:24 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,7 +52,8 @@ vtkImplicitVolume::vtkImplicitVolume()
   this->OutGradient[1] = 0.0;
   this->OutGradient[2] = 1.0;
   
-  this->PointIds = new vtkIdList(8);
+  this->PointIds = vtkIdList::New();
+  this->PointIds->Allocate(8);
 }
 
 vtkImplicitVolume::~vtkImplicitVolume()

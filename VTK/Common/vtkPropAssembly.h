@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPropAssembly.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-27 19:35:11 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-08-29 19:01:44 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,8 +72,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkPropAssembly : public vtkProp
 {
 public:
-  vtkPropAssembly();
-  ~vtkPropAssembly();
   const char *GetClassName() {return "vtkPropAssembly";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -121,6 +119,9 @@ public:
   unsigned long int GetMTime();
 
 protected:
+  vtkPropAssembly();
+  ~vtkPropAssembly();
+
   vtkPropCollection *Parts;
   float Bounds[6];
   

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimatePro.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-20 19:32:03 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 1999-08-29 19:02:14 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -77,7 +77,8 @@ static float ComputeSingleTriangleError(float x[3], float x1[3], float x2[3]);
 // degree is 25. Error accumulation is turned off.
 vtkDecimatePro::vtkDecimatePro()
 {
-  this->Neighbors = new vtkIdList(VTK_MAX_TRIS_PER_VERTEX);
+  this->Neighbors = vtkIdList::New();
+  this->Neighbors->Allocate(VTK_MAX_TRIS_PER_VERTEX);
   this->V = new vtkProVertexArray(VTK_MAX_TRIS_PER_VERTEX+1);
   this->T = new vtkProTriArray(VTK_MAX_TRIS_PER_VERTEX+1);
   this->EdgeLengths = vtkPriorityQueue::New();
@@ -106,7 +107,7 @@ vtkDecimatePro::~vtkDecimatePro()
   this->InflectionPoints->Delete();
   if ( this->Queue )
     {
-    delete this->Queue;
+    this->Queue->Delete();
     }
   if ( this->VertexError )
     {
@@ -183,7 +184,8 @@ void vtkDecimatePro::Execute()
       {
       newPts->SetPoint(i,inPts->GetPoint(i));
       }
-    newPolys = new vtkCellArray(*(inPolys));
+    newPolys = vtkCellArray::New();
+    newPolys->DeepCopy(inPolys);
     this->Mesh->SetPoints(newPts);
     this->Mesh->SetPolys(newPolys);
     newPts->Delete(); //registered by Mesh and preserved
@@ -1428,7 +1430,8 @@ void vtkDecimatePro::InitializeQueue(int numPts)
     numPts = (int) ((float)numPts*1.25);
     }
 
-  this->Queue = new vtkPriorityQueue(numPts, (int)((float)0.25*numPts));
+  this->Queue = vtkPriorityQueue::New();
+  this->Queue->Allocate(numPts, (int)((float)0.25*numPts));
 }
 
 int vtkDecimatePro::Pop(float &error)

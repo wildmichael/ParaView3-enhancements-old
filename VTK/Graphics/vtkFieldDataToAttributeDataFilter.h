@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldDataToAttributeDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-02-17 00:33:24 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-08-29 19:02:20 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -90,8 +90,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkFieldDataToAttributeDataFilter : public vtkDataSetToDataSetFilter
 {
 public:
-  vtkFieldDataToAttributeDataFilter();
-  ~vtkFieldDataToAttributeDataFilter();
   void PrintSelf(ostream& os, vtkIndent indent);
   const char *GetClassName() {return "vtkFieldDataToAttributeDataFilter";};
 
@@ -241,6 +239,9 @@ public:
   static int UpdateComponentRange(vtkDataArray *da, int compRange[2]);
 
 protected:
+  vtkFieldDataToAttributeDataFilter();
+  ~vtkFieldDataToAttributeDataFilter();
+
   void Execute(); //generate output data
 
   int InputField;

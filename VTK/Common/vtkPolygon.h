@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolygon.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:24:54 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 1999-08-29 19:01:43 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,8 +55,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkPolygon : public vtkCell
 {
 public:
-  vtkPolygon();
-  ~vtkPolygon();
   static vtkPolygon *New() {return new vtkPolygon;};
   const char *GetClassName() {return "vtkPolygon";};
 
@@ -172,6 +170,9 @@ public:
   
 
 protected:
+  vtkPolygon();
+  ~vtkPolygon();
+
   // variables used by instances of this class
   float   Tolerance; // Intersection tolerance
   int     SuccessfulTriangulation; // Stops recursive tri. if necessary

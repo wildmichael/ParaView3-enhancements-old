@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractTensorComponents.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:41:55 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-08-29 19:02:19 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,7 +75,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkExtractTensorComponents : public vtkDataSetToDataSetFilter 
 {
 public:
-  vtkExtractTensorComponents();
   const char *GetClassName() {return "vtkExtractTensorComponents";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -165,6 +164,9 @@ public:
   vtkGetVectorMacro(TCoordComponents,int,6);
 
 protected:
+  vtkExtractTensorComponents();
+  ~vtkExtractTensorComponents() {};
+
   void Execute();
 
   int PassTensorsToOutput;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolygon.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-31 20:47:09 $
-  Version:   $Revision: 1.67 $
+  Date:      $Date: 1999-08-29 19:01:42 $
+  Version:   $Revision: 1.68 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -628,7 +628,8 @@ int vtkPolygon::RecursiveTriangulate (int numVerts, int *verts)
       float dist2, *p1, *p2;
 
       // quick fix until constructors are changed
-      EdgeLengths = new vtkPriorityQueue(VTK_CELL_SIZE);
+      EdgeLengths = vtkPriorityQueue::New();
+      EdgeLengths->Allocate(VTK_CELL_SIZE);
       
       // find the minimum distance between points as candidates for the split line
       for (i=0; i<(numVerts-2); i++) 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBBTree.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 11:40:15 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1999-08-29 19:02:30 $
+  Version:   $Revision: 1.22 $
   Thanks:    Thanks to Peter C. Everett <pce@world.std.com> for
              improvements and enhancements to vtkOBBTree class.
 
@@ -104,8 +104,6 @@ public:
 class VTK_EXPORT vtkOBBTree : public vtkCellLocator
 {
 public:
-  vtkOBBTree();
-  ~vtkOBBTree();
   const char *GetClassName() {return "vtkOBBTree";};
 
   // Description:
@@ -182,6 +180,9 @@ public:
 
   //BTX
 protected:
+  vtkOBBTree();
+  ~vtkOBBTree();
+
   // Compute an OBB from the list of cells given.  This used to be
   // public but should not have been.  A public call has been added
   // so that the funtionality can be accessed.

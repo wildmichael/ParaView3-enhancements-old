@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShortArray.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-25 21:12:24 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 1999-08-29 19:01:46 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,9 +52,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkShortArray : public vtkDataArray
 {
 public:
-  vtkShortArray(int numComp=1);
-  ~vtkShortArray();
   static vtkShortArray *New() {return new vtkShortArray;};
+
   const char *GetClassName() {return "vtkShortArray";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -178,6 +177,9 @@ public:
   void DeepCopy(vtkDataArray &da) {this->DeepCopy(&da);}
 
 private:
+  vtkShortArray(int numComp=1);
+  ~vtkShortArray();
+
   short *Array;   // pointer to data
   short *Resize(const int sz);  // function to resize data
 

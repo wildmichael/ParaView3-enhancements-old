@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProbeFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:04 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1999-08-29 19:02:37 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,8 +55,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkProbeFilter : public vtkDataSetToDataSetFilter
 {
 public:
-  vtkProbeFilter();
-  ~vtkProbeFilter();
   static vtkProbeFilter *New() {return new vtkProbeFilter;};
   const char *GetClassName() {return "vtkProbeFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -71,6 +69,8 @@ public:
     this->SetSource(tmp->GetOutput()); tmp->Delete();}
 
 protected:
+  vtkProbeFilter();
+  ~vtkProbeFilter();
   void Execute();
   // This filter takes more than one input, so it needs this method.
   int ComputeInputUpdateExtents(vtkDataObject *output);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIntArray.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-25 21:12:23 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 1999-08-29 19:01:35 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,9 +52,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkIntArray : public vtkDataArray
 {
 public:
-  vtkIntArray(int numComp=1);
-  ~vtkIntArray();
   static vtkIntArray *New() {return new vtkIntArray;};
+
   const char *GetClassName() {return "vtkIntArray";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -160,6 +159,9 @@ public:
   
 
 private:
+  vtkIntArray(int numComp=1);
+  ~vtkIntArray();
+
   int *Array;   // pointer to data
   int *Resize(const int sz);  // function to resize data
 

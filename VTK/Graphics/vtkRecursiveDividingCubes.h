@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRecursiveDividingCubes.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:25:24 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1999-08-29 19:02:40 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,8 +65,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkRecursiveDividingCubes : public vtkStructuredPointsToPolyDataFilter
 {
 public:
-  vtkRecursiveDividingCubes();
-  ~vtkRecursiveDividingCubes();
   static vtkRecursiveDividingCubes *New() {
     return new vtkRecursiveDividingCubes;}
   const char *GetClassName() {return "vtkRecursiveDividingCubes";}
@@ -90,6 +88,8 @@ public:
   vtkGetMacro(Increment,int);
 
 protected:
+  vtkRecursiveDividingCubes();
+  ~vtkRecursiveDividingCubes();
   void Execute();
   void SubDivide(float origin[3], float h[3], float values[8]);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObjectToDataSetFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:43 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-08-29 19:02:10 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -102,8 +102,6 @@ class vtkCellArray;
 class VTK_EXPORT vtkDataObjectToDataSetFilter : public vtkSource
 {
 public:
-  vtkDataObjectToDataSetFilter();
-  ~vtkDataObjectToDataSetFilter();
   static vtkDataObjectToDataSetFilter *New() {return new vtkDataObjectToDataSetFilter;};
   const char *GetClassName() {return "vtkDataObjectToDataSetFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -266,6 +264,9 @@ public:
     {this->SetOriginComponent(arrayName, arrayComp, -1, -1);};  
 
 protected:
+  vtkDataObjectToDataSetFilter();
+  ~vtkDataObjectToDataSetFilter();
+
   void Execute(); //generate output data
   int ComputeInputUpdateExtents(vtkDataObject *output);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellCenters.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-07 13:11:01 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-08-29 19:02:05 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,7 +63,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkCellCenters : public vtkDataSetToPolyDataFilter
 {
 public:
-  vtkCellCenters();
   const char *GetClassName() {return "vtkCellCenters";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -78,6 +77,9 @@ public:
   vtkBooleanMacro(VertexCells,int);
 
 protected:
+  vtkCellCenters();
+  ~vtkCellCenters() {};
+
   void Execute();
 
   int VertexCells;

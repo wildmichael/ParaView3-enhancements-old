@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEdgeTable.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-26 17:16:16 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-08-29 19:01:31 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,8 +59,6 @@ public:
   // Instantiate object assuming that 1000 edges are to be inserted.
   static vtkEdgeTable *New() {return new vtkEdgeTable;};
 
-  vtkEdgeTable();
-  ~vtkEdgeTable();
   const char *GetClassName() {return "vtkEdgeTable";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -134,6 +132,9 @@ public:
   int GetNextEdge(int &p1, int &p2);
 
 protected:
+  vtkEdgeTable();
+  ~vtkEdgeTable();
+
   vtkIdList **Table;
   vtkIdList **Attributes;
   int StoreAttributes;

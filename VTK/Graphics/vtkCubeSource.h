@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeSource.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-07 13:11:04 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1999-08-29 19:02:08 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,7 +52,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkCubeSource : public vtkPolyDataSource 
 {
 public:
-  vtkCubeSource(float xL=1.0, float yL=1.0, float zL=1.0);
   static vtkCubeSource *New() {return new vtkCubeSource;};
   const char *GetClassName() {return "vtkCubeSource";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -86,6 +85,9 @@ public:
 
 
 protected:
+  vtkCubeSource(float xL=1.0, float yL=1.0, float zL=1.0);
+  ~vtkCubeSource() {};
+
   void Execute();
   float XLength;
   float YLength;

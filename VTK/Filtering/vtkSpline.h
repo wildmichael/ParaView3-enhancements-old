@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpline.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:18 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-08-29 19:02:47 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,8 +71,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkSpline : public vtkObject
 {
 public:
-  vtkSpline();
-  ~vtkSpline ();
   const char *GetClassName() {return "vtkSpline";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -133,6 +131,9 @@ public:
   unsigned long GetMTime();
 
 protected:
+  vtkSpline();
+  ~vtkSpline ();
+
   unsigned long ComputeTime;
   int ClampValue;
   float *Intervals;

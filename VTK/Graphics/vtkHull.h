@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHull.h,v $
   Language:  C++
-  Date:      $Date: 1999-01-05 16:58:37 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-08-29 19:02:22 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,8 +59,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkHull : public vtkPolyDataToPolyDataFilter
 {
 public:
-  vtkHull();
-  ~vtkHull();
   static vtkHull *New() {return new vtkHull;};
   const char *GetClassName() {return "vtkHull";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -119,6 +117,9 @@ public:
   void AddRecursiveSpherePlanes( int level );
 
 protected:
+  vtkHull();
+  ~vtkHull();
+
   // The planes - 4 floats per plane for A, B, C, D
   float     *Planes;
 

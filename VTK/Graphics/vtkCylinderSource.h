@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCylinderSource.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:43:45 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1999-08-29 19:02:10 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,7 +54,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkCylinderSource : public vtkPolyDataSource 
 {
 public:
-  vtkCylinderSource(int res=6);
   static vtkCylinderSource *New() {return new vtkCylinderSource;};
   const char *GetClassName() {return "vtkCylinderSource";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -86,6 +85,9 @@ public:
   vtkBooleanMacro(Capping,int);
 
 protected:
+  vtkCylinderSource(int res=6);
+  ~vtkCylinderSource() {};
+
   void Execute();
   float Height;
   float Radius;

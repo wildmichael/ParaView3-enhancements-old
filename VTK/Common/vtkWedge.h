@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWedge.h,v $
   Language:  C++
-  Date:      $Date: 1999-01-07 14:20:18 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-08-29 19:01:53 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,8 +57,6 @@ class vtkUnstructuredGrid;
 class VTK_EXPORT vtkWedge : public vtkCell
 {
 public:
-  vtkWedge();
-  ~vtkWedge();
   static vtkWedge *New() {return new vtkWedge;};
   const char *GetClassName() {return "vtkWedge";};
 
@@ -104,6 +102,9 @@ public:
   int JacobianInverse(float pcoords[3], double **inverse, float derivs[18]);
 
 protected:
+  vtkWedge();
+  ~vtkWedge();
+
   vtkLine *Line;
   vtkTriangle *Triangle;
   vtkQuad *Quad;

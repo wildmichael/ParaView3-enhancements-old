@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-30 15:57:49 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1999-08-29 19:02:01 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,9 +58,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkAppendPolyData : public vtkPolyDataToPolyDataFilter
 {
 public:
-  vtkAppendPolyData();
-  ~vtkAppendPolyData();
   static vtkAppendPolyData *New() {return new vtkAppendPolyData;}
+
   const char *GetClassName() {return "vtkAppendPolyData";}
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -90,6 +89,9 @@ public:
   vtkBooleanMacro(ParallelStreaming, int); 
 
 protected:
+  vtkAppendPolyData();
+  ~vtkAppendPolyData();
+
   // Flag for selecting parallel streaming bejhavior
   int ParallelStreaming;
 

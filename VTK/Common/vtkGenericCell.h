@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericCell.h,v $
   Language:  C++
-  Date:      $Date: 1999-01-28 18:55:15 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-08-29 19:01:33 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,9 +57,8 @@ class VTK_EXPORT vtkGenericCell : public vtkCell
 public:
   // Description:
   // Create handle to any type of cell; by default a vtkEmptyCell.
-  vtkGenericCell();
-  ~vtkGenericCell();
   static vtkGenericCell *New() {return new vtkGenericCell;};
+
   const char *GetClassName() {return "vtkGenericCell";};
 
   // Description:
@@ -121,6 +120,9 @@ public:
   void SetCellTypeToPyramid() {this->SetCellType(VTK_PYRAMID);};
 
 protected:
+  vtkGenericCell();
+  ~vtkGenericCell();
+
   vtkCell *Cell;
 };
 

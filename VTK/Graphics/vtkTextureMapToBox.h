@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToBox.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-17 20:55:53 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-08-29 19:01:59 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,7 +60,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkTextureMapToBox : public vtkDataSetToDataSetFilter 
 {
 public:
-  vtkTextureMapToBox();
   const char *GetClassName() {return "vtkTextureMapToBox";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -97,6 +96,9 @@ public:
   vtkBooleanMacro(AutomaticBoxGeneration,int);
 
 protected:
+  vtkTextureMapToBox();
+  ~vtkTextureMapToBox() {};
+
   void Execute();
   float Box[6];
   float RRange[2];

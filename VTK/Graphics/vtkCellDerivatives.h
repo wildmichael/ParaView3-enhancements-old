@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellDerivatives.h,v $
   Language:  C++
-  Date:      $Date: 1999-02-12 16:51:52 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-08-29 19:01:55 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -77,7 +77,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkCellDerivatives : public vtkDataSetToDataSetFilter 
 {
 public:
-  vtkCellDerivatives();
   const char *GetClassName() {return "vtkCellDerivatives";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -118,6 +117,8 @@ public:
   char *GetTensorModeAsString();
 
 protected:
+  vtkCellDerivatives();
+  ~vtkCellDerivatives() {};
   void Execute();
 
   int VectorMode;

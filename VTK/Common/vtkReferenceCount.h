@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkReferenceCount.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:38:16 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-08-29 19:01:45 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,12 +52,15 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkReferenceCount : public vtkObject
 {
 public:
+  static vtkReferenceCount *New() {return new vtkReferenceCount;};
+
+  const char *GetClassName() {return "vtkReferenceCount";};
+  void PrintSelf(ostream& os, vtkIndent indent);
+  
+protected:  
   vtkReferenceCount();
   ~vtkReferenceCount();
 
-  void PrintSelf(ostream& os, vtkIndent indent);
-  static vtkReferenceCount *New() {return new vtkReferenceCount;};
-  const char *GetClassName() {return "vtkReferenceCount";};
 };
 
 

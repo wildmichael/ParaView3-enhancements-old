@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiThreader.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-23 18:13:19 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1999-08-29 19:01:38 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -132,6 +132,7 @@ typedef int vtkThreadProcessIDType;
 // The UserData is the (void *)arg passed into the SetSingleMethod,
 // SetMultipleMethod, or SpawnThread method.
 
+//BTX
 struct ThreadInfoStruct
 {
   int                 ThreadID;
@@ -140,13 +141,13 @@ struct ThreadInfoStruct
   vtkMutexLock        *ActiveFlagLock;
   void                *UserData;
 };
+//ETX
 
 class VTK_EXPORT vtkMultiThreader : public vtkObject 
 {
 public:
-  vtkMultiThreader();
-  ~vtkMultiThreader();
   static vtkMultiThreader *New() {return new vtkMultiThreader;};
+
   const char *GetClassName() {return "vtkMultiThreader";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -205,6 +206,9 @@ public:
 
 
 protected:
+  vtkMultiThreader();
+  ~vtkMultiThreader();
+
   // The number of threads to use
   int                        NumberOfThreads;
 

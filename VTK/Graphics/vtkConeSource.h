@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConeSource.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:41 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1999-08-29 19:02:07 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,7 +57,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkConeSource : public vtkPolyDataSource 
 {
 public:
-  vtkConeSource(int res=6);
   const char *GetClassName() {return "vtkConeSource";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -93,6 +92,9 @@ public:
   vtkBooleanMacro(Capping,int);
 
 protected:
+  vtkConeSource(int res=6);
+  ~vtkConeSource() {};
+
   void Execute();
   void ExecuteInformation();
   float Height;

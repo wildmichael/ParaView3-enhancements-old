@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEdgePoints.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-07 13:11:09 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1999-08-29 19:02:17 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,8 +59,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkEdgePoints : public vtkDataSetToPolyDataFilter
 {
 public:
-  vtkEdgePoints();
-  ~vtkEdgePoints();
   const char *GetClassName() {return "vtkEdgePoints";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -74,6 +72,9 @@ public:
   vtkGetMacro(Value,float);
 
 protected:
+  vtkEdgePoints();
+  ~vtkEdgePoints();
+
   void Execute();
 
   float Value;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMassProperties.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:34 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-08-29 19:01:57 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,12 +60,10 @@ class VTK_EXPORT vtkMassProperties : public vtkProcessObject
 {
 public:
   // Description:
-  // Constructs with initial 0 values.
-  vtkMassProperties();
-
-  ~vtkMassProperties();
-  const char *GetClassName() {return "vtkMassProperties";};
+  // Constructs with initial values of zero.
   static vtkMassProperties *New() {return new  vtkMassProperties;};
+
+  const char *GetClassName() {return "vtkMassProperties";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
@@ -102,6 +100,9 @@ public:
   vtkPolyData *GetInput();
 
 protected:
+  vtkMassProperties();
+  ~vtkMassProperties();
+
   double  SurfaceArea;
   double  Volume ;
   double  VolumeX;
