@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAxes.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:30 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2001-04-20 14:23:47 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -75,6 +75,12 @@ public:
   vtkGetMacro(Symmetric,int);
   vtkBooleanMacro(Symmetric,int);
 
+  // Description:
+  // Option for computing normals.  By default they are computed.
+  vtkSetMacro(ComputeNormals, int);
+  vtkGetMacro(ComputeNormals, int);
+  vtkBooleanMacro(ComputeNormals, int);
+  
 protected:
   vtkAxes();
   ~vtkAxes() {};
@@ -90,6 +96,7 @@ protected:
   float ScaleFactor;
   
   int Symmetric;
+  int ComputeNormals;
 };
 
 #endif
