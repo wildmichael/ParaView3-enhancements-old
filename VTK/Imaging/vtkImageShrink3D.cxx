@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageShrink3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-23 18:49:21 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1999-10-06 13:48:56 $
+  Version:   $Revision: 1.39 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -200,8 +200,16 @@ void vtkImageShrink3D::ExecuteInformation(vtkImageData *inData,
 template <class T>
 static int compare(const T *y1,const T *y2)
 {
-  if ( *y1 <  *y2) return -1; 
-  if ( *y1 == *y2) return  0;
+  if ( *y1 <  *y2) 
+    {
+    return -1; 
+    }
+  
+  if ( *y1 == *y2) 
+    {
+    return  0;
+    }
+  
   return  1;
 }
 
