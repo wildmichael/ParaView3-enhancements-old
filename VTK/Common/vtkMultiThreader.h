@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiThreader.h,v $
   Language:  C++
-  Date:      $Date: 2003-01-02 15:02:58 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2003-01-29 21:14:52 $
+  Version:   $Revision: 1.47 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,7 +32,7 @@
 #include <unistd.h> // Needed for unix implementation of sproc
 #endif
 
-#ifdef VTK_USE_PTHREADS
+#if defined(VTK_USE_PTHREADS) || defined(VTK_HP_PTHREADS)
 #include <pthread.h> // Needed for PTHREAD implementation of mutex
 #include <sys/types.h> // Needed for unix implementation of pthreads
 #include <unistd.h> // Needed for unix implementation of pthreads

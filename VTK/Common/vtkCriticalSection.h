@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCriticalSection.h,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:24:21 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2003-01-29 21:14:52 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -45,11 +45,11 @@
 typedef abilock_t vtkCritSecType;
 #endif
 
-#ifdef VTK_USE_PTHREADS
+#if defined(VTK_USE_PTHREADS) || defined(VTK_HP_PTHREADS)
 #include <pthread.h> // Needed for pthreads implementation of mutex
 typedef pthread_mutex_t vtkCritSecType;
 #endif
- 
+
 #ifdef VTK_USE_WIN32_THREADS
 #include <winbase.h> // Needed for win32 implementation of mutex
 typedef CRITICAL_SECTION vtkCritSecType;
