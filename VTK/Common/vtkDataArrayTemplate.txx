@@ -2,11 +2,8 @@
 
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArrayTemplate.txx,v $
-  Language:  C++
-  Date:      $Date: 2003-11-21 15:12:40 $
-  Version:   $Revision: 1.4 $
 
-  Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
+  Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
   See Copyright.txt or http://www.kitware.com/Copyright.htm for details.
 
