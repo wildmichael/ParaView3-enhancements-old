@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalars.h,v $
   Language:  C++
-  Date:      $Date: 1996-05-08 18:46:03 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1996-06-08 13:12:01 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -121,6 +121,12 @@ public:
   // Description:
   // Get the scalar values for the point ids specified.
   virtual void GetScalars(vtkIdList& ptIds, vtkFloatScalars& fs);
+
+  // Description:
+  // Get the scalar values for the range of points ids specified 
+  // (i.e., p1->p2 inclusive). You must insure that the vtkFloatScalars has 
+  // been previously allocated with enough space.to hold the data.
+  virtual void GetScalars(int p1, int p2, vtkFloatScalars& fs);
 
   // Description:
   // Return all the scalar values as a short scalar

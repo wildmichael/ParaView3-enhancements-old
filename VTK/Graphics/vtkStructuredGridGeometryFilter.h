@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-25 23:50:28 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1996-06-08 13:12:05 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,7 +55,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // k-plane, you can use the extents (0,100, 0,100, 4,4). The 100 will 
 // automatically be clamped to 49.
 // .SECTION See Also
-// vtkGeometryFilter, vtkStructuredPointsFilter
+// vtkGeometryFilter vtkExtrctGrid
 
 #ifndef __vtkStructuredGridGeometryFilter_h
 #define __vtkStructuredGridGeometryFilter_h
