@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapJava.c,v $
   Language:  C++
-  Date:      $Date: 1999-06-17 12:43:17 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-10-08 21:26:02 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -233,7 +233,7 @@ void get_args(FILE *fp, int i)
   /* handle VAR FUNCTIONS */
   if (currentFunction->ArgTypes[i] == 5000)
     {
-    fprintf(fp,"  temp%i->uenv = env;\n",i);
+    fprintf(fp,"  env->GetJavaVM(&(temp%i->vm));\n",i);
     fprintf(fp,"  temp%i->uobj = env->NewGlobalRef(id0);\n",i);
     fprintf(fp,"  temp%i->mid = env->GetMethodID(env->GetObjectClass(id0),vtkJavaUTFToChar(env,id1),\"()V\");\n",i);
     return;
