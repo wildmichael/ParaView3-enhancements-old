@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssembly.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-01 16:26:34 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2000-10-24 20:23:52 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -195,7 +195,7 @@ protected:
   // Support the BuildPaths() method. Caches last paths built for
   // performance.
   vtkTimeStamp PathTime;
-  void UpdatePaths(); //apply transformations and properties recursively
+  virtual void UpdatePaths(); //apply transformations and properties recursively
   
 private:
   vtkActor *CompatibilityActor;
