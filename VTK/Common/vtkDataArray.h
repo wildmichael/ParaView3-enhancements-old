@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArray.h,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:24:21 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2003-07-02 17:24:50 $
+  Version:   $Revision: 1.48 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -40,7 +40,7 @@
 // .SECTION See Also
 // vtkBitArray vtkCharArray vtkUnsignedCharArray vtkShortArray
 // vtkUnsignedShortArray vtkIntArray vtkUnsignedIntArray vtkLongArray
-// vtkUnsignedLongArray vtkFloatArray vtkDoubleArray vtkVoidArray
+// vtkUnsignedLongArray vtkFloatArray vtkDoubleArray
 
 #ifndef __vtkDataArray_h
 #define __vtkDataArray_h
