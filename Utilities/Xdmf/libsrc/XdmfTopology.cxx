@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfTopology.cxx,v 1.4 2003-10-21 15:12:48 andy Exp $  */
-/*  Date : $Date: 2003-10-21 15:12:48 $ */
-/*  Version : $Revision: 1.4 $ */
+/*  Id : $Id: XdmfTopology.cxx,v 1.5 2003-10-21 19:37:10 andy Exp $  */
+/*  Date : $Date: 2003-10-21 19:37:10 $ */
+/*  Version : $Revision: 1.5 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -259,9 +259,12 @@ return( XDMF_SUCCESS );
 XdmfInt32
 XdmfTopology::SetOrderFromString( XdmfConstString Order ){
 XdmfInt32  i = 0, List[ XDMF_MAX_ORDER];
-istrstream  InStream( Order, strlen(Order) );
+char *NewOrder = new char[ strlen(Order) + 1];
+strcpy(NewOrder, Order);
+istrstream  InStream( NewOrder, strlen(NewOrder) );
 
 while( InStream >> List[i] ) i++;
+delete [] NewOrder;
 this->SetOrder( i, List );
 return( XDMF_SUCCESS );
 }

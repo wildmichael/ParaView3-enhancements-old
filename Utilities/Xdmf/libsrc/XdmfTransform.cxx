@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfTransform.cxx,v 1.7 2003-10-21 15:12:48 andy Exp $  */
-/*  Date : $Date: 2003-10-21 15:12:48 $ */
-/*  Version : $Revision: 1.7 $ */
+/*  Id : $Id: XdmfTransform.cxx,v 1.8 2003-10-21 19:37:10 andy Exp $  */
+/*  Date : $Date: 2003-10-21 19:37:10 $ */
+/*  Version : $Revision: 1.8 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -160,11 +160,14 @@ if( XDMF_WORD_CMP( Attribute, "Function" ) ){
       XdmfXNode  *Argument;
       XdmfArray  *TmpArray;
       XdmfTransform  TmpTransform;
-      istrstream  CDataStream(ch);
+      char* NewCH = new char [ strlen(ch) + 1 ];
+      strcpy(NewCH, ch);
+      istrstream  CDataStream(NewCH);
       CDataStream >> Id;
       while( (c = *ch++) ) {
         if( c > ' ') break;
         }
+      delete [] NewCH;
       Argument = this->DOM->FindElement( NULL, Id, Element );
       TmpTransform.SetDOM( this->DOM );
       TmpArray = TmpTransform.ElementToArray( Argument );
