@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKWArguments.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-18 19:36:11 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2003-04-22 18:23:11 $
+  Version:   $Revision: 1.9 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -43,10 +43,19 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkObjectFactory.h"
 
-#include <vtkstd/vector>
-#include <vtkstd/map>
-#include <vtkstd/string>
-#include <vtkstd/set>
+#ifdef _MSC_VER
+#pragma warning (push, 1)
+#pragma warning (disable: 4702)
+#endif
+
+#include <vector>
+#include <map>
+#include <string>
+#include <set>
+
+#ifdef _MSC_VER
+#pragma warning(pop)
+#endif
 
 //----------------------------------------------------------------------------
 //============================================================================
@@ -77,7 +86,7 @@ public:
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro( vtkKWArguments );
-vtkCxxRevisionMacro(vtkKWArguments, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkKWArguments, "$Revision: 1.9 $");
 
 //----------------------------------------------------------------------------
 vtkKWArguments::vtkKWArguments()
