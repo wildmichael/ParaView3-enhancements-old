@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitWindowFunction.h,v $
   Language:  C++
-  Date:      $Date: 1996-10-11 16:28:08 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1996-10-11 16:34:38 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,8 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkImplicitWindowFunction - implicit function maps another
-implicit function to lie within a specified range
+// .NAME vtkImplicitWindowFunction - implicit function maps another implicit function to lie within a specified range
 // .SECTION Description
 // vtkImplicitWindowFunction is used to modify the output of another
 // implicit function to lie within a specified "window", or function
