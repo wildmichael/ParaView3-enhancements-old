@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEmptyCell.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-22 19:12:48 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-07-12 20:33:38 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -83,7 +83,7 @@ int vtkEmptyCell::CellBoundary(int vtkNotUsed(subId),
 }
 
 void vtkEmptyCell::Contour(float vtkNotUsed(value), 
-			   vtkScalars *vtkNotUsed(cellScalars), 
+			   vtkDataArray *vtkNotUsed(cellScalars), 
 			   vtkPointLocator *vtkNotUsed(locator),
 			   vtkCellArray *vtkNotUsed(verts), 
 			   vtkCellArray *vtkNotUsed(lines), 
@@ -128,7 +128,7 @@ void vtkEmptyCell::Derivatives(int vtkNotUsed(subId),
 }
 
 void vtkEmptyCell::Clip(float vtkNotUsed(value), 
-			vtkScalars *vtkNotUsed(cellScalars), 
+			vtkDataArray *vtkNotUsed(cellScalars), 
 			vtkPointLocator *vtkNotUsed(locator), 
 			vtkCellArray *vtkNotUsed(verts),    
 			vtkPointData *vtkNotUsed(inPD),

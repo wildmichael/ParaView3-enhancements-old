@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-22 19:12:48 $
-  Version:   $Revision: 1.67 $
+  Date:      $Date: 2001-07-12 20:33:38 $
+  Version:   $Revision: 1.68 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -195,12 +195,23 @@ public:
   // generated contouring primitives. (Note: the CopyAllocate() method
   // must be invoked on both the output cell and point data. The 
   // cellId refers to the cell from which the cell data is copied.)
-  virtual void Contour(float value, vtkScalars *cellScalars, 
+  virtual void Contour(float value, vtkDataArray *cellScalars, 
                        vtkPointLocator *locator, vtkCellArray *verts, 
                        vtkCellArray *lines, vtkCellArray *polys, 
                        vtkPointData *inPd, vtkPointData *outPd,
                        vtkCellData *inCd, vtkIdType cellId,
                        vtkCellData *outCd) = 0;
+  virtual void Contour(float value, vtkScalars *cellScalars, 
+                       vtkPointLocator *locator, vtkCellArray *verts, 
+                       vtkCellArray *lines, vtkCellArray *polys, 
+                       vtkPointData *inPd, vtkPointData *outPd,
+                       vtkCellData *inCd, vtkIdType cellId,
+                       vtkCellData *outCd)
+    {
+      VTK_LEGACY_METHOD("Contour", "4.0");
+      this->Contour(value, cellScalars->GetData(), locator, verts, 
+		    lines, polys, inPd, outPd, inCd, cellId, outCd);
+    }
 
   // Description:
   // Cut (or clip) the cell based on the input cellScalars and the
@@ -213,11 +224,21 @@ public:
   // passed to the generated contouring primitives. (Note: the CopyAllocate() 
   // method must be invoked on both the output cell and point data. The
   // cellId refers to the cell from which the cell data is copied.)
-  virtual void Clip(float value, vtkScalars *cellScalars, 
+  virtual void Clip(float value, vtkDataArray *cellScalars, 
                     vtkPointLocator *locator, vtkCellArray *connectivity,
                     vtkPointData *inPd, vtkPointData *outPd,
                     vtkCellData *inCd, vtkIdType cellId, vtkCellData *outCd, 
                     int insideOut) = 0;
+  virtual void Clip(float value, vtkScalars *cellScalars, 
+                    vtkPointLocator *locator, vtkCellArray *connectivity,
+                    vtkPointData *inPd, vtkPointData *outPd,
+                    vtkCellData *inCd, vtkIdType cellId, vtkCellData *outCd, 
+                    int insideOut)
+    {
+      VTK_LEGACY_METHOD("Clip", "4.0");
+      this->Clip(value, cellScalars->GetData(), locator, connectivity, 
+		 inPd, outPd, inCd, cellId, outCd, insideOut);
+    }
 
   // Description:
   // Intersect with a ray. Return parametric coordinates (both line and cell)

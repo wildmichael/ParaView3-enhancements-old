@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericCell.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-22 19:12:48 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-07-12 20:33:38 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -157,7 +157,7 @@ void vtkGenericCell::EvaluateLocation(int& subId, float pcoords[3],
   this->Cell->EvaluateLocation(subId, pcoords, x, weights);
 }
 
-void vtkGenericCell::Contour(float value, vtkScalars *cellScalars, 
+void vtkGenericCell::Contour(float value, vtkDataArray *cellScalars, 
                              vtkPointLocator *locator, vtkCellArray *verts, 
                              vtkCellArray *lines, vtkCellArray *polys, 
                              vtkPointData *inPd, vtkPointData *outPd,
@@ -168,7 +168,7 @@ void vtkGenericCell::Contour(float value, vtkScalars *cellScalars,
 		      inPd, outPd, inCd, cellId, outCd);
 }
 
-void vtkGenericCell::Clip(float value, vtkScalars *cellScalars, 
+void vtkGenericCell::Clip(float value, vtkDataArray *cellScalars, 
                           vtkPointLocator *locator, vtkCellArray *connectivity,
                           vtkPointData *inPd, vtkPointData *outPd,
                           vtkCellData *inCd, vtkIdType cellId,

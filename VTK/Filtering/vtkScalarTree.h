@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarTree.h,v $
   Language:  C++
-  Date:      $Date: 2001-07-03 15:12:38 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2001-07-12 20:33:38 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,6 +68,7 @@ typedef struct _vtkScalarRange
   float max;
 } vtkScalarRange;
 
+class vtkFloatArray;
 
 class VTK_EXPORT vtkScalarTree : public vtkObject
 {
@@ -123,6 +124,8 @@ public:
   // exhausted. Make sure that InitTraversal() has been invoked first or
   // you'll get erratic behavior.
   vtkCell *GetNextCell(vtkIdType &cellId, vtkIdList* &ptIds,
+                       vtkDataArray *cellScalars);
+  vtkCell *GetNextCell(vtkIdType &cellId, vtkIdList* &ptIds,
                        vtkScalars *cellScalars);
 
 protected:
@@ -132,7 +135,7 @@ protected:
   void operator=(const vtkScalarTree&) {};
 
   vtkDataSet *DataSet;
-  vtkScalars *Scalars;
+  vtkDataArray *Scalars;
   int MaxLevel;
   int Level;
   int BranchingFactor; //number of children per node

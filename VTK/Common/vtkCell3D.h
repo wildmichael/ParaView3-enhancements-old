@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell3D.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-22 19:12:48 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-07-12 20:33:38 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -88,11 +88,21 @@ public:
   // generated contouring primitives. (Note: the CopyAllocate() method must
   // be invoked on both the output cell and point data. The cellId refers to
   // the cell from which the cell data is copied.)  (Satisfies vtkCell API.)
-  virtual void Clip(float value, vtkScalars *cellScalars, 
+  virtual void Clip(float value, vtkDataArray *cellScalars, 
                     vtkPointLocator *locator, vtkCellArray *connectivity,
                     vtkPointData *inPd, vtkPointData *outPd,
                     vtkCellData *inCd, vtkIdType cellId, vtkCellData *outCd, 
                     int insideOut);
+  virtual void Clip(float value, vtkScalars *cellScalars, 
+                    vtkPointLocator *locator, vtkCellArray *connectivity,
+                    vtkPointData *inPd, vtkPointData *outPd,
+                    vtkCellData *inCd, vtkIdType cellId, vtkCellData *outCd, 
+                    int insideOut)
+    {
+      vtkWarningMacro("The use of this method has been deprecated.You should use vtkGenericCell::Clip(float, vtkDataArray*, vtkPointLocator*, vtkCellArray*, vtkPointData*, vtkPointData*, vtkCellData*, vtkIdType, vtkCellData*, int) instead.");
+      this->Clip(value, cellScalars->GetData(), locator, connectivity, 
+		 inPd, outPd, inCd, cellId, outCd, insideOut);
+    }
 
   // Description:
   // The topological dimension of the cell. (Satisfies vtkCell API.)

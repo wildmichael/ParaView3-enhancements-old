@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-05 13:21:58 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2001-07-12 20:33:38 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -496,6 +496,28 @@ void vtkDataArray::CopyComponent(const int j, vtkDataArray *from,
     {
     this->SetComponent(i, j, from->GetComponent(i, fromComponent));
     }
+}
+
+void vtkDataArray::GetRange(float range[2], int comp)
+{
+  float s;
+  vtkIdType numTuples=this->GetNumberOfTuples();
+
+  range[0] =  VTK_LARGE_FLOAT;
+  range[1] =  -VTK_LARGE_FLOAT;
+  for (vtkIdType i=0; i<numTuples; i++)
+    {
+    s = this->GetComponent(i,comp);
+    if ( s < range[0] )
+      {
+      range[0] = s;
+      }
+    if ( s > range[1] )
+      {
+      range[1] = s;
+      }
+    }
+
 }
 
 void vtkDataArray::PrintSelf(ostream& os, vtkIndent indent)

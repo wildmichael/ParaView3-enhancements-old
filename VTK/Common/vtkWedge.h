@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWedge.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-22 19:12:49 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-07-12 20:33:38 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -76,11 +76,22 @@ public:
   vtkCell *GetEdge(int edgeId);
   vtkCell *GetFace(int faceId);
   int CellBoundary(int subId, float pcoords[3], vtkIdList *pts);
-  void Contour(float value, vtkScalars *cellScalars, 
+  void Contour(float value, vtkDataArray *cellScalars, 
                vtkPointLocator *locator, vtkCellArray *verts, 
                vtkCellArray *lines, vtkCellArray *polys,
                vtkPointData *inPd, vtkPointData *outPd,
                vtkCellData *inCd, vtkIdType cellId, vtkCellData *outCd);
+  virtual void Contour(float value, vtkScalars *cellScalars, 
+                       vtkPointLocator *locator, vtkCellArray *verts, 
+                       vtkCellArray *lines, vtkCellArray *polys, 
+                       vtkPointData *inPd, vtkPointData *outPd,
+                       vtkCellData *inCd, vtkIdType cellId,
+                       vtkCellData *outCd)
+    {
+      VTK_LEGACY_METHOD("Contour", "4.0");
+      this->Contour(value, cellScalars->GetData(), locator, verts, 
+		    lines, polys, inPd, outPd, inCd, cellId, outCd);
+    }
   int EvaluatePosition(float x[3], float* closestPoint,
                        int& subId, float pcoords[3],
                        float& dist2, float *weights);

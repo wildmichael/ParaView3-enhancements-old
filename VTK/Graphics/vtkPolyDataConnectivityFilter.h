@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataConnectivityFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-29 17:14:46 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-07-12 20:33:39 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -76,6 +76,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define VTK_EXTRACT_LARGEST_REGION 4
 #define VTK_EXTRACT_ALL_REGIONS 5
 #define VTK_EXTRACT_CLOSEST_POINT_REGION 6
+
+class vtkDataArray;
 
 class VTK_EXPORT vtkPolyDataConnectivityFilter : public vtkPolyDataToPolyDataFilter
 {
@@ -184,15 +186,15 @@ protected:
 
 private:
   // used to support algorithm execution
-  vtkScalars *CellScalars;
+  vtkDataArray *CellScalars;
   vtkIdList *NeighborCellPointIds;
   int *Visited;
   vtkIdType *PointMap;
-  vtkScalars *NewScalars;
+  vtkDataArray *NewScalars;
   int RegionNumber;
   vtkIdType PointNumber;    
   vtkIdType NumCellsInRegion;
-  vtkScalars *InScalars;
+  vtkDataArray *InScalars;
   vtkPolyData *Mesh;
   vtkIdList *Wave;
   vtkIdList *Wave2;

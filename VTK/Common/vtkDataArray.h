@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArray.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-27 18:09:50 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2001-07-12 20:33:38 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -263,6 +263,12 @@ public:
   // Set/get array's name
   void SetName(const char* name);
   const char* GetName();
+
+  // Description:
+  // Return the range of the array values for the given component. 
+  // Note that the range is computed every time GetRange() is called.
+  // Range copied into array provided.
+  void GetRange(float range[2], int comp);
 
   // Description:
   // Creates an array for dataType where dataType is one of

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-27 13:24:31 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 2001-07-12 20:33:39 $
+  Version:   $Revision: 1.62 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -115,7 +115,7 @@ void vtkCutter::Execute()
   vtkIdType cellId, i;
   int iter;
   vtkPoints *cellPts;
-  vtkScalars *cellScalars=vtkScalars::New();
+  vtkFloatArray *cellScalars=vtkFloatArray::New();
   vtkGenericCell *cell;
   vtkCellArray *newVerts, *newLines, *newPolys;
   vtkPoints *newPoints;
@@ -229,11 +229,11 @@ void vtkCutter::Execute()
         cellIds = cell->GetPointIds();
 
         numCellPts = cellPts->GetNumberOfPoints();
-        cellScalars->SetNumberOfScalars(numCellPts);
+        cellScalars->SetNumberOfTuples(numCellPts);
         for (i=0; i < numCellPts; i++)
           {
           s = cutScalars->GetComponent(cellIds->GetId(i),0);
-          cellScalars->SetScalar(i,s);
+          cellScalars->SetTuple(i,&s);
           }
 
         value = this->ContourValues->GetValue(iter);
@@ -257,11 +257,11 @@ void vtkCutter::Execute()
       cellIds = cell->GetPointIds();
 
       numCellPts = cellPts->GetNumberOfPoints();
-      cellScalars->SetNumberOfScalars(numCellPts);
+      cellScalars->SetNumberOfTuples(numCellPts);
       for (i=0; i < numCellPts; i++)
         {
         s = cutScalars->GetComponent(cellIds->GetId(i),0);
-        cellScalars->SetScalar(i,s);
+        cellScalars->SetTuple(i,&s);
         }
 
       // Loop over all contour values.

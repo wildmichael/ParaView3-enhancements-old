@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataNormals.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-29 17:14:46 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2001-07-12 20:33:39 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -63,6 +63,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define __vtkPolyDataNormals_h
 
 #include "vtkPolyDataToPolyDataFilter.h"
+class vtkFloatArray;
 
 class VTK_EXPORT vtkPolyDataNormals : public vtkPolyDataToPolyDataFilter
 {
@@ -164,7 +165,7 @@ private:
   vtkPolyData *OldMesh;
   vtkPolyData *NewMesh;
   int *Visited;
-  vtkNormals *PolyNormals;
+  vtkFloatArray *PolyNormals;
   float CosAngle;
 
   // Uses the list of cell ids (this->Wave) to propagate a wave of

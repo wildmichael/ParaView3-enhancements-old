@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHexahedron.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-11 15:09:38 $
-  Version:   $Revision: 1.72 $
+  Date:      $Date: 2001-07-12 20:33:38 $
+  Version:   $Revision: 1.73 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -400,7 +400,7 @@ vtkHexahedron* vtkHexahedron::New()
 
 
 
-void vtkHexahedron::Contour(float value, vtkScalars *cellScalars, 
+void vtkHexahedron::Contour(float value, vtkDataArray *cellScalars, 
 			    vtkPointLocator *locator,
 			    vtkCellArray *vtkNotUsed(verts), 
 			    vtkCellArray *vtkNotUsed(lines), 
@@ -420,7 +420,7 @@ void vtkHexahedron::Contour(float value, vtkScalars *cellScalars,
   // Build the case table
   for ( i=0, index = 0; i < 8; i++)
     {
-    if (cellScalars->GetScalar(i) >= value)
+    if (cellScalars->GetComponent(i,0) >= value)
       {
       index |= CASE_MASK[i];
       }
@@ -435,7 +435,8 @@ void vtkHexahedron::Contour(float value, vtkScalars *cellScalars,
       {
       vert = edges[edge[i]];
       // calculate a preferred interpolation direction
-      deltaScalar = (cellScalars->GetScalar(vert[1]) - cellScalars->GetScalar(vert[0]));
+      deltaScalar = (cellScalars->GetComponent(vert[1],0) 
+		     - cellScalars->GetComponent(vert[0],0));
       if (deltaScalar > 0)
         {
 	e1 = vert[0]; e2 = vert[1];
@@ -453,7 +454,7 @@ void vtkHexahedron::Contour(float value, vtkScalars *cellScalars,
 	}
       else
 	{
-	t = (value - cellScalars->GetScalar(e1)) / deltaScalar;
+	t = (value - cellScalars->GetComponent(e1,0)) / deltaScalar;
 	}
 
       this->Points->GetPoint(e1, x1);
