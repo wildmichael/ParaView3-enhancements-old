@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-03-03 21:05:38 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-03-05 16:13:44 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -88,6 +88,7 @@ public:
   // Set the input text string to the mapper.  The mapper doesn't parse 
   // the string for carriage returns or line feeds.
   vtkSetStringMacro(Input);
+  vtkGetStringMacro(Input);
 
   // Description:
   // Set the font size used by the mapper.  The subclasses can override
