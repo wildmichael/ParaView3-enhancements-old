@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScaledTextActor.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-16 13:30:39 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-09-21 00:50:25 $
+  Version:   $Revision: 1.6 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -98,6 +98,13 @@ public:
   vtkGetVector2Macro(MinimumSize,int);
   
   // Description:
+  // Set/Get the maximum height of a line of text as a 
+  // percentage of the vertical area allocated to this
+  // scaled text actor. Defaults to 1.0
+  vtkSetMacro(MaximumLineHeight,float);
+  vtkGetMacro(MaximumLineHeight,float);
+  
+  // Description:
   // Release any graphics resources that are being consumed by this actor.
   // The parameter window could be used to determine which graphic
   // resources to release.
@@ -110,6 +117,7 @@ protected:
   void operator=(const vtkScaledTextActor&) {};
 
   int MinimumSize[2];
+  float MaximumLineHeight;
   
   vtkActor2D *TextActor;
   vtkCoordinate *Position2Coordinate;

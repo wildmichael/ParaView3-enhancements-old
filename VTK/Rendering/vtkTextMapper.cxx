@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-04 20:54:34 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1999-09-21 00:50:26 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -158,32 +158,31 @@ int vtkTextMapper::GetHeight(vtkViewport* viewport)
 // (delimited by \n) are specified.
 void vtkTextMapper::SetInput(char *input)
 {
+  if ( this->Input && input && (!strcmp(this->Input,input))) 
+    {
+    return;
+    }
+  if (this->Input) 
+    { 
+    delete [] this->Input; 
+    }  
+  if (input)
+    {
+    this->Input = new char[strlen(input)+1];
+    strcpy(this->Input,input);
+    }
+  else
+    {
+    this->Input = NULL;
+    }
+  this->Modified();
+  
   int numLines = this->GetNumberOfLines(input);
-
+  
   if ( numLines <= 1) // a line with no "\n"
     {
-    this->NumberOfLines = 0;
+    this->NumberOfLines = numLines;
     this->LineOffset = 0.0;
-    if ( this->Input && input && (!strcmp(this->Input,input))) 
-      {
-      return;
-      }
-    
-    if (this->Input) 
-      { 
-      delete [] this->Input; 
-      }
-    
-    if (input)
-      {
-      this->Input = new char[strlen(input)+1];
-      strcpy(this->Input,input);
-      }
-     else
-      {
-      this->Input = NULL;
-      }
-    this->Modified();
     }
 
   else //multiple lines
@@ -217,10 +216,6 @@ void vtkTextMapper::SetInput(char *input)
     for (i=0; i < this->NumberOfLines; i++)
       {
       line = this->NextLine(input, i);
-      if (!this->TextLines[i]->GetInput() || strcmp(line,this->TextLines[i]->GetInput()))
-        {
-        this->Modified();
-        }
       this->TextLines[i]->SetInput( line );
       delete [] line;
       }

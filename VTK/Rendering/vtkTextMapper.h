@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:42 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1999-09-21 00:50:26 $
+  Version:   $Revision: 1.23 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -174,7 +174,8 @@ public:
   vtkGetMacro(LineOffset, float);
   vtkSetMacro(LineSpacing, float);
   vtkGetMacro(LineSpacing, float);
-
+  vtkGetMacro(NumberOfLines,int);
+  
 protected:
   vtkTextMapper();
   ~vtkTextMapper();
