@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-29 21:58:27 $
-  Version:   $Revision: 1.119 $
+  Date:      $Date: 2002-01-30 17:06:49 $
+  Version:   $Revision: 1.120 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -36,8 +36,9 @@
 #include "vtkErrorCode.h"
 
 #include <ctype.h>
+#include <sys/stat.h>
 
-vtkCxxRevisionMacro(vtkDataReader, "$Revision: 1.119 $");
+vtkCxxRevisionMacro(vtkDataReader, "$Revision: 1.120 $");
 vtkStandardNewMacro(vtkDataReader);
 
 // this undef is required on the hp. vtkMutexLock ends up including
@@ -362,6 +363,16 @@ int vtkDataReader::OpenVTKFile()
       {
       vtkErrorMacro(<< "No file specified!");
       this->SetErrorCode( vtkErrorCode::NoFileNameError );
+      return 0;
+      }
+
+    // first make sure the file exists, this prevents an empty file from
+    // being created on older compilers
+    struct stat fs;
+    if (stat(this->FileName, &fs) != 0) 
+      {
+      vtkErrorMacro(<< "Unable to open file: "<< this->FileName);
+      this->SetErrorCode( vtkErrorCode::CannotOpenFileError );
       return 0;
       }
     this->IS = new ifstream(this->FileName, ios::in);
