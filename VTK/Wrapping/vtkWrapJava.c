@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapJava.c,v $
   Language:  C++
-  Date:      $Date: 1999-06-15 15:19:07 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-06-15 19:51:08 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -524,7 +524,7 @@ void outputFunction(FILE *fp, FileInfo *data)
 		{
 	      fprintf(fp,"temp%i",i);
 		}
-	  } //for
+	  } /* for */
       fprintf(fp,");\n");
       if (currentFunction->NumberOfArguments == 1 && currentFunction->ArgTypes[0] == 5000)
 	  {
@@ -537,8 +537,8 @@ void outputFunction(FILE *fp, FileInfo *data)
       
       wrappedFunctions[numberOfWrappedFunctions] = currentFunction;
       numberOfWrappedFunctions++;
-    } //isDone()
-  } //isAbstract
+    } /* isDone() */
+  } /* isAbstract */
 }
 
 /* print the parsed structures */
