@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSocketController.h,v $
   Language:  C++
-  Date:      $Date: 2001-03-27 16:15:00 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-06-14 17:34:10 $
+  Version:   $Revision: 1.2 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -101,8 +101,8 @@ public:
   // to the communicator
   virtual int WaitForConnection(int port, int timeout)
     { 
-      vtkSocketCommunicator::SafeDownCast(this->Communicator)->
-	WaitForConnection(port,timeout); 
+    return vtkSocketCommunicator::SafeDownCast(this->Communicator)->
+      WaitForConnection(port,timeout); 
     }
 
   // Description:
@@ -110,8 +110,8 @@ public:
   // to the communicator
   virtual void CloseConnection()
     { 
-      vtkSocketCommunicator::SafeDownCast(this->Communicator)->
-	CloseConnection(); 
+    vtkSocketCommunicator::SafeDownCast(this->Communicator)->
+      CloseConnection(); 
     }
 
   // Description:
@@ -119,9 +119,19 @@ public:
   // to the communicator
   virtual int ConnectTo( char* hostName, int port )
     { 
-      vtkSocketCommunicator::SafeDownCast(this->Communicator)->
-	ConnectTo(hostName, port); 
+    return vtkSocketCommunicator::SafeDownCast(this->Communicator)->
+      ConnectTo(hostName, port); 
     }
+
+  int GetSwapBytesInReceivedData()
+    {
+    return vtkSocketCommunicator::SafeDownCast(this->Communicator)->
+      GetSwapBytesInReceivedData();
+    }
+
+  enum Consts {
+    ENDIAN_TAG=1010580540 // 0x3c3c3c3c
+  };
 
 protected:
 
@@ -132,10 +142,7 @@ protected:
 
   // Initialize only once, finialize on destruction.
   static int Initialized;
-
 };
 
 
 #endif
-
-
