@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-24 09:43:34 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1995-07-25 12:48:31 $
+  Version:   $Revision: 1.15 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -83,7 +83,6 @@ void vtkXRenderWindowInteractor::Initialize(XtAppContext app)
 // Begin processing keyboard strokes.
 void vtkXRenderWindowInteractor::Initialize()
 {
-  Display *display;
   static int any_initialized = 0;
   static XtAppContext app;
   vtkXRenderWindow *ren;
@@ -154,7 +153,7 @@ void vtkXRenderWindowInteractor::Initialize()
   XtRealizeWidget(this->top);
 
   /* add callback */
-  XSync(display,False);
+  XSync(this->DisplayId,False);
   ren->SetWindowId(XtWindow(this->top));
   this->WindowId = XtWindow(this->top);
   ren->Render();
@@ -495,7 +494,6 @@ void vtkXRenderWindowInteractorTimer(XtPointer client_data,XtIntervalId *id)
 // Setup a new window before a WindowRemap
 void vtkXRenderWindowInteractor::SetupNewWindow(int Stereo)
 {
-  Display *display;
   vtkXRenderWindow *ren;
   int depth;
   Colormap cmap;
@@ -506,7 +504,7 @@ void vtkXRenderWindowInteractor::SetupNewWindow(int Stereo)
 
   // get the info we need from the RenderingWindow
   ren = (vtkXRenderWindow *)(this->RenderWindow);
-  display = ren->GetDisplayId();
+  this->DisplayId = ren->GetDisplayId();
   depth   = ren->GetDesiredDepth();
   cmap    = ren->GetDesiredColormap();
   vis     = ren->GetDesiredVisual();
@@ -532,7 +530,7 @@ void vtkXRenderWindowInteractor::SetupNewWindow(int Stereo)
 
   this->top = XtVaAppCreateShell(this->RenderWindow->GetName(),"vtk",
 				 applicationShellWidgetClass,
-				 display,
+				 this->DisplayId,
 				 XtNdepth, depth,
 				 XtNcolormap, cmap,
 				 XtNvisual, vis,
@@ -546,7 +544,7 @@ void vtkXRenderWindowInteractor::SetupNewWindow(int Stereo)
   XtRealizeWidget(this->top);
   
   /* add callback */
-  XSync(display,False);
+  XSync(this->DisplayId,False);
   ren->SetNextWindowId(XtWindow(this->top));
   this->WindowId = XtWindow(this->top);
 }
