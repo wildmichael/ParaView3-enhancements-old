@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-22 17:15:19 $
-  Version:   $Revision: 1.84 $
+  Date:      $Date: 2001-07-03 14:05:56 $
+  Version:   $Revision: 1.85 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -220,7 +220,7 @@ vtkScalars *vtkMapper::GetColors()
   vtkDataArray *dataArray=0;
   vtkPointData *pd;
   vtkCellData *cd;
-  int i, numScalars;
+  vtkIdType i, numScalars;
   
   // make sure we have an input
   if (!this->GetInput())
@@ -388,7 +388,8 @@ void vtkMapper::ColorByArrayComponent(int arrayNum, int component)
 
 void vtkMapper::ColorByArrayComponent(char* arrayName, int component)
 {
-  if (strcmp(this->ArrayName, arrayName) == 0 && component == this->ArrayComponent &&
+  if (strcmp(this->ArrayName, arrayName) == 0 &&
+      component == this->ArrayComponent &&
       this->ArrayAccessMode == VTK_GET_ARRAY_BY_ID)
     {
     return;
@@ -436,7 +437,6 @@ void vtkMapper::CreateDefaultLookupTable()
   this->LookupTable = vtkLookupTable::New();
 }
 
-
 // Update the network connected to this mapper.
 void vtkMapper::Update()
 {
@@ -445,7 +445,6 @@ void vtkMapper::Update()
     this->GetInput()->Update();
     }
 }
-
 
 // Return the method of coloring scalar data.
 const char *vtkMapper::GetColorModeAsString(void)
@@ -536,4 +535,3 @@ void vtkMapper::PrintSelf(ostream& os, vtkIndent indent)
     os << "Shift Z-Buffer" << endl;
     }
 }
-

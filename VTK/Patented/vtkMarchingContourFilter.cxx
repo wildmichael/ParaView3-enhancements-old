@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-22 12:48:07 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-07-03 14:05:57 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,9 +68,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkImageMarchingCubes.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 vtkMarchingContourFilter* vtkMarchingContourFilter::New()
 {
   // First try to create the object from the vtkObjectFactory
@@ -82,9 +80,6 @@ vtkMarchingContourFilter* vtkMarchingContourFilter::New()
   // If the factory was unable to create the object, then create it here.
   return new vtkMarchingContourFilter;
 }
-
-
-
 
 // Construct object with initial range (0,1) and single contour value
 // of 0.0.
@@ -144,7 +139,7 @@ void vtkMarchingContourFilter::Execute()
 {
   vtkScalars *inScalars;
   vtkDataSet *input=this->GetInput();
-  int numCells;
+  vtkIdType numCells;
   
   vtkDebugMacro(<< "Executing marching contour filter");
 
@@ -375,4 +370,3 @@ void vtkMarchingContourFilter::PrintSelf(ostream& os, vtkIndent indent)
     os << indent << "Locator: (none)\n";
     }
 }
-

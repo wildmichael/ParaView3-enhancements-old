@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSweptSurface.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-23 14:10:46 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2001-07-03 14:05:57 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -184,10 +184,11 @@ protected:
   void Cap(vtkScalars *s);
   void GetRelativePosition(vtkTransform &t, float *origin, float *position);
   vtkMatrix4x4* GetActorMatrixPointer(vtkTransform &t,
-				     float origin[3],
+                                      float origin[3],
 				     float position[3], float orientation[3]);
   virtual void InterpolateStates(float *pos1, float *pos2, float *euler1, 
-		float *euler2, float t, float *posOut, float *eulerOut);
+                                 float *euler2, float t, float *posOut,
+                                 float *eulerOut);
 
   int SampleDimensions[3];
   float FillValue;
@@ -206,5 +207,3 @@ private:
 };
 
 #endif
-
-

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGridSynchronizedTemplates3D.h,v $
   Language:  C++
-  Date:      $Date: 2001-03-28 17:37:07 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-07-03 14:05:57 $
+  Version:   $Revision: 1.19 $
 
 
 
@@ -196,10 +196,7 @@ private:
   //BTX
   friend VTK_EXPORT vtkKitwareContourFilter;
   //ETX
-
-
 };
 
 
 #endif
-
