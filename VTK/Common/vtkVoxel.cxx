@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxel.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-10-29 16:34:00 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 1997-12-05 20:12:35 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -471,7 +471,7 @@ int vtkVoxel::Triangulate(int index, vtkIdList &ptIds, vtkFloatPoints &pts)
       pts.InsertNextPoint(this->Points.GetPoint(p[i]));
       }
 
-    p[0] = 1; p[1] = 3; p[2] = 5; p[3] = 6;
+    p[0] = 0; p[1] = 3; p[2] = 5; p[3] = 6;
     for ( i=0; i < 4; i++ )
       {
       ptIds.InsertNextId(this->PointIds.GetId(p[i]));
