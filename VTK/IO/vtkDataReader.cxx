@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-11-05 17:17:58 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1996-01-11 21:25:02 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -894,7 +894,8 @@ int vtkDataReader::ReadCoScalarData(FILE *fp, vtkDataSet *ds, int numPts)
 // Read texture coordinates point attributes. Return 0 if error.
 int vtkDataReader::ReadTCoordsData(FILE *fp, vtkDataSet *ds, int numPts)
 {
-  int retStat, i, dim, skipTCoord;
+  int retStat, i, dim;
+  int skipTCoord = 0;
   char line[257], name[257];
   vtkByteSwap swap;
 
