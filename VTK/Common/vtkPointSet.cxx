@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-28 13:05:12 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1996-01-09 21:47:48 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -114,6 +114,24 @@ unsigned long int vtkPointSet::GetMTime()
   // SetPoints() method.
 
   return dsTime;
+}
+
+int vtkPointSet::FindPoint(float x[3])
+{
+  if ( !this->Points ) return -1;
+
+  if ( !this->Locator )
+    {
+    this->Locator = new vtkLocator;
+    this->Locator->SetPoints(this->Points);
+    }
+
+  if ( this->Points->GetMTime() > this->Locator->GetMTime() )
+    {
+    this->Locator->SetPoints(this->Points);
+    }
+
+  return this->Locator->FindClosestPoint(x);
 }
 
 int vtkPointSet::FindCell(float x[3], vtkCell *cell, float tol2, int& subId,
