@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLookupTable.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-02 11:45:35 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 1999-07-03 18:04:20 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -94,12 +94,8 @@ void  vtkLookupTable
     return;
     }
 
-  if (this->TableRange[0] != min || this->TableRange[1] != max)
-    {
-    this->TableRange[0] = min;
-    this->TableRange[1] = max;
-    this->Modified();
-    }
+  this->TableRange[0] = min;
+  this->TableRange[1] = max;
 }
 
 // Allocate a color table of specified size.
