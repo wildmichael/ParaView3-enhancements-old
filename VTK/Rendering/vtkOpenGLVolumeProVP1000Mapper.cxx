@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLVolumeProVP1000Mapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-29 16:47:22 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-08-26 17:53:31 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,7 @@
 
 #include <GL/gl.h>
 
-vtkCxxRevisionMacro(vtkOpenGLVolumeProVP1000Mapper, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkOpenGLVolumeProVP1000Mapper, "$Revision: 1.12 $");
 vtkStandardNewMacro(vtkOpenGLVolumeProVP1000Mapper);
 
 void vtkOpenGLVolumeProVP1000Mapper::RenderImageBuffer(vtkRenderer  *ren,
@@ -249,4 +249,10 @@ void vtkOpenGLVolumeProVP1000Mapper::RenderBoundingBox(vtkRenderer *ren,
   
   glEnable( GL_LIGHTING );
   glFlush();
+}
+
+//----------------------------------------------------------------------------
+void vtkOpenGLVolumeProVP1000Mapper::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
 }

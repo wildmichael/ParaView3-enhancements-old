@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLVolumeProVG500Mapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-29 16:47:22 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-08-26 17:53:31 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 
 #include <GL/gl.h>
 
-vtkCxxRevisionMacro(vtkOpenGLVolumeProVG500Mapper, "$Revision: 1.18 $");
+vtkCxxRevisionMacro(vtkOpenGLVolumeProVG500Mapper, "$Revision: 1.19 $");
 vtkStandardNewMacro(vtkOpenGLVolumeProVG500Mapper);
 
 void vtkOpenGLVolumeProVG500Mapper::RenderHexagon(  vtkRenderer  *ren,
@@ -145,3 +145,8 @@ void vtkOpenGLVolumeProVG500Mapper::RenderHexagon(  vtkRenderer  *ren,
   glEnable( GL_LIGHTING );
 }
 
+//----------------------------------------------------------------------------
+void vtkOpenGLVolumeProVG500Mapper::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
+}
