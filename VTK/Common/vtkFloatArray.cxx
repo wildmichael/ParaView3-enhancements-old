@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkFloatArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-07-16 21:58:39 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1994-07-19 08:02:45 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -43,7 +43,7 @@ void vlFloatArray::Initialize()
 }
 
 // Description:
-// 
+// Construct with specified storage and extend value.
 vlFloatArray::vlFloatArray(const int sz, const int ext)
 {
   this->Size = ( sz > 0 ? sz : 1);
@@ -96,7 +96,7 @@ vlFloatArray& vlFloatArray::operator=(const vlFloatArray& fa)
 
 // Description:
 // Append one array onto the end of this array.
-vlFloatArray& vlFloatArray::operator+=(const vlFloatArray& fa)
+void vlFloatArray::operator+=(const vlFloatArray& fa)
 {
   int i, sz;
 
@@ -107,8 +107,6 @@ vlFloatArray& vlFloatArray::operator+=(const vlFloatArray& fa)
     this->Array[this->MaxId+1+i] = fa.Array[i];
     }
   this->MaxId += fa.MaxId + 1;
-
-  return *this;
 }
 
 void vlFloatArray::PrintSelf(ostream& os, vlIndent indent)

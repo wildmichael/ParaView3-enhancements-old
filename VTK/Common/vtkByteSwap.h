@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkByteSwap.h,v $
   Language:  C++
-  Date:      $Date: 1994-04-08 12:29:32 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-07-19 08:02:44 $
+  Version:   $Revision: 1.3 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -15,9 +15,13 @@ without the express written consent of the authors.
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-//
-// Class for performing common math operations (e.g., dot, cross products)
-//
+// .NAME vlByteSwap - perform machine dependent byte swapping
+// .SECTION Description
+// vlByteSwap is used by other classes to perform machine dependent byte
+// swapping. Byte swapping is often used when reading or writing binary 
+// files.
+// .EXAMPLE STLRead.cc
+
 #ifndef __vlByteSwap_hh
 #define __vlByteSwap_hh
 

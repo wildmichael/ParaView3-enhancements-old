@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkByteSwap.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-04-08 12:29:45 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-07-19 08:02:43 $
+  Version:   $Revision: 1.3 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -17,6 +17,8 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 =========================================================================*/
 #include "ByteSwap.hh"
 
+// Description:
+// Swap four byte word.
 void vlByteSwap::Swap4(char *mem_ptr1)
 {
   char one_byte;

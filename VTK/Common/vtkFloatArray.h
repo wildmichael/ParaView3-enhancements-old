@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkFloatArray.h,v $
   Language:  C++
-  Date:      $Date: 1994-07-16 21:58:38 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1994-07-19 08:02:46 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -44,7 +44,7 @@ public:
 
   // special operators
   vlFloatArray &operator=(const vlFloatArray& fa);
-  vlFloatArray &operator+=(const vlFloatArray& fa);
+  void operator+=(const vlFloatArray& fa);
   void operator+=(const float f) {this->InsertNextValue(f);};
   float& operator[](const int i);
 
