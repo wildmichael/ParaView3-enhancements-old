@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamTracer.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-03 22:51:56 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-11-06 20:11:19 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -74,6 +74,7 @@ class vtkDataArray;
 class vtkFloatArray;
 class vtkGenericCell;
 class vtkIdList;
+class vtkIntArray;
 class vtkInterpolatedVelocityField;
 
 class VTK_GRAPHICS_EXPORT vtkStreamTracer : public vtkDataSetToPolyDataFilter
@@ -218,7 +219,8 @@ public:
   enum
   {
     FORWARD,
-    BACKWARD
+    BACKWARD,
+    BOTH
   };
 //ETX
 
@@ -226,7 +228,7 @@ public:
   // Specify whether the streamtrace will be generated in the
   // upstream or downstream direction.
   vtkSetClampMacro(IntegrationDirection, int,
-                   FORWARD, BACKWARD);
+                   FORWARD, BOTH);
   vtkGetMacro(IntegrationDirection, int);
 
 
@@ -252,6 +254,9 @@ public:
   void SelectInputVectors(const char *fieldName) 
     {this->SetInputVectorsSelection(fieldName);}
   
+  // Description:
+  // Add a dataset to the list inputs
+  void AddInput(vtkDataSet *in);
 
 protected:
 
@@ -261,7 +266,9 @@ protected:
   void Execute();
   void CalculateVorticity( vtkGenericCell* cell, float pcoords[3],
                            vtkFloatArray* cellVectors, float vorticity[3] );
-  void Integrate(vtkDataArray* seedSource, vtkIdList* seedIds);
+  void Integrate(vtkDataArray* seedSource, 
+                 vtkIdList* seedIds,
+                 vtkIntArray* integrationDirections);
 
   vtkSetStringMacro(InputVectorsSelection);
   char *InputVectorsSelection;
