@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGradient.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-17 14:29:37 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1998-01-19 18:07:49 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,7 +53,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkImageGradient_h
 
 
-#include "vtkImageSpatialFilter.h"
+#include "vtkImageFilter.h"
 
 class VTK_EXPORT vtkImageGradient : public vtkImageFilter
 {
@@ -64,9 +64,9 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:
-  // Which axes should be considered when computing the gradient.
-  void SetFilteredAxes(int num, int *axes);
-  vtkImageSetMacro(FilteredAxes,int);
+  // Determines how the input is interpreted (set of 2d slices ...)
+  vtkSetClampMacro(Dimensionality,int,2,3);
+  vtkGetMacro(Dimensionality,int);
   
   // Description:
   // If "HandleBoundariesOn" then boundary pixels are duplicated
@@ -79,10 +79,10 @@ protected:
   int HandleBoundaries;
   int Dimensionality;
   
-  void ExecuteImageInformation();
-  void ComputeRequiredInputUpdateExtent();
-  void Execute(vtkImageRegion *inRegion, vtkImageRegion *outRegion);
-
+  void ExecuteImageInformation(); 
+  void ComputeRequiredInputUpdateExtent(int inExt[6], int outExt[6]);
+  void ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
+		       int extent[6], int id);
 };
 
 #endif

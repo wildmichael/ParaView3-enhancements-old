@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAnisotropicDiffusion2D.h,v $
   Language:  C++
-  Date:      $Date: 1997-08-21 15:37:42 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1998-01-19 18:07:47 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,7 +71,6 @@ public:
   const char *GetClassName() {return "vtkImageAnisotropicDiffusion2D";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
-  void SetFilteredAxes(int a0, int a1);
   void SetNumberOfIterations(int num);
   // Description:
   // Get the number of iterations.
@@ -116,8 +115,9 @@ protected:
   // What threshold to use
   int GradientMagnitudeThreshold;
   
-  void Execute(vtkImageRegion *inRegion, vtkImageRegion *outRegion);
-  void Iterate(vtkImageRegion *in, vtkImageRegion *out, 
+  void ThreadedExecute(vtkImageData *inData, vtkImageData *outData, 
+		       int extent[6], int id);
+  void Iterate(vtkImageData *in, vtkImageData *out, 
 	       float ar0, float ar1, int *coreExtent, int count);
 };
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGradientMagnitude.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-17 14:29:39 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-01-19 18:07:51 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,7 +52,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkImageGradientMagnitude_h
 
 
-#include "vtkImageSpatialFilter.h"
+#include "vtkImageFilter.h"
 
 class VTK_EXPORT vtkImageGradientMagnitude : public vtkImageFilter
 {
@@ -72,16 +72,17 @@ public:
 
   // Description:
   // Determines how the input is interpreted (set of 2d slices ...)
-  void SetFilteredAxes(int num, int *axes);
-  vtkImageSetMacro(FilteredAxes, int);
+  vtkSetClampMacro(Dimensionality,int,2,3);
+  vtkGetMacro(Dimensionality,int);
   
 protected:
   int HandleBoundaries;
+  int Dimensionality;
   
   void ExecuteImageInformation();
-  void ComputeRequiredInputUpdateExtent();
-  void Execute(vtkImageRegion *inRegion, vtkImageRegion *outRegion);
-
+  void ComputeRequiredInputUpdateExtent(int inExt[6], int outExt[6]);
+  void ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
+		       int extent[6], int id);
 };
 
 #endif
