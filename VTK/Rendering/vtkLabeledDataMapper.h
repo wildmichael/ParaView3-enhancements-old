@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLabeledDataMapper.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-15 20:37:00 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-09-03 17:53:31 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -106,13 +106,14 @@ public:
   // Times (VTK_TIMES).
   vtkSetMacro(LabelMode, int);
   vtkGetMacro(LabelMode, int);
-  void SetLabelModeToLabelIds() {SetLabelMode(VTK_LABEL_IDS);};
-  void SetLabelModeToLabelScalars() {SetLabelMode(VTK_LABEL_SCALARS);};
-  void SetLabelModeToLabelVectors() {SetLabelMode(VTK_LABEL_VECTORS);};
-  void SetLabelModeToLabelNormals() {SetLabelMode(VTK_LABEL_NORMALS);};
-  void SetLabelModeToLabelTCoords() {SetLabelMode(VTK_LABEL_TCOORDS);};
-  void SetLabelModeToLabelTensors() {SetLabelMode(VTK_LABEL_TENSORS);};
-  void SetLabelModeToLabelFieldData() {SetLabelMode(VTK_LABEL_FIELD_DATA);};
+  void SetLabelModeToLabelIds() {this->SetLabelMode(VTK_LABEL_IDS);};
+  void SetLabelModeToLabelScalars() {this->SetLabelMode(VTK_LABEL_SCALARS);};
+  void SetLabelModeToLabelVectors() {this->SetLabelMode(VTK_LABEL_VECTORS);};
+  void SetLabelModeToLabelNormals() {this->SetLabelMode(VTK_LABEL_NORMALS);};
+  void SetLabelModeToLabelTCoords() {this->SetLabelMode(VTK_LABEL_TCOORDS);};
+  void SetLabelModeToLabelTensors() {this->SetLabelMode(VTK_LABEL_TENSORS);};
+  void SetLabelModeToLabelFieldData()
+            {this->SetLabelMode(VTK_LABEL_FIELD_DATA);};
 
   // Description:
   // Set/Get the suggested font size used to label the data.
@@ -146,9 +147,9 @@ public:
   // Times (VTK_TIMES).
   vtkSetMacro(FontFamily, int);
   vtkGetMacro(FontFamily, int);
-  void SetFontFamilyToArial() {SetFontFamily(VTK_ARIAL);};
-  void SetFontFamilyToCourier() {SetFontFamily(VTK_COURIER);};
-  void SetFontFamilyToTimes() {SetFontFamily(VTK_TIMES);};
+  void SetFontFamilyToArial() {this->SetFontFamily(VTK_ARIAL);};
+  void SetFontFamilyToCourier() {this->SetFontFamily(VTK_COURIER);};
+  void SetFontFamilyToTimes() {this->SetFontFamily(VTK_TIMES);};
 
   // Description:
   // Set/Get the format with which to print the labels. The format needs

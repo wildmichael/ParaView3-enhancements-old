@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageExtractComponents.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 20:35:06 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-09-03 17:53:01 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -169,7 +169,10 @@ static void vtkImageExtractComponentsExecute(vtkImageExtractComponents *self,
       {
       if (!id) 
 	{
-	if (!(count%target)) self->UpdateProgress(count/(50.0*target));
+	if (!(count%target))
+	  {
+	  self->UpdateProgress(count/(50.0*target));
+	  }
 	count++;
 	}
       // handle inner loop based on number of components extracted

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageThreshold.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 19:42:16 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1998-09-03 17:53:27 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -176,7 +176,10 @@ static void vtkImageThresholdExecute(vtkImageThreshold *self,
       {
       if (!id) 
 	{
-	if (!(count%target)) self->UpdateProgress(count/(50.0*target));
+	if (!(count%target))
+	  {
+	  self->UpdateProgress(count/(50.0*target));
+	  }
 	count++;
 	}
       for (idxR = 0; idxR < rowLength; idxR++)

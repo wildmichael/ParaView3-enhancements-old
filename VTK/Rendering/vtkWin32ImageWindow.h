@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32ImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 19:53:06 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-09-03 17:53:39 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -120,10 +120,10 @@ protected:
   // ###
   unsigned char *DIBPtr;	// the data in the DIBSection
   int SwapFlag;
-  HDC compatHdc;
-  HDC oldHdc;
+  HDC CompatHdc;
+  HDC OldHdc;
   HBITMAP BackBuffer;
-  BITMAPINFO dataHeader;
+  BITMAPINFO DataHeader;
 };
 
 #endif

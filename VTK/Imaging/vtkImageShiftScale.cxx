@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageShiftScale.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-08-18 15:52:29 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1998-09-03 17:53:23 $
+  Version:   $Revision: 1.22 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -111,7 +111,10 @@ static void vtkImageShiftScaleExecute(vtkImageShiftScale *self,
       {
       if (!id) 
 	{
-	if (!(count%target)) self->UpdateProgress(count/(50.0*target));
+	if (!(count%target))
+	  {
+	  self->UpdateProgress(count/(50.0*target));
+	  }
 	count++;
 	}
       // put the test for clamp to avoid the innermost loop

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGradient.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-07 12:12:49 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1998-09-03 17:53:06 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -177,7 +177,10 @@ static void vtkImageGradientExecute(vtkImageGradient *self,
       {
       if (!id) 
 	{
-	if (!(count%target)) self->UpdateProgress(count/(50.0*target));
+	if (!(count%target))
+	  {
+	  self->UpdateProgress(count/(50.0*target));
+	  }
 	count++;
 	}
       useYMin = ((idxY + outExt[2]) <= wholeExtent[2]) ? 0 : -inIncs[1];

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32PolyDataMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-15 20:39:11 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-09-03 17:53:40 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -124,7 +124,10 @@ void vtkWin32PolyDataMapper2D::Render(vtkViewport* viewport, vtkActor2D* actor)
     return;
     }
   
-  if ( this->LookupTable == NULL ) this->CreateDefaultLookupTable();
+  if ( this->LookupTable == NULL )
+    {
+    this->CreateDefaultLookupTable();
+    }
 
   //
   // if something has changed regenrate colors and display lists

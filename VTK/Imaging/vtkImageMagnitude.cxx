@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMagnitude.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-01-19 20:17:14 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1998-09-03 17:53:13 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -89,7 +89,10 @@ static void vtkImageMagnitudeExecute(vtkImageMagnitude *self,
       {
       if (!id) 
 	{
-	if (!(count%target)) self->UpdateProgress(count/(50.0*target));
+	if (!(count%target))
+	  {
+	  self->UpdateProgress(count/(50.0*target));
+	  }
 	count++;
 	}
       for (idxX = 0; idxX <= maxX; idxX++)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageOpenClose3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-01 14:35:30 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-09-03 17:53:19 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -240,7 +240,9 @@ unsigned long int vtkImageOpenClose3D::GetPipelineMTime()
     
     // Return the larger of the two
     if (time2 > time1)
+      {
       time1 = time2;
+      }
     }
   
   return time1;

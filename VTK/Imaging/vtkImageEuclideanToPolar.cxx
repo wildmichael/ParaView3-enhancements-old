@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageEuclideanToPolar.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-23 20:26:29 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-09-03 17:53:01 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -86,7 +86,10 @@ static void vtkImageEuclideanToPolarExecute(vtkImageEuclideanToPolar *self,
       {
       if (!id) 
 	{
-	if (!(count%target)) self->UpdateProgress(count/(50.0*target));
+	if (!(count%target))
+	  {
+	  self->UpdateProgress(count/(50.0*target));
+	  }
 	count++;
 	}
       for (idxX = 0; idxX <= maxX; idxX++)

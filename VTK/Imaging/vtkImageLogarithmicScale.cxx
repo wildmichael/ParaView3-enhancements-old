@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageLogarithmicScale.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 20:35:15 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-09-03 17:53:11 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -90,7 +90,10 @@ static void vtkImageLogarithmicScaleExecute(vtkImageLogarithmicScale *self,
       {
       if (!id) 
 	{
-	if (!(count%target)) self->UpdateProgress(count/(50.0*target));
+	if (!(count%target))
+	  {
+	  self->UpdateProgress(count/(50.0*target));
+	  }
 	count++;
 	}
       for (idxR = 0; idxR < rowLength; idxR++)

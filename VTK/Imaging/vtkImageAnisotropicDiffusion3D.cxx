@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAnisotropicDiffusion3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-07 12:12:48 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1998-09-03 17:52:56 $
+  Version:   $Revision: 1.23 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -119,7 +119,10 @@ void vtkImageAnisotropicDiffusion3D::SetNumberOfIterations(int num)
 
   vtkDebugMacro(<< "SetNumberOfIterations: " << num);
   
-  if (this->NumberOfIterations == num) return;
+  if (this->NumberOfIterations == num)
+    {
+    return;
+    }
 
   this->Modified();
   temp = num*2 + 1;
@@ -179,8 +182,11 @@ void vtkImageAnisotropicDiffusion3D::ThreadedExecute(vtkImageData *inData,
   // (but never get smaller than output region).
   for (idx = this->NumberOfIterations - 1; idx >= 0; --idx)
     {
-    if (!id) this->UpdateProgress((float)(this->NumberOfIterations - idx)
-				  /this->NumberOfIterations);
+    if (!id)
+      {
+      this->UpdateProgress((float)(this->NumberOfIterations - idx)
+			   /this->NumberOfIterations);
+      }
     this->Iterate(in, out, ar[0], ar[1], ar[2], outExt, idx);
     temp = in;
     in = out;

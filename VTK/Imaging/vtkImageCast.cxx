@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCast.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-08-18 15:52:27 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1998-09-03 17:52:57 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -128,7 +128,10 @@ static void vtkImageCastExecute(vtkImageCast *self,
       {
       if (!id) 
 	{
-	if (!(count%target)) self->UpdateProgress(count/(50.0*target));
+	if (!(count%target))
+	  {
+	  self->UpdateProgress(count/(50.0*target));
+	  }
 	count++;
 	}
       // put the test for clamp to avoid the innermost loop

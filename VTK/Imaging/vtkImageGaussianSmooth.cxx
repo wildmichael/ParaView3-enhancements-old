@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGaussianSmooth.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 20:35:09 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1998-09-03 17:53:04 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -425,7 +425,7 @@ void vtkImageGaussianSmooth::ThreadedExecute(vtkImageData *inData,
   switch (this->Dimensionality)
     {
     case 1:
-      ExecuteAxis(0, inData, inExt, outData, outExt, 
+      this->ExecuteAxis(0, inData, inExt, outData, outExt, 
 		  &cycle, target, &count, total);
       break;
     case 2:
@@ -440,9 +440,9 @@ void vtkImageGaussianSmooth::ThreadedExecute(vtkImageData *inData,
       tempData->SetExtent(tempExt);
       tempData->SetNumberOfScalarComponents(inData->GetNumberOfScalarComponents());
       tempData->SetScalarType(inData->GetScalarType());
-      ExecuteAxis(1, inData, inExt, tempData, tempExt, 
+      this->ExecuteAxis(1, inData, inExt, tempData, tempExt, 
 		  &cycle, target, &count, total);
-      ExecuteAxis(0, tempData, tempExt, outData, outExt, 
+      this->ExecuteAxis(0, tempData, tempExt, outData, outExt, 
 		  &cycle, target, &count, total);
       // release temporary data
       tempData->Delete();
@@ -471,13 +471,13 @@ void vtkImageGaussianSmooth::ThreadedExecute(vtkImageData *inData,
       temp1Data->SetExtent(temp1Ext);
       temp1Data->SetNumberOfScalarComponents(inData->GetNumberOfScalarComponents());
       temp1Data->SetScalarType(inData->GetScalarType());
-      ExecuteAxis(2, inData, inExt, temp0Data, temp0Ext,
+      this->ExecuteAxis(2, inData, inExt, temp0Data, temp0Ext,
 		  &cycle, target, &count, total);
-      ExecuteAxis(1, temp0Data, temp0Ext, temp1Data, temp1Ext,
+      this->ExecuteAxis(1, temp0Data, temp0Ext, temp1Data, temp1Ext,
 		  &cycle, target, &count, total);
       temp0Data->Delete();
       temp0Data = NULL;
-      ExecuteAxis(0, temp1Data, temp1Ext, outData, outExt,
+      this->ExecuteAxis(0, temp1Data, temp1Ext, outData, outExt,
 		  &cycle, target, &count, total);
       temp1Data->Delete();
       temp1Data = NULL;

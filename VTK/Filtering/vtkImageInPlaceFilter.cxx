@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageInPlaceFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-01-14 13:54:49 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1998-09-03 17:53:08 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -117,10 +117,16 @@ void vtkImageInPlaceFilter::InternalUpdate(vtkImageData *outData)
     outData->GetPointData()->PassData(inData->GetPointData());
     
     // The StartMethod call is placed here to be after updating the input.
-    if ( this->StartMethod ) (*this->StartMethod)(this->StartMethodArg);
+    if ( this->StartMethod )
+      {
+      (*this->StartMethod)(this->StartMethodArg);
+      }
     // fill the output region 
     this->Execute(inData, outData);
-    if ( this->EndMethod ) (*this->EndMethod)(this->EndMethodArg);
+    if ( this->EndMethod )
+      {
+      (*this->EndMethod)(this->EndMethodArg);
+      }
     
     // Like the graphics pipeline this source releases inputs data.
     this->Input->ReleaseData();
@@ -193,12 +199,18 @@ void vtkImageInPlaceFilter::RecursiveStreamUpdate(vtkImageData *outData,
   inData = this->Input->UpdateAndReturnData();
 
   // The StartMethod call is placed here to be after updating the input.
-  if ( this->StartMethod ) (*this->StartMethod)(this->StartMethodArg);
+  if ( this->StartMethod )
+    {
+    (*this->StartMethod)(this->StartMethodArg);
+    }
   // fill the output region 
   // copy the data first
   this->CopyData(inData,outData);
   this->Execute(inData, outData);
-  if ( this->EndMethod ) (*this->EndMethod)(this->EndMethodArg);
+  if ( this->EndMethod )
+    {
+    (*this->EndMethod)(this->EndMethodArg);
+    }
   
   // Like the graphics pipeline this source releases inputs data.
   if (this->Input->ShouldIReleaseData())

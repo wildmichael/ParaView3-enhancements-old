@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 19:42:18 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-09-03 17:53:27 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -194,15 +194,18 @@ void vtkImageWindow::Render()
 
   if (numImagers == 0)
     {
-      vtkDebugMacro (<< "vtkImageWindow::Render - No imagers in collection");
-      return;
+    vtkDebugMacro (<< "vtkImageWindow::Render - No imagers in collection");
+    return;
     }
  
-  if (this->DoubleBuffer)  this->SwapBuffers();
+  if (this->DoubleBuffer)
+    {
+    this->SwapBuffers();
+    }
 
   if (this->Erase)
     {
-	this->EraseWindow();
+    this->EraseWindow();
     }
 
   // tell each of the imagers to render
@@ -212,7 +215,10 @@ void vtkImageWindow::Render()
     tempImager->Render(); 
     }
  
-  if (this->DoubleBuffer) this->SwapBuffers();
+  if (this->DoubleBuffer)
+    {
+    this->SwapBuffers();
+    }
 
   return;
 }

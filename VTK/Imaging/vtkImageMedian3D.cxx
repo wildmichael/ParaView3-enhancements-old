@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMedian3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-07 16:28:23 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1998-09-03 17:53:15 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -265,7 +265,10 @@ static void vtkImageMedian3DExecute(vtkImageMedian3D *self,
       {
       if (!id) 
 	{
-	if (!(count%target)) self->UpdateProgress(count/(50.0*target));
+	if (!(count%target))
+	  {
+	  self->UpdateProgress(count/(50.0*target));
+	  }
 	count++;
 	}
       inPtr0 = inPtr1;

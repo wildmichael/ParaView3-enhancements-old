@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 19:42:19 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1998-09-03 17:53:30 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -113,8 +113,14 @@ void vtkImageWriter::PrintSelf(ostream& os, vtkIndent indent)
 // This function sets the name of the file. 
 void vtkImageWriter::SetFileName(char *name)
 {
-  if ( this->FileName && name && (!strcmp(this->FileName,name))) return; 
-  if (!name && !this->FileName) return;
+  if ( this->FileName && name && (!strcmp(this->FileName,name)))
+    {
+    return;
+    }
+  if (!name && !this->FileName)
+    {
+    return;
+    }
   if (this->FileName)
     {
     delete [] this->FileName;
@@ -135,8 +141,14 @@ void vtkImageWriter::SetFileName(char *name)
 // name of a series: image.1, image.2 ...
 void vtkImageWriter::SetFilePrefix(char *prefix)
 {
-  if ( this->FilePrefix && prefix && (!strcmp(this->FilePrefix,prefix))) return; 
-  if (!prefix && !this->FilePrefix) return;
+  if ( this->FilePrefix && prefix && (!strcmp(this->FilePrefix,prefix)))
+    {
+    return;
+    }
+  if (!prefix && !this->FilePrefix)
+    {
+    return;
+    }
   if (this->FilePrefix)
     {
     delete [] this->FilePrefix;
@@ -159,8 +171,14 @@ void vtkImageWriter::SetFilePrefix(char *prefix)
 void vtkImageWriter::SetFilePattern(char *pattern)
 {
   if ( this->FilePattern && pattern && 
-       (!strcmp(this->FilePattern,pattern))) return; 
-  if (!pattern && !this->FilePattern) return;
+       (!strcmp(this->FilePattern,pattern)))
+    {
+    return;
+    }
+  if (!pattern && !this->FilePattern)
+    {
+    return;
+    }
   if (this->FilePattern)
     {
     delete [] this->FilePattern;

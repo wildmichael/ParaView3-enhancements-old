@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageShrink3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 20:35:25 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1998-09-03 17:53:24 $
+  Version:   $Revision: 1.29 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -176,7 +176,10 @@ static void vtkImageShrink3DExecute(vtkImageShrink3D *self,
       {
       if (!id) 
 	{
-	if (!(count%target)) self->UpdateProgress(count/(50.0*target));
+	if (!(count%target))
+	  {
+	  self->UpdateProgress(count/(50.0*target));
+	  }
 	count++;
 	}
       tmpPtr0 = tmpPtr1;

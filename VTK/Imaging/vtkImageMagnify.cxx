@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMagnify.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 20:35:18 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1998-09-03 17:53:13 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -175,7 +175,10 @@ static void vtkImageMagnifyExecute(vtkImageMagnify *self,
 	{
 	if (!id) 
 	  {
-	  if (!(count%target)) self->UpdateProgress(count/(50.0*target));
+	  if (!(count%target))
+	    {
+	    self->UpdateProgress(count/(50.0*target));
+	    }
 	  count++;
 	  }
 	

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagerCollection.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-09 19:29:09 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-09-03 17:53:30 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -102,8 +102,14 @@ inline vtkImager *vtkImagerCollection::GetNextItem()
 // Get the last imager in the list.
 inline vtkImager *vtkImagerCollection::GetLastItem() 
 { 
-  if ( this->Bottom == NULL ) return NULL;
-  else return (vtkImager *)(this->Bottom->Item);
+  if ( this->Bottom == NULL )
+    {
+    return NULL;
+    }
+  else
+    {
+    return (vtkImager *)(this->Bottom->Item);
+    }
 }
 
 #endif

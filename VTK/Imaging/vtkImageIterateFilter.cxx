@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIterateFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 20:35:13 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-09-03 17:53:09 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -118,10 +118,16 @@ void vtkImageIterateFilter::RecursiveStreamUpdate(vtkImageData *outData)
   inData = this->Input->UpdateAndReturnData();
 
   // The StartMethod call is placed here to be after updating the input.
-  if ( this->StartMethod ) (*this->StartMethod)(this->StartMethodArg);
+  if ( this->StartMethod )
+    {
+    (*this->StartMethod)(this->StartMethodArg);
+    }
   // fill the output region 
   this->IterateExecute(inData, outData);
-  if ( this->EndMethod ) (*this->EndMethod)(this->EndMethodArg);
+  if ( this->EndMethod )
+    {
+    (*this->EndMethod)(this->EndMethodArg);
+    }
   
 }
 

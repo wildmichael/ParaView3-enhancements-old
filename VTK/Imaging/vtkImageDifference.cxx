@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDifference.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-08-14 13:51:42 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-09-03 17:52:59 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -280,11 +280,20 @@ void vtkImageDifference::ThreadedExecute(vtkImageData **inData,
 	
 	this->Error = this->Error + (tr + tg + tb)/(3.0*255);
 	tr -= this->Threshold;
-	if (tr < 0) tr = 0;
+	if (tr < 0)
+	  {
+	  tr = 0;
+	  }
 	tg -= this->Threshold;
-	if (tg < 0) tg = 0;
+	if (tg < 0)
+	  {
+	  tg = 0;
+	  }
 	tb -= this->Threshold;
-	if (tb < 0) tb = 0;
+	if (tb < 0)
+	  {
+	  tb = 0;
+	  }
 	*outPtr0++ = (unsigned char)tr;
 	*outPtr0++ = (unsigned char)tg;
 	*outPtr0++ = (unsigned char)tb;

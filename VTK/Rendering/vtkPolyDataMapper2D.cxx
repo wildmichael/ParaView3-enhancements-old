@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-26 16:30:14 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-09-03 17:53:33 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,7 +65,10 @@ vtkPolyDataMapper2D::~vtkPolyDataMapper2D()
     {
     this->LookupTable->UnRegister(this);
     }
-  if ( this->Colors != NULL ) this->Colors->Delete();
+  if ( this->Colors != NULL )
+    {
+    this->Colors->Delete();
+    }
 }
 
 vtkPolyDataMapper2D *vtkPolyDataMapper2D::New()
@@ -103,7 +106,10 @@ vtkScalars *vtkPolyDataMapper2D::GetColors()
   vtkScalars *scalars;
   
   // make sure we have an input
-  if (!this->Input) return NULL;
+  if (!this->Input)
+    {
+    return NULL;
+    }
     
   // get point data and scalars
   scalars = this->Input->GetPointData()->GetScalars();
@@ -124,13 +130,19 @@ vtkScalars *vtkPolyDataMapper2D::GetColors()
     else
       {
       // make sure we have a lookup table
-      if ( this->LookupTable == NULL ) this->CreateDefaultLookupTable();
+      if ( this->LookupTable == NULL )
+	{
+	this->CreateDefaultLookupTable();
+	}
       this->LookupTable->Build();
       }
 
     // Setup mapper/scalar object for color generation
     this->LookupTable->SetTableRange(this->ScalarRange);
-    if (this->Colors) this->Colors->Delete();
+    if (this->Colors)
+      {
+      this->Colors->Delete();
+      }
     this->Colors = scalars;
     this->Colors->Register(this);
     this->Colors->InitColorTraversal(1.0, this->LookupTable, this->ColorMode);
@@ -138,7 +150,10 @@ vtkScalars *vtkPolyDataMapper2D::GetColors()
 
   else //scalars not visible
     {
-    if ( this->Colors ) this->Colors->Delete();
+    if ( this->Colors )
+      {
+      this->Colors->Delete();
+      }
     this->Colors = NULL;
     }
   
@@ -166,7 +181,10 @@ void vtkPolyDataMapper2D::SetLookupTable(vtkLookupTable *lut)
 
 vtkLookupTable *vtkPolyDataMapper2D::GetLookupTable()
 {
-  if ( this->LookupTable == NULL ) this->CreateDefaultLookupTable();
+  if ( this->LookupTable == NULL )
+    {
+    this->CreateDefaultLookupTable();
+    }
   return this->LookupTable;
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkImageViewerWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-01 15:17:28 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1998-09-03 17:53:36 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -362,7 +362,10 @@ LRESULT APIENTRY vtkTkImageViewerWidgetProc(HWND hWnd, UINT message,
   struct vtkTkImageViewerWidget *self = 
     (struct vtkTkImageViewerWidget *)GetWindowLong(hWnd,GWL_USERDATA);
   
-  if (!self) return 0;
+  if (!self)
+    {
+    return 0;
+    }
 
   // forward message to Tk handler
   SetWindowLong(hWnd,GWL_USERDATA,(LONG)((TkWindow *)self->TkWin)->window);

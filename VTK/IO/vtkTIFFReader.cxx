@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTIFFReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-10 21:13:22 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-09-03 17:53:35 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -214,7 +214,7 @@ void vtkTIFFReader::UpdateImageInformation()
   // for now I'll skip it.
   for (i = 0; i < numTags; i++)
     {
-    ReadTag(&aTag,fp);
+    this->ReadTag(&aTag,fp);
     switch (aTag.TagId) 
       {
       case 256: 

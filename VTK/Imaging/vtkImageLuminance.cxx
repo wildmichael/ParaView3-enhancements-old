@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageLuminance.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-08-01 17:28:58 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-09-03 17:53:12 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -87,7 +87,10 @@ static void vtkImageLuminanceExecute(vtkImageLuminance *self,
       {
       if (!id) 
 	{
-	if (!(count%target)) self->UpdateProgress(count/(50.0*target));
+	if (!(count%target))
+	  {
+	  self->UpdateProgress(count/(50.0*target));
+	  }
 	count++;
 	}
       for (idxX = 0; idxX <= maxX; idxX++)

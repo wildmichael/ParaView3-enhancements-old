@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNMReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-01 21:40:11 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-09-03 17:53:32 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -134,7 +134,6 @@ void vtkPNMReader::UpdateImageInformation()
 
   // read max pixel value into comp for now
   comp = vtkPNMReaderGetInt(fp);
-
   // if file is ascii, any amount of whitespace may follow.
   // if file is binary, a single whitespace character will follow.
   // We only support binary ppm and pgm files right now.  So the next
@@ -155,7 +154,6 @@ void vtkPNMReader::UpdateImageInformation()
         }
      }
      
-  
   // Set the header size now that we have parsed it
   this->SetHeaderSize(ftell(fp));
 

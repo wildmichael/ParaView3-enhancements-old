@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDotProduct.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-09 17:47:55 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-09-03 17:53:00 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -94,7 +94,10 @@ static void vtkImageDotProductExecute(vtkImageDotProduct *self,
       {
       if (!id) 
 	{
-	if (!(count%target)) self->UpdateProgress(count/(50.0*target));
+	if (!(count%target))
+	  {
+	  self->UpdateProgress(count/(50.0*target));
+	  }
 	count++;
 	}
       for (idxX = 0; idxX <= maxX; idxX++)

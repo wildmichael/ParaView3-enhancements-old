@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.h,v $
   Language:  C++
-  Date:      $Date: 1998-08-13 19:54:31 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1998-09-03 17:53:22 $
+  Version:   $Revision: 1.29 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -142,8 +142,8 @@ public:
   // Set/Get the Data mask.
   vtkGetMacro(DataMask,unsigned short);
   void SetDataMask(int val) 
-  {if (val == this->DataMask) return; 
-    this->DataMask = ((unsigned short)(val)); this->Modified();}
+       {if (val == this->DataMask) { return; }
+        this->DataMask = ((unsigned short)(val)); this->Modified();}
   
   // Description:
   // Set/Get transformation matrix to transform the data from slice space

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageHSVToRGB.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 19:42:13 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-09-03 17:53:07 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -88,7 +88,10 @@ static void vtkImageHSVToRGBExecute(vtkImageHSVToRGB *self,
       {
       if (!id) 
 	{
-	if (!(count%target)) self->UpdateProgress(count/(50.0*target));
+	if (!(count%target))
+	  {
+	  self->UpdateProgress(count/(50.0*target));
+	  }
 	count++;
 	}
       for (idxX = 0; idxX <= maxX; idxX++)
@@ -143,9 +146,18 @@ static void vtkImageHSVToRGBExecute(vtkImageHSVToRGB *self,
 	//if (G > 255.0) G = max;
 	//if (B > 255.0) B = max;
 	// mixed constant 255 and max ?????
-	if (R > max) R = max;
-	if (G > max) G = max;
-	if (B > max) B = max;
+	if (R > max)
+	  {
+	  R = max;
+	  }
+	if (G > max)
+	  {
+	  G = max;
+	  }
+	if (B > max)
+	  {
+	  B = max;
+	  }
 	
 	// assign output.
 	*outPtr = (T)(R); outPtr++;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSeedConnectivity.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-23 20:26:33 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-09-03 17:53:23 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -212,8 +212,14 @@ void vtkImageSeedConnectivity::Execute(vtkImageData *inData,
     {
     temp = seed->Index[0];
     // make sure z value of seed is acceptable
-    if (seed->Index[2] < min2) seed->Index[2] = min2;
-    if (seed->Index[2] > max2) seed->Index[2] = max2;
+    if (seed->Index[2] < min2)
+      {
+      seed->Index[2] = min2;
+      }
+    if (seed->Index[2] > max2)
+      {
+      seed->Index[2] = max2;
+      }
     outPtr0 = (unsigned char *)(outData->GetScalarPointer(seed->Index));
     for (idx0 = temp; idx0 <= max0; ++idx0)
       {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBMPReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 20:34:53 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-09-03 17:52:53 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -184,7 +184,10 @@ void vtkBMPReader::UpdateImageInformation()
       this->Colors[tmp*3+2] = fgetc(fp);
       this->Colors[tmp*3+1] = fgetc(fp);
       this->Colors[tmp*3] = fgetc(fp);
-      if (infoSize == 40) fgetc(fp);
+      if (infoSize == 40)
+	{
+	fgetc(fp);
+	}
       }
     }
   
@@ -301,11 +304,17 @@ static void vtkBMPReaderUpdate2(vtkBMPReader *self, vtkImageData *data,
   // compute outPtr2 
   outPtr2 = outPtr;
   if (outIncr[0] < 0) 
+    {
     outPtr2 = outPtr2 - outIncr[0]*(dataExtent[1] - dataExtent[0]);
+    }
   if (outIncr[1] < 0) 
+    {
     outPtr2 = outPtr2 - outIncr[1]*(dataExtent[3] - dataExtent[2]);
+    }
   if (outIncr[2] < 0) 
+    {
     outPtr2 = outPtr2 - outIncr[2]*(dataExtent[5] - dataExtent[4]);
+    }
 
   // length of a row, num pixels read at a time
   pixelRead = dataExtent[1] - dataExtent[0] + 1; 
@@ -317,7 +326,9 @@ static void vtkBMPReaderUpdate2(vtkBMPReader *self, vtkImageData *data,
     
   // read from the bottom up
   if (!self->GetFileLowerLeft()) 
+    {
     streamSkip0 = -streamRead - self->DataIncrements[1];
+    }
   
   // create a buffer to hold a row of the data
   buf = new unsigned char[streamRead];

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWrapPad.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-01-09 20:14:42 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1998-09-03 17:53:29 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -117,11 +117,20 @@ static void vtkImageWrapPadExecute(vtkImageWrapPad *self,
   
   // initialize pointers to coresponding pixels.
   start0 = ((outExt[0] - imageMin0) % (imageMax0-imageMin0+1)) + imageMin0;
-  if (start0 < 0) start0 += (imageMax0-imageMin0+1);
+  if (start0 < 0)
+    {
+    start0 += (imageMax0-imageMin0+1);
+    }
   start1 = ((outExt[2] - imageMin1) % (imageMax1-imageMin1+1)) + imageMin1;
-  if (start1 < 0) start1 += (imageMax1-imageMin1+1);
+  if (start1 < 0)
+    {
+    start1 += (imageMax1-imageMin1+1);
+    }
   start2 = ((outExt[4] - imageMin2) % (imageMax2-imageMin2+1)) + imageMin2;
-  if (start2 < 0) start2 += (imageMax2-imageMin2+1);
+  if (start2 < 0)
+    {
+    start2 += (imageMax2-imageMin2+1);
+    }
   inPtr2 = (T *)(inData->GetScalarPointer(start0, start1, start2));
   
   min0 = outExt[0];
@@ -146,7 +155,10 @@ static void vtkImageWrapPadExecute(vtkImageWrapPad *self,
       {
       if (!id) 
 	{
-	if (!(count%target)) self->UpdateProgress(count/(50.0*target));
+	if (!(count%target))
+	  {
+	  self->UpdateProgress(count/(50.0*target));
+	  }
 	count++;
 	}
       if (inIdx1 > imageMax1) 
