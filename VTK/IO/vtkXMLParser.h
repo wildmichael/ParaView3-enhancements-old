@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLParser.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-03 15:47:03 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-11-14 14:53:42 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -56,8 +56,10 @@ public:
   virtual int Parse();
 
   // Description:
-  // Parse the XML message.
+  // Parse the XML message. If length is specified, parse only the
+  // first "length" characters
   virtual int Parse(const char* inputString);
+  virtual int Parse(const char* inputString, unsigned int length);
 
   // Description:
   // Set and get file name.
@@ -76,6 +78,7 @@ protected:
   
   // Character message to parse
   const char* InputString;
+  int InputStringLength;
   
   // Expat parser structure.  Exists only during call to Parse().
   void* Parser;
