@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMatrixToLinearTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:10:09 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2000-04-30 18:19:44 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -69,8 +69,6 @@ class VTK_EXPORT vtkMatrixToLinearTransform : public vtkLinearTransform
   // this matrix, calls to GetInverse() will modify a copy of this
   // matrix.  
   void SetMatrix(vtkMatrix4x4 *m);
-  vtkMatrix4x4 *GetMatrix() { return this->GetMatrixPointer(); };
-  void GetMatrix(vtkMatrix4x4 *m) { this->vtkLinearTransform::GetMatrix(m); }; 
 
   // Description:
   // Make the matrix into the identity matrix.
@@ -81,16 +79,16 @@ class VTK_EXPORT vtkMatrixToLinearTransform : public vtkLinearTransform
   void Inverse();
 
   // Description:
-  // Make a new transform of the same type.
-  vtkGeneralTransform *MakeTransform();
-
-  // Description:
-  // Make this transform into a copy of the specified transform.
-  void DeepCopy(vtkGeneralTransform *transform);
-
-  // Description:
   // Get the MTime: this is the bit of magic that makes everything work.
   unsigned long GetMTime();
+
+  // Description:
+  // This method does no type checking, use DeepCopy instead.
+  void InternalDeepCopy(vtkGeneralTransform *transform);
+
+  // Description:
+  // Make a new transform of the same type.
+  vtkGeneralTransform *MakeTransform();
 
 protected:
   vtkMatrixToLinearTransform() {};

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLandmarkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:10:47 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-04-30 18:19:47 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to Tim Hutton and David G. Gobbi who developed this class.
 
 Redistribution and use in source and binary forms, with or without
@@ -37,7 +37,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 
-#include "vtkGeneralTransformInverse.h"
 #include "vtkLandmarkTransform.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
@@ -410,24 +409,9 @@ vtkGeneralTransform *vtkLandmarkTransform::MakeTransform()
 }
 
 //----------------------------------------------------------------------------
-void vtkLandmarkTransform::DeepCopy(vtkGeneralTransform *transform)
+void vtkLandmarkTransform::InternalDeepCopy(vtkGeneralTransform *transform)
 {
-  if (strcmp("vtkGeneralTransformInverse",transform->GetClassName()) == 0)
-    {
-    transform = ((vtkGeneralTransformInverse *)transform)->GetTransform();
-    }
-  if (strcmp("vtkLandmarkTransform",transform->GetClassName()) != 0)
-    {
-    vtkErrorMacro(<< "DeepCopy: trying to copy a transform of different type");
-    return;
-    }
-
   vtkLandmarkTransform *t = (vtkLandmarkTransform *)transform;
-
-  if (t == this)
-    {
-    return;
-    }
 
   this->SetMode(t->Mode);
   this->SetSourceLandmarks(t->SourceLandmarks);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdentityTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:10:00 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2000-04-30 18:19:37 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -74,13 +74,9 @@ void vtkIdentityTransform::PrintSelf(ostream& os, vtkIndent indent)
 }
 
 //------------------------------------------------------------------------
-void vtkIdentityTransform::DeepCopy(vtkGeneralTransform *transform)
+void vtkIdentityTransform::InternalDeepCopy(vtkGeneralTransform *transform)
 {
-  if (strcmp("vtkIdentityTransform",transform->GetClassName()) != 0)
-    {
-    vtkErrorMacro(<< "DeepCopy: trying to copy a transform of different type");
-    return;
-    }
+  // nothin' to do
 }
 
 //----------------------------------------------------------------------------
@@ -90,29 +86,51 @@ vtkGeneralTransform *vtkIdentityTransform::MakeTransform()
 }
 
 //------------------------------------------------------------------------
-void vtkIdentityTransform::TransformPoint(const float in[3], float out[3])
+template<class T2, class T3>
+static inline void vtkIdentityTransformPoint(T2 in[3], T3 out[3])
 {
   out[0] = in[0];
   out[1] = in[1];
   out[2] = in[2];
+}  
+
+//------------------------------------------------------------------------
+template<class T2, class T3, class T4>
+static inline void vtkIdentityTransformDerivative(T2 in[3], T3 out[3], 
+						  T4 derivative[3][3])
+{
+  out[0] = in[0];
+  out[1] = in[1];
+  out[2] = in[2];
+
+  vtkMath::Identity3x3(derivative);
+}  
+
+//------------------------------------------------------------------------
+void vtkIdentityTransform::TransformPoint(const float in[3], float out[3])
+{
+  vtkIdentityTransformPoint(in,out);
 }
 
 //------------------------------------------------------------------------
 
 void vtkIdentityTransform::TransformPoint(const double in[3], double out[3])
 {
-  out[0] = in[0];
-  out[1] = in[1];
-  out[2] = in[2];
+  vtkIdentityTransformPoint(in,out);
 }
 
 //------------------------------------------------------------------------
 void vtkIdentityTransform::InternalTransformPoint(const float in[3], 
 						  float out[3])
 {
-  out[0] = in[0];
-  out[1] = in[1];
-  out[2] = in[2];
+  vtkIdentityTransformPoint(in,out);
+}
+
+//------------------------------------------------------------------------
+void vtkIdentityTransform::InternalTransformPoint(const double in[3], 
+						  double out[3])
+{
+  vtkIdentityTransformPoint(in,out);
 }
 
 //----------------------------------------------------------------------------
@@ -120,17 +138,15 @@ void vtkIdentityTransform::InternalTransformDerivative(const float in[3],
 						       float out[3],
 						       float derivative[3][3])
 {
-  out[0] = in[0];
-  out[1] = in[1];
-  out[2] = in[2];
-  
-  for (int i = 0; i < 3; i++)
-    {
-    derivative[i][0] = 0;
-    derivative[i][1] = 0;
-    derivative[i][2] = 0;
-    derivative[i][i] = 1;
-    }
+  vtkIdentityTransformDerivative(in,out,derivative);
+}
+
+//----------------------------------------------------------------------------
+void vtkIdentityTransform::InternalTransformDerivative(const double in[3], 
+						       double out[3],
+						       double derivative[3][3])
+{
+  vtkIdentityTransformDerivative(in,out,derivative);
 }
 
 //----------------------------------------------------------------------------
@@ -163,7 +179,7 @@ void vtkIdentityTransform::TransformPoints(vtkPoints *inPts,
 					   vtkPoints *outPts)
 {
   int n = inPts->GetNumberOfPoints();
-  float point[3];  
+  double point[3];  
 
   for (int i = 0; i < n; i++)
     {
@@ -177,7 +193,7 @@ void vtkIdentityTransform::TransformNormals(vtkNormals *inNms,
 					    vtkNormals *outNms)
 {
   int n = inNms->GetNumberOfNormals();
-  float normal[3];
+  double normal[3];
   
   for (int i = 0; i < n; i++)
     {
@@ -191,7 +207,7 @@ void vtkIdentityTransform::TransformVectors(vtkVectors *inNms,
 					    vtkVectors *outNms)
 {
   int n = inNms->GetNumberOfVectors();
-  float vect[3];
+  double vect[3];
   
   for (int i = 0; i < n; i++)
     {

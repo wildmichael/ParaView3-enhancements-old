@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:10:05 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-04-30 18:19:38 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -180,6 +180,7 @@ public:
   // This will calculate the transformation without calling Update.
   // Meant for use only within other VTK classes.
   void InternalTransformPoint(const float in[3], float out[3]);
+  void InternalTransformPoint(const double in[3], double out[3]);
 
   // Description:
   // This will calculate the transformation as well as its derivative
@@ -187,6 +188,8 @@ public:
   // classes.
   void InternalTransformDerivative(const float in[3], float out[3],
 				   float derivative[3][3]);
+  void InternalTransformDerivative(const double in[3], double out[3],
+				   double derivative[3][3]);
 
 protected:
   vtkLinearTransform() {};

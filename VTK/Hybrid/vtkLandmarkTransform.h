@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLandmarkTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:10:47 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2000-04-30 18:19:48 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to Tim Hutton and David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -96,19 +96,19 @@ public:
   void Inverse();
 
   // Description:
-  // Make another transform of the same type.
-  vtkGeneralTransform *MakeTransform();
-
-  // Description:
-  // Copy this transform from another of the same type.
-  void DeepCopy(vtkGeneralTransform *transform);
-
-  // Description:
   // Get the MTime.
   unsigned long GetMTime();
 
   // Update the matrix from the quaternion.
   void Update();
+
+  // Description:
+  // This method does no type checking, use DeepCopy instead.
+  void InternalDeepCopy(vtkGeneralTransform *transform);
+
+  // Description:
+  // Make another transform of the same type.
+  vtkGeneralTransform *MakeTransform();
 
 protected:
   vtkLandmarkTransform();
