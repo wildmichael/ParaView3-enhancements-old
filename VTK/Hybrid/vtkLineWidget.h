@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLineWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-04 02:21:52 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-06-11 20:43:43 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -113,7 +113,7 @@ public:
   // Description:
   // Set/Get the position of first end point.
   void SetPoint1(float x, float y, float z) 
-    {this->LineSource->SetPoint1(x,y,z);}
+    {this->LineSource->SetPoint1(x,y,z); this->PositionHandles();}
   void SetPoint1(float x[3]) 
     {this->LineSource->SetPoint1(x);}
   float* GetPoint1() 
@@ -124,7 +124,7 @@ public:
   // Description:
   // Set position of other end point.
   void SetPoint2(float x, float y, float z) 
-    {this->LineSource->SetPoint2(x,y,z);}
+    {this->LineSource->SetPoint2(x,y,z); this->PositionHandles();}
   void SetPoint2(float x[3]) 
     {this->LineSource->SetPoint2(x);}
   float* GetPoint2() 
