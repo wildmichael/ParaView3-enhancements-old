@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToPlane.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-23 19:13:37 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1998-09-08 14:55:54 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -94,10 +94,10 @@ void vtkTextureMapToPlane::Execute()
 //  normal specified or plane specified
 //
   if ( this->AutomaticPlaneGeneration || 
-  (this->Origin[0] == 0.0 && this->Origin[1] == 0.0 && this->Origin[2] == 0.0
-  && this->Point1[0] == 0.0 && this->Point1[1] == 0.0 && this->Point1[2] == 0.0) )
+       (this->Origin[0] == 0.0 && this->Origin[1] == 0.0 && 
+	this->Origin[2] == 0.0 && this->Point1[0] == 0.0 && 
+	this->Point1[1] == 0.0 && this->Point1[2] == 0.0) )
     {
-
     if ( this->AutomaticPlaneGeneration ) this->ComputeNormal();
 
     vtkMath::Normalize (this->Normal);
@@ -197,6 +197,7 @@ void vtkTextureMapToPlane::Execute()
 //
   output->GetPointData()->CopyTCoordsOff();
   output->GetPointData()->PassData(input->GetPointData());
+  output->GetCellData()->PassData(input->GetCellData());
 
   output->GetPointData()->SetTCoords(newTCoords);
   newTCoords->Delete();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToCylinder.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-31 12:47:23 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1998-09-08 14:55:55 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -164,6 +164,7 @@ void vtkTextureMapToCylinder::Execute()
 
   output->GetPointData()->CopyTCoordsOff();
   output->GetPointData()->PassData(input->GetPointData());
+  output->GetCellData()->PassData(input->GetCellData());
 
   output->GetPointData()->SetTCoords(newTCoords);
   newTCoords->Delete();
