@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume16Reader.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:49:19 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1997-07-29 12:55:43 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -92,8 +92,8 @@ public:
   // Description:
   // Specify a mask used to eliminate data in the data file (e.g.,
   // connectivity bits).
-  vtkSetMacro(DataMask,short);
-  vtkGetMacro(DataMask,short);
+  vtkSetMacro(DataMask,unsigned short);
+  vtkGetMacro(DataMask,unsigned short);
 
   // Description:
   // Specify the number of bytes to seek over at start of image.
@@ -137,12 +137,12 @@ public:
 protected:
   void Execute();
   int   DataDimensions[2];
-  short DataMask;
+  unsigned short DataMask;
   int   SwapBytes;
   int   HeaderSize;
   vtkTransform *Transform;
 
-  void TransformSlice (short *slice, short *pixels, int k, int dimensions[3], int bounds[3]);
+  void TransformSlice (unsigned short *slice, unsigned short *pixels, int k, int dimensions[3], int bounds[3]);
   void ComputeTransformedDimensions(int dimensions[3]);
   void ComputeTransformedBounds(int bounds[6]);
   void ComputeTransformedSpacing(float Spacing[3]);
@@ -150,7 +150,7 @@ protected:
   void AdjustSpacingAndOrigin(int dimensions[3], float Spacing[3], float origin[3]);
   vtkScalars *ReadImage(int ImageNumber);
   vtkScalars *ReadVolume(int FirstImage, int LastImage);
-  int Read16BitImage(FILE *fp, short *pixels, int xsize, int ysize, 
+  int Read16BitImage(FILE *fp, unsigned short *pixels, int xsize, int ysize, 
 		     int skip, int swapBytes);
 
 };
