@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLogLookupTable.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-19 20:10:39 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1999-11-20 18:08:24 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -180,52 +180,47 @@ void vtkLogLookupTable::MapScalarsThroughTable2(void *input,
 						int inputDataType, 
 						int numberOfValues,
 						int inputIncrement,
-						int outputIncrement)
+						int outputFormat)
 {
-  if (outputIncrement > 4)
-    {
-    vtkErrorMacro(<<"MapScalarsThroughTable: can't map to more that 4 components");
-    }
-
   switch (inputDataType)
     {
     case VTK_CHAR:
-      vtkLogLookupTableMapData(this,(char *)input,output,numberOfValues,inputIncrement,outputIncrement);
+      vtkLogLookupTableMapData(this,(char *)input,output,numberOfValues,inputIncrement,outputFormat);
       break;
       
     case VTK_UNSIGNED_CHAR:
-      vtkLogLookupTableMapData(this,(unsigned char *)input,output,numberOfValues,inputIncrement,outputIncrement);
+      vtkLogLookupTableMapData(this,(unsigned char *)input,output,numberOfValues,inputIncrement,outputFormat);
       break;
       
     case VTK_SHORT:
-      vtkLogLookupTableMapData(this,(short *)input,output,numberOfValues,inputIncrement,outputIncrement);
+      vtkLogLookupTableMapData(this,(short *)input,output,numberOfValues,inputIncrement,outputFormat);
       break;
       
     case VTK_UNSIGNED_SHORT:
-      vtkLogLookupTableMapData(this,(unsigned short *)input,output,numberOfValues,inputIncrement,outputIncrement);
+      vtkLogLookupTableMapData(this,(unsigned short *)input,output,numberOfValues,inputIncrement,outputFormat);
       break;
       
     case VTK_INT:
-      vtkLogLookupTableMapData(this,(int *)input,output,numberOfValues,inputIncrement,outputIncrement);
+      vtkLogLookupTableMapData(this,(int *)input,output,numberOfValues,inputIncrement,outputFormat);
       break;
       
     case VTK_UNSIGNED_INT:
-      vtkLogLookupTableMapData(this,(unsigned int *)input,output,numberOfValues,inputIncrement,outputIncrement);
+      vtkLogLookupTableMapData(this,(unsigned int *)input,output,numberOfValues,inputIncrement,outputFormat);
       break;
       
     case VTK_LONG:
-      vtkLogLookupTableMapData(this,(long *)input,output,numberOfValues,inputIncrement,outputIncrement);
+      vtkLogLookupTableMapData(this,(long *)input,output,numberOfValues,inputIncrement,outputFormat);
       break;
       
     case VTK_UNSIGNED_LONG:
-      vtkLogLookupTableMapData(this,(unsigned long *)input,output,numberOfValues,inputIncrement,outputIncrement);
+      vtkLogLookupTableMapData(this,(unsigned long *)input,output,numberOfValues,inputIncrement,outputFormat);
       break;
       
     case VTK_FLOAT:
-      vtkLogLookupTableMapData(this,(float *)input,output,numberOfValues,inputIncrement,outputIncrement);
+      vtkLogLookupTableMapData(this,(float *)input,output,numberOfValues,inputIncrement,outputFormat);
       break;
       
-    case VTK_DOUBLE:      vtkLogLookupTableMapData(this,(double *)input,output,numberOfValues,inputIncrement,outputIncrement);
+    case VTK_DOUBLE:      vtkLogLookupTableMapData(this,(double *)input,output,numberOfValues,inputIncrement,outputFormat);
       break;
       
     default:
