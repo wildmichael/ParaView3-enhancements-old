@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-09 16:44:09 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1995-10-28 13:05:12 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -123,7 +123,7 @@ int vtkPointSet::FindCell(float x[3], vtkCell *cell, float tol2, int& subId,
   int closestCell = -1;
   int ptId, cellId;
   float dist2, minDist2=VTK_LARGE_FLOAT;
-  int sId, npts;
+  int sId;
   float pc[3], closestPoint[3];
   static vtkIdList cellIds(VTK_CELL_SIZE);
   static float *w=new float[this->GetMaxCellSize()];
