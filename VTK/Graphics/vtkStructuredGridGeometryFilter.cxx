@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-04 16:19:38 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2001-04-12 11:33:17 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -71,7 +71,7 @@ void vtkStructuredGridGeometryFilter::Execute()
 {
   int *dims, dimension, dir[3], diff[3];
   int i, j, k, extent[6];
-  int ptIds[4], idx = NULL, startIdx, startCellIdx;
+  int ptIds[4], idx = 0, startIdx, startCellIdx;
   int cellId;
   vtkPoints *newPts=0;
   vtkCellArray *newVerts=0;
