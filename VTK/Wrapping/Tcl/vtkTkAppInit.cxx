@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkAppInit.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-19 15:11:40 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-12-20 16:06:29 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -36,6 +36,12 @@
 #include "vtkSystemIncludes.h"
 #include "vtkToolkits.h"
 #include "Wrapping/Tcl/vtkTkAppInitConfigure.h"
+
+#if defined(CMAKE_INTDIR)
+# define VTK_TCL_PACKAGE_DIR VTK_TCL_PACKAGE_DIR_BUILD "/" CMAKE_INTDIR
+#else
+# define VTK_TCL_PACKAGE_DIR VTK_TCL_PACKAGE_DIR_BUILD
+#endif
 
 #ifdef VTK_USE_RENDERING
 # include "tk.h"
