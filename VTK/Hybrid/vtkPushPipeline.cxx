@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPushPipeline.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-08 13:29:09 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2003-02-24 14:01:35 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,9 +30,15 @@
 #include "vtkSource.h"
 #include "vtkVolumeMapper.h"
 
+#ifdef _MSC_VER
+#pragma warning (push, 3)
+#endif
 #include <vector>
 #include <map>
 #include <algorithm>
+#ifdef _MSC_VER
+#pragma warning(pop)
+#endif
 
 typedef vtkstd::vector< vtkSmartPointer<vtkRenderWindow> > WindowsTypeBase;
 typedef vtkstd::map< vtkSmartPointer<vtkProcessObject>,
@@ -118,7 +124,7 @@ public:
   vtkPushPipeline *PushPipeline;
 };
 
-vtkCxxRevisionMacro(vtkPushPipeline, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkPushPipeline, "$Revision: 1.12 $");
 vtkStandardNewMacro(vtkPushPipeline);
 
 vtkPushPipeline::vtkPushPipeline()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArraySelection.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-08 14:55:24 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2003-02-24 14:01:22 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,11 +18,19 @@
 #include "vtkDataArraySelection.h"
 #include "vtkObjectFactory.h"
 
+#ifdef _MSC_VER
+#pragma warning (push, 3)
+#endif
+
 #include <vector>
 #include <string>
 #include <algorithm>
 
-vtkCxxRevisionMacro(vtkDataArraySelection, "$Revision: 1.8 $");
+#ifdef _MSC_VER
+#pragma warning(pop)
+#endif
+
+vtkCxxRevisionMacro(vtkDataArraySelection, "$Revision: 1.9 $");
 vtkStandardNewMacro(vtkDataArraySelection);
 
 class vtkDataArraySelectionArrayNamesType: public vtkstd::vector<vtkstd::string> {};
