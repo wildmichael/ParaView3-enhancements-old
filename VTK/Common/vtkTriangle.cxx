@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTriangle.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-05-29 13:18:55 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1995-05-30 07:26:04 $
+  Version:   $Revision: 1.18 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -117,7 +117,7 @@ int vlTriangle::_EvaluatePosition(float x[3], float closestPoint[3],
 //
 // Okay, now find closest point to element
 //
-  if ( pcoords[0] >= 0.0 && pcoords[1] <= 1.0 &&
+  if ( pcoords[0] >= 0.0 && pcoords[0] <= 1.0 &&
   pcoords[1] >= 0.0 && pcoords[1] <= 1.0 &&
   pcoords[2] >= 0.0 && pcoords[2] <= 1.0 )
     {
