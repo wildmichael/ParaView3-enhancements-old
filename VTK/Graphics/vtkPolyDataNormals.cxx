@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataNormals.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-21 13:09:32 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2001-03-28 13:56:55 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -117,9 +117,11 @@ void vtkPolyDataNormals::Execute()
     output->CopyStructure(input);
     output->GetPointData()->PassData(input->GetPointData());
     output->GetCellData()->PassData(input->GetCellData());
+	output->SetFieldData(input->GetFieldData());
     return;
     }
   output->GetCellData()->PassData(input->GetCellData());
+  output->SetFieldData(input->GetFieldData());
 
   // Load data into cell structure.  We need two copies: one is a 
   // non-writable mesh used to perform topological queries.  The other 
