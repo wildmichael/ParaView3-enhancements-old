@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-28 19:01:17 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2003-01-26 00:05:28 $
+  Version:   $Revision: 1.27 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkOpenGLRenderer.h"
 #include "vtkProperty.h"
 
-#ifdef __APPLE__
+#if defined(__APPLE__) && (defined(VTK_USE_CARBON) || defined(VTK_USE_COCOA))
 #include <OpenGL/gl.h>
 #else
 #include <GL/gl.h>
@@ -31,7 +31,7 @@
 #include <math.h>
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkOpenGLActor, "$Revision: 1.26 $");
+vtkCxxRevisionMacro(vtkOpenGLActor, "$Revision: 1.27 $");
 vtkStandardNewMacro(vtkOpenGLActor);
 #endif
 

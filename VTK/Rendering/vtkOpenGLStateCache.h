@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLStateCache.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:56 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-01-26 00:05:28 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 */
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-#ifdef __APPLE__
+#if defined(__APPLE__) && (defined(VTK_USE_CARBON) || defined(VTK_USE_COCOA))
 #include <OpenGL/gl.h>
 #else
 #include <GL/gl.h>

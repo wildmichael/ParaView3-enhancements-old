@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:20:41 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2003-01-26 00:05:28 $
+  Version:   $Revision: 1.52 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -41,7 +41,7 @@
 #endif
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
- #ifndef __APPLE__
+ #if defined(__APPLE__) && (defined(VTK_USE_CARBON) || defined(VTK_USE_COCOA))
   #include <GL/gl.h>
  #endif
 #endif
@@ -49,7 +49,7 @@
 #include <math.h>
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkOpenGLTexture, "$Revision: 1.51 $");
+vtkCxxRevisionMacro(vtkOpenGLTexture, "$Revision: 1.52 $");
 vtkStandardNewMacro(vtkOpenGLTexture);
 #endif
 
