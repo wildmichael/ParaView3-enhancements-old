@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIntArray.h,v $
   Language:  C++
-  Date:      $Date: 1998-04-16 13:23:14 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1998-04-16 16:07:09 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,7 +80,9 @@ public:
   int *GetPointer(const int id) {return this->Array + id;}
   int *WritePointer(const int id, const int number);
   void *GetVoidPointer(const int id) {return (void *)this->GetPointer(id);};
-  void DeepCopy(vtkDataArray &da);
+  void DeepCopy(vtkDataArray& ia);
+
+  void SetArray(int* array, int size, int save);
 
 private:
   int *Array;   // pointer to data
@@ -88,6 +90,8 @@ private:
 
   int TupleSize; //used for data conversion
   float *Tuple;
+
+  int SaveUserArray;
 };
 
 // Description:
