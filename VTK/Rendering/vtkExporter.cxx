@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-25 14:47:28 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-04-21 19:01:52 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -167,3 +167,19 @@ void vtkExporter::PrintSelf(ostream& os, vtkIndent indent)
     os << indent << "End Write: (none)\n";
     }
 }
+
+unsigned long int vtkExporter::GetMTime()
+{
+  unsigned long mTime=this-> vtkObject::GetMTime();
+  unsigned long time;
+
+  if ( this->RenderWindow != NULL )
+    {
+    time = this->RenderWindow->GetMTime();
+    mTime = ( time > mTime ? time : mTime );
+    }
+  return mTime;
+}
+
+
+

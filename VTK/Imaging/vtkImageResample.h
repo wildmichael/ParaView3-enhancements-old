@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageResample.h,v $
   Language:  C++
-  Date:      $Date: 1998-04-13 17:27:47 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-04-21 19:02:20 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,11 +67,6 @@ public:
   void SetAxisMagnificationFactor(int axis, float factor);
   float GetAxisMagnificationFactor(int axis);
 
-  // Description:
-  // Here to test My six sigma project
-  void SetABogusVariable(int a);
-  
-  
 protected:
   float MagnificationFactors[3];
   float OutputSpacing[3];

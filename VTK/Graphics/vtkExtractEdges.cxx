@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractEdges.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:03:45 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1998-04-21 19:01:54 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -180,5 +180,19 @@ void vtkExtractEdges::PrintSelf(ostream& os, vtkIndent indent)
     {
     os << indent << "Locator: (none)\n";
     }
+}
+
+
+unsigned long int vtkExtractEdges::GetMTime()
+{
+  unsigned long mTime=this-> vtkDataSetToPolyDataFilter::GetMTime();
+  unsigned long time;
+
+  if ( this->Locator != NULL )
+    {
+    time = this->Locator->GetMTime();
+    mTime = ( time > mTime ? time : mTime );
+    }
+  return mTime;
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProjectedPolyDataRayBounder.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:46:37 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-04-21 19:02:01 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to Lisa Sobierajski Avila who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -200,3 +200,19 @@ void vtkProjectedPolyDataRayBounder::PrintSelf(ostream& os, vtkIndent indent)
 
   vtkObject::PrintSelf(os, indent);
 }
+
+
+unsigned long int vtkProjectedPolyDataRayBounder::GetMTime()
+{
+  unsigned long mTime=this-> vtkRayBounder::GetMTime();
+  unsigned long time;
+
+  if ( this->ActorMatrixSource != NULL )
+    {
+    time = this->ActorMatrixSource->GetMTime();
+    mTime = ( time > mTime ? time : mTime );
+    }
+  return mTime;
+}
+
+

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:03:26 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 1998-04-21 19:01:45 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,14 +70,20 @@ unsigned long vtkCutter::GetMTime()
 {
   unsigned long mTime=this->vtkDataSetFilter::GetMTime();
   unsigned long contourValuesMTime=this->ContourValues->GetMTime();
-  unsigned long cutFuncMTime;
+  unsigned long time;
  
   mTime = ( contourValuesMTime > mTime ? contourValuesMTime : mTime );
 
   if ( this->CutFunction != NULL )
     {
-    cutFuncMTime = this->CutFunction->GetMTime();
-    mTime = ( cutFuncMTime > mTime ? cutFuncMTime : mTime );
+    time = this->CutFunction->GetMTime();
+    mTime = ( time > mTime ? time : mTime );
+    }
+
+  if ( this->Locator != NULL )
+    {
+    time = this->Locator->GetMTime();
+    mTime = ( time > mTime ? time : mTime );
     }
 
   return mTime;

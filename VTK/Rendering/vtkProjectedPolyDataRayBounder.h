@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProjectedPolyDataRayBounder.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:46:38 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-04-21 19:02:03 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to Lisa Sobierajski Avila who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -89,7 +89,9 @@ public:
   // to the matrix of the given actor or volume.
   void SetMatrixSource( vtkActor *actor );
   void SetMatrixSource( vtkVolume *volume );
-  
+
+  unsigned long int GetMTime();
+
 protected:
 
   vtkPolyData   *PolyData;

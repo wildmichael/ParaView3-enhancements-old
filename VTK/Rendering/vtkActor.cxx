@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-12-11 22:01:10 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 1998-04-21 19:01:36 $
+  Version:   $Revision: 1.61 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -322,6 +322,12 @@ unsigned long int vtkActor::GetMTime()
   if ( this->Property != NULL )
     {
     time = this->Property->GetMTime();
+    mTime = ( time > mTime ? time : mTime );
+    }
+
+if ( this->BackfaceProperty != NULL )
+    {
+    time = this->BackfaceProperty->GetMTime();
     mTime = ( time > mTime ? time : mTime );
     }
 

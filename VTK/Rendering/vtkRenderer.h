@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-10 16:07:20 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 1998-04-21 19:02:06 $
+  Version:   $Revision: 1.59 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -177,6 +177,8 @@ public:
   float GetZ (int x, int y);
 
   void Render2D();
+
+  unsigned long int GetMTime();
 
 protected:
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-03 18:58:31 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1998-04-21 19:01:56 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -334,5 +334,18 @@ void vtkGeometryFilter::PrintSelf(ostream& os, vtkIndent indent)
     {
     os << indent << "Locator: (none)\n";
     }
+}
+
+unsigned long int vtkGeometryFilter::GetMTime()
+{
+  unsigned long mTime=this-> vtkDataSetToPolyDataFilter::GetMTime();
+  unsigned long time;
+
+  if ( this->Locator != NULL )
+    {
+    time = this->Locator->GetMTime();
+    mTime = ( time > mTime ? time : mTime );
+    }
+  return mTime;
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:03:19 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1998-04-21 19:01:40 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -73,12 +73,17 @@ vtkClipPolyData::~vtkClipPolyData()
 unsigned long vtkClipPolyData::GetMTime()
 {
   unsigned long mTime=this->vtkPolyDataToPolyDataFilter::GetMTime();
-  unsigned long ClipFuncMTime;
+  unsigned long time;
 
   if ( this->ClipFunction != NULL )
     {
-    ClipFuncMTime = this->ClipFunction->GetMTime();
-    mTime = ( ClipFuncMTime > mTime ? ClipFuncMTime : mTime );
+    time = this->ClipFunction->GetMTime();
+    mTime = ( time > mTime ? time : mTime );
+    }
+  if ( this->Locator != NULL )
+    {
+    time = this->Locator->GetMTime();
+    mTime = ( time > mTime ? time : mTime );
     }
 
   return mTime;

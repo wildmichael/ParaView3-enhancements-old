@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:49:52 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1998-04-21 19:01:15 $
+  Version:   $Revision: 1.25 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -190,15 +190,21 @@ unsigned long vtkImageSource::GetPipelineMTime()
 // The Source of the Cache is set as a side action.
 void vtkImageSource::SetCache(vtkImageCache *cache)
 {
+  if (cache == this->Output)
+    {
+    return;
+    }
+  
   if (cache)
     {
-    cache->ReleaseData();
+    // cache->ReleaseData();
     cache->SetSource(this);
     }
   
   if (this->Output)
     {
     this->Output->Delete();
+    this->Output = NULL;
     }
 
   this->Output = cache;
@@ -233,7 +239,7 @@ int vtkImageSource::GetReleaseDataFlag()
 void vtkImageSource::CheckCache()
 {
   // create a default cache if one has not been set
-  if ( ! this->Output)
+  if (this->Output == NULL)
     {
     this->Output = vtkImageSimpleCache::New();
     this->Output->SetSource(this);

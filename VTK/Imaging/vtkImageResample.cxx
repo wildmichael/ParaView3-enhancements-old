@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageResample.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-13 17:27:14 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-04-21 19:02:18 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -78,11 +78,6 @@ void vtkImageResample::SetAxisOutputSpacing(int axis, float spacing)
       this->MagnificationFactors[axis] = 0.0; // Not computed yet.
       }
     }
-}
-
-void vtkImageResample::SetABogusVariable(int a)
-{
-  this->Modified();
 }
 
 //----------------------------------------------------------------------------

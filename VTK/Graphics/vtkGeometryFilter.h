@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:44:56 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1998-04-21 19:01:58 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -140,6 +140,8 @@ public:
   // Description:
   // Create default locator. Used to create one when none is specified.
   void CreateDefaultLocator();
+
+  unsigned long int GetMTime();
 
 protected:
   void Execute();

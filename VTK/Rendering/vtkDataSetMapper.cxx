@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:03:32 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1998-04-21 19:01:46 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -155,3 +155,21 @@ void vtkDataSetMapper::PrintSelf(ostream& os, vtkIndent indent)
     os << indent << "Geometry Extractor: (none)\n";
     }
 }
+
+unsigned long vtkDataSetMapper::GetMTime()
+{
+  unsigned long mTime=this->vtkMapper::GetMTime();
+  unsigned long time;
+
+  if ( this->LookupTable != NULL )
+    {
+    time = this->LookupTable->GetMTime();
+    mTime = ( time > mTime ? time : mTime );
+    }
+
+  return mTime;
+}
+
+
+
+

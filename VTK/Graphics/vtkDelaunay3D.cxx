@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-30 20:18:15 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1998-04-21 19:01:49 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -913,3 +913,20 @@ void vtkDelaunay3D::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Offset: " << this->Offset << "\n";
   os << indent << "Bounding Triangulation: " << (this->BoundingTriangulation ? "On\n" : "Off\n");
 }
+
+unsigned long int vtkDelaunay3D::GetMTime()
+{
+  unsigned long mTime=this->vtkPointSetFilter::GetMTime();
+  unsigned long time;
+
+  if ( this->Locator != NULL )
+    {
+    time = this->Locator->GetMTime();
+    mTime = ( time > mTime ? time : mTime );
+    }
+  return mTime;
+}
+
+
+
+

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExporter.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-25 14:47:27 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-04-21 19:01:53 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -88,6 +88,8 @@ public:
   void SetEndWrite(void (*f)(void *), void *arg);
   void SetStartWriteArgDelete(void (*f)(void *));
   void SetEndWriteArgDelete(void (*f)(void *));
+
+  unsigned long int GetMTime();
 
 protected:
   vtkRenderWindow *RenderWindow;

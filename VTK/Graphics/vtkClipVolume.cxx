@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-30 17:04:04 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-04-21 19:01:42 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -87,14 +87,14 @@ vtkClipVolume::~vtkClipVolume()
 // then this object is modified as well.
 unsigned long vtkClipVolume::GetMTime()
 {
-  unsigned long mTime, ClipFuncMTime;
+  unsigned long mTime, time;
 
   mTime=this->vtkStructuredPointsToUnstructuredGridFilter::GetMTime();
 
   if ( this->ClipFunction != NULL )
     {
-    ClipFuncMTime = this->ClipFunction->GetMTime();
-    mTime = ( ClipFuncMTime > mTime ? ClipFuncMTime : mTime );
+    time = this->ClipFunction->GetMTime();
+    mTime = ( time > mTime ? time : mTime );
     }
 
   return mTime;

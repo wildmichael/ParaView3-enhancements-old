@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMCubesReader.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:04:17 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1998-04-21 19:02:00 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -116,6 +116,8 @@ public:
   // Description:
   // Create default locator. Used to create one when none is specified.
   void CreateDefaultLocator();
+  
+  unsigned long int GetMTime();
 
 protected:
   void Execute();

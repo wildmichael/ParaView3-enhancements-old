@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay3D.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:03:41 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1998-04-21 19:01:50 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -176,6 +176,8 @@ public:
                           vtkPoints* &pts);
   void InsertPoint(vtkUnstructuredGrid *Mesh, vtkPoints *points,
 		   int id, float x[3], vtkIdList& holeTetras);
+  
+  unsigned long int GetMTime();
 
 protected:
   void Execute();

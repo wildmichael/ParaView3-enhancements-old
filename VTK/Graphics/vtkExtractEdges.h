@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractEdges.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-13 13:50:08 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1998-04-21 19:01:55 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,6 +67,8 @@ public:
   // Description:
   // Create default locator. Used to create one when none is specified.
   void CreateDefaultLocator();
+
+  unsigned long int GetMTime();
 
 protected:
   // Usual data generation method
