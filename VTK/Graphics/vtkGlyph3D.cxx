@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-19 21:36:10 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 1998-05-20 12:03:31 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -176,6 +176,8 @@ void vtkGlyph3D::Execute()
     {
     newScalars = (vtkScalars *) inScalars->MakeObject ();
     newScalars->Allocate(numPts*numSourcePts);
+    newScalarsData = newScalars->GetData ();
+    inScalarsData = inScalars->GetData ();
     }
   else if ( (this->ColorMode == VTK_COLOR_BY_SCALE) && inScalars)
     {
@@ -312,8 +314,6 @@ void vtkGlyph3D::Execute()
 	}
       else if (this->ColorMode == VTK_COLOR_BY_SCALAR)
 	{
-        newScalarsData = newScalars->GetData ();
-        inScalarsData = inScalars->GetData ();
 	for (i=0; i < numSourcePts; i++)
 	  {
 	  outputPD->CopyTuple(inScalarsData, newScalarsData, inPtId, ptIncr+i);
