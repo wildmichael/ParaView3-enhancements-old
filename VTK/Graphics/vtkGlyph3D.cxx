@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-26 14:21:49 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 1998-11-04 19:20:35 $
+  Version:   $Revision: 1.57 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -214,6 +214,12 @@ void vtkGlyph3D::Execute()
   //
   for (ptIncr=0, inPtId=0; inPtId < numPts; inPtId++, ptIncr += numSourcePts)
     {
+
+    if ( ! (inPtId % 10000) ) 
+      {
+      this->UpdateProgress ((float)inPtId/numPts);
+      if (this->GetAbortExecute()) break;
+      }
 
     // Get the scalar and vector data
     if ( inScalars ) 
