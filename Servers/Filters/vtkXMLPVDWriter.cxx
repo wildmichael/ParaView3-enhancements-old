@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLPVDWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-29 19:28:24 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-07-30 13:49:07 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -42,6 +42,10 @@
 #include <vtkstd/string>
 #include <vtkstd/vector>
 
+#ifndef _WIN32
+# include <unistd.h>
+#endif
+
 #if defined(_WIN32)
 # include <direct.h>
 int vtkXMLPVDWriterMakeDirectory(const char* dirname)
@@ -67,7 +71,7 @@ int vtkXMLPVDWriterRemoveDirectory(const char* dirname)
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkXMLPVDWriter);
-vtkCxxRevisionMacro(vtkXMLPVDWriter, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkXMLPVDWriter, "$Revision: 1.4 $");
 
 class vtkXMLPVDWriterInternals
 {
