@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-16 16:01:09 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1996-08-22 12:14:50 $
+  Version:   $Revision: 1.11 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -52,8 +52,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkImageData_h
 
 
-#include "vtkRefCount.hh"
-#include "vtkScalars.hh"
+#include "vtkRefCount.h"
+#include "vtkScalars.h"
 
 
 // The current maximum dimensionality of "images" is 4 (volume and time).
@@ -169,11 +169,11 @@ protected:
 
 
 // Avoid including these in vtkImageData.cc .
-#include "vtkFloatScalars.hh"
-#include "vtkIntScalars.hh"
-#include "vtkShortScalars.hh"
-#include "vtkUnsignedShortScalars.hh"
-#include "vtkUnsignedCharScalars.hh"
+#include "vtkFloatScalars.h"
+#include "vtkIntScalars.h"
+#include "vtkShortScalars.h"
+#include "vtkUnsignedShortScalars.h"
+#include "vtkUnsignedCharScalars.h"
 
 
 #endif

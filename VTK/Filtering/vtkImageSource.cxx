@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-01 18:57:35 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1996-08-22 12:14:56 $
+  Version:   $Revision: 1.6 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -37,7 +37,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkImageSource.hh"
+#include "vtkImageSource.h"
 
 
 //----------------------------------------------------------------------------

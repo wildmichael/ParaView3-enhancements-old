@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-09 19:46:30 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1996-08-22 12:14:57 $
+  Version:   $Revision: 1.6 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -52,7 +52,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkImageSource_h
 #define __vtkImageSource_h
 
-#include "vtkObject.hh"
+#include "vtkObject.h"
 class vtkImageRegion;
 
 
@@ -98,7 +98,7 @@ protected:
 
 
 
-#include "vtkImageRegion.hh"
+#include "vtkImageRegion.h"
 
 #endif
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-16 16:01:08 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1996-08-22 12:14:49 $
+  Version:   $Revision: 1.11 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include <math.h>
-#include "vtkImageData.hh"
+#include "vtkImageData.h"
 
 //----------------------------------------------------------------------------
 // Description:
