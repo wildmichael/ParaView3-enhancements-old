@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-02 18:30:52 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 1998-04-21 11:05:29 $
+  Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1058,7 +1058,7 @@ int vtkDataReader::ReadCoScalarData(vtkDataSetAttributes *a, int numPts)
   // See whether scalar has been already read or scalar name (if specified) 
   // matches name in file. 
   //
-  if ( a->GetScalars() != NULL |
+  if ( a->GetScalars() != NULL ||
   (this->ScalarsName && strcmp(name,this->ScalarsName)) )
     {
     skipScalar = 1;
