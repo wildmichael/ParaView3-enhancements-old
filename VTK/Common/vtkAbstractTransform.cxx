@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:09:33 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-11-30 14:38:02 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,7 +44,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkHomogeneousTransform.h"
 #include "vtkMath.h"
 #include "vtkDebugLeaks.h"
-#include "vtkMutexLock.h"
+#include "vtkCriticalSection.h"
 
 //----------------------------------------------------------------------------
 vtkAbstractTransform::vtkAbstractTransform()
@@ -52,8 +52,8 @@ vtkAbstractTransform::vtkAbstractTransform()
   this->MyInverse = NULL;
   this->DependsOnInverse = 0;
   this->InUnRegister = 0;
-  this->UpdateMutex = vtkSimpleMutexLock::New();
-  this->InverseMutex = vtkSimpleMutexLock::New();
+  this->UpdateMutex = vtkSimpleCriticalSection::New();
+  this->InverseMutex = vtkSimpleCriticalSection::New();
 }
 
 //----------------------------------------------------------------------------
