@@ -10,7 +10,7 @@
  *                                                                          *
  ****************************************************************************/
 
-/* $Id: H5.c,v 1.3 2003-04-09 19:34:41 andy Exp $ */
+/* $Id: H5.c,v 1.4 2004-02-10 18:42:39 berk Exp $ */
 
 /* private headers */
 #include "H5private.h"          /*library                               */
@@ -1148,7 +1148,7 @@ HDstrtoll (const char *s, const char **rest, int base)
         if (sign>0) {
             acc = ((uint64_t)1<<(8*sizeof(int64_t)-1))-1;
         } else {
-            acc = (uint64_t)1<<(8*sizeof(int64_t)-1);
+            acc = (int64_t)1<<(8*sizeof(int64_t)-1);
         }
         errno = ERANGE;
     }
