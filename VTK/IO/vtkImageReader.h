@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-24 16:06:32 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1999-09-30 15:09:00 $
+  Version:   $Revision: 1.38 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -89,6 +89,7 @@ public:
   // after this method is called.
   void SetDataScalarType(int type);
   void SetDataScalarTypeToFloat(){this->SetDataScalarType(VTK_FLOAT);}
+  void SetDataScalarTypeToDouble(){this->SetDataScalarType(VTK_DOUBLE);}
   void SetDataScalarTypeToInt(){this->SetDataScalarType(VTK_INT);}
   void SetDataScalarTypeToShort(){this->SetDataScalarType(VTK_SHORT);}
   void SetDataScalarTypeToUnsignedShort()

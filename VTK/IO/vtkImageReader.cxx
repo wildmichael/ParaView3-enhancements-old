@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-24 16:06:32 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 1999-09-30 15:09:00 $
+  Version:   $Revision: 1.56 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -603,7 +603,7 @@ void vtkImageReader::OpenAndSeekFile(int dataExtent[6], int idx)
   if (this->File->fail())
     {
     vtkWarningMacro("File operation failed.");
-      return;
+    return;
     }
 	
 }
@@ -825,6 +825,7 @@ void vtkImageReader::Execute(vtkImageData *data)
   int *ext;
   
   ext = data->GetExtent();
+
   vtkDebugMacro("Reading extent: " << ext[0] << ", " << ext[1] << ", " 
 	<< ext[2] << ", " << ext[3] << ", " << ext[4] << ", " << ext[5]);
   
