@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-12-17 01:24:02 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1997-12-17 16:40:24 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -78,8 +78,6 @@ vtkImageSource::~vtkImageSource()
 //----------------------------------------------------------------------------
 void vtkImageSource::PrintSelf(ostream& os, vtkIndent indent)
 {
-  int idx;
- 
   vtkObject::PrintSelf(os,indent);
 
   os << indent << "AbortExecute: " << (this->AbortExecute ? "On\n" : "Off\n");

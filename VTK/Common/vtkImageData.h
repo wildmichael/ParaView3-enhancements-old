@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.h,v $
   Language:  C++
-  Date:      $Date: 1997-12-17 01:24:00 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1997-12-17 16:40:23 $
+  Version:   $Revision: 1.28 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,7 +80,7 @@ public:
 
   // Description:
   // Different ways to get the increments for moving around the data.
-  vtkGetVectorMacro(Increments,int,3);
+  vtkGetVector3Macro(Increments,int);
   
   // Description:
   // Different ways to get the increments for moving around the data.
