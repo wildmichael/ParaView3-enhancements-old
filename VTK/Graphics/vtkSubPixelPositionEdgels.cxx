@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSubPixelPositionEdgels.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-16 19:02:33 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2001-08-27 18:35:38 $
+  Version:   $Revision: 1.35 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -409,7 +409,7 @@ void vtkSubPixelPositionEdgels::SetGradMaps(vtkStructuredPoints *gm)
 
 vtkStructuredPoints *vtkSubPixelPositionEdgels::GetGradMaps()
 {
-  if (this->NumberOfInputs < 1)
+  if (this->NumberOfInputs < 2)
     {
     return NULL;
     }
