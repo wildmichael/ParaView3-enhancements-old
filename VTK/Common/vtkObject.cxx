@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-11-18 20:22:41 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 2000-11-30 19:23:58 $
+  Version:   $Revision: 1.59 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -368,7 +368,7 @@ int vtkSubjectHelper::HasObserver(unsigned long event)
   vtkObserver *elem = this->Start;
   while (elem)
     {
-    if (elem->Event == event)
+    if (elem->Event == event || elem->Event == vtkCommand::AnyEvent)
       {
       return 1;
       }
@@ -386,7 +386,7 @@ void vtkSubjectHelper::InvokeEvent(unsigned long event, void *callData,
     {
     // store the next pointer because elem could disappear due to Command
     next = elem->Next;
-    if (elem->Event == event)
+    if (elem->Event == event || elem->Event == vtkCommand::AnyEvent)
       {
       elem->Command->Execute(self,event,callData);
       }

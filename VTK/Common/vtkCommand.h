@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCommand.h,v $
   Language:  C++
-  Date:      $Date: 2000-11-23 20:28:28 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-11-30 19:23:58 $
+  Version:   $Revision: 1.12 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -73,6 +73,7 @@ public:
   // in vtkCommand.cxx to match.
   enum EventIds {
     NoEvent = 0,
+    AnyEvent,
     DeleteEvent,
     StartEvent,
     EndEvent,
@@ -82,6 +83,20 @@ public:
     EndPickEvent,
     AbortCheckEvent,
     ExitEvent,
+    LeftButtonPressEvent,
+    LeftButtonReleaseEvent,
+    MiddleButtonPressEvent,
+    MiddleButtonReleaseEvent,
+    RightButtonPressEvent,
+    RightButtonReleaseEvent,
+    EnterEvent,
+    LeaveEvent,
+    KeyPressEvent,
+    KeyReleaseEvent,
+    CharEvent,
+    ConfigureEvent,
+    TimerEvent,
+    MouseMoveEvent,
     UserEvent = 1000
   };
 //ETX
