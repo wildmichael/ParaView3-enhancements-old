@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:06:06 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2000-02-16 20:32:00 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -373,14 +373,17 @@ int vtkPicker::Pick(float selectionX, float selectionY, float selectionZ,
         bounds[4] -= tol; bounds[5] += tol; 
         if ( vtkCell::HitBBox(bounds, (float *)p1Mapper, ray, hitPosition, t) )
           {
-          picked = 1;
           t = this->IntersectWithLine((float *)p1Mapper, 
 				      (float *)p2Mapper,tol,actor,part,mapper);
-          this->Actors->AddItem(part);
-	  this->PickedPositions->InsertNextPoint
-	    ((1.0 - t)*p1World[0] + t*p2World[0],
-	     (1.0 - t)*p1World[1] + t*p2World[1],
-	     (1.0 - t)*p1World[2] + t*p2World[2]);
+          if ( t < VTK_LARGE_FLOAT )
+            {
+            picked = 1;
+            this->Actors->AddItem(part);
+            this->PickedPositions->InsertNextPoint
+              ((1.0 - t)*p1World[0] + t*p2World[0],
+               (1.0 - t)*p1World[1] + t*p2World[1],
+               (1.0 - t)*p1World[2] + t*p2World[2]);
+            }
           }
 
         }//if visible and pickable not transparent and has mapper
