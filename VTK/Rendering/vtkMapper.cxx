@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-23 20:34:54 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1997-06-03 14:55:18 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,6 +60,7 @@ vtkMapper::vtkMapper()
   this->ScalarRange[0] = 0.0; this->ScalarRange[1] = 1.0;
 
   this->SelfCreatedLookupTable = 0;
+  this->ImmediateModeRendering = 0;
 }
 
 vtkMapper::~vtkMapper()
@@ -97,6 +98,8 @@ void vtkMapper::operator=(const vtkMapper& m)
   this->SetEndRender(m.EndRender,m.EndRenderArg);
 }
 
+// a side effect of this is that this->Colors is also set
+// to the return value
 vtkColorScalars *vtkMapper::GetColors()
 {
   vtkPointData *pd;
@@ -299,6 +302,8 @@ void vtkMapper::PrintSelf(ostream& os, vtkIndent indent)
     {
     os << indent << "Lookup Table: (none)\n";
     }
+  os << indent << "Immediate Mode Rendering: " 
+    << (this->ImmediateModeRendering ? "On\n" : "Off\n");
   os << indent << "Scalar Visibility: " 
     << (this->ScalarVisibility ? "On\n" : "Off\n");
 

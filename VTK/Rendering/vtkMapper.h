@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.h,v $
   Language:  C++
-  Date:      $Date: 1997-05-23 20:34:55 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1997-06-03 14:55:19 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -97,6 +97,17 @@ public:
   vtkBooleanMacro(ScalarVisibility,int);
 
   // Description:
+  // Turn on/off flag to control whether data is rendered using
+  // immediate mode or note. Immediate mode rendering
+  // tends to be slower but it can handle larger datasets.
+  // The default value is immediate mode off. If you are 
+  // having problems rendering a large dataset you might
+  // want to consider using imediate more rendering.
+  vtkSetMacro(ImmediateModeRendering,int);
+  vtkGetMacro(ImmediateModeRendering,int);
+  vtkBooleanMacro(ImmediateModeRendering,int);
+
+  // Description:
   // Specify range in terms of scalar minimum and maximum (smin,smax). These
   // values are used to map scalars into lookup table.
   vtkSetVector2Macro(ScalarRange,float);
@@ -135,7 +146,7 @@ protected:
   vtkTimeStamp BuildTime;
   float ScalarRange[2];
   int SelfCreatedLookupTable;
-
+  int ImmediateModeRendering;
 };
 
 #endif
