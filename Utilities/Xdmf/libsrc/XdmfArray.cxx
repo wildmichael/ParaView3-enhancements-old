@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfArray.cxx,v 1.7 2003-09-30 22:07:56 andy Exp $  */
-/*  Date : $Date: 2003-09-30 22:07:56 $ */
-/*  Version : $Revision: 1.7 $ */
+/*  Id : $Id: XdmfArray.cxx,v 1.8 2003-10-01 17:48:37 andy Exp $  */
+/*  Date : $Date: 2003-10-01 17:48:37 $ */
+/*  Version : $Revision: 1.8 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -1040,12 +1040,12 @@ return( Value );
 
 XdmfInt64
 XdmfArray::GetMinAsInt64( void ) {
-return( this->GetMinAsFloat64() );
+return( static_cast<XdmfInt64>(this->GetMinAsFloat64()) );
 }
 
 XdmfInt64
 XdmfArray::GetMaxAsInt64( void ) {
-return( this->GetMaxAsFloat64() );
+return( static_cast<XdmfInt64>(this->GetMaxAsFloat64()) );
 }
 
 XdmfInt32 XdmfArray::SetValue( XdmfInt64 Index, XdmfInt8 Value ) {

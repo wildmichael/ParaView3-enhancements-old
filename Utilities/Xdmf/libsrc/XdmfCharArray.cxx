@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfCharArray.cxx,v 1.1 2002-12-02 17:11:03 clarke Exp $  */
-/*  Date : $Date: 2002-12-02 17:11:03 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfCharArray.cxx,v 1.2 2003-10-01 17:48:37 andy Exp $  */
+/*  Date : $Date: 2003-10-01 17:48:37 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -51,7 +51,7 @@ if ( stat( FileName, &FileStatus ) < 0 ) {
 XdmfDebug("File " << FileName << " is " << FileStatus.st_size << " bytes long");
 this->SetNumberOfElements( FileStatus.st_size + 1 );
 cp = (char *)this->GetDataPointer();
-if( fp = fopen( FileName, "r" ) ) {
+if( (fp = fopen( FileName, "r" )) ) {
   while( ( ch = getc( fp ) ) != EOF ){
     *cp++ = ch;  
     }

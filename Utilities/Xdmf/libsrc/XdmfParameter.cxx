@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfParameter.cxx,v 1.3 2003-09-29 16:00:41 andy Exp $  */
-/*  Date : $Date: 2003-09-29 16:00:41 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: XdmfParameter.cxx,v 1.4 2003-10-01 17:48:37 andy Exp $  */
+/*  Date : $Date: 2003-10-01 17:48:37 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -124,7 +124,7 @@ if( !this->ParameterArray ){
       this->ParameterArray->GetNumberOfElements() - 1 ));
   }
 }
-IValue = Value;
+IValue = static_cast<XdmfInt64>(Value);
 LastFormatCharIndex = strlen( this->ParameterFormat ) - 1;
 if ( LastFormatCharIndex >= 0 ) {
         switch ( this->ParameterFormat[ LastFormatCharIndex ] ) {

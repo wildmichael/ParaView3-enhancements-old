@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfTransform.cxx,v 1.5 2003-09-30 22:07:56 andy Exp $  */
-/*  Date : $Date: 2003-09-30 22:07:56 $ */
-/*  Version : $Revision: 1.5 $ */
+/*  Id : $Id: XdmfTransform.cxx,v 1.6 2003-10-01 17:48:37 andy Exp $  */
+/*  Date : $Date: 2003-10-01 17:48:37 $ */
+/*  Version : $Revision: 1.6 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -154,14 +154,14 @@ if( XDMF_WORD_CMP( Attribute, "Function" ) ){
 
   CData = this->DOM->Get( Element, "Function" );
   XdmfDebug("Transform is Function = " << CData);
-  while( c = *CData++ ) {
+  while( (c = *CData++) ) {
     if( c == '$' ) {
       XdmfXNode  *Argument;
       XdmfArray  *TmpArray;
       XdmfTransform  TmpTransform;
       istrstream  CDataStream(CData);
       CDataStream >> Id;
-      while( c = *CData++ ) {
+      while( (c = *CData++) ) {
         if( c > ' ') break;
         }
       Argument = this->DOM->FindElement( NULL, Id, Element );

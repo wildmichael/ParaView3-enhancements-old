@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGeometry.cxx,v 1.3 2003-09-29 16:00:41 andy Exp $  */
-/*  Date : $Date: 2003-09-29 16:00:41 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: XdmfGeometry.cxx,v 1.4 2003-10-01 17:48:37 andy Exp $  */
+/*  Date : $Date: 2003-10-01 17:48:37 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -31,7 +31,7 @@
 #include "XdmfHDF.h"
 
 XdmfGeometry *GetXdmfGeometryHandle( void *Pointer ){
-  XdmfGeometry *tmp = (XdmfGeometry *)Pointer;
+  //XdmfGeometry *tmp = (XdmfGeometry *)Pointer;
   return((XdmfGeometry *)Pointer);
   }
 
@@ -67,8 +67,8 @@ return( this->SetOrigin( Origin[0], Origin[1], Origin[2] ) );
 XdmfInt32
 XdmfGeometry::SetDxDyDz( XdmfFloat64 Dx, XdmfFloat64 Dy, XdmfFloat64 Dz ){
 this->DxDyDz[0] = Dx;
-this->DxDyDz[1] = Dx;
-this->DxDyDz[2] = Dx;
+this->DxDyDz[1] = Dy;
+this->DxDyDz[2] = Dz;
 return( XDMF_SUCCESS );
 }
 

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfObject.cxx,v 1.4 2003-06-26 19:23:54 andy Exp $  */
-/*  Date : $Date: 2003-06-26 19:23:54 $ */
-/*  Version : $Revision: 1.4 $ */
+/*  Id : $Id: XdmfObject.cxx,v 1.5 2003-10-01 17:48:37 andy Exp $  */
+/*  Date : $Date: 2003-10-01 17:48:37 $ */
+/*  Version : $Revision: 1.5 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -81,7 +81,7 @@ ostrstream Handle;
 XDMF_64_INT RealObjectPointer;
 XdmfObject **Rpt = &Source;
 
-RealObjectPointer = (XDMF_64_INT)*Rpt;
+RealObjectPointer = reinterpret_cast<XDMF_64_INT>(*Rpt);
 Handle << "_";
 Handle.setf(ios::hex,ios::basefield);
 Handle << ICE_64BIT_CAST(RealObjectPointer) << "_" << Source->GetClassName() << ends;
@@ -109,7 +109,7 @@ Handle.setf(ios::hex,ios::basefield);
 ICE_READ_STREAM64(Handle, RealObjectPointer);
 // cout << "Source = " << Source << endl;
 // cout << "RealObjectPointer = " << RealObjectPointer << endl;
-*Rpt = (XdmfObject *)RealObjectPointer;
+*Rpt = reinterpret_cast<XdmfObject *>(RealObjectPointer);
 delete [] src;
 return( RealObject );
 }
