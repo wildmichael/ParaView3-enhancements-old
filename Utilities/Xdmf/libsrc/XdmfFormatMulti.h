@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfFormatMulti.h,v 1.4 2003-10-21 15:12:48 andy Exp $  */
-/*  Date : $Date: 2003-10-21 15:12:48 $ */
-/*  Version : $Revision: 1.4 $ */
+/*  Id : $Id: XdmfFormatMulti.h,v 1.5 2003-11-07 19:19:58 clarke Exp $  */
+/*  Date : $Date: 2003-11-07 19:19:58 $ */
+/*  Version : $Revision: 1.5 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -31,6 +31,8 @@
 class XdmfXNode;
 class XdmfArray;
 
+
+//! Wrapper Class for XdmfFormatHDF and XdmfFormatXML
 
 class XDMF_EXPORT XdmfFormatMulti : public XdmfFormat {
 

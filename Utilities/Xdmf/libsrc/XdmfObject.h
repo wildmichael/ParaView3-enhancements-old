@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfObject.h,v 1.14 2003-10-27 17:12:03 clarke Exp $  */
-/*  Date : $Date: 2003-10-27 17:12:03 $ */
-/*  Version : $Revision: 1.14 $ */
+/*  Id : $Id: XdmfObject.h,v 1.15 2003-11-07 19:19:58 clarke Exp $  */
+/*  Date : $Date: 2003-11-07 19:19:58 $ */
+/*  Version : $Revision: 1.15 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -390,6 +390,7 @@ type Get##var (XdmfInt64 Index) \
   return ( this->var[ Index ]  ); \
   }
 
+//! Base Class for All Xdmf Objects
 class XDMF_EXPORT XdmfObject {
 public:
   XdmfObject();

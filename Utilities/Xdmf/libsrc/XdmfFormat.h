@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfFormat.h,v 1.4 2003-10-21 15:12:48 andy Exp $  */
-/*  Date : $Date: 2003-10-21 15:12:48 $ */
-/*  Version : $Revision: 1.4 $ */
+/*  Id : $Id: XdmfFormat.h,v 1.5 2003-11-07 19:19:58 clarke Exp $  */
+/*  Date : $Date: 2003-11-07 19:19:58 $ */
+/*  Version : $Revision: 1.5 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -28,6 +28,9 @@
 
 #include "XdmfLightData.h"
 
+class XdmfDataDesc;
+
+//!  Wrapper Class for handeling DataStructure and DataTransform
 /*!
 This is the Base Object for Format Drivers.
 If the Data if embedded in the XML, this object
@@ -36,6 +39,7 @@ methods are overloaded.
 
 An XML Format Node Looks like :
 
+\verbatim
 <DataStructure
   Name="XXX"
   Rank="2"
@@ -44,9 +48,9 @@ An XML Format Node Looks like :
   DataType="Float">
   1.1 3.3 5.5 7.7 9.9 11 13.1 15
 </DataStructure>
+\endverbatim
 */
 
-class XdmfDataDesc;
 
 class XDMF_EXPORT XdmfFormat : public XdmfLightData {
 

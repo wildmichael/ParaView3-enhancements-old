@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfCharArray.h,v 1.4 2003-10-21 18:37:37 andy Exp $  */
-/*  Date : $Date: 2003-10-21 18:37:37 $ */
-/*  Version : $Revision: 1.4 $ */
+/*  Id : $Id: XdmfCharArray.h,v 1.5 2003-11-07 19:19:58 clarke Exp $  */
+/*  Date : $Date: 2003-11-07 19:19:58 $ */
+/*  Version : $Revision: 1.5 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -27,6 +27,7 @@
 
 #include "XdmfArray.h"
 
+//! Specialized XdmfArray
 /*!
 This is a special XdmfArray designed to
 handle character strings.

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfRuntime.h,v 1.5 2003-10-21 15:12:48 andy Exp $  */
-/*  Date : $Date: 2003-10-21 15:12:48 $ */
-/*  Version : $Revision: 1.5 $ */
+/*  Id : $Id: XdmfRuntime.h,v 1.6 2003-11-07 19:19:58 clarke Exp $  */
+/*  Date : $Date: 2003-11-07 19:19:58 $ */
+/*  Version : $Revision: 1.6 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -31,6 +31,10 @@
 #define XDMF_SAFE    1
 #define XDMF_DEFAULT_BARRIER  20
 
+class XdmfCharArray;
+class XdmfDOM;
+
+//! Class to handle Runtime Updates in HPC Codes
 /*!
 The Object for integrating a running code
 with the XDMF Object Directory. The user
@@ -39,9 +43,6 @@ object and can access the code's internal data values.
 This object is used to listen for requests and set up
 the DOM so the parse routine can just walk the tree
 */
-
-class XdmfCharArray;
-class XdmfDOM;
 
 class XdmfRuntime : public XdmfNDGM {
 

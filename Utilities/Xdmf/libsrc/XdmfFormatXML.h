@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfFormatXML.h,v 1.4 2003-10-21 15:12:48 andy Exp $  */
-/*  Date : $Date: 2003-10-21 15:12:48 $ */
-/*  Version : $Revision: 1.4 $ */
+/*  Id : $Id: XdmfFormatXML.h,v 1.5 2003-11-07 19:19:58 clarke Exp $  */
+/*  Date : $Date: 2003-11-07 19:19:58 $ */
+/*  Version : $Revision: 1.5 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -30,6 +30,21 @@
 
 class XdmfArray;
 
+//! Handles Values directly embedded in the XML
+/*!
+	Data can be directly embedded in the XML. For Example :
+\verbatim
+<DataStructure
+  Name="XXX"
+  Rank="2"
+  Dimensions="2 4"
+  Precision="4"
+  DataType="Float">
+  1.1 3.3 5.5 7.7 9.9 11 13.1 15
+</DataStructure>
+\endverbatim
+
+*/
 class XDMF_EXPORT XdmfFormatXML : public XdmfFormat {
 
 public :

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfFormatHDF.h,v 1.4 2003-10-21 15:12:48 andy Exp $  */
-/*  Date : $Date: 2003-10-21 15:12:48 $ */
-/*  Version : $Revision: 1.4 $ */
+/*  Id : $Id: XdmfFormatHDF.h,v 1.5 2003-11-07 19:19:58 clarke Exp $  */
+/*  Date : $Date: 2003-11-07 19:19:58 $ */
+/*  Version : $Revision: 1.5 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -32,6 +32,22 @@ class XdmfArray;
 class XdmfDataDesc;
 class XdmfXNode;
 
+//! Class for handeling XML describing HDF5 files
+/*!
+	An example tag for XML describing HDF5
+\verbatim
+<DataStructure
+  Name="XXX"
+  Rank="2"
+  Dimensions="2 4"
+  Precision="4"
+  DataType="Float"
+  Format="HDF">
+  MyFile.h5:/Values
+</DataStructure>
+\endverbatim
+
+*/
 class XDMF_EXPORT XdmfFormatHDF : public XdmfFormat {
 
 public :

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfArray.h,v 1.5 2003-11-06 21:57:03 clarke Exp $  */
-/*  Date : $Date: 2003-11-06 21:57:03 $ */
-/*  Version : $Revision: 1.5 $ */
+/*  Id : $Id: XdmfArray.h,v 1.6 2003-11-07 19:19:58 clarke Exp $  */
+/*  Date : $Date: 2003-11-07 19:19:58 $ */
+/*  Version : $Revision: 1.6 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -30,6 +30,7 @@
 #define XDMF_LONGEST_LENGTH     (XdmfInt64)~0
 #define XDMF_ARRAY_TAG_LENGTH  80
 
+//! Self Describing Data Structure
 /*!
 This is the SuperClass for All XDMF Arrays.
 XDMF Arrays allow the user to set and query the

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfXNode.h,v 1.5 2003-10-21 15:12:48 andy Exp $  */
-/*  Date : $Date: 2003-10-21 15:12:48 $ */
-/*  Version : $Revision: 1.5 $ */
+/*  Id : $Id: XdmfXNode.h,v 1.6 2003-11-07 19:19:58 clarke Exp $  */
+/*  Date : $Date: 2003-11-07 19:19:58 $ */
+/*  Version : $Revision: 1.6 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -33,6 +33,7 @@
 
 #include "XdmfDice.h"
 
+//! XDMF Runtime Expandable Structure.
 /*!
 XdmfXNode : XDMF Runtime Expandable Structure.
 This is an attempt to implement Tcl Arrays in C++.

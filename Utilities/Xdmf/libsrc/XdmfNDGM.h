@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfNDGM.h,v 1.5 2003-10-21 15:12:48 andy Exp $  */
-/*  Date : $Date: 2003-10-21 15:12:48 $ */
-/*  Version : $Revision: 1.5 $ */
+/*  Id : $Id: XdmfNDGM.h,v 1.6 2003-11-07 19:19:58 clarke Exp $  */
+/*  Date : $Date: 2003-11-07 19:19:58 $ */
+/*  Version : $Revision: 1.6 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -46,6 +46,7 @@ extern "C" {
 
 class XdmfArray;
 
+//! Class to handle NDGM interface
 /*!
 Object to Handle Low level NDGM Details
 like sending and recciving NDGM Messages
