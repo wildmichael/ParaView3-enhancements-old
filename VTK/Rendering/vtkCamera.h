@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.h,v $
   Language:  C++
-  Date:      $Date: 1999-05-03 01:17:00 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 1999-05-19 14:29:45 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -93,6 +93,8 @@ class VTK_EXPORT vtkCamera : public vtkObject
   void SetViewUp(double vx, double vy, double vz);
   void SetViewUp(double a[3]);
   vtkGetVectorMacro(ViewUp,double,3);
+  void GetViewUp( float a[3] ) { a[0] = this->ViewUp[0];
+      a[1] = this->ViewUp[1]; a[2] = this->ViewUp[2]; };
 
   // Description:
   // Set/Get the location of the front and back clipping planes along the
