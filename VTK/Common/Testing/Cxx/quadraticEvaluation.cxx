@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: quadraticEvaluation.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-18 19:45:30 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-06-19 17:16:39 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -239,6 +239,9 @@ int Test(ostream& strm)
   tetra->EvaluateLocation(subId, tetraPCoords, tetraPosition, tetraWeights);
   
   // vtkQuadraticHexahedron
+  hexPCoords[0] = 0.25;
+  hexPCoords[1] = 0.33;
+  hexPCoords[2] = 0.75;
   hex->EvaluateLocation(subId, hexPCoords, hexPosition, hexWeights);
   
   strm << "Test vtkCell::EvaluateLocation End" << endl;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericCell.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-30 19:31:35 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-06-19 17:16:39 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -36,9 +36,10 @@
 #include "vtkQuadraticQuad.h"
 #include "vtkQuadraticTetra.h"
 #include "vtkQuadraticHexahedron.h"
+#include "vtkConvexPointSet.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkGenericCell, "$Revision: 1.14 $");
+vtkCxxRevisionMacro(vtkGenericCell, "$Revision: 1.15 $");
 vtkStandardNewMacro(vtkGenericCell);
 
 // Construct cell.
@@ -239,6 +240,9 @@ void vtkGenericCell::SetCellType(int cellType)
         break;
       case VTK_QUADRATIC_HEXAHEDRON:
         this->Cell = vtkQuadraticHexahedron::New();
+        break;
+      case VTK_CONVEX_POINT_SET:
+        this->Cell = vtkConvexPointSet::New();
         break;
       default:
         vtkErrorMacro(<<"Unsupported cell type! Setting to vtkEmptyCell");

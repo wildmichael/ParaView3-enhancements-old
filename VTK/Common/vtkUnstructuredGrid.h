@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-30 18:37:17 $
-  Version:   $Revision: 1.84 $
+  Date:      $Date: 2002-06-19 17:16:39 $
+  Version:   $Revision: 1.85 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -51,6 +51,7 @@ class vtkQuadraticTriangle;
 class vtkQuadraticQuad;
 class vtkQuadraticTetra;
 class vtkQuadraticHexahedron;
+class vtkConvexPointSet;
 
 class VTK_COMMON_EXPORT vtkUnstructuredGrid : public vtkPointSet {
 private:
@@ -195,6 +196,7 @@ protected:
   vtkQuadraticQuad       *QuadraticQuad;
   vtkQuadraticTetra      *QuadraticTetra;
   vtkQuadraticHexahedron *QuadraticHexahedron;
+  vtkConvexPointSet      *ConvexPointSet;
   
   // points inherited
   // point data (i.e., scalars, vectors, normals, tcoords) inherited

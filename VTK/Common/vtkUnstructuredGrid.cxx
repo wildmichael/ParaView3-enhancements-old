@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-31 15:11:01 $
-  Version:   $Revision: 1.106 $
+  Date:      $Date: 2002-06-19 17:16:39 $
+  Version:   $Revision: 1.107 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -35,9 +35,10 @@
 #include "vtkQuadraticQuad.h"
 #include "vtkQuadraticTetra.h"
 #include "vtkQuadraticHexahedron.h"
+#include "vtkConvexPointSet.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkUnstructuredGrid, "$Revision: 1.106 $");
+vtkCxxRevisionMacro(vtkUnstructuredGrid, "$Revision: 1.107 $");
 vtkStandardNewMacro(vtkUnstructuredGrid);
 
 vtkUnstructuredGrid::vtkUnstructuredGrid ()
@@ -61,6 +62,7 @@ vtkUnstructuredGrid::vtkUnstructuredGrid ()
   this->QuadraticQuad = vtkQuadraticQuad::New();
   this->QuadraticTetra = vtkQuadraticTetra::New();
   this->QuadraticHexahedron = vtkQuadraticHexahedron::New();
+  this->ConvexPointSet = vtkConvexPointSet::New();
 
   this->Connectivity = NULL;
   this->Links = NULL;
@@ -133,6 +135,7 @@ vtkUnstructuredGrid::~vtkUnstructuredGrid()
   this->QuadraticQuad->Delete();
   this->QuadraticTetra->Delete();
   this->QuadraticHexahedron->Delete();
+  this->ConvexPointSet->Delete();
 }
 
 // Copy the geometric and topological structure of an input unstructured grid.
@@ -285,6 +288,10 @@ vtkCell *vtkUnstructuredGrid::GetCell(vtkIdType cellId)
 
     case VTK_QUADRATIC_HEXAHEDRON:
       cell = this->QuadraticHexahedron;
+      break;
+
+    case VTK_CONVEX_POINT_SET:
+      cell = this->ConvexPointSet;
       break;
     }
 
