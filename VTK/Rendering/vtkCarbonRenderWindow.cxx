@@ -3,8 +3,8 @@
 Program:   Visualization Toolkit
 Module:    $RCSfile: vtkCarbonRenderWindow.cxx,v $
 Language:  C++
-Date:      $Date: 2002-05-17 15:01:25 $
-Version:   $Revision: 1.3 $
+Date:      $Date: 2002-05-17 21:48:26 $
+Version:   $Revision: 1.4 $
 Thanks:    to Yves Starreveld for developing this class
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
@@ -32,7 +32,7 @@ Thanks:    to Yves Starreveld for developing this class
 #include "vtkObjectFactory.h"
 
 
-vtkCxxRevisionMacro(vtkCarbonRenderWindow, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkCarbonRenderWindow, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkCarbonRenderWindow);
 
 
@@ -579,49 +579,6 @@ void vtkCarbonRenderWindow::SetupPixelFormat(void *hDC, void *dwFlags,
 void vtkCarbonRenderWindow::SetupPalette(void *hDC)
 {
   cout << "vtkCarbonRenderWindow::SetupPalette - IMPLEMENT\n";
-}
-
-//--------------------------------------------------------------------------
-void vtkCarbonRenderWindow::OpenGLInit()
-{
-  glMatrixMode( GL_MODELVIEW );
-  glDepthFunc( GL_LEQUAL );
-  glEnable( GL_DEPTH_TEST );
-  glTexEnvf( GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE );
-  
-  // initialize blending for transparency
-  glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
-  glEnable(GL_BLEND);
-
-  if (this->PointSmoothing)
-    {
-    glEnable(GL_POINT_SMOOTH);
-    }
-  else
-    {
-    glDisable(GL_POINT_SMOOTH);
-    }
-
-  if (this->LineSmoothing)
-    {
-    glEnable(GL_LINE_SMOOTH);
-    }
-  else
-    {
-    glDisable(GL_LINE_SMOOTH);
-    }
-
-  if (this->PolygonSmoothing)
-    {
-    glEnable(GL_POLYGON_SMOOTH);
-    }
-  else
-    {
-    glDisable(GL_POLYGON_SMOOTH);
-    }
-
-  glEnable( GL_NORMALIZE );
-  glLightModeli(GL_LIGHT_MODEL_TWO_SIDE, GL_TRUE);
 }
 
 //--------------------------------------------------------------------------

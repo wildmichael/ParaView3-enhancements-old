@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCarbonRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-17 15:01:25 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-05-17 21:48:26 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -175,7 +175,6 @@ public:
   
   // Description:
   // Initialize OpenGL for this window.
-  virtual void OpenGLInit();
   virtual void SetupPalette(void *hDC);
   virtual void SetupPixelFormat(void *hDC, void *dwFlags, int debug, 
                                 int bpp=16, int zbpp=16);
