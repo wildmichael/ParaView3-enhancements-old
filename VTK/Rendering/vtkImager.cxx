@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImager.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:08:57 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2000-04-25 15:58:15 $
+  Version:   $Revision: 1.22 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -65,6 +65,11 @@ vtkImager::vtkImager()
   this->Viewport[1] = 0.0; // min y
   this->Viewport[2] = 1.0; // max x
   this->Viewport[3] = 1.0; // max y
+}
+
+vtkImager::~vtkImager()
+{
+  this->SetImageWindow( NULL );
 }
 
 int vtkImager::RenderOpaqueGeometry()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImager.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:08:57 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-04-25 15:58:15 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -94,7 +94,7 @@ public:
   virtual float GetPickedZ();
 protected:
   vtkImager();
-  ~vtkImager() {};
+  ~vtkImager();
   vtkImager(const vtkImager&) {};
   void operator=(const vtkImager&) {};
 
