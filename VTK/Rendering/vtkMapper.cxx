@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-01 23:29:11 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 1999-07-02 19:48:28 $
+  Version:   $Revision: 1.56 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -282,7 +282,7 @@ void vtkMapper::AddClippingPlane(vtkPlane *plane)
 {
   if (this->ClippingPlanes == NULL)
     {
-    this->ClippingPlanes = vtkImplicitFunctionCollection::New();
+    this->ClippingPlanes = vtkPlaneCollection::New();
     }
 
   this->ClippingPlanes->AddItem(plane);

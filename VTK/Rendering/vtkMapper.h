@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-01 23:29:12 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 1999-07-02 19:48:28 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,7 +75,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkAbstractMapper.h"
 #include "vtkScalarsToColors.h"
 #include "vtkDataSet.h"
-#include "vtkImplicitFunctionCollection.h"
+#include "vtkPlaneCollection.h"
 #include "vtkPlane.h"
 
 #define VTK_SCALAR_MODE_DEFAULT 0
@@ -222,10 +222,10 @@ public:
   void RemoveClippingPlane(vtkPlane *plane);
 
   // Description:
-  // Get/Set the vtkImplicitFunctionCollection which specifies the 
+  // Get/Set the vtkPlaneCollection which specifies the 
   // clipping planes
-  vtkSetObjectMacro(ClippingPlanes,vtkImplicitFunctionCollection);
-  vtkGetObjectMacro(ClippingPlanes,vtkImplicitFunctionCollection);
+  vtkSetObjectMacro(ClippingPlanes,vtkPlaneCollection);
+  vtkGetObjectMacro(ClippingPlanes,vtkPlaneCollection);
 
 protected:
   vtkScalars *Colors;
@@ -240,7 +240,7 @@ protected:
 
   float RenderTime;
 
-  vtkImplicitFunctionCollection *ClippingPlanes;
+  vtkPlaneCollection *ClippingPlanes;
 };
 
 #endif
