@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParticleReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-26 13:28:48 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-09-27 18:06:43 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -82,12 +82,8 @@ vtkParticleReader::vtkParticleReader()
 {
   this->FileName = NULL;
   this->File = NULL;
-#ifndef VTK_WORDS_BIGENDIAN
-  this->SwapBytes = 1;
-#else
   this->SwapBytes = 0;
-#endif
-
+  this->SetDataByteOrderToBigEndian();
 
   this->NumberOfPoints = 0;
 }
@@ -273,16 +269,6 @@ void vtkParticleReader::Execute()
   array->Delete();
   array = NULL;
 }
-
-
-
-
-
-
-
-
-
-
 
 
 //----------------------------------------------------------------------------
