@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-11-06 22:18:17 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-02-26 12:45:45 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -73,11 +73,11 @@ vtkProgrammableSource::vtkProgrammableSource()
 
 vtkProgrammableSource::~vtkProgrammableSource()
 {
-  this->PolyData->Delete();
   this->StructuredPoints->Delete();
   this->StructuredGrid->Delete();
   this->UnstructuredGrid->Delete();
   this->RectilinearGrid->Delete();
+  this->PolyData->Delete();
 }
 
 // Description:
