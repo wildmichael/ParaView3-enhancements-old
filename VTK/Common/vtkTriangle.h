@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangle.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-01 07:24:01 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 2000-10-03 14:27:20 $
+  Version:   $Revision: 1.60 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -50,6 +50,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkCell.h"
 #include "vtkMath.h"
 #include "vtkLine.h"
+#include "vtkQuadric.h"
 
 class VTK_EXPORT vtkTriangle : public vtkCell
 {
@@ -180,6 +181,16 @@ public:
   static int PointInTriangle(float x[3], float x1[3], float x2[3], float x3[3], 
                              float tol2);
 
+  // Description:
+  // Calculate the error quadric for this triangle.  Return the
+  // quadric as a 4x4 matrix or a vtkQuadric.  (from Peter
+  // Lindstrom's Siggraph 2000 paper, "Out-of-Core Simplification of
+  // Large Polygonal Models")
+  static void ComputeQuadric(float x1[3], float x2[3], float x3[3],
+			     float quadric[4][4]);
+  static void ComputeQuadric(float x1[3], float x2[3], float x3[3],
+			     vtkQuadric *quadric);
+  
   // Description:
   // For legacy compatibility. Do not use.
   int CellBoundary(int subId, float pcoords[3], vtkIdList &pts)
