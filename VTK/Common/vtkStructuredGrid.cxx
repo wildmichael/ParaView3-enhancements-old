@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-29 20:49:43 $
-  Version:   $Revision: 1.91 $
+  Date:      $Date: 2002-11-12 19:33:40 $
+  Version:   $Revision: 1.92 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkExtentTranslator.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkStructuredGrid, "$Revision: 1.91 $");
+vtkCxxRevisionMacro(vtkStructuredGrid, "$Revision: 1.92 $");
 vtkStandardNewMacro(vtkStructuredGrid);
 
 #define vtkAdjustBoundsMacro( A, B ) \
@@ -1134,7 +1134,8 @@ void vtkStructuredGrid::Crop()
     //
     newGrid->SetExtent(uExt);
     outSize = (uExt[1]-uExt[0]+1)*(uExt[3]-uExt[2]+1)*(uExt[5]-uExt[4]+1);
-    newPts = (vtkPoints *) inPts->MakeObject(); 
+    newPts = inPts->NewInstance(); 
+    newPts->SetDataType(inPts->GetDataType());
     newPts->SetNumberOfPoints(outSize);
     outPD->CopyAllocate(inPD,outSize,outSize);
     outCD->CopyAllocate(inCD,outSize,outSize);

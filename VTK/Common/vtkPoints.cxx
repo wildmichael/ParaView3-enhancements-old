@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-15 15:40:30 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2002-11-12 19:33:40 $
+  Version:   $Revision: 1.46 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,7 +30,7 @@
 #include "vtkDoubleArray.h"
 #include "vtkIdTypeArray.h"
 
-vtkCxxRevisionMacro(vtkPoints, "$Revision: 1.45 $");
+vtkCxxRevisionMacro(vtkPoints, "$Revision: 1.46 $");
 
 //----------------------------------------------------------------------------
 // Needed when we don't use the vtkStandardNewMacro.
@@ -71,13 +71,6 @@ vtkPoints::vtkPoints(int dataType)
 vtkPoints::~vtkPoints()
 {
   this->Data->UnRegister(this);
-}
-
-vtkPoints *vtkPoints::MakeObject()
-{
-  vtkPoints *p = vtkPoints::New();
-  p->SetDataType(this->GetDataType());
-  return p;
 }
 
 // Given a list of pt ids, return an array of points.
@@ -309,4 +302,15 @@ void vtkPoints::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "  Ymin,Ymax: (" << bounds[2] << ", " << bounds[3] << ")\n";
   os << indent << "  Zmin,Zmax: (" << bounds[4] << ", " << bounds[5] << ")\n";
 }
+
+//----------------------------------------------------------------------------
+#ifndef VTK_REMOVE_LEGACY_CODE
+vtkPoints *vtkPoints::MakeObject()
+{
+  VTK_LEGACY_METHOD(MakeObject, "4.2");  
+  vtkPoints *p = vtkPoints::New();
+  p->SetDataType(this->GetDataType());
+  return p;
+}
+#endif
 

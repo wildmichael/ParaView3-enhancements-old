@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSet.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-18 19:03:26 $
-  Version:   $Revision: 1.75 $
+  Date:      $Date: 2002-11-12 19:33:40 $
+  Version:   $Revision: 1.76 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkSource.h"
 #include "vtkPointLocator.h"
 
-vtkCxxRevisionMacro(vtkPointSet, "$Revision: 1.75 $");
+vtkCxxRevisionMacro(vtkPointSet, "$Revision: 1.76 $");
 
 vtkCxxSetObjectMacro(vtkPointSet,Points,vtkPoints);
 
@@ -390,7 +390,8 @@ void vtkPointSet::DeepCopy(vtkDataObject *dataObject)
       {
       if ( pointSet->GetPoints() != NULL )
         {
-        this->Points = pointSet->GetPoints()->MakeObject();
+        this->Points = pointSet->GetPoints()->NewInstance();
+        this->Points->SetDataType(pointSet->GetPoints()->GetDataType());
         this->Points->Register(this);
         this->Points->Delete();
         }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPoints.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:26:00 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 2002-11-12 19:33:40 $
+  Version:   $Revision: 1.62 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -48,9 +48,11 @@ public:
   // Return object to instantiated state.
   virtual void Initialize();
 
+#ifndef VTK_REMOVE_LEGACY_CODE
   // Description:
-  // Creates object of same type as this object.
-  vtkPoints *MakeObject();
+  // For legacy compatibility.  Do not use.
+  vtkPoints* MakeObject();
+#endif
 
   // Description:
   // Set/Get the underlying data array. This function must be implemented

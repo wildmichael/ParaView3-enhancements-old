@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpVector.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-26 12:07:15 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2002-11-12 19:33:40 $
+  Version:   $Revision: 1.40 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkPointSet.h"
 #include "vtkPoints.h"
 
-vtkCxxRevisionMacro(vtkWarpVector, "$Revision: 1.39 $");
+vtkCxxRevisionMacro(vtkWarpVector, "$Revision: 1.40 $");
 vtkStandardNewMacro(vtkWarpVector);
 
 vtkWarpVector::vtkWarpVector()
@@ -111,7 +111,8 @@ void vtkWarpVector::Execute()
 
   // SETUP AND ALLOCATE THE OUTPUT
   numPts = input->GetNumberOfPoints();
-  points = vtkPoints::SafeDownCast(input->GetPoints()->MakeObject());
+  points = input->GetPoints()->NewInstance();
+  points->SetDataType(input->GetPoints()->GetDataType());
   points->Allocate(numPts);
   points->SetNumberOfPoints(numPts);
   output->SetPoints(points);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-29 20:49:43 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2002-11-12 19:33:40 $
+  Version:   $Revision: 1.40 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkStructuredGrid.h"
 
-vtkCxxRevisionMacro(vtkExtractGrid, "$Revision: 1.39 $");
+vtkCxxRevisionMacro(vtkExtractGrid, "$Revision: 1.40 $");
 vtkStandardNewMacro(vtkExtractGrid);
 
 // Construct object to extract all of the input data.
@@ -304,7 +304,8 @@ void vtkExtractGrid::Execute()
   // Allocate necessary objects
   //
   outSize = (uExt[1]-uExt[0]+1)*(uExt[3]-uExt[2]+1)*(uExt[5]-uExt[4]+1);
-  newPts = (vtkPoints *) inPts->MakeObject(); 
+  newPts = inPts->NewInstance(); 
+  newPts->SetDataType(inPts->GetDataType());
   newPts->SetNumberOfPoints(outSize);
   outPD->CopyAllocate(pd,outSize,outSize);
   outCD->CopyAllocate(cd,outSize,outSize);
