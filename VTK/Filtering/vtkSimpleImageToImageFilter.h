@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSimpleImageToImageFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-30 13:10:28 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-02-02 12:23:24 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -93,7 +93,6 @@ protected:
   virtual void Execute();
   // In the simplest case, this is the only method you need to define.
   virtual void Execute(vtkImageData* input, vtkImageData* output) = 0;
- private:
   void Execute(vtkImageData* outData)
     {this->vtkImageSource::Execute(outData);}
 };

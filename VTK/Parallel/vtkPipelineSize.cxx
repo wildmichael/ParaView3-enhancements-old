@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPipelineSize.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-01 19:51:14 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-02-02 12:23:24 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -357,7 +357,7 @@ unsigned long vtkPipelineSize::GetNumberOfSubPieces(unsigned long memoryLimit,
   // NumberOfStreamDivisions is an int, it cannot be more that say 2^31
   // (which is a bit much anyhow) so we also stop if the number of pieces is
   // too large. Here we start off with the current number of pieces.
-  int count = log(numPieces)/log(2);
+  int count = (int) (log(numPieces)/log(2));
   
   // double the number of pieces until the size fits in memory
   // or the reduction in size falls to 20%
