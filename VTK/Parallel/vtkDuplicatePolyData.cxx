@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDuplicatePolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-03-13 16:19:16 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-03-14 21:12:49 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkPolyData.h"
 #include "vtkSocketController.h"
 
-vtkCxxRevisionMacro(vtkDuplicatePolyData, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkDuplicatePolyData, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkDuplicatePolyData);
 
 vtkCxxSetObjectMacro(vtkDuplicatePolyData,Controller, vtkMultiProcessController);
@@ -205,7 +205,7 @@ void vtkDuplicatePolyData::Execute()
 {
   vtkPolyData *input = this->GetInput();
   vtkPolyData *output = this->GetOutput();
-  int numProcs, myId, partner;
+  int myId, partner;
   int idx;
 
   if (this->SocketController && this->ClientFlag)
@@ -233,7 +233,6 @@ void vtkDuplicatePolyData::Execute()
     }
   
   myId = this->Controller->GetLocalProcessId();
-  numProcs = this->Controller->GetNumberOfProcesses();
 
   // Collect.
   vtkPolyData *pd = NULL;;
