@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorEventRecorder.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-05 18:13:32 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-08-15 15:38:34 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -65,7 +65,6 @@ public:
 
   // Description:
   // Invoke this method to stop recording/playing events.
-  // played back from the filename indicated.
   void Stop();
 
   // Description:
