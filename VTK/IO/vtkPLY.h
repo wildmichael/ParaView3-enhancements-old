@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLY.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-07 14:05:07 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-09-07 15:34:39 $
+  Version:   $Revision: 1.2 $
   Thanks:    Mike Dresser MD/PhD
              Director of Core Facility for Imaging
              Program in Molecular and Cell Biology
@@ -149,8 +149,7 @@ typedef struct PlyFile {        /* description of PLY file */
 } PlyFile;
 
 /* memory allocation */
-extern char *my_alloc();
-#define myalloc(mem_size) my_alloc((mem_size), __LINE__, __FILE__)
+#define myalloc(mem_size) vtkPLY::my_alloc((mem_size), __LINE__, __FILE__)
 
 class VTK_EXPORT vtkPLY
 {

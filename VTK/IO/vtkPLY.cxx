@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLY.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-07 14:05:07 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-09-07 15:34:39 $
+  Version:   $Revision: 1.2 $
   Thanks:    Mike Dresser MD/PhD
              Director of Core Facility for Imaging
              Program in Molecular and Cell Biology
@@ -161,7 +161,7 @@ PlyFile *vtkPLY::ply_open_for_writing(
 
   /* open the file for writing */
 
-  fp = fopen (name, "w+b");
+  fp = fopen (name, "wb");
   if (fp == NULL) {
     return (NULL);
   }
@@ -771,7 +771,7 @@ PlyFile *vtkPLY::ply_open_for_reading(
 
   /* open the file for reading */
 
-  fp = fopen (name, "r+b");
+  fp = fopen (name, "rb");
   if (fp == NULL)
     return (NULL);
 
