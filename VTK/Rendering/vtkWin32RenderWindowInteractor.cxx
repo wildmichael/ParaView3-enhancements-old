@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32RenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-21 16:07:10 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1998-08-03 13:00:26 $
+  Version:   $Revision: 1.22 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -293,8 +293,9 @@ LRESULT CALLBACK vtkHandleMessage(HWND hWnd,UINT uMsg, WPARAM wParam, LPARAM lPa
   switch (uMsg)
     {
     case WM_PAINT: 
-      me->GetRenderWindow()->Render();
-      return DefWindowProc(hWnd,uMsg,wParam,lParam);
+      //me->GetRenderWindow()->Render();
+      return me->OldProc(hWnd,uMsg,wParam,lParam);
+      //return DefWindowProc(hWnd,uMsg,wParam,lParam);
       break;
 	    
     case WM_SIZE: 
