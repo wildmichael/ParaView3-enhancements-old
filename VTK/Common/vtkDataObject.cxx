@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-24 11:26:22 $
-  Version:   $Revision: 1.68 $
+  Date:      $Date: 2001-07-27 19:06:30 $
+  Version:   $Revision: 1.69 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -304,6 +304,9 @@ void vtkDataObject::UpdateInformation()
   else
     {
     memcpy( this->WholeExtent, this->Extent, 6*sizeof(int) );
+
+    // We also need to set the PipeineMTime to our MTime.
+    this->PipelineMTime = this->GetMTime();
     }
   
   

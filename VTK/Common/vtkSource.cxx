@@ -3,8 +3,8 @@
  Program:   Visualization Toolkit
  Module:    $RCSfile: vtkSource.cxx,v $
  Language:  C++
- Date:      $Date: 2001-07-25 11:44:38 $
- Version:   $Revision: 1.79 $
+ Date:      $Date: 2001-07-27 19:06:30 $
+ Version:   $Revision: 1.80 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -223,14 +223,6 @@ void vtkSource::UpdateInformation()
       // our current computation to find the largest one.
       t2 = input->GetPipelineMTime();
 
-      if (t2 > t1)
-        {
-        t1 = t2;
-        }
-
-      // Pipeline MTime of the input does not include the MTime of the 
-      // data object itself. Factor these mtimes into the next PipelineMTime
-      t2 = input->GetMTime();
       if (t2 > t1)
         {
         t1 = t2;
