@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-07 23:12:58 $
-  Version:   $Revision: 1.62 $
+  Date:      $Date: 2003-05-16 10:54:09 $
+  Version:   $Revision: 1.63 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkMultiThreader.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageMultipleInputFilter, "$Revision: 1.62 $");
+vtkCxxRevisionMacro(vtkImageMultipleInputFilter, "$Revision: 1.63 $");
 
 //----------------------------------------------------------------------------
 vtkImageMultipleInputFilter::vtkImageMultipleInputFilter()
@@ -195,6 +195,21 @@ VTK_THREAD_RETURN_TYPE vtkImageMultiThreadedExecute( void *arg )
 // The execute method created by the subclass.
 void vtkImageMultipleInputFilter::ExecuteData(vtkDataObject *out)
 {
+  // Make sure the Input has been set.
+  if ( this->GetInput() == NULL )
+    {
+    vtkErrorMacro(<< "ExecuteData: Input is not set.");
+    return;
+    }
+
+  // Too many filters have floating point exceptions to execute
+  // with empty input/ no request.
+  if (this->UpdateExtentIsEmpty(out))
+    {
+    return;
+    }
+
+
   vtkImageData *outdata = this->AllocateOutputData(out);
   this->MultiThread((vtkImageData**)this->GetInputs(), outdata);
 }
