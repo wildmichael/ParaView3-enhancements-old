@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPiecewiseFunction.h,v $
   Language:  C++
-  Date:      $Date: 1999-02-02 14:50:38 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-02-16 19:37:41 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -119,6 +119,11 @@ public:
   //    2 : NonIncreasing   (Always decreasing or zero slope)
   //    3 : Varied          (Contains both decreasing and increasing slopes)
   char  *GetType();
+
+  // Description:
+  // Get the mtime of this object - override to consider the
+  // mtime of the source as well.
+  unsigned long GetMTime();
 
   // Description:
   // Returns the first point location which precedes a non-zero segment of the
