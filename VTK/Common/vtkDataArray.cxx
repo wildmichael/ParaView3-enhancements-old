@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:16 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2002-03-18 18:11:50 $
+  Version:   $Revision: 1.48 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,7 +33,7 @@
 #include "vtkIdList.h"
 #include "vtkMath.h"
 
-vtkCxxRevisionMacro(vtkDataArray, "$Revision: 1.47 $");
+vtkCxxRevisionMacro(vtkDataArray, "$Revision: 1.48 $");
 
 // Construct object with default tuple dimension (number of components) of 1.
 vtkDataArray::vtkDataArray(vtkIdType numComp)
@@ -130,13 +130,13 @@ void vtkDataArray::DeepCopy(vtkDataArray *da)
                         this,numTuples,this->NumberOfComponents);
 
       case VTK_BIT:
-                {//bit not supported, using generic float API
+        {//bit not supported, using generic float API
         for (int i=0; i < numTuples; i++)
           {
           this->SetTuple(i, da->GetTuple(i));
           }
         break;
-                }
+        }
 
       default:
         vtkErrorMacro(<<"Unsupported data type!");
