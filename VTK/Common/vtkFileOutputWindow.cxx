@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFileOutputWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-05-24 09:06:51 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-05-25 08:13:11 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -59,6 +59,7 @@ vtkFileOutputWindow::vtkFileOutputWindow()
   this->OStream = NULL;
   this->FileName = NULL;
   this->Append = 0;
+  this->Flush = 0;
 }
 
 vtkFileOutputWindow::~vtkFileOutputWindow()
@@ -113,4 +114,11 @@ void vtkFileOutputWindow::DisplayText(const char* text)
     }
 }
 
-
+void vtkFileOutputWindow::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->vtkOutputWindow::PrintSelf(os, indent);
+  os << indent << "OStream: " << this->OStream << endl;
+  os << indent << "FileName: " << this->FileName << endl;
+  os << indent << "Append: " << (this->Append ? "On" : "Off") << endl;
+  os << indent << "Flush: " << (this->Flush ? "On" : "Off") << endl;
+}

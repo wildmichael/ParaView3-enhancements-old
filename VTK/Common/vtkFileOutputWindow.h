@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFileOutputWindow.h,v $
   Language:  C++
-  Date:      $Date: 2000-05-24 09:06:51 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-05-25 08:13:11 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,6 +58,8 @@ public:
 
   static vtkFileOutputWindow* New();
 
+  virtual void PrintSelf(ostream& os, vtkIndent indent);
+
   // Description:  Put the text into the log file
   // New lines are converted to carriage return new lines.
   virtual void DisplayText(const char*);
@@ -80,12 +82,11 @@ public:
   vtkGetMacro(Append, int);
   vtkBooleanMacro(Append, int);
 
-private: 
+ protected:
   vtkFileOutputWindow(); 
   virtual ~vtkFileOutputWindow(); 
   vtkFileOutputWindow(const vtkFileOutputWindow&) {};
   void operator=(const vtkFileOutputWindow&) {};
-  
   void Initialize();
   char* FileName;
   ofstream* OStream;
