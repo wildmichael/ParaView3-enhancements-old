@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataNormals.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-12 20:33:39 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2001-08-12 02:00:35 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -389,6 +389,10 @@ void vtkPolyDataNormals::Execute()
   output->SetPolys(newPolys);
   newPolys->Delete();
 
+  // copy the original vertices and lines to the output
+  output->SetVerts(input->GetVerts());
+  output->SetLines(input->GetLines());
+                   
   this->OldMesh->Delete();
   this->NewMesh->Delete();
 }
