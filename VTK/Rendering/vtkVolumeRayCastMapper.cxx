@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-27 20:41:15 $
-  Version:   $Revision: 1.87 $
+  Date:      $Date: 2002-06-28 17:36:43 $
+  Version:   $Revision: 1.88 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,7 +31,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkVolumeRayCastMapper, "$Revision: 1.87 $");
+vtkCxxRevisionMacro(vtkVolumeRayCastMapper, "$Revision: 1.88 $");
 
 vtkCxxSetObjectMacro(vtkVolumeRayCastMapper,VolumeRayCastFunction,
                      vtkVolumeRayCastFunction );
@@ -134,6 +134,8 @@ vtkVolumeRayCastMapper::~vtkVolumeRayCastMapper()
   
   this->VoxelsTransform->Delete();
   this->VoxelsToViewTransform->Delete();
+  this->PerspectiveTransform->Delete();
+  
   
   this->Threader->Delete();
   
