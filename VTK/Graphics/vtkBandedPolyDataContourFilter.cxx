@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBandedPolyDataContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-28 14:28:54 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-01-30 13:38:58 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkTriangleStrip.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkBandedPolyDataContourFilter, "$Revision: 1.18 $");
+vtkCxxRevisionMacro(vtkBandedPolyDataContourFilter, "$Revision: 1.19 $");
 vtkStandardNewMacro(vtkBandedPolyDataContourFilter);
 
 // Construct object.
@@ -157,7 +157,7 @@ inline int vtkBandedPolyDataContourFilter::InsertCell(vtkCellArray *cells,
   int idx = this->ComputeLowerScalarIndex(s+this->ClipTolerance);
 
   if ( !this->Clipping || 
-       idx >= this->ClipIndex[0] && idx <= this->ClipIndex[1] )
+       idx >= this->ClipIndex[0] && idx < this->ClipIndex[1] )
     {
     cells->InsertNextCell(npts,pts);
 
