@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSplineFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-09-03 12:52:23 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-11-03 15:57:43 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -97,7 +97,7 @@ public:
 
   // Description:
   // Specify an instance of vtkSpline to use to perform the interpolation.
-  vtkSetObjectMacro(Spline,vtkSpline);
+  virtual void SetSpline(vtkSpline*);
   vtkGetObjectMacro(Spline,vtkSpline);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractGeometry.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-03 12:52:23 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2002-11-03 15:57:43 $
+  Version:   $Revision: 1.47 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,8 +21,9 @@
 #include "vtkObjectFactory.h"
 #include "vtkUnstructuredGrid.h"
 
-vtkCxxRevisionMacro(vtkExtractGeometry, "$Revision: 1.46 $");
+vtkCxxRevisionMacro(vtkExtractGeometry, "$Revision: 1.47 $");
 vtkStandardNewMacro(vtkExtractGeometry);
+vtkCxxSetObjectMacro(vtkExtractGeometry,ImplicitFunction,vtkImplicitFunction);
 
 // Construct object with ExtractInside turned on.
 vtkExtractGeometry::vtkExtractGeometry(vtkImplicitFunction *f)

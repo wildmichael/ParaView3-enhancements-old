@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipDataSet.h,v $
   Language:  C++
-  Date:      $Date: 2002-09-17 15:00:12 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-11-03 15:57:43 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -98,7 +98,7 @@ public:
   // Specify the implicit function with which to perform the
   // clipping. If you do not define an implicit function, 
   // then the selected input scalar data will be used for clipping.
-  vtkSetObjectMacro(ClipFunction,vtkImplicitFunction);
+  virtual void SetClipFunction(vtkImplicitFunction*);
   vtkGetObjectMacro(ClipFunction,vtkImplicitFunction);
 
   // Description:

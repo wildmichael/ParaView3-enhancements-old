@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBandedPolyDataContourFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-09-03 12:52:22 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-11-03 15:57:42 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -41,11 +41,14 @@
 #define __vtkBandedPolyDataContourFilter_h
 
 #include "vtkPolyDataToPolyDataFilter.h"
-#include "vtkContourValues.h"
+
+#include "vtkContourValues.h" // Needed for inline methods
 
 class vtkPoints;
 class vtkCellArray;
 class vtkPointData;
+class vtkDataArray;
+class vtkFloatArray;
 
 #define VTK_SCALAR_MODE_INDEX 0
 #define VTK_SCALAR_MODE_VALUE 1

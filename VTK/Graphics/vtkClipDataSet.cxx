@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-02 13:44:49 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-11-03 15:57:43 $
+  Version:   $Revision: 1.22 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,8 +26,9 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkClipDataSet, "$Revision: 1.21 $");
+vtkCxxRevisionMacro(vtkClipDataSet, "$Revision: 1.22 $");
 vtkStandardNewMacro(vtkClipDataSet);
+vtkCxxSetObjectMacro(vtkClipDataSet,ClipFunction,vtkImplicitFunction);
 
 //----------------------------------------------------------------------------
 // Construct with user-specified implicit function; InsideOut turned off; value

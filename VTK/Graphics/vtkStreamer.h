@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamer.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-29 14:59:15 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2002-11-03 15:57:43 $
+  Version:   $Revision: 1.58 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -173,7 +173,7 @@ public:
   // is cloned with MakeObject by each thread/process in the
   // process of integration (prototype pattern). The default is 
   // 2nd order Runge Kutta.
-  vtkSetObjectMacro ( Integrator, vtkInitialValueProblemSolver );
+  void SetIntegrator(vtkInitialValueProblemSolver *);
   vtkGetObjectMacro ( Integrator, vtkInitialValueProblemSolver );
 
 protected:

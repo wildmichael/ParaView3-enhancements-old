@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-26 12:07:15 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2002-11-03 15:57:43 $
+  Version:   $Revision: 1.41 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,8 +24,9 @@
 #include "vtkPointData.h"
 #include "vtkPointSet.h"
 
-vtkCxxRevisionMacro(vtkTransformFilter, "$Revision: 1.40 $");
+vtkCxxRevisionMacro(vtkTransformFilter, "$Revision: 1.41 $");
 vtkStandardNewMacro(vtkTransformFilter);
+vtkCxxSetObjectMacro(vtkTransformFilter,Transform,vtkAbstractTransform);
 
 vtkTransformFilter::vtkTransformFilter()
 {

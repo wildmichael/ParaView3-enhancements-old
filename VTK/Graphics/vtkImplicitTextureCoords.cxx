@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitTextureCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-26 12:07:14 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2002-11-03 15:57:43 $
+  Version:   $Revision: 1.42 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,8 +21,11 @@
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImplicitTextureCoords, "$Revision: 1.41 $");
+vtkCxxRevisionMacro(vtkImplicitTextureCoords, "$Revision: 1.42 $");
 vtkStandardNewMacro(vtkImplicitTextureCoords);
+vtkCxxSetObjectMacro(vtkImplicitTextureCoords,SFunction,vtkImplicitFunction);
+vtkCxxSetObjectMacro(vtkImplicitTextureCoords,RFunction,vtkImplicitFunction);
+vtkCxxSetObjectMacro(vtkImplicitTextureCoords,TFunction,vtkImplicitFunction);
 
 // Create object with texture dimension=2 and no r-s-t implicit functions
 // defined and FlipTexture turned off.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-09-26 12:07:14 $
-  Version:   $Revision: 1.66 $
+  Date:      $Date: 2002-11-03 15:57:43 $
+  Version:   $Revision: 1.67 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -118,7 +118,7 @@ public:
 
   // Description:
   // Enable the use of a scalar tree to accelerate contour extraction.
-  vtkSetObjectMacro(ScalarTree,vtkScalarTree);
+  virtual void SetScalarTree(vtkScalarTree*);
   vtkGetObjectMacro(ScalarTree,vtkScalarTree);
 
   // Description:

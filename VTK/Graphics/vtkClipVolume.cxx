@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-02 13:44:29 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2002-11-03 15:57:43 $
+  Version:   $Revision: 1.51 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,8 +25,9 @@
 #include "vtkUnstructuredGrid.h"
 #include "vtkVoxel.h"
 
-vtkCxxRevisionMacro(vtkClipVolume, "$Revision: 1.50 $");
+vtkCxxRevisionMacro(vtkClipVolume, "$Revision: 1.51 $");
 vtkStandardNewMacro(vtkClipVolume);
+vtkCxxSetObjectMacro(vtkClipVolume,ClipFunction,vtkImplicitFunction);
 
 // Construct with user-specified implicit function; InsideOut turned off; value
 // set to 0.0; and generate clip scalars turned off. The merge tolerance is set

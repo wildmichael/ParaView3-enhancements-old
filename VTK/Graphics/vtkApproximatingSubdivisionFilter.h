@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkApproximatingSubdivisionFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-28 21:35:50 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-11-03 15:57:42 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,9 +28,13 @@
 #define __vtkApproximatingSubdivisionFilter_h
 
 #include "vtkPolyDataToPolyDataFilter.h"
-#include "vtkIntArray.h"
-#include "vtkIdList.h"
-#include "vtkCellArray.h"
+
+class vtkCellArray;
+class vtkCellData;
+class vtkIdList;
+class vtkIntArray;
+class vtkPoints;
+class vtkPointData;
 
 class VTK_GRAPHICS_EXPORT vtkApproximatingSubdivisionFilter : public vtkPolyDataToPolyDataFilter
 {

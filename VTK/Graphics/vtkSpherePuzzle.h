@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpherePuzzle.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:46 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-11-03 15:57:43 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -70,8 +70,6 @@ public:
 protected:
   vtkSpherePuzzle();
   ~vtkSpherePuzzle();
-  vtkSpherePuzzle(const vtkSpherePuzzle&);
-  void operator=(const vtkSpherePuzzle&);
 
   void Execute();
   void MarkVertical(int section);
@@ -91,6 +89,10 @@ protected:
   int VerticalFlag;
   int RightFlag;
   int Section;
+
+private:
+  vtkSpherePuzzle(const vtkSpherePuzzle&); // Not implemented
+  void operator=(const vtkSpherePuzzle&); // Not implemented
 };
 
 #endif

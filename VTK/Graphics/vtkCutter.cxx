@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-04 16:53:59 $
-  Version:   $Revision: 1.68 $
+  Date:      $Date: 2002-11-03 15:57:43 $
+  Version:   $Revision: 1.69 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,8 +28,9 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkCutter, "$Revision: 1.68 $");
+vtkCxxRevisionMacro(vtkCutter, "$Revision: 1.69 $");
 vtkStandardNewMacro(vtkCutter);
+vtkCxxSetObjectMacro(vtkCutter,CutFunction,vtkImplicitFunction);
 
 // Construct with user-specified implicit function; initial value of 0.0; and
 // generating cut scalars turned off.

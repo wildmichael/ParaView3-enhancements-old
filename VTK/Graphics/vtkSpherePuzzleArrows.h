@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpherePuzzleArrows.h,v $
   Language:  C++
-  Date:      $Date: 2002-09-03 12:52:23 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-11-03 15:57:43 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -47,8 +47,6 @@ public:
 protected:
   vtkSpherePuzzleArrows();
   ~vtkSpherePuzzleArrows();
-  vtkSpherePuzzleArrows(const vtkSpherePuzzleArrows&);
-  void operator=(const vtkSpherePuzzleArrows&);
 
   void Execute();
   void AppendArrow(int id0, int id1, vtkPoints *pts, vtkCellArray *polys);
@@ -56,6 +54,10 @@ protected:
   int Permutation[32];
 
   float Radius;
+
+private:
+  vtkSpherePuzzleArrows(const vtkSpherePuzzleArrows&); // Not implemented
+  void operator=(const vtkSpherePuzzleArrows&); // Not implemented
 };
 
 #endif

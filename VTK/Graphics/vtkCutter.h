@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.h,v $
   Language:  C++
-  Date:      $Date: 2002-09-26 12:07:14 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 2002-11-03 15:57:43 $
+  Version:   $Revision: 1.56 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -115,7 +115,7 @@ public:
 
   // Description
   // Specify the implicit function to perform the cutting.
-  vtkSetObjectMacro(CutFunction,vtkImplicitFunction);
+  virtual void SetCutFunction(vtkImplicitFunction*);
   vtkGetObjectMacro(CutFunction,vtkImplicitFunction);
 
   // Description:

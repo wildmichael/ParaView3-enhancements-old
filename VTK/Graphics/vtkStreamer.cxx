@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamer.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-28 22:55:56 $
-  Version:   $Revision: 1.78 $
+  Date:      $Date: 2002-11-03 15:57:43 $
+  Version:   $Revision: 1.79 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,8 @@
 #include "vtkInterpolatedVelocityField.h"
 #include "vtkRungeKutta2.h"
 
-vtkCxxRevisionMacro(vtkStreamer, "$Revision: 1.78 $");
+vtkCxxRevisionMacro(vtkStreamer, "$Revision: 1.79 $");
+vtkCxxSetObjectMacro(vtkStreamer,Integrator,vtkInitialValueProblemSolver);
 
 #define VTK_START_FROM_POSITION 0
 #define VTK_START_FROM_LOCATION 1

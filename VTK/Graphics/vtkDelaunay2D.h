@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay2D.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-22 17:43:40 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2002-11-03 15:57:43 $
+  Version:   $Revision: 1.39 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -191,7 +191,7 @@ public:
   // original (untransformed) points.  The transform can be any
   // subclass of vtkAbstractTransform (thus it does not need to be a
   // linear or invertible transform).
-  vtkSetObjectMacro(Transform, vtkAbstractTransform);
+  virtual void SetTransform(vtkAbstractTransform*);
   vtkGetObjectMacro(Transform, vtkAbstractTransform);
 
 protected:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-03 12:52:23 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2002-11-03 15:57:43 $
+  Version:   $Revision: 1.55 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,8 +25,9 @@
 #include "vtkPolygon.h"
 #include "vtkTriangle.h"
 
-vtkCxxRevisionMacro(vtkDelaunay2D, "$Revision: 1.54 $");
+vtkCxxRevisionMacro(vtkDelaunay2D, "$Revision: 1.55 $");
 vtkStandardNewMacro(vtkDelaunay2D);
+vtkCxxSetObjectMacro(vtkDelaunay2D,Transform,vtkAbstractTransform);
 
 // Construct object with Alpha = 0.0; Tolerance = 0.00001; Offset = 1.25;
 // BoundingTriangulation turned off.

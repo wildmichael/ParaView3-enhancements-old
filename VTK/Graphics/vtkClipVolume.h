@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipVolume.h,v $
   Language:  C++
-  Date:      $Date: 2002-09-03 12:52:22 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2002-11-03 15:57:43 $
+  Version:   $Revision: 1.34 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -98,7 +98,7 @@ public:
   // Specify the implicit function with which to perform the clipping. If you
   // do not define an implicit function, then the input scalar data will be
   // used for clipping.
-  vtkSetObjectMacro(ClipFunction,vtkImplicitFunction);
+  virtual void SetClipFunction(vtkImplicitFunction*);
   vtkGetObjectMacro(ClipFunction,vtkImplicitFunction);
 
   // Description:

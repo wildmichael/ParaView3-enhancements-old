@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitTextureCoords.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:24 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2002-11-03 15:57:43 $
+  Version:   $Revision: 1.40 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -65,17 +65,17 @@ public:
   
   // Description:
   // Specify an implicit function to compute the r texture coordinate.
-  vtkSetObjectMacro(RFunction,vtkImplicitFunction);
+  virtual void SetRFunction(vtkImplicitFunction*);
   vtkGetObjectMacro(RFunction,vtkImplicitFunction);
 
   // Description:
   // Specify an implicit function to compute the s texture coordinate.
-  vtkSetObjectMacro(SFunction,vtkImplicitFunction);
+  virtual void SetSFunction(vtkImplicitFunction*);
   vtkGetObjectMacro(SFunction,vtkImplicitFunction);
 
   // Description:
   // Specify an implicit function to compute the t texture coordinate.
-  vtkSetObjectMacro(TFunction,vtkImplicitFunction);
+  virtual void SetTFunction(vtkImplicitFunction*);
   vtkGetObjectMacro(TFunction,vtkImplicitFunction);
 
   // Description:

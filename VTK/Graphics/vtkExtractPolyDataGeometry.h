@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractPolyDataGeometry.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:20 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-11-03 15:57:43 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -57,7 +57,7 @@ public:
 
   // Description:
   // Specify the implicit function for inside/outside checks.
-  vtkSetObjectMacro(ImplicitFunction,vtkImplicitFunction);
+  virtual void SetImplicitFunction(vtkImplicitFunction*);
   vtkGetObjectMacro(ImplicitFunction,vtkImplicitFunction);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-26 12:07:14 $
-  Version:   $Revision: 1.94 $
+  Date:      $Date: 2002-11-03 15:57:43 $
+  Version:   $Revision: 1.95 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,8 +29,9 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkContourFilter, "$Revision: 1.94 $");
+vtkCxxRevisionMacro(vtkContourFilter, "$Revision: 1.95 $");
 vtkStandardNewMacro(vtkContourFilter);
+vtkCxxSetObjectMacro(vtkContourFilter,ScalarTree,vtkScalarTree);
 
 // Construct object with initial range (0,1) and single contour value
 // of 0.0.

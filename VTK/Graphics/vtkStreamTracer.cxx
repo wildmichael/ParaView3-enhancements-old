@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamTracer.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-04 16:53:59 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-11-03 15:57:43 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,8 +28,9 @@
 #include "vtkRungeKutta4.h"
 #include "vtkRungeKutta45.h"
 
-vtkCxxRevisionMacro(vtkStreamTracer, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkStreamTracer, "$Revision: 1.12 $");
 vtkStandardNewMacro(vtkStreamTracer);
+vtkCxxSetObjectMacro(vtkStreamTracer,Integrator,vtkInitialValueProblemSolver);
 
 const float vtkStreamTracer::EPSILON = 1.0E-12;
 

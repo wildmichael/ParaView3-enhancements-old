@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-16 14:54:16 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 2002-11-03 15:57:42 $
+  Version:   $Revision: 1.61 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,10 +17,11 @@
 =========================================================================*/
 #include "vtkAppendFilter.h"
 
+#include "vtkDataSetCollection.h"
 #include "vtkObjectFactory.h"
 #include "vtkUnstructuredGrid.h"
 
-vtkCxxRevisionMacro(vtkAppendFilter, "$Revision: 1.60 $");
+vtkCxxRevisionMacro(vtkAppendFilter, "$Revision: 1.61 $");
 vtkStandardNewMacro(vtkAppendFilter);
 
 //-----  This hack needed to compile using gcc3 on OSX until new stdc++.dylib
