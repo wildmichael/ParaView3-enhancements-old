@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkReverseSense.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 18:32:04 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2002-11-12 20:08:17 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkReverseSense, "$Revision: 1.25 $");
+vtkCxxRevisionMacro(vtkReverseSense, "$Revision: 1.26 $");
 vtkStandardNewMacro(vtkReverseSense);
 
 // Construct object so that behavior is to reverse cell ordering and
@@ -82,7 +82,7 @@ void vtkReverseSense::Execute()
     }
 
   //If specified and normals available, reverse orientation of normals.
-  // Using MakeObject() creates normals of the same data type.
+  // Using NewInstance() creates normals of the same data type.
   if ( this->ReverseNormals && normals )
     {
     //first do point normals
