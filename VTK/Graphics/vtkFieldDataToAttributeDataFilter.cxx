@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldDataToAttributeDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-08 14:37:11 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-12-11 18:26:08 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -197,6 +197,11 @@ void vtkFieldDataToAttributeDataFilter::Execute()
                          this->NormalArrayComponents, 
                          this->NormalNormalize);
   this->ConstructFieldData(num, attr);
+  
+  ((vtkDataSet *)this->Output)->GetPointData()->PassNoReplaceData(
+	  ((vtkDataSet *)this->Input)->GetPointData());
+  ((vtkDataSet *)this->Output)->GetCellData()->PassNoReplaceData(
+	  ((vtkDataSet *)this->Input)->GetCellData());
 }
 
 void vtkFieldDataToAttributeDataFilter::PrintSelf(ostream& os, 
