@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-02 15:12:40 $
-  Version:   $Revision: 1.126 $
+  Date:      $Date: 2002-08-03 13:49:26 $
+  Version:   $Revision: 1.127 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -119,7 +119,7 @@ public:
   // corner).
   virtual void HideCursor() = 0;
   virtual void ShowCursor() = 0;
-  virtual void SetCursorPosition(int x, int y) {};
+  virtual void SetCursorPosition(int , int ) {};
 
   // Description:
   // Turn on/off rendering full screen window size.
