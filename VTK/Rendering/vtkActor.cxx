@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-12 11:29:01 $
-  Version:   $Revision: 1.100 $
+  Date:      $Date: 2000-10-13 18:22:51 $
+  Version:   $Revision: 1.101 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -314,6 +314,7 @@ float *vtkActor::GetBounds()
   // Check for the special case when the actor is empty.
   if (bounds[0] > bounds[1])
     { 
+    memcpy( this->MapperBounds, bounds, 6*sizeof(float) );
     this->Bounds[0] = this->Bounds[2] = this->Bounds[4] = VTK_LARGE_FLOAT;
     this->Bounds[1] = this->Bounds[3] = this->Bounds[5] = -VTK_LARGE_FLOAT;
     this->BoundsMTime.Modified();
