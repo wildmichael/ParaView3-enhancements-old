@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGaussianSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:51 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-12-06 16:39:14 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -65,7 +65,7 @@ vtkImageGaussianSource* vtkImageGaussianSource::New()
 //----------------------------------------------------------------------------
 vtkImageGaussianSource::vtkImageGaussianSource()
 {
-  this->Maximum = 10.0;
+  this->Maximum = 1.0;
   this->Center[0] = 0.0;
   this->Center[1] = 0.0;
   this->Center[2] = 0.0;
