@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPProbeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-27 12:25:23 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-08-28 16:26:55 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkPProbeFilter, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkPProbeFilter, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkPProbeFilter);
 
 vtkCxxSetObjectMacro(vtkPProbeFilter, Controller, vtkMultiProcessController);
@@ -48,18 +48,19 @@ void vtkPProbeFilter::ExecuteInformation()
 //----------------------------------------------------------------------------
 void vtkPProbeFilter::Execute()
 {
-  if ( !this->Controller )
-    {
-    vtkErrorMacro("Controller not set");
-    return;
-    }
   vtkDataSet *output = this->GetOutput();
   //vtkDataObject *input = this->GetInput();
   //vtkDataObject *source = this->GetSource();
   
   this->vtkProbeFilter::Execute();
-  int procid = this->Controller->GetLocalProcessId();
-  int numProcs = this->Controller->GetNumberOfProcesses();
+  int procid = 0;
+  int numProcs = 1;
+  if ( this->Controller )
+    {
+    procid = this->Controller->GetLocalProcessId();
+    numProcs = this->Controller->GetNumberOfProcesses();
+    }
+
   vtkIdType numPoints = this->GetValidPoints()->GetMaxId() + 1;
   if ( procid )
     {
