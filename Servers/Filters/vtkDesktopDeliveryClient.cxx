@@ -5,8 +5,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDesktopDeliveryClient.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-11-13 14:32:42 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2003-12-08 14:15:03 $
+  Version:   $Revision: 1.7 $
 
 =========================================================================*/
 
@@ -29,7 +29,7 @@
 
 //#include <vtkRef.h>
 
-vtkCxxRevisionMacro(vtkDesktopDeliveryClient, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkDesktopDeliveryClient, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkDesktopDeliveryClient);
 
 vtkDesktopDeliveryClient::vtkDesktopDeliveryClient()
@@ -116,9 +116,11 @@ void vtkDesktopDeliveryClient::PreRenderProcessing()
       vtkRenderer *ren;
       int i;
       for (rens->InitTraversal(), i = 0; (ren = rens->GetNextItem()); i++)
-    {
-    ren->SetViewport(this->Viewports->GetTuple(i));
-    }
+        {
+        // TODO: Revert back once ren->SetViewport() takes double.
+        double *vp = this->Viewports->GetTuple(i);
+        ren->SetViewport(vp[0], vp[1], vp[2], vp[3]);
+        }
       }
     }
 }
