@@ -19,7 +19,7 @@
 #include "vtkPolyData.h"
 #include "vtkInformation.h"
 
-vtkCxxRevisionMacro(vtkXMLPPolyDataWriter, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkXMLPPolyDataWriter, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkXMLPPolyDataWriter);
 
 //----------------------------------------------------------------------------
@@ -66,6 +66,7 @@ vtkXMLPPolyDataWriter::CreateUnstructuredPieceWriter()
   return pWriter;
 }
 
+//----------------------------------------------------------------------------
 int vtkXMLPPolyDataWriter::FillInputPortInformation(
   int vtkNotUsed(port), vtkInformation* info)
 {
