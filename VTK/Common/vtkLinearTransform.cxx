@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-13 14:35:11 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2001-08-13 16:57:04 $
+  Version:   $Revision: 1.28 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -176,10 +176,10 @@ void vtkLinearTransform::InternalTransformDerivative(const double in[3],
 // inverse of the derivative of the forward transform. 
 void vtkLinearTransform::TransformPointsNormalsVectors(vtkPoints *inPts, 
 						       vtkPoints *outPts,
-						       vtkNormals *inNms, 
-						       vtkNormals *outNms,
-						       vtkVectors *inVrs, 
-						       vtkVectors *outVrs)
+						       vtkDataArray *inNms, 
+						       vtkDataArray *outNms,
+						       vtkDataArray *inVrs, 
+						       vtkDataArray *outVrs)
 {
   this->TransformPoints(inPts,outPts);
   if (inNms)

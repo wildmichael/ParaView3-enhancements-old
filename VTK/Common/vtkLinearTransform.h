@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearTransform.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-13 14:35:11 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-08-13 16:57:04 $
+  Version:   $Revision: 1.25 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -178,7 +178,18 @@ public:
 				     vtkNormals *inNms, 
 				     vtkNormals *outNms,
 				     vtkVectors *inVrs, 
-				     vtkVectors *outVrs);
+				     vtkVectors *outVrs)
+    {
+      this->TransformPointsNormalsVectors(inPts, outPts,
+					  inNms->GetData(), outNms->GetData(),
+					  inVrs->GetData(), outVrs->GetData());
+    }
+  void TransformPointsNormalsVectors(vtkPoints *inPts, 
+				     vtkPoints *outPts, 
+				     vtkDataArray *inNms, 
+				     vtkDataArray *outNms,
+				     vtkDataArray *inVrs, 
+				     vtkDataArray *outVrs);
 
   // Description:
   // Just like GetInverse, but it includes a typecast to 
