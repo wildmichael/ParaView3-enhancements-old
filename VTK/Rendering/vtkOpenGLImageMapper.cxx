@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-14 04:23:17 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2001-11-03 17:30:52 $
+  Version:   $Revision: 1.44 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -596,6 +596,9 @@ void vtkOpenGLImageMapper::RenderData(vtkViewport* viewport,
   int front = 
     (actor->GetProperty()->GetDisplayLocation() == VTK_FOREGROUND_LOCATION);
 
+#if defined(sparc) && defined(GL_VERSION_1_1)
+  glDisable(GL_BLEND);
+#endif
   switch (data->GetScalarType())
     {
     case VTK_DOUBLE:  
@@ -680,6 +683,9 @@ void vtkOpenGLImageMapper::RenderData(vtkViewport* viewport,
   glMatrixMode( GL_MODELVIEW);
   glPopMatrix();
   glEnable( GL_LIGHTING);
+#if defined(sparc) && defined(GL_VERSION_1_1)
+  glEnable(GL_BLEND);
+#endif
 }
 
 
