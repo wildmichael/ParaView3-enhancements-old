@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSweptSurface.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-11-04 12:20:07 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 1998-11-06 16:39:48 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -413,7 +413,8 @@ void vtkSweptSurface::ComputeBounds(float origin[3], float spacing[3], float bbo
     {
     int numTransforms, transNum;
     float position[3], orientation[3], position1[3], orient1[3];
-    float position2[3], orient2[3];
+    // position2 is [4] for GetPoint() call in GetRelativePosition
+    float position2[4], orient2[3];
     vtkActor *a = vtkActor::New();
     vtkTransform *t, *t2, *transform1, *transform2;
 
