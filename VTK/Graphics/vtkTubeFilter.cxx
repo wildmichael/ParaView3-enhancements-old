@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTubeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-17 02:05:39 $
-  Version:   $Revision: 1.70 $
+  Date:      $Date: 2003-02-12 16:10:09 $
+  Version:   $Revision: 1.71 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 #include "vtkPolyData.h"
 #include "vtkPolyLine.h"
 
-vtkCxxRevisionMacro(vtkTubeFilter, "$Revision: 1.70 $");
+vtkCxxRevisionMacro(vtkTubeFilter, "$Revision: 1.71 $");
 vtkStandardNewMacro(vtkTubeFilter);
 
 // Construct object with radius 0.5, radius variation turned off, the number 
@@ -332,11 +332,11 @@ int vtkTubeFilter::GeneratePoints(vtkIdType offset,
     // if s is zero then just use sPrev cross n
     if (vtkMath::Normalize(s) == 0.0)
       {
-      vtkWarningMacro(<< "Using alternate bevel vector");
+      vtkDebugMacro(<< "Using alternate bevel vector");
       vtkMath::Cross(sPrev,n,s);
       if (vtkMath::Normalize(s) == 0.0)
         {
-        vtkWarningMacro(<< "Using alternate bevel vector");
+        vtkDebugMacro(<< "Using alternate bevel vector");
         }
       }
 
