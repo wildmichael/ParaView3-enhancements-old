@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-02-25 21:47:12 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-03-11 18:33:14 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -93,6 +93,12 @@ public:
   // Returns an Prop2D's property2D.  Creates a property if one
   // doesn't already exist.
   vtkProperty2D* GetProperty();
+
+  // Description:
+  // Release any graphics resources that are being consumed by this actor.
+  // The parameter window could be used to determine which graphic
+  // resources to release.
+  virtual void ReleaseGraphicsResources(vtkWindow *);
 
   // Description:
   // Set this vtkProp's vtkProperty2D.
