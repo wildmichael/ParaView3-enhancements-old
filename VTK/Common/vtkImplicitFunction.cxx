@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:35:15 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1995-08-22 16:08:43 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,7 +67,7 @@ float vtkImplicitFunction::FunctionValue(float x[3])
     this->Transform->PointMultiply(pt,pt);
     if (pt[3] != 1.0 ) for (i=0; i<3; i++) pt[i] /= pt[3];
 
-    return this->EvaluateFunction(pt);
+    return this->EvaluateFunction((float *)pt);
     }
 }
 
