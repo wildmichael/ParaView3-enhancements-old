@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThinPlateSplineTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-31 23:55:37 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2000-02-04 12:59:13 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to David G. Gobbi who developed this class 
              based on code from vtkThinPlateSplineMeshWarp.cxx
 	     written by Tim Hutton.
@@ -167,6 +167,10 @@ vtkThinPlateSplineTransform::~vtkThinPlateSplineTransform()
   if (this->TargetLandmarks)
     {
     this->TargetLandmarks->Delete();
+    }
+  if (this->ApproximateInverse)
+    {
+    this->ApproximateInverse->Delete();
     }
   if (this->MatrixW)
     {
