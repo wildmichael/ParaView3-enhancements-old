@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-21 19:01:36 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 1998-05-08 17:20:01 $
+  Version:   $Revision: 1.62 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -210,13 +210,13 @@ void vtkActor::GetMatrix(vtkMatrix4x4& result)
     
     // shift back to actor's origin
     this->Transform.Translate(-this->Origin[0],
-			      -this->Origin[1],
-			      -this->Origin[2]);
+                              -this->Origin[1],
+                              -this->Origin[2]);
 
     // scale
     this->Transform.Scale(this->Scale[0],
-			  this->Scale[1],
-			  this->Scale[2]);
+                          this->Scale[1],
+                          this->Scale[2]);
     
     // rotate
     this->Transform.RotateY(this->Orientation[1]);
@@ -225,13 +225,13 @@ void vtkActor::GetMatrix(vtkMatrix4x4& result)
     
     // move back from origin and translate
     this->Transform.Translate(this->Origin[0] + this->Position[0],
-			      this->Origin[1] + this->Position[1],
-			      this->Origin[2] + this->Position[2]);
+                              this->Origin[1] + this->Position[1],
+                              this->Origin[2] + this->Position[2]);
    
     // apply user defined matrix last if there is one 
     if (this->UserMatrix)
       {
-	this->Transform.Concatenate(*this->UserMatrix);
+      this->Transform.Concatenate(*this->UserMatrix);
       }
 
     this->Transform.PreMultiply();  
