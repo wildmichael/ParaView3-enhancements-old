@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToImageFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 20:19:33 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-07-28 17:10:42 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -264,15 +264,14 @@ void vtkImageToImageFilter::UpdateInformation()
   // ExecuteInformation.  Anyone who implements an ExecuteInformation
   // method would have to fill in all fields.
   iTmp = output->GetWholeExtent();
-  if (iTmp[0] == 0 && iTmp[0] == 0 && iTmp[0] == 0 && 
-      iTmp[0] == 0 && iTmp[0] == 0 && iTmp[0] == 0)
+  if (iTmp[0] == 0 && iTmp[1] == 0 && iTmp[2] == 0 && 
+      iTmp[3] == 0 && iTmp[4] == 0 && iTmp[5] == 0)
     {
     output->SetWholeExtent(input->GetWholeExtent());
+	output->SetSpacing(input->GetSpacing());
+	output->SetOrigin(input->GetOrigin());
     }
-  
-  output->SetSpacing(input->GetSpacing());
-  output->SetOrigin(input->GetOrigin());
-  
+
   if (output->GetScalarType() == VTK_VOID)
     {
     output->SetScalarType(input->GetScalarType());
