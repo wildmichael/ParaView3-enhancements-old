@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-01 23:29:12 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1999-07-02 11:09:08 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -147,11 +147,27 @@ void vtkOpenGLPolyDataMapper::Render(vtkRenderer *ren, vtkActor *act)
     {
     if ( input->GetDataReleased() )
       {
+      if ( this->StartMethod )
+        {
+        (*this->StartMethod)(this->StartMethodArg);
+        }
       input->ForceUpdate();
+      if ( this->EndMethod )
+        {
+        (*this->EndMethod)(this->EndMethodArg);
+        }
       }
     else
       {
+      if ( this->StartMethod )
+        {
+        (*this->StartMethod)(this->StartMethodArg);
+        }
       input->Update();
+      if ( this->EndMethod )
+        {
+        (*this->EndMethod)(this->EndMethodArg);
+        }
       }
     numPts = input->GetNumberOfPoints();
     } 
