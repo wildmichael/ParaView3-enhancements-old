@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagingFactory.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:35 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-05-31 13:19:34 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -35,8 +35,17 @@ public:
   // dynamic loading. 
   static vtkObject* CreateInstance(const char* vtkclassname);
 
+  // Description:
+  // This option enables the creation of Mesa classes
+  // instead of the OpenGL classes when using mangled Mesa.
+  static void SetUseMesaClasses(int use);
+  static int  GetUseMesaClasses();
+
 protected:
   vtkImagingFactory() {};
+
+  static int UseMesaClasses;
+
 private:
   vtkImagingFactory(const vtkImagingFactory&);  // Not implemented.
   void operator=(const vtkImagingFactory&);  // Not implemented.

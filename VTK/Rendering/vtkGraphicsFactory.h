@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGraphicsFactory.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:32 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-05-31 13:19:34 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -38,9 +38,18 @@ public:
   // Description:
   // What rendering library has the user requested
   static const char *GetRenderLibrary();
+
+  // Description:
+  // This option enables the creation of Mesa classes
+  // instead of the OpenGL classes when using mangled Mesa.
+  static void SetUseMesaClasses(int use);
+  static int  GetUseMesaClasses();
   
 protected:
   vtkGraphicsFactory() {};
+
+  static int UseMesaClasses;
+
 private:
   vtkGraphicsFactory(const vtkGraphicsFactory&);  // Not implemented.
   void operator=(const vtkGraphicsFactory&);  // Not implemented.
