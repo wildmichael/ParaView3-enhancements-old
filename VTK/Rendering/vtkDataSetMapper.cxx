@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataSetMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-12 21:10:09 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1994-09-29 14:08:42 $
+  Version:   $Revision: 1.15 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -27,7 +27,7 @@ vlDataSetMapper::~vlDataSetMapper()
 {
   // delete internally created objects.
   if ( this->GeometryExtractor ) delete this->GeometryExtractor;
-  if ( this->PolyMapper ) this->PolyMapper;
+  if ( this->PolyMapper ) delete this->PolyMapper;
 }
 
 void vlDataSetMapper::SetInput(vlDataSet *in)
