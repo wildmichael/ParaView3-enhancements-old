@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32ImageMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-03-03 21:05:39 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-03-11 18:31:58 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -76,7 +76,6 @@ public:
   HBITMAP HBitmap;			// our handle to the DIBSection
 
 protected:
-  int GetCompositingMode(vtkActor2D* actor);
 
 };
 
