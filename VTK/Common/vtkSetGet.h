@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSetGet.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:10:25 $
-  Version:   $Revision: 1.70 $
+  Date:      $Date: 2000-05-16 15:17:48 $
+  Version:   $Revision: 1.71 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -563,4 +563,346 @@ static thisClass* SafeDownCast(vtkObject *o) \
   return NULL;\
 }
 
+
+// The following macros are all just there to centralize the template 
+// switch code so that every execute method doesn't have to have the same
+// long list if case statements
+
+#define vtkTemplateMacro3(func, arg1, arg2, arg3) \
+      case VTK_DOUBLE: \
+        { typedef double VTK_TT; \
+        func(arg1, arg2, arg3); } \
+        break; \
+      case VTK_FLOAT: \
+        { typedef float VTK_TT; \
+        func(arg1, arg2, arg3); } \
+        break; \
+      case VTK_LONG: \
+        { typedef long VTK_TT; \
+        func(arg1, arg2, arg3); } \
+        break; \
+      case VTK_UNSIGNED_LONG: \
+        { typedef unsigned long VTK_TT; \
+        func(arg1, arg2, arg3); } \
+        break; \
+      case VTK_INT: \
+        { typedef int VTK_TT; \
+        func(arg1, arg2, arg3); } \
+        break; \
+      case VTK_UNSIGNED_INT: \
+        { typedef unsigned int VTK_TT; \
+        func(arg1, arg2, arg3); } \
+        break; \
+      case VTK_SHORT: \
+        { typedef short VTK_TT; \
+        func(arg1, arg2, arg3); } \
+        break; \
+      case VTK_UNSIGNED_SHORT: \
+        { typedef unsigned short VTK_TT; \
+        func(arg1, arg2, arg3); } \
+        break; \
+      case VTK_CHAR: \
+        { typedef char VTK_TT; \
+        func(arg1, arg2, arg3); } \
+        break; \
+      case VTK_UNSIGNED_CHAR: \
+        { typedef unsigned char VTK_TT; \
+        func(arg1, arg2, arg3); } \
+        break
+
+#define vtkTemplateMacro4(func, arg1, arg2, arg3, arg4) \
+      case VTK_DOUBLE: \
+        { typedef double VTK_TT; \
+        func(arg1, arg2, arg3, arg4); } \
+        break; \
+      case VTK_FLOAT: \
+        { typedef float VTK_TT; \
+        func(arg1, arg2, arg3, arg4); } \
+        break; \
+      case VTK_LONG: \
+        { typedef long VTK_TT; \
+        func(arg1, arg2, arg3, arg4); } \
+        break; \
+      case VTK_UNSIGNED_LONG: \
+        { typedef unsigned long VTK_TT; \
+        func(arg1, arg2, arg3, arg4); } \
+        break; \
+      case VTK_INT: \
+        { typedef int VTK_TT; \
+        func(arg1, arg2, arg3, arg4); } \
+        break; \
+      case VTK_UNSIGNED_INT: \
+        { typedef unsigned int VTK_TT; \
+        func(arg1, arg2, arg3, arg4); } \
+        break; \
+      case VTK_SHORT: \
+        { typedef short VTK_TT; \
+        func(arg1, arg2, arg3, arg4); } \
+        break; \
+      case VTK_UNSIGNED_SHORT: \
+        { typedef unsigned short VTK_TT; \
+        func(arg1, arg2, arg3, arg4); } \
+        break; \
+      case VTK_CHAR: \
+        { typedef char VTK_TT; \
+        func(arg1, arg2, arg3, arg4); } \
+        break; \
+      case VTK_UNSIGNED_CHAR: \
+        { typedef unsigned char VTK_TT; \
+        func(arg1, arg2, arg3, arg4); } \
+        break
+
+#define vtkTemplateMacro5(func, arg1, arg2, arg3, arg4, arg5) \
+      case VTK_DOUBLE: \
+        { typedef double VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5); } \
+        break; \
+      case VTK_FLOAT: \
+        { typedef float VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5); } \
+        break; \
+      case VTK_LONG: \
+        { typedef long VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5); } \
+        break; \
+      case VTK_UNSIGNED_LONG: \
+        { typedef unsigned long VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5); } \
+        break; \
+      case VTK_INT: \
+        { typedef int VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5); } \
+        break; \
+      case VTK_UNSIGNED_INT: \
+        { typedef unsigned int VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5); } \
+        break; \
+      case VTK_SHORT: \
+        { typedef short VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5); } \
+        break; \
+      case VTK_UNSIGNED_SHORT: \
+        { typedef unsigned short VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5); } \
+        break; \
+      case VTK_CHAR: \
+        { typedef char VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5); } \
+        break; \
+      case VTK_UNSIGNED_CHAR: \
+        { typedef unsigned char VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5); } \
+        break
+
+#define vtkTemplateMacro6(func, arg1, arg2, arg3, arg4, arg5, arg6) \
+      case VTK_DOUBLE: \
+        { typedef double VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5, arg6); } \
+        break; \
+      case VTK_FLOAT: \
+        { typedef float VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5, arg6); } \
+        break; \
+      case VTK_LONG: \
+        { typedef long VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5, arg6); } \
+        break; \
+      case VTK_UNSIGNED_LONG: \
+        { typedef unsigned long VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5, arg6); } \
+        break; \
+      case VTK_INT: \
+        { typedef int VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5, arg6); } \
+        break; \
+      case VTK_UNSIGNED_INT: \
+        { typedef unsigned int VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5, arg6); } \
+        break; \
+      case VTK_SHORT: \
+        { typedef short VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5, arg6); } \
+        break; \
+      case VTK_UNSIGNED_SHORT: \
+        { typedef unsigned short VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5, arg6); } \
+        break; \
+      case VTK_CHAR: \
+        { typedef char VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5, arg6); } \
+        break; \
+      case VTK_UNSIGNED_CHAR: \
+        { typedef unsigned char VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5, arg6); } \
+        break
+          
+#define vtkTemplateMacro7(func, arg1, arg2, arg3, arg4, arg5, arg6, arg7) \
+      case VTK_DOUBLE: \
+        { typedef double VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5, arg6, arg7); } \
+        break; \
+      case VTK_FLOAT: \
+        { typedef float VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5, arg6, arg7); } \
+        break; \
+      case VTK_LONG: \
+        { typedef long VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5, arg6, arg7); } \
+        break; \
+      case VTK_UNSIGNED_LONG: \
+        { typedef unsigned long VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5, arg6, arg7); } \
+        break; \
+      case VTK_INT: \
+        { typedef int VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5, arg6, arg7); } \
+        break; \
+      case VTK_UNSIGNED_INT: \
+        { typedef unsigned int VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5, arg6, arg7); } \
+        break; \
+      case VTK_SHORT: \
+        { typedef short VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5, arg6, arg7); } \
+        break; \
+      case VTK_UNSIGNED_SHORT: \
+        { typedef unsigned short VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5, arg6, arg7); } \
+        break; \
+      case VTK_CHAR: \
+        { typedef char VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5, arg6, arg7); } \
+        break; \
+      case VTK_UNSIGNED_CHAR: \
+        { typedef unsigned char VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5, arg6, arg7); } \
+        break
+          
+#define vtkTemplateMacro8(func, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8) \
+      case VTK_DOUBLE: \
+        { typedef double VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8); } \
+        break; \
+      case VTK_FLOAT: \
+        { typedef float VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8); } \
+        break; \
+      case VTK_LONG: \
+        { typedef long VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8); } \
+        break; \
+      case VTK_UNSIGNED_LONG: \
+        { typedef unsigned long VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8); } \
+        break; \
+      case VTK_INT: \
+        { typedef int VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8); } \
+        break; \
+      case VTK_UNSIGNED_INT: \
+        { typedef unsigned int VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8); } \
+        break; \
+      case VTK_SHORT: \
+        { typedef short VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8); } \
+        break; \
+      case VTK_UNSIGNED_SHORT: \
+        { typedef unsigned short VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8); } \
+        break; \
+      case VTK_CHAR: \
+        { typedef char VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8); } \
+        break; \
+      case VTK_UNSIGNED_CHAR: \
+        { typedef unsigned char VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8); } \
+        break
+
+#define vtkTemplateMacro9(func,arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9) \
+      case VTK_DOUBLE: \
+        { typedef double VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9); } \
+        break; \
+      case VTK_FLOAT: \
+        { typedef float VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9); } \
+        break; \
+      case VTK_LONG: \
+        { typedef long VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9); } \
+        break; \
+      case VTK_UNSIGNED_LONG: \
+        { typedef unsigned long VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9); } \
+        break; \
+      case VTK_INT: \
+        { typedef int VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9); } \
+        break; \
+      case VTK_UNSIGNED_INT: \
+        { typedef unsigned int VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9); } \
+        break; \
+      case VTK_SHORT: \
+        { typedef short VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9); } \
+        break; \
+      case VTK_UNSIGNED_SHORT: \
+        { typedef unsigned short VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9); } \
+        break; \
+      case VTK_CHAR: \
+        { typedef char VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9); } \
+        break; \
+      case VTK_UNSIGNED_CHAR: \
+        { typedef unsigned char VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9); } \
+        break
+
+#define vtkTemplateMacro10(func,arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9,arg10) \
+      case VTK_DOUBLE: \
+        { typedef double VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10); } \
+        break; \
+      case VTK_FLOAT: \
+        { typedef float VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10); } \
+        break; \
+      case VTK_LONG: \
+        { typedef long VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10); } \
+        break; \
+      case VTK_UNSIGNED_LONG: \
+        { typedef unsigned long VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10); } \
+        break; \
+      case VTK_INT: \
+        { typedef int VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10); } \
+        break; \
+      case VTK_UNSIGNED_INT: \
+        { typedef unsigned int VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10); } \
+        break; \
+      case VTK_SHORT: \
+        { typedef short VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10); } \
+        break; \
+      case VTK_UNSIGNED_SHORT: \
+        { typedef unsigned short VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10); } \
+        break; \
+      case VTK_CHAR: \
+        { typedef char VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10); } \
+        break; \
+      case VTK_UNSIGNED_CHAR: \
+        { typedef unsigned char VTK_TT; \
+        func(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10); } \
+        break
+
 #endif
+
