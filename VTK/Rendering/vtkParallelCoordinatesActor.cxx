@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParallelCoordinatesActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-19 23:44:47 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-11-18 21:05:02 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to Kitware & RPI/SCOREC who supported the development
              of this class.
 
@@ -225,7 +225,7 @@ int vtkParallelCoordinatesActor::RenderOpaqueGeometry(vtkViewport *viewport)
     vtkAxisActor2D::SetFontSize(viewport, this->TitleMapper, size, 1.0,
                                 stringWidth, stringHeight);
     this->TitleActor->GetPositionCoordinate()->
-      SetValue((this->Xs[0]+this->Xs[this->N-1])/2.0,YMax+stringHeight/2.0);
+      SetValue((this->Xs[0]+this->Xs[this->N-1])/2.0,this->YMax+stringHeight/2.0);
     this->TitleActor->SetProperty(this->GetProperty());
 
     this->BuildTime.Modified();
@@ -370,8 +370,8 @@ int vtkParallelCoordinatesActor::PlaceAxes(vtkViewport *viewport, int *vtkNotUse
   for (i=0; i<this->N; i++)
     {
     this->Xs[i] = (int) (p1[0] + (float)i/((float)this->N) * (p2[0]-p1[0]));
-    this->Axes[i]->GetPoint1Coordinate()->SetValue(this->Xs[i], YMin);
-    this->Axes[i]->GetPoint2Coordinate()->SetValue(this->Xs[i], YMax);
+    this->Axes[i]->GetPoint1Coordinate()->SetValue(this->Xs[i], this->YMin);
+    this->Axes[i]->GetPoint2Coordinate()->SetValue(this->Xs[i], this->YMax);
     }
 
   // Now generate the lines to plot

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-05-29 09:04:40 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2000-11-18 21:05:02 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -325,7 +325,7 @@ void vtkImageToPolyDataFilter::RunLengthImage(vtkUnsignedCharArray *pixels,
       while ( i < dims[0] )
         {
         ptr = colors + 3*(i+j*dims[0]);
-        if ( ! IsSameColor(color,ptr) )
+        if ( ! this->IsSameColor(color,ptr) )
           {
           break;
           }
@@ -731,16 +731,16 @@ int vtkImageToPolyDataFilter::ProcessImage(vtkUnsignedCharArray *scalars,
       // the wave as a "vertical" stack of pixels, and then propogate the
       // wave horizontally only.
       wave->InsertId(0,i);
-      GetIJ(i, x, y, dims);
-      while ( (numNeighbors = GetNeighbors(ptr, x, y, dims, neighbors, 1)) )
+      this->GetIJ(i, x, y, dims);
+      while ( (numNeighbors = this->GetNeighbors(ptr, x, y, dims, neighbors, 1)) )
         {
         id = (neighbors[0] - pixels) / 3;
-        if ( this->Visited[id] == -1 && IsSameColor(ptr, neighbors[0]) )
+        if ( this->Visited[id] == -1 && this->IsSameColor(ptr, neighbors[0]) )
           {
           this->Visited[id] = regionNumber;
           wave->InsertNextId(id);
           ptr = pixels + 3*id;
-          GetIJ(id, x, y, dims);
+          this->GetIJ(id, x, y, dims);
           }
         else
           {
@@ -756,12 +756,12 @@ int vtkImageToPolyDataFilter::ProcessImage(vtkUnsignedCharArray *scalars,
           {
           id = wave->GetId(j);
           ptr = pixels + 3*id;
-          GetIJ(id, x, y, dims);
-          numNeighbors = GetNeighbors(ptr, x, y, dims, neighbors, 0);
+          this->GetIJ(id, x, y, dims);
+          numNeighbors = this->GetNeighbors(ptr, x, y, dims, neighbors, 0);
           for (k=0; k<numNeighbors; k++)
             {
             id = (neighbors[k] - pixels) / 3;
-            if ( this->Visited[id] == -1 && IsSameColor(ptr, neighbors[k]) )
+            if ( this->Visited[id] == -1 && this->IsSameColor(ptr, neighbors[k]) )
               {
               this->Visited[id] = regionNumber;
               wave2->InsertNextId(id);

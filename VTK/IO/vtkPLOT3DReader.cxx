@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLOT3DReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-10 15:08:43 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2000-11-18 21:05:02 $
+  Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -470,7 +470,7 @@ int vtkPLOT3DReader::ReadBinarySolution(FILE *fp,vtkStructuredGrid *output)
 
   if ( this->FileFormat == VTK_WHOLE_MULTI_GRID_NO_IBLANKING )
     {
-    if ( fread (&NumberOfGrids, sizeof(int), 1, fp) < 1 )
+    if ( fread (&this->NumberOfGrids, sizeof(int), 1, fp) < 1 )
       {
       return 1;
       }

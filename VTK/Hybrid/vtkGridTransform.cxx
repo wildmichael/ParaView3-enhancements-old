@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGridTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-11 14:37:13 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-11-18 21:05:02 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -854,7 +854,9 @@ void vtkGridTransform::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "DisplacementShift: " << this->DisplacementShift << "\n";
   os << indent << "DisplacementGrid: " << this->DisplacementGrid << "\n";
   if(this->DisplacementGrid)
+    {
     this->DisplacementGrid->PrintSelf(os,indent.GetNextIndent());
+    }
 }
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-26 19:13:57 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2000-11-18 21:05:02 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -414,7 +414,7 @@ int vtkDelaunay3D::FindTetra(vtkUnstructuredGrid *Mesh, double x[3],
   int nei;
   if ( GetTetraFaceNeighbor(Mesh, tetraId, p1, p2, p3, nei) )
     {
-    return FindTetra(Mesh, x, nei, ++depth);
+    return this->FindTetra(Mesh, x, nei, ++depth);
     }
   else
     {

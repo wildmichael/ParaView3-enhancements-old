@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleFlight.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-01 16:28:09 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2000-11-18 21:05:02 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to John Biddiscombe of the Rutherford Appleton Laboratory
              who developed this class.
 
@@ -171,8 +171,8 @@ protected:
   int           FixUpVector;
   double        OldX;
   double        OldY;
-  double        x2;
-  double        y2;
+  double        X2;
+  double        Y2;
   double        DiagonalLength;
   double        MotionStepSize;
   double        MotionUserScale;
