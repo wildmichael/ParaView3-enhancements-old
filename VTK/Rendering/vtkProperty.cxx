@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-01-16 21:22:29 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1998-04-28 20:59:03 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -157,18 +157,10 @@ vtkProperty *vtkProperty::New()
 
 void vtkProperty::SetColor(float R,float G,float B)
 {
-  /* store the coordinates */
-  this->AmbientColor[0] = R;
-  this->DiffuseColor[0] = R;
-  this->SpecularColor[0] = R;
-
-  this->AmbientColor[1] = G;
-  this->DiffuseColor[1] = G;
-  this->SpecularColor[1] = G;
-
-  this->AmbientColor[2] = B;
-  this->DiffuseColor[2] = B;
-  this->SpecularColor[2] = B;
+  // Use Set macros to insure proper modified time behavior
+  this->SetAmbientColor(R,G,B);
+  this->SetDiffuseColor(R,G,B);
+  this->SetSpecularColor(R,G,B);
 }
 
 // Description:
