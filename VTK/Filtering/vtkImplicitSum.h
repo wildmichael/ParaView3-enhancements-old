@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitSum.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-03 18:54:50 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-03-05 20:34:00 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -53,24 +53,13 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkImplicitFunctionCollection.h"
 #include "vtkFloatArray.h"
 
-#ifndef VTK_FILTERING_EXPORT
-#define VTK_FILTERING_EXPORT VTK_EXPORT
-#endif
-
 class VTK_FILTERING_EXPORT vtkImplicitSum : public vtkImplicitFunction
 {
 public:
-//BTX
-#ifdef vtkTypeRevisionMacro
-  vtkTypeRevisionMacro(vtkImplicitSum,vtkImplicitFunction);
-#else
-  vtkTypeMacro(vtkImplicitSum,vtkImplicitFunction);
-#endif
-//ETX
-
-  void PrintSelf(ostream& os, vtkIndent indent);
-
   static vtkImplicitSum *New();
+
+  vtkTypeRevisionMacro(vtkImplicitSum,vtkImplicitFunction);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Evaluate implicit function using current functions and weights.

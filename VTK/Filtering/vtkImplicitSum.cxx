@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitSum.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-03 17:30:26 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-03-05 20:34:00 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -15,27 +15,12 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
-    
 #include <math.h>
 #include "vtkImplicitSum.h"
 #include "vtkObjectFactory.h"
 
-#ifdef vtkCxxRevisionMacro
-vtkCxxRevisionMacro(vtkImplicitSum, "$Revision: 1.1 $");
-#endif
-
-//------------------------------------------------------------------------------
-vtkImplicitSum* vtkImplicitSum::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImplicitSum");
-  if(ret)
-    {
-    return (vtkImplicitSum*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImplicitSum;
-}
+vtkCxxRevisionMacro(vtkImplicitSum, "$Revision: 1.2 $");
+vtkStandardNewMacro(vtkImplicitSum);
 
 // Constructor.
 vtkImplicitSum::vtkImplicitSum()
@@ -181,11 +166,7 @@ void vtkImplicitSum::EvaluateGradient(float x[3], float g[3])
 
 void vtkImplicitSum::PrintSelf(ostream& os, vtkIndent indent)
 {
-#if VTK_MAJOR_VERSION < 4
-  vtkImplicitFunction::PrintSelf(os,indent);
-#else
   this->Superclass::PrintSelf(os,indent);
-#endif
 
   os << indent << "NormalizeByWeight: " 
      << (this->NormalizeByWeight ? "On\n" : "Off\n");
