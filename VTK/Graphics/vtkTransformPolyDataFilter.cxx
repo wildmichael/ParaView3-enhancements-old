@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:48:46 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-12-11 18:15:58 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -95,6 +95,7 @@ void vtkTransformPolyDataFilter::Execute()
 // Loop over all points, updating position
 //
   this->Transform->MultiplyPoints(inPts,newPts);
+  this->UpdateProgress (.25);
 //
 // Ditto for vectors and normals
 //
@@ -103,10 +104,12 @@ void vtkTransformPolyDataFilter::Execute()
     this->Transform->MultiplyVectors(inVectors,newVectors);
     }
 
+  this->UpdateProgress (.5);
   if ( inNormals )
     {
     this->Transform->MultiplyNormals(inNormals,newNormals);
     }
+  this->UpdateProgress (.75);
 //
 // Update ourselves and release memory
 //
@@ -133,6 +136,7 @@ void vtkTransformPolyDataFilter::Execute()
   output->SetLines(input->GetLines());
   output->SetPolys(input->GetPolys());
   output->SetStrips(input->GetStrips());
+  this->UpdateProgress (1.0);
 }
 
 unsigned long vtkTransformPolyDataFilter::GetMTime()

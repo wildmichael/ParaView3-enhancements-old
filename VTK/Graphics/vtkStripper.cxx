@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStripper.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-10-29 16:17:48 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1997-12-11 18:15:56 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -123,6 +123,7 @@ void vtkStripper::Execute()
 
   for ( cellId=0; cellId < numCells; cellId++)
     {
+    if ((cellId % 1000) == 0) this->UpdateProgress ((float) cellId / (float) numCells);
     if ( ! visited[cellId] )
       {
       visited[cellId] = 1;
