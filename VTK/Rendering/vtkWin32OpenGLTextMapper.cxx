@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-02 11:34:17 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2000-07-06 09:44:20 $
+  Version:   $Revision: 1.24 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -70,8 +70,13 @@ struct vtkFontStruct
   int   ListBase;
 };
   
-static vtkFontStruct *cache[10] = {NULL,NULL,NULL,NULL,NULL,
-                                   NULL,NULL,NULL,NULL,NULL};
+static vtkFontStruct *cache[30] = {
+  NULL,NULL,NULL,NULL,NULL,
+  NULL,NULL,NULL,NULL,NULL,
+  NULL,NULL,NULL,NULL,NULL,
+  NULL,NULL,NULL,NULL,NULL,
+  NULL,NULL,NULL,NULL,NULL,
+  NULL,NULL,NULL,NULL,NULL};
 static numCached = 0;
 
 int vtkWin32OpenGLTextMapper::GetListBaseForFont(vtkTextMapper *tm, 
@@ -107,13 +112,13 @@ int vtkWin32OpenGLTextMapper::GetListBaseForFont(vtkTextMapper *tm,
 
   // OK the font is not cached
   // so we need to make room for a new font
-  if (numCached == 10)
+  if (numCached == 30)
     {
-    wglMakeCurrent((HDC)cache[9]->Window->GetGenericContext(), 
-                   (HGLRC)cache[9]->Window->GetGenericDisplayId());
-    glDeleteLists(cache[9]->ListBase,255);
+    wglMakeCurrent((HDC)cache[29]->Window->GetGenericContext(), 
+                   (HGLRC)cache[29]->Window->GetGenericDisplayId());
+    glDeleteLists(cache[29]->ListBase,255);
     wglMakeCurrent(hdc, (HGLRC)win->GetGenericDisplayId());
-    numCached = 9;
+    numCached = 29;
     }
 
   // add the new font
