@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendPolyData.h,v $
   Language:  C++
-  Date:      $Date: 2000-03-06 21:10:59 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2000-04-15 09:42:38 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -65,18 +65,37 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
-  // Add a dataset to the list of data to append.
+  // UserManagedInputs allows the user to set inputs by number instead of
+  // using the AddInput/RemoveInput functions. Calls to
+  // SetNumberOfInputs/SetNthInput should not be mixed with calls
+  // to AddInput/RemoveInput. Default UserManagedInputs is false
+  vtkSetMacro(UserManagedInputs,int);
+  vtkGetMacro(UserManagedInputs,int);
+  vtkBooleanMacro(UserManagedInputs,int);
+
+  // Description:
+  // Add a dataset to the list of data to append. Should not be
+  // used when UserManagedInputs is true, use SetNthInput instead.
   void AddInput(vtkPolyData *);
 
   // Description:
-  // Remove a dataset from the list of data to append.
+  // Remove a dataset from the list of data to append. Should not be
+  // used when UserManagedInputs is true, use SetNthInput (NULL) instead.
   void RemoveInput(vtkPolyData *);
 
   // Description:
   // Get any input of this filter.
   vtkPolyData *GetInput(int idx);
   vtkPolyData *GetInput() { return this->GetInput( 0 ); };
-  
+
+  // Description:
+  // Directly set(allocate) number of inputs, should only be used
+  // when UserManagedInputs is true.
+  void SetNumberOfInputs(int num);
+
+  // Set Nth input, should only be used when UserManagedInputs is true.
+  void SetNthInput(int num, vtkPolyData *input);
+
   // Description:
   // ParallelStreaming is for a particular application.
   // It causes this filter to ask for a different piece
@@ -114,10 +133,9 @@ protected:
   void AddInput(vtkDataObject *)
     { vtkErrorMacro( << "AddInput() must be called with a vtkPolyData not a vtkDataObject."); };
   void RemoveInput(vtkDataObject *input)
-    { this->vtkProcessObject::RemoveInput(input); 
+    { this->vtkProcessObject::RemoveInput(input);
     this->vtkProcessObject::SqueezeInputArray();};
-  
-  
+  int UserManagedInputs;
 };
 
 #endif
