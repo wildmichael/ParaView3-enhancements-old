@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-22 14:14:28 $
-  Version:   $Revision: 1.109 $
+  Date:      $Date: 1999-04-22 19:13:54 $
+  Version:   $Revision: 1.110 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -403,9 +403,10 @@ int vtkRenderer::UpdateGeometry()
 {
   int        i;
 
+  this->NumberOfPropsRenderedAsGeometry = 0;
+
   if ( this->PropArrayCount == 0 ) 
     {
-    this->NumberOfPropsRenderedAsGeometry = 0;
     return 0;
     }
 
