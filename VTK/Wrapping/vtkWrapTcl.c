@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapTcl.c,v $
   Language:  C++
-  Date:      $Date: 2000-10-20 13:54:50 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-10-25 10:36:27 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -46,7 +46,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 int numberOfWrappedFunctions = 0;
 FunctionInfo *wrappedFunctions[1000];
-FunctionInfo *currentFunction;
+extern FunctionInfo *currentFunction;
 
 
 void output_temp(FILE *fp, int i, int aType, char *Id, int count)
