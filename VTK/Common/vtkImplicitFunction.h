@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitFunction.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:11 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2001-05-04 20:47:48 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,13 +42,14 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // .NAME vtkImplicitFunction - abstract interface for implicit functions
 // .SECTION Description
 // vtkImplicitFunction specifies an abstract interface for implicit 
-// functions. Implicit functions are of the form F(x,y,z) = 0. Two primitive 
+// functions. Implicit functions are real valued functions defined in 3D 
+// space, w = F(x,y,z). Two primitive 
 // operations are required: the ability to evaluate the function, and the 
 // function gradient at a given point.
 //
 // Implicit functions are very powerful. It is possible to represent almost
-// any type of geometry with implicit functions, especially if you use 
-// boolean combinations implicit functions (see vtkImplicitBoolean).
+// any type of geometry with the level sets w = const, especially if you use 
+// boolean combinations of implicit functions (see vtkImplicitBoolean).
 //
 // vtkImplicitFunction provides a mechanism to transform the implicit
 // function(s) via a vtkAbstractTransform.  This capability can be used to 
