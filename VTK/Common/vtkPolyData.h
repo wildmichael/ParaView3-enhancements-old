@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1994-03-12 19:00:29 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1994-03-27 16:13:32 $
+  Version:   $Revision: 1.19 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -37,8 +37,8 @@ public:
 
   // dataset interface
   vlDataSet *MakeObject();
-  int NumberOfPoints();
-  int NumberOfCells();
+  int GetNumberOfPoints();
+  int GetNumberOfCells();
   float *GetPoint(int ptId) {return this->Points->GetPoint(ptId);};
   vlCell *GetCell(int cellId);
   vlMapper *MakeMapper();
@@ -64,10 +64,10 @@ public:
   void SetStrips (vlCellArray* s);
   vlCellArray *GetStrips();
 
-  int NumberOfVerts();
-  int NumberOfLines();
-  int NumberOfPolys();
-  int NumberOfStrips();
+  int GetNumberOfVerts();
+  int GetNumberOfLines();
+  int GetNumberOfPolys();
+  int GetNumberOfStrips();
 
   // following stuff supports cell structure
   vlBooleanMacro(LoadVerts,int);

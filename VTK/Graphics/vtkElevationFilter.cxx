@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkElevationFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-03-01 22:23:02 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1994-03-27 16:13:45 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -49,7 +49,7 @@ void vlElevationFilter::Execute()
 // Initialize
 //
   this->Initialize();
-  if ( ((numPts=this->Input->NumberOfPoints()) < 1) )
+  if ( ((numPts=this->Input->GetNumberOfPoints()) < 1) )
     {
     vlErrorMacro(<< "No input!\n");
     return;

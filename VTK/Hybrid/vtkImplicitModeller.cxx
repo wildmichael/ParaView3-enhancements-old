@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkImplicitModeller.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-03-25 10:16:31 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-03-27 16:13:37 $
+  Version:   $Revision: 1.5 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -113,7 +113,7 @@ void vlImplicitModeller::Execute()
 //
 // Traverse all cells; computing distance function on volume points.
 //
-  for (cellNum=0; cellNum < this->Input->NumberOfCells(); cellNum++)
+  for (cellNum=0; cellNum < this->Input->GetNumberOfCells(); cellNum++)
     {
     cell = this->Input->GetCell(cellNum);
     bounds = cell->GetBounds();

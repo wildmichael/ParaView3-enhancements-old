@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCell.h,v $
   Language:  C++
-  Date:      $Date: 1994-03-23 14:05:24 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-03-27 16:13:49 $
+  Version:   $Revision: 1.5 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -42,7 +42,7 @@ public:
   // reference counting.
 
   // Number of points in cell
-  int NumberOfPoints() {return this->PointIds.NumberOfIds();};
+  int GetNumberOfPoints() {return this->PointIds.GetNumberOfIds();};
 
   // Dimensionality of cell (0,1,2, or 3)
   virtual int CellDimension() = 0;

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPolyLine.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-03-23 14:07:13 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-03-27 16:13:31 $
+  Version:   $Revision: 1.5 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -97,7 +97,7 @@ float vlPolyLine::EvaluatePosition(float x[3], int& subId, float pcoords[3])
 
   pcoords[1] = pcoords[2] = 0.0;
 
-  for (minDist2=LARGE_FLOAT,i=0; i<this->Points.NumberOfPoints()-1; i++)
+  for (minDist2=LARGE_FLOAT,i=0; i<this->Points.GetNumberOfPoints()-1; i++)
     {
     line.Points.SetPoint(0,this->Points.GetPoint(i));
     line.Points.SetPoint(1,this->Points.GetPoint(i+1));
@@ -133,7 +133,7 @@ void vlPolyLine::Contour(float value, vlFloatScalars *cellScalars,
   int i;
   vlFloatScalars lineScalars(2);
 
-  for ( i=0; i<this->Points.NumberOfPoints()-1; i++)
+  for ( i=0; i<this->Points.GetNumberOfPoints()-1; i++)
     {
     line.Points.SetPoint(0,this->Points.GetPoint(i));
     line.Points.SetPoint(1,this->Points.GetPoint(i+1));

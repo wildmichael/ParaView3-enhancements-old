@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-03-12 19:00:31 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-03-27 16:13:35 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -28,7 +28,7 @@ vlPoints::vlPoints()
 
 void vlPoints::GetPoints(vlIdList& ptId, vlFloatPoints& fp)
 {
-  for (int i=0; i<ptId.NumberOfIds(); i++)
+  for (int i=0; i<ptId.GetNumberOfIds(); i++)
     {
     fp.InsertPoint(i,this->GetPoint(ptId.GetId(i)));
     }
@@ -42,7 +42,7 @@ void vlPoints::ComputeBounds()
     {
     this->Bounds[0] = this->Bounds[2] = this->Bounds[4] =  LARGE_FLOAT;
     this->Bounds[1] = this->Bounds[3] = this->Bounds[5] = -LARGE_FLOAT;
-    for (i=0; i<this->NumberOfPoints(); i++)
+    for (i=0; i<this->GetNumberOfPoints(); i++)
       {
       x = this->GetPoint(i);
       for (j=0; j<3; j++)
@@ -70,7 +70,7 @@ void vlPoints::PrintSelf(ostream& os, vlIndent indent)
 
     vlObject::PrintSelf(os,indent);
 
-    os << indent << "Number Of Points: " << this->NumberOfPoints() << "\n";
+    os << indent << "Number Of Points: " << this->GetNumberOfPoints() << "\n";
     bounds = this->GetBounds();
     os << indent << "Bounds: \n";
     os << indent << "  Xmin,Xmax: (" << bounds[0] << ", " << bounds[1] << ")\n";

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-07 17:17:23 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1994-03-27 16:13:47 $
+  Version:   $Revision: 1.16 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -46,7 +46,7 @@ void vlDataSet::ComputeBounds()
     {
     this->Bounds[0] = this->Bounds[2] = this->Bounds[4] =  LARGE_FLOAT;
     this->Bounds[1] = this->Bounds[3] = this->Bounds[5] = -LARGE_FLOAT;
-    for (i=0; i<this->NumberOfPoints(); i++)
+    for (i=0; i<this->GetNumberOfPoints(); i++)
       {
       x = this->GetPoint(i);
       for (j=0; j<3; j++)
