@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDivergence.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-23 17:23:04 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-11-29 13:47:35 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -115,10 +115,10 @@ void vtkImageDivergence::ComputeRequiredInputUpdateExtent(int inExt[6],
 // it handles boundaries. Pixels are just replicated to get values 
 // out of extent.
 template <class T>
-static void vtkImageDivergenceExecute(vtkImageDivergence *self,
-				      vtkImageData *inData, T *inPtr,
-				      vtkImageData *outData, T *outPtr,
-				      int outExt[6], int id)
+void vtkImageDivergenceExecute(vtkImageDivergence *self,
+			       vtkImageData *inData, T *inPtr,
+			       vtkImageData *outData, T *outPtr,
+			       int outExt[6], int id)
 {
   int idxC, idxX, idxY, idxZ;
   int maxC, maxX, maxY, maxZ;

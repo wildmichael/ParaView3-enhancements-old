@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDataStreamer.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-24 12:49:36 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-11-29 13:47:35 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -105,6 +105,7 @@ vtkImageData *vtkImageDataStreamer::GetInput()
 //----------------------------------------------------------------------------
 void vtkImageDataStreamer::PreUpdate(vtkDataObject *vtkNotUsed(out))
 {
+  out = out;
   // Do nothing here (for now).
 }
 
