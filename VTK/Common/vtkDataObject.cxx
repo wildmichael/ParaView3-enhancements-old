@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-14 13:56:19 $
-  Version:   $Revision: 1.66 $
+  Date:      $Date: 2001-05-14 20:05:59 $
+  Version:   $Revision: 1.67 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -76,7 +76,10 @@ vtkDataObject::vtkDataObject()
   this->DataReleased = 0;
 
   this->ReleaseDataFlag = 0;
-  this->FieldData = vtkFieldData::New();
+  this->FieldData = NULL;
+  vtkFieldData *fd = vtkFieldData::New();
+  this->SetFieldData(fd);
+  fd->Delete();
 
   // The extent is uninitialized
   this->WholeExtent[0] = this->WholeExtent[2] = this->WholeExtent[4] = 0;
@@ -121,7 +124,7 @@ vtkDataObject::vtkDataObject()
 //----------------------------------------------------------------------------
 vtkDataObject::~vtkDataObject()
 {
-  this->FieldData->Delete();
+  this->SetFieldData(NULL);
 
   this->SetExtentTranslator(NULL);
   delete [] this->Consumers;
