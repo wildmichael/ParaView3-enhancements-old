@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLineWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-28 20:30:22 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-03-30 11:27:29 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -184,6 +184,8 @@ protected:
   // ProcessEvents() dispatches to these methods.
   void OnLeftButtonDown(int ctrl, int shift, int X, int Y);
   void OnLeftButtonUp(int ctrl, int shift, int X, int Y);
+  void OnMiddleButtonDown(int ctrl, int shift, int X, int Y);
+  void OnMiddleButtonUp(int ctrl, int shift, int X, int Y);
   void OnRightButtonDown(int ctrl, int shift, int X, int Y);
   void OnRightButtonUp(int ctrl, int shift, int X, int Y);
   void OnMouseMove(int ctrl, int shift, int X, int Y);
