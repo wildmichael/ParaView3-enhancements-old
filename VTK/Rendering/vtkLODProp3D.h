@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODProp3D.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-28 03:33:51 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2002-09-03 05:46:50 $
+  Version:   $Revision: 1.29 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -81,6 +81,16 @@ public:
   int AddLOD( vtkMapper *m, float time );
   int AddLOD( vtkVolumeMapper *m, vtkVolumeProperty *p, float time );
   int AddLOD( vtkVolumeMapper *m, float time );
+
+  // Description:
+  // Get the current number of LODs.
+  vtkGetMacro(NumberOfLODs, int);
+ 
+  // Description:
+  // Get the current index, used to determine the ID of the next LOD that is added.
+  // Useful for guessing what IDs have been used (with NumberOfLODs, without 
+  // depending on the constructor initialization to 1000.
+  vtkGetMacro(CurrentIndex, int);
 
   // Description:
   // Delete a level of detail given an ID. This is the ID returned by the
