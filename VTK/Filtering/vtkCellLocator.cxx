@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-01 20:44:35 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1999-06-02 13:41:51 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -988,7 +988,8 @@ void vtkCellLocator::BuildLocator()
   typedef vtkIdList *vtkIdListPtr;
   int prod, numOctants;
 
-  if ( this->Tree != NULL && this->BuildTime > this->MTime )
+  if ( (this->Tree != NULL) && (this->BuildTime > this->MTime)
+       && (this->BuildTime > this->DataSet->GetMTime()) )
     {
     return;
     }

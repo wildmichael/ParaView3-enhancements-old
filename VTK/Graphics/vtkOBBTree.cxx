@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBBTree.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-02 19:55:54 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1999-06-02 13:41:52 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -231,7 +231,8 @@ void vtkOBBTree::BuildLocator()
   vtkIdList *cellList;
 
   vtkDebugMacro(<<"Building OBB tree");
-  if ( this->Tree != NULL && this->BuildTime > this->MTime )
+  if ( (this->Tree != NULL) && (this->BuildTime > this->MTime)
+       && (this->BuildTime > this->DataSet->GetMTime()) )
     {
     return;
     }
