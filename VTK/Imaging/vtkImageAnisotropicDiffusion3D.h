@@ -1,10 +1,10 @@
-o/*=========================================================================
+/*=========================================================================
 
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAnisotropicDiffusion3D.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-03 14:10:25 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2000-09-03 14:22:39 $
+  Version:   $Revision: 1.22 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
