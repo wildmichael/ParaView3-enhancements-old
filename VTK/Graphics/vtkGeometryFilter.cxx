@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:05:20 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2000-04-12 20:56:21 $
+  Version:   $Revision: 1.58 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -527,8 +527,7 @@ void vtkGeometryFilter::UnstructuredGridExecute()
   vtkPointData *outputPD = output->GetPointData();
   vtkCellData *outputCD = output->GetCellData();
   vtkCellArray *Verts, *Lines, *Polys, *Strips;
-  vtkIdList *cellIds = vtkIdList::New();
-  vtkIdList *faceIds = vtkIdList::New();
+  vtkIdList *cellIds, *faceIds;
   char *cellVis;
   int newCellId, faceId, *faceVerts, numFacePts;
   float *x;
@@ -541,6 +540,16 @@ void vtkGeometryFilter::UnstructuredGridExecute()
   
   vtkDebugMacro(<<"Executing geometry filter for unstructured grid input");
 
+  // Check input
+  if ( Connectivity == NULL )
+    {
+    vtkDebugMacro(<<"Nothing to extract");
+    return;
+    }
+
+  // Determine nature of what we have to do
+  cellIds = vtkIdList::New();
+  faceIds = vtkIdList::New();
   if ( (!this->CellClipping) && (!this->PointClipping) &&
        (!this->ExtentClipping) )
     {
