@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPythonUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-20 17:14:53 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-10-20 22:55:19 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -266,6 +266,11 @@ void vtkPythonVoidFunc(void *arg)
     }
   else
     {
+    if (PyErr_ExceptionMatches(PyExc_KeyboardInterrupt))
+      {
+      cerr << "Caught a Ctrl-C within python, exiting program.\n";
+      Py_Exit(1);
+      }
     PyErr_Print();
     }
 }
