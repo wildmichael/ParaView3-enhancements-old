@@ -17,14 +17,19 @@
 #include "vtkImageData.h"
 #include "vtkObjectFactory.h"
 #include "vtkPointData.h"
+#include "vtkToolkits.h"
 
 extern "C" {
-#include <jpeglib.h>
+#ifdef VTK_USE_SYSTEM_JPEG
+# include <jpeglib.h>
+#else
+# include "vtk_jpeg.h"
+#endif
 #include <setjmp.h>
 }
 
 
-vtkCxxRevisionMacro(vtkJPEGReader, "$Revision: 1.18 $");
+vtkCxxRevisionMacro(vtkJPEGReader, "$Revision: 1.19 $");
 vtkStandardNewMacro(vtkJPEGReader);
 
 
