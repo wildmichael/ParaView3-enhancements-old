@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProVG500Mapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-16 21:20:48 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2002-08-23 21:34:14 $
+  Version:   $Revision: 1.34 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,11 +18,13 @@
 #include "vtkVolumeProVG500Mapper.h"
 
 #include "vtkCamera.h"
+#include "vtkColorTransferFunction.h"
 #include "vtkDebugLeaks.h"
 #include "vtkGraphicsFactory.h"
 #include "vtkLight.h"
 #include "vtkObjectFactory.h"
 #include "vtkOpenGLVolumeProVG500Mapper.h"
+#include "vtkPiecewiseFunction.h"
 #include "vtkRenderWindow.h"
 #include "vtkRenderer.h"
 #include "vtkToolkits.h"
@@ -30,7 +32,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkVolumeProVG500Mapper, "$Revision: 1.33 $");
+vtkCxxRevisionMacro(vtkVolumeProVG500Mapper, "$Revision: 1.34 $");
 
 //----------------------------------------------------------------------------
 // Needed when we don't use the vtkStandardNewMacro.
@@ -1140,4 +1142,8 @@ void vtkVolumeProVG500Mapper::Render( vtkRenderer *ren, vtkVolume *vol )
 
 }
 
-
+//----------------------------------------------------------------------------
+void vtkVolumeProVG500Mapper::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
+}
