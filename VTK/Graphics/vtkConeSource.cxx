@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConeSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-02 13:05:55 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1999-09-10 12:26:43 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,6 +43,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 //
 #include <math.h>
 #include "vtkConeSource.h"
+#include "vtkUnstructuredInformation.h"
 #include "vtkMath.h"
 
 //----------------------------------------------------------------------------
@@ -70,12 +71,18 @@ void vtkConeSource::Execute()
   vtkCellArray *newPolys=0;
   vtkPolyData *output = this->GetOutput();
   // for streaming
-  int piece = output->GetUpdatePiece();
-  int numPieces = output->GetUpdateNumberOfPieces();
-  int maxPieces = output->GetMaximumNumberOfPieces();
-  int start = maxPieces * piece / numPieces;
-  int end = (maxPieces * (piece+1) / numPieces) - 1;
-  int createBottom = (this->Capping && (start == 0));
+  int piece;
+  int numPieces;
+  int maxPieces;
+  int start, end;
+  int createBottom;
+  
+  piece = output->GetUpdatePiece();
+  numPieces = output->GetUpdateNumberOfPieces();
+  maxPieces = output->GetUnstructuredInformation()->GetMaximumNumberOfPieces();
+  start = maxPieces * piece / numPieces;
+  end = (maxPieces * (piece+1) / numPieces) - 1;
+  createBottom = (this->Capping && (start == 0));
   
   vtkDebugMacro("ConeSource Executing");
   
@@ -238,6 +245,7 @@ void vtkConeSource::Execute()
 //----------------------------------------------------------------------------
 void vtkConeSource::ExecuteInformation()
 {
+  vtkUnstructuredInformation *info;
   int numTris, numPts;
   unsigned long size;
   
@@ -254,14 +262,16 @@ void vtkConeSource::ExecuteInformation()
   // convert to kilobytes
   size = (size / 1000) + 1;
   
-  this->GetOutput()->SetEstimatedWholeMemorySize(size);
+  
+  info = this->GetOutput()->GetUnstructuredInformation();
+  info->SetEstimatedWholeMemorySize(size);
   if (this->Resolution < 3)
     {
-    this->GetOutput()->SetMaximumNumberOfPieces(1);
+    info->SetMaximumNumberOfPieces(1);
     }
   else
     {
-    this->GetOutput()->SetMaximumNumberOfPieces(this->Resolution);
+    info->SetMaximumNumberOfPieces(this->Resolution);
     }  
 }
 
