@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTIFFReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-13 17:14:29 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2002-11-12 19:44:35 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -86,10 +86,6 @@ public:
   // Description:
   // Auxilary methods used by the reader internally.
   void InitializeColors();
-
-  //Description: 
-  // create a clone of this object.
-  virtual vtkImageReader2* MakeObject() { return vtkTIFFReader::New(); }
 
 //BTX
   enum { NOFORMAT, RGB, GRAYSCALE, PALETTE_RGB, PALETTE_GRAYSCALE, OTHER };

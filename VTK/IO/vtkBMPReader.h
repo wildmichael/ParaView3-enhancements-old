@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBMPReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-31 23:12:41 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-11-12 19:44:35 $
+  Version:   $Revision: 1.27 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -52,8 +52,6 @@ public:
   // Description:
   // Returns the depth of the BMP, either 8 or 24.
   vtkGetMacro(Depth,int);
-  //Description: create a clone of this object.
-  virtual vtkImageReader2* MakeObject() { return vtkBMPReader::New(); }
   
   // Description: is the given file name a BMP file?
   virtual int CanReadFile(const char* fname);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGESignaReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-13 17:14:28 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-11-12 19:44:35 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -41,8 +41,6 @@ public:
   vtkTypeRevisionMacro(vtkGESignaReader,vtkMedicalImageReader2);
   virtual void PrintSelf(ostream& os, vtkIndent indent);
 
-  //Description: create a clone of this object.
-  virtual vtkImageReader2* MakeObject() { return vtkGESignaReader::New();}
   // Description: is the given file name a GESigna file?
   virtual int CanReadFile(const char* fname);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader2.h,v $
   Language:  C++
-  Date:      $Date: 2002-02-19 16:30:42 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-11-12 19:44:35 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -170,10 +170,13 @@ public:
   // Set/Get the internal file name
   void ComputeInternalFileName(int slice);
   vtkGetStringMacro(InternalFileName);
-  // Description: 
-  // virtual constructor.  This will make an object that is the
-  // same type as the object that the call is made from.
-  virtual vtkImageReader2* MakeObject() { return vtkImageReader2::New(); }
+  
+#ifndef VTK_REMOVE_LEGACY_CODE
+  // Description:
+  // For legacy compatibility.  Do not use.
+  virtual vtkImageReader2* MakeObject();
+#endif
+  
   // Description:
   // Return 1 if the reader can read the given file name.
   // Should be implemented by all sub-classes of vtkImageReader2.
