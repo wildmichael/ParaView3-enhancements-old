@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSimpleElevationFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-02 13:05:04 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2001-08-10 18:11:26 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,6 +42,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkSimpleElevationFilter.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
+#include "vtkFloatArray.h"
 
 //------------------------------------------------------------------------------
 vtkSimpleElevationFilter* vtkSimpleElevationFilter::New()
@@ -72,7 +73,7 @@ vtkSimpleElevationFilter::vtkSimpleElevationFilter()
 void vtkSimpleElevationFilter::Execute()
 {
   vtkIdType i, numPts;
-  vtkScalars *newScalars;
+  vtkFloatArray *newScalars;
   float s, x[3];
   vtkDataSet *input = this->GetInput();
   vtkDataSet *output = this->GetOutput();
@@ -92,8 +93,8 @@ void vtkSimpleElevationFilter::Execute()
 
   // Allocate
   //
-  newScalars = vtkScalars::New();
-  newScalars->SetNumberOfScalars(numPts);
+  newScalars = vtkFloatArray::New();
+  newScalars->SetNumberOfTuples(numPts);
 
   // Set up 1D parametric system
   //
@@ -117,7 +118,7 @@ void vtkSimpleElevationFilter::Execute()
 
     input->GetPoint(i,x);
     s = vtkMath::Dot(this->Vector,x);
-    newScalars->SetScalar(i,s);
+    newScalars->SetComponent(i,0,s);
     }
 
   // Update self

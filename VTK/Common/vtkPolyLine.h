@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyLine.h,v $
   Language:  C++
-  Date:      $Date: 2001-07-12 20:33:38 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2001-08-10 18:11:26 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -64,7 +64,9 @@ public:
   // normals, they are "orientation" normals used by classes like vtkTubeFilter
   // that control the rotation around the line. The normals try to stay pointing
   // in the same direction as much as possible (i.e., minimal rotation).
-  int GenerateSlidingNormals(vtkPoints *, vtkCellArray *, vtkNormals *);
+  int GenerateSlidingNormals(vtkPoints *pts, vtkCellArray *ca, vtkNormals *n)
+    { this->GenerateSlidingNormals(pts,ca, n->GetData()); }
+  int GenerateSlidingNormals(vtkPoints *, vtkCellArray *, vtkDataArray *);
 
   // Description:
   // See the vtkCell API for descriptions of these methods.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindowedSincPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-02 18:08:08 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2001-08-10 18:11:26 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -45,6 +45,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkPolygon.h"
 #include "vtkTriangle.h"
 #include "vtkObjectFactory.h"
+#include "vtkFloatArray.h"
 
 //----------------------------------------------------------------------------
 vtkWindowedSincPolyDataFilter* vtkWindowedSincPolyDataFilter::New()
@@ -706,13 +707,14 @@ void vtkWindowedSincPolyDataFilter::Execute()
 
   if ( this->GenerateErrorScalars )
     {
-    vtkScalars *newScalars = vtkScalars::New();
-    newScalars->SetNumberOfScalars(numPts);
+    vtkFloatArray *newScalars = vtkFloatArray::New();
+    newScalars->SetNumberOfTuples(numPts);
     for (i=0; i<numPts; i++)
       {
       inPts->GetPoint(i,x1);
       newPts[zero]->GetPoint(i,x2);
-      newScalars->SetScalar(i,sqrt(vtkMath::Distance2BetweenPoints(x1,x2)));
+      newScalars->SetComponent(i,0,
+			       sqrt(vtkMath::Distance2BetweenPoints(x1,x2)));
       }
     output->GetPointData()->SetScalars(newScalars);
     newScalars->Delete();
