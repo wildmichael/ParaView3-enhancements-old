@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkColorTransferFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-17 13:50:08 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2000-07-17 15:32:53 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -838,6 +838,10 @@ void vtkColorTransferFunction::PrintSelf(ostream& os, vtkIndent indent)
 
 void vtkColorTransferFunction::DeepCopy( vtkColorTransferFunction *f )
 {
+  delete [] this->Function;
+  delete [] this->Table;
+  this->TableSize = 0;
+
   this->Clamping       = f->Clamping;
   this->ColorSpace     = f->ColorSpace;
   this->FunctionSize   = f->FunctionSize;
