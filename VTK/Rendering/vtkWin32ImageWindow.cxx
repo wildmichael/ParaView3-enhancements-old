@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32ImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-24 17:49:45 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-04-23 12:56:10 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -250,7 +250,7 @@ vtkWin32ImageWindow::vtkWin32ImageWindow()
   this->DeviceContext = (HDC)0;
   this->OwnWindow = 0;
 
-  this->SetWindowName("Visualization Toolkit - InageWin32");
+  this->SetWindowName("Visualization Toolkit - ImageWin32");
   this->DIBPtr = (unsigned char*) NULL;
 
   this->SwapFlag = 0;
