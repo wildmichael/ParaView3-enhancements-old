@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: quadraticEvaluation.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 18:55:41 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-02-11 03:34:11 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -36,7 +36,15 @@ void  ComputeDataValues(vtkPoints *pts, float *edgeValues)
   for (int i=0; i<numPts; i++)
     {
     pts->GetPoint(i,x);
-    edgeValues[i] = 1.0 / (1.0 + x[0]); //simple linear function for now
+    float dem = (1.0 + x[0]);
+    if(fabs(dem) < 1.e-08)
+      {
+      edgeValues[i] = 0;
+      }
+    else
+      {
+      edgeValues[i] = 1.0 / dem; //simple linear function for now
+      }
     }
 }
 
