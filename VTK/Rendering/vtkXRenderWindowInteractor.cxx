@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-08 13:53:37 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 1998-08-18 16:00:51 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -637,7 +637,7 @@ void vtkXRenderWindowInteractorTimer(XtPointer client_data,
       XQueryPointer(me->DisplayId,me->WindowId,
 		    &root,&child,&root_x,&root_y,&x,&y,&keys);
       yf = ((me->Size[1] - y) - me->Center[1])/(float)me->Center[1];
-      zoomFactor = pow(1.1,yf);
+      zoomFactor = pow((float)1.1,yf);
       if (me->CurrentCamera->GetParallelProjection())
 	{
 	me->CurrentCamera->
