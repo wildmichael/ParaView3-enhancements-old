@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreadedController.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:35:00 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-02-15 19:29:36 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -130,7 +130,7 @@ protected:
   static vtkSimpleCriticalSection BarrierInProgress;
 #endif
   
-  ThreadIdType* ThreadIds;
+  ThreadIdType ThreadId;
 
   int LastNumberOfProcesses;
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSharedMemoryCommunicator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-07 19:34:15 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-02-15 19:29:36 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,7 +33,7 @@ public:
   vtkSharedMemoryCommunicatorMessage* Previous;
 };
 
-vtkCxxRevisionMacro(vtkSharedMemoryCommunicator, "$Revision: 1.13 $");
+vtkCxxRevisionMacro(vtkSharedMemoryCommunicator, "$Revision: 1.14 $");
 vtkStandardNewMacro(vtkSharedMemoryCommunicator);
 
 void vtkSharedMemoryCommunicator::PrintSelf(ostream& os, vtkIndent indent)
@@ -80,11 +80,8 @@ vtkSharedMemoryCommunicator::vtkSharedMemoryCommunicator()
 
 vtkSharedMemoryCommunicator::~vtkSharedMemoryCommunicator()
 {
-  if (this->LocalThreadId == 0)
-    {
-    delete[] this->Communicators;
-    this->Communicators = 0;
-    }
+  delete[] this->Communicators;
+  this->Communicators = 0;
 
   // Note the communicators are not deleted because ThreadedControllers
   // delete them when they are destroyed

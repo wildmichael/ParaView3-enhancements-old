@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreadedController.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:34:59 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-02-15 19:29:36 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -68,9 +68,9 @@ private:
   void operator=(const vtkThreadedControllerOutputWindow&);
 };
 
-vtkCxxRevisionMacro(vtkThreadedControllerOutputWindow, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkThreadedControllerOutputWindow, "$Revision: 1.12 $");
 
-vtkCxxRevisionMacro(vtkThreadedController, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkThreadedController, "$Revision: 1.12 $");
 vtkStandardNewMacro(vtkThreadedController);
 
 void vtkThreadedController::CreateOutputWindow()
@@ -95,7 +95,6 @@ vtkThreadedController::vtkThreadedController()
     
   this->LastNumberOfProcesses = 0;
   this->Controllers = 0;
-  this->ThreadIds = 0;
 
   this->OutputWindow = 0;
 }
@@ -161,12 +160,10 @@ void vtkThreadedController::ResetControllers()
     }
   
   delete[] this->Controllers;
-  delete[] this->ThreadIds;
 
   if (this->NumberOfProcesses > 0 )
     {
     this->Controllers = new vtkThreadedController*[this->NumberOfProcesses];
-    this->ThreadIds = new ThreadIdType[this->NumberOfProcesses];
     }
 }
 
@@ -292,11 +289,11 @@ void vtkThreadedController::Start(int threadId)
 
     // Store threadId in a table.
 #ifdef VTK_USE_PTHREADS  
-  this->ThreadIds[threadId] = pthread_self();
+  localController->ThreadId = pthread_self();
 #elif defined VTK_USE_SPROC
-  this->ThreadIds[threadId] = PRDA->sys_prda.prda_sys.t_pid;
+  localController->ThreadId = PRDA->sys_prda.prda_sys.t_pid;
 #elif defined VTK_USE_WIN32_THREADS
-  this->ThreadIds[threadId] = GetCurrentThreadId();
+  localController->ThreadId = GetCurrentThreadId();
 #endif
   
   if (this->MultipleMethodFlag)
@@ -374,7 +371,7 @@ vtkMultiProcessController *vtkThreadedController::GetLocalController()
   pthread_t pid = pthread_self();
   for (idx = 0; idx < this->NumberOfProcesses; ++idx)
     {
-    if (pthread_equal(pid, this->ThreadIds[idx]))
+    if (pthread_equal(pid, this->Controllers[idx]->ThreadId))
       {
       return this->Controllers[idx];
       }
@@ -389,7 +386,7 @@ vtkMultiProcessController *vtkThreadedController::GetLocalController()
   pid_t pid = PRDA->sys_prda.prda_sys.t_pid;
   for (idx = 0; idx < this->NumberOfProcesses; ++idx)
     {
-    if (pid == this->ThreadIds[idx])
+    if (pid == this->Controllers[idx]->ThreadId)
       {
       return this->Controllers[idx];
       }
@@ -405,7 +402,7 @@ vtkMultiProcessController *vtkThreadedController::GetLocalController()
   DWORD pid = GetCurrentThreadId();
   for (idx = 0; idx < this->NumberOfProcesses; ++idx)
     {
-    if (pid == this->ThreadIds[idx])
+    if (pid == this->Controllers[idx]->ThreadId)
       {
       return this->Controllers[idx];
       }
