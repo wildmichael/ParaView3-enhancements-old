@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLandmarkTransform.h,v $
   Language:  C++
-  Date:      $Date: 2001-04-06 13:33:31 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-05-10 20:04:52 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to Tim Hutton and David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -61,6 +61,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #define VTK_LANDMARK_RIGIDBODY 6
 #define VTK_LANDMARK_SIMILARITY 7
+#define VTK_LANDMARK_AFFINE 12
 
 class VTK_EXPORT vtkLandmarkTransform : public vtkLinearTransform
 {
@@ -87,6 +88,7 @@ public:
   vtkSetMacro(Mode,int);
   void SetModeToRigidBody() { this->SetMode(VTK_LANDMARK_RIGIDBODY); };
   void SetModeToSimilarity() { this->SetMode(VTK_LANDMARK_SIMILARITY); };
+  void SetModeToAffine() { this->SetMode(VTK_LANDMARK_AFFINE); };
   vtkGetMacro(Mode,int);
   const char *GetModeAsString();
 
@@ -131,6 +133,8 @@ inline const char *vtkLandmarkTransform::GetModeAsString()
       return "RigidBody";
     case VTK_LANDMARK_SIMILARITY:
       return "Similarity";
+    case VTK_LANDMARK_AFFINE:
+      return "Affine";
     default:
       return "Unrecognized";
     }
