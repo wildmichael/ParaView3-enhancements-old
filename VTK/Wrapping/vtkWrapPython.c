@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapPython.c,v $
   Language:  C++
-  Date:      $Date: 2001-12-04 21:19:06 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2001-12-07 03:18:38 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -976,7 +976,7 @@ static void create_class_doc(FILE *fp, FileInfo *data)
         fprintf(fp,"  \"%s\",\n",quote_string(temp,500));
         }
       else
-        { // just for the last time
+        { /* just for the last time */
         fprintf(fp,"  \"%s\\n\",\n",quote_string(temp,500));
         }
       }
