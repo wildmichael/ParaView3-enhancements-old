@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapPython.c,v $
   Language:  C++
-  Date:      $Date: 2002-12-10 19:10:39 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 2002-12-11 14:27:36 $
+  Version:   $Revision: 1.57 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -1018,7 +1018,7 @@ void vtkParseOutput(FILE *fp, FileInfo *data)
   fprintf(fp,"// python wrapper for %s object\n//\n",data->ClassName);
   if (strcmp("vtkObjectBase",data->ClassName) != 0)
     {
-    // Block inclusion of full streams.
+    /* Block inclusion of full streams.  */
     fprintf(fp,"#define VTK_STREAMS_FWD_ONLY\n");
     }
   fprintf(fp,"#include \"vtkSystemIncludes.h\"\n");
