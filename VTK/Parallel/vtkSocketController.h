@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSocketController.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-04 00:18:26 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-06-04 02:23:42 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -42,7 +42,8 @@ public:
   // Description:
   // This method is for initialiazing sockets.
   // One of these is REQUIRED for Windows.
-  virtual void Initialize(int* argc, char*** argv, int intitalizedExternally)
+  virtual void Initialize(int* argc, char*** argv, 
+                          int /*intitalizedExternally*/)
     { this->Initialize(argc,argv); }
   virtual void Initialize(int* argc, char*** argv); 
   virtual void Initialize()
