@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitModeller.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-25 19:26:07 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 1999-06-26 14:34:13 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -566,6 +566,18 @@ void vtkImplicitModeller::Cap(vtkScalars *s)
     }
 }
 
+char *vtkImplicitModeller::GetProcessModeAsString()
+{
+  if (this->ProcessMode == VTK_CELL_MODE)
+    {
+    return "PerCell";
+    }
+  else
+    {
+    return "PerVoxel";
+    }
+}
+
 void vtkImplicitModeller::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkDataSetToStructuredPointsFilter::PrintSelf(os,indent);
@@ -586,4 +598,5 @@ void vtkImplicitModeller::PrintSelf(ostream& os, vtkIndent indent)
 
   os << indent << "Capping: " << (this->Capping ? "On\n" : "Off\n");
   os << indent << "Cap Value: " << this->CapValue << "\n";
+  os << indent << "Process Mode: " << this->GetProcessModeAsString() << endl;
 }
