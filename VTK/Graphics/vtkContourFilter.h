@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:43:34 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1998-03-10 16:07:16 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -166,45 +166,45 @@ inline void vtkContourFilter::SetValue(int i, float value)
 // Description:
 // Get the ith contour value.
 inline float vtkContourFilter::GetValue(int i)
-{return this->ContourValues->GetValue(i);};
+{return this->ContourValues->GetValue(i);}
 
 // Description:
 // Get a pointer to an array of contour values. There will be
 // GetNumberOfContours() values in the list.
 inline float *vtkContourFilter::GetValues()
-{return this->ContourValues->GetValues();};
+{return this->ContourValues->GetValues();}
 
 // Description:
 // Fill a supplied list with contour values. There will be
 // GetNumberOfContours() values in the list. Make sure you allocate
 // enough memory to hold the list.
 inline void vtkContourFilter::GetValues(float *contourValues)
-{this->ContourValues->GetValues(contourValues);};
+{this->ContourValues->GetValues(contourValues);}
 
 // Description:
 // Set the number of contours to place into the list. You only really
 // need to use this method to reduce list size. The method SetValue()
 // will automatically increase list size as needed.
 inline void vtkContourFilter::SetNumberOfContours(int number)
-{this->ContourValues->SetNumberOfContours(number);};
+{this->ContourValues->SetNumberOfContours(number);}
 
 // Description:
 // Get the number of contours in the list of contour values.
 inline int vtkContourFilter::GetNumberOfContours()
-{return this->ContourValues->GetNumberOfContours();};
+{return this->ContourValues->GetNumberOfContours();}
 
 // Description:
 // Generate numContours equally spaced contour values between specified
 // range. Contour values will include min/max range values.
 inline void vtkContourFilter::GenerateValues(int numContours, float range[2])
-{this->ContourValues->GenerateValues(numContours, range);};
+{this->ContourValues->GenerateValues(numContours, range);}
 
 // Description:
 // Generate numContours equally spaced contour values between specified
 // range. Contour values will include min/max range values.
 inline void vtkContourFilter::GenerateValues(int numContours, float
                                              rangeStart, float rangeEnd)
-{this->ContourValues->GenerateValues(numContours, rangeStart, rangeEnd);};
+{this->ContourValues->GenerateValues(numContours, rangeStart, rangeEnd);}
 
 
 #endif

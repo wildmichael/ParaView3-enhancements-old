@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.h,v $
   Language:  C++
-  Date:      $Date: 1997-12-08 14:31:37 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 1998-03-10 16:07:20 $
+  Version:   $Revision: 1.58 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -201,15 +201,15 @@ protected:
 
 // Description:
 // Get the list of lights for this renderer.
-inline vtkLightCollection *vtkRenderer::GetLights() {return &(this->Lights);};
+inline vtkLightCollection *vtkRenderer::GetLights() {return &(this->Lights);}
 
 // Description:
 // Get the list of actors for this renderer.
-inline vtkActorCollection *vtkRenderer::GetActors() {return &(this->Actors);};
+inline vtkActorCollection *vtkRenderer::GetActors() {return &(this->Actors);}
 
 // Description:
 // Get the list of volumes for this renderer.
-inline vtkVolumeCollection *vtkRenderer::GetVolumes() {return &(this->Volumes);};
+inline vtkVolumeCollection *vtkRenderer::GetVolumes(){return &(this->Volumes);}
 
 
 #endif

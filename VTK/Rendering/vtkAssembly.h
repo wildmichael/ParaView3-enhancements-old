@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssembly.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:43:03 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1998-03-10 16:07:15 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -132,7 +132,7 @@ protected:
 
 // Description:
 // Get the list of parts for this assembly.
-inline vtkActorCollection *vtkAssembly::GetParts() {return &(this->Parts);};
+inline vtkActorCollection *vtkAssembly::GetParts() {return &(this->Parts);}
 
 #endif
 
