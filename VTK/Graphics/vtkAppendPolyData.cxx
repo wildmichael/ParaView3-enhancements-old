@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-30 15:05:24 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 1999-10-01 14:15:34 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -93,7 +93,7 @@ void vtkAppendPolyData::Execute()
   vtkCellArray *inPolys, *newPolys;
   int sizePolys, numPolys, *pPolys;
   vtkCellArray *inStrips, *newStrips;
-  int i, ptId, ptOffset, cellId, cellOffset;
+  int i, ptOffset, cellId, cellOffset;
   int numPts, numCells;
   vtkPointData *pd = NULL;
   vtkCellData *cd = NULL;
