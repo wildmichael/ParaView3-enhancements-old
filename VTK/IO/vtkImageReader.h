@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-03-12 19:26:05 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2001-06-19 17:34:24 $
+  Version:   $Revision: 1.55 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -133,13 +133,13 @@ public:
 
   // Description:
   // Get the size of the header computed by this object.
-  int GetHeaderSize();
-  int GetHeaderSize(int slice);
+  unsigned long GetHeaderSize();
+  unsigned long GetHeaderSize(int slice);
 
   // Description:
   // If there is a tail on the file, you want to explicitly set the
   // header size.
-  void SetHeaderSize(int size);
+  void SetHeaderSize(unsigned long size);
   
   // Description:
   // Set/Get the Data mask.
@@ -227,7 +227,7 @@ protected:
   int SwapBytes;
 
   int FileDimensionality;
-  int HeaderSize;
+  unsigned long HeaderSize;
   int DataScalarType;
   int ManualHeaderSize;
   int Initialized;
