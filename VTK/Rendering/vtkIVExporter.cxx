@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIVExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-08 13:11:37 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2002-05-09 16:05:13 $
+  Version:   $Revision: 1.42 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkUnsignedCharArray.h"
 
-vtkCxxRevisionMacro(vtkIVExporter, "$Revision: 1.41 $");
+vtkCxxRevisionMacro(vtkIVExporter, "$Revision: 1.42 $");
 vtkStandardNewMacro(vtkIVExporter);
 
 vtkIVExporter::vtkIVExporter()
@@ -642,7 +642,9 @@ void vtkIVExporter::WritePointData(vtkPoints *points, vtkDataArray *normals,
         VTK_INDENT_LESS;
         fprintf(fp,"%s}\n",indent);
         fprintf(fp,"%sTextureCoordinate2 {\n", indent);
+    VTK_INDENT_MORE;
     fprintf(fp,"%spoint [\n", indent);
+    VTK_INDENT_MORE;
     for (i = 0; i < tcoords->GetNumberOfTuples(); i++)
       {
       p = tcoords->GetTuple(i);
