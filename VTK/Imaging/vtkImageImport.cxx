@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageImport.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:57 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1999-11-16 01:49:39 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,7 +46,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 
-//------------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 vtkImageImport* vtkImageImport::New()
 {
   // First try to create the object from the vtkObjectFactory
@@ -175,6 +175,7 @@ void vtkImageImport::Execute(vtkImageData *data)
     (this->DataExtent[5] - this->DataExtent[4]+1) *
     this->NumberOfScalarComponents;    
   data->GetPointData()->GetScalars()->GetData()->SetVoidArray(ptr,size,1);
+  data->SetExtent(this->DataExtent);
 }
 
 
