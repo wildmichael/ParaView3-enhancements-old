@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericCell.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-06 15:39:59 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-05-30 18:37:17 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,10 +31,15 @@
 #include "vtkVoxel.h"
 #include "vtkWedge.h"
 #include "vtkPyramid.h"
+#include "vtkConvexPointSet.h"
 #include "vtkQuadraticEdge.h"
+#include "vtkQuadraticTriangle.h"
+#include "vtkQuadraticQuad.h"
+#include "vtkQuadraticTetra.h"
+#include "vtkQuadraticHexahedron.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkGenericCell, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkGenericCell, "$Revision: 1.13 $");
 vtkStandardNewMacro(vtkGenericCell);
 
 // Construct cell.
@@ -221,8 +226,23 @@ void vtkGenericCell::SetCellType(int cellType)
       case VTK_PYRAMID:
         this->Cell = vtkPyramid::New();
         break;
+      case VTK_CONVEX_POINT_SET:
+        this->Cell = vtkConvexPointSet::New();
+        break;
       case VTK_QUADRATIC_EDGE:
         this->Cell = vtkQuadraticEdge::New();
+        break;
+      case VTK_QUADRATIC_TRIANGLE:
+        this->Cell = vtkQuadraticTriangle::New();
+        break;
+      case VTK_QUADRATIC_QUAD:
+        this->Cell = vtkQuadraticQuad::New();
+        break;
+      case VTK_QUADRATIC_TETRA:
+        this->Cell = vtkQuadraticTetra::New();
+        break;
+      case VTK_QUADRATIC_HEXAHEDRON:
+        this->Cell = vtkQuadraticHexahedron::New();
         break;
       default:
         vtkErrorMacro(<<"Unsupported cell type! Setting to vtkEmptyCell");
