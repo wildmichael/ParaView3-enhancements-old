@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVCompositeUtilities.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-03-18 21:07:19 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-03-28 15:56:35 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,7 +30,7 @@
 #include "vtkUnsignedCharArray.h"
 #include "vtkTimerLog.h"
 
-vtkCxxRevisionMacro(vtkPVCompositeUtilities, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkPVCompositeUtilities, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkPVCompositeUtilities);
 
 
@@ -73,10 +73,10 @@ vtkPVCompositeUtilities::~vtkPVCompositeUtilities()
     this->FloatArrayCollection->Delete();
     this->FloatArrayCollection = NULL;
     }
-  if (this->FloatArrayCollection)
+  if (this->UnsignedCharArrayCollection)
     {
-    this->FloatArrayCollection->Delete();
-    this->FloatArrayCollection = NULL;
+    this->UnsignedCharArrayCollection->Delete();
+    this->UnsignedCharArrayCollection = NULL;
     }
 }
 
