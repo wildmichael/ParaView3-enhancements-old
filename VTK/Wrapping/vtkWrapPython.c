@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapPython.c,v $
   Language:  C++
-  Date:      $Date: 2000-03-12 21:40:08 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-03-13 20:38:32 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -41,6 +41,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 
 #include <stdio.h>
+#include <string.h>
 #include "vtkParse.h"
 
 int numberOfWrappedFunctions = 0;
@@ -435,6 +436,9 @@ void outputFunction2(FILE *fp, FileInfo *data)
 	      {
 	      fprintf(fp,"      temp%i = vtkPythonUnmanglePointer((char *)temp%i,&size%i,\"%s\");\n",i,i,i,"void_p");
 	      fprintf(fp,"      if (size%i == -1) {\n        PyErr_SetString(PyExc_ValueError,\"mangled pointer to %s in %s was of incorrect type.\");\n",
+                      i,currentFunction->Name,data->ClassName);
+              fprintf(fp,"       return NULL;\n      }\n");
+              fprintf(fp,"      else if (size%i == -2) {\n        PyErr_SetString(PyExc_ValueError,\"mangled pointer to %s in %s was poorly formed.\");\n",
 		      i,currentFunction->Name,data->ClassName);
 	      fprintf(fp,"       return NULL;\n      }\n"); 
 	      }
