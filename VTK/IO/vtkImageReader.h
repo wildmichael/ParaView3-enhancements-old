@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.h,v $
   Language:  C++
-  Date:      $Date: 1997-09-03 12:55:15 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1997-09-24 21:50:32 $
+  Version:   $Revision: 1.23 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,7 +79,7 @@ public:
 
   // Description:
   // The sprintf format used to build filename from FilePrefix and number.
-  vtkSetStringMacro(FilePattern);
+  void SetFilePattern(char *);
   vtkGetStringMacro(FilePattern);
 
   void SetDataScalarTypeToFloat(){this->SetDataScalarType(VTK_FLOAT);}
@@ -117,7 +117,8 @@ public:
 
   // Description:
   // The number of dimensions stored in a file. This defaults to two.
-  virtual int GetFileDimensions();
+  vtkSetMacro(FileDimensionality, int);
+  vtkGetMacro(FileDimensionality, int);
   
   // Description:
   // Set/Get the spacing of the data in the file.
@@ -205,6 +206,7 @@ public:
   int FileLowerLeft;
   
 protected:
+  int FileDimensionality;
   int HeaderSize;
   int DataScalarType;
   int ManualHeaderSize;
