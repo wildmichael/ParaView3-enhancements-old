@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridReader.h,v $
   Language:  C++
-  Date:      $Date: 2000-11-30 12:45:45 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2000-12-07 13:11:13 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,6 +68,8 @@ public:
   // Description:
   // Get the output of this reader.
   vtkStructuredGrid *GetOutput();
+  vtkStructuredGrid *GetOutput(int idx)
+    {return (vtkStructuredGrid *) this->vtkSource::GetOutput(idx); };
   void SetOutput(vtkStructuredGrid *output);  
 
 protected:
