@@ -8,7 +8,7 @@
  * of authorship are reproduced on all copies.
  */
 
-/* $Id: split.c,v 1.7 2004-05-12 13:56:38 martink Exp $ */
+/* $Id: split.c,v 1.8 2004-08-30 23:04:26 kmorel Exp $ */
 
 #include <GL/ice-t.h>
 #include <image.h>
@@ -233,16 +233,16 @@ static IceTImage splitStrategy(void)
 
   /* Wait for images to come in and Z compare them. */
     for (image = 0; image < tile_contribs[my_tile]; image++) {
-        int index;
-        index = ICET_COMM_WAITANY(tile_contribs[my_tile], requests);
+        int idx;
+        idx = ICET_COMM_WAITANY(tile_contribs[my_tile], requests);
         if (first_incoming) {
-            icetRaiseDebug1("Got first image (%d).", index);
-            icetDecompressImage(incoming[index], imageFragment);
+            icetRaiseDebug1("Got first image (%d).", idx);
+            icetDecompressImage(incoming[idx], imageFragment);
             first_incoming = 0;
         } else {
-            icetRaiseDebug1("Got subsequent image (%d).", index);
+            icetRaiseDebug1("Got subsequent image (%d).", idx);
             icetCompressedComposite(imageFragment,
-                                    incoming[index], 1);
+                                    incoming[idx], 1);
         }
     }
 

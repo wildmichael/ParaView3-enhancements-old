@@ -8,7 +8,7 @@
  * of authorship are reproduced on all copies.
  */
 
-/* $Id: draw.c,v 1.13 2004-05-12 13:56:38 martink Exp $ */
+/* $Id: draw.c,v 1.14 2004-08-30 23:04:26 kmorel Exp $ */
 
 #include <GL/ice-t.h>
 #include <state.h>
@@ -647,11 +647,11 @@ void icetDrawFrame(void)
         GLubyte *color = icetGetImageColorBuffer(image);
         GLubyte *bc = (GLubyte *)(&background_color_word);
         GLuint pixels = icetGetImagePixelCount(image);
-        GLuint i;
+        GLuint ui;
         GLdouble blend_time;
         icetGetDoublev(ICET_BLEND_TIME, &blend_time);
         blend_time = icetWallTime() - blend_time;
-        for (i = 0; i < pixels; i++, color += 4) {
+        for (ui = 0; ui < pixels; ui++, color += 4) {
             ICET_UNDER(bc, color);
         }
         blend_time = icetWallTime() - blend_time;

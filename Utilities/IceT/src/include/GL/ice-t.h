@@ -8,7 +8,7 @@
  * of authorship are reproduced on all copies.
  */
 
-/* $Id: ice-t.h,v 1.7 2003-08-22 22:37:03 kmorel Exp $ */
+/* $Id: ice-t.h,v 1.8 2004-08-30 23:04:26 kmorel Exp $ */
 
 #ifndef _ICET_H_
 #define _ICET_H_
@@ -118,7 +118,7 @@ ICET_EXPORT GLuint  *icetGetDepthBuffer(void);
 
 typedef GLuint *IceTImage;
 typedef struct _IceTStrategy {
-    char *name;
+    const char *name;
     GLboolean supports_ordering;
     IceTImage (*compose)(void);
 } IceTStrategy;
