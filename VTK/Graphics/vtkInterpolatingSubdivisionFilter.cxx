@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInterpolatingSubdivisionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-28 13:33:50 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-09-27 18:54:59 $
+  Version:   $Revision: 1.15 $
   Thanks:    This work was supported bt PHS Research Grant No. 1 P41 RR13218-01
              from the National Center for Research Resources
 
@@ -76,7 +76,7 @@ void vtkInterpolatingSubdivisionFilter::Execute()
 
   if (numPts < 1 || numCells < 1)
     {
-    vtkErrorMacro(<<"No data to interpolate!");
+    vtkDebugMacro(<<"No data to interpolate!");
     return;
     }
 
