@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMath.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-28 18:28:00 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1998-08-21 13:46:08 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,8 +42,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <stdlib.h>
 #include <iostream.h>
 #include "vtkMath.h"
-#include "vtkObject.h"
-#include "vtkSetGet.h"
 
 long vtkMath::Seed = 1177; // One authors home address
 
@@ -59,34 +57,6 @@ long vtkMath::Seed = 1177; // One authors home address
 //
 #define Sign(x)              (( (x) < 0 )?( -1 ):( 1 ))
 // avoid dll boundary problems
-
-#ifdef _WIN32
-void* vtkMath::operator new(size_t nSize, const char *, int)
-{
-void* p=malloc(nSize);
-return p;
-}
-
-void* vtkMath::operator new(size_t nSize)
-{
-void* p=malloc(nSize);
-return p;
-}
-
-void vtkMath::operator delete( void *p )
-{
-free(p);
-}
-#endif 
-
-// Description:
-// Delete a vtk object. This method should always be used to delete an object 
-// when the new operator was used to create it. Using the C++ delete method
-// will not work with reference counting.
-void vtkMath::Delete() 
-{
-  delete this;
-}
 
 // Description:
 // Generate random numbers between 0.0 and 1.0.

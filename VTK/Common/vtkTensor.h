@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensor.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:50:37 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1998-08-21 13:46:10 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,14 +51,15 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkTensor_h
 #define __vtkTensor_h
 
-#include "vtkWin32Header.h"
+#include "vtkObject.h"
 
-class VTK_EXPORT vtkTensor
+class VTK_EXPORT vtkTensor : public vtkObject
 {
 public:
   vtkTensor();
-  void Delete() {delete this;};
   static vtkTensor *New() {return new vtkTensor;};
+  const char *GetClassName() {return "vtkTensor";};
+
   void Initialize();
   float GetComponent(int i, int j);
   void SetComponent(int i, int j, float v);
