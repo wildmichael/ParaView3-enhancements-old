@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInterpolatedVelocityField.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-14 22:32:14 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-06-18 22:25:39 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkInterpolatedVelocityField.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkInterpolatedVelocityField, "$Revision: 1.13 $");
+vtkCxxRevisionMacro(vtkInterpolatedVelocityField, "$Revision: 1.14 $");
 vtkStandardNewMacro(vtkInterpolatedVelocityField);
 
 vtkInterpolatedVelocityField::vtkInterpolatedVelocityField()
@@ -117,37 +117,37 @@ int vtkInterpolatedVelocityField::FunctionValues(float* x, float* f)
 
       // if not, find and get it
       if (this->LastCellId != - 1 )
-	{
-	this->CacheMiss++;
+        {
+        this->CacheMiss++;
 
-	this->DataSet->GetCell(this->LastCellId, this->Cell);
-	
-	this->LastCellId = 
-	  this->DataSet->FindCell(x, this->Cell, this->GenCell, -1, 0, 
-				  subId, this->LastPCoords, this->Weights);
-	if (this->LastCellId != - 1)
-	  {
-	  this->DataSet->GetCell(this->LastCellId, this->GenCell);
-	  }
-	else
-	  {
-	  return 0;
-	  }
-	}
+        this->DataSet->GetCell(this->LastCellId, this->Cell);
+        
+        this->LastCellId = 
+          this->DataSet->FindCell(x, this->Cell, this->GenCell, -1, 0, 
+                                  subId, this->LastPCoords, this->Weights);
+        if (this->LastCellId != - 1)
+          {
+          this->DataSet->GetCell(this->LastCellId, this->GenCell);
+          }
+        else
+          {
+          return 0;
+          }
+        }
       else
-	{
-	this->LastCellId = 
-	  this->DataSet->FindCell(x, 0, this->GenCell, -1, 0, 
-				  subId, this->LastPCoords, this->Weights);
-	if (this->LastCellId != - 1)
-	  {
-	  this->DataSet->GetCell(this->LastCellId, this->GenCell);
-	  }
-	else
-	  {
-	  return 0;
-	  }
-	}
+        {
+        this->LastCellId = 
+          this->DataSet->FindCell(x, 0, this->GenCell, -1, 0, 
+                                  subId, this->LastPCoords, this->Weights);
+        if (this->LastCellId != - 1)
+          {
+          this->DataSet->GetCell(this->LastCellId, this->GenCell);
+          }
+        else
+          {
+          return 0;
+          }
+        }
       }
     else
       {
