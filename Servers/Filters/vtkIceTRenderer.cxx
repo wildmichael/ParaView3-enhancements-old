@@ -14,7 +14,7 @@
 =========================================================================*/
 /* -*- c++ -*- *******************************************************/
 
-/* $Id: vtkIceTRenderer.cxx,v 1.14 2004-05-18 17:53:57 kmorel Exp $ */
+/* $Id: vtkIceTRenderer.cxx,v 1.15 2004-08-04 17:48:13 kmorel Exp $ */
 
 #include "vtkIceTRenderer.h"
 
@@ -38,7 +38,7 @@ static vtkIceTRenderer *currentRenderer;
 // vtkIceTRenderer implementation.
 //******************************************************************
 
-vtkCxxRevisionMacro(vtkIceTRenderer, "$Revision: 1.14 $");
+vtkCxxRevisionMacro(vtkIceTRenderer, "$Revision: 1.15 $");
 vtkStandardNewMacro(vtkIceTRenderer);
 
 vtkIceTRenderer::vtkIceTRenderer()
@@ -83,8 +83,8 @@ void vtkIceTRenderer::DeviceRender()
   vtkDebugMacro("In vtkIceTRenderer::DeviceRender");
 
   //Update the Camera once.  ICE-T will shift the viewpoint around.
-  this->vtkOpenGLRenderer::ClearLights();
-  this->vtkOpenGLRenderer::UpdateCamera();
+  this->Superclass::ClearLights();
+  this->Superclass::UpdateCamera();
 
   //In this case, behave as if just a normal renderer.
   if (!this->ComposeNextFrame)
@@ -201,7 +201,7 @@ int vtkIceTRenderer::UpdateCamera()
   glMatrixMode(GL_MODELVIEW);
   glPushMatrix();
 
-  //It is also important to clear the screen in between each frame.
+  //It is also important to clear the screen in between each viewport render.
   this->Clear();
 
   return 1;
