@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMath.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-10 22:38:50 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 1999-04-08 15:38:27 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -100,6 +100,16 @@ void vtkMath::Cross(float x[3], float y[3], float z[3])
   float Zz = x[0]*y[1] - x[1]*y[0];
   z[0] = Zx; z[1] = Zy; z[2] = Zz; 
 }
+
+// Cross product of two 3-vectors. Result vector in z[3].
+void vtkMath::Cross(double x[3], double y[3], double z[3])
+{
+  double Zx = x[1]*y[2] - x[2]*y[1]; 
+  double Zy = x[2]*y[0] - x[0]*y[2];
+  double Zz = x[0]*y[1] - x[1]*y[0];
+  z[0] = Zx; z[1] = Zy; z[2] = Zz; 
+}
+
 
 #define VTK_SMALL_NUMBER 1.0e-12
 
