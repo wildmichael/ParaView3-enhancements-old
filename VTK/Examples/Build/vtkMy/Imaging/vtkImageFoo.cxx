@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFoo.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-20 02:31:24 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-01-07 22:28:02 $
+  Version:   $Revision: 1.3 $
 
 =========================================================================*/
 
@@ -14,17 +14,8 @@
 
 //----------------------------------------------------------------------------
 
-vtkImageFoo* vtkImageFoo::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageFoo");
-  if(ret)
-    {
-    return (vtkImageFoo*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageFoo;
-}
+vtkCxxRevisionMacro(vtkImageFoo, "$Revision: 1.3 $");
+vtkStandardNewMacro(vtkImageFoo);
 
 //----------------------------------------------------------------------------
 
