@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkSource.h,v $
   Language:  C++
-  Date:      $Date: 1994-11-29 11:26:18 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1995-02-20 15:42:57 $
+  Version:   $Revision: 1.15 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -40,12 +40,16 @@ public:
 
   void SetStartMethod(void (*f)(void *), void *arg);
   void SetEndMethod(void (*f)(void *), void *arg);
+  void SetStartMethodArgDelete(void (*f)(void *));
+  void SetEndMethodArgDelete(void (*f)(void *));
 
 protected:
   virtual void Execute();
   void (*StartMethod)(void *);
+  void (*StartMethodArgDelete)(void *);
   void *StartMethodArg;
   void (*EndMethod)(void *);
+  void (*EndMethodArgDelete)(void *);
   void *EndMethodArg;
   vlTimeStamp ExecuteTime;
 
