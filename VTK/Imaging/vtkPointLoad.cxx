@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointLoad.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-17 17:05:07 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1995-07-17 17:14:55 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -144,6 +144,22 @@ void vtkPointLoad::Execute()
         x = this->Origin[0] + k*this->AspectRatio[0];
         rho = sqrt((x-xP[0])*(x-xP[0]) + (y-xP[1])*(y-xP[1]) + 
                    (z-xP[2])*(z-xP[2]));
+        if ( rho < 1.0e-10 )
+          {
+          vtkWarningMacro(<<"Attempting to set singularity, resetting");
+          tensor.SetComponent(0,0,LARGE_FLOAT);
+          tensor.SetComponent(1,1,LARGE_FLOAT);
+          tensor.SetComponent(2,2,LARGE_FLOAT);
+          tensor.SetComponent(0,1,0.0);
+          tensor.SetComponent(0,2,0.0);
+          tensor.SetComponent(1,0,0.0);
+          tensor.SetComponent(1,2,0.0);
+          tensor.SetComponent(2,0,0.0);
+          tensor.SetComponent(2,1,0.0);
+          newTensors->InsertNextTensor(tensor);
+          continue;
+          }
+
         rho2 = rho*rho;
         rho3 = rho2*rho;
         rho5 = rho2*rho3;
