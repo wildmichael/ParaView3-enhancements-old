@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVDataInformation.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-17 14:59:46 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-01-17 19:47:11 $
+  Version:   $Revision: 1.4 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -54,7 +54,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkPVDataInformation);
-vtkCxxRevisionMacro(vtkPVDataInformation, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkPVDataInformation, "$Revision: 1.4 $");
 
 
 //----------------------------------------------------------------------------
@@ -372,7 +372,11 @@ unsigned char* vtkPVDataInformation::NewMessage(int &length)
   length += this->CellDataInformation->GetMessageLength();
 
   // One char for length,
-  int nameLength = strlen(this->Name);
+  int nameLength = 0;
+  if (this->Name)
+    {
+    nameLength = strlen(this->Name);
+    }
   if (nameLength > 255)
     {
     nameLength = 255;
