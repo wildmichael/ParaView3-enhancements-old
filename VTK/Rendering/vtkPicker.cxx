@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-28 14:00:18 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1994-11-28 23:47:37 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -64,7 +64,7 @@ void vlPicker::MarkPicked(vlActor *actor, vlMapper *mapper, float tMin,
     this->MapperPosition[i] = mapperPos[i];
     mapperHPosition[i] = mapperPos[i];
     }
-  mapperHPosition[3] = 0.0;
+  mapperHPosition[3] = 1.0;
 //
 // The point has to be transformed back into world coordinates.
 // Note: it is assumed that the transform is in the correct state.
