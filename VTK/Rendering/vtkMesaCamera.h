@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaCamera.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:43 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-04-27 18:39:53 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -61,6 +61,8 @@ public:
   // Implement base class method.
   void Render(vtkRenderer *ren);
 
+  void UpdateViewport(vtkRenderer *ren);
+  
 protected:  
   vtkMesaCamera() {};
   ~vtkMesaCamera() {};

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-30 22:51:13 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2001-04-27 18:39:53 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -186,4 +186,29 @@ void vtkOpenGLCamera::Render(vtkRenderer *ren)
     }
 
   matrix->Delete();
+}
+
+void vtkOpenGLCamera::UpdateViewport(vtkRenderer *ren)
+{
+  float *vport;
+  int  lowerLeft[2];
+
+  vport = ren->GetViewport();
+
+  float vpu, vpv;
+  vpu = vport[0];
+  vpv = vport[1];  
+  ren->NormalizedDisplayToDisplay(vpu,vpv);
+  lowerLeft[0] = (int)(vpu+0.5);
+  lowerLeft[1] = (int)(vpv+0.5);
+  float vpu2, vpv2;
+  vpu2 = vport[2];
+  vpv2 = vport[3];  
+  ren->NormalizedDisplayToDisplay(vpu2,vpv2);
+  int usize = (int)(vpu2 + 0.5) - lowerLeft[0];
+  int vsize = (int)(vpv2 + 0.5) - lowerLeft[1];  
+
+  glViewport(lowerLeft[0],lowerLeft[1], usize, vsize);
+  glEnable( GL_SCISSOR_TEST );
+  glScissor(lowerLeft[0],lowerLeft[1], usize, vsize);
 }
