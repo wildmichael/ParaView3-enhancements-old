@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-11 18:53:20 $
-  Version:   $Revision: 1.137 $
+  Date:      $Date: 2001-09-12 13:21:01 $
+  Version:   $Revision: 1.138 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1530,24 +1530,6 @@ void vtkPolyData::GetCellEdgeNeighbors(vtkIdType cellId, vtkIdType p1,
       }
     }
 }
-
-
-static int idsortcompare (const void *arg1, const void *arg2)
-{
-  int *i1 = (int *) arg1;
-  int *i2 = (int *) arg2;
-
-  if (i1[0] < i2[0])
-    {
-      return -1;
-    }
-  if (i1[0] > i2[0])
-    {
-      return 1;
-    }
-  return 0;
-}
-
 
 //----------------------------------------------------------------------------
 void vtkPolyData::GetCellNeighbors(vtkIdType cellId, vtkIdList *ptIds,
