@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-17 15:38:22 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-08-23 18:47:02 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -744,7 +744,7 @@ int vtkSynchronizedTemplates3D::GetNumberOfStreamDivisions()
 
   // Hack to get around getting a single piece
   input->SetUpdateExtent(input->GetWholeExtent());
-  memSize = input->GetUpdateExtentMemorySize();
+  memSize = input->GetEstimatedUpdateMemorySize();
   // relative to what we are generating
   memSize = memSize / output->GetUpdateNumberOfPieces();
   memLimit = input->GetMemoryLimit();
