@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToStructuredPoints.h,v $
   Language:  C++
-  Date:      $Date: 1997-05-05 19:50:26 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1997-06-09 12:48:16 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -53,6 +53,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkImageSource.h"
 #include "vtkImageRegion.h"
 
+class vtkColorScalars;
 
 class VTK_EXPORT vtkImageToStructuredPoints : public vtkStructuredPointsSource
 {
@@ -140,7 +141,9 @@ protected:
   vtkScalars *ScalarExecute(vtkImageRegion *region);
   int ScalarSplitExecute(vtkImageRegion *outRegion, long volumeLimit);
   vtkVectors *VectorExecute(vtkImageRegion *region);
-  vtkScalars *CopyToColorScalars(vtkImageRegion *region);
+  vtkColorScalars *CreateColorScalars(vtkScalars *scalars, int dim);
+  
+  vtkScalars *ReformatRegionData(vtkImageRegion *region);
 };
 
 

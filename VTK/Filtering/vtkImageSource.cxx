@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-15 23:22:29 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1997-06-09 12:48:12 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -94,7 +94,7 @@ unsigned long vtkImageSource::GetPipelineMTime()
 //----------------------------------------------------------------------------
 // Description:
 // This method updates the whole region and returns it.
-vtkImageRegion *vtkImageSource::Update()
+vtkImageRegion *vtkImageSource::UpdateRegion()
 {
   vtkImageRegion *region;
   

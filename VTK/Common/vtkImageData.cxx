@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-23 20:28:32 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1997-06-09 12:48:05 $
+  Version:   $Revision: 1.27 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,6 +40,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include <math.h>
 #include "vtkImageData.h"
+#include "vtkImageRegion.h"
 
 //----------------------------------------------------------------------------
 // Description:
@@ -238,7 +239,7 @@ void vtkImageData::SetScalarType(int type)
 
 //----------------------------------------------------------------------------
 // This is the same as vtkImageRegion::SetAxes(int num, int *axes).  Should
-// we make a comman supperclass?
+// we make a common supperclass?  Axes determine the data order.
 void vtkImageData::SetAxes(int num, int *axes)
 {
   int idx, unusedAxis;
@@ -465,6 +466,7 @@ int vtkImageData::AllocateScalars()
     {
     case VTK_VOID:
       vtkErrorMacro(<< "AllocateScalars: ScalarType Unknown");
+      return 0;
       break;
     case VTK_FLOAT:
       scalars = vtkFloatScalars::New();
