@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObjectFactory.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-19 17:07:54 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-10-22 19:14:41 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to William A. Hoffman who developed this class
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -98,9 +98,10 @@ public:
   
   // Description:
   // All sub-classes of vtkObjectFactory should must return the version of 
-  // VTK they were built with.  This should be implemented with a call to 
-  // vtkVersion::GetVTKSourceVersion.  This is critical to determine
-  // possible incompatible dynamic factory loads.
+  // VTK they were built with.  This should be implemented with the macro
+  // VTK_SOURCE_VERSION and NOT a call to vtkVersion::GetVTKSourceVersion.
+  // As the version needs to be compiled into the file as a string constant.
+  // This is critical to determine possible incompatible dynamic factory loads.
   virtual const char* GetVTKSourceVersion() = 0;
 protected:
   // Description:
