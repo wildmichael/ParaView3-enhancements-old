@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-23 19:00:16 $
-  Version:   $Revision: 1.108 $
+  Date:      $Date: 2001-01-25 23:14:55 $
+  Version:   $Revision: 1.109 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -165,7 +165,7 @@ void vtkImageData::CopyTypeSpecificInformation( vtkDataObject *data )
 
 unsigned long vtkImageData::GetEstimatedMemorySize()
 {
-  unsigned long   size; 
+  vtkLargeInteger size; 
   int             idx;
   int             *uExt; 
   unsigned long   lsize;
@@ -229,7 +229,7 @@ unsigned long vtkImageData::GetEstimatedMemorySize()
 
   // Convert from double bytes to unsigned long kilobytes
   size = size >> 10;
-  lsize = size;
+  lsize = size.CastToUnsignedLong();
   return lsize;
 }
 
