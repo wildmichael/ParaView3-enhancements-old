@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-17 15:36:45 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 1999-08-23 18:38:27 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -182,7 +182,7 @@ public:
 
   // Description:
   // Return the amount of memory for the update piece.
-  unsigned long GetEstimatedUpdateExtentMemorySize();  
+  unsigned long GetEstimatedUpdateMemorySize();  
   
 protected:
   // for the GetCell method

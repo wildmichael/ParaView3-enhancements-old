@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-06 17:12:44 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1999-08-23 18:37:36 $
+  Version:   $Revision: 1.33 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,12 +67,6 @@ public:
   vtkImageData *GetOutput();
   
   // Description:
-  // This method can be used to intercept a generate call made to a cache.
-  // It allows a source to generate a larger region than was originally 
-  // specified.  The default method does not alter the specified region extent.
-  virtual void InterceptCacheUpdate();
-
-  // Description:
   // Legacy.  Sets the UpdateExtent to the WholeExtent, and Updates.
   void UpdateWholeExtent();
   
@@ -82,6 +76,11 @@ public:
   // Note: Threaded execution might break this up further.
   int *GetExecuteExtent() {return this->ExecuteExtent;}
   
+  // Description:
+  // Legacy compatability.  Do not use.
+  virtual void InterceptCacheUpdate() {this->LegacyHack = 0;}
+  int LegacyHack;
+
 protected:
   // Used by streaming: The extent of the output being processed
   // by the execute method. Set in the ComputeInputUpdateExtent method.
@@ -91,6 +90,13 @@ protected:
   virtual void Execute(vtkImageData *data);
   // scalars are allocated here.   
   void StreamExecuteStart(); 
+
+  // Description:
+  // By default, this method is called by StreamExecuteStart before output
+  // scalars are allocated.
+  virtual void ModifyOutputUpdateExtent() {};
+
+
 };
 
 

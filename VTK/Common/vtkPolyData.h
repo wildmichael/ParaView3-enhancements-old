@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-17 15:31:00 $
-  Version:   $Revision: 1.75 $
+  Date:      $Date: 1999-08-23 18:37:58 $
+  Version:   $Revision: 1.76 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,6 +75,8 @@ class vtkQuad;
 class vtkPolygon;
 class vtkTriangleStrip;
 class vtkEmptyCell;
+class vtkExtent;
+class vtkUnstructuredExtent;
 
 
 
@@ -343,12 +345,21 @@ public:
   // The source of this poly data has to return exactly this piece.
   void SetUpdateExtent(int piece, int numPieces);
   void GetUpdateExtent(int &piece, int &numPieces);
-  int GetUpdateNumberOfPieces() {return this->UpdateNumberOfPieces;}
-  int GetUpdatePiece() {return this->UpdatePiece;}
+  int GetUpdateNumberOfPieces();
+  int GetUpdatePiece();
 
   // Description:
+  // Warning: This is still in develoment.  DataSetToDataSetFilters use
+  // CopyUpdateExtent to pass the update extents up the pipeline.
+  // In order to pass a generic update extent through a port we are going 
+  // to need these methods (which should eventually replace the 
+  // CopyUpdateExtent method).
+  vtkExtent *GetGenericUpdateExtent() {return (vtkExtent*)this->UpdateExtent;}
+  void CopyGenericUpdateExtent(vtkExtent *ext);  
+  
+  // Description:
   // Return the amount of memory for the update piece.
-  unsigned long GetEstimatedUpdateExtentMemorySize();
+  unsigned long GetEstimatedUpdateMemorySize();
 
 protected:
   // constant cell objects returned by GetCell called.
@@ -380,11 +391,11 @@ protected:
   // ----- streaming stuff -----------
   void CopyUpdateExtent(vtkDataObject *polyData);
   void CopyInformation(vtkDataObject *polyData);
-
-  // First attempt at a generic update extent.
-  // Cannot specify a range, but pieces can be large or small.
-  int UpdatePiece;
-  int UpdateNumberOfPieces;
+  // For releasing data. We need another method.
+  void ClipUpdateExtentWithWholeExtent();
+  
+  vtkUnstructuredExtent *Extent;
+  vtkUnstructuredExtent *UpdateExtent;
 };
 
 inline void vtkPolyData::GetPointCells(int ptId, unsigned short& ncells, 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGrid.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-17 15:31:01 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-08-23 18:38:09 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -224,7 +224,7 @@ public:
 
   // Description:
   // Return the amount of memory for the update piece.
-  unsigned long GetEstimatedUpdateExtentMemorySize();
+  unsigned long GetEstimatedUpdateMemorySize();
   
 protected:
   // for the GetCell method

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-17 15:36:45 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 1999-08-23 18:38:26 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1025,7 +1025,7 @@ void vtkStructuredGrid::GetWholeExtent(int &xMin, int &xMax,
 
 
 //----------------------------------------------------------------------------
-unsigned long vtkStructuredGrid::GetEstimatedUpdateExtentMemorySize()
+unsigned long vtkStructuredGrid::GetEstimatedUpdateMemorySize()
 {
   int idx;
   unsigned long wholeSize, updateSize;
