@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuad.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-07 11:35:41 $
-  Version:   $Revision: 1.85 $
+  Date:      $Date: 2003-05-08 17:24:40 $
+  Version:   $Revision: 1.86 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,7 +29,7 @@
 #include "vtkPoints.h"
 #include "vtkTriangle.h"
 
-vtkCxxRevisionMacro(vtkQuad, "$Revision: 1.85 $");
+vtkCxxRevisionMacro(vtkQuad, "$Revision: 1.86 $");
 vtkStandardNewMacro(vtkQuad);
 
 static const float VTK_DIVERGED = 1.e6;
@@ -589,9 +589,8 @@ int vtkQuad::IntersectWithLine(float p1[3], float p2[3], float tol, float& t,
         pcoords[1] = 1.0 - pcoords[1];
         return 1;
         }
-      return 0;
 
-      break;
+      return 0;
     }
 
   return 0;
