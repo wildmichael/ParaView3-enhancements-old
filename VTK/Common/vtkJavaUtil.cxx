@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJavaUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:11 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2001-01-31 21:24:47 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -397,6 +397,7 @@ JNIEXPORT jobject vtkJavaCreateNewJavaStubForObject(JNIEnv *env, vtkObject* obj)
   fullname[2]= 'k';
   fullname[3]= '/';      
   strcpy(&fullname[4], classname);
+  obj->Register(obj);
   return vtkJavaCreateNewJavaStub(env, fullname, (void*)obj);
 }
 
