@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-07 17:15:03 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1994-02-08 11:47:32 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -31,7 +31,7 @@ vlPointSource::vlPointSource(int numPts)
 void vlPointSource::Execute()
 {
   int i;
-  float radius, theta, phi, x[3];
+  float radius, theta, phi, x[3], rho;
   vlFloatPoints *newPoints;
   vlCellArray *newVerts;
   vlMath math;
@@ -40,18 +40,20 @@ void vlPointSource::Execute()
   this->Initialize();
 
   newPoints = new vlFloatPoints(this->NumberOfPoints);
-  newVerts = new vlCellArray(this->NumberOfPoints);
+  newVerts = new vlCellArray;
+  newVerts->Initialize(newVerts->EstimateSize(1,this->NumberOfPoints));
 
+  newVerts->InsertNextCell(this->NumberOfPoints);
   for (i=0; i<this->NumberOfPoints; i++)
     {
     phi = math.Pi() * math.Random();
-    radius = this->Radius * sin((double)phi) * math.Random();
+    rho = this->Radius * math.Random();
+    radius = rho * sin((double)phi);
     theta = 2.0*math.Pi() * math.Random();
     x[0] = this->Center[0] + radius * cos((double)theta);
     x[1] = this->Center[1] + radius * sin((double)theta);
-    x[2] = this->Center[2];// + radius * cos((double)phi);
-    pts[0] = newPoints->InsertNextPoint(x);
-    newVerts->InsertNextCell(1,pts);
+    x[2] = this->Center[2] + rho * cos((double)phi);
+    newVerts->InsertCellPoint(newPoints->InsertNextPoint(x));
     }
 //
 // Update ourselves
