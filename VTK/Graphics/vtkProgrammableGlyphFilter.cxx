@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableGlyphFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-11-05 17:42:41 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-11-06 12:04:42 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -312,7 +312,7 @@ void vtkProgrammableGlyphFilter::SetGlyphMethodArgDelete(void (*f)(void *))
 
 // Description:
 // Return the method of coloring as a descriptive character string.
-inline char *vtkProgrammableGlyphFilter::GetColorModeAsString(void)
+char *vtkProgrammableGlyphFilter::GetColorModeAsString(void)
 {
   if ( this->ColorMode == VTK_COLOR_BY_INPUT )
     {
