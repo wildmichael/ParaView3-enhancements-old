@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-21 15:44:41 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-08-21 17:54:24 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -266,8 +266,9 @@ protected:
   
   // The size of the hot spot.
   float HotSpotSize;
-  int DetermineConstraintAxis(int constraint, double *xPrev, double *x);
+  int DetermineConstraintAxis(int constraint, double *x);
   int WaitingForMotion;
+  int WaitCount;
   
   // Keep track of last pick position
   float LastPickPosition[3];
