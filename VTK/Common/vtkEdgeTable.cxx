@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEdgeTable.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-05-08 13:51:21 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1996-05-20 19:18:43 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -143,7 +143,7 @@ int vtkEdgeTable::GetNextEdge(int &p1, int &p2)
     ++this->Position[1] < this->Table[this->Position[0]]->GetNumberOfIds() )
       {
       p1 = this->Position[0];
-      p2 = this->Position[1];
+      p2 = this->Table[this->Position[0]]->GetId(this->Position[1]);
       return 1;
       }
     }
