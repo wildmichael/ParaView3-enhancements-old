@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-03-10 17:44:32 $
-  Version:   $Revision: 1.90 $
+  Date:      $Date: 2003-04-02 16:25:21 $
+  Version:   $Revision: 1.91 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkSource.h"
 
-vtkCxxRevisionMacro(vtkDataObject, "$Revision: 1.90 $");
+vtkCxxRevisionMacro(vtkDataObject, "$Revision: 1.91 $");
 vtkStandardNewMacro(vtkDataObject);
 
 vtkCxxSetObjectMacro(vtkDataObject,FieldData,vtkFieldData);
@@ -608,6 +608,7 @@ void vtkDataObject::CopyInformation( vtkDataObject *data )
     {
     this->MaximumNumberOfPieces = data->GetMaximumNumberOfPieces();
     }
+  this->SetExtentTranslator(data->GetExtentTranslator());
 }
 
 //----------------------------------------------------------------------------
