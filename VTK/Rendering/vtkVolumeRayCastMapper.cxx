@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-15 02:51:36 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-07-15 21:48:29 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -695,6 +695,15 @@ VTK_THREAD_RETURN_TYPE RenderParallelImage( void *arg )
     bounds[i+6] = bounds[i]   + 0.001;
     bounds[i+9] = bounds[i+3] - 0.001;
     }
+
+  // Just in case it is the wrong data type, we have valid default values
+  // (CastARay will return without having filled this in)
+  pixel_value[0] = 0.0;
+  pixel_value[1] = 0.0;
+  pixel_value[2] = 0.0;
+  pixel_value[3] = 0.0;
+  pixel_value[4] = 1.0;
+  pixel_value[5] = 0.0;
 
   // Loop through all pixels and cast rays where necessary
   for ( j = 0; j < mapper->ViewRaysSize[1]; j++ )
