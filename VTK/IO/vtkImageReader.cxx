@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-08-28 20:38:42 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1997-09-05 17:40:04 $
+  Version:   $Revision: 1.30 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -750,15 +750,16 @@ static void vtkImageReaderUpdate2(vtkImageReader *self, vtkImageRegion *region,
 	  outPtr0 += outIncr[0];
 	  }
 	// move to the next row in the file and region
-	self->File->seekg(streamSkip0, ios::cur);
+        
+	self->File->seekg(self->File->tellg() + streamSkip0, ios::beg);
 	outPtr1 += outIncr[1];
 	}
       // move to the next image in the file and region
-      self->File->seekg(streamSkip1, ios::cur);
+      self->File->seekg(self->File->tellg() + streamSkip1, ios::beg);
       outPtr2 += outIncr[2];
       }
     // move to the next volume in the file and region
-    self->File->seekg(streamSkip2, ios::cur);
+    self->File->seekg(self->File->tellg() + streamSkip2, ios::beg);
     outPtr3 += outIncr[3];
     }
 
