@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageEuclideanDistance.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:33 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-12-07 21:10:28 $
+  Version:   $Revision: 1.9 $
   Thanks:    Olivier Cuisenaire who developed this class
              URL: http://ltswww.epfl.ch/~cuisenai
              Email: Olivier.Cuisenaire@epfl.ch
@@ -129,9 +129,8 @@ public:
   void SetAlgorithmToSaitoCached () 
     { this->SetAlgorithm(VTK_EDT_SAITO_CACHED); }   
 
-  virtual void IterativeExecuteData(vtkImageData *in, vtkImageData *out)
-    { this->MultiThread(in,out); };
-
+  void IterativeExecuteData(vtkImageData *in, vtkImageData *out);
+  
 protected:
   vtkImageEuclideanDistance();
   ~vtkImageEuclideanDistance() {}
@@ -141,12 +140,13 @@ protected:
   int ConsiderAnisotropy;
   int Algorithm;
 
+  // Replaces "EnlargeOutputUpdateExtent"
+  virtual void AllocateOutputScalars(vtkImageData *outData);
+  
   void ExecuteInformation(vtkImageData *input, vtkImageData *output);
   void ExecuteInformation()
     {this->vtkImageIterateFilter::ExecuteInformation();}
   void ComputeInputUpdateExtent(int inExt[6], int outExt[6]);
-  void ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
-                       int outExt[6], int threadId);
 private:
   vtkImageEuclideanDistance(const vtkImageEuclideanDistance&);  // Not implemented.
   void operator=(const vtkImageEuclideanDistance&);  // Not implemented.
