@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkIdList.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-12 08:52:28 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1994-09-26 13:45:55 $
+  Version:   $Revision: 1.14 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -28,7 +28,7 @@ class vlIdList {
 public:
   vlIdList(const int sz=128, const int ext=100):Ia(sz,ext) {};
   ~vlIdList() {};
-  vlIdList &operator=(const vlIdList& ids) {this->Ia = ids.Ia;};
+  vlIdList &operator=(const vlIdList& ids) {this->Ia = ids.Ia; return *this;};
   void Squeeze() {this->Ia.Squeeze();};
 
   int GetNumberOfIds() {return (this->Ia.GetMaxId() + 1);};
