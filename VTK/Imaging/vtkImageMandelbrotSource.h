@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMandelbrotSource.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-31 14:38:52 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2002-05-20 16:05:53 $
+  Version:   $Revision: 1.31 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -59,7 +59,7 @@ public:
   // to the axes of the 3D Volume. 
   // 0=C_Real, 1=C_Imaginary, 2=X_Real, 4=X_Imaginary
   void SetProjectionAxes(int x, int y, int z);
-  void SetProjectionAxes(int *a) {this->SetProjectionAxes(a[0],a[1],a[2]);}
+  void SetProjectionAxes(int a[3]) {this->SetProjectionAxes(a[0],a[1],a[2]);}
   vtkGetVector3Macro(ProjectionAxes, int);
 
   // Description:
