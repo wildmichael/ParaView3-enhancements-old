@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2005-01-10 18:31:11 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2005-01-14 21:14:13 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -77,7 +77,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <vtkstd/vector>
 
 vtkStandardNewMacro(vtkXdmfReader);
-vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.51 $");
+vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.52 $");
 
 #if defined(_WIN32) && (defined(_MSC_VER) || defined(__BORLANDC__))
 #  include <direct.h>
@@ -1234,7 +1234,7 @@ int vtkXdmfReader::RequestInformation(
       // Put this here so that GetOutput 
       // does not call ExecuteInformation again.
       this->OutputsInitialized = 1;
-      if ( this->GetNumberOfOutputPorts() <= idx || outInfo->Get(vtkDataObject::DATA_TYPE_NAME()) != vGrid->GetClassName() )
+      if ( this->GetNumberOfOutputPorts() <= idx || this->GetOutput(idx)->GetClassName() != vGrid->GetClassName() )
         {
         if ( this->GetNumberOfOutputPorts() > idx && this->GetOutput(idx) )
           {
