@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeneralTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-05 04:01:22 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-03-05 14:14:00 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -55,7 +55,7 @@ void vtkGeneralTransform::PrintSelf(ostream& os, vtkIndent indent)
 //------------------------------------------------------------------------
 // Default TransformPoint:  Call Update(), then call the appropriate
 // 
-void vtkGeneralTransform::TransformPoint(const float input[3],
+void vtkGeneralTransform::TransformPoint(float input[3],
 					 float output[3])
 {
   this->Update();
@@ -65,7 +65,7 @@ void vtkGeneralTransform::TransformPoint(const float input[3],
 //----------------------------------------------------------------------------
 // Convert double to float, then do the transformation.  A subclass
 // can override this method to provide true double-precision transformations.
-void vtkGeneralTransform::TransformPoint(const double input[3], 
+void vtkGeneralTransform::TransformPoint(double input[3], 
 					 double output[3])
 {
   float point[3];
