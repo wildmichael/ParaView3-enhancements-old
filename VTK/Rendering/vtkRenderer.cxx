@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-06-02 17:04:15 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1994-07-09 06:47:08 $
+  Version:   $Revision: 1.16 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -238,7 +238,7 @@ void vlRenderer::ViewToWorld()
   result[2] = this->ViewPoint[2];
   result[3] = 1.0;
 
-  mat.VectorMultiply(result,result);
+  mat.PointMultiply(result,result);
   
   // Get the transformed vector & set WorldPoint 
   this->SetWorldPoint(result);

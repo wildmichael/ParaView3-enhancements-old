@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-05-08 08:56:26 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1994-07-09 06:47:05 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -269,10 +269,10 @@ float *vlActor::GetBounds()
   fptr = bbox;
   for (n = 0; n < 8; n++) 
     {
-    this->Transform.SetVector(fptr[0],fptr[1],fptr[2],1.0);
+    this->Transform.SetPoint(fptr[0],fptr[1],fptr[2],1.0);
   
     // now store the result
-    result = this->Transform.GetVector();
+    result = this->Transform.GetPoint();
     fptr[0] = result[0];
     fptr[1] = result[1];
     fptr[2] = result[2];
