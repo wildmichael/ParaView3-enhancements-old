@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-25 13:16:44 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-10-28 12:47:10 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -121,7 +121,7 @@ int vtkCellLocator::IntersectWithLine(float a0[3], float a1[3], float tol,
   float result;
   float *bounds;
   float bounds2[6];
-  int i, j, k, leafStart, prod, loop;
+  int i, leafStart, prod, loop;
   vtkCell *cell;
   int bestCellId;
   int idx, cellId;
@@ -232,7 +232,7 @@ int vtkCellLocator::IntersectWithLine(float a0[3], float a1[3], float tol,
 	  npos[loop] = pos[loop] + 1;
 	  dist[loop] = (1.0 - hitPosition[loop] + pos[loop])/direction3[loop];
 	  if (dist[loop] == 0) dist[loop] = 1.0/direction3[loop];
-	  if (dist[loop] < 0) dist[loop] == 0;
+	  if (dist[loop] < 0) dist[loop] = 0;
 	  if (dist[loop] < tMax)
 	    {
 	    bestDir = loop;
@@ -244,7 +244,7 @@ int vtkCellLocator::IntersectWithLine(float a0[3], float a1[3], float tol,
 	  npos[loop] = pos[loop] - 1;
 	  dist[loop] = (pos[loop] - hitPosition[loop])/direction3[loop];
 	  if (dist[loop] == 0) dist[loop] = -0.01/direction3[loop];
-	  if (dist[loop] < 0) dist[loop] == 0;
+	  if (dist[loop] < 0) dist[loop] = 0;
 	  if (dist[loop] < tMax)
 	    {
 	    bestDir = loop;
