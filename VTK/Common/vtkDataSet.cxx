@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-23 20:19:24 $
-  Version:   $Revision: 1.63 $
+  Date:      $Date: 1999-03-17 21:45:11 $
+  Version:   $Revision: 1.64 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -278,6 +278,19 @@ void vtkDataSet::GetCellTypes(vtkCellTypes *types)
       types->InsertNextType(type);
       }
     }
+}
+
+
+// Default implementation. This is very slow way to compute this information.
+// Subclasses should override this method for efficiency.
+void vtkDataSet::GetCellBounds(int cellId, float bounds[6])
+{
+  vtkGenericCell *cell = vtkGenericCell::New();
+
+  this->GetCell(cellId, cell);
+  cell->GetBounds(bounds);
+
+  cell->Delete();
 }
 
 void vtkDataSet::Squeeze()

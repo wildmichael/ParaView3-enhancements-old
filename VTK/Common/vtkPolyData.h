@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1999-03-01 19:29:52 $
-  Version:   $Revision: 1.72 $
+  Date:      $Date: 1999-03-17 21:45:12 $
+  Version:   $Revision: 1.73 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -106,7 +106,8 @@ public:
   vtkCell *GetCell(int cellId);
   void GetCell(int cellId, vtkGenericCell *cell);
   int GetCellType(int cellId);
-
+  void GetCellBounds(int cellId, float bounds[6]);
+  
   // Description:
   // Copy a cells point ids into list provided. (Less efficient.)
   void GetCellPoints(int cellId, vtkIdList *ptIds);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 1999-01-28 19:02:56 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 1999-03-17 21:45:13 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -85,6 +85,7 @@ public:
   void GetPoint(int ptId, float p[3]) {this->vtkPointSet::GetPoint(ptId,p);};
   vtkCell *GetCell(int cellId);
   void GetCell(int cellId, vtkGenericCell *cell);
+  void GetCellBounds(int cellId, float bounds[6]);
   int GetCellType(int cellId);
   int GetNumberOfCells();
   void GetCellPoints(int cellId, vtkIdList *ptIds);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-01 19:29:51 $
-  Version:   $Revision: 1.90 $
+  Date:      $Date: 1999-03-17 21:45:12 $
+  Version:   $Revision: 1.91 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -348,6 +348,66 @@ void vtkPolyData::GetCell(int cellId, vtkGenericCell *cell)
     }
 }
 
+
+// Fast implementation of GetCellBounds().  Bounds are calculated without
+// constructing a cell.
+void vtkPolyData::GetCellBounds(int cellId, float bounds[6])
+{
+  int i, loc, numPts, *pts;
+  unsigned char type;
+  float *x;
+
+  if ( !this->Cells )
+    {
+    this->BuildCells();
+    }
+
+  type = this->Cells->GetCellType(cellId);
+  loc = this->Cells->GetCellLocation(cellId);
+
+  switch (type)
+    {
+    case VTK_VERTEX:
+    case VTK_POLY_VERTEX:
+      this->Verts->GetCell(loc,numPts,pts);
+      break;
+
+    case VTK_LINE: 
+    case VTK_POLY_LINE:
+      this->Lines->GetCell(loc,numPts,pts);
+      break;
+
+    case VTK_TRIANGLE:
+    case VTK_QUAD:
+    case VTK_POLYGON:
+      this->Polys->GetCell(loc,numPts,pts);
+      break;
+
+    case VTK_TRIANGLE_STRIP:
+      this->Strips->GetCell(loc,numPts,pts);
+      break;
+
+    default:
+      bounds[0] = bounds[1] = bounds[2] = bounds[3] = bounds[4] = bounds[5]
+	= 0.0;
+      return;
+    }
+
+  bounds[0] = bounds[2] = bounds[4] =  VTK_LARGE_FLOAT;
+  bounds[1] = bounds[3] = bounds[5] = -VTK_LARGE_FLOAT;
+
+  for (i=0; i < numPts; i++)
+    {
+    x = this->Points->GetPoint( pts[i] );
+
+    bounds[0] = (x[0] < bounds[0] ? x[0] : bounds[0]);
+    bounds[1] = (x[0] > bounds[1] ? x[0] : bounds[1]);
+    bounds[2] = (x[1] < bounds[2] ? x[1] : bounds[2]);
+    bounds[3] = (x[1] > bounds[3] ? x[1] : bounds[3]);
+    bounds[4] = (x[2] < bounds[4] ? x[2] : bounds[4]);
+    bounds[5] = (x[2] > bounds[5] ? x[2] : bounds[5]);
+    }
+}
 
 // Set the cell array defining vertices.
 void vtkPolyData::SetVerts (vtkCellArray* v) 
