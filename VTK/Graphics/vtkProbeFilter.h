@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProbeFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:38 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2002-08-26 17:55:08 $
+  Version:   $Revision: 1.46 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -67,9 +67,9 @@ protected:
 
   int SpatialMatch;
 
-  void Execute();
+  virtual void Execute();
   void ExecuteInformation();
-  void ComputeInputUpdateExtents(vtkDataObject *output);
+  virtual void ComputeInputUpdateExtents(vtkDataObject *output);
 
   vtkIdTypeArray *ValidPoints;
 private:
