@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-15 11:11:57 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 2000-09-13 16:15:37 $
+  Version:   $Revision: 1.56 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -151,6 +151,98 @@ void vtkVolume::SetMapper(vtkVolumeMapper *mapper)
     if (this->Mapper != NULL) {this->Mapper->Register(this);}
     this->Modified();
     }
+}
+
+float vtkVolume::ComputeScreenCoverage( vtkViewport *vp )
+{
+  float coverage = 1.0;
+  
+  vtkRenderer *ren = vtkRenderer::SafeDownCast( vp );
+  
+  if ( ren )
+    {
+    vtkCamera *cam = ren->GetActiveCamera();
+    vtkRenderWindow *renWin = ren->GetRenderWindow();
+    ren->ComputeAspect();
+    float *aspect = ren->GetAspect();
+    vtkMatrix4x4 *mat = 
+      cam->GetCompositePerspectiveTransformMatrix( aspect[0]/aspect[1], 0.0, 1.0 );
+    float *bounds = this->GetBounds();
+    float minX =  1.0;
+    float maxX = -1.0;
+    float minY =  1.0;
+    float maxY = -1.0;
+    int i, j, k;
+    float p[4];
+    for ( k = 0; k < 2; k++ )
+      {
+      for ( j = 0; j < 2; j++ )
+        {
+        for ( i = 0; i < 2; i++ )
+          {
+          p[0] = bounds[i];
+          p[1] = bounds[2+j];
+          p[2] = bounds[4+k];
+          p[3] = 1.0;
+          mat->MultiplyPoint( p, p );
+          if ( p[3] )
+            {
+            p[0] /= p[3];
+            p[1] /= p[3];
+            p[2] /= p[3];          
+            }
+          
+          minX = (p[0] < minX)?(p[0]):(minX);
+          minY = (p[1] < minY)?(p[1]):(minY);
+          maxX = (p[0] > maxX)?(p[0]):(maxX);
+          maxY = (p[1] > maxY)?(p[1]):(maxY);
+          }
+        }
+      }
+     
+    coverage = (maxX-minX)*(maxY-minY)*.25;
+    coverage = (coverage > 1.0 )?(1.0):(coverage);
+    coverage = (coverage < 0.0 )?(0.0):(coverage);
+    }
+  
+  
+  return coverage;
+}
+
+void vtkVolume::AddEstimatedRenderTime( float t, vtkViewport *vp )
+{
+  if ( this->Mapper && this->Mapper->IsARayCastMapper() )
+    {
+    float coverage = this->ComputeScreenCoverage(vp);
+  
+    if ( coverage )
+      {
+      this->EstimatedRenderTime += t / coverage;
+      }
+    else
+      {
+      this->EstimatedRenderTime += t;
+      }
+    }
+  else
+    {
+    this->EstimatedRenderTime += t;
+    }
+}
+
+
+float vtkVolume::GetEstimatedRenderTime( vtkViewport *vp )
+{
+  if ( this->Mapper && this->Mapper->IsARayCastMapper() )
+    {
+    float coverage = this->ComputeScreenCoverage( vp );    
+    return this->EstimatedRenderTime * coverage;
+    }
+  else
+    {
+    return this->EstimatedRenderTime;
+    }
+  
 }
 
 int vtkVolume::RequiresRayCasting()

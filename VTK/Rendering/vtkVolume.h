@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-01 16:30:01 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2000-09-13 16:15:37 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -261,6 +261,13 @@ public:
   // DO NOT USE THIS METHOD OUTSIDE OF THE RENDERING PROCESS
   void UpdateScalarOpacityforSampleSize( vtkRenderer *ren, float sample_distance );
 
+  // Description:
+  // WARNING: INTERNAL METHOD - NOT INTENDED FOR GENERAL USE
+  // DO NOT USE THIS METHOD OUTSIDE OF THE RENDERING PROCESS
+  // Override in order to take into account screen coverage
+  void AddEstimatedRenderTime( float t, vtkViewport *vp );
+  float GetEstimatedRenderTime( vtkViewport *vp );
+  
 //ETX
 
 protected:
@@ -316,6 +323,9 @@ protected:
   float                        GradientOpacityConstant;
   vtkTimeStamp                 GradientOpacityArrayMTime;
 
+  // Function to compute screen coverage of this volume
+  float ComputeScreenCoverage( vtkViewport *vp );
+  
   VTKRayCastVolumeInfo *VolumeInfo;
 
 };

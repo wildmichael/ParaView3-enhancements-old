@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPropAssembly.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-05 11:59:19 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-09-13 16:15:36 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -112,7 +112,7 @@ int vtkPropAssembly::RenderTranslucentGeometry(vtkViewport *ren)
     prop = path->GetLastNode()->GetProp();
     if ( prop->GetVisibility() )
       {
-      prop->SetAllocatedRenderTime(fraction);
+      prop->SetAllocatedRenderTime(fraction, ren);
       prop->PokeMatrix(path->GetLastNode()->GetMatrix());
       renderedSomething += prop->RenderTranslucentGeometry(ren);
       prop->PokeMatrix(NULL);
@@ -142,7 +142,7 @@ int vtkPropAssembly::RenderOpaqueGeometry(vtkViewport *ren)
     prop = path->GetLastNode()->GetProp();
     if ( prop->GetVisibility() )
       {
-      prop->SetAllocatedRenderTime(fraction);
+      prop->SetAllocatedRenderTime(fraction, ren);
       prop->PokeMatrix(path->GetLastNode()->GetMatrix());
       renderedSomething += prop->RenderOpaqueGeometry(ren);
       prop->PokeMatrix(NULL);
@@ -171,7 +171,7 @@ int vtkPropAssembly::RenderOverlay(vtkViewport *ren)
     prop = path->GetLastNode()->GetProp();
     if ( prop->GetVisibility() )
       {
-      prop->SetAllocatedRenderTime(fraction);
+      prop->SetAllocatedRenderTime(fraction, ren);
       prop->PokeMatrix(path->GetLastNode()->GetMatrix());
       renderedSomething += prop->RenderOverlay(ren);
       prop->PokeMatrix(NULL);

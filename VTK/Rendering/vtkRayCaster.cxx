@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRayCaster.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-05-02 03:59:49 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2000-09-13 16:15:36 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1456,11 +1456,11 @@ void vtkRayCaster::Render( vtkRenderer *ren,
     renderTime = this->TotalRenderTime / (float)(softwareCount + raycastCount);
     for ( i = 0; i < this->SoftwareBufferPropCount; i++ )
       {
-      this->SoftwareProps[i]->AddEstimatedRenderTime( renderTime );
+      this->SoftwareProps[i]->AddEstimatedRenderTime( renderTime, ren );
       }  
     for ( i = 0; i < this->RayCastPropCount; i++ )
       {
-      this->RayCastProps[i]->AddEstimatedRenderTime( renderTime );
+      this->RayCastProps[i]->AddEstimatedRenderTime( renderTime, ren );
       }  
     }
   

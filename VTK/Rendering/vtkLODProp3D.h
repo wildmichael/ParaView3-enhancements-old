@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODProp3D.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-12 00:10:52 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-09-13 16:15:36 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -236,12 +236,19 @@ public:
   // Used by the culler / renderer to set the allocated render time for this
   // prop. This is based on the desired update rate, and possibly some other
   // properties such as potential screen coverage of this prop.
-  void SetAllocatedRenderTime( float t );
+  void SetAllocatedRenderTime( float t, vtkViewport *vp );
 
+  // Description:
+  // Used when the render process is aborted to restore the previous estimated render
+  // time. Overridden here to allow previous time for a particular LOD to be restored -
+  // otherwise the time for the last rendered LOD will be copied into the currently
+  // selected LOD.
+  void RestoreEstimatedRenderTime( );
+  
   // Description:
   // Override method from vtkProp in order to push this call down to the
   // selected LOD as well.
-  virtual void AddEstimatedRenderTime( float t );
+  virtual void AddEstimatedRenderTime( float t, vtkViewport *vp );
 
 //ETX
 
