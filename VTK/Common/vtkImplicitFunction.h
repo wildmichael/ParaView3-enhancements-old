@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkImplicitFunction.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-12 08:32:35 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-08-12 08:51:54 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -28,10 +28,14 @@ class vlImplicitFunction : public vlObject
 public:
   char *GetClassName() {return "vlImplicitFunction";};
 
+  // Description:
+  // Evaluate function at position x-y-z and return value.
   virtual float Evaluate(float x, float y, float z) = 0;
+
+  // Description:
+  // Evaluate function normal at position x-y-z and pass back vector.
   virtual void EvaluateNormal(float x, float y, float z, float n[3]) = 0;
+
 };
 
 #endif
-
-
