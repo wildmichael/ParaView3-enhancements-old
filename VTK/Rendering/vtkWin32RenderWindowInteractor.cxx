@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32RenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-23 21:41:47 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 2000-03-13 20:24:17 $
+  Version:   $Revision: 1.56 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -396,7 +396,12 @@ LRESULT CALLBACK vtkHandleMessage(HWND hWnd,UINT uMsg, WPARAM wParam,
   vtkWin32RenderWindowInteractor *me;
   
   ren = (vtkWin32OpenGLRenderWindow *)GetWindowLong(hWnd,GWL_USERDATA);
-  me = (vtkWin32RenderWindowInteractor *)ren->GetInteractor();
+  if (ren == NULL) 
+    { 
+    return 0; 
+		}
+ 
+	me = (vtkWin32RenderWindowInteractor *)ren->GetInteractor();
   
   if (me == NULL) 
     { 
