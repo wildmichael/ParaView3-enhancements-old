@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkVoxel.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-02-26 10:17:36 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1995-06-29 16:29:44 $
+  Version:   $Revision: 1.15 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -21,7 +21,6 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 
 static vlMath math;  
 static vlLine line;
-static vlPixel pixel;
 
 // Description:
 // Deep copy of cell.
@@ -256,6 +255,7 @@ vlCell *vlVoxel::GetEdge(int edgeId)
 
 vlCell *vlVoxel::GetFace(int faceId)
 {
+  static vlPixel pixel;
   int *verts, i;
 
   verts = faces[faceId];
