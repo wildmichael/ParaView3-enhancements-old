@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-15 14:20:20 $
-  Version:   $Revision: 1.86 $
+  Date:      $Date: 2001-11-26 22:40:43 $
+  Version:   $Revision: 1.87 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -187,7 +187,7 @@ void vtkImageReader::ComputeInternalFileName(int slice)
     else
       {
       this->InternalFileName = new char [strlen(this->FilePattern) + 10];
-      sprintf (this->InternalFileName, this->FilePattern, "",slice);
+      sprintf (this->InternalFileName, this->FilePattern, "",slicenum);
       }
     }
 }
