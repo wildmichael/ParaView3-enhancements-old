@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePlaneWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-16 18:36:29 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-08-21 02:39:16 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -275,6 +275,11 @@ public:
   vtkGetObjectMacro(CursorProperty,vtkProperty);
 
   // Description:
+  // Set the properties of the margins.
+  virtual void SetMarginProperty(vtkProperty*);
+  vtkGetObjectMacro(MarginProperty,vtkProperty);  
+
+  // Description:
   // Set/Get the text property for the image data and window-level annotation.
   void SetTextProperty(vtkTextProperty* tprop);
   vtkTextProperty* GetTextProperty();
@@ -372,6 +377,7 @@ protected:
   vtkProperty   *PlaneProperty;
   vtkProperty   *SelectedPlaneProperty;
   vtkProperty   *CursorProperty;
+  vtkProperty   *MarginProperty;
   void           CreateDefaultProperties();
 
   void UpdateNormal();
@@ -403,7 +409,19 @@ protected:
   // Oblique reslice control
   float RotateAxis[3];
   float RadiusVector[3];
-  void  AdjustState(int X, int Y);
+  void  AdjustState();
+
+  vtkPoints         *MarginPoints;
+  vtkPolyData       *MarginPolyData;
+  vtkPolyDataMapper *MarginMapper;
+  vtkActor          *MarginActor;
+
+  void UpdateMargins();
+  void GenerateMargins();
+  void ActivateMargins(int);
+
+  // Keep track of last pick position
+  float LastPickPosition[3];
 
 private:
   vtkImagePlaneWidget(const vtkImagePlaneWidget&);  //Not implemented
