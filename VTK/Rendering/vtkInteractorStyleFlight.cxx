@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleFlight.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-12 18:24:43 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2002-07-14 17:10:33 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkRenderWindowInteractor.h"
 #include "vtkCommand.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyleFlight, "$Revision: 1.25 $");
+vtkCxxRevisionMacro(vtkInteractorStyleFlight, "$Revision: 1.26 $");
 vtkStandardNewMacro(vtkInteractorStyleFlight);
 
 class CPIDControl
@@ -462,7 +462,7 @@ void vtkInteractorStyleFlight::FinishCamera(vtkCamera* cam)
     cam->OrthogonalizeViewUp();
     if (this->RestoreUpVector)
       {
-      double delta[3],camvec[3];
+      double delta[3];
       cam->GetViewUp(delta);
       double weight = vtkMath::Dot(this->DefaultUpVector,delta);
       // only correct up if we're close to it already...
@@ -536,7 +536,7 @@ void vtkInteractorStyleFlight::UpdateMouseSteering(vtkCamera *cam)
 
 // We know the ideal and actual focal points. We now want to reduce these
 // to a 2D Yaw+Pitch form so that we can smooth the motion on each
-void vtkInteractorStyleFlight::UpdateSteering(vtkCamera *cam)
+void vtkInteractorStyleFlight::UpdateSteering(vtkCamera *vtkNotUsed(cam))
 {
 /*
   Not happy with smooth flight yet, please levae this code here
