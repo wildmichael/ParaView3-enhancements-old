@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPDataSetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-28 14:56:27 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-12-20 14:35:10 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -678,7 +678,7 @@ void vtkPDataSetReader::ReadPVTKFileInformation(ifstream *file)
       if (strcmp(param,"fileName") == 0)
         {
         // Copy filename (relative path?)
-        if (val[0] != '/' && val[0] != ':' && dirLength > 0)
+        if (val[0] != '/' && val[1] != ':' && dirLength > 0)
           { // Must be a relative path.
           sprintf(this->PieceFileNames[i], "%s%s", dir, val);
           }
