@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInputPort.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-16 16:40:01 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-06-22 20:15:18 $
+  Version:   $Revision: 1.2 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -81,6 +81,8 @@ vtkInputPort::vtkInputPort()
   // State variables.
   this->TransferNeeded = 0;
   this->DataTime = 0;
+
+  this->DoUpdateInformation = 1;
 }
 
 //----------------------------------------------------------------------------
@@ -300,6 +302,11 @@ void vtkInputPort::UpdateInformation()
   vtkDataObject *output;
   unsigned long pmt;
   
+  if (!this->DoUpdateInformation)
+    {
+    return;
+    }
+
   if (this->Outputs == NULL || this->Outputs[0] == NULL)
     {
     vtkErrorMacro("No output.");

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInputPort.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-16 16:40:02 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-06-22 20:15:18 $
+  Version:   $Revision: 1.2 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -115,6 +115,16 @@ public:
   vtkMultiProcessController *GetController() {return this->Controller;}
   vtkSetObjectMacro(Controller, vtkMultiProcessController);
   
+  // Description:
+  // If DoUpdateInformation if false (it is true by default),
+  // UpdateInformation is not performed during Update. This can
+  // be used to avoid  unnecessary communication once the data
+  // has been transferred. However, if the pipeline changes
+  // upstream, DoUpdateInformation has to be set to true again.
+  // Otherwise, Updata will not occur.
+  vtkSetMacro(DoUpdateInformation, int);
+  vtkGetMacro(DoUpdateInformation, int);
+  
 //BTX
 
 // Arbitrary tags used by the ports for communication.
@@ -142,6 +152,7 @@ protected:
   unsigned long DataTime;
   unsigned long UpStreamMTime;
   int TransferNeeded;
+  int DoUpdateInformation;
 };
 
 #endif
