@@ -3,8 +3,8 @@
  Program:   Visualization Toolkit
  Module:    $RCSfile: vtkProcessObject.cxx,v $
  Language:  C++
- Date:      $Date: 2000-02-04 17:03:40 $
- Version:   $Revision: 1.10 $
+ Date:      $Date: 2000-03-06 21:09:56 $
+ Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -220,6 +220,41 @@ void vtkProcessObject::RemoveInput(vtkDataObject *input)
     }
   
   this->Modified();
+}
+
+//----------------------------------------------------------------------------
+// Adds an input to the first null position in the input list.
+// Expands the list memory if necessary
+void vtkProcessObject::SqueezeInputArray()
+{
+  int idx, loc;
+  
+  // move NULL entries to the end
+  for (idx = 0; idx < this->NumberOfInputs; ++idx)
+    {
+    if (this->Inputs[idx] == NULL)
+      {
+      for (loc = idx+1; loc < this->NumberOfInputs; loc++)
+        {
+        this->Inputs[loc-1] = this->Inputs[loc];
+        }
+      this->Inputs[this->NumberOfInputs -1] = NULL;
+      }
+    }
+
+  // adjust the size of the array
+  loc = -1;
+  for (idx = 0; idx < this->NumberOfInputs; ++idx)
+    {
+    if (loc == -1 && this->Inputs[idx] == NULL)
+      {
+      loc = idx;
+      }
+    }
+  if (loc > 0)
+    {
+    this->SetNumberOfInputs(loc);
+    }
 }
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProcessObject.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:40 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-03-06 21:09:57 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -137,6 +137,11 @@ public:
   vtkDataObject **GetInputs() {return this->Inputs;};
   vtkGetMacro(NumberOfInputs,int);
 
+  // Description:
+  // This method will rearrange the input array so that all NULL entries 
+  // are removed
+  void SqueezeInputArray();
+  
 protected:
   vtkProcessObject();
   ~vtkProcessObject();
