@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-05-01 21:08:29 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-05-24 11:09:08 $
+  Version:   $Revision: 1.17 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -225,10 +225,15 @@ void vlUnstructuredGrid::SetCells(int *types, vlCellArray *cells)
   this->Connectivity = cells;
   if ( this->Connectivity ) this->Connectivity->Register(this);
 
+  // see whether there are cell types available
+  if ( this->Cells ) this->Cells->UnRegister(this);
+  this->Cells = new vlCellList(cells->GetNumberOfCells(),1000);
+  this->Cells->Register(this);
+
   // build types
   for (i=0, cells->InitTraversal(); cells->GetNextCell(npts,pts); i++)
     {
-    this->Cells->InsertNextCell(types[i],this->Connectivity->GetLocation(npts));
+    this->Cells->InsertNextCell(types[i],cells->GetLocation(npts));
     }
 }
 
