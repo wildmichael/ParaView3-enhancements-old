@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSpatialFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-19 19:26:07 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1996-08-20 18:42:54 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -101,7 +101,7 @@ void vtkImageSpatialFilter::ComputeOutputImageInformation(
     bounds[idx*2] += this->KernelMiddle[idx];
     bounds[idx*2 + 1] -= (this->KernelSize[idx] - 1) - this->KernelMiddle[idx];
     }
-  outRegion->SetBounds4d(bounds);
+  outRegion->SetImageBounds4d(bounds);
 }
 
 
