@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamer.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-17 10:13:49 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1995-07-24 07:00:57 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -337,7 +337,7 @@ void vtkStreamer::Integrate()
       sNext = this->Streamers[ptId].InsertNextStreamPoint();
 
       if ( cell->EvaluatePosition(xNext, closestPoint, sNext->subId, 
-      sNext->p, dist2, w) )
+      sNext->p, dist2, w) == 1)
         { //integration still in cell
         for (i=0; i<3; i++) sNext->x[i] = closestPoint[i];
         sNext->cellId = sPtr->cellId;
