@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkSampleFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-10 13:20:25 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-08-25 11:56:59 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -58,8 +58,9 @@ void vlSampleFunction::PrintSelf(ostream& os, vlIndent indent)
     }
 }
 
-// Description
-// The model bounds is the location in space in which the sampling occurs.
+// Description:
+// Specify the model bounds is the location in space in which the 
+// sampling occurs.
 void vlSampleFunction::SetModelBounds(float xmin, float xmax, float ymin, float ymax, float zmin, float zmax)
 {
   if (this->ModelBounds[0] != xmin || this->ModelBounds[1] != xmax ||
