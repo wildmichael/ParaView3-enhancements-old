@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMatrix4x4.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-15 17:28:07 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1995-09-12 12:23:01 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,7 +42,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .SECTION Description
 // vtkMatrix4x4 is a class to represent and manipulate 4x4 matrices. 
 // Specifically it is designed to work on 4x4 transformation matrices
-// found in 3D rendering using homogeneus coordinates [x y z w].
+// found in 3D rendering using homogeneous coordinates [x y z w].
 
 // .SECTION see also
 // vtkTransform
