@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:43 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1999-02-22 14:16:14 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,6 +68,7 @@ vtkXRenderWindow::~vtkXRenderWindow()
   if (this->OwnDisplay && this->DisplayId)
     {
     XCloseDisplay(this->DisplayId);
+    this->DisplayId = NULL;
     }
 }
 
