@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAttributeData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-24 14:34:48 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-06-28 18:49:49 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -74,7 +74,7 @@ vtkAttributeData::~vtkAttributeData()
   this->Data->UnRegister(this);
 }
 
-int vtkAttributeData::Allocate(const int sz, const int ext)
+int vtkAttributeData::Allocate(const vtkIdType sz, const vtkIdType ext)
 {
   int numComp=this->Data->GetNumberOfComponents();
   return this->Data->Allocate(sz*numComp,ext*numComp);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIVWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-25 13:43:23 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-06-28 18:49:49 $
+  Version:   $Revision: 1.20 $
   Thanks:    to Jon A. Webb for contributing this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -166,7 +166,8 @@ void vtkIVWriter::WritePolyData(vtkPolyData *pd, FILE *fp)
       fprintf(fp, "\t\t\t");
       for (i = 0; i < npts; i++)
 	{
-	fprintf(fp,"%i, ",indx[i]);
+        // treating vtkIdType as int
+	fprintf(fp,"%i, ", (int)indx[i]);
 	}
       fprintf(fp,"-1,\n");
       }
@@ -186,7 +187,8 @@ void vtkIVWriter::WritePolyData(vtkPolyData *pd, FILE *fp)
       fprintf(fp,"\t\t\t");
       for (i = 0; i < npts; i++)
 	{
-	fprintf(fp,"%i, ",indx[i]);
+        // treating vtkIdType as int
+	fprintf(fp,"%i, ", (int)indx[i]);
 	}
       fprintf(fp,"-1,\n");
       }
@@ -205,7 +207,8 @@ void vtkIVWriter::WritePolyData(vtkPolyData *pd, FILE *fp)
       fprintf(fp,"\t\t\t");
       for (i = 0; i < npts; i++)
 	{
-	fprintf(fp,"%i, ",indx[i]);
+        // treating vtkIdType as int
+	fprintf(fp,"%i, ", (int)indx[i]);
 	}
       fprintf(fp,"-1,\n");
       }
@@ -226,7 +229,8 @@ void vtkIVWriter::WritePolyData(vtkPolyData *pd, FILE *fp)
       fprintf(fp,"\t\t\t");
       for (i = 0; i < npts; i++)
 	{
-	fprintf(fp,"%i, ",indx[i]);
+        // treating vtkIdType as int
+	fprintf(fp,"%i, ", (int)indx[i]);
 	}
       fprintf(fp,"-1,\n");
       }

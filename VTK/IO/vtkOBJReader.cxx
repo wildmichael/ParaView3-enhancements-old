@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBJReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-25 13:43:24 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-06-28 18:49:49 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -90,10 +90,10 @@ void vtkOBJReader::Execute()
   float xyz[3], n[3], tc[3];
   vtkPolyData *output = this->GetOutput();
   vtkPointData *outputPD = output->GetPointData();
-  vtkIdType count;
+  int count;
   vtkIdType ptId;
   vtkIdType numberOfPts, numberOfNormals, numberOfTCoords;
-  vtkIdType objPtId, objNormalId, objTCoordId;
+  int objPtId, objNormalId, objTCoordId;
   char *slash, *blank, *next, *ptr;
 
   vtkDebugMacro(<<"Reading file");

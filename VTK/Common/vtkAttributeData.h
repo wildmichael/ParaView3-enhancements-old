@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAttributeData.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-28 05:50:29 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-06-28 18:49:49 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -63,7 +63,7 @@ public:
 
   // Description:
   // Allocate initial memory size.
-  virtual int Allocate(const int sz, const int ext=1000);
+  virtual int Allocate(const vtkIdType sz, const vtkIdType ext=1000);
   
   // Description:
   // Return object to instantiated state.

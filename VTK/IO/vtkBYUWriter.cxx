@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-21 15:21:51 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2001-06-28 18:49:49 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -177,11 +177,12 @@ void vtkBYUWriter::WriteGeometryFile(FILE *geomFile, int numPts)
   for (inPolys->InitTraversal(); inPolys->GetNextCell(npts,pts); )
     {
     // write this polygon
+    // treating vtkIdType as int
     for (i=0; i < (npts-1); i++)
       {
-      fprintf (geomFile, "%d ", pts[i]+1);
+      fprintf (geomFile, "%d ", (int)(pts[i]+1));
       }
-    fprintf (geomFile, "%d\n", -(pts[npts-1]+1));
+    fprintf (geomFile, "%d\n", (int)(-(pts[npts-1]+1)));
     }
 
   vtkDebugMacro(<<"Wrote " << numPts << " points, " << numPolys << " polygons");
