@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkHexahedron.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-10-27 21:35:07 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1994-11-01 23:12:25 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -18,6 +18,10 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #include "Line.hh"
 #include "Quad.hh"
 #include "CellArr.hh"
+
+static vlMath math;
+static vlLine line;
+static vlQuad quad;
 
 // Description:
 // Deep copy of cell.
@@ -46,7 +50,6 @@ int vlHexahedron::EvaluatePosition(float x[3], float closestPoint[3],
   float  fcol[3], rcol[3], scol[3], tcol[3];
   int i, j;
   float  d, *pt;
-  vlMath math;
   float derivs[24];
 //
 //  set initial position for Newton's method
@@ -282,7 +285,6 @@ void vlHexahedron::Contour(float value, vlFloatScalars *cellScalars,
 
 vlCell *vlHexahedron::GetEdge(int edgeId)
 {
-  static vlLine line;
   int *verts;
 
   verts = edges[edgeId];
@@ -300,7 +302,6 @@ vlCell *vlHexahedron::GetEdge(int edgeId)
 
 vlCell *vlHexahedron::GetFace(int faceId)
 {
-  static vlQuad quad;
   int *verts, i;
 
   verts = faces[faceId];
@@ -312,4 +313,68 @@ vlCell *vlHexahedron::GetFace(int faceId)
     }
 
   return &quad;
+}
+// 
+// Intersect hexa faces against line. Each hexa face is a quadrilateral.
+//
+int vlHexahedron::IntersectWithLine(float p1[3], float p2[3], float tol,
+                                    float &t, float x[3], float pcoords[3],
+                                    int& subId)
+{
+  int intersection=0;
+  float *pt1, *pt2, *pt3, *pt4;
+  float tTemp;
+  float pc[3], xTemp[3];
+  int faceNum;
+
+  t = LARGE_FLOAT;
+  for (faceNum=0; faceNum<6; faceNum++)
+    {
+    pt1 = this->Points.GetPoint(faces[faceNum][0]);
+    pt2 = this->Points.GetPoint(faces[faceNum][1]);
+    pt3 = this->Points.GetPoint(faces[faceNum][2]);
+    pt4 = this->Points.GetPoint(faces[faceNum][3]);
+
+    quad.Points.SetPoint(0,pt1);
+    quad.Points.SetPoint(1,pt2);
+    quad.Points.SetPoint(2,pt3);
+    quad.Points.SetPoint(3,pt4);
+
+    if ( quad.IntersectWithLine(p1, p2, tol, tTemp, xTemp, pc, subId) )
+      {
+      intersection = 1;
+      if ( tTemp < t )
+        {
+        t = tTemp;
+        x[0] = xTemp[0]; x[1] = xTemp[1]; x[2] = xTemp[2]; 
+        switch (faceNum)
+          {
+          case 0:
+            pcoords[0] = 0.0; pcoords[0] = pc[0]; pcoords[1] = 0.0;
+            break;
+
+          case 1:
+            pcoords[0] = 1.0; pcoords[0] = pc[0]; pcoords[1] = 0.0;
+            break;
+
+          case 2:
+            pcoords[0] = pc[0]; pcoords[1] = 0.0; pcoords[2] = pc[1];
+            break;
+
+          case 3:
+            pcoords[0] = pc[0]; pcoords[1] = 1.0; pcoords[2] = pc[1];
+            break;
+
+          case 4:
+            pcoords[0] = pc[0]; pcoords[1] = pc[1]; pcoords[2] = 0.0;
+            break;
+
+          case 5:
+            pcoords[0] = pc[0]; pcoords[1] = pc[1]; pcoords[2] = 1.0;
+            break;
+          }
+        }
+      }
+    }
+  return intersection;
 }

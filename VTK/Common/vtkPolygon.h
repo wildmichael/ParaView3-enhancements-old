@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPolygon.h,v $
   Language:  C++
-  Date:      $Date: 1994-10-27 21:37:13 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1994-11-01 23:12:45 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -52,6 +52,9 @@ public:
                        float& dist2, float weights[MAX_CELL_SIZE]);
   void EvaluateLocation(int& subId, float pcoords[3], float x[3],
                         float weights[MAX_CELL_SIZE]);
+  int IntersectWithLine(float p1[3], float p2[3], float tol, float& t,
+                        float x[3], float pcoords[3], int& subId);
+
   void ComputeWeights(float x[3], float weights[MAX_CELL_SIZE]);
 
   int ParameterizePolygon(float p0[3], float p10[3], float &l10, 

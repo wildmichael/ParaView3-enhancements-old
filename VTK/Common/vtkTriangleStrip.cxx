@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTriangleStrip.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-29 14:05:29 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1994-11-01 23:12:53 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -18,6 +18,11 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #include "CellArr.hh"
 #include "Line.hh"
 
+//
+// Static minimizes constructor / destructor calls
+//
+static vlTriangle tri;
+
 // Description:
 // Deep copy of cell.
 vlTriangleStrip::vlTriangleStrip(const vlTriangleStrip& ts)
@@ -25,11 +30,6 @@ vlTriangleStrip::vlTriangleStrip(const vlTriangleStrip& ts)
   this->Points = ts.Points;
   this->PointIds = ts.PointIds;
 }
-
-//
-// Static minimizes constructor / destructor calls
-//
-static vlTriangle tri;
 
 int vlTriangleStrip::EvaluatePosition(float x[3], float closestPoint[3],
                                       int& subId, float pcoords[3], 
@@ -146,4 +146,22 @@ vlCell *vlTriangleStrip::GetEdge(int edgeId)
   return &line;
 }
 
+// 
+// Intersect sub-triangles
+//
+int vlTriangleStrip::IntersectWithLine(float p1[3], float p2[3], float tol,
+                                       float& t, float x[3], float pcoords[3],
+                                       int& subId)
+{
+  for (subId=0; subId<this->Points.GetNumberOfPoints()-2; subId++)
+    {
+    tri.Points.SetPoint(0,this->Points.GetPoint(subId));
+    tri.Points.SetPoint(1,this->Points.GetPoint(subId+1));
+    tri.Points.SetPoint(2,this->Points.GetPoint(subId+2));
 
+    if ( tri.IntersectWithLine(p1, p2, tol, t, x, pcoords, subId) )
+      return 1;
+    }
+
+  return 0;
+}

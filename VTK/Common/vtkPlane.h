@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPlane.h,v $
   Language:  C++
-  Date:      $Date: 1994-10-27 21:35:24 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1994-11-01 23:12:35 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -47,6 +47,9 @@ public:
   vlGetVectorMacro(Origin,float,3);
 
   float DistanceToPlane(float x[3], float n[3], float p0[3]);
+
+  int IntersectWithLine(float p1[3], float p2[3], float n[3], float p0[3],
+                        float& t, float x[3]);
 
 protected:
   float Normal[3];
