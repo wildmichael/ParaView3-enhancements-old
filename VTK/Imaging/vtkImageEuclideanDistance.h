@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageEuclideanDistance.h,v $
   Language:  C++
-  Date:      $Date: 2001-07-24 18:03:53 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-07-24 19:30:05 $
+  Version:   $Revision: 1.4 $
   Thanks:    Olivier Cuisenaire who developed this class
              URL: http://ltswww.epfl.ch/~cuisenai
 	     Email: Olivier.Cuisenaire@epfl.ch
@@ -74,15 +74,15 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkImageDecomposeFilter.h"
 
-#define EDT_SAITO_CACHED 0
-#define EDT_SAITO 1 
+#define VTK_EDT_SAITO_CACHED 0
+#define VTK_EDT_SAITO 1 
 
 class VTK_EXPORT vtkImageEuclideanDistance : public vtkImageDecomposeFilter
 {
 public:
-  vtkImageEuclideanDistance();
-  static vtkImageEuclideanDistance *New() {return new vtkImageEuclideanDistance;};
-  const char *GetClassName() {return "vtkImageEuclideanDistance";};
+  static vtkImageEuclideanDistance *New();
+  vtkTypeMacro(vtkImageEuclideanDistance,vtkImageDecomposeFilter);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Used internally for streaming and threads.  
@@ -124,12 +124,20 @@ public:
   // More algorithms will be added later on. 
   vtkSetMacro(Algorithm, int);
   vtkGetMacro(Algorithm, int);
-  void SetAlgorithmToSaito () { this->SetAlgorithm(EDT_SAITO); } 
-  void SetAlgorithmToSaitoCached () { this->SetAlgorithm(EDT_SAITO_CACHED); }   
+  void SetAlgorithmToSaito () 
+    { this->SetAlgorithm(VTK_EDT_SAITO); } 
+  void SetAlgorithmToSaitoCached () 
+    { this->SetAlgorithm(VTK_EDT_SAITO_CACHED); }   
+
   virtual void IterativeExecuteData(vtkImageData *in, vtkImageData *out)
     { this->MultiThread(in,out); };
 
 protected:
+  vtkImageEuclideanDistance();
+  ~vtkImageEuclideanDistance() {}
+  vtkImageEuclideanDistance(const vtkImageEuclideanDistance&) {}
+  void operator=(const vtkImageEuclideanDistance&) {}
+
   float MaximumDistance;
   int Initialize;
   int ConsiderAnisotropy;
