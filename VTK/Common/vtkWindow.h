@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindow.h,v $
   Language:  C++
-  Date:      $Date: 1998-11-11 21:43:21 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1998-12-22 21:43:19 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -110,6 +110,11 @@ public:
   // Get name of rendering window
   vtkGetStringMacro(WindowName);
   virtual void SetWindowName(char * );
+
+  // Description:
+  // Ask each viewport owned by this Window to render its image and 
+  // synchronize this process.
+  virtual void Render() = 0;
 
   // Description:
   // Get the pixel data of an image, transmitted as RGBRGBRGB. The
