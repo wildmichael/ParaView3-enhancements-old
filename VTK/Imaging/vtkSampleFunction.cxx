@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSampleFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:55:14 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1997-03-11 18:29:59 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -173,6 +173,12 @@ void vtkSampleFunction::Execute()
       {
       p = output->GetPoint(ptId);
       this->ImplicitFunction->FunctionGradient(p, n);
+//
+// The normal is the negative of the gradient
+//
+      n[0] = -n[0];
+      n[1] = -n[1];
+      n[2] = -n[2];
       vtkMath::Normalize(n);
       newNormals->SetNormal(ptId,n);
       }
