@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpline.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:12:42 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-09-01 16:29:42 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -53,7 +53,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // ranges from (0,N-1), where N is the number of points in the spline.
 //
 // Splines can also be set up to be closed or open. Closed splines continue
-// from the last point to the first point with continous function and 
+// from the last point to the first point with continuous function and 
 // derivative values. (You don't need to duplicate the first point to close
 // the spline, just set ClosedOn.) If the spline is closed, the parameter
 // space of the spline becomes (0,N).
@@ -108,7 +108,7 @@ public:
 
   // Description:
   // Set the type of constraint of the left(right) end points. Three
-  // contraints are available:
+  // constraints are available:
   // 
   // 1: the first derivative at left(right)most point is set to
   // Left(Right)Value.

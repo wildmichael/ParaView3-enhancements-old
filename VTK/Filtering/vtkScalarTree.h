@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarTree.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:12:36 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-09-01 16:29:33 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,7 +43,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // .SECTION Description
 // vtkScalarTree creates a pointerless binary tree that helps search for
 // cells that lie within a particular scalar range. This object is used to
-// accelerate some contouring (and other scalar-baed techniques).
+// accelerate some contouring (and other scalar-based techniques).
 // 
 // The tree consists of an array of (min,max) scalar range pairs per node in
 // the tree. The (min,max) range is determined from looking at the range of
@@ -105,7 +105,7 @@ public:
 
   // Description:
   // Construct the scalar tree from the dataset provided. Checks build times
-  // and modified time from input and reconstructs the tree if necessaery.
+  // and modified time from input and reconstructs the tree if necessary.
   void BuildTree();
   
   // Description:
@@ -126,7 +126,7 @@ public:
                        vtkScalars *cellScalars);
 
   // Description:
-  // For legacy compatibiltiy. Do not use.
+  // For legacy compatibility. Do not use.
   vtkCell *GetNextCell(int& cellId, vtkIdList* &ptIds,
                        vtkScalars& cellScalars) 
     {return this->GetNextCell(cellId, ptIds, &cellScalars);}
