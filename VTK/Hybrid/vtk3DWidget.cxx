@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtk3DWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-26 12:31:51 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-03-26 21:12:06 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkCallbackCommand.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtk3DWidget, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtk3DWidget, "$Revision: 1.3 $");
 
 vtk3DWidget::vtk3DWidget()
 {
@@ -131,6 +131,7 @@ void vtk3DWidget::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->Superclass::PrintSelf(os,indent);
   
+  os << indent << "Interactor: " << this->Interactor << "\n";
   os << indent << "Prop3D: " << this->Prop3D << "\n";
   os << indent << "Input: " << this->Input << "\n";
   os << indent << "Priority: " << this->Priority << "\n";
