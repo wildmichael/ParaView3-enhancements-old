@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEdgeTable.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-20 19:25:58 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-07-26 17:16:16 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,6 +62,7 @@ public:
   vtkEdgeTable();
   ~vtkEdgeTable();
   const char *GetClassName() {return "vtkEdgeTable";};
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Free memory and return to instantiated state.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-25 13:02:11 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-07-26 17:16:15 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,8 +55,6 @@ vtkDataObject::vtkDataObject()
   this->PipelineMTime = 0;
   this->MemoryLimit = VTK_LARGE_INTEGER;
   this->EstimatedMemorySize = 0;
-  this->PointLock = vtkMutexLock::New();
-  this->CellLock = vtkMutexLock::New();
   this->Locality = 0;
 }
 
@@ -64,8 +62,6 @@ vtkDataObject::vtkDataObject()
 vtkDataObject::~vtkDataObject()
 {
   this->FieldData->Delete();
-  this->PointLock->Delete();
-  this->CellLock->Delete();
 }
 
 
