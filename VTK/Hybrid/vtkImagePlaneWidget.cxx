@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-21 19:18:47 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2002-08-22 13:55:46 $
+  Version:   $Revision: 1.40 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -40,7 +40,7 @@
 #include "vtkTextureMapToPlane.h"
 #include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.39 $");
+vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.40 $");
 vtkStandardNewMacro(vtkImagePlaneWidget);
 
 vtkCxxSetObjectMacro(vtkImagePlaneWidget, PlaneProperty, vtkProperty);
@@ -174,13 +174,20 @@ vtkImagePlaneWidget::~vtkImagePlaneWidget()
     {
     this->PlaneProperty->Delete();
     }
+    
   if ( this->SelectedPlaneProperty )
     {
     this->SelectedPlaneProperty->Delete();
     }
+
   if ( this->CursorProperty )
     {
     this->CursorProperty->Delete();
+    }
+
+  if ( this->MarginProperty )
+    {
+    this->MarginProperty->Delete();
     }
 
   this->ResliceAxes->Delete();
