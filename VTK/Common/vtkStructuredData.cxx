@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredData.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-05-28 06:49:59 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1994-06-07 16:56:14 $
+  Version:   $Revision: 1.10 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -119,7 +119,7 @@ int vlStructuredDataSet::GetNumberOfCells()
 
   for (i=0; i<3; i++)
     if (this->Dimensions[i] > 1)
-      nCells *= (this->Dimensions[1]-1);
+      nCells *= (this->Dimensions[i]-1);
 
   return nCells;
 }
