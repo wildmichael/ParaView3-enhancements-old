@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeMapper.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-29 14:51:35 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 2003-03-07 15:55:28 $
+  Version:   $Revision: 1.60 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -178,7 +178,13 @@ public:
   
 //ETX
 
-
+  // Description:
+  // The default behaviour is to use a vtkImageClip on the input to ensure it is 
+  // the right size. Allow the user to turn that behaviour off.
+  virtual void SetUseImageClipper(int);
+  vtkGetMacro(UseImageClipper, int );
+  vtkBooleanMacro(UseImageClipper, int );
+  
 protected:
   vtkVolumeMapper();
   ~vtkVolumeMapper();
@@ -200,6 +206,7 @@ protected:
   vtkTimeStamp         BuildTime;
 
   // Clipper used on input to ensure it is the right size
+  int UseImageClipper;
   vtkImageClip        *ImageClipper;
   
   
