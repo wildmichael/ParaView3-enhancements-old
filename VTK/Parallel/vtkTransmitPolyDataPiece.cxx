@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransmitPolyDataPiece.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-17 01:50:34 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-07-29 16:04:15 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkMultiProcessController.h"
 
-vtkCxxRevisionMacro(vtkTransmitPolyDataPiece, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkTransmitPolyDataPiece, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkTransmitPolyDataPiece);
 
 vtkCxxSetObjectMacro(vtkTransmitPolyDataPiece,Controller,
@@ -127,12 +127,12 @@ void vtkTransmitPolyDataPiece::Execute()
   if (procId == 0)
     {
     // It is important to synchronize these calls (all processes execute)
-    cerr << "Root Execute\n";
+    // cerr << "Root Execute\n";
     this->RootExecute();
     }
   else
     {
-    cerr << "Satellite Execute " << procId << endl;
+    // cerr << "Satellite Execute " << procId << endl;
     this->SatelliteExecute(procId);
     }
 
