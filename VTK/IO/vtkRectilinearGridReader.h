@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridReader.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:12:26 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-07-11 09:12:20 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -74,6 +74,8 @@ public:
   void SetInputString(char *in) {this->Reader->SetInputString(in);}
   void SetInputString(char *in,int len) {this->Reader->SetInputString(in,len);}
   char *GetInputString() { return this->Reader->GetInputString();}
+  void SetBinaryInputString(unsigned char *in, int len) {
+      this->Reader->SetBinaryInputString(in,len);};
 
   // Description:
   // Set/Get reading from an InputString instead of the default, a file.
