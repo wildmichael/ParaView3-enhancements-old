@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiProcessController.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-18 20:47:35 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-07-02 13:51:22 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -47,10 +47,10 @@ protected:
   void operator=(const vtkMultiProcessControllerRMI&);
 };
 
-vtkCxxRevisionMacro(vtkMultiProcessControllerRMI, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtkMultiProcessControllerRMI, "$Revision: 1.11 $");
 vtkStandardNewMacro(vtkMultiProcessControllerRMI);
 
-vtkCxxRevisionMacro(vtkMultiProcessController, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtkMultiProcessController, "$Revision: 1.11 $");
 
 //----------------------------------------------------------------------------
 // An RMI function that will break the "ProcessRMIs" loop.
@@ -108,7 +108,8 @@ vtkMultiProcessController::vtkMultiProcessController()
 // (We need to have a "GetNetReferenceCount" to avoid memory leaks.)
 vtkMultiProcessController::~vtkMultiProcessController()
 {
-  if ( this->OutputWindow == vtkOutputWindow::GetInstance() )
+  if ( this->OutputWindow &&
+       (this->OutputWindow == vtkOutputWindow::GetInstance()) )
     {
     vtkOutputWindow::SetInstance(0);
     }
