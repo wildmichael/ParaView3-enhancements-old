@@ -1,5 +1,5 @@
 #!/usr/bin/env perl
-# Time-stamp: <2002-01-09 14:26:21 barre>
+# Time-stamp: <2002-01-28 11:56:19 barre>
 #
 # Convert VTK headers to doxygen format
 #
@@ -258,13 +258,13 @@ foreach my $source (@files) {
         last if $line =~ /\/\/ \.NAME/;
 
         # Date. Example:
-        # Date:      $Date: 2002-01-09 19:26:43 $
+        # Date:      $Date: 2002-01-29 23:29:28 $
 
         if ($line =~ /^\s*Date:\s*(.*)$/) {
             $date = $1;
 
         # Version. Example:
-        # Version:   $Revision: 1.6 $
+        # Version:   $Revision: 1.7 $
 
         } elsif ($line =~ /^\s*Version:\s*(.*)$/) {
             $revision = $1;
@@ -315,7 +315,8 @@ foreach my $source (@files) {
             push @converted, "    $revision\n";
         }
 
-        push @converted, "    \@par     Thanks:\n", @thanks if @thanks;
+        # Do not add thanks anymore. Will be done externally.
+        # push @converted, "    \@par     Thanks:\n", @thanks if @thanks;
         
         # Read until the end of the documentation block is reached
         # Translate 'See Also', 'Caveats' and whatever .SECTION
