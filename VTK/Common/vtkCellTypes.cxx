@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellTypes.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-20 03:11:17 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-11-11 20:17:34 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -141,8 +141,12 @@ int vtkCellTypes::InsertNextCell(unsigned char type, int loc)
 void vtkCellTypes::SetCellTypes(int ncells, vtkUnsignedCharArray *cellTypes, vtkIntArray *cellLocations)
 {
   this->Size = ncells;
+
   this->TypeArray = cellTypes;
+  cellTypes->Register(this);
+
   this->LocationArray = cellLocations;
+  cellLocations->Register(this);
   this->Extend = 1;
   this->MaxId = -1;
 
