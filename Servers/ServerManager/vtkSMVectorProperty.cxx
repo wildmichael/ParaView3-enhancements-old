@@ -16,7 +16,7 @@
 
 #include "vtkPVXMLElement.h"
 
-vtkCxxRevisionMacro(vtkSMVectorProperty, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkSMVectorProperty, "$Revision: 1.2 $");
 
 //---------------------------------------------------------------------------
 vtkSMVectorProperty::vtkSMVectorProperty()
@@ -81,4 +81,5 @@ void vtkSMVectorProperty::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "NumberOfElementsPerCommand: " 
      << this->GetNumberOfElementsPerCommand() << endl;
   os << indent << "RepeatCommand: " << this->RepeatCommand << endl;
+  os << indent << "UseIndex: " << this->UseIndex << endl;
 }
