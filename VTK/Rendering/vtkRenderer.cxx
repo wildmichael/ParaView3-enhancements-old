@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-25 13:41:35 $
-  Version:   $Revision: 1.155 $
+  Date:      $Date: 2000-08-30 08:58:33 $
+  Version:   $Revision: 1.156 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1105,19 +1105,19 @@ void vtkRenderer::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Ambient: (" << this->Ambient[0] << ", " 
      << this->Ambient[1] << ", " << this->Ambient[2] << ")\n";
 
-  os << indent << "BackingStore: " << (this->BackingStore ? "On\n":"Off\n");
-  os << indent << "DisplayPoint: ("  << this->DisplayPoint[0] << ", " 
+  os << indent << "Backing Store: " << (this->BackingStore ? "On\n":"Off\n");
+  os << indent << "Display Point: ("  << this->DisplayPoint[0] << ", " 
     << this->DisplayPoint[1] << ", " << this->DisplayPoint[2] << ")\n";
   os << indent << "Lights:\n";
   this->Lights->PrintSelf(os,indent.GetNextIndent());
 
-  os << indent << "LightFollowCamera: "
+  os << indent << "Light Follow Camera: "
      << (this->LightFollowCamera ? "On\n" : "Off\n");
 
-  os << indent << "ViewPoint: (" << this->ViewPoint[0] << ", " 
+  os << indent << "View Point: (" << this->ViewPoint[0] << ", " 
     << this->ViewPoint[1] << ", " << this->ViewPoint[2] << ")\n";
 
-  os << indent << "Two-sided Lighting: " 
+  os << indent << "Two Sided Lighting: " 
      << (this->TwoSidedLighting ? "On\n" : "Off\n");
 
   os << indent << "Layer = " << this->Layer << "\n";
