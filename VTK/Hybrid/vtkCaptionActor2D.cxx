@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCaptionActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-30 00:00:43 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-06-30 01:23:02 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,7 +32,7 @@
 #include "vtkTextActor.h"
 #include "vtkTextProperty.h"
 
-vtkCxxRevisionMacro(vtkCaptionActor2D, "$Revision: 1.18 $");
+vtkCxxRevisionMacro(vtkCaptionActor2D, "$Revision: 1.19 $");
 vtkStandardNewMacro(vtkCaptionActor2D);
 
 vtkCxxSetObjectMacro(vtkCaptionActor2D,LeaderGlyph,vtkPolyData);
@@ -72,7 +72,7 @@ vtkCaptionActor2D::vtkCaptionActor2D()
   this->CaptionTextProperty->SetShadow(1);
   this->CaptionTextProperty->SetFontFamily(VTK_ARIAL);
   this->CaptionTextProperty->SetJustification(VTK_TEXT_LEFT);
-  this->CaptionTextProperty->SetVerticalJustification(VTK_TEXT_BOTTOM);
+  this->CaptionTextProperty->SetVerticalJustification(VTK_TEXT_CENTERED);
 
   // What is actually drawn
   this->CaptionActor = vtkTextActor::New();
@@ -478,6 +478,8 @@ void vtkCaptionActor2D::PrintSelf(ostream& os, vtkIndent indent)
     {
     os << indent << "Leader Glyph: (" << this->LeaderGlyph << ")\n";
     }
+  os << indent << "Padding: " << this->Padding << "\n";
+  os << indent << "Border: " << (this->Border ? "On\n" : "Off\n");
 }
 
 //----------------------------------------------------------------------------
