@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:47:18 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1997-09-12 21:33:35 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -253,17 +253,24 @@ int vtkSTLReader::ReadASCIISTL(FILE *fp, vtkFloatPoints *newPts, vtkCellArray *n
 
 int vtkSTLReader::GetSTLFileType(FILE *fp)
 {
-  char header[256];
+  unsigned char header[256];
   int type, i;
+	int numChars;
+
 //
 //  Read a little from the file to figure what type it is.
 //
-  fgets (header, 255, fp); /* first line is always ascii */
-  fgets (header, 18, fp); 
-  for (i=0, type=ASCII; i<17 && type == ASCII; i++) // don't test \0
-    if ( ! isprint(header[i]) )
-      type = BINARY;
-//
+	/* skip 255 characters so we are past any first line comment */
+  numChars = fread ((unsigned char *)header, 1, 255, fp);
+  for (i = 0, type=ASCII; i< numChars && type == ASCII; i++) // don't test \0
+    {
+		if (header[i] > 127)
+		  {
+		  type = BINARY;
+		  }
+    }
+
+		//
 // Reset file for reading
 //
   rewind (fp);
