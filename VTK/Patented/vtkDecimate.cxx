@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimate.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:47:14 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1995-07-29 11:13:06 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -113,13 +113,12 @@ void vtkDecimate::Execute()
   int numFEdges;
   vtkLocalVertexPtr fedges[2];
   int vtype;
-  int npts, *pts;
   vtkLocalVertexPtr verts[MAX_TRIS_PER_VERTEX];
   vtkLocalVertexPtr l1[MAX_TRIS_PER_VERTEX], l2[MAX_TRIS_PER_VERTEX];
-  int n1, n2, cellId;
+  int n1, n2;
   float ar, error;
   int totalEliminated=0;
-  int *map, numNewPts, size;
+  int size;
   vtkPolyData *input=(vtkPolyData *)this->Input;
   // do it this way because some compilers can't handle construction of
   // static objects in file scope.
@@ -338,7 +337,7 @@ void vtkDecimate::Execute()
 void vtkDecimate::CreateOutput(int numPts, int numTris, int numEliminated,
                               vtkPointData *pd, vtkPoints *inPts)
 {
-  int *map, numNewPts, size;
+  int *map, numNewPts;
   int i;
   int newCellPts[MAX_CELL_SIZE];
   unsigned short int ncells;
