@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDebugLeaks.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-31 20:00:22 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2003-02-03 14:46:59 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -38,7 +38,7 @@ int vtkDebugLeaksIgnoreClassesCheck(const char* s)
   return 0;
 }
 
-vtkCxxRevisionMacro(vtkDebugLeaks, "$Revision: 1.22 $");
+vtkCxxRevisionMacro(vtkDebugLeaks, "$Revision: 1.23 $");
 vtkStandardNewMacro(vtkDebugLeaks);
 
 // A hash function for converting a string to a long
@@ -98,7 +98,11 @@ public:
     {
       for (int i = 0; i < 64; i++)
         {
-        delete this->Nodes[i];
+        vtkDebugLeaksHashNode *pos = this->Nodes[i];
+        if(pos)
+          {
+          delete pos;
+          }
         }
     }
 
