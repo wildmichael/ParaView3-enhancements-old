@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkBYUWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-21 20:47:25 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-10-27 21:41:32 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -76,6 +76,15 @@ void vlBYUWriter::WriteGeometryFile(FILE *geomFile, int numPts)
   int npts, *pts;
   vlPoints *inPts;
   vlCellArray *inPolys;
+//
+// Check input
+//
+  if ( (inPts=this->Input->GetPoints()) == NULL ||
+  (inPolys=this->Input->GetPolys()) == NULL )
+    {
+    vlErrorMacro(<<"No data to write!");
+    return;
+    }
 //
 // Write header (not using fixed format! - potential problem in some files.)
 //
