@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:21 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 1999-09-21 14:57:16 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -316,11 +316,6 @@ class VTK_EXPORT vtkCamera : public vtkObject
   						 double farz)
     {return *this->GetCompositePerspectiveTransformMatrix(aspect,nearz,farz);}
   
-    
-  void ReadSelf(istream& is);
-  void WriteSelf(ostream& os);
-
-
 protected:
   vtkCamera();
   ~vtkCamera();
