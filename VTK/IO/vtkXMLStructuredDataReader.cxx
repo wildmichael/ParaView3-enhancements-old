@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLStructuredDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-02 19:18:08 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2003-05-05 13:45:23 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkXMLDataElement.h"
 #include "vtkXMLDataParser.h"
 
-vtkCxxRevisionMacro(vtkXMLStructuredDataReader, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkXMLStructuredDataReader, "$Revision: 1.7 $");
 
 //----------------------------------------------------------------------------
 vtkXMLStructuredDataReader::vtkXMLStructuredDataReader()
@@ -213,6 +213,10 @@ void vtkXMLStructuredDataReader::ReadXMLData()
       fractions[i+1] = fractions[i] + pieceDims[0]*pieceDims[1]*pieceDims[2];
       }
     }
+  if(fractions[this->NumberOfPieces] == 0)
+    {
+    fractions[this->NumberOfPieces] = 1;
+    }
   for(i=1;i <= this->NumberOfPieces;++i)
     {
     fractions[i] = fractions[i] / fractions[this->NumberOfPieces];
@@ -222,7 +226,7 @@ void vtkXMLStructuredDataReader::ReadXMLData()
   for(i=0;i < this->NumberOfPieces;++i)
     {
     // Set the range of progress for this piece.
-    this->SetProgressRange(progressRange, fractions, i);
+    this->SetProgressRange(progressRange, i, fractions);
     
     // Intersect the extents to get the part we need to read.
     int* pieceExtent = this->PieceExtents + i*6;

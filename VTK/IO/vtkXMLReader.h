@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLReader.h,v $
   Language:  C++
-  Date:      $Date: 2003-05-02 19:18:08 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-05-05 13:45:23 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -188,7 +188,7 @@ protected:
   // incrementally fine-tuned progress updates.
   virtual void GetProgressRange(float* range);
   virtual void SetProgressRange(float* range, int curStep, int numSteps);
-  virtual void SetProgressRange(float* range, float* fractions, int step);
+  virtual void SetProgressRange(float* range, int curStep, float* fractions);
   virtual void UpdateProgressDiscrete(float progress);
   float ProgressRange[2];
   

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-02 19:18:08 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2003-05-05 13:45:23 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,7 +32,7 @@
 
 #include <sys/stat.h>
 
-vtkCxxRevisionMacro(vtkXMLReader, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkXMLReader, "$Revision: 1.10 $");
 
 //----------------------------------------------------------------------------
 vtkXMLReader::vtkXMLReader()
@@ -717,11 +717,12 @@ void vtkXMLReader::SetProgressRange(float* range, int curStep, int numSteps)
 }
 
 //----------------------------------------------------------------------------
-void vtkXMLReader::SetProgressRange(float* range, float* fractions, int step)
+void vtkXMLReader::SetProgressRange(float* range, int curStep,
+                                    float* fractions)
 {
   float width = range[1] - range[0];
-  this->ProgressRange[0] = range[0] + fractions[step]*width;
-  this->ProgressRange[1] = range[0] + fractions[step+1]*width;
+  this->ProgressRange[0] = range[0] + fractions[curStep]*width;
+  this->ProgressRange[1] = range[0] + fractions[curStep+1]*width;
   this->UpdateProgressDiscrete(this->ProgressRange[0]);
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLUnstructuredDataReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-12-31 21:58:34 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-05-05 13:45:23 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -84,6 +84,11 @@ protected:
   
   // Read a data array whose tuples coorrespond to points.
   int ReadArrayForPoints(vtkXMLDataElement* da, vtkDataArray* outArray);
+  
+  // Get the number of points/cells in the given piece.  Valid after
+  // UpdateInformation.
+  virtual vtkIdType GetNumberOfPointsInPiece(int piece);
+  virtual vtkIdType GetNumberOfCellsInPiece(int piece)=0;
   
   // The update request.
   int UpdatePiece;

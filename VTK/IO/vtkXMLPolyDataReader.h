@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLPolyDataReader.h,v $
   Language:  C++
-  Date:      $Date: 2003-02-07 20:06:29 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-05-05 13:45:23 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -71,6 +71,10 @@ protected:
   // Read a data array whose tuples coorrespond to cells.
   int ReadArrayForCells(vtkXMLDataElement* da, vtkDataArray* outArray);
   
+  // Get the number of cells in the given piece.  Valid after
+  // UpdateInformation.
+  virtual vtkIdType GetNumberOfCellsInPiece(int piece);
+
   // The size of the UpdatePiece.
   int TotalNumberOfVerts;
   int TotalNumberOfLines;
