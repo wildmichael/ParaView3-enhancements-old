@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSource.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-16 16:47:56 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 1999-09-16 17:44:40 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -94,7 +94,7 @@ public:
   // of events.  It provides a mechanism to start a non-blocking update
   // in upstream ports.  A side effect of this method is that the 
   // UpdateExtents are propagated upstream.
-  void PreUpdate(vtkDataObject *output);
+  virtual void PreUpdate(vtkDataObject *output);
   
   // Description:
   // Turn on/off flag to control whether this object's data is released
