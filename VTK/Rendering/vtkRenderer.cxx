@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-11-10 18:08:28 $
-  Version:   $Revision: 1.162 $
+  Date:      $Date: 2000-12-04 02:20:29 $
+  Version:   $Revision: 1.163 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -727,6 +727,10 @@ void vtkRenderer::ResetCamera()
     }
 
   this->ResetCamera(allBounds);
+
+  // Here to let parallel/distributed compositing intercept 
+  // and do the right thing.
+  this->InvokeEvent(vtkCommand::ResetCameraEvent,this);
 }
 
 // Automatically set the clipping range of the camera based on the
@@ -744,6 +748,10 @@ void vtkRenderer::ResetCameraClippingRange()
     }
 
   this->ResetCameraClippingRange(allBounds);
+
+  // Here to let parallel/distributed compositing intercept 
+  // and do the right thing.
+  this->InvokeEvent(vtkCommand::ResetCameraClippingRangeEvent,this);
 }
 
 
