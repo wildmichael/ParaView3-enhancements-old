@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-03 16:10:39 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2002-08-07 21:43:35 $
+  Version:   $Revision: 1.34 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -40,7 +40,7 @@
 #include "vtkTextureMapToPlane.h"
 #include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.33 $");
+vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.34 $");
 vtkStandardNewMacro(vtkImagePlaneWidget);
 
 vtkCxxSetObjectMacro(vtkImagePlaneWidget, PlaneProperty, vtkProperty);
@@ -1469,7 +1469,11 @@ void vtkImagePlaneWidget::GenerateCursor()
 {
   // Construct initial points
   this->CursorPoints->SetNumberOfPoints(4);
-
+  this->CursorPoints->InsertPoint(0,0.0,0.0,0.0);
+  this->CursorPoints->InsertPoint(1,0.0,0.0,0.0);
+  this->CursorPoints->InsertPoint(2,0.0,0.0,0.0);
+  this->CursorPoints->InsertPoint(3,0.0,0.0,0.0);
+  
   this->CursorPolyData->SetPoints(this->CursorPoints);
 
   this->CursorMapper->SetInput(this->CursorPolyData);
