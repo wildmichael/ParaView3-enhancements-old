@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2004-01-21 20:25:34 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2004-01-23 16:39:37 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -74,7 +74,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <vector>
 
 vtkStandardNewMacro(vtkXdmfReader);
-vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.38 $");
+vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.39 $");
 
 #if defined(_WIN32) && (defined(_MSC_VER) || defined(__BORLANDC__))
 #  include <direct.h>
@@ -1778,7 +1778,7 @@ int vtkXdmfReader::GetParameterIndex(int Index)
 int vtkXdmfReader::SetParameterIndex(const char *ParameterName, int CurrentIndex) 
 {
   XdmfParameter *Param;
-  int Status;
+  int Status=-1;
 
   if(!this->DOM) 
     {

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDOM.cxx,v 1.11 2004-01-13 22:59:52 andy Exp $  */
-/*  Date : $Date: 2004-01-13 22:59:52 $ */
-/*  Version : $Revision: 1.11 $ */
+/*  Id : $Id: XdmfDOM.cxx,v 1.12 2004-01-23 16:39:37 berk Exp $  */
+/*  Date : $Date: 2004-01-23 16:39:37 $ */
+/*  Version : $Revision: 1.12 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -324,7 +324,7 @@ this->xml[tmp-1] = '\0';
 void 
 XdmfDOM::ExpandNode(XDMF_TREE_NODE *node, XdmfInt32 *size) {
         XdmfString type;
-        XdmfString ndata;
+        XdmfString ndata=NULL;
         XdmfString resname;
         XdmfString resdata;
         int  nchild;
