@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCleanPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-05-23 22:26:03 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-05-24 07:42:00 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -54,6 +54,7 @@ void vlCleanPolyData::Execute()
     return;
     }
 
+  pd = this->Input->GetPointData();
   this->PointData.CopyAllocate(pd);
 
   if ( this->Locator == NULL )
