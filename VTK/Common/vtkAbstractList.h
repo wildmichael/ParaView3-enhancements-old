@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractList.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-10 11:59:28 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-04-10 15:52:00 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,13 +60,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 // Since some compilers have problems with keyword typename, we have 
 // to do this with macros.
-// These macros define types for pointers to auxilary functions.
 #define vtkAbstractListCompareFunction(KeyType, CompareFunction) \
     int (*CompareFunction)(const KeyType&  k1, const KeyType& k2)
-#define vtkAbstractListCreateFunction(KeyType, CreateFunction) \
-    void (*CreateFunction)(KeyType& k1, const KeyType& k2)
-#define vtkAbstractListDeleteFunction(KeyType, DeleteFunction) \
-    void (*DeleteFunction)(KeyType& k1)
 
 template<class DType>
 class vtkAbstractList : public vtkContainer
@@ -78,8 +73,6 @@ public:
   // They will not work in subclasses, but this header file will 
   // be more readable.
   typedef vtkAbstractListCompareFunction(DType, CompareFunctionType);
-  typedef vtkAbstractListCreateFunction(DType,  CreateFunctionType);
-  typedef vtkAbstractListDeleteFunction(DType,  DeleteFunctionType);
 
   // Description:
   // Append an Item to the end of the list.
@@ -147,36 +140,9 @@ public:
   // This is the capacity of the container.
   virtual vtkIdType GetSize() = 0;
 
-  // Description:
-  // Set compare, create, and delete functions for keys and data.
-  void SetCreateFunction(CreateFunctionType cf)
-    { this->CreateFunction = cf; }
-  void SetCompareFunction(CompareFunctionType cf)
-    { this->CompareFunction = cf;}
-  void SetDeleteFunction(DeleteFunctionType cf)
-    { this->DeleteFunction = cf; }
-  
-  CompareFunctionType CompareFunction;
-  CreateFunctionType CreateFunction;
-  DeleteFunctionType DeleteFunction;
-
 protected:
   vtkAbstractList();
 };
-
-// Description:
-// If the key is C string, we assign the auxilary function pointers 
-// to string functions.
-template<class DataType>
-void vtkAbstractListDataIsString(vtkAbstractList<DataType>* me);
- 
-// Description:
-// If the data is reference counted, we assign the auxilary function 
-// pointers to reference counted functions.
-// Note that we can mostly compare pointers as integers, so we do not
-// have to set the compare function.
-template<class DataType>
-void vtkAbstractListDataIsReferenceCounted(vtkAbstractList<DataType>* me);
 
 #ifdef VTK_NO_EXPLICIT_TEMPLATE_INSTANTIATION
 #include "vtkAbstractList.txx"
