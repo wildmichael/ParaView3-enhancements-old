@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarBarActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-12 16:55:58 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2000-07-14 10:23:39 $
+  Version:   $Revision: 1.31 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -427,7 +427,7 @@ int vtkScalarBarActor::RenderOpaqueGeometry(vtkViewport *viewport)
                                       this->TitleMapper->GetInput());
       if (numLines != 0)
         {
-        titleHeight = stringHeight + (stringHeight / numLines) * 1.2; 
+        titleHeight = (int)(stringHeight + (stringHeight / numLines) * 1.2); 
         }
       else
         {
@@ -452,7 +452,7 @@ int vtkScalarBarActor::RenderOpaqueGeometry(vtkViewport *viewport)
                                       this->TitleMapper->GetInput());
       if (numLines != 0)
         {
-        titleHeight = stringHeight + (stringHeight / numLines) * 1.6; 
+        titleHeight = (int)(stringHeight + (stringHeight / numLines) * 1.6); 
         }
       else
         {
