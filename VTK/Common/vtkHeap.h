@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHeap.h,v $
   Language:  C++
-  Date:      $Date: 2003-06-20 17:25:42 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2003-11-06 21:43:44 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -64,8 +64,8 @@ public:
   // Set/Get the size at which blocks are allocated. If a memory
   // request is bigger than the block size, then that size
   // will be allocated.
-  vtkSetMacro(BlockSize,size_t);
-  vtkGetMacro(BlockSize,size_t);
+  virtual void SetBlockSize(size_t);
+  virtual size_t GetBlockSize() { return this->BlockSize;};
 
   // Description:
   // Get the number of allocations thus far.
