@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.h,v $
   Language:  C++
-  Date:      $Date: 2000-08-02 12:07:09 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2000-08-07 22:28:52 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -337,13 +337,6 @@ protected:
   // there should not be errors. If a data object subclass wants to try to 
   // take care of errors silently, then this method should be overridden.
   virtual int VerifyUpdateExtent();
-
-  // Description:
-  // If the update extent does not lie within the extent, this method will
-  // release the data and set the extent to be the update extent.
-  // Otherwise, nothing changes. If a subclass wants another behavior, 
-  // then this method should be overridden (as it is in vtkStructuredPoints)
-  virtual void ModifyExtentForUpdateExtent();
 
   // The ExtentType will be left as VTK_PIECES_EXTENT for data objects 
   // such as vtkPolyData and vtkUnstructuredGrid. The ExtentType will be 
