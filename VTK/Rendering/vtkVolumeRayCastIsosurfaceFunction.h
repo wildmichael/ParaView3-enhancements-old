@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastIsosurfaceFunction.h,v $
   Language:  C++
-  Date:      $Date: 1998-02-11 15:40:56 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-06-29 23:53:34 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,6 +38,19 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
+// .NAME vtkVolumeRayCastIsosurfaceFunction - An isosurface ray caster for volumes
+// .SECTION Description
+// vtkVolumeRayCastIsosurfaceFunction is a volume ray cast function that
+// intersects a ray with an analytic isosurface in a scalar field. The color
+// and shading parameters are defined in the vtkVolumeProperty of the 
+// vtkVolume, as well as the interpolation type to use when locating the
+// surface (either a nearest neighbor approach or a trilinear interpolation
+// approach)
+
+// .SECTION See Also
+// vtkVolumeRayCastFunction vtkVolumeRayCastMapper vtkVolumeProperty
+// vtkVolumeRayCastCompositeFunction vtkVolumeRayCastMIPFunction
+// vtkVolume vtkVolumeProperty
 
 #ifndef __vtkVolumeRayCastIsosurfaceFunction_h
 #define __vtkVolumeRayCastIsosurfaceFunction_h
