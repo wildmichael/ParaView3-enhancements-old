@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkStringList.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-12 17:30:36 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-07-08 16:24:54 $
+  Version:   $Revision: 1.5 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -39,22 +39,14 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include <stdarg.h>
-#include "vtkObjectFactory.h"
 #include "vtkStringList.h"
 
+#include "vtkObjectFactory.h"
+
+#include <stdarg.h>
+
 //----------------------------------------------------------------------------
-vtkStringList* vtkStringList::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkStringList");
-  if(ret)
-    {
-    return (vtkStringList*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkStringList;
-}
+vtkStandardNewMacro(vtkStringList);
 
 //----------------------------------------------------------------------------
 vtkStringList::vtkStringList()
