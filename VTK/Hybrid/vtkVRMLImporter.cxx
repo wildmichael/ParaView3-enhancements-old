@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLImporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-24 17:55:55 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2001-07-06 20:17:50 $
+  Version:   $Revision: 1.31 $
   Thanks:    Tom Citriniti who implemented and contributed this class
 
 
@@ -240,9 +240,9 @@ class VrmlNodeType {
       return vrmlPointerList::AllocateMemory(n);
     }
   
-    void operator delete(void *vtkNotUsed(ptr)) {}
+  void operator delete(void *vtkNotUsed(ptr)) {}
 
-  typedef struct {
+  struct NameTypeRec {
     char *name;
     int type;
     
@@ -253,7 +253,7 @@ class VrmlNodeType {
     
     void operator delete(void *vtkNotUsed(ptr)) {}
     
-  } NameTypeRec;
+  };
         
   // Node types are stored in this data structure:
   static VectorType<VrmlNodeType*> typeList;
@@ -864,19 +864,14 @@ extern void yyerror();
 #pragma alloca
 #else /* not MSDOS, __TURBOC__, or _AIX */
 #ifdef __hpux
-#ifdef __cplusplus
-extern "C" {
-  void *alloca (unsigned int);
-};
-#else /* not __cplusplus */
-void *alloca ();
-#endif /* not __cplusplus */
+#include <alloca.h>
 #endif /* __hpux */
 #endif /* not _AIX */
 #endif /* not MSDOS, or __TURBOC__ */
 #endif /* not sparc.  */
 #endif /* not GNU C.  */
 #endif /* alloca not defined.  */
+
 
 /* This is the parser code that is written into each bison parser
   when the %semantic_parser declaration is not specified in the grammar.
