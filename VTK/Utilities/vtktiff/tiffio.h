@@ -1,4 +1,4 @@
-/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/vtktiff/tiffio.h,v 1.1 2004-04-28 15:49:22 king Exp $ */
+/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/vtktiff/tiffio.h,v 1.2 2005-02-25 20:14:47 malaterre Exp $ */
 
 /*
  * Copyright (c) 1988-1997 Sam Leffler
@@ -254,7 +254,7 @@ TEXTERN uint32 TEXPORT TIFFDefaultStripSize(TIFF*, uint32);
 extern  void TIFFDefaultTileSize(TIFF*, uint32*, uint32*);
 extern  int TIFFFileno(TIFF*);
 extern  int TIFFGetMode(TIFF*);
-extern  int TIFFIsTiled(TIFF*);
+TEXPORT int TEXPORT TIFFIsTiled(TIFF*);
 extern  int TIFFIsByteSwapped(TIFF*);
 extern  int TIFFIsUpSampled(TIFF*);
 extern  int TIFFIsMSB2LSB(TIFF*);
