@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSight6Reader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-26 11:34:01 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2001-06-26 14:09:31 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1829,7 +1829,7 @@ int vtkEnSight6Reader::CreateUnstructuredGridOutput(int partId,
           nodeIds[j] = intIds[j];
           }
         cellId = ((vtkUnstructuredGrid*)this->GetOutput(partId))->
-          InsertNextCell(VTK_WEDGE, 5, nodeIds);
+          InsertNextCell(VTK_WEDGE, 6, nodeIds);
         this->CellIds[idx][cellType]->InsertNextId(cellId);
         lineRead = this->ReadNextDataLine(line);
         }
