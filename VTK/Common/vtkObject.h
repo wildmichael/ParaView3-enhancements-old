@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:47 $
-  Version:   $Revision: 1.81 $
+  Date:      $Date: 2002-01-29 16:34:38 $
+  Version:   $Revision: 1.82 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -89,7 +89,6 @@ public:
 
 #ifdef _WIN32
   // avoid dll boundary problems
-  void* operator new( size_t tSize, const char *, int);
   void* operator new( size_t tSize );
   void operator delete( void* p );
 #endif 
