@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLImporter.h,v $
   Language:  C++
-  Date:      $Date: 2000-07-12 11:19:59 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2000-09-01 14:21:22 $
+  Version:   $Revision: 1.4 $
   Thanks:    Tom Citriniti who implemented and contributed this class
 
 
@@ -58,7 +58,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // As you can see this implementation focuses on getting the geometry
 // translated.  The routes and scripting nodes are ignored since they deal
 // with directly accessing a nodes internal structure based on the VRML
-// spec. Since this is a translation the internal datastructures differ
+// spec. Since this is a translation the internal data structures differ
 // greatly from the VRML spec and the External Authoring Interface (see the
 // VRML spec). The DEF/USE mechanism does allow the Vtk user to extract
 // objects from the scene and directly manipulate them using the native

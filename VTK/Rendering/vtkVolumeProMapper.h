@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProMapper.h,v $
   Language:  C++
-  Date:      $Date: 2000-08-22 18:42:05 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-09-01 14:21:26 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -59,7 +59,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 //   http://www.3dvolumegraphics.com/3dvolumegraphics/product/index.htm
 //
-// If you encouter any problems with this class, please inform Kitware, Inc.
+// If you encounter any problems with this class, please inform Kitware, Inc.
 // at kitware@kitware.com.
 //
 //

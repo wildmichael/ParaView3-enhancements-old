@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSuperquadricSource.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:10:54 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-09-01 14:21:13 $
+  Version:   $Revision: 1.11 $
   Thanks:    Mike Halle, Brigham and Women's Hospital
 
 
@@ -111,14 +111,14 @@ public:
   void SetPhiResolution(int i);
 
   // Description:
-  // Set/Get Superquadric ring thickness (toriods only).
+  // Set/Get Superquadric ring thickness (toroids only).
   // Changing thickness maintains the outside diameter of the toroid.
   vtkGetMacro(Thickness,float);
   vtkSetClampMacro(Thickness,float,VTK_MIN_SUPERQUADRIC_THICKNESS,1.0);
 
   // Description:
   // Set/Get Superquadric north/south roundness. 
-  // Values range from 0 (rectanglar) to 1 (circular) to higher orders.
+  // Values range from 0 (rectangular) to 1 (circular) to higher orders.
   vtkGetMacro(PhiRoundness,float);
   void SetPhiRoundness(float e); 
 
@@ -134,7 +134,7 @@ public:
   vtkGetMacro(Size,float);
 
   // Description:
-  // Set/Get whether or not the superquadric is toroidal (1) or episoidal (0).
+  // Set/Get whether or not the superquadric is toroidal (1) or ellipsoidal (0).
   vtkBooleanMacro(Toroidal,int);
   vtkGetMacro(Toroidal,int);
   vtkSetMacro(Toroidal,int);
