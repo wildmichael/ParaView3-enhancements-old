@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader2.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-01 16:42:19 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-02-16 17:57:01 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include <ctype.h>
 #include <string.h>
 
-vtkCxxRevisionMacro(vtkImageReader2, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkImageReader2, "$Revision: 1.12 $");
 vtkStandardNewMacro(vtkImageReader2);
 
 #ifdef read
@@ -456,11 +456,23 @@ void vtkImageReader2::ComputeDataIncrements()
     case VTK_INT:
       fileDataLength = sizeof(int);
       break;
+    case VTK_UNSIGNED_INT:
+      fileDataLength = sizeof(unsigned int);
+      break;
+    case VTK_LONG:
+      fileDataLength = sizeof(long);
+      break;
+    case VTK_UNSIGNED_LONG:
+      fileDataLength = sizeof(unsigned long);
+      break;
     case VTK_SHORT:
       fileDataLength = sizeof(short);
       break;
     case VTK_UNSIGNED_SHORT:
       fileDataLength = sizeof(unsigned short);
+      break;
+    case VTK_CHAR:
+      fileDataLength = sizeof(char);
       break;
     case VTK_UNSIGNED_CHAR:
       fileDataLength = sizeof(unsigned char);
