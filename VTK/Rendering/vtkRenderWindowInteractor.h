@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:47:05 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1997-10-15 20:24:34 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -137,6 +137,9 @@ public:
   void SetUserMethod(void (*f)(void *), void *arg);
   void SetUserMethodArgDelete(void (*f)(void *));
 
+  void SetExitMethod(void (*f)(void *), void *arg);
+  void SetExitMethodArgDelete(void (*f)(void *));
+
 protected:
   vtkRenderWindow *RenderWindow;
   vtkCamera   *CurrentCamera;
@@ -172,6 +175,9 @@ protected:
   void (*UserMethod)(void *);
   void (*UserMethodArgDelete)(void *);
   void *UserMethodArg;
+  void (*ExitMethod)(void *);
+  void (*ExitMethodArgDelete)(void *);
+  void *ExitMethodArg;
 
 };
 

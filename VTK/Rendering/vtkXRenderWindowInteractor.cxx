@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-08-12 15:26:27 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1997-10-15 20:24:36 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -407,7 +407,10 @@ void vtkXRenderWindowInteractorCallback(Widget vtkNotUsed(w),
       XLookupString((XKeyEvent *)event,buffer,20,&ks,NULL);
       switch (ks)
 	{
-	case XK_e : exit(1); break;
+	case XK_e : 
+	  if (me->ExitMethod) (*me->ExitMethod)(me->ExitMethodArg);
+	  else exit(1);
+	  break;
 	case XK_u :
 	  if (me->UserMethod) (*me->UserMethod)(me->UserMethodArg);
 	  break;
