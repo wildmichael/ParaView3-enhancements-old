@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 1999-03-09 21:15:43 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-03-10 23:04:16 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,9 +64,6 @@ public:
     return new vtkOpenGLImageWindow;};
   const char *GetClassName() {return "vtkOpenGLImageWindow";};
   void PrintSelf(ostream& os, vtkIndent indent);
-
-  // output to the viewer.
-  vtkOpenGLImageWindow *GetOutput(){return this;};
 
   // Description:
   // Initialize the window for rendering.

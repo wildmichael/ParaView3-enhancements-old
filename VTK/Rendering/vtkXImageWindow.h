@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 1999-02-11 23:48:36 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-03-10 23:04:16 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,9 +69,6 @@ public:
   const char *GetClassName() {return "vtkXImageWindow";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
-  // output to the viewer.
-  vtkXImageWindow *GetOutput(){return this;};
-  
   // Description:
   // Gets the number of colors in the pseudo color map.
   vtkGetMacro(NumberOfColors,int);
