@@ -3,8 +3,8 @@
    Program:   Visualization Toolkit
    Module:    $RCSfile: vtkOOGLExporter.cxx,v $
    Language:  C++
-   Date:      $Date: 2001-11-02 16:43:16 $
-   Version:   $Revision: 1.2 $
+   Date:      $Date: 2001-11-07 18:28:50 $
+   Version:   $Revision: 1.3 $
    Thanks:    to Jeremy D. Gill of The J. P. Robarts Research Institute
  
  Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -625,7 +625,7 @@ void vtkOOGLExporter::WriteAnActor(vtkActor *anActor, FILE *fp, int count)
           fprintf(fp, "%s%i ", indent, (int) npts);
           for (i = 0; i < npts; i++)
             {
-            fprintf(fp, "%ld ", indx[i]);
+            fprintf(fp, "%d ", indx[i]);
             }
           fprintf(fp, "\n");
           }
