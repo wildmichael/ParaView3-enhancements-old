@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDecimate.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-02-26 10:30:12 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-02-26 14:22:38 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -13,7 +13,7 @@ without the express written consent of the authors.
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-#include "Decimat2.hh"
+#include "Decimate.hh"
 
 // Description:
 // Create object with target reduction of 90%, feature angle of 30 degrees, 
