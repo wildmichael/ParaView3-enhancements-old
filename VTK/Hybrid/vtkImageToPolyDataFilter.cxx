@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:42:39 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-11-15 14:20:20 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -77,29 +77,36 @@ void vtkImageToPolyDataFilter::Execute()
 {
   vtkImageData *input=this->GetInput();
   vtkPolyData *output=this->GetOutput();
-  vtkPolyData *tmpOutput=vtkPolyData::New();
-  vtkPolyData *tmpInput=vtkPolyData::New();
-  vtkAppendPolyData *append = vtkAppendPolyData::New();
+  vtkPolyData *tmpOutput;
+  vtkPolyData *tmpInput;
+  vtkAppendPolyData *append;
   vtkPolyData *appendOutput;
   vtkDataArray *inScalars = input->GetPointData()->GetScalars();
   vtkIdType numPixels=input->GetNumberOfPoints();
-  int dims[3], numComp=inScalars->GetNumberOfComponents();
+  int dims[3], numComp;
   float origin[3], spacing[3];
   vtkUnsignedCharArray *pixels;
-  int type=inScalars->GetDataType();
+  int type;
   int numPieces[2], extent[4];
   int i, j, newDims[3], totalPieces, pieceNum, abortExecute=0;
   float newOrigin[3];
+
 
   // Check input and initialize
   vtkDebugMacro(<<"Vectorizing image...");
   
   if ( inScalars == NULL || numPixels < 1 )
     {
-    vtkErrorMacro(<<"Not enough input to create output");
+    vtkDebugMacro(<<"Not enough input to create output");
     return;
     }
-  
+
+  append = vtkAppendPolyData::New();
+  tmpOutput=vtkPolyData::New();
+  tmpInput=vtkPolyData::New();    
+  numComp=inScalars->GetNumberOfComponents();
+  type=inScalars->GetDataType();
+
   appendOutput=append->GetOutput();
 
   input->GetDimensions(dims);

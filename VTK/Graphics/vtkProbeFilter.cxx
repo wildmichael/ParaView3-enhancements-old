@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProbeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:13:56 $
-  Version:   $Revision: 1.67 $
+  Date:      $Date: 2001-11-15 14:20:19 $
+  Version:   $Revision: 1.68 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -210,6 +210,12 @@ void vtkProbeFilter::ComputeInputUpdateExtents( vtkDataObject *output )
   vtkDataObject *source = this->GetSource();
   int usePiece = 0;
   
+  if (input == NULL || source == NULL)
+    {
+    vtkErrorMacro("Missing input or source.");
+    return;
+    }
+
   // What ever happend to CopyUpdateExtent in vtkDataObject?
   // Copying both piece and extent could be bad.  Setting the piece
   // of a structured data set will affect the extent.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPDataSetReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-31 16:36:12 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-11-15 14:20:22 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -50,6 +50,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkSource.h"
 #include "vtkDataSet.h"
+#include "vtkImageData.h"
 
 
 class VTK_PARALLEL_EXPORT vtkPDataSetReader : public vtkSource
@@ -86,9 +87,17 @@ protected:
   void operator=(const vtkPDataSetReader&);
 
   virtual void ExecuteInformation();
+  void ReadImageInformation(vtkImageData *output, char *str, ifstream *fp);
+  void ReadWholeExtent(vtkDataSet *output, char *str, ifstream *fp);
+  void ReadVTKFileInformation(char *str, ifstream *fp);
+
   virtual void Execute();
   void PolyDataExecute();
   void UnstructuredGridExecute();
+  void ImageDataExecute();
+  void StructuredGridExecute();
+
+  void CoverExtent(int ext[6], int *pieceMask);
 
   vtkDataSet *CheckOutput();
   void SetNumberOfPieces(int num);
@@ -98,10 +107,12 @@ protected:
 //ETX
 
   int VTKFileFlag;
+  int StructuredFlag;
   char *FileName;
   int DataType;
   int NumberOfPieces;
   char **PieceFileNames;
+  int **PieceExtents;
 };
 
 #endif

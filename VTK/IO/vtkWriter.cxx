@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:01 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2001-11-15 14:20:21 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -77,7 +77,8 @@ void vtkWriter::Write()
   //
   input->Update();
   //
-  if (input->GetUpdateTime()<this->WriteTime)
+  if (input->GetUpdateTime() < this->WriteTime &&
+      this->GetMTime() < this->WriteTime)
   {
     // we are up to date
     return;

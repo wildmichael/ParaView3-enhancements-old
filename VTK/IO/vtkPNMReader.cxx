@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNMReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:30:35 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-11-15 14:20:21 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -148,6 +148,12 @@ void vtkPNMReader::ExecuteInformation()
   do
     {
     c = vtkPNMReaderGetChar(fp);
+    if (c == '\0')
+      { // Bad file.
+      this->GetOutput()->SetWholeExtent(0, -1, 0, -1, 0, -1);
+      fclose(fp);
+      return;
+      }
     }
   while (c != 'P');
   magic[0] = c;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:41:40 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2001-11-15 14:20:18 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -285,7 +285,7 @@ void vtkClipDataSet::Execute()
                inPD, outPD, inCD, cellId, outCD[0], this->InsideOut);
     numNew[0] = conn[0]->GetNumberOfCells() - num[0];
     num[0] = conn[0]->GetNumberOfCells();
-
+ 
     if ( this->GenerateClippedOutput )
       {
       cell->Clip(this->Value, cellScalars, this->Locator, conn[1],

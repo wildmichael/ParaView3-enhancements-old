@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredData.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 18:22:14 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 2001-11-15 14:20:16 $
+  Version:   $Revision: 1.53 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -61,6 +61,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define VTK_YZ_PLANE 6
 #define VTK_XZ_PLANE 7
 #define VTK_XYZ_GRID 8
+#define VTK_EMPTY 9
 
 class VTK_COMMON_EXPORT vtkStructuredData : public vtkObject 
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensorGlyph.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:14:00 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2001-11-15 14:20:19 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -90,13 +90,13 @@ void vtkTensorGlyph::Execute()
   vtkFloatArray *newScalars=NULL;
   vtkFloatArray *newNormals=NULL;
   float *x, s;
-  vtkTransform *trans = vtkTransform::New();
+  vtkTransform *trans;
   vtkCell *cell;
   vtkIdList *cellPts;
   int npts;
-  vtkIdType *pts = new vtkIdType[this->GetSource()->GetMaxCellSize()];
+  vtkIdType *pts;
   vtkIdType ptIncr, cellId;
-  vtkMatrix4x4 *matrix = vtkMatrix4x4::New();
+  vtkMatrix4x4 *matrix;
   float *m[3], w[3], *v[3];
   float m0[3], m1[3], m2[3];
   float v0[3], v1[3], v2[3];
@@ -105,6 +105,16 @@ void vtkTensorGlyph::Execute()
   vtkPointData *pd, *outPD;
   vtkDataSet *input = this->GetInput();
   vtkPolyData *output = this->GetOutput();
+
+  if (this->GetSource() == NULL)
+    {
+    vtkErrorMacro("No source.");
+    return;
+    }
+
+  pts = new vtkIdType[this->GetSource()->GetMaxCellSize()];
+  trans = vtkTransform::New();
+  matrix = vtkMatrix4x4::New();
   
   // set up working matrices
   m[0] = m0; m[1] = m1; m[2] = m2; 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-31 16:36:08 $
-  Version:   $Revision: 1.87 $
+  Date:      $Date: 2001-11-15 14:20:16 $
+  Version:   $Revision: 1.88 $
 
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -242,6 +242,10 @@ inline vtkIdType vtkStructuredGrid::GetNumberOfCells()
   this->GetDimensions(dims);
   for (i=0; i<3; i++)
     {
+    if (dims[i] <= 0)
+      {
+      return 0;
+      }
     if (dims[i] > 1)
       {
       nCells *= (dims[i]-1);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-19 19:58:03 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2001-11-15 14:20:21 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -85,6 +85,7 @@ void vtkStructuredPointsWriter::WriteData()
   ostream *fp;
   vtkImageData *input=this->GetInput();
   int dim[3];
+  int *ext;
   float spacing[3], origin[3];
 
   vtkDebugMacro(<<"Writing vtk structured points...");
@@ -108,6 +109,12 @@ void vtkStructuredPointsWriter::WriteData()
   *fp << "SPACING " << spacing[0] << " " << spacing[1] << " " << spacing[2] << "\n";
 
   input->GetOrigin(origin);
+  // Do the electric slide. Move origin to min corner of extent.
+  // The alternative is to change the format to include an extent instead of dimensions.
+  ext = input->GetExtent();
+  origin[0] += ext[0] * spacing[0];
+  origin[1] += ext[2] * spacing[1];
+  origin[2] += ext[4] * spacing[2];
   *fp << "ORIGIN " << origin[0] << " " << origin[1] << " " << origin[2] << "\n";
 
   this->WriteCellData(fp, input);

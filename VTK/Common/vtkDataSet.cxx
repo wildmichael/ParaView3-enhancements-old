@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:41:03 $
-  Version:   $Revision: 1.83 $
+  Date:      $Date: 2001-11-15 14:20:14 $
+  Version:   $Revision: 1.84 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -50,12 +50,12 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // Constructor with default bounds (0,1, 0,1, 0,1).
 vtkDataSet::vtkDataSet ()
 {
-  this->Bounds[0] = 0.0;
-  this->Bounds[1] = 1.0;
-  this->Bounds[2] = 0.0;
-  this->Bounds[3] = 1.0;
-  this->Bounds[4] = 0.0;
-  this->Bounds[5] = 1.0;
+  this->Bounds[0] = VTK_LARGE_FLOAT;
+  this->Bounds[1] = -VTK_LARGE_FLOAT;
+  this->Bounds[2] = VTK_LARGE_FLOAT;
+  this->Bounds[3] = -VTK_LARGE_FLOAT;
+  this->Bounds[4] = VTK_LARGE_FLOAT;
+  this->Bounds[5] = -VTK_LARGE_FLOAT;
 
   this->PointData = vtkPointData::New();
   this->CellData = vtkCellData::New();
