@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCTHExtractAMRPart.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-09-22 16:33:47 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2003-10-24 16:53:17 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,10 +31,13 @@
 #include "vtkDataSetSurfaceFilter.h"
 #include "vtkPolyData.h"
 #include "vtkClipPolyData.h"
-#include "vtkKitwareContourFilter.h"
-#include "vtkContourFilter.h"
-#include "vtkKitwareCutter.h"
-#include "vtkCutter.h"
+#ifdef VTK_USE_PATENTED
+#  include "vtkPVKitwareContourFilter.h"
+#  include "vtkKitwareCutter.h"
+#else
+#  include "vtkContourFilter.h"
+#  include "vtkCutter.h"
+#endif
 #include "vtkStringList.h"
 #include "vtkPlane.h"
 #include "vtkIdList.h"
@@ -42,7 +45,7 @@
 
 
 
-vtkCxxRevisionMacro(vtkCTHExtractAMRPart, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkCTHExtractAMRPart, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkCTHExtractAMRPart);
 vtkCxxSetObjectMacro(vtkCTHExtractAMRPart,ClipPlane,vtkPlane);
 
@@ -346,7 +349,7 @@ void vtkCTHExtractAMRPart::ExecutePart(const char* arrayName,
   // Create the contour surface.
 #ifdef VTK_USE_PATENTED
   //vtkContourFilter *contour = vtkContourFilter::New();
-  vtkContourFilter *contour = vtkKitwareContourFilter::New();
+  vtkContourFilter *contour = vtkPVKitwareContourFilter::New();
   // vtkDataSetSurfaceFilter does not generate normals, so they will be lost.
   contour->ComputeNormalsOff();
 #else
