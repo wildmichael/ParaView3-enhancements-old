@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePlaneWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-18 16:21:47 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-04-23 17:10:46 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -190,12 +190,14 @@ public:
 
   // Description:
   // Make sure that the plane remains within the volume.
+  // Default is On.
   vtkSetMacro(RestrictPlaneToVolume,int);
   vtkGetMacro(RestrictPlaneToVolume,int);
   vtkBooleanMacro(RestrictPlaneToVolume,int);
 
   // Description:
   // Specify whether to interpolate the texture or not.
+  // Set before setting the vtkImageData imput. Default is On.
   vtkSetMacro(TextureInterpolate,int);
   vtkGetMacro(TextureInterpolate,int);
   vtkBooleanMacro(TextureInterpolate,int);
@@ -215,6 +217,8 @@ public:
   // and unselected can be manipulated.
   vtkSetObjectMacro(PlaneProperty,vtkProperty);
   vtkGetObjectMacro(PlaneProperty,vtkProperty);
+  vtkSetObjectMacro(SelectedPlaneProperty,vtkProperty);
+  vtkGetObjectMacro(SelectedPlaneProperty,vtkProperty);
 
   // Description:
   // Convenience method sets the plane orientation normal to the
