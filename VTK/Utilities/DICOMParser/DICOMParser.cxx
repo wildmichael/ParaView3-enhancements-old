@@ -3,8 +3,8 @@
   Program:   DICOMParser
   Module:    $RCSfile: DICOMParser.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-09-05 17:05:48 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2003-09-07 15:27:02 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 2003 Matt Turek
   All rights reserved.
@@ -760,7 +760,7 @@ void DICOMParser::ClearAllDICOMTagCallbacks()
        mapIter != this->Implementation->Map.end();
        mapIter++)
        {
-       dicom_stl::pair<DICOMMapKey, DICOMMapValue> mapPair = *mapIter;
+       dicom_stl::pair<const DICOMMapKey, DICOMMapValue> mapPair = *mapIter;
        DICOMMapValue mapVal = mapPair.second;
        dicom_stl::vector<DICOMCallback*>* cbVector = mapVal.second;
        
