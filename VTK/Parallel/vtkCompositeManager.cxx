@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCompositeManager.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-08 16:33:24 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-12-18 14:24:30 $
+  Version:   $Revision: 1.9 $
 
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -78,6 +78,8 @@ vtkCompositeManager::vtkCompositeManager()
   this->RenderWindow = NULL;
   this->RenderWindowInteractor = NULL;
   this->Controller = vtkMultiProcessController::GetGlobalController();
+
+  this->RendererSize[0] = this->RendererSize[1] = 0;
 
   this->StartTag = this->EndTag = 0;
   this->StartInteractorTag = 0;
