@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFloatArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-03-12 21:08:54 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1997-04-25 21:09:55 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -158,8 +158,10 @@ float *vtkFloatArray::Resize(const int sz)
   float *newArray;
   int newSize;
 
-  if (sz >= this->Size) newSize = this->Size + 
+  if ( sz > this->Size ) newSize = this->Size + 
     this->Extend*(((sz-this->Size)/this->Extend)+1);
+  else if (sz == this->Size)
+    return this->Array;
   else newSize = sz;
 
   if ( (newArray = new float[newSize]) == NULL )
