@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:13 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2000-12-13 13:22:25 $
+  Version:   $Revision: 1.38 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -140,9 +140,10 @@ static void vtkOpenGLImageMapperRender(
   double range[2];
   data->GetPointData()->GetScalars()->GetDataTypeRange( range );
 
+  // the value .999 is sensitive to z-buffer depth
   glRasterPos3f((2.0 * (GLfloat)(actorPos[0]) / vsize[0] - 1),
                 (2.0 * (GLfloat)(actorPos[1]) / vsize[1] - 1),
-                (front)?(-1):(.99999));
+                (front)?(-1):(.999));
 
   glPixelStorei( GL_UNPACK_ALIGNMENT, 1);
 
@@ -260,9 +261,10 @@ static void vtkOpenGLImageMapperRenderShort(
   double range[2];
   data->GetPointData()->GetScalars()->GetDataTypeRange( range );
   
+  // the value .999 is sensitive to z-buffer depth
   glRasterPos3f((2.0 * (GLfloat)(actorPos[0]) / vsize[0] - 1), 
                 (2.0 * (GLfloat)(actorPos[1]) / vsize[1] - 1), 
-                (front)?(-1):(.99999));
+                (front)?(-1):(.999));
 
   glPixelStorei( GL_UNPACK_ALIGNMENT, 1);
 
@@ -392,9 +394,10 @@ static void vtkOpenGLImageMapperRenderChar(
   double range[2];
   data->GetPointData()->GetScalars()->GetDataTypeRange( range );
 
+  // the value .999 is sensitive to z-buffer depth
   glRasterPos3f((2.0 * (GLfloat)(actorPos[0]) / vsize[0] - 1),
                 (2.0 * (GLfloat)(actorPos[1]) / vsize[1] - 1),
-                (front)?(-1):(.99999));
+                (front)?(-1):(.999));
 
 
   glPixelStorei( GL_UNPACK_ALIGNMENT, 1);
