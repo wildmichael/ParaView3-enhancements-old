@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereSource.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:18 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1999-05-05 11:33:11 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -88,7 +88,7 @@ public:
   // Description:
   // Set the number of points in the latitude direction (ranging
   // from StartPhi to EndPhi).
-  vtkSetClampMacro(PhiResolution,int,2,VTK_MAX_SPHERE_RESOLUTION);
+  vtkSetClampMacro(PhiResolution,int,3,VTK_MAX_SPHERE_RESOLUTION);
   vtkGetMacro(PhiResolution,int);
 
   // Description:
