@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:08:26 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-04-23 12:48:08 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -877,7 +877,7 @@ void vtkRIBExporter::WriteStrips (vtkPolyData *polyData, vtkScalars *s, vtkPrope
       // Get ready for next triangle
       p1 = p2;
       p2 = p3;
-      if (3*j < npts) p3 = pts[3+j];
+      if (j+3 < npts) p3 = pts[j+3];
       }
     }
 }
