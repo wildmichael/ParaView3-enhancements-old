@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-07 17:15:00 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1994-03-12 19:00:31 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -30,7 +30,7 @@ void vlPoints::GetPoints(vlIdList& ptId, vlFloatPoints& fp)
 {
   for (int i=0; i<ptId.NumberOfIds(); i++)
     {
-    fp.InsertPoint(i,this->GetPoint(ptId[i]));
+    fp.InsertPoint(i,this->GetPoint(ptId.GetId(i)));
     }
 }
 void vlPoints::ComputeBounds()

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPlaneSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-05 13:01:40 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1994-03-12 19:00:34 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -38,7 +38,7 @@ void vlPlaneSource::SetResolution(const int xR, const int yR)
 void vlPlaneSource::Execute()
 {
   float x[3], tc[2], n[3], xinc, yinc;
-  int pts[MAX_VERTS];
+  int pts[MAX_CELL_SIZE];
   int i, j;
   int numPts;
   int numPolys;

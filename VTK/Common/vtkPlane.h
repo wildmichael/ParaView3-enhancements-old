@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPlane.h,v $
   Language:  C++
-  Date:      $Date: 1994-03-08 20:46:59 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-03-12 19:00:34 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -32,8 +32,12 @@ public:
   vlPlane() {};
   char *GetClassName() {return "vlPlane";};
 
+  // project point onto plane, returning coordinates
   int ProjectPoint(float x[3], float origin[3], float normal[3], float xproj[3]);
 
+  float Evaluate(float normal[3], float origin[3], float x[3])
+    {return normal[0]*(x[0]-origin[0]) + normal[1]*(x[1]-origin[1]) + 
+            normal[2]*(x[2]-origin[2]);};
 };
 
 #endif

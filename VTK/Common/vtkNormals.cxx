@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkNormals.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-07 17:15:06 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-03-12 19:00:35 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -24,7 +24,7 @@ void vlNormals::GetNormals(vlIdList& ptId, vlFloatNormals& fp)
 {
   for (int i=0; i<ptId.NumberOfIds(); i++)
     {
-    fp.InsertNormal(i,this->GetNormal(ptId[i]));
+    fp.InsertNormal(i,this->GetNormal(ptId.GetId(i)));
     }
 }
 

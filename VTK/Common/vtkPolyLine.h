@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPolyLine.h,v $
   Language:  C++
-  Date:      $Date: 1994-03-08 20:45:23 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-03-12 19:00:27 $
+  Version:   $Revision: 1.3 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -36,6 +36,7 @@ public:
 
   int GenerateNormals(vlPoints *, vlCellArray *, vlFloatNormals *);
 
+  int CellDimension() {return 1;};
   float EvaluatePosition(float x[3], int& subId, float pcoords[3]);
   void EvaluateLocation(int& subId, float pcoords[3], float x[3]);
 

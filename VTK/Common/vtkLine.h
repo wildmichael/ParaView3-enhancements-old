@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkLine.h,v $
   Language:  C++
-  Date:      $Date: 1994-03-08 20:45:19 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-03-12 19:00:36 $
+  Version:   $Revision: 1.5 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -29,6 +29,7 @@ public:
   vlLine() {};
   char *GetClassName() {return "vlLine";};
 
+  int CellDimension() {return 1;};
   float EvaluatePosition(float x[3], int& subId, float pcoords[3]);
   void EvaluateLocation(int& subId, float pcoords[3], float x[3]);
 

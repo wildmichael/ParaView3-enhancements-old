@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPolyLine.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-03-08 20:45:23 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-03-12 19:00:28 $
+  Version:   $Revision: 1.3 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -88,17 +88,15 @@ int vlPolyLine::GenerateNormals(vlPoints *pts, vlCellArray *lines, vlFloatNormal
 float vlPolyLine::EvaluatePosition(float x[3], int& subId, float pcoords[3])
 {
   vlLine line;
-  vlFloatPoints pts(2);
   float pc[3], dist2, minDist2;
   int ignoreId, i;
 
   pcoords[1] = pcoords[2] = 0.0;
 
-  line.SetPoints(&pts);
-  for (minDist2=LARGE_FLOAT,i=0; i<this->Points->NumberOfPoints()-1; i++)
+  for (minDist2=LARGE_FLOAT,i=0; i<this->Points.NumberOfPoints()-1; i++)
     {
-    pts.SetPoint(0,this->Points->GetPoint(i));
-    pts.SetPoint(1,this->Points->GetPoint(i+1));
+    line.Points.SetPoint(0,this->Points.GetPoint(i));
+    line.Points.SetPoint(1,this->Points.GetPoint(i+1));
     dist2 = line.EvaluatePosition(x, ignoreId, pc);
     if ( dist2 < minDist2 )
       {
@@ -114,8 +112,8 @@ float vlPolyLine::EvaluatePosition(float x[3], int& subId, float pcoords[3])
 void vlPolyLine::EvaluateLocation(int& subId, float pcoords[3], float x[3])
 {
   int i;
-  float *a1 = this->Points->GetPoint(subId);
-  float *a2 = this->Points->GetPoint(subId+1);
+  float *a1 = this->Points.GetPoint(subId);
+  float *a2 = this->Points.GetPoint(subId+1);
 
   for (i=0; i<3; i++) 
     {

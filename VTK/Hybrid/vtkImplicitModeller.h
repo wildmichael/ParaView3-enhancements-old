@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkImplicitModeller.h,v $
   Language:  C++
-  Date:      $Date: 1994-03-03 20:03:09 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-03-12 19:00:37 $
+  Version:   $Revision: 1.3 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -30,6 +30,8 @@ public:
   ~vlImplicitModeller() {};
   char *GetClassName() {return "vlImplicitModeller";};
   void PrintSelf(ostream& os, vlIndent indent);
+
+  float ComputeModelBounds();
 
   vlSetClampMacro(MaximumDistance,float,0.0,1.0);
   vlGetMacro(MaximumDistance,float);
