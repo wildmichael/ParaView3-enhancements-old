@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-09 23:48:17 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-03-25 15:27:22 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -928,5 +928,14 @@ void vtkPointLocator2D::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Divisions: (" << this->Divisions[0] << ", " 
      << this->Divisions[1] << ")\n";
 
+  if ( this->Points )
+    {
+    os << indent << "Points:\n";
+    this->Points->PrintSelf(os,indent.GetNextIndent());
+    }
+  else
+    {
+    os << indent << "Points: (none)\n";
+    }
 }
 
