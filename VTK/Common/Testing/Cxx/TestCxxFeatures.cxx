@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestCxxFeatures.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-04 17:29:32 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2003-08-22 14:52:39 $
+  Version:   $Revision: 1.29 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -124,12 +124,6 @@ using namespace NamespaceTest;
 
 #ifdef _MSC_VER
 #pragma warning(pop)
-#endif
-
-#ifndef VTK_NO_STD_NAMESPACE
-# define vtkstd std
-#else
-# define vtkstd
 #endif
 
 #if !defined(VTK_CXX_SGI_6)
@@ -371,6 +365,53 @@ int TestBinaryWriting()
 
 //----------------------------------------------------------------------------
 
+class SafeBoolIdiomClass
+{
+private:
+  struct SafeBoolDummy { void Dummy() {} };
+  typedef void (SafeBoolDummy::* SafeBool)();
+public:
+  SafeBoolIdiomClass(int x): Value(x) {}
+  operator SafeBool()
+    {
+    return this->Value? &SafeBoolDummy::Dummy : 0;
+    }
+protected:
+  int Value;
+};
+
+int TestSafeBoolIdiom()
+{
+  int result = 1;
+  SafeBoolIdiomClass cTrue(1);
+  SafeBoolIdiomClass cFalse(0);
+  if(cTrue) {}
+  else
+    {
+    cerr << "if(cTrue) evaluates to false.\n";
+    result = 0;
+    }
+  if(!cTrue)
+    {
+    cerr << "if(!cTrue) evaluates to true.\n";
+    result = 0;
+    }
+  if(cFalse)
+    {
+    cerr << "if(cFalse) evaluates to true.\n";
+    result = 0;
+    }
+  if(!cFalse) {}
+  else
+    {
+    cerr << "if(!cFalse) evaluates to false.\n";
+    result = 0;
+    }
+  return result;
+}
+
+//----------------------------------------------------------------------------
+
 #define DO_TEST(x) \
   if(x()) { cout << "Passed: " #x "\n"; } \
   else { cout << "Failed: " #x "\n"; result = 1; }
@@ -386,5 +427,6 @@ int main()
   DO_TEST(TestIfScope);
   DO_TEST(TestNonTypeTemplate);
   DO_TEST(TestBinaryWriting);
+  DO_TEST(TestSafeBoolIdiom);
   return result;
 }
