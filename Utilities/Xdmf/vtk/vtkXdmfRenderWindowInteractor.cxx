@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: vtkXdmfRenderWindowInteractor.cxx,v 1.1 2002-12-02 17:13:54 clarke Exp $  */
-/*  Date : $Date: 2002-12-02 17:13:54 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: vtkXdmfRenderWindowInteractor.cxx,v 1.2 2003-05-08 18:42:22 andy Exp $  */
+/*  Date : $Date: 2003-05-08 18:42:22 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -44,10 +44,11 @@ vtkXdmfRenderWindowInteractor* vtkXdmfRenderWindowInteractor::New()
 void vtkXdmfRenderWindowInteractor::Start( int Block ) {
 
 if ( Block ) {
-#if !defined(CYGWIN)
-  vtkXRenderWindowInteractor::Start();
-#else
+// Check for WIN32 but without Cygwin with X11
+#if defined(_WIN32) && !defined(VTK_USE_OGLR)
   vtkWin32RenderWindowInteractor::Start();
+#else
+  vtkXRenderWindowInteractor::Start();
 #endif
 } else {
   this->LoopOnce();
@@ -57,7 +58,9 @@ if ( Block ) {
 
 void vtkXdmfRenderWindowInteractor::LoopOnce( )
 {
-#if !defined(CYGWIN)
+// Check for WIN32 but without Cygwin with X11
+#if defined(_WIN32) && !defined(VTK_USE_OGLR)
+#else
     XEvent event;
 
   if (!this->Initialized)
