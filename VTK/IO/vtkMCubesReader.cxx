@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMCubesReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-06-06 12:44:50 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1997-06-23 19:32:29 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,6 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
+#include <sys/types.h>
 #include <sys/stat.h>
 #include "vtkMCubesReader.h"
 #include "vtkMergePoints.h"
