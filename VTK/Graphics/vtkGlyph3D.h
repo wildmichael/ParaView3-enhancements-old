@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-07 14:12:07 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2001-09-09 11:50:29 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -229,6 +229,11 @@ public:
   vtkGetMacro(GeneratePointIds,int);
   vtkBooleanMacro(GeneratePointIds,int);
 
+  // Description:
+  // Set/Get the name of the PointIds array if generated. By default the Ids
+  // are named "InputPointIds", but this can be changed with this function.
+  vtkSetStringMacro(PointIdsName);
+  vtkGetStringMacro(PointIdsName);
 protected:
   vtkGlyph3D();
   ~vtkGlyph3D();
@@ -251,7 +256,8 @@ protected:
   int Clamping; // whether to clamp scale factor
   int IndexMode; // what to use to index into glyph table
   int GeneratePointIds; // produce input points ids for each output point
-   
+  char *PointIdsName;
+
 };
 
 // Description:
