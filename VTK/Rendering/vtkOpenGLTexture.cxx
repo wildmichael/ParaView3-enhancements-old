@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-05-03 01:15:12 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-05-03 21:03:12 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -138,7 +138,7 @@ void vtkOpenGLTexture::Load(vtkRenderer *vtkNotUsed(ren))
       }
     if ((xs > 1)||(ys > 1))
       {
-      vtkWarningMacro(<< "Resampling texture to power of two for OpenGL");
+      vtkDebugMacro(<< "Resampling texture to power of two for OpenGL");
       resultData = this->ResampleToPowerOfTwo(xsize, ysize, dataPtr, 
                                               bytesPerPixel);
       }
