@@ -30,7 +30,7 @@
 #include "vtkIntArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkExtractCells, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkExtractCells, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkExtractCells);
 
 #include <vtkstd/set>
@@ -518,3 +518,7 @@ void vtkExtractCells::GetCellIds( vtkIdList *array )
     }
 }   
 
+void vtkExtractCells::FreeCellList()
+{
+   vtkErrorMacro( "TODO" );
+}
