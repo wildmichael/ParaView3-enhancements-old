@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericEnSightReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-27 13:22:36 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-07-01 11:40:39 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -93,6 +93,8 @@ vtkGenericEnSightReader::vtkGenericEnSightReader()
   this->NumberOfComplexVectorsPerElement = 0;
   
   this->TimeValue = 0;
+  this->MinimumTimeValue = 0;
+  this->MaximumTimeValue = 0;
 }
 
 //----------------------------------------------------------------------------
