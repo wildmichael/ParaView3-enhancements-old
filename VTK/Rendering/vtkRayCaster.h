@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRayCaster.h,v $
   Language:  C++
-  Date:      $Date: 1999-01-22 15:07:01 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-02-03 06:09:45 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -171,6 +171,8 @@ public:
   vtkSetMacro( NumberOfThreads, int );
   vtkGetMacro( NumberOfThreads, int );
 
+  int GetNumberOfSamplesTaken();
+
   float *GetCurrentZBuffer()
   {
     if ( this->FirstBlend )
@@ -217,6 +219,8 @@ protected:
   vtkMultiThreader *Threader;
 
   int              NumberOfThreads;
+
+  int              NumberOfSamplesTaken[VTK_MAX_THREADS];
 
   vtkRenderer   *Renderer;
 
