@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkColorTransferFunction.h,v $
   Language:  C++
-  Date:      $Date: 2000-06-28 11:33:03 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2000-07-12 23:57:04 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -108,6 +108,7 @@ public:
   // Description:
   // Fills in a table of n function values between x1 and x2
   void GetTable( float x1, float x2, int n, float* table );
+  const unsigned char *GetTable( float x1, float x2, int n);
 
   // Description:
   // Construct a color transfer function from a table. Function range is
@@ -231,6 +232,9 @@ protected:
   vtkPiecewiseFunction	*Red;
   vtkPiecewiseFunction	*Green;
   vtkPiecewiseFunction	*Blue;
+  vtkTimeStamp BuildTime;
+  unsigned char *Table;
+  int TableSize;
 };
 
 #endif
