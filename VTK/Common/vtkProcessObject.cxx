@@ -27,7 +27,7 @@
 
 #include "vtkDebugLeaks.h"
 
-vtkCxxRevisionMacro(vtkProcessObject, "$Revision: 1.41 $");
+vtkCxxRevisionMacro(vtkProcessObject, "$Revision: 1.42 $");
 
 //----------------------------------------------------------------------------
 
@@ -44,6 +44,9 @@ public:
 #endif
     return new vtkProcessObjectDummyData;
     }
+private:
+  vtkProcessObjectDummyData(const vtkProcessObjectDummyData&);
+  void operator=(const vtkProcessObjectDummyData&);  // Not implemented.
 };
 
 //----------------------------------------------------------------------------
