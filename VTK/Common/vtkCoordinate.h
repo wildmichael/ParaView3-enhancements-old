@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCoordinate.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:09:50 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-05-24 16:57:52 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -139,6 +139,9 @@ public:
   int *GetComputedDisplayValue(vtkViewport *);
   int *GetComputedLocalDisplayValue(vtkViewport *);
 
+  float *GetComputedFloatViewportValue(vtkViewport *);
+  float *GetComputedFloatDisplayValue(vtkViewport *);
+
   // Description:
   // GetComputedValue() will return either World, Viewport or 
   // Display based on what has been set as the coordinate system.
@@ -160,6 +163,10 @@ protected:
   int   ComputedDisplayValue[2];
   int   ComputedViewportValue[2];
   int   Computing;
+
+  float ComputedFloatDisplayValue[2];
+  float ComputedFloatViewportValue[2];
+  
 };
 
 #endif
