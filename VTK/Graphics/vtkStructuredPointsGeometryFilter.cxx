@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredPointsGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-10 09:54:02 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1995-04-27 10:08:40 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -284,6 +284,8 @@ void vlStructuredPointsGeometryFilter::SetExtent(int *extent)
 
 void vlStructuredPointsGeometryFilter::PrintSelf(ostream& os, vlIndent indent)
 {
+  vlStructuredPointsToPolyDataFilter::PrintSelf(os,indent);
+
   os << indent << "Extent: \n";
   os << indent << "  Imin,Imax: (" << this->Extent[0] << ", " << this->Extent[1] << ")\n";
   os << indent << "  Jmin,Jmax: (" << this->Extent[2] << ", " << this->Extent[3] << ")\n";
