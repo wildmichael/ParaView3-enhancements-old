@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVTreeComposite.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-01 18:43:24 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-06-25 14:16:38 $
+  Version:   $Revision: 1.12 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -109,6 +109,11 @@ void vtkPVTreeComposite::PrintSelf(ostream& os, vtkIndent indent)
 //----------------------------------------------------------------------------
 void vtkPVTreeComposite::CheckForAbortRender()
 {
+  if (!this->RenderView)
+    {
+    return;
+    }
+  
   if ( ! this->Initialized)
     {
     // Never abort while printing.
