@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-06 22:45:52 $
-  Version:   $Revision: 1.76 $
+  Date:      $Date: 2001-12-07 16:00:29 $
+  Version:   $Revision: 1.77 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -288,7 +288,7 @@ float vtkVolumeRayCastMapper::GetGradientMagnitudeBias()
   return this->GradientEstimator->GetGradientMagnitudeBias();  
 }
 
-void vtkVolumeRayCastMapper::ReleaseGraphicsResources(vtkWindow *renWin)
+void vtkVolumeRayCastMapper::ReleaseGraphicsResources(vtkWindow *)
 {
 }
 
