@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCommunicator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:34:26 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-03-29 13:55:46 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,7 +29,7 @@
 #include "vtkDoubleArray.h"
 #include "vtkIdTypeArray.h"
 
-vtkCxxRevisionMacro(vtkCommunicator, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtkCommunicator, "$Revision: 1.11 $");
 
 template <class T>
 static int SendDataArray(T* data, int length, int handle, int tag, vtkCommunicator *self)
@@ -40,23 +40,23 @@ static int SendDataArray(T* data, int length, int handle, int tag, vtkCommunicat
   return 1;
 }
 
-template <class T>
-static int ReceiveDataArray(T* data, int length, int handle, int tag, vtkDataArray *array)
-{
-  return 1;
-}
 
 vtkCommunicator::vtkCommunicator()
 {
   this->MarshalString = 0;
   this->MarshalStringLength = 0;
   this->MarshalDataLength = 0;
- 
 }
 
 vtkCommunicator::~vtkCommunicator()
 {
   this->DeleteAndSetMarshalString(0, 0);
+}
+
+int vtkCommunicator::UseCopy = 0;
+void vtkCommunicator::SetUseCopy(int useCopy)
+{
+  vtkCommunicator::UseCopy = useCopy;
 }
 
 void vtkCommunicator::PrintSelf(ostream& os, vtkIndent indent)

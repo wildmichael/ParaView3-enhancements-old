@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCommunicator.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:34:27 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-03-29 13:55:46 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -107,6 +107,8 @@ public:
                       int tag) = 0;
 #endif
 
+  static void SetUseCopy(int useCopy);
+
 protected:
 
   void DeleteAndSetMarshalString(char *str, int strLength);
@@ -132,6 +134,8 @@ protected:
   int MarshalStringLength;
   // The data may not take up all of the string.
   int MarshalDataLength;
+
+  static int UseCopy;
 
 private:
   vtkCommunicator(const vtkCommunicator&);  // Not implemented.

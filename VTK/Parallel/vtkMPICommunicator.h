@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPICommunicator.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:34:35 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-03-29 13:55:46 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -161,6 +161,9 @@ public:
 
 //ETX
 
+  static char* Allocate(size_t size);
+  static void Free(char* ptr);
+
 protected:
 
   vtkSetObjectMacro(Group, vtkMPIGroup);
@@ -176,6 +179,7 @@ protected:
   // complicated for this case.
   vtkSetMacro(KeepHandle, int);
   vtkBooleanMacro(KeepHandle, int);
+
 
   static vtkMPICommunicator* WorldCommunicator;
 

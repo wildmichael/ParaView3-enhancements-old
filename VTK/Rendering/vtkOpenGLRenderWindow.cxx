@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-27 20:37:13 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 2002-03-29 13:55:47 $
+  Version:   $Revision: 1.62 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,7 +29,7 @@
 #include "vtkUnsignedCharArray.h"
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkOpenGLRenderWindow, "$Revision: 1.61 $");
+vtkCxxRevisionMacro(vtkOpenGLRenderWindow, "$Revision: 1.62 $");
 #endif
 
 #define MAX_LIGHTS 8
@@ -239,6 +239,7 @@ int vtkOpenGLRenderWindow::GetPixelData(int x1, int y1,
 
   if ( data->GetMaxId()+1 != size)
     {
+    vtkDebugMacro("Resizing array.");
     data->SetNumberOfComponents(3);
     data->SetNumberOfValues(size);
     }
@@ -584,6 +585,7 @@ int vtkOpenGLRenderWindow::GetRGBAPixelData(int x1, int y1, int x2, int y2,
   
   if ( data->GetMaxId()+1 != size)
     {
+    vtkDebugMacro("Resizing array.");
     data->SetNumberOfComponents(4);
     data->SetNumberOfValues(size);
     }
@@ -869,6 +871,7 @@ int vtkOpenGLRenderWindow::GetRGBACharPixelData(int x1, int y1,
 
   if ( data->GetMaxId()+1 != size)
     {
+    vtkDebugMacro("Resizing array.");
     data->SetNumberOfComponents(4);
     data->SetNumberOfValues(size);
     }
@@ -1166,6 +1169,7 @@ int vtkOpenGLRenderWindow::GetZbufferData( int x1, int y1, int x2, int y2,
   int size = width*height;
   if ( buffer->GetMaxId()+1 != size)
     {
+    vtkDebugMacro("Resizing array.");
     buffer->SetNumberOfComponents(1);
     buffer->SetNumberOfValues(size);
     }
