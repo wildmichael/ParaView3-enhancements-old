@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLDataParser.h,v $
   Language:  C++
-  Date:      $Date: 2003-06-13 14:41:23 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2003-06-13 18:34:56 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -132,6 +132,7 @@ protected:
   void AddElement(vtkXMLDataElement* element);
   void PushOpenElement(vtkXMLDataElement* element);
   vtkXMLDataElement* PopOpenElement();
+  void FreeAllElements();
   void PerformByteSwap(void* data, int numWords, int wordSize);
   
   // Data reading methods.
