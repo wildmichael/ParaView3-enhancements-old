@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOStreamWrapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-10 19:10:39 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-12-10 23:33:19 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -41,6 +41,8 @@ vtkOStreamWrapper::vtkOStreamWrapper(vtkOStreamWrapper& r): ostr(r.ostr)
 }
 
 //----------------------------------------------------------------------------
+VTKOSTREAM_OPERATOR(EndlType);
+VTKOSTREAM_OPERATOR(ManipType);
 VTKOSTREAM_OPERATOR(const vtkIndent&);
 VTKOSTREAM_OPERATOR(vtkObjectBase&);
 VTKOSTREAM_OPERATOR(const vtkLargeInteger&);
@@ -71,8 +73,6 @@ VTKOSTREAM_OPERATOR_FUNC(int* (*a)(void*));
 VTKOSTREAM_OPERATOR_FUNC(float* (*a)(void*));
 VTKOSTREAM_OPERATOR_FUNC(const char* (*a)(void*));
 VTKOSTREAM_OPERATOR_FUNC(void (*a)(void*, int*));
-VTKOSTREAM_OPERATOR_FUNC(ostream& (&a)(ostream&));
-VTKOSTREAM_OPERATOR_FUNC(ios& (&a)(ios&));
 
 //----------------------------------------------------------------------------
 vtkOStreamWrapper& vtkOStreamWrapper::write(const char* str,
