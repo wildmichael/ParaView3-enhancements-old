@@ -4,8 +4,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDICOMImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-08-26 17:11:20 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2003-11-07 15:17:23 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -29,7 +29,7 @@
 #include <vtkstd/vector>
 #include <vtkstd/string>
 
-vtkCxxRevisionMacro(vtkDICOMImageReader, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkDICOMImageReader, "$Revision: 1.12 $");
 vtkStandardNewMacro(vtkDICOMImageReader);
 
 class vtkDICOMImageReaderVector : public vtkstd::vector<vtkstd::string>
@@ -255,6 +255,11 @@ void vtkDICOMImageReader::ExecuteData(vtkDataObject *output)
     this->AppHelper->GetImageData(imgData, dataType, imageDataLength);
 
     void* buffer = data->GetScalarPointer();
+    if (buffer == NULL)
+      {
+      vtkErrorMacro(<< "No memory allocated for image data!");
+      return;
+      }
     memcpy(buffer, imgData, imageDataLength);
     }
   else if (this->DICOMFileNames->size() > 0)
@@ -268,6 +273,11 @@ void vtkDICOMImageReader::ExecuteData(vtkDataObject *output)
     this->AppHelper->RegisterPixelDataCallback(this->Parser);
 
     void* buffer = data->GetScalarPointer();
+    if (buffer == NULL)
+      {
+      vtkErrorMacro(<< "No memory allocated for image data!");
+      return;
+      }
     
     vtkstd::vector<vtkstd::string>::iterator fiter; 
 
@@ -367,4 +377,43 @@ void vtkDICOMImageReader::SetDirectoryName(const char* dn)
   this->Modified();
 }
 
+float* vtkDICOMImageReader::GetPixelSpacing()
+{
+  return this->AppHelper->GetPixelSpacing();
+}
+  
+int vtkDICOMImageReader::GetWidth()
+{
+  return this->AppHelper->GetWidth();
+}
+
+int vtkDICOMImageReader::GetHeight()
+{
+  return this->AppHelper->GetHeight();
+}
+
+float* vtkDICOMImageReader::GetImagePositionPatient()
+{
+  return this->AppHelper->GetImagePositionPatient();
+}
+
+int vtkDICOMImageReader::GetBitsAllocated()
+{
+  return this->AppHelper->GetBitsAllocated();
+}
+
+int vtkDICOMImageReader::GetPixelRepresentation()
+{
+  return this->AppHelper->GetPixelRepresentation();
+}
+
+int vtkDICOMImageReader::GetNumberOfComponents()
+{
+  return this->AppHelper->GetNumberOfComponents();
+}
+
+const char* vtkDICOMImageReader::GetTransferSyntaxUID()
+{
+  return this->AppHelper->GetTransferSyntaxUID().c_str();
+}
 
