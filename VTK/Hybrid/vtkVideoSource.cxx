@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVideoSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-12-08 07:08:49 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-12-08 16:25:08 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,8 +39,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include <ctype.h>
 #include <string.h>
+#include <time.h>
 #include <iostream.h>
-#include <unistd.h>
 #include "vtkVideoSource.h"
 #include "vtkObjectFactory.h"
 
@@ -528,12 +528,13 @@ static void *vtkVideoSourceGrabThread(struct ThreadInfoStruct *data)
 #ifdef _WIN32
       Sleep((int)(1000*remaining));
 #else
-      usleep((int)(1000000*remaining));
+      struct timespec sleep_time, dummy;
+      sleep_time.tv_sec = (int)remaining;
+      sleep_time.tv_nsec = (int)(1000000000*(remaining-sleep_time.tv_sec));
+      nanosleep(&sleep_time,&dummy);
 #endif
       }
     }
-
-  return NULL;
 }
 
 //----------------------------------------------------------------------------
