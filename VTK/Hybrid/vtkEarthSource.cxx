@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEarthSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:42:20 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1998-03-26 23:08:23 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to Tom Johnson at Johnson Scientific International who
              developed and contributed this class.
 
@@ -41,8 +41,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include <math.h>
 #include "vtkEarthSource.h"
-#include "vtkFloatPoints.h"
-#include "vtkFloatNormals.h"
+#include "vtkPoints.h"
+#include "vtkNormals.h"
 #include "vtkMath.h"
 
 // Description:
@@ -6835,8 +6835,8 @@ void vtkEarthSource::Execute()
   int i;
   int maxPts;
   int maxPolys;
-  vtkFloatPoints *newPoints;
-  vtkFloatNormals *newNormals;
+  vtkPoints *newPoints;
+  vtkNormals *newNormals;
   vtkCellArray *newPolys;
   float x[3], base[3];
   int Pts[4000];
@@ -6852,9 +6852,9 @@ void vtkEarthSource::Execute()
   maxPolys = 16;
   actualpts = actualpolys = 0;
 
-  newPoints = vtkFloatPoints::New();
+  newPoints = vtkPoints::New();
   newPoints->Allocate(maxPts);
-  newNormals = vtkFloatNormals::New();
+  newNormals = vtkNormals::New();
   newNormals->Allocate(maxPts);
   newPolys = vtkCellArray::New();
   newPolys->Allocate(newPolys->EstimateSize(maxPolys,4000/this->OnRatio));

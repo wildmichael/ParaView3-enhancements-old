@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBJReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-08-15 16:34:47 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-03-26 23:08:25 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,9 +51,9 @@ void vtkOBJReader::Execute()
 {
   FILE *fptr;
   char line[1024];
-  vtkFloatPoints *pts;
-  vtkFloatNormals *normals;
-  vtkFloatTCoords *tcoords;
+  vtkPoints *pts;
+  vtkNormals *normals;
+  vtkTCoords *tcoords;
   vtkCellArray *polys;
   float xyz[3], n[3], tc[3];
   vtkPolyData *output = this->GetOutput();
@@ -70,14 +70,15 @@ void vtkOBJReader::Execute()
     return;
     }
 
-  pts = vtkFloatPoints::New();
+  pts = vtkPoints::New();
   pts->Allocate(1000,5000);  
 
-  normals = vtkFloatNormals::New();
+  normals = vtkNormals::New();
   normals->Allocate(1000,5000);  
 
-  tcoords = vtkFloatTCoords::New();
-  tcoords->Allocate(1000,2,5000);  
+  tcoords = vtkTCoords::New();
+  tcoords->SetNumberOfComponents(2);
+  tcoords->Allocate(1000,5000);  
 
   polys = vtkCellArray::New();
   polys->Allocate(1000,5000);
