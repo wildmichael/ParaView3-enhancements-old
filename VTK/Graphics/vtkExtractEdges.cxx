@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractEdges.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-27 13:24:31 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2001-07-26 19:30:08 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,9 +44,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkMergePoints.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
+//-------------------------------------------------------------------------
 vtkExtractEdges* vtkExtractEdges::New()
 {
   // First try to create the object from the vtkObjectFactory
@@ -58,9 +56,6 @@ vtkExtractEdges* vtkExtractEdges::New()
   // If the factory was unable to create the object, then create it here.
   return new vtkExtractEdges;
 }
-
-
-
 
 // Construct object.
 vtkExtractEdges::vtkExtractEdges()
@@ -171,7 +166,6 @@ void vtkExtractEdges::Execute()
 
   vtkDebugMacro(<<"Created " << newLines->GetNumberOfCells() << " edges");
 
-  //
   //  Update ourselves.
   //
   edgeTable->Delete();
