@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:46:42 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1997-07-31 10:57:59 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -169,12 +169,6 @@ public:
   vtkGetVectorMacro(EdgeColor,float,3);
 
   // Description:
-  // Turn backface properties on and off (not implemented yet).
-  vtkGetMacro(Backface,int);
-  vtkSetMacro(Backface,int);
-  vtkBooleanMacro(Backface,int);
-
-  // Description:
   // Turn on/off fast culling of polygons based on orientation of normal 
   // with respect to camera. If backface culling is on, polygons facing
   // away from camera are not drawn.
@@ -204,7 +198,6 @@ protected:
   int   Interpolation; 
   int   Representation;
   int   EdgeVisibility;
-  int   Backface;
   int   BackfaceCulling;
   int   FrontfaceCulling;
 };
