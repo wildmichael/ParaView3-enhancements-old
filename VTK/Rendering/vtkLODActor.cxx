@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-06 13:17:23 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 1999-10-06 15:48:58 $
+  Version:   $Revision: 1.43 $
   
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -295,10 +295,10 @@ void vtkLODActor::UpdateOwnLODs()
   // connect the filters to the mapper, and set parameters
   this->PointSource->SetRadius(0);
   this->PointSource->SetNumberOfPoints(1);
-  this->MaskPoints->SetInput(this->Mapper->GetDataSetInput());
+  this->MaskPoints->SetInput(this->Mapper->GetInput());
   this->MaskPoints->SetMaximumNumberOfPoints(this->NumberOfCloudPoints);
   this->MaskPoints->SetRandomMode(1);
-  this->OutlineFilter->SetInput(this->Mapper->GetDataSetInput());
+  this->OutlineFilter->SetInput(this->Mapper->GetInput());
   this->MediumMapper->SetScalarRange(this->Mapper->GetScalarRange());
   this->MediumMapper->SetScalarVisibility(this->Mapper->GetScalarVisibility());
   

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-06 13:17:24 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 1999-10-06 15:48:58 $
+  Version:   $Revision: 1.53 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -225,7 +225,7 @@ public:
   // Description:
   // Allow access the the input as a vtkDataSet - a few objects need
   // this such as vtkActor, and some exporters
-  vtkDataSet *GetDataSetInput();
+  vtkDataSet *GetInput();
 //ETX
 
 protected:

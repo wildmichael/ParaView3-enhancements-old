@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBJExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-06 13:17:24 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1999-10-06 15:48:59 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -161,7 +161,7 @@ void vtkOBJExporter::WriteAnActor(vtkActor *anActor, FILE *fpObj, FILE *fpMtl,
   fprintf(fpMtl,"illum 3\n\n");
 
   // get the mappers input and matrix
-  ds = anActor->GetMapper()->GetDataSetInput();
+  ds = anActor->GetMapper()->GetInput();
   ds->Update();
   trans->SetMatrix(*(anActor->vtkProp3D::GetMatrixPointer()));
     

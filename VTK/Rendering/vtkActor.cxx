@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-06 13:17:21 $
-  Version:   $Revision: 1.88 $
+  Date:      $Date: 1999-10-06 15:48:57 $
+  Version:   $Revision: 1.89 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -453,10 +453,10 @@ unsigned long int vtkActor::GetRedrawMTime()
     {
     time = this->Mapper->GetMTime();
     mTime = ( time > mTime ? time : mTime );
-    if (this->GetMapper()->GetDataSetInput() != NULL)
+    if (this->GetMapper()->GetInput() != NULL)
       {
-      this->GetMapper()->GetDataSetInput()->Update();
-      time = this->Mapper->GetDataSetInput()->GetMTime();
+      this->GetMapper()->GetInput()->Update();
+      time = this->Mapper->GetInput()->GetMTime();
       mTime = ( time > mTime ? time : mTime );
       }
     }

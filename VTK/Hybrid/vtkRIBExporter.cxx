@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-06 13:17:20 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1999-10-06 15:48:56 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -588,7 +588,7 @@ void vtkRIBExporter::WriteActor(vtkActor *anActor)
   this->WriteProperty (anActor->GetProperty (), anActor->GetTexture ());
   
   // get the mappers input and matrix
-  aDataSet = anActor->GetMapper()->GetDataSetInput();
+  aDataSet = anActor->GetMapper()->GetInput();
   anActor->GetMatrix (matrix);
   matrix->Transpose();
 

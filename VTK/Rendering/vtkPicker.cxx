@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-06 13:17:24 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 1999-10-06 15:48:59 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -119,7 +119,7 @@ void vtkPicker::MarkPicked(vtkActor *assem, vtkActor *actor, vtkMapper *mapper,
   this->Assembly = assem;
   this->Actor = actor;
   this->Mapper = mapper;
-  this->DataSet = mapper->GetDataSetInput();
+  this->DataSet = mapper->GetInput();
   this->GlobalTMin = tMin;
   for (i=0; i < 3; i++) 
     {
