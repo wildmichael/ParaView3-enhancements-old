@@ -3,8 +3,8 @@
   Program:   Java Wrapper for VTK
   Module:    $RCSfile: vtkJavaUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-15 23:22:32 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1997-06-16 19:13:16 $
+  Version:   $Revision: 1.7 $
 
 This file's contents may be copied, reproduced or altered in any way 
 without the express written consent of the author.
@@ -82,7 +82,7 @@ void vtkHashTable::AddHashEntry(void *key,void *value)
   vtkHashNode *newpos;
   int loc;
   
-  newpos = vtkHashNode::New();
+  newpos = new vtkHashNode;
   newpos->key = key;
   newpos->value = value;
   newpos->next = NULL;
@@ -179,10 +179,10 @@ void vtkJavaAddObjectToHash(JNIEnv *env, jobject obj, void *ptr,
 { 
   if (!vtkInstanceLookup)
     {
-    vtkInstanceLookup = vtkHashTable::New();
-    vtkTypecastLookup = vtkHashTable::New();
-    vtkPointerLookup = vtkHashTable::New();
-    vtkDeleteLookup = vtkHashTable::New();
+    vtkInstanceLookup = new vtkHashTable;
+    vtkTypecastLookup = new vtkHashTable;
+    vtkPointerLookup = new vtkHashTable;
+    vtkDeleteLookup = new vtkHashTable;
 #ifdef _WIN32
     vtkGlobalMutex = CreateMutex(NULL, FALSE, NULL);
 #endif
