@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPythonUtil.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-03 19:27:34 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-08-08 20:20:10 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,6 +43,16 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkTimeStamp.h"
 #include "Python.h"
 #include "vtkCommand.h"
+
+#if defined(WIN32) && !defined(VTKSTATIC)
+ #if defined(vtkCommon_EXPORTS) || defined(VTKDLL)
+  #define VTK_EXPORT __declspec( dllexport )
+ #else
+  #define VTK_EXPORT __declspec( dllimport )
+ #endif
+#else
+ #define VTK_EXPORT
+#endif
 
 // This is the VTK/Python 'class,' it contains the method list and a pointer
 // to the superclass
