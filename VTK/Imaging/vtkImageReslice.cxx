@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReslice.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-26 01:38:43 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-08-29 21:32:20 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to David G Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -796,13 +796,19 @@ static inline int vtkResliceRound(float x)
   return vtkResliceRound((double)x);
 }
 
-// convert a float into an integer plus a fraction  
-template<class F>
-static inline int vtkResliceFloor(F x, F &f)
+// convert a double into an integer plus a fraction  
+static inline int vtkResliceFloor(double x, double &f)
 {
   int ix = vtkResliceFloor(x);
   f = x - ix;
+  return ix;
+}
 
+// convert a float into an integer plus a fraction  
+static inline int vtkResliceFloor(float x, float &f)
+{
+  int ix = vtkResliceFloor(x);
+  f = x - ix;
   return ix;
 }
 
