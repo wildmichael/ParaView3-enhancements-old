@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLookupTable.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:40:41 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1997-08-27 10:55:32 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -95,7 +95,7 @@ void  vtkLookupTable::SetTableRange(float min, float max)
 {
   if ( min >= max )
     {
-    vtkErrorMacro (<<"Bad table range");
+    vtkErrorMacro (<<"Bad table range: " << min << " >= " << max);
     return;
     }
 
