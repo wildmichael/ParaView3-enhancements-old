@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-10 15:40:43 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2002-04-16 14:15:02 $
+  Version:   $Revision: 1.34 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -183,6 +183,7 @@ public:
 
   // Description:
   // These are more esoteric events, but are useful in some cases.
+  virtual void OnExpose(int x, int y, int width, int height);
   virtual void OnConfigure(int width, int height);
   virtual void OnEnter(int ctrl, int shift, int x, int y);
   virtual void OnLeave(int ctrl, int shift, int x, int y);
