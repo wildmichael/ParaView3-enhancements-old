@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapperCollection.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-22 18:39:30 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-08-26 17:53:18 $
+  Version:   $Revision: 1.22 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,8 @@
 #define __vtkMapperC_h
 
 #include "vtkCollection.h"
-#include "vtkMapper.h"
+#include "vtkMapper.h" // Needed for direct access to mapper methods in 
+                       // inline functions
 
 class VTK_RENDERING_EXPORT vtkMapperCollection : public vtkCollection
 {
