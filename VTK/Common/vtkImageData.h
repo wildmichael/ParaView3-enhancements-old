@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.h,v $
   Language:  C++
-  Date:      $Date: 1996-07-23 12:24:57 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1996-07-26 12:37:40 $
+  Version:   $Revision: 1.6 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -85,8 +85,8 @@ public:
   
   // Description:
   // Get the bounds of the data array.
-  vtkSetVectorMacro(Bounds,int,VTK_IMAGE_BOUNDS_DIMENSIONS);
-  vtkGetVectorMacro(Bounds,int,VTK_IMAGE_BOUNDS_DIMENSIONS);
+  vtkSetVectorMacro(Bounds,int,10);
+  vtkGetVectorMacro(Bounds,int,10);
 
   void SetBounds(int min0, int max0, int min1, int max1, 
 		 int min2, int max2, int min3, int max3,
