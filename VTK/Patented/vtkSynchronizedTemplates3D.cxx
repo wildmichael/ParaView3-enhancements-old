@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-12 13:10:49 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2001-04-16 16:19:17 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -380,7 +380,7 @@ static void ContourImage(vtkSynchronizedTemplates3D *self, int *exExt,
 	// Increments are different for cells.
 	// Since the cells are not contoured until the second row of templates,
 	// subtract 1 from i,j,and k.  Note: first cube is formed when i=0, j=1, and k=1.
-	inCellId = (j-inExt[2]-1)*(xdim-1) + (k-inExt[4]-1)*(xdim-1)*(ydim-1);
+	inCellId = (xMin-inExt[0]) + (inExt[1]-inExt[0])*( (j-inExt[2]-1) + (k-inExt[4]-1)*(inExt[3]-inExt[2]) );
 
         y = origin[1] + j*spacing[1];
         xz[1] = y;
