@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMILVideoSource.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-08 00:58:27 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-08-08 13:19:37 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -140,7 +140,7 @@ public:
 
   // Description:
   // Set the system which you want use.  If you don't specify a system,
-  // then an attempt will be made to autodetect your system.
+  // then your primary digitizer will be autodetected.
   vtkSetStringMacro(MILSystemType);
   vtkGetStringMacro(MILSystemType);
   void SetMILSystemTypeToMeteor() { this->SetMILSystemType(VTK_MIL_METEOR); };
@@ -155,7 +155,7 @@ public:
   void SetMILSystemTypeToGenesisPlus() { this->SetMILSystemType(VTK_MIL_GENESIS_PLUS); };
   void SetMILSystemTypeToOrion() { this->SetMILSystemType(VTK_MIL_ORION); };
   void SetMILSystemTypeToCronos() { this->SetMILSystemType(VTK_MIL_CRONOS); };
-  void SetMILSystemTypeToODYSSEY() { this->SetMILSystemType(VTK_MIL_ODYSSEY); };
+  void SetMILSystemTypeToOdyssey() { this->SetMILSystemType(VTK_MIL_ODYSSEY); };
   // Description:
   // Set the system number if you have multiple systems of the same type
   vtkSetMacro(MILSystemNumber,int);
