@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParse.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 19:14:57 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-01-06 22:16:09 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,6 +57,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
     int   ReturnType;
     char *ReturnClass;
     char *Comment;
+    char *Signature;  
   } FunctionInfo;
   
   typedef struct _FileInfo
