@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-01 21:23:46 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-02-16 22:23:06 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -65,10 +65,10 @@ vtkPolyDataMapper::vtkPolyDataMapper()
 void vtkPolyDataMapper::Render(vtkRenderer *ren, vtkActor *act) 
 {
   int currentPiece, nPieces;
-  this->RenderPiece(ren, act);
 
   nPieces = this->NumberOfPieces * this->NumberOfSubPieces;
-  for(int i=1; i<this->NumberOfSubPieces; i++)
+
+  for(int i=0; i<this->NumberOfSubPieces; i++)
     {
     // If more than one pieces, render in loop.
     currentPiece = this->NumberOfSubPieces * this->Piece + i;
@@ -112,6 +112,32 @@ void vtkPolyDataMapper::Update()
     }
 
   this->vtkMapper::Update();
+}
+
+// Get the bounds for the input of this mapper as 
+// (Xmin,Xmax,Ymin,Ymax,Zmin,Zmax).
+float *vtkPolyDataMapper::GetBounds()
+{
+  static float bounds[] = {-1.0,1.0, -1.0,1.0, -1.0,1.0};
+
+  if ( ! this->GetInput() ) 
+    {
+    return bounds;
+    }
+  else
+    {
+    this->Update();
+    this->GetInput()->GetBounds(this->Bounds);
+    // if the bounds indicate NAN and subpieces are being used then 
+    // return NULL
+    if (((this->Bounds[0] == -VTK_LARGE_FLOAT) || 
+	 (this->Bounds[0] == VTK_LARGE_FLOAT)) &&
+	this->NumberOfSubPieces > 1)
+      {
+      return NULL;
+      }
+    return this->Bounds;
+    }
 }
 
 void vtkPolyDataMapper::PrintSelf(ostream& os, vtkIndent indent)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-04 21:01:38 $
-  Version:   $Revision: 1.106 $
+  Date:      $Date: 2001-02-16 22:23:06 $
+  Version:   $Revision: 1.107 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -319,6 +319,12 @@ float *vtkActor::GetBounds()
     }
 
   bounds = this->Mapper->GetBounds();
+  // Check for the special case when the mapper's bounds are unknown
+  if (!bounds)
+    {
+    return bounds;
+    }
+
   // Check for the special case when the actor is empty.
   if (bounds[0] > bounds[1])
     { 

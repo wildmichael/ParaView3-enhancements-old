@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-02-01 21:23:46 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-02-16 22:23:06 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -94,6 +94,13 @@ public:
   // Set the number of ghost cells to return.
   vtkSetMacro(GhostLevel, int);
   vtkGetMacro(GhostLevel, int);
+
+  // Description:
+  // Return bounding box (array of six floats) of data expressed as
+  // (xmin,xmax, ymin,ymax, zmin,zmax).
+  virtual float *GetBounds();
+  virtual void GetBounds(float bounds[6]) 
+    {this->vtkMapper::GetBounds(bounds);};
   
 protected:  
   vtkPolyDataMapper();
