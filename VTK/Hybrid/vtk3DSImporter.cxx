@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtk3DSImporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:21:21 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2003-03-20 13:15:42 $
+  Version:   $Revision: 1.35 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,14 +30,14 @@
 #include "vtkRenderer.h"
 #include "vtkStripper.h"
 
-vtkCxxRevisionMacro(vtk3DSImporter, "$Revision: 1.34 $");
+vtkCxxRevisionMacro(vtk3DSImporter, "$Revision: 1.35 $");
 vtkStandardNewMacro(vtk3DSImporter);
 
 //-----  This hack needed to compile using gcc3 on OSX until new stdc++.dylib
 #ifdef __APPLE_CC__
 extern "C"
 {
-  void oft_initHyb() 
+  void oft_initHybrid() 
   {
   extern void _ZNSt8ios_base4InitC4Ev();
   _ZNSt8ios_base4InitC4Ev();

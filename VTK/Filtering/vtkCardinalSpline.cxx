@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCardinalSpline.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-16 14:54:16 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2003-03-20 13:15:18 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,14 +20,14 @@
 #include "vtkObjectFactory.h"
 #include "vtkPiecewiseFunction.h"
 
-vtkCxxRevisionMacro(vtkCardinalSpline, "$Revision: 1.20 $");
+vtkCxxRevisionMacro(vtkCardinalSpline, "$Revision: 1.21 $");
 vtkStandardNewMacro(vtkCardinalSpline);
 
 //-----  This hack needed to compile using gcc3 on OSX until new stdc++.dylib
 #ifdef __APPLE_CC__
 extern "C"
 {
-  void oft_initFil() 
+  void oft_initFiltering() 
   {
   extern void _ZNSt8ios_base4InitC4Ev();
   _ZNSt8ios_base4InitC4Ev();
