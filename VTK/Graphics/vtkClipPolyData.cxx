@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-09-30 16:32:40 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1996-10-01 12:16:08 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -125,7 +125,7 @@ void vtkClipPolyData::Execute()
   //
   // Create objects to hold output of clip operation
   //
-  estimatedSize = numCells / 2;
+  estimatedSize = numCells;
   estimatedSize = estimatedSize / 1024 * 1024; //multiple of 1024
   if (estimatedSize < 1024) estimatedSize = 1024;
 
@@ -168,7 +168,7 @@ void vtkClipPolyData::Execute()
   //
   for ( i=0; i < numPts; i++ )
     {
-    s = this->ClipFunction->EvaluateFunction(inPts->GetPoint(i));
+    s = this->ClipFunction->FunctionValue(inPts->GetPoint(i));
     clipScalars->InsertScalar(i,s);
     }
 
