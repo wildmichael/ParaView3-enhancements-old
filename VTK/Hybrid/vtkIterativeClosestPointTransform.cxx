@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIterativeClosestPointTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-05 15:34:17 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-06-13 23:34:17 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to Sebastien Barre who developed this class. Thanks to
              Tim Hutton too for the idea.
 
@@ -384,7 +384,7 @@ void vtkIterativeClosestPointTransform::InternalUpdate()
   // Go
   
   int cell_id,sub_id;
-  float dist2, totaldist2;
+  float dist2, totaldist2 = 0;
 
   vtkPoints *temp, *a = points1, *b = points2;
 

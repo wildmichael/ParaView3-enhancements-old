@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeTextureMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-24 21:18:55 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2001-06-13 23:34:17 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -474,24 +474,24 @@ VolumeTextureMapper2D_YMajorDirection( T *data_ptr,
   unsigned char  *tptr;
   T              *dptr;
   unsigned short *nptr;
-  unsigned char  *gptr;
+  unsigned char  *gptr = NULL;
   float          *v, *t;
   unsigned char  *rgbaArray = me->GetRGBAArray();
-  unsigned short *encodedNormals;
+  unsigned short *encodedNormals = NULL;
   float          *gradientOpacityArray;
   unsigned char  *gradientMagnitudes;
-  float          *redDiffuseShadingTable;
-  float          *greenDiffuseShadingTable;
-  float          *blueDiffuseShadingTable;
-  float          *redSpecularShadingTable;
-  float          *greenSpecularShadingTable;
-  float          *blueSpecularShadingTable;
+  float          *redDiffuseShadingTable = NULL;
+  float          *greenDiffuseShadingTable = NULL;
+  float          *blueDiffuseShadingTable = NULL;
+  float          *redSpecularShadingTable = NULL;
+  float          *greenSpecularShadingTable = NULL;
+  float          *blueSpecularShadingTable = NULL;
   int            shade;
   float          tmpval;
   int            cropping, croppingFlags;
   float          *croppingBounds;
   int            flag[3], tmpFlag, index;
-  int            clipLow, clipHigh;
+  int            clipLow = 0, clipHigh = 0;
   vtkRenderWindow  *renWin = me->GetRenderWindow();
   float            spacing[3], origin[3];
   unsigned char    zero[4];
@@ -883,24 +883,24 @@ VolumeTextureMapper2D_ZMajorDirection( T *data_ptr,
   unsigned char  *tptr;
   T              *dptr;
   unsigned short *nptr;
-  unsigned char  *gptr;
+  unsigned char  *gptr = NULL;
   float          *v, *t;
   unsigned char  *rgbaArray = me->GetRGBAArray();
-  unsigned short *encodedNormals;
+  unsigned short *encodedNormals = NULL;
   float          *gradientOpacityArray;
   unsigned char  *gradientMagnitudes;
-  float          *redDiffuseShadingTable;
-  float          *greenDiffuseShadingTable;
-  float          *blueDiffuseShadingTable;
-  float          *redSpecularShadingTable;
-  float          *greenSpecularShadingTable;
-  float          *blueSpecularShadingTable;
+  float          *redDiffuseShadingTable = NULL;
+  float          *greenDiffuseShadingTable = NULL;
+  float          *blueDiffuseShadingTable = NULL;
+  float          *redSpecularShadingTable = NULL;
+  float          *greenSpecularShadingTable = NULL;
+  float          *blueSpecularShadingTable = NULL;
   int            shade;
   float          tmpval;
   int            cropping, croppingFlags;
   float          *croppingBounds;
   int            flag[3], tmpFlag, index;
-  int            clipLow, clipHigh;
+  int            clipLow = 0, clipHigh = 0;
   vtkRenderWindow  *renWin = me->GetRenderWindow();
   float            spacing[3], origin[3];
   unsigned char    zero[4];
