@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGESignaReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-04 14:27:35 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-01-04 23:00:31 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,8 +43,30 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkByteSwap.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkGESignaReader, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkGESignaReader, "$Revision: 1.9 $");
 vtkStandardNewMacro(vtkGESignaReader);
+
+
+int vtkGESignaReader::CanReadFile(const char* fname)
+{ 
+  FILE *fp = fopen(fname, "rb");
+  if (!fp)
+    {
+    return 0;
+    }
+  
+  int magic;
+  fread(&magic, 4, 1, fp);
+  vtkByteSwap::Swap4BE(&magic);
+  
+  if (magic != 0x494d4746)
+    {
+    fclose(fp);
+    return 0;
+    }
+  return 1;
+}
+
 
 void vtkGESignaReader::ExecuteInformation()
 {
