@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-23 15:49:47 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-11-19 19:38:57 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,14 +25,13 @@
 #include "vtkDataSetAttributes.h"
 #include "vtkInstantiator.h"
 #include "vtkObjectFactory.h"
-#include "vtkString.h"
 #include "vtkXMLDataElement.h"
 #include "vtkXMLDataParser.h"
 #include "vtkXMLFileReadTester.h"
 
 #include <sys/stat.h>
 
-vtkCxxRevisionMacro(vtkXMLReader, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkXMLReader, "$Revision: 1.4 $");
 
 //----------------------------------------------------------------------------
 vtkXMLReader::vtkXMLReader()
@@ -550,7 +549,8 @@ void vtkXMLReader::SetDataArraySelections(vtkXMLDataElement* eDSA,
   for(i=0;i < numArrays;++i)
     {
     vtkXMLDataElement* eNested = eDSA->GetNestedElement(i);
-    names[i] = vtkString::Duplicate(eNested->GetAttribute("Name"));
+    names[i] = new char[ strlen(eNested->GetAttribute("Name"))+1 ];
+    strcpy(names[i], eNested->GetAttribute("Name"));
     }
   sel->SetArrays(names, numArrays);
   this->DestroyStringArray(numArrays, names);
