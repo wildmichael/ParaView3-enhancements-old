@@ -1,12 +1,10 @@
-#include "Precompiled_Header.h"
-#pragma hdrstop
 /*=========================================================================
 
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-16 14:55:47 $
-  Version:   $Revision: 1.74 $
+  Date:      $Date: 2001-03-16 15:13:14 $
+  Version:   $Revision: 1.75 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
