@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMandelbrotSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-29 20:07:52 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2001-01-29 22:26:29 $
+  Version:   $Revision: 1.23 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -192,7 +192,6 @@ void vtkImageMandelbrotSource::ExecuteInformation()
   float origin[3];
   float spacing[3];
   vtkImageData *output = this->GetOutput();
-  unsigned long mem;
   
   output->SetWholeExtent(this->WholeExtent);
   for (idx = 0; idx < 3; ++idx)

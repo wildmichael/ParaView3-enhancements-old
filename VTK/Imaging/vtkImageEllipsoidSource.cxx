@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageEllipsoidSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-29 20:07:52 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-01-29 22:26:29 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -147,7 +147,6 @@ void vtkImageEllipsoidSource::GetWholeExtent(int extent[6])
 void vtkImageEllipsoidSource::ExecuteInformation()
 {
   vtkImageData *data = this->GetOutput();
-  unsigned long mem;
   
   data->SetSpacing(1.0, 1.0, 1.0);
   data->SetWholeExtent(this->WholeExtent);
