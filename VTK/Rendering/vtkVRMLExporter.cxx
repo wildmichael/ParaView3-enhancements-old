@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-12-05 20:09:43 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1997-01-03 18:41:50 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -431,7 +431,7 @@ void vtkVRMLExporter::WriteAnActor(vtkActor *anActor, FILE *fp)
     if (colors)
 	{
 	fprintf(fp,"            color Color {");
-	fprintf(fp,"              rgb [");
+	fprintf(fp,"              color [");
 	for (cells->InitTraversal(); cells->GetNextCell(npts,indx); )
 	  {
 	  fprintf(fp,"              ");
@@ -508,7 +508,7 @@ void vtkVRMLExporter::WritePointData(vtkPoints *points, vtkNormals *normals,
   if (colors)
     {
     fprintf(fp,"            color DEF VTKcolors Color {\n");
-    fprintf(fp,"              rgb [\n");
+    fprintf(fp,"              color [\n");
     for (i = 0; i < colors->GetNumberOfColors(); i++)
       {
       c = colors->GetColor(i);
