@@ -43,7 +43,7 @@
 #include "vtkMultiProcessController.h"
 
 vtkStandardNewMacro(vtkRedistributePolyData);
-vtkCxxRevisionMacro(vtkRedistributePolyData, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkRedistributePolyData, "$Revision: 1.13 $");
 
 vtkCxxSetObjectMacro(vtkRedistributePolyData, Controller, 
                      vtkMultiProcessController);
@@ -95,10 +95,6 @@ void vtkRedistributePolyData::Execute()
     }
 
   int myId;
-  if (!this->Controller)
-    {
-    this->SetController(vtkMultiProcessController::GetGlobalController());
-    }
 
   if (!this->Controller)
     {
