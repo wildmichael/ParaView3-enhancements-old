@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkGlyph3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-09 19:50:49 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1994-11-15 16:49:19 $
+  Version:   $Revision: 1.15 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -230,15 +230,9 @@ void vlGlyph3D::Execute()
 void vlGlyph3D::Update()
 {
   // make sure input is available
-  if ( this->Input == NULL )
+  if ( this->Input == NULL || this->Source == NULL )
     {
     vlErrorMacro(<< "No input!");
-    return;
-    }
-
-  if ( this->Source == NULL )
-    {
-    vlErrorMacro(<< "No source data!");
     return;
     }
 
@@ -252,13 +246,17 @@ void vlGlyph3D::Update()
 
   if (this->Input->GetMTime() > this->GetMTime() || 
   this->Source->GetMTime() > this->GetMTime() || 
-  this->GetMTime() > this->ExecuteTime )
+  this->GetMTime() > this->ExecuteTime || this->GetDataReleased() )
     {
     if ( this->StartMethod ) (*this->StartMethod)(this->StartMethodArg);
     this->Execute();
     this->ExecuteTime.Modified();
+    this->SetDataReleased(0);
     if ( this->EndMethod ) (*this->EndMethod)(this->EndMethodArg);
     }
+
+  if ( this->Input->ShouldIReleaseData() ) this->Input->ReleaseData();
+  if ( this->Source->ShouldIReleaseData() ) this->Source->ReleaseData();
 }
 
 void vlGlyph3D::PrintSelf(ostream& os, vlIndent indent)
