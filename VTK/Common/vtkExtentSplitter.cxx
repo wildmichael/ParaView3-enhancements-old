@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtentSplitter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-01 21:18:46 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-11-11 15:39:29 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include <vtkstd/queue>
 #include <vtkstd/vector>
 
-vtkCxxRevisionMacro(vtkExtentSplitter, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkExtentSplitter, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkExtentSplitter);
 
 //----------------------------------------------------------------------------
@@ -93,7 +93,8 @@ void vtkExtentSplitter::PrintSelf(ostream& os, vtkIndent indent)
          << extent[4] << " " << extent[5] << "\n";
       }
     }
-  os << indent << "Number of Extents in Queue: " << this->Internal->Queue.size() << "\n";
+  os << indent << "Number of Extents in Queue: " << 
+    (int)this->Internal->Queue.size() << "\n";
   if(this->Internal->SubExtents.empty())
     {
     os << indent << "SubExtents: (none)\n";
