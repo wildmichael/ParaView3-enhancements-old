@@ -3,8 +3,8 @@
 Program:   Visualization Toolkit
 Module:    $RCSfile: vtkCarbonRenderWindowInteractor.cxx,v $
 Language:  C++
-Date:      $Date: 2002-05-28 13:00:28 $
-Version:   $Revision: 1.5 $
+Date:      $Date: 2003-04-17 12:43:17 $
+Version:   $Revision: 1.6 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen
 All rights reserved.
@@ -54,7 +54,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #import <Carbon/Carbon.h>
 
 
-vtkCxxRevisionMacro(vtkCarbonRenderWindowInteractor, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkCarbonRenderWindowInteractor, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkCarbonRenderWindowInteractor);
 
 void (*vtkCarbonRenderWindowInteractor::ClassExitMethod)(void *) 
@@ -337,7 +337,6 @@ void vtkCarbonRenderWindowInteractor::Initialize()
 void vtkCarbonRenderWindowInteractor::Enable()
 {
   vtkCarbonRenderWindow *ren;
-  vtkCarbonRenderWindow *tmp;
   if (this->Enabled)
     {
     return;
@@ -383,7 +382,6 @@ void vtkCarbonRenderWindowInteractor::Enable()
 //--------------------------------------------------------------------------
 void vtkCarbonRenderWindowInteractor::Disable()
 {
-  vtkCarbonRenderWindow *tmp;
   if (!this->Enabled)
     {
     return;
@@ -399,7 +397,7 @@ void vtkCarbonRenderWindowInteractor::TerminateApp(void)
 }
 
 //--------------------------------------------------------------------------
-pascal void TimerAction (EventLoopTimerRef theTimer, void* userData)
+pascal void TimerAction (EventLoopTimerRef, void* userData)
 {
   if (NULL != userData)
     {
