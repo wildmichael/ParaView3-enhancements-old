@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyLine.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-05-30 01:49:29 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1996-07-16 19:49:23 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -475,13 +475,14 @@ void vtkPolyLine::Contour(float value, vtkFloatScalars *cellScalars,
 int vtkPolyLine::IntersectWithLine(float p1[3], float p2[3],float tol,float& t,
                                   float x[3], float pcoords[3], int& subId)
 {
+  int subTest;
   static vtkLine line;
   for (subId=0; subId<this->Points.GetNumberOfPoints()-1; subId++)
     {
     line.Points.SetPoint(0,this->Points.GetPoint(subId));
     line.Points.SetPoint(1,this->Points.GetPoint(subId+1));
 
-    if ( line.IntersectWithLine(p1, p2, tol, t, x, pcoords, subId) )
+    if ( line.IntersectWithLine(p1, p2, tol, t, x, pcoords, subTest) )
       return 1;
     }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyVertex.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-05-30 01:49:30 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1996-07-16 19:49:28 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -143,12 +143,13 @@ int vtkPolyVertex::IntersectWithLine(float p1[3], float p2[3],
                                     float pcoords[3], int& subId)
 {
   static vtkVertex vertex;
+  int subTest;
 
   for (subId=0; subId<this->Points.GetNumberOfPoints(); subId++)
     {
     vertex.Points.SetPoint(0,this->Points.GetPoint(subId));
 
-    if ( vertex.IntersectWithLine(p1, p2, tol, t, x, pcoords, subId) )
+    if ( vertex.IntersectWithLine(p1, p2, tol, t, x, pcoords, subTest) )
       return 1;
     }
 

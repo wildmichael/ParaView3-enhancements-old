@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleStrip.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-29 16:14:29 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1996-07-16 19:49:32 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -181,6 +181,7 @@ int vtkTriangleStrip::IntersectWithLine(float p1[3], float p2[3], float tol,
                                        int& subId)
 {
   static vtkTriangle tri;
+  int subTest;
 
   for (subId=0; subId<this->Points.GetNumberOfPoints()-2; subId++)
     {
@@ -188,7 +189,7 @@ int vtkTriangleStrip::IntersectWithLine(float p1[3], float p2[3], float tol,
     tri.Points.SetPoint(1,this->Points.GetPoint(subId+1));
     tri.Points.SetPoint(2,this->Points.GetPoint(subId+2));
 
-    if ( tri.IntersectWithLine(p1, p2, tol, t, x, pcoords, subId) )
+    if ( tri.IntersectWithLine(p1, p2, tol, t, x, pcoords, subTest) )
       return 1;
     }
 
