@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkUnstructuredGridSource.h,v $
   Language:  C++
-  Date:      $Date: 1995-05-04 15:54:38 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1995-05-05 15:50:48 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -32,7 +32,7 @@ public:
   // Object interface
   void Modified();
   unsigned long int GetMTime();
-  unsigned long int _GetMTime() {this->GetMTime();};
+  unsigned long int _GetMTime() {return this->GetMTime();};
   void DebugOn();
   void DebugOff();
 

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkSampleFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-05-04 15:54:36 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-05-05 15:50:46 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -178,7 +178,7 @@ void vlSampleFunction::SetSampleDimensions(int dim[3])
 
 unsigned long vlSampleFunction::GetMTime()
 {
-  unsigned long mTime=this->MTime.GetMTime();
+  unsigned long mTime=this->vlStructuredPointsSource::GetMTime();
   unsigned long impFuncMTime;
 
   if ( this->ImplicitFunction != NULL )
