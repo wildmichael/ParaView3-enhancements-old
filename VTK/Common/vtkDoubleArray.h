@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDoubleArray.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-14 14:50:52 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1999-08-25 21:12:22 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -156,6 +156,8 @@ public:
   // The class uses the actual array provided; it does not copy the data 
   // from the suppled array.
   void SetArray(double* array, int size, int save);
+  void SetVoidArray(void *array,int size, int save) 
+    {this->SetArray((double*)array, size, save);};
 
   // Description:
   // For legacy compatibility. Do not use.

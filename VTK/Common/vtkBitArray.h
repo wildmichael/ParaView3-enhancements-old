@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBitArray.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:24:41 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1999-08-25 21:12:22 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -149,6 +149,8 @@ public:
   // The class uses the actual array provided; it does not copy the data 
   // from the suppled array.
   void SetArray(unsigned char* array, int size, int save);
+  void SetVoidArray(void *array,int size, int save) 
+    {this->SetArray((unsigned char *)array, size, save);};
 
   // Description:
   // For legacy compatibility. Do not use.

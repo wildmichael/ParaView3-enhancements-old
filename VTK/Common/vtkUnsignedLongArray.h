@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedLongArray.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:25:02 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-08-25 21:12:24 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -149,6 +149,8 @@ public:
   // The class uses the actual array provided; it does not copy the data 
   // from the suppled array.
   void SetArray(unsigned long* array, int size, int save);
+  void SetVoidArray(void *array,int size, int save) 
+    {this->SetArray((unsigned long*)array, size, save);};
 
   // Description:
   // Resize object to just fit data requirement. Reclaims extra memory.

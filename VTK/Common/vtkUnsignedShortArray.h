@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedShortArray.h,v $
   Language:  C++
-  Date:      $Date: 1998-12-23 19:57:29 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1999-08-25 21:12:24 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -166,6 +166,8 @@ public:
   // The class uses the actual array provided; it does not copy the data 
   // from the suppled array.
   void SetArray(unsigned short* array, int size, int save);
+  void SetVoidArray(void *array,int size, int save) 
+    {this->SetArray((unsigned short*)array, size, save);};
 
   // Description:
   // Resize object to just fit data requirement. Reclaims extra memory.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArray.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-14 14:50:27 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-08-25 21:12:22 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -200,6 +200,15 @@ public:
   // Description:
   // For legacy compatibility. Do not use.
   void DeepCopy(vtkDataArray &da) {this->DeepCopy(&da);}
+
+  // Description:
+  // This method lets the user specify data to be held by the array.  The 
+  // array argument is a pointer to the data.  size is the size of 
+  // the array supplied by the user.  Set save to 1 to keep the class
+  // from deleting the array when it cleans up or reallocates memory.
+  // The class uses the actual array provided; it does not copy the data 
+  // from the suppled array.
+  virtual void SetVoidArray(void *array,int size, int save) {};
 
 protected:
   int Size;      // allocated size of data

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShortArray.h,v $
   Language:  C++
-  Date:      $Date: 1998-12-23 19:57:28 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1999-08-25 21:12:24 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -170,7 +170,9 @@ public:
   // The class uses the actual array provided; it does not copy the data 
   // from the suppled array.
   void SetArray(short* array, int size, int save);
-
+  void SetVoidArray(void *array,int size, int save) 
+    {this->SetArray((short*)array, size, save);};
+  
   // Description:
   // For legacy compatibility. Do not use.
   void DeepCopy(vtkDataArray &da) {this->DeepCopy(&da);}
