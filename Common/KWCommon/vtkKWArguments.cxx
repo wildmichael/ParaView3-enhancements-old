@@ -81,7 +81,7 @@ public:
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro( vtkKWArguments );
-vtkCxxRevisionMacro(vtkKWArguments, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkKWArguments, "$Revision: 1.13 $");
 
 //----------------------------------------------------------------------------
 vtkKWArguments::vtkKWArguments()
@@ -432,6 +432,7 @@ void vtkKWArguments::PrintSelf(ostream& os, vtkIndent indent)
     {
     os << indent << "No help" << endl;
     }
+  os << "Linelength: " << this->LineLength << endl;
 }
 
 
