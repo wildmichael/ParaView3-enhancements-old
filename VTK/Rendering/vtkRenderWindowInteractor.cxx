@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-11-15 20:44:49 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 1998-12-08 13:57:30 $
+  Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -337,14 +337,17 @@ void vtkRenderWindowInteractor::FindPokedRenderer(int x,int y)
 {
   vtkRendererCollection *rc;
   vtkRenderer *aren;
-
+  int numRens, i;
+  
   this->CurrentRenderer = NULL;
 
   rc = this->RenderWindow->GetRenderers();
-  
-  for (rc->InitTraversal(); 
-       ((aren = rc->GetNextItem())&&(!this->CurrentRenderer));)
+
+  numRens = rc->GetNumberOfItems();
+
+  for (i = numRens -1; (i >= 0) && !this->CurrentRenderer; i--)
     {
+    aren = (vtkRenderer *)rc->GetItemAsObject(i);
     if (aren->IsInViewport(x,y))
       {
       this->CurrentRenderer = aren;
@@ -1150,8 +1153,10 @@ void vtkRenderWindowInteractor::JoystickDollyCamera(int x, int y)
   else
     {
     float *clippingRange = this->CurrentCamera->GetClippingRange();
+    float dist = clippingRange[1] - clippingRange[0];
     this->CurrentCamera->SetClippingRange(clippingRange[0]/zoomFactor,
-                                          clippingRange[1]/zoomFactor);
+                                          clippingRange[0]/zoomFactor +
+                                          dist);
     this->CurrentCamera->Dolly(zoomFactor);
     }
 
