@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLYWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-06 02:53:53 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-12-06 13:43:16 $
+  Version:   $Revision: 1.8 $
   Thanks:    Mike Dresser MD/PhD
              Director of Core Facility for Imaging
              Program in Molecular and Cell Biology
@@ -326,17 +326,51 @@ unsigned char *vtkPLYWriter::GetColors(vtkIdType num,
     }
 }
 
-//----------------------------------------------------------------------------
 void vtkPLYWriter::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkPolyDataWriter::PrintSelf(os,indent);
 
-  os << indent << "ArrayName: " << (this->ArrayName ? this->ArrayName : "(none)") << "\n";
+  os << indent << "Data Byte Order: ";
+  if ( this->DataByteOrder == VTK_LITTLE_ENDIAN )
+    {
+    os << "Little Endian\n";
+    }
+  else
+    {
+    os << "Big Endian\n";
+    }
+  
+  os << indent << "Color Mode: ";
+  if ( this->ColorMode == VTK_COLOR_MODE_DEFAULT )
+    {
+    os << "Default\n";
+    }
+  else if ( this->ColorMode == VTK_COLOR_MODE_UNIFORM_CELL_COLOR )
+    {
+    os << "Uniform Cell Color\n";
+    }
+  else if ( this->ColorMode == VTK_COLOR_MODE_UNIFORM_POINT_COLOR )
+    {
+    os << "Uniform Point Color\n";
+    }
+  else if ( this->ColorMode == VTK_COLOR_MODE_UNIFORM_COLOR )
+    {
+    os << "Uniform Color\n";
+    }
+  else //VTK_COLOR_MODE_OFF
+    {
+    os << "Off\n";
+    }
+
+  os << indent << "Array Name: " 
+     << (this->ArrayName ? this->ArrayName : "(none)") << "\n";
+
   os << indent << "Component: " << this->Component << "\n";
-  os << indent << "ColorMode: " << this->ColorMode << "\n";
-  os << indent << "DataByteOrder: " << this->DataByteOrder << "\n";
-  os << indent << "Color: " << (int)this->Color[0] << " " 
-     << (int)this->Color[1] << " "
-     << (int)this->Color[2] << "\n";
-  os << indent << "LookupTable: " << this->LookupTable << "\n";
+
+  os << indent << "Lookup Table: " << this->LookupTable << "\n";
+
+  os << indent << "Color: (" << this->Color[0] << ","
+     << this->Color[1] << "," << this->Color[2] << ")\n";
+    
 }
+
