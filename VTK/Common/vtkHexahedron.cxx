@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHexahedron.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-09 16:43:53 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1995-10-30 16:26:33 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -300,7 +300,8 @@ int vtkHexahedron::CellBoundary(int subId, float pcoords[3], vtkIdList& pts)
 
 
   if ( pcoords[0] < 0.0 || pcoords[0] > 1.0 ||
-  pcoords[1] < 0.0 || pcoords[1] > 1.0 || pcoords[2] < 0.0 || pcoords[2] > 1.0 )
+       pcoords[1] < 0.0 || pcoords[1] > 1.0 || 
+       pcoords[2] < 0.0 || pcoords[2] > 1.0 )
     return 0;
   else
     return 1;
