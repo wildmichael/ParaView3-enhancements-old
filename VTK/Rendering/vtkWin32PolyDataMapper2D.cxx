@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32PolyDataMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:09:11 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-07-11 11:58:52 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,9 +68,7 @@ void vtkWin32PolyDataMapper2D::RenderOverlay(vtkViewport* viewport,
 {
   int numPts;
   vtkPolyData *input= (vtkPolyData *)this->Input;
-  int npts, idx[3], rep, j;
-  float fclr[4];
-  short clr[4];
+  int npts, j;
   vtkPoints *p, *displayPts;
   vtkCellArray *aPrim;
   vtkScalars *c=NULL;
