@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPyramid.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-07 17:08:23 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-01-07 18:50:17 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -266,7 +266,7 @@ int vtkPyramid::CellBoundary(int vtkNotUsed(subId), float pcoords[3],
 static int edges[8][2] = { {0,1}, {1,2}, {2,3}, 
                            {3,0}, {0,4}, {1,4},
                            {2,4}, {3,4} };
-static int faces[5][4] = { {0,1,2,3}, {0,1,4,-1}, 
+static int faces[5][4] = { {0,3,2,1}, {0,1,4,-1}, 
 			   {1,2,4,-1}, {2,3,4,-1}, {3,0,4,-1} };
 
 typedef int EDGE_LIST;
