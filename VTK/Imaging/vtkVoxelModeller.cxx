@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxelModeller.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 21:25:40 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1995-09-05 16:19:04 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -78,8 +78,6 @@ void vtkVoxelModeller::SetModelBounds(float xmin, float xmax, float ymin, float 
   this->ModelBounds[2] != ymin || this->ModelBounds[3] != ymax ||
   this->ModelBounds[4] != zmin || this->ModelBounds[5] != zmax )
     {
-    float length;
-
     this->Modified();
     this->ModelBounds[0] = xmin;
     this->ModelBounds[1] = xmax;
