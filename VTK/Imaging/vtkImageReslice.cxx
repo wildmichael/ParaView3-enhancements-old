@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReslice.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-17 14:34:23 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2003-03-26 17:07:38 $
+  Version:   $Revision: 1.35 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #include <float.h>
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageReslice, "$Revision: 1.34 $");
+vtkCxxRevisionMacro(vtkImageReslice, "$Revision: 1.35 $");
 vtkStandardNewMacro(vtkImageReslice);
 vtkCxxSetObjectMacro(vtkImageReslice, InformationInput, vtkImageData);
 vtkCxxSetObjectMacro(vtkImageReslice,ResliceAxes,vtkMatrix4x4);
@@ -317,6 +317,13 @@ void vtkImageReslice::ComputeInputUpdateExtents(vtkDataObject *output)
 void vtkImageReslice::ComputeInputUpdateExtent(int inExt[6], 
                                                int outExt[6])
 {
+    
+  if (this->GetInput() == NULL)
+    {
+    vtkErrorMacro(<< "ComputeInputUpdateExtent: Input is not set.");
+    return;        
+    }
+    
   if (this->Optimization)
     {
     this->OptimizedComputeInputUpdateExtent(inExt,outExt);

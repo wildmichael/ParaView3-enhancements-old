@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToImageFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-03-03 19:42:04 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 2003-03-26 17:07:38 $
+  Version:   $Revision: 1.56 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkPointData.h"
 
-vtkCxxRevisionMacro(vtkImageToImageFilter, "$Revision: 1.55 $");
+vtkCxxRevisionMacro(vtkImageToImageFilter, "$Revision: 1.56 $");
 
 //----------------------------------------------------------------------------
 vtkImageToImageFilter::vtkImageToImageFilter()
@@ -389,6 +389,13 @@ vtkImageData *vtkImageToImageFilter::AllocateOutputData(vtkDataObject *out)
 // an imaging style Execute method.
 void vtkImageToImageFilter::ExecuteData(vtkDataObject *out)
 {
+  // Make sure the Input has been set.
+  if ( this->GetInput() == NULL )
+    {
+    vtkErrorMacro(<< "ExecuteData: Input is not set.");
+    return;
+    }
+    
   // Too many filters have floating point exceptions to execute
   // with empty input/ no request.
   if (this->UpdateExtentIsEmpty(out))
