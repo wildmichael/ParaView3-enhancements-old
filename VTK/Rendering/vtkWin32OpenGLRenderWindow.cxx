@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-27 13:45:29 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1999-04-29 18:31:55 $
+  Version:   $Revision: 1.34 $
   Thanks:    to Horst Schreiber for developing this MFC code
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -323,6 +323,7 @@ void vtkWin32OpenGLRenderWindow::SetupPixelFormat(HDC hDC, DWORD dwFlags,
     if (debug && (dwFlags & PFD_STEREO) && !(pfd.dwFlags & PFD_STEREO))
       {
       vtkGenericWarningMacro("No Stereo Available!");
+      this->StereoCapableWindow = 0;
       }
 
     if (SetPixelFormat(hDC, pixelFormat, &pfd) != TRUE) {
@@ -403,12 +404,22 @@ LRESULT vtkWin32OpenGLRenderWindow::MessageProc(HWND hWnd, UINT message,
     {
     case WM_CREATE:
       {
-        /* initialize OpenGL rendering */
-        this->DeviceContext = GetDC(hWnd);
+      /* initialize OpenGL rendering */
+      this->DeviceContext = GetDC(hWnd);
+      if (this->StereoCapableWindow)
+	{
 	this->SetupPixelFormat(this->DeviceContext,
 			       PFD_SUPPORT_OPENGL | PFD_DRAW_TO_WINDOW |
-			       PFD_STEREO |PFD_DOUBLEBUFFER, 
+			       PFD_STEREO | PFD_DOUBLEBUFFER, 
 			       this->GetDebug(), 32, 32);
+	}
+      else
+	{
+	this->SetupPixelFormat(this->DeviceContext,
+			       PFD_SUPPORT_OPENGL | PFD_DRAW_TO_WINDOW |
+			       PFD_DOUBLEBUFFER, 
+			       this->GetDebug(), 32, 32);
+	}
         this->SetupPalette(this->DeviceContext);
 	this->ContextId = wglCreateContext(this->DeviceContext);
 	wglMakeCurrent(this->DeviceContext, this->ContextId);
@@ -579,9 +590,18 @@ void vtkWin32OpenGLRenderWindow::WindowInitialize (void)
       {
       SetWindowLong(this->WindowId,GWL_USERDATA,(LONG)this);
       this->DeviceContext = GetDC(this->WindowId);
-      this->SetupPixelFormat(this->DeviceContext, PFD_SUPPORT_OPENGL |
-			     PFD_DRAW_TO_WINDOW | PFD_DOUBLEBUFFER |
-			     PFD_STEREO, this->GetDebug(), 32, 32);
+      if (this->StereoCapableWindow)
+	{
+	this->SetupPixelFormat(this->DeviceContext, PFD_SUPPORT_OPENGL |
+			       PFD_DRAW_TO_WINDOW | PFD_DOUBLEBUFFER |
+			       PFD_STEREO, this->GetDebug(), 32, 32);
+	}
+      else
+	{
+	this->SetupPixelFormat(this->DeviceContext, PFD_SUPPORT_OPENGL |
+			       PFD_DRAW_TO_WINDOW | PFD_DOUBLEBUFFER,
+			       this->GetDebug(), 32, 32);
+	}
       this->SetupPalette(this->DeviceContext);
       this->ContextId = wglCreateContext(this->DeviceContext);
       wglMakeCurrent(this->DeviceContext, this->ContextId);
@@ -715,6 +735,24 @@ void vtkWin32OpenGLRenderWindow::SetFullScreen(int arg)
 
   this->Modified();
 }
+
+//
+// Set the variable that indicates that we want a stereo capable window
+// be created. This method can only be called before a window is realized.
+//
+void vtkWin32OpenGLRenderWindow::SetStereoCapableWindow(int capable)
+{
+  if (this->WindowId == 0)
+    {
+    vtkRenderWindow::SetStereoCapableWindow(capable);
+    }
+  else
+    {
+    vtkWarningMacro(<< "Requesting a StereoCapableWindow must be performed "
+                    << "before the window is realized, i.e. before a render.");
+    }
+}
+
 
 // Set the preferred window size to full screen.
 void vtkWin32OpenGLRenderWindow::PrefFullScreen()
