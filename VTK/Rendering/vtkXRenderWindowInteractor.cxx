@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-09-09 19:27:11 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1996-11-15 17:11:32 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -197,7 +197,7 @@ void vtkXRenderWindowInteractor::Initialize()
     vis     = ren->GetDesiredVisual();
     position= ren->GetPosition();
 
-    this->top = XtVaAppCreateShell(this->RenderWindow->GetName(),"vtk",
+    this->top = XtVaAppCreateShell(this->RenderWindow->GetWindowName(),"vtk",
 				   applicationShellWidgetClass,
 				   this->DisplayId,
 				   XtNdepth, depth,
@@ -654,7 +654,7 @@ void vtkXRenderWindowInteractor::SetupNewWindow(int Stereo)
 
   this->oldTop = this->top;
   
-  this->top = XtVaAppCreateShell(this->RenderWindow->GetName(),"vtk",
+  this->top = XtVaAppCreateShell(this->RenderWindow->GetWindowName(),"vtk",
 				 applicationShellWidgetClass,
 				 this->DisplayId,
 				 XtNdepth, depth,
