@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridVolumeRayCastMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-11-24 20:05:46 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-11-25 04:58:07 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -40,7 +40,7 @@
 VTK_THREAD_RETURN_TYPE UnstructuredGridVolumeRayCastMapper_CastRays( void *arg );
 
 
-vtkCxxRevisionMacro(vtkUnstructuredGridVolumeRayCastMapper, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkUnstructuredGridVolumeRayCastMapper, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkUnstructuredGridVolumeRayCastMapper);
 
 
@@ -452,24 +452,24 @@ void vtkUnstructuredGridVolumeRayCastMapper::CastRays( int threadID, int threadC
       if ( color[3] > 0.0 )
         {
         int val;
-        val = (color[0]/color[3])*255.0;
-        val = (val > 255.0)?(255.0):(val);
-        val = (val <   0.0)?(  0.0):(val);
+        val = static_cast<int>((color[0]/color[3])*255.0);
+        val = (val > 255)?(255):(val);
+        val = (val <   0)?(  0):(val);
         ucptr[0] = static_cast<unsigned char>(val);
         
-        val = (color[1]/color[3])*255.0;
-        val = (val > 255.0)?(255.0):(val);
-        val = (val <   0.0)?(  0.0):(val);
+        val = static_cast<int>((color[1]/color[3])*255.0);
+        val = (val > 255)?(255):(val);
+        val = (val <   0)?(  0):(val);
         ucptr[1] = static_cast<unsigned char>(val);
         
-        val = (color[2]/color[3])*255.0;
-        val = (val > 255.0)?(255.0):(val);
-        val = (val <   0.0)?(  0.0):(val);
+        val = static_cast<int>((color[2]/color[3])*255.0);
+        val = (val > 255)?(255):(val);
+        val = (val <   0)?(  0):(val);
         ucptr[2] = static_cast<unsigned char>(val);
         
-        val = color[3]*255.0;
-        val = (val > 255.0)?(255.0):(val);
-        val = (val <   0.0)?(  0.0):(val);
+        val = static_cast<int>(color[3]*255.0);
+        val = (val > 255)?(255):(val);
+        val = (val <   0)?(  0):(val);
         ucptr[3] = static_cast<unsigned char>(val);
         }
       else
