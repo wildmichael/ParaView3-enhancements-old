@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIVWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:18:50 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2003-03-12 10:45:31 $
+  Version:   $Revision: 1.28 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkIVWriter, "$Revision: 1.27 $");
+vtkCxxRevisionMacro(vtkIVWriter, "$Revision: 1.28 $");
 vtkStandardNewMacro(vtkIVWriter);
 
 void vtkIVWriter::WriteData()
@@ -133,8 +133,9 @@ void vtkIVWriter::WritePolyData(vtkPolyData *pd, FILE *fp)
       }
     fprintf(fp, "\n\t\t]\n");
     fprintf(fp,"\t}\n");
+    colors->Delete();        
     }
-  colors->Delete();
+
   
   // write out polys if any
   if (pd->GetNumberOfPolys() > 0)
