@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:47:04 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1997-07-11 21:09:45 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -93,7 +93,6 @@ vtkRenderWindowInteractor *vtkRenderWindowInteractor::New()
 #else
   return vtkXRenderWindowInteractor::New();
 #endif  
-  return new vtkRenderWindowInteractor;
 }
 
 void vtkRenderWindowInteractor::SetRenderWindow(vtkRenderWindow *aren)
