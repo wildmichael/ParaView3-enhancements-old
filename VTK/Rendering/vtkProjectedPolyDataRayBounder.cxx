@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProjectedPolyDataRayBounder.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-06-09 15:20:37 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-06-09 17:58:57 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to Lisa Sobierajski Avila who developed this class.
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,7 +41,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkProjectedPolyDataRayBounder.h"
 #include "vtkRenderWindow.h"
 
-#ifdef USE_OGLR
+#ifdef VTK_USE_OGLR
 #include "vtkOpenGLProjectedPolyDataRayBounder.h"
 #endif
 
@@ -66,8 +66,8 @@ vtkProjectedPolyDataRayBounder *vtkProjectedPolyDataRayBounder::New()
 {
   char *temp = vtkRenderWindow::GetRenderLibrary();
   
-#ifdef USE_OGLR
-  if (!strncmp("oglr",temp,4)) 
+#ifdef VTK_USE_OGLR
+  if (!strcmp("OpenGL",temp)) 
     return vtkOpenGLProjectedPolyDataRayBounder::New();
 #endif
 
