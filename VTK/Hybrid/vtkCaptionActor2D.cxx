@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCaptionActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-05 16:06:17 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-10-05 20:57:52 $
+  Version:   $Revision: 1.7 $
   Thanks:    Tim Smith who sponsored and encouraged the development
              of this class.
 
@@ -188,22 +188,26 @@ vtkCaptionActor2D::~vtkCaptionActor2D()
   this->CaptionMapper->Delete();
   this->CaptionActor->Delete();
   
-  this->BorderActor->Delete();
-  this->BorderMapper->Delete();
   this->BorderPolyData->Delete();
+  this->BorderMapper->Delete();
+  this->BorderActor->Delete();
 
   this->HeadPolyData->Delete();
-  this->HeadGlyph->Delete();
+
   this->LeaderPolyData->Delete(); //line represents the leader
+
+  this->HeadGlyph->Delete();
+
   this->AppendLeader->Delete(); //append head and leader
   
-  this->LeaderActor2D->Delete();
-  this->LeaderMapper2D->Delete();
-
   this->ToWorldCoordinate->Delete();
   this->MapperCoordinate2D->Delete();
-  this->LeaderActor3D->Delete();
+
+  this->LeaderMapper2D->Delete();
+  this->LeaderActor2D->Delete();
+
   this->LeaderMapper3D->Delete();
+  this->LeaderActor3D->Delete();
 }
 
 // Release any graphics resources that are being consumed by this actor.
