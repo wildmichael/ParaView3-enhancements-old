@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReslice.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-14 20:56:56 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-06-15 20:52:34 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to David G Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -617,7 +617,7 @@ void vtkImageReslice::ExecuteInformation(vtkImageData *input,
 	r += tmp;
 	}
       s /= r;
-      d /= r;
+      d /= r*sqrt(r);
       e /= r;
       }
     else
