@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapJava.c,v $
   Language:  C++
-  Date:      $Date: 2001-01-31 21:26:40 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2001-02-12 20:21:08 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -692,6 +692,13 @@ void vtkParseOutput(FILE *fp, FileInfo *data)
 	    data->ClassName);
   fprintf(fp,"\n}\n");
 
+  /* for vtkRenderWindow we want to add a special method to support */
+  /* native AWT rendering */
+  if (!strcmp("vtkRenderWindow",data->ClassName))
+    {
+    fprintf(fp,"\n#include \"vtkJavaAwt.h\"\n\n");
+    }
+  
   if (!strcmp("vtkObject",data->ClassName))
     {
     fprintf(fp,"\nextern \"C\" JNIEXPORT jstring JNICALL Java_vtk_vtkObject_Print(JNIEnv *env,jobject obj)\n");
