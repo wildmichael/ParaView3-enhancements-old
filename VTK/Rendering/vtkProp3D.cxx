@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-19 06:50:54 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-03-20 15:00:40 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -401,21 +401,21 @@ void vtkProp3D::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "UserTransform: ";
   if (this->UserTransform)
     {
-    os << this->UserTransform; 
+    os << this->UserTransform << "\n"; 
     }
   else
     {
-    os << "(none)";
+    os << "(none)\n";
     }
 
   os << indent << "UserMatrix: ";
   if (this->UserMatrix)
     {
-    os << this->UserMatrix; 
+    os << this->UserMatrix << "\n"; 
     }
   else
     {
-    os << "(none)";
+    os << "(none)\n";
     }
 }
 
