@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTclUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-22 19:38:47 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1997-05-14 22:03:22 $
+  Version:   $Revision: 1.17 $
 
 This file is part of the Visualization Toolkit. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -17,6 +17,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #include <iostream.h>
 #include <stdlib.h>
 #include "vtkTclUtil.h"
+#include "vtkSetGet.h"
 
 int vtkTclEval(char *str)
 {
@@ -74,7 +75,7 @@ int vtkTclDeleteObjectFromHash(ClientData cd)
 
   if (vtkTclDebugOn)
     {
-    cerr << "vtkTcl Attempting to free object named " << temp << "\n";
+    vtkGenericWarningMacro("vtkTcl Attempting to free object named " << temp);
     }
   // if it isn't a temp object (i.e. we created it) then delete it 
   if (strncmp(temp,"vtkTemp",7))
