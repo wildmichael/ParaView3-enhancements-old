@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergePoints.h,v $
   Language:  C++
-  Date:      $Date: 1995-12-27 10:56:31 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1996-05-09 20:10:30 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,9 +50,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkMergePoints_h
 #define __vtkMergePoints_h
 
-#include "vtkLocator.hh"
+#include "vtkPointLocator.hh"
 
-class vtkMergePoints : public vtkLocator
+class vtkMergePoints : public vtkPointLocator
 {
 public:
   vtkMergePoints() {};

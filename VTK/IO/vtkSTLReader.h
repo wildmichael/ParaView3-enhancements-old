@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLReader.h,v $
   Language:  C++
-  Date:      $Date: 1995-12-27 10:57:16 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1996-05-09 20:10:39 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -81,9 +81,9 @@ public:
   vtkGetMacro(Merging,int);
   vtkBooleanMacro(Merging,int);
 
-  void SetLocator(vtkLocator *locator);
-  void SetLocator(vtkLocator& locator) {this->SetLocator(&locator);};
-  vtkGetObjectMacro(Locator,vtkLocator);
+  void SetLocator(vtkPointLocator *locator);
+  void SetLocator(vtkPointLocator& locator) {this->SetLocator(&locator);};
+  vtkGetObjectMacro(Locator,vtkPointLocator);
 
   // Description:
   // Create default locator. Used to create one when none is specified.
@@ -92,7 +92,7 @@ public:
 protected:
   char *Filename;
   int Merging;
-  vtkLocator *Locator;
+  vtkPointLocator *Locator;
   int SelfCreatedLocator;
 
   void Execute();
