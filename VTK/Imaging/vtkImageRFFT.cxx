@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageRFFT.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-10-03 12:05:17 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1996-10-31 14:06:05 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,6 +43,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 //----------------------------------------------------------------------------
 vtkImageRFFT::vtkImageRFFT()
 {
+  // To avoid compiler warnings
+  _vtkImageComplexMultiplyTemp.Real = 0.0;
 }
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-10-29 18:19:46 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1996-10-31 14:05:55 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -77,6 +77,9 @@ void vtkImageMultipleInputFilter::PrintSelf(ostream& os, vtkIndent indent)
     }
 }
 
+// SGI had problems with new (vtkImageRegion *)[num];
+typedef vtkImageRegion *vtkImageRegionPointer;
+typedef vtkImageSource *vtkImageSourcePointer;
 //----------------------------------------------------------------------------
 // Called by constructor to set up input array.
 void vtkImageMultipleInputFilter::SetNumberOfInputs(int num)
@@ -93,8 +96,8 @@ void vtkImageMultipleInputFilter::SetNumberOfInputs(int num)
     delete [] this->Regions;
     }
   // Allocate new arrays.
-  this->Inputs = new (vtkImageSource *)[num];
-  this->Regions = new (vtkImageRegion *)[num];
+  this->Inputs = new vtkImageSourcePointer[num];
+  this->Regions = new vtkImageRegionPointer[num];
   // Initialize with NULLs.
   for (idx = 0; idx < num; ++idx)
     {
