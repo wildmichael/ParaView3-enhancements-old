@@ -5,8 +5,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractCells.h,v $
   Language:  C++
-  Date:      $Date: 2003-09-10 19:41:54 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-09-19 19:25:12 $
+  Version:   $Revision: 1.3 $
 
 =========================================================================*/
 
@@ -40,22 +40,28 @@ public:
   void FreeCellList(); 
   void SetCellList(vtkIdList *l); 
   void AddCellList(vtkIdList *l);
-  void AddCellRange(int from, int to);
+  void AddCellRange(vtkIdType from, vtkIdType to);
 
 protected:
 
   virtual void Execute();
 
-  vtkExtractCells(){};
-  ~vtkExtractCells(){};
+  vtkExtractCells();
+  ~vtkExtractCells();
 
 private:
 
   void Copy();
-  static int findInSortedList(vtkIdList *idList, vtkIdType id);
+  static vtkIdType findInSortedList(vtkIdList *idList, vtkIdType id);
   vtkIdList *reMapPointIds(vtkDataSet *grid);
 
+  void CopyCellsDataSet(vtkIdList *ptMap);
+  void CopyCellsUnstructuredGrid(vtkIdList *ptMap);
+
 //BTX
-  vtkstd::set<int> CellList;
+  vtkstd::set<vtkIdType> CellList;
 //ETX
+
+  int SubSetUGridCellArraySize;
+  char InputIsUgrid;
 };
