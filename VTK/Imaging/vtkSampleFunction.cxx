@@ -1,10 +1,10 @@
 /*=========================================================================
 
   Program:   Visualization Library
-  Module:    $RCSfile: vtkSampleFunction.cxx,v $
+  Module:    SampleF.cc
   Language:  C++
-  Date:      $Date: 1994-07-15 13:19:09 $
-  Version:   $Revision: 1.2 $
+  Date:      7/15/94
+  Version:   1.2
 
 Description:
 ---------------------------------------------------------------------------

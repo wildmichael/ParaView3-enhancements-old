@@ -1,10 +1,10 @@
 /*=========================================================================
 
   Program:   Visualization Library
-  Module:    $RCSfile: vtkStructuredPointsSource.h,v $
+  Module:    SPtsSrc.hh
   Language:  C++
-  Date:      $Date: 1994-07-13 21:42:37 $
-  Version:   $Revision: 1.1 $
+  Date:      7/13/94
+  Version:   1.1
 
 Description:
 ---------------------------------------------------------------------------

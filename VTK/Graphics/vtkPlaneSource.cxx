@@ -1,10 +1,10 @@
 /*=========================================================================
 
   Program:   Visualization Library
-  Module:    $RCSfile: vtkPlaneSource.cxx,v $
+  Module:    PlaneSrc.cc
   Language:  C++
-  Date:      $Date: 1994-05-15 19:21:38 $
-  Version:   $Revision: 1.12 $
+  Date:      5/15/94
+  Version:   1.12
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express

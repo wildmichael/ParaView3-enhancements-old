@@ -1,10 +1,10 @@
 /*=========================================================================
 
   Program:   Visualization Library
-  Module:    $RCSfile: vtkAxes.cxx,v $
+  Module:    Axes.cc
   Language:  C++
-  Date:      $Date: 1994-05-16 16:45:25 $
-  Version:   $Revision: 1.1 $
+  Date:      5/16/94
+  Version:   1.1
 
 Description:
 ---------------------------------------------------------------------------

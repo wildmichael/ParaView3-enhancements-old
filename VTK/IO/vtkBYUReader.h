@@ -1,10 +1,10 @@
 /*=========================================================================
 
   Program:   Visualization Library
-  Module:    $RCSfile: vtkBYUReader.h,v $
+  Module:    BYURead.hh
   Language:  C++
-  Date:      $Date: 1994-07-20 21:32:07 $
-  Version:   $Revision: 1.2 $
+  Date:      7/20/94
+  Version:   1.2
 
 Description:
 ---------------------------------------------------------------------------
