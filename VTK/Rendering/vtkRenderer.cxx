@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-11 11:54:34 $
-  Version:   $Revision: 1.146 $
+  Date:      $Date: 2000-07-14 10:17:54 $
+  Version:   $Revision: 1.147 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1143,7 +1143,7 @@ vtkAssemblyPath* vtkRenderer::PickProp(float selectionX, float selectionY)
     props = this->Props;
     }
   // number determined from number of rendering passes plus reserved "0" slot
-  numberPickFrom = props->GetNumberOfPaths()*3 + 1;
+  numberPickFrom = 2*props->GetNumberOfPaths()*3 + 1;
   
   this->IsPicking = 1; // turn on picking
   this->StartPick(numberPickFrom);
