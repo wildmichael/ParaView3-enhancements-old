@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVTiledDisplayManager.h,v $
   Language:  C++
-  Date:      $Date: 2003-05-20 20:07:08 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2003-09-10 19:41:55 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -127,7 +127,7 @@ protected:
   // For managing buffers.
   vtkPVCompositeUtilities* CompositeUtilities;
 
-  int ReductionFactor;
+  int ImageReductionFactor;
   int LODReductionFactor;
 
   unsigned long StartTag;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeArrays.h,v $
   Language:  C++
-  Date:      $Date: 2003-03-05 14:05:06 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-09-10 19:41:55 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -53,6 +53,10 @@ public:
   virtual int GetNumberOfOutputs() { return 1;}
   vtkDataSet *GetOutput(); 
   vtkDataSet *GetOutput(int idx); 
+
+  // Description:
+  // By default copy the output update extent to the input
+  virtual void ComputeInputUpdateExtents( vtkDataObject *output );  
   
 protected:
   vtkMergeArrays();

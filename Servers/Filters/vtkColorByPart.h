@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkColorByPart.h,v $
   Language:  C++
-  Date:      $Date: 2003-04-17 15:04:05 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-09-10 19:41:54 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -53,6 +53,10 @@ public:
   vtkDataSet *GetOutput() 
     {return this->GetInput( 0 );}
   
+  // Description:
+  // By default copy the output update extent to the input
+  virtual void ComputeInputUpdateExtents( vtkDataObject *output );
+
 protected:
   vtkColorByPart() {};
   ~vtkColorByPart() {};

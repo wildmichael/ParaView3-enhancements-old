@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClientCompositeManager.h,v $
   Language:  C++
-  Date:      $Date: 2003-07-22 22:23:05 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2003-09-10 19:41:54 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -106,8 +106,8 @@ public:
   // Description:
   // For values larger than 1, render a smaller image and display the
   // result using pixel replication.
-  vtkSetMacro(ReductionFactor, int);
-  vtkGetMacro(ReductionFactor, int);
+  vtkSetMacro(ImageReductionFactor, int);
+  vtkGetMacro(ImageReductionFactor, int);
 
   // Description:
   // Methods that are not used at the moment.
@@ -197,7 +197,7 @@ protected:
   void ReceiveAndSetColorBuffer();
 
   vtkObject *RenderView;
-  int ReductionFactor;
+  int ImageReductionFactor;
   int InternalReductionFactor;
 
   vtkDataArray *PData;

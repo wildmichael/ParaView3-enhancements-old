@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSelectInputs.h,v $
   Language:  C++
-  Date:      $Date: 2003-01-17 14:59:47 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-09-10 19:41:55 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -61,6 +61,10 @@ public:
   // are added.  Flags default to 1 (on).
   void SetInputMask(int idx, int flag);
   int GetInputMask(int idx);
+
+  // Description:
+  // By default copy the output update extent to the input
+  virtual void ComputeInputUpdateExtents( vtkDataObject *output );
 
 protected:
   vtkSelectInputs();

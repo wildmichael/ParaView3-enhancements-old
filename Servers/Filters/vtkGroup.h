@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGroup.h,v $
   Language:  C++
-  Date:      $Date: 2003-01-24 20:50:31 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-09-10 19:41:54 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -54,7 +54,11 @@ public:
   vtkDataSet *GetOutput(int idx);
   vtkDataSet *GetOutput() 
     {return this->GetOutput( 0 );}
-  
+
+  // Description:
+  // By default copy the output update extent to the input
+  virtual void ComputeInputUpdateExtents( vtkDataObject *output );
+
 protected:
   vtkGroup();
   ~vtkGroup();
@@ -62,7 +66,7 @@ protected:
   // Usual data generation method
   virtual void Execute();
   virtual void ExecuteInformation();
-
+  virtual void PropagateUpdateExtent(vtkDataObject *output);
 
 private:
 

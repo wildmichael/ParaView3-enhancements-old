@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBMPReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-02-24 19:14:29 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2003-09-10 19:41:56 $
+  Version:   $Revision: 1.44 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkPointData.h"
 
-vtkCxxRevisionMacro(vtkBMPReader, "$Revision: 1.43 $");
+vtkCxxRevisionMacro(vtkBMPReader, "$Revision: 1.44 $");
 vtkStandardNewMacro(vtkBMPReader);
 
 #ifdef read
@@ -99,7 +99,7 @@ void vtkBMPReader::ExecuteInformation()
     }
 
   this->ComputeInternalFileName(this->DataExtent[4]);
-  if (this->InternalFileName == NULL)
+  if (this->InternalFileName == NULL || this->InternalFileName[0] == '\0')
     {
     return;
     }

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataDesc.cxx,v 1.4 2003-05-21 18:35:33 clarke Exp $  */
-/*  Date : $Date: 2003-05-21 18:35:33 $ */
-/*  Version : $Revision: 1.4 $ */
+/*  Id : $Id: XdmfDataDesc.cxx,v 1.5 2003-09-10 19:41:56 lawcc Exp $  */
+/*  Date : $Date: 2003-09-10 19:41:56 $ */
+/*  Version : $Revision: 1.5 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -417,7 +417,7 @@ XdmfDataDesc::SetShapeFromString( const XdmfString String ) {
 }
 
 XdmfInt32
-XdmfDataDesc::SelectCoordinatesFromString( const XdmfString String ) {
+XdmfDataDesc::SelectCoordinatesFromString( XdmfString String ) {
   XdmfInt32  Status;
   XdmfLength      i = 0, count = 0;
   istrstream   ist(String, strlen( String ) );

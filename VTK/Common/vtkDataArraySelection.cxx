@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArraySelection.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-18 18:57:10 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2003-09-10 19:41:56 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include <vtkstd/string>
 #include <vtkstd/algorithm>
 
-vtkCxxRevisionMacro(vtkDataArraySelection, "$Revision: 1.13 $");
+vtkCxxRevisionMacro(vtkDataArraySelection, "$Revision: 1.14 $");
 vtkStandardNewMacro(vtkDataArraySelection);
 
 class vtkDataArraySelectionArrayNamesType: public vtkstd::vector<vtkstd::string> {};
@@ -47,6 +47,14 @@ void vtkDataArraySelection::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->Superclass::PrintSelf(os, indent);
   os << indent << "Number of Arrays: " << this->GetNumberOfArrays() << "\n";
+  vtkIndent nindent = indent.GetNextIndent();
+  int cc;
+  for ( cc = 0; cc < this->GetNumberOfArrays(); cc ++ )
+    {
+    os << nindent << "Array: " << this->GetArrayName(cc) << " is: " 
+      << (this->GetArraySetting(cc)?"enabled":"disabled") 
+      << " (" << this->ArrayIsEnabled(this->GetArrayName(cc)) << ")" <<  endl;
+    }
 }
 
 //----------------------------------------------------------------------------

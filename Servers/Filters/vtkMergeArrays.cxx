@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeArrays.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-03-05 14:05:06 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-09-10 19:41:55 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkCellData.h"
 #include "vtkFieldData.h"
 
-vtkCxxRevisionMacro(vtkMergeArrays, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkMergeArrays, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkMergeArrays);
 
 //----------------------------------------------------------------------------
@@ -96,6 +96,30 @@ vtkDataSet* vtkMergeArrays::GetOutput()
     }
   return static_cast<vtkDataSet*>(output);
 }
+
+
+//----------------------------------------------------------------------------
+// Copy the update information across
+void vtkMergeArrays::ComputeInputUpdateExtents(vtkDataObject *)
+{
+  int idx;
+  int num;
+  vtkDataSet *input;
+  vtkDataSet *output;
+
+  num = this->NumberOfInputs;
+  output = this->GetOutput();
+  for (idx = 0; idx < num; ++idx)
+    {
+    input = this->GetInput(idx);
+
+    input->SetUpdatePiece( output->GetUpdatePiece() );
+    input->SetUpdateNumberOfPieces( output->GetUpdateNumberOfPieces() );
+    input->SetUpdateGhostLevel( output->GetUpdateGhostLevel() );
+    input->SetUpdateExtent( output->GetUpdateExtent() );
+    }
+}
+
 
 
 //----------------------------------------------------------------------------
