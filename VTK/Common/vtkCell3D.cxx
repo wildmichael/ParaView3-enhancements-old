@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-30 15:23:21 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-04-30 19:34:41 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -41,9 +41,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 #include "vtkCell3D.h"
 
-void Clip(float, vtkScalars*, vtkPointLocator*, vtkCellArray*,
-          vtkPointData*, vtkPointData*, vtkCellData*, int, vtkCellData*, 
-          int)
+void vtkCell3D::Clip(float, vtkScalars*, vtkPointLocator*, vtkCellArray*,
+                     vtkPointData*, vtkPointData*, vtkCellData*, int, 
+                     vtkCellData*, int)
 {
 }
 
