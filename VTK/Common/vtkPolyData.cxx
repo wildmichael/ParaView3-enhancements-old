@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-03-27 16:13:33 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1994-04-05 07:43:23 $
+  Version:   $Revision: 1.19 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -18,7 +18,6 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 //
 #include "PolyData.hh"
 #include "PolyMap.hh"
-#include "CellType.hh"
 #include "Point.hh"
 #include "PolyPts.hh"
 #include "Line.hh"

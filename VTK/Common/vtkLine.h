@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkLine.h,v $
   Language:  C++
-  Date:      $Date: 1994-03-29 12:19:44 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-04-05 07:43:25 $
+  Version:   $Revision: 1.8 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -29,13 +29,21 @@ public:
   vlLine() {};
   char *GetClassName() {return "vlLine";};
 
-  int CellDimension() {return 1;};
+  int GetCellType() {return vlLINE;};
+  int GetCellDimension() {return 1;};
+  int GetNumberOfEdges() {return 0;};
+  int GetNumberOfFaces() {return 0;};
+  vlCell *GetEdge(int edgeId) {return 0;};
+  vlCell *GetFace(int faceId) {return 0;};
+
   void Contour(float value, vlFloatScalars *cellScalars, 
                vlFloatPoints *points, vlCellArray *verts, 
                vlCellArray *lines, vlCellArray *polys, 
                vlFloatScalars *s);
-  int EvaluatePosition(float x[3], int& subId, float pcoords[3], float& dist2);
-  void EvaluateLocation(int& subId, float pcoords[3], float x[3]);
+  int EvaluatePosition(float x[3], int& subId, float pcoords[3], 
+                       float& dist2, float weights[MAX_CELL_SIZE]);
+  void EvaluateLocation(int& subId, float pcoords[3], float x[3],
+                        float weights[MAX_CELL_SIZE]);
 
   Intersection(float x[3], float xray[3], float x1[3], float x2[3],
                float& u, float& v);
