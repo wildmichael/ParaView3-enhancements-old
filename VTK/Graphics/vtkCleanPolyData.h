@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCleanPolyData.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:48 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2001-09-27 18:46:57 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen
@@ -149,6 +149,15 @@ public:
   // Perform operation on bounds
   virtual void OperateOnBounds(float in[6], float out[6]);
 
+  // This filter is difficult to stream.
+  // To get invariant results, the whole input must be processed at once.
+  // This flag allows the user to select whether strict piece invariance
+  // is required.  By default it is on.  When off, the filter can stream,
+  // but results may change.
+  vtkSetMacro(PieceInvariant, int);
+  vtkGetMacro(PieceInvariant, int);
+  vtkBooleanMacro(PieceInvariant, int);
+
 protected:
   vtkCleanPolyData();
  ~vtkCleanPolyData();
@@ -157,6 +166,8 @@ protected:
 
   // Usual data generation method
   void Execute();
+  void ExecuteInformation();
+  virtual void ComputeInputUpdateExtents(vtkDataObject *output);
 
   float Tolerance;
   float AbsoluteTolerance;
@@ -165,6 +176,8 @@ protected:
   int ConvertStripsToPolys;
   int ToleranceIsAbsolute;
   vtkPointLocator *Locator;
+
+  int PieceInvariant;
 };
 
 #endif
