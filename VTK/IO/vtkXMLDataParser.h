@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLDataParser.h,v $
   Language:  C++
-  Date:      $Date: 2002-12-31 21:58:34 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2003-04-11 13:22:47 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -165,12 +165,26 @@ protected:
   // The stream to use for appended data.
   vtkInputStream* AppendedDataStream;
   
+  //BTX
+  // We need a 32 bit unsigned integer type for platform-independent
+  // binary headers.  Note that this is duplicated in vtkXMLWriter.h.
+#if VTK_SIZEOF_SHORT == 4
+  typedef unsigned short HeaderType;
+#elif VTK_SIZEOF_INT == 4
+  typedef unsigned int HeaderType;
+#elif VTK_SIZEOF_LONG == 4
+  typedef unsigned long HeaderType;
+#else
+# error "No native data type can represent an unsigned 32-bit integer."
+#endif
+  //ETX
+  
   // Decompression data.
   vtkDataCompressor* Compressor;
   unsigned int NumberOfBlocks;
   unsigned int BlockUncompressedSize;
   unsigned int PartialLastBlockUncompressedSize;
-  unsigned int* BlockCompressedSizes;
+  HeaderType* BlockCompressedSizes;
   unsigned long* BlockStartOffsets;
   
   // Ascii data parsing.
