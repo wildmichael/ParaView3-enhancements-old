@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-05 14:52:34 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1998-10-07 14:19:56 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -312,19 +312,6 @@ vtkIdList* vtkCellLocator::GetCells(int octantId)
 {
   // handle parents ?		  
   return this->Tree[octantId];
-}
-
-// Intersect against another vtkCellLocator returning cells that lie in 
-// intersecting octants. Not implimented yet.
-void vtkCellLocator::InitializeIntersection(vtkCellLocator& )
-{
-  // not yet implemented
-}
-
-int vtkCellLocator::GetNextIntersection(int& , int& )
-{
-  // not yet implemented
-  return 0;
 }
 
 
