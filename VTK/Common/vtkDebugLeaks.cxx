@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDebugLeaks.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-02 20:58:43 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-10-04 16:37:39 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -54,6 +54,7 @@ public:
   ~vtkPrintLeaksAtExit()
     {
       vtkObjectFactory::UnRegisterAllFactories();
+      vtkOutputWindow::SetInstance(0);
       vtkDebugLeaks::PrintCurrentLeaks();
       vtkDebugLeaks::DeleteTable();
     }  

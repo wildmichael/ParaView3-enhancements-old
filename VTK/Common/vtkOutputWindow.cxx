@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutputWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-25 10:55:06 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2000-10-04 16:37:39 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -158,6 +158,10 @@ void vtkOutputWindow::SetInstance(vtkOutputWindow* instance)
     vtkOutputWindow::Instance->Delete();;
     }
   vtkOutputWindow::Instance = instance;
+  if (!instance)
+    {
+    return;
+    }
   // Should be safe to send a message now as instance is set
   if (instance->GetReferenceCount()!=1)
     {
