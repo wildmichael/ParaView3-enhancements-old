@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDataStreamer.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-11 14:26:22 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2003-05-07 23:12:19 $
+  Version:   $Revision: 1.28 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkImageData.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageDataStreamer, "$Revision: 1.27 $");
+vtkCxxRevisionMacro(vtkImageDataStreamer, "$Revision: 1.28 $");
 vtkStandardNewMacro(vtkImageDataStreamer);
 vtkCxxSetObjectMacro(vtkImageDataStreamer,ExtentTranslator,vtkExtentTranslator);
 
@@ -96,7 +96,8 @@ void vtkImageDataStreamer::UpdateData(vtkDataObject *vtkNotUsed(out))
   this->Progress = 0.0;
   this->InvokeEvent(vtkCommand::StartEvent,NULL);
   output->SetExtent(output->GetUpdateExtent());
-  output->AllocateScalars();
+  //output->AllocateScalars();
+  AllocateOutputData(output);
   
   // now start the loop over the number of pieces
   translator->SetWholeExtent(output->GetUpdateExtent());
