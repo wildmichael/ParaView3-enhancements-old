@@ -4,7 +4,11 @@ See the file COPYING for copying permission.
 */
 
 static char RCSId[]
-  = "$Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/expat/Attic/xmlrole.c,v 1.1 2002-01-25 21:22:55 king Exp $";
+  = "$Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/expat/Attic/xmlrole.c,v 1.2 2002-02-01 14:21:03 andy Exp $";
+const char* GetVTKEXpatXMLRole_RCSId()
+{
+  return RCSId;
+}
 
 #include "expatConfig.h"
 
