@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObjectFactory.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 18:13:51 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-10-09 21:21:15 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -309,13 +309,14 @@ void vtkObjectFactory::RegisterFactory(vtkObjectFactory* factory)
     factory->LibraryPath = strcpy(new char[strlen(nonDynamicName)+1], 
 				  nonDynamicName);
     }
-  if(strcmp(factory->GetVTKSourceVersion(), 
-	    vtkVersion::GetVTKSourceVersion()) != 0)
+  else if(strcmp(factory->GetVTKSourceVersion(), 
+                 vtkVersion::GetVTKSourceVersion()) != 0)
     {
     vtkGenericWarningMacro(<< "Possible incompatible factory load:" 
     << "\nRunning vtk version :\n" << vtkVersion::GetVTKSourceVersion() 
     << "\nLoaded Factory version:\n" << factory->GetVTKSourceVersion()
-    << "\nLoading factory:\n" << factory->LibraryPath << "\n");
+    << "\nRejecting factory:\n" << factory->LibraryPath << "\n");
+    return;
     }
   vtkObjectFactory::Init();
   vtkObjectFactory::RegisteredFactories->AddItem(factory);
