@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastFunction.h,v $
   Language:  C++
-  Date:      $Date: 1997-08-03 03:57:40 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-08-18 14:54:28 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,6 +38,18 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
+
+// .NAME vtkVolumeRayCastFunction - a superclass for ray casting functions
+
+// .SECTION Description
+// vtkVolumeRayCastFunction is a superclass for ray casting functions that 
+// can be used within a vtkVolumeRayCastMapper. This includes for example,
+// vtkVolumeRayCastCompositeFunction, vtkVolumeRayCastMIPFunction, and
+// vtkVolumeRayCastIsosurfaceFunction.
+
+// .SECTION See Also
+// vtkVolumeRayCastCompositeFunction vtkVolumeRayCastMIPFunction
+// vtkVolumeRayCastIsosurfaceFunction vtkVolumeRayCastMapper
 
 #ifndef __vtkVolumeRayCastFunction_h
 #define __vtkVolumeRayCastFunction_h

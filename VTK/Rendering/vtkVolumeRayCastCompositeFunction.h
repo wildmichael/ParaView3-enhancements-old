@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastCompositeFunction.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-15 02:59:13 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-08-18 14:54:27 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,6 +38,16 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
+// .NAME vtkVolumeRayCastCompositeFunction - a ray function for compositing
+
+// .SECTION Description
+// vtkVolumeRayCastCompositeFunction is a ray function that can be used
+// within a vtkVolumeRayCastMapper. This function performs compositing along
+// the ray according to the properties stored in the vtkVolumeProperty for
+// the volume. 
+
+// .SECTION See Also
+// vtkVolumeRayCastMapper vtkVolumeProperty vtkVolume
 
 #ifndef __vtkVolumeRayCastCompositeFunction_h
 #define __vtkVolumeRayCastCompositeFunction_h

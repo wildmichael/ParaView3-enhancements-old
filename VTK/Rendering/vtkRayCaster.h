@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRayCaster.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-15 02:57:20 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1997-08-18 14:54:23 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,12 +38,16 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkRayCaster - 
-//
+// .NAME vtkRayCaster - A helper object for the renderer that controls ray casting
+
 // .SECTION Description
+// vtkRayCaster is an automatically created object within vtkRenderer. It is used
+// for ray casting operations. It stores variables such as the view rays, and
+// information on multiresolution image rendering which are queried by the 
+// specific ray casters.
 
 // .SECTION see also
-
+// vtkRenderer vtkViewRays
 
 #ifndef __vtkRayCaster_h
 #define __vtkRayCaster_h

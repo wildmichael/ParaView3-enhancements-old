@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:49:17 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1997-08-18 14:54:24 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,7 +43,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .SECTION Description
 // vtkVolume is used to represent a volumetric entity in a rendering scene.
 // It inherits functions related to the volume's position, orientation and
-// origin from vtkProp. The volume also maintains a reference to the
+// origin from vtkProp. The volume maintains a reference to the
 // volumetric data (i.e., the volume mapper). The volume also contains a
 // reference to a volume property which contains all common volume rendering 
 // parameters.
