@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLocator.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-08 12:48:34 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-09-23 16:04:17 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,7 +49,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // vtkCellLocator to return candidate cells.
 // .SECTION Caveats
 // Many other types of spatial locators have been developed such as 
-// variable depth-octrees and k-d trees. These are often more efficient 
+// variable depth octrees and k-d trees. These are often more efficient 
 // for the operations described here.
 
 #ifndef __vtkCellLocator_h
