@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWorldPointPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:40 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-12-26 19:33:28 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,7 +63,10 @@ int vtkWorldPointPicker::Pick(float selectionX, float selectionY, float selectio
   float z;
 
   // Invoke start pick method if defined
-  if ( this->StartPickMethod ) (*this->StartPickMethod)(this->StartPickMethodArg);
+  if ( this->StartPickMethod )
+    {
+    (*this->StartPickMethod)(this->StartPickMethodArg);
+    }
 
   z = renderer->GetZ ((int) selectionX, (int) selectionY);
 
@@ -103,10 +106,15 @@ int vtkWorldPointPicker::Pick(float selectionX, float selectionY, float selectio
   world = renderer->GetWorldPoint ();
   
   for (int i=0; i < 3; i++) 
+    {
     this->PickPosition[i] = world[i] / world[3];
+    }
 
   // Invoke end pick method if defined
-  if ( this->EndPickMethod ) (*this->EndPickMethod)(this->EndPickMethodArg);
+  if ( this->EndPickMethod )
+    {
+    (*this->EndPickMethod)(this->EndPickMethodArg);
+    }
 
   return 0;
 }
