@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-03-17 05:37:51 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1995-04-27 17:30:04 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -701,7 +701,8 @@ int vlDataReader::ReadLutData(FILE *fp, vlDataSet *ds, int numPts)
     for (i=0; i<size; i++)
       {
       if ((retStat=fscanf(fp,"%c %c %d %c",rgba,rgba+1,rgba+2,rgba+3)) == EOF || retStat < 4) goto PREMATURE;
-      lut->SetTableValue(i,rgba);
+      lut->SetTableValue(i,rgba[0]/255.0,rgba[1]/255.0,
+			 rgba[2]/255.0,rgba[3]/255.0);
       }
     }
   this->Lut == lut;
