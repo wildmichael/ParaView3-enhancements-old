@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-20 16:11:38 $
-  Version:   $Revision: 1.116 $
+  Date:      $Date: 1999-08-20 17:46:13 $
+  Version:   $Revision: 1.117 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -602,7 +602,7 @@ void vtkRenderer::ResetCamera()
 
   if ( allBounds[0] == VTK_LARGE_FLOAT )
     {
-    vtkErrorMacro( << "Cannot reset camera!" );
+    vtkDebugMacro( << "Cannot reset camera!" );
     return;
     }
 
@@ -619,7 +619,7 @@ void vtkRenderer::ResetCameraClippingRange()
 
   if ( allBounds[0] == VTK_LARGE_FLOAT )
     {
-    vtkErrorMacro( << "Cannot reset camera!" );
+    vtkDebugMacro( << "Cannot reset camera clipping range!" );
     return;
     }
 
