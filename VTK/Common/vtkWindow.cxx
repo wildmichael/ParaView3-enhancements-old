@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-12-08 21:20:07 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-12-09 12:26:52 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -136,8 +136,6 @@ void vtkWindow::SetPosition(int x, int y)
 
 void vtkWindow::PrintSelf(ostream& os, vtkIndent indent)
 {
-  int *temp;
-
   vtkObject::PrintSelf(os,indent);
 
   os << indent << "Erase: " << (this->Erase ? "On\n" : "Off\n");
@@ -150,11 +148,11 @@ void vtkWindow::PrintSelf(ostream& os, vtkIndent indent)
     os << indent << "Window Name: (none)\n";
     }
 
-	// Can only print out the ivars because the window may not have been
-	// created yet.
-	//  temp = this->GetPosition();
+  // Can only print out the ivars because the window may not have been
+  // created yet.
+  //  temp = this->GetPosition();
   os << indent << "Position: (" << Position[0] << ", " << Position[1] << ")\n";
-	//  temp = this->GetSize();
+  //  temp = this->GetSize();
   os << indent << "Size: (" << Size[0] << ", " << Size[1] << ")\n";
   os << indent << "Mapped: " << this->Mapped << "\n";
   os << indent << "OffScreenRendering: " << this->OffScreenRendering << "\n";
