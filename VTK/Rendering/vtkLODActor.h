@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODActor.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:45:17 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1998-03-26 19:08:32 $
+  Version:   $Revision: 1.15 $
   
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -76,7 +76,8 @@ class VTK_EXPORT vtkLODActor : public vtkActor
   void PrintSelf(ostream& os, vtkIndent indent);
 
   virtual void Render(vtkRenderer *ren);
-
+  virtual void Render(vtkRenderer *, vtkMapper *) {};
+  
   // Description:
   // Set/Get the number of random points for the point cloud.
   vtkGetMacro(NumberOfCloudPoints,int);
