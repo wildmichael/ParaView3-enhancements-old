@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkImageViewerWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-26 18:02:05 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 2003-01-29 16:37:30 $
+  Version:   $Revision: 1.62 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -584,6 +584,7 @@ static int vtkTkImageViewerWidget_MakeImageViewer(struct vtkTkImageViewerWidget 
     vtkTclGetObjectFromPointer(self->Interp, self->ImageViewer,
                                vtkImageViewerCommand);
 #endif
+    ckfree (self->IV);
     self->IV = strdup(self->Interp->result);
     self->Interp->result[0] = '\0';
     }
@@ -756,6 +757,7 @@ vtkTkImageViewerWidget_MakeImageViewer(struct vtkTkImageViewerWidget *self)
     vtkTclGetObjectFromPointer(self->Interp, self->ImageViewer,
                                vtkImageViewerCommand);
 #endif
+    ckfree (self->IV);
     self->IV = strdup(self->Interp->result);
     self->Interp->result[0] = '\0';
     }
