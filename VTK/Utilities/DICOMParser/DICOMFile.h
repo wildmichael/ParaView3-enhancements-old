@@ -3,8 +3,8 @@
   Program:   DICOMParser
   Module:    $RCSfile: DICOMFile.h,v $
   Language:  C++
-  Date:      $Date: 2003-09-08 14:31:11 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2003-10-23 01:41:26 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 2003 Matt Turek
   All rights reserved.
@@ -123,7 +123,7 @@ class DICOM_EXPORT DICOMFile
   static long ReturnAsSignedLong(unsigned char* data, bool )
   {
     unsigned char* data2 = data;
-    return atol((char*) data2);
+    return *((quadbyte*) data2);
   }
   
   
@@ -133,7 +133,7 @@ class DICOM_EXPORT DICOMFile
   static ulong ReturnAsUnsignedLong(unsigned char* data, bool )
   {
     unsigned char* data2 = data;
-    return atol((char*) data2);
+    return *((ulong*) data2);
   }
   
   //
