@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDecomposeFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:32:17 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-11-21 16:15:19 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -43,14 +43,6 @@ public:
   // execution. To process images dimensionality would be set to 2.
   void SetDimensionality(int dim);
   vtkGetMacro(Dimensionality,int);
-
-#ifndef VTK_REMOVE_LEGACY_CODE
-  // Description:
-  // Obsolete legacy methods.
-  void SetFilteredAxes(int axis0);
-  void SetFilteredAxes(int axis0, int axis2);
-  void SetFilteredAxes(int axis0, int axis2, int axis3);
-#endif
 
   // Description:
   // Private methods kept public for template execute functions.
