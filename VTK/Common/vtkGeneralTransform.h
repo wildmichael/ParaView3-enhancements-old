@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeneralTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-01 04:42:43 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2000-02-03 00:15:52 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -149,7 +149,8 @@ public:
 
 protected:
   vtkGeneralTransform() { this->AutoUpdate = 1; 
-                          this->MyInverse = NULL; };
+                          this->MyInverse = NULL; 
+                          this->InUnRegister = 0; };
 
   ~vtkGeneralTransform() {};
   vtkGeneralTransform(const vtkGeneralTransform&) {};
@@ -167,6 +168,8 @@ protected:
   
   float InternalFloatPoint[3];
   double InternalDoublePoint[3];
+
+  int InUnRegister;
 };
 
 #endif

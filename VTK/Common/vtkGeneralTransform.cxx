@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeneralTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-31 04:32:11 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2000-02-03 00:15:52 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -274,11 +274,23 @@ void vtkGeneralTransform::Update()
 // inverse
 void vtkGeneralTransform::UnRegister(vtkObject *o)
 {
-  if (this->ReferenceCount == 2 && this->MyInverse && 
-      this->MyInverse->GetOriginalTransform() == this)
+  if (this->InUnRegister)
     {
     this->ReferenceCount--;
+    return;
     }
+
+  // 'this' is reference by this->MyInverse
+  if (this->ReferenceCount == 2 && this->MyInverse &&
+      this->MyInverse->GetReferenceCount() == 1 &&
+      this->MyInverse->GetOriginalTransform() == this)
+    { // break the cycle
+    this->InUnRegister = 1;
+    this->MyInverse->Delete();
+    this->MyInverse = NULL;
+    this->InUnRegister = 0;
+    }
+
   this->vtkObject::UnRegister(o);
 }
 
