@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImager.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:17:42 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2001-12-20 20:09:03 $
+  Version:   $Revision: 1.28 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -47,6 +47,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 vtkImager* vtkImager::New()
 {
+  vtkGenericWarningMacro("vtkImager is being deprecated in version 4.1 please use vtkRenderer instead.");
   // First try to create the object from the vtkObjectFactory
   vtkObject* ret = vtkImagingFactory::CreateInstance("vtkImager");
   if(ret)

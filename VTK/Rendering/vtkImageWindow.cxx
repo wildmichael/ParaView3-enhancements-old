@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:11 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-12-20 20:09:31 $
+  Version:   $Revision: 1.24 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -157,6 +157,7 @@ void vtkImageWindow::GetSize(int *x, int *y)
 vtkImageWindow* vtkImageWindow::New()
 {
   // First try to create the object from the vtkObjectFactory
+  vtkGenericWarningMacro("vtkImageWindow is being deprecated in version 4.1 please use vtkRenderWindow instead.");
   vtkObject* ret = vtkImagingFactory::CreateInstance("vtkImageWindow");
   return (vtkImageWindow*)ret;
 }
