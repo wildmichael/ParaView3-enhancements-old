@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-03 21:59:30 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2002-06-14 12:33:35 $
+  Version:   $Revision: 1.29 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,6 @@
 #define __vtkWindow_h
 
 #include "vtkObject.h"
-#include <stdio.h>
 
 class vtkUnsignedCharArray;
 
