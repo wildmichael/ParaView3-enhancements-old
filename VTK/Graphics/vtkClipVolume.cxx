@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-12-05 23:21:03 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-02-03 12:11:29 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -502,6 +502,7 @@ void vtkClipVolume::ClipVoxel(float value, vtkFloatScalars& cellScalars,
   delete [] tetraUse;
   
   this->Mesh->Delete();
+  this->Mesh = NULL;
   this->MeshLocator->Initialize();
 }
 
