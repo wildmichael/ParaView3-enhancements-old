@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-25 13:58:59 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-04-25 15:35:07 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -36,7 +36,9 @@
 #include "vtkTransform.h"
 #include "vtkMatrix4x4.h"
 
-vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.7 $");
+#define ABS(x) ((x)<0 ? -(x) : (x))
+
+vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkImagePlaneWidget);
 
 vtkImagePlaneWidget::vtkImagePlaneWidget()
@@ -882,7 +884,7 @@ void vtkImagePlaneWidget::UpdateOrigin()
     int k = 0;
     for ( i = 0; i < 3; i++ )
       {
-      abs_normal[i] = abs(abs_normal[i]);
+      abs_normal[i] = ABS(abs_normal[i]);
       if ( abs_normal[i] > nmax )
         {
         nmax = abs_normal[i];
