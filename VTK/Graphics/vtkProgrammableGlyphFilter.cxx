@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableGlyphFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-11-08 12:49:43 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-12-31 14:08:40 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -154,7 +154,10 @@ void vtkProgrammableGlyphFilter::Execute()
     if ( ! (this->PointId % 10000) ) 
       {
       this->UpdateProgress ((float)this->PointId/numPts);
-      if (this->GetAbortExecute()) break;
+      if (this->GetAbortExecute())
+	{
+	break;
+	}
       }
 
     input->GetPoint(this->PointId, this->Point);
@@ -252,36 +255,61 @@ void vtkProgrammableGlyphFilter::Update()
     }
 
   // prevent chasing our tail
-  if (this->Updating) return;
+  if (this->Updating)
+    {
+    return;
+    }
 
   this->Updating = 1;
   this->Input->Update();
-  if ( this->Source ) this->Source->Update();
+  if ( this->Source )
+    {
+    this->Source->Update();
+    }
   this->Updating = 0;
 
   if (this->Input->GetMTime() > this->ExecuteTime || 
   (this->Source && this->Source->GetMTime() > this->ExecuteTime) || 
   this->GetMTime() > this->ExecuteTime )
     {
-    if ( this->Input->GetDataReleased() ) this->Input->ForceUpdate();
+    if ( this->Input->GetDataReleased() )
+      {
+      this->Input->ForceUpdate();
+      }
     if ( this->Source && this->Source->GetDataReleased() ) 
+      {
       this->Source->ForceUpdate();
+      }
 
-    if ( this->StartMethod ) (*this->StartMethod)(this->StartMethodArg);
+    if ( this->StartMethod )
+      {
+      (*this->StartMethod)(this->StartMethodArg);
+      }
     this->Output->Initialize(); //clear output
     // reset AbortExecute flag and Progress
     this->AbortExecute = 0;
     this->Progress = 0.0;
     this->Execute();
     this->ExecuteTime.Modified();
-    if ( !this->AbortExecute ) this->UpdateProgress(1.0);
+    if ( !this->AbortExecute )
+      {
+      this->UpdateProgress(1.0);
+      }
     this->SetDataReleased(0);
-    if ( this->EndMethod ) (*this->EndMethod)(this->EndMethodArg);
+    if ( this->EndMethod )
+      {
+      (*this->EndMethod)(this->EndMethodArg);
+      }
     }
 
-  if ( this->Input->ShouldIReleaseData() ) this->Input->ReleaseData();
+  if ( this->Input->ShouldIReleaseData() )
+    {
+    this->Input->ReleaseData();
+    }
   if ( this->Source && this->Source->ShouldIReleaseData() ) 
+    {
     this->Source->ReleaseData();
+    }
 }
 
 // Specify function to be called before object executes.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:44:59 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1998-12-31 14:08:41 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -132,16 +132,28 @@ vtkProperty *vtkProperty::New()
   char *temp = vtkRenderWindow::GetRenderLibrary();
   
 #ifdef VTK_USE_SBR
-  if (!strcmp("Starbase",temp)) return vtkStarbaseProperty::New();
+  if (!strcmp("Starbase",temp))
+    {
+    return vtkStarbaseProperty::New();
+    }
 #endif
 #ifdef VTK_USE_OGLR
-  if (!strcmp("OpenGL",temp)) return vtkOpenGLProperty::New();
+  if (!strcmp("OpenGL",temp))
+    {
+    return vtkOpenGLProperty::New();
+    }
 #endif
 #ifdef _WIN32
-  if (!strcmp("Win32OpenGL",temp)) return vtkOpenGLProperty::New();
+  if (!strcmp("Win32OpenGL",temp))
+    {
+    return vtkOpenGLProperty::New();
+    }
 #endif
 #ifdef VTK_USE_XGLR
-  if (!strcmp("XGL",temp)) return vtkXGLProperty::New();
+  if (!strcmp("XGL",temp))
+    {
+    return vtkXGLProperty::New();
+    }
 #endif
   
   return new vtkProperty;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:44:57 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-12-31 14:08:39 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,17 +61,31 @@ void vtkPolyDataWriter::WriteData()
   vtkDebugMacro(<<"Writing vtk polygonal data...");
 
   if ( !(fp=this->OpenVTKFile()) || !this->WriteHeader(fp) )
-      return;
+    {
+    return;
+    }
 //
 // Write polygonal data specific stuff
 //
   fprintf(fp,"DATASET POLYDATA\n");
   this->WritePoints(fp, input->GetPoints());
 
-  if (input->GetVerts()) this->WriteCells(fp, input->GetVerts(),"VERTICES");
-  if (input->GetLines()) this->WriteCells(fp, input->GetLines(),"LINES");
-  if (input->GetPolys()) this->WriteCells(fp, input->GetPolys(),"POLYGONS");
-  if (input->GetStrips()) this->WriteCells(fp, input->GetStrips(),"TRIANGLE_STRIPS");
+  if (input->GetVerts())
+    {
+    this->WriteCells(fp, input->GetVerts(),"VERTICES");
+    }
+  if (input->GetLines())
+    {
+    this->WriteCells(fp, input->GetLines(),"LINES");
+    }
+  if (input->GetPolys())
+    {
+    this->WriteCells(fp, input->GetPolys(),"POLYGONS");
+    }
+  if (input->GetStrips())
+    {
+    this->WriteCells(fp, input->GetStrips(),"TRIANGLE_STRIPS");
+    }
 
   this->WriteCellData(fp, input);
   this->WritePointData(fp, input);

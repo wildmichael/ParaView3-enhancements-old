@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProbeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-26 14:21:53 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 1998-12-31 14:08:39 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -117,7 +117,10 @@ void vtkProbeFilter::Update()
     }
 
   // prevent chasing our tail
-  if (this->Updating) return;
+  if (this->Updating)
+    {
+    return;
+    }
 
   this->Updating = 1;
   this->Source->Update();
@@ -128,23 +131,44 @@ void vtkProbeFilter::Update()
   this->Input->GetMTime() > this->ExecuteTime || 
   this->GetMTime() > this->ExecuteTime )
     {
-    if ( this->Input->GetDataReleased() ) this->Input->ForceUpdate();
-    if ( this->Source->GetDataReleased() ) this->Source->ForceUpdate();
+    if ( this->Input->GetDataReleased() )
+      {
+      this->Input->ForceUpdate();
+      }
+    if ( this->Source->GetDataReleased() )
+      {
+      this->Source->ForceUpdate();
+      }
 
-    if ( this->StartMethod ) (*this->StartMethod)(this->StartMethodArg);
+    if ( this->StartMethod )
+      {
+      (*this->StartMethod)(this->StartMethodArg);
+      }
     ((vtkDataSet *)this->Output)->CopyStructure((vtkDataSet *)this->Input);
     // reset AbortExecute flag and Progress
     this->AbortExecute = 0;
     this->Progress = 0.0;
     this->Execute();
     this->ExecuteTime.Modified();
-    if ( !this->AbortExecute ) this->UpdateProgress(1.0);
+    if ( !this->AbortExecute )
+      {
+      this->UpdateProgress(1.0);
+      }
     this->SetDataReleased(0);
-    if ( this->EndMethod ) (*this->EndMethod)(this->EndMethodArg);
+    if ( this->EndMethod )
+      {
+      (*this->EndMethod)(this->EndMethodArg);
+      }
     }
 
-  if ( this->Source->ShouldIReleaseData() ) this->Source->ReleaseData();
-  if ( this->Input->ShouldIReleaseData() ) this->Input->ReleaseData();
+  if ( this->Source->ShouldIReleaseData() )
+    {
+    this->Source->ReleaseData();
+    }
+  if ( this->Input->ShouldIReleaseData() )
+    {
+    this->Input->ReleaseData();
+    }
 }
 
 void vtkProbeFilter::PrintSelf(ostream& os, vtkIndent indent)

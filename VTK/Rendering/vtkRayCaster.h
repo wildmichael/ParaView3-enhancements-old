@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRayCaster.h,v $
   Language:  C++
-  Date:      $Date: 1998-12-03 16:28:36 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1998-12-31 14:08:42 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -171,7 +171,17 @@ public:
   vtkSetMacro( NumberOfThreads, int );
   vtkGetMacro( NumberOfThreads, int );
 
-  float *GetCurrentZBuffer() {if ( this->FirstBlend ) return NULL; else return this->ZImage;};
+  float *GetCurrentZBuffer()
+  {
+    if ( this->FirstBlend )
+      {
+      return NULL;
+      }
+    else
+      {
+      return this->ZImage;
+      }
+  };
 
 protected:
 

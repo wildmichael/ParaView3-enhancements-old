@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-26 14:21:54 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-12-31 14:08:43 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,7 +62,9 @@ void vtkRectilinearGridWriter::WriteData()
   vtkDebugMacro(<<"Writing vtk rectilinear grid...");
 
   if ( !(fp=this->OpenVTKFile()) || !this->WriteHeader(fp) )
-      return;
+    {
+    return;
+    }
   //
   // Write rectilinear grid specific stuff
   //

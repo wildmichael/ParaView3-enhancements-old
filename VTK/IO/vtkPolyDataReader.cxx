@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:44:56 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1998-12-31 14:08:39 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -161,11 +161,19 @@ void vtkPolyDataReader::Execute()
 
   vtkDebugMacro(<<"Reading vtk polygonal data...");
 
-  if ( this->Debug ) this->Reader->DebugOn();
-  else this->Reader->DebugOff();
+  if ( this->Debug )
+    {
+    this->Reader->DebugOn();
+    }
+  else
+    {
+    this->Reader->DebugOff();
+    }
 
   if ( !(this->Reader->OpenVTKFile()) || !this->Reader->ReadHeader())
-      return;
+    {
+    return;
+    }
 //
 // Read polygonal data specific stuff
 //
@@ -199,7 +207,10 @@ void vtkPolyDataReader::Execute()
 //
     while (1)
       {
-      if (!this->Reader->ReadString(line)) break;
+      if (!this->Reader->ReadString(line))
+	{
+	break;
+	}
 
       if ( ! strncmp(this->Reader->LowerCase(line),"points",6) )
         {
