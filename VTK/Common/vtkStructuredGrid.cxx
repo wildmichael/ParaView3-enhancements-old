@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-26 21:07:31 $
-  Version:   $Revision: 1.74 $
+  Date:      $Date: 2001-04-12 11:32:40 $
+  Version:   $Revision: 1.75 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -945,13 +945,13 @@ void vtkStructuredGrid::GetCellNeighbors(int cellId, vtkIdList *ptIds,
   // If blanking, remove blanked cells.
   if ( this->Blanking )
     {
-    int cellId;
+    int xcellId;
     for (int i=0; i<cellIds->GetNumberOfIds(); i++)
       {
-      cellId = cellIds->GetId(i);
-      if ( !this->IsCellVisible(cellId) )
+      xcellId = cellIds->GetId(i);
+      if ( !this->IsCellVisible(xcellId) )
         {
-        cellIds->DeleteId(cellId);
+        cellIds->DeleteId(xcellId);
         }
       }
     }

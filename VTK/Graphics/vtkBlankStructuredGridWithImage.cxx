@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBlankStructuredGridWithImage.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-02 20:51:37 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-04-12 11:32:40 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -94,9 +94,6 @@ void vtkBlankStructuredGridWithImage::Execute()
     vtkErrorMacro(<< "Blanking dimensions must be identical with grid dimensions");
     return;
     }
-  
-  int type = image->GetScalarType();
-  int numComp= image->GetNumberOfScalarComponents();
   
   if ( image->GetScalarType() != VTK_UNSIGNED_CHAR ||
        image->GetNumberOfScalarComponents() != 1 )

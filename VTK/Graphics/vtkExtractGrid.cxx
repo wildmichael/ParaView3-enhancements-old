@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-04 18:17:39 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2001-04-12 11:32:40 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -67,7 +67,7 @@ vtkExtractGrid::vtkExtractGrid()
 }
 
 
-void vtkExtractGrid::ComputeInputUpdateExtents(vtkDataObject *out)
+void vtkExtractGrid::ComputeInputUpdateExtents(vtkDataObject *vtkNotUsed(out))
 {
   vtkStructuredGrid *input = this->GetInput();
   vtkStructuredGrid *output = this->GetOutput();
