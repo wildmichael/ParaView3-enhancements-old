@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-10 21:32:36 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1999-12-03 14:19:19 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -120,7 +120,7 @@ public:
   // Description:
   // Specify a (xmin,xmax, ymin,ymax, zmin,zmax) bounding box to clip data.
   void SetExtent(float xMin, float xMax, float yMin, float yMax, 
-		 float zMin, float zMax);
+                 float zMin, float zMax);
 
   // Description:
   // Set / get a (xmin,xmax, ymin,ymax, zmin,zmax) bounding box to clip data.
@@ -160,7 +160,10 @@ protected:
   void operator=(const vtkGeometryFilter&) {};
 
   void Execute();
+  void PolyDataExecute(); //special cases for performance
   void UnstructuredGridExecute();
+  void StructuredGridExecute();
+
   int PointMaximum;
   int PointMinimum;
   int CellMinimum;
