@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-09 16:44:41 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1996-07-18 13:08:27 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,6 +40,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkTriangleFilter.hh"
 #include "vtkPolygon.hh"
+#include "vtkTriangleStrip.hh"
 
 void vtkTriangleFilter::Execute()
 {
@@ -49,7 +50,6 @@ void vtkTriangleFilter::Execute()
   int npts, *pts;
   vtkCellArray *newPolys;
   int numCells;
-  int p1, p2, p3;
   vtkPolygon poly;
   int i, j;
   vtkIdList outVerts(3*VTK_CELL_SIZE);
@@ -84,30 +84,10 @@ void vtkTriangleFilter::Execute()
       }
     }
 
-  for (inStrips->InitTraversal(); inStrips->GetNextCell(npts,pts); )
+  if ( inStrips->GetNumberOfCells() > 0 )
     {
-    p1 = pts[0];
-    p2 = pts[1];
-    p3 = pts[2];
-    for (i=0; i<(npts-2); i++)
-      {
-      newPolys->InsertNextCell(3);
-      if ( (i % 2) ) // flip ordering to preserve consistency
-        {
-        newPolys->InsertCellPoint(p2);
-        newPolys->InsertCellPoint(p1);
-        newPolys->InsertCellPoint(p3);
-        }
-      else
-        {
-        newPolys->InsertCellPoint(p1);
-        newPolys->InsertCellPoint(p2);
-        newPolys->InsertCellPoint(p3);
-        }
-      p1 = p2;
-      p2 = p3;
-      p3 = pts[3+i];
-      }
+    vtkTriangleStrip strip;
+    strip.DecomposeStrips(inStrips,newPolys);
     }
 //
 // Update ourselves
