@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergePoints2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:28:08 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-05-24 14:54:26 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,8 +18,18 @@
 #include "vtkMergePoints2D.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkMergePoints2D, "$Revision: 1.10 $");
-vtkStandardNewMacro(vtkMergePoints2D);
+vtkCxxRevisionMacro(vtkMergePoints2D, "$Revision: 1.11 $");
+
+vtkMergePoints2D* vtkMergePoints2D::New() 
+{ 
+  vtkGenericWarningMacro("MergePoints2D is being deprecated in VTK 4.1. There is no replacement for it.");
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkMergePoints2D"); 
+  if(ret) 
+      { 
+      return static_cast<vtkMergePoints2D*>(ret); 
+      } 
+    return new vtkMergePoints2D; 
+}
 
 // Determine whether point given by x[2] has been inserted into points list.
 // Return id of previously inserted point if this is true, otherwise return
