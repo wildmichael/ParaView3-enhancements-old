@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:36:38 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1995-08-13 16:33:30 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,7 +53,9 @@ vtkRenderWindowInteractor::vtkRenderWindowInteractor()
 
   this->LightFollowCamera = 1;
   this->Initialized = 0;
-
+  this->DesiredUpdateRate = 15;
+  this->StillUpdateRate = 0;
+  
   this->SelfCreatedPicker = 0;
   this->Picker = this->CreateDefaultPicker();
   this->OutlineActor = NULL;
@@ -262,5 +264,7 @@ void vtkRenderWindowInteractor::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "CurrentLight:    " << this->CurrentLight << "\n";
   os << indent << "CurrentRenderer: " << this->CurrentRenderer << "\n";
   os << indent << "LightFollowCamera: " << (this->LightFollowCamera ? "On\n" : "Off\n");
+  os << indent << "DesiredUpdateRate: " << this->DesiredUpdateRate << "\n";
+  os << indent << "StillUpdateRate: " << this->StillUpdateRate << "\n";
 }
 
