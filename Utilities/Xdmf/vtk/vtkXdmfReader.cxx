@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2004-05-28 18:21:55 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2004-05-29 04:53:17 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -74,7 +74,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <vtkstd/vector>
 
 vtkStandardNewMacro(vtkXdmfReader);
-vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.46 $");
+vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.47 $");
 
 #if defined(_WIN32) && (defined(_MSC_VER) || defined(__BORLANDC__))
 #  include <direct.h>
@@ -1484,7 +1484,7 @@ void vtkXdmfReader::EnableGrid(const char* name)
   if ( gidx < 0 || gidx >= this->GetNumberOfGrids() )
     {
     cout << "Enabling unknown grid" << endl;
-    vtkXdmfReaderInternal::StringListType::iterator it = 0;
+    vtkXdmfReaderInternal::StringListType::iterator it;
     for ( it = this->Internals->EnabledUnknownGrids.begin();
       it != this->Internals->EnabledUnknownGrids.end();
       ++ it )
