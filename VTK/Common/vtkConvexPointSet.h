@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConvexPointSet.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-21 09:52:35 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-06-27 02:35:06 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -67,7 +67,7 @@ public:
   // faces. (Note: GetNumberOfEdges() currently returns 0 because it is a 
   // rarely used method and hard to implement. It can be changed in the future.
   virtual int GetNumberOfEdges() {return 0;}
-  virtual vtkCell *GetEdge(int edgeId) {return NULL;}
+  virtual vtkCell *GetEdge(int) {return NULL;}
   virtual int GetNumberOfFaces();
   virtual vtkCell *GetFace(int faceId);
 
