@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-15 03:19:26 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2002-04-15 03:21:46 $
+  Version:   $Revision: 1.47 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -40,7 +40,7 @@
 
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkOpenGLTexture, "$Revision: 1.46 $");
+vtkCxxRevisionMacro(vtkOpenGLTexture, "$Revision: 1.47 $");
 vtkStandardNewMacro(vtkOpenGLTexture);
 #endif
 
@@ -289,7 +289,7 @@ void vtkOpenGLTexture::Load(vtkRenderer *ren)
       }
     // if we are using OpenGL 1.1, you can force 32 or16 bit textures
 #ifdef GL_VERSION_1_1
-    if (1) //this->Quality == VTK_TEXTURE_QUALITY_32BIT)
+    if (this->Quality == VTK_TEXTURE_QUALITY_32BIT)
       {
       switch (bytesPerPixel)
         {
