@@ -3,8 +3,8 @@
  Program:   Visualization Toolkit
  Module:    $RCSfile: vtkSource.cxx,v $
  Language:  C++
- Date:      $Date: 1999-07-22 12:12:25 $
- Version:   $Revision: 1.37 $
+ Date:      $Date: 1999-07-27 13:45:24 $
+ Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -390,97 +390,6 @@ int vtkSource::ComputeInputUpdateExtents(vtkDataObject *output)
 }
 
 
-// This will have to be merged with the streaming update.
-#if 0
-//----------------------------------------------------------------------------
-// This Update supports the MPI and SharedMemoryPorts,
-void vtkSource::InternalUpdate()
-{
-  vtkDataObject *pd;
-  int idx;
-
-  // prevent chasing our tail
-  if (this->Updating)
-    {
-    return;
-    }
-
-  for (idx = 0; idx < this->NumberOfOutputs; ++idx)
-    {
-    if (this->Outputs[idx] != NULL)
-      {
-      this->Outputs[idx]->Initialize(); //clear output
-      }
-    }
-  
-  // The UpdateInformation has already started the non-blocking update.
-  // Here we should probably sort by locality, but
-  // dividing into two groups should do for now.
-
-  // UpdateInformation has started non blocking updates on the
-  // non local inputs, so update the local inputs next.
-  for (idx = 0; idx < this->NumberOfInputs; ++idx)
-    {
-    if (this->Inputs[idx] != NULL)
-      {
-      pd = this->Inputs[idx];
-      if (pd->GetLocality() != 0)
-	{
-	this->Updating = 1;
-	pd->InternalUpdate();
-	this->Updating = 0;
-	}
-      }
-    }
-  
-  // Now ask the non-local inputs (ports) to send there data.
-  for (idx = 0; idx < this->NumberOfInputs; ++idx)
-    {
-    if (this->Inputs[idx] != NULL)
-      {
-      pd = this->Inputs[idx];
-      if (pd->GetLocality() == 0)
-	{
-	this->Updating = 1;
-	pd->InternalUpdate();
-	this->Updating = 0;
-	}
-      }
-    }
-  
-  // execute
-  if ( this->StartMethod )
-    {
-    (*this->StartMethod)(this->StartMethodArg);
-    }
-  // reset Abort flag
-  this->AbortExecute = 0;
-  this->Progress = 0.0;
-  this->Execute();
-  if ( !this->AbortExecute )
-    {
-    this->UpdateProgress(1.0);
-    }
-  if ( this->EndMethod )
-    {
-    (*this->EndMethod)(this->EndMethodArg);
-    }
-
-  // clean up
-  for (idx = 0; idx < this->NumberOfInputs; ++idx)
-    {
-    if (this->Inputs[idx] != NULL)
-      {
-      pd = this->Inputs[idx];
-      if ( pd->ShouldIReleaseData() )
-	{
-	pd->ReleaseData();
-	}
-      }
-    }
-}
-#endif
-
 
 //----------------------------------------------------------------------------
 void vtkSource::UpdateInformation()
@@ -491,6 +400,14 @@ void vtkSource::UpdateInformation()
 
   if (this->Outputs[0] == NULL)
     {
+    return;
+    }
+  
+  if (this->Updating)
+    {
+    // We are in a pipeline loop.
+    // Force an update
+    this->GetOutput(0)->Modified();
     return;
     }
   
