@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGaussianSmooth.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-10-29 18:19:07 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1996-12-19 13:52:13 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -84,28 +84,28 @@ void vtkImageGaussianSmooth::SetDimensionality(int num)
 
 //----------------------------------------------------------------------------
 // Description:
-// This method sets the StandardDeviation. Both axes are the same.  
-// A future simple extension could make the kernel eliptical.
-void vtkImageGaussianSmooth::SetStandardDeviation(float std)
+// This method sets the StandardDeviation for each axis independently
+void vtkImageGaussianSmooth::SetStandardDeviation(int num, float *std)
 {
   int idx;
   
-  if (this->Dimensionality == 0)
+  if (this->Dimensionality != num)
     {
-    vtkWarningMacro(<< "SetStandardDeviation: No Filters. "
-                    << "Try SetDimensionality first.");
+    vtkWarningMacro(<< "SetStandardDeviation: number of axes " << num << " does not match dimensionality " << this->Dimensionality);
     }
   
   for (idx = 0; idx < this->Dimensionality; ++idx)
     {
     if ( ! this->Filters[idx])
       {
-      vtkWarningMacro(<< "SetStandardDeviation: Filter " << idx << " not set");
+      vtkErrorMacro(<< "SetStandardDeviation: Filter " << idx << " not set");
+      return;
       }
     else
       {
       ((vtkImageGaussianSmooth1D *)
-       (this->Filters[idx]))->SetStandardDeviation(std);
+       (this->Filters[idx]))->SetStandardDeviation(std[idx%num]);
+      this->StandardDeviation[idx] = std[idx%num];
       }
     }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGaussianSmooth.h,v $
   Language:  C++
-  Date:      $Date: 1996-10-29 18:19:12 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1996-12-19 13:52:12 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,8 +58,12 @@ public:
   char *GetClassName() {return "vtkImageGaussianSmooth";};
 
   void SetDimensionality(int num);
-  void SetStandardDeviation(float std);
   void SetRadiusFactor(float factor);
+
+  void SetStandardDeviation(int num, float *std);
+  vtkImageSetMacro(StandardDeviation, float);
+
+  void vtkTest () {};
 
   // Description:
   // Each axis can have a stride to srink the image.
@@ -68,6 +72,7 @@ public:
   
 protected:
   int Strides[VTK_IMAGE_DIMENSIONS];
+  float StandardDeviation[VTK_IMAGE_DIMENSIONS];
 };
 
 #endif
