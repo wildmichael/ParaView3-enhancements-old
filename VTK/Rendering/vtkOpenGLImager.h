@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImager.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:03:24 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-08-30 13:11:17 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -61,6 +61,10 @@ public:
   // Renders an imager.  Passes Render message on the 
   // the imager's actor2D collection.
   int RenderOpaqueGeometry();
+
+  // Description:
+  // Erase the contents of the imager in the window.
+  void Erase();
 
 protected:
   vtkOpenGLImager() {};
