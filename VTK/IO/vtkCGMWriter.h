@@ -3,8 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCGMWriter.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-01 07:24:13 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-09-18 10:33:39 $
+  Version:   $Revision: 1.3 $
+  Credit:    The origin of much of this code was from the cd package
+             written by G. Edward Johnson at the National Institute 
+             of Standards and Technology (US).
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
