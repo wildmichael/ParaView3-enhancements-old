@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-18 11:11:48 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-04-19 13:20:13 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -63,6 +63,7 @@ vtkDataArray::vtkDataArray(int numComp)
   buf << vtkDataArray::ArrayNamePostfix << ends; 
   vtkDataArray::ArrayNamePostfix++;
   this->SetName(buf.str());
+  delete[] buf.str();
   DataArrayCritSec.Unlock();
 }
 
