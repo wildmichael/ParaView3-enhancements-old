@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-28 16:27:36 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2002-09-10 00:09:38 $
+  Version:   $Revision: 1.43 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -42,7 +42,7 @@
 #include "vtkTextureMapToPlane.h"
 #include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.42 $");
+vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.43 $");
 vtkStandardNewMacro(vtkImagePlaneWidget);
 
 vtkCxxSetObjectMacro(vtkImagePlaneWidget, PlaneProperty, vtkProperty);
@@ -1374,6 +1374,8 @@ void vtkImagePlaneWidget::SetResliceInterpolate(int i)
     {
     this->Reslice->SetInterpolationModeToCubic();
     }
+  this->Texture->SetInterpolate(this->TextureInterpolate);
+  this->Reslice->Update();
 }
 
 void vtkImagePlaneWidget::SetPicker(vtkCellPicker* picker)
