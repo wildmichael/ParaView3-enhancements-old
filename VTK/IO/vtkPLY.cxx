@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLY.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-12 13:21:41 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-09-12 15:59:22 $
+  Version:   $Revision: 1.6 $
   Thanks:    Mike Dresser MD/PhD
              Director of Core Facility for Imaging
              Program in Molecular and Cell Biology
@@ -1362,18 +1362,26 @@ void vtkPLY::ply_close(PlyFile *plyfile)
     if ( elem->name ) {free(elem->name);}
     for (j=0; j<elem->nprops; j++)
       {
+      if ( elem->props[j]->name ) {free(elem->props[j]->name);}
       free (elem->props[j]);
       }
     free (elem->props);
     free (elem->store_prop);
     free (elem);
     }
+  free(plyfile->elems);
 
   for (i=0; i<plyfile->num_comments; i++)
     {
     free (plyfile->comments[i]);
     }
   free (plyfile->comments);
+  
+  for (i=0; i<plyfile->num_obj_info; i++)
+    {
+    free (plyfile->obj_info[i]);
+    }
+  free (plyfile->obj_info);
   
   free (plyfile);
 }
