@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-12-16 13:40:03 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-02-26 14:48:10 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -204,6 +204,45 @@ int *vtkActor2D::GetComputedDisplayPosition(vtkViewport* viewport)
   this->ComputedDisplayPosition[1] = winSize[1] - (actorPos[1] + 0.5);
 
   return this->ComputedDisplayPosition;
+}
+
+float *vtkActor2D::GetComputedWorldPosition(vtkViewport* viewport)
+{
+  float* actorPos;
+  float  temp[2];
+  static float worldPos[3];
+
+  // Get the actor's position in viewport coordinates
+  switch (this->PositionType) 
+    {
+    case VTK_VIEW_COORD:
+	viewport->SetViewPoint(this->ViewPosition[0], this->ViewPosition[1], 0);
+	viewport->ViewToWorld();
+        actorPos = viewport->GetWorldPoint();
+	worldPos[0] = actorPos[0];
+	worldPos[1] = actorPos[1];
+	worldPos[2] = actorPos[2];
+      	break;
+    case VTK_DISPLAY_COORD:
+        viewport->SetDisplayPoint(this->DisplayPosition[0], this->DisplayPosition[1], 0);
+	viewport->DisplayToWorld();
+        actorPos = viewport->GetWorldPoint();
+	worldPos[0] = actorPos[0];
+	worldPos[1] = actorPos[1];
+	worldPos[2] = actorPos[2];
+	break;
+    case VTK_WORLD_COORD:
+        worldPos[0] = this->WorldPosition[0];
+	worldPos[1] = this->WorldPosition[1];
+	worldPos[2] = this->WorldPosition[2];
+	break;
+    default:
+	vtkErrorMacro(<< "Unknown position type: " << this->PositionType);
+	break;
+    }
+
+  return worldPos;    
+
 }
 
 // Description:

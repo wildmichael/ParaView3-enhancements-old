@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor2D.h,v $
   Language:  C++
-  Date:      $Date: 1997-12-16 13:40:05 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-02-26 14:48:11 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -109,6 +109,7 @@ public:
   void SetWorldPosition(float arr[3]) {this->SetWorldPosition(arr[0], arr[1], arr[2]);};
 
   virtual int *GetComputedDisplayPosition(vtkViewport* viewport);
+  virtual float *GetComputedWorldPosition(vtkViewport* viewport);
 
   vtkSetMacro(PositionType, int);
   vtkGetMacro(PositionType, int);
