@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.h,v $
   Language:  C++
-  Date:      $Date: 1996-01-09 21:49:11 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 1996-04-24 19:40:36 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,8 +66,12 @@ public:
 
   // Description:
   // Provides opportunity for data to insure internal consistency before 
-  // access.
+  // access. Also causes owning filter (if any) to update itself.
   virtual void Update();
+
+  // Description:
+  // Force the data to update itself no matter what.
+  virtual void ForceUpdate();
 
   // Description:
   // Create concrete instance of this dataset.
