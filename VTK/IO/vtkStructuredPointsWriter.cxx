@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:56:19 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1997-03-05 18:57:50 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,10 +72,10 @@ void vtkStructuredPointsWriter::WriteData()
   fprintf(fp,"DIMENSIONS %d %d %d\n", dim[0], dim[1], dim[2]);
 
   input->GetAspectRatio(ar);
-  fprintf(fp,"ASPECT_RATIO %f %f %f\n", ar[0], ar[1], ar[2]);
+  fprintf(fp,"ASPECT_RATIO %g %g %g\n", ar[0], ar[1], ar[2]);
 
   input->GetOrigin(origin);
-  fprintf(fp,"ORIGIN %f %f %f\n", origin[0], origin[1], origin[2]);
+  fprintf(fp,"ORIGIN %g %g %g\n", origin[0], origin[1], origin[2]);
 
   this->WritePointData(fp, input);
 
