@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-26 02:26:14 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-06-30 00:02:15 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkTextProperty.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkTextProperty, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkTextProperty, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkTextProperty);
 
 //----------------------------------------------------------------------------
@@ -57,9 +57,18 @@ int vtkTextProperty::GetGlobalAntiAliasing()
 
 vtkTextProperty::vtkTextProperty()
 {
-  this->Color[0] = 1.0;
-  this->Color[1] = 1.0;
-  this->Color[2] = 1.0;
+  // TOFIX: the default text prop color is set to a special (-1, -1, -1) value
+  // to maintain backward compatibility for a while. Text mapper classes will
+  // use the Actor2D color instead of the text prop color if this value is 
+  // found (i.e. if the text prop color has not been set).
+
+  this->Color[0] = -1.0;
+  this->Color[1] = -1.0;
+  this->Color[2] = -1.0;
+
+  // TOFIX: same goes for opacity
+
+  this->Opacity  = -1.0;
 
   this->FontFamily = VTK_ARIAL;
   this->FontSize = 12;
@@ -82,6 +91,7 @@ vtkTextProperty::vtkTextProperty()
 void vtkTextProperty::ShallowCopy(vtkTextProperty *tprop)
 {
   this->SetColor(tprop->GetColor());
+  this->SetOpacity(tprop->GetOpacity());
 
   this->SetFontFamily(tprop->GetFontFamily());
   this->SetFontSize(tprop->GetFontSize());
@@ -110,6 +120,8 @@ void vtkTextProperty::PrintSelf(ostream& os, vtkIndent indent)
 
   os << indent << "Color: (" << this->Color[0] << ", " 
      << this->Color[1] << ", " << this->Color[2] << ")\n";
+
+  os << indent << "Opacity: " << this->Opacity << "\n";
 
   os << indent << "FontFamily: " << this->GetFontFamilyAsString() << "\n";
   os << indent << "FontSize: " << this->FontSize << "\n";

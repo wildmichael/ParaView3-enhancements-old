@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-20 18:02:09 $
-  Version:   $Revision: 1.79 $
+  Date:      $Date: 2002-06-30 00:02:15 $
+  Version:   $Revision: 1.80 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,9 +29,9 @@
 #include "vtkProperty2D.h"
 #include "vtkRenderWindow.h"
 #include "vtkRenderWindowInteractor.h"
-#include "vtkTextMapper.h"
+#include "vtkTextProperty.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyle, "$Revision: 1.79 $");
+vtkCxxRevisionMacro(vtkInteractorStyle, "$Revision: 1.80 $");
 
 //----------------------------------------------------------------------------
 vtkInteractorStyle *vtkInteractorStyle::New() 
@@ -966,7 +966,7 @@ void vtkInteractorStyle::OnChar()
     case 'l' :
     case 'L' :
       {
-      int val = vtkTextMapper::GetGlobalAntiAliasing();
+      int val = vtkTextProperty::GetGlobalAntiAliasing();
       // Cycle through global anti-aliasing control
       if (val == VTK_TEXT_GLOBAL_ANTIALIASING_ALL)
         {
@@ -976,7 +976,7 @@ void vtkInteractorStyle::OnChar()
         {
         val++;
         }
-      vtkTextMapper::SetGlobalAntiAliasing(val);
+      vtkTextProperty::SetGlobalAntiAliasing(val);
       rwi->Render();
       }
       break;

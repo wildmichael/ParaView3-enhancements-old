@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextProperty.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-24 21:46:57 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-06-30 00:02:15 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,8 +18,9 @@
 // .NAME vtkTextProperty - represent text properties.
 // .SECTION Description
 // vtkTextProperty is an object that represents text properties.
-// The primary properties that can be set are color, font size, font family
-// horizontal and vertical justification, bold/italic/shadow styles.
+// The primary properties that can be set are color, opacity, font size, 
+// font family horizontal and vertical justification, bold/italic/shadow 
+// styles.
 
 // .SECTION See Also
 // vtkTextMapper vtkTextActor vtkLegendBoxActor vtkCaptionActor2D
@@ -44,6 +45,12 @@ public:
   // Set the color of the text..
   vtkSetVector3Macro(Color,float);
   vtkGetVectorMacro(Color,float,3);
+
+  // Description:
+  // Set/Get the text's opacity. 1.0 is totally opaque and 0.0 is completely
+  // transparent.
+  vtkSetMacro(Opacity,float);
+  vtkGetMacro(Opacity,float);
 
   // Description:
   // Set/Get the font family. Three font types are allowed: Arial (VTK_ARIAL),
@@ -141,6 +148,7 @@ protected:
   ~vtkTextProperty();
 
   float Color[3];
+  float Opacity;
   int   FontFamily;
   int   FontSize;
   int   Bold;
