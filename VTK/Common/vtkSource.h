@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSource.h,v $
   Language:  C++
-  Date:      $Date: 2000-05-17 16:04:04 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2000-05-19 15:51:56 $
+  Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -164,7 +164,7 @@ public:
   // Release/disconnect all outputs of this source. This is intended to be
   // called prior to Delete() if the user is concerned about outputs holding
   // on to the filter/source.
-  void UnregisterAllOutputs(void);
+  void UnRegisterAllOutputs(void);
 
 protected:
   vtkSource();
