@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-16 21:40:49 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-10-03 15:06:12 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -385,7 +385,7 @@ void vtkAbstractTransform::UnRegister(vtkObject *o)
 
 //----------------------------------------------------------------------------
 // A very, very minimal transformation
-class VTK_EXPORT vtkSimpleTransform : public vtkHomogeneousTransform
+class vtkSimpleTransform : public vtkHomogeneousTransform
 {
 public:
   vtkTypeMacro(vtkSimpleTransform,vtkHomogeneousTransform);

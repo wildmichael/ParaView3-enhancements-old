@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32RenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-26 15:15:36 $
-  Version:   $Revision: 1.72 $
+  Date:      $Date: 2001-10-03 15:05:44 $
+  Version:   $Revision: 1.73 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -49,8 +49,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // sees it in the friend decl in vtkWin32RenderWindowInteractor, but
 // GCC needs to see the declaration beforehand. It has to do with the
 // CALLBACK attribute.
-VTK_EXPORT LRESULT CALLBACK vtkHandleMessage(HWND,UINT,WPARAM,LPARAM);
-VTK_EXPORT LRESULT CALLBACK vtkHandleMessage2(HWND,UINT,WPARAM,LPARAM,class vtkWin32RenderWindowInteractor*);
+VTK_RENDERING_EXPORT LRESULT CALLBACK vtkHandleMessage(HWND,UINT,WPARAM,LPARAM);
+VTK_RENDERING_EXPORT LRESULT CALLBACK vtkHandleMessage2(HWND,UINT,WPARAM,LPARAM,class vtkWin32RenderWindowInteractor*);
 
 #include "vtkWin32RenderWindowInteractor.h"
 #include "vtkInteractorStyle.h"
