@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArrayMap.txx,v $
   Language:  C++
-  Date:      $Date: 2002-06-19 21:21:41 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-06-27 13:57:53 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -78,7 +78,7 @@ int vtkArrayMap<KeyType,DataType>::RemoveItem(const KeyType& key)
     }
   vtkAbstractMapItem<KeyType,DataType> *item;
   vtkIdType cc;
-  for ( cc = 0; cc <= this->Array->GetNumberOfItems(); cc ++ )
+  for ( cc = 0; cc < this->Array->GetNumberOfItems(); cc ++ )
     {
     this->Array->GetItemNoCheck(cc, item);
     if ( vtkContainerCompareMethod(key, item->Key) == 0 )
