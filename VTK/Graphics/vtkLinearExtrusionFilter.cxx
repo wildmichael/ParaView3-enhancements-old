@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkLinearExtrusionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-01 07:48:17 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1995-06-01 08:02:32 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -240,7 +240,7 @@ void vlLinearExtrusionFilter::Execute()
 //
   this->SetPoints(newPts);
   if ( newLines ) this->SetLines(newLines);
-  if ( newPolys ) this->SetPolys(newLines);
+  if ( newPolys ) this->SetPolys(newPolys);
   this->SetStrips(newStrips);
 
   this->Squeeze();
