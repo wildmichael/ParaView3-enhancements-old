@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-11-07 18:32:15 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 2003-11-10 21:09:48 $
+  Version:   $Revision: 1.62 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,7 +33,7 @@
 #include "vtkIntArray.h"
 #include "vtkUnsignedCharArray.h"
 
-vtkCxxRevisionMacro(vtkClipVolume, "$Revision: 1.61 $");
+vtkCxxRevisionMacro(vtkClipVolume, "$Revision: 1.62 $");
 vtkStandardNewMacro(vtkClipVolume);
 vtkCxxSetObjectMacro(vtkClipVolume,ClipFunction,vtkImplicitFunction);
 
@@ -501,7 +501,7 @@ void vtkClipVolume::ClipVoxel(float value, vtkDataArray *cellScalars,
                               vtkIdType cellId, vtkCellData *outCD, 
                               vtkCellData *clippedCD)
 {
-  float x[3], *xPtr, s1, s2, t, voxelOrigin[3];
+  float x[3], s1, s2, t, voxelOrigin[3];
   float bounds[6], p1[3], p2[3];
   int i, k, edgeNum, numPts, numNew;
   vtkIdType id, ptId, npts, *pts;
