@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-01-02 11:49:40 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1995-01-05 13:40:42 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -52,9 +52,6 @@ vlProperty::vlProperty()
   this->Representation = VL_SURFACE;
   this->EdgeVisibility = 0;
   this->Backface = 0;
-  this->Subdivide = 0;
-
-  this->Texture  = NULL;
 }
 
 
@@ -160,14 +157,5 @@ void vlProperty::PrintSelf(ostream& os, vlIndent indent)
   os << indent << "Specular Color: (" << this->SpecularColor[0] << ", " 
      << this->SpecularColor[1] << ", " << this->SpecularColor[2] << ")\n";
   os << indent << "Specular Power: " << this->SpecularPower << "\n";
-  os << indent << "Subdivide: " << (this->Subdivide ? "On\n" : "Off\n");
   os << indent << "Transparency: " << this->Transparency << "\n";
-  if ( this->Texture )
-    {
-    os << indent << "Texture: (" << (void *)this->Texture << ")\n";
-    }
-  else
-    {
-    os << indent << "Texture: (none)\n";
-    }
 }
