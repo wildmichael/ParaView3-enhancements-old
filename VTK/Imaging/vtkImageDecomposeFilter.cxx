@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSFile: vtkImageDecomposeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:05 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-03-13 18:45:26 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,24 +43,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkImageDecomposeFilter.h"
 #include "vtkObjectFactory.h"
-
-
-
-//------------------------------------------------------------------------------
-vtkImageDecomposeFilter* vtkImageDecomposeFilter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageDecomposeFilter");
-  if(ret)
-    {
-    return (vtkImageDecomposeFilter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageDecomposeFilter;
-}
-
-
-
 
 
 //----------------------------------------------------------------------------

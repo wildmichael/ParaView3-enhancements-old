@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSeedConnectivity.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-23 12:24:00 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-03-13 18:45:27 $
+  Version:   $Revision: 1.24 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -112,13 +112,7 @@ protected:
   
   void ComputeInputUpdateExtents(vtkDataObject *out);
 
-  void Execute(); 
-  // Get rid of warnings.
-  void Execute(vtkImageData *in, vtkImageData *out)
-    { this->vtkImageToImageFilter::Execute(in, out); };
-  void Execute(vtkImageData *outData)
-    { this->vtkImageToImageFilter::Execute(outData); };
-
+  void ExecuteData(vtkDataObject *out); 
 };
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageImport.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-19 19:58:04 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2001-03-13 18:45:27 $
+  Version:   $Revision: 1.27 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -122,11 +122,10 @@ protected:
 
   // Description:
   // This method returns the largest data that can be generated.
-  void ExecuteInformation();
+  virtual void ExecuteInformation();
   
   void *ImportVoidPointer;
   int SaveUserArray;
-
   
   int NumberOfScalarComponents;
   int DataScalarType;
@@ -135,8 +134,7 @@ protected:
   float DataSpacing[3];
   float DataOrigin[3];
   
-  void Execute(vtkImageData *d) {this->vtkImageSource::Execute(d);}
-  void Execute();
+  virtual void ExecuteData(vtkDataObject *d);
 };
 
 

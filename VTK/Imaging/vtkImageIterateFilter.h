@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIterateFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-19 19:58:04 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2001-03-13 18:45:27 $
+  Version:   $Revision: 1.26 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,7 +58,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class VTK_EXPORT vtkImageIterateFilter : public vtkImageToImageFilter
 {
 public:
-  static vtkImageIterateFilter *New();
   vtkTypeMacro(vtkImageIterateFilter,vtkImageToImageFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -90,12 +89,9 @@ protected:
   
   // Superclass API: Calls Execute(vtkImageData *inData, vtkImageData *outData)
   // for each iteration.
-  void Execute();
-  // defined in superclass, but hidden by Execute().
-  void Execute(vtkImageData *inData, vtkImageData *outData);
-  void Execute(vtkImageData *outData)
-    { this->vtkImageToImageFilter::Execute(outData);};
-
+  void ExecuteData(vtkDataObject *output);
+  virtual void IterativeExecuteData(vtkImageData *in, vtkImageData *out) = 0;
+  
   // Replaces "EnlargeOutputUpdateExtent"
   virtual void AllocateOutputScalars(vtkImageData *outData);
   

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCityBlockDistance.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-19 19:58:04 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-03-13 18:45:26 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -112,8 +112,8 @@ void vtkImageCityBlockDistance::ComputeInputUpdateExtent(int inExt[6],
 
 //----------------------------------------------------------------------------
 // This is writen as a 1D execute method, but is called several times.
-void vtkImageCityBlockDistance::Execute(vtkImageData *inData, 
-					vtkImageData *outData)
+void vtkImageCityBlockDistance::IterativeExecuteData(vtkImageData *inData, 
+                                                     vtkImageData *outData)
 {
   short *inPtr0, *inPtr1, *inPtr2, *inPtrC;
   short *outPtr0, *outPtr1, *outPtr2, *outPtrC;

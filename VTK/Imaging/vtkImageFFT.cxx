@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFFT.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:05 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2001-03-13 18:45:27 $
+  Version:   $Revision: 1.27 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -59,6 +59,11 @@ vtkImageFFT* vtkImageFFT::New()
   return new vtkImageFFT;
 }
 
+
+void vtkImageFFT::IterativeExecuteData(vtkImageData *in, vtkImageData *out)
+{
+  this->MultiThread(out);
+}
 
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCityBlockDistance.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-19 19:58:04 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2001-03-13 18:45:26 $
+  Version:   $Revision: 1.22 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -72,10 +72,7 @@ protected:
   void operator=(const vtkImageCityBlockDistance&) {};
 
   void ComputeInputUpdateExtent(int inExt[6], int outExt[6]);
-  void Execute(vtkImageData *inData, vtkImageData *outData);
-  void Execute() {this->vtkImageIterateFilter::Execute();}
-  void Execute(vtkImageData *outData)
-    { this->vtkImageIterateFilter::Execute(outData); };
+  void IterativeExecuteData(vtkImageData *inData, vtkImageData *outData);
 
   void AllocateOutputScalars(vtkImageData *outData);
 

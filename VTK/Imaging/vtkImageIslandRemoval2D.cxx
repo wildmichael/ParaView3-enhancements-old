@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIslandRemoval2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-19 19:58:04 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2001-03-13 18:45:27 $
+  Version:   $Revision: 1.35 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -515,7 +515,7 @@ static void vtkImageIslandRemoval2DExecute(vtkImageIslandRemoval2D *self,
 // This method uses the input data to fill the output data.
 // It can handle any type data, but the two datas must have the same 
 // data type.  Assumes that in and out have the same lower extent.
-void vtkImageIslandRemoval2D::Execute()
+void vtkImageIslandRemoval2D::ExecuteData(vtkDataObject *output)
 {
   int *outExt;
   vtkImageData *inData = this->GetInput();
