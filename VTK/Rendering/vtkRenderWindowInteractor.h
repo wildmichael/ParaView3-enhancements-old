@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:20 $
-  Version:   $Revision: 1.84 $
+  Date:      $Date: 2002-01-24 17:58:17 $
+  Version:   $Revision: 1.85 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -227,6 +227,9 @@ public:
   void FlyTo(vtkRenderer *ren, float x, float y, float z);
   void FlyTo(vtkRenderer *ren, float *x)
     {this->FlyTo(ren, x[0], x[1], x[2]);}
+  void FlyToImage(vtkRenderer *ren, float x, float y);
+  void FlyToImage(vtkRenderer *ren, float *x)
+    {this->FlyToImage(ren, x[0], x[1]);}
 
   // Description:
   // Set the number of frames to fly to when FlyTo is invoked.
