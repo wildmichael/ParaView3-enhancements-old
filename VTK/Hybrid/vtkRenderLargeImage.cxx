@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderLargeImage.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-12-22 14:12:23 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-01-16 21:20:28 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
 
@@ -123,7 +123,7 @@ void vtkRenderLargeImage::Execute(vtkImageData *data)
   
   if (this->Output->GetScalarType() != VTK_UNSIGNED_CHAR)
     {
-    vtkErrorMacro("mismathc in scalar types!");
+    vtkErrorMacro("mismatch in scalar types!");
     return;
     }
   

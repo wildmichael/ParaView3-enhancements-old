@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-08-11 14:26:32 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1998-01-16 21:21:05 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -112,7 +112,7 @@ void vtkDataSetMapper::Render(vtkRenderer *ren, vtkActor *act)
 // For efficiency: if input type is vtkPolyData, there's no need to pass it thru
 // the geometry filter.
 //
-  if ( ! strcmp(this->Input->GetDataType(),"vtkPolyData") )
+  if ( this->Input->GetDataSetType() == VTK_POLY_DATA )
     {
     this->PolyDataMapper->SetInput((vtkPolyData *)this->Input);
     }

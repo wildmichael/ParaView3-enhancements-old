@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-08-28 14:24:01 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-01-16 21:21:18 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,11 +64,6 @@ vtkExtractUnstructuredGrid::vtkExtractUnstructuredGrid()
 
   this->Output = vtkUnstructuredGrid::New();
   this->Output->SetSource(this);
-}
-
-vtkExtractUnstructuredGrid::~vtkExtractUnstructuredGrid()
-{
-  this->Output->Delete();
 }
 
 // Description:

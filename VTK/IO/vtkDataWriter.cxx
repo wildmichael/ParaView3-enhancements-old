@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-12-17 01:31:41 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1998-01-16 21:21:15 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -444,7 +444,7 @@ int vtkDataWriter::WriteScalarData(FILE *fp, vtkScalars *scalars, int numPts)
   else 
     name = this->LookupTableName;
 
-  if ( ! strcmp(scalars->GetScalarType(),"SingleValued") )
+  if ( scalars->GetScalarType() == VTK_SINGLE_VALUED )
     {
     fprintf (fp, "SCALARS ");
     switch (scalars->GetDataType())
