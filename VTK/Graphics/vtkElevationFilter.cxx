@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkElevationFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-05 13:03:45 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-02-07 17:17:18 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -49,7 +49,7 @@ void vlElevationFilter::Execute()
 // Initialize
 //
   this->Initialize();
-  if ( ((numPts=this->Input->NumPoints()) < 1) )
+  if ( ((numPts=this->Input->NumberOfPoints()) < 1) )
     {
     cerr << "No input available for Elevation Filter\n";
     return;
@@ -94,13 +94,13 @@ void vlElevationFilter::PrintSelf(ostream& os, vlIndent indent)
     {
     vlDataSetToDataSetFilter::PrintSelf(os,indent);
 
-    os << indent << "LowPoint: (" << this->LowPoint[0] << ", "
+    os << indent << "Low Point: (" << this->LowPoint[0] << ", "
                                   << this->LowPoint[1] << ", "
                                   << this->LowPoint[2] << ")\n";
-    os << indent << "HighPoint: (" << this->HighPoint[0] << ", "
+    os << indent << "High Point: (" << this->HighPoint[0] << ", "
                                   << this->HighPoint[1] << ", "
                                   << this->HighPoint[2] << ")\n";
-    os << indent << "ScalarRange: (" << this->ScalarRange[0] << ", "
+    os << indent << "Scalar Range: (" << this->ScalarRange[0] << ", "
                                   << this->ScalarRange[1] << ")\n";
     }
 }

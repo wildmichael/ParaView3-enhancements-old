@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCubeSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-05 13:03:55 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1994-02-07 17:17:27 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -118,8 +118,8 @@ void vlCubeSource::PrintSelf(ostream& os, vlIndent indent)
     {
     vlPolySource::PrintSelf(os,indent);
 
-    os << indent << "XLength: " << this->XLength << "\n";
-    os << indent << "YLength: " << this->YLength << "\n";
-    os << indent << "ZLength: " << this->ZLength << "\n";
+    os << indent << "X Length: " << this->XLength << "\n";
+    os << indent << "Y Length: " << this->YLength << "\n";
+    os << indent << "Z Length: " << this->ZLength << "\n";
     }
 }

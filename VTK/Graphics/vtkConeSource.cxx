@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkConeSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-05 13:03:59 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-02-07 17:17:30 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -157,13 +157,6 @@ void vlConeSource::PrintSelf(ostream& os, vlIndent indent)
     os << indent << "Resolution: " << this->Resolution << "\n";
     os << indent << "Height: " << this->Height << "\n";
     os << indent << "Radius: " << this->Radius << "\n";
-    if ( this->Capping )
-      {
-      os << indent << "Capping is on.\n";
-       }
-    else
-      {
-      os << indent << "Capping is off.\n";
-       }
+    os << indent << "Capping: " << (this->Capping ? "On\n" : "Off\n");
     }
 }

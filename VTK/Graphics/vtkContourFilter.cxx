@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-05 13:03:57 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-02-07 17:17:29 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -35,13 +35,13 @@ void vlContourFilter::Execute()
 //
 // Loop over all cells
 //
-  for (cellId=0; cellId<Input->NumCells(); cellId++)
+  for (cellId=0; cellId<Input->NumberOfCells(); cellId++)
     {
     Input->CellPoints(cellId,cellPts);
     inScalars->GetScalars(cellPts,cellScalars);
 
     // Build the case table
-    for ( i=0, index = 0; i < cellPts.NumIds(); i++)
+    for ( i=0, index = 0; i < cellPts.NumberOfIds(); i++)
 	if (cellScalars.GetScalar(i) >= this->Value)
             index |= CASE_MASK[i];
 
