@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-21 14:57:03 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1997-05-06 17:02:02 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -109,6 +109,10 @@ public:
   // Description:
   // Get the size of the header computed by this object.
   vtkGetMacro(HeaderSize, int);
+  // Description:
+  // If there is a tail on the file, you want to explicitly set the
+  // header size.
+  void SetHeaderSize(int size);
   
   // Description:
   // Set/Get the pixel mask. The mask is for legacy compatablilty.

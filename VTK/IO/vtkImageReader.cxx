@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-21 14:57:01 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1997-05-06 17:02:01 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -274,6 +274,15 @@ void vtkImageReader::UpdateImageInformation(vtkImageRegion *region)
 }
 
 
+//----------------------------------------------------------------------------
+// Manual initialization.
+void vtkImageReader::SetHeaderSize(int size)
+{
+  this->HeaderSize = size;
+  this->Modified();
+  this->Initialized = 1;
+}
+  
 
 //----------------------------------------------------------------------------
 // Description:
