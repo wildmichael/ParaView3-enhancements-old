@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 14:50:02 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 2001-10-30 21:57:27 $
+  Version:   $Revision: 1.62 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -265,14 +265,15 @@ void vtkOpenGLPolyDataMapper::RenderPiece(vtkRenderer *ren, vtkActor *act)
       
       // get a unique display list id
       this->ListId = glGenLists(1);
-      glNewList(this->ListId,GL_COMPILE_AND_EXECUTE);
+      glNewList(this->ListId,GL_COMPILE);
+
+      this->Draw(ren,act);
+      glEndList();
 
       // Time the actual drawing
       this->Timer->StartTimer();
-      this->Draw(ren,act);
+      glCallList(this->ListId);
       this->Timer->StopTimer();      
-
-      glEndList();
       }
     else
       {
