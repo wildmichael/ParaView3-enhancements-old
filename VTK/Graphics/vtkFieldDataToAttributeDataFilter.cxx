@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldDataToAttributeDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-18 11:11:49 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-05-11 11:18:53 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1078,7 +1078,7 @@ int vtkFieldDataToAttributeDataFilter::GetComponentsType(int numComp, vtkDataArr
 vtkDataArray *vtkFieldDataToAttributeDataFilter::GetFieldArray(vtkFieldData *fd, 
                                                                char *name, int comp)
 {
-  vtkDataArray *da;
+  vtkDataArray *da = NULL;
   int numComp;
   int found=0;
 

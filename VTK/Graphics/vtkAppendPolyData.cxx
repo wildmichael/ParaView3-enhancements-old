@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-08 17:52:40 $
-  Version:   $Revision: 1.78 $
+  Date:      $Date: 2001-05-11 11:18:53 $
+  Version:   $Revision: 1.79 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -228,7 +228,7 @@ void vtkAppendPolyData::Execute()
   // use highest (double probably), otherwise the type of the first
   // array (float no doubt). Depends on defs in vtkSetGet.h - Warning.
   int ttype, firstType=1, AllSame=1;
-  int pointtype;
+  int pointtype = 0;
 
   // Keep track of types for fast point append
   for (idx = 0; idx < this->NumberOfInputs; ++idx)

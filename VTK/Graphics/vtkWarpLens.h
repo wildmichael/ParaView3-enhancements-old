@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpLens.h,v $
   Language:  C++
-  Date:      $Date: 2001-04-23 15:27:54 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-05-11 11:18:53 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,7 +60,7 @@ public:
   // Specify second order symmetric radial lens distortion parameter.
   // This is obsoleted by newer instance variables.
   void SetKappa(float kappa);
-  float GetKappa(float kappa);
+  float GetKappa();
 
   // Description:
   // Specify the center of radial distortion in pixels.

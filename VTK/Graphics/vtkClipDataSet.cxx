@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-11 17:53:26 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-05-11 11:18:53 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -138,7 +138,7 @@ void vtkClipDataSet::Execute()
   vtkIdList *cellIds;
   float s;
   int npts, *pts;
-  int cellType;
+  int cellType = 0;
   int i, j;
   int estimatedSize;
   vtkUnsignedCharArray *types[2];

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericEnSightReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-16 13:28:38 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2001-05-11 11:18:53 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -707,7 +707,7 @@ void vtkGenericEnSightReader::AddVariableType(int variableType)
 void vtkGenericEnSightReader::AddComplexVariableType(int variableType)
 {
   int i;
-  int* types;
+  int* types = NULL;
   int size = this->NumberOfComplexVariables;
   
   if (size > 0)
