@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToImageFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:08:52 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2000-03-13 23:11:22 $
+  Version:   $Revision: 1.28 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -123,7 +123,7 @@ void vtkImageToImageFilter::ExecuteInformation()
   // Make sure the Input has been set.
   if ( input == NULL || output == NULL)
     {
-    vtkErrorMacro(<< "UpdateInformation: Input is not set.");
+    vtkErrorMacro(<< "ExecuteInformation: Input is not set.");
     return;
     }
 
