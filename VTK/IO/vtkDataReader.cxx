@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-25 15:41:35 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1995-07-27 13:36:37 $
+  Version:   $Revision: 1.16 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -662,7 +662,7 @@ int vtkDataReader::ReadTensorData(FILE *fp, vtkDataSet *ds, int numPts)
           return 0;
           }
         tensor = t;
-        tensors->SetTensor(i,tensor);
+        tensors->SetTensor(i,&tensor);
         }
       }
     if ( ! skipTensor ) ds->GetPointData()->SetTensors(tensors);
