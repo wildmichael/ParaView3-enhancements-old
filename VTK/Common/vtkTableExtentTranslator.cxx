@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTableExtentTranslator.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-06-07 15:20:23 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-07-01 20:29:04 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkTableExtentTranslator.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkTableExtentTranslator, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkTableExtentTranslator, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkTableExtentTranslator);
 
 //----------------------------------------------------------------------------
@@ -26,16 +26,13 @@ vtkTableExtentTranslator::vtkTableExtentTranslator()
 {
   this->ExtentTable = 0;
   this->MaximumGhostLevel = 0;
+  this->PieceAvailable = 0;
 }
 
 //----------------------------------------------------------------------------
 vtkTableExtentTranslator::~vtkTableExtentTranslator()
 {
-  if(this->ExtentTable)
-    {
-    delete [] this->ExtentTable;
-    this->ExtentTable = 0;
-    }
+  this->SetNumberOfPieces(0);
 }
 
 //----------------------------------------------------------------------------
@@ -66,6 +63,24 @@ void vtkTableExtentTranslator::PrintSelf(ostream& os, vtkIndent indent)
     os << indent << "ExtentTable: (none)\n";
     }
   os << indent << "MaximumGhostLevel: " << this->MaximumGhostLevel << "\n";
+  if(this->PieceAvailable)
+    {
+    vtkIndent nextIndent = indent.GetNextIndent();
+    int* available = this->PieceAvailable;
+    int i;
+    
+    os << indent << "PieceAvailable: 0: " << *available << "\n";
+    for(i=1;i < this->NumberOfPieces;++i)
+      {
+      ++available;
+      os << nextIndent << "                " << i << ": "
+         << *available << "\n";
+      }
+    }
+  else
+    {
+    os << indent << "PieceAvailable: (none)\n";
+    }
 }
 
 //----------------------------------------------------------------------------
@@ -97,17 +112,25 @@ void vtkTableExtentTranslator::SetNumberOfPieces(int pieces)
     delete [] this->ExtentTable;
     this->ExtentTable = 0;
     }
+  if(this->PieceAvailable)
+    {
+    delete [] this->PieceAvailable;
+    this->PieceAvailable = 0;
+    }
   
   // Create and initialize a new extent table if there are any pieces.
+  // Assume all pieces are available.
   if(this->NumberOfPieces > 0)
     {
     this->ExtentTable = new int[this->NumberOfPieces*6];
+    this->PieceAvailable = new int[this->NumberOfPieces*6];
     int i;
     for(i=0;i < this->NumberOfPieces;++i)
       {
       int* extent = this->ExtentTable + i*6;
       extent[0] = extent[2] = extent[4] = 0;
       extent[1] = extent[3] = extent[5] = -1;
+      this->PieceAvailable[i] = 1;
       }
     }
 }
@@ -146,6 +169,27 @@ int* vtkTableExtentTranslator::GetExtentForPiece(int piece)
     return emptyExtent;
     }
   return this->ExtentTable+piece*6;
+}
+
+//----------------------------------------------------------------------------
+void vtkTableExtentTranslator::SetPieceAvailable(int piece, int available)
+{
+  if((!this->ExtentTable) || (piece < 0) || (piece >= this->NumberOfPieces))
+    {
+    vtkErrorMacro("Piece " << piece << " does not exist.");
+    }
+  this->PieceAvailable[piece] = available?1:0;
+}
+
+//----------------------------------------------------------------------------
+int vtkTableExtentTranslator::GetPieceAvailable(int piece)
+{
+  if((!this->ExtentTable) || (piece < 0) || (piece >= this->NumberOfPieces))
+    {
+    vtkErrorMacro("Piece " << piece << " does not exist.");
+    return 0;
+    }
+  return this->PieceAvailable[piece];
 }
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTableExtentTranslator.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-16 15:25:23 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-07-01 20:29:04 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -79,6 +79,12 @@ public:
   vtkSetMacro(MaximumGhostLevel, int);
   vtkGetMacro(MaximumGhostLevel, int);
   
+  // Description:
+  // Get/Set whether the given piece is available.  Requesting a piece
+  // that is not available will produce errors in the pipeline.
+  virtual void SetPieceAvailable(int piece, int available);
+  virtual int GetPieceAvailable(int piece);
+  
 protected:
   vtkTableExtentTranslator();
   ~vtkTableExtentTranslator();
@@ -86,6 +92,9 @@ protected:
   // Store the extent table in a single array.  Every 6 values form an extent.
   int* ExtentTable;
   int MaximumGhostLevel;
+  
+  // Store a flag for the availability of each piece.
+  int* PieceAvailable;
   
 private:
   vtkTableExtentTranslator(const vtkTableExtentTranslator&);  // Not implemented.
