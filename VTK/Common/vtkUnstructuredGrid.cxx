@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-15 16:39:40 $
-  Version:   $Revision: 1.83 $
+  Date:      $Date: 2001-03-16 16:42:01 $
+  Version:   $Revision: 1.84 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -220,6 +220,7 @@ void vtkUnstructuredGrid::Initialize()
 int vtkUnstructuredGrid::GetCellType(int cellId)
 {
 
+  vtkDebugMacro(<< "Returning cell type " << (int)this->Types->GetValue(cellId));
   return (int)this->Types->GetValue(cellId);
 }
 
@@ -368,6 +369,7 @@ int vtkUnstructuredGrid::GetMaxCellSize()
 
 int vtkUnstructuredGrid::GetNumberOfCells() 
 {
+  vtkDebugMacro(<< "NUMBER OF CELLS = " <<  (this->Connectivity ? this->Connectivity->GetNumberOfCells() : 0));
   return (this->Connectivity ? this->Connectivity->GetNumberOfCells() : 0);
 }
 
@@ -376,12 +378,14 @@ int vtkUnstructuredGrid::GetNumberOfCells()
 int vtkUnstructuredGrid::InsertNextCell(int type, vtkIdList *ptIds)
 {
   int npts = ptIds->GetNumberOfIds();
-
   // insert connectivity
   this->Connectivity->InsertNextCell(ptIds);
   // insert type and storage information   
+  vtkDebugMacro(<< "insert location " << this->Connectivity->GetInsertLocation(npts));
+  this->Locations->InsertNextValue(this->Connectivity->GetInsertLocation(npts));
   this->Types->InsertNextValue((unsigned char) type);
-  return this->Locations->InsertNextValue(npts);
+  //return the number of cells
+  return this->GetNumberOfCells();
 
 }
 
@@ -389,9 +393,14 @@ int vtkUnstructuredGrid::InsertNextCell(int type, vtkIdList *ptIds)
 // cell topology.
 int vtkUnstructuredGrid::InsertNextCell(int type, int npts, int *pts)
 {
+  // insert connectivity
   this->Connectivity->InsertNextCell(npts,pts);
+  // insert type and storage information
+  vtkDebugMacro(<< "insert location " << this->Connectivity->GetInsertLocation(npts));
+  this->Locations->InsertNextValue(this->Connectivity->GetInsertLocation(npts));
   this->Types->InsertNextValue((unsigned char) type);
-  return this->Locations->InsertNextValue(npts);
+  //return the number of cells
+  return this->GetNumberOfCells();
 
 }
 
@@ -494,12 +503,12 @@ void vtkUnstructuredGrid::GetCellPoints(int cellId, vtkIdList *ptIds)
 
   loc = this->Locations->GetValue(cellId);
   this->Connectivity->GetCell(loc,numPts,pts); 
-
   ptIds->SetNumberOfIds(numPts);
   for (i=0; i<numPts; i++)
     {
     ptIds->SetId(i,pts[i]);
     }
+
 }
 
 // Return a pointer to a list of point ids defining cell. (More efficient than alternative
