@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-09-05 17:40:04 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1997-09-22 17:56:04 $
+  Version:   $Revision: 1.31 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -135,7 +135,10 @@ void vtkImageReader::SetFileName(char* _arg)
 
 void vtkImageReader::SetFilePrefix(char* _arg) 
 { 
-  vtkDebugMacro(<< this->GetClassName() << " (" << this << "): setting FilePrefix to " << _arg ); 
+  if (_arg) 
+    {
+	vtkDebugMacro(<< this->GetClassName() << " (" << this << "): setting FilePrefix to " << _arg ); 
+    }
   if ( this->FilePrefix && _arg && (!strcmp(this->FilePrefix,_arg))) return; 
   if (this->FilePrefix) delete [] this->FilePrefix; 
   if (_arg) 
