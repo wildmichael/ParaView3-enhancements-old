@@ -3,8 +3,8 @@
  Program:   Visualization Toolkit
  Module:    $RCSfile: vtkSource.cxx,v $
  Language:  C++
- Date:      $Date: 1999-12-09 17:21:04 $
- Version:   $Revision: 1.54 $
+ Date:      $Date: 1999-12-09 19:28:50 $
+ Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -375,17 +375,17 @@ void vtkSource::InternalUpdate(vtkDataObject *output)
 	(*this->EndMethod)(this->EndMethodArg);
 	}
       }
-    
-    // Let the source clean up after streaming.
-    this->StreamExecuteEnd();
-    
-    // Now we have to mark the data as up to data.
-    for (idx = 0; idx < this->NumberOfOutputs; ++idx)
+    }
+  
+  // Let the source clean up after streaming.
+  this->StreamExecuteEnd();
+  
+  // Now we have to mark the data as up to data.
+  for (idx = 0; idx < this->NumberOfOutputs; ++idx)
+    {
+    if (this->Outputs[idx])
       {
-      if (this->Outputs[idx])
-	{
-	this->Outputs[idx]->DataHasBeenGenerated();
-	}
+      this->Outputs[idx]->DataHasBeenGenerated();
       }
     }
   
