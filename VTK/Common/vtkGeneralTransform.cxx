@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeneralTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-03 00:15:52 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2000-02-03 23:16:18 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,6 +48,15 @@ void vtkGeneralTransform::PrintSelf(ostream& os, vtkIndent indent)
 
   os << indent << "TransformType: " << this->TransformType << "\n";
   os << indent << "AutoUpdate: " << (this->AutoUpdate ? "On\n" : "Off\n");
+}
+
+//----------------------------------------------------------------------------
+vtkGeneralTransform::~vtkGeneralTransform()
+{
+  if (this->MyInverse)
+    {
+    this->MyInverse->Delete();
+    }
 }
 
 //----------------------------------------------------------------------------
