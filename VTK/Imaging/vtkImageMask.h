@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMask.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:33:03 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2002-02-13 15:46:18 $
+  Version:   $Revision: 1.33 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -53,6 +53,14 @@ public:
   int GetMaskedOutputValueLength() {return this->MaskedOutputValueLength;}
 
   // Description:
+  // Set/Get the alpha blending value for the mask
+  // The input image is assumed to be at alpha = 1.0
+  // and the mask image uses this alpha to blend using
+  // an over operator.
+  vtkSetClampMacro ( MaskAlpha, float, 0.0, 1.0 );
+  vtkGetMacro ( MaskAlpha, float );
+
+  // Description:
   // Set the input to be masked.
   void SetImageInput(vtkImageData *in) {this->SetInput1(in);}
 
@@ -76,6 +84,7 @@ protected:
   float *MaskedOutputValue;
   int MaskedOutputValueLength;
   int NotMask;
+  float MaskAlpha;
   
   void ExecuteInformation(vtkImageData **inDatas, vtkImageData *outData);
   void ExecuteInformation(){this->vtkImageTwoInputFilter::ExecuteInformation();};
