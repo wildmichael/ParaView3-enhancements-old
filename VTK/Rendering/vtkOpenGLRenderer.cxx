@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-12-18 17:00:28 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1999-12-21 17:37:57 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,7 +46,14 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkOpenGLLight.h"
 #include "vtkRayCaster.h"
 #include "vtkCuller.h"
+
+// if this .cxx file is being used to implement
+// the mesa renderer, then do not include GL/gl.h
+// because with the mesa renderer we need to include
+// mesagl.h instead
+#ifndef VTK_IMPLEMENT_MESA_CXX
 #include <GL/gl.h>
+#endif
 #include "vtkObjectFactory.h"
 
 class vtkGLPickInfo
