@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBMPWriter.h,v $
   Language:  C++
-  Date:      $Date: 1997-10-01 18:00:45 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-12-17 01:27:23 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -58,7 +58,7 @@ public:
   const char *GetClassName() {return "vtkBMPWriter";};
 
 protected:
-  virtual void WriteFile(ofstream *file, vtkImageRegion *region);
+  virtual void WriteFile(ofstream *file, vtkImageData *data, int ext[6]);
   virtual void WriteFileHeader(ofstream *, vtkImageCache *);
 };
 

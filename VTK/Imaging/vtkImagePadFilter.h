@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePadFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-17 14:30:08 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1997-12-17 01:27:29 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,10 +61,10 @@ public:
 
   // Description:
   // The image extent of the output has to be set explicitely.
-  void SetOutputWholeExtent(int extent[8]);
+  void SetOutputWholeExtent(int extent[6]);
   void SetOutputWholeExtent(int minX, int maxX, int minY, int maxY, 
-			    int minZ, int maxZ, int minT, int maxT);
-  void GetOutputWholeExtent(int extent[8]);
+			    int minZ, int maxZ);
+  void GetOutputWholeExtent(int extent[6]);
   int *GetOutputWholeExtent() {return this->OutputWholeExtent;}
 
   // Pad the scalar components as well.
@@ -72,7 +72,7 @@ public:
   vtkGetMacro(OutputNumberOfScalarComponents, int);
   
 protected:
-  int OutputWholeExtent[VTK_IMAGE_EXTENT_DIMENSIONS];
+  int OutputWholeExtent[6];
   int OutputNumberOfScalarComponents;
 
   void ExecuteImageInformation();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageClip.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-08-27 20:34:01 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1997-12-17 01:27:23 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,12 +51,11 @@ vtkImageClip::vtkImageClip()
   this->Initialized = 0;
   this->Input = NULL;
   this->Automatic = 0;
-  for (idx = 0; idx < 4; ++idx)
+  for (idx = 0; idx < 3; ++idx)
     {
     this->OutputWholeExtent[idx*2]  = -VTK_LARGE_INTEGER;
     this->OutputWholeExtent[idx*2+1] = VTK_LARGE_INTEGER;
     }
-  this->NumberOfExecutionAxes = 5;
 }
 
 
@@ -78,7 +77,7 @@ void vtkImageClip::PrintSelf(ostream& os, vtkIndent indent)
 
   os << indent << "OutputWholeExtent: (" << this->OutputWholeExtent[0]
      << "," << this->OutputWholeExtent[1];
-  for (idx = 1; idx < 4; ++idx)
+  for (idx = 1; idx < 3; ++idx)
     {
     os << indent << ", " << this->OutputWholeExtent[idx * 2]
        << "," << this->OutputWholeExtent[idx*2 + 1];

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageThreshold.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-27 15:36:16 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1997-12-17 01:27:33 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -97,7 +97,8 @@ protected:
   int ReplaceOut;
   float OutValue;
 
-  void Execute(vtkImageRegion *inRegion, vtkImageRegion *outRegion);
+  void ThreadedExecute(vtkImageData *inData, vtkImageData *outData, 
+		       int extent[6]);
 };
 
 #endif
