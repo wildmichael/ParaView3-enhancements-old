@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArrayCalculator.h,v $
   Language:  C++
-  Date:      $Date: 2001-02-22 20:35:00 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-02-26 16:07:44 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -77,10 +77,21 @@ public:
   
   // Description:
   // Add an array name to the list of arrays used in the function and specify
-  // which components of the array to use in evaluating the function.
+  // which components of the array to use in evaluating the function.  The
+  // array name must match the name in the function.  Use AddScalarVariable or
+  // AddVectorVariable to use a variable name different from the array name.
   void AddScalarArrayName(const char* arrayName, int component = 0);
   void AddVectorArrayName(const char* arrayName, int component0 = 0,
                           int component1 = 1, int component2 = 2);
+  
+  // Description:
+  // Add a variable name, a corresponding array name, and which components of
+  // the array to use.
+  void AddScalarVariable(const char* variableName, const char* arrayName,
+                         int component = 0);
+  void AddVectorVariable(const char* variableName, const char* arrayName,
+                         int component0 = 0, int component1 = 1,
+                         int component2 = 2);
   
   // Description:
   // Set the name of the array in which to store the result of
@@ -118,6 +129,8 @@ protected:
   char* ResultArrayName;
   char** ScalarArrayNames;
   char** VectorArrayNames;
+  char** ScalarVariableNames;
+  char** VectorVariableNames;
   int NumberOfScalarArrays;
   int NumberOfVectorArrays;
   int AttributeMode;
@@ -127,4 +140,3 @@ protected:
 };
 
 #endif
-
