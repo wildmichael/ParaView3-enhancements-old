@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:33:09 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1995-09-02 23:20:43 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,6 +69,9 @@ vtkDataSet::vtkDataSet (const vtkDataSet& ds) :
 PointData(ds.PointData)
 {
   for (int i=0; i < 6; i++) this->Bounds[i] = ds.Bounds[i];
+  this->DataReleased = 1;
+  this->ReleaseDataFlag = ds.ReleaseDataFlag;
+  this->Source = NULL;
 }
 
 void vtkDataSet::Initialize()
