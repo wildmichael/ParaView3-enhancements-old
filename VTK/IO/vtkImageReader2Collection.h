@@ -1,10 +1,10 @@
 /*=========================================================================
 
   Program:   Visualization Toolkit
-  Module:    $RCSfile: vtkJPEGReader.h,v $
+  Module:    $RCSfile: vtkImageReader2Collection.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-03 22:51:40 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-01-03 22:51:39 $
+  Version:   $Revision: 1.1 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,40 +39,55 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-// .NAME vtkJPEGReader - read JPEG files
+// .NAME vtkImageReader2Collection - maintain a list of implicit functions
 // .SECTION Description
-// vtkJPEGReader is a source object that reads JPEG files.
-// It should be able to read most any JPEG file
-//
+// vtkImageReader2Collection is an object that creates and manipulates
+// lists of objects of type vtkImplicitFunction. 
 // .SECTION See Also
-// vtkJPEGWriter
+// vtkCollection vtkPlaneCollection
 
-#ifndef __vtkJPEGReader_h
-#define __vtkJPEGReader_h
+#ifndef __vtkImageReader2Collection_h
+#define __vtkImageReader2Collection_h
 
-#include <stdio.h>
+#include "vtkCollection.h"
 #include "vtkImageReader2.h"
 
-class VTK_IO_EXPORT vtkJPEGReader : public vtkImageReader2
+class VTK_IO_EXPORT vtkImageReader2Collection : public vtkCollection
 {
 public:
-  static vtkJPEGReader *New();
-  vtkTypeMacro(vtkJPEGReader,vtkImageReader2);
+  vtkTypeMacro(vtkImageReader2Collection,vtkCollection);
+  static vtkImageReader2Collection *New();
 
   // Description:
-  // Is the given file a JPEG file?
-  int CanReadFile(const char* fname);
+  // Add an implicit function to the list.
+  void AddItem(vtkImageReader2 *);
+
+  // Description:
+  // Get the next implicit function in the list.
+  vtkImageReader2 *GetNextItem();
   
 protected:
-  vtkJPEGReader() {};
-  ~vtkJPEGReader() {};
+  vtkImageReader2Collection() {};
+  ~vtkImageReader2Collection() {};
+  
 
-  virtual void ExecuteInformation();
-  virtual void ExecuteData(vtkDataObject *out);
 private:
-  vtkJPEGReader(const vtkJPEGReader&);  // Not implemented.
-  void operator=(const vtkJPEGReader&);  // Not implemented.
+  // hide the standard AddItem from the user and the compiler.
+  void AddItem(vtkObject *o) { this->vtkCollection::AddItem(o); };
+
+private:
+  vtkImageReader2Collection(const vtkImageReader2Collection&);  // Not implemented.
+  void operator=(const vtkImageReader2Collection&);  // Not implemented.
 };
+
+inline void vtkImageReader2Collection::AddItem(vtkImageReader2 *f) 
+{
+  this->vtkCollection::AddItem((vtkObject *)f);
+}
+
+inline vtkImageReader2 *vtkImageReader2Collection::GetNextItem() 
+{ 
+  return static_cast<vtkImageReader2*>(this->GetNextItemAsObject());
+}
+
 #endif
-
-

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader2.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-02 23:00:12 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-01-03 22:51:39 $
+  Version:   $Revision: 1.6 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -194,6 +194,14 @@ public:
   void ComputeInternalFileName(int slice);
   vtkGetStringMacro(InternalFileName);
   
+  // Description:
+  // Return 1 if the reader can read the given file name.
+  // Should be implemented by all sub-classes of vtkImageReader2.
+  virtual int CanReadFile(const char* fname)
+    {
+      return false;
+    }
+
 protected:
   vtkImageReader2();
   ~vtkImageReader2();

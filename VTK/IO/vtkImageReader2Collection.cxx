@@ -1,10 +1,10 @@
 /*=========================================================================
 
-  Program:   Visualization Toolkit
-  Module:    $RCSfile: vtkJPEGReader.h,v $
-  Language:  C++
-  Date:      $Date: 2002-01-03 22:51:40 $
-  Version:   $Revision: 1.4 $
+Program:   Visualization Toolkit
+Module:    $RCSfile: vtkImageReader2Collection.cxx,v $
+Language:  C++
+Date:      $Date: 2002-01-03 22:51:39 $
+Version:   $Revision: 1.1 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,40 +39,23 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-// .NAME vtkJPEGReader - read JPEG files
-// .SECTION Description
-// vtkJPEGReader is a source object that reads JPEG files.
-// It should be able to read most any JPEG file
-//
-// .SECTION See Also
-// vtkJPEGWriter
+#include "vtkImageReader2Collection.h"
+#include "vtkObjectFactory.h"
 
-#ifndef __vtkJPEGReader_h
-#define __vtkJPEGReader_h
 
-#include <stdio.h>
-#include "vtkImageReader2.h"
 
-class VTK_IO_EXPORT vtkJPEGReader : public vtkImageReader2
+//------------------------------------------------------------------------------
+vtkImageReader2Collection* vtkImageReader2Collection::New()
 {
-public:
-  static vtkJPEGReader *New();
-  vtkTypeMacro(vtkJPEGReader,vtkImageReader2);
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageReader2Collection");
+  if(ret)
+    {
+    return (vtkImageReader2Collection*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkImageReader2Collection;
+}
 
-  // Description:
-  // Is the given file a JPEG file?
-  int CanReadFile(const char* fname);
-  
-protected:
-  vtkJPEGReader() {};
-  ~vtkJPEGReader() {};
-
-  virtual void ExecuteInformation();
-  virtual void ExecuteData(vtkDataObject *out);
-private:
-  vtkJPEGReader(const vtkJPEGReader&);  // Not implemented.
-  void operator=(const vtkJPEGReader&);  // Not implemented.
-};
-#endif
 
 
