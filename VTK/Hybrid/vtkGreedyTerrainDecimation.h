@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGreedyTerrainDecimation.h,v $
   Language:  C++
-  Date:      $Date: 2003-04-02 13:38:30 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2003-04-02 16:20:30 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -67,10 +67,10 @@ class vtkIdList;
 class vtkDoubleArray;
 
 //PIMPL Encapsulation for STL containers
-class vtkGreedyTerrainDecimationQueueType;
-class vtkGreedyTerrainDecimationTerrainInfoType;
-class vtkGreedyTerrainDecimationPointInfoType;
-class vtkGreedyTerrainDecimationTriangleInfoType;
+struct vtkGreedyTerrainDecimationQueueType;
+struct vtkGreedyTerrainDecimationTerrainInfoType;
+struct vtkGreedyTerrainDecimationPointInfoType;
+struct vtkGreedyTerrainDecimationTriangleInfoType;
 
 #define VTK_ERROR_NUMBER_OF_TRIANGLES 0
 #define VTK_ERROR_SPECIFIED_REDUCTION 1
