@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestCxxFeatures.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-02 14:56:34 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-07-03 13:02:16 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,11 +32,20 @@ int FullySpecializedFunction(T*)
   return 0;
 }
 
+#if 0
+// Fails on kulu.crd IRIX64-6.5-CC-o3 (old SGI compiler).
 template <>
 int FullySpecializedFunction<int>(int*)
 {
   return 1;
 }
+#else
+// Let overload resolution pick this one instead.
+int FullySpecializedFunction(int*)
+{
+  return 1;
+}
+#endif
 
 int TestFullySpecializedFunction()
 {
@@ -51,7 +60,7 @@ int TestFullySpecializedFunction()
   int should_be_1 = FullySpecializedFunction(static_cast<int*>(0));
   if(should_be_1 != 1)
     {    
-    cerr << "FullySpecializedFunction<int*>() returned "
+    cerr << "FullySpecializedFunction(int*) returned "
          << should_be_1 << ", not 1.\n";
     result = 0;
     }
