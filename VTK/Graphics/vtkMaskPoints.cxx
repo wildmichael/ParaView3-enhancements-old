@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMaskPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-09 19:51:12 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1995-04-27 12:35:41 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -26,6 +26,7 @@ void vlMaskPoints::Execute()
 //
 // Check input
 //
+  vlDebugMacro(<<"Masking points");
   this->Initialize();
 
   if ( numPts < 1 )
@@ -54,6 +55,8 @@ void vlMaskPoints::Execute()
 // Update ourselves
 //
   this->SetPoints(newPts);
+
+  vlDebugMacro(<<"Masked " << numPts << " original points to " << id+1 << " points");
 }
 
 void vlMaskPoints::PrintSelf(ostream& os, vlIndent indent)
