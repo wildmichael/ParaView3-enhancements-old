@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParallelCoordinatesActor.h,v $
   Language:  C++
-  Date:      $Date: 2000-05-21 23:05:33 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2000-05-22 01:19:57 $
+  Version:   $Revision: 1.5 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -180,6 +180,10 @@ private:
   vtkTextMapper *TitleMapper;
   vtkActor2D    *TitleActor;
 
+  vtkPolyData         *PlotData; //the lines drawn within the axes
+  vtkPolyDataMapper2D *PlotMapper;
+  vtkActor2D          *PlotActor;
+  
   // font characteristics
   int   NumberOfLabels; //along each axis
   int	Bold;
