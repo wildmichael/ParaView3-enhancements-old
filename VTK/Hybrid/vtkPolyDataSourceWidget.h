@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataSourceWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-07 11:49:23 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-06-08 21:36:03 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -78,12 +78,16 @@ class VTK_EXPORT vtkPolyDataSourceWidget : public vtk3DWidget
   // in the widget.
   virtual void UpdatePlacement() = 0;
 
- protected:
+protected:
   // Description:
   // Empty constructor that calls the parent constructor.  Child classes
   // should call this constructor as part of their initialisation.
   vtkPolyDataSourceWidget();
 
+private:
+ 
+  vtkPolyDataSourceWidget(const vtkPolyDataSourceWidget&); // Not implemented
+  void operator=(const vtkPolyDataSourceWidget&); // Not implemented
 };
 
 #endif
