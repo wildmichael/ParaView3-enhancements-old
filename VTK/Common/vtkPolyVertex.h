@@ -1,10 +1,11 @@
+
 /*=========================================================================
 
   Program:   Visualization Library
   Module:    $RCSfile: vtkPolyVertex.h,v $
   Language:  C++
-  Date:      $Date: 1994-03-03 20:05:04 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-03-08 20:45:25 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -29,7 +30,8 @@ public:
   vlPolyPoints() {};
   char *GetClassName() {return "vlPolyPoints";};
 
-  float DistanceToPoint(float *x);
+  float EvaluatePosition(float x[3], int& subId, float pcoords[3]);
+  void EvaluateLocation(int& subId, float pcoords[3], float x[3]);
 
 };
 

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkLine.h,v $
   Language:  C++
-  Date:      $Date: 1994-03-03 20:03:11 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-03-08 20:45:19 $
+  Version:   $Revision: 1.4 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -29,8 +29,11 @@ public:
   vlLine() {};
   char *GetClassName() {return "vlLine";};
 
-  float DistanceToPoint(float *x);
+  float EvaluatePosition(float x[3], int& subId, float pcoords[3]);
+  void EvaluateLocation(int& subId, float pcoords[3], float x[3]);
 
+  Intersection(float x[3], float xray[3], float x1[3], float x2[3],
+               float& u, float& v);
 };
 
 #endif

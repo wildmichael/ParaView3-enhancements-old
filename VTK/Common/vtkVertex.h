@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkVertex.h,v $
   Language:  C++
-  Date:      $Date: 1994-03-03 20:05:01 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-03-08 20:45:21 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -29,7 +29,8 @@ public:
   vlPoint() {};
   char *GetClassName() {return "vlPoint";};
 
-  float DistanceToPoint(float *x);
+  float EvaluatePosition(float x[3], int& subId, float pcoords[3]);
+  void EvaluateLocation(int& subId, float pcoords[3], float x[3]);
 
 };
 
