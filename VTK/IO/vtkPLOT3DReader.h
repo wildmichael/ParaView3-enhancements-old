@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLOT3DReader.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:12:11 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2000-10-05 17:47:26 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -196,6 +196,10 @@ public:
   // Set/Get the z-component of the free-stream velocity.
   vtkSetMacro(Wvinf,float);
   vtkGetMacro(Wvinf,float);
+
+  // Description:
+  // Get the number number of grids.
+  vtkGetMacro(NumGrids, int);
 
 protected:
   vtkPLOT3DReader();
