@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-03-10 12:04:20 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2003-03-11 10:34:28 $
+  Version:   $Revision: 1.34 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -41,7 +41,7 @@
 #include "vtkSphereSource.h"
 #include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkPlaneWidget, "$Revision: 1.33 $");
+vtkCxxRevisionMacro(vtkPlaneWidget, "$Revision: 1.34 $");
 vtkStandardNewMacro(vtkPlaneWidget);
 
 vtkCxxSetObjectMacro(vtkPlaneWidget,PlaneProperty,vtkProperty);
@@ -837,8 +837,7 @@ void vtkPlaneWidget::OnMouseMove()
     }
   else if ( this->State == vtkPlaneWidget::Spinning )
     {
-      camera->GetViewPlaneNormal(vpn);
-      this->Spin(X, Y, prevPickPoint, pickPoint, vpn);
+      this->Spin(prevPickPoint, pickPoint);
     }
 
 
@@ -1095,7 +1094,7 @@ void vtkPlaneWidget::Rotate(int X, int Y, double *p1, double *p2, double *vpn)
   this->PositionHandles();
 }
 
-void vtkPlaneWidget::Spin(int X, int Y, double *p1, double *p2, double *vpn)
+void vtkPlaneWidget::Spin(double *p1, double *p2)
 {
   float *o = this->PlaneSource->GetOrigin();
   float *pt1 = this->PlaneSource->GetPoint1();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlaneWidget.h,v $
   Language:  C++
-  Date:      $Date: 2003-03-10 12:04:20 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2003-03-11 10:34:28 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -322,7 +322,7 @@ protected:
   void MovePoint2(double *p1, double *p2);
   void MovePoint3(double *p1, double *p2);
   void Rotate(int X, int Y, double *p1, double *p2, double *vpn);
-  void Spin(int X, int Y, double *p1, double *p2, double *vpn);
+  void Spin(double *p1, double *p2);
   void Scale(double *p1, double *p2, int X, int Y);
   void Translate(double *p1, double *p2);
   void Push(double *p1, double *p2);
