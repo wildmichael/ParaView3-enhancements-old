@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates3D.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:14:22 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2000-08-08 09:09:33 $
+  Version:   $Revision: 1.13 $
 
 
 
@@ -71,6 +71,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkImageData.h"
 #include "vtkContourValues.h"
 #include "vtkMultiThreader.h"
+#include "vtkExtentTranslator.h"
 
 class VTK_EXPORT vtkSynchronizedTemplates3D : public vtkPolyDataSource
 {
@@ -163,8 +164,6 @@ public:
   // Description:
   // Needed by templated functions.
   int *GetExecuteExtent() {return this->ExecuteExtent;}
-  int SplitExtent(int piece, int numPieces, int *ext);
-  int SplitExtent2(int piece, int numPieces, int *ext);
   void ThreadedExecute(vtkImageData *data, int *exExt, int threadId);
 
   // Description:
@@ -179,6 +178,12 @@ public:
   void SetInputMemoryLimit(unsigned long limit);
   unsigned long GetInputMemoryLimit();
 
+  // Description:
+  // By changing this object, you sould be able to select how the structured
+  // extent is resolved (ie, blocks vs slabs).
+  vtkSetObjectMacro(ExtentTranslator, vtkExtentTranslator);
+  vtkGetObjectMacro(ExtentTranslator, vtkExtentTranslator);
+  
 
 protected:
   vtkSynchronizedTemplates3D();
@@ -196,8 +201,9 @@ protected:
 
   void ComputeInputUpdateExtents(vtkDataObject *output);
 
+  vtkExtentTranslator *ExtentTranslator;
+  
   int ExecuteExtent[6];
-  int MinimumPieceSize[3];
 
   int NumberOfThreads;
   vtkMultiThreader *Threader;
