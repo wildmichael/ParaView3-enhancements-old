@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-26 13:37:53 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 2000-01-03 14:27:52 $
+  Version:   $Revision: 1.56 $
   
     
   Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -532,10 +532,10 @@ void vtkCellLocator::FindClosestPoint(float x[3], float closestPoint[3],
                   }
                 
                 // evaluate the position to find the closest point
-                cell->EvaluatePosition(x, point, subId, pcoords,
+                int stat=cell->EvaluatePosition(x, point, subId, pcoords,
                   dist2, weights);
                 
-                if ( dist2 < minDist2 ) 
+                if ( stat != -1 && dist2 < minDist2 ) 
                   {
                   closestCell = cellId;
                   closestSubCell = subId;
