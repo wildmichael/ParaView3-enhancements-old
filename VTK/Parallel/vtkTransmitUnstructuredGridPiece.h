@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransmitUnstructuredGridPiece.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:35:02 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-02-22 19:18:29 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -51,7 +51,7 @@ public:
   
 protected:
   vtkTransmitUnstructuredGridPiece();
-  ~vtkTransmitUnstructuredGridPiece() {};
+  ~vtkTransmitUnstructuredGridPiece();
   vtkTransmitUnstructuredGridPiece(const vtkTransmitUnstructuredGridPiece&);
   void operator=(const vtkTransmitUnstructuredGridPiece&);
 

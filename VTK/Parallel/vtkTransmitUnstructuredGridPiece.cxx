@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransmitUnstructuredGridPiece.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:35:02 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-02-22 19:18:29 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkExtractUnstructuredGridPiece.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkTransmitUnstructuredGridPiece, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkTransmitUnstructuredGridPiece, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkTransmitUnstructuredGridPiece);
 
 //----------------------------------------------------------------------------
@@ -30,6 +30,12 @@ vtkTransmitUnstructuredGridPiece::vtkTransmitUnstructuredGridPiece()
   // Controller keeps a reference to this object as well.
   this->Controller = NULL;
   this->SetController(vtkMultiProcessController::GetGlobalController());  
+}
+
+//----------------------------------------------------------------------------
+vtkTransmitUnstructuredGridPiece::~vtkTransmitUnstructuredGridPiece()
+{
+  this->SetController(NULL);
 }
 
 //----------------------------------------------------------------------------

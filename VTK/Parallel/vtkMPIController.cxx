@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPIController.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-28 18:37:21 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-02-22 19:18:29 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -65,9 +65,9 @@ void vtkMPIController::CreateOutputWindow()
   vtkOutputWindow::SetInstance(this->OutputWindow);
 }
 
-vtkCxxRevisionMacro(vtkMPIOutputWindow, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkMPIOutputWindow, "$Revision: 1.12 $");
 
-vtkCxxRevisionMacro(vtkMPIController, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkMPIController, "$Revision: 1.12 $");
 vtkStandardNewMacro(vtkMPIController);
 
 //----------------------------------------------------------------------------
@@ -170,7 +170,8 @@ void vtkMPIController::Initialize(int* argc, char*** argv)
   vtkMPIController::WorldRMICommunicator = vtkMPICommunicator::New();
   vtkMPIController::WorldRMICommunicator->Duplicate((vtkMPICommunicator*)this->Communicator);
   this->RMICommunicator = vtkMPIController::WorldRMICommunicator;
-  this->RMICommunicator->Register(this);
+  // Since we use Delete to get rid of the reference, we should use NULL to register.
+  this->RMICommunicator->Register(NULL);
 
   this->Modified();
 }
