@@ -1,4 +1,4 @@
-/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_packbits.c,v 1.1 2002-01-29 22:38:22 andy Exp $ */
+/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_packbits.c,v 1.2 2003-02-27 16:43:22 king Exp $ */
 
 /*
  * Copyright (c) 1988-1997 Sam Leffler
@@ -42,9 +42,9 @@ PackBitsPreEncode(TIFF* tif, tsample_t s)
          * Calculate the scanline/tile-width size in bytes.
          */
         if (isTiled(tif))
-                tif->tif_data = (tidata_t) TIFFTileRowSize(tif);
+                tif->tif_data = (tidata_t)(size_t)TIFFTileRowSize(tif);
         else
-                tif->tif_data = (tidata_t) TIFFScanlineSize(tif);
+                tif->tif_data = (tidata_t)(size_t)TIFFScanlineSize(tif);
         return (1);
 }
 
