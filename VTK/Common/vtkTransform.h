@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:01:49 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 1999-08-30 12:47:52 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -272,7 +272,7 @@ class VTK_EXPORT vtkTransform : public vtkObject
   vtkTransform &operator=(const vtkTransform &t);
   
   
-private:
+protected:
   vtkTransform ();
   vtkTransform (const vtkTransform& t);
   ~vtkTransform ();
