@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLPStructuredGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-31 21:58:34 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2003-09-22 17:16:26 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkXMLDataElement.h"
 #include "vtkXMLStructuredGridReader.h"
 
-vtkCxxRevisionMacro(vtkXMLPStructuredGridReader, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkXMLPStructuredGridReader, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkXMLPStructuredGridReader);
 
 //----------------------------------------------------------------------------
@@ -46,6 +46,12 @@ vtkXMLPStructuredGridReader::~vtkXMLPStructuredGridReader()
 void vtkXMLPStructuredGridReader::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->Superclass::PrintSelf(os, indent);
+}
+
+//----------------------------------------------------------------------------
+vtkStructuredGrid* vtkXMLPStructuredGridReader::GetOutput(int idx)
+{
+  return static_cast<vtkStructuredGrid*>(this->Superclass::GetOutput(idx));
 }
 
 //----------------------------------------------------------------------------
