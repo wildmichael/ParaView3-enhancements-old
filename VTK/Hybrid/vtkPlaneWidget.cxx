@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-13 21:05:25 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-05-21 20:02:41 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,7 +32,7 @@
 #include "vtkPolyDataMapper.h"
 #include "vtkSphereSource.h"
 
-vtkCxxRevisionMacro(vtkPlaneWidget, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtkPlaneWidget, "$Revision: 1.11 $");
 vtkStandardNewMacro(vtkPlaneWidget);
 
 vtkCxxSetObjectMacro(vtkPlaneWidget,PlaneProperty,vtkProperty);
@@ -1146,9 +1146,9 @@ void vtkPlaneWidget::PlaceWidget(float bds[6])
     this->HandleGeometry[i]->SetRadius(0.025*this->InitialLength);
     }
 
-  // Set the height of the cone
+  // Set the height and radius of the cone
   this->ConeSource->SetHeight(0.060*this->InitialLength);
-  
+  this->ConeSource->SetRadius(0.025*this->InitialLength);  
 }
 
 void vtkPlaneWidget::SelectRepresentation()
