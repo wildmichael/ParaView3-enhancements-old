@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTimerLog.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:28 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-07-22 13:10:19 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,13 +51,13 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkTimerLog.h"
 #ifndef _WIN32
 #include <limits.h>     // for CLK_TCK
+#include <sys/time.h>
+#include <unistd.h>
 #else
 #include <winsock.h>    // for Sleep?
 #endif
 
-#include <sys/time.h>
 #include <sys/types.h>
-#include <unistd.h>
 #include <time.h>
 
 // initialze the class variables
