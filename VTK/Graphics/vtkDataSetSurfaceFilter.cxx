@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetSurfaceFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-10-14 15:08:21 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2003-10-16 20:09:26 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -36,7 +36,7 @@
 #include "vtkVoxel.h"
 #include "vtkWedge.h"
 
-vtkCxxRevisionMacro(vtkDataSetSurfaceFilter, "$Revision: 1.25 $");
+vtkCxxRevisionMacro(vtkDataSetSurfaceFilter, "$Revision: 1.26 $");
 vtkStandardNewMacro(vtkDataSetSurfaceFilter);
 
 //----------------------------------------------------------------------------
@@ -1205,13 +1205,8 @@ void vtkDataSetSurfaceFilter::InsertTriInHash(vtkIdType a, vtkIdType b,
     c = b;
     b = tmp;
     }
-  // We might as well order b and c for efficient comparison.
-  if (c < b)
-    {
-    tmp = c;
-    c = b;
-    b = tmp;
-    }
+  // We can't put the second smnallest in b because it might change the order
+  // of the verticies in the final triangle.
 
   // Look for existing tri in the hash;
   end = this->QuadHash + a;
@@ -1223,7 +1218,7 @@ void vtkDataSetSurfaceFilter::InsertTriInHash(vtkIdType a, vtkIdType b,
     // Tris have p0 == p3 
     if (quad->p0 == quad->p3)
       { 
-      if ((b == quad->p1 && c == quad->p2))
+      if ((b == quad->p1 && c == quad->p2) || (b == quad->p2 && c == quad->p1))
         {
         // We have a match.
         quad->SourceId = -1;
