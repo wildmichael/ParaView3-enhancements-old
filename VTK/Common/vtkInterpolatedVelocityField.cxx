@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInterpolatedVelocityField.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-10-07 19:18:06 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2003-11-06 20:00:11 $
+  Version:   $Revision: 1.30 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 
 #include <vtkstd/vector>
 
-vtkCxxRevisionMacro(vtkInterpolatedVelocityField, "$Revision: 1.29 $");
+vtkCxxRevisionMacro(vtkInterpolatedVelocityField, "$Revision: 1.30 $");
 vtkStandardNewMacro(vtkInterpolatedVelocityField);
 
 typedef vtkstd::vector< vtkDataSet* > DataSetsTypeBase;
@@ -104,7 +104,7 @@ int vtkInterpolatedVelocityField::FunctionValues(float* x, float* f)
   return retVal;
 }
 
-const float vtkInterpolatedVelocityField::TOLERANCE_SCALE = 1.0E-10;
+const float vtkInterpolatedVelocityField::TOLERANCE_SCALE = 1.0E-8;
 
 // Evaluate u,v,w at x,y,z,t
 int vtkInterpolatedVelocityField::FunctionValues(vtkDataSet* dataset,
