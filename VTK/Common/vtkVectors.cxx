@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkVectors.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-03-27 16:11:04 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1994-08-09 15:23:35 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -13,9 +13,6 @@ written consent of the authors.
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-//
-//  3D vectors, abstract representation
-//
 #include "Vectors.hh"
 #include "FVectors.hh"
 #include "IdList.hh"
@@ -26,6 +23,8 @@ vlVectors::vlVectors()
   this->MaxNorm = 0.0;
 }
 
+// Description:
+// Given a list of pt ids, return an array of vectors.
 void vlVectors::GetVectors(vlIdList& ptId, vlFloatVectors& fp)
 {
   for (int i=0; i<ptId.GetNumberOfIds(); i++)
@@ -33,6 +32,9 @@ void vlVectors::GetVectors(vlIdList& ptId, vlFloatVectors& fp)
     fp.InsertVector(i,this->GetVector(ptId.GetId(i)));
     }
 }
+
+// Description:
+// Compute the largest norm for these vectors.
 void vlVectors::ComputeMaxNorm()
 {
   int i;
@@ -53,6 +55,8 @@ void vlVectors::ComputeMaxNorm()
     }
 }
 
+// Description:
+// Return the maximum norm for these vectors.
 float vlVectors::GetMaxNorm()
 {
   this->ComputeMaxNorm();

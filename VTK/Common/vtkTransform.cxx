@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-07-15 13:20:36 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1994-08-09 15:23:34 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -633,7 +633,7 @@ float *vlTransform::GetPoint()
 // Transformed points are appended to output list (outPts).
 void vlTransform::MultiplyPoints(vlPoints *inPts, vlPoints *outPts)
 {
-  float newX[4];
+  float newX[3];
   float *x;
   int ptId, i;
   int numPts = inPts->GetNumberOfPoints();
