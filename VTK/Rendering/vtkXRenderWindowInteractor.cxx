@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-04 02:18:59 $
-  Version:   $Revision: 1.95 $
+  Date:      $Date: 2000-12-04 11:40:56 $
+  Version:   $Revision: 1.96 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -51,6 +51,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <X11/Shell.h>
 #include <math.h>
 #include "vtkObjectFactory.h"
+#include "vtkCommand.h"
 
 //----------------------------------------------------------------------------
 vtkXRenderWindowInteractor* vtkXRenderWindowInteractor::New()

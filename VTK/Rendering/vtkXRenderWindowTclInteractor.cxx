@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowTclInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-04 02:18:59 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2000-12-04 11:40:56 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -53,6 +53,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "tk.h"
 #include "vtkActorCollection.h"
 #include "vtkPoints.h"
+#include "vtkCommand.h"
 #include "vtkObjectFactory.h"
 
 
