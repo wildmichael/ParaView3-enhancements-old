@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLVolumeTextureMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-12-21 17:37:58 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-01-03 21:20:43 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -125,7 +125,7 @@ void vtkOpenGLVolumeTextureMapper2D::Render(vtkRenderer *ren, vtkVolume *vol)
 
     for (i = 0; i < numClipPlanes; i++)
       {
-      glEnable(GL_CLIP_PLANE0+i);
+      glEnable((GLenum)(GL_CLIP_PLANE0+i));
 
       plane = (vtkPlane *)clipPlanes->GetItemAsObject(i);
 
@@ -135,7 +135,7 @@ void vtkOpenGLVolumeTextureMapper2D::Render(vtkRenderer *ren, vtkVolume *vol)
       planeEquation[3] = -(planeEquation[0]*plane->GetOrigin()[0]+
 			   planeEquation[1]*plane->GetOrigin()[1]+
 			   planeEquation[2]*plane->GetOrigin()[2]);
-      glClipPlane(GL_CLIP_PLANE0+i,planeEquation);
+      glClipPlane((GLenum)(GL_CLIP_PLANE0+i),planeEquation);
       }
     }
 
@@ -157,7 +157,7 @@ void vtkOpenGLVolumeTextureMapper2D::Render(vtkRenderer *ren, vtkVolume *vol)
     {
     for (i = 0; i < numClipPlanes; i++)
       {
-      glDisable(GL_CLIP_PLANE0+i);
+      glDisable((GLenum)(GL_CLIP_PLANE0+i));
       }
     }
 
