@@ -55,7 +55,7 @@
 #include "vtkPriorityQueue.h"
 #include "vtkTriangle.h"
 
-vtkCxxRevisionMacro(vtkQuadricDecimation, "$Revision: 1.37 $");
+vtkCxxRevisionMacro(vtkQuadricDecimation, "$Revision: 1.38 $");
 vtkStandardNewMacro(vtkQuadricDecimation);
 
 
@@ -206,13 +206,13 @@ int vtkQuadricDecimation::RequestData(
       input->GetPointData() == NULL  || input->GetFieldData() == NULL)
     {
     vtkErrorMacro("Nothing to decimate");
-    return 0;
+    return 1;
     }
 
   if (input->GetPolys()->GetMaxCellSize() > 3) 
     {
     vtkErrorMacro("Can only decimate triangles");
-    return 0;
+    return 1;
     }
   
   polys = vtkCellArray::New();
