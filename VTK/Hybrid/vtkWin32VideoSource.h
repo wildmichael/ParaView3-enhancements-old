@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32VideoSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:27 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-10-16 04:21:25 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -117,6 +117,7 @@ public:
   // Description:
   // For internal use only
   void InternalGrab(LPVIDEOHDR VideoHdrPtr);
+  void OnParentWndDestroy();
 
 protected:
   vtkWin32VideoSource();
@@ -133,14 +134,13 @@ protected:
 
   int Preview;
 
-  int FatalVFWError;
-
   void CheckBuffer();
   void UnpackRasterLine(char *outptr, char *inptr, 
 			int start, int count);
 
   void DoVFWFormatSetup();
   void DoVFWFormatCheck();
+
 private:
   vtkWin32VideoSource(const vtkWin32VideoSource&);  // Not implemented.
   void operator=(const vtkWin32VideoSource&);  // Not implemented.
