@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-29 18:46:46 $
-  Version:   $Revision: 1.108 $
+  Date:      $Date: 2001-09-17 19:39:46 $
+  Version:   $Revision: 1.109 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1710,7 +1710,7 @@ vtkFieldData *vtkDataReader::ReadFieldData()
     }
 
   f = vtkFieldData::New();
-  f->SetNumberOfArrays(numArrays);
+  f->AllocateArrays(numArrays);
   
   // Read the number of arrays specified
   for (i=0; i<numArrays; i++)
