@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageQuantizeRGBToIndex.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-19 19:58:04 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-03-08 14:38:20 $
+  Version:   $Revision: 1.24 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -587,7 +587,7 @@ vtkImageQuantizeRGBToIndex::~vtkImageQuantizeRGBToIndex()
 // algorithm to fill the output from the input.
 // It just executes a switch statement to call the correct function for
 // the Datas data types.
-void vtkImageQuantizeRGBToIndex::Execute()
+void vtkImageQuantizeRGBToIndex::ExecuteData(vtkDataObject *)
 {
   void *inPtr;
   void *outPtr;
