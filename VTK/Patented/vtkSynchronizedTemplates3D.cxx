@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-02 18:00:21 $
-  Version:   $Revision: 1.65 $
+  Date:      $Date: 2002-08-30 21:05:16 $
+  Version:   $Revision: 1.66 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,25 +26,27 @@
      for more information.
 
 =========================================================================*/
-
-#include <math.h>
-#include "vtkStructuredPoints.h"
-#include "vtkCharArray.h"
-#include "vtkUnsignedCharArray.h"
-#include "vtkShortArray.h"
-#include "vtkUnsignedShortArray.h"
-#include "vtkIntArray.h"
-#include "vtkUnsignedIntArray.h"
-#include "vtkLongArray.h"
-#include "vtkUnsignedLongArray.h"
-#include "vtkDoubleArray.h"
-#include "vtkFloatArray.h"
 #include "vtkSynchronizedTemplates3D.h"
+
+#include "vtkCharArray.h"
+#include "vtkDoubleArray.h"
+#include "vtkExtentTranslator.h"
+#include "vtkFloatArray.h"
+#include "vtkIntArray.h"
+#include "vtkLongArray.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
-#include "vtkExtentTranslator.h"
+#include "vtkPolyData.h"
+#include "vtkShortArray.h"
+#include "vtkStructuredPoints.h"
+#include "vtkUnsignedCharArray.h"
+#include "vtkUnsignedIntArray.h"
+#include "vtkUnsignedLongArray.h"
+#include "vtkUnsignedShortArray.h"
 
-vtkCxxRevisionMacro(vtkSynchronizedTemplates3D, "$Revision: 1.65 $");
+#include <math.h>
+
+vtkCxxRevisionMacro(vtkSynchronizedTemplates3D, "$Revision: 1.66 $");
 vtkStandardNewMacro(vtkSynchronizedTemplates3D);
 
 //----------------------------------------------------------------------------

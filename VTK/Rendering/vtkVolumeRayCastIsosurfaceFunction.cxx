@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastIsosurfaceFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-11 20:18:53 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-08-30 21:05:00 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,18 +16,20 @@
 
 =========================================================================*/
 #include "vtkVolumeRayCastIsosurfaceFunction.h"
-#include "vtkVolumeRayCastMapper.h"
+
 #include "vtkCamera.h"
-#include "vtkRenderWindow.h"
 #include "vtkColorTransferFunction.h"
 #include "vtkMath.h"
-#include "vtkVolumeProperty.h"
-#include "vtkVolume.h"
 #include "vtkObjectFactory.h"
+#include "vtkPiecewiseFunction.h"
+#include "vtkRenderWindow.h"
+#include "vtkVolume.h"
+#include "vtkVolumeProperty.h"
+#include "vtkVolumeRayCastMapper.h"
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkVolumeRayCastIsosurfaceFunction, "$Revision: 1.23 $");
+vtkCxxRevisionMacro(vtkVolumeRayCastIsosurfaceFunction, "$Revision: 1.24 $");
 vtkStandardNewMacro(vtkVolumeRayCastIsosurfaceFunction);
 
 /*    Is x between y and z?                                     */

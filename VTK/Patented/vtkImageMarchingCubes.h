@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMarchingCubes.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-13 12:39:07 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2002-08-30 21:05:16 $
+  Version:   $Revision: 1.36 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -56,8 +56,10 @@
 
 #include "vtkContourValues.h" // Needed for direct access to ContourValues
 
+class vtkCellArray;
 class vtkFloatArray;
 class vtkImageData;
+class vtkPoints;
 
 class VTK_PATENTED_EXPORT vtkImageMarchingCubes : public vtkPolyDataSource
 {

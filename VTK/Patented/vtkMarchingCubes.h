@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingCubes.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-13 12:39:08 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 2002-08-30 21:05:16 $
+  Version:   $Revision: 1.62 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -51,6 +51,8 @@
 #include "vtkStructuredPointsToPolyDataFilter.h"
 
 #include "vtkContourValues.h" // Needed for direct access to ContourValues
+
+class vtkPointLocator;
 
 class VTK_PATENTED_EXPORT vtkMarchingCubes : public vtkStructuredPointsToPolyDataFilter
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingSquares.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-09 13:42:30 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2002-08-30 21:05:16 $
+  Version:   $Revision: 1.52 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,24 +30,27 @@
      for more information.
 
 =========================================================================*/
-#include <math.h>
 #include "vtkMarchingSquares.h"
-#include "vtkMarchingSquaresCases.h"
-#include "vtkStructuredPoints.h"
-#include "vtkMergePoints.h"
+
 #include "vtkCharArray.h"
-#include "vtkUnsignedCharArray.h"
-#include "vtkShortArray.h"
-#include "vtkUnsignedShortArray.h"
-#include "vtkIntArray.h"
-#include "vtkUnsignedIntArray.h"
-#include "vtkLongArray.h"
-#include "vtkUnsignedLongArray.h"
 #include "vtkDoubleArray.h"
 #include "vtkFloatArray.h"
+#include "vtkIntArray.h"
+#include "vtkLongArray.h"
+#include "vtkMarchingSquaresCases.h"
+#include "vtkMergePoints.h"
 #include "vtkObjectFactory.h"
+#include "vtkPolyData.h"
+#include "vtkShortArray.h"
+#include "vtkStructuredPoints.h"
+#include "vtkUnsignedCharArray.h"
+#include "vtkUnsignedIntArray.h"
+#include "vtkUnsignedLongArray.h"
+#include "vtkUnsignedShortArray.h"
 
-vtkCxxRevisionMacro(vtkMarchingSquares, "$Revision: 1.51 $");
+#include <math.h>
+
+vtkCxxRevisionMacro(vtkMarchingSquares, "$Revision: 1.52 $");
 vtkStandardNewMacro(vtkMarchingSquares);
 
 // Description:

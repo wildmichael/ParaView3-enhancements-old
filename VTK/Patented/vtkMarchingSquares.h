@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingSquares.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-04 02:07:27 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2002-08-30 21:05:16 $
+  Version:   $Revision: 1.40 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -55,9 +55,11 @@
 #define __vtkMarchingSquares_h
 
 #include "vtkPolyDataSource.h"
+
 #include "vtkContourValues.h" // Passes calls to vtkContourValues
 
 class vtkImageData;
+class vtkPointLocator;
 
 class VTK_PATENTED_EXPORT vtkMarchingSquares : public vtkPolyDataSource
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimate.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-04 02:07:27 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 2002-08-30 21:05:16 $
+  Version:   $Revision: 1.59 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -100,7 +100,11 @@
 
 #include "vtkPolyDataToPolyDataFilter.h"
 
+#include "vtkCell.h" // Needed for VTK_CELL_SIZE
+
 #define VTK_NUMBER_STATISTICS 12
+
+class vtkIdList;
 
 //BTX - begin tcl exclude
 // Special structures for building loops

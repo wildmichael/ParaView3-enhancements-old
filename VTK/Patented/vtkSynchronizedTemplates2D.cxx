@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-02 18:00:21 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2002-08-30 21:05:16 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,22 +26,25 @@
      for more information.
 
 =========================================================================*/
-#include <math.h>
-#include "vtkImageData.h"
+#include "vtkSynchronizedTemplates2D.h"
+
 #include "vtkCharArray.h"
-#include "vtkUnsignedCharArray.h"
-#include "vtkShortArray.h"
-#include "vtkUnsignedShortArray.h"
-#include "vtkIntArray.h"
-#include "vtkUnsignedIntArray.h"
-#include "vtkLongArray.h"
-#include "vtkUnsignedLongArray.h"
 #include "vtkDoubleArray.h"
 #include "vtkFloatArray.h"
-#include "vtkSynchronizedTemplates2D.h"
+#include "vtkImageData.h"
+#include "vtkIntArray.h"
+#include "vtkLongArray.h"
 #include "vtkObjectFactory.h"
+#include "vtkPolyData.h"
+#include "vtkShortArray.h"
+#include "vtkUnsignedCharArray.h"
+#include "vtkUnsignedIntArray.h"
+#include "vtkUnsignedLongArray.h"
+#include "vtkUnsignedShortArray.h"
 
-vtkCxxRevisionMacro(vtkSynchronizedTemplates2D, "$Revision: 1.25 $");
+#include <math.h>
+
+vtkCxxRevisionMacro(vtkSynchronizedTemplates2D, "$Revision: 1.26 $");
 vtkStandardNewMacro(vtkSynchronizedTemplates2D);
 
 //----------------------------------------------------------------------------

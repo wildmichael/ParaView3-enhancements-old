@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDividingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 22:02:17 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2002-08-30 21:05:16 $
+  Version:   $Revision: 1.47 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,12 +31,16 @@
 
 =========================================================================*/
 #include "vtkDividingCubes.h"
-#include "vtkMath.h"
-#include "vtkVoxel.h"
-#include "vtkFloatArray.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkDividingCubes, "$Revision: 1.46 $");
+#include "vtkCellArray.h"
+#include "vtkFloatArray.h"
+#include "vtkImageData.h"
+#include "vtkMath.h"
+#include "vtkObjectFactory.h"
+#include "vtkPolyData.h"
+#include "vtkVoxel.h"
+
+vtkCxxRevisionMacro(vtkDividingCubes, "$Revision: 1.47 $");
 vtkStandardNewMacro(vtkDividingCubes);
 
 // Description:

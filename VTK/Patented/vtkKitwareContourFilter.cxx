@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKitwareContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-13 12:39:08 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-08-30 21:05:16 $
+  Version:   $Revision: 1.27 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,12 +24,13 @@
 #include "vtkMergePoints.h"
 #include "vtkObjectFactory.h"
 #include "vtkScalarTree.h"
+#include "vtkStructuredGrid.h"
 #include "vtkSynchronizedTemplates2D.h"
 #include "vtkSynchronizedTemplates3D.h"
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkKitwareContourFilter, "$Revision: 1.26 $");
+vtkCxxRevisionMacro(vtkKitwareContourFilter, "$Revision: 1.27 $");
 vtkStandardNewMacro(vtkKitwareContourFilter);
 
 // Construct object with initial range (0,1) and single contour value
