@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkAppendFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-06-06 16:16:40 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-06-11 08:09:02 $
+  Version:   $Revision: 1.3 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -155,7 +155,7 @@ void vlAppendFilter::Execute()
     // copy cells
     for (cellId=0; cellId < numCells; cellId++)
       {
-      ds->GetCellPoints(cellId,&ptIds);
+      ds->GetCellPoints(cellId,ptIds);
       for (j=0; j < ptIds.GetNumberOfIds(); j++)
         newPtIds.SetId(j,ptIds.GetId(i)+ptOffset);
       this->InsertNextCell(ds->GetCellType(cellId),newPtIds);

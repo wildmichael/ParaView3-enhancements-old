@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkShrinkFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-06-02 19:02:21 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1994-06-11 08:09:09 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -49,7 +49,7 @@ void vlShrinkFilter::Execute()
 //
   for (cellId=0; cellId < numCells; i++)
     {
-    this->Input->GetCellPoints(cellId,&ptIds);
+    this->Input->GetCellPoints(cellId,ptIds);
 
     // get the center of the cell
     center[0] = center[1] = center[2] = 0.0;

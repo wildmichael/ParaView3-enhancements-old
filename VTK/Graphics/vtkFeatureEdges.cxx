@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkFeatureEdges.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-05-28 06:51:24 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-06-11 08:09:05 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -98,7 +98,7 @@ void vlFeatureEdges::Execute()
         {
         edge.SetId(0,pts[i]);
         edge.SetId(1,pts[(i+1)%npts]);
-        Mesh.GetCellNeighbors(cellId,&edge,&neighbors);
+        Mesh.GetCellNeighbors(cellId,edge,neighbors);
 
         if ( (numNei=neighbors.GetNumberOfIds()) < 1 && this->BoundaryEdges )
           {

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkConnectivityFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-05-29 22:02:35 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-06-11 08:09:03 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -109,7 +109,7 @@ void vlConnectivityFilter::Execute()
         pt = this->Seeds.GetId(i);
         if ( pt >= 0 ) 
           {
-          this->Input->GetPointCells(pt,&cellIds);
+          this->Input->GetPointCells(pt,cellIds);
           for (j=0; j < cellIds.GetNumberOfIds(); j++) 
             RecursionSeeds->InsertNextId(cellIds.GetId(j));
           }
@@ -171,7 +171,7 @@ void vlConnectivityFilter::Execute()
     {
     if ( Visited[cellId] >= 0 )
       {
-      this->Input->GetCellPoints(cellId, &ptIds);
+      this->Input->GetCellPoints(cellId, ptIds);
       for (i=0; i < ptIds.GetNumberOfIds(); i++)
         {
         id = PointMap[ptIds.GetId(i)];
@@ -206,7 +206,7 @@ void vlConnectivityFilter::TraverseAndMark (int cellId)
     return;
     }
 
-  this->Input->GetCellPoints(cellId, &ptIds);
+  this->Input->GetCellPoints(cellId, ptIds);
 
   for (j=0; j < ptIds.GetNumberOfIds(); j++) 
     {
@@ -216,7 +216,7 @@ void vlConnectivityFilter::TraverseAndMark (int cellId)
       NewScalars->SetScalar(PointMap[ptId], RegionNumber);
       }
      
-    this->Input->GetPointCells(ptId,&cellIds);
+    this->Input->GetPointCells(ptId,cellIds);
 
     for (k=0; k < cellIds.GetNumberOfIds(); k++)
       if ( Visited[cellIds.GetId(k)] < 0 )

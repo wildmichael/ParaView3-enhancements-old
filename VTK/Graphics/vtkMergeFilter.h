@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMergeFilter.h,v $
   Language:  C++
-  Date:      $Date: 1994-06-10 08:31:39 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-06-11 08:09:08 $
+  Version:   $Revision: 1.4 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -41,9 +41,9 @@ public:
   vlCell *GetCell(int cellId) {return this->Geometry->GetCell(cellId);}
   int GetCellType(int cellId) {return this->Geometry->GetCellType(cellId);}
   void Initialize();
-  void GetCellPoints(int cellId, vlIdList *ptIds)
+  void GetCellPoints(int cellId, vlIdList& ptIds)
     {this->Geometry->GetCellPoints(cellId, ptIds);};
-  void GetPointCells(int ptId, vlIdList *cellIds)
+  void GetPointCells(int ptId, vlIdList& cellIds)
     {this->Geometry->GetPointCells(ptId, cellIds);};
   int FindCell(float x[3], vlCell *cell, float tol2, int& subId, float pc[3]) 
     {return this->Geometry->FindCell(x,cell,tol2,subId,pc);};
