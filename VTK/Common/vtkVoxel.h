@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxel.h,v $
   Language:  C++
-  Date:      $Date: 1995-11-05 18:44:18 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1996-06-11 14:01:25 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -83,6 +83,7 @@ public:
 
   // voxel specific
   void InterpolationFunctions(float pcoords[3], float weights[8]);
+  void InterpolationDerivs(float pcoords[3], float derivs[24]);
 
 };
 
