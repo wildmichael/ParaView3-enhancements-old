@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell3D.h,v $
   Language:  C++
-  Date:      $Date: 2003-07-09 18:51:32 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2003-07-21 20:46:40 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,6 +30,9 @@
 #include "vtkCell.h"
 
 class vtkOrderedTriangulator;
+class vtkTetra;
+class vtkCellArray;
+class vtkFloatArray;
 
 class VTK_COMMON_EXPORT vtkCell3D : public vtkCell
 {
@@ -98,7 +101,11 @@ protected:
   ~vtkCell3D();
   
   vtkOrderedTriangulator *Triangulator;
-  float MergeTolerance;
+  float                   MergeTolerance;
+
+  //used to support clipping
+  vtkTetra               *ClipTetra;
+  vtkFloatArray          *ClipScalars;
 
 private:
   vtkCell3D(const vtkCell3D&);  // Not implemented.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConvexPointSet.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-10 16:13:50 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2003-07-21 20:46:40 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,7 @@
 #include "vtkTetra.h"
 #include "vtkTriangle.h"
 
-vtkCxxRevisionMacro(vtkConvexPointSet, "$Revision: 1.19 $");
+vtkCxxRevisionMacro(vtkConvexPointSet, "$Revision: 1.20 $");
 vtkStandardNewMacro(vtkConvexPointSet);
 
 // Construct the hexahedron with eight points.
@@ -44,6 +44,7 @@ vtkConvexPointSet::vtkConvexPointSet()
   this->Triangle = vtkTriangle::New();
   this->Triangulator = vtkOrderedTriangulator::New();
   this->Triangulator->PreSortedOff();
+  this->Triangulator->UseTemplatesOff();
 }
 
 vtkConvexPointSet::~vtkConvexPointSet()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOrderedTriangulator.h,v $
   Language:  C++
-  Date:      $Date: 2003-07-09 15:03:47 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2003-07-21 20:46:40 $
+  Version:   $Revision: 1.29 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -80,8 +80,12 @@ class  vtkCellArray;
 class  vtkHeap;
 class  vtkIdList;
 class  vtkPoints;
+class  vtkTetra;
+class  vtkDataArray;
+class  vtkFloatArray;
 struct vtkOTMesh;
 struct vtkOTTemplates;
+
 
 // Template ID's must be 32-bits. See .cxx file for more information.
 #if VTK_SIZEOF_SHORT == 4
@@ -216,6 +220,13 @@ public:
   // specified point id to the connectivity list provided. (The id is the
   // same as that specified in InsertPoint().)  
   vtkIdType AddTriangles(vtkIdType id, vtkCellArray *connectivity);
+  
+  // Description:
+  // Methods to get one tetra at a time. Start with InitTetraTraversal()
+  // and then invoke GetNextTetra() until the method returns 0.
+  void InitTetraTraversal();
+  int  GetNextTetra(int classification, vtkTetra *tet,
+                    vtkDataArray *cellScalars, vtkFloatArray *tetScalars);
   
 protected:
   vtkOrderedTriangulator();
