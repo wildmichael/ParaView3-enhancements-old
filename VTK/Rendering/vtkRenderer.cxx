@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:20:41 $
-  Version:   $Revision: 1.190 $
+  Date:      $Date: 2003-01-07 15:08:46 $
+  Version:   $Revision: 1.191 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -36,7 +36,7 @@
 #include "vtkTimerLog.h"
 #include "vtkVolume.h"
 
-vtkCxxRevisionMacro(vtkRenderer, "$Revision: 1.190 $");
+vtkCxxRevisionMacro(vtkRenderer, "$Revision: 1.191 $");
 
 //----------------------------------------------------------------------------
 // Needed when we don't use the vtkStandardNewMacro.
@@ -330,8 +330,9 @@ int vtkRenderer::UpdateLightsGeometryToFollowCamera()
     {
     if (light->LightTypeIsSceneLight())
       {
-      // reset any transformation matrix that may have been set before
-      light->SetTransformMatrix(NULL);
+      // Do nothing. Don't reset the transform matrix because applications
+      // may have set a custom matrix. Only reset the transform matrix in
+      // vtkLight::SetLightTypeToSceneLight()
       }
     else if (light->LightTypeIsHeadlight())
       {
