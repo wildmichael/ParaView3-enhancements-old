@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProVG500Mapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-05 14:12:50 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-09-13 16:16:36 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -147,12 +147,6 @@ vtkVolumeProVG500Mapper::~vtkVolumeProVG500Mapper()
   if ( this->LookupTable )
     {
     this->LookupTable->Release();
-    }
-
-  // Free the timestamp for when the volume was last build
-  if ( this->VolumeBuildTime )
-    {
-    this->VolumeBuildTime->Delete();
     }
 
   // Free the volume if necessary
