@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-07-01 12:17:03 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 1998-07-14 18:42:18 $
+  Version:   $Revision: 1.60 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1084,7 +1084,6 @@ int vtkDataReader::ReadCoScalarData(vtkDataSetAttributes *a, int numPts)
 {
   int i, j, idx, numComp, skipScalar=0;
   char name[256];
-  vtkFloatArray *data;
 
   if (!(this->ReadString(name) && this->Read(&numComp)))
     {
@@ -1102,36 +1101,66 @@ int vtkDataReader::ReadCoScalarData(vtkDataSetAttributes *a, int numPts)
     skipScalar = 1;
     }
 
-  char type[6] = "float";
-  data = (vtkFloatArray *)this->ReadArray(type, numPts, numComp);
-  if ( data != NULL )
+  // handle binary different from ASCII since they are stored
+  // in a different format float versus uchar
+  if ( this->FileType == VTK_BINARY)
     {
-    if ( ! skipScalar ) 
+    vtkUnsignedCharArray *data;
+    char type[14] = "unsigned_char";
+    data = (vtkUnsignedCharArray *)this->ReadArray(type, numPts, numComp);
+
+    if ( data != NULL )
       {
-      vtkScalars *scalars=vtkScalars::New(VTK_UNSIGNED_CHAR,numComp);
-      vtkUnsignedCharArray *ucharData=(vtkUnsignedCharArray *)scalars->GetData();
-      ucharData->SetNumberOfTuples(numPts);
-      for (i=0; i<numPts; i++)
-        {
-        for (j=0; j<numComp; j++)
-          {
-          idx = i*numComp + j;
-          ucharData->SetValue(idx, (unsigned char) (255.0*data->GetValue(idx)));
-          }
-        }
-      a->SetScalars(scalars);
-      scalars->Delete();
+      if ( ! skipScalar ) 
+	{
+	vtkScalars *scalars=vtkScalars::New(VTK_UNSIGNED_CHAR,numComp);
+	scalars->SetData(data);
+	a->SetScalars(scalars);
+	scalars->Delete();
+	}
+      data->Delete();
       }
-    data->Delete();
+    else
+      {
+	return 0;
+      }
     }
   else
     {
-    return 0;
+    vtkFloatArray *data;
+    char type[6] = "float";
+    data = (vtkFloatArray *)this->ReadArray(type, numPts, numComp);
+    
+    if ( data != NULL )
+      {
+      if ( ! skipScalar ) 
+	{
+	vtkScalars *scalars=vtkScalars::New(VTK_UNSIGNED_CHAR,numComp);
+	vtkUnsignedCharArray *ucharData=
+	  (vtkUnsignedCharArray *)scalars->GetData();
+	ucharData->SetNumberOfTuples(numPts);
+	for (i=0; i<numPts; i++)
+	  {
+	  for (j=0; j<numComp; j++)
+	    {
+	    idx = i*numComp + j;
+	    ucharData->SetValue(idx,
+				(unsigned char)(255.0*data->GetValue(idx)));
+	    }
+	  }
+	a->SetScalars(scalars);
+	scalars->Delete();
+	}
+      data->Delete();
+      }
+    else
+      {
+	return 0;
+      }
     }
 
   if ( this->Source )
     {
-
     float progress = this->Source->GetProgress();
     this->Source->UpdateProgress(progress + 0.5*(1.0 - progress));
     }
