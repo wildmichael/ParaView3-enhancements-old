@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkScalars.h,v $
   Language:  C++
-  Date:      $Date: 1994-09-14 14:55:02 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1994-09-26 14:28:38 $
+  Version:   $Revision: 1.14 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -73,5 +73,10 @@ protected:
   float Range[2];
   vlTimeStamp ComputeTime; // Time at which range computed
 };
+
+// These include files are placed here so that if Scalars.hh is included 
+// all other classes necessary for compilation are also included. 
+#include "IdList.hh"
+#include "FScalars.hh"
 
 #endif

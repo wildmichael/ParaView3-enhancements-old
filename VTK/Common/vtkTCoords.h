@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTCoords.h,v $
   Language:  C++
-  Date:      $Date: 1994-09-14 19:48:56 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1994-09-26 14:28:39 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -82,5 +82,10 @@ protected:
   int Dimension;
 
 };
+
+// These include files are placed here so that if TCoords.hh is included 
+// all other classes necessary for compilation are also included. 
+#include "IdList.hh"
+#include "FTCoords.hh"
 
 #endif

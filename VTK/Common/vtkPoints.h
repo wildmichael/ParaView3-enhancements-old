@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPoints.h,v $
   Language:  C++
-  Date:      $Date: 1994-09-14 14:55:01 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1994-09-26 14:28:37 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -79,5 +79,10 @@ protected:
   vlTimeStamp ComputeTime; // Time at which bounds computed
 
 };
+
+// These include files are placed here so that if Points.hh is included 
+// all other classes necessary for compilation are also included. 
+#include "IdList.hh"
+#include "FPoints.hh"
 
 #endif

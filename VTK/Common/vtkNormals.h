@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkNormals.h,v $
   Language:  C++
-  Date:      $Date: 1994-09-14 14:54:59 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1994-09-26 14:28:36 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -73,5 +73,10 @@ public:
 
   void GetNormals(vlIdList& ptId, vlFloatNormals& fp);
 };
+
+// These include files are placed here so that if Normals.hh is included 
+// all other classes necessary for compilation are also included. 
+#include "IdList.hh"
+#include "FNormals.hh"
 
 #endif
