@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLDataElement.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-08-13 17:56:37 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2003-09-03 14:17:23 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 
 #include <ctype.h>
 
-vtkCxxRevisionMacro(vtkXMLDataElement, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkXMLDataElement, "$Revision: 1.16 $");
 vtkStandardNewMacro(vtkXMLDataElement);
 
 //----------------------------------------------------------------------------
@@ -778,6 +778,7 @@ void vtkXMLDataElementVectorAttributeSet(vtkXMLDataElement *elem, const char* na
     }
   vstr << ends;
   elem->SetAttribute(name, vstr.str());
+  vstr.rdbuf()->freeze(0);
 }
 
 //----------------------------------------------------------------------------
