@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClientServerStream.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-12-12 16:46:56 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-12-12 21:21:40 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -2239,8 +2239,33 @@ int vtkClientServerStream::AddMessageFromString(const char* begin,
     this->GetCommandFromString(commandBegin, commandEnd);
   if(cmd == vtkClientServerStream::EndOfCommands)
     {
-    // We did not find a message.
-    return 0;
+    // The command is missing, try to guess it based on the first
+    // argument.
+    if((commandEnd-commandBegin > 3 && strncmp(commandBegin, "id(", 3) == 0) ||
+       (commandEnd-commandBegin == 8 &&
+        strncmp(commandBegin, "result()", 8) == 0) ||
+       (commandEnd-commandBegin == 12 &&
+        strncmp(commandBegin, "LastResult()", 12) == 0))
+      {
+      // First argument is an id.  Assume this is an Invoke command.
+      cmd = vtkClientServerStream::Invoke;
+      }
+    else if(commandEnd-commandBegin > 3 &&
+            strncmp(commandBegin, "vtk", 3) == 0)
+      {
+      // First argument looks like the name of a VTK class.  Assume
+      // this is a New command.
+      cmd = vtkClientServerStream::New;
+      }
+    else
+      {
+      // We did not find a message.
+      return 0;
+      }
+
+    // We guessed the command, so the first argument starts at
+    // commandBegin.
+    commandEnd = commandBegin;
     }
 
   // Insert the command into the stream.
