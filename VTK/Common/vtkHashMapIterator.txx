@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHashMapIterator.txx,v $
   Language:  C++
-  Date:      $Date: 2002-06-20 21:13:17 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-06-20 21:22:55 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -41,7 +41,10 @@ void vtkHashMapIterator<KeyType,DataType>::InitTraversal()
 {
   vtkHashMap<KeyType,DataType>* hmap 
     = static_cast<vtkHashMap<KeyType,DataType>*>(this->Container);
-  this->Iterator = hmap->Buckets[0]->NewIterator();
+  if(!this->Iterator)
+    {
+    this->Iterator = hmap->Buckets[0]->NewIterator();
+    }
   this->GoToFirstItem();
 }
 
