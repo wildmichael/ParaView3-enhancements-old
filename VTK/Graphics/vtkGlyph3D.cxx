@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-12-27 10:53:03 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1996-04-24 19:41:18 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -312,9 +312,12 @@ void vtkGlyph3D::Update()
   this->Updating = 0;
 
   if (this->Input->GetMTime() > this->ExecuteTime || 
-      this->Source->GetMTime() > this->ExecuteTime || 
-      this->GetMTime() > this->ExecuteTime || this->GetDataReleased() )
+  this->Source->GetMTime() > this->ExecuteTime || 
+  this->GetMTime() > this->ExecuteTime )
     {
+    if ( this->Input->GetDataReleased() ) this->Input->ForceUpdate();
+    if ( this->Source->GetDataReleased() ) this->Source->ForceUpdate();
+
     if ( this->StartMethod ) (*this->StartMethod)(this->StartMethodArg);
     this->Output->Initialize(); //clear output
     this->Execute();

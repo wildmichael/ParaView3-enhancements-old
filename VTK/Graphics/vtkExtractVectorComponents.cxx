@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractVectorComponents.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-12-27 10:54:23 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1996-04-24 19:41:16 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -152,9 +152,14 @@ void vtkExtractVectorComponents::Update()
   this->Input->Update();
   this->Updating = 0;
 
-  if (this->Input->GetMTime() > this->ExecuteTime ||
-  this->GetMTime() > this->ExecuteTime || this->GetDataReleased())
+  if ( this->Input->GetMTime() > this->ExecuteTime ||
+  this->GetMTime() > this->ExecuteTime )
     {
+    if ( this->Input->GetDataReleased() )
+      {
+      this->Input->ForceUpdate();
+      }
+
     if ( this->StartMethod ) (*this->StartMethod)(this->StartMethodArg);
     // clear just point data output because structure is copied from input
     this->VxComponent->CopyStructure(this->Input);

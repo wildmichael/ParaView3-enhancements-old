@@ -3,8 +3,8 @@
  Program:   Visualization Toolkit
  Module:    $RCSfile: vtkSource.cxx,v $
  Language:  C++
- Date:      $Date: 1995-10-25 23:45:08 $
- Version:   $Revision: 1.21 $
+ Date:      $Date: 1996-04-24 19:41:25 $
+ Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -101,7 +101,7 @@ void vtkSource::SetReleaseDataFlag(int i)
 void vtkSource::Update()
 {
   // Make sure virtual getMTime method is called since subclasses will overload
-  if (this->GetMTime() > this->ExecuteTime || this->GetDataReleased())
+  if ( this->GetMTime() > this->ExecuteTime )
     {
     if ( this->StartMethod ) (*this->StartMethod)(this->StartMethodArg);
     this->Output->Initialize(); //clear output

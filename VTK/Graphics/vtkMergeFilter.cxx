@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-05 09:15:53 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1996-04-24 19:41:20 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -132,9 +132,16 @@ void vtkMergeFilter::Update()
     }
   this->Updating = 0;
 
-  if (mtime > this->ExecuteTime || this->GetMTime() > this->ExecuteTime ||
-      this->GetDataReleased() )
+  if ( mtime > this->ExecuteTime || this->GetMTime() > this->ExecuteTime )
     {
+    if ( this->Geometry->GetDataReleased() ) this->Geometry->ForceUpdate();
+    if ( this->Scalars->GetDataReleased() ) this->Scalars->ForceUpdate();
+    if ( this->Vectors->GetDataReleased() ) this->Vectors->ForceUpdate();
+    if ( this->Normals->GetDataReleased() ) this->Normals->ForceUpdate();
+    if ( this->TCoords->GetDataReleased() ) this->TCoords->ForceUpdate();
+    if ( this->Tensors->GetDataReleased() ) this->Tensors->ForceUpdate();
+    if ( this->UserDefined->GetDataReleased() ) this->UserDefined->ForceUpdate();
+
     if ( this->StartMethod ) (*this->StartMethod)(this->StartMethodArg);
     this->Output->Initialize(); //clear output
     this->Execute();

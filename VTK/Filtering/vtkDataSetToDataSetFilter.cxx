@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToDataSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-01 14:40:33 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1996-04-24 19:41:13 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -97,9 +97,14 @@ void vtkDataSetToDataSetFilter::Update()
   this->Input->Update();
   this->Updating = 0;
 
-  if (this->Input->GetMTime() > this->ExecuteTime ||
-  this->GetMTime() > this->ExecuteTime || this->GetDataReleased())
+  if ( this->Input->GetMTime() > this->ExecuteTime ||
+  this->GetMTime() > this->ExecuteTime )
     {
+    if ( this->Input->GetDataReleased() )
+      {
+      this->Input->ForceUpdate();
+      }
+
     if ( this->StartMethod ) (*this->StartMethod)(this->StartMethodArg);
     // clear just point data output because structure is copied from input
     this->Output->CopyStructure(this->Input);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-03-05 21:18:04 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 1996-04-24 19:41:12 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -99,6 +99,15 @@ void vtkDataSet::Update()
 {
   if (this->Source)
     {
+    this->Source->Update();
+    }
+}
+
+void vtkDataSet::ForceUpdate()
+{
+  if (this->Source)
+    {
+    this->Source->Modified();
     this->Source->Update();
     }
 }

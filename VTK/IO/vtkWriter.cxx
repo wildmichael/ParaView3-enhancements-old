@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:38:15 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1996-04-24 19:41:29 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,6 +66,7 @@ void vtkWriter::Write()
     }
 
   this->Input->Update();
+  if ( this->Input->GetDataReleased() ) this->Input->ForceUpdate();
 
   if ( this->StartWrite ) (*this->StartWrite)(this->StartWriteArg);
   this->WriteData();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProbeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-31 16:04:24 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1996-04-24 19:41:22 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -119,8 +119,11 @@ void vtkProbeFilter::Update()
 
   if (this->Source->GetMTime() > this->ExecuteTime || 
   this->Input->GetMTime() > this->ExecuteTime || 
-  this->GetMTime() > this->ExecuteTime || this->GetDataReleased() )
+  this->GetMTime() > this->ExecuteTime )
     {
+    if ( this->Input->GetDataReleased() ) this->Input->ForceUpdate();
+    if ( this->Source->GetDataReleased() ) this->Source->ForceUpdate();
+
     if ( this->StartMethod ) (*this->StartMethod)(this->StartMethodArg);
     this->Output->CopyStructure(this->Input);
     this->Execute();
