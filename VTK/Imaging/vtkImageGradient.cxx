@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGradient.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-29 08:46:33 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2000-07-06 09:14:05 $
+  Version:   $Revision: 1.31 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -212,14 +212,14 @@ static void vtkImageGradientExecute(vtkImageGradient *self,
 	d = (float)(inPtr[useXMin]);
 	d -= (float)(inPtr[useXMax]);
 	d *= r[0]; // multiply by the data spacing
-	*outPtr = (T)(d);
+	*outPtr = d;
 	outPtr++;
 	
 	// do y axis
 	d = (float)(inPtr[useYMin]);
 	d -= (float)(inPtr[useYMax]);
 	d *= r[1]; // multiply by the data spacing
-	*outPtr = (T)(d);
+	*outPtr = d;
 	outPtr++;
 	if (axesNum == 3)
 	  {
@@ -227,7 +227,7 @@ static void vtkImageGradientExecute(vtkImageGradient *self,
 	  d = (float)(inPtr[useZMin]);
 	  d -= (float)(inPtr[useZMax]);
 	  d *= r[2]; // multiply by the data spacing
-	  *outPtr = (T)(d);
+	  *outPtr = d;
 	  outPtr++;
 	  }
 	inPtr++;
