@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-23 13:00:28 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1998-03-21 19:00:45 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -355,9 +355,9 @@ void vtkOpenGLRenderWindow::WindowInitialize (void)
   vtkDebugMacro(<< "Resizing the xwindow\n");
   XResizeWindow(this->DisplayId,this->WindowId,
 		((this->Size[0] > 0) ? 
-		 (int)(this->Size[0]) : 256),
+		 (int)(this->Size[0]) : 300),
 		((this->Size[1] > 0) ? 
-		 (int)(this->Size[1]) : 256));
+		 (int)(this->Size[1]) : 300));
   XSync(this->DisplayId,False);
 
   this->ContextId = glXCreateContext(this->DisplayId, v, 0, GL_TRUE);
