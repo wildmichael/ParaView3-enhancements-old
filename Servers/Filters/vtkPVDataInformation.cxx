@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVDataInformation.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-11-12 18:59:07 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2003-11-12 20:58:55 $
+  Version:   $Revision: 1.14 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -44,8 +44,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkByteSwap.h"
 #include "vtkCellData.h"
 #include "vtkCollection.h"
+#ifdef PARAVIEW_BUILD_DEVELOPMENT
 #include "vtkCompositeDataSet.h"
 #include "vtkCompositeDataIterator.h"
+#endif
 #include "vtkDataArray.h"
 #include "vtkDataSet.h"
 #include "vtkImageData.h"
@@ -57,7 +59,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkPVDataInformation);
-vtkCxxRevisionMacro(vtkPVDataInformation, "$Revision: 1.13 $");
+vtkCxxRevisionMacro(vtkPVDataInformation, "$Revision: 1.14 $");
 
 
 //----------------------------------------------------------------------------
@@ -145,6 +147,7 @@ void vtkPVDataInformation::DeepCopy(vtkPVDataInformation *dataInfo)
   this->SetName(dataInfo->GetName());
 }
 
+#ifdef PARAVIEW_BUILD_DEVELOPMENT
 //----------------------------------------------------------------------------
 void vtkPVDataInformation::CopyFromCompositeDataSet(vtkCompositeDataSet* data)
 {
@@ -162,6 +165,7 @@ void vtkPVDataInformation::CopyFromCompositeDataSet(vtkCompositeDataSet* data)
   iter->Delete();
   this->DataSetType = data->GetDataObjectType();
 }
+#endif
 
 //----------------------------------------------------------------------------
 void vtkPVDataInformation::CopyFromDataSet(vtkDataSet* data)
@@ -225,12 +229,14 @@ void vtkPVDataInformation::CopyFromObject(vtkObject* object)
     return;
     }
 
+#ifdef PARAVIEW_BUILD_DEVELOPMENT
   vtkCompositeDataSet* cds = vtkCompositeDataSet::SafeDownCast(object);
   if (cds)
     {
     this->CopyFromCompositeDataSet(cds);
     return;
     }
+#endif
 
   vtkErrorMacro("Cound not cast object to data set.");
 }

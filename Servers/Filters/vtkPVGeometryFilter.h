@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 2003-11-12 18:59:07 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2003-11-12 20:58:55 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,8 +28,10 @@
 class vtkDataObject;
 class vtkDataSet;
 class vtkDataSetSurfaceFilter;
+#ifdef PARAVIEW_BUILD_DEVELOPMENT
 class vtkHierarchicalBoxDataSet;
 class vtkHierarchicalBoxOutlineFilter;
+#endif
 class vtkImageData;
 class vtkStructuredGrid;
 class vtkRectilinearGrid;
@@ -77,15 +79,21 @@ protected:
   void UnstructuredGridExecute(vtkUnstructuredGrid *input);
   void PolyDataExecute(vtkPolyData *input);
   void DataSetSurfaceExecute(vtkDataSet *input);
+#ifdef PARAVIEW_BUILD_DEVELOPMENT
   void HierarchicalBoxExecute(vtkHierarchicalBoxDataSet *input);
+#endif
 
   int OutlineFlag;
   int UseOutline;
   int UseStrips;
 
   vtkDataSetSurfaceFilter* DataSetSurfaceFilter;
+#ifdef PARAVIEW_BUILD_DEVELOPMENT
   vtkHierarchicalBoxOutlineFilter* HierarchicalBoxOutline;
-  
+#endif
+
+  int CheckAttributes(vtkDataObject* input);
+
 private:
   vtkPVGeometryFilter(const vtkPVGeometryFilter&); // Not implemented
   void operator=(const vtkPVGeometryFilter&); // Not implemented

@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVDataInformation.h,v $
   Language:  C++
-  Date:      $Date: 2003-11-12 18:59:07 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2003-11-12 20:58:55 $
+  Version:   $Revision: 1.9 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -60,7 +60,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkPVInformation.h"
 
 class vtkCollection;
+#ifdef PARAVIEW_BUILD_DEVELOPMENT
 class vtkCompositeDataSet;
+#endif
 class vtkDataSet;
 class vtkPVDataSetAttributesInformation;
 
@@ -122,7 +124,9 @@ protected:
 
   void DeepCopy(vtkPVDataInformation *dataInfo);
 
+#ifdef PARAVIEW_BUILD_DEVELOPMENT
   void CopyFromCompositeDataSet(vtkCompositeDataSet* data);
+#endif
   void CopyFromDataSet(vtkDataSet* data);
 
   // Data information collected from remote processes.
