@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuartzRenderWindow.mm,v $
   Language:  C++
-  Date:      $Date: 2001-12-12 01:59:07 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-12-13 03:55:20 $
+  Version:   $Revision: 1.7 $
   Thanks:    to Yves Starreveld for developing this class
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -233,7 +233,7 @@ void vtkQuartzRenderWindow::SetPosition(int x, int y)
         NSRect sizeRect = NSMakeRect(this->Position[0],
                                      this->Position[1],
                                      this->Size[0],
-                                     this->Size[1]);
+                                     this->Size[1]+22);
         [(vtkQuartzWindow *)this->WindowId setFrame:sizeRect display:YES];
         resizing = 0;
         }
@@ -252,7 +252,6 @@ void vtkQuartzRenderWindow::SetPosition(int x, int y)
 // End the rendering process and display the image.
 void vtkQuartzRenderWindow::Frame(void)
 {
-  glFlush();
   [[(vtkQuartzWindow *)this->WindowId getvtkQuartzGLView] display];
   if (!this->AbortRender && this->DoubleBuffer)
     {
@@ -422,7 +421,7 @@ void vtkQuartzRenderWindow::WindowInitialize (void)
 	[(vtkQuartzWindow *)this->WindowId setVTKRenderWindowInteractor:0];
 	[glView setVTKRenderWindow:this];
 	[glView setVTKRenderWindowInteractor:0];
-	
+	[[(vtkQuartzWindow *)this->WindowId getvtkQuartzGLView] display];
         this->OwnWindow = 1;
     }
     this->OpenGLInit();
