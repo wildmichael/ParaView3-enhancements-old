@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastCompositeFunction.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:07:01 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2001-08-20 21:12:11 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -77,8 +77,8 @@ public:
   const char *GetCompositeMethodAsString(void);
 
 //BTX
-  void CastRay( VTKRayCastRayInfo *rayInfo,
-		VTKRayCastVolumeInfo *volumeInfo);
+  void CastRay( VTKVRCDynamicInfo *dynamicInfo,
+		VTKVRCStaticInfo *staticInfo);
 
   float GetZeroOpacityThreshold( vtkVolume *vol );
 //ETX
@@ -92,7 +92,7 @@ protected:
 //BTX
   void SpecificFunctionInitialize( vtkRenderer *ren,
 				   vtkVolume   *vol,
-				   VTKRayCastVolumeInfo *volumeInfo,
+				   VTKVRCStaticInfo *staticInfo,
 				   vtkVolumeRayCastMapper *mapper );
 //ETX
   

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGraphicsFactory.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-16 14:45:37 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-08-20 21:12:11 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -85,6 +85,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkWin32OpenGLRenderWindow.h"
 #include "vtkOpenGLTexture.h"
 #include "vtkOpenGLVolumeTextureMapper2D.h"
+#include "vtkOpenGLVolumeRayCastMapper.h"
 #include "vtkOpenGLProjectedPolyDataRayBounder.h"
 #include "vtkWin32RenderWindowInteractor.h"
 #else
@@ -99,6 +100,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkQuartzRenderWindow.h"
 #include "vtkOpenGLTexture.h"
 #include "vtkOpenGLVolumeTextureMapper2D.h"
+#include "vtkOpenGLVolumeRayCastMapper.h"
 #include "vtkOpenGLProjectedPolyDataRayBounder.h"
 #include "vtkQuartzRenderWindowInteractor.h"
 #else
@@ -266,6 +268,10 @@ vtkObject* vtkGraphicsFactory::CreateInstance(const char* vtkclassname )
       {
       return vtkOpenGLVolumeTextureMapper2D::New();
       }
+    if(strcmp(vtkclassname, "vtkVolumeRayCastMapper") == 0)
+      {
+      return vtkOpenGLVolumeRayCastMapper::New();
+      }
     }
 #endif
 	
@@ -315,6 +321,10 @@ vtkObject* vtkGraphicsFactory::CreateInstance(const char* vtkclassname )
     if(strcmp(vtkclassname, "vtkVolumeTextureMapper2D") == 0)
       {
       return vtkMesaVolumeTextureMapper2D::New();
+      }
+    if(strcmp(vtkclassname, "vtkVolumeRayCastMapper") == 0)
+      {
+      return vtkMesaVolumeRayCastMapper::New();
       }
     }
 #endif

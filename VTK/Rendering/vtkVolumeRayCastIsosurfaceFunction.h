@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastIsosurfaceFunction.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:07:01 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-08-20 21:12:11 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -88,8 +88,8 @@ public:
   float       Color[3];
 
 //BTX
-  void CastRay(	VTKRayCastRayInfo *rayInfo,
-		VTKRayCastVolumeInfo *volumeInfo);
+  void CastRay(	VTKVRCDynamicInfo *dynamicInfo,
+		VTKVRCStaticInfo *staticInfo);
 //ETX
 
 protected:
@@ -101,7 +101,7 @@ protected:
 //BTX
   void SpecificFunctionInitialize( vtkRenderer *ren,
 				   vtkVolume   *vol,
-				   VTKRayCastVolumeInfo *volumeInfo,
+				   VTKVRCStaticInfo *staticInfo,
 				   vtkVolumeRayCastMapper *mapper );
 //ETX
 };
