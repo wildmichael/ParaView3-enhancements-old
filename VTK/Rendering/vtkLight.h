@@ -3,8 +3,8 @@
   Program:   OSCAR 
   Module:    $RCSfile: vtkLight.h,v $
   Language:  C++
-  Date:      $Date: 1994-01-12 12:55:00 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-01-12 16:14:25 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -16,10 +16,12 @@ This file is part of the vis library
 #ifndef __vlLight_hh
 #define __vlLight_hh
 
+#include "Object.hh"
+
 /* need for virtual function */
 class vlRenderer;
 
-class vlLight
+class vlLight : public vlObject
 {
  public:
   float FocalPoint[3];
