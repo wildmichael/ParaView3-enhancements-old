@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreshold.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-07-09 13:43:48 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1998-09-08 14:56:31 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -109,9 +109,7 @@ void vtkThreshold::Execute()
   
   vtkDebugMacro(<< "Executing threshold filter");
 
-  outPD = output->GetPointData();
   outPD->CopyAllocate(pd);
-  outCD = output->GetCellData();
   outCD->CopyAllocate(cd);
 
   if ( !(pointScalars || cellScalars) )
