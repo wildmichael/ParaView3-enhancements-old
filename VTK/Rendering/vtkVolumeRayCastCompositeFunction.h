@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastCompositeFunction.h,v $
   Language:  C++
-  Date:      $Date: 1998-12-03 16:28:36 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-01-22 02:58:21 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,6 +54,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include "vtkVolumeRayCastFunction.h"
 
+#define VTK_COMPOSITE_CLASSIFY_FIRST 0
+#define VTK_COMPOSITE_INTERPOLATE_FIRST 1
+
 class VTK_EXPORT vtkVolumeRayCastCompositeFunction : public vtkVolumeRayCastFunction
 {
 public:
@@ -69,6 +72,17 @@ public:
   // volume's properties from here....
   float GetZeroOpacityThreshold( vtkVolume *vol );
 
+  // Description:
+  // Set the CompositeMethod to either Classify First or Interpolate First
+  vtkSetClampMacro( CompositeMethod, int,
+        VTK_COMPOSITE_CLASSIFY_FIRST, VTK_COMPOSITE_INTERPOLATE_FIRST );
+  vtkGetMacro(CompositeMethod,int);
+  void SetCompositeMethodToInterpolateFirst()
+    {this->SetCompositeMethod(VTK_COMPOSITE_INTERPOLATE_FIRST);}
+  void SetCompositeMethodToClassifyFirst() 
+    {this->SetCompositeMethod(VTK_COMPOSITE_CLASSIFY_FIRST);}
+  char *GetCompositeMethodAsString(void);
+
 //BTX
   void CastRay( struct VolumeRayCastRayInfoStruct *rayInfo,
 		struct VolumeRayCastVolumeInfoStruct *volumeInfo);
@@ -80,5 +94,26 @@ protected:
 				   struct VolumeRayCastVolumeInfoStruct *volumeInfo,
 				   vtkVolumeRayCastMapper *mapper );
 //ETX
+  
+  int           CompositeMethod;
 };
+
+// Description:
+// Return the composite method as a descriptive character string.
+inline char *vtkVolumeRayCastCompositeFunction::GetCompositeMethodAsString(void)
+{
+  if( this->CompositeMethod == VTK_COMPOSITE_INTERPOLATE_FIRST )
+    {
+    return "Interpolate First";
+    }
+  if( this->CompositeMethod == VTK_COMPOSITE_CLASSIFY_FIRST )
+    {
+    return "Classify First";
+    }
+  else
+    {
+    return "Unknown";
+    }
+}
+
 #endif
