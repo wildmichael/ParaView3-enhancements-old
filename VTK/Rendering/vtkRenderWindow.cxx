@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-09 19:54:03 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-11-23 10:47:59 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -33,8 +33,8 @@ vlRenderWindow::vlRenderWindow()
   Mapped = 0;
   DoubleBuffer = 1;
   StereoRender = 0;
+  StereoStatus = 0;
   Interactor = NULL;
-
   strcpy(this->Name,"Visualization Library");
 }
 
@@ -48,7 +48,13 @@ void vlRenderWindow::Render()
     this->Interactor->Initialize();
 
   this->Start();
+  this->StereoUpdate();
   this->Renderers.Render();
+  if (this->StereoRender)
+    {
+    this->Renderers.Render();
+    this->StereoRenderComplete();
+    }
   this->Frame();
 }
 
