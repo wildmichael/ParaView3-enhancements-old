@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTimerLog.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-12-05 21:13:31 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1996-12-13 16:15:05 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -100,7 +100,7 @@ void vtkTimerLog::ResetLog()
 // string.
 void vtkTimerLog::FormatAndMarkEvent(char *format, ...)
 {
-  char event[80];
+static  char event[4096];
 
   va_list var_args;
   va_start(var_args, format);
