@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlaneWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-07 11:49:23 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-06-13 21:09:25 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -139,11 +139,15 @@ public:
 
   // Description:
   // Get the center of the plane.
+  void SetCenter(float x, float y, float z);
+  void SetCenter(float x[3]);
   float* GetCenter();
   void GetCenter(float xyz[3]);
 
   // Description:
   // Get the normal to the plane.
+  void SetNormal(float x, float y, float z);
+  void SetNormal(float x[3]);
   float* GetNormal();
   void GetNormal(float xyz[3]);
   

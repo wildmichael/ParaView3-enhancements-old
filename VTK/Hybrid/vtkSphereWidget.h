@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-29 18:26:39 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-06-13 21:09:25 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -123,16 +123,22 @@ public:
   // Description:
   // Set/Get the radius of sphere. Default is .5.
   void SetRadius(float r)
-    { this->SphereSource->SetRadius(r); }
+    {
+    this->SphereSource->SetRadius(r); 
+    }
   float GetRadius()
     { return this->SphereSource->GetRadius(); }
 
   // Description:
   // Set/Get the center of the sphere.
   void SetCenter(float x, float y, float z) 
-    {this->SphereSource->SetCenter(x,y,z);}
+    {
+    this->SphereSource->SetCenter(x,y,z); 
+    }
   void SetCenter(float x[3]) 
-    {this->SphereSource->SetCenter(x);}
+    {
+    this->SetCenter(x[0], x[1], x[2]);
+    }
   float* GetCenter() 
     {return this->SphereSource->GetCenter();}
   void GetCenter(float xyz[3]) 
