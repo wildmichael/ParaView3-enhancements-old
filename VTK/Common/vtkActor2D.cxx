@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-20 17:13:24 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-04-23 15:02:03 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -77,7 +77,7 @@ vtkActor2D::~vtkActor2D()
 
 void vtkActor2D::PrintSelf(ostream& os, vtkIndent indent)
 {
-  this->vtkObject::PrintSelf(os,indent);
+  this->vtkReferenceCount::PrintSelf(os,indent);
   os << indent << "Orientation: " << this->Orientation << "\n";
   os << indent << "Scale: (" << this->Scale[0] << ", " << this->Scale[1] << ")\n";
   os << indent << "Layer Number: " << this->LayerNumber << "\n";
