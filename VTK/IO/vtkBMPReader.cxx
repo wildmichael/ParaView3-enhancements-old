@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBMPReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:08 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2002-01-29 20:25:11 $
+  Version:   $Revision: 1.32 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkByteSwap.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkBMPReader, "$Revision: 1.31 $");
+vtkCxxRevisionMacro(vtkBMPReader, "$Revision: 1.32 $");
 vtkStandardNewMacro(vtkBMPReader);
 
 #ifdef read
@@ -513,3 +513,20 @@ void vtkBMPReader::PrintSelf(ostream& os, vtkIndent indent)
 }
 
 
+int vtkBMPReader::CanReadFile(const char* fname)
+{
+  // get the magic number by reading in a file
+  FILE* fp = fopen(fname,"rb");
+  if (!fp)
+    {
+    return 0;
+    }
+
+  // compare magic number to determine file type
+  if ((fgetc(fp) != 'B')||(fgetc(fp) != 'M'))
+    {
+    return 0;
+    }
+  fclose(fp);
+  return 1;
+}

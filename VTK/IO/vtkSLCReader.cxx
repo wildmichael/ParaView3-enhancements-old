@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSLCReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:21 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2002-01-29 20:25:11 $
+  Version:   $Revision: 1.41 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 
 #include <ctype.h>
 
-vtkCxxRevisionMacro(vtkSLCReader, "$Revision: 1.40 $");
+vtkCxxRevisionMacro(vtkSLCReader, "$Revision: 1.41 $");
 vtkStandardNewMacro(vtkSLCReader);
 
 // Constructor for a vtkSLCReader.
@@ -108,7 +108,7 @@ void vtkSLCReader::ExecuteInformation()
     vtkErrorMacro(<< "File " << this->FileName << " not found");
     return;
     }
-
+  this->FileDimensionality = 3;
   fscanf( fp, "%d", &magic_num );
   if( magic_num != 11111 )
     {

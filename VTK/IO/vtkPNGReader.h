@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNGReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:18 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-01-29 20:25:11 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -41,7 +41,22 @@ protected:
   
   // Description: is the given file name a png file?
   virtual int CanReadFile(const char* fname);
+ // Description:
+  // Get the file extensions for this format.
+  // Returns a string with a space separated list of extensions in 
+  // the format .extension
+  virtual const char* GetFileExensions()
+    {
+      return ".png";
+    }
 
+  // Description: 
+  // Return a descriptive name for the file format that might be useful in a GUI.
+  virtual const char* GetDescriptiveName()
+    {
+      return "PNG";
+    }
+  
   virtual void ExecuteInformation();
   virtual void ExecuteData(vtkDataObject *out);
 private:

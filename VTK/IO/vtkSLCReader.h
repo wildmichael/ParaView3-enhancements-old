@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSLCReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:21 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2002-01-29 20:25:12 $
+  Version:   $Revision: 1.36 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -47,13 +47,23 @@ public:
   // Description:
   // Is the given file an SLC file?
   int CanReadFile(const char* fname);
+  // Description:
+  // .slc
+  virtual const char* GetFileExensions()
+    {
+      return ".slc";
+    }
 
+  // Description: 
+  // SLC 
+  virtual const char* GetDescriptiveName()
+    {
+      return "SLC";
+    }
+  
 protected:
   vtkSLCReader();
   ~vtkSLCReader();
-
-  // Stores the FileName of the SLC file to read.
-  char *FileName;
 
   // Reads the file name and builds a vtkStructuredPoints dataset.
   virtual void ExecuteData(vtkDataObject*);
