@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-06-06 12:43:48 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1997-06-11 10:57:00 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,11 +49,17 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // generating cut scalars turned off.
 vtkCutter::vtkCutter(vtkImplicitFunction *cf)
 {
+  this->ContourValues = vtkContourValues::New();
   this->SortBy = VTK_SORT_BY_VALUE;
   this->CutFunction = cf;
   this->GenerateCutScalars = 0;
   this->Locator = NULL;
   this->SelfCreatedLocator = 0;
+}
+
+vtkCutter::~vtkCutter()
+{
+  this->ContourValues->Delete();
 }
 
 // Description:
