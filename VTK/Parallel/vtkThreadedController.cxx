@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreadedController.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-15 19:29:36 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-02-21 15:10:48 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -68,9 +68,9 @@ private:
   void operator=(const vtkThreadedControllerOutputWindow&);
 };
 
-vtkCxxRevisionMacro(vtkThreadedControllerOutputWindow, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkThreadedControllerOutputWindow, "$Revision: 1.13 $");
 
-vtkCxxRevisionMacro(vtkThreadedController, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkThreadedController, "$Revision: 1.13 $");
 vtkStandardNewMacro(vtkThreadedController);
 
 void vtkThreadedController::CreateOutputWindow()
@@ -295,7 +295,9 @@ void vtkThreadedController::Start(int threadId)
 #elif defined VTK_USE_WIN32_THREADS
   localController->ThreadId = GetCurrentThreadId();
 #endif
-  
+
+  this->Barrier();
+
   if (this->MultipleMethodFlag)
     {
     if (this->MultipleMethod[threadId])
