@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKochanekSpline.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:08 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-10-30 18:21:14 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,6 +59,13 @@ float vtkKochanekSpline::Evaluate (float t)
   int size = this->PiecewiseFunction->GetSize ();
   float *intervals;
   float *coefficients;
+
+  // make sure we have at least 2 points
+  if (size < 2)
+    {
+    vtkErrorMacro("Cannot evaluate a spline with less than 2 points. # of points is: " << size);
+    return 0.0;
+    }
 
   // check to see if we need to recompute the spline
   if (this->ComputeTime < this->GetMTime ())
