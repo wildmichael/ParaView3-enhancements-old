@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArrayMap.txx,v $
   Language:  C++
-  Date:      $Date: 2002-08-02 15:18:43 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-09-24 17:48:37 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -110,6 +110,7 @@ void vtkArrayMap<KeyType,DataType>::RemoveAllItems()
       delete item;
       }
     this->Array->Delete(); 
+    this->Array = 0;
     }
 }
 
