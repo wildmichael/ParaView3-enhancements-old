@@ -1,4 +1,4 @@
-/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_dirinfo.c,v 1.1 2002-01-29 22:38:20 andy Exp $ */
+/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_dirinfo.c,v 1.2 2003-12-03 23:23:45 barre Exp $ */
 
 /*
  * Copyright (c) 1988-1997 Sam Leffler
@@ -243,6 +243,10 @@ const TIFFFieldInfo tiffFieldInfo[] = {
     { TIFFTAG_COPYRIGHT,        -1,-1, TIFF_ASCII,      FIELD_COPYRIGHT,
       TRUE,     FALSE,  "Copyright" },
 /* end Pixar tags */
+
+    { TIFFTAG_UIC2TAG, -1,-3, TIFF_RATIONAL,   FIELD_UIC2TAG, 
+      FALSE,    TRUE,   "UIC2Tag" },
+
 #ifdef IPTC_SUPPORT
 #ifdef PHOTOSHOP_SUPPORT
     { TIFFTAG_RICHTIFFIPTC, -1,-1, TIFF_LONG,   FIELD_RICHTIFFIPTC, 
@@ -252,6 +256,10 @@ const TIFFFieldInfo tiffFieldInfo[] = {
       FALSE,    TRUE,   "RichTIFFIPTC" },
 #endif
 #endif
+
+    { TIFFTAG_CZ_LSMINFO,       -1,-3, TIFF_BYTE,       FIELD_CZ_LSMINFO,
+      FALSE,       TRUE,       "LSM Info" },
+
 #ifdef PHOTOSHOP_SUPPORT
     { TIFFTAG_PHOTOSHOP,    -1,-3, TIFF_BYTE,   FIELD_PHOTOSHOP, 
       FALSE,    TRUE,   "Photoshop" },

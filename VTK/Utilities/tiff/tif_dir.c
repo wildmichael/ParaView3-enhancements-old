@@ -1,4 +1,4 @@
-/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_dir.c,v 1.2 2002-02-05 16:12:41 andy Exp $ */
+/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_dir.c,v 1.3 2003-12-03 23:23:45 barre Exp $ */
 
 /*
  * Copyright (c) 1988-1997 Sam Leffler
@@ -476,6 +476,16 @@ _TIFFVSetField(TIFF* tif, ttag_t tag, va_list ap)
 #endif
                 break;
 #endif
+        case TIFFTAG_CZ_LSMINFO:
+                td->td_cz_lsminfoLength = (uint32) va_arg(ap, uint32);
+                _TIFFsetByteArray (&td->td_cz_lsminfoData, va_arg(ap, void*),
+                        td->td_cz_lsminfoLength);
+                break;
+        case TIFFTAG_UIC2TAG:
+                td->td_uic2tagLength = (uint32) va_arg(ap, uint32);
+                _TIFFsetLongArray (&td->td_uic2tagData, va_arg(ap, void*),
+                                   td->td_uic2tagLength*6);
+                break;
         default:
                 /*
                  * This can happen if multiple images are open with
@@ -843,6 +853,14 @@ _TIFFVGetField(TIFF* tif, ttag_t tag, va_list ap)
                 break;
         /* End Pixar Tags */
 
+        case TIFFTAG_CZ_LSMINFO:
+          *va_arg(ap, uint32*) = td->td_cz_lsminfoLength;
+          *va_arg(ap, void**) = td->td_cz_lsminfoData;
+          break;
+        case TIFFTAG_UIC2TAG:
+          *va_arg(ap, uint32*) = td->td_uic2tagLength;
+          *va_arg(ap, int32**) = td->td_uic2tagData;
+          break;
         default:
                 /*
                  * This can happen if multiple images are open with
@@ -947,6 +965,8 @@ TIFFFreeDirectory(TIFF* tif)
 #ifdef IPTC_SUPPORT
         CleanupField(td_richtiffiptcData);
 #endif
+        CleanupField(td_cz_lsminfoData);
+        CleanupField(td_uic2tagData);
         CleanupField(td_stripoffset);
         CleanupField(td_stripbytecount);
         /* Begin Pixar Tags */

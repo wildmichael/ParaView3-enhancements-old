@@ -1,4 +1,4 @@
-/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_dir.h,v 1.1 2002-01-29 22:38:20 andy Exp $ */
+/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_dir.h,v 1.2 2003-12-03 23:23:45 barre Exp $ */
 
 /*
  * Copyright (c) 1988-1997 Sam Leffler
@@ -120,6 +120,15 @@ typedef struct {
         float*  td_matrixWorldToScreen;
         float*  td_matrixWorldToCamera;
         /* End Pixar Tag Values. */
+
+        /* zeiss data */
+        uint32  td_cz_lsminfoLength;
+        void    *td_cz_lsminfoData;
+  
+        /* uic data */
+        uint32  td_uic2tagLength;
+        int32 *td_uic2tagData;
+
 } TIFFDirectory;
 
 /*
@@ -204,8 +213,10 @@ typedef struct {
 #define FIELD_MATRIX_WORLDTOSCREEN      60
 #define FIELD_MATRIX_WORLDTOCAMERA      61
 #define FIELD_COPYRIGHT                 62
+#define FIELD_CZ_LSMINFO                63
+#define FIELD_UIC2TAG                   64
 /* end of support for well-known tags; codec-private tags follow */
-#define FIELD_CODEC                     63      /* base of codec-private tags */
+#define FIELD_CODEC                     65      /* base of codec-private tags */
 /*
  * Pseudo-tags don't normally need field bits since they
  * are not written to an output file (by definition).
