@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJavaUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-17 13:28:17 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1998-06-08 20:21:33 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,11 +62,24 @@ HANDLE vtkGlobalMutex = NULL;
 #else
 
 #ifdef VTK_USE_SPROC
-// for SGI's possibly others
-#include <pthread.h>
-pthread_mutex_t vtkGlobalMutex;
-#define VTK_GET_MUTEX()  pthread_mutex_lock(&vtkGlobalMutex)
-#define VTK_RELEASE_MUTEX() pthread_mutex_unlock(&vtkGlobalMutex)
+// for SGI's
+#include <abi_mutex.h>
+abilock_t vtkGlobalMutex;
+static void vtk_get_mutex() {
+    static int inited = 0;
+    if (!inited) {
+        if (init_lock(&vtkGlobalMutex) < 0)
+            perror("initializing mutex");
+        inited = 1;
+    }
+    spin_lock(&vtkGlobalMutex);
+}
+static void vtk_release_mutex() {
+    if (release_lock(&vtkGlobalMutex) < 0)
+        perror("releasing mutex");
+}
+#define VTK_GET_MUTEX()  vtk_get_mutex()
+#define VTK_RELEASE_MUTEX() vtk_release_mutex()
 #else
 // for solaris
 #include <thread.h>
