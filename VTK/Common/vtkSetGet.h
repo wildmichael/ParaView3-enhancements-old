@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSetGet.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-04 14:22:31 $
-  Version:   $Revision: 1.92 $
+  Date:      $Date: 2002-01-04 16:59:24 $
+  Version:   $Revision: 1.93 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -618,10 +618,10 @@ virtual float *Get##name() \
 
 // Version of vtkTypeMacro that adds the CollectRevisions method.
 #define vtkTypeRevisionMacro(thisClass,superclass) \
-  vtkTypeMacro(thisClass,superclass) \
   protected: \
   void CollectRevisions(ostream& os); \
-  public:
+  public: \
+  vtkTypeMacro(thisClass,superclass)
 
 // Macro to implement the standard CollectRevisions method.
 #define vtkCxxRevisionMacro(thisClass, revision) \
