@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.h,v $
   Language:  C++
-  Date:      $Date: 1996-06-26 20:40:07 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1996-07-19 14:48:29 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -116,8 +116,13 @@ public:
 
   virtual vtkDataSet *GetInput() {return this->Input;};
 
+  // Description:
+  // Calculate and return the point colors for the input.
+  vtkColorScalars *GetColors();
+  
 protected:
   vtkDataSet *Input;
+  vtkColorScalars *Colors;
 
   void (*StartRender)(void *);
   void (*StartRenderArgDelete)(void *);
