@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPythonUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-05-15 19:25:03 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2000-05-15 21:20:54 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -301,13 +301,16 @@ void vtkPythonVoidFunc(void *arg)
   arglist = Py_BuildValue("()");
 
   result = PyEval_CallObject(func, arglist);
-  if (PyErr_Occurred())
+  Py_DECREF(arglist);
+
+  if (result)
+    {
+    Py_XDECREF(result);
+    }
+  else
     {
     PyErr_Print();
     }
-
-  Py_XDECREF(result);
-  Py_DECREF(arglist);
 }
 
 void vtkPythonVoidFuncArgDelete(void *arg)
