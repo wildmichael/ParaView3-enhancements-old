@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredData.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-15 11:07:11 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1995-02-28 22:41:08 $
+  Version:   $Revision: 1.20 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -304,7 +304,7 @@ void vlStructuredData::_GetPointCells(int ptId, vlIdList& cellIds)
   ptLoc[1] = (ptId / ptDim[0]) % ptDim[1];
   ptLoc[2] = ptId / (ptDim[0]*ptDim[1]);
 //
-//  From the point lcoation, compute the cell locations.  There are at
+//  From the point location, compute the cell locations.  There are at
 //  most eight possible.
 //
   cellIds.Reset();
