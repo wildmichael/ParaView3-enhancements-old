@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointSetToPointSetFilter.h,v $
   Language:  C++
-  Date:      $Date: 1994-11-15 11:12:40 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-05-04 15:56:03 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -52,6 +52,7 @@ public:
   // Object interface
   void Modified();
   unsigned long int GetMTime();
+  unsigned long int _GetMTime() {this->GetMTime();};
   void DebugOn();
   void DebugOff();
 
