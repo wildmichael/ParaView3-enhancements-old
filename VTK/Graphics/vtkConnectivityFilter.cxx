@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConnectivityFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-09 18:39:36 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2000-12-05 17:06:33 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -508,21 +508,6 @@ void vtkConnectivityFilter::DeleteSpecifiedRegion(int id)
 {
   this->Modified();
   this->SpecifiedRegionIds->DeleteId(id);
-}
-
-// For legacy compatibility
-void vtkConnectivityFilter::SetMaxRecursionDepth(int)
-{
-  vtkWarningMacro(<<"Recursion depth is no longer pertinent," 
-                  <<"the ivar will be eliminated in a future version.");
-}
-
-// For legacy compatibility
-int vtkConnectivityFilter::GetMaxRecursionDepth()
-{
-  vtkWarningMacro(<<"Recursion depth is no longer pertinent," 
-                  <<"the ivar will be eliminated in a future version.");
-  return 0;
 }
 
 void vtkConnectivityFilter::PrintSelf(ostream& os, vtkIndent indent)

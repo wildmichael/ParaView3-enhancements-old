@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarTree.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-01 16:29:33 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-12-05 17:06:34 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -125,15 +125,13 @@ public:
   vtkCell *GetNextCell(int &cellId, vtkIdList* &ptIds,
                        vtkScalars *cellScalars);
 
+#ifndef VTK_REMOVE_LEGACY_CODE
   // Description:
   // For legacy compatibility. Do not use.
-  vtkCell *GetNextCell(int& cellId, vtkIdList* &ptIds,
-                       vtkScalars& cellScalars) 
-    {return this->GetNextCell(cellId, ptIds, &cellScalars);}
+  vtkCell *GetNextCell(int& cellId, vtkIdList* &ptIds, vtkScalars& cellScalars) 
+    {VTK_LEGACY_METHOD(GetNextCell,"3.2"); return this->GetNextCell(cellId, ptIds, &cellScalars);}
+#endif
   
-  
-    
-
 protected:
   vtkScalarTree();
   ~vtkScalarTree();

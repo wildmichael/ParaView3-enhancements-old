@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssembly.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-13 17:45:25 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2000-12-05 17:06:33 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -392,8 +392,10 @@ unsigned long int vtkAssembly::GetMTime()
   return mTime;
 }
 
+#ifndef VTK_REMOVE_LEGACY_CODE
 void vtkAssembly::SetMapper(vtkMapper *mapper)
 {
+  VTK_LEGACY_METHOD(SetMapper,"3.2");
   vtkErrorMacro(<<"This method (SetMapper()) is obsolete, see the documentation\n"
                 <<"for vtkAssembly to use the correct alternative\n"
                 <<"(refer to SetMapper() documentation)\n");
@@ -404,12 +406,14 @@ void vtkAssembly::SetMapper(vtkMapper *mapper)
 
 vtkMapper *vtkAssembly::GetMapper()
 {
+  VTK_LEGACY_METHOD(GetMapper,"3.2");
   this->CreateCompatibilityActor();
   return this->CompatibilityActor->GetMapper();
 }
 
 void vtkAssembly::SetProperty(vtkProperty *property)
 {
+  VTK_LEGACY_METHOD(SetProperty,"3.2");
   vtkErrorMacro(<<"This method (SetProperty()) is obsolete, see the documentation\n"
                 <<"for vtkAssembly to use the correct alternative\n"
                 <<"(refer to SetProperty() documentation)\n");
@@ -420,18 +424,21 @@ void vtkAssembly::SetProperty(vtkProperty *property)
 
 vtkProperty *vtkAssembly::GetProperty()
 {
+  VTK_LEGACY_METHOD(SetMapper,"3.2");
   this->CreateCompatibilityActor();
   return this->CompatibilityActor->GetProperty();
 }
 
 void vtkAssembly::CreateCompatibilityActor()
 {
+  VTK_LEGACY_METHOD(CreateCompatibilityActor,"3.2");
   if ( ! this->CompatibilityActor )
     {
     this->CompatibilityActor = vtkActor::New();
     this->AddPart(this->CompatibilityActor);
     }
 }
+#endif
 
 void vtkAssembly::PrintSelf(ostream& os, vtkIndent indent)
 {

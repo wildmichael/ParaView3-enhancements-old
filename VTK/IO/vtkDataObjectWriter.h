@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObjectWriter.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-17 11:12:07 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-12-05 17:06:33 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -84,7 +84,8 @@ public:
 
   // Description:
   // For legacy compatibility. Do not use.
-  void SetInput(vtkDataObject &input) {this->SetInput(&input);};
+  void SetInput(vtkDataObject &input) 
+    {this->SetInput(&input);}
 
 protected:
   vtkDataObjectWriter();

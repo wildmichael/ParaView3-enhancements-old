@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectors.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:10:36 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2000-12-05 17:06:33 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -119,11 +119,13 @@ public:
   // Given a list of pt ids, return an array of vectors.
   void GetVectors(vtkIdList *ptId, vtkVectors *fv);
 
+#ifndef VTK_REMOVE_LEGACY_CODE
   // Description:
   // For legacy compatibility. Do not use.
   void GetVectors(vtkIdList& ptId, vtkVectors& fv)
-    {this->GetVectors(&ptId, &fv);}
-
+    {VTK_LEGACY_METHOD(GetVectors,"3.2"); this->GetVectors(&ptId, &fv);}
+#endif
+  
 
 protected:
   vtkVectors();

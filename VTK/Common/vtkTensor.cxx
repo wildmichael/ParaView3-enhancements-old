@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:53 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-12-05 17:06:33 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -73,8 +73,3 @@ vtkTensor::vtkTensor()
     }
 }
 
-// legacy
-void vtkTensor::DeepCopy(vtkTensor &t) 
-{
-  this->DeepCopy(&t);
-}

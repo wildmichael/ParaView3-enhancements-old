@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitBoolean.h,v $
   Language:  C++
-  Date:      $Date: 2000-11-07 17:43:23 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2000-12-05 17:06:33 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -117,11 +117,15 @@ public:
     {this->SetOperationType(VTK_UNION_OF_MAGNITUDES);};
   const char *GetOperationTypeAsString();
   
+#ifndef VTK_REMOVE_LEGACY_CODE
   // Description:
   // For legacy compatibility. Do not use.
-  void AddFunction(vtkImplicitFunction &in) {this->AddFunction(&in);}
-  void RemoveFunction(vtkImplicitFunction &in) {this->RemoveFunction(&in);}
-
+  void AddFunction(vtkImplicitFunction &in) 
+    {VTK_LEGACY_METHOD(AddFunction,"3.2"); this->AddFunction(&in);}
+  void RemoveFunction(vtkImplicitFunction &in) 
+    {VTK_LEGACY_METHOD(RemoveFunction,"3.2"); this->RemoveFunction(&in);}
+#endif
+  
 protected:
   vtkImplicitBoolean();
   ~vtkImplicitBoolean();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBitArray.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-01 07:22:04 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2000-12-05 17:06:32 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -152,10 +152,13 @@ public:
   void SetVoidArray(void *array,int size, int save) 
     {this->SetArray((unsigned char *)array, size, save);};
 
+#ifndef VTK_REMOVE_LEGACY_CODE
   // Description:
   // For legacy compatibility. Do not use.
-  void DeepCopy(vtkBitArray &da) {this->DeepCopy(&da);}
-
+  void DeepCopy(vtkBitArray &da) 
+    {VTK_LEGACY_METHOD(DeepCopy,"3.2"); this->DeepCopy(&da);}
+#endif
+  
 protected:
   vtkBitArray(int numComp=1);
   ~vtkBitArray();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHexahedron.h,v $
   Language:  C++
-  Date:      $Date: 2000-10-26 13:32:05 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2000-12-05 17:06:32 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -99,13 +99,15 @@ public:
   // function derivatives.
   void JacobianInverse(float pcoords[3], double **inverse, float derivs[24]);
 
+#ifndef VTK_REMOVE_LEGACY_CODE
   // Description:
   // For legacy compatibility. Do not use.
   int CellBoundary(int subId, float pcoords[3], vtkIdList &pts)
-    {return this->CellBoundary(subId, pcoords, &pts);}
+    {VTK_LEGACY_METHOD(CellBoundary,"3.2"); return this->CellBoundary(subId, pcoords, &pts);}
   int Triangulate(int index, vtkIdList &ptIds, vtkPoints &pts)
-    {return this->Triangulate(index, &ptIds, &pts);}
-
+    {VTK_LEGACY_METHOD(Triangulate,"3.2"); return this->Triangulate(index, &ptIds, &pts);}
+#endif
+  
 protected:
   vtkHexahedron();
   ~vtkHexahedron();

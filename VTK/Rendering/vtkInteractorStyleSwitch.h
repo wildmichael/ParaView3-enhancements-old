@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleSwitch.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-26 12:03:11 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-12-05 17:06:33 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -74,14 +74,18 @@ public:
   
   void OnTimer();
 
+#ifndef VTK_REMOVE_LEGACY_CODE
   // Description:
   // For legacy compatability
   void SetTrackballModeToTrackball()
-    { this->JoystickOrTrackball = VTKIS_TRACKBALL; };
+    {VTK_LEGACY_METHOD(JoystickOrTrackball,"3.2");  this->JoystickOrTrackball = VTKIS_TRACKBALL; }
   void SetTrackballModeToJoystick()
-    { this->JoystickOrTrackball = VTKIS_JOYSTICK; };
-  void SetActorModeToCamera() { this->CameraOrActor = VTKIS_CAMERA; };
-  void SetActorModeToActor() { this->CameraOrActor = VTKIS_ACTOR; };
+    {VTK_LEGACY_METHOD(JoystickOrTrackball,"3.2");  this->JoystickOrTrackball = VTKIS_JOYSTICK; }
+  void SetActorModeToCamera() 
+    {VTK_LEGACY_METHOD(CameraOrActor,"3.2");  this->CameraOrActor = VTKIS_CAMERA; }
+  void SetActorModeToActor() 
+    {VTK_LEGACY_METHOD(CameraOrActor,"3.2");  this->CameraOrActor = VTKIS_ACTOR; }
+#endif
   
   
 protected:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedShortArray.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:10:34 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2000-12-05 17:06:33 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -176,9 +176,12 @@ public:
   // Resize object to just fit data requirement. Reclaims extra memory.
   void Squeeze() {this->Resize (this->MaxId+1);};
 
+#ifndef VTK_REMOVE_LEGACY_CODE
   // Description:
   // For legacy compatibility. Do not use.
-  void DeepCopy(vtkDataArray &ia) {this->DeepCopy(&ia);}
+  void DeepCopy(vtkDataArray &ia) 
+    {VTK_LEGACY_METHOD(DeepCopy,"3.2"); this->DeepCopy(&ia);}
+#endif
   
 
 protected:

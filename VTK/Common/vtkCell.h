@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell.h,v $
   Language:  C++
-  Date:      $Date: 2000-10-26 13:32:04 $
-  Version:   $Revision: 1.62 $
+  Date:      $Date: 2000-12-05 17:06:32 $
+  Version:   $Revision: 1.63 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -291,11 +291,15 @@ public:
   vtkPoints *Points;
   vtkIdList *PointIds;
 
+#ifndef VTK_REMOVE_LEGACY_CODE
   // Description:
   // For legacy compatibility. Do not use.
-  void DeepCopy(vtkCell &c) {this->DeepCopy(&c);}
-  void ShallowCopy(vtkCell &c) {this->ShallowCopy(&c);}
-
+  void DeepCopy(vtkCell &c) 
+    {VTK_LEGACY_METHOD(DeepCopy,"3.2"); this->DeepCopy(&c);}
+  void ShallowCopy(vtkCell &c) 
+    {VTK_LEGACY_METHOD(ShallowCopy,"3.2"); this->ShallowCopy(&c);}
+#endif
+  
 protected:
   vtkCell();
   ~vtkCell();

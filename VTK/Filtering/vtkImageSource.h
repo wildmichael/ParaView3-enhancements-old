@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-01 07:22:54 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2000-12-05 17:06:33 $
+  Version:   $Revision: 1.45 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -66,21 +66,25 @@ public:
   void SetOutput(vtkImageData *output);
   vtkImageData *GetOutput();
   vtkImageData *GetOutput(int idx)
-    {return (vtkImageData *) this->vtkSource::GetOutput(idx); };
+    {return (vtkImageData *) this->vtkSource::GetOutput(idx);}
   
   // Description:
   // For streaming.  ExecuteExtent is set to the extent
   // of the output that is currently being generated. 
   // Note: Threaded execution might break this up further.
-  int *GetExecuteExtent() {return this->ExecuteExtent;}
+  int *GetExecuteExtent() 
+    {return this->ExecuteExtent;}
   
   // Description:
-  // Legacy compatibility.  Do not use.
-  virtual void InterceptCacheUpdate() {this->LegacyHack = 0;}
-  int LegacyHack;
-    
-  // Description:
   virtual void PropagateUpdateExtent(vtkDataObject *output);
+  
+#ifndef VTK_REMOVE_LEGACY_CODE
+  // Description:
+  // Legacy compatibility.  Do not use.
+  virtual void InterceptCacheUpdate() 
+    {VTK_LEGACY_METHOD(InterceptCacheUpdate,"3.2");this->LegacyHack = 0;}
+  int LegacyHack;
+#endif
   
 protected:
   vtkImageSource();
@@ -97,7 +101,8 @@ protected:
 
   void ComputeRequiredInputUpdateExtent( int *vtkNotUsed(in), 
 					 int *vtkNotUsed(out) ) 
-    { vtkErrorMacro( << "Obsolete method: Use ComputeInputUpdateExtent" ); };
+    {VTK_LEGACY_METHOD(ComputeRequiredInputUpdateExtent,"3.2");}
+  
 };
 
 

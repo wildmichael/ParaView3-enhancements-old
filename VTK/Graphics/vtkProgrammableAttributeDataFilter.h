@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableAttributeDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-10-20 13:58:11 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-12-05 17:06:34 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -129,11 +129,15 @@ public:
   // Set the arg delete method. This is used to free user memory.
   void SetExecuteMethodArgDelete(void (*f)(void *));
 
+#ifndef VTK_REMOVE_LEGACY_CODE
   // Description:
   // For legacy compatibility. Do not use.
-  void AddInput(vtkDataSet& in) {this->AddInput(&in);};
-  void RemoveInput(vtkDataSet& in) {this->RemoveInput(&in);};
-
+  void AddInput(vtkDataSet& in) 
+    {VTK_LEGACY_METHOD(AddInput,"3.2"); this->AddInput(&in);}
+  void RemoveInput(vtkDataSet& in) 
+    {VTK_LEGACY_METHOD(RemoveInput,"3.2"); this->RemoveInput(&in);}
+#endif
+  
 protected:
   vtkProgrammableAttributeDataFilter();
   ~vtkProgrammableAttributeDataFilter();
@@ -146,7 +150,7 @@ protected:
   void (*ExecuteMethodArgDelete)(void *);
   void *ExecuteMethodArg;
 
- private:
+private:
   // hide the superclass' AddInput() from the user and the compiler
   void AddInput(vtkDataObject *)
     { vtkErrorMacro( << "AddInput() must be called with a vtkDataSet not a vtkDataObject."); };

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPoints.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:10:19 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2000-12-05 17:06:33 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -124,10 +124,13 @@ public:
   // Return the bounds of the points.
   void GetBounds(float bounds[6]);
 
+#ifndef VTK_REMOVE_LEGACY_CODE
   // Description:
   // For legacy compatibility. Do not use.
-  void GetPoints(vtkIdList &ptId, vtkPoints &fp) {this->GetPoints(&ptId, &fp);}
-
+  void GetPoints(vtkIdList &ptId, vtkPoints &fp) 
+    {VTK_LEGACY_METHOD(GetPoints,"3.2"); this->GetPoints(&ptId, &fp);}
+#endif
+  
 protected:
   vtkPoints(int dataType=VTK_FLOAT);
   ~vtkPoints() {};

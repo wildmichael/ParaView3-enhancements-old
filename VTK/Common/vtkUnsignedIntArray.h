@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedIntArray.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:10:33 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-12-05 17:06:33 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -155,12 +155,16 @@ public:
 
   // Description:
   // Resize object to just fit data requirement. Reclaims extra memory.
-  void Squeeze() {this->Resize (this->MaxId+1);};
+  void Squeeze() 
+    {this->Resize (this->MaxId+1);};
 
+#ifndef VTK_REMOVE_LEGACY_CODE
   // Description:
   // For legacy compatibility. Do not use.
-  void DeepCopy(vtkDataArray &da) {this->DeepCopy(&da);}
-
+  void DeepCopy(vtkDataArray &da) 
+    {VTK_LEGACY_METHOD(DeepCopy,"3.2"); this->DeepCopy(&da);}
+#endif
+  
 
 protected:
   vtkUnsignedIntArray(int numComp=1);

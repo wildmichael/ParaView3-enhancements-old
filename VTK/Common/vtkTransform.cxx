@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-06 21:56:48 $
-  Version:   $Revision: 1.91 $
+  Date:      $Date: 2000-12-05 17:06:33 $
+  Version:   $Revision: 1.92 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -569,6 +569,7 @@ void vtkTransform::GetTranspose(vtkMatrix4x4 *transpose)
   vtkMatrix4x4::Transpose(this->GetMatrix(),transpose);
 }
 
+#ifndef VTK_REMOVE_LEGACY_CODE
 //----------------------------------------------------------------------------
 // Returns the result of multiplying the currently set Point by the current 
 // transformation matrix. Point is expressed in homogeneous coordinates.
@@ -578,6 +579,7 @@ void vtkTransform::GetTranspose(vtkMatrix4x4 *transpose)
 // These methods are obsolete.
 float *vtkTransform::GetPoint()
 {
+  VTK_LEGACY_METHOD(GetPoint,"3.2");
   if (this->Concatenation->GetPreMultiplyFlag())
     {
     this->Matrix->PointMultiply(this->Point,this->Point);
@@ -592,6 +594,7 @@ float *vtkTransform::GetPoint()
 //----------------------------------------------------------------------------
 double *vtkTransform::GetDoublePoint()
 {
+  VTK_LEGACY_METHOD(GetPoint,"3.2");
   if (this->Concatenation->GetPreMultiplyFlag())
     {
     this->Matrix->PointMultiply(this->DoublePoint,this->DoublePoint);
@@ -606,9 +609,11 @@ double *vtkTransform::GetDoublePoint()
 //----------------------------------------------------------------------------
 void vtkTransform::GetPoint(float p[4])
 {
+  VTK_LEGACY_METHOD(GetPoint,"3.2");
   float *x = this->vtkTransform::GetPoint();
   for (int i = 0; i < 4; i++)
     {
     p[i] = x[i];
     }
 }
+#endif

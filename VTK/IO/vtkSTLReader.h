@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLReader.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-01 16:29:28 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2000-12-05 17:06:34 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -100,10 +100,13 @@ public:
   // Create default locator. Used to create one when none is specified.
   void CreateDefaultLocator();
 
+#ifndef VTK_REMOVE_LEGACY_CODE
   // Description:
   // For legacy compatibility. Do not use.
-  void SetLocator(vtkPointLocator& locator) {this->SetLocator(&locator);};
-
+  void SetLocator(vtkPointLocator& locator) 
+    {VTK_LEGACY_METHOD(SetLocator,"3.2"); this->SetLocator(&locator);}
+#endif
+  
 protected:
   vtkSTLReader();
   ~vtkSTLReader();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-25 22:58:12 $
-  Version:   $Revision: 1.98 $
+  Date:      $Date: 2000-12-05 17:06:32 $
+  Version:   $Revision: 1.99 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -305,24 +305,27 @@ public:
   unsigned long GetActualMemorySize();
   
   // Description:
-  // For legacy compatibility. Do not use.
-  void GetCellPoints(int cellId, vtkIdList &ptIds)
-    {this->GetCellPoints(cellId, &ptIds);}
-  void GetPointCells(int ptId, vtkIdList &cellIds)
-    {this->GetPointCells(ptId, &cellIds);}
-  void GetCellNeighbors(int cellId, vtkIdList& ptIds, vtkIdList& cellIds)
-    {this->GetCellNeighbors(cellId, &ptIds, &cellIds);}
+  // Return the type of data object.
+  int GetDataObjectType() 
+    {return VTK_DATA_SET;}
   
-  int GetDataObjectType() {return VTK_DATA_SET;}
-  
-  // Description:
-  // NOW OBSOLETE.  Use GetDataType instead.
-  virtual int GetDataSetType() {return this->GetDataObjectType();}
-
   // Description:
   // Shallow and Deep copy.
   void ShallowCopy(vtkDataObject *src);  
   void DeepCopy(vtkDataObject *src);
+  
+#ifndef VTK_REMOVE_LEGACY_CODE
+  // Description:
+  // For legacy compatibility. Do not use.
+  void GetCellPoints(int cellId, vtkIdList &ptIds)
+    {VTK_LEGACY_METHOD(GetCellPoints,"3.2"); this->GetCellPoints(cellId, &ptIds);}
+  void GetPointCells(int ptId, vtkIdList &cellIds)
+    {VTK_LEGACY_METHOD(GetPointCells,"3.2"); this->GetPointCells(ptId, &cellIds);}
+  void GetCellNeighbors(int cellId, vtkIdList& ptIds, vtkIdList& cellIds)
+    {VTK_LEGACY_METHOD(GetCellNeighbors,"3.2"); this->GetCellNeighbors(cellId, &ptIds, &cellIds);}
+  virtual int GetDataSetType() 
+    {VTK_LEGACY_METHOD(GetDataSetType,"3.2"); return this->GetDataObjectType();}
+#endif
   
 protected:
   // Constructor with default bounds (0,1, 0,1, 0,1).

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLongArray.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-01 07:23:03 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2000-12-05 17:06:33 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -158,10 +158,13 @@ public:
   void SetVoidArray(void *array,int size, int save) 
     {this->SetArray((long*)array, size, save);};
 
+#ifndef VTK_REMOVE_LEGACY_CODE
   // Description:
   // For legacy compatibility. Do not use.
-  void DeepCopy(vtkDataArray &da) {this->DeepCopy(&da);}
-
+  void DeepCopy(vtkDataArray &da) 
+    {VTK_LEGACY_METHOD(DeepCopy,"3.2");this->DeepCopy(&da);}
+#endif
+  
 protected:
   vtkLongArray(int numComp=1);
   ~vtkLongArray();

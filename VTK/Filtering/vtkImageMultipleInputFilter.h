@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-10-18 12:32:04 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2000-12-05 17:06:35 $
+  Version:   $Revision: 1.39 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -134,11 +134,14 @@ protected:
   // This is the one you should override.
   virtual void ExecuteInformation(vtkImageData **, vtkImageData *) {};
 
+#ifndef VTK_REMOVE_LEGACY_CODE
   // legacy  !!!!! ------------------------
-  virtual void ExecuteImageInformation() {this->LegacyHack = 0;}
+  virtual void ExecuteImageInformation() 
+    {VTK_LEGACY_METHOD(LegacyHack,"3.2"); this->LegacyHack = 0;}
   int LegacyHack;
-
- private:
+#endif
+  
+private:
   // hide the superclass' AddInput() from the user and the compiler
   void AddInput(vtkDataObject *)
     { vtkErrorMacro( << "AddInput() must be called with a vtkImageData not a vtkDataObject."); };

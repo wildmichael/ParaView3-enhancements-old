@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-01 16:26:26 $
-  Version:   $Revision: 1.85 $
+  Date:      $Date: 2000-12-05 17:06:33 $
+  Version:   $Revision: 1.86 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -166,12 +166,6 @@ public:
   unsigned long int GetMTime();
   
   // Description:
-  // For legacy compatibility. Do not use.
-  void SetProperty(vtkProperty& lut) {this->SetProperty(&lut);};
-  void SetBackfaceProperty(vtkProperty& lut) 
-    {this->SetBackfaceProperty(&lut);};
-
-  // Description:
   // Return the mtime of anything that would cause the rendered image to 
   // appear differently. Usually this involves checking the mtime of the 
   // prop plus anything else it depends on such as properties, textures
@@ -186,6 +180,15 @@ public:
   virtual void InitPartTraversal();
   virtual vtkActor *GetNextPart();
   virtual int GetNumberOfParts();
+  
+#ifndef VTK_REMOVE_LEGACY_CODE
+  // Description:
+  // For legacy compatibility. Do not use.
+  void SetProperty(vtkProperty& lut) 
+    {VTK_LEGACY_METHOD(SetProperty,"3.2"); this->SetProperty(&lut);};
+  void SetBackfaceProperty(vtkProperty& lut) 
+    {VTK_LEGACY_METHOD(SetBackfaceProperty,"3.2"); this->SetBackfaceProperty(&lut);};
+#endif
   
 protected:
   vtkActor();

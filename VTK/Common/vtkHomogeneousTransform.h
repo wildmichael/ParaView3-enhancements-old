@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHomogeneousTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-06 21:56:48 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-12-05 17:06:32 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -91,10 +91,6 @@ public:
   vtkMatrix4x4 *GetMatrix() { this->Update(); return this->Matrix; };
 
   // Description:
-  // This is an obsolete method provided for backwards-compatibility.
-  vtkMatrix4x4 *GetMatrixPointer() { return this->GetMatrix(); };
-
-  // Description:
   // Just like GetInverse(), but includes typecast to vtkHomogeneousTransform.
   vtkHomogeneousTransform *GetHomogeneousInverse() {
     return (vtkHomogeneousTransform *)this->GetInverse(); };
@@ -114,6 +110,14 @@ public:
   void InternalTransformDerivative(const double in[3], double out[3],
 				   double derivative[3][3]);
 
+#ifndef VTK_REMOVE_LEGACY_CODE
+  // Description:
+  // This is an obsolete method provided for backwards-compatibility.
+  // Do not use.
+  vtkMatrix4x4 *GetMatrixPointer() 
+    {VTK_LEGACY_METHOD(GetMatrix,"3.2");  return this->GetMatrix(); }
+#endif
+  
 protected:
   vtkHomogeneousTransform();
   ~vtkHomogeneousTransform();

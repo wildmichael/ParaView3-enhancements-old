@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedCharArray.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:10:32 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2000-12-05 17:06:33 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -177,9 +177,12 @@ public:
   void SetVoidArray(void *array,int size, int save) 
     {this->SetArray((unsigned char*)array, size, save);};
 
+#ifndef VTK_REMOVE_LEGACY_CODE
   // Description:
   // For legacy compatibility. Do not use.
-  void DeepCopy(vtkDataArray &da) {this->DeepCopy(&da);}
+  void DeepCopy(vtkDataArray &da) 
+    {VTK_LEGACY_METHOD(DeepCopy,"3.2"); this->DeepCopy(&da);}
+#endif
   
 
 protected:

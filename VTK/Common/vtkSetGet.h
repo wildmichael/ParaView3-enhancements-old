@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSetGet.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-01 07:23:51 $
-  Version:   $Revision: 1.74 $
+  Date:      $Date: 2000-12-05 17:06:33 $
+  Version:   $Revision: 1.75 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -901,6 +901,19 @@ static thisClass* SafeDownCast(vtkObject *o) \
         { typedef unsigned char VTK_TT; \
         func(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10); } \
         break
+
+// Use to mark methods legacy. Make sure the correct date is used to
+// keep track of when a method was made legacy, and so that it can be
+// eliminated at the right time.
+#ifdef VTK_LEAN_AND_MEAN
+#define VTK_LEGACY_METHOD(oldMethod,versionStringMadeLegacy) \
+  vtkErrorMacro(<< #oldMethod \
+                << " was obsoleted for version " << #versionStringMadeLegacy \
+                << " and will be removed in a future version");
+#else
+#define VTK_LEGACY_METHOD(oldMethod,versionStringMadeLegacy)
+#endif
+
 
 #endif
 

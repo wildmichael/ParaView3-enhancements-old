@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-01 07:22:26 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2000-12-05 17:06:32 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -256,10 +256,14 @@ public:
   // been updated.
   unsigned long GetActualMemorySize();
   
+#ifndef VTK_REMOVE_LEGACY_CODE
   // Description:
   // For legacy compatibility. Do not use.
-  void DeepCopy(vtkDataSetAttributes &pd) {this->DeepCopy(&pd);}
-  void ShallowCopy(vtkDataSetAttributes &pd) {this->ShallowCopy(&pd);}
+  void DeepCopy(vtkDataSetAttributes &pd) 
+    {VTK_LEGACY_METHOD(DeepCopy,"3.2"); this->DeepCopy(&pd);}
+  void ShallowCopy(vtkDataSetAttributes &pd) 
+    {VTK_LEGACY_METHOD(ShalowCopy,"3.2"); this->ShallowCopy(&pd);}
+#endif
   
 protected:
   vtkDataSetAttributes();

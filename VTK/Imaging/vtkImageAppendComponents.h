@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAppendComponents.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-03 14:10:25 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-12-05 17:06:34 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,12 +60,16 @@ public:
   static vtkImageAppendComponents *New();
   vtkTypeMacro(vtkImageAppendComponents,vtkImageMultipleInputFilter);
 
+#ifndef VTK_REMOVE_LEGACY_CODE
   // Description:
   // Do not use these: They are for legacy compatibility back when this was a
   // two input filter.
-  virtual void SetInput1(vtkImageData *input){this->SetInput(0, input);}
-  virtual void SetInput2(vtkImageData *input){this->SetInput(1, input);}
-
+  virtual void SetInput1(vtkImageData *input)
+    {VTK_LEGACY_METHOD(SetInput,"3.2"); this->SetInput(0, input);}
+  virtual void SetInput2(vtkImageData *input)
+    {VTK_LEGACY_METHOD(SetInput,"3.2"); this->SetInput(1, input);}
+#endif
+  
 protected:
   vtkImageAppendComponents() {};
   ~vtkImageAppendComponents() {};

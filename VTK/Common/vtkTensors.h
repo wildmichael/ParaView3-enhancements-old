@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensors.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:10:30 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2000-12-05 17:06:33 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -110,12 +110,15 @@ public:
   // Given a list of pt ids, return an array of tensors.
   void GetTensors(vtkIdList *ptId, vtkTensors *fv);
 
+#ifndef VTK_REMOVE_LEGACY_CODE
   // Description:
   // For legacy compatibility. Do not use.
   void GetTensors(vtkIdList& ptId, vtkTensors& fv)
-    {this->GetTensors(&ptId, &fv);}
-  void GetTensor(int id, vtkTensor& t) {this->GetTensor(id, &t);}
-
+    {VTK_LEGACY_METHOD(GetTensors,"3.2"); this->GetTensors(&ptId, &fv);}
+  void GetTensor(int id, vtkTensor& t) 
+    {VTK_LEGACY_METHOD(GetTensor,"3.2"); this->GetTensor(id, &t);}
+#endif
+  
 protected:
   vtkTensors();
   ~vtkTensors();

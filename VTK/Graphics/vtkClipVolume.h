@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipVolume.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-01 16:26:54 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2000-12-05 17:06:33 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -161,10 +161,13 @@ public:
   // Return the mtime also considering the locator and clip function.
   unsigned long int GetMTime();
 
+#ifndef VTK_REMOVE_LEGACY_CODE
   // Description:
   // For legacy compatibility. Do not use.
-  void SetLocator(vtkPointLocator& locator) {this->SetLocator(&locator);};
-
+  void SetLocator(vtkPointLocator& locator) 
+    {VTK_LEGACY_METHOD(SetLocator,"3.2"); this->SetLocator(&locator);}
+#endif
+  
 protected:
   vtkClipVolume(vtkImplicitFunction *cf=NULL);
   ~vtkClipVolume();

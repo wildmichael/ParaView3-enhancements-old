@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-14 17:16:54 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2000-12-05 17:06:34 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -124,28 +124,6 @@ public:
   // Description:
   // Shallow copy of this vtkVolume. Overloads the virtual vtkProp method.
   void ShallowCopy(vtkProp *prop);
-
-  // Description:
-  // For legacy compatibility. Do not use.
-  // This method will disappear after vtk 3.0.
-  void SetVolumeProperty(vtkVolumeProperty *property) 
-    {vtkErrorMacro(<<"Obsolete method. Change SetVolumeProperty to SetProperty");this->SetProperty (property);};
-  vtkVolumeProperty *GetVolumeProperty() 
-    {vtkErrorMacro(<<"Obsolete method. Change GetVolumeProperty to GetProperty "); return this->GetProperty();};
-
-  // Description:
-  // For legacy compatibility. Do not use.
-  // This method will disappear after vtk 3.0.
-  vtkVolumeMapper *GetVolumeMapper()
-    {vtkErrorMacro(<<"Obsolete method. Change GetVolumeMapper to GetMapper."); return this->GetMapper();};
-  void SetVolumeMapper(vtkVolumeMapper *mapper) 
-    {vtkErrorMacro(<<"Obsolete method. Change SetVolumeMapper to SetMapper.");this->SetMapper (mapper);};
-
-  // Description:
-  // For legacy compatibility. Do not use.
-  // This method will disappear after vtk 3.0.
-  void SetVolumeProperty(vtkVolumeProperty& property) 
-    {this->SetProperty(&property);}
 
 //BTX
   // Description:

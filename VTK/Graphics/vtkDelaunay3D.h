@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay3D.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-01 16:27:27 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2000-12-05 17:06:33 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -225,18 +225,22 @@ public:
   virtual void SetInput(vtkPointSet *input);
   vtkPointSet *GetInput();
 
+#ifndef VTK_REMOVE_LEGACY_CODE
   // Description:
   // For legacy compatibility. Do not use.
-  void SetLocator(vtkPointLocator& locator) {this->SetLocator(&locator);};  
+  void SetLocator(vtkPointLocator& locator) 
+    {VTK_LEGACY_METHOD(SetLocator,"3.2"); this->SetLocator(&locator);}
   vtkUnstructuredGrid *InitPointInsertion(int numPtsToInsert,  int numTetra,
                                           vtkPoints &boundingTetraPts, 
                                           float bounds[6], vtkPoints* &pts) 
-    {return this->InitPointInsertion(numPtsToInsert, numTetra, 
-                                   &boundingTetraPts, bounds, pts);};
+    {VTK_LEGACY_METHOD(InitPointInsertion,"3.2"); 
+    return this->InitPointInsertion(numPtsToInsert, numTetra, 
+                                    &boundingTetraPts, bounds, pts);}
   void InsertPoint(vtkUnstructuredGrid *Mesh, vtkPoints *points,
                    int id, float x[3], vtkIdList &holeTetras) 
-    {this->InsertPoint(Mesh, points, id, x, &holeTetras);}; 
-    
+    {VTK_LEGACY_METHOD(InsertPoint,"3.2"); this->InsertPoint(Mesh, points, id, x, &holeTetras);}
+#endif
+  
 protected:
   vtkDelaunay3D();
   ~vtkDelaunay3D();

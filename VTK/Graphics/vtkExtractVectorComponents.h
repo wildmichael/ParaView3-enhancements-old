@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractVectorComponents.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:05:16 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2000-12-05 17:06:33 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -98,10 +98,13 @@ public:
   // vector component. By default, the x component is extracted.
   vtkDataSet *GetOutput(int i=0); //default extracts vector component.
 
+#ifndef VTK_REMOVE_LEGACY_CODE
   // Description:
   // For legacy compatibility. Do not use.
-  void SetInput(vtkDataSet &input) {this->SetInput(&input);};
-
+  void SetInput(vtkDataSet &input) 
+    {VTK_LEGACY_METHOD(SetInput,"3.2"); this->SetInput(&input);}
+#endif
+  
 protected:
   vtkExtractVectorComponents();
   ~vtkExtractVectorComponents();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataConnectivityFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-09 18:39:11 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2000-12-05 17:06:34 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -557,21 +557,6 @@ void vtkPolyDataConnectivityFilter::DeleteSpecifiedRegion(int id)
 {
   this->Modified();
   this->SpecifiedRegionIds->DeleteId(id);
-}
-
-// For legacy compatibility
-void vtkPolyDataConnectivityFilter::SetMaxRecursionDepth(int)
-{
-  vtkWarningMacro(<<"Recursion depth is no longer pertinent," 
-                  <<"the ivar will be eliminated in a future version.");
-}
-
-// For legacy compatibility
-int vtkPolyDataConnectivityFilter::GetMaxRecursionDepth()
-{
-  vtkWarningMacro(<<"Recursion depth is no longer pertinent," 
-                  <<"the ivar will be eliminated in a future version.");
-  return 0;
 }
 
 void vtkPolyDataConnectivityFilter::PrintSelf(ostream& os, vtkIndent indent)
