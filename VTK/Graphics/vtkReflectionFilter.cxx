@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkReflectionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-26 14:35:15 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-02-27 13:59:33 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,12 +18,13 @@
 #include "vtkReflectionFilter.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkReflectionFilter, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkReflectionFilter, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkReflectionFilter);
 
 //---------------------------------------------------------------------------
 vtkReflectionFilter::vtkReflectionFilter()
 {
+  this->Plane = VTK_USE_X_MIN;
 }
 
 //---------------------------------------------------------------------------
