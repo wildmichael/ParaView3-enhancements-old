@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-09-26 20:51:35 $
-  Version:   $Revision: 1.67 $
+  Date:      $Date: 1996-10-03 00:25:06 $
+  Version:   $Revision: 1.68 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,13 +56,15 @@ vtkCellArray *vtkPolyData::Dummy = NULL;
 
 vtkPolyData::vtkPolyData ()
 {
+  static vtkCellArray StaticDummyObject;
+
   this->Verts = NULL;
   this->Lines = NULL;
   this->Polys = NULL;
   this->Strips = NULL;
 
   // static variable, initialized only once.
-  if (!this->Dummy) this->Dummy = new vtkCellArray;
+  if (!this->Dummy) this->Dummy = &StaticDummyObject;
 
   this->Cells = NULL;
   this->Links = NULL;
