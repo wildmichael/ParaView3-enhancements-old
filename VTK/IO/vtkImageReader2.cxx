@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader2.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-30 22:41:26 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-02-01 16:42:19 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include <ctype.h>
 #include <string.h>
 
-vtkCxxRevisionMacro(vtkImageReader2, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtkImageReader2, "$Revision: 1.11 $");
 vtkStandardNewMacro(vtkImageReader2);
 
 #ifdef read
@@ -130,21 +130,21 @@ void vtkImageReader2::ComputeInternalFileName(int slice)
     int slicenum = 
       slice * this->FileNameSliceSpacing
       + this->FileNameSliceOffset;
-    if (this->FilePrefix)
+    if (this->FilePrefix && this->FilePattern)
       {
       this->InternalFileName = new char [strlen(this->FilePrefix) +
                                         strlen(this->FilePattern) + 10];
       sprintf (this->InternalFileName, this->FilePattern, 
                this->FilePrefix, slicenum);
       }
-    else
+    else if (this->FilePattern)
       {
       this->InternalFileName = new char [strlen(this->FilePattern) + 10];
       int len = strlen(this->FilePattern);
       int hasPercentS = 0;
       for(int i =0; i < len-1; ++i)
         {
-        if(this->FilePattern[i] == '%' && this->FilePattern[i] == 's')
+        if(this->FilePattern[i] == '%' && this->FilePattern[i+1] == 's')
           {
           hasPercentS = 1;
           break;
@@ -158,6 +158,11 @@ void vtkImageReader2::ComputeInternalFileName(int slice)
         {
         sprintf (this->InternalFileName, this->FilePattern, slicenum);
         }
+      }
+    else
+      {
+      delete [] this->InternalFileName;
+      this->InternalFileName = 0;
       }
     }
 }
