@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGridTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-17 14:10:53 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2003-10-06 21:46:49 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 
 #include "math.h"
 
-vtkCxxRevisionMacro(vtkGridTransform, "$Revision: 1.17 $");
+vtkCxxRevisionMacro(vtkGridTransform, "$Revision: 1.18 $");
 vtkStandardNewMacro(vtkGridTransform);
 
 vtkCxxSetObjectMacro(vtkGridTransform,DisplacementGrid,vtkImageData);
@@ -877,18 +877,17 @@ void vtkGridTransform::ForwardTransformPoint(const float inPoint[3],
     return;
     }
 
-  vtkImageData *grid = this->DisplacementGrid;
-  void *gridPtr = grid->GetScalarPointer();
-  int gridType = grid->GetScalarType();
+  void *gridPtr = this->GridPointer;
+  int gridType = this->GridScalarType;
 
-  float *spacing = grid->GetSpacing();
-  float *origin = grid->GetOrigin();
-  int *extent = grid->GetExtent();
-  int *increments = grid->GetIncrements();
+  float *spacing = this->GridSpacing;
+  float *origin = this->GridOrigin;
+  int *extent = this->GridExtent;
+  int *increments = this->GridIncrements;
 
   float scale = this->DisplacementScale;
   float shift = this->DisplacementShift;
-
+  
   float point[3];
   float displacement[3];
 
@@ -939,14 +938,13 @@ void vtkGridTransform::ForwardTransformDerivative(const float inPoint[3],
     return;
     }
 
-  vtkImageData *grid = this->DisplacementGrid;
-  void *gridPtr = grid->GetScalarPointer();
-  int gridType = grid->GetScalarType();
+  void *gridPtr = this->GridPointer;
+  int gridType = this->GridScalarType;
 
-  float *spacing = grid->GetSpacing();
-  float *origin = grid->GetOrigin();
-  int *extent = grid->GetExtent();
-  int *increments = grid->GetIncrements();
+  float *spacing = this->GridSpacing;
+  float *origin = this->GridOrigin;
+  int *extent = this->GridExtent;
+  int *increments = this->GridIncrements;
 
   float scale = this->DisplacementScale;
   float shift = this->DisplacementShift;
@@ -1016,14 +1014,13 @@ void vtkGridTransform::InverseTransformDerivative(const float inPoint[3],
     return;
     }
 
-  vtkImageData *grid = this->DisplacementGrid;
-  void *gridPtr = grid->GetScalarPointer();
-  int gridType = grid->GetScalarType();
+  void *gridPtr = this->GridPointer;
+  int gridType = this->GridScalarType;
 
-  float *spacing = grid->GetSpacing();
-  float *origin = grid->GetOrigin();
-  int *extent = grid->GetExtent();
-  int *increments = grid->GetIncrements();
+  float *spacing = this->GridSpacing;
+  float *origin = this->GridOrigin;
+  int *extent = this->GridExtent;
+  int *increments = this->GridIncrements;
 
   float invSpacing[3];
   invSpacing[0] = 1.0f/spacing[0];
@@ -1275,6 +1272,14 @@ void vtkGridTransform::InternalUpdate()
  
   grid->SetUpdateExtent(grid->GetWholeExtent());
   grid->Update();
+
+  this->GridPointer = grid->GetScalarPointer();
+  this->GridScalarType = grid->GetScalarType();
+
+  grid->GetSpacing(this->GridSpacing);
+  grid->GetOrigin(this->GridOrigin);
+  grid->GetExtent(this->GridExtent);
+  grid->GetIncrements(this->GridIncrements);
 }
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGridTransform.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-13 21:44:42 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2003-10-06 21:46:49 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -127,6 +127,14 @@ protected:
   vtkImageData *DisplacementGrid;
   float DisplacementScale;
   float DisplacementShift;
+  
+  void *GridPointer;
+  int GridScalarType;
+  float GridSpacing[3];
+  float GridOrigin[3];
+  int GridExtent[6];
+  int GridIncrements[3];
+
 private:
   vtkGridTransform(const vtkGridTransform&);  // Not implemented.
   void operator=(const vtkGridTransform&);  // Not implemented.
