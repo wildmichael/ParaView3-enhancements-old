@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMapper.h,v $
   Language:  C++
-  Date:      $Date: 1994-02-05 12:59:47 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1994-03-06 18:11:05 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -34,6 +34,7 @@ public:
   void PrintSelf(ostream& os, vlIndent indent);
   void operator=(const vlMapper& m);
   virtual void Render(vlRenderer *) = 0;
+  virtual float *GetBounds() = 0;
   void SetStartRender(void (*f)());
   void SetEndRender(void (*f)());
 
