@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPOutlineFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-30 20:35:49 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-09-19 15:22:46 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkOutlineSource.h"
 #include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkPOutlineFilter, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkPOutlineFilter, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkPOutlineFilter);
 vtkCxxSetObjectMacro(vtkPOutlineFilter, Controller, vtkMultiProcessController);
 
@@ -48,16 +48,17 @@ void vtkPOutlineFilter::Execute()
 {
   vtkPolyData *output = this->GetOutput();
   float bds[6];
+  int procid = 0;
+  int numProcs = 1;
 
-  if ( !this->Controller )
+  if (this->Controller )
     {
-    vtkErrorMacro("Controller not set");
-    return;
+    procid = this->Controller->GetLocalProcessId();
+    numProcs = this->Controller->GetNumberOfProcesses();
     }
 
   this->GetInput()->GetBounds(bds);
 
-  int procid = this->Controller->GetLocalProcessId();
   if ( procid )
     {
     // Satellite node
@@ -65,7 +66,6 @@ void vtkPOutlineFilter::Execute()
     }
   else
     {
-    int numProcs = this->Controller->GetNumberOfProcesses();
     int idx;
     float tmp[6];
 
