@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-22 19:05:28 $
-  Version:   $Revision: 1.84 $
+  Date:      $Date: 2002-03-26 14:11:15 $
+  Version:   $Revision: 1.85 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkMath.h"
 #include "vtkOldStyleCallbackCommand.h"
 
-vtkCxxRevisionMacro(vtkRenderWindowInteractor, "$Revision: 1.84 $");
+vtkCxxRevisionMacro(vtkRenderWindowInteractor, "$Revision: 1.85 $");
 
 // Construct object so that light follows camera motion.
 vtkRenderWindowInteractor::vtkRenderWindowInteractor()
@@ -402,7 +402,8 @@ void vtkRenderWindowInteractor::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "ControlKey: " << this->ControlKey << "\n";
   os << indent << "ShiftKey: " << this->ShiftKey << "\n";
   os << indent << "KeyCode: " << this->KeyCode << "\n";
-  os << indent << "KeySym: " << this->KeySym << "\n";
+  os << indent << "KeySym: " << (this->KeySym ? this->KeySym : "(null)") 
+     << "\n";
   os << indent << "RepeatCount: " << this->RepeatCount << "\n";
 }
 
