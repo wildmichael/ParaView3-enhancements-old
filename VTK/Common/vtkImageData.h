@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.h,v $
   Language:  C++
-  Date:      $Date: 1997-05-14 19:57:09 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1997-05-23 11:57:09 $
+  Version:   $Revision: 1.23 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -125,8 +125,12 @@ public:
   vtkImageGetMacro(Axes, int);
   int *GetAxes(){return this->Axes;}
   
-  
   void SetScalarType(int type);
+  void SetScalarTypeToFloat(){this->SetScalarType(VTK_FLOAT);}
+  void SetScalarTypeToInt(){this->SetScalarType(VTK_INT);}
+  void SetScalarTypeToShort(){this->SetScalarType(VTK_SHORT);}
+  void SetScalarTypeToUnsignedShort(){this->SetScalarType(VTK_UNSIGNED_SHORT);}
+  void SetScalarTypeToUnsignedChar(){this->SetScalarType(VTK_UNSIGNED_CHAR);}
   // Description:
   // Get the scalar type of the underlying data.
   vtkGetMacro(ScalarType,int);
