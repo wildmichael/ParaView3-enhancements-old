@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalars.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:50:25 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 1998-03-27 14:33:58 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -111,9 +111,9 @@ public:
   void ComputeRange();
   float *GetRange();
   void GetRange(float range[2]);
-  void GetDataTypeRange(float range[2]);
-  float GetDataTypeMin();
-  float GetDataTypeMax();
+  void GetDataTypeRange(double range[2]);
+  double GetDataTypeMin();
+  double GetDataTypeMax();
   
   // Description:
   // Create default lookup table. Generally used to create one when none
