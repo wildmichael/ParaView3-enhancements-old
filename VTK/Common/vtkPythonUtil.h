@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPythonUtil.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-12 01:50:56 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-09-20 17:14:53 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,10 +43,15 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkTimeStamp.h"
 #include "Python.h"
 
+typedef struct {
+  PyObject_HEAD
+  vtkObject *ptr;
+} PyVTKObject;
+
 extern void vtkPythonAddTypeToHash(PyTypeObject *typeObject, char *type); 
-extern void *vtkPythonGetPointerFromObject(PyObject *obj, char *type);
-extern PyObject *vtkPythonGetObjectFromPointer(void *ptr);
-extern void vtkPythonAddObjectToHash(PyObject *obj, void *anInstance);
+extern vtkObject *vtkPythonGetPointerFromObject(PyObject *obj, char *type);
+extern PyObject *vtkPythonGetObjectFromPointer(vtkObject *ptr);
+extern void vtkPythonAddObjectToHash(PyObject *obj, vtkObject *anInstance);
 extern void vtkPythonDeleteObjectFromHash(PyObject *obj);
 
 extern char *vtkPythonManglePointer(void *ptr, const char *type);
@@ -55,5 +60,3 @@ extern void *vtkPythonUnmanglePointer(char *ptrText, int *len,
 
 extern void vtkPythonVoidFunc(void *);
 extern void vtkPythonVoidFuncArgDelete(void *);
-
-
