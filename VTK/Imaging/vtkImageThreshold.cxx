@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageThreshold.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-09-27 12:45:45 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1996-09-30 14:06:31 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -96,8 +96,8 @@ void vtkImageThreshold::ThresholdBetween(float lower, float upper)
 // This templated function executes the filter for any type of data.
 template <class IT, class OT>
 void vtkImageThresholdExecute(vtkImageThreshold *self,
-				      vtkImageRegion *inRegion, IT *inPtr,
-				      vtkImageRegion *outRegion, OT *outPtr)
+			      vtkImageRegion *inRegion, IT *inPtr,
+			      vtkImageRegion *outRegion, OT *outPtr)
 {
   float temp;
   int min0, max0, min1, max1;
@@ -168,8 +168,8 @@ void vtkImageThresholdExecute(vtkImageThreshold *self,
 //----------------------------------------------------------------------------
 template <class T>
 void vtkImageThresholdExecute(vtkImageThreshold *self,
-				      vtkImageRegion *inRegion, T *inPtr,
-				      vtkImageRegion *outRegion)
+			      vtkImageRegion *inRegion, T *inPtr,
+			      vtkImageRegion *outRegion)
 {
   void *outPtr = outRegion->GetScalarPointer();
   
@@ -213,7 +213,7 @@ void vtkImageThresholdExecute(vtkImageThreshold *self,
 // It just executes a switch statement to call the correct function for
 // the regions data types.
 void vtkImageThreshold::Execute(vtkImageRegion *inRegion, 
-					vtkImageRegion *outRegion)
+				vtkImageRegion *outRegion)
 {
   void *inPtr = inRegion->GetScalarPointer();
   
