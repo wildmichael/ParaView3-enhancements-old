@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVEnSightMasterServerReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-07 21:40:50 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-05-08 15:34:28 $
+  Version:   $Revision: 1.5 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -45,6 +45,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkDataArrayCollection.h"
 #include "vtkImageData.h"
 #include "vtkObjectFactory.h"
+#include "vtkPVEnSightMasterServerTranslator.h"
 #include "vtkPolyData.h"
 #include "vtkRectilinearGrid.h"
 #include "vtkStructuredGrid.h"
@@ -62,7 +63,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkPVEnSightMasterServerReader);
-vtkCxxRevisionMacro(vtkPVEnSightMasterServerReader, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkPVEnSightMasterServerReader, "$Revision: 1.5 $");
 
 #ifdef VTK_USE_MPI
 vtkCxxSetObjectMacro(vtkPVEnSightMasterServerReader, Controller,
@@ -100,6 +101,7 @@ vtkPVEnSightMasterServerReader::vtkPVEnSightMasterServerReader()
   this->Internal = new vtkPVEnSightMasterServerReaderInternal;
   this->Controller = 0;
   this->InformationError = 0;
+  this->ExtentTranslator = vtkPVEnSightMasterServerTranslator::New();
 }
 
 //----------------------------------------------------------------------------
@@ -107,6 +109,7 @@ vtkPVEnSightMasterServerReader::~vtkPVEnSightMasterServerReader()
 {
   this->SetController(0);
   delete this->Internal;
+  this->ExtentTranslator->Delete();
 }
 
 //----------------------------------------------------------------------------
@@ -364,7 +367,7 @@ void vtkPVEnSightMasterServerReader::Execute()
     vtkErrorMacro("Output types do not match on all nodes.");
     this->ExecuteError();
     return;
-    }
+    }  
   
   // If we are on a node that did not read real data, create empty
   // outputs of the right type.
@@ -414,6 +417,13 @@ void vtkPVEnSightMasterServerReader::Execute()
         output->Delete();
         }
       }
+    }
+  
+  // Set the extent translator on the outputs.
+  this->ExtentTranslator->SetProcessId(piece);
+  for(i=0; i < this->Internal->NumberOfOutputs; ++i)
+    {
+    this->GetOutput(i)->SetExtentTranslator(this->ExtentTranslator);
     }
 }
 #else

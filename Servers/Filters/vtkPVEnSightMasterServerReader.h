@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVEnSightMasterServerReader.h,v $
   Language:  C++
-  Date:      $Date: 2003-05-07 21:34:01 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-05-08 15:34:28 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -50,6 +50,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class vtkMPIController;
 class vtkMultiProcessController;
 class vtkPVEnSightMasterServerReaderInternal;
+class vtkPVEnSightMasterServerTranslator;
 
 class VTK_EXPORT vtkPVEnSightMasterServerReader : public vtkGenericEnSightReader
 {
@@ -97,6 +98,10 @@ protected:
   
   // Internal implementation details.
   vtkPVEnSightMasterServerReaderInternal* Internal;
+  
+  // The extent translator used to provide the correct breakdown of
+  // pieces across processes.
+  vtkPVEnSightMasterServerTranslator* ExtentTranslator;
   
   // Whether an error occurred during ExecuteInformation.
   int InformationError;
