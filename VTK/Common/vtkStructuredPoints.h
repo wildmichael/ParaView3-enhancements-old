@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPoints.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-09 16:42:26 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1996-01-09 21:49:15 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,6 +71,7 @@ public:
   float *GetPoint(int ptId);
   void GetPoint(int id, float x[3]);
   vtkCell *GetCell(int cellId);
+  int FindPoint(float x[3]);
   int FindCell(float x[3], vtkCell *cell, float tol2, int& subId, 
                float pcoords[3], float *weights);
   int GetCellType(int cellId);

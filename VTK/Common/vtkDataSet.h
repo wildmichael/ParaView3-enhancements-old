@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.h,v $
   Language:  C++
-  Date:      $Date: 1995-12-27 10:55:52 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 1996-01-09 21:49:11 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -121,6 +121,12 @@ public:
   // Topological inquiry to get all cells using list of points exclusive of
   // cell specified (e.g., cellId).
   virtual void GetCellNeighbors(int cellId, vtkIdList& ptIds, vtkIdList& cellIds);
+
+  // Description:
+  // Locate the closest point to the global coordinate x. Return the point
+  // id and distance squared. If point id < 0; then no point found. (This
+  // may arise when point is outside of dataset.)
+  virtual int FindPoint(float x[3]) = 0;
 
   // Description:
   // Locate cell based on global coordinate x and tolerance squared. If
