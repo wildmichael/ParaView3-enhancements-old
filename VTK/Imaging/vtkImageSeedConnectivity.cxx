@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSeedConnectivity.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-23 18:49:20 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-09-14 21:32:00 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -93,6 +93,7 @@ void vtkImageSeedConnectivity::AddSeed(int num, int *index)
   seed = this->Connector->NewSeed(newIndex, NULL);
   seed->Next = this->Seeds;
   this->Seeds = seed;
+  this->Modified();
 }
 //----------------------------------------------------------------------------
 void vtkImageSeedConnectivity::AddSeed(int i0, int i1, int i2)
