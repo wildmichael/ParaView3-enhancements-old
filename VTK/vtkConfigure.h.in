@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConfigure.h.in,v $
   Language:  C++
-  Date:      $Date: 2003-09-25 19:52:11 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2003-09-25 21:23:02 $
+  Version:   $Revision: 1.28 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -88,6 +88,15 @@
 # define vtkstd std
 #else
 # define vtkstd
+#endif
+
+/* Define a "vtkstd_bool" type.  This should be used as the
+   return type of comparison operators to keep STL happy on all
+   platforms.  It should not be used elsewhere.  */
+#ifdef VTK_COMPILER_HAS_BOOL
+typedef bool vtkstd_bool;
+#else
+typedef int vtkstd_bool;
 #endif
 
 #endif
