@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEncodedGradientEstimator.h,v $
   Language:  C++
-  Date:      $Date: 1998-08-11 17:26:18 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-08-11 20:19:44 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -97,9 +97,9 @@ public:
   vtkGetMacro( NumberOfThreads, int );
 
   // Description:
-  // Set / Get the direction encoder used to encode normals in to 
-  // two byte value
-  vtkSetObjectMacro( DirectionEncoder, vtkDirectionEncoder );
+  // Set / Get the direction encoder used to encode normal directions
+  // to fit within two bytes
+  void SetDirectionEncoder( vtkDirectionEncoder *direnc );
   vtkGetObjectMacro( DirectionEncoder, vtkDirectionEncoder );
 
   // These variables should be protected but are being

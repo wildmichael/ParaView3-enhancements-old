@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.h,v $
   Language:  C++
-  Date:      $Date: 1998-08-11 17:32:36 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-08-11 20:19:47 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,7 +54,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkMultiThreader.h"
 #include "vtkTransform.h"
 #include "vtkRayBounder.h"
-#include "vtkDirectionEncoder.h"
 #include "vtkEncodedGradientEstimator.h"
 #include "vtkEncodedGradientShader.h"
 
@@ -173,11 +172,6 @@ public:
   vtkGetVectorMacro( DataIncrement, int, 3 );
 //ETX
 
-  // Description:
-  // Set / Get the direction encoder used to encode normal directions
-  // to fit within two bytes
-  void SetDirectionEncoder( vtkDirectionEncoder *direnc );
-  vtkGetObjectMacro( DirectionEncoder, vtkDirectionEncoder );
 
   // Description:
   // Set / Get the gradient estimator used to estimate normals
@@ -199,7 +193,6 @@ protected:
 
   vtkVolumeRayCastFunction     *VolumeRayCastFunction;
 
-  vtkDirectionEncoder          *DirectionEncoder;
   vtkEncodedGradientEstimator  *GradientEstimator;
 
   vtkEncodedGradientShader     *GradientShader;
