@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-10 21:10:28 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 1997-07-10 21:12:24 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,6 +65,12 @@ public:
   static vtkObject *New() {return new vtkObject;};
   virtual const char *GetClassName() {return "vtkObject";};
 
+#ifdef _WIN32
+  // avoid dll boundary problems
+  void* operator new( size_t tSize );
+  void operator delete( void* p );
+#endif 
+  
   // debugging
   virtual void DebugOn();
   virtual void DebugOff();

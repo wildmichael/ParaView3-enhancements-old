@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:40:52 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1997-07-10 21:12:23 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,6 +42,21 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 // Initialize static member that controls warning display
 static int vtkObjectGlobalWarningDisplay = 1;
+
+
+// avoid dll boundary problems
+#ifdef _WIN32
+void* vtkObject::operator new(size_t nSize)
+{
+void* p=malloc(nSize);
+return p;
+}
+
+void vtkObject::operator delete( void *p )
+{
+free(p);
+}
+#endif 
 
 void vtkObject::SetGlobalWarningDisplay(int val)
 {
