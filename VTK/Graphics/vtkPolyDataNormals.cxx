@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataNormals.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-16 17:01:34 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2001-01-26 12:12:15 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -109,7 +109,6 @@ void vtkPolyDataNormals::Execute()
   vtkIdList *cellIds, *edgeNeighbors;
   vtkPolyData *input = this->GetInput();
   vtkPolyData *output = this->GetOutput();
-  vtkPolyData *ghost;
   int ghostLevel = input->GetUpdateGhostLevel();
   int noCellsNeedVisiting;
   int *Visited;
