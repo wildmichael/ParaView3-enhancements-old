@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:51:05 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1998-09-10 21:00:32 $
+  Version:   $Revision: 1.29 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,18 +47,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 vtkImageSource::vtkImageSource()
 {
   this->Output = NULL;
-
-  this->StartMethod = NULL;
-  this->StartMethodArgDelete = NULL;
-  this->StartMethodArg = NULL;
-  this->ProgressMethod = NULL;
-  this->ProgressMethodArgDelete = NULL;
-  this->ProgressMethodArg = NULL;
-  this->EndMethod = NULL;
-  this->EndMethodArgDelete = NULL;
-  this->EndMethodArg = NULL;
-  this->AbortExecute = 0;
-  this->Progress = 0.0;
 }
 
 
@@ -79,9 +67,6 @@ vtkImageSource::~vtkImageSource()
 void vtkImageSource::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkProcessObject::PrintSelf(os,indent);
-
-  os << indent << "AbortExecute: " << (this->AbortExecute ? "On\n" : "Off\n");
-  os << indent << "Progress: " << this->Progress << "\n";
 
   if (this->Output)
     {
@@ -124,6 +109,7 @@ void vtkImageSource::Update()
 // This method is called by the cache.
 void vtkImageSource::InternalUpdate(vtkImageData *data)
 {
+  this->AbortExecute = 0;
   if ( this->StartMethod )
     {
     (*this->StartMethod)(this->StartMethodArg);
