@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageThreshold.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-07 01:51:50 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2002-05-07 11:27:28 $
+  Version:   $Revision: 1.36 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkImageThreshold.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageThreshold, "$Revision: 1.35 $");
+vtkCxxRevisionMacro(vtkImageThreshold, "$Revision: 1.36 $");
 vtkStandardNewMacro(vtkImageThreshold);
 
 //----------------------------------------------------------------------------
@@ -130,14 +130,14 @@ static void vtkImageThresholdExecute(vtkImageThreshold *self,
   IT  lowerThreshold;
   IT  upperThreshold;
   int replaceIn = self->GetReplaceIn();
-  OT  inValue = (OT)(self->GetInValue());
+  OT  inValue;
   int replaceOut = self->GetReplaceOut();
-  OT  outValue = (OT)(self->GetOutValue());
+  OT  outValue;
   IT temp;
   unsigned long count = 0;
   unsigned long target;
   
-  // Make sure the thresholds are valid for the scalar
+  // Make sure the thresholds are valid for the input scalar range
   if (self->GetLowerThreshold() < (float) inData->GetScalarTypeMin())
     {
     lowerThreshold = inData->GetScalarTypeMin();
@@ -146,7 +146,6 @@ static void vtkImageThresholdExecute(vtkImageThreshold *self,
     {
     lowerThreshold = (IT) self->GetLowerThreshold();
     }
-
   if (self->GetUpperThreshold() > (float) inData->GetScalarTypeMax())
     {
     upperThreshold = inData->GetScalarTypeMax();
@@ -154,6 +153,24 @@ static void vtkImageThresholdExecute(vtkImageThreshold *self,
   else
     {
     upperThreshold = (IT) self->GetUpperThreshold();
+    }
+
+  // Make sure the replacement values are within the output scalar range
+  if (self->GetInValue() < (float) outData->GetScalarTypeMin())
+    {
+    inValue = outData->GetScalarTypeMin();
+    }
+  else
+    {
+    inValue = (IT) self->GetInValue();
+    }
+  if (self->GetOutValue() > (float) outData->GetScalarTypeMax())
+    {
+    outValue = outData->GetScalarTypeMax();
+    }
+  else
+    {
+    outValue = (IT) self->GetOutValue();
     }
 
   // find the region to loop over
