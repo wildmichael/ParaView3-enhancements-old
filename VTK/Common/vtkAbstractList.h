@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractList.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-25 23:26:01 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-04-04 00:06:46 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -54,6 +54,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // vtkContainer
 
 #include "vtkContainer.h"
+
+#ifndef __vtkAbstractList_h
+#define __vtkAbstractList_h
 
 template<class DType>
 class vtkAbstractList : public vtkContainer
@@ -121,3 +124,5 @@ public:
   // It returns VTK_OK if successfull.
   virtual int SetSize(unsigned long size) = 0;
 };
+
+#endif

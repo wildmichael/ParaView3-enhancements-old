@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContainer.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-25 23:26:01 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-04-04 00:06:46 $
+  Version:   $Revision: 1.4 $
 
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -33,6 +33,9 @@
 // used with debug leaks yet.
 
 #include "vtkObject.h"
+
+#ifndef __vtkContainer_h
+#define __vtkContainer_h
 
 // Macro used to determine whether a class is the same class or
 // a subclass of the named class.
@@ -108,3 +111,5 @@ protected:
   vtkContainer();
   virtual ~vtkContainer();
 };
+
+#endif 
