@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewport.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-04 14:23:05 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2002-01-08 14:36:03 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -81,6 +81,10 @@ public:
   // Description:
   // Remove an actor from the list of actors.
   void RemoveProp(vtkProp *);
+
+  // Description:
+  // Remove all actors from the list of actors.
+  void RemoveAllProps(void);
 
   // Description:
   // Add/Remove different types of props to the renderer.
