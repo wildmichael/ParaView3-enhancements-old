@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractPolyDataGeometry.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-03 14:15:59 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-07-05 13:18:55 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -99,7 +99,7 @@ void vtkExtractPolyDataGeometry::Execute()
   vtkPointData *outputPD = output->GetPointData();
   vtkCellData *outputCD = output->GetCellData();
   vtkPoints *inPts=input->GetPoints();
-  vtkIdType numPts, numCells, i, cellId, newId;
+  vtkIdType numPts, i, cellId, newId;
   float multiplier;
   vtkCellArray *inVerts, *inLines, *inPolys, *inStrips;
   vtkCellArray *newVerts=NULL, *newLines=NULL, *newPolys=NULL, *newStrips=NULL;
@@ -113,7 +113,6 @@ void vtkExtractPolyDataGeometry::Execute()
     }
 
   numPts = input->GetNumberOfPoints();
-  numCells = input->GetNumberOfCells();
 
   if ( this->ExtractInside )
     {
@@ -143,7 +142,6 @@ void vtkExtractPolyDataGeometry::Execute()
   // can result in bugs. The cellId is assumed to be arranged starting
   // with the verts, then lines, then polys, then strips.
   //
-  int abort=0;
   int numIn;
   vtkIdType npts, *pts;
   if ( input->GetNumberOfVerts() )
