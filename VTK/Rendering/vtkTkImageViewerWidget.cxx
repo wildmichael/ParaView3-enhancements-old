@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkImageViewerWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-03-14 19:41:47 $
-  Version:   $Revision: 1.63 $
+  Date:      $Date: 2003-08-19 15:22:35 $
+  Version:   $Revision: 1.64 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -412,7 +412,7 @@ extern "C"
       case MapNotify:
         break;
       case DestroyNotify:
-#if _WIN32
+#ifdef _WIN32
         if (self->ImageViewer->GetRenderWindow()->GetGenericWindowId())
           {
           SetWindowLong((HWND)self->ImageViewer->GetRenderWindow()->GetGenericWindowId(),
