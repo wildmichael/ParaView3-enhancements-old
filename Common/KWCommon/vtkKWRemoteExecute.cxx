@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKWRemoteExecute.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-24 17:49:40 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2003-04-30 20:22:21 $
+  Version:   $Revision: 1.14 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -81,14 +81,13 @@ public:
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro( vtkKWRemoteExecute );
-vtkCxxRevisionMacro(vtkKWRemoteExecute, "$Revision: 1.13 $");
+vtkCxxRevisionMacro(vtkKWRemoteExecute, "$Revision: 1.14 $");
 
 //----------------------------------------------------------------------------
 vtkKWRemoteExecute::vtkKWRemoteExecute()
 {
   this->Internals = new vtkKWRemoteExecuteInternal;
   this->RemoteHost = 0;
-  this->ProcessRunning = 0;
   this->Result = NOT_RUN;
 
   this->SSHUser = 0;
@@ -157,7 +156,6 @@ int vtkKWRemoteExecute::RunRemoteCommand(const char* args)
   vtkMultiThreader* th = this->MultiThreader;
   this->ProcessThreadId = th->SpawnThread(
     (vtkThreadFunctionType)(vtkKWRemoteExecute::RunCommandThread), this);
-  this->ProcessRunning = 1;
   this->Result = vtkKWRemoteExecute::RUNNING;
   return 1;
 }
@@ -229,10 +227,6 @@ void* vtkKWRemoteExecute::RunCommandThread(void* vargs)
   else
     {
     self->Result = vtkKWRemoteExecute::FAIL;
-    }
-  if ( self ) 
-    {
-    self->ProcessRunning = 1;
     }
   return 0;
 }
