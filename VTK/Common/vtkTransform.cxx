@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-18 15:15:54 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1995-06-26 13:32:49 $
+  Version:   $Revision: 1.20 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -250,9 +250,9 @@ void vlTransform::RotateWXYZ ( float angle, float x, float y, float z)
     }
 
   w = cosAngle;
-  x = quat[1];
-  y = quat[2];
-  z = quat[3];
+  x = quat[1] * sinAngle;
+  y = quat[2] * sinAngle;
+  z = quat[3] * sinAngle;
 
   // matrix calculation is taken from Ken Shoemake's
   // "Animation Rotation with Quaternion Curves",
