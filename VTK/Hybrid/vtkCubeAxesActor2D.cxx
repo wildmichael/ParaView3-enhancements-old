@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeAxesActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-26 17:38:33 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-01-31 21:56:53 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thorsten Dowe who modified and improved this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -110,6 +110,27 @@ vtkCubeAxesActor2D::vtkCubeAxesActor2D()
   sprintf(this->YLabel,"%s","Y");
   this->ZLabel = new char[2];
   sprintf(this->ZLabel,"%s","Z");
+}
+
+// Shallow copy of an actor.
+void vtkCubeAxesActor2D::ShallowCopy(vtkCubeAxesActor2D *actor)
+{
+  this->vtkActor2D::ShallowCopy(actor);
+  this->SetBold(actor->GetBold());
+  this->SetItalic(actor->GetItalic());
+  this->SetShadow(actor->GetShadow());
+  this->SetFontFamily(actor->GetFontFamily());
+  this->SetLabelFormat(actor->GetLabelFormat());
+  this->SetFontFactor(actor->GetFontFactor());
+  this->SetCornerOffset(actor->GetCornerOffset());
+  this->SetInertia(actor->GetInertia());
+  this->SetXLabel(actor->GetXLabel());
+  this->SetYLabel(actor->GetYLabel());
+  this->SetZLabel(actor->GetZLabel());
+  this->SetFlyMode(actor->GetFlyMode());
+  this->SetInput(actor->GetInput());
+  this->SetProp(actor->GetProp());
+  this->SetCamera(actor->GetCamera());
 }
 
 vtkCubeAxesActor2D::~vtkCubeAxesActor2D()

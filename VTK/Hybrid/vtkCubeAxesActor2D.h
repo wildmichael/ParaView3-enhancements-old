@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeAxesActor2D.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-26 17:38:34 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-01-31 21:56:53 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thorsten Dowe who modified and improved this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -218,6 +218,10 @@ public:
   vtkSetMacro(ZAxisVisibility,int);
   vtkGetMacro(ZAxisVisibility,int);
   vtkBooleanMacro(ZAxisVisibility,int);
+
+  // Description:
+  // Shallow copy of a CubeAxesActor2D.
+  void ShallowCopy(vtkCubeAxesActor2D *actor);
 
 protected:
   vtkCubeAxesActor2D();
