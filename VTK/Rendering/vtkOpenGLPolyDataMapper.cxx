@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-22 14:14:20 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1999-05-25 15:16:24 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -227,6 +227,13 @@ void vtkOpenGLPolyDataMapper::Render(vtkRenderer *ren, vtkActor *act)
     }
 
   this->TimeToDraw = (float)timer->GetElapsedTime();
+
+  // If the timer is not accurate enough, set it to a small
+  // time so that it is not zero
+  if ( this->TimeToDraw == 0.0 )
+    {
+    this->TimeToDraw = 0.0001;
+    }
 
   timer->Delete();
 }
