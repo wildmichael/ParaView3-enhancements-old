@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkImageViewerWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-16 22:32:26 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2001-12-17 14:19:36 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -759,7 +759,7 @@ vtkTkImageViewerWidget_MakeImageViewer(struct vtkTkImageViewerWidget *self)
 {
   Display *dpy;
   vtkImageViewer *ImageViewer;
-  vtkQuartzRenderWindow *ImageWindow;
+  vtkXOpenGLRenderWindow *ImageWindow;
   
   if (self->ImageViewer)
     {
@@ -820,7 +820,7 @@ vtkTkImageViewerWidget_MakeImageViewer(struct vtkTkImageViewerWidget *self)
   
         
   // get the window
-  ImageWindow = static_cast<vtkQuartzRenderWindow *>(ImageViewer->GetRenderWindow());
+  ImageWindow = static_cast<vtkXOpenGLRenderWindow *>(ImageViewer->GetRenderWindow());
   // If the imageviewer has already created it's window, throw up our hands and quit...
   if ( ImageWindow->GetWindowId() != (Window)NULL )
     {
