@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePlaneWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-09-23 18:01:55 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-09-25 18:40:39 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -324,6 +324,14 @@ public:
   // supports single component image data.
   int GetCursorData(float xyzv[4]);
 
+  // Description:
+  // Enable/disable mouse interaction so the widget remains on display.
+  void SetInteraction(int interact);
+  vtkGetMacro(Interaction,int);
+  void InteractionOn()
+    { this->SetInteraction(1); }
+  void InteractionOff()
+    { this->SetInteraction(0); }
 
 protected:
   vtkImagePlaneWidget();
@@ -361,6 +369,7 @@ protected:
   void OnRightButtonUp();
 
   // controlling ivars
+  int   Interaction; // Is the widget responsive to mouse events  
   int   PlaneOrientation;
   int   RestrictPlaneToVolume;
   float OriginalWindow;
