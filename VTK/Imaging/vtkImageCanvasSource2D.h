@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCanvasSource2D.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:08:10 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-02-28 16:40:07 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -124,6 +124,12 @@ public:
   void SetExtent(int *extent);
   void SetExtent(int x1, int x2, int y1, int y2, int z1, int z2);
   
+  // Description:
+  // If the canvas is a 3D volume, then this z value is used
+  // as the default for 2D operations.
+  vtkSetMacro(DefaultZ, int);
+  vtkGetMacro(DefaultZ, int);
+
 protected:
   vtkImageCanvasSource2D();
   // Destructor: Deleting a vtkImageCanvasSource2D automatically deletes the
@@ -135,6 +141,7 @@ protected:
 
   vtkImageData *ImageData;
   float DrawColor[4];
+  int DefaultZ;
   
   int ClipSegment(int &a0, int &a1, int &b0, int &b1);
 };
