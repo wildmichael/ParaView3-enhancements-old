@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContainer.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-19 18:12:15 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-04-19 18:15:53 $
+  Version:   $Revision: 1.12 $
 
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -142,9 +142,9 @@ static inline int vtkContainerCompareMethod(float d1, float d2)
 static inline int vtkContainerCompareMethod(double d1, double d2)
 { return vtkContainerDefaultCompare(d1,d2); }
 static inline int vtkContainerCompareMethod(const char* d1, const char* d2)
-{ return strcmp(d1, d2); }
+{ return vtkString::Compare(d1, d2); }
 static inline int vtkContainerCompareMethod(char* d1, char* d2)
-{ return strcmp(d1, d2); }
+{ return vtkString::Compare(d1, d2); }
 static inline int vtkContainerCompareMethod(void* d1, void* d2)
 { return vtkContainerDefaultCompare(d1,d2); }
 
