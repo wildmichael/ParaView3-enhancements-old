@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOrderedTriangulator.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-10 11:03:40 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 2003-07-10 14:25:51 $
+  Version:   $Revision: 1.61 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,7 +30,7 @@
 #include <vtkstd/stack>
 #include <vtkstd/map>
 
-vtkCxxRevisionMacro(vtkOrderedTriangulator, "$Revision: 1.60 $");
+vtkCxxRevisionMacro(vtkOrderedTriangulator, "$Revision: 1.61 $");
 vtkStandardNewMacro(vtkOrderedTriangulator);
 
 #ifdef _WIN32_WCE
@@ -1167,6 +1167,7 @@ void vtkOrderedTriangulator::Triangulate()
 void vtkOrderedTriangulator::TemplateTriangulate(int cellType, 
                                                  int numPts, int numEdges)
 {
+  (void)cellType;
   if ( ! this->UseTemplates )
     {
     this->Triangulate();
