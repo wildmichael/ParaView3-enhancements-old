@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCompositeManager.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-12 19:58:46 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-04-30 13:59:00 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -173,13 +173,13 @@ protected:
   
   void SetRendererSize(int x, int y);
   void MagnifyBuffer(vtkDataArray *localPdata, vtkDataArray* magPdata,
-		     int windowSize[2]);
+                     int windowSize[2]);
 
   static void DeleteArray(vtkDataArray* da);
   static void ResizeFloatArray(vtkFloatArray* fa, int numComp,
-			       int size);
+                               vtkIdType size);
   static void ResizeUnsignedCharArray(vtkUnsignedCharArray* uca, 
-				      int numComp, int size);
+                                      int numComp, vtkIdType size);
   void ReallocPDataArrays();
   
   vtkRenderWindow* RenderWindow;

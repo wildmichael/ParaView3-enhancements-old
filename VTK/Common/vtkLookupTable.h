@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLookupTable.h,v $
   Language:  C++
-  Date:      $Date: 2002-02-18 16:47:59 $
-  Version:   $Revision: 1.66 $
+  Date:      $Date: 2002-04-30 13:59:00 $
+  Version:   $Revision: 1.67 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -220,7 +220,7 @@ private:
   void operator=(const vtkLookupTable&);  // Not implemented.
 };
 
-inline unsigned char *vtkLookupTable::WritePointer(const int id, 
+inline unsigned char *vtkLookupTable::WritePointer(const vtkIdType id, 
                                                    const int number)
 {
  return this->Table->WritePointer(4*id,4*number);
