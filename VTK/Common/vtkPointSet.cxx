@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-12 21:22:39 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1994-09-27 13:37:01 $
+  Version:   $Revision: 1.14 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -91,7 +91,6 @@ int vlPointSet::FindCell(float x[3], vlCell *cell, float tol2, int& subId,
 {
   int i;
   int closestCell = -1;
-  vlCell *cell;
   int ptId, cellId;
   float dist2;
   static vlIdList cellIds(MAX_CELL_SIZE);
