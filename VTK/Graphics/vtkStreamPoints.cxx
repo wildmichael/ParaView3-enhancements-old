@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-28 21:34:31 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2002-12-17 02:05:39 $
+  Version:   $Revision: 1.38 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,10 +22,11 @@
 #include "vtkFloatArray.h"
 #include "vtkIdList.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 #include "vtkPoints.h"
 #include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkStreamPoints, "$Revision: 1.37 $");
+vtkCxxRevisionMacro(vtkStreamPoints, "$Revision: 1.38 $");
 vtkStandardNewMacro(vtkStreamPoints);
 
 // Construct object with time increment set to 1.0.

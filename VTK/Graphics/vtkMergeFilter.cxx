@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-07 14:58:52 $
-  Version:   $Revision: 1.65 $
+  Date:      $Date: 2002-12-17 02:05:39 $
+  Version:   $Revision: 1.66 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,14 +16,17 @@
 
 =========================================================================*/
 #include "vtkMergeFilter.h"
+
+#include "vtkCellData.h"
+#include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 #include "vtkPolyData.h"
+#include "vtkRectilinearGrid.h"
 #include "vtkStructuredGrid.h"
 #include "vtkStructuredPoints.h"
 #include "vtkUnstructuredGrid.h"
-#include "vtkRectilinearGrid.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkMergeFilter, "$Revision: 1.65 $");
+vtkCxxRevisionMacro(vtkMergeFilter, "$Revision: 1.66 $");
 vtkStandardNewMacro(vtkMergeFilter);
 
 class vtkFieldNode

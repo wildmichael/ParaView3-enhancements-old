@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkButterflySubdivisionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-03 12:52:22 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-12-17 02:05:38 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,11 +17,14 @@
 =========================================================================*/
 #include "vtkButterflySubdivisionFilter.h"
 
+#include "vtkCellArray.h"
 #include "vtkEdgeTable.h"
+#include "vtkIdList.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 #include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkButterflySubdivisionFilter, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkButterflySubdivisionFilter, "$Revision: 1.13 $");
 vtkStandardNewMacro(vtkButterflySubdivisionFilter);
 
 static float butterflyWeights[8] =

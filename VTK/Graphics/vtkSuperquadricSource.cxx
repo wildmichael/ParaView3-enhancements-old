@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSuperquadricSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-03 12:52:23 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-12-17 02:05:39 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,15 +23,17 @@
 */
 #include "vtkSuperquadricSource.h"
 
+#include "vtkCellArray.h"
 #include "vtkFloatArray.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 #include "vtkPoints.h"
 #include "vtkPolyData.h"
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkSuperquadricSource, "$Revision: 1.19 $");
+vtkCxxRevisionMacro(vtkSuperquadricSource, "$Revision: 1.20 $");
 vtkStandardNewMacro(vtkSuperquadricSource);
 
 static void evalSuperquadric(float u, float v, 

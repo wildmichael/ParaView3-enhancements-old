@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSplineFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 20:09:10 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-12-17 02:05:39 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,12 +18,16 @@
 #include "vtkSplineFilter.h"
 
 #include "vtkCardinalSpline.h"
+#include "vtkCell.h"
+#include "vtkCellArray.h"
+#include "vtkCellData.h"
 #include "vtkFloatArray.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 #include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkSplineFilter, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtkSplineFilter, "$Revision: 1.11 $");
 vtkStandardNewMacro(vtkSplineFilter);
 vtkCxxSetObjectMacro(vtkSplineFilter,Spline,vtkSpline);
 

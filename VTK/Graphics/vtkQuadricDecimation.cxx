@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadricDecimation.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-03 22:51:55 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2002-12-17 02:05:39 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,14 +17,18 @@
 =========================================================================*/
 #include "vtkQuadricDecimation.h"
 
+#include "vtkCellArray.h"
 #include "vtkEdgeTable.h"
 #include "vtkFloatArray.h"
+#include "vtkGenericCell.h"
+#include "vtkIdList.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
 #include "vtkPolyData.h"
+#include "vtkPointData.h"
 #include "vtkPriorityQueue.h"
 
-vtkCxxRevisionMacro(vtkQuadricDecimation, "$Revision: 1.22 $");
+vtkCxxRevisionMacro(vtkQuadricDecimation, "$Revision: 1.23 $");
 vtkStandardNewMacro(vtkQuadricDecimation);
 
 //----------------------------------------------------------------------------

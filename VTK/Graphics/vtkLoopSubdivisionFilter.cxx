@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLoopSubdivisionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-03 12:52:23 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-12-17 02:05:38 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,11 +17,15 @@
 =========================================================================*/
 #include "vtkLoopSubdivisionFilter.h"
 
+#include "vtkCell.h"
+#include "vtkCellArray.h"
 #include "vtkEdgeTable.h"
+#include "vtkIdList.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 #include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkLoopSubdivisionFilter, "$Revision: 1.16 $");
+vtkCxxRevisionMacro(vtkLoopSubdivisionFilter, "$Revision: 1.17 $");
 vtkStandardNewMacro(vtkLoopSubdivisionFilter);
 
 static float LoopWeights[4] =

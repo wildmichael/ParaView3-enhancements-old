@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCurvatures.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-06 11:42:09 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-12-17 02:05:38 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -17,16 +17,20 @@
 =========================================================================*/
 #include "vtkCurvatures.h"
 
-#include "vtkObjectFactory.h"
-#include "vtkPolyDataNormals.h"
-#include "vtkPolyData.h"
+#include "vtkCellArray.h"
 #include "vtkDoubleArray.h"
+#include "vtkFieldData.h"
 #include "vtkFloatArray.h"
 #include "vtkMath.h"
+#include "vtkObjectFactory.h"
+#include "vtkPointData.h"
+#include "vtkPolyData.h"
+#include "vtkPolyDataNormals.h"
 #include "vtkPolygon.h"
 #include "vtkTensor.h"
+#include "vtkTriangle.h"
 
-vtkCxxRevisionMacro(vtkCurvatures, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkCurvatures, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkCurvatures);
 
 //------------------------------------------------------------------------------

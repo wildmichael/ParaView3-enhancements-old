@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpScalar.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-26 12:07:15 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2002-12-17 02:05:39 $
+  Version:   $Revision: 1.43 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,13 +17,14 @@
 =========================================================================*/
 #include "vtkWarpScalar.h"
 
+#include "vtkCellData.h"
 #include "vtkDataArray.h"
-#include "vtkPoints.h"
+#include "vtkObjectFactory.h"
 #include "vtkPointData.h"
 #include "vtkPointSet.h"
-#include "vtkObjectFactory.h"
+#include "vtkPoints.h"
 
-vtkCxxRevisionMacro(vtkWarpScalar, "$Revision: 1.42 $");
+vtkCxxRevisionMacro(vtkWarpScalar, "$Revision: 1.43 $");
 vtkStandardNewMacro(vtkWarpScalar);
 
 vtkWarpScalar::vtkWarpScalar()

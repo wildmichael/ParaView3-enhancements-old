@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProbeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-03 22:51:55 $
-  Version:   $Revision: 1.75 $
+  Date:      $Date: 2002-12-17 02:05:39 $
+  Version:   $Revision: 1.76 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,11 +17,13 @@
 =========================================================================*/
 #include "vtkProbeFilter.h"
 
-#include "vtkObjectFactory.h"
-#include "vtkImageData.h"
+#include "vtkCell.h"
 #include "vtkIdTypeArray.h"
+#include "vtkImageData.h"
+#include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 
-vtkCxxRevisionMacro(vtkProbeFilter, "$Revision: 1.75 $");
+vtkCxxRevisionMacro(vtkProbeFilter, "$Revision: 1.76 $");
 vtkStandardNewMacro(vtkProbeFilter);
 
 //----------------------------------------------------------------------------

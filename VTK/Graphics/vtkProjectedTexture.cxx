@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProjectedTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-09 13:39:05 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-12-17 02:05:39 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,8 +21,9 @@
 #include "vtkFloatArray.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 
-vtkCxxRevisionMacro(vtkProjectedTexture, "$Revision: 1.24 $");
+vtkCxxRevisionMacro(vtkProjectedTexture, "$Revision: 1.25 $");
 vtkStandardNewMacro(vtkProjectedTexture);
 
 // Description:

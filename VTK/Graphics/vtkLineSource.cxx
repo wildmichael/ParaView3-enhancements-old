@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLineSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-03 12:52:23 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2002-12-17 02:05:38 $
+  Version:   $Revision: 1.42 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,13 +17,15 @@
 =========================================================================*/
 #include "vtkLineSource.h"
 
-#include "vtkPoints.h"
+#include "vtkCellArray.h"
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
+#include "vtkPoints.h"
 #include "vtkPolyData.h"
 
 #include <math.h>
-vtkCxxRevisionMacro(vtkLineSource, "$Revision: 1.41 $");
+vtkCxxRevisionMacro(vtkLineSource, "$Revision: 1.42 $");
 vtkStandardNewMacro(vtkLineSource);
 
 vtkLineSource::vtkLineSource(int res)

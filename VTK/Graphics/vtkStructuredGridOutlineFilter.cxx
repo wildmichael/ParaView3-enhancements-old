@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridOutlineFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-03 18:00:07 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2002-12-17 02:05:39 $
+  Version:   $Revision: 1.43 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,11 +17,12 @@
 =========================================================================*/
 #include "vtkStructuredGridOutlineFilter.h"
 
+#include "vtkCellArray.h"
 #include "vtkObjectFactory.h"
-#include "vtkStructuredGrid.h"
 #include "vtkPolyData.h"
+#include "vtkStructuredGrid.h"
 
-vtkCxxRevisionMacro(vtkStructuredGridOutlineFilter, "$Revision: 1.42 $");
+vtkCxxRevisionMacro(vtkStructuredGridOutlineFilter, "$Revision: 1.43 $");
 vtkStandardNewMacro(vtkStructuredGridOutlineFilter);
 
 //----------------------------------------------------------------------------

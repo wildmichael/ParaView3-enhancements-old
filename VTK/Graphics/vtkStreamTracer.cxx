@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamTracer.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-14 16:50:41 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-12-17 02:05:39 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,12 +17,17 @@
 =========================================================================*/
 #include "vtkStreamTracer.h"
 
+#include "vtkCellArray.h"
+#include "vtkCellData.h"
+#include "vtkDataSetAttributes.h"
 #include "vtkFloatArray.h"
+#include "vtkGenericCell.h"
 #include "vtkIdList.h"
 #include "vtkIntArray.h"
 #include "vtkInterpolatedVelocityField.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 #include "vtkPointSet.h"
 #include "vtkPolyData.h"
 #include "vtkPolyLine.h"
@@ -30,7 +35,7 @@
 #include "vtkRungeKutta4.h"
 #include "vtkRungeKutta45.h"
 
-vtkCxxRevisionMacro(vtkStreamTracer, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkStreamTracer, "$Revision: 1.16 $");
 vtkStandardNewMacro(vtkStreamTracer);
 vtkCxxSetObjectMacro(vtkStreamTracer,Integrator,vtkInitialValueProblemSolver);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-03 12:52:23 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2002-12-17 02:05:38 $
+  Version:   $Revision: 1.30 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,11 +17,15 @@
 =========================================================================*/
 #include "vtkExtractUnstructuredGrid.h"
 
+#include "vtkCell.h"
+#include "vtkCellData.h"
+#include "vtkIdList.h"
 #include "vtkMergePoints.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 #include "vtkUnstructuredGrid.h"
 
-vtkCxxRevisionMacro(vtkExtractUnstructuredGrid, "$Revision: 1.29 $");
+vtkCxxRevisionMacro(vtkExtractUnstructuredGrid, "$Revision: 1.30 $");
 vtkStandardNewMacro(vtkExtractUnstructuredGrid);
 
 // Construct with all types of clipping turned off.

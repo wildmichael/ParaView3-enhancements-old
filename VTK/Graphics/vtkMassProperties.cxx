@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMassProperties.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-03 22:51:55 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-12-17 02:05:38 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,12 +17,14 @@
 =========================================================================*/
 #include "vtkMassProperties.h"
 
+#include "vtkCell.h"
 #include "vtkCommand.h"
 #include "vtkDataObject.h"
+#include "vtkIdList.h"
 #include "vtkObjectFactory.h"
 #include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkMassProperties, "$Revision: 1.23 $");
+vtkCxxRevisionMacro(vtkMassProperties, "$Revision: 1.24 $");
 vtkStandardNewMacro(vtkMassProperties);
 
 #define  VTK_CUBE_ROOT(x) \

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 18:32:04 $
-  Version:   $Revision: 1.91 $
+  Date:      $Date: 2002-12-17 02:05:38 $
+  Version:   $Revision: 1.92 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,10 +17,14 @@
 =========================================================================*/
 #include "vtkAppendPolyData.h"
 
+#include "vtkCellArray.h"
+#include "vtkCellData.h"
+#include "vtkDataSetAttributes.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 #include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkAppendPolyData, "$Revision: 1.91 $");
+vtkCxxRevisionMacro(vtkAppendPolyData, "$Revision: 1.92 $");
 vtkStandardNewMacro(vtkAppendPolyData);
 
 //----------------------------------------------------------------------------

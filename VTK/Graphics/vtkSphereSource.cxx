@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-03 12:52:23 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 2002-12-17 02:05:39 $
+  Version:   $Revision: 1.62 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,15 +17,17 @@
 =========================================================================*/
 #include "vtkSphereSource.h"
 
+#include "vtkCellArray.h"
 #include "vtkFloatArray.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 #include "vtkPoints.h"
 #include "vtkPolyData.h"
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkSphereSource, "$Revision: 1.61 $");
+vtkCxxRevisionMacro(vtkSphereSource, "$Revision: 1.62 $");
 vtkStandardNewMacro(vtkSphereSource);
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFeatureEdges.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-03 12:52:23 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 2002-12-17 02:05:38 $
+  Version:   $Revision: 1.62 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,8 +25,11 @@
 #include "vtkPolygon.h"
 #include "vtkTriangleStrip.h"
 #include "vtkUnsignedCharArray.h"
+#include "vtkCellArray.h"
+#include "vtkCellData.h"
+#include "vtkPointData.h"
 
-vtkCxxRevisionMacro(vtkFeatureEdges, "$Revision: 1.61 $");
+vtkCxxRevisionMacro(vtkFeatureEdges, "$Revision: 1.62 $");
 vtkStandardNewMacro(vtkFeatureEdges);
 
 // Construct object with feature angle = 30; all types of edges, except 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellDataToPointData.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-26 12:07:14 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-12-17 02:05:38 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,10 +17,13 @@
 =========================================================================*/
 #include "vtkCellDataToPointData.h"
 
+#include "vtkCellData.h"
 #include "vtkDataSet.h"
+#include "vtkIdList.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 
-vtkCxxRevisionMacro(vtkCellDataToPointData, "$Revision: 1.23 $");
+vtkCxxRevisionMacro(vtkCellDataToPointData, "$Revision: 1.24 $");
 vtkStandardNewMacro(vtkCellDataToPointData);
 
 // Instantiate object so that cell data is not passed to output.

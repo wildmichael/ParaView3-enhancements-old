@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyphSource2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-03 12:52:23 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-12-17 02:05:38 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,12 +17,14 @@
 =========================================================================*/
 #include "vtkGlyphSource2D.h"
 
+#include "vtkCellArray.h"
+#include "vtkCellData.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
-#include "vtkUnsignedCharArray.h"
 #include "vtkPolyData.h"
+#include "vtkUnsignedCharArray.h"
 
-vtkCxxRevisionMacro(vtkGlyphSource2D, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkGlyphSource2D, "$Revision: 1.12 $");
 vtkStandardNewMacro(vtkGlyphSource2D);
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConeSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-03 12:52:22 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 2002-12-17 02:05:38 $
+  Version:   $Revision: 1.62 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,10 +22,11 @@
 #include "vtkObjectFactory.h"
 #include "vtkPolyData.h"
 #include "vtkTransform.h"
+#include "vtkCellArray.h"
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkConeSource, "$Revision: 1.61 $");
+vtkCxxRevisionMacro(vtkConeSource, "$Revision: 1.62 $");
 vtkStandardNewMacro(vtkConeSource);
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-03 15:57:43 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2002-12-17 02:05:38 $
+  Version:   $Revision: 1.51 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,16 +17,21 @@
 =========================================================================*/
 #include "vtkClipPolyData.h"
 
-#include "vtkMergePoints.h"
-#include "vtkLine.h"
-#include "vtkTriangle.h"
-#include "vtkObjectFactory.h"
+#include "vtkCellArray.h"
+#include "vtkCellData.h"
 #include "vtkFloatArray.h"
+#include "vtkGenericCell.h"
+#include "vtkImplicitFunction.h"
+#include "vtkLine.h"
+#include "vtkMergePoints.h"
+#include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 #include "vtkPolyData.h"
+#include "vtkTriangle.h"
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkClipPolyData, "$Revision: 1.50 $");
+vtkCxxRevisionMacro(vtkClipPolyData, "$Revision: 1.51 $");
 vtkStandardNewMacro(vtkClipPolyData);
 vtkCxxSetObjectMacro(vtkClipPolyData,ClipFunction,vtkImplicitFunction);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-03 22:51:56 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2002-12-17 02:05:39 $
+  Version:   $Revision: 1.30 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,12 +18,14 @@
 #include "vtkTransformPolyDataFilter.h"
 
 #include "vtkAbstractTransform.h"
+#include "vtkCellData.h"
 #include "vtkFloatArray.h"
 #include "vtkLinearTransform.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 #include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkTransformPolyDataFilter, "$Revision: 1.29 $");
+vtkCxxRevisionMacro(vtkTransformPolyDataFilter, "$Revision: 1.30 $");
 vtkStandardNewMacro(vtkTransformPolyDataFilter);
 vtkCxxSetObjectMacro(vtkTransformPolyDataFilter,
                      Transform,vtkAbstractTransform);

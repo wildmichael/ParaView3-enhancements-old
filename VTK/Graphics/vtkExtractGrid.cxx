@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-20 19:26:36 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2002-12-17 02:05:38 $
+  Version:   $Revision: 1.42 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,10 +17,12 @@
 =========================================================================*/
 #include "vtkExtractGrid.h"
 
+#include "vtkCellData.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 #include "vtkStructuredGrid.h"
 
-vtkCxxRevisionMacro(vtkExtractGrid, "$Revision: 1.41 $");
+vtkCxxRevisionMacro(vtkExtractGrid, "$Revision: 1.42 $");
 vtkStandardNewMacro(vtkExtractGrid);
 
 // Construct object to extract all of the input data.

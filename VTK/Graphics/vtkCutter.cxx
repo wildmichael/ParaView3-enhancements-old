@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-03 15:57:43 $
-  Version:   $Revision: 1.69 $
+  Date:      $Date: 2002-12-17 02:05:38 $
+  Version:   $Revision: 1.70 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,6 +17,8 @@
 =========================================================================*/
 #include "vtkCutter.h"
 
+#include "vtkCellArray.h"
+#include "vtkCellData.h"
 #include "vtkContourValues.h"
 #include "vtkDataSet.h"
 #include "vtkFloatArray.h"
@@ -24,11 +26,12 @@
 #include "vtkImplicitFunction.h"
 #include "vtkMergePoints.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 #include "vtkPolyData.h"
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkCutter, "$Revision: 1.69 $");
+vtkCxxRevisionMacro(vtkCutter, "$Revision: 1.70 $");
 vtkStandardNewMacro(vtkCutter);
 vtkCxxSetObjectMacro(vtkCutter,CutFunction,vtkImplicitFunction);
 

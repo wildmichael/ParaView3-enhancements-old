@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimatePro.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-03 22:51:55 $
-  Version:   $Revision: 1.72 $
+  Date:      $Date: 2002-12-17 02:05:38 $
+  Version:   $Revision: 1.73 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,8 +25,11 @@
 #include "vtkPolyData.h"
 #include "vtkPriorityQueue.h"
 #include "vtkTriangle.h"
+#include "vtkCellArray.h"
+#include "vtkPointData.h"
+#include "vtkCellData.h"
 
-vtkCxxRevisionMacro(vtkDecimatePro, "$Revision: 1.72 $");
+vtkCxxRevisionMacro(vtkDecimatePro, "$Revision: 1.73 $");
 vtkStandardNewMacro(vtkDecimatePro);
 
 #define VTK_TOLERANCE 1.0e-05
