@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfHDF.cxx,v 1.4 2003-09-30 15:59:02 andy Exp $  */
-/*  Date : $Date: 2003-09-30 15:59:02 $ */
-/*  Version : $Revision: 1.4 $ */
+/*  Id : $Id: XdmfHDF.cxx,v 1.5 2003-10-02 19:29:30 andy Exp $  */
+/*  Date : $Date: 2003-10-02 19:29:30 $ */
+/*  Version : $Revision: 1.5 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -595,7 +595,6 @@ XdmfDebug("Using Domain " << this->Domain );
     } else if( STRCASECMP( this->Domain, "GASS" ) == 0 ) {
     } else {
       XdmfDebug("Using File Interface, Path = " << this->GetWorkingDirectory() );
-      cout << "Using working directory: " << this->GetWorkingDirectory() << endl;
       if( ( strlen( this->GetWorkingDirectory() ) > 0 ) && 
         ( this->FileName[0] != '/' ) ){
         FullFileName << this->GetWorkingDirectory() << "/";
