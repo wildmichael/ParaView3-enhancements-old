@@ -3,8 +3,8 @@
  Program:   Visualization Toolkit
  Module:    $RCSfile: vtkSource.cxx,v $
  Language:  C++
- Date:      $Date: 2000-10-20 13:54:50 $
- Version:   $Revision: 1.70 $
+ Date:      $Date: 2000-11-10 15:01:24 $
+ Version:   $Revision: 1.71 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -718,11 +718,17 @@ void vtkSource::SetNthOutput(int idx, vtkDataObject *newOutput)
 }
 
 //----------------------------------------------------------------------------
-
 void vtkSource::Execute()
 {
   vtkErrorMacro(<< "Definition of Execute() method should be in subclass");
 }
+
+//----------------------------------------------------------------------------
+vtkDataObject **vtkSource::GetOutputs()
+{
+  return this->Outputs;
+}
+
 
 //----------------------------------------------------------------------------
 
