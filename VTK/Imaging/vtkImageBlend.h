@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageBlend.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:03 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2001-06-08 20:34:22 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to David G. Gobbi and Sebastien Barre who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -126,8 +126,6 @@ public:
   vtkSetMacro(CompoundThreshold,float);
   vtkGetMacro(CompoundThreshold,float);
 
-  virtual void UpdateData(vtkDataObject *output);
-  
 protected:
   vtkImageBlend();
   ~vtkImageBlend();
@@ -142,10 +140,13 @@ protected:
 		       int extent[6], 
                        int id);
 
+  void ExecuteData(vtkDataObject *output);
+  
   double *Opacity;
   int OpacityArrayLength;
   int BlendMode;
   float CompoundThreshold;
+  int DataWasPassed;  
 };
 
 // Description:
