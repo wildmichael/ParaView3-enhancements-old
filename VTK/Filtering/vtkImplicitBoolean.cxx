@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitBoolean.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-08 12:47:18 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-10-13 13:30:02 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,6 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
+#include <math.h>
 #include "vtkImplicitBoolean.hh"
 
 // Description:
@@ -109,6 +110,15 @@ float vtkImplicitBoolean::EvaluateFunction(float x[3])
     f=this->FunctionList.GetNextItem(); )
       {
       if ( (v=f->FunctionValue(x)) > value ) value = v;
+      }
+    }
+
+  else if ( this->OperationType == VTK_UNION_OF_MAGNITUDES )
+    { //take minimum absolute value
+    for (value = VTK_LARGE_FLOAT, this->FunctionList.InitTraversal(); 
+    f=this->FunctionList.GetNextItem(); )
+      {
+      if ( (v=fabs(f->FunctionValue(x))) < value ) value = v;
       }
     }
 

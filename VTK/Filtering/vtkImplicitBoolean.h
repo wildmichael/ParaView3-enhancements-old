@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitBoolean.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-15 07:51:49 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-10-13 13:30:27 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,6 +63,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define VTK_UNION 0
 #define VTK_INTERSECTION 1
 #define VTK_DIFFERENCE 2
+#define VTK_UNION_OF_MAGNITUDES 3
 
 class vtkImplicitBoolean : public vtkImplicitFunction
 {
@@ -87,7 +88,7 @@ public:
 
   // Description:
   // Specify the type of boolean operation.
-  vtkSetClampMacro(OperationType,int,VTK_UNION,VTK_DIFFERENCE);
+  vtkSetClampMacro(OperationType,int,VTK_UNION,VTK_UNION_OF_MAGNITUDES);
   vtkGetMacro(OperationType,int);
 
 protected:
