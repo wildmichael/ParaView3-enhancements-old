@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapPython.c,v $
   Language:  C++
-  Date:      $Date: 2002-06-18 19:03:26 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2002-06-19 17:57:14 $
+  Version:   $Revision: 1.51 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -555,9 +555,26 @@ void outputFunction2(FILE *fp, FileInfo *data)
     if (theFunc->Name)
       {
       fprintf(fp,"\n");
-      
-      fprintf(fp,"static PyObject *Py%s_%s(PyObject *self, PyObject *args)\n",
-              data->ClassName,currentFunction->Name);
+
+      /* check whether all signatures are static methods */
+      is_static = 1;
+      for (occ = fnum; occ < numberOfWrappedFunctions; occ++)
+        {
+        /* is it the same name */
+        if (wrappedFunctions[occ]->Name &&
+            !strcmp(theFunc->Name,wrappedFunctions[occ]->Name))
+          {
+          /* check for static methods */
+          if (((wrappedFunctions[occ]->ReturnType/1000) & 2) != 2)
+            {
+            is_static = 0;
+            }
+          }
+        }
+        
+      fprintf(fp,"static PyObject *Py%s_%s(PyObject *%s, PyObject *args)\n",
+              data->ClassName,currentFunction->Name,
+              (is_static ? "" : "self"));
       fprintf(fp,"{\n");
       
       /* find all occurances of this method */
