@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:37:31 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-12-27 10:53:25 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,7 +65,8 @@ void vtkTCoords::InsertTCoord(int id, float tc1, float tc2, float tc3)
 // Description:
 // Insert texture coordinate into position indicated. Although up to three
 // texture components may be specified (i.e., tc1, tc2, tc3), if the texture
-// coordinates are less than 3 dimensions the extra components will be ignored.
+// coordinates are less than 3 dimensions, the extra components will be 
+// ignored.
 int vtkTCoords::InsertNextTCoord(float tc1, float tc2, float tc3)
 {
   float tc[3];

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-04 19:47:09 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1995-12-27 10:54:07 $
+  Version:   $Revision: 1.7 $
   
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -64,7 +64,7 @@ vtkLODActor::vtkLODActor()
 }
 
 // Description:
-// This causes the actor to be rendered. It in turn will render the actor's
+// This causes the actor to be rendered. It, in turn, will render the actor's
 // property and then mapper.  
 void vtkLODActor::Render(vtkRenderer *ren)
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 21:23:41 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1995-12-27 10:53:40 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -157,7 +157,7 @@ static char vtkfont_bits[] = {
  };
 
 // Description:
-// Construct Text object with no string set and Backing enabled.
+// Construct object with no string set and backing enabled.
 vtkTextSource::vtkTextSource()
 {
   this->Text = NULL;

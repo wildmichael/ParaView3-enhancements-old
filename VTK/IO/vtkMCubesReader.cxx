@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMCubesReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-11-05 17:17:44 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1995-12-27 10:53:15 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -193,8 +193,8 @@ void vtkMCubesReader::Execute()
 }
 
 // Description:
-// Specify a spatial locator for merging points. By
-// default an instance of vtkMergePoints is used.
+// Specify a spatial locator for merging points. By default, 
+// an instance of vtkMergePoints is used.
 void vtkMCubesReader::SetLocator(vtkLocator *locator)
 {
   if ( this->Locator != locator ) 

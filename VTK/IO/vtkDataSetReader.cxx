@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 21:24:28 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-12-27 10:53:55 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,7 +61,7 @@ char *vtkDataSetReader::GetFilename()
 }
 
 // Description:
-// Get the type of file (ASCII or BINARY)
+// Get the type of file (VTK_ASCII or VTK_BINARY).
 int vtkDataSetReader::GetFileType() 
 {
   return this->Reader.GetFileType();

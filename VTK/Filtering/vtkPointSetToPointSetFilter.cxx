@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSetToPointSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-02 14:13:54 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1995-12-27 10:54:09 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -115,8 +115,8 @@ void vtkPointSetToPointSetFilter::Update()
 
   
 // Description:
-// Get the output of this filter. If output is NULL then input hasn't been set
-// which is necessary for abstract objects.
+// Get the output of this filter. If output is NULL, then input hasn't been
+// set, which is necessary for abstract filter objects.
 
 vtkPointSet *vtkPointSetToPointSetFilter::GetOutput()
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitModeller.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-09 16:45:00 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1995-12-27 10:54:05 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,9 +43,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkFloatScalars.hh"
 
 // Description:
-// Construct with sample dimensions=(50,50,50) and so that model bounds are
-// automatically computer from input. Capping is turned on with CapValue equal
-// to a large positive number.
+// Construct with sample dimensions=(50,50,50), and so that model bounds are
+// automatically computed from the input. Capping is turned on with CapValue
+// equal to a large positive number.
 vtkImplicitModeller::vtkImplicitModeller()
 {
   this->MaximumDistance = 0.1;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-09 16:45:10 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1995-12-27 10:54:13 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,7 +61,7 @@ vtkUnstructuredGrid::vtkUnstructuredGrid ()
 
 // Description:
 // Allocate memory space for data insertion. Execute this method before
-// inserting and cells into object.
+// inserting any cells into object.
 void vtkUnstructuredGrid::Allocate (int numCells, int extSize)
 {
   if ( numCells < 1 ) numCells = 1000;

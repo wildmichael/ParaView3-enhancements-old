@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkShepardMethod.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-25 23:45:20 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-12-27 10:53:44 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,7 +43,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 // Description:
 // Construct with sample dimensions=(50,50,50) and so that model bounds are
-// automatically computer from input. Null value for each unvisited output 
+// automatically computed from input. Null value for each unvisited output 
 // point is 0.0. Maximum distance is 0.25.
 vtkShepardMethod::vtkShepardMethod()
 {

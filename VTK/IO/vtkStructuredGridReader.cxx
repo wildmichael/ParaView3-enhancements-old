@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-01 19:06:11 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1995-12-27 10:54:22 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,7 +63,7 @@ char *vtkStructuredGridReader::GetFilename()
 }
 
 // Description:
-// Get the type of file (ASCII or BINARY)
+// Get the type of file (VTK_ASCII or VTK_BINARY)
 int vtkStructuredGridReader::GetFileType() 
 {
   return this->Reader.GetFileType();

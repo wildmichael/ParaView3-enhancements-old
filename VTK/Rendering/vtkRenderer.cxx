@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-12-11 10:02:46 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 1995-12-27 10:53:31 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -132,8 +132,8 @@ vtkCamera *vtkRenderer::GetActiveCamera()
 }
 
 // Description:
-// Specify a volume renderer to use. If this is set then volume rendering
-// will be done.It isn't a very good volume renderer but it works.
+// Specify a volume renderer to use. If this is set, then volume rendering
+// will be done. 9It isn't a very good volume renderer, but it works.)
 void vtkRenderer::SetVolumeRenderer(vtkVolumeRenderer *vol)
 {
   this->VolumeRenderer = vol;
@@ -176,7 +176,7 @@ void vtkRenderer::RemoveActors(vtkActor *actor)
 
 // Description:
 // Process the list of lights during the rendering process. If no lights are 
-// currently on or defined then one will be generated automatically and
+// currently on or defined, then one will be generated automatically and
 // placed at the same location and direction as the active camera.
 void vtkRenderer::DoLights()
 {
@@ -194,7 +194,7 @@ void vtkRenderer::DoLights()
 
 // Description:
 // Process the list of cameras during the rendering process. If a camera 
-// hasn't been specified then one is created and correctly positioned.
+// hasn't been specified, then one is created and correctly positioned.
 void vtkRenderer::DoCameras()
 {
   if (!this->UpdateCameras())

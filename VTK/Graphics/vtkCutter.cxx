@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-09 16:43:25 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1995-12-27 10:52:55 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,7 +49,7 @@ vtkCutter::vtkCutter(vtkImplicitFunction *cf)
 
 // Description:
 // Overload standard modified time function. If cut functions is modified,
-// then we are modified as well.
+// then this object is modified as well.
 unsigned long vtkCutter::GetMTime()
 {
   unsigned long mTime=this->vtkDataSetFilter::GetMTime();

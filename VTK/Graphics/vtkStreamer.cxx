@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamer.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-12 11:25:48 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1995-12-27 10:53:42 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -182,8 +182,8 @@ float *vtkStreamer::GetStartPosition()
 }
 
 // Description:
-// Override update method because execution can branch two ways (Input 
-// and Source)
+// Override update method because execution can branch two ways (via Input 
+// and Source).
 void vtkStreamer::Update()
 {
   // make sure input is available

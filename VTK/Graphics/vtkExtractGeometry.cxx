@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractGeometry.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-28 12:52:15 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1995-12-27 10:52:57 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,7 +50,7 @@ vtkExtractGeometry::vtkExtractGeometry(vtkImplicitFunction *f)
 
 // Description:
 // Overload standard modified time function. If implicit function is modified,
-// then we are modified as well.
+// then this object is modified as well.
 unsigned long vtkExtractGeometry::GetMTime()
 {
   unsigned long mTime=this->MTime.GetMTime();

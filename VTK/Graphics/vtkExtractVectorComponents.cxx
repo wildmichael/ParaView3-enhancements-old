@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractVectorComponents.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-05 16:04:13 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1995-12-27 10:54:23 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,7 +49,7 @@ vtkExtractVectorComponents::vtkExtractVectorComponents()
 
 // Description:
 // Get the output dataset representing velocity x-component. If output is NULL
-// then input hasn't been set which is necessary for abstract objects.
+// then input hasn't been set, which is necessary for abstract objects.
 vtkDataSet *vtkExtractVectorComponents::GetVxComponent()
 {
   if ( this->VxComponent == NULL )
@@ -61,7 +61,7 @@ vtkDataSet *vtkExtractVectorComponents::GetVxComponent()
 
 // Description:
 // Get the output dataset representing velocity y-component. If output is NULL
-// then input hasn't been set which is necessary for abstract objects.
+// then input hasn't been set, which is necessary for abstract objects.
 vtkDataSet *vtkExtractVectorComponents::GetVyComponent()
 {
   if ( this->VyComponent == NULL )
@@ -73,7 +73,7 @@ vtkDataSet *vtkExtractVectorComponents::GetVyComponent()
 
 // Description:
 // Get the output dataset representing velocity z-component. If output is NULL
-// then input hasn't been set which is necessary for abstract objects.
+// then input hasn't been set, which is necessary for abstract objects.
 vtkDataSet *vtkExtractVectorComponents::GetVzComponent()
 {
   if ( this->VzComponent == NULL )

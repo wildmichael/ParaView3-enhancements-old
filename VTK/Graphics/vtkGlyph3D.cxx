@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-09 16:43:49 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1995-12-27 10:53:03 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -292,8 +292,8 @@ void vtkGlyph3D::Execute()
 }
 
 // Description:
-// Override update method because execution can branch two ways (Input 
-// and Source)
+// Override update method because execution can branch two ways (via Input 
+// and Source).
 void vtkGlyph3D::Update()
 {
   // make sure input is available

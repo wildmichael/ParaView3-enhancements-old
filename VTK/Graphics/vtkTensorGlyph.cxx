@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTensorGlyph.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-25 23:45:23 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1995-12-27 10:53:48 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -292,8 +292,8 @@ void vtkTensorGlyph::Execute()
 }
 
 // Description:
-// Override update method because execution can branch two ways (Input 
-// and Source)
+// Override update method because execution can branch two ways (via Input 
+// and Source objects).
 void vtkTensorGlyph::Update()
 {
   // make sure input is available

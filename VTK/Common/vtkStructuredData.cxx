@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredData.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-12 13:47:56 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1995-12-27 10:53:46 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,7 +70,7 @@ vtkStructuredData::~vtkStructuredData()
 }
 
 // Description:
-// Return the topological dimension of the data (e.g.,0, 1, 2, or 3D).
+// Return the topological dimension of the data (e.g., 0, 1, 2, or 3D).
 int vtkStructuredData::GetDataDimension()
 {
   switch (this->DataDescription)

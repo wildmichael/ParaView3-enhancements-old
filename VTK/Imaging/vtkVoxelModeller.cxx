@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxelModeller.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-09 16:45:12 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1995-12-27 10:54:15 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,9 +45,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 // Description:
 // Construct an instance of vtkVoxelModeller with its sample dimensions
-// set to (50,50,50) and so that the model bounds are
+// set to (50,50,50), and so that the model bounds are
 // automatically computed from its input. The maximum distance is set to 
-// examine the whole grid. This could be made much faster and probably
+// examine the whole grid. This could be made much faster, and probably
 // will be in the future.
 vtkVoxelModeller::vtkVoxelModeller()
 {

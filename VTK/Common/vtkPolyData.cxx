@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-26 17:30:53 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 1995-12-27 10:53:27 $
+  Version:   $Revision: 1.58 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -470,7 +470,7 @@ void vtkPolyData::BuildLinks()
 }
 
 // Description:
-// Copy a cells point ids into list provided. (Less efficient).
+// Copy a cells point ids into list provided. (Less efficient.)
 void vtkPolyData::GetCellPoints(int cellId, vtkIdList& ptIds)
 {
   int i, npts, *pts;
@@ -483,7 +483,7 @@ void vtkPolyData::GetCellPoints(int cellId, vtkIdList& ptIds)
 }
 
 // Description:
-// Return a pointer to a list of point ids defining cell. (More efficient).
+// Return a pointer to a list of point ids defining cell. (More efficient.)
 // Assumes that cells have been built (with BuildCells()).
 void vtkPolyData::GetCellPoints(int cellId, int& npts, int* &pts)
 {
@@ -533,7 +533,7 @@ void vtkPolyData::GetPointCells(int ptId, vtkIdList& cellIds)
 
 // Description:
 // Method allocates initial storage for vertex, line, polygon, and 
-// triangle strips arrays. Use this method before the method 
+// triangle strip arrays. Use this method before the method 
 // PolyData::InsertNextCell(). (Or, provide vertex, line, polygon, and
 // triangle strip cell arrays.)
 void vtkPolyData::Allocate(int numCells, int extSize)

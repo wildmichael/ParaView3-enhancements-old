@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-25 23:45:09 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1995-12-27 10:53:09 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,7 +69,7 @@ vtkMapper::~vtkMapper()
 
 // Description:
 // Overload standard modified time function. If lookup table is modified,
-// then we are modified as well.
+// then this object is modified as well.
 unsigned long vtkMapper::GetMTime()
 {
   unsigned long mTime=this->MTime.GetMTime();
@@ -114,7 +114,8 @@ void vtkMapper::SetStartRender(void (*f)(void *), void *arg)
 }
 
 // Description:
-// Set the arg delete method. This is used to free user memory.
+// Specify a method to delete the user specified argument to the 
+// StartRenderMethod. This is an optional capability.
 void vtkMapper::SetStartRenderArgDelete(void (*f)(void *))
 {
   if ( f != this->StartRenderArgDelete)
@@ -125,7 +126,8 @@ void vtkMapper::SetStartRenderArgDelete(void (*f)(void *))
 }
 
 // Description:
-// Set the arg delete method. This is used to free user memory.
+// Specify a method to delete the user specified argument to the 
+// EndRenderMethod. This is an optional capability.
 void vtkMapper::SetEndRenderArgDelete(void (*f)(void *))
 {
   if ( f != this->EndRenderArgDelete)

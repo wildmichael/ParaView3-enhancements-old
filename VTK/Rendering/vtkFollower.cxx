@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFollower.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-18 08:44:38 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-12-27 10:53:01 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,7 +56,7 @@ vtkFollower::~vtkFollower()
 }
 
 // Description:
-// Copy the Follower's composite 4x4 matrix into the matrix provided.
+// Copy the follower's composite 4x4 matrix into the matrix provided.
 void vtkFollower::GetMatrix(vtkMatrix4x4& result)
 {
   float *pos;
