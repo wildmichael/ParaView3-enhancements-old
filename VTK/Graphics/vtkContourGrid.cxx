@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-10 21:26:57 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-12-11 03:31:14 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -391,4 +391,7 @@ void vtkContourGrid::PrintSelf(ostream& os, vtkIndent indent)
     {
     os << indent << "Locator: (none)\n";
     }
+  os << indent << "InputScalarsSelection: " 
+     << (this->InputScalarsSelection ? this->InputScalarsSelection : "(none)") << "\n";
+  
 }
