@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:51:37 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1997-04-26 15:19:39 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,6 +71,7 @@ class VTK_EXPORT vtkGeometryFilter : public vtkDataSetToPolyFilter
 {
 public:
   vtkGeometryFilter();
+  ~vtkGeometryFilter();
   static vtkGeometryFilter *New() {return new vtkGeometryFilter;};
   char *GetClassName() {return "vtkGeometryFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -113,9 +114,27 @@ public:
   vtkSetClampMacro(CellMaximum,int,0,VTK_LARGE_INTEGER);
   vtkGetMacro(CellMaximum,int);
 
+  // Specify x-y-z box for geometric region clipping
   void SetExtent(float xMin, float xMax, float yMin, float yMax, float zMin, float zMax);
   void SetExtent(float *extent);
   float *GetExtent() { return this->Extent;};
+
+  // Description:
+  // Turn on/off merging of coincident points. Note that is merging is
+  // on, points with different point attributes (e.g., normals) are merged,
+  // which may cause rendering artifacts.
+  vtkSetMacro(Merging,int);
+  vtkGetMacro(Merging,int);
+  vtkBooleanMacro(Merging,int);
+
+  // Specify locator (default locator created otherwise).
+  void SetLocator(vtkPointLocator *locator);
+  void SetLocator(vtkPointLocator& locator) {this->SetLocator(&locator);};
+  vtkGetObjectMacro(Locator,vtkPointLocator);
+
+  // Description:
+  // Create default locator. Used to create one when none is specified.
+  void CreateDefaultLocator();
 
 protected:
   void Execute();
@@ -128,6 +147,9 @@ protected:
   int CellClipping;
   int ExtentClipping;
 
+  int Merging;
+  vtkPointLocator *Locator;
+  int SelfCreatedLocator;
 };
 
 #endif
