@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkImageViewerWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:27 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-11-26 18:02:05 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -50,17 +50,6 @@ struct vtkTkImageViewerWidget
   WNDPROC OldProc;
 #endif
 };
-
-// This widget requires access to structures that are normally 
-// not visible to Tcl/Tk applications. For this reason you must
-// have access to tkInt.h
-// #include "tkInt.h"
-
-#ifdef _WIN32
-extern "C" {
-#include "tkWinInt.h" 
-}
-#endif
 
 #endif
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkRenderWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-09-06 13:25:17 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-11-26 18:02:05 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -58,23 +58,4 @@ struct vtkTkRenderWidget
 #endif
 };
 
-// This widget requires access to structures that are normally 
-// not visible to Tcl/Tk applications. For this reason you must
-// have access to tkInt.h
-// #include "tkInt.h"
-
-#ifdef _WIN32
-extern "C" {
-#include "tkWinInt.h" 
-}
 #endif
-
-#endif
-
-
-
-
-
-
-
-
