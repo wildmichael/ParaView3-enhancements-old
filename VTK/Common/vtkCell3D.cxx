@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-11 01:32:24 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-06-11 12:57:02 $
+  Version:   $Revision: 1.27 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkMarchingCubesCases.h"
 #include "vtkPointData.h"
 
-vtkCxxRevisionMacro(vtkCell3D, "$Revision: 1.26 $");
+vtkCxxRevisionMacro(vtkCell3D, "$Revision: 1.27 $");
 
 vtkCell3D::~vtkCell3D()
 {
@@ -100,7 +100,7 @@ void vtkCell3D::Clip(float value, vtkDataArray *cellScalars,
     s1 = cellScalars->GetComponent(verts[0],0);
     s2 = cellScalars->GetComponent(verts[1],0);
 
-    if ( (s1 < value && s2 >= value) || (s1 >= value && s2 < value) )
+    if ( (s1 <= value && s2 >= value) || (s1 >= value && s2 <= value) )
       {
       deltaScalar = s2 - s1;
 
@@ -144,7 +144,7 @@ void vtkCell3D::Clip(float value, vtkDataArray *cellScalars,
                                this->PointIds->GetId(v2), t);
         }
 
-      //Insert boundary point into Delaunay triangulation
+      //Insert intersection point into Delaunay triangulation
       this->Triangulator->InsertPoint(ptId,x,2);
 
       }//if edge intersects value
