@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericEnSightReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-02-02 16:29:42 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-06-13 20:46:33 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -113,6 +113,11 @@ public:
   int GetVariableType(int n);
   int GetComplexVariableType(int n);
   
+  // Description:
+  // Set/Get the time value at which to get the value.
+  vtkSetMacro(TimeValue, float);
+  vtkGetMacro(TimeValue, float);
+
 protected:
   vtkGenericEnSightReader();
   ~vtkGenericEnSightReader();
@@ -157,6 +162,12 @@ protected:
   void AddVariableType(int variableType);
   void AddComplexVariableType(int variableType);
 
+  // Description:
+  // Replace the wildcards in the geometry file name with appropriate filename
+  // numbers as specified in the time set or file set.
+  void ReplaceWildcards(char* fileName, int timeSet, int fileSet);
+  void ReplaceWildcardsHelper(char* fileName, int num);
+  
   istream* IS;
   FILE *IFile;
   vtkEnSightReader *Reader;
@@ -187,6 +198,8 @@ protected:
   int NumberOfComplexVectorsPerNode;  
   int NumberOfComplexScalarsPerElement;
   int NumberOfComplexVectorsPerElement;
+  
+  float TimeValue;
 };
 
 #endif

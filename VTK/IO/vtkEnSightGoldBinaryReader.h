@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightGoldBinaryReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-29 17:11:50 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-06-13 20:46:33 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -78,49 +78,53 @@ protected:
   
   // Description:
   // Read the geometry file.  If an error occurred, 0 is returned; otherwise 1.
-  virtual int ReadGeometryFile();
+  virtual int ReadGeometryFile(char* fileName, int timeStep);
 
   // Description:
   // Read the measured geometry file.  If an error occurred, 0 is returned;
   // otherwise 1.
-  virtual int ReadMeasuredGeometryFile();
+  virtual int ReadMeasuredGeometryFile(char* fileName, int timeStep);
 
   // Description:
   // Read scalars per node for this dataset.  If an error occurred, 0 is
   // returned; otherwise 1.  If there will be more than one component in
   // the data array, it is assumed that 0 is the first component added.
   virtual int ReadScalarsPerNode(char* fileName, char* description,
-                                 int measured = 0, int numberOfComponents = 1,
+				 int timeStep, int measured = 0,
+				 int numberOfComponents = 1,
                                  int component = 0);
   
   // Description:
   // Read vectors per node for this dataset.  If an error occurred, 0 is
   // returned; otherwise 1.
   virtual int ReadVectorsPerNode(char* fileName, char* description,
-                                 int measured = 0);
+				 int timeStep, int measured = 0);
 
   // Description:
   // Read tensors per node for this dataset.  If an error occurred, 0 is
   // returned; otherwise 1.
-  virtual int ReadTensorsPerNode(char* fileName, char* description);
+  virtual int ReadTensorsPerNode(char* fileName, char* description,
+				 int timeStep);
 
   // Description:
   // Read scalars per element for this dataset.  If an error occurred, 0 is
   // returned; otherwise 1.  If there will be more than one componenet in the
   // data array, it is assumed that 0 is the first component added.
   virtual int ReadScalarsPerElement(char* fileName, char* description,
-				    int numberOfComponents = 1,
+				    int timeStep, int numberOfComponents = 1,
                                     int component = 0);
 
   // Description:
   // Read vectors per element for this dataset.  If an error occurred, 0 is
   // returned; otherwise 1.
-  virtual int ReadVectorsPerElement(char* fileName, char* description);
+  virtual int ReadVectorsPerElement(char* fileName, char* description,
+				    int timeStep);
 
   // Description:
   // Read tensors per element for this dataset.  If an error occurred, 0 is
   // returned; otherwise 1.
-  virtual int ReadTensorsPerElement(char* fileName, char* description);
+  virtual int ReadTensorsPerElement(char* fileName, char* description,
+				    int timeStep);
 
   // Description:
   // Read an unstructured part (partId) from the geometry file and create a
