@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:39:07 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1995-08-13 16:35:52 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -97,6 +97,7 @@ protected:
   Display *DisplayId;
   Window WindowId;
   Widget top;
+  Widget oldTop;
   XtAppContext App;
   int PositionBeforeStereo[2];
 };
