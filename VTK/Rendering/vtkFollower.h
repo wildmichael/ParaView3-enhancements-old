@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFollower.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-05 17:06:33 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2000-12-07 14:52:09 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -82,9 +82,6 @@ class VTK_EXPORT vtkFollower : public vtkActor
   virtual void GetMatrix(vtkMatrix4x4 *m);
   virtual void GetMatrix(double m[16])
     {this->GetMatrix(this->Matrix); vtkMatrix4x4::DeepCopy(m,this->Matrix);};
-//BTX
-  virtual vtkMatrix4x4& GetMatrix() {return *(this->GetMatrixPointer());}
-//ETX
 
   // Description:
   // Set/Get the camera to follow. If this is not set, then the follower
@@ -101,6 +98,12 @@ class VTK_EXPORT vtkFollower : public vtkActor
   // For legacy compatibility. Do not use.
   void GetMatrix(vtkMatrix4x4 &m) 
     {VTK_LEGACY_METHOD(GetMatrix,"3.2"); this->GetMatrix(&m);}
+
+//BTX
+  virtual vtkMatrix4x4& GetMatrix() 
+    {VTK_LEGACY_METHOD(GetMatrix,"3.2"); return *(this->GetMatrixPointer());}
+//ETX
+
 #endif
   
 protected:
