@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutputWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-11 00:39:51 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-11-18 22:20:08 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,6 +46,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 vtkOutputWindow* vtkOutputWindow::Instance = 0;
 
+void vtkOutputWindowDisplayText(const char* message)
+{
+  vtkOutputWindow::GetInstance()->DisplayText(message);
+}
 
 void vtkOutputWindow::PrintSelf(ostream& os, vtkIndent indent)
 {
