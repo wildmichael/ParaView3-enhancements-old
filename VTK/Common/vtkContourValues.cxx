@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourValues.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:39:59 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-07-16 12:48:08 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,11 +42,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkFloatArray.h"
 
 // Description:
-// Construct object with empty aray of contour values.
+// Construct object with a single contour value at 0.0.
 vtkContourValues::vtkContourValues()
 {
   this->Contours = vtkFloatArray::New();
   this->Contours->Allocate(64);
+  this->Contours->InsertValue(0,0.0);
 }
 
 vtkContourValues::~vtkContourValues()
