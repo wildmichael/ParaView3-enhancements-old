@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:43 $
-  Version:   $Revision: 1.76 $
+  Date:      $Date: 1999-07-22 13:27:32 $
+  Version:   $Revision: 1.77 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1612,7 +1612,7 @@ int vtkDataReader::ReadCells(int size, int *data,
     vtkByteSwap::Swap4BERange(tmp,size);
     if (tmp == data)
       {
-      return;
+      return 1;
       }
     // skip cells before the piece
     pTmp = tmp;
