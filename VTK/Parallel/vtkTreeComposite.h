@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTreeComposite.h,v $
   Language:  C++
-  Date:      $Date: 2001-04-27 13:01:27 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-04-27 13:46:51 $
+  Version:   $Revision: 1.7 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -220,7 +220,7 @@ protected:
   // RMI's can occur anyway.
   // This flag stops nested RMIs from occuring.  Some rmis send and receive information.
   // Nesting them can lock up the processes.
-  //int Lock;
+  int Lock;
   
   void SetWindowSize(int x, int y);
   
