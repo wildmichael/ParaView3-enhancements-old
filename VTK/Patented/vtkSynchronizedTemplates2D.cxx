@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-10 21:29:28 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-12-11 12:37:47 $
+  Version:   $Revision: 1.20 $
 
 
 
@@ -535,6 +535,11 @@ void vtkSynchronizedTemplates2D::PrintSelf(ostream& os, vtkIndent indent)
   else
     {
     os << indent << "ComputeScalarsOff\n";  
+    }
+  if (this->InputScalarsSelection)
+    {
+    os << indent << "InputScalarsSelection: " 
+       << this->InputScalarsSelection << endl;
     }
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-10 21:29:28 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2001-12-11 12:37:47 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1032,6 +1032,11 @@ void vtkSynchronizedTemplates3D::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Compute Gradients: " << (this->ComputeGradients ? "On\n" : "Off\n");
   os << indent << "Compute Scalars: " << (this->ComputeScalars ? "On\n" : "Off\n");
   os << indent << "Number Of Threads: " << this->NumberOfThreads << "\n";
+  if (this->InputScalarsSelection)
+    {
+    os << indent << "InputScalarsSelection: " 
+       << this->InputScalarsSelection << endl;
+    }
 }
 
 
