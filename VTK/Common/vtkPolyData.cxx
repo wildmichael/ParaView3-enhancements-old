@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-12 13:47:53 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 1995-09-18 14:35:47 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -145,14 +145,15 @@ vtkCell *vtkPolyData::GetCell(int cellId)
   switch (type)
     {
     case VTK_VERTEX:
-     cell = &vertex;
-     this->Verts->GetCell(loc,numPts,pts);
-     break;
+      cell = &vertex;
+      this->Verts->GetCell(loc,numPts,pts);
+      break;
 
     case VTK_POLY_VERTEX:
-     cell = &pvertex;
-     this->Verts->GetCell(loc,numPts,pts);
-     break;
+      pvertex.PointIds.Reset(); //reset number of cells
+      cell = &pvertex;
+      this->Verts->GetCell(loc,numPts,pts);
+      break;
 
     case VTK_LINE: 
       cell = &line;
@@ -160,6 +161,7 @@ vtkCell *vtkPolyData::GetCell(int cellId)
       break;
 
     case VTK_POLY_LINE:
+      pline.PointIds.Reset(); //reset number of cells
       cell = &pline;
       this->Lines->GetCell(loc,numPts,pts);
       break;
@@ -175,16 +177,23 @@ vtkCell *vtkPolyData::GetCell(int cellId)
       break;
 
     case VTK_POLYGON:
+      poly.PointIds.Reset(); //reset number of cells
       cell = &poly;
       this->Polys->GetCell(loc,numPts,pts);
       break;
 
     case VTK_TRIANGLE_STRIP:
+      strip.PointIds.Reset(); //reset number of cells
       cell = &strip;
       this->Strips->GetCell(loc,numPts,pts);
       break;
     }
-  for (i=0; i<numPts; i++)
+
+  // make sure there's enough storage; insert does an allocate, set doesn't
+  cell->PointIds.InsertId(numPts-1,pts[numPts-1]);
+  cell->Points.InsertPoint(numPts-1,this->Points->GetPoint(pts[numPts-1]));
+  
+  for (i=0; i<numPts-1; i++)
     {
     cell->PointIds.SetId(i,pts[i]);
     cell->Points.SetPoint(i,this->Points->GetPoint(pts[i]));

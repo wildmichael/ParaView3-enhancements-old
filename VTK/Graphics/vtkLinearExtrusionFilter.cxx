@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearExtrusionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-08 12:47:23 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-09-18 14:35:46 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -146,7 +146,11 @@ void vtkLinearExtrusionFilter::Execute()
   mesh.SetLines(inLines);
   mesh.SetPolys(inPolys);
   mesh.SetStrips(inStrips);
-  if ( inPolys || inStrips ) mesh.BuildLinks();
+  if (inPolys->GetNumberOfCells() || inStrips->GetNumberOfCells()) 
+    {
+    mesh.BuildLinks();
+    }
+  
 //
 // Allocate memory for output. We don't copy normals because surface geometry
 // is modified. Copy all points - this is the usual requirement and it makes
