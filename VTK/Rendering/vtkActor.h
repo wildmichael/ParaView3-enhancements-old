@@ -3,8 +3,8 @@
   Program:   OSCAR 
   Module:    $RCSfile: vtkActor.h,v $
   Language:  C++
-  Date:      $Date: 1994-01-17 12:48:28 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-01-18 18:36:07 $
+  Version:   $Revision: 1.4 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -38,7 +38,7 @@ class vlActor : public vlObject
   void SetMapper(vlMapper *m);
   vlMapper *GetMapper();
   vlProperty *Property; 
-  virtual char *GetClassName() {return "vlActor";};
+  char *GetClassName() {return "vlActor";};
 
 protected:
   vlMapper *Mapper;

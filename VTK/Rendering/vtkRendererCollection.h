@@ -3,8 +3,8 @@
   Program:   OSCAR 
   Module:    $RCSfile: vtkRendererCollection.h,v $
   Language:  C++
-  Date:      $Date: 1994-01-17 21:30:54 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-01-18 18:36:10 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -37,7 +37,7 @@ class vlRendererCollection : public vlObject
 
  public:
   void Render();
-  virtual char *GetClassName() {return "vlRendererCollection";};
+  char *GetClassName() {return "vlRendererCollection";};
   vlRendererCollection();
   void AddMember(vlRenderer *);
   int  GetNumberOfMembers();

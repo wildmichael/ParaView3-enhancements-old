@@ -3,8 +3,8 @@
   Program:   OSCAR 
   Module:    $RCSfile: vtkRenderer.h,v $
   Language:  C++
-  Date:      $Date: 1994-01-18 12:03:54 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-01-18 18:36:11 $
+  Version:   $Revision: 1.4 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -34,7 +34,7 @@ public:
 
 public:
   vlRenderer();
-  virtual char *GetClassName() {return "vlRenderer";};
+  char *GetClassName() {return "vlRenderer";};
   void AddLights(vlLight *);
   void AddActors(vlActor *);
   void SetActiveCamera(vlCamera *);

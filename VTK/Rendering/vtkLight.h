@@ -3,8 +3,8 @@
   Program:   OSCAR 
   Module:    $RCSfile: vtkLight.h,v $
   Language:  C++
-  Date:      $Date: 1994-01-17 12:46:18 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-01-18 18:36:08 $
+  Version:   $Revision: 1.4 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -32,7 +32,7 @@ protected:
 
 public:
   vlLight();
-  virtual char *GetClassName() {return "vlLight";};
+  char *GetClassName() {return "vlLight";};
   virtual void Render(vlRenderer *ren,int light_index) = 0;
 
   vlSetVector3Macro(Color,float);
