@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHashMap.h,v $
   Language:  C++
-  Date:      $Date: 2002-07-09 21:28:46 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-07-10 13:19:08 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -136,8 +136,8 @@ protected:
   void RehashItems(vtkIdType newNumberOfBuckets);
 
   // Description:
-  // Hash key...
-  vtkIdType HashKey(const KeyType& key);
+  // Hash a key to give an index in the range [0,nbuckets-1].
+  vtkIdType HashKey(const KeyType& key, vtkIdType nbuckets);
   
   float MaximumLoadFactor;
   vtkIdType NumberOfItems;
