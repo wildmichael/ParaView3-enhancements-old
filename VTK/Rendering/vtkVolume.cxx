@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-11 22:59:18 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2000-04-13 15:29:59 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -181,13 +181,10 @@ float *vtkVolume::GetBounds()
 {
   int i,n;
   float *bounds, bbox[24], *fptr;
-  float *result;
-  vtkMatrix4x4 *matrix = vtkMatrix4x4::New();
   
   // get the bounds of the Mapper if we have one
   if (!this->Mapper)
     {
-    matrix->Delete();
     return this->Bounds;
     }
 
@@ -204,11 +201,8 @@ float *vtkVolume::GetBounds()
   bbox[21] = bounds[0]; bbox[22] = bounds[3]; bbox[23] = bounds[4];
   
   // save the old transform
-  this->GetMatrix(matrix);
   this->Transform->Push();
-  this->Transform->PostMultiply();
-  this->Transform->Identity();
-  this->Transform->Concatenate(matrix);
+  this->Transform->SetMatrix(this->GetMatrixPointer());
 
   // and transform into actors coordinates
   fptr = bbox;
@@ -218,7 +212,6 @@ float *vtkVolume::GetBounds()
     fptr += 3;
     }
   
-  this->Transform->PreMultiply();
   this->Transform->Pop();  
   
   // now calc the new bounds
@@ -239,7 +232,6 @@ float *vtkVolume::GetBounds()
       }
     }
 
-  matrix->Delete();
   return this->Bounds;
 }
 
