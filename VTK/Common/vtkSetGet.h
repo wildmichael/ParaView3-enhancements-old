@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSetGet.h,v $
   Language:  C++
-  Date:      $Date: 2002-02-07 20:47:18 $
-  Version:   $Revision: 1.97 $
+  Date:      $Date: 2002-02-12 13:27:49 $
+  Version:   $Revision: 1.98 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -227,10 +227,15 @@ virtual void Set##name (type* _arg)             \
 // prototype in the header file. The prototype should look like this:
 // virtual void Set"name"("type" *);
 //
+// Please use vtkCxxSetObjectMacro not vtkSetObjectImplementationMacro.
+// The first one is just for people who already used it.
 #define vtkSetObjectImplementationMacro(class,name,type)        \
-void class::Set##name (type* _arg)                              \
-  {                                                             \
-  vtkSetObjectBodyMacro(name,type,_arg);                        \
+  vtkCxxSetObjectMacro(class,name,type)
+
+#define vtkCxxSetObjectMacro(class,name,type)   \
+void class::Set##name (type* _arg)              \
+  {                                             \
+  vtkSetObjectBodyMacro(name,type,_arg);        \
   }
 
 //
