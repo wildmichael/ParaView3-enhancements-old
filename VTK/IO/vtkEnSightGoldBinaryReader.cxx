@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightGoldBinaryReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-16 13:47:45 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-07-17 13:16:13 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1080,14 +1080,11 @@ int vtkEnSightGoldBinaryReader::ReadScalarsPerNode(char* fileName,
       {
       output->GetPointData()->AddArray(scalars);
       }
+    delete [] scalarsRead;
     }
   
   fclose(this->IFile);
   this->IFile = NULL;
-  if (scalarsRead)
-    {
-    delete [] scalarsRead;
-    }
   return 1;
 }
 
