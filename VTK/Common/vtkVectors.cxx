@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkVectors.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-04 12:44:50 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-02-05 13:01:22 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -58,10 +58,14 @@ float vlVectors::GetMaxNorm()
   this->ComputeMaxNorm();
   return this->MaxNorm;
 }
+
 void vlVectors::PrintSelf(ostream& os, vlIndent indent)
 {
-  vlObject::PrintSelf(os,indent);
+  if (this->ShouldIPrint(vlVectors::GetClassName()))
+    {
+    vlObject::PrintSelf(os,indent);
 
-  os << indent << "Number Vectors: " << this->NumVectors() << "\n";
-  os << indent << "Maximum Euclidean Norm: " << this->GetMaxNorm() << "\n";
+    os << indent << "Number Vectors: " << this->NumVectors() << "\n";
+    os << indent << "Maximum Euclidean Norm: " << this->GetMaxNorm() << "\n";
+    }
 }

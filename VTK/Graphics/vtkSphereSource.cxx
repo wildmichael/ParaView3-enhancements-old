@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkSphereSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-04 12:44:57 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-02-05 13:01:27 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -29,4 +29,15 @@ vlSphereSource::vlSphereSource(int res)
 void vlSphereSource::Execute()
 {
 
+}
+
+void vlSphereSource::PrintSelf(ostream& os, vlIndent indent)
+{
+  if (this->ShouldIPrint(vlSphereSource::GetClassName()))
+    {
+    vlPolySource::PrintSelf(os,indent);
+
+    os << indent << "Resolution: " << this->Resolution << "\n";
+    os << indent << "Radius: " << this->Radius << "\n";
+    }
 }

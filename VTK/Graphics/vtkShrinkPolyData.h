@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkShrinkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1994-02-04 12:45:01 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1994-02-05 13:01:27 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -27,6 +27,7 @@ public:
   vlShrinkPolyData() {this->ShrinkFactor = 0.5;};
   ~vlShrinkPolyData() {};
   char *GetClassName() {return "vlShrinkPolyData";};
+  void PrintSelf(ostream& os, vlIndent indent);
 
   vlSetMacro(ShrinkFactor,float);
   vlGetMacro(ShrinkFactor,float);

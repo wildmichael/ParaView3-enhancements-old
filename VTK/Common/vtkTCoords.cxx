@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-04 12:44:54 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-02-05 13:01:25 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -30,8 +30,11 @@ void vlTCoords::GetTCoords(vlIdList& ptId, vlFloatTCoords& ftc)
 
 void vlTCoords::PrintSelf(ostream& os, vlIndent indent)
 {
-  vlObject::PrintSelf(os,indent);
+  if (this->ShouldIPrint(vlTCoords::GetClassName()))
+    {
+    vlObject::PrintSelf(os,indent);
 
-  os << indent << "Number texture coords: " << this->NumTCoords() << "\n";
-  os << indent << "Texture dimension: " << this->Dimension << "\n";
+    os << indent << "Number texture coords: " << this->NumTCoords() << "\n";
+    os << indent << "Texture dimension: " << this->Dimension << "\n";
+    }
 }

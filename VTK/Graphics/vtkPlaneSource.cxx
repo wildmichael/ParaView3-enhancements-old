@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPlaneSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-04 12:47:35 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1994-02-05 13:01:40 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -107,7 +107,10 @@ void vlPlaneSource::Execute()
 
 void vlPlaneSource::PrintSelf(ostream& os, vlIndent indent)
 {
-  vlPolySource::PrintSelf(os,indent);
+  if (this->ShouldIPrint(vlPlaneSource::GetClassName()))
+    {
+    vlPolySource::PrintSelf(os,indent);
 
-  os << indent << "Resolution: (" << this->XRes << " by " << this->YRes << ")\n";
+    os << indent << "Resolution: (" << this->XRes << " by " << this->YRes << ")\n";
+    }
 }

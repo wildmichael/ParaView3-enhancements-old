@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkShrinkFilter.h,v $
   Language:  C++
-  Date:      $Date: 1994-02-04 12:45:04 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1994-02-05 13:01:29 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -22,12 +22,14 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #include "DataSetF.hh"
 #include "PolyData.hh"
 
-class vlShrinkFilter : public vlDataSetFilter, public vlPolyData 
+class vlShrinkFilter : public vlDataSetFilter
 {
 public:
   vlShrinkFilter(const float sf=0.5) {this->ShrinkFactor = sf;};
   ~vlShrinkFilter() {};
   char *GetClassName() {return "vlShrinkFilter";};
+  void PrintSelf(ostream& os, vlIndent indent);
+
 protected:
   void Execute();
   float ShrinkFactor;

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkShrinkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-04 12:45:02 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1994-02-05 13:01:28 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -185,3 +185,13 @@ void vlShrinkPolyData::Execute()
   this->SetPolys(newPolys);
 }
 
+
+void vlShrinkPolyData::PrintSelf(ostream& os, vlIndent indent)
+{
+  if (this->ShouldIPrint(vlShrinkPolyData::GetClassName()))
+    {
+    vlPolyToPolyFilter::PrintSelf(os,indent);
+
+    os << indent << "ShrinkFactor: " << this->ShrinkFactor << "\n";
+    }
+}

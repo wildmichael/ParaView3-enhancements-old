@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkShrinkFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-04 12:45:05 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-02-05 13:01:30 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -31,6 +31,7 @@ void vlShrinkFilter::Execute()
 // Traverse all cells, obtaining node coordinates.  Compute "center" of cell,
 // then create new vertices shrunk towards center.
 //
+/*
   for (i=0; i<this->Input->NumCells(); i++)
     {
     // get the center of the cell
@@ -53,5 +54,15 @@ void vlShrinkFilter::Execute()
         }
       }
     }
+*/
 }
 
+void vlShrinkFilter::PrintSelf(ostream& os, vlIndent indent)
+{
+  if (this->ShouldIPrint(vlShrinkFilter::GetClassName()))
+    {
+    vlDataSetFilter::PrintSelf(os,indent);
+
+    os << indent << "ShrinkFactor: " << this->ShrinkFactor << "\n";
+    }
+}

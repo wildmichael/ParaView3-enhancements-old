@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointData.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-04 12:45:13 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1994-02-05 13:01:33 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -178,45 +178,48 @@ void vlPointData::CopyInitialize(vlPointData* pd, int sze, int ext)
 
 void vlPointData::PrintSelf(ostream& os, vlIndent indent)
 {
-  vlObject::PrintSelf(os,indent);
+  if (this->ShouldIPrint(vlPointData::GetClassName()))
+    {
+    vlObject::PrintSelf(os,indent);
 
-  if ( this->Scalars )
-    {
-    os << indent << "Scalars data:\n";
-    this->Scalars->PrintSelf(os,indent.GetNextIndent());
-    }
-  else
-    {
-    os << indent << "Scalar data: (none)\n";
-    }
+    if ( this->Scalars )
+      {
+      os << indent << "Scalars data:\n";
+      this->Scalars->PrintSelf(os,indent.GetNextIndent());
+      }
+    else
+      {
+      os << indent << "Scalar data: (none)\n";
+      }
 
-  if ( this->Vectors )
-    {
-    os << indent << "Vectors data:\n";
-    this->Vectors->PrintSelf(os,indent.GetNextIndent());
-    }
-  else
-    {
-    os << indent << "Vector data: (none)\n";
-    }
+    if ( this->Vectors )
+      {
+      os << indent << "Vectors data:\n";
+      this->Vectors->PrintSelf(os,indent.GetNextIndent());
+      }
+    else
+      {
+      os << indent << "Vector data: (none)\n";
+      }
 
-  if ( this->Normals )
-    {
-    os << indent << "Normals data:\n";
-    this->Normals->PrintSelf(os,indent.GetNextIndent());
-    }
-  else
-    {
-    os << indent << "Normal data: (none)\n";
-    }
+    if ( this->Normals )
+      {
+      os << indent << "Normals data:\n";
+      this->Normals->PrintSelf(os,indent.GetNextIndent());
+      }
+    else
+      {
+      os << indent << "Normal data: (none)\n";
+      }
 
-  if ( this->TCoords )
-    {
-    os << indent << "Texture data:\n";
-    this->TCoords->PrintSelf(os,indent.GetNextIndent());
-    }
-  else
-    {
-    os << indent << "Texture data: (none)\n";
+    if ( this->TCoords )
+      {
+      os << indent << "Texture data:\n";
+      this->TCoords->PrintSelf(os,indent.GetNextIndent());
+      }
+    else
+      {
+      os << indent << "Texture data: (none)\n";
+      }
     }
 }
