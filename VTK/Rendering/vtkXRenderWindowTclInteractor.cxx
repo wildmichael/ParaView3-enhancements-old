@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowTclInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:18:23 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2001-11-14 21:31:01 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -53,7 +53,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "tk.h"
 #include "vtkActorCollection.h"
 #include "vtkPoints.h"
-#include "vtkCommand.h"
+#include "vtkOldStyleCallbackCommand.h"
 #include "vtkObjectFactory.h"
 
 
@@ -189,12 +189,13 @@ void  vtkXRenderWindowTclInteractor::Start()
     return;
     }
 
-  vtkOldStyleCallbackCommand *cbc = new vtkOldStyleCallbackCommand;
+  vtkOldStyleCallbackCommand *cbc = vtkOldStyleCallbackCommand::New();
   cbc->Callback = vtkBreakTclLoop;
   cbc->ClientData = this;
   this->RemoveObserver(this->ExitTag);
 
   this->ExitTag = this->AddObserver(vtkCommand::ExitEvent,cbc);
+  cbc->Delete();
   this->BreakLoopFlag = 0;
   while(this->BreakLoopFlag == 0)
     {
