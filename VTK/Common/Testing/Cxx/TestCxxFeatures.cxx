@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestCxxFeatures.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-03 21:41:19 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2003-07-04 17:29:32 $
+  Version:   $Revision: 1.28 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -100,6 +100,9 @@
 //----------------------------------------------------------------------------
 
 /* Test use of namespaces.  */
+
+#if !defined(VTK_CXX_SGI_6)
+// Fails on kulu.crd IRIX64-6.5-CC-o32 (old SGI compiler).
 namespace NamespaceTest {}
 namespace {}
 void NamespaceTestFunc() {}
@@ -108,6 +111,7 @@ namespace NamespaceTest
   using ::NamespaceTestFunc;
 }
 using namespace NamespaceTest;
+#endif
 
 //----------------------------------------------------------------------------
 
