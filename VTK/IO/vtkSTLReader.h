@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkSTLReader.h,v $
   Language:  C++
-  Date:      $Date: 1994-02-24 18:15:54 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-03-03 18:24:46 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -37,8 +37,8 @@ public:
 protected:
   char *Filename;
   void Execute();
-  void ReadBinarySTL(FILE *fp, vlFloatPoints*, vlCellArray*);
-  void ReadASCIISTL(FILE *fp, vlFloatPoints*, vlCellArray*);
+  int ReadBinarySTL(FILE *fp, vlFloatPoints*, vlCellArray*);
+  int ReadASCIISTL(FILE *fp, vlFloatPoints*, vlCellArray*);
   int GetSTLFileType(FILE *fp);
 };
 
