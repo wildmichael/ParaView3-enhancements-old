@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightGoldReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-12 11:47:16 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2002-06-14 17:16:52 $
+  Version:   $Revision: 1.28 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 
 #include <ctype.h>
 
-vtkCxxRevisionMacro(vtkEnSightGoldReader, "$Revision: 1.27 $");
+vtkCxxRevisionMacro(vtkEnSightGoldReader, "$Revision: 1.28 $");
 vtkStandardNewMacro(vtkEnSightGoldReader);
 
 //----------------------------------------------------------------------------
@@ -1785,12 +1785,21 @@ int vtkEnSightGoldReader::CreateImageDataOutput(int partId, char line[256])
   ((vtkImageData*)this->GetOutput(partId))->SetDimensions(dimensions);
   ((vtkImageData*)this->GetOutput(partId))->
     SetWholeExtent(0, dimensions[0]-1, 0, dimensions[1]-1, 0, dimensions[2]-1);
-  this->ReadNextDataLine(line);
-  sscanf(line, " %f %f %f", &origin[0], &origin[1], &origin[2]);
+  
+  for (i = 0; i < 3; i++)
+    {
+    this->ReadNextDataLine(line);
+    sscanf(line, " %f", &origin[i]);
+    }
   ((vtkImageData*)this->GetOutput(partId))->SetOrigin(origin[0], origin[1],
                                                       origin[2]);
-  this->ReadNextDataLine(line);
-  sscanf(line, " %f %f %f", &delta[0], &delta[1], &delta[2]);
+  
+  for (i = 0; i < 3; i++)
+    {
+    this->ReadNextDataLine(line);
+    sscanf(line, " %f", &delta[i]);
+    }
+  
   ((vtkImageData*)this->GetOutput(partId))->SetSpacing(delta[0], delta[1],
                                                        delta[2]);
   
