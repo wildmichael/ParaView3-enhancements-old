@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJPEGReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:18:50 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2003-01-30 14:59:01 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@ extern "C" {
 }
 
 
-vtkCxxRevisionMacro(vtkJPEGReader, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkJPEGReader, "$Revision: 1.16 $");
 vtkStandardNewMacro(vtkJPEGReader);
 
 
@@ -339,7 +339,7 @@ int vtkJPEGReader::CanReadFile(const char* fname)
   // if no errors have occurred yet, then it must be jpeg
   jpeg_destroy_decompress(&cinfo);
   fclose(fp);
-  return 1;
+  return 3;
 }
 #ifdef _MSC_VER
 // Put the warning back
