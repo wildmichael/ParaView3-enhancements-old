@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkExtractGrid.h,v $
   Language:  C++
-  Date:      $Date: 1996-06-08 13:11:51 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1996-07-03 18:57:10 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -86,7 +86,7 @@ public:
   // For example, if the SampleRate=(2,2,2), every other point will be selected,
   // resulting in a volume 1/8th the original size.
   vtkSetVector3Macro(SampleRate, int);
-  vtkGetVector3Macro(SampleRate, int);
+  vtkGetVectorMacro(SampleRate, int, 3);
 
 protected:
   void Execute();
