@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.h,v $
   Language:  C++
-  Date:      $Date: 2003-06-30 15:02:08 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 2003-07-01 11:20:39 $
+  Version:   $Revision: 1.60 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,8 +24,8 @@
 //
 // In VTK, cutting means reducing a cell of dimension N to a cut surface
 // of dimension N-1. For example, a tetrahedron when cut by a plane (i.e.,
-// vtkPlane implicit function) will generate triangles. (Clipping takes
-// a N dimensional cell and creates N dimension primitives.)
+// vtkPlane implicit function) will generate triangles. (In comparison,
+// clipping takes a N dimensional cell and creates N dimension primitives.)
 //
 // vtkCutter is generally used to "slice-through" a dataset, generating
 // a surface that can be visualized. It is also possible to use vtkCutter
