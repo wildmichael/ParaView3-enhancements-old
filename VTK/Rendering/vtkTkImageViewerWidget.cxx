@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkImageViewerWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-07 17:03:31 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2001-10-08 14:12:56 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -232,7 +232,7 @@ int vtkTkImageViewerWidget_Cmd(ClientData clientData,
   
   // Create vtkTkImageViewerWidget data structure 
   self = (struct vtkTkImageViewerWidget *)
-    malloc(sizeof(struct vtkTkImageViewerWidget));
+    ckalloc(sizeof(struct vtkTkImageViewerWidget));
   self->TkWin = tkwin;
   self->Interp = interp;
   self->Width = 0;
@@ -300,7 +300,7 @@ static void vtkTkImageViewerWidget_Destroy(char *memPtr)
     self->ImageViewer->UnRegister(NULL);
     self->ImageViewer = NULL;
     ckfree (self->IV);
-    }
+  }
   ckfree((char *) memPtr);
 }
 
