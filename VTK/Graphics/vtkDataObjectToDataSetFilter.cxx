@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObjectToDataSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-26 19:26:19 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-12-29 14:53:33 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -129,10 +129,12 @@ vtkDataObjectToDataSetFilter::~vtkDataObjectToDataSetFilter()
   this->Output = NULL;
   
   for (i=0; i<3; i++) 
+    {
     if ( this->PointArrays[i] != NULL )
       {
       delete [] this->PointArrays[i];
       }
+    }
   if ( this->VertsArray != NULL )
     {
     delete [] this->VertsArray;

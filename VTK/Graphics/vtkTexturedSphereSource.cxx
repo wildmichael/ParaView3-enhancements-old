@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexturedSphereSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:31 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1998-12-29 14:53:36 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -104,7 +104,10 @@ void vtkTexturedSphereSource::Execute()
       x[2] = this->Radius * cos((double)phi);
       newPoints->InsertNextPoint(x);
 
-      if ( (norm = vtkMath::Norm(x)) == 0.0 ) norm = 1.0;
+      if ( (norm = vtkMath::Norm(x)) == 0.0 )
+	{
+	norm = 1.0;
+	}
       x[0] /= norm; x[1] /= norm; x[2] /= norm; 
       newNormals->InsertNextNormal(x);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObjectWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-02 21:29:26 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-12-29 14:53:33 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -73,7 +73,9 @@ void vtkDataObjectWriter::WriteData()
   vtkDebugMacro(<<"Writing vtk FieldData data...");
 
   if ( !(fp=this->Writer->OpenVTKFile()) || !this->Writer->WriteHeader(fp) )
-      return;
+    {
+    return;
+    }
   //
   // Write FieldData data specific stuff
   //
@@ -90,19 +92,31 @@ void vtkDataObjectWriter::PrintSelf(ostream& os, vtkIndent indent)
      << (this->Writer->GetFileName() ? this->Writer->GetFileName() : "(none)") << "\n";
 
   if ( this->Writer->GetFileType() == VTK_BINARY )
+    {
     os << indent << "File Type: BINARY\n";
+    }
   else
+    {
     os << indent << "File Type: ASCII\n";
+    }
 
   if ( this->Writer->GetHeader() )
+    {
     os << indent << "Header: " << this->Writer->GetHeader() << "\n";
+    }
   else
+    {
     os << indent << "Header: (None)\n";
+    }
 
   if ( this->Writer->GetFieldDataName() )
+    {
     os << indent << "Field Data Name: " << this->Writer->GetFieldDataName() << "\n";
+    }
   else
+    {
     os << indent << "Field Data Name: (None)\n";
+    }
 
 }
 

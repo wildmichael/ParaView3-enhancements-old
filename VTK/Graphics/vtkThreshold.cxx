@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreshold.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:25:28 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1998-12-29 14:53:36 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -122,13 +122,22 @@ void vtkThreshold::Execute()
 
   pointMap = vtkIdList::New(); //maps old point ids into new
   pointMap->SetNumberOfIds(numPts);
-  for (i=0; i < numPts; i++) pointMap->SetId(i,-1);
+  for (i=0; i < numPts; i++)
+    {
+    pointMap->SetId(i,-1);
+    }
 
   // Determine which scalar data to use for thresholding
   if ( this->AttributeMode == VTK_ATTRIBUTE_MODE_DEFAULT )
     {
-    if ( pointScalars != NULL) usePointScalars = 1;
-    else usePointScalars = 0;
+    if ( pointScalars != NULL)
+      {
+      usePointScalars = 1;
+      }
+    else
+      {
+      usePointScalars = 0;
+      }
     }
   else if ( this->AttributeMode == VTK_ATTRIBUTE_MODE_USE_POINT_DATA )
     {
@@ -243,13 +252,19 @@ void vtkThreshold::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Attribute Mode: " << this->GetAttributeModeAsString() << endl;
   os << indent << "All Scalars: " << this->AllScalars << "\n";;
   if ( this->ThresholdFunction == &vtkThreshold::Upper )
+    {
     os << indent << "Threshold By Upper\n";
+    }
 
   else if ( this->ThresholdFunction == &vtkThreshold::Lower )
+    {
     os << indent << "Threshold By Lower\n";
+    }
 
   else if ( this->ThresholdFunction == &vtkThreshold::Between )
+    {
     os << indent << "Threshold Between\n";
+    }
 
   os << indent << "Lower Threshold: " << this->LowerThreshold << "\n";;
   os << indent << "Upper Threshold: " << this->UpperThreshold << "\n";;

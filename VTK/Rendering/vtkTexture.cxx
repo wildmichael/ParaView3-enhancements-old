@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-15 13:45:26 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1998-12-29 14:53:34 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -93,16 +93,28 @@ vtkTexture *vtkTexture::New()
   char *temp = vtkRenderWindow::GetRenderLibrary();
   
 #ifdef VTK_USE_SBR
-  if (!strcmp("Starbase",temp)) return vtkStarbaseTexture::New();
+  if (!strcmp("Starbase",temp))
+    {
+    return vtkStarbaseTexture::New();
+    }
 #endif
 #ifdef VTK_USE_OGLR
-  if (!strcmp("OpenGL",temp)) return vtkOpenGLTexture::New();
+  if (!strcmp("OpenGL",temp))
+    {
+    return vtkOpenGLTexture::New();
+    }
 #endif
 #ifdef _WIN32
-  if (!strcmp("Win32OpenGL",temp)) return vtkOpenGLTexture::New();
+  if (!strcmp("Win32OpenGL",temp))
+    {
+    return vtkOpenGLTexture::New();
+    }
 #endif
 #ifdef VTK_USE_XGLR
-  if (!strcmp("XGL",temp)) return vtkXGLTexture::New();
+  if (!strcmp("XGL",temp))
+    {
+    return vtkXGLTexture::New();
+    }
 #endif
   
   return new vtkTexture;

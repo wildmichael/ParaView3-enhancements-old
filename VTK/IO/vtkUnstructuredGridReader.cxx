@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:45:14 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 1998-12-29 14:53:38 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -163,11 +163,19 @@ void vtkUnstructuredGridReader::Execute()
   
 
   vtkDebugMacro(<<"Reading vtk unstructured grid...");
-  if ( this->Debug ) this->Reader->DebugOn();
-  else this->Reader->DebugOff();
+  if ( this->Debug )
+    {
+    this->Reader->DebugOn();
+    }
+  else
+    {
+    this->Reader->DebugOff();
+    }
 
   if (!this->Reader->OpenVTKFile() || !this->Reader->ReadHeader())
-      return;
+    {
+    return;
+    }
 //
 // Read unstructured grid specific stuff
 //
@@ -201,7 +209,10 @@ void vtkUnstructuredGridReader::Execute()
 //
     while (1)
       {
-      if (!this->Reader->ReadString(line)) break;
+      if (!this->Reader->ReadString(line))
+	{
+	break;
+	}
 
       if ( ! strncmp(this->Reader->LowerCase(line),"points",6) )
         {
@@ -234,7 +245,10 @@ void vtkUnstructuredGridReader::Execute()
           this->Reader->CloseVTKFile ();
           return;
           }
-        if (cells && types) output->SetCells(types, cells);
+        if (cells && types)
+	  {
+	  output->SetCells(types, cells);
+	  }
         }
 
       else if (!strncmp(line,"cell_types",10))
@@ -272,7 +286,10 @@ void vtkUnstructuredGridReader::Execute()
               }
             }
           }
-        if ( cells && types ) output->SetCells(types, cells);
+        if ( cells && types )
+	  {
+	  output->SetCells(types, cells);
+	  }
         }
 
       else if ( ! strncmp(line, "cell_data", 9) )
@@ -346,7 +363,10 @@ void vtkUnstructuredGridReader::Execute()
 //
 // Clean-up and get out
 //
-  if (types) delete [] types;
+  if (types)
+    {
+    delete [] types;
+    }
   if (cells)
     {
     cells->Delete();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:45:15 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1998-12-29 14:53:39 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,7 +63,9 @@ void vtkUnstructuredGridWriter::WriteData()
   vtkDebugMacro(<<"Writing vtk unstructured grid data...");
 
   if ( !(fp=this->OpenVTKFile()) || !this->WriteHeader(fp) )
-      return;
+    {
+    return;
+    }
 //
 // Write unstructured grid specific stuff
 //

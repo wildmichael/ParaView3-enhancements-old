@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangularTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:32 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-12-29 14:53:37 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -77,13 +77,25 @@ static void OpaqueAtElementCentroid (int XSize, int YSize, float ScaleFactor,
       point[1] = j / YScale;
       dist = vtkMath::Distance2BetweenPoints (point, v1);
       distToV2 = vtkMath::Distance2BetweenPoints (point, v2);
-      if (distToV2 < dist) dist = distToV2;
+      if (distToV2 < dist)
+	{
+	dist = distToV2;
+	}
       distToV3 = vtkMath::Distance2BetweenPoints (point, v3);
-      if (distToV3 < dist) dist = distToV3;
+      if (distToV3 < dist)
+	{
+	dist = distToV3;
+	}
 
       opacity = sqrt(dist) * ScaleFactor;
-      if (opacity < .5) opacity = 0.0;
-      if (opacity > .5) opacity = 1.0;
+      if (opacity < .5)
+	{
+	opacity = 0.0;
+	}
+      if (opacity > .5)
+	{
+	opacity = 1.0;
+	}
       AGrayValue[1] = (unsigned char) (opacity * 255);
       newScalars->InsertNextValue (AGrayValue[0]);
       newScalars->InsertNextValue (AGrayValue[1]);
@@ -116,13 +128,25 @@ static void OpaqueAtVertices (int XSize, int YSize, float ScaleFactor,
       point[1] = j / YScale;
       dist = vtkMath::Distance2BetweenPoints (point, v1);
       distToV2 = vtkMath::Distance2BetweenPoints (point, v2);
-      if (distToV2 < dist) dist = distToV2;
+      if (distToV2 < dist)
+	{
+	dist = distToV2;
+	}
       distToV3 = vtkMath::Distance2BetweenPoints (point, v3);
-      if (distToV3 < dist) dist = distToV3;
+      if (distToV3 < dist)
+	{
+	dist = distToV3;
+	}
 
       opacity = sqrt(dist) * ScaleFactor;
-      if (opacity < .5) opacity = 0.0;
-      if (opacity > .5) opacity = 1.0;
+      if (opacity < .5)
+	{
+	opacity = 0.0;
+	}
+      if (opacity > .5)
+	{
+	opacity = 1.0;
+	}
       opacity = 1.0 - opacity;
       AGrayValue[1] = (unsigned char) (opacity * 255);
       newScalars->InsertNextValue (AGrayValue[0]);
