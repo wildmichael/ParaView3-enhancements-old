@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-05-03 16:14:27 $
-  Version:   $Revision: 1.84 $
+  Date:      $Date: 2000-05-04 13:51:02 $
+  Version:   $Revision: 1.85 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -98,6 +98,7 @@ vtkCamera::~vtkCamera()
 {
   this->Transform->Delete();
   this->ViewTransform->Delete();
+  this->PerspectiveTransform->Delete();
 }
 
 //----------------------------------------------------------------------------
@@ -761,7 +762,9 @@ double *vtkCamera::GetViewPlaneNormal()
 }  
 
 //----------------------------------------------------------------------------
-void vtkCamera::SetViewPlaneNormal(double x, double y, double z)
+void vtkCamera::SetViewPlaneNormal(double vtkNotUsed(x), 
+                                   double vtkNotUsed(y),
+                                   double vtkNotUsed(z))
 {
   vtkWarningMacro(<< "SetViewPlaneNormal:  This method is deprecated, the direction of projection is set up automatically.");
 }
