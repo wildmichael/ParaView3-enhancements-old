@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkRenderWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-17 23:18:02 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1999-03-25 21:49:31 $
+  Version:   $Revision: 1.34 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -360,7 +360,7 @@ static void vtkTkRenderWidget_EventProc(ClientData clientData,
 //----------------------------------------------------------------------------
 // vtkTkRenderWidget_Init
 // Called upon system startup to create vtkTkRenderWidget command.
-extern "C" {int Vtktkrenderwidget_Init(Tcl_Interp *interp);}
+extern "C" {VTK_EXPORT int Vtktkrenderwidget_Init(Tcl_Interp *interp);}
 int Vtktkrenderwidget_Init(Tcl_Interp *interp)
 {
   if (Tcl_PkgProvide(interp, "Vtktkrenderwidget", "1.2") != TCL_OK) 
@@ -513,8 +513,10 @@ static int vtkTkRenderWidget_MakeRenderWindow(struct vtkTkRenderWidget *self)
     self->RenderWindow->Register(NULL);
     self->RenderWindow->Delete();
     renderWindow = (vtkWin32OpenGLRenderWindow *)(self->RenderWindow);
+#ifndef VTK_PYTHON_BUILD
     vtkTclGetObjectFromPointer(self->Interp, self->RenderWindow,
 			       vtkRenderWindowCommand);
+#endif
     self->RW = strdup(self->Interp->result);
     self->Interp->result[0] = '\0';
     }
@@ -530,9 +532,11 @@ static int vtkTkRenderWidget_MakeRenderWindow(struct vtkTkRenderWidget *self)
       }
     else
       {
+#ifndef VTK_PYTHON_BUILD
       renderWindow = (vtkWin32OpenGLRenderWindow *)
 	vtkTclGetPointerFromObject(self->RW, "vtkRenderWindow", self->Interp,
 				   new_flag);
+#endif
       }
     if (renderWindow != self->RenderWindow)
       {
@@ -682,17 +686,21 @@ vtkTkRenderWidget_MakeRenderWindow(struct vtkTkRenderWidget *self)
     self->RenderWindow->Register(NULL);
     self->RenderWindow->Delete();
     renderWindow = (vtkXRenderWindow *)(self->RenderWindow);
+#ifndef VTK_PYTHON_BUILD
     vtkTclGetObjectFromPointer(self->Interp, self->RenderWindow,
 			       vtkRenderWindowCommand);
+#endif
     self->RW = strdup(self->Interp->result);
     self->Interp->result[0] = '\0';
     }
   else
     {
+#ifndef VTK_PYTHON_BUILD
     renderWindow = (vtkXRenderWindow *)
       vtkTclGetPointerFromObject(self->RW,"vtkRenderWindow",self->Interp, 
 				 new_flag);
-    if (renderWindow != self->RenderWindow)
+#endif
+  if (renderWindow != self->RenderWindow)
       {
       if (self->RenderWindow != NULL) {self->RenderWindow->UnRegister(NULL);}
       self->RenderWindow = (vtkRenderWindow *)(renderWindow);
@@ -819,3 +827,4 @@ vtkTkRenderWidget_MakeRenderWindow(struct vtkTkRenderWidget *self)
   return TCL_OK;
 }
 #endif
+
