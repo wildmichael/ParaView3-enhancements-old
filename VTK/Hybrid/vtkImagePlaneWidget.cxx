@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-25 19:14:19 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-04-26 12:06:37 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -38,7 +38,7 @@
 
 #define ABS(x) ((x)<0 ? -(x) : (x))
 
-vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.11 $");
 vtkStandardNewMacro(vtkImagePlaneWidget);
 
 vtkImagePlaneWidget::vtkImagePlaneWidget()
@@ -790,7 +790,7 @@ void vtkImagePlaneWidget::SetPlaneOrientation(int i)
 
 void vtkImagePlaneWidget::GenerateTexturePlane()
 {
-  this->ImageData = dynamic_cast<vtkImageData *>(this->Input);
+  this->ImageData = (vtkImageData *) this->GetInput();
   if( ! this->ImageData )
     {
     vtkGenericWarningMacro(<<"Must call SetInput() with vtkImageData*!");
