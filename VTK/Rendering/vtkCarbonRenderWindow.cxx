@@ -3,8 +3,8 @@
 Program:   Visualization Toolkit
 Module:    $RCSfile: vtkCarbonRenderWindow.cxx,v $
 Language:  C++
-Date:      $Date: 2003-01-20 15:16:19 $
-Version:   $Revision: 1.17 $
+Date:      $Date: 2003-02-06 20:44:02 $
+Version:   $Revision: 1.18 $
 Thanks:    to Yves Starreveld for developing this class
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
@@ -32,7 +32,7 @@ Thanks:    to Yves Starreveld for developing this class
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkCarbonRenderWindow, "$Revision: 1.17 $");
+vtkCxxRevisionMacro(vtkCarbonRenderWindow, "$Revision: 1.18 $");
 vtkStandardNewMacro(vtkCarbonRenderWindow);
 
 
@@ -789,15 +789,7 @@ void vtkCarbonRenderWindow::Initialize (void)
     return;
     }
 
-  // now initialize the window
-  if (this->OffScreenRendering) // always fails since OffScreen not done yet
-    {
-    this->InitializeApplication();
-    }
-  else
-    {
-    this->WindowInitialize();
-    }
+  this->WindowInitialize();
 }
 
 //--------------------------------------------------------------------------
