@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageExtractComponents.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:34 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-07-30 18:37:44 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -126,6 +126,11 @@ void vtkImageExtractComponents::SetComponents(int c1)
 void vtkImageExtractComponents::ExecuteInformation()
 {
   this->GetOutput()->SetNumberOfScalarComponents(this->NumberOfComponents);
+
+  this->GetOutput()->SetOrigin(this->GetInput()->GetOrigin());
+  this->GetOutput()->SetSpacing(this->GetInput()->GetSpacing());
+  this->GetOutput()->SetWholeExtent(this->GetInput()->GetWholeExtent());
+  this->GetOutput()->SetScalarType(this->GetInput()->GetScalarType());
 }
 
 //----------------------------------------------------------------------------

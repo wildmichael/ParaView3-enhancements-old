@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageLuminance.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:42 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-07-30 18:37:46 $
+  Version:   $Revision: 1.8 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -47,6 +47,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 void vtkImageLuminance::ExecuteInformation()
 {
   this->GetOutput()->SetNumberOfScalarComponents(1);
+
+  this->GetOutput()->SetOrigin(this->GetInput()->GetOrigin());
+  this->GetOutput()->SetSpacing(this->GetInput()->GetSpacing());
+  this->GetOutput()->SetWholeExtent(this->GetInput()->GetWholeExtent());
+  this->GetOutput()->SetScalarType(this->GetInput()->GetScalarType());
 }
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageShrink3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:52 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1999-07-30 18:37:49 $
+  Version:   $Revision: 1.34 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -117,6 +117,12 @@ void vtkImageShrink3D::ExecuteInformation()
 
   this->GetOutput()->SetWholeExtent(wholeExtent);
   this->GetOutput()->SetSpacing(spacing);
+
+  // Set default values
+  this->GetOutput()->SetOrigin(this->GetInput()->GetOrigin());
+  this->GetOutput()->SetScalarType(this->GetInput()->GetScalarType());
+  this->GetOutput()->SetNumberOfScalarComponents(
+                            this->GetInput()->GetNumberOfScalarComponents());
 }
 
 

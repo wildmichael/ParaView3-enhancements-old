@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageNonMaximumSuppression.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:47 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1999-07-30 18:37:47 $
+  Version:   $Revision: 1.27 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,10 +71,15 @@ void vtkImageNonMaximumSuppression::ExecuteInformation()
       }
     }
 
-  this->GetOutput()->SetNumberOfScalarComponents
-    (this->GetInput(0)->GetNumberOfScalarComponents());
   
   this->GetOutput()->SetWholeExtent(extent);
+
+  // Set default values
+  this->GetOutput()->SetOrigin(this->GetInput()->GetOrigin());
+  this->GetOutput()->SetSpacing(this->GetInput()->GetSpacing());
+  this->GetOutput()->SetScalarType(this->GetInput()->GetScalarType());
+  this->GetOutput()->SetNumberOfScalarComponents(
+                    this->GetInput(0)->GetNumberOfScalarComponents());
 }
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFlip.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:36 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-07-30 18:37:45 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,6 +64,12 @@ void vtkImageFlip::ExecuteInformation()
     extent[axis*2+1] = -temp;
     this->GetOutput()->SetWholeExtent(extent);
     }
+
+  this->GetOutput()->SetOrigin(this->GetInput()->GetOrigin());
+  this->GetOutput()->SetSpacing(this->GetInput()->GetSpacing());
+  this->GetOutput()->SetScalarType(this->GetInput()->GetScalarType());
+  this->GetOutput()->SetNumberOfScalarComponents(
+                            this->GetInput()->GetNumberOfScalarComponents());
 }
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMathematics.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:45 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1999-07-30 18:37:47 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -81,6 +81,13 @@ void vtkImageMathematics::ExecuteInformation()
     }
   
   this->GetOutput()->SetWholeExtent(ext);
+
+  // Set default values
+  this->GetOutput()->SetOrigin(this->GetInput()->GetOrigin());
+  this->GetOutput()->SetSpacing(this->GetInput()->GetSpacing());
+  this->GetOutput()->SetScalarType(this->GetInput()->GetScalarType());
+  this->GetOutput()->SetNumberOfScalarComponents(
+                            this->GetInput()->GetNumberOfScalarComponents());
 }
 
 

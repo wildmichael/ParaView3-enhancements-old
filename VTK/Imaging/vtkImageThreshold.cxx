@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageThreshold.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:55 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1999-07-30 18:37:50 $
+  Version:   $Revision: 1.23 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -126,6 +126,16 @@ void vtkImageThreshold::ExecuteInformation()
     {
     this->GetOutput()->SetScalarType(this->OutputScalarType);
     }
+  else
+    {
+    this->GetOutput()->SetScalarType(this->GetInput()->GetScalarType());
+    }
+  // Set default values
+  this->GetOutput()->SetOrigin(this->GetInput()->GetOrigin());
+  this->GetOutput()->SetSpacing(this->GetInput()->GetSpacing());
+  this->GetOutput()->SetWholeExtent(this->GetInput()->GetWholeExtent());
+  this->GetOutput()->SetNumberOfScalarComponents(
+                            this->GetInput()->GetNumberOfScalarComponents());
 }
 
 

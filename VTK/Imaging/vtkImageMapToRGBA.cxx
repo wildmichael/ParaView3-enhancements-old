@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapToRGBA.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:44 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-07-30 18:37:47 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,6 +67,10 @@ void vtkImageMapToRGBA::ExecuteInformation()
     }
   this->GetOutput()->SetScalarType(VTK_UNSIGNED_CHAR);
   this->GetOutput()->SetNumberOfScalarComponents(4);
+
+  this->GetOutput()->SetOrigin(this->GetInput()->GetOrigin());
+  this->GetOutput()->SetSpacing(this->GetInput()->GetSpacing());
+  this->GetOutput()->SetWholeExtent(this->GetInput()->GetWholeExtent());
 }
 
 //----------------------------------------------------------------------------

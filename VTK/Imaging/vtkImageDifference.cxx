@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDifference.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:31 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-07-30 18:37:44 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -360,6 +360,13 @@ void vtkImageDifference::ExecuteInformation()
     vtkErrorMacro("ExecuteInformation: Input are not the same size.");
     return;
     }
+
+  this->GetOutput()->SetOrigin(this->GetInput()->GetOrigin());
+  this->GetOutput()->SetSpacing(this->GetInput()->GetSpacing());
+  this->GetOutput()->SetWholeExtent(this->GetInput()->GetWholeExtent());
+  this->GetOutput()->SetScalarType(this->GetInput()->GetScalarType());
+  this->GetOutput()->SetNumberOfScalarComponents(
+                            this->GetInput()->GetNumberOfScalarComponents());
 }
 
 float vtkImageDifference::GetError()

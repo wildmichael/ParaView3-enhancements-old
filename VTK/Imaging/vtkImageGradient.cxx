@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGradient.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:37 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1999-07-30 18:37:45 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -81,6 +81,10 @@ void vtkImageGradient::ExecuteInformation()
 
   this->GetOutput()->SetWholeExtent(extent);
   this->GetOutput()->SetNumberOfScalarComponents(this->Dimensionality);
+
+  this->GetOutput()->SetOrigin(this->GetInput()->GetOrigin());
+  this->GetOutput()->SetSpacing(this->GetInput()->GetSpacing());
+  this->GetOutput()->SetScalarType(this->GetInput()->GetScalarType());
 }
 
 

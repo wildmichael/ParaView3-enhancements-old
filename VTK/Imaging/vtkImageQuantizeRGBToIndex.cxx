@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageQuantizeRGBToIndex.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-26 17:18:46 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-07-30 18:37:48 $
+  Version:   $Revision: 1.7 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -654,6 +654,11 @@ void vtkImageQuantizeRGBToIndex::ExecuteInformation()
 {
   this->GetOutput()->SetNumberOfScalarComponents(1);
   this->GetOutput()->SetScalarType(VTK_UNSIGNED_SHORT);
+
+  // Set default values
+  this->GetOutput()->SetOrigin(this->GetInput()->GetOrigin());
+  this->GetOutput()->SetSpacing(this->GetInput()->GetSpacing());
+  this->GetOutput()->SetWholeExtent(this->GetInput()->GetWholeExtent());
 }
 
 // Get ALL of the input.

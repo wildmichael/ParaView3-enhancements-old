@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageRFFT.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:49 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-07-30 18:37:48 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,6 +50,11 @@ void vtkImageRFFT::ExecuteInformation(vtkImageData *inData,
 {
   outData->SetNumberOfScalarComponents(2);
   outData->SetScalarType(VTK_FLOAT);
+
+  // Set default values
+  this->GetOutput()->SetOrigin(this->GetInput()->GetOrigin());
+  this->GetOutput()->SetSpacing(this->GetInput()->GetSpacing());
+  this->GetOutput()->SetWholeExtent(this->GetInput()->GetWholeExtent());
 }
 
 //----------------------------------------------------------------------------

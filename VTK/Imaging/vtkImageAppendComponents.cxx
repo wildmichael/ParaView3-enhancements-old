@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAppendComponents.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:27 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-07-30 18:37:43 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,6 +58,10 @@ void vtkImageAppendComponents::ExecuteInformation()
       }
     }
   this->GetOutput()->SetNumberOfScalarComponents(num);
+  this->GetOutput()->SetOrigin(this->GetInput()->GetOrigin());
+  this->GetOutput()->SetSpacing(this->GetInput()->GetSpacing());
+  this->GetOutput()->SetScalarType(this->GetInput()->GetScalarType());
+  this->GetOutput()->SetWholeExtent(this->GetInput()->GetWholeExtent());
 }
 
 

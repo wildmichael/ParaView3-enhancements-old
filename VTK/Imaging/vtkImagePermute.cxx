@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePermute.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:48 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-07-30 18:37:48 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -76,6 +76,11 @@ void vtkImagePermute::ExecuteInformation()
   this->GetOutput()->SetWholeExtent(ext);
   this->GetOutput()->SetSpacing(spacing);
   this->GetOutput()->SetOrigin(origin);
+
+  // Set default values
+  this->GetOutput()->SetScalarType(this->GetInput()->GetScalarType());
+  this->GetOutput()->SetNumberOfScalarComponents(
+                            this->GetInput()->GetNumberOfScalarComponents());
 }
 
 

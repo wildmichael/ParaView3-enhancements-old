@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDotProduct.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:33 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-07-30 18:37:44 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,6 +47,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 void vtkImageDotProduct::ExecuteInformation()
 {
   this->GetOutput()->SetNumberOfScalarComponents(1);
+
+  this->GetOutput()->SetOrigin(this->GetInput()->GetOrigin());
+  this->GetOutput()->SetSpacing(this->GetInput()->GetSpacing());
+  this->GetOutput()->SetWholeExtent(this->GetInput()->GetWholeExtent());
+  this->GetOutput()->SetScalarType(this->GetInput()->GetScalarType());
 }
 
 
