@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSocketCommunicator.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-19 22:13:15 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-06-19 22:43:11 $
+  Version:   $Revision: 1.6 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -112,9 +112,12 @@ public:
   int Receive(vtkDataObject *data, int remoteId, int tag)
     {return this->vtkCommunicator::Receive(data, remoteId, tag);}
 
-  static int MAX_MSG_SIZE;
-
+  vtkSetMacro(MaximumMessageSize, int);
+  vtkGetMacro(MaximumMessageSize, int);
+  
 protected:
+
+  int MaximumMessageSize;
 
   int Socket;
   int IsConnected;
@@ -126,7 +129,7 @@ protected:
   vtkSocketCommunicator(const vtkSocketCommunicator&) {};
   void operator=(const vtkSocketCommunicator&) {};
 
-  int ReceiveMessage(char *data, int size, int length, int tag);
+  int ReceiveMessage(char *data, int size, int length, int tag );
 };
 
 #endif
