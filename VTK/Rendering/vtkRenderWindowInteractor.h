@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-30 05:22:01 $
-  Version:   $Revision: 1.91 $
+  Date:      $Date: 2002-04-30 21:51:15 $
+  Version:   $Revision: 1.92 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -315,10 +315,8 @@ public:
   // Description:
   // When an event occurs, we must determine which Renderer the event
   // occurred within, since one RenderWindow may contain multiple
-  // renderers. We also need to know what camera to operate on.
-  // These methods return this information.
-  vtkCamera *FindPokedCamera(int,int);
-  vtkRenderer * FindPokedRenderer(int,int);
+  // renderers.
+  vtkRenderer *FindPokedRenderer(int,int);
 
 protected:
   vtkRenderWindowInteractor();
