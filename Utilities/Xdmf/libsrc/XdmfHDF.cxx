@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfHDF.cxx,v 1.18 2004-04-28 17:15:24 clarke Exp $  */
-/*  Date : $Date: 2004-04-28 17:15:24 $ */
-/*  Version : $Revision: 1.18 $ */
+/*  Id : $Id: XdmfHDF.cxx,v 1.19 2004-07-28 14:40:06 andy Exp $  */
+/*  Date : $Date: 2004-07-28 14:40:06 $ */
+/*  Version : $Revision: 1.19 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -277,7 +277,7 @@ XdmfString  Pathname, Slash;
 hid_t    Directory;
 
 if( path ) {
-  XdmfString lastcolon;
+  XdmfConstString lastcolon;
 
   // Skip Colons
     lastcolon = strrchr( path, ':' );
