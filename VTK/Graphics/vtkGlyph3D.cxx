@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-25 20:13:49 $
-  Version:   $Revision: 1.79 $
+  Date:      $Date: 2000-11-19 21:43:34 $
+  Version:   $Revision: 1.80 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -75,6 +75,7 @@ vtkGlyph3D::vtkGlyph3D()
   this->VectorMode = VTK_USE_VECTOR;
   this->Clamping = 0;
   this->IndexMode = VTK_INDEXING_OFF;
+  this->NumberOfRequiredInputs = 2;
 }
 
 vtkGlyph3D::~vtkGlyph3D()
@@ -621,6 +622,12 @@ void vtkGlyph3D::PrintSelf(ostream& os, vtkIndent indent)
 void vtkGlyph3D::ComputeInputUpdateExtents( vtkDataObject *output )
 {
   vtkPolyData *outPd;
+
+  if (this->GetInput() == NULL)
+    {
+    vtkErrorMacro("Missing input");
+    return;
+    }
 
   output = output;
   outPd = this->GetOutput();

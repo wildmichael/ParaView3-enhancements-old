@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformToGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-06 01:24:55 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2000-11-19 21:43:20 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -123,6 +123,12 @@ void vtkTransformToGrid::PrintSelf(ostream& os, vtkIndent indent)
 // This method returns the largest data that can be generated.
 void vtkTransformToGrid::ExecuteInformation()
 {
+  if (this->GetInput() == NULL)
+    {
+    vtkErrorMacro("Missing input");
+    return;
+    }
+
   this->Input->Update();
 
   this->GetOutput()->SetWholeExtent(this->GridExtent);

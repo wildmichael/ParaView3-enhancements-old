@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:11:36 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2000-11-19 21:43:23 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -72,6 +72,12 @@ void vtkExtractGrid::ExecuteInformation()
   vtkStructuredGrid *output= this->GetOutput();
   int i, dims[3], outDims[3], voi[6], wholeExtent[6];
   int rate[3];
+
+  if (this->GetInput() == NULL)
+    {
+    vtkErrorMacro("Missing input");
+    return;
+    }
 
   this->vtkStructuredGridToStructuredGridFilter::ExecuteInformation();
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractVOI.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:11:38 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2000-11-19 21:43:28 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -77,6 +77,11 @@ void vtkExtractVOI::ExecuteInformation()
   int rate[3];
   int wholeExtent[6];
   
+  if (this->GetInput() == NULL)
+    {
+    vtkErrorMacro("Missing input");
+    return;
+    }
   this->vtkStructuredPointsToStructuredPointsFilter::ExecuteInformation();
 
   input->GetWholeExtent( wholeExtent );
