@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-08-21 08:57:25 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1998-08-21 17:07:45 $
+  Version:   $Revision: 1.26 $
   
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -212,6 +212,11 @@ void vtkLODActor::Render(vtkRenderer *ren)
 // does not matter if mapper is in mapper collection.
 void vtkLODActor::AddLODMapper(vtkMapper *mapper)
 {
+  if (this->SelfCreatedLODs)
+    {
+    this->DeleteSelfCreatedLODs();
+    }
+  
   if (this->Mapper == NULL)
     {
     this->SetMapper(mapper);
