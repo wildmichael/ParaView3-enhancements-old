@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPIController.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-04 00:18:26 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-06-21 14:04:28 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -202,7 +202,7 @@ protected:
   // Initialize only once.
   static int Initialized;
 
-  static char ProcessorName[MPI_MAX_PROCESSOR_NAME];
+  static char ProcessorName[];
 
 private:
   vtkMPIController(const vtkMPIController&);  // Not implemented.

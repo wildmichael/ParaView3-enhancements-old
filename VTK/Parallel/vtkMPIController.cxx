@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPIController.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-29 12:01:16 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-06-21 14:04:28 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,6 +19,8 @@
 
 #include "vtkObjectFactory.h"
 #include "vtkOutputWindow.h"
+
+#include "vtkMPI.h"
 
 int vtkMPIController::Initialized = 0;
 char vtkMPIController::ProcessorName[MPI_MAX_PROCESSOR_NAME] = "";
@@ -66,9 +68,9 @@ void vtkMPIController::CreateOutputWindow()
   vtkOutputWindow::SetInstance(this->OutputWindow);
 }
 
-vtkCxxRevisionMacro(vtkMPIOutputWindow, "$Revision: 1.14 $");
+vtkCxxRevisionMacro(vtkMPIOutputWindow, "$Revision: 1.15 $");
 
-vtkCxxRevisionMacro(vtkMPIController, "$Revision: 1.14 $");
+vtkCxxRevisionMacro(vtkMPIController, "$Revision: 1.15 $");
 vtkStandardNewMacro(vtkMPIController);
 
 //----------------------------------------------------------------------------
@@ -114,7 +116,7 @@ int vtkMPIController::InitializeNumberOfProcesses()
   this->Modified();
 
   vtkMPICommunicator* comm = (vtkMPICommunicator*)this->Communicator;
-  if ( (err = MPI_Comm_size(*(comm->Handle), 
+  if ( (err = MPI_Comm_size(*(comm->Comm->Handle), 
                             &(this->MaximumNumberOfProcesses))) 
        != MPI_SUCCESS  )
     {
@@ -132,7 +134,7 @@ int vtkMPIController::InitializeNumberOfProcesses()
   
   this->NumberOfProcesses = this->MaximumNumberOfProcesses;
   
-  if ( (err = MPI_Comm_rank(*(comm->Handle),&(this->LocalProcessId))) 
+  if ( (err = MPI_Comm_rank(*(comm->Comm->Handle),&(this->LocalProcessId))) 
        != MPI_SUCCESS)
     {
     char *msg = vtkMPIController::ErrorString(err);
@@ -224,7 +226,7 @@ void vtkMPIController::InitializeCommunicator(vtkMPICommunicator* comm)
       } 
 
     vtkMPICommunicator* comm = (vtkMPICommunicator*)this->Communicator;
-    if (comm && comm->Handle)
+    if (comm && comm->Comm->Handle)
       {
       this->InitializeNumberOfProcesses();
       }
@@ -261,7 +263,7 @@ void vtkMPIController::Barrier()
 {
   vtkMPICommunicator* comm = (vtkMPICommunicator*)this->Communicator;
   int err;
-  if ( (err = MPI_Barrier(*(comm->Handle)) ) 
+  if ( (err = MPI_Barrier(*(comm->Comm->Handle)) ) 
        != MPI_SUCCESS ) 
     {
     char *msg = vtkMPIController::ErrorString(err);
