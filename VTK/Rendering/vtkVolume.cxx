@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:32 $
-  Version:   $Revision: 1.64 $
+  Date:      $Date: 2002-02-22 16:43:53 $
+  Version:   $Revision: 1.65 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkVolume, "$Revision: 1.64 $");
+vtkCxxRevisionMacro(vtkVolume, "$Revision: 1.65 $");
 vtkStandardNewMacro(vtkVolume);
 
 // Creates a Volume with the following defaults: origin(0,0,0) 
@@ -96,9 +96,17 @@ void vtkVolume::SetMapper(vtkVolumeMapper *mapper)
 {
   if (this->Mapper != mapper)
     {
-    if (this->Mapper != NULL) {this->Mapper->UnRegister(this);}
+    if (this->Mapper != NULL) 
+      { 
+      this->Mapper->RemoveConsumer(this);
+      this->Mapper->UnRegister(this); 
+      }   
     this->Mapper = mapper;
-    if (this->Mapper != NULL) {this->Mapper->Register(this);}
+    if (this->Mapper != NULL) 
+      { 
+      this->Mapper->Register(this); 
+      this->Mapper->AddConsumer(this);
+      }     
     this->Modified();
     }
 }
