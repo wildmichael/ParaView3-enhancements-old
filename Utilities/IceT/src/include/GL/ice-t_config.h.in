@@ -8,7 +8,7 @@
  * of authorship are reproduced on all copies.
  */
 
-/* $Id: ice-t_config.h.in,v 1.1 2003-06-17 18:38:54 andy Exp $ */
+/* $Id: ice-t_config.h.in,v 1.2 2003-06-19 16:58:44 kmorel Exp $ */
 
 #ifndef _ICET_CONFIG_H_
 #define _ICET_CONFIG_H_
@@ -47,6 +47,7 @@
 
 #define ICET_MAJOR_VERSION	@ICET_MAJOR_VERSION@
 #define ICET_MINOR_VERSION	@ICET_MINOR_VERSION@
+#define ICET_PATCH_VERSION	@ICET_PATCH_VERSION@
 #define ICET_VERSION		"@ICET_VERSION@"
 
 #endif /*_ICET_CONFIG_H_*/
