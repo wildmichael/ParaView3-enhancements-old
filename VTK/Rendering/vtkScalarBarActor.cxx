@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarBarActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-15 20:36:14 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-06-29 14:51:43 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to Kitware & RPI/SCOREC who supported the development
              of this class.
 
@@ -80,7 +80,11 @@ vtkScalarBarActor::vtkScalarBarActor()
 
 vtkScalarBarActor::~vtkScalarBarActor()
 {
-  if (this->LabelFormat) delete [] this->LabelFormat;
+  if (this->LabelFormat) 
+    {
+    delete [] this->LabelFormat;
+    this->LabelFormat = NULL;
+    }
 
   this->TitleMapper->Delete();
   this->TitleActor->Delete();
@@ -99,6 +103,12 @@ vtkScalarBarActor::~vtkScalarBarActor()
   this->ScalarBar->Delete();
   this->ScalarBarMapper->Delete();
   this->ScalarBarActor->Delete();
+
+  if (this->Title)
+    {
+    delete [] this->Title;
+    this->Title = NULL;
+    }
 }
 
 void vtkScalarBarActor::Render(vtkViewport *viewport)
