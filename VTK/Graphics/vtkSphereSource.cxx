@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-22 22:32:31 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1998-07-06 14:02:13 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -157,10 +157,24 @@ void vtkSphereSource::Execute()
 
   // Generate mesh connectivity
   if ( fabs(this->StartTheta - this->EndTheta) >= 360.0 )
+    {  
+    // this if statement is only here to work around a bug
+    // in MSVC 5.0 (including SP 3). It occurs in the 
+    // optimized build where MSVC simply doesn't evaluate
+    // the if clause properly even if the math is done
+    // outside the if statement.
+    if (this->Debug)
+      {
+      cerr << "Work around Microsoft compiler bug\n";
+      }
     base = (this->PhiResolution - 1) * this->ThetaResolution;
+    }
   else
+    {
     base = (this->PhiResolution - 1)*this->ThetaResolution + 1;
+    }
 
+  
   if ( this->StartPhi <= 0.0 ) // around north pole
     {
     for (i=0; i < thetaResolution; i++)
