@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-01 17:04:12 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2003-01-31 22:06:44 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #include "vtkPoints.h"
 #include "vtkUnsignedCharArray.h"
 
-vtkCxxRevisionMacro(vtkXMLWriter, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkXMLWriter, "$Revision: 1.13 $");
 vtkCxxSetObjectMacro(vtkXMLWriter, Compressor, vtkDataCompressor);
 
 //----------------------------------------------------------------------------
@@ -188,7 +188,11 @@ int vtkXMLWriter::Write()
     }
   
   // Try to open the output file for writing.
-  ofstream outFile(this->FileName);
+#ifdef _WIN32
+  ofstream outFile(this->FileName, ios::out | ios::binary);
+#else
+  ofstream outFile(this->FileName, ios::out);
+#endif
   if(!outFile)
     {
     vtkErrorMacro("Error opening output file \"" << this->FileName << "\"");
