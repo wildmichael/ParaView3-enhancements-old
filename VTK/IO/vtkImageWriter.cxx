@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-31 13:59:35 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2001-02-01 13:40:19 $
+  Version:   $Revision: 1.38 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -264,11 +264,9 @@ void vtkImageWriter::Write()
 void vtkImageWriter::RecursiveWrite(int axis, vtkImageData *cache,
 				    ofstream *file)
 {
-  int             min, max, mid;
   vtkImageData    *data;
   int             fileOpenedHere = 0;
   int             *ext;
-  unsigned long   inputMemorySize;
 
   // if we need to open another slice, do it
   if (!file && (axis + 1) == this->FileDimensionality)
