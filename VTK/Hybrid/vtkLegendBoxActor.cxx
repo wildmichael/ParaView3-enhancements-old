@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLegendBoxActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-24 10:24:02 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2000-09-28 15:12:17 $
+  Version:   $Revision: 1.7 $
   Thanks:    Tim Smith who sponsored and encouraged the development
              of this class.
 
@@ -566,13 +566,13 @@ int vtkLegendBoxActor::RenderOpaqueGeometry(vtkViewport *viewport)
       {
       posY = p2[1] - this->Padding - (float)i*size[1] - 0.5*size[1];
       this->TextActor[i]->SetPosition(posX,posY);
-          this->TextMapper[i]->SetFontSize(fontSize);
+      this->TextMapper[i]->SetFontSize(fontSize);
+      this->TextActor[i]->GetProperty()->DeepCopy(this->GetProperty());
       color = this->Colors->GetTuple(i);
-      if ( color[0] < 0.0 )
+      if ( color[0] >= 0.0 && color[1] >= 0.0 && color[2] >= 0.0 )
         {
-        color = this->GetProperty()->GetColor();
+        this->TextActor[i]->GetProperty()->SetColor(color);
         }
-      this->TextActor[i]->GetProperty()->SetColor(color);
       }
     
     //Place symbols
@@ -598,12 +598,12 @@ int vtkLegendBoxActor::RenderOpaqueGeometry(vtkViewport *viewport)
         this->Transform[i]->Translate(posX, posY, 0.0);
         this->Transform[i]->Scale(0.5*sf, 0.5*sf, 1);
         this->SymbolMapper[i]->SetScalarVisibility(this->ScalarVisibility);
+        this->SymbolActor[i]->GetProperty()->DeepCopy(this->GetProperty());
         color = this->Colors->GetTuple(i);
-        if ( color[0] < 0.0 )
+        if ( color[0] >= 0.0 && color[1] >= 0.0 && color[2] >= 0.0 )
           {
-          color = this->GetProperty()->GetColor();
+          this->SymbolActor[i]->GetProperty()->SetColor(color);
           }
-        this->SymbolActor[i]->GetProperty()->SetColor(color);
         }//if symbol defined
       }//for all entries
 
