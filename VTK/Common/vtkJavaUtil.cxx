@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJavaUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-08 21:57:02 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1999-10-11 13:22:44 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -532,9 +532,13 @@ JNIEXPORT void vtkJavaVoidFunc(void* f)
   if (iprm->mid)
     {
     JNIEnv *e;
-	// it should already be atached
-	iprm->vm->AttachCurrentThread((void **)(&e),NULL);
-	e->CallVoidMethod(iprm->uobj,iprm->mid,NULL); 
+    // it should already be atached
+#ifdef JNI_VERSION_1_2
+    iprm->vm->AttachCurrentThread((void **)(&e),NULL);
+#else
+    iprm->vm->AttachCurrentThread((JNIEnv_**)(&e),NULL);
+#endif
+    e->CallVoidMethod(iprm->uobj,iprm->mid,NULL); 
     }
 }
 
@@ -546,7 +550,11 @@ JNIEXPORT void vtkJavaVoidFuncArgDelete(void* arg)
   
   JNIEnv *e;
   // it should already be atached
+#ifdef JNI_VERSION_1_2
   arg2->vm->AttachCurrentThread((void **)(&e),NULL);
+#else
+  arg2->vm->AttachCurrentThread((JNIEnv_**)(&e),NULL);
+#endif
   // free the structure
   e->DeleteGlobalRef(arg2->uobj);
   
