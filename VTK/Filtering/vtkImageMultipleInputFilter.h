@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-28 19:01:27 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2003-05-07 23:12:58 $
+  Version:   $Revision: 1.55 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -98,6 +98,7 @@ protected:
 
 
   void ExecuteData(vtkDataObject *output);
+  void MultiThread(vtkImageData **indatas, vtkImageData *outdata);
 
   // This one gets called by the superclass.
   void ExecuteInformation();
