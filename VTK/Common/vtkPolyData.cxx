@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-28 22:26:14 $
-  Version:   $Revision: 1.131 $
+  Date:      $Date: 2001-03-02 12:05:14 $
+  Version:   $Revision: 1.132 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -324,6 +324,7 @@ vtkCell *vtkPolyData::GetCell(int cellId)
         this->EmptyCell = vtkEmptyCell::New();
         }
       cell = this->EmptyCell;
+      numPts = 0;
       return cell;
     }
 
@@ -403,6 +404,7 @@ void vtkPolyData::GetCell(int cellId, vtkGenericCell *cell)
 
     default:
       cell->SetCellTypeToEmptyCell();
+      numPts = 0;
     }
 
   for (i=0; i < numPts; i++)
