@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericEnSightReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-07-30 18:47:27 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-10-17 13:49:00 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -159,6 +159,25 @@ public:
   };
   //ETX
 
+  // Description:
+  // Set the byte order of the file (remember, more Unix workstations
+  // write big endian whereas PCs write little endian). Default is
+  // big endian (since most older PLOT3D files were written by
+  // workstations).
+  void SetByteOrderToBigEndian();
+  void SetByteOrderToLittleEndian();
+  vtkSetMacro(ByteOrder, int);
+  vtkGetMacro(ByteOrder, int);
+  const char *GetByteOrderAsString();
+
+//BTX
+  enum 
+  {
+    FILE_BIG_ENDIAN=0,
+    FILE_LITTLE_ENDIAN=1
+  };
+//ETX
+
 protected:
   vtkGenericEnSightReader();
   ~vtkGenericEnSightReader();
@@ -246,6 +265,8 @@ protected:
   int NumberOfRequestedCellVariables;
   char** RequestedPointVariables;
   char** RequestedCellVariables;
+
+  int ByteOrder;
   
 private:
   vtkGenericEnSightReader(const vtkGenericEnSightReader&);  // Not implemented.
