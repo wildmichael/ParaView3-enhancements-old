@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCone.h,v $
   Language:  C++
-  Date:      $Date: 1995-02-26 10:20:22 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1995-03-08 16:44:18 $
+  Version:   $Revision: 1.2 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -15,7 +15,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 =========================================================================*/
 // .NAME vlCone - implicit function for a cone
 // .SECTION Description
-// vlCone computes the implicit function and surface normal for a cone.
+// vlCone computes the implicit function and function gradient for a cone.
 // vlCone is a concrete implementation of vlImplicitFunction.
 
 #ifndef __vlCone_h
@@ -32,7 +32,7 @@ public:
 
   // ImplicitFunction interface
   float Evaluate(float x, float y, float z);
-  void EvaluateNormal(float x, float y, float z, float n[3]);
+  void EvaluateGradient(float x, float y, float z, float g[3]);
 
   vlSetVector3Macro(Apex,float);
   vlGetVectorMacro(Apex,float,3);

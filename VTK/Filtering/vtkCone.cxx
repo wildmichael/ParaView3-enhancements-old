@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCone.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-02-26 10:20:22 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1995-03-08 16:44:19 $
+  Version:   $Revision: 1.2 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -39,7 +39,7 @@ float vlCone::Evaluate(float x, float y, float z)
 
 // Description
 // Evaluate cone normal.
-void vlCone::EvaluateNormal(float x, float y, float z, float n[3])
+void vlCone::EvaluateGradient(float x, float y, float z, float g[3])
 {
 }
 

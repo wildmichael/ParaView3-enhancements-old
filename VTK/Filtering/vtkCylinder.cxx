@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCylinder.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-02-26 10:20:23 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1995-03-08 16:44:22 $
+  Version:   $Revision: 1.2 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -38,8 +38,8 @@ float vlCylinder::Evaluate(float x, float y, float z)
 }
 
 // Description
-// Evaluate cylinder normal.
-void vlCylinder::EvaluateNormal(float x, float y, float z, float n[3])
+// Evaluate cylinder function gradient.
+void vlCylinder::EvaluateGradient(float x, float y, float z, float g[3])
 {
 }
 
