@@ -3,8 +3,8 @@
 Program:   Visualization Toolkit
 Module:    $RCSfile: vtkCarbonRenderWindow.cxx,v $
 Language:  C++
-Date:      $Date: 2003-02-06 20:44:02 $
-Version:   $Revision: 1.18 $
+Date:      $Date: 2003-04-17 12:46:52 $
+Version:   $Revision: 1.19 $
 Thanks:    to Yves Starreveld for developing this class
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
@@ -32,7 +32,7 @@ Thanks:    to Yves Starreveld for developing this class
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkCarbonRenderWindow, "$Revision: 1.18 $");
+vtkCxxRevisionMacro(vtkCarbonRenderWindow, "$Revision: 1.19 $");
 vtkStandardNewMacro(vtkCarbonRenderWindow);
 
 
@@ -577,15 +577,13 @@ void vtkCarbonRenderWindow::WindowConfigure()
 }
 
 //--------------------------------------------------------------------------
-void vtkCarbonRenderWindow::SetupPixelFormat(void *hDC, void *dwFlags,
-    int debug, int bpp,
-    int zbpp)
+void vtkCarbonRenderWindow::SetupPixelFormat(void*, void*, int, int, int)
 {
   cout << "vtkCarbonRenderWindow::SetupPixelFormat - IMPLEMENT\n";
 }
 
 //--------------------------------------------------------------------------
-void vtkCarbonRenderWindow::SetupPalette(void *hDC)
+void vtkCarbonRenderWindow::SetupPalette(void*)
 {
   cout << "vtkCarbonRenderWindow::SetupPalette - IMPLEMENT\n";
 }
@@ -606,11 +604,10 @@ void vtkCarbonRenderWindow::InitializeApplication()
 
 //--------------------------------------------------------------------------
 // Initialize the window for rendering.
-void vtkCarbonRenderWindow::CreateAWindow(int x, int y, int width, int height)
+void vtkCarbonRenderWindow::CreateAWindow(int, int, int, int)
 {
   GDHandle hGD = NULL;
   GLint depthSizeSupport;
-  OSStatus err = noErr;
   static int count = 1;
   short i;
   char *windowName;
