@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkThreshold.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-05-15 19:40:42 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-05-16 07:20:24 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -102,3 +102,13 @@ void vlThreshold::Execute()
   this->SetPoints(newPoints);
 }
 
+void vlThreshold::PrintSelf()
+{
+  if (this->ShouldIPrint(vlThreshold::GetClassName()))
+    {
+    vlDataSetToUnstructuredGridFilter::PrintSelf(os,indent);
+
+    os << indent << "Lower Threshold: " << this->LowerThreshold << "\n";;
+    os << indent << "Upper Threshold: " << this->UpperThreshold << "\n";;
+    }
+}
