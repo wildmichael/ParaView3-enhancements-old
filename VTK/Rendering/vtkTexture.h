@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexture.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:56:28 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1996-11-13 12:12:31 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -118,6 +118,10 @@ public:
   // Specify the lookup table to convert scalars if necessary
   vtkSetObjectMacro(LookupTable,vtkLookupTable);
   vtkGetObjectMacro(LookupTable,vtkLookupTable);
+
+  // Description:
+  // Get Mapped Scalars
+  vtkGetObjectMacro(MappedScalars,vtkColorScalars);
 
   // Description:
   // Get the texture device.
