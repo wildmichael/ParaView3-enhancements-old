@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTriangleFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-11 08:56:10 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-09-09 22:31:16 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -35,7 +35,7 @@ void vlTriangleFilter::Execute()
 
   newPolys = new vlCellArray();
   // approximation
-  numCells = this->GetNumberOfPolys() + this->GetNumberOfStrips();
+  numCells = this->Input->GetNumberOfPolys() + this->Input->GetNumberOfStrips();
   newPolys->Allocate(newPolys->EstimateSize(numCells,3),3*numCells);
 
   // pass through triangles; triangulate polygons if necessary
