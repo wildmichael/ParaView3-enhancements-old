@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-27 13:44:07 $
-  Version:   $Revision: 1.85 $
+  Date:      $Date: 2002-06-04 11:31:04 $
+  Version:   $Revision: 1.86 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,27 +17,28 @@
 =========================================================================*/
 
 #include "vtkWin32Header.h"
-#include <stdlib.h>
-#include <math.h>
-#include <stdio.h>
 #if defined(_MSC_VER) || defined (__BORLANDC__)
 #include <GL/glaux.h>
 #else
 #include <GL/gl.h>
 #endif
 #include "vtkWin32OpenGLRenderWindow.h"
-#include "vtkWin32RenderWindowInteractor.h"
-#include "vtkOpenGLRenderer.h"
-#include "vtkOpenGLProperty.h"
-#include "vtkOpenGLTexture.h"
-#include "vtkOpenGLCamera.h"
+
+#include "vtkObjectFactory.h"
 #include "vtkOpenGLActor.h"
+#include "vtkOpenGLCamera.h"
 #include "vtkOpenGLLight.h"
 #include "vtkOpenGLPolyDataMapper.h"
-#include "vtkObjectFactory.h"
+#include "vtkOpenGLProperty.h"
+#include "vtkOpenGLRenderer.h"
+#include "vtkOpenGLTexture.h"
+#include "vtkRendererCollection.h"
 #include "vtkString.h"
+#include "vtkWin32RenderWindowInteractor.h"
 
-vtkCxxRevisionMacro(vtkWin32OpenGLRenderWindow, "$Revision: 1.85 $");
+#include <math.h>
+
+vtkCxxRevisionMacro(vtkWin32OpenGLRenderWindow, "$Revision: 1.86 $");
 vtkStandardNewMacro(vtkWin32OpenGLRenderWindow);
 
 #define VTK_MAX_LIGHTS 8
