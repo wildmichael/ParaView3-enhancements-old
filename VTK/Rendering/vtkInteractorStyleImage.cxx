@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleImage.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-16 16:36:14 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-12-06 02:53:03 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -347,4 +347,10 @@ void vtkInteractorStyleImage::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkInteractorStyle::PrintSelf(os,indent);
 
+  os << indent << "WindowLevelCurrentPosition: " << 
+    this->WindowLevelCurrentPosition[0] << " " <<
+    this->WindowLevelCurrentPosition[1] << "\n";
+  os << indent << "WindowLevelStartPosition: " << 
+    this->WindowLevelStartPosition[0] << " " <<
+    this->WindowLevelStartPosition[1] << "\n";
 }

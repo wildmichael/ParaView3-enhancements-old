@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer2.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-14 21:05:25 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-12-06 02:53:03 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -101,6 +101,7 @@ void vtkImageViewer2::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << *this->RenderWindow << endl;
   os << indent << *this->Renderer << endl;
   os << indent << *this->ImageActor << endl;
+  os << indent << *this->WindowLevel << endl;
 }
 
 

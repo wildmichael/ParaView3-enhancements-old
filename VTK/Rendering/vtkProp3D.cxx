@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:18:01 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-12-06 02:53:02 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -552,6 +552,8 @@ void vtkProp3D::InitPathTraversal()
 void vtkProp3D::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkProp::PrintSelf(os,indent);
+
+  os << indent << "IsIdentity: " << (this->IsIdentity ? "true" : "false") << "\n";
 
   os << indent << "Position: (" << this->Position[0] << ", " 
      << this->Position[1] << ", " << this->Position[2] << ")\n";

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:43:20 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2001-12-06 02:53:03 $
+  Version:   $Revision: 1.32 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -274,6 +274,9 @@ void vtkPolyDataMapper2D::PrintSelf(ostream& os, vtkIndent indent)
     {
     os << indent << "Lookup Table: (none)\n";
     }
+
+  os << indent << "Scalar Mode: " << this->ScalarMode << "\n";
+
   os << indent << "Scalar Visibility: " 
     << (this->ScalarVisibility ? "On\n" : "Off\n");
 
