@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJavaAwt.h,v $
   Language:  C++
-  Date:      $Date: 2002-02-06 15:30:48 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-04-10 21:06:25 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "jawt_md.h"
 
 extern "C" JNIEXPORT void  JNICALL 
-    Java_vtkPanel_RenderCreate(JNIEnv *env, jobject canvas, jobject id0)
+    Java_vtk_vtkPanel_RenderCreate(JNIEnv *env, jobject canvas, jobject id0)
 {
   JAWT awt;
   JAWT_DrawingSurface* ds;
@@ -100,7 +100,7 @@ extern "C" JNIEXPORT void  JNICALL
 // requirement JAWT has is that all operations on a JAWT_DrawingSurface 
 // MUST be performed from the same thread as the call to GetDrawingSurface.
 extern "C" JNIEXPORT void  JNICALL 
-    Java_vtkPanel_Lock(JNIEnv *env, 
+    Java_vtk_vtkPanel_Lock(JNIEnv *env, 
                        jobject canvas)
 {
   JAWT awt;
@@ -137,7 +137,7 @@ extern "C" JNIEXPORT void  JNICALL
 // UnLock() must be called after a Lock() and execution of a
 // function which might change the drawing surface.  See Lock().
 extern "C" JNIEXPORT void  JNICALL 
-    Java_vtkPanel_UnLock(JNIEnv *env, 
+    Java_vtk_vtkPanel_UnLock(JNIEnv *env, 
                          jobject canvas)
 {
   JAWT awt;
