@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-30 12:42:01 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-05-30 13:22:10 $
+  Version:   $Revision: 1.3 $
   Thanks:    to Horst Schreiber for developing this MFC code
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,9 +68,9 @@ vtkWin32OpenGLRenderWindow::vtkWin32OpenGLRenderWindow()
   this->DeviceContext = (HDC)0;		// hsr
   this->MFChandledWindow = FALSE;	// hsr
 
-  if ( this->WindowName )
-    delete [] this->WindowName;
-  this->WindowName = strdup("Visualization Toolkit - Win32OpenGL");
+  if ( this->WindowName ) delete [] this->WindowName;
+  this->WindowName = new char[strlen("Visualization Toolkit - Win32OpenGL")+1];
+    strcpy( this->WindowName, "Visualization Toolkit - Win32OpenGL" );
 }
 
 int vtkWin32OpenGLRenderWindow::GetEventPending()
