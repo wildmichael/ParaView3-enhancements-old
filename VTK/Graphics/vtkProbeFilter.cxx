@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkProbeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-04-14 07:56:07 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-05-08 08:54:01 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -75,10 +75,10 @@ void vlProbeFilter::Initialize()
 {
   if ( this->Source )
     {
-    if (this->DataSet) this->DataSet->UnRegister((void *)this);
+    if (this->DataSet) this->DataSet->UnRegister(this);
     // copies SOURCE geometry to internal data set
     this->DataSet = this->Source->MakeObject(); 
-    this->DataSet->Register((void *)this);
+    this->DataSet->Register(this);
     }
   else
     {

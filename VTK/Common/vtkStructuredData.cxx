@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredData.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-04-14 15:30:12 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-05-08 08:54:13 $
+  Version:   $Revision: 1.5 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -169,7 +169,7 @@ void vlStructuredDataSet::Initialize()
 
   if ( this->PointVisibility )
     {
-    this->PointVisibility->UnRegister((void *)this);
+    this->PointVisibility->UnRegister(this);
     this->PointVisibility = 0;
     }
 }

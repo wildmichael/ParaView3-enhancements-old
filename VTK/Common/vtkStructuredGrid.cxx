@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-05-02 08:50:24 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-05-08 08:54:08 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -23,7 +23,6 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 
 vlStructuredGrid::vlStructuredGrid()
 {
-  this->Blanking = 0;
 }
 
 vlStructuredGrid::~vlStructuredGrid()
@@ -33,8 +32,6 @@ vlStructuredGrid::~vlStructuredGrid()
 
 void vlStructuredGrid::Initialize()
 {
-  if ( this->Blanking ) this->Blanking->UnRegister((void *)this);
-
   vlPointSet::Initialize(); 
   vlStructuredDataSet::Initialize();
 }

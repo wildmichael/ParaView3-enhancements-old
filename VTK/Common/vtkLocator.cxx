@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-04-11 21:20:08 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-05-08 08:53:49 $
+  Version:   $Revision: 1.3 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -62,7 +62,7 @@ vlLocator::~vlLocator()
 
 void vlLocator::Initialize()
 {
-  if (this->Points) this->Points->UnRegister((void *)this);
+  if (this->Points) this->Points->UnRegister(this);
   this->Points = 0;
 
   // free up hash table

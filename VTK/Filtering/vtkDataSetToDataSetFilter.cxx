@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataSetToDataSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-07 17:17:25 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1994-05-08 08:53:42 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -20,12 +20,12 @@ vlDataSetToDataSetFilter::vlDataSetToDataSetFilter()
 {
   // prevents dangling reference to DataSet
   this->DataSet = new vlPolyData;
-  this->DataSet->Register((void *)this);
+  this->DataSet->Register(this);
 }
 
 vlDataSetToDataSetFilter::~vlDataSetToDataSetFilter()
 {
-  this->DataSet->UnRegister((void *)this);
+  this->DataSet->UnRegister(this);
 }
 
 void vlDataSetToDataSetFilter::Update()
@@ -42,10 +42,10 @@ void vlDataSetToDataSetFilter::Initialize()
 {
   if ( this->Input )
     {
-    this->DataSet->UnRegister((void *)this);
+    this->DataSet->UnRegister(this);
     // copies input geometry to internal data set
     this->DataSet = this->Input->MakeObject(); 
-    this->DataSet->Register((void *)this);
+    this->DataSet->Register(this);
     }
   else
     {
@@ -67,9 +67,9 @@ vlMapper *vlDataSetToDataSetFilter::MakeMapper()
   mapper = this->DataSet->MakeMapper();
   if ( !this->Mapper || mapper != this->Mapper )
     {
-    if (this->Mapper) this->Mapper->UnRegister((void *)this);
+    if (this->Mapper) this->Mapper->UnRegister(this);
     this->Mapper = mapper;
-    this->Mapper->Register((void *)this);
+    this->Mapper->Register(this);
     }
   return this->Mapper;
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCutter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-04-05 07:45:06 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-05-08 08:53:40 $
+  Version:   $Revision: 1.3 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -20,12 +20,12 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 vlCutter::vlCutter(vlImplicitFunction *cf)
 {
   this->CutFunction = cf;
-  if ( cf ) this->CutFunction->Register((void *) this);
+  if ( cf ) this->CutFunction->Register(this);
 }
 
 vlCutter::~vlCutter()
 {
-  if ( this->CutFunction ) this->CutFunction->UnRegister((void *) this);
+  if ( this->CutFunction ) this->CutFunction->UnRegister(this);
 }
 
 //

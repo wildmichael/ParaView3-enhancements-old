@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataSetMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-03-06 18:11:56 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1994-05-08 08:53:44 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -28,12 +28,12 @@ vlDataSetMapper::~vlDataSetMapper()
 {
   if ( this->Input )
     {
-    this->Input->UnRegister((void *)this);
+    this->Input->UnRegister(this);
     }
 
   if ( this->Mapper )
     {
-    this->Mapper->UnRegister((void *)this);
+    this->Mapper->UnRegister(this);
     }
 }
 
@@ -42,7 +42,7 @@ void vlDataSetMapper::SetInput(vlDataSet *in)
   if (in != this->Input )
     {
     this->Input = in;
-    this->Input->Register((void *)this);
+    this->Input->Register(this);
     this->Modified();
     }
 }
@@ -101,9 +101,9 @@ int vlDataSetMapper::CreateMapper()
   if ( mapper != this->Mapper ) 
     {
     *mapper = *this; // Update lookup table, etc.
-    if (this->Mapper) this->Mapper->UnRegister((void *)this);
+    if (this->Mapper) this->Mapper->UnRegister(this);
     this->Mapper = mapper;
-    this->Mapper->Register((void *)this);
+    this->Mapper->Register(this);
     }
   return 1;
 } 

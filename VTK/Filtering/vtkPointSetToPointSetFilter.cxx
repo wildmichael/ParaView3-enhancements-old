@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointSetToPointSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-05-01 16:16:30 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-05-08 08:54:05 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -22,12 +22,12 @@ vlPointSetToPointSetFilter::vlPointSetToPointSetFilter()
 {
   // prevents dangling reference to PointSet
   this->PointSet = new vlPolyData;
-  this->PointSet->Register((void *)this);
+  this->PointSet->Register(this);
 }
 
 vlPointSetToPointSetFilter::~vlPointSetToPointSetFilter()
 {
-  this->PointSet->UnRegister((void *)this);
+  this->PointSet->UnRegister(this);
 }
 
 void vlPointSetToPointSetFilter::Update()
@@ -41,10 +41,10 @@ void vlPointSetToPointSetFilter::Initialize()
 {
   if ( this->Input )
     {
-    this->PointSet->UnRegister((void *)this);
+    this->PointSet->UnRegister(this);
     // copies input geometry to internal data set
     this->PointSet = this->Input->MakeObject(); 
-    this->PointSet->Register((void *)this);
+    this->PointSet->Register(this);
     }
   else
     {
@@ -66,9 +66,9 @@ vlMapper *vlPointSetToPointSetFilter::MakeMapper()
   mapper = this->PointSet->MakeMapper();
   if ( !this->Mapper || mapper != this->Mapper )
     {
-    if (this->Mapper) this->Mapper->UnRegister((void *)this);
+    if (this->Mapper) this->Mapper->UnRegister(this);
     this->Mapper = mapper;
-    this->Mapper->Register((void *)this);
+    this->Mapper->Register(this);
     }
   return this->Mapper;
 }

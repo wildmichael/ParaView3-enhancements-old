@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 1994-05-02 08:50:25 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-05-08 08:54:09 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -42,7 +42,7 @@ public:
 protected:
   // points inherited
   // point data (i.e., scalars, vectors, normals, tcoords) inherited
-  vlCharArray *Blanking;
+  // blanking information inherited
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkGlyph3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-03-27 16:13:39 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-05-08 08:53:48 $
+  Version:   $Revision: 1.4 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -31,7 +31,7 @@ vlGlyph3D::~vlGlyph3D()
 {
   if (this->Source)
     {
-    this->Source->UnRegister((void *)this);
+    this->Source->UnRegister(this);
     }
 }
 
