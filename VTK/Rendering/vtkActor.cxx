@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:04:33 $
-  Version:   $Revision: 1.93 $
+  Date:      $Date: 2000-03-19 06:50:55 $
+  Version:   $Revision: 1.94 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -415,6 +415,12 @@ unsigned long int vtkActor::GetMTime()
   if ( this->UserMatrix != NULL )
     {
     time = this->UserMatrix->GetMTime();
+    mTime = ( time > mTime ? time : mTime );
+    }
+
+  if ( this->UserTransform != NULL )
+    {
+    time = this->UserTransform->GetMTime();
     mTime = ( time > mTime ? time : mTime );
     }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:07:33 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2000-03-19 06:50:55 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -486,6 +486,12 @@ unsigned long int vtkVolume::GetMTime()
   if ( this->UserMatrix != NULL )
     {
     time = this->UserMatrix->GetMTime();
+    mTime = ( time > mTime ? time : mTime );
+    }
+
+  if ( this->UserTransform != NULL )
+    {
+    time = this->UserTransform->GetMTime();
     mTime = ( time > mTime ? time : mTime );
     }
 
