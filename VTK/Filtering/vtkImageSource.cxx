@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:19 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2000-12-05 18:12:54 $
+  Version:   $Revision: 1.46 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -94,7 +94,8 @@ vtkImageData *vtkImageSource::GetOutput()
 void vtkImageSource::PropagateUpdateExtent(vtkDataObject *out)
 {
   vtkImageData *output = (vtkImageData*)out;
-  
+
+#ifndef VTK_REMOVE_LEGACY_CODE
   // ----------------------------------------------
   // For legacy compatability
   this->LegacyHack = 1;
@@ -105,6 +106,7 @@ void vtkImageSource::PropagateUpdateExtent(vtkDataObject *out)
                    << "to the name EnlargeOutputUpdateExtents.");
     return;
     }
+#endif
 
   this->vtkSource::PropagateUpdateExtent(output);
 }

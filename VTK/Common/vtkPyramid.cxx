@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPyramid.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-11-26 15:09:07 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-12-05 18:12:54 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -94,7 +94,7 @@ vtkPyramid::~vtkPyramid()
 vtkCell *vtkPyramid::MakeObject()
 {
   vtkCell *cell = vtkPyramid::New();
-  cell->DeepCopy(*this);
+  cell->DeepCopy(this);
   return cell;
 }
 

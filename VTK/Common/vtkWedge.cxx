@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWedge.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-11-28 12:46:29 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-12-05 18:12:54 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -94,7 +94,7 @@ vtkWedge::~vtkWedge()
 vtkCell *vtkWedge::MakeObject()
 {
   vtkCell *cell = vtkWedge::New();
-  cell->DeepCopy(*this);
+  cell->DeepCopy(this);
   return cell;
 }
 
