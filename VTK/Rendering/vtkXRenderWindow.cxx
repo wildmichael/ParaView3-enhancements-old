@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-24 09:41:54 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-07-25 15:41:33 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Toolkit. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -25,6 +25,11 @@ vtkXRenderWindow::vtkXRenderWindow()
   this->WindowId = (Window)NULL;
   this->NextWindowId = (Window)NULL;
   this->ColorMap = (Colormap)NULL;
+}
+
+vtkXRenderWindow::~vtkXRenderWindow()
+{
+  if (this->Interactor) this->Interactor->Delete();
 }
 
 // Description:

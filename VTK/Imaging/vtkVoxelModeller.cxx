@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxelModeller.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-14 16:48:18 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-07-25 15:41:25 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Toolkit. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -172,7 +172,7 @@ void vtkVoxelModeller::Execute()
 // Update self
 //
   this->PointData.SetScalars(newScalars);
-
+  newScalars->Delete();
 }
 
 // Description:

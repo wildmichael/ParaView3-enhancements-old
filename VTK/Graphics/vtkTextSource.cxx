@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:26:51 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1995-07-25 15:40:37 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Toolkit. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -327,11 +327,17 @@ void vtkTextSource::Execute()
       }
     pos++;
     }
-
-  // Update ourselves
+//
+// Update ourselves and release memory
+//
   this->SetPoints(newPoints);
+  newPoints->Delete();
+
   this->PointData.SetScalars(newScalars);
+  newScalars->Delete();
+
   this->SetPolys(newPolys);
+  newPolys->Delete();
 }
 
 void vtkTextSource::PrintSelf(ostream& os, vtkIndent indent)

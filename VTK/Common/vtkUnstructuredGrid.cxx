@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:26:59 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1995-07-25 15:41:01 $
+  Version:   $Revision: 1.20 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -44,9 +44,11 @@ void vtkUnstructuredGrid::Allocate (int numCells, int extSize)
 
   this->Connectivity = new vtkCellArray(numCells,4*extSize);
   this->Connectivity->Register(this);
+  this->Connectivity->Delete();
 
   this->Cells = new vtkCellList(numCells,extSize);
   this->Cells->Register(this);
+  this->Cells->Delete();
 }
 
 // Description:
@@ -229,6 +231,7 @@ void vtkUnstructuredGrid::SetCells(int *types, vtkCellArray *cells)
   if ( this->Cells ) this->Cells->UnRegister(this);
   this->Cells = new vtkCellList(cells->GetNumberOfCells(),1000);
   this->Cells->Register(this);
+  this->Cells->Delete();
 
   // build types
   for (i=0, cells->InitTraversal(); cells->GetNextCell(npts,pts); i++)
@@ -240,7 +243,9 @@ void vtkUnstructuredGrid::SetCells(int *types, vtkCellArray *cells)
 void vtkUnstructuredGrid::BuildLinks()
 {
   this->Links = new vtkLinkList(this->GetNumberOfPoints());
+  this->Links->Register(this);
   this->Links->BuildLinks(this);
+  this->Links->Delete();
 }
 
 void vtkUnstructuredGrid::GetCellPoints(int cellId, vtkIdList& ptIds)

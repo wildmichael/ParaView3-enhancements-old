@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:26:57 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1995-07-25 15:40:36 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -22,7 +22,7 @@ void vtkTriangleFilter::Execute()
   vtkCellArray *inPolys=input->GetPolys();
   vtkCellArray *inStrips=input->GetStrips();;
   int npts, *pts;
-  vtkCellArray *newPolys=NULL;
+  vtkCellArray *newPolys;
   int numCells;
   int p1, p2, p3;
   vtkPolygon poly;
@@ -89,6 +89,7 @@ void vtkTriangleFilter::Execute()
 //
   newPolys->Squeeze();
   this->SetPolys(newPolys);
+  newPolys->Delete();
 
   // pass through points and point data
   this->SetPoints(input->GetPoints());

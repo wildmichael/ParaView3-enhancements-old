@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkShepardMethod.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-11 16:39:06 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1995-07-25 15:41:43 $
+  Version:   $Revision: 1.2 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -223,6 +223,7 @@ void vtkShepardMethod::Execute()
 //
   delete [] sum;
   this->PointData.SetScalars(newScalars);
+  newScalars->Delete();
 }
 
 // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpScalar.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-19 16:49:38 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-07-25 15:41:29 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -99,12 +99,13 @@ void vtkWarpScalar::Execute()
     newPts->SetPoint(ptId, newX);
     }
 //
-// Update ourselves
+// Update ourselves and release memory
 //
   this->PointData.CopyNormalsOff(); // distorted geometry - normals are bad
   this->PointData.PassData(input->GetPointData());
 
   this->SetPoints(newPts);
+  newPts->Delete();
 }
 
 void vtkWarpScalar::PrintSelf(ostream& os, vtkIndent indent)

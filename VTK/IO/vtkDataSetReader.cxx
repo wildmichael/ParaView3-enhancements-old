@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:27:18 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-07-25 15:41:42 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -26,6 +26,7 @@ vtkDataSetReader::vtkDataSetReader()
 
 vtkDataSetReader::~vtkDataSetReader()
 {
+  if ( this->DataSet ) this->DataSet->Delete();
 }
 
 // Description:
@@ -219,7 +220,7 @@ void vtkDataSetReader::Execute()
 //
 // Create appropriate dataset
 //
-  if ( this->DataSet ) delete this->DataSet;
+  if ( this->DataSet ) this->DataSet->Delete();
   this->DataSet = reader;
   this->PointData = *(reader->GetPointData());
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTubeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:26:59 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1995-07-25 15:40:59 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -75,7 +75,7 @@ void vtkTubeFilter::Execute()
     if ( !lineNormalGenerator.GenerateSlidingNormals(inPts,inLines,(vtkFloatNormals*)inNormals) )
       {
       vtkErrorMacro(<< "No normals for line!\n");
-      delete inNormals;
+      inNormals->Delete();
       return;
       }
     }
@@ -211,12 +211,17 @@ void vtkTubeFilter::Execute()
 //
 // Update ourselves
 //
-  if ( deleteNormals ) delete inNormals;
+  if ( deleteNormals ) inNormals->Delete();
 
   this->SetPoints(newPts);
+  newPts->Delete();
 
   this->SetStrips(newStrips);
+  newStrips->Delete();
+
   this->PointData.SetNormals(newNormals);
+  newNormals->Delete();
+
   this->Squeeze();
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpTo.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:27:09 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1995-07-25 15:41:27 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Toolkit. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -52,12 +52,13 @@ void vtkWarpTo::Execute()
     newPts->SetPoint(ptId, newX);
     }
   //
-  // Update ourselves
+  // Update ourselves and release memory
   //
   this->PointData.CopyNormalsOff(); // distorted geometry - normals are bad
   this->PointData.PassData(input->GetPointData());
 
   this->SetPoints(newPts);
+  newPts->Delete();
 }
 
 void vtkWarpTo::PrintSelf(ostream& os, vtkIndent indent)

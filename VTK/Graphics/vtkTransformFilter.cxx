@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:26:56 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-07-25 15:40:33 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -79,8 +79,19 @@ void vtkTransformFilter::Execute()
   this->PointData.PassData(input->GetPointData());
 
   this->SetPoints(newPts);
-  this->PointData.SetNormals(newNormals);
-  this->PointData.SetVectors(newVectors);
+  newPts->Delete();
+
+  if (newNormals)
+    {
+    this->PointData.SetNormals(newNormals);
+    newNormals->Delete();
+    }
+
+  if (newVectors)
+    {
+    this->PointData.SetVectors(newVectors);
+    newVectors->Delete();
+    }
 }
 
 unsigned long vtkTransformFilter::GetMTime()

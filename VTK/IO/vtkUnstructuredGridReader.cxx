@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:27:25 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-07-25 15:41:39 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -192,6 +192,7 @@ void vtkUnstructuredGridReader::Execute()
         if ( !this->Reader.ReadCells(fp, size, cells->WritePtr(ncells,size)) ) return;
         cells->WrotePtr();
         if ( cells && types ) this->SetCells(types, cells);
+        cells->Delete();
         }
 
       else if ( ! strncmp(line,"cell_types",5) )

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:27:05 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1995-07-25 15:41:05 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Toolkit. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -53,7 +53,7 @@ vtkVolume::vtkVolume()
 vtkVolume::~vtkVolume()
 {
   if ( this->SelfCreatedLookupTable && this->LookupTable != NULL) 
-    delete this->LookupTable;
+    this->LookupTable->Delete();
 }
 
 // Description:
@@ -62,7 +62,7 @@ void vtkVolume::SetLookupTable(vtkLookupTable *lut)
 {
   if ( this->LookupTable != lut ) 
     {
-    if ( this->SelfCreatedLookupTable ) delete this->LookupTable;
+    if ( this->SelfCreatedLookupTable ) this->LookupTable->Delete();
     this->SelfCreatedLookupTable = 0;
     this->LookupTable = lut;
     this->Modified();
@@ -77,7 +77,7 @@ vtkLookupTable *vtkVolume::GetLookupTable()
 
 void vtkVolume::CreateDefaultLookupTable()
 {
-  if ( this->SelfCreatedLookupTable ) delete this->LookupTable;
+  if ( this->SelfCreatedLookupTable ) this->LookupTable->Delete();
   this->LookupTable = new vtkLookupTable;
   this->LookupTable->SetAlphaRange(0,1);
   this->SelfCreatedLookupTable = 1;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThresholdPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:26:54 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1995-07-25 15:40:56 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -102,9 +102,15 @@ void vtkThresholdPoints::Execute()
 
   vtkDebugMacro(<< "Extracted " << this->GetNumberOfPoints() << " points.");
 
-  // now clean up / update ourselves
+//
+// Update ourselves and release memory
+//
   this->SetPoints(newPoints);
+  newPoints->Delete();
+
   this->SetVerts(verts);
+  verts->Delete();
+
   this->Squeeze();
 }
 

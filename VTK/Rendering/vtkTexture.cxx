@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-20 23:47:32 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1995-07-25 15:40:52 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Toolkit. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -34,7 +34,7 @@ vtkTexture::~vtkTexture()
 {
   if (this->Device)
     {
-    delete this->Device;
+    this->Device->Delete();
     }
 }
 

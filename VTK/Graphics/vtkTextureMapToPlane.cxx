@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToPlane.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:26:48 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-07-25 15:40:35 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -126,6 +126,7 @@ void vtkTextureMapToPlane::Execute()
   this->PointData.PassData(this->Input->GetPointData());
 
   this->PointData.SetTCoords(newTCoords);
+  newTCoords->Delete();
 }
 
 #define TOLERANCE 1.0e-03
