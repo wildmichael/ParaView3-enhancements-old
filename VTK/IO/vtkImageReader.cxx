@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:08:45 $
-  Version:   $Revision: 1.65 $
+  Date:      $Date: 2000-03-13 23:01:09 $
+  Version:   $Revision: 1.66 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -187,7 +187,7 @@ void vtkImageReader::ComputeInternalFileName(int slice)
 
 //----------------------------------------------------------------------------
 // This function sets the name of the file. 
-void vtkImageReader::SetFileName(char *name)
+void vtkImageReader::SetFileName(const char *name)
 {
   if ( this->FileName && name && (!strcmp(this->FileName,name)))
     {
