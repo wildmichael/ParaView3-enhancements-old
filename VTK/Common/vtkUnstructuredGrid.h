@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 2003-07-24 12:44:05 $
-  Version:   $Revision: 1.91 $
+  Date:      $Date: 2003-09-05 20:33:37 $
+  Version:   $Revision: 1.92 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -156,12 +156,6 @@ public:
   // Shallow and Deep copy.
   virtual void ShallowCopy(vtkDataObject *src);  
   virtual void DeepCopy(vtkDataObject *src);
-
-  // Description:
-  // Fill vtkUnsignedCharArray container with list of unique cell types.  This
-  // method traverses all cells and, for each unique cell type it encounters,
-  // inserts the type into the container.
-  void GetListOfUniqueCellTypes(vtkUnsignedCharArray *uniqueTypes);
 
   // Description:
   // Fill vtkIntArray container with list of cell Ids.  This

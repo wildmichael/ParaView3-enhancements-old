@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-24 12:44:05 $
-  Version:   $Revision: 1.111 $
+  Date:      $Date: 2003-09-05 20:33:37 $
+  Version:   $Revision: 1.112 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -46,7 +46,7 @@
 #include "vtkVoxel.h"
 #include "vtkWedge.h"
 
-vtkCxxRevisionMacro(vtkUnstructuredGrid, "$Revision: 1.111 $");
+vtkCxxRevisionMacro(vtkUnstructuredGrid, "$Revision: 1.112 $");
 vtkStandardNewMacro(vtkUnstructuredGrid);
 
 vtkUnstructuredGrid::vtkUnstructuredGrid ()
@@ -972,33 +972,6 @@ void vtkUnstructuredGrid::GetCellNeighbors(vtkIdType cellId, vtkIdList *ptIds,
     }//for all candidate cells attached to point
 }
 
-// Fills uniqueTypes with list of unique cell types (same as above).
-void vtkUnstructuredGrid::GetListOfUniqueCellTypes(vtkUnsignedCharArray *uniqueTypes)
-{
-  unsigned char type;
-
-  if (this->Types)
-    {
-    type = Types->GetValue(0);
-    uniqueTypes->InsertNextValue(type);
-    
-    for (int cellId = 0; cellId < this->GetNumberOfCells(); cellId++)
-      {
-      type = Types->GetValue(cellId);
-      for (int i = 0; i < uniqueTypes->GetMaxId()+1; i++) 
-        {
-        if (type != uniqueTypes->GetValue(i))
-          {
-          uniqueTypes->InsertNextValue(type);
-          }
-        else
-          {
-          break; //cell is not unique, return control to outer loop
-          }
-        }
-      }
-    }
-}
 
 int vtkUnstructuredGrid::IsHomogeneous() 
 {
