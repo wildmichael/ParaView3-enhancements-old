@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-05 09:06:56 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1995-09-05 09:15:53 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,9 +43,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 vtkMergeFilter::vtkMergeFilter()
 {
-  // prevents dangling reference to DataSet
-  this->Geometry = new vtkPolyData;
-
   this->Scalars = NULL;
   this->Vectors = NULL;
   this->Normals = NULL;
