@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-04 21:01:38 $
-  Version:   $Revision: 1.88 $
+  Date:      $Date: 2001-05-28 06:04:08 $
+  Version:   $Revision: 1.89 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -175,15 +175,6 @@ public:
   virtual void InitPartTraversal();
   virtual vtkActor *GetNextPart();
   virtual int GetNumberOfParts();
-  
-#ifndef VTK_REMOVE_LEGACY_CODE
-  // Description:
-  // For legacy compatibility. Do not use.
-  void SetProperty(vtkProperty& lut) 
-    {VTK_LEGACY_METHOD(SetProperty,"3.2"); this->SetProperty(&lut);};
-  void SetBackfaceProperty(vtkProperty& lut) 
-    {VTK_LEGACY_METHOD(SetBackfaceProperty,"3.2"); this->SetBackfaceProperty(&lut);};
-#endif
   
 protected:
   vtkActor();
