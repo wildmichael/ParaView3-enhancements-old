@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCompositeManager.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-18 20:47:23 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-03-19 12:15:58 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #include "vtkMesaRenderWindow.h"
 #endif
 
-vtkCxxRevisionMacro(vtkCompositeManager, "$Revision: 1.17 $");
+vtkCxxRevisionMacro(vtkCompositeManager, "$Revision: 1.18 $");
 
 // Structures to communicate render info.
 struct vtkCompositeRenderWindowInfo 
@@ -1079,6 +1079,15 @@ void vtkCompositeManager::PrintSelf(ostream& os, vtkIndent indent)
   else
     {
     os << indent << "UseCompositing: Off\n";
+    }
+
+  if (this->Manual)
+    {
+    os << indent << "Manual: On\n";
+    }
+  else
+    {
+    os << indent << "Manual: Off\n";
     }
 
   os << indent << "Controller: (" << this->Controller << ")\n"; 
