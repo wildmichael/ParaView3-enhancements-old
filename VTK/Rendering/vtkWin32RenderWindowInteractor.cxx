@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32RenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-12-15 21:03:04 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 1999-12-21 19:34:12 $
+  Version:   $Revision: 1.52 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -46,7 +46,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkWin32RenderWindowInteractor.h"
 #include "vtkInteractorStyle.h"
 #include "vtkActor.h"
-#include <gl\gl.h>
+#ifndef VTK_IMPLEMENT_MESA_CXX
+#include <gl/gl.h>
+#endif
 #include "vtkObjectFactory.h"
 
 
