@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTIFFReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:13 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-03-24 21:52:52 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -177,7 +177,7 @@ vtkTiffLong vtkTIFFReader::ReadTagLong(_vtkTifTag *tag, FILE *fp)
 
 void vtkTIFFReader::ExecuteInformation()
 {
-  int xsize, ysize;
+  int xsize = 0, ysize = 0;
   FILE *fp;
   short stmp;
   vtkTiffLong IFDOffset;
@@ -186,7 +186,7 @@ void vtkTIFFReader::ExecuteInformation()
   int i;
   short numTags;
   vtkTiffLong ltmp;
-  int numComp, bpp;
+  int numComp = 0, bpp = 0;
   int numSlices = 1;
   
   if (!this->FileName && !this->FilePattern)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:14 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2001-03-24 21:52:52 $
+  Version:   $Revision: 1.32 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -292,7 +292,7 @@ void vtkTextMapper::GetMultiLineSize(vtkViewport* viewport, int size[2])
 void vtkTextMapper::RenderOverlayMultipleLines(vtkViewport *viewport, 
                                                vtkActor2D *actor)    
 {
-  float offset;
+  float offset = 0.0;
   int size[2];
   // make sure LineSize is up to date 
   this->GetMultiLineSize(viewport,size);
@@ -327,7 +327,7 @@ void vtkTextMapper::RenderOverlayMultipleLines(vtkViewport *viewport,
 void vtkTextMapper::RenderOpaqueGeometryMultipleLines(vtkViewport *viewport, 
                                                       vtkActor2D *actor)    
 {
-  float offset;
+  float offset = 0.0;
   int size[2];
   // make sure LineSize is up to date 
   this->GetMultiLineSize(viewport,size);

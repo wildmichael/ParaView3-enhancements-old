@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMesaTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:15 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-03-24 21:52:52 $
+  Version:   $Revision: 1.7 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -263,7 +263,7 @@ int vtkXMesaTextMapper::GetListBaseForFont(vtkTextMapper *tm,
     }
   
   // save the current context
-  GLXContext ctx;
+  GLXContext ctx = NULL;
   
   // OK the font is not cached
   // so we need to make room for a new font

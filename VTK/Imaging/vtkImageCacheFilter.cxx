@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCacheFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:04 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-03-24 21:52:52 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -202,7 +202,7 @@ void vtkImageCacheFilter::UpdateData(vtkDataObject *outObject)
   if (flag == 0)
     {
     unsigned long bestTime = VTK_LARGE_INTEGER;
-    int bestIdx;
+    int bestIdx = 0;
 
     // we need to update.
     inData->SetUpdateExtent(uExt);

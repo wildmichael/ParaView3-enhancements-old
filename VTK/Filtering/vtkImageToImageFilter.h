@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToImageFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-03-13 20:24:36 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2001-03-24 21:52:52 $
+  Version:   $Revision: 1.26 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -99,7 +99,7 @@ public:
   virtual int SplitExtent(int splitExt[6], int startExt[6], 
 			  int num, int total);
   
-
+//BTX
 #ifndef VTK_REMOVE_LEGACY_CODE
   // Legacy !!!!!!!!!!!!!!! ---------------------------------
   
@@ -117,7 +117,7 @@ public:
     { this->LegacyHack = 0; }
   int LegacyHack;
 #endif
-  
+//ETX
 protected:
   vtkImageToImageFilter();
   ~vtkImageToImageFilter();

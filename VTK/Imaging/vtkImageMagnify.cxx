@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMagnify.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:07 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2001-03-24 21:52:52 $
+  Version:   $Revision: 1.35 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -149,9 +149,9 @@ static void vtkImageMagnifyExecute(vtkImageMagnify *self,
   int magYIdx, magY;
   int magZIdx, magZ;
   T *inPtrZ, *inPtrY, *inPtrX, *outPtrC;
-  float iMag, iMagP, iMagPY, iMagPZ, iMagPYZ;
-  T dataP, dataPX, dataPY, dataPZ;
-  T dataPXY, dataPXZ, dataPYZ, dataPXYZ;
+  float iMag, iMagP = 0.0, iMagPY = 0.0, iMagPZ = 0.0, iMagPYZ = 0.0;
+  T dataP = 0, dataPX = 0, dataPY = 0, dataPZ = 0;
+  T dataPXY = 0, dataPXZ = 0, dataPYZ = 0, dataPXYZ = 0;
   int interpSetup;
   
   interpolate = self->GetInterpolate();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageQuantizeRGBToIndex.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-08 14:38:20 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-03-24 21:52:52 $
+  Version:   $Revision: 1.25 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -261,7 +261,7 @@ static void vtkImageQuantizeRGBToIndexExecute(vtkImageQuantizeRGBToIndex *self,
   vtkColorQuantizeNode *root, *tmp;
   vtkColorQuantizeNode *leafNodes[65536];
   int                  numLeafNodes;
-  int                  maxdevAxis, maxdevLeafNode;
+  int                  maxdevAxis = 0, maxdevLeafNode = 0;
   float                maxdev, dev;
   int                  leaf, axis;
   int                  cannotDivideFurther;

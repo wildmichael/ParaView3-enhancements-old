@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-12 19:26:05 $
-  Version:   $Revision: 1.79 $
+  Date:      $Date: 2001-03-24 21:52:52 $
+  Version:   $Revision: 1.80 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -661,7 +661,7 @@ static void vtkImageReaderUpdate2(vtkImageReader *self, vtkImageData *data,
   int inExtent[6];
   int dataExtent[6];
   int comp, pixelSkip;
-  long filePos, correction;
+  long filePos, correction = 0;
   unsigned long count = 0;
   unsigned short DataMask;
   unsigned long target;
