@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSocketCommunicator.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-12 15:20:30 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2002-11-08 18:15:14 $
+  Version:   $Revision: 1.28 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -144,6 +144,8 @@ protected:
   ~vtkSocketCommunicator();
 
   int ReceiveMessage(char *data, int size, int length, int tag );
+
+  ofstream *TraceFile;
 
 private:
   vtkSocketCommunicator(const vtkSocketCommunicator&);  // Not implemented.
