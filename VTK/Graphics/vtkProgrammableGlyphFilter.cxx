@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableGlyphFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:05 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-08-18 13:04:38 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -103,7 +103,7 @@ void vtkProgrammableGlyphFilter::Execute()
   int numPts = input->GetNumberOfPoints();
   vtkPointData *sourcePD;
   vtkCellData *sourceCD;
-  int numSourcePts, numSourceCells, ptOffset=0, scalarOffset;
+  int numSourcePts, numSourceCells, ptOffset=0;
   int cellId, ptId, id, i, idx, npts;
   vtkIdList *pts=vtkIdList::New();
   vtkIdList *cellPts;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-30 14:03:46 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 1999-08-18 13:04:40 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -397,7 +397,6 @@ void vtkVolume::InitializeTextureMapping( vtkViewport *vp,
 	float sampleDistance )
 {
   vtkRenderer  *ren;
-  float        cameraPosition[3], *volumePosition;
 
   this->Update();
 

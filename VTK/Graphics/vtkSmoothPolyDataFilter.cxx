@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSmoothPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-25 16:00:08 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-08-18 13:04:39 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -83,7 +83,7 @@ void vtkSmoothPolyDataFilter::Execute()
   int npts, *pts;
   int p1, p2;
   float *x, *y, deltaX[3], xNew[3], conv, maxDist, dist, factor;
-  float x1[3], x2[3], x3[3], l1[3], l2[3], lenl1, lenl2;
+  float x1[3], x2[3], x3[3], l1[3], l2[3];
   float CosFeatureAngle; //Cosine of angle between adjacent polys
   float CosEdgeAngle; // Cosine of angle between adjacent edges
   int iterationNumber, abortExecute;
@@ -380,9 +380,9 @@ void vtkSmoothPolyDataFilter::Execute()
           l1[k] = x2[k] - x1[k];
           l2[k] = x3[k] - x2[k];
           }
-        if ( (lenl1 = vtkMath::Normalize(l1)) >= 0.0 &&
-        (lenl2 = vtkMath::Normalize(l2)) >= 0.0 &&
-        vtkMath::Dot(l1,l2) < CosEdgeAngle)
+        if ( vtkMath::Normalize(l1) >= 0.0 &&
+	     vtkMath::Normalize(l2) >= 0.0 &&
+	     vtkMath::Dot(l1,l2) < CosEdgeAngle)
           {
           numFixed++;
           Verts[i].type = VTK_FIXED_VERTEX;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSampleFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:08 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 1999-08-18 13:04:38 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -138,7 +138,7 @@ void vtkSampleFunction::ExecuteInformation()
 
 void vtkSampleFunction::Execute()
 {
-  int ptId, i;
+  int ptId;
   vtkNormals *newNormals=NULL;
   int numPts;
   float *p, s;

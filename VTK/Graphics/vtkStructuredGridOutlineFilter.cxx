@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridOutlineFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-17 15:19:35 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1999-08-18 13:04:39 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -317,7 +317,7 @@ void vtkStructuredGridOutlineFilter::UpdateInformation()
 {
   vtkStructuredGrid *input = this->GetInput();
   vtkPolyData *output = this->GetOutput();
-  int *ext, nums[3];
+  int *ext;
   long t1, t2;
   long numPts, numLines;
   long sizePt, sizeLine;

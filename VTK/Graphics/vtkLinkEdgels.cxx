@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinkEdgels.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-19 15:29:40 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1999-08-18 13:04:36 $
+  Version:   $Revision: 1.18 $
 
 Copyright (c) 1993-1997 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -59,7 +59,6 @@ void vtkLinkEdgels::Execute()
   vtkScalars *inScalars;
   vtkScalars *outScalars;
   vtkStructuredPoints *input = this->GetInput();
-  int numPts;
   vtkVectors *outVectors;
   vtkPolyData *output = this->GetOutput();
   int *dimensions;
@@ -73,7 +72,7 @@ void vtkLinkEdgels::Execute()
   dimensions = input->GetDimensions();
   inScalars = (vtkScalars *)pd->GetScalars();
   inVectors = pd->GetVectors();
-  if ((numPts=input->GetNumberOfPoints()) < 2 || inScalars == NULL)
+  if ((input->GetNumberOfPoints()) < 2 || inScalars == NULL)
     {
     vtkErrorMacro(<<"No data to transform!");
     return;
@@ -128,7 +127,6 @@ void vtkLinkEdgels::LinkEdgels(int xdim, int ydim, float *image,
   int x,y,ypos,zpos;
   int currX, currY, i;
   int newX, newY;
-  int startX, startY;
   float vec[3], vec1[3], vec2[3];
   float linkThresh, phiThresh;
   // these direction vectors are rotated 90 degrees
@@ -302,8 +300,6 @@ void vtkLinkEdgels::LinkEdgels(int xdim, int ydim, float *image,
 	// now trace to the end and build the digital curve
 	length = 0;
 	start = outScalars->GetNumberOfScalars();
-	startX = currX;
-	startY = currY;
 	newX = currX;
 	newY = currY;
 	do

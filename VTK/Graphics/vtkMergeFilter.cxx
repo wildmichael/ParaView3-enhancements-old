@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-23 14:57:03 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 1999-08-18 13:04:37 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -327,7 +327,6 @@ void vtkMergeFilter::Execute()
 // Just request al the input. Always generate all of the output (todo).
 int vtkMergeFilter::ComputeInputUpdateExtents(vtkDataObject *data)
 {
-  vtkDataSet *output = (vtkDataSet*)data;
   vtkDataSet *input;
   int idx;
   

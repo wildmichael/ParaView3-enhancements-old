@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamer.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-26 17:18:04 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 1999-08-18 13:04:39 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -402,12 +402,11 @@ void vtkStreamer::Integrate()
   vtkVectors *inVectors;
   int numSourcePts, idx, idxNext;
   vtkStreamPoint *sNext, *sPtr;
-  int i, j, ptId, offset, subId;
+  int i, j, ptId, offset;
   vtkCell *cell;
   float *v, xNext[3];
-  float d, step, dir, vNext[3], tol2, p[3];
-  float *w=new float[input->GetMaxCellSize()], dist2;
-  float closestPoint[3];
+  float tol2;
+  float *w=new float[input->GetMaxCellSize()];
   vtkVectors *cellVectors;
   vtkScalars *cellScalars;
   
