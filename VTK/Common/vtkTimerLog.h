@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTimerLog.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 20:34:18 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1998-10-07 20:48:04 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -123,6 +123,11 @@ public:
   // Returns the elapsed number of seconds since January 1, 1970. This
   // is also called Universal Coordinated Time.
   static double GetCurrentTime();
+
+  // Description:
+  // Returns the CPU time for this process
+  // On Win32 platforms this actually returns wall time.
+  static double GetCPUTime();
 
   // Description:
   // Set the StartTime to the current time. Used with GetElapsedTime().
