@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProbeFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:11 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2001-12-06 14:20:09 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -80,6 +80,9 @@ public:
   vtkGetMacro(SpatialMatch, int);
   vtkBooleanMacro(SpatialMatch, int);
 
+  // Description:
+  // Get the list of point ids in the output that contain attribute data
+  // interpolated from the source.
   vtkGetObjectMacro(ValidPoints, vtkIdTypeArray);
   
 protected:
