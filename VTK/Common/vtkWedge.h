@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWedge.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-27 13:09:09 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-09-13 13:10:47 $
+  Version:   $Revision: 1.22 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -45,6 +45,7 @@ public:
   // See vtkCell3D API for description of these methods.
   virtual void GetEdgePoints(int edgeId, int* &pts);
   virtual void GetFacePoints(int faceId, int* &pts);
+  virtual float *GetParametricCoords();
 
   // Description:
   // See the vtkCell API for descriptions of these methods.

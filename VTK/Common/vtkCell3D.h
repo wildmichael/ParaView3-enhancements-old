@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell3D.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:12 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-09-13 13:10:47 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -74,12 +74,23 @@ public:
   // The topological dimension of the cell. (Satisfies vtkCell API.)
   virtual int GetCellDimension() {return 3;}
 
+  // Description:
+  // Return a contiguous array of parametric coordinates of the points
+  // defining this cell. In other words, (px,py,pz, px,py,pz, etc..)
+  // The coordinates are ordered consistent with the definition of the
+  // point ordering for the cell.
+  virtual float *GetParametricCoords();
+
 protected:
   vtkCell3D():Triangulator(NULL) {}
   ~vtkCell3D();
   
   vtkOrderedTriangulator *Triangulator;
   
+  //Some cells define templates for interior clipping
+  virtual int ClipInteriorCell(vtkCellArray *tets)
+    {return 0;}
+
 private:
   vtkCell3D(const vtkCell3D&);  // Not implemented.
   void operator=(const vtkCell3D&);  // Not implemented.
