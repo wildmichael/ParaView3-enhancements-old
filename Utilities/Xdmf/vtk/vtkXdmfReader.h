@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.h,v $
   Language:  C++
-  Date:      $Date: 2003-04-14 19:13:23 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-04-14 21:34:48 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,8 +17,7 @@
 =========================================================================*/
 // .NAME vtkXdmfReader - read eXtensible Data Model and Format files
 // .SECTION Description
-// vtkXdmfReader is a source object that reads ASCII or binary 
-// rectilinear grid data files in vtk format (see text for format details).
+// vtkXdmfReader is a source object that reads XDMF data.
 // The output of this reader is a single vtkUnstructuredGrid, vtkStructuredGrid
 //  or vtkRectilinearGrid data object.
 // The superclass of this class, vtkDataReader, provides many methods for
@@ -119,6 +118,12 @@ public:
   int GetCellArrayStatus(const char* name);
   void SetPointArrayStatus(const char* name, int status);  
   void SetCellArrayStatus(const char* name, int status);  
+
+  // Description:
+  // Set whether the all point or cell arrays are to
+  // be read.
+  void EnableAllArrays();
+  void DisableAllArrays();
 
   // Description:
   // Get the Low Level XdmfDOM
