@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamer.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:48 $
-  Version:   $Revision: 1.73 $
+  Date:      $Date: 2002-02-14 23:34:07 $
+  Version:   $Revision: 1.74 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkInterpolatedVelocityField.h"
 #include "vtkRungeKutta2.h"
 
-vtkCxxRevisionMacro(vtkStreamer, "$Revision: 1.73 $");
+vtkCxxRevisionMacro(vtkStreamer, "$Revision: 1.74 $");
 vtkStandardNewMacro(vtkStreamer);
 
 #define VTK_START_FROM_POSITION 0
@@ -218,6 +218,7 @@ VTK_THREAD_RETURN_TYPE vtkStreamer::ThreadedIntegrate( void *arg )
   vtkFloatArray            *cellVectors;
   vtkDataArray             *cellScalars=0;
   float tOffset, vort[3];
+  float err;
   int nSavePts = 0, counter=0;
 
   thread_id = ((ThreadInfoStruct *)(arg))->ThreadID;
@@ -310,8 +311,8 @@ VTK_THREAD_RETURN_TYPE vtkStreamer::ThreadedIntegrate( void *arg )
           * sqrt((double)cell->GetLength2())/pt1.speed;
 
         // Calculate the next step using the integrator provided
-        if (integrator->ComputeNextStep(pt1.x, pt1.v, xNext, 0, step)
-            == -1)
+        if (integrator->ComputeNextStep(pt1.x, pt1.v, xNext, 0, step, 0, err)
+            != 0)
           {
           break;
           }
