@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-12 13:47:58 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1995-09-29 12:38:37 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -339,7 +339,7 @@ void vtkStructuredPoints::GetVoxelGradient(int i, int j, int k, vtkScalars *s,
                                           vtkFloatVectors& g)
 {
   float gv[3];
-  int ii, jj, kk, idx;
+  int ii, jj, kk, idx=0;
 
   for ( kk=0; kk < 2; kk++)
     {
