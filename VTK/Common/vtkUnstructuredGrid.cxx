@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:20 $
-  Version:   $Revision: 1.81 $
+  Date:      $Date: 2000-12-11 20:22:22 $
+  Version:   $Revision: 1.82 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -92,10 +92,6 @@ vtkUnstructuredGrid::vtkUnstructuredGrid ()
   this->Connectivity = NULL;
   this->Allocate(1000,1000);
   this->Links = NULL;
-
-  // We are using the pieces / number of pieces interface for streaming.
-  // By default, there is 1 piece.
-  this->MaximumNumberOfPieces = 1;
 }
 
 // Allocate memory space for data insertion. Execute this method before
@@ -695,8 +691,6 @@ void vtkUnstructuredGrid::PrintSelf(ostream& os, vtkIndent indent)
 
   os << indent << "Number Of Pieces: " << this->NumberOfPieces << endl;
   os << indent << "Piece: " << this->Piece << endl;
-  os << indent << "Maximum Number Of Pieces: " << this->MaximumNumberOfPieces << endl;
-
   os << indent << "Ghost Level: " << this->GhostLevel << endl;
   
   os << indent << "UpdateExtent: " << this->UpdateExtent[0] << ", "
