@@ -1,16 +1,16 @@
 /*=========================================================================
 
-  Program:   OSCAR 
+  Program:   Visualization Library
   Module:    $RCSfile: vtkRendererCollection.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-01-17 21:31:02 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-02-06 17:53:40 $
+  Version:   $Revision: 1.2 $
 
-Description:
----------------------------------------------------------------------------
-This file is part of the vis library
+This file is part of the Visualization Library. No part of this file or its
+contents may be copied, reproduced or altered in any way without the express
+written consent of the authors.
 
-- Ken Martin
+Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 
 =========================================================================*/
 #include <stdlib.h>
@@ -84,3 +84,14 @@ void vlRendererCollection::Render()
     }
   
 }
+
+void vlRendererCollection::PrintSelf(ostream& os, vlIndent indent)
+{
+  if (this->ShouldIPrint(vlRendererCollection::GetClassName()))
+    {
+    vlObject::PrintSelf(os,indent);
+    
+    os << indent << "Number Of Members: " << this->NumberOfItems << "\n";
+    }
+}
+
