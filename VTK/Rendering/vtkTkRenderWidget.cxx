@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkRenderWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-29 14:53:37 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1999-02-23 22:28:35 $
+  Version:   $Revision: 1.30 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -346,7 +346,7 @@ static void vtkTkRenderWidget_EventProc(ClientData clientData,
     case MapNotify:
       break;
     case DestroyNotify:
-      // Tcl_EventuallyFree((ClientData) self, vtkTkRenderWidget_Destroy );
+      Tcl_EventuallyFree((ClientData) self, vtkTkRenderWidget_Destroy );
       break;
     default:
       // nothing
