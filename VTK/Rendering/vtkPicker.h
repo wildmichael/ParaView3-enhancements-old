@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPicker.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-06 19:10:18 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1998-05-08 17:29:46 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -142,6 +142,19 @@ public:
   void SetPickMethodArgDelete(void (*f)(void *));
   void SetEndPickMethodArgDelete(void (*f)(void *));
 
+  // Description:
+  // Use these methods to control whether to limit the picking to this list
+  // (rather than renderer's actors). Make sure that the pick list contains 
+  // actors that refered to by the picker's renderer.
+  vtkSetMacro(PickFromList,int);
+  vtkGetMacro(PickFromList,int);
+  vtkBooleanMacro(PickFromList,int);
+
+  void InitializePickList();
+  void AddPickList(vtkActor *a);
+  void DeletePickList(vtkActor *a);
+  vtkActorCollection *GetPickList() {return &(this->PickList);}
+
 protected:
   void MarkPicked(vtkActor *assem, vtkActor *a, vtkMapper *m, 
                   float tMin, float mapperPos[3]);
@@ -172,6 +185,11 @@ protected:
   void (*EndPickMethod)(void *);
   void (*EndPickMethodArgDelete)(void *);
   void *EndPickMethodArg;
+  
+  // use the following to control picking from a list
+  int PickFromList;
+  vtkActorCollection PickList;
+  
 };
 
 inline vtkActorCollection* vtkPicker::GetActors() {return &(this->Actors);}
