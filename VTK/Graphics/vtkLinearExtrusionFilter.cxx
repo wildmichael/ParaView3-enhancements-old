@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearExtrusionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-01 15:54:11 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2001-10-02 14:11:19 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -367,18 +367,18 @@ void vtkLinearExtrusionFilter::Execute()
                                     lineIds->GetId(i),outCellId);
     ++outCellId;
     }
-  j = stripIds->GetNumberOfIds();
-  for (i = 0; i < j; ++i)
-    {
-    output->GetCellData()->CopyData(input->GetCellData(),
-                                    stripIds->GetId(i),outCellId);
-    ++outCellId;
-    }
   j = polyIds->GetNumberOfIds();
   for (i = 0; i < j; ++i)
     {
     output->GetCellData()->CopyData(input->GetCellData(),
                                     polyIds->GetId(i),outCellId);
+    ++outCellId;
+    }
+  j = stripIds->GetNumberOfIds();
+  for (i = 0; i < j; ++i)
+    {
+    output->GetCellData()->CopyData(input->GetCellData(),
+                                    stripIds->GetId(i),outCellId);
     ++outCellId;
     }
   lineIds->Delete();
