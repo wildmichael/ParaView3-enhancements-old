@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredGridReader.h,v $
   Language:  C++
-  Date:      $Date: 1995-05-01 21:07:49 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1995-05-02 18:46:19 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -37,14 +37,31 @@ public:
   // overload because of vlDataReader ivar
   unsigned long int GetMTime();
 
-  // Description:
-  // Specify file name of vl structured grid data file to read.
-  vlSetStringMacro(Filename);
-  vlGetStringMacro(Filename);
+  void SetFilename(char *name);
+  char *GetFilename();
+
+  int GetFileType();
+
+  void SetScalarsName(char *name);
+  char *GetScalarsName();
+
+  void SetVectorsName(char *name);
+  char *GetVectorsName();
+
+  void SetTensorsName(char *name);
+  char *GetTensorsName();
+
+  void SetNormalsName(char *name);
+  char *GetNormalsName();
+
+  void SetTCoordsName(char *name);
+  char *GetTCoordsName();
+
+  void SetLookupTableName(char *name);
+  char *GetLookupTableName();
 
 protected:
   void Execute();
-  char *Filename;
   vlDataReader Reader;
 
 };
