@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTclUtil.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:26:24 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2002-08-08 19:04:23 $
+  Version:   $Revision: 1.38 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,6 +28,10 @@
 #else
 #define VTKTCL_EXPORT
 #endif
+
+extern VTKTCL_EXPORT void vtkTclUpdateCommand(Tcl_Interp *interp, 
+                                              char *name,  
+                                              vtkObject *obj);
 
 extern VTKTCL_EXPORT void vtkTclDeleteObjectFromHash(vtkObject *,
                                                      unsigned long eventId,
