@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOrderedTriangulator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-17 12:29:04 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-05-18 19:49:14 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -324,6 +324,7 @@ vtkOrderedTriangulator::vtkOrderedTriangulator()
 {
   this->Mesh = new vtkOTMesh;
   this->NumberOfPoints = 0;
+  this->PreSorted = 0;
 }
 
 //------------------------------------------------------------------------
@@ -698,8 +699,11 @@ void vtkOrderedTriangulator::Triangulate()
 
   // Sort the points according to id. The last six points are left
   // where they are (at the end of the list).
-  qsort((void *)this->Mesh->Points.GetPointer(0), this->NumberOfPoints, 
-        sizeof(vtkOTPoint), SortOnPointIds);
+  if ( ! this->PreSorted )
+    {
+    qsort((void *)this->Mesh->Points.GetPointer(0), this->NumberOfPoints, 
+          sizeof(vtkOTPoint), SortOnPointIds);
+    }
 
   // Insert each point into the triangulation.
   for (ptId=0, p=this->Mesh->Points.GetPointer(0); 
@@ -868,5 +872,8 @@ void vtkOrderedTriangulator::GetTetras(int classification,
 void vtkOrderedTriangulator::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkObject::PrintSelf(os,indent);
+
+  os << indent << "PreSorted: " << (this->PreSorted ? "On\n" : "Off\n");
+
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOrderedTriangulator.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-16 14:12:58 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-05-18 19:49:14 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -123,6 +123,14 @@ public:
   void Triangulate();
 
   // Description:
+  // Boolean indicates whether the points have been pre-sorted. If 
+  // pre-sorted is enabled, the points are not sorted on point id.
+  // By default, presorted is off.
+  vtkSetMacro(PreSorted,int)
+  vtkGetMacro(PreSorted,int)
+  vtkBooleanMacro(PreSorted,int)
+
+  // Description:
   // Add the tetrahedra classified (0=inside,1=outside) to the connectivity
   // list provided. Inside tetrahedron are those whose points are all
   // classified "inside." Outside tetrahedron have at least one point
@@ -145,6 +153,7 @@ protected:
 private:
   vtkOTMesh  *Mesh;
   int NumberOfPoints;
+  int PreSorted;
   
 };
 
