@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32RenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-11-15 20:44:50 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1998-11-17 18:40:11 $
+  Version:   $Revision: 1.36 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -79,7 +79,7 @@ vtkWin32RenderWindowInteractor::~vtkWin32RenderWindowInteractor()
     ren = (vtkWin32OpenGLRenderWindow *)(this->RenderWindow);
     tmp = (vtkWin32OpenGLRenderWindow *)GetWindowLong(this->WindowId,GWL_USERDATA);
     // watch for odd conditions
-    if (tmp != ren)
+    if ((tmp != ren) && (ren != NULL))
       {
       // OK someone else has a hold on our event handler
       // so lets have them handle this stuff
@@ -94,7 +94,6 @@ vtkWin32RenderWindowInteractor::~vtkWin32RenderWindowInteractor()
       }
 
     this->Enabled = 0;
-    this->Modified();
     }
 }
 
@@ -199,7 +198,7 @@ void vtkWin32RenderWindowInteractor::Disable()
     ren = (vtkWin32OpenGLRenderWindow *)(this->RenderWindow);
     tmp = (vtkWin32OpenGLRenderWindow *)GetWindowLong(this->WindowId,GWL_USERDATA);
     // watch for odd conditions
-    if (tmp != ren)
+    if ((tmp != ren) && (ren != NULL))
       {
       // OK someone else has a hold on our event handler
       // so lets have them handle this stuff
