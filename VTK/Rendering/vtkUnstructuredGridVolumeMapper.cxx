@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridVolumeMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-11-24 20:05:46 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-11-25 06:06:45 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,11 +20,12 @@
 #include "vtkUnstructuredGrid.h"
 #include "vtkDataSet.h"
 
-vtkCxxRevisionMacro(vtkUnstructuredGridVolumeMapper, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkUnstructuredGridVolumeMapper, "$Revision: 1.2 $");
 
 // Construct a vtkUnstructuredGridVolumeMapper with empty scalar input and clipping off.
 vtkUnstructuredGridVolumeMapper::vtkUnstructuredGridVolumeMapper()
 {
+  this->BlendMode = vtkUnstructuredGridVolumeMapper::COMPOSITE_BLEND;
 }
 
 vtkUnstructuredGridVolumeMapper::~vtkUnstructuredGridVolumeMapper()
@@ -65,5 +66,7 @@ vtkUnstructuredGrid *vtkUnstructuredGridVolumeMapper::GetInput()
 void vtkUnstructuredGridVolumeMapper::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->Superclass::PrintSelf(os,indent);
+  
+  os << indent << "Blend Mode: " << this->BlendMode << endl;
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridVolumeRayCastMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-11-25 05:25:29 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-11-25 06:06:45 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -40,7 +40,7 @@
 VTK_THREAD_RETURN_TYPE UnstructuredGridVolumeRayCastMapper_CastRays( void *arg );
 
 
-vtkCxxRevisionMacro(vtkUnstructuredGridVolumeRayCastMapper, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkUnstructuredGridVolumeRayCastMapper, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkUnstructuredGridVolumeRayCastMapper);
 
 
@@ -561,7 +561,7 @@ void vtkUnstructuredGridVolumeRayCastMapper::PrintSelf(ostream& os, vtkIndent in
   
   os << indent << "Number Of Threads: " << this->NumberOfThreads << "\n";
   
-  // Do not want to print ImageOrigin, ImageViewportSize or ImageInUseSize
+  // Do not want to print this->ImageOrigin, this->ImageViewportSize or this->ImageInUseSize
   // since these are just internal variables with Get methods for access
   // from the ray cast function (not part of the public API)
 }
