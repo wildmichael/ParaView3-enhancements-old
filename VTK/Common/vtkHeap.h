@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHeap.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-20 18:38:12 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-09-20 18:41:06 $
+  Version:   $Revision: 1.2 $
   Thanks:    Tom Citriniti who implemented and contributed this class
 
 
@@ -50,10 +50,13 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // the method AllocateMemory(). Memory is then deleted with an invocation
 // of CleanUp().
 //
-// .SECTION Caveat
+// .SECTION Caveats
 // Do not use this method as a replacement for system memory allocation.
 // This class should be used only as a last resort if memory leaks cannot
 // be tracked down and eliminated by conventional means.
+
+// .SECTION See Also
+// vtkVRMLImporter vtkPLY
 
 #ifndef __vtkHeap_h
 #define __vtkHeap_h
