@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageBlend.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-02 18:46:30 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-08-07 10:53:41 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to David G. Gobbi and Sebastien Barre who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -133,7 +133,7 @@ double vtkImageBlend::GetOpacity(int idx)
 
 //----------------------------------------------------------------------------
 void vtkImageBlend::ExecuteInformation(vtkImageData **inDatas,
-				       vtkImageData *outData)
+				       vtkImageData *vtkNotUsed(outData))
 {
   vtkImageStencilData *stencil = this->GetStencil();
   if (stencil)
