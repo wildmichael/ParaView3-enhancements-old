@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMask.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-03 16:34:37 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1999-11-03 16:38:37 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -318,6 +318,12 @@ void vtkImageMask::ExecuteInformation(vtkImageData **inDatas,
 {
   int ext[6], *ext2, idx;
 
+  if (inDatas == NULL || inDatas[0] == NULL || inDatas[1] == NULL)
+    {
+    vtkErrorMacro("Missing and input.");
+    return;
+    }
+  
   inDatas[0]->GetWholeExtent(ext);
   ext2 = this->GetInput(1)->GetWholeExtent();
   for (idx = 0; idx < 3; ++idx)
