@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCutter.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-09 15:07:48 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1995-06-07 09:27:10 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -31,6 +31,7 @@ public:
   vlCutter(vlImplicitFunction *cf=NULL);
   ~vlCutter();
   char *GetClassName() {return "vlCutter";};
+  void PrintSelf(ostream& os, vlIndent indent);
 
   unsigned long int GetMTime();
 
