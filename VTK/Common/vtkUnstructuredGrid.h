@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 2001-03-21 13:39:27 $
-  Version:   $Revision: 1.72 $
+  Date:      $Date: 2001-05-21 12:44:55 $
+  Version:   $Revision: 1.73 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -85,7 +85,8 @@ public:
   int InsertNextCell(int type, vtkIdList *ptIds);
   void Reset();
   void SetCells(int *types, vtkCellArray *cells);
-  void SetCells(vtkUnsignedCharArray *cellTypes, vtkIntArray *cellLocations, vtkCellArray *cells);
+  void SetCells(vtkUnsignedCharArray *cellTypes, vtkIntArray *cellLocations, 
+                vtkCellArray *cells);
   vtkCellArray *GetCells() {return this->Connectivity;};
   vtkDataObject *MakeObject() {return vtkUnstructuredGrid::New();};
   virtual void CopyStructure(vtkDataSet *ds);
@@ -179,18 +180,6 @@ public:
   // Traverse cells and determine if cells are all of the same type.
   int IsHomogeneous();
 
-
-#ifndef VTK_REMOVE_LEGACY_CODE
-  // Description:
-  // For legacy compatibility. Do not use.
-  void GetCellPoints(int cellId, vtkIdList &ptIds)
-    {VTK_LEGACY_METHOD(GetCellPoints,"3.2"); this->GetCellPoints(cellId, &ptIds);}
-  void GetPointCells(int ptId, vtkIdList &cellIds)
-    {VTK_LEGACY_METHOD(GetPointCells,"3.2"); this->GetPointCells(ptId, &cellIds);}
-  int InsertNextCell(int type, vtkIdList &pts) 
-    {VTK_LEGACY_METHOD(InsertNextCell,"3.2"); return this->InsertNextCell(type, &pts);}
-#endif
-  
 protected:
   vtkUnstructuredGrid();
   ~vtkUnstructuredGrid();

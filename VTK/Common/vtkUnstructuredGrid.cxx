@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-21 13:39:27 $
-  Version:   $Revision: 1.91 $
+  Date:      $Date: 2001-05-21 12:44:56 $
+  Version:   $Revision: 1.92 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -382,7 +382,8 @@ int vtkUnstructuredGrid::InsertNextCell(int type, vtkIdList *ptIds)
   // insert connectivity
   this->Connectivity->InsertNextCell(ptIds);
   // insert type and storage information   
-  vtkDebugMacro(<< "insert location " << this->Connectivity->GetInsertLocation(npts));
+  vtkDebugMacro(<< "insert location " 
+                << this->Connectivity->GetInsertLocation(npts));
   this->Locations->InsertNextValue(this->Connectivity->GetInsertLocation(npts));
   return this->Types->InsertNextValue((unsigned char) type);
 
