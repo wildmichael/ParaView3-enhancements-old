@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-12 15:52:03 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-10-14 02:09:16 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -871,7 +871,7 @@ Bool vtkXOpenGLRenderWindowPredProc(Display *vtkNotUsed(disp), XEvent *event,
 
 void *vtkXOpenGLRenderWindow::GetGenericContext()
 {
-#ifdef MESA
+#if defined(MESA) && defined(VTK_OPENGL_HAS_OSMESA)
   if (this->OffScreenRendering)
     {
     return (void *)this->OffScreenContextId;
