@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkUnstructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 1994-11-15 11:07:15 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-05-01 21:08:30 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -38,12 +38,12 @@ public:
   char *GetDataType() {return "vlUnstructuredGrid";};
   void PrintSelf(ostream& os, vlIndent indent);
 
-  // cell creation methods
+  // cell creation/manipulation methods
   void Allocate(int numCells=1000, int extSize=1000);
   int InsertNextCell(int type, vlIdList& ptIds);
   int InsertNextCell(int type, int npts, int pts[MAX_CELL_SIZE]);
-  void InsertCells(int numCells, int width, int* data);
-  void InsertCells(int numCells, int* data);
+  void SetCells(int *types, vlCellArray *cells);
+  vlCellArray *GetCells() {return this->Connectivity;};
 
   // dataset interface
   vlDataSet *MakeObject() {return new vlUnstructuredGrid(*this);};

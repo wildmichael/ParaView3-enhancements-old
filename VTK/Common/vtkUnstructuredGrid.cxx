@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-02-26 10:17:37 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1995-05-01 21:08:29 $
+  Version:   $Revision: 1.16 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -216,14 +216,20 @@ int vlUnstructuredGrid::InsertNextCell(int type, int npts,
     this->Cells->InsertNextCell(type,this->Connectivity->GetLocation(npts));
 }
 
-void vlUnstructuredGrid::InsertCells(int numCells, int width, int *data)
+void vlUnstructuredGrid::SetCells(int *types, vlCellArray *cells)
 {
+  int i, npts, *pts;
 
-}
+  // set cell array
+  if ( this->Connectivity ) this->Connectivity->UnRegister(this);
+  this->Connectivity = cells;
+  if ( this->Connectivity ) this->Connectivity->Register(this);
 
-void vlUnstructuredGrid::InsertCells(int numCells, int *data)
-{
-
+  // build types
+  for (i=0, cells->InitTraversal(); cells->GetNextCell(npts,pts); i++)
+    {
+    this->Cells->InsertNextCell(types[i],this->Connectivity->GetLocation(npts));
+    }
 }
 
 void vlUnstructuredGrid::BuildLinks()
