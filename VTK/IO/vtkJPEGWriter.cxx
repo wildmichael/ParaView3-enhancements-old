@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJPEGWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-10 21:17:15 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-04-11 12:51:11 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@ extern "C" {
 #include <jpeglib.h>
 }
 
-vtkCxxRevisionMacro(vtkJPEGWriter, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkJPEGWriter, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkJPEGWriter);
 
 vtkJPEGWriter::vtkJPEGWriter()
@@ -266,4 +266,5 @@ void vtkJPEGWriter::PrintSelf(ostream& os, vtkIndent indent)
 
   os << indent << "Quality: " << this->Quality << "\n";
   os << indent << "Progressive: " << (this->Progressive ? "On" : "Off") << "\n";
+  os << indent << "Write to memory: " << (this->WriteToMemory ? "On" : "Off") << "\n";
 }
