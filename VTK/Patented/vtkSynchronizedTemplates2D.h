@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates2D.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-17 17:19:51 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-01-19 20:36:07 $
+  Version:   $Revision: 1.14 $
 
 
 
@@ -68,6 +68,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define __vtkSynchronizedTemplates2D_h
 
 #include "vtkPolyDataSource.h"
+#include "vtkImageData.h"
 #include "vtkContourValues.h"
 #include "vtkKitwareContourFilter.h"
 
