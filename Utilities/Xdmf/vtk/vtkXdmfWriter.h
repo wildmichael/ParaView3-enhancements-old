@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfWriter.h,v $
   Language:  C++
-  Date:      $Date: 2004-01-05 02:32:03 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2004-01-06 15:03:54 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -57,6 +57,11 @@ public:
   // Set or get the grid name of the dataset.
   vtkSetStringMacro(GridName);
   vtkGetStringMacro(GridName);
+
+  // Description:
+  // Set or ger the domain name.
+  vtkSetStringMacro(DomainName);
+  vtkGetStringMacro(DomainName);
 
   // Description:
   // Set or get the name of the heavy data file name.
@@ -126,6 +131,7 @@ protected:
   vtkSetStringMacro(FileNameString);
   char    *FileNameString;
   char    *GridName;
+  char    *DomainName;
   
   int    AllLight;
 
