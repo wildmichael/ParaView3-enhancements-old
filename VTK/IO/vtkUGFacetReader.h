@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUGFacetReader.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 19:30:48 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1997-04-18 20:54:18 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,7 +56,7 @@ class VTK_EXPORT vtkUGFacetReader : public vtkPolySource
 public:
   vtkUGFacetReader();
   ~vtkUGFacetReader();
-  vtkUGFacetReader *New() {return new vtkUGFacetReader;};
+  static vtkUGFacetReader *New() {return new vtkUGFacetReader;};
   char *GetClassName() {return "vtkUGFacetReader";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
