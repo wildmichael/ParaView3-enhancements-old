@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarsToColors.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-20 19:28:28 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-09-21 14:49:55 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -88,6 +88,11 @@ public:
                                        int inputIncrement) = 0;
     
 protected:
+  vtkScalarsToColors() {};
+  ~vtkScalarsToColors() {};
+  vtkScalarsToColors(const vtkScalarsToColors &) {};
+  void operator=(const vtkScalarsToColors &) {};
+  
 };
 
 #endif
