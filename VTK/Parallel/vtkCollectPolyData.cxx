@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCollectPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-13 17:02:26 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-05-14 12:27:24 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkAppendPolyData.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkCollectPolyData, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkCollectPolyData, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkCollectPolyData);
 
 //----------------------------------------------------------------------------
@@ -72,7 +72,6 @@ void vtkCollectPolyData::Execute()
 {
   vtkPolyData *input = this->GetInput();
   vtkPolyData *output = this->GetOutput();
-  int updateGhostLevel = output->GetUpdateGhostLevel();
   unsigned long size, tmp;
   int numProcs, myId;
   int idx;
