@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSocketCommunicator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-25 23:30:13 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2002-03-27 19:57:45 $
+  Version:   $Revision: 1.32 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -48,7 +48,7 @@
     return 0; \
     }
 
-vtkCxxRevisionMacro(vtkSocketCommunicator, "$Revision: 1.31 $");
+vtkCxxRevisionMacro(vtkSocketCommunicator, "$Revision: 1.32 $");
 vtkStandardNewMacro(vtkSocketCommunicator);
 
 //----------------------------------------------------------------------------
@@ -79,6 +79,8 @@ void vtkSocketCommunicator::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "SwapBytesInReceivedData: " << this->SwapBytesInReceivedData
      << endl;
   os << indent << "IsConnected: " << this->IsConnected << endl;
+  os << indent << "Perform a handshake: " 
+     << ( this->PerformHandshake ? "Yes" : "No" ) << endl;
 }
 
 static inline int checkForError(int id, int maxId)
