@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLYReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-24 20:01:34 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-06-03 20:56:27 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,9 +21,9 @@
 #include "vtkObjectFactory.h"
 
 #include <ctype.h>
-#include <string.h>
+#include <stddef.h>
 
-vtkCxxRevisionMacro(vtkPLYReader, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkPLYReader, "$Revision: 1.12 $");
 vtkStandardNewMacro(vtkPLYReader);
 
 #ifndef true
