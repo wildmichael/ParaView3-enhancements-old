@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSampleFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:04:49 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1998-04-01 19:35:48 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,6 +67,7 @@ vtkSampleFunction::vtkSampleFunction()
   this->ComputeNormals = 1;
   this->Scalars = NULL;
 }
+
 vtkSampleFunction::~vtkSampleFunction() 
   {
   if (this->Scalars != NULL) 
@@ -126,10 +127,6 @@ void vtkSampleFunction::Execute()
   vtkNormals *newNormals=NULL;
   int numPts;
   float *p, s, ar[3], origin[3];
-  if (this->Scalars == NULL) 
-    {
-    this->Scalars = new vtkScalars;
-    }
   vtkStructuredPoints *output=(vtkStructuredPoints *)this->Output;
 
   vtkDebugMacro(<< "Sampling implicit function");
@@ -145,6 +142,11 @@ void vtkSampleFunction::Execute()
 
   numPts = this->SampleDimensions[0] * this->SampleDimensions[1] 
            * this->SampleDimensions[2];
+
+  if (this->Scalars == NULL) 
+    {
+    this->Scalars = vtkScalars::New(); //ref count is 1
+    }
   this->Scalars->SetNumberOfScalars(numPts);
 
   // Compute origin and aspect ratio
@@ -203,7 +205,7 @@ void vtkSampleFunction::Execute()
 //
 // Update self
 //
-  output->GetPointData()->SetScalars(this->Scalars);
+  output->GetPointData()->SetScalars(this->Scalars); //ref count is now 2
 
   if (newNormals)
     {
