@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastFunction.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:59 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-08-10 20:52:59 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -92,8 +92,8 @@ public:
 protected:
   vtkVolumeRayCastFunction() {};
   ~vtkVolumeRayCastFunction() {};
-  vtkVolumeRayCastFunction(const vtkVolumeRayCastFunction &) {};
-  void operator=(const vtkVolumeRayCastFunction &) {};
+  vtkVolumeRayCastFunction(const vtkVolumeRayCastFunction &);
+  void operator=(const vtkVolumeRayCastFunction &);
 
   // Description:
   // This method gives the subclass a chance to do any special

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDirectionEncoder.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:36 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-08-10 20:52:59 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -88,8 +88,8 @@ public:
 protected:
   vtkDirectionEncoder() {};
   ~vtkDirectionEncoder() {};
-  vtkDirectionEncoder(const vtkDirectionEncoder &) {};
-  void operator=(const vtkDirectionEncoder &) {};
+  vtkDirectionEncoder(const vtkDirectionEncoder &);
+  void operator=(const vtkDirectionEncoder &);
 }; 
 
 
