@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-24 17:36:15 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1999-03-23 13:55:40 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -293,7 +293,7 @@ int vtkPicker::Pick(float selectionX, float selectionY, float selectionZ,
     }
   
   this->Transform->PostMultiply();
-  for ( actors->InitTraversal(); (actor=actors->GetNextItem()); )
+  for ( actors->InitTraversal(); (actor=actors->GetNextActor()); )
     {
     for ( actor->InitPartTraversal(); (part=actor->GetNextPart()); )
       {

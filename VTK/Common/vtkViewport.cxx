@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewport.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-18 20:51:32 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1999-03-23 13:55:36 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -140,7 +140,7 @@ vtkActor2DCollection *vtkViewport::GetActors2D()
   this->Actors2D->RemoveAllItems();
   
   for (this->Props->InitTraversal(); 
-       (aProp = this->Props->GetNextItem()); )
+       (aProp = this->Props->GetNextProp()); )
     {
     aProp->GetActors2D(this->Actors2D);
     }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor2DCollection.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-24 17:28:04 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-03-23 13:55:35 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,7 +64,7 @@ void vtkActor2DCollection::RenderOverlay(vtkViewport* viewport)
     this->Sort();  
     vtkActor2D* tempActor;
     for ( this->InitTraversal(); 
-           (tempActor = this->GetNextItem());)
+           (tempActor = this->GetNextActor2D());)
       {
       // Make sure that the actor is visible before rendering
       if (tempActor->GetVisibility() == 1)
@@ -151,7 +151,7 @@ void vtkActor2DCollection::Sort()
    // Fill the actor array with the items in the collection
    for (index = 0; index < numElems; index++)
      {
-     actorPtrArr[index] = this->GetNextItem();
+     actorPtrArr[index] = this->GetNextActor2D();
      }
 
   vtkDebugMacro(<<"vtkActor2DCollection::Sort - Starting selection sort");

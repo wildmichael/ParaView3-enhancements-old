@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp.h,v $
   Language:  C++
-  Date:      $Date: 1999-03-01 19:42:24 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-03-23 13:55:36 $
+  Version:   $Revision: 1.5 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -51,9 +51,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include "vtkObject.h"
 class vtkViewport;
-class vtkActorCollection;
-class vtkActor2DCollection;
-class vtkVolumeCollection;
+class vtkPropCollection;
 class vtkWindow;
 
 class VTK_EXPORT vtkProp : public vtkObject
@@ -88,9 +86,9 @@ public:
   // For some exporters and other other operations we must be
   // able to collect all the actors or volumes. These methods
   // are used in that process.
-  virtual void GetActors(vtkActorCollection *ac) {};
-  virtual void GetActors2D(vtkActor2DCollection *ac) {};
-  virtual void GetVolumes(vtkVolumeCollection *vc) {};
+  virtual void GetActors(vtkPropCollection *ac) {};
+  virtual void GetActors2D(vtkPropCollection *ac) {};
+  virtual void GetVolumes(vtkPropCollection *vc) {};
   
   // Description:
   // Set/Get visibility of this vtkProp.

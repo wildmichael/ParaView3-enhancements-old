@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPropCollection.h,v $
   Language:  C++
-  Date:      $Date: 1999-02-24 17:26:56 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-03-23 13:55:36 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,11 +74,11 @@ class VTK_EXPORT vtkPropCollection : public vtkCollection
 
   // Description:
   // Get the next Prop in the list.
-  vtkProp *GetNextItem();
+  vtkProp *GetNextProp();
 
   // Description:
   // Get the last Prop in the list.
-  vtkProp *GetLastItem();
+  vtkProp *GetLastProp();
 };
 
 inline void vtkPropCollection::AddItem(vtkProp *a) 
@@ -96,12 +96,12 @@ inline int vtkPropCollection::IsItemPresent(vtkProp *a)
   return this->vtkCollection::IsItemPresent((vtkObject *)a);
 }
 
-inline vtkProp *vtkPropCollection::GetNextItem() 
+inline vtkProp *vtkPropCollection::GetNextProp() 
 { 
   return (vtkProp *)(this->GetNextItemAsObject());
 }
 
-inline vtkProp *vtkPropCollection::GetLastItem() 
+inline vtkProp *vtkPropCollection::GetLastProp() 
 { 
   if ( this->Bottom == NULL )
     {

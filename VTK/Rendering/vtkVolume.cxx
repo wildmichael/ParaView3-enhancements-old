@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-12 00:12:37 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1999-03-23 13:55:41 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -93,7 +93,7 @@ vtkVolume::~vtkVolume()
 
 }
 
-void vtkVolume::GetVolumes(vtkVolumeCollection *vc)
+void vtkVolume::GetVolumes(vtkPropCollection *vc)
 {
   vc->AddItem(this);
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-24 17:32:58 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1999-03-23 13:55:41 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -160,7 +160,7 @@ void vtkVRMLExporter::WriteData()
 
   // do the actors now
   ac = ren->GetActors();
-  for (ac->InitTraversal(); (anActor = ac->GetNextItem()); )
+  for (ac->InitTraversal(); (anActor = ac->GetNextActor()); )
     {
     for (anActor->InitPartTraversal();(aPart=anActor->GetNextPart()); )
       {

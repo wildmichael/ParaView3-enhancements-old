@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIVExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-24 17:33:43 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-03-23 13:55:39 $
+  Version:   $Revision: 1.13 $
   Thanks:    to Jon A. Webb of Visual Interface Inc.
 
 
@@ -173,7 +173,7 @@ void vtkIVExporter::WriteData()
 
   // do the actors now
   ac = ren->GetActors();
-  for (ac->InitTraversal(); (anActor = ac->GetNextItem()); )
+  for (ac->InitTraversal(); (anActor = ac->GetNextActor()); )
     {
     for (anActor->InitPartTraversal();(aPart=anActor->GetNextPart()); )
       {

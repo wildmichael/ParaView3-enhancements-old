@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.h,v $
   Language:  C++
-  Date:      $Date: 1999-03-08 15:27:28 $
-  Version:   $Revision: 1.69 $
+  Date:      $Date: 1999-03-23 13:55:38 $
+  Version:   $Revision: 1.70 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,6 +64,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkAssemblyPaths.h"
 
 class vtkRenderer;
+class vtkPropCollection;
 class vtkActorCollection;
 
 class VTK_EXPORT vtkActor : public vtkProp3D
@@ -84,7 +85,7 @@ class VTK_EXPORT vtkActor : public vtkProp3D
   // For some exporters and other other operations we must be
   // able to collect all the actors or volumes. These methods
   // are used in that process.
-  virtual void GetActors(vtkActorCollection *);
+  virtual void GetActors(vtkPropCollection *);
 
   // Description:
   // Support the standard render methods.

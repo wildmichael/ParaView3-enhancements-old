@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeCollection.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:30 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1999-03-23 13:55:42 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,11 +50,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkVolumeC_h
 #define __vtkVolumeC_h
 
-#include "vtkCollection.h"
+#include "vtkPropCollection.h"
 
 class vtkVolume;
 
-class VTK_EXPORT vtkVolumeCollection : public vtkCollection
+class VTK_EXPORT vtkVolumeCollection : public vtkPropCollection
 {
  public:
   static vtkVolumeCollection *New() {return new vtkVolumeCollection;};
@@ -64,7 +64,7 @@ class VTK_EXPORT vtkVolumeCollection : public vtkCollection
   // Add a Volume to the list.
   void AddItem(vtkVolume *a) {
     this->vtkCollection::AddItem((vtkObject *)a);};
-  
+    
   // Description:
   // Remove a Volume from the list.
   void RemoveItem(vtkVolume *a) {
@@ -79,8 +79,16 @@ class VTK_EXPORT vtkVolumeCollection : public vtkCollection
   // Description:
   // Get the next Volume in the list. Return NULL when at the end of the 
   // list.
-  vtkVolume *GetNextItem() {
-    return (vtkVolume *)(this->GetNextItemAsObject());};
+  vtkVolume *GetNextVolume() {
+      return (vtkVolume *)(this->GetNextItemAsObject());};
+
+
+  // Description:
+  // Access routine provided for compatibility with previous
+  // versions of VTK.  Please use the GetNextVolume() variant
+  // where possible.
+  vtkVolume *GetNextItem() { return this->GetNextVolume(); };
+
 };
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.h,v $
   Language:  C++
-  Date:      $Date: 1999-03-11 18:53:44 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1999-03-23 13:55:42 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,6 +60,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 class vtkRenderer;
 class vtkVolumeMapper;
+class vtkPropCollection;
 class vtkVolumeCollection;
 class vtkWindow;
 
@@ -87,7 +88,7 @@ public:
   // For some exporters and other other operations we must be
   // able to collect all the actors or volumes. These methods
   // are used in that process.
-  virtual void GetVolumes(vtkVolumeCollection *vc);
+  virtual void GetVolumes(vtkPropCollection *vc);
 
   // Description:
   // Support the standard render methods.

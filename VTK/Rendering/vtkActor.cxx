@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-11 18:18:04 $
-  Version:   $Revision: 1.81 $
+  Date:      $Date: 1999-03-23 13:55:38 $
+  Version:   $Revision: 1.82 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -156,7 +156,7 @@ vtkActor *vtkActor::New()
   return new vtkActor;
 }
 
-void vtkActor::GetActors(vtkActorCollection *ac)
+void vtkActor::GetActors(vtkPropCollection *ac)
 {
   ac->AddItem(this);
 }
@@ -562,7 +562,7 @@ void vtkActor::BuildPaths(vtkAssemblyPaths *vtkNotUsed(paths),
 
   *copy = *this;
 
-  previous = path->GetLastItem();
+  previous = path->GetLastActor();
 
   vtkMatrix4x4 *matrix = vtkMatrix4x4::New();
   matrix->DeepCopy(previous->vtkProp3D::GetMatrixPointer());

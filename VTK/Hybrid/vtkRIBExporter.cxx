@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-22 22:37:07 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-03-23 13:55:37 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -133,7 +133,7 @@ void vtkRIBExporter::WriteData()
   //  All textures must be made first
   //
   ac = ren->GetActors();
-  for ( ac->InitTraversal (); (anActor = ac->GetNextItem()); )
+  for ( ac->InitTraversal (); (anActor = ac->GetNextActor()); )
     {
     // see if the actor has a mapper. it could be an assembly
     if (anActor->GetMapper() == NULL)
@@ -195,7 +195,7 @@ void vtkRIBExporter::WriteData()
   // Write all actors
   //
   ac = ren->GetActors();
-  for (ac->InitTraversal(); (anActor = ac->GetNextItem()); )
+  for (ac->InitTraversal(); (anActor = ac->GetNextActor()); )
     {
     for (anActor->InitPartTraversal();(aPart=anActor->GetNextPart()); )
       {

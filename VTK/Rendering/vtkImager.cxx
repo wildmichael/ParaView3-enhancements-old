@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImager.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-18 17:11:36 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-03-23 13:55:43 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -88,7 +88,7 @@ int vtkImager::RenderOpaqueGeometry()
     }
   
   for ( this->Props->InitTraversal(); 
-	(tempActor = this->Props->GetNextItem());)
+	(tempActor = this->Props->GetNextProp());)
     {
     // Make sure that the actor is visible before rendering
     if (tempActor->GetVisibility() == 1)
@@ -110,7 +110,7 @@ int vtkImager::RenderTranslucentGeometry()
   vtkDebugMacro (<< "vtkImager::RenderTranslucent");
   
   for ( this->Props->InitTraversal(); 
-	(tempActor = this->Props->GetNextItem());)
+	(tempActor = this->Props->GetNextProp());)
     {
     // Make sure that the actor is visible before rendering
     if (tempActor->GetVisibility() == 1)
@@ -132,7 +132,7 @@ int vtkImager::RenderOverlay()
   vtkDebugMacro (<< "vtkImager::RenderOverlay");
   
   for (this->Props->InitTraversal(); 
-       (tempActor = this->Props->GetNextItem());)
+       (tempActor = this->Props->GetNextProp());)
     {
     // Make sure that the actor is visible before rendering
     if (tempActor->GetVisibility() == 1)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBJExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-24 17:33:43 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1999-03-23 13:55:39 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -111,7 +111,7 @@ void vtkOBJExporter::WriteData()
 	  "# wavefront mtl file written by the visualization toolkit\n\n");
   
   ac = ren->GetActors();
-  for (ac->InitTraversal(); (anActor = ac->GetNextItem()); )
+  for (ac->InitTraversal(); (anActor = ac->GetNextActor()); )
     {
     for (anActor->InitPartTraversal();(aPart=anActor->GetNextPart()); )
       {
