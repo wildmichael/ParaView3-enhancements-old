@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageOpenClose3D.h,v $
   Language:  C++
-  Date:      $Date: 1999-02-01 12:30:01 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-04-15 18:52:05 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -116,7 +116,8 @@ public:
   // Set the Input of the filter.
   void SetInput(vtkImageCache *Input);
   void SetInput(vtkStructuredPoints *spts)
-    {this->SetInput(spts->GetStructuredPointsToImage()->GetOutput());}
+    {vtkStructuredPointsToImage *tmp = spts->MakeStructuredPointsToImage();
+    this->SetInput(tmp->GetOutput()); tmp->Delete();};
 
   // Forward dilateErode messages to both filters.
 

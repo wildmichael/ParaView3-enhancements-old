@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-16 21:09:13 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1999-04-15 18:52:04 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,14 +74,16 @@ public:
   // Set an Input of this filter. 
   virtual void SetInput(int num, vtkImageCache *input);
   void SetInput(int num, vtkStructuredPoints *spts)
-    {this->SetInput(num, spts->GetStructuredPointsToImage()->GetOutput());}
+    {vtkStructuredPointsToImage *tmp = spts->MakeStructuredPointsToImage();
+     this->SetInput(num, tmp->GetOutput()); tmp->Delete();}
 
   // Description:
   // Adds an input to the first null position in the input list.
   // Expands the list memory if necessary
   virtual void AddInput(vtkImageCache *input);
   void AddInput(vtkStructuredPoints *spts)
-    {this->AddInput(spts->GetStructuredPointsToImage()->GetOutput());}
+    {vtkStructuredPointsToImage *tmp = spts->MakeStructuredPointsToImage();
+     this->AddInput(tmp->GetOutput()); tmp->Delete();}
   
   // Description:
   // Called by the cache
