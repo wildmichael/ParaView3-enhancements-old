@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapJava.c,v $
   Language:  C++
-  Date:      $Date: 1999-10-08 21:26:02 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-10-20 13:23:05 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -587,10 +587,7 @@ void vtkParseOutput(FILE *fp, FileInfo *data)
     
     fprintf(fp,"}\n");
     }
-  if ((!data->IsAbstract)&&
-      strcmp(data->ClassName,"vtkDataWriter") &&
-      strcmp(data->ClassName,"vtkPointSet") &&
-      strcmp(data->ClassName,"vtkDataSetSource"))
+  if (data->IsConcrete)
     {
     fprintf(fp,"\nextern \"C\" JNIEXPORT void JNICALL Java_vtk_%s_VTKInit(JNIEnv *env, jobject obj)",
 	    data->ClassName);
@@ -600,9 +597,6 @@ void vtkParseOutput(FILE *fp, FileInfo *data)
     fprintf(fp,"\n  vtkJavaRegisterCastFunction(env,obj,id,(void *)%s_Typecast);", data->ClassName);
     fprintf(fp,"\n}\n");  
     } 
-	else
-    {
-    }
 
   fprintf(fp,"\nextern \"C\" JNIEXPORT void JNICALL Java_vtk_%s_VTKCastInit(JNIEnv *env, jobject obj)",
 		data->ClassName);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParseJava.c,v $
   Language:  C++
-  Date:      $Date: 1999-06-16 19:58:57 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-10-20 13:23:05 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -353,11 +353,7 @@ void vtkParseOutput(FILE *fp, FileInfo *data)
     fprintf(fp,"\n  protected %s(int dmy) { super(dmy); };\n",data->ClassName);
     }
 
-  if ((!data->IsAbstract)&&
-      strcmp(data->ClassName,"vtkDataWriter") &&
-      strcmp(data->ClassName,"vtkPointSet") &&
-      strcmp(data->ClassName,"vtkDataSetSource") 
-      )
+  if (data->IsConcrete)
     {
     fprintf(fp,"  public native void   VTKInit();\n");
     }
