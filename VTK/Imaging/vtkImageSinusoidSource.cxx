@@ -22,7 +22,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageSinusoidSource, "$Revision: 1.37 $");
+vtkCxxRevisionMacro(vtkImageSinusoidSource, "$Revision: 1.38 $");
 vtkStandardNewMacro(vtkImageSinusoidSource);
 
 //----------------------------------------------------------------------------
@@ -123,7 +123,7 @@ void vtkImageSinusoidSource::SetWholeExtent(int xMin, int xMax,
 }
 
 //----------------------------------------------------------------------------
-void vtkImageSinusoidSource::ExecuteInformation (
+void vtkImageSinusoidSource::RequestInformation (
   vtkInformation * vtkNotUsed(request),
   vtkInformationVector** vtkNotUsed( inputVector ),
   vtkInformationVector *outputVector)

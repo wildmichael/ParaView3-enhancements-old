@@ -21,7 +21,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageMathematics, "$Revision: 1.48 $");
+vtkCxxRevisionMacro(vtkImageMathematics, "$Revision: 1.49 $");
 vtkStandardNewMacro(vtkImageMathematics);
 
 //----------------------------------------------------------------------------
@@ -38,7 +38,7 @@ vtkImageMathematics::vtkImageMathematics()
 
 //----------------------------------------------------------------------------
 // The output extent is the intersection.
-void vtkImageMathematics::ExecuteInformation (
+void vtkImageMathematics::RequestInformation (
   vtkInformation * vtkNotUsed(request),
   vtkInformationVector **inputVector,
   vtkInformationVector *outputVector)

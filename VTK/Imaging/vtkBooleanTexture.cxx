@@ -22,7 +22,7 @@
 #include "vtkPointData.h"
 #include "vtkUnsignedCharArray.h"
 
-vtkCxxRevisionMacro(vtkBooleanTexture, "$Revision: 1.41 $");
+vtkCxxRevisionMacro(vtkBooleanTexture, "$Revision: 1.42 $");
 vtkStandardNewMacro(vtkBooleanTexture);
 
 vtkBooleanTexture::vtkBooleanTexture()
@@ -44,7 +44,7 @@ vtkBooleanTexture::vtkBooleanTexture()
 }
 
 //----------------------------------------------------------------------------
-void vtkBooleanTexture::ExecuteInformation (
+void vtkBooleanTexture::RequestInformation (
   vtkInformation * vtkNotUsed(request),
   vtkInformationVector** vtkNotUsed( inputVector ),
   vtkInformationVector *outputVector)

@@ -20,7 +20,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkStreamingDemandDrivenPipeline.h"
 
-vtkCxxRevisionMacro(vtkImageMagnify, "$Revision: 1.46 $");
+vtkCxxRevisionMacro(vtkImageMagnify, "$Revision: 1.47 $");
 vtkStandardNewMacro(vtkImageMagnify);
 
 //----------------------------------------------------------------------------
@@ -36,7 +36,7 @@ vtkImageMagnify::vtkImageMagnify()
 
 //----------------------------------------------------------------------------
 // Computes any global image information associated with regions.
-void vtkImageMagnify::ExecuteInformation (
+void vtkImageMagnify::RequestInformation (
   vtkInformation * vtkNotUsed(request),
   vtkInformationVector **inputVector,
   vtkInformationVector *outputVector)

@@ -21,7 +21,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkStreamingDemandDrivenPipeline.h"
 
-vtkCxxRevisionMacro(vtkImageThreshold, "$Revision: 1.46 $");
+vtkCxxRevisionMacro(vtkImageThreshold, "$Revision: 1.47 $");
 vtkStandardNewMacro(vtkImageThreshold);
 
 //----------------------------------------------------------------------------
@@ -97,7 +97,7 @@ void vtkImageThreshold::ThresholdBetween(double lower, double upper)
 }
 
 //----------------------------------------------------------------------------
-void vtkImageThreshold::ExecuteInformation (
+void vtkImageThreshold::RequestInformation (
   vtkInformation * vtkNotUsed(request),
   vtkInformationVector **inputVector,
   vtkInformationVector *outputVector)

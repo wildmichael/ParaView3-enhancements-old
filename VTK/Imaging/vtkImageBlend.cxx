@@ -22,7 +22,7 @@
 #include "vtkStreamingDemandDrivenPipeline.h"
 #include "vtkPointData.h"
 
-vtkCxxRevisionMacro(vtkImageBlend, "$Revision: 1.33 $");
+vtkCxxRevisionMacro(vtkImageBlend, "$Revision: 1.34 $");
 vtkStandardNewMacro(vtkImageBlend);
 
 //----------------------------------------------------------------------------
@@ -122,7 +122,7 @@ double vtkImageBlend::GetOpacity(int idx)
 }    
 
 //----------------------------------------------------------------------------
-void vtkImageBlend::ExecuteInformation (
+void vtkImageBlend::RequestInformation (
   vtkInformation * vtkNotUsed(request),
   vtkInformationVector **inputVector,
   vtkInformationVector *vtkNotUsed( outputVector ))

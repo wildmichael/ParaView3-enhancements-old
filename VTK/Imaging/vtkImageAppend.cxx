@@ -20,7 +20,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkStreamingDemandDrivenPipeline.h"
 
-vtkCxxRevisionMacro(vtkImageAppend, "$Revision: 1.26 $");
+vtkCxxRevisionMacro(vtkImageAppend, "$Revision: 1.27 $");
 vtkStandardNewMacro(vtkImageAppend);
 
 //----------------------------------------------------------------------------
@@ -42,7 +42,7 @@ vtkImageAppend::~vtkImageAppend()
 
 //----------------------------------------------------------------------------
 // This method tells the ouput it will have more components
-void vtkImageAppend::ExecuteInformation (
+void vtkImageAppend::RequestInformation (
   vtkInformation * vtkNotUsed(request),
   vtkInformationVector **inputVector,
   vtkInformationVector *outputVector)
