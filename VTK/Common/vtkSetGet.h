@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSetGet.h,v $
   Language:  C++
-  Date:      $Date: 1997-05-02 20:03:24 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1997-05-06 17:03:51 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -335,7 +335,7 @@ void Get##name (type data[count]) \
 //
 #define vtkGenericWarningMacro(x) \
 { char *vtkmsgbuff; ostrstream vtkmsg; \
-      vtkmsg << "Generic Warning: In " __FILE__ ", line " << __LINE__ << "\n" << x << ends; \
+      vtkmsg << "Generic Warning: In " __FILE__ ", line " << __LINE__ << "\n" x << ends; \
       vtkmsgbuff = vtkmsg.str(); \
       MessageBox(NULL,vtkmsgbuff,"Debug Info",MB_ICONINFORMATION | MB_OK); \
       vtkmsg.rdbuf()->freeze(0);}
