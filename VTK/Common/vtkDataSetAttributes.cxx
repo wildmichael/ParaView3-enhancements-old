@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-06 19:05:52 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-05-08 17:14:07 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -296,6 +296,19 @@ void vtkDataSetAttributes::PassData(vtkDataSetAttributes* pd)
   if ( this->CopyTCoords ) this->SetTCoords(pd->GetTCoords());
   if ( this->CopyTensors ) this->SetTensors(pd->GetTensors());
   if ( this->CopyFieldData ) this->SetFieldData(pd->GetFieldData());
+}
+
+// Description:
+// Pass entire arrays of input data through to output. Obey the "copy"
+// flags. Only passes the data if the output attribute is NULL (i.e., not set).
+void vtkDataSetAttributes::PassNoReplaceData(vtkDataSetAttributes* pd)
+{
+  if ( this->CopyScalars && !this->Scalars ) this->SetScalars(pd->GetScalars());
+  if ( this->CopyVectors && !this->Vectors ) this->SetVectors(pd->GetVectors());
+  if ( this->CopyNormals && !this->Normals ) this->SetNormals(pd->GetNormals());
+  if ( this->CopyTCoords && !this->TCoords ) this->SetTCoords(pd->GetTCoords());
+  if ( this->CopyTensors && !this->Tensors ) this->SetTensors(pd->GetTensors());
+  if ( this->CopyFieldData && !this->FieldData ) this->SetFieldData(pd->GetFieldData());
 }
 
 // Description:
