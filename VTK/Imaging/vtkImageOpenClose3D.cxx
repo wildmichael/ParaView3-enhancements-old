@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageOpenClose3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-27 20:23:59 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-06-01 14:35:30 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -257,6 +257,16 @@ void vtkImageOpenClose3D::SetInput(vtkImageCache *input)
   if (this->Input == input)
     {
     return;
+    }
+  
+  if (this->Input)
+    {
+    this->Input->UnRegister(this);
+    this->Input = NULL;
+    }
+  if (input)
+    {
+    input->Register(this);
     }
   
   this->Input = input;
