@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-20 21:08:49 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-04-07 20:46:02 $
+  Version:   $Revision: 1.12 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -239,7 +239,7 @@ void vtkXOpenGLTextMapper::RenderOpaqueGeometry(vtkViewport* viewport,
     shadowRed = shadowBlue = shadowGreen = 255;
     }
 
-  int pos[2];
+  int pos[2], posXYZ[3];
   pos[0] = actorPos[0];
   pos[1] = (int)(actorPos[1] - this->LineOffset);
 
@@ -273,27 +273,23 @@ void vtkXOpenGLTextMapper::RenderOpaqueGeometry(vtkViewport* viewport,
   glMatrixMode( GL_MODELVIEW );
   glPushMatrix();
   glLoadIdentity();
-  if (actor->GetProperty()->GetDisplayLocation() == VTK_FOREGROUND_LOCATION)
-    {
-    glOrtho(0,vsize[0] -1, 0, vsize[1] -1, 0, 1);
-    }
-  else
-    {
-    glOrtho(0,vsize[0] -1, 0, vsize[1] -1, -1, 0);
-    }
-  
   glDisable( GL_LIGHTING);
 
   glListBase(vtkXOpenGLTextMapper::GetListBaseForFont(this,viewport,
 						      this->CurrentFont));
 	      
+  int front = 
+    (actor->GetProperty()->GetDisplayLocation() == VTK_FOREGROUND_LOCATION);
+
   // Set the colors for the shadow
   if (this->Shadow)
     {
     pos[0]++; pos[1]--;
     // set the colors for the foreground
     glColor3ub(shadowRed, shadowGreen, shadowBlue);
-    glRasterPos2i(pos[0],pos[1]);
+    glRasterPos3f((2.0 * (GLfloat)(pos[0]) / vsize[0] - 1), 
+		  (2.0 * (GLfloat)(pos[1]) / vsize[1] - 1), 
+		  (front)?(-1):(.99999));
 
     // Draw the shadow text
     glCallLists (strlen(this->Input), GL_UNSIGNED_BYTE, this->Input);  
@@ -302,7 +298,10 @@ void vtkXOpenGLTextMapper::RenderOpaqueGeometry(vtkViewport* viewport,
   
   // set the colors for the foreground
   glColor3ub(red, green, blue);
-  glRasterPos2i(pos[0],pos[1]);
+
+  glRasterPos3f((2.0 * (GLfloat)(pos[0]) / vsize[0] - 1), 
+		(2.0 * (GLfloat)(pos[1]) / vsize[1] - 1), 
+		(front)?(-1):(.99999));
 
   // display a string: // indicate start of glyph display lists 
   glCallLists (strlen(this->Input), GL_UNSIGNED_BYTE, this->Input);  
