@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageContinuousDilate3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-11 20:12:23 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-08-27 20:34:04 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -236,7 +236,7 @@ static void vtkImageContinuousDilate3DExecute(vtkImageContinuousDilate3D *self,
 		    outIdx2 + hoodIdx2 >= inImageMin2 &&
 		    outIdx2 + hoodIdx2 <= inImageMax2))
 		{
-		if (*hoodPtr0 < *outPtr0 && *maskPtr0)
+		if (*hoodPtr0 > *outPtr0 && *maskPtr0)
 		  {
 		  *outPtr0 = *hoodPtr0;
 		  }

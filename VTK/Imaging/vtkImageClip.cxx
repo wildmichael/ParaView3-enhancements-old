@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageClip.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-08-15 13:07:20 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1997-08-27 20:34:01 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -180,13 +180,20 @@ void vtkImageClip::ExecuteImageInformation()
     // Clip the OutputWholeExtent with the input WholeExtent
     for (idx = 0; idx < 4; ++idx)
       {
-      if (this->OutputWholeExtent[idx*2] > extent[idx*2])
+      if (this->OutputWholeExtent[idx*2] >= extent[idx*2] && 
+	  this->OutputWholeExtent[idx*2] <= extent[idx*2+1])
 	{
 	extent[idx*2] = this->OutputWholeExtent[idx*2];
 	}
-      if (this->OutputWholeExtent[idx*2+1] < extent[idx*2+1])
+      if (this->OutputWholeExtent[idx*2+1] >= extent[idx*2] && 
+	  this->OutputWholeExtent[idx*2+1] <= extent[idx*2+1])
 	{
 	extent[idx*2+1] = this->OutputWholeExtent[idx*2+1];
+	}
+      // make usre the order is correct
+      if (extent[idx*2] > extent[idx*2+1])
+	{
+	extent[idx*2] = extent[idx*2+1];
 	}
       }
     }
