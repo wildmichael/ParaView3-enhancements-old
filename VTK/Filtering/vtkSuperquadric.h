@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSuperquadric.h,v $
   Language:  C++
-  Date:      $Date: 1998-08-04 12:39:56 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-10-09 11:31:40 $
+  Version:   $Revision: 1.3 $
   Thanks:    Mike Halle, Brigham and Women's Hospital
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,9 +40,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 // .NAME vtkSuperquadric - implicit function for a Superquadric
 // .SECTION Description
-
 // vtkSuperquadric computes the implicit function and function gradient
-// for a superquadric. vtksuperquadric is a concrete implementation of
+// for a superquadric. vtkSuperquadric is a concrete implementation of
 // vtkImplicitFunction.  The superquadric is centered at Center and axes
 // of rotation is along the y-axis. (Use the superclass'
 // vtkImplicitFunction transformation matrix if necessary to reposition.)
@@ -73,6 +72,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkSuperquadric : public vtkImplicitFunction
 {
 public:
+  // Description
+  // Construct with superquadric radius of 0.5, toroidal off, center at 0.0,
+  // scale (1,1,1), size 0.5, phi roundness 1.0, and theta roundness 0.0.
   vtkSuperquadric();
   static vtkSuperquadric *New() {return new vtkSuperquadric;};
   const char *GetClassName() {return "vtkSuperquadric";};
