@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetSubdivisionAlgorithm.h,v $
   Language:  C++
-  Date:      $Date: 2004-04-22 21:25:26 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2004-07-08 19:47:05 $
+  Version:   $Revision: 1.1 $
 
   Copyright 2003 Sandia Corporation.
   Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive

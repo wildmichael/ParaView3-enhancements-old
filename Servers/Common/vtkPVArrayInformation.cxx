@@ -19,7 +19,7 @@
 #include "vtkObjectFactory.h"
 
 vtkStandardNewMacro(vtkPVArrayInformation);
-vtkCxxRevisionMacro(vtkPVArrayInformation, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkPVArrayInformation, "$Revision: 1.1 $");
 
 //----------------------------------------------------------------------------
 vtkPVArrayInformation::vtkPVArrayInformation()

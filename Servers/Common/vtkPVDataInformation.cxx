@@ -32,7 +32,7 @@
 #include <vtkstd/vector>
 
 vtkStandardNewMacro(vtkPVDataInformation);
-vtkCxxRevisionMacro(vtkPVDataInformation, "$Revision: 1.25 $");
+vtkCxxRevisionMacro(vtkPVDataInformation, "$Revision: 1.1 $");
 
 //----------------------------------------------------------------------------
 vtkPVDataInformation::vtkPVDataInformation()

@@ -20,7 +20,7 @@
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkStringList);
-vtkCxxRevisionMacro(vtkStringList, "$Revision: 1.13 $");
+vtkCxxRevisionMacro(vtkStringList, "$Revision: 1.1 $");
 
 //----------------------------------------------------------------------------
 vtkStringList::vtkStringList()

@@ -19,7 +19,7 @@
 #include <vtkCell.h>
 #include <vtkDataSet.h>
 
-vtkCxxRevisionMacro(vtkDataSetSubdivisionAlgorithm,"$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkDataSetSubdivisionAlgorithm,"$Revision: 1.1 $");
 vtkStandardNewMacro(vtkDataSetSubdivisionAlgorithm);
 
 vtkDataSetSubdivisionAlgorithm::vtkDataSetSubdivisionAlgorithm()
