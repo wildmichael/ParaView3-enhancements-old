@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataNormals.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:47 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2001-01-16 17:01:34 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -45,7 +45,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkPolygon.h"
 #include "vtkTriangleStrip.h"
 #include "vtkObjectFactory.h"
-#include "vtkRemoveGhostCells.h"
 
 
 //------------------------------------------------------------------------------
@@ -112,7 +111,6 @@ void vtkPolyDataNormals::Execute()
   vtkPolyData *output = this->GetOutput();
   vtkPolyData *ghost;
   int ghostLevel = input->GetUpdateGhostLevel();
-  vtkRemoveGhostCells *rmGhostCells;
   int noCellsNeedVisiting;
   int *Visited;
   vtkPolyData *OldMesh, *NewMesh;
@@ -435,20 +433,6 @@ void vtkPolyDataNormals::Execute()
   
   output->GetCellData()->SetGhostLevels(input->GetCellData()->GetGhostLevels());
 
-  // Remove any ghost cells we inserted.
-  if (ghostLevel > 0 && output->GetCellData()->GetGhostLevels())
-    {
-    rmGhostCells = vtkRemoveGhostCells::New();
-    ghost = vtkPolyData::New();
-    ghost->ShallowCopy(output);
-    rmGhostCells->SetInput(ghost);
-    rmGhostCells->SetGhostLevel(ghostLevel);
-    rmGhostCells->Update();
-    output->ShallowCopy(rmGhostCells->GetOutput());
-    
-    ghost->Delete();
-    rmGhostCells->Delete();
-    }
 }
 
 //
