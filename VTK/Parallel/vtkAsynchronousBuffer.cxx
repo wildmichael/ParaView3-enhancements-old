@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAsynchronousBuffer.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-28 12:01:06 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-07-30 12:04:11 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -175,7 +175,6 @@ void vtkAsynchronousBuffer::BlockingUpdateInformation()
 {
   vtkDataSet *input = this->GetInput();
   vtkDataSet *output = this->GetOutput();
-  unsigned long t1, t2;
   
   // just some error checking
   if (input == NULL)
