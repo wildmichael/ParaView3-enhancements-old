@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCompositeManager.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-27 16:23:29 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2002-12-02 14:59:01 $
+  Version:   $Revision: 1.45 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -43,7 +43,7 @@
  #include <mpi.h>
 #endif
 
-vtkCxxRevisionMacro(vtkCompositeManager, "$Revision: 1.44 $");
+vtkCxxRevisionMacro(vtkCompositeManager, "$Revision: 1.45 $");
 vtkStandardNewMacro(vtkCompositeManager);
 
 
@@ -249,7 +249,8 @@ void vtkCompositeManagerResetCameraClippingRange(
 }
 
 //-------------------------------------------------------------------------
-void vtkCompositeManagerAbortRenderCheck(void *arg)
+void vtkCompositeManagerAbortRenderCheck(vtkObject*, unsigned long, void* arg,
+                                         void*)
 {
   vtkCompositeManager *self = (vtkCompositeManager*)arg;
   
@@ -353,8 +354,12 @@ void vtkCompositeManager::SetRenderWindow(vtkRenderWindow *renWin)
     if (this->Controller)
       {
       // In case a subclass wants to check for aborts.
-      this->RenderWindow->SetAbortCheckMethod(
-        vtkCompositeManagerAbortRenderCheck,(void*)this);
+      vtkCallbackCommand* abc = vtkCallbackCommand::New();
+      abc->SetCallback(vtkCompositeManagerAbortRenderCheck);
+      abc->SetClientData(this);
+      this->RenderWindow->AddObserver(vtkCommand::AbortCheckEvent, abc);
+      abc->Delete();
+      
       if (this->Controller && this->Controller->GetLocalProcessId() == 0)
         {
         vtkCallbackCommand *cbc;
