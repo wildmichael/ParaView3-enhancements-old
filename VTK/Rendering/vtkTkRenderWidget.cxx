@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkRenderWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-30 20:04:28 $
-  Version:   $Revision: 1.70 $
+  Date:      $Date: 2002-08-30 21:30:16 $
+  Version:   $Revision: 1.71 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -957,8 +957,8 @@ vtkTkRenderWidget_MakeRenderWindow(struct vtkTkRenderWidget *self)
 #endif
 
 
-
-int vtkImageDataToTkPhoto_Cmd (ClientData clientData, Tcl_Interp *interp, 
+extern "C" {
+int VTK_TK_EXPORT vtkImageDataToTkPhoto_Cmd (ClientData clientData, Tcl_Interp *interp, 
                          int argc, char **argv)
 {
   int status = 0;
@@ -1062,5 +1062,5 @@ int vtkImageDataToTkPhoto_Cmd (ClientData clientData, Tcl_Interp *interp,
   Tk_PhotoPutBlock ( photo, &block, 0, 0, block.width, block.height );
   return TCL_OK;
 }
-
+}
 #endif
