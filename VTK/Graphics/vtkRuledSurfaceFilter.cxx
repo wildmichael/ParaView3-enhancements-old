@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRuledSurfaceFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-31 17:01:10 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2000-11-01 14:53:42 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -143,6 +143,13 @@ void vtkRuledSurfaceFilter::Execute()
   inLines->GetNextCell(npts,pts);
   for (i=0; i<numLines; i++)
     {
+    //abort/progress methods
+    this->UpdateProgress ((float)i/numLines);
+    if (this->GetAbortExecute())
+      {
+      break; //out of line loop
+      }
+
     inLines->GetNextCell(npts2,pts2); //get the next edge
 
     // Determine whether this stripe should be generated
@@ -175,7 +182,6 @@ void vtkRuledSurfaceFilter::Execute()
         }
       }//add far boundary of surface
     }//for all selected line pairs
-
 }
 
 void  vtkRuledSurfaceFilter::Resample(vtkPolyData *output, vtkPoints *inPts, 

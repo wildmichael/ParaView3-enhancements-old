@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShrinkFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-11-01 13:23:06 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2000-11-01 14:53:42 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -76,7 +76,6 @@ void vtkShrinkFilter::Execute()
   vtkIdList *ptIds, *newPtIds;
   vtkDataSet *input= this->GetInput();
   vtkUnstructuredGrid *output = this->GetOutput();
-
   int   tenth;
   float decimal;
 
