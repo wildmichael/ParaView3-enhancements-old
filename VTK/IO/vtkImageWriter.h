@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWriter.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:12 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2001-01-31 13:59:35 $
+  Version:   $Revision: 1.26 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -96,12 +96,6 @@ public:
   // The main interface which triggers the writer to start.
   virtual void Write();
 
-  // Description:
-  // Set / Get the memory limit in kilobytes. The writer will
-  // stream to attempt to keep the pipeline size within this limit
-  vtkSetMacro(MemoryLimit, unsigned long);
-  vtkGetMacro(MemoryLimit, unsigned long);
-
 protected:
   vtkImageWriter();
   ~vtkImageWriter();
@@ -116,11 +110,9 @@ protected:
   int FileLowerLeft;
   char *InternalFileName;
 
-  unsigned long MemoryLimit;
-  
-  void RecursiveWrite(int dim, vtkImageData *region, ofstream *file);
-  void RecursiveWrite(int dim, vtkImageData *cache, 
-		      vtkImageData *data, ofstream *file);
+  virtual void RecursiveWrite(int dim, vtkImageData *region, ofstream *file);
+  virtual void RecursiveWrite(int dim, vtkImageData *cache, 
+                              vtkImageData *data, ofstream *file);
   virtual void WriteFile(ofstream *file, vtkImageData *data, int extent[6]);
   virtual void WriteFileHeader(ofstream *, vtkImageData *) {};
   virtual void WriteFileTrailer(ofstream *, vtkImageData *) {};
