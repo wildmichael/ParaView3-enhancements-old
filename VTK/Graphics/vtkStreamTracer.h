@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamTracer.h,v $
   Language:  C++
-  Date:      $Date: 2003-03-25 14:58:57 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2003-05-30 15:12:26 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -308,9 +308,18 @@ protected:
                  vtkDataArray* seedSource, 
                  vtkIdList* seedIds,
                  vtkIntArray* integrationDirections,
-                 float lastPoint[3]);
+                 float lastPoint[3],
+                 vtkInterpolatedVelocityField* func,
+                 int maxCellSize);
+  void SimpleIntegrate(float seed[3], 
+                       float lastPoint[3], 
+                       float delt,
+                       vtkInterpolatedVelocityField* func);
   int CheckInputs(vtkInterpolatedVelocityField*& func,
                   int* maxCellSize);
+  void GenerateNormals(vtkPolyData* output, float* firstNormal);
+
+  int GenerateNormalsInIntegrate;
 
   vtkSetStringMacro(InputVectorsSelection);
   char *InputVectorsSelection;
@@ -321,6 +330,8 @@ protected:
 
   static const float EPSILON;
   float TerminalSpeed;
+
+  float LastUsedTimeStep;
 
 //BTX
   struct IntervalInformation
