@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCharArray.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 19:22:03 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-04-18 19:53:15 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,7 +58,7 @@ public:
   vtkCharArray(const int sz, const int ext=1000);
   vtkCharArray(const vtkCharArray& ia);
   ~vtkCharArray();
-  virtual vtkCharArray *New() {return new vtkCharArray;};
+  vtkCharArray *New() {return new vtkCharArray;};
   char *GetClassName() {return "vtkCharArray";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

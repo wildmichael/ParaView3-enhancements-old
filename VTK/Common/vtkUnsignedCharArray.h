@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedCharArray.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 19:22:51 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1997-04-18 19:53:20 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,7 +58,7 @@ public:
   vtkUnsignedCharArray(const int sz, const int ext=1000);
   vtkUnsignedCharArray(const vtkUnsignedCharArray& ia);
   ~vtkUnsignedCharArray();
-  virtual vtkUnsignedCharArray *New() {return new vtkUnsignedCharArray;};
+  vtkUnsignedCharArray *New() {return new vtkUnsignedCharArray;};
   char *GetClassName() {return "vtkUnsignedCharArray";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
