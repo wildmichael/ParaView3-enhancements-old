@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSelectPolyData.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:12:36 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2000-11-07 17:43:23 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -155,7 +155,7 @@ public:
     {this->SetSelectionMode(VTK_INSIDE_LARGEST_REGION);};
   void SetSelectionModeToClosestPointRegion()
     {this->SetSelectionMode(VTK_INSIDE_CLOSEST_POINT_REGION);};
-  char *GetSelectionModeAsString();
+  const char *GetSelectionModeAsString();
 
   // Description:
   // Control whether a second output is generated. The second output
@@ -209,7 +209,7 @@ private:
 
 // Description:
 // Return the method of determining in/out of loop as a string.
-inline char *vtkSelectPolyData::GetSelectionModeAsString(void)
+inline const char *vtkSelectPolyData::GetSelectionModeAsString(void)
 {
   if ( this->SelectionMode == VTK_INSIDE_SMALLEST_REGION ) 
     {

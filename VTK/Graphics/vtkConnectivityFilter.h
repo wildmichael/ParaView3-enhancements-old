@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConnectivityFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-10-09 18:39:36 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2000-11-07 17:43:23 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -123,7 +123,7 @@ public:
     {this->SetExtractionMode(VTK_EXTRACT_CLOSEST_POINT_REGION);};
   void SetExtractionModeToAllRegions()
     {this->SetExtractionMode(VTK_EXTRACT_ALL_REGIONS);};
-  char *GetExtractionModeAsString();
+  const char *GetExtractionModeAsString();
 
   // Description:
   // Initialize list of point ids/cell ids used to seed regions.
@@ -214,7 +214,7 @@ private:
 
 // Description:
 // Return the method of extraction as a string.
-inline char *vtkConnectivityFilter::GetExtractionModeAsString(void)
+inline const char *vtkConnectivityFilter::GetExtractionModeAsString(void)
 {
   if ( this->ExtractionMode == VTK_EXTRACT_POINT_SEEDED_REGIONS ) 
     {

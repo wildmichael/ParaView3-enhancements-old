@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:11:19 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2000-11-07 17:43:23 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -153,7 +153,7 @@ public:
   vtkGetMacro(SortBy,int);
   void SetSortByToSortByValue() {this->SetSortBy(VTK_SORT_BY_VALUE);};
   void SetSortByToSortByCell() {this->SetSortBy(VTK_SORT_BY_CELL);};
-  char *GetSortByAsString();
+  const char *GetSortByAsString();
 
   // Description:
   // Create default locator. Used to create one when none is specified. The 
@@ -181,7 +181,7 @@ protected:
 
 // Description:
 // Return the sorting procedure as a descriptive character string.
-inline char *vtkCutter::GetSortByAsString(void)
+inline const char *vtkCutter::GetSortByAsString(void)
 {
   if ( this->SortBy == VTK_SORT_BY_VALUE ) 
     {

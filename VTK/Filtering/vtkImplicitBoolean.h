@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitBoolean.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:11:48 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2000-11-07 17:43:23 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -115,7 +115,7 @@ public:
     {this->SetOperationType(VTK_DIFFERENCE);};
   void SetOperationTypeToUnionOfMagnitudes() 
     {this->SetOperationType(VTK_UNION_OF_MAGNITUDES);};
-  char *GetOperationTypeAsString();
+  const char *GetOperationTypeAsString();
   
   // Description:
   // For legacy compatibility. Do not use.
@@ -136,7 +136,7 @@ protected:
 
 // Description:
 // Return the boolean operation type as a descriptive character string.
-inline char *vtkImplicitBoolean::GetOperationTypeAsString(void)
+inline const char *vtkImplicitBoolean::GetOperationTypeAsString(void)
 {
   if ( this->OperationType == VTK_UNION )
     {

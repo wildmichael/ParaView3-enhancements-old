@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProperty.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-01 16:30:11 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2000-11-07 17:43:23 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -94,7 +94,7 @@ public:
 	{this->SetInterpolationType(VTK_NEAREST_INTERPOLATION);};
   void SetInterpolationTypeToLinear() 
 	{this->SetInterpolationType(VTK_LINEAR_INTERPOLATION);};
-  char *GetInterpolationTypeAsString(void);
+  const char *GetInterpolationTypeAsString(void);
 
   // Description:
   // Set the color of a volume to a gray level transfer function. This 
@@ -240,7 +240,7 @@ protected:
 
 // Description:
 // Return the interpolation type as a descriptive character string.
-inline char *vtkVolumeProperty::GetInterpolationTypeAsString(void)
+inline const char *vtkVolumeProperty::GetInterpolationTypeAsString(void)
 {
   if( this->InterpolationType == VTK_NEAREST_INTERPOLATION )
     {

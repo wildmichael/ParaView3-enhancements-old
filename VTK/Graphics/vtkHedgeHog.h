@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHedgeHog.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-07 23:33:16 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2000-11-07 17:43:23 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -72,7 +72,7 @@ public:
   vtkGetMacro(VectorMode,int);
   void SetVectorModeToUseVector() {this->SetVectorMode(VTK_USE_VECTOR);};
   void SetVectorModeToUseNormal() {this->SetVectorMode(VTK_USE_NORMAL);};
-  char *GetVectorModeAsString();
+  const char *GetVectorModeAsString();
 
 protected:
   vtkHedgeHog();
@@ -88,7 +88,7 @@ protected:
 
 // Description:
 // Return the vector mode as a character string.
-inline char *vtkHedgeHog::GetVectorModeAsString(void)
+inline const char *vtkHedgeHog::GetVectorModeAsString(void)
 {
   if ( this->VectorMode == VTK_USE_VECTOR) 
     {

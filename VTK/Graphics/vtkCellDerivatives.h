@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellDerivatives.h,v $
   Language:  C++
-  Date:      $Date: 2000-10-02 19:49:31 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-11-07 17:43:23 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -102,7 +102,7 @@ public:
     {this->SetVectorMode(VTK_VECTOR_MODE_COMPUTE_GRADIENT);};
   void SetVectorModeToComputeVorticity() 
     {this->SetVectorMode(VTK_VECTOR_MODE_COMPUTE_VORTICITY);};
-  char *GetVectorModeAsString();
+  const char *GetVectorModeAsString();
 
   // Description:
   // Control how the filter works to generate tensor cell data. You can
@@ -118,7 +118,7 @@ public:
     {this->SetTensorMode(VTK_TENSOR_MODE_COMPUTE_GRADIENT);};
   void SetTensorModeToComputeStrain() 
     {this->SetTensorMode(VTK_TENSOR_MODE_COMPUTE_STRAIN);};
-  char *GetTensorModeAsString();
+  const char *GetTensorModeAsString();
 
 protected:
   vtkCellDerivatives();
