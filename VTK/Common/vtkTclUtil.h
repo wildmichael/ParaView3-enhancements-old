@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTclUtil.h,v $
   Language:  C++
-  Date:      $Date: 2000-10-23 21:05:05 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2000-10-24 12:52:06 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -95,7 +95,7 @@ public:
   void SetStringCommand(char *arg) { this->StringCommand = arg; };
   void SetInterp(Tcl_Interp *interp) { this->Interp = interp; };
   
-  void Execute(vtkObject *, void *callData)
+  void Execute(vtkObject *, void *)
     {
       int res;
       res = Tcl_GlobalEval(this->Interp, this->StringCommand);
