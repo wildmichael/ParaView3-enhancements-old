@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-24 14:57:30 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-05-24 15:04:46 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -113,7 +113,7 @@ int main( int argc, char *argv[] )
   
   renWin->SwapBuffersOff();
   
-  int retVal = vtkRegressionTestImageThreshold( renWin, 70 );
+  int retVal = vtkRegressionTestImage( renWin );
 
   // Interact with the data at 3 frames per second
   iren->SetDesiredUpdateRate(3.0);
