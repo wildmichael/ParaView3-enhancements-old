@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTextureMapToPlane.h,v $
   Language:  C++
-  Date:      $Date: 1994-09-14 08:15:03 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-09-14 13:41:42 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -29,6 +29,7 @@ class vlTextureMapToPlane : public vlDataSetToDataSetFilter
 {
 public:
   vlTextureMapToPlane();
+  ~vlTextureMapToPlane() {};
   char *GetClassName() {return "vlTextureMapToPlane";};
   void PrintSelf(ostream& os, vlIndent indent);
 
@@ -49,9 +50,9 @@ public:
 
   // Description:
   // Turn on/off automatic plane generation.
-  vlSetMacro(AutomaticNormalGeneration,int);
-  vlGetMacro(AutomaticNormalGeneration,int);
-  vlBooleanMacro(AutomaticNormalGeneration,int);
+  vlSetMacro(AutomaticPlaneGeneration,int);
+  vlGetMacro(AutomaticPlaneGeneration,int);
+  vlBooleanMacro(AutomaticPlaneGeneration,int);
 
 protected:
   void Execute();
@@ -59,7 +60,7 @@ protected:
   float Normal[3];
   float SRange[2];
   float TRange[2];
-  int AutomaticNormalGeneration;
+  int AutomaticPlaneGeneration;
 };
 
 #endif
