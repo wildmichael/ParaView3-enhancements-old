@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDebugLeaksManager.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-24 22:15:41 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-10-20 18:48:42 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,9 +18,13 @@
 #include "vtkDebugLeaksManager.h"
 #include "vtkDebugLeaks.h"
 
+// Must NOT be initialized.  Default initialization to zero is
+// necessary.
+unsigned int vtkDebugLeaksManagerCount;
+
 vtkDebugLeaksManager::vtkDebugLeaksManager()
 {
-  if(++vtkDebugLeaksManager::Count == 1)
+  if(++vtkDebugLeaksManagerCount == 1)
     {
     vtkDebugLeaks::ClassInitialize();
     }
@@ -28,12 +32,8 @@ vtkDebugLeaksManager::vtkDebugLeaksManager()
 
 vtkDebugLeaksManager::~vtkDebugLeaksManager()
 {
-  if(--vtkDebugLeaksManager::Count == 0)
+  if(--vtkDebugLeaksManagerCount == 0)
     {
     vtkDebugLeaks::ClassFinalize();
     }
 }
-
-// Must NOT be initialized.  Default initialization to zero is
-// necessary.
-unsigned int vtkDebugLeaksManager::Count;

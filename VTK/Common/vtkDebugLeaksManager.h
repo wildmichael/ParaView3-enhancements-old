@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDebugLeaksManager.h,v $
   Language:  C++
-  Date:      $Date: 2002-07-01 22:05:23 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-10-20 18:48:42 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,8 +32,6 @@ class VTK_COMMON_EXPORT vtkDebugLeaksManager
 public:
   vtkDebugLeaksManager();
   ~vtkDebugLeaksManager();
-private:
-  static unsigned int Count;
 };
 
 // This instance will show up in any translation unit that uses
