@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-30 00:02:15 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-06-30 05:45:43 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkTextProperty.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkTextProperty, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkTextProperty, "$Revision: 1.5 $");
 vtkStandardNewMacro(vtkTextProperty);
 
 //----------------------------------------------------------------------------
@@ -90,6 +90,11 @@ vtkTextProperty::vtkTextProperty()
 
 void vtkTextProperty::ShallowCopy(vtkTextProperty *tprop)
 {
+  if (!tprop)
+    {
+    return;
+    }
+
   this->SetColor(tprop->GetColor());
   this->SetOpacity(tprop->GetOpacity());
 

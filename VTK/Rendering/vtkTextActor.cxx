@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-30 00:02:15 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-06-30 05:45:43 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkTextProperty.h"
 #include "vtkViewport.h"
 
-vtkCxxRevisionMacro(vtkTextActor, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkTextActor, "$Revision: 1.10 $");
 vtkStandardNewMacro(vtkTextActor);
 
 vtkCxxSetObjectMacro(vtkTextActor,TextProperty,vtkTextProperty);
@@ -150,6 +150,13 @@ int vtkTextActor::RenderOpaqueGeometry(vtkViewport *viewport)
     return 0;
     }
 
+  vtkTextProperty *tprop = this->GetTextProperty();
+  if (!tprop)
+    {
+    vtkErrorMacro(<<"Need text property to render text actor");
+    return 0;
+    }
+
   // we don't need to do anything additional, just pass the call
   // right through to the actor
   if (!this->ScaledText)
@@ -224,8 +231,6 @@ int vtkTextActor::RenderOpaqueGeometry(vtkViewport *viewport)
       }
     }
   
-  vtkTextProperty *tprop = this->GetTextProperty();
-
   // Check to see whether we have to rebuild everything
   if (this->GetMTime() > this->BuildTime ||
       mapper->GetMTime() > this->BuildTime ||
@@ -238,7 +243,11 @@ int vtkTextActor::RenderOpaqueGeometry(vtkViewport *viewport)
       // mapper's text property is identical except for the font size
       // which will be modified later). This allows text actors to
       // share the same text property.
-      mapper->GetTextProperty()->ShallowCopy(tprop);
+      vtkTextProperty *tproptemp = mapper->GetTextProperty();
+      if (tproptemp)
+        {
+        tproptemp->ShallowCopy(tprop);
+        }
       }
     vtkDebugMacro(<<"Rebuilding text");
 
