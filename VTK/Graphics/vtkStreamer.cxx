@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamer.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:26:46 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1995-07-17 10:13:49 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -441,6 +441,8 @@ void vtkStreamer::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Integration Step Length: " << this->IntegrationStepLength << "\n";
 
   os << indent << "Vorticity: " << (this->Vorticity ? "On\n" : "Off\n");
+
+  os << indent << "Terminal Speed: " << this->TerminalSpeed << "\n";
 }
 
 
