@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.h,v $
   Language:  C++
-  Date:      $Date: 1997-05-27 19:44:31 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1997-06-04 12:55:27 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -76,12 +76,10 @@ public:
   // Description:
   // Get/Set the image extent.  This is an alternative way of setting
   // the dimensions.  It is more compatable with the imaging pipelines.
-  // To be consistent, maybe this should be called DataExtent.
   void SetDataExtent(int num, int *extent);
   vtkImageSetExtentMacro(DataExtent);
   void GetDataExtent(int num, int *extent);
   vtkImageGetExtentMacro(DataExtent);
-  
   
   // Description:
   // Set the image dimensions.  This also computes the increments.
@@ -174,7 +172,6 @@ public:
   int FileExtent[VTK_IMAGE_EXTENT_DIMENSIONS];
   unsigned short PixelMask;  // Mask each pixel with ...
   int SwapBytes;
-  void Swap(unsigned char *buf, int numPixels, int pixelSize);
   // Flips are flags for each axis specifying whether "reflect" the data.
   int Flips[VTK_IMAGE_DIMENSIONS];
   int PixelSize;

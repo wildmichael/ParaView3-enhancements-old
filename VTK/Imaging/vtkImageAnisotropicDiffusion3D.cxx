@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAnisotropicDiffusion3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-23 20:39:22 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1997-06-04 12:55:00 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,7 +49,6 @@ vtkImageAnisotropicDiffusion3D::vtkImageAnisotropicDiffusion3D()
 {
   this->SetAxes(VTK_IMAGE_X_AXIS, VTK_IMAGE_Y_AXIS, VTK_IMAGE_Z_AXIS);
   
-  this->UseExecuteCenterOff();
   this->HandleBoundariesOn();
   this->SetNumberOfIterations(4);
   this->DiffusionThreshold = 5.0;

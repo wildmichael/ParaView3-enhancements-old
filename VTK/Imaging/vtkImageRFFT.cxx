@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageRFFT.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-15 23:24:32 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1997-06-04 12:55:24 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -84,6 +84,12 @@ void vtkImageRFFT::SetDimensionality(int num)
   
   this->Dimensionality = num;
   this->Modified();
+
+  // If the input has already been set, set the pipelines input.
+  if (this->Input)
+    {
+    this->SetInternalInput(this->Input);
+    }
 }
 
 
