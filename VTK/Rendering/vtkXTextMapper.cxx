@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-30 13:12:16 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2000-06-30 13:38:49 $
+  Version:   $Revision: 1.23 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -214,8 +214,6 @@ void vtkXTextMapper::DetermineSize(vtkViewport *viewport, int *size)
 
   vtkDebugMacro(<<"Render - Font specifier: " << fontname);
 
-  cerr << "Font specifier: " << fontname << ", " << displayId << endl;
-  
   // Set the font
   int cnt;
   char **fn = XListFonts(displayId, fontname, 1, &cnt);
@@ -227,7 +225,6 @@ void vtkXTextMapper::DetermineSize(vtkViewport *viewport, int *size)
     {
     sprintf(fontname,"9x15");
     }
-  cerr << "fontname: " << fontname << endl;
   Font font = XLoadFont(displayId,  fontname );
   int dir, as, des;
   XCharStruct overall;

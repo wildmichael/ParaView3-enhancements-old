@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScaledTextActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-30 13:12:16 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-06-30 13:38:49 $
+  Version:   $Revision: 1.17 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -186,9 +186,6 @@ int vtkScaledTextActor::RenderOpaqueGeometry(vtkViewport *viewport)
     if (this->LastSize[0] < size[0]-1 || this->LastSize[1] < size[1]-1 ||
 	this->LastSize[0] > size[0]+1 || this->LastSize[1] > size[1]+1)
       {
-      cerr << "LastSize " << this->LastSize[0] << ", " << this->LastSize[1]
-	   << ",  size " << size[0] << ", " << size[1] << endl;
-      
       this->LastSize[0] = size[0];
       this->LastSize[1] = size[1];
       
