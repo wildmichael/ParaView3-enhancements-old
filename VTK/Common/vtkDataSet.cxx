@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:00 $
-  Version:   $Revision: 1.80 $
+  Date:      $Date: 2001-08-17 17:37:35 $
+  Version:   $Revision: 1.81 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -59,6 +59,8 @@ vtkDataSet::vtkDataSet ()
 
   this->PointData = vtkPointData::New();
   this->CellData = vtkCellData::New();
+  this->ScalarRange[0] = 0.0;
+  this->ScalarRange[1] = 1.0;
 }
 
 //----------------------------------------------------------------------------
