@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFlip.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-16 17:28:46 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2002-06-17 18:11:27 $
+  Version:   $Revision: 1.34 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -77,7 +77,7 @@ protected:
 
   void ExecuteInformation(vtkImageData *input, vtkImageData *output);
   void ExecuteInformation() {
-    this->vtkImageToImageFilter::ExecuteInformation(); };
+    this->Superclass::ExecuteInformation(); };
 
   int FilteredAxis;
   int FlipAboutOrigin;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFlip.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-16 17:28:46 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2002-06-17 18:11:27 $
+  Version:   $Revision: 1.33 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkMatrix4x4.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageFlip, "$Revision: 1.32 $");
+vtkCxxRevisionMacro(vtkImageFlip, "$Revision: 1.33 $");
 vtkStandardNewMacro(vtkImageFlip);
 
 //----------------------------------------------------------------------------
@@ -92,14 +92,6 @@ void vtkImageFlip::ExecuteInformation(vtkImageData *input,
   output->SetOrigin(origin);
   output->SetScalarType(input->GetScalarType());
   output->SetNumberOfScalarComponents(input->GetNumberOfScalarComponents());
-
-  // update information related to clipping the data
-  vtkImageStencilData *stencil = this->GetStencil();
-  if (stencil)
-    {
-    stencil->SetSpacing(spacing);
-    stencil->SetOrigin(origin);
-    }
 }
 
 //----------------------------------------------------------------------------
