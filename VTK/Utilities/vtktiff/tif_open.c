@@ -1,4 +1,4 @@
-/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/vtktiff/tif_open.c,v 1.1 2004-04-28 15:49:22 king Exp $ */
+/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/vtktiff/tif_open.c,v 1.2 2005-02-28 17:19:59 malaterre Exp $ */
 
 /*
  * Copyright (c) 1988-1997 Sam Leffler
@@ -426,7 +426,7 @@ TIFFGetMode(TIFF* tif)
  * tiles; zero if organized as strips.
  */
 int
-TIFFIsTiled(TIFF* tif)
+TEXPORT TIFFIsTiled(TIFF* tif)
 {
         return (isTiled(tif));
 }
