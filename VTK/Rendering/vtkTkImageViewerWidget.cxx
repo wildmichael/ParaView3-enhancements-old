@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkImageViewerWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-03 15:55:36 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2001-08-07 03:13:23 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -666,12 +666,23 @@ vtkTkImageViewerWidget_MakeImageViewer(struct vtkTkImageViewerWidget *self)
     }
   else
     {
+    // is IV an address ? big ole python hack here
+    if (self->IV[0] == 'A' && self->IV[1] == 'd' && 
+	self->IV[2] == 'd' && self->IV[3] == 'r')
+      {
+      void *tmp;
+      sscanf(self->IV+5,"%p",&tmp);
+      ImageViewer = (vtkImageViewer *)tmp;
+      }
+    else
+      {
 #ifndef VTK_PYTHON_BUILD
-		int new_flag;
-    ImageViewer = (vtkImageViewer *)
-      vtkTclGetPointerFromObject(self->IV, "vtkImageViewer", self->Interp,
-				 new_flag);
+      int new_flag;
+      ImageViewer = (vtkImageViewer *)
+	vtkTclGetPointerFromObject(self->IV, "vtkImageViewer", self->Interp,
+				   new_flag);
 #endif
+      }
     if (ImageViewer != self->ImageViewer)
       {
       if (self->ImageViewer != NULL)
