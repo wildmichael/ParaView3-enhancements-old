@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-09 21:13:40 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-03-09 21:27:13 $
+  Version:   $Revision: 1.5 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -185,7 +185,7 @@ void vtkWin32OpenGLImageWindow::SetPosition(int x, int y)
 
 static void vtkWin32OpenGLSwapBuffers(HDC hdc)
 {
-  this->SwapBuffers(hdc);
+  SwapBuffers(hdc);
 }
 
 // End the rendering process and display the image.

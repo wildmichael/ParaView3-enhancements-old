@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-09 21:13:40 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-03-09 21:27:13 $
+  Version:   $Revision: 1.5 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -55,8 +55,7 @@ static vtkFontStruct *cache[10] = {NULL,NULL,NULL,NULL,NULL,
 static numCached = 0;
 
 int vtkWin32OpenGLTextMapper::GetListBaseForFont(vtkTextMapper *tm, 
-						 vtkViewport *vp, 
-						 HDC hdc)
+						 vtkViewport *vp)
 {
   int i, j;
   vtkWindow *win = vp->GetVTKWindow();
@@ -84,7 +83,7 @@ int vtkWin32OpenGLTextMapper::GetListBaseForFont(vtkTextMapper *tm,
       }
     }
   
-  HDC hdc = (HDC) window->GetGenericContext();
+  HDC hdc = (HDC) win->GetGenericContext();
 
   // OK the font is not cached
   // so we need to make room for a new font

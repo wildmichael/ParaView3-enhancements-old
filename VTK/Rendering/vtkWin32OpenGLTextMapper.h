@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLTextMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-03-09 21:13:41 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-03-09 21:27:13 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -73,7 +73,7 @@ public:
 
   // Description:
   // An internal function used for caching font display lists.
-  static int GetListBaseForFont(vtkTextMapper *tm, vtkViewport *vp, HDC);
+  static int GetListBaseForFont(vtkTextMapper *tm, vtkViewport *vp);
 
 protected:
 };
