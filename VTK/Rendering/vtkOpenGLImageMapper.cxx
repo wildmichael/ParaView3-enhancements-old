@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-20 21:08:48 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2000-03-24 18:17:31 $
+  Version:   $Revision: 1.29 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -141,7 +141,7 @@ static void vtkOpenGLImageMapperRender(vtkOpenGLImageMapper *self,
 
   glRasterPos3f((2.0 * (GLfloat)(actorPos[0]) / vsize[0] - 1), 
                 (2.0 * (GLfloat)(actorPos[1]) / vsize[1] - 1), 
-                (front)?(-1):(1));
+                (front)?(-1):(.99999));
 
   glPixelStorei( GL_UNPACK_ALIGNMENT, 1);
 
@@ -255,7 +255,7 @@ static void vtkOpenGLImageMapperRenderShort(vtkOpenGLImageMapper *self,
   
   glRasterPos3f((2.0 * (GLfloat)(actorPos[0]) / vsize[0] - 1), 
                 (2.0 * (GLfloat)(actorPos[1]) / vsize[1] - 1), 
-                (front)?(-1):(1));
+                (front)?(-1):(.99999));
 
   glPixelStorei( GL_UNPACK_ALIGNMENT, 1);
 
@@ -381,7 +381,7 @@ static void vtkOpenGLImageMapperRenderChar(vtkOpenGLImageMapper *self,
 
   glRasterPos3f((2.0 * (GLfloat)(actorPos[0]) / vsize[0] - 1), 
                 (2.0 * (GLfloat)(actorPos[1]) / vsize[1] - 1), 
-                (front)?(-1):(1));
+                (front)?(-1):(.99999));
 
     
   glPixelStorei( GL_UNPACK_ALIGNMENT, 1);
