@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSinusoidSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-08 13:51:36 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2001-03-08 15:50:47 $
+  Version:   $Revision: 1.28 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -170,7 +170,7 @@ void vtkImageSinusoidSource::ExecuteInformation()
 
 void vtkImageSinusoidSource::ExecuteData(vtkDataObject *output)
 {
-  vtkImageData *data = this->GetOutput();
+  vtkImageData *data = this->AllocateOutputData(output);
   float *outPtr;
   int idxX, idxY, idxZ;
   int maxX, maxY, maxZ;
