@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRendererSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-27 14:27:44 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2002-05-27 15:45:06 $
+  Version:   $Revision: 1.44 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,9 +22,12 @@
 #include "vtkObjectFactory.h"
 #include "vtkRenderWindow.h"
 #include "vtkUnsignedCharArray.h"
+#include "vtkRenderer.h"
 
-vtkCxxRevisionMacro(vtkRendererSource, "$Revision: 1.43 $");
+vtkCxxRevisionMacro(vtkRendererSource, "$Revision: 1.44 $");
 vtkStandardNewMacro(vtkRendererSource);
+
+vtkCxxSetObjectMacro(vtkRendererSource,Input,vtkRenderer);
 
 vtkRendererSource::vtkRendererSource()
 {
