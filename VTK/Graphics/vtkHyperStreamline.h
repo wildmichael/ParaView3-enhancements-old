@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkHyperStreamline.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-25 23:50:55 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-10-26 10:43:03 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -183,10 +183,11 @@ public:
   vtkGetMacro(NumberOfSides,int);
 
   // Description:
-  // Set the maximum tube radius. Radius varies based on ratio of eigenvalues. 
-  // Note that cross section is actually elliptical and may become a point or
+  // Set the initial tube radius. This is the maximum "elliptical" radius
+  // at the beginning of the tube. Radius varies based on ratio of eigenvalues.
+  // Note that tube section is actually elliptical and may become a point or
   // line in cross section in some cases.
-  vtkSetClampMacro(Radius,float,0.0,VTK_LARGE_FLOAT);
+  vtkSetClampMacro(Radius,float,0.0001,VTK_LARGE_FLOAT);
   vtkGetMacro(Radius,float);
 
   // Description:
