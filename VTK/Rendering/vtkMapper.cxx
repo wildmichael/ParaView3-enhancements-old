@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-08 00:40:52 $
-  Version:   $Revision: 1.78 $
+  Date:      $Date: 2001-03-15 14:28:41 $
+  Version:   $Revision: 1.79 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -215,7 +215,7 @@ void vtkMapper::ShallowCopy(vtkMapper *m)
 // to the return value
 vtkScalars *vtkMapper::GetColors()
 {
-  vtkScalars *scalars;
+  vtkScalars *scalars = NULL;
   vtkDataArray *dataArray=0;
   vtkFieldData *fd;
   int i, numScalars;
