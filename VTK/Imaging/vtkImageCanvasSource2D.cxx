@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCanvasSource2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-09 21:20:52 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2002-01-10 14:35:03 $
+  Version:   $Revision: 1.28 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,15 +44,18 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageCanvasSource2D, "$Revision: 1.27 $");
+vtkCxxRevisionMacro(vtkImageCanvasSource2D, "$Revision: 1.28 $");
 vtkStandardNewMacro(vtkImageCanvasSource2D);
 
 //----------------------------------------------------------------------------
 // Construct an instance of vtkImageCanvasSource2D with no data.
 vtkImageCanvasSource2D::vtkImageCanvasSource2D()
 {
-  this->SetDrawColor(0.0, 0.0, 0.0, 0.0);
   this->SetNumberOfScalarComponents(1);
+
+  this->DrawColor[0] = this->DrawColor[1] = 
+  this->DrawColor[2] = this->DrawColor[3] = 0.0;
+
   this->ImageData = this;
   this->DefaultZ = 0;
 }

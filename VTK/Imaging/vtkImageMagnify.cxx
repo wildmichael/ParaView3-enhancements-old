@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMagnify.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-09 21:20:53 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2002-01-10 14:35:04 $
+  Version:   $Revision: 1.39 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,7 +42,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkImageMagnify.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageMagnify, "$Revision: 1.38 $");
+vtkCxxRevisionMacro(vtkImageMagnify, "$Revision: 1.39 $");
 vtkStandardNewMacro(vtkImageMagnify);
 
 //----------------------------------------------------------------------------
@@ -50,7 +50,10 @@ vtkStandardNewMacro(vtkImageMagnify);
 vtkImageMagnify::vtkImageMagnify()
 {
   this->Interpolate = 0;
-  this->SetMagnificationFactors(1, 1, 1);
+
+  this->MagnificationFactors[0] = 
+  this->MagnificationFactors[1] = 
+  this->MagnificationFactors[2] = 1;
 }
 
 

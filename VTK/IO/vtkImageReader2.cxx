@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader2.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-09 21:20:28 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-01-10 14:35:26 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -47,7 +47,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <ctype.h>
 #include <string.h>
 
-vtkCxxRevisionMacro(vtkImageReader2, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkImageReader2, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkImageReader2);
 
 #ifdef read
@@ -69,16 +69,15 @@ vtkImageReader2::vtkImageReader2()
   this->DataScalarType = VTK_SHORT;
   this->NumberOfScalarComponents = 1;
   
-  this->SetDataOrigin(0.0, 0.0, 0.0);
+  this->DataOrigin[0] = this->DataOrigin[1] = this->DataOrigin[2] = 0.0;
 
-  this->SetDataSpacing(1.0, 1.0, 1.0);
+  this->DataSpacing[0] = this->DataSpacing[1] = this->DataSpacing[2] = 1.0;
 
-  this->SetDataExtent(0, 0, 
-                      0, 0, 
-                      0, 0);
+  this->DataExtent[0] = this->DataExtent[2] = this->DataExtent[4] = 0;
+  this->DataExtent[1] = this->DataExtent[3] = this->DataExtent[5] = 0;
 
   this->DataIncrements[0] = this->DataIncrements[1] = 
-    this->DataIncrements[2] = this->DataIncrements[3] = 1;
+  this->DataIncrements[2] = this->DataIncrements[3] = 1;
   
   this->FileName = NULL;
   this->InternalFileName = NULL;
