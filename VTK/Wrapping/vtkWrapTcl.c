@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapTcl.c,v $
   Language:  C++
-  Date:      $Date: 2000-11-07 17:43:44 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2000-11-15 21:27:50 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -249,7 +249,7 @@ void return_result(FILE *fp)
       use_hints(fp);
       break;
     default:
-      fprintf(fp,"    Tcl_SetResult(interp, \"unable to return result.\", TCL_VOLATILE);\n");
+      fprintf(fp,"    Tcl_SetResult(interp, (char *) \"unable to return result.\", TCL_VOLATILE);\n");
       break;
     }
 }
@@ -696,7 +696,7 @@ void vtkParseOutput(FILE *fp, FileInfo *data)
     fprintf(fp,"    unsigned long      temp20;\n");
     fprintf(fp,"    temp20 = op->AddObserver(argv[2],cbc);\n");
     fprintf(fp,"    char tempResult[1024];\n");
-    fprintf(fp,"    sprintf(tempResult,\"%%i\",temp20);\n");
+    fprintf(fp,"    sprintf(tempResult,\"%%li\",temp20);\n");
     fprintf(fp,"    Tcl_SetResult(interp,tempResult,TCL_VOLATILE);\n");
     fprintf(fp,"    return TCL_OK;\n    }\n");
     }
