@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-05-17 21:11:39 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1996-05-30 13:53:47 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -112,7 +112,7 @@ int vtkCellLocator::IntersectWithLine(float a0[3], float a1[3], float tol,
   float bounds2[6];
   int i, leafStart, prod, loop;
   vtkCell *cell;
-  int bestCellId;
+  int bestCellId = -1;
   int idx, cellId;
   float tMax, dist[3];
   float hits[3];
