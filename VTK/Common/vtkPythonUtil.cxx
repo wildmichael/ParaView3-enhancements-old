@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPythonUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-30 17:58:27 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-05-15 19:25:03 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -167,8 +167,8 @@ void *vtkPythonUnmanglePointer(char *ptrText, int *len, const char *type)
 {
   int i; 
   void *ptr;
-  char typeCheck[64];
-  if (*len < 64)
+  char typeCheck[128];
+  if (*len < 128)
     {
     i = sscanf(ptrText,"_%lx_%s",&ptr,typeCheck);
     if (strcmp(type,typeCheck) == 0)
@@ -301,6 +301,11 @@ void vtkPythonVoidFunc(void *arg)
   arglist = Py_BuildValue("()");
 
   result = PyEval_CallObject(func, arglist);
+  if (PyErr_Occurred())
+    {
+    PyErr_Print();
+    }
+
   Py_XDECREF(result);
   Py_DECREF(arglist);
 }
