@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-01 19:04:00 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1997-04-21 14:57:01 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -92,6 +92,24 @@ vtkImageReader::~vtkImageReader()
     delete [] this->FileName;
     this->FileName = NULL;
     }
+}
+
+void vtkImageReader::SetFileTypeBigEndian()
+{
+#ifndef WORDS_BIGENDIAN
+  this->SwapBytesOn();
+#else
+  this->SwapBytesOff();
+#endif
+}
+
+void vtkImageReader::SetFileTypeLittleEndian()
+{
+#ifdef WORDS_BIGENDIAN
+  this->SwapBytesOn();
+#else
+  this->SwapBytesOff();
+#endif
 }
 
 //----------------------------------------------------------------------------
@@ -316,7 +334,11 @@ void vtkImageReader::Initialize()
   
   // Open the new file
   vtkDebugMacro(<< "SetFileName: opening file " << this->FileName);
+#ifdef _WIN32
+  this->File = new ifstream(this->FileName, ios::in | ios::binary);
+#else
   this->File = new ifstream(this->FileName, ios::in);
+#endif
   if (! this->File || this->File->fail())
     {
     vtkErrorMacro(<< "Initialize: Could not open file " << this->FileName);
