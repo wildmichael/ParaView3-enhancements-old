@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractPolyDataPiece.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-02 18:56:14 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-09-14 19:26:21 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -83,6 +83,7 @@ void vtkExtractPolyDataPiece::ExecuteInformation()
     vtkErrorMacro("Missing input");
     return;
     }
+  this->GetOutput()->SetMaximumNumberOfPieces(-1);
 }
   
 void vtkExtractPolyDataPiece::ComputeCellTags(vtkIntArray *tags, 
