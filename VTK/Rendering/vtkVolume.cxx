@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-26 21:17:58 $
-  Version:   $Revision: 1.66 $
+  Date:      $Date: 2002-03-27 22:50:14 $
+  Version:   $Revision: 1.67 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkVolume, "$Revision: 1.66 $");
+vtkCxxRevisionMacro(vtkVolume, "$Revision: 1.67 $");
 vtkStandardNewMacro(vtkVolume);
 
 // Creates a Volume with the following defaults: origin(0,0,0) 
@@ -464,16 +464,25 @@ unsigned long int vtkVolume::GetRedrawMTime()
       mTime = ( time > mTime ? time : mTime );
       }
     }
-
-  int numComponents = this->Mapper->GetInput()->GetPointData()->
-    GetScalars()->GetNumberOfComponents();
   
   if ( this->Property != NULL )
     {
     time = this->Property->GetMTime();
     mTime = ( time > mTime ? time : mTime );
     
-    for ( int i = 0; i < VTK_MAX_VRCOMP; i++ )
+    int numComponents;
+    
+    if ( this->Mapper && this->Mapper->GetInput() )
+      {
+      numComponents = this->Mapper->GetInput()->GetPointData()->
+        GetScalars()->GetNumberOfComponents();
+      }
+    else
+      {
+      numComponents = 0;
+      }
+    
+    for ( int i = 0; i < numComponents; i++ )
       {
       // Check the color transfer function (gray or rgb)
       if ( this->Property->GetColorChannels(i) == 1 )
