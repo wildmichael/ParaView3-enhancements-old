@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:47:55 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 1997-05-14 19:57:14 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,8 +68,8 @@ public:
   // debugging
   virtual void DebugOn();
   virtual void DebugOff();
-  int GetDebug();
-  void SetDebug(int debugFlag);
+  unsigned char GetDebug();
+  void SetDebug(unsigned char debugFlag);
 
   // modified time
   virtual unsigned long int GetMTime();
@@ -84,7 +84,7 @@ public:
   static void BreakOnError();
   
 protected:
-  int Debug;         // Enable debug messages
+  unsigned char Debug;         // Enable debug messages
   vtkTimeStamp MTime; // Keep track of modification time
 
 private:

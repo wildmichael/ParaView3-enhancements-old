@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-03-28 20:07:27 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1997-05-14 19:57:13 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -125,14 +125,14 @@ void vtkObject::DebugOff()
 
 // Description:
 // Get the value of the debug flag.
-int vtkObject::GetDebug()
+unsigned char vtkObject::GetDebug()
 {
   return this->Debug;
 }
 
 // Description:
 // Set the value of the debug flag. A non-zero value turns debugging on.
-void vtkObject::SetDebug(int debugFlag)
+void vtkObject::SetDebug(unsigned char debugFlag)
 {
   this->Debug = debugFlag;
 }
