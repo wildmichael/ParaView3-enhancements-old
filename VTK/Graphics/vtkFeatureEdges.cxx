@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFeatureEdges.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-14 19:12:27 $
-  Version:   $Revision: 1.63 $
+  Date:      $Date: 2003-11-07 21:34:03 $
+  Version:   $Revision: 1.64 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,7 +29,7 @@
 #include "vtkCellData.h"
 #include "vtkPointData.h"
 
-vtkCxxRevisionMacro(vtkFeatureEdges, "$Revision: 1.63 $");
+vtkCxxRevisionMacro(vtkFeatureEdges, "$Revision: 1.64 $");
 vtkStandardNewMacro(vtkFeatureEdges);
 
 // Construct object with feature angle = 30; all types of edges, except 
@@ -258,8 +258,11 @@ void vtkFeatureEdges::Execute()
       else if ( this->FeatureEdges && 
                 numNei == 1 && (nei=neighbors->GetId(0)) > cellId ) 
         {
-        if ( vtkMath::Dot(polyNormals->GetTuple(nei),
-                          polyNormals->GetTuple(cellId)) <= cosAngle ) 
+        float neiTuple[3];
+        float cellTuple[3];
+        polyNormals->GetTuple(nei, neiTuple);
+        polyNormals->GetTuple(cellId, cellTuple);
+        if ( vtkMath::Dot(neiTuple, cellTuple) <= cosAngle ) 
           {
           if (ghostLevels && ghostLevels[cellId] > updateLevel)
             {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitSelectionLoop.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-04 20:43:44 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2003-11-07 21:34:03 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkPoints.h"
 #include "vtkPolygon.h"
 
-vtkCxxRevisionMacro(vtkImplicitSelectionLoop, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkImplicitSelectionLoop, "$Revision: 1.16 $");
 vtkStandardNewMacro(vtkImplicitSelectionLoop);
 vtkCxxSetObjectMacro(vtkImplicitSelectionLoop, Loop,vtkPoints);
 
@@ -129,8 +129,10 @@ float vtkImplicitSelectionLoop::EvaluateFunction(float x[3])
   // determine distance to boundary
   for (minDist2=VTK_LARGE_FLOAT,i=0; i<numPts; i++)
     {
-    dist2 = vtkLine::DistanceToLine(xProj,this->Polygon->Points->GetPoint(i),
-                        this->Polygon->Points->GetPoint((i+1)%numPts),t,closest);
+    float p1[3], p2[3];
+    this->Polygon->Points->GetPoint(i, p1);
+    this->Polygon->Points->GetPoint((i+1)%numPts, p2);
+    dist2 = vtkLine::DistanceToLine(xProj, p1, p2, t, closest);
     if ( dist2 < minDist2 )
       {
       minDist2 = dist2;
