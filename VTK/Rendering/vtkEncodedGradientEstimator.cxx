@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEncodedGradientEstimator.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-09 04:28:56 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-02-09 04:34:28 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -247,4 +247,11 @@ void vtkEncodedGradientEstimator::PrintSelf(ostream& os, vtkIndent indent)
 
   os << indent << "Number Of Threads: " 
      << this->NumberOfThreads << endl;
+
+  os << indent << "Last Update Time In Seconds: " 
+     << this->LastUpdateTimeInSeconds;
+
+  os << indent << "Last Update Time In CPU Seconds: " 
+     << this->LastUpdateTimeInCPUSeconds;
+
 }
