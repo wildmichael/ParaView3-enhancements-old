@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPostScriptWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-06 13:52:29 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-10-11 15:09:27 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkPostScriptWriter.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkPostScriptWriter* vtkPostScriptWriter::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkPostScriptWriter");
+  if(ret)
+    {
+    return (vtkPostScriptWriter*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkPostScriptWriter;
+}
+
+
+
 #define VTK_MARGIN 0.95
 
 void vtkPostScriptWriter::WriteFileTrailer(ofstream *file, 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNMWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-23 14:06:28 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-10-11 15:09:26 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkPNMWriter.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkPNMWriter* vtkPNMWriter::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkPNMWriter");
+  if(ret)
+    {
+    return (vtkPNMWriter*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkPNMWriter;
+}
+
+
+
 
 #ifdef write
 #undef write

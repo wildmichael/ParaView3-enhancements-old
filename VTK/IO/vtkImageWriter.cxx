@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-23 18:49:25 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1999-10-11 15:09:22 $
+  Version:   $Revision: 1.22 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -43,6 +43,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <ctype.h>
 #include <string.h>
 #include "vtkImageWriter.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkImageWriter* vtkImageWriter::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageWriter");
+  if(ret)
+    {
+    return (vtkImageWriter*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkImageWriter;
+}
+
+
+
 
 #ifdef write
 #undef write

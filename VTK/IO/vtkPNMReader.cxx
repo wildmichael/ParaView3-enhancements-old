@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNMReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:59 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-10-11 15:09:26 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,6 +41,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include "vtkPNMReader.h"
 #include <stdio.h>
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkPNMReader* vtkPNMReader::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkPNMReader");
+  if(ret)
+    {
+    return (vtkPNMReader*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkPNMReader;
+}
+
+
+
 
 char vtkPNMReaderGetChar(FILE *fp)
 {

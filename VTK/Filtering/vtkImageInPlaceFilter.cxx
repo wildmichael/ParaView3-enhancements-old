@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageInPlaceFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-02 12:59:33 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1999-10-11 15:08:58 $
+  Version:   $Revision: 1.24 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,6 +40,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 
 #include "vtkImageInPlaceFilter.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkImageInPlaceFilter* vtkImageInPlaceFilter::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageInPlaceFilter");
+  if(ret)
+    {
+    return (vtkImageInPlaceFilter*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkImageInPlaceFilter;
+}
+
+
+
 
   
   

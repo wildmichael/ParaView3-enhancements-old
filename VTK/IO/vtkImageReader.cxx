@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-30 19:11:30 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 1999-10-11 15:09:12 $
+  Version:   $Revision: 1.58 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -43,6 +43,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkByteSwap.h"
 
 #include "vtkImageReader.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkImageReader* vtkImageReader::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageReader");
+  if(ret)
+    {
+    return (vtkImageReader*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkImageReader;
+}
+
+
+
 
 #ifdef read
 #undef read
