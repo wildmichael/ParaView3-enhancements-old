@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEdgeTable.h,v $
   Language:  C++
-  Date:      $Date: 2003-07-02 18:43:38 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2003-07-02 19:48:33 $
+  Version:   $Revision: 1.33 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -82,7 +82,7 @@ public:
   // responsibility to check if the edge has already been inserted
   // (use IsEdge()). Do not mix this method with the other two
   // InsertEdge() methods.
-  void InsertEdge(vtkIdType p1, vtkIdType p2, int attributeId);
+  void InsertEdge(vtkIdType p1, vtkIdType p2, vtkIdType attributeId);
 
   // Description:
   // Insert the edge (p1,p2) into the table with the attribute id
