@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-14 13:11:15 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1997-07-17 21:31:38 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -223,6 +223,28 @@ void vtkXRenderWindow::SetWindowId(Window arg)
   vtkDebugMacro(<< "Setting WindowId to " << (void *)arg << "\n"); 
 
   this->WindowId = arg;
+}
+
+// Description:
+// Set this RenderWindow's X window id to a pre-existing window.
+void vtkXRenderWindow::SetWindowInfo(char *info)
+{
+  int tmp;
+  
+  // get the default display connection 
+  if (!this->DisplayId)
+    {
+    this->DisplayId = XOpenDisplay((char *)NULL); 
+    if (this->DisplayId == NULL) 
+      {
+      vtkErrorMacro(<< "bad X server connection.\n");
+      }
+    }
+
+  sscanf(info,"%i",&tmp);
+ 
+  this->WindowId = tmp;
+  vtkDebugMacro(<< "Setting WindowId to " << (void *)this->WindowId<< "\n"); 
 }
 
 void vtkXRenderWindow::SetWindowId(void *arg)

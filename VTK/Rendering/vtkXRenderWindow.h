@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:49:56 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1997-07-17 21:31:37 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -86,6 +86,9 @@ public:
   virtual Visual  *GetDesiredVisual()   = 0;
   virtual  int GetEventPending();
   
+  // useful for scripting languages
+  void     SetWindowInfo(char *info);
+
 protected:
   Window   ParentId;
   Window   WindowId;
