@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-20 16:49:40 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2002-06-21 12:59:14 $
+  Version:   $Revision: 1.40 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 #include "vtkStructuredPoints.h"
 #include "vtkUnstructuredGrid.h"
 
-vtkCxxRevisionMacro(vtkEnSightReader, "$Revision: 1.39 $");
+vtkCxxRevisionMacro(vtkEnSightReader, "$Revision: 1.40 $");
 
 //----------------------------------------------------------------------------
 vtkEnSightReader::vtkEnSightReader()
@@ -80,7 +80,7 @@ vtkEnSightReader::vtkEnSightReader()
   
   this->OutputsAreValid = 1;
   this->InitialRead = 1;
-  this->NumberOfNewOutputs;
+  this->NumberOfNewOutputs = 0;
 }
 
 //----------------------------------------------------------------------------
