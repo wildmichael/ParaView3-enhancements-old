@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNMWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:09:04 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-04-25 13:31:10 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,7 +68,7 @@ vtkPNMWriter* vtkPNMWriter::New()
 #undef close
 #endif
 
-void vtkPNMWriter::WriteFileHeader(ofstream *file, vtkImageData *cache)
+void vtkPNMWriter::WriteFileHeader(vtkOfstream *file, vtkImageData *cache)
 {
   int min1, max1, min2, max2, min3, max3;
   int bpp;
@@ -93,7 +93,7 @@ void vtkPNMWriter::WriteFileHeader(ofstream *file, vtkImageData *cache)
 }
 
 
-void vtkPNMWriter::WriteFile(ofstream *file, vtkImageData *data,
+void vtkPNMWriter::WriteFile(vtkOfstream *file, vtkImageData *data,
 			     int extent[6])
 {
   int idx0, idx1, idx2;

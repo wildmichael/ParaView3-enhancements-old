@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTIFFWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-14 16:12:22 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-04-25 13:31:13 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -282,7 +282,7 @@ typedef	enum {
 #define     EXTRASAMPLES_ASSOCIATEDALPHA 1
 #define     EXTRASAMPLES_UNASSOCIATEDALPHA 2
 
-void vtkTIFFWriter::WriteFileHeader(ofstream *file, vtkImageData *cache)
+void vtkTIFFWriter::WriteFileHeader(vtkOfstream *file, vtkImageData *cache)
 {
   int min0, max0, min1, max1, min2, max2;
   int bpp, i;
@@ -480,7 +480,7 @@ void vtkTIFFWriter::WriteFileHeader(ofstream *file, vtkImageData *cache)
 }
 
 
-void vtkTIFFWriter::WriteFile(ofstream *file, vtkImageData *data,
+void vtkTIFFWriter::WriteFile(vtkOfstream *file, vtkImageData *data,
 			      int extent[6])
 {
   int idx1, idx2;
