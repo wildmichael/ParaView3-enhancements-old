@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThinPlateSplineTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-01 12:23:13 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2000-06-06 01:24:55 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to David G. Gobbi who developed this class 
              based on code from vtkThinPlateSplineMeshWarp.cxx
 	     written by Tim Hutton.
@@ -209,7 +209,7 @@ void vtkThinPlateSplineTransform::SetTargetLandmarks(vtkPoints *target)
 //------------------------------------------------------------------------
 unsigned long vtkThinPlateSplineTransform::GetMTime()
 {
-  unsigned long result = this->vtkGeneralTransform::GetMTime();
+  unsigned long result = this->vtkWarpTransform::GetMTime();
   unsigned long mtime;
 
   if (this->SourceLandmarks)
@@ -744,14 +744,14 @@ void vtkThinPlateSplineTransform::PrintSelf(ostream& os, vtkIndent indent)
 }
 
 //----------------------------------------------------------------------------
-vtkGeneralTransform *vtkThinPlateSplineTransform::MakeTransform()
+vtkAbstractTransform *vtkThinPlateSplineTransform::MakeTransform()
 {
   return vtkThinPlateSplineTransform::New(); 
 }
 
 //----------------------------------------------------------------------------
 void vtkThinPlateSplineTransform::InternalDeepCopy(
-				      vtkGeneralTransform *transform)
+				      vtkAbstractTransform *transform)
 {
   vtkThinPlateSplineTransform *t = (vtkThinPlateSplineTransform *)transform;
 

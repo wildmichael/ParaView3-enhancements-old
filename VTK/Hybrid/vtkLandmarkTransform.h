@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLandmarkTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-06-03 15:51:55 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-06-06 01:24:55 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to Tim Hutton and David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -96,7 +96,7 @@ public:
 
   // Description:
   // Make another transform of the same type.
-  vtkGeneralTransform *MakeTransform();
+  vtkAbstractTransform *MakeTransform();
 
 protected:
   vtkLandmarkTransform();
@@ -109,7 +109,7 @@ protected:
 
   // Description:
   // This method does no type checking, use DeepCopy instead.
-  void InternalDeepCopy(vtkGeneralTransform *transform);
+  void InternalDeepCopy(vtkAbstractTransform *transform);
 
   vtkPoints* SourceLandmarks;
   vtkPoints* TargetLandmarks;

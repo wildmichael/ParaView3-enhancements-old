@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-06-03 15:51:54 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-06-06 01:24:53 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,10 +39,10 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-// .NAME vtkLinearTransform - superclass for linear geometric transformations
+// .NAME vtkLinearTransform - abstract superclass for linear transformations
 // .SECTION Description
 // vtkLinearTransform provides a generic interface for linear 
-// (affine or 12 degree-of-freedom) transformations. 
+// (affine or 12 degree-of-freedom) geometric transformations. 
 // .SECTION see also
 // vtkTransform vtkIdentityTransform 
 
@@ -50,13 +50,13 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef __vtkLinearTransform_h
 #define __vtkLinearTransform_h
 
-#include "vtkPerspectiveTransform.h"
+#include "vtkHomogenousTransform.h"
 
-class VTK_EXPORT vtkLinearTransform : public vtkPerspectiveTransform
+class VTK_EXPORT vtkLinearTransform : public vtkHomogenousTransform
 {
 public:
 
-  vtkTypeMacro(vtkLinearTransform,vtkPerspectiveTransform);
+  vtkTypeMacro(vtkLinearTransform,vtkHomogenousTransform);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

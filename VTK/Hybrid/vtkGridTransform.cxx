@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGridTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-03 15:29:43 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-06-06 01:24:54 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -848,7 +848,7 @@ void vtkGridTransform::PrintSelf(ostream& os, vtkIndent indent)
 unsigned long vtkGridTransform::GetMTime()
 {
   unsigned long mtime,result;
-  result = vtkGeneralTransform::GetMTime();
+  result = vtkWarpTransform::GetMTime();
   if (this->DisplacementGrid)
     {
     this->DisplacementGrid->UpdateInformation();
@@ -1215,7 +1215,7 @@ void vtkGridTransform::InverseTransformPoint(const double point[3],
 }
 
 //----------------------------------------------------------------------------
-void vtkGridTransform::InternalDeepCopy(vtkGeneralTransform *transform)
+void vtkGridTransform::InternalDeepCopy(vtkAbstractTransform *transform)
 {
   vtkGridTransform *gridTransform = (vtkGridTransform *)transform;
 
@@ -1267,7 +1267,7 @@ void vtkGridTransform::InternalUpdate()
 }
 
 //----------------------------------------------------------------------------
-vtkGeneralTransform *vtkGridTransform::MakeTransform()
+vtkAbstractTransform *vtkGridTransform::MakeTransform()
 {
   return vtkGridTransform::New();
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMatrixToLinearTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-03 15:51:55 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2000-06-06 01:24:54 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -103,7 +103,7 @@ void vtkMatrixToLinearTransform::InternalUpdate()
 }
 
 //----------------------------------------------------------------------------
-void vtkMatrixToLinearTransform::InternalDeepCopy(vtkGeneralTransform *gtrans)
+void vtkMatrixToLinearTransform::InternalDeepCopy(vtkAbstractTransform *gtrans)
 {
   vtkMatrixToLinearTransform *transform = 
     (vtkMatrixToLinearTransform *)gtrans;
@@ -117,7 +117,7 @@ void vtkMatrixToLinearTransform::InternalDeepCopy(vtkGeneralTransform *gtrans)
 }
 
 //----------------------------------------------------------------------------
-vtkGeneralTransform *vtkMatrixToLinearTransform::MakeTransform()
+vtkAbstractTransform *vtkMatrixToLinearTransform::MakeTransform()
 {
   return vtkMatrixToLinearTransform::New();
 }

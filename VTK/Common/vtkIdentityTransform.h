@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdentityTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-06-03 15:51:54 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-06-06 01:24:53 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -119,12 +119,12 @@ public:
 
   // Description:
   // This method does no type checking, use DeepCopy instead.
-  void InternalDeepCopy(vtkGeneralTransform *t);
+  void InternalDeepCopy(vtkAbstractTransform *t);
 
   // Description:
   // Make a transform of the same type.  This will actually
   // return the same transform.
-  vtkGeneralTransform *MakeTransform();
+  vtkAbstractTransform *MakeTransform();
 
 protected:
   vtkIdentityTransform();

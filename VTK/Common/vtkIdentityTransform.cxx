@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdentityTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-05-04 13:59:37 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-06-06 01:24:53 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -74,14 +74,13 @@ void vtkIdentityTransform::PrintSelf(ostream& os, vtkIndent indent)
 }
 
 //------------------------------------------------------------------------
-void vtkIdentityTransform::InternalDeepCopy(
-                                   vtkGeneralTransform *vtkNotUsed(transform))
+void vtkIdentityTransform::InternalDeepCopy(vtkAbstractTransform *)
 {
   // nothin' to do
 }
 
 //----------------------------------------------------------------------------
-vtkGeneralTransform *vtkIdentityTransform::MakeTransform()
+vtkAbstractTransform *vtkIdentityTransform::MakeTransform()
 {
   return vtkIdentityTransform::New();
 }

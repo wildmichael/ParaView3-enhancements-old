@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformToGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-03 10:38:03 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-06-06 01:24:55 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -141,7 +141,7 @@ static void vtkTransformToGridMinMax(vtkTransformToGrid *self,
 				     float &minDisplacement,
 				     float &maxDisplacement)
 {
-  vtkGeneralTransform *transform = self->GetInput();
+  vtkAbstractTransform *transform = self->GetInput();
   transform->Update();
 
   if (!transform)
@@ -298,7 +298,7 @@ static void vtkTransformToGridExecute(vtkTransformToGrid *self,
 			       float shift, float scale,
 			       int id)
 {
-  vtkGeneralTransform *transform = self->GetInput();
+  vtkAbstractTransform *transform = self->GetInput();
   int isIdentity = 0;
   if (transform == 0)
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformToGrid.h,v $
   Language:  C++
-  Date:      $Date: 2000-06-01 12:23:13 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-06-06 01:24:55 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen
@@ -46,13 +46,13 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // invert a grid transform, concatenate two grid transforms, or to
 // convert a thin plate spline transform into a grid transform.
 // .SECTION See Also
-// vtkGridTransform vtkThinPlateSplineTransform vtkGeneralTransform
+// vtkGridTransform vtkThinPlateSplineTransform vtkAbstractTransform
 
 #ifndef __vtkTransformToGrid_h
 #define __vtkTransformToGrid_h
 
 #include "vtkImageSource.h"
-#include "vtkGeneralTransform.h"
+#include "vtkAbstractTransform.h"
 
 class VTK_EXPORT vtkTransformToGrid : public vtkImageSource
 {
@@ -63,8 +63,8 @@ public:
 
   // Description:
   // Set/Get the transform which will be converted into a grid.
-  vtkSetObjectMacro(Input,vtkGeneralTransform);
-  vtkGetObjectMacro(Input,vtkGeneralTransform);
+  vtkSetObjectMacro(Input,vtkAbstractTransform);
+  vtkGetObjectMacro(Input,vtkAbstractTransform);
 
   // Description:
   // Get/Set the extent of the grid.
@@ -122,7 +122,7 @@ protected:
 
   unsigned long GetMTime();
 
-  vtkGeneralTransform *Input;
+  vtkAbstractTransform *Input;
 
   int GridScalarType;
   int GridExtent[6];

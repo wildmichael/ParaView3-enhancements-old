@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLandmarkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-03 15:51:55 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-06-06 01:24:55 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to Tim Hutton and David G. Gobbi who developed this class.
 
 Redistribution and use in source and binary forms, with or without
@@ -370,13 +370,13 @@ void vtkLandmarkTransform::Inverse()
 }
 
 //----------------------------------------------------------------------------
-vtkGeneralTransform *vtkLandmarkTransform::MakeTransform()
+vtkAbstractTransform *vtkLandmarkTransform::MakeTransform()
 {
   return vtkLandmarkTransform::New(); 
 }
 
 //----------------------------------------------------------------------------
-void vtkLandmarkTransform::InternalDeepCopy(vtkGeneralTransform *transform)
+void vtkLandmarkTransform::InternalDeepCopy(vtkAbstractTransform *transform)
 {
   vtkLandmarkTransform *t = (vtkLandmarkTransform *)transform;
 

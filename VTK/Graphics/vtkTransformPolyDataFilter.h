@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:12:56 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-06-06 01:24:55 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -77,8 +77,8 @@ public:
 
   // Description:
   // Specify the transform object used to transform points.
-  vtkSetObjectMacro(Transform,vtkGeneralTransform);
-  vtkGetObjectMacro(Transform,vtkGeneralTransform);
+  vtkSetObjectMacro(Transform,vtkAbstractTransform);
+  vtkGetObjectMacro(Transform,vtkAbstractTransform);
 
 protected:
   vtkTransformPolyDataFilter();
@@ -87,7 +87,7 @@ protected:
   void operator=(const vtkTransformPolyDataFilter&) {};
 
   void Execute();
-  vtkGeneralTransform *Transform;
+  vtkAbstractTransform *Transform;
 };
 
 #endif
