@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBlankStructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-30 15:44:49 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-08-04 11:54:50 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -76,7 +76,7 @@ vtkBlankStructuredGrid::~vtkBlankStructuredGrid()
 
 
 template <class T>
-static void vtkBlankStructuredGridExecute(vtkBlankStructuredGrid *self,
+static void vtkBlankStructuredGridExecute(vtkBlankStructuredGrid *vtkNotUsed(self),
                                           T *dptr, int numPts, int numComp,
                                           int comp, float min, float max,
                                           vtkUnsignedCharArray *blanking)
