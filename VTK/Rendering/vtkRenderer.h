@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-27 15:18:37 $
-  Version:   $Revision: 1.96 $
+  Date:      $Date: 2001-09-07 17:28:20 $
+  Version:   $Revision: 1.97 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -374,12 +374,6 @@ protected:
   // of all props when rendering
   vtkProp            **PropArray;
   int                PropArrayCount;
-
-  // A sublist of props that need ray casting
-  vtkProp            **RayCastPropArray;
-
-  // A sublist of props that want to be rendered into an image
-  vtkProp            **RenderIntoImagePropArray;
 
   // A temporary list used for picking
   vtkAssemblyPath    **PathArray;
