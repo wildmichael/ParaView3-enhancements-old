@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkApproximatingSubdivisionFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:30 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-06-27 13:24:31 $
+  Version:   $Revision: 1.8 $
   Thanks:    This work was supported bt PHS Research Grant No. 1 P41 RR13218-01
              from the National Center for Research Resources
 
@@ -72,11 +72,17 @@ protected:
   void operator=(const vtkApproximatingSubdivisionFilter&) {};
 
   void Execute();
-  virtual void GenerateSubdivisionPoints (vtkPolyData *inputDS, vtkIntArray *edgeData, vtkPoints *outputPts, vtkPointData *outputPD) = 0;
-  void GenerateSubdivisionCells (vtkPolyData *inputDS, vtkIntArray *edgeData, vtkCellArray *outputPolys, vtkCellData *outputCD);
-  int FindEdge (vtkPolyData *mesh, int cellId, int p1, int p2,
-		vtkIntArray *edgeData, vtkIdList *cellIds);
-  int InterpolatePosition (vtkPoints *inputPts, vtkPoints *outputPts, vtkIdList *stencil, float *weights);
+  virtual void GenerateSubdivisionPoints (vtkPolyData *inputDS,
+                                          vtkIntArray *edgeData,
+                                          vtkPoints *outputPts,
+                                          vtkPointData *outputPD) = 0;
+  void GenerateSubdivisionCells (vtkPolyData *inputDS, vtkIntArray *edgeData,
+                                 vtkCellArray *outputPolys,
+                                 vtkCellData *outputCD);
+  int FindEdge (vtkPolyData *mesh, vtkIdType cellId, vtkIdType p1,
+                vtkIdType p2, vtkIntArray *edgeData, vtkIdList *cellIds);
+  vtkIdType InterpolatePosition (vtkPoints *inputPts, vtkPoints *outputPts,
+                                 vtkIdList *stencil, float *weights);
   int NumberOfSubdivisions;
 };
 

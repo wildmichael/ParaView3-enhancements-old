@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkElevationFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-12 13:18:04 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2001-06-27 13:24:31 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -83,7 +83,8 @@ vtkElevationFilter::vtkElevationFilter()
 //
 void vtkElevationFilter::Execute()
 {
-  int i, j, numPts;
+  vtkIdType numPts, i;
+  int j;
   vtkFloatArray *newScalars;
   float l, *x, s, v[3];
   float diffVector[3], diffScalar;

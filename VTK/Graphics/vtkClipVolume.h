@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipVolume.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-21 15:49:39 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2001-06-27 13:24:31 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -171,7 +171,7 @@ protected:
   void ClipVoxel(float value, vtkScalars *cellScalars, int flip,
                  float origin[3], float spacing[3], vtkIdList *cellIds,
 		 vtkPoints *cellPts, vtkPointData *inPD, vtkPointData *outPD,
-		 vtkCellData *inCD, int cellId, vtkCellData *outCD, 
+		 vtkCellData *inCD, vtkIdType cellId, vtkCellData *outCD, 
 		 vtkCellData *clippedCD);
   vtkImplicitFunction *ClipFunction;
   vtkPointLocator *Locator;

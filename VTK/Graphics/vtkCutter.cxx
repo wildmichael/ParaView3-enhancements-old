@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-12 13:18:04 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 2001-06-27 13:24:31 $
+  Version:   $Revision: 1.61 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -112,7 +112,8 @@ unsigned long vtkCutter::GetMTime()
 //
 void vtkCutter::Execute()
 {
-  int cellId, i, iter;
+  vtkIdType cellId, i;
+  int iter;
   vtkPoints *cellPts;
   vtkScalars *cellScalars=vtkScalars::New();
   vtkGenericCell *cell;
@@ -122,8 +123,9 @@ void vtkCutter::Execute()
   float value, s;
   vtkPolyData *output = this->GetOutput();
   vtkDataSet *input=this->GetInput();
-  int estimatedSize, numCells=input->GetNumberOfCells();
-  int numPts=input->GetNumberOfPoints(), numCellPts;
+  vtkIdType estimatedSize, numCells=input->GetNumberOfCells();
+  vtkIdType numPts=input->GetNumberOfPoints();
+  int numCellPts;
   vtkPointData *inPD, *outPD;
   vtkCellData *inCD=input->GetCellData(), *outCD=output->GetCellData();
   vtkIdList *cellIds;
@@ -148,7 +150,7 @@ void vtkCutter::Execute()
 
   // Create objects to hold output of contour operation
   //
-  estimatedSize = (int) pow ((double) numCells, .75) * numContours;
+  estimatedSize = (vtkIdType) pow ((double) numCells, .75) * numContours;
   estimatedSize = estimatedSize / 1024 * 1024; //multiple of 1024
   if (estimatedSize < 1024)
     {
@@ -199,8 +201,8 @@ void vtkCutter::Execute()
   // Compute some information for progress methods
   //
   cell = vtkGenericCell::New();
-  int numCuts = numContours*numCells;
-  int progressInterval = numCuts/20 + 1;
+  vtkIdType numCuts = numContours*numCells;
+  vtkIdType progressInterval = numCuts/20 + 1;
   int cut=0;
   
   if ( this->SortBy == VTK_SORT_BY_CELL )

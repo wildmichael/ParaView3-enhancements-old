@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConnectivityFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-28 06:02:30 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2001-06-27 13:24:31 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -131,11 +131,11 @@ public:
 
   // Description:
   // Add a seed id (point or cell id). Note: ids are 0-offset.
-  void AddSeed(int id);
+  void AddSeed(vtkIdType id);
 
   // Description:
   // Delete a seed id (point or cell id). Note: ids are 0-offset.
-  void DeleteSeed(int id);
+  void DeleteSeed(vtkIdType id);
 
   // Description:
   // Initialize list of region ids to extract.
@@ -191,11 +191,11 @@ private:
   // used to support algorithm execution
   vtkScalars *CellScalars;
   vtkIdList *NeighborCellPointIds;
-  int *Visited;
-  int *PointMap;
+  vtkIdType *Visited;
+  vtkIdType *PointMap;
   vtkScalars *NewScalars;
   int RegionNumber;
-  int PointNumber;    
+  vtkIdType PointNumber;    
   int NumCellsInRegion;
   vtkScalars *InScalars;
   vtkIdList *Wave;

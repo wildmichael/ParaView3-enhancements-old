@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-22 19:12:49 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2001-06-27 13:24:31 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -121,7 +121,7 @@ public:
   // place their data. Bounds are the box that the points lie in.
   // Not thread safe.
   virtual int InitPointInsertion(vtkPoints *newPts, const float bounds[6], 
-				 int estSize);
+				 vtkIdType estSize);
 
   // Description:
   // Incrementally insert a point into search structure with a particular

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-22 19:12:49 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2001-06-27 13:24:31 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1272,7 +1272,7 @@ int vtkPointLocator::InitPointInsertion(vtkPoints *newPts,
 // data. Bounds are the box that the points lie in.
 int vtkPointLocator::InitPointInsertion(vtkPoints *newPts,
 					const float bounds[6],
-                                        int estNumPts)
+                                        vtkIdType estNumPts)
 {
   int i;
   int maxDivs;

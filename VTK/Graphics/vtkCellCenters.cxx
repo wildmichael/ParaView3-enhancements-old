@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellCenters.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:02 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-06-27 13:24:31 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -69,7 +69,8 @@ vtkCellCenters::vtkCellCenters()
 // Generate points
 void vtkCellCenters::Execute()
 {
-  int cellId, numCells, subId;
+  vtkIdType cellId, numCells;
+  int subId;
   vtkDataSet *input = this->GetInput();
   vtkPolyData *output = this->GetOutput();
   vtkCellData *inCD;
@@ -103,7 +104,7 @@ void vtkCellCenters::Execute()
   newPts->SetNumberOfPoints(numCells);
 
   int abort=0;
-  int progressInterval = numCells/10 + 1;
+  vtkIdType progressInterval = numCells/10 + 1;
   for (cellId=0; cellId < numCells && !abort; cellId++)
     {
     if ( ! (cellId % progressInterval) ) 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetSurfaceFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-04-17 18:28:56 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-06-27 13:24:31 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -97,21 +97,23 @@ protected:
   void ExecuteFaceQuads(vtkDataSet *input, int maxFlag, int *ext,
 			int aAxis, int bAxis, int cAxis);
 
-  void InitializeQuadHash(int numPoints);
+  void InitializeQuadHash(vtkIdType numPoints);
   void DeleteQuadHash();
-  void InsertQuadInHash(int a, int b, int c, int d, int sourceId);
-  void InsertTriInHash(int a, int b, int c, int sourceId);
+  void InsertQuadInHash(vtkIdType a, vtkIdType b, vtkIdType c, vtkIdType d,
+                        vtkIdType sourceId);
+  void InsertTriInHash(vtkIdType a, vtkIdType b, vtkIdType c,
+                       vtkIdType sourceId);
   void InitQuadHashTraversal();
   vtkFastGeomQuad *GetNextVisibleQuadFromHash();
 
   vtkFastGeomQuad **QuadHash;
-  int QuadHashLength;
+  vtkIdType QuadHashLength;
   vtkFastGeomQuad *QuadHashTraversal;
-  int QuadHashTraversalIndex;
+  vtkIdType QuadHashTraversalIndex;
 
-  int *PointMap;
-  int GetOutputPointId(int inPtId, vtkDataSet *input, 
-		       vtkPoints *outPts, vtkPointData *outPD);
+  vtkIdType *PointMap;
+  vtkIdType GetOutputPointId(vtkIdType inPtId, vtkDataSet *input, 
+                             vtkPoints *outPts, vtkPointData *outPD);
 };
 
 #endif

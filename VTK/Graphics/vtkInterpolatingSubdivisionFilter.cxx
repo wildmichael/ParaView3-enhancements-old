@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInterpolatingSubdivisionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-21 15:21:52 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-06-27 13:24:31 $
+  Version:   $Revision: 1.13 $
   Thanks:    This work was supported bt PHS Research Grant No. 1 P41 RR13218-01
              from the National Center for Research Resources
 
@@ -175,7 +175,7 @@ int vtkInterpolatingSubdivisionFilter::FindEdge (vtkPolyData *mesh, int cellId, 
     return (int) edgeData->GetComponent(currentCellId,edgeId);
 }
 
-int vtkInterpolatingSubdivisionFilter::InterpolatePosition (
+vtkIdType vtkInterpolatingSubdivisionFilter::InterpolatePosition (
         vtkPoints *inputPts, vtkPoints *outputPts,
 	vtkIdList *stencil, float *weights)
 {

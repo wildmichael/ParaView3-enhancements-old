@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDiskSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:02 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2001-06-27 13:24:31 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -71,7 +71,7 @@ vtkDiskSource::vtkDiskSource()
 
 void vtkDiskSource::Execute()
 {
-  int numPolys, numPts;
+  vtkIdType numPolys, numPts;
   float x[3];
   int i, j;
   vtkIdType pts[4];

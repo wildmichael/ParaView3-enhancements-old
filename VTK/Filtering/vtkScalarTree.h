@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarTree.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-28 05:56:08 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-06-27 13:24:32 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -122,7 +122,7 @@ public:
   // initialize traversal. The value NULL is returned if the list is
   // exhausted. Make sure that InitTraversal() has been invoked first or
   // you'll get erratic behavior.
-  vtkCell *GetNextCell(int &cellId, vtkIdList* &ptIds,
+  vtkCell *GetNextCell(vtkIdType &cellId, vtkIdList* &ptIds,
                        vtkScalars *cellScalars);
 
 protected:
@@ -146,7 +146,7 @@ private:
   int TreeIndex; //traversal location within tree
   int LeafOffset; //offset to leaf nodes of tree
   int ChildNumber; //current child in traversal
-  int CellId; //current cell id being examined
+  vtkIdType CellId; //current cell id being examined
   int FindStartLeaf(int index, int level);
   int FindNextLeaf(int index,int level);
 };

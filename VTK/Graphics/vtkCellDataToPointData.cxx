@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellDataToPointData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-18 11:11:48 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-06-27 13:24:31 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -65,8 +65,8 @@ vtkCellDataToPointData::vtkCellDataToPointData()
 
 void vtkCellDataToPointData::Execute()
 {
-  int cellId, ptId;
-  int numCells, numPts;
+  vtkIdType cellId, ptId;
+  vtkIdType numCells, numPts;
   vtkDataSet *input= this->GetInput();
   vtkDataSet *output= this->GetOutput();
   vtkCellData *inPD=input->GetCellData();
@@ -99,7 +99,7 @@ void vtkCellDataToPointData::Execute()
   outPD->CopyAllocate(inPD,numPts);
 
   int abort=0;
-  int progressInterval=numPts/20 + 1;
+  vtkIdType progressInterval=numPts/20 + 1;
   for (ptId=0; ptId < numPts && !abort; ptId++)
     {
     if ( !(ptId % progressInterval) )

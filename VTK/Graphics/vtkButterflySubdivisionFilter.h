@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkButterflySubdivisionFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:30 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-06-27 13:24:31 $
+  Version:   $Revision: 1.8 $
   Thanks:    This work was supported bt PHS Research Grant No. 1 P41 RR13218-01
              from the National Center for Research Resources
 
@@ -86,10 +86,14 @@ public:
   void operator=(const vtkButterflySubdivisionFilter&) {};
 
  private:
-  void GenerateSubdivisionPoints (vtkPolyData *inputDS, vtkIntArray *edgeData, vtkPoints *outputPts, vtkPointData *outputPD);
-  void GenerateButterflyStencil (int p1, int p2, vtkPolyData *polys, vtkIdList *stencilIds, float *weights);
-  void GenerateLoopStencil (int p1, int p2, vtkPolyData *polys, vtkIdList *stencilIds, float *weights);
-  void GenerateBoundaryStencil (int p1, int p2, vtkPolyData *polys, vtkIdList *stencilIds, float *weights);
+  void GenerateSubdivisionPoints(vtkPolyData *inputDS, vtkIntArray *edgeData,
+                                 vtkPoints *outputPts, vtkPointData *outputPD);
+  void GenerateButterflyStencil(vtkIdType p1, vtkIdType p2, vtkPolyData *polys,
+                                vtkIdList *stencilIds, float *weights);
+  void GenerateLoopStencil(vtkIdType p1, vtkIdType p2, vtkPolyData *polys,
+                           vtkIdList *stencilIds, float *weights);
+  void GenerateBoundaryStencil(vtkIdType p1, vtkIdType p2, vtkPolyData *polys,
+                               vtkIdList *stencilIds, float *weights);
 };
 
 #endif

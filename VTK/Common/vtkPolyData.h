@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-21 15:21:51 $
-  Version:   $Revision: 1.109 $
+  Date:      $Date: 2001-06-27 13:24:31 $
+  Version:   $Revision: 1.110 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -241,7 +241,7 @@ public:
   // Get the neighbors at an edge. More efficient than the general 
   // GetCellNeighbors(). Assumes links have been built (with BuildLinks()), 
   // and looks specifically for edge neighbors.
-  void GetCellEdgeNeighbors(vtkIdType cellId, int p1, int p2,
+  void GetCellEdgeNeighbors(vtkIdType cellId, vtkIdType p1, vtkIdType p2,
                             vtkIdList *cellIds);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-22 17:14:03 $
-  Version:   $Revision: 1.135 $
+  Date:      $Date: 2001-06-27 13:24:31 $
+  Version:   $Revision: 1.136 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1498,8 +1498,8 @@ void vtkPolyData::ReplaceLinkedCell(vtkIdType cellId, int npts, vtkIdType *pts)
 // Get the neighbors at an edge. More efficient than the general 
 // GetCellNeighbors(). Assumes links have been built (with BuildLinks()), 
 // and looks specifically for edge neighbors.
-void vtkPolyData::GetCellEdgeNeighbors(vtkIdType cellId, int p1, int p2,
-                                       vtkIdList *cellIds)
+void vtkPolyData::GetCellEdgeNeighbors(vtkIdType cellId, vtkIdType p1,
+                                       vtkIdType p2, vtkIdList *cellIds)
 {
   vtkIdType *cells;
   vtkIdType numCells;

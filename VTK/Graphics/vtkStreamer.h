@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamer.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-21 20:39:41 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2001-06-27 13:24:32 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -87,7 +87,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 typedef struct _vtkStreamPoint {
   float   x[3];    // position 
-  int     cellId;  // cell
+  vtkIdType     cellId;  // cell
   int     subId;   // cell sub id
   float   p[3];    // parametric coords in cell 
   float   v[3];    // velocity 

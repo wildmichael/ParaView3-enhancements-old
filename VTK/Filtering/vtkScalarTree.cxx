@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarTree.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-20 23:12:04 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-06-27 13:24:32 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -314,7 +314,7 @@ int vtkScalarTree::FindNextLeaf(int childIndex, int childLevel)
 // initialize traversal. The value NULL is returned if the list is
 // exhausted. Make sure that InitTraversal() has been invoked first or
 // you'll get erratic behavior.
-vtkCell *vtkScalarTree::GetNextCell(int& cellId, vtkIdList* &cellPts,
+vtkCell *vtkScalarTree::GetNextCell(vtkIdType& cellId, vtkIdList* &cellPts,
                                     vtkScalars *cellScalars)
 {
   float *s, min=VTK_LARGE_FLOAT, max=(-VTK_LARGE_FLOAT);

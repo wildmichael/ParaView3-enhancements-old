@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBrownianPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-08 19:16:59 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2001-06-27 13:24:31 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -65,7 +65,8 @@ vtkBrownianPoints::vtkBrownianPoints()
 
 void vtkBrownianPoints::Execute()
 {
-  int i, j, numPts;
+  vtkIdType i, numPts;
+  int j;
   vtkFloatArray *newVectors;
   float v[3], norm, speed;
   vtkDataSet *input= this->GetInput();

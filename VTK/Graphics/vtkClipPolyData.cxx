@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-16 13:28:38 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2001-06-27 13:24:31 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -127,7 +127,7 @@ void vtkClipPolyData::Execute()
 {
   vtkPolyData *input = this->GetInput();
   vtkPolyData *output = this->GetOutput();
-  int cellId, i, updateTime;
+  vtkIdType cellId, i, updateTime;
   vtkPoints *cellPts;
   vtkScalars *clipScalars;
   vtkScalars *cellScalars; 
@@ -138,8 +138,8 @@ void vtkClipPolyData::Execute()
   vtkPoints *newPoints;
   vtkIdList *cellIds;
   float s;
-  int estimatedSize, numCells=input->GetNumberOfCells();
-  int numPts=input->GetNumberOfPoints();
+  vtkIdType estimatedSize, numCells=input->GetNumberOfCells();
+  vtkIdType numPts=input->GetNumberOfPoints();
   vtkPoints *inPts=input->GetPoints();  
   int numberOfPoints;
   vtkPointData *inPD=input->GetPointData(), *outPD = output->GetPointData();
