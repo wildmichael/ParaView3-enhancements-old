@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObjectFactory.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-17 15:16:10 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2003-01-27 21:05:10 $
+  Version:   $Revision: 1.40 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 
 #include <ctype.h>
 
-vtkCxxRevisionMacro(vtkObjectFactory, "$Revision: 1.39 $");
+vtkCxxRevisionMacro(vtkObjectFactory, "$Revision: 1.40 $");
 
 vtkObjectFactoryCollection* vtkObjectFactory::RegisteredFactories = 0;
 
@@ -129,7 +129,7 @@ void vtkObjectFactory::LoadDynamicFactories()
   char* SeparatorPosition = LoadPath; // initialize to env variable
   while(SeparatorPosition)
   {
-    int PathLength =0;
+    size_t PathLength =0;
     // find PathSeparator in LoadPath
     SeparatorPosition = strchr(LoadPath, PathSeparator);
     // if not found then use the whole string
