@@ -3,8 +3,8 @@
  Program:   Visualization Toolkit
  Module:    $RCSfile: vtkSource.cxx,v $
  Language:  C++
- Date:      $Date: 2000-10-09 01:01:04 $
- Version:   $Revision: 1.68 $
+ Date:      $Date: 2000-10-09 13:36:51 $
+ Version:   $Revision: 1.69 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -355,8 +355,6 @@ void vtkSource::UpdateData(vtkDataObject *vtkNotUsed(output))
       {
       if (this->SortedInputs[idx] != NULL)
 	{
-        vtkErrorMacro("input " << idx << " : " << this->SortedInputs[idx]
-                      << " has locality " << this->SortedInputs[idx]->GetLocality()); 
 	this->SortedInputs[idx]->PropagateUpdateExtent();
 	this->SortedInputs[idx]->UpdateData();
 	}
