@@ -19,7 +19,6 @@
 
 #include "vtkExtractCells.h"
 
-#include "vtkIdType.h"
 #include "vtkCellArray.h"
 #include "vtkIntArray.h"
 #include "vtkIdType.h"
@@ -33,7 +32,7 @@
 #include <algorithm>
 #include <vtkstd/set>
 
-vtkCxxRevisionMacro(vtkExtractCells, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkExtractCells, "$Revision: 1.9 $");
 vtkStandardNewMacro(vtkExtractCells);
 
 vtkExtractCells::vtkExtractCells()
