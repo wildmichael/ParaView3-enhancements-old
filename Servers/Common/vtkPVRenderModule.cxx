@@ -30,7 +30,7 @@
 #include "vtkPVOptions.h"
 
 //----------------------------------------------------------------------------
-vtkCxxRevisionMacro(vtkPVRenderModule, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkPVRenderModule, "$Revision: 1.4 $");
 
 //===========================================================================
 //***************************************************************************
@@ -71,6 +71,7 @@ vtkPVRenderModule::vtkPVRenderModule()
   
   this->Displays = vtkCollection::New();
 
+  this->InteractorID.ID = 0;
   this->Renderer = 0;
   this->Renderer2D = 0;
   this->RenderWindow = 0;
