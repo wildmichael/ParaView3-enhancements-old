@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-12 13:48:03 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1995-10-30 13:07:44 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,7 +49,7 @@ vtkStructuredGrid::vtkStructuredGrid()
 }
 
 vtkStructuredGrid::vtkStructuredGrid(const vtkStructuredGrid& sg) :
-vtkStructuredData(sg), vtkPointSet(sg)
+vtkPointSet(sg), vtkStructuredData(sg)
 {
 }
 
