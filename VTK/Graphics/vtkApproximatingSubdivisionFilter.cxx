@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkApproximatingSubdivisionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:04:36 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2000-03-15 17:16:58 $
+  Version:   $Revision: 1.6 $
   Thanks:    This work was supported bt PHS Research Grant No. 1 P41 RR13218-01
              from the National Center for Research Resources
 
@@ -130,9 +130,8 @@ void vtkApproximatingSubdivisionFilter::Execute()
     inputDS->SetPolys(outputPolys); outputPolys->Delete();
     inputDS->GetPointData()->PassData(outputPD); outputPD->Delete();
     inputDS->GetCellData()->PassData(outputCD); outputCD->Delete();
+    inputDS->Squeeze();
     } // each level
-
-  inputDS->Squeeze();
 
   output->SetPoints(inputDS->GetPoints());
   output->SetPolys(inputDS->GetPolys());
