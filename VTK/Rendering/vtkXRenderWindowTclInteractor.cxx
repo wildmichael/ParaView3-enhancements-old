@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowTclInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-01 14:37:44 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-10-04 15:58:25 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -495,5 +495,5 @@ int vtkXRenderWindowTclInteractor::DestroyTimer(void)
 
 void vtkXRenderWindowTclInteractor::TerminateApp(void) 
 {
-  Tcl_Exit(1);
+  Tcl_Finalize();
 }
