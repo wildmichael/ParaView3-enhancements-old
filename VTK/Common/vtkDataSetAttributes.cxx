@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-21 15:40:27 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2001-04-22 12:26:27 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1751,6 +1751,8 @@ vtkDataSetAttributes::FieldList::FieldList(int numInputs)
 vtkDataSetAttributes::FieldList::~FieldList()
 {
   this->ClearFields();
+  delete [] this->DSAIndices;
+  this->DSAIndices = 0;
 }
 
 void vtkDataSetAttributes::FieldList::ClearFields()
@@ -1767,11 +1769,10 @@ void vtkDataSetAttributes::FieldList::ClearFields()
     {
     for (int i=0; i<this->NumberOfDSAIndices; i++)
       {
-      delete this->DSAIndices[i];
+      delete[] this->DSAIndices[i];
+      this->DSAIndices[i] = 0;
       }
     }
-  delete [] this->DSAIndices;
-  this->DSAIndices = 0;
   delete [] this->LUT;
   this->LUT = 0;
   delete [] this->Fields;
