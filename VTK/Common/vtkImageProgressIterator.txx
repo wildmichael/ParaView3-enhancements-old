@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageProgressIterator.txx,v $
   Language:  C++
-  Date:      $Date: 2003-05-23 15:46:52 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-07-28 15:07:35 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -51,7 +51,7 @@ void vtkImageProgressIterator<DType>::NextSpan()
     this->SpanEndPointer += this->ContinuousIncrements[2];
     this->SliceEndPointer += this->Increments[2];
     }
-  if (this->ID)
+  if (!this->ID)
     {
     if (this->Count2 == this->Target)
       {
