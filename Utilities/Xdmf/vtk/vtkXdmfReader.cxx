@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2005-01-27 14:27:19 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2005-01-31 18:41:18 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -77,7 +77,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <vtkstd/vector>
 
 vtkStandardNewMacro(vtkXdmfReader);
-vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.53 $");
+vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.54 $");
 
 #if defined(_WIN32) && (defined(_MSC_VER) || defined(__BORLANDC__))
 #  include <direct.h>
@@ -2099,6 +2099,15 @@ void vtkXdmfReader::UpdateGrids()
       }
     }
   this->GridsModified = 0;
+  this->SetNumberOfOutputPorts(this->GetNumberOfGrids());
+  int i;
+  vtkUnstructuredGrid *ugrid;
+  for (i = 0; i < this->GetNumberOfGrids(); i++)
+    {
+    ugrid = vtkUnstructuredGrid::New();
+    this->GetExecutive()->SetOutputData(i, ugrid);
+    ugrid->Delete();
+    }
 }
 
 //----------------------------------------------------------------------------
