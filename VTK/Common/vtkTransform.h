@@ -3,11 +3,9 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTransform.h,v $
   Language:  C++
-  Date:      $Date: 1994-11-01 23:14:38 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1994-11-28 23:46:52 $
+  Version:   $Revision: 1.12 $
 
-Description:
----------------------------------------------------------------------------
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
 without the express written consent of the authors.
