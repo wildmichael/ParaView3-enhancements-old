@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32TextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-10 18:03:42 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-02-24 17:42:17 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -160,9 +160,9 @@ void vtkWin32TextMapper::GetSize(vtkViewport* viewport, int *size)
   size[0] = rect.right - rect.left + 1;
 }
 
-void vtkWin32TextMapper::Render(vtkViewport* viewport, vtkActor2D* actor)
+void vtkWin32TextMapper::RenderOverlay(vtkViewport* viewport, 
+				       vtkActor2D* actor)
 {
-
   vtkDebugMacro (<< "vtkWin32TextMapper::Render");
 
   // Check for input
