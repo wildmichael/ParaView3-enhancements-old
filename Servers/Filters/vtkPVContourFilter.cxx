@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-04 20:09:47 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2000-08-07 01:27:46 $
+  Version:   $Revision: 1.9 $
 
 Copyright (c) 1998-2000 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -31,6 +31,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkPVRenderView.h"
 #include "vtkPVPolyData.h"
 #include "vtkPVWindow.h"
+#include "vtkPVActorComposite.h"
+
 
 int vtkPVContourFilterCommand(ClientData cd, Tcl_Interp *interp,
 			      int argc, char *argv[]);
@@ -149,26 +151,22 @@ void vtkPVContourFilter::ContourValueChanged()
   vtkPVAssignment *a;
   vtkPVActorComposite *ac;
   
-  pvd = vtkPVPolyData::New();
-  pvd->Clone(pvApp);
-  
-  this->SetOutput(pvd);
-  a = window->GetPreviousSource()->GetPVData()->GetAssignment();
-  this->SetAssignment(a);
-  
   this->SetValue(0, this->ContourValueEntry->GetValueAsFloat());
-  this->Contour->Modified();
-  this->Contour->Update();
-  
-  window->GetPreviousSource()->GetPVData()->GetActorComposite()->VisibilityOff();
-  
-  this->GetView()->Render();
-  
-  this->CreateDataPage();
-  
-  ac = this->GetPVData()->GetActorComposite();
-  window->GetMainView()->AddComposite(ac);
+
+  if (this->GetPVData() == NULL)
+    { // This is the first time.  Create the data.
+    pvd = vtkPVPolyData::New();
+    pvd->Clone(pvApp);
+    this->SetOutput(pvd);
+    a = window->GetPreviousSource()->GetPVData()->GetAssignment();
+    pvd->SetAssignment(a);
+    window->GetPreviousSource()->GetPVData()->GetActorComposite()->VisibilityOff(); 
+    this->CreateDataPage();
+    ac = this->GetPVData()->GetActorComposite();
+    window->GetMainView()->AddComposite(ac);
+    }
   window->GetMainView()->SetSelectedComposite(this);
+  this->GetView()->Render();
 }
 
 
