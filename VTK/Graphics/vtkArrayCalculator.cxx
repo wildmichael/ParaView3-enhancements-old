@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArrayCalculator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-22 20:35:00 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-02-23 19:38:58 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -490,4 +490,5 @@ void vtkArrayCalculator::PrintSelf(ostream& os, vtkIndent indent)
      << (this->Function ? this->Function : "(none)") << endl;
   os << indent << "ResultArrayName: "
      << (this->ResultArrayName ? this->ResultArrayName : "(none)") << endl;
+  os << indent << "AttributeMode: " << this->GetAttributeModeAsString() << endl;
 }
