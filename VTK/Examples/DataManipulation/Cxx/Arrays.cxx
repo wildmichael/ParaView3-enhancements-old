@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: Arrays.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:27:31 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-11-27 11:44:19 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,6 +28,9 @@
 #include "vtkPolyDataMapper.h"
 #include "vtkRenderWindow.h"
 #include "vtkRenderWindowInteractor.h"
+#include "vtkPolyData.h"
+#include "vtkActor.h"
+#include "vtkRenderer.h"
 
 int main( int argc, char *argv[] )
 {
