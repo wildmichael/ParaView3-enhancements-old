@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAmoebaMinimizer.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-07 15:39:36 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-11-07 18:18:47 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,7 +31,7 @@
 
 #include "vtkObject.h"
 
-class VTK_HYBRID_EXPORT vtkAmoebaMinimizer : public vtkObject
+class VTK_COMMON_EXPORT vtkAmoebaMinimizer : public vtkObject
 {
 public:
   static vtkAmoebaMinimizer *New();
