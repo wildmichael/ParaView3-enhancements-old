@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEarthSource.h,v $
   Language:  C++
-  Date:      $Date: 1996-07-18 18:19:56 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1996-07-19 13:04:07 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to Tom Johnson at Johnson Scientific International who
              developed and contributed this class.
 
@@ -60,20 +60,32 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
-  // Set radius of sphere.
+  // Set radius of earth.
   vtkSetClampMacro(Radius,float,0.0,VTK_LARGE_FLOAT);
   vtkGetMacro(Radius,float);
 
   // Description:
   // Turn on every nth entity. This controls how much detail the model
-  // will have. The maximum ratio is sixteen.
+  // will have. The maximum ratio is sixteen. (The smaller OnRatio, the more
+  // detail there is.)
   vtkSetClampMacro(OnRatio,int,1,16);
   vtkGetMacro(OnRatio,int);
 
+  // Description:
+  // Turn on/off drawing continents as filled polygons or as wireframe outlines.
+  // Warning: some graphics systems will have trouble with the very large, concave 
+  // filled polygons. Recommend you use OutlienOn (i.e., disable filled polygons) 
+  // for now.
+  vtkSetMacro(Outline,int);
+  vtkGetMacro(Outline,int);
+  vtkBooleanMacro(Outline,int);
+
 protected:
   void Execute();
+
   float Radius;
   int OnRatio;
+  int Outline;
 };
 
 #endif
