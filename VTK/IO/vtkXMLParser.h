@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLParser.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-26 18:09:07 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-05-29 15:17:34 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,6 +27,13 @@
 #define __vtkXMLParser_h
 
 #include "vtkObject.h"
+
+extern "C"
+{
+  void vtkXMLParserStartElement(void*, const char*, const char**);
+  void vtkXMLParserEndElement(void*, const char*);
+  void vtkXMLParserCharacterDataHandler(void*, const char*, int);  
+}
 
 class VTK_IO_EXPORT vtkXMLParser : public vtkObject
 {
@@ -114,23 +121,13 @@ protected:
   // routine.
   static int IsSpace(char c);  
   
-  // Begin element handler that is registered with the XML_Parser.
-  // This just casts the user data to a vtkXMLParser and calls
-  // StartElement.
-  static void StartElementFunction(void* parser, const char* name,
-                                   const char** atts);
-  
-  // End element handler that is registered with the XML_Parser.  This
-  // just casts the user data to a vtkXMLParser and calls EndElement.
-  static void EndElementFunction(void* parser, const char* name);
-
-  // Character data handler that is registered with the XML_Parser.
-  // This just casts the user data to a vtkXMLParser and calls
-  // CharacterDataHandler.
-  static void CharacterDataHandlerFunction(void* parser, const char* data,
-                                           int length);
-  
   int LegacyHack;
+  
+  //BTX
+  friend void vtkXMLParserStartElement(void*, const char*, const char**);
+  friend void vtkXMLParserEndElement(void*, const char*);
+  friend void vtkXMLParserCharacterDataHandler(void*, const char*, int);
+  //ETX
   
 private:
   vtkXMLParser(const vtkXMLParser&);  // Not implemented.
