@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSystemIncludes.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-28 19:01:18 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-12-04 20:25:52 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -187,6 +187,7 @@ typedef int vtkIdType;
 #define VTK_IMAGE_DATA         6
 #define VTK_DATA_OBJECT        7
 #define VTK_DATA_SET           8
+#define VTK_POINT_SET          9
 
 // These types define error codes for vtk functions
 #define VTK_OK                 1
