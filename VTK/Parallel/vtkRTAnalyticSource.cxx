@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRTAnalyticSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-28 12:38:08 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-09-30 20:35:49 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -15,12 +15,14 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
-#include <math.h>
-
 #include "vtkRTAnalyticSource.h"
+
+#include "vtkImageData.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkRTAnalyticSource, "$Revision: 1.11 $");
+#include <math.h>
+
+vtkCxxRevisionMacro(vtkRTAnalyticSource, "$Revision: 1.12 $");
 vtkStandardNewMacro(vtkRTAnalyticSource);
 
 //----------------------------------------------------------------------------

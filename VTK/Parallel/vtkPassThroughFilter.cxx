@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPassThroughFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-09 17:12:20 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-09-30 20:35:49 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,11 @@
 
 =========================================================================*/
 #include "vtkPassThroughFilter.h"
+
+#include "vtkDataSet.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkPassThroughFilter, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkPassThroughFilter, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkPassThroughFilter);
 
 void vtkPassThroughFilter::Execute()

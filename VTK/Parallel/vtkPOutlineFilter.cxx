@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPOutlineFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-30 17:38:54 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-09-30 20:35:49 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -15,12 +15,15 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
-#include "vtkMultiProcessController.h"
 #include "vtkPOutlineFilter.h"
-#include "vtkOutlineSource.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkPOutlineFilter, "$Revision: 1.2 $");
+#include "vtkDataSet.h"
+#include "vtkMultiProcessController.h"
+#include "vtkObjectFactory.h"
+#include "vtkOutlineSource.h"
+#include "vtkPolyData.h"
+
+vtkCxxRevisionMacro(vtkPOutlineFilter, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkPOutlineFilter);
 vtkCxxSetObjectMacro(vtkPOutlineFilter, Controller, vtkMultiProcessController);
 

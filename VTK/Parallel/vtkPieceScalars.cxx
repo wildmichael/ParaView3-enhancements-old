@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPieceScalars.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:34:52 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-09-30 20:35:49 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,12 +16,14 @@
 
 =========================================================================*/
 #include "vtkPieceScalars.h"
-#include "vtkObjectFactory.h"
-#include "vtkIntArray.h"
-#include "vtkFloatArray.h"
-#include "vtkMath.h"
 
-vtkCxxRevisionMacro(vtkPieceScalars, "$Revision: 1.10 $");
+#include "vtkDataSet.h"
+#include "vtkFloatArray.h"
+#include "vtkIntArray.h"
+#include "vtkMath.h"
+#include "vtkObjectFactory.h"
+
+vtkCxxRevisionMacro(vtkPieceScalars, "$Revision: 1.11 $");
 vtkStandardNewMacro(vtkPieceScalars);
 
 //----------------------------------------------------------------------------

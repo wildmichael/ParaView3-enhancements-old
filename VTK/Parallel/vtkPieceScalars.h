@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPieceScalars.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:34:53 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-09-30 20:35:49 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,6 +27,9 @@
 #define __vtkPieceScalars_h
 
 #include "vtkDataSetToDataSetFilter.h"
+
+class vtkFloatArray;
+class vtkIntArray;
 
 class VTK_PARALLEL_EXPORT vtkPieceScalars : public vtkDataSetToDataSetFilter
 {
