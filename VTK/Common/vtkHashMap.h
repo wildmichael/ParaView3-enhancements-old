@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHashMap.h,v $
   Language:  C++
-  Date:      $Date: 2002-07-09 19:26:23 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-07-09 21:28:46 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -162,7 +162,13 @@ static inline unsigned long vtkHashMapHashMethod(const char* s)
 }
 
 static inline unsigned long vtkHashMapHashMethod(vtkObjectBase* o) 
-{ return reinterpret_cast<unsigned long>(o); }
+{ 
+#if defined ( _MSC_VER )
+  return PtrToUlong(o);
+#else
+  return reinterpret_cast<unsigned long>(o); 
+#endif
+}
 
 #ifdef VTK_NO_EXPLICIT_TEMPLATE_INSTANTIATION
 #include "vtkHashMap.txx"
