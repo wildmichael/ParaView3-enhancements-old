@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpVector.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:56 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2002-06-17 14:12:01 $
+  Version:   $Revision: 1.38 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkWarpVector.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkWarpVector, "$Revision: 1.37 $");
+vtkCxxRevisionMacro(vtkWarpVector, "$Revision: 1.38 $");
 vtkStandardNewMacro(vtkWarpVector);
 
 vtkWarpVector::vtkWarpVector()
@@ -33,8 +33,8 @@ vtkWarpVector::~vtkWarpVector()
 }
 
 template <class T1, class T2>
-static void vtkWarpVectorExecute2(vtkWarpVector *self, T1 *inPts, 
-                                  T1 *outPts, T2 *inVec, vtkIdType max)
+void vtkWarpVectorExecute2(vtkWarpVector *self, T1 *inPts, 
+                           T1 *outPts, T2 *inVec, vtkIdType max)
 {
   vtkIdType ptId;
   T1 scaleFactor = (T1)self->GetScaleFactor();
@@ -61,8 +61,7 @@ static void vtkWarpVectorExecute2(vtkWarpVector *self, T1 *inPts,
 }
           
 template <class T>
-static void vtkWarpVectorExecute(vtkWarpVector *self,
-                                 T *inPts, T *outPts, vtkIdType max)
+void vtkWarpVectorExecute(vtkWarpVector *self, T *inPts, T *outPts, vtkIdType max)
 {
   void *inVec;
   vtkDataArray *vectors = self->GetInput()->GetPointData()->

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractVectorComponents.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-10 20:51:29 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2002-06-17 14:12:01 $
+  Version:   $Revision: 1.42 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkExtractVectorComponents.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkExtractVectorComponents, "$Revision: 1.41 $");
+vtkCxxRevisionMacro(vtkExtractVectorComponents, "$Revision: 1.42 $");
 vtkStandardNewMacro(vtkExtractVectorComponents);
 
 vtkExtractVectorComponents::vtkExtractVectorComponents()
@@ -139,7 +139,7 @@ void vtkExtractVectorComponents::SetInput(vtkDataSet *input)
 }
 
 template <class T>
-static void ExtractComponents(int numVectors, T* vectors, T* vx, T* vy, T* vz)
+void vtkExtractComponents(int numVectors, T* vectors, T* vx, T* vy, T* vz)
 {
   for (int i=0; i<numVectors; i++)
     {
@@ -233,7 +233,7 @@ void vtkExtractVectorComponents::Execute()
 
     switch (vectors->GetDataType())
       {
-      vtkTemplateMacro5(ExtractComponents, numVectors,
+      vtkTemplateMacro5(vtkExtractComponents, numVectors,
                         (VTK_TT *)vectors->GetVoidPointer(0),
                         (VTK_TT *)vx->GetVoidPointer(0),
                         (VTK_TT *)vy->GetVoidPointer(0),
@@ -281,7 +281,7 @@ void vtkExtractVectorComponents::Execute()
 
     switch (vectorsc->GetDataType())
       {
-      vtkTemplateMacro5(ExtractComponents, numVectorsc,
+      vtkTemplateMacro5(vtkExtractComponents, numVectorsc,
                         (VTK_TT *)vectorsc->GetVoidPointer(0),
                         (VTK_TT *)vxc->GetVoidPointer(0),
                         (VTK_TT *)vyc->GetVoidPointer(0),

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBlankStructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:07 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-06-17 14:12:01 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkBlankStructuredGrid.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkBlankStructuredGrid, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkBlankStructuredGrid, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkBlankStructuredGrid);
 
 // Construct object to extract all of the input data.
@@ -42,10 +42,10 @@ vtkBlankStructuredGrid::~vtkBlankStructuredGrid()
 
 
 template <class T>
-static void vtkBlankStructuredGridExecute(vtkBlankStructuredGrid *vtkNotUsed(self),
-                                          T *dptr, int numPts, int numComp,
-                                          int comp, float min, float max,
-                                          vtkUnsignedCharArray *blanking)
+void vtkBlankStructuredGridExecute(vtkBlankStructuredGrid *vtkNotUsed(self),
+                                   T *dptr, int numPts, int numComp,
+                                   int comp, float min, float max,
+                                   vtkUnsignedCharArray *blanking)
 {
   T compValue;
   dptr += comp;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-22 21:16:54 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-06-17 14:12:01 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkContourGrid, "$Revision: 1.17 $");
+vtkCxxRevisionMacro(vtkContourGrid, "$Revision: 1.18 $");
 vtkStandardNewMacro(vtkContourGrid);
 
 // Construct object with initial range (0,1) and single contour value
@@ -79,12 +79,11 @@ unsigned long vtkContourGrid::GetMTime()
 }
 
 template <class T>
-static void vtkContourGridExecute(vtkContourGrid *self,
-                                  vtkDataSet *input,
-                                  vtkDataArray *inScalars, T *scalarArrayPtr,
-                                  int numContours, float *values, 
-                                  vtkPointLocator *locator, int computeScalars,
-                                  int useScalarTree,vtkScalarTree *&scalarTree)
+void vtkContourGridExecute(vtkContourGrid *self, vtkDataSet *input,
+                           vtkDataArray *inScalars, T *scalarArrayPtr,
+                           int numContours, float *values, 
+                           vtkPointLocator *locator, int computeScalars,
+                           int useScalarTree,vtkScalarTree *&scalarTree)
 {
   vtkIdType cellId, i;
   int abortExecute=0;

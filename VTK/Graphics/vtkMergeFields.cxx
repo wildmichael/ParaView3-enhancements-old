@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeFields.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:30 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-06-17 14:12:01 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkDataSetAttributes.h"
 #include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkMergeFields, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtkMergeFields, "$Revision: 1.11 $");
 vtkStandardNewMacro(vtkMergeFields);
 
 char vtkMergeFields::FieldLocationNames[3][12] 
@@ -280,9 +280,8 @@ void vtkMergeFields::Execute()
 
 // fast pointer copy
 template <class T>
-static void CopyTuples(T* input, T* output, vtkIdType numTuples, 
-                       int numInComp, int numOutComp,
-                       int inComp, int outComp)
+void vtkCopyTuples(T* input, T* output, vtkIdType numTuples, 
+                int numInComp, int numOutComp, int inComp, int outComp)
 {
   for (int i=0; i<numTuples; i++)
     {
@@ -310,7 +309,7 @@ int vtkMergeFields::MergeArray(vtkDataArray* in, vtkDataArray* out,
       {
       switch (out->GetDataType())
         {
-        vtkTemplateMacro7(CopyTuples, (VTK_TT *)in->GetVoidPointer(0), 
+        vtkTemplateMacro7(vtkCopyTuples, (VTK_TT *)in->GetVoidPointer(0), 
                           (VTK_TT *)out->GetVoidPointer(0), numTuples,
                           in->GetNumberOfComponents(), 
                           out->GetNumberOfComponents(), inComp, outComp );

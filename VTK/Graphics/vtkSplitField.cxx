@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSplitField.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:47 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-06-17 14:12:01 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkDataSetAttributes.h"
 
-vtkCxxRevisionMacro(vtkSplitField, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkSplitField, "$Revision: 1.9 $");
 vtkStandardNewMacro(vtkSplitField);
 
 char vtkSplitField::FieldLocationNames[3][12] 
@@ -256,8 +256,8 @@ void vtkSplitField::Execute()
 
 // fast pointer copy
 template <class T>
-static void CopyTuples(T* input, T* output, vtkIdType numTuples, 
-                       int numComp, int component)
+void vtkCopyTuples(T* input, T* output, vtkIdType numTuples, 
+                   int numComp, int component)
 {
   for (int i=0; i<numTuples; i++)
     {
@@ -281,7 +281,7 @@ vtkDataArray* vtkSplitField::SplitArray(vtkDataArray* da, int component)
     {
     switch (output->GetDataType())
       {
-      vtkTemplateMacro5(CopyTuples, (VTK_TT *)da->GetVoidPointer(0), 
+      vtkTemplateMacro5(vtkCopyTuples, (VTK_TT *)da->GetVoidPointer(0), 
                         (VTK_TT *)output->GetVoidPointer(0), numTuples,
                         da->GetNumberOfComponents(), component );
       // This is not supported by the template macro.
