@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-07-28 17:32:27 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-08-02 14:34:19 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -89,6 +89,12 @@ public:
   // Description:
   // Make this window the current OpenGL context.
   void MakeCurrent();
+
+  // Description:
+  // If called, allow MakeCurrent() to skip cache-check when called.
+  // MakeCurrent() reverts to original behavior of cache-checking
+  // on the next render.
+  void SetForceMakeCurrent();
   
   // Description:
   // Xwindow get set functions
@@ -188,6 +194,7 @@ protected:
   int      OwnDisplay;
   int      ScreenSize[2];
   int      CursorHidden;
+  int      ForceMakeCurrent;
 
 private:
   vtkXOpenGLRenderWindow(const vtkXOpenGLRenderWindow&);  // Not implemented.

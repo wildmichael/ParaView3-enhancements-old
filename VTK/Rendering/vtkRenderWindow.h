@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-07-28 17:32:27 $
-  Version:   $Revision: 1.124 $
+  Date:      $Date: 2002-08-02 14:34:19 $
+  Version:   $Revision: 1.125 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -359,6 +359,12 @@ public:
   // Description:
   // Make this the current window. 
   virtual void MakeCurrent() = 0;
+
+  // Description:
+  // If called, allow MakeCurrent() to skip cache-check when called.
+  // MakeCurrent() reverts to original behavior of cache-checking
+  // on the next render.
+  virtual void SetForceMakeCurrent() {};
 
   // Description:
   // This method should be defined by the subclass. How many bits of
