@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVTreeComposite.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-30 18:25:25 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-05-02 19:23:01 $
+  Version:   $Revision: 1.3 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -246,7 +246,7 @@ int vtkPVTreeComposite::SatelliteAbortCheck()
   if ( ! this->ReceivePending)
     {
     //cout << "1: Que no Block Receive from 0\n";
-    this-MPIController->NoBlockReceive(&this->ReceiveMessage, 1, 0, STATUS_TAG, 
+    this->MPIController->NoBlockReceive(&this->ReceiveMessage, 1, 0, STATUS_TAG, 
 				       this->ReceiveRequest);
     this->ReceivePending = 1;
     }
@@ -294,7 +294,7 @@ int vtkPVTreeComposite::SatelliteAbortCheck()
 //------------- Methods for Root Processes --------------
 
 // Count is temporary for testing.
-/*int vtkPVTreeComposite::RootAbortCheck()
+int vtkPVTreeComposite::RootAbortCheck()
 {
   //sleep(5);
   
@@ -331,11 +331,11 @@ int vtkPVTreeComposite::SatelliteAbortCheck()
 
   //cout << this->LocalProcessId << ": RootAbortCheck Return 0\n";
   return 0;
-} */
+}
 
 
 // "abort" is true if rendering was previously aborted.
-/*int vtkPVTreeComposite::RootFinalAbortCheck()
+int vtkPVTreeComposite::RootFinalAbortCheck()
 {
   int waitingFlag;
   int idx;
@@ -398,7 +398,7 @@ int vtkPVTreeComposite::SatelliteAbortCheck()
   
   //cout << this->LocalProcessId << ": RootFinalAbortCheck, Returning: " << abort << "\n";
   return abort;
-} */
+}
 
 
 
