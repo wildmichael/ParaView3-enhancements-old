@@ -3,24 +3,12 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtentTranslator.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:09 $
-  Version:   $Revision: 1.7 $
-
+  Date:      $Date: 2000-12-13 21:59:18 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
-
-    THIS CLASS IS PATENT PENDING.
-
-    Application of this software for commercial purposes requires 
-    a license grant from Kitware. Contact:
-        Ken Martin
-        Kitware
-        469 Clifton Corporate Parkway,
-        Clifton Park, NY 12065
-        Phone:1-518-371-3971 
-    for more information.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
