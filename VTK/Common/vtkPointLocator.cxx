@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:41:01 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1998-03-26 18:53:37 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -85,6 +85,11 @@ vtkPointLocator::vtkPointLocator()
   this->H[0] = this->H[1] = this->H[2] = 0.0;
   this->InsertionPointId = 0;
   this->InsertionTol2 = 0.0001;
+}
+
+vtkPointLocator::~vtkPointLocator()
+{
+  this->FreeSearchStructure();
 }
 
 void vtkPointLocator::Initialize()
