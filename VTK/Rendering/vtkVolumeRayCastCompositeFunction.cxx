@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastCompositeFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-21 14:32:34 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-08-03 03:57:38 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -76,7 +76,7 @@ static void CastRay_NN_Unshaded( vtkVolumeRayCastCompositeFunction *cast_functio
   int             offset;
   int             steps_this_ray = 0;
  
-  OTF =  cast_function->OpacityTFArray;
+  OTF =  cast_function->CorrectedOpacityTFArray;
   CTF =  cast_function->RGBTFArray;
   GTF =  cast_function->GrayTFArray;
 
@@ -268,7 +268,7 @@ static void CastRay_NN_Shaded( vtkVolumeRayCastCompositeFunction *cast_function,
 
   // Get the opacity transfer function for this volume (which maps
   // scalar input values to opacities)
-  OTF =  cast_function->OpacityTFArray;
+  OTF =  cast_function->CorrectedOpacityTFArray;
 
   // Get the color transfer function for this volume (which maps
   // scalar input values to RGB values)
@@ -468,7 +468,7 @@ static void CastRay_TrilinSample_Unshaded(
 
   // Get the opacity transfer function which maps scalar input values
   // to opacities
-  OTF =  cast_function->OpacityTFArray;
+  OTF =  cast_function->CorrectedOpacityTFArray;
 
   // Get the color transfer function which maps scalar input values
   // to RGB colors
@@ -727,7 +727,7 @@ static void CastRay_TrilinSample_Shaded(
 
   // Get the opacity transfer function which maps scalar input values
   // to opacities
-  OTF =  cast_function->OpacityTFArray;
+  OTF =  cast_function->CorrectedOpacityTFArray;
 
   // Get the color transfer function which maps scalar input values
   // to RGB values

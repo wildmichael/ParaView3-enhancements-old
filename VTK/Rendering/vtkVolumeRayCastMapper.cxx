@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-22 19:21:22 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1997-08-03 03:57:41 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -129,6 +129,7 @@ void vtkVolumeRayCastMapper::Render( vtkRenderer *ren, vtkVolume *vol )
     this->InitializeParallelImage( ren );
     this->VolumeRayCastFunction->FunctionInitialize( 
 					       ren, vol, this,
+					       this->OpacityTFArray,
 					       this->CorrectedOpacityTFArray,
 					       this->RGBTFArray,
 					       this->GrayTFArray,
@@ -145,6 +146,7 @@ void vtkVolumeRayCastMapper::Render( vtkRenderer *ren, vtkVolume *vol )
     this->InitializePerspectiveImage( ren );
     this->VolumeRayCastFunction->FunctionInitialize( 
 					       ren, vol, this,
+					       this->OpacityTFArray,
 					       this->CorrectedOpacityTFArray,
 					       this->RGBTFArray,
 					       this->GrayTFArray,
