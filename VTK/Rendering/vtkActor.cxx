@@ -30,7 +30,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkActor, "$Revision: 1.125 $");
+vtkCxxRevisionMacro(vtkActor, "$Revision: 1.126 $");
 
 vtkCxxSetObjectMacro(vtkActor,Texture,vtkTexture);
 
@@ -489,9 +489,9 @@ vtkActor *vtkActor::GetNextPart()
   else
     {
     vtkAssemblyNode *node = path->GetLastNode();
-    if ( node && node->GetProp()->IsA("vtkActor") )
+    if ( node && node->GetViewProp()->IsA("vtkActor") )
       {
-      return (vtkActor *)node->GetProp();
+      return (vtkActor *)node->GetViewProp();
       }
     }
   return NULL;

@@ -35,7 +35,7 @@
 #include "vtkTransform.h"
 #include "vtkTriangleStrip.h"
 
-vtkCxxRevisionMacro(vtkOOGLExporter, "$Revision: 1.32 $");
+vtkCxxRevisionMacro(vtkOOGLExporter, "$Revision: 1.33 $");
 vtkStandardNewMacro(vtkOOGLExporter);
 
 vtkOOGLExporter::vtkOOGLExporter()
@@ -223,7 +223,7 @@ void vtkOOGLExporter::WriteData()
     for (anActor->InitPathTraversal(); (apath=anActor->GetNextPath()); )
       {
       count++;
-      aPart=(vtkActor *)apath->GetLastNode()->GetProp();
+      aPart=(vtkActor *)apath->GetLastNode()->GetViewProp();
       this->WriteAnActor(aPart, fp, count);
       }
     }
