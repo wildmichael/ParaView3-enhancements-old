@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-27 20:23:35 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1998-08-26 12:06:20 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -312,8 +312,16 @@ void vtkDataSetReader::Execute()
   return;
 }
 
+static int recursing = 0;
 void vtkDataSetReader::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkSource::PrintSelf(os,indent);
-  this->Reader.PrintSelf(os,indent);
+  // the reader ivar's source will be this reader. we must do this to prevent infinite printing
+  if (!recursing)
+    { 
+    vtkSource::PrintSelf(os,indent);
+    recursing = 1;
+    os << indent << "Reader:\n";
+    this->Reader.PrintSelf(os,indent.GetNextIndent());
+    }
+    recursing = 0;
 }
