@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSocketCommunicator.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-17 20:43:01 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-09-19 13:41:30 $
+  Version:   $Revision: 1.15 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -39,6 +39,20 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 // .NAME vtkSocketCommunicator - Process communication using Sockets
+// .SECTION Description
+// This is a concrete implementation of vtkCommunicator which supports
+// interprocess communication using BSD style sockets. 
+// It supports byte swapping for the communication of  machines 
+// with different endianness.
+
+// .SECTION Caveats
+// Communication between 32 bit and 64 bit systems is not fully
+// supported. If a type does not have the same length on both
+// systems, this communicator can not be used to transfer data
+// of that type.
+
+// .SECTION see also
+// vtkCommunicator vtkSharedMemoryCommunicator vtkSocketController
 
 #ifndef __vtkSocketCommunicator_h
 #define __vtkSocketCommunicator_h
@@ -78,15 +92,15 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
-  // Wait for connection on a given port
+  // Wait for connection on a given port.
   virtual int WaitForConnection(int port);
 
   // Description:
-  // Close a connection
+  // Close a connection.
   virtual void CloseConnection();
 
   // Description:
-  // Open a connection to a give machine
+  // Open a connection to host.
   virtual int ConnectTo( char* hostName, int port);
 
   // Description:

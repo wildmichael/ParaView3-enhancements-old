@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCommunicator.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:53 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-09-19 13:41:29 $
+  Version:   $Revision: 1.8 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -44,6 +44,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // and receiving inter-process messages. It contains methods for marshaling
 // an object into a string (currently used by the MPI communicator but
 // not the shared memory communicator).
+
+// .SECTION Caveats
+// Communication between systems with different vtkIdTypes is not
+// supported. All machines have to have the same vtkIdType.
 
 // .SECTION see also
 // vtkSharedMemoryCommunicator vtkMPICommunicator

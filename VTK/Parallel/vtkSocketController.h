@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSocketController.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-17 20:43:01 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-09-19 13:41:30 $
+  Version:   $Revision: 1.9 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -39,6 +39,14 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 // .NAME vtkSocketController - Process communication using Sockets
+// .SECTION Description
+// This is a concrete implementation of vtkMultiProcessController.
+// It supports one-to-one communication using sockets. Note that
+// process 0 will always correspond to self and process 1 to the
+// remote process. This class is best used with ports.
+
+// .SECTION see also
+// vtkMultiProcessController vtkSocketCommunicator vtkInputPort vtkOutputPort
 
 #ifndef __vtkSocketController_h
 #define __vtkSocketController_h
@@ -66,30 +74,30 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
-  // This method is for setting the sockets.
+  // This method is for initialiazing sockets.
   // One of these is REQUIRED for Windows.
   virtual void Initialize(int* , char***);
   virtual void Initialize()
     { this->Initialize(0,0); }
 
   // Description:
-  // Has to be overridden. Does nothing.
+  // Does not apply to sockets. Does nothing.
   void Finalize() {};
 
   // Description:
-  // Has to be overridden. Does nothing.
+  //  Does not apply to sockets. Does nothing.
   void SingleMethodExecute() {};
   
   // Description:
-  // Has to be overridden. Does nothing.
+  //  Does not apply to sockets.  Does nothing.
   void MultipleMethodExecute() {};
 
   // Description:
-  // Has to be overridden. Does nothing.
+  //  Does not apply to sockets. Does nothing.
   void CreateOutputWindow() {};
 
   // Description:
-  // Has to be overridden. Does nothing.
+  //  Does not apply to sockets. Does nothing.
   void Barrier() {};
 
   // Description:
