@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputOutputFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-02-21 13:30:53 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-03-13 18:43:33 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -90,12 +90,9 @@ protected:
 					 int whichInput );
 
 
-  void Execute();
-  void Execute(vtkImageData *outData) {this->vtkImageSource::Execute(outData);};
-  virtual void Execute(vtkImageData **inDatas, vtkImageData **outDatas);
+  void ExecuteData(vtkDataObject *out);
 
   // this should never be called
-  virtual void Execute(vtkImageData **, vtkImageData *) {};
   virtual void ThreadedExecute(vtkImageData **inDatas, 
 			       vtkImageData *outData,
 			       int extent[6], int threadId);

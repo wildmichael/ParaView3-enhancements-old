@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputOutputFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-20 22:36:29 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-03-13 18:43:33 $
+  Version:   $Revision: 1.4 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -124,10 +124,11 @@ void vtkImageMultipleInputOutputFilter::
 ComputeInputUpdateExtents( vtkDataObject *output )
 {
   int outExt[6], inExt[6];
-
+  int idx;
+  
   output->GetUpdateExtent( outExt );
   
-  for (int idx = 0; idx < this->NumberOfInputs; idx++)
+  for (idx = 0; idx < this->NumberOfInputs; idx++)
     {
     if (this->Inputs[idx] != NULL)
       {
@@ -135,6 +136,19 @@ ComputeInputUpdateExtents( vtkDataObject *output )
       this->Inputs[idx]->SetUpdateExtent( inExt );
       }
     }  
+
+  // by default set other output's UpdateExtent to the same if they are unset
+  for (idx = 0; idx < this->NumberOfOutputs; idx++)
+    {
+    if (this->Outputs[idx] && this->Outputs[idx] != output)
+      {
+      int *uExtent = this->Outputs[idx]->GetUpdateExtent();
+      if (uExtent[0] > uExtent[1])
+        {
+        this->Outputs[idx]->SetUpdateExtent(outExt);
+        }
+      }
+    }
 }
 
 // By default, simply set the input update extent to match the given output
@@ -194,26 +208,22 @@ VTK_THREAD_RETURN_TYPE vtkImageMultiInOutThreadedExecute( void *arg )
 
 //----------------------------------------------------------------------------
 // The execute method created by the subclass.
-void vtkImageMultipleInputOutputFilter::Execute()
-{
-  vtkImageData *output = this->GetOutput();
-
+void vtkImageMultipleInputOutputFilter::ExecuteData(vtkDataObject *out)
+{ 
+  vtkImageData *output = vtkImageData::SafeDownCast(out);
+  if (!output)
+    {
+    vtkWarningMacro("ExecuteData called without ImageData output");
+    return;
+    }
   output->SetExtent(output->GetUpdateExtent());
   output->AllocateScalars();
-  this->Execute((vtkImageData**)(this->Inputs), 
-                (vtkImageData**)(this->Outputs));
-}
 
-//----------------------------------------------------------------------------
-// The execute method created by the subclass.
-void vtkImageMultipleInputOutputFilter::Execute(vtkImageData **inDatas, 
-                                                vtkImageData **outDatas)
-{
   vtkImageMultiThreadStruct str;
   
   str.Filter = this;
-  str.Inputs = inDatas;
-  str.Outputs = outDatas;
+  str.Inputs = (vtkImageData **)this->Inputs;
+  str.Outputs = (vtkImageData **)this->Outputs;
   
   this->Threader->SetNumberOfThreads(this->NumberOfThreads);
   
