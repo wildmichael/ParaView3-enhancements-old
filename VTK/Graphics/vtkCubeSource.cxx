@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-25 23:45:28 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1995-11-16 22:25:39 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,10 +65,10 @@ void vtkCubeSource::Execute()
   vtkCellArray *newPolys;
   vtkPolyData *output = this->GetOutput();
   
-  //
-  // Set things up; allocate memory
-  //
-
+  vtkDebugMacro(<<"Creating polygonal cube");
+//
+// Set things up; allocate memory
+//
   newPoints = new vtkFloatPoints(numPts);
   newNormals = new vtkFloatNormals(numPts);
 
