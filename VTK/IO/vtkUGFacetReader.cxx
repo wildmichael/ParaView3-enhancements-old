@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUGFacetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:05:20 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1998-05-27 16:58:46 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,6 +62,20 @@ vtkUGFacetReader::~vtkUGFacetReader()
   if ( this->PartColors ) this->PartColors->Delete();
   if ( this->SelfCreatedLocator ) this->Locator->Delete();
 }
+
+// Description:
+// Overload standard modified time function. If locator is modified,
+// then this object is modified as well.
+unsigned long vtkUGFacetReader::GetMTime()
+{
+  unsigned long mTime1=this->vtkPolyDataSource::GetMTime();
+  unsigned long mTime2=this->Locator->GetMTime();
+
+  mTime1 = ( mTime1 > mTime2 ? mTime1 : mTime2 );
+
+  return mTime1;
+}
+
 
 void vtkUGFacetReader::Execute()
 {

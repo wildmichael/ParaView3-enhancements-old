@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-20 12:03:31 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 1998-05-27 16:58:41 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -374,6 +374,7 @@ void vtkGlyph3D::Execute()
 
   output->Squeeze();
 }
+
 
 // Description:
 // Override update method because execution can branch two ways (via Input 

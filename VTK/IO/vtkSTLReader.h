@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLReader.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:04:49 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1998-05-27 16:58:45 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,6 +70,8 @@ public:
   static vtkSTLReader *New() {return new vtkSTLReader;};
   const char *GetClassName() {return "vtkSTLReader";};
   void PrintSelf(ostream& os, vtkIndent indent);
+
+  unsigned long GetMTime();
 
   // Description:
   // Specify file name of stereo lithography file.

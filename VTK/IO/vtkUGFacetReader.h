@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUGFacetReader.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:48:56 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1998-05-27 16:58:48 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,6 +59,8 @@ public:
   static vtkUGFacetReader *New() {return new vtkUGFacetReader;};
   const char *GetClassName() {return "vtkUGFacetReader";};
   void PrintSelf(ostream& os, vtkIndent indent);
+
+  unsigned long GetMTime();
 
   // Description:
   // Specify Unigraphics file name.
