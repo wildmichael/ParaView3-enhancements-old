@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputOutputFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-02-16 18:46:05 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-02-20 22:36:29 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -93,6 +93,13 @@ protected:
   void Execute();
   void Execute(vtkImageData *outData) {this->vtkImageSource::Execute(outData);};
   virtual void Execute(vtkImageData **inDatas, vtkImageData **outDatas);
+
+  // this should never be called
+  virtual void Execute(vtkImageData **inDatas, vtkImageData *outDatas) {};
+  virtual void ThreadedExecute(vtkImageData **inDatas, 
+			       vtkImageData *outData,
+			       int extent[6], int threadId);
+  virtual void ExecuteInformation(vtkImageData **, vtkImageData *) {};
 
   // This one gets called by the superclass.
   void ExecuteInformation();

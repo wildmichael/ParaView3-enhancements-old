@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputOutputFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-16 18:51:40 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-02-20 22:36:29 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -233,6 +233,16 @@ ThreadedExecute(vtkImageData **vtkNotUsed(inData),
   vtkErrorMacro("subclase should override this method!!!");
 }
 
+//----------------------------------------------------------------------------
+// The execute method created by the subclass.
+void vtkImageMultipleInputOutputFilter::
+ThreadedExecute(vtkImageData **vtkNotUsed(inData), 
+                vtkImageData *vtkNotUsed(outData),
+                int extent[6], int vtkNotUsed(threadId))
+{
+  extent = extent;
+  vtkErrorMacro("This method should not be called!");
+}
 
 
 
