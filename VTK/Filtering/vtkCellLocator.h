@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLocator.h,v $
   Language:  C++
-  Date:      $Date: 1999-06-19 21:24:23 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1999-06-24 15:17:17 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -153,7 +153,8 @@ public:
   
 protected:
   void GetBucketNeighbors(int ijk[3], int ndivs, int level);
-  void GetOverlappingBuckets(float x[3], int ijk[3], float dist, int level);
+  void GetOverlappingBuckets(float x[3], int ijk[3], float dist, 
+                             int prevMinLevel[3], int prevMaxLevel[3]);
 
   void ClearCellHasBeenVisited();
   void ClearCellHasBeenVisited(int id);
