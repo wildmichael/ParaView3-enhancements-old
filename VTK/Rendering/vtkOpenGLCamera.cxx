@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-08 15:57:15 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2000-05-02 02:59:31 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -101,6 +101,12 @@ void vtkOpenGLCamera::Render(vtkRenderer *ren)
           glDrawBuffer(GL_BACK_RIGHT);
           }
         break;
+      case VTK_STEREO_LEFT:
+	this->LeftEye = 1;
+	break;
+      case VTK_STEREO_RIGHT:
+	this->LeftEye = 0;
+	break;
       default:
         break;
       }
