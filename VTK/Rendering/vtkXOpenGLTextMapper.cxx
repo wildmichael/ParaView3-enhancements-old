@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-28 21:12:34 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2001-12-29 15:11:43 $
+  Version:   $Revision: 1.28 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -332,8 +332,10 @@ void vtkXOpenGLTextMapper::RenderGeometry(vtkViewport* viewport,
     (actor->GetProperty()->GetDisplayLocation() == VTK_FOREGROUND_LOCATION);
 
   float *tileViewport = viewport->GetVTKWindow()->GetTileViewport();
-  int xoff = pos[0] - vsize[0]*(tileViewport[2] + tileViewport[0])/2.0;
-  int yoff = pos[1] - vsize[1]*(tileViewport[3] + tileViewport[1])/2.0;
+  int xoff = static_cast<int>
+    (pos[0] - vsize[0]*(tileViewport[2] + tileViewport[0])/2.0);
+  int yoff = static_cast<int>
+    (pos[1] - vsize[1]*(tileViewport[3] + tileViewport[1])/2.0);
   
   // When picking draw the bounds of the text as a rectangle,
   // as text only picks when the pick point is exactly on the

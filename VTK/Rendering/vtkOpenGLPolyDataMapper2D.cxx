@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-28 21:11:38 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2001-12-29 15:11:21 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -190,8 +190,8 @@ void vtkOpenGLPolyDataMapper2D::RenderOpaqueGeometry(vtkViewport* viewport,
   glDisable(GL_TEXTURE_2D);
   glDisable( GL_LIGHTING);
 
-  int xoff = actorPos[0] - size[0]*tileViewPort[0];
-  int yoff = actorPos[1] - size[1]*tileViewPort[1];
+  int xoff = static_cast<int>(actorPos[0] - size[0]*tileViewPort[0]);
+  int yoff = static_cast<int>(actorPos[1] - size[1]*tileViewPort[1]);
 
   if ( actor->GetProperty()->GetDisplayLocation() == 
        VTK_FOREGROUND_LOCATION )
