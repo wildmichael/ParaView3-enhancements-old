@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlaneSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-01 20:12:23 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 1999-07-12 00:33:30 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -387,8 +387,7 @@ void vtkPlaneSource::Push(float distance)
   // set the new center
   for ( i=0; i < 3; i++ )
     {
-    this->Center[i] = this->Point1[i] + this->Point2[i] - 
-      2.0*this->Origin[i];
+    this->Center[i] = 0.5*(this->Point1[i] + this->Point2[i]);
     }
 
   this->Modified();
