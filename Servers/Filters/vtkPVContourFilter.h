@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVContourFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-08-08 15:37:20 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-08-23 17:39:51 $
+  Version:   $Revision: 1.8 $
 
 Copyright (c) 1998-1999 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -29,7 +29,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkPVContourFilter_h
 #define __vtkPVContourFilter_h
 
-#include "vtkContourFilter.h"
+#include "vtkKitwareContourFilter.h"
 #include "vtkKWEntry.h"
 #include "vtkKWLabel.h"
 #include "vtkKWPushButton.h"
@@ -80,7 +80,7 @@ protected:
   vtkKWLabel *ContourValueLabel;
   vtkKWPushButton *SourceButton;
 
-  vtkContourFilter  *Contour;
+  vtkKitwareContourFilter  *Contour;
 };
 
 #endif

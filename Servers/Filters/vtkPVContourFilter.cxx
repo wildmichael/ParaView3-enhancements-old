@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-21 16:17:24 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-08-23 17:39:51 $
+  Version:   $Revision: 1.15 $
 
 Copyright (c) 1998-2000 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -51,7 +51,7 @@ vtkPVContourFilter::vtkPVContourFilter()
   this->SourceButton = vtkKWPushButton::New();
   this->SourceButton->SetParent(this->Properties);
   
-  this->Contour = vtkContourFilter::New();  
+  this->Contour = vtkKitwareContourFilter::New();  
 }
 
 //----------------------------------------------------------------------------
@@ -143,6 +143,7 @@ void vtkPVContourFilter::SetValue(int contour, float val)
   
   if (pvApp && pvApp->GetController()->GetLocalProcessId() == 0)
     {
+    //this->ContourValueEntry->SetValue(val, 7);
     pvApp->BroadcastScript("%s SetValue %d %f", this->GetTclName(),
 			   contour, val);
     }
