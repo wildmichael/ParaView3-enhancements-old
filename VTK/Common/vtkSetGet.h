@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSetGet.h,v $
   Language:  C++
-  Date:      $Date: 2000-06-06 01:24:53 $
-  Version:   $Revision: 1.72 $
+  Date:      $Date: 2000-06-08 09:11:03 $
+  Version:   $Revision: 1.73 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -52,7 +52,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef __vtkSetGet_h
 #define __vtkSetGet_h
 
-#include "vtkWin32Header.h"
 #include "vtkSystemIncludes.h"
 #include <math.h>
 

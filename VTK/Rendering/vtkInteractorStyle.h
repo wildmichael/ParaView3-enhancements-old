@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:11:53 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-06-08 09:11:04 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -98,10 +98,19 @@ public:
   void FindPokedRenderer(int,int);
 
   // Description:
-  // When pick action successfully selects actor, this method highlights the
-  // actor appropriately. Currently this is done by placing a bounding box
-  // around the actor.
-  virtual void HighlightActor(vtkActor *actor);
+  // When picking successfully selects an actor, this method highlights the
+  // picked prop appropriately. Currently this is done by placing a bounding 
+  // box around a picked vtkProp3D, and using the PickColor to highlight a
+  // vtkProp2D. 
+  virtual void HighlightProp(vtkProp *prop);
+  virtual void HighlightActor2D(vtkActor2D *actor2D);
+  virtual void HighlightProp3D(vtkProp3D *prop3D);
+
+  // Description:
+  // Set/Get the pick color (used by default to color vtkActor2D's).
+  // The color is expressed as red/green/blue values between (0.0,1.0).
+  vtkSetVector3Macro(PickColor,float);
+  vtkGetVectorMacro(PickColor, float, 3);
 
   // Description:
   // Generic event bindings must be overridden in subclasses
@@ -189,7 +198,6 @@ protected:
   virtual void StartTimer();
   virtual void EndTimer();
 
-  //
   // Data we need to maintain internally
   vtkRenderWindowInteractor *Interactor;
   //
@@ -207,13 +215,15 @@ protected:
   int   AnimState;  
   float FocalDepth;  
 
-  // for picking actors
+  // for picking and highlighting props
   vtkOutlineSource   *Outline;
   vtkPolyDataMapper  *OutlineMapper;
   vtkActor           *OutlineActor;
   vtkRenderer        *PickedRenderer;
-  vtkActor           *CurrentActor;
-  int                 ActorPicked;          // boolean: actor picked?
+  vtkProp            *CurrentProp;
+  int                PropPicked;          // boolean: prop picked?
+  float              PickColor[3];        // support 2D picking
+  vtkActor2D         *PickedActor2D;
 
   void (*LeftButtonPressMethod)(void *);
   void (*LeftButtonPressMethodArgDelete)(void *);

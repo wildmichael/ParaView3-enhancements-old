@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarBarActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:14:09 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2000-06-08 09:11:06 $
+  Version:   $Revision: 1.28 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -110,29 +110,6 @@ vtkScalarBarActor::vtkScalarBarActor()
   this->LastSize[1] = 0;
 }
 
-// Shallow copy of an actor.
-void vtkScalarBarActor::ShallowCopy(vtkScalarBarActor *actor)
-{
-  this->vtkActor2D::ShallowCopy(actor);
-  this->SetBold(actor->GetBold());
-  this->SetItalic(actor->GetItalic());
-  this->SetShadow(actor->GetShadow());
-  this->SetFontFamily(actor->GetFontFamily());
-  this->SetLabelFormat(actor->GetLabelFormat());
-
-  this->SetLookupTable(actor->GetLookupTable());
-  this->SetTitle(actor->GetTitle());
-  this->SetOrientation(actor->GetOrientation());
-
-  this->GetPositionCoordinate()->SetCoordinateSystem(
-    actor->GetPositionCoordinate()->GetCoordinateSystem());    
-  this->GetPositionCoordinate()->SetValue(
-    actor->GetPositionCoordinate()->GetValue());
-  this->GetPosition2Coordinate()->SetCoordinateSystem(
-    actor->GetPosition2Coordinate()->GetCoordinateSystem());    
-  this->GetPosition2Coordinate()->SetValue(
-    actor->GetPosition2Coordinate()->GetValue());
-}
 // Release any graphics resources that are being consumed by this actor.
 // The parameter window could be used to determine which graphic
 // resources to release.
@@ -588,4 +565,34 @@ void vtkScalarBarActor::SetPosition2(float x, float y)
 float *vtkScalarBarActor::GetPosition2() 
 { 
   return this->Position2Coordinate->GetValue(); 
+}
+
+void vtkScalarBarActor::ShallowCopy(vtkProp *prop)
+{
+  vtkScalarBarActor *a = vtkScalarBarActor::SafeDownCast(prop);
+  if ( a != NULL )
+    {
+    this->SetPosition2(a->GetPosition2());
+    this->SetLookupTable(a->GetLookupTable());
+    this->SetMaximumNumberOfColors(a->GetMaximumNumberOfColors());
+    this->SetOrientation(a->GetOrientation());
+    this->SetBold(a->GetBold());
+    this->SetItalic(a->GetItalic());
+    this->SetShadow(a->GetShadow());
+    this->SetFontFamily(a->GetFontFamily());
+    this->SetLabelFormat(a->GetLabelFormat());
+    this->SetTitle(a->GetTitle());
+
+    this->GetPositionCoordinate()->SetCoordinateSystem(
+      a->GetPositionCoordinate()->GetCoordinateSystem());    
+    this->GetPositionCoordinate()->SetValue(
+      a->GetPositionCoordinate()->GetValue());
+    this->GetPosition2Coordinate()->SetCoordinateSystem(
+      a->GetPosition2Coordinate()->GetCoordinateSystem());    
+    this->GetPosition2Coordinate()->SetValue(
+      a->GetPosition2Coordinate()->GetValue());
+    }
+
+  // Now do superclass
+  this->vtkActor2D::ShallowCopy(prop);
 }

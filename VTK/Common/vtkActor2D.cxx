@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:09:44 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2000-06-08 09:11:03 $
+  Version:   $Revision: 1.26 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -234,6 +234,21 @@ vtkProperty2D *vtkActor2D::GetProperty()
 void vtkActor2D::GetActors2D(vtkPropCollection *ac)
 {
   ac->AddItem(this);
+}
+
+void vtkActor2D::ShallowCopy(vtkProp *prop)
+{
+  vtkActor2D *a = vtkActor2D::SafeDownCast(prop);
+  if ( a != NULL )
+    {
+    this->SetMapper(a->GetMapper());
+    this->SetLayerNumber(a->GetLayerNumber());
+    this->SetProperty(a->GetProperty());
+    this->SetPosition(a->GetPosition());
+    }
+
+  // Now do superclass
+  this->vtkProp::ShallowCopy(prop);
 }
 
 void vtkActor2D::PrintSelf(ostream& os, vtkIndent indent)

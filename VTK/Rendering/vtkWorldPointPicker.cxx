@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWorldPointPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:18 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-06-08 09:11:05 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,25 +57,25 @@ vtkWorldPointPicker* vtkWorldPointPicker::New()
 
 vtkWorldPointPicker::vtkWorldPointPicker()
 {
-  this->PointId = -1;
-}
-
-void vtkWorldPointPicker::Initialize()
-{
-  this->PointId = (-1);
-  this->vtkPicker::Initialize();
 }
 
 // Perform pick operation with selection point provided. The z location
 // is recovered from the zBuffer. Always returns 0 since no actors are picked.
-int vtkWorldPointPicker::Pick(float selectionX, float selectionY, float selectionZ,
-                   vtkRenderer *renderer)
+int vtkWorldPointPicker::Pick(float selectionX, float selectionY, 
+                              float selectionZ, vtkRenderer *renderer)
 {
   vtkCamera *camera;
   float cameraFP[4];
   float display[3], *world;
   float *displayCoord;
   float z;
+
+  // Initialize the picking process
+  this->Initialize();
+  this->Renderer = renderer;
+  this->SelectionPoint[0] = selectionX;
+  this->SelectionPoint[1] = selectionY;
+  this->SelectionPoint[2] = selectionZ;
 
   // Invoke start pick method if defined
   if ( this->StartPickMethod )
@@ -134,7 +134,5 @@ int vtkWorldPointPicker::Pick(float selectionX, float selectionY, float selectio
 
 void vtkWorldPointPicker::PrintSelf(ostream& os, vtkIndent indent)
 {
-  this->vtkPicker::PrintSelf(os,indent);
-
-  os << indent << "Point Id: " << this->PointId << "\n";
+  this->vtkAbstractPicker::PrintSelf(os,indent);
 }

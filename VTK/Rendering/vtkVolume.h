@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:05 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2000-06-08 09:11:05 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -122,8 +122,8 @@ public:
   unsigned long GetRedrawMTime();
 
   // Description:
-  // Make a shallow copy of this volume.
-  void ShallowCopy(vtkVolume *volume);
+  // Shallow copy of this vtkVolume. Overloads the virtual vtkProp method.
+  void ShallowCopy(vtkProp *prop);
 
   // Description:
   // For legacy compatibility. Do not use.
@@ -318,10 +318,6 @@ protected:
 
   VTKRayCastVolumeInfo *VolumeInfo;
 
-private:
-  // hide the superclass' ShallowCopy() from the user and the compiler.
-  void ShallowCopy(vtkProp *prop) { this->vtkProp::ShallowCopy( prop ); };
-  void ShallowCopy(vtkProp3D *prop) { this->vtkProp3D::ShallowCopy( prop ); };
 };
 
 #endif

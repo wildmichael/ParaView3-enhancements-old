@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkNormals.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:10:12 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2000-06-08 09:11:03 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -86,7 +86,7 @@ public:
   // to using SetNormal().
   void SetNormal(int id, float n[3]) {this->Data->SetTuple(id,n);};
   void SetNormal(int id, double n[3]) {this->Data->SetTuple(id,n);};
-  void SetNormal(int id, double x, double y, double z);
+  void SetNormal(int id, double nx, double ny, double nz);
 
   // Description:
   // Insert normal into object. Range checking performed and memory

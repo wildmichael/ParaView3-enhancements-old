@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScaledTextActor.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:14:10 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-06-08 09:11:06 $
+  Version:   $Revision: 1.14 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -110,6 +110,11 @@ public:
   // The parameter window could be used to determine which graphic
   // resources to release.
   virtual void ReleaseGraphicsResources(vtkWindow *);
+
+  // Description:
+  // Shallow copy of this scaled text actor. Overloads the virtual 
+  // vtkProp method.
+  void ShallowCopy(vtkProp *prop);
 
 protected:
   vtkScaledTextActor();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImager.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 15:58:15 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2000-06-08 09:11:06 $
+  Version:   $Revision: 1.23 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -182,8 +182,8 @@ void vtkImager::SetVTKWindow(vtkWindow* win)
     this->Modified();
     }
 }
-vtkProp* vtkImager::PickProp(float vtkNotUsed(selectionX), 
-			     float vtkNotUsed(selectionY))
+vtkAssemblyPath* vtkImager::PickProp(float vtkNotUsed(selectionX), 
+                                     float vtkNotUsed(selectionY))
 {
   return NULL;
 }
@@ -201,7 +201,7 @@ void vtkImager::StartPick(unsigned int vtkNotUsed(pickFromSize))
 {
 }
 
-void vtkImager::SetPickId(unsigned int vtkNotUsed(pickID))
+void vtkImager::UpdatePickId()
 {
 }
 
@@ -209,7 +209,7 @@ void vtkImager::DonePick()
 {
 }
 
-unsigned int vtkImager::GetPickedID()
+unsigned int vtkImager::GetPickedId()
 {
   return 0;
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellPicker.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:11:12 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2000-06-08 09:11:03 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -54,6 +54,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkPicker.h"
 
+class vtkGenericCell;
+
 class VTK_EXPORT vtkCellPicker : public vtkPicker
 {
 public:
@@ -76,7 +78,7 @@ public:
 
 protected:
   vtkCellPicker();
-  ~vtkCellPicker() {};
+  ~vtkCellPicker();
   vtkCellPicker(const vtkCellPicker&) {};
   void operator=(const vtkCellPicker&) {};
 
@@ -85,8 +87,13 @@ protected:
   float PCoords[3]; // picked cell parametric coordinates
 
   virtual float IntersectWithLine(float p1[3], float p2[3], float tol, 
-				  vtkActor *assem, vtkActor *a, vtkMapper *m);
+                                  vtkAssemblyPath *path, vtkProp3D *p, 
+                                  vtkAbstractMapper3D *m);
   void Initialize();
+  
+private:
+  vtkGenericCell *Cell; //used to accelerate picking
+  
 };
 
 #endif

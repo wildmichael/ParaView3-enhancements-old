@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor2D.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:09:45 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2000-06-08 09:11:03 $
+  Version:   $Revision: 1.27 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -119,6 +119,10 @@ public:
   // able to collect all the actors or volumes. These methods
   // are used in that process.
   virtual void GetActors2D(vtkPropCollection *pc);
+
+  // Description:
+  // Shallow copy of this vtkActor2D. Overloads the virtual vtkProp method.
+  void ShallowCopy(vtkProp *prop);
 
 protected:
   vtkActor2D();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:05 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2000-06-08 09:11:05 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -128,12 +128,18 @@ void vtkVolume::GetVolumes(vtkPropCollection *vc)
 }
 
 // Shallow copy of an volume.
-void vtkVolume::ShallowCopy(vtkVolume *volume)
+void vtkVolume::ShallowCopy(vtkProp *prop)
 {
-  this->vtkProp3D::ShallowCopy(volume);
+  vtkVolume *v = vtkVolume::SafeDownCast(prop);
 
-  this->SetMapper(volume->GetMapper());
-  this->SetProperty(volume->GetProperty());
+  if ( v != NULL )
+    {
+    this->SetMapper(v->GetMapper());
+    this->SetProperty(v->GetProperty());
+    }
+
+  // Now do superclass
+  this->vtkProp3D::ShallowCopy(prop);
 }
 
 void vtkVolume::SetMapper(vtkVolumeMapper *mapper)

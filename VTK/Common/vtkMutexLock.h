@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMutexLock.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:10:11 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-06-08 09:11:03 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -79,6 +79,7 @@ typedef int vtkMutexType;
 class VTK_EXPORT vtkSimpleMutexLock
 {
 public:
+  // left public purposely
   vtkSimpleMutexLock();
   virtual ~vtkSimpleMutexLock();
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODProp3D.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:11:58 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2000-06-08 09:11:04 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -75,6 +75,8 @@ typedef struct
 class VTK_EXPORT vtkLODProp3D : public vtkProp3D
 {
 public:
+  // Description:
+  // Create an instance of this class.
   static vtkLODProp3D *New();
 
   vtkTypeMacro(vtkLODProp3D,vtkProp3D);
@@ -189,6 +191,10 @@ public:
   vtkSetClampMacro( AutomaticPickLODSelection, int, 0, 1 );
   vtkGetMacro( AutomaticPickLODSelection, int );
   vtkBooleanMacro( AutomaticPickLODSelection, int );
+
+  // Description:
+  // Shallow copy of this vtkLODProp3D.
+  void ShallowCopy(vtkProp *prop);
 
 //BTX
 

@@ -1,10 +1,10 @@
 /*=========================================================================
 
   Program:   Visualization Toolkit
-  Module:    $RCSfile: vtkPropCollection.h,v $
+  Module:    $RCSfile: vtkAssemblyNode.cxx,v $
   Language:  C++
   Date:      $Date: 2000-06-08 09:11:03 $
-  Version:   $Revision: 1.11 $
+  Version:   $Revision: 1.1 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,84 +39,100 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-// .NAME vtkPropCollection - a list of Props
-// .SECTION Description
-// vtkPropCollection represents and provides methods to manipulate a list of
-// Props (i.e., vtkProp and subclasses). The list is unsorted and duplicate
-// entries are not prevented.
+#include "vtkAssemblyNode.h"
+#include "vtkProp.h"
+#include "vtkMatrix4x4.h"
+#include "vtkObjectFactory.h"
 
-// .SECTION see also
-// vtkProp vtkCollection 
-
-#ifndef __vtkPropC_h
-#define __vtkPropC_h
-
-#include "vtkCollection.h"
-class vtkProp;
-
-class VTK_EXPORT vtkPropCollection : public vtkCollection
+//-------------------------------------------------------------------------
+vtkAssemblyNode* vtkAssemblyNode::New()
 {
- public:
-  static vtkPropCollection *New();
-  vtkTypeMacro(vtkPropCollection,vtkCollection);
-
-  // Description:
-  // Add an Prop to the list.
-  void AddItem(vtkProp *a);
-
-  // Description:
-  // Get the next Prop in the list.
-  vtkProp *GetNextProp();
-
-  // Description:
-  // Get the last Prop in the list.
-  vtkProp *GetLastProp();
-  
-  // Description:
-  // Get the number of paths contained in this list. (Recall that a
-  // vtkProp can consist of multiple parts.) Used in picking and other
-  // activities to get the parts of composite entities like vtkAssembly
-  // or vtkPropAssembly.
-  int GetNumberOfPaths();
-  
-protected:
-  vtkPropCollection() {};
-  ~vtkPropCollection() {};
-  vtkPropCollection(const vtkPropCollection&) {};
-  void operator=(const vtkPropCollection&) {};
-  
-
-private:
-  // hide the standard AddItem from the user and the compiler.
-  void AddItem(vtkObject *o) { this->vtkCollection::AddItem(o); };
-
-};
-
-inline void vtkPropCollection::AddItem(vtkProp *a) 
-{
-  this->vtkCollection::AddItem((vtkObject *)a);
-}
-
-inline vtkProp *vtkPropCollection::GetNextProp() 
-{ 
-  return (vtkProp *)(this->GetNextItemAsObject());
-}
-
-inline vtkProp *vtkPropCollection::GetLastProp() 
-{ 
-  if ( this->Bottom == NULL )
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkAssemblyNode");
+  if(ret)
     {
-    return NULL;
+    return (vtkAssemblyNode*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkAssemblyNode;
+}
+
+vtkAssemblyNode::vtkAssemblyNode()
+{
+  this->Prop = NULL;
+  this->Matrix = NULL;
+}
+
+vtkAssemblyNode::~vtkAssemblyNode()
+{
+  if ( this->Prop )
+    {
+    this->Prop->Delete();
+    }
+  if ( this->Matrix )
+    {
+    this->Matrix->Delete();
+    }
+}
+
+void vtkAssemblyNode::SetMatrix(vtkMatrix4x4 *matrix)
+{
+  // delete previous
+  if ( this->Matrix != NULL )
+    {
+    this->Matrix->Delete();
+    this->Matrix = NULL;
+    }
+  // return if NULL matrix specified
+  if ( matrix == NULL )
+    {
+    return;
+    }
+
+  // else create a copy of the matrix
+  vtkMatrix4x4 *newMatrix = vtkMatrix4x4::New();
+  newMatrix->DeepCopy(matrix);
+  this->Matrix = newMatrix;
+}
+
+unsigned long vtkAssemblyNode::GetMTime()
+{
+  unsigned long propMTime=0;
+  unsigned long matrixMTime=0;
+  
+  if ( this->Prop != NULL )
+    {
+    propMTime = this->Prop->GetMTime();
+    }
+  if ( this->Matrix != NULL )
+    {
+    matrixMTime = this->Matrix->GetMTime();
+    }
+  
+  return (propMTime > matrixMTime ? propMTime : matrixMTime);
+}
+
+void vtkAssemblyNode::PrintSelf(ostream& os, vtkIndent indent)
+{
+  vtkObject::PrintSelf(os,indent);
+
+  if ( this->Prop )
+    {
+    os << indent << "Prop: " << this->Prop << "\n";
     }
   else
     {
-    return (vtkProp *)(this->Bottom->Item);
+    os << indent << "Prop: (none)\n";
+    }
+
+  if ( this->Matrix )
+    {
+    os << indent << "Matrix: " << this->Matrix << "\n";
+    }
+  else
+    {
+    os << indent << "Matrix: (none)\n";
     }
 }
-
-#endif
-
-
-
 
 

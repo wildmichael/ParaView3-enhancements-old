@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScaledTextActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:14:09 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-06-08 09:11:06 $
+  Version:   $Revision: 1.15 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -41,9 +41,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkScaledTextActor.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 vtkScaledTextActor* vtkScaledTextActor::New()
 {
   // First try to create the object from the vtkObjectFactory
@@ -55,9 +53,6 @@ vtkScaledTextActor* vtkScaledTextActor::New()
   // If the factory was unable to create the object, then create it here.
   return new vtkScaledTextActor;
 }
-
-
-
 
 vtkScaledTextActor::vtkScaledTextActor()
 {
@@ -290,4 +285,18 @@ float *vtkScaledTextActor::GetPosition2()
 void vtkScaledTextActor::SetMapper(vtkTextMapper *mapper)
 {
   this->TextActor->SetMapper(mapper);
+}
+
+void vtkScaledTextActor::ShallowCopy(vtkProp *prop)
+{
+  vtkScaledTextActor *a = vtkScaledTextActor::SafeDownCast(prop);
+  if ( a != NULL )
+    {
+    this->SetPosition2(a->GetPosition2());
+    this->SetMinimumSize(a->GetMinimumSize());
+    this->SetMaximumLineHeight(a->GetMaximumLineHeight());
+    }
+
+  // Now do superclass
+  this->vtkActor2D::ShallowCopy(prop);
 }

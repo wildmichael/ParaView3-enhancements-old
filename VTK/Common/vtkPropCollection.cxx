@@ -3,8 +3,8 @@
 Program:   Visualization Toolkit
 Module:    $RCSfile: vtkPropCollection.cxx,v $
 Language:  C++
-Date:      $Date: 2000-02-04 17:03:42 $
-Version:   $Revision: 1.3 $
+Date:      $Date: 2000-06-08 09:11:03 $
+Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -41,7 +41,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 #include "vtkPropCollection.h"
 #include "vtkObjectFactory.h"
-
+#include "vtkProp.h"
 
 
 //------------------------------------------------------------------------------
@@ -55,6 +55,18 @@ vtkPropCollection* vtkPropCollection::New()
     }
   // If the factory was unable to create the object, then create it here.
   return new vtkPropCollection;
+}
+
+int vtkPropCollection::GetNumberOfPaths()
+{
+  int numPaths=0;
+  vtkProp *aProp;
+
+  for ( this->InitTraversal(); aProp=this->GetNextProp(); )
+    {
+    numPaths += aProp->GetNumberOfPaths();
+    }
+  return numPaths;
 }
 
 

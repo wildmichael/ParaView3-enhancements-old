@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAxisActor2D.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:23 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-06-08 09:11:06 $
+  Version:   $Revision: 1.14 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -241,6 +241,10 @@ public:
   static int SetFontSize(vtkViewport *viewport, vtkTextMapper *textMapper, 
 			 int *size, float factor, 
 			 int &stringWidth, int &stringHeight);
+
+  // Description:
+  // Shallow copy of an axis actor. Overloads the virtual vtkProp method.
+  void ShallowCopy(vtkProp *prop);
 
 protected:
   vtkAxisActor2D();

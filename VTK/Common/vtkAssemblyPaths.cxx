@@ -1,10 +1,10 @@
 /*=========================================================================
 
   Program:   Visualization Toolkit
-  Module:    $RCSfile: vtkOpenGLRenderer.h,v $
+  Module:    $RCSfile: vtkAssemblyPaths.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-08 09:11:04 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2000-06-08 09:11:03 $
+  Version:   $Revision: 1.1 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,60 +39,38 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-// .NAME vtkOpenGLRenderer - OpenGL renderer
-// .SECTION Description
-// vtkOpenGLRenderer is a concrete implementation of the abstract class
-// vtkRenderer. vtkOpenGLRenderer interfaces to the OpenGL graphics library.
+#include "vtkAssemblyPaths.h"
+#include "vtkObjectFactory.h"
 
-#ifndef __vtkOpenGLRenderer_h
-#define __vtkOpenGLRenderer_h
-
-#include <stdlib.h>
-#include "vtkRenderer.h"
-
-class VTK_EXPORT vtkOpenGLRenderer : public vtkRenderer
+//----------------------------------------------------------------------------
+vtkAssemblyPaths* vtkAssemblyPaths::New()
 {
-protected:
-  int NumberOfLightsBound;
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkAssemblyPaths");
+  if(ret)
+    {
+    return (vtkAssemblyPaths*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkAssemblyPaths;
+}
 
-public:
-  static vtkOpenGLRenderer *New();
-  vtkTypeMacro(vtkOpenGLRenderer,vtkRenderer);
-  void PrintSelf(ostream& os, vtkIndent indent);
-
-  // Description:
-  // Concrete open gl render method.
-  void DeviceRender(void); 
-
-  // Description:
-  // Internal method temporarily removes lights before reloading them
-  // into graphics pipeline.
-  void ClearLights(void);
-
-  void Clear(void);
-
-  // Description:
-  // Ask lights to load themselves into graphics pipeline.
-  int UpdateLights(void);
+unsigned long vtkAssemblyPaths::GetMTime()
+{
+  unsigned long mtime=this->vtkCollection::GetMTime();
+  unsigned long pathMTime;
+  vtkAssemblyPath *path;
   
-protected:
-  vtkOpenGLRenderer();
-  ~vtkOpenGLRenderer();
-  vtkOpenGLRenderer(const vtkOpenGLRenderer&) {};
-  void operator=(const vtkOpenGLRenderer&) {};
+  for ( this->InitTraversal(); (path = this->GetNextItem()); )
+    {
+    pathMTime = path->GetMTime();
+    if ( pathMTime > mtime )
+      {
+      mtime = pathMTime;
+      }
+    }
+  return mtime;
+}
 
-  //BTX
-  // Picking functions to be implemented by sub-classes
-  virtual void DevicePickRender();
-  virtual void StartPick(unsigned int pickFromSize);
-  virtual void UpdatePickId();
-  virtual void DonePick();
-  virtual unsigned int GetPickedId();
-  virtual float GetPickedZ();
-  // Ivars used in picking
-  class vtkGLPickInfo* PickInfo;
-  //ETX
-  float PickedZ;
-};
 
-#endif
+

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarBarActor.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:14:09 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2000-06-08 09:11:06 $
+  Version:   $Revision: 1.27 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -192,8 +192,8 @@ public:
   vtkGetStringMacro(Title);
 
   // Description:
-  // Shallow copy of this class.
-  void ShallowCopy(vtkScalarBarActor *actor);
+  // Shallow copy of a scalar bar actor. Overloads the virtual vtkProp method.
+  void ShallowCopy(vtkProp *prop);
 
 protected:
   vtkScalarBarActor();
@@ -230,8 +230,6 @@ private:
   int LastSize[2];
   int LastOrigin[2];
 
-  // hide the superclass' ShallowCopy() from the user and the compiler.
-  void ShallowCopy(vtkProp *prop) { this->vtkProp::ShallowCopy( prop ); };
 };
 
 

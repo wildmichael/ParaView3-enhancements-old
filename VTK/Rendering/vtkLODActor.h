@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODActor.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:11:57 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2000-06-08 09:11:04 $
+  Version:   $Revision: 1.35 $
   
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -103,7 +103,7 @@ public:
   vtkSetMacro(NumberOfCloudPoints,int);
 
   // Description:
-  // All the mappers for differnt LODs are stored here.
+  // All the mappers for different LODs are stored here.
   // The order is not important.
   vtkGetObjectMacro(LODMappers, vtkMapperCollection);
 
@@ -112,9 +112,9 @@ public:
   void Modified();
   
   // Description:
-  // Used to construct assembly paths and perform part traversal.
-  void BuildPaths(vtkAssemblyPaths *paths, vtkActorCollection *path);
-  
+  // Shallow copy of an LOD actor. Overloads the virtual vtkProp method.
+  void ShallowCopy(vtkProp *prop);
+
 protected:
   vtkLODActor();
   ~vtkLODActor();

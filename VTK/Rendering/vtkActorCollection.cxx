@@ -3,8 +3,8 @@
 Program:   Visualization Toolkit
 Module:    $RCSfile: vtkActorCollection.cxx,v $
 Language:  C++
-Date:      $Date: 2000-02-04 17:04:34 $
-Version:   $Revision: 1.3 $
+Date:      $Date: 2000-06-08 09:11:03 $
+Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -40,11 +40,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 #include "vtkActorCollection.h"
+#include "vtkActor.h"
 #include "vtkObjectFactory.h"
 
 
-
-//------------------------------------------------------------------------------
+//---------------------------------------------------------------------------
 vtkActorCollection* vtkActorCollection::New()
 {
   // First try to create the object from the vtkObjectFactory
@@ -55,6 +55,21 @@ vtkActorCollection* vtkActorCollection::New()
     }
   // If the factory was unable to create the object, then create it here.
   return new vtkActorCollection;
+}
+
+void vtkActorCollection::ApplyProperties(vtkProperty *p)
+{
+  vtkActor *actor;
+  
+  if ( p == NULL )
+    {
+    return;
+    }
+  
+  for ( this->InitTraversal(); (actor=this->GetNextActor()); )
+    {
+    actor->GetProperty()->DeepCopy(p);
+    }
 }
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFollower.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:11:41 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2000-06-08 09:11:03 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -46,9 +46,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkCamera.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 vtkFollower* vtkFollower::New()
 {
   // First try to create the object from the vtkObjectFactory
@@ -60,9 +58,6 @@ vtkFollower* vtkFollower::New()
   // If the factory was unable to create the object, then create it here.
   return new vtkFollower;
 }
-
-
-
 
 // Creates a follower with no camera set
 vtkFollower::vtkFollower()
@@ -248,6 +243,18 @@ void vtkFollower::Render(vtkRenderer *ren)
   this->Device->Render(ren,this->Mapper);
 
   matrix->Delete();
+}
+
+void vtkFollower::ShallowCopy(vtkProp *prop)
+{
+  vtkFollower *f = vtkFollower::SafeDownCast(prop);
+  if ( f != NULL )
+    {
+    this->SetCamera(f->GetCamera());
+    }
+
+  // Now do superclass
+  this->vtkActor::ShallowCopy(prop);
 }
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBJExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:12:07 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2000-06-08 09:11:04 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -41,11 +41,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 #include "vtkOBJExporter.h"
 #include "vtkGeometryFilter.h"
+#include "vtkAssemblyNode.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
+//-------------------------------------------------------------------------
 vtkOBJExporter* vtkOBJExporter::New()
 {
   // First try to create the object from the vtkObjectFactory
@@ -57,9 +56,6 @@ vtkOBJExporter* vtkOBJExporter::New()
   // If the factory was unable to create the object, then create it here.
   return new vtkOBJExporter;
 }
-
-
-
 
 vtkOBJExporter::vtkOBJExporter()
 {
@@ -131,10 +127,12 @@ void vtkOBJExporter::WriteData()
 	  "# wavefront mtl file written by the visualization toolkit\n\n");
   
   ac = ren->GetActors();
+  vtkAssemblyPath *apath;
   for (ac->InitTraversal(); (anActor = ac->GetNextActor()); )
     {
-    for (anActor->InitPartTraversal();(aPart=anActor->GetNextPart()); )
+    for (anActor->InitPathTraversal(); apath=anActor->GetNextPath(); )
       {
+      aPart=(vtkActor *)apath->GetLastNode()->GetProp();
       this->WriteAnActor(aPart, fpObj, fpMtl, idStart);
       }
     }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleTrackball.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:11:54 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-06-08 09:11:04 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -48,6 +48,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define __vtkInteractorStyleTrackball_h
 
 #include "vtkInteractorStyle.h"
+#include "vtkAbstractPropPicker.h"
+
 #define VTKIS_JOY   0
 #define VTKIS_TRACK  1
 #define VTKIS_CAMERA 0
@@ -98,9 +100,9 @@ protected:
   // used to track picked objects in actor mode
   // reason for existence: user may use any kind of picker.  Interactor
   //    need the high precision of cell picker at all time.
-  vtkCellPicker *InteractionPicker;
-  int ActorPicked;                      // boolean: actor picked?
-  vtkActor *InteractionActor;
+  vtkAbstractPropPicker *InteractionPicker;
+  int PropPicked;                      // boolean: prop picked?
+  vtkProp3D *InteractionProp;
   
   // new interactor modes
   int ActorMode;
@@ -149,10 +151,10 @@ protected:
   virtual void TrackballDollyActor(int x, int y);
   virtual void TrackballScaleActor(int x, int y);
 
-  void ActorTransform(vtkActor *actor, double *boxCenter,
+  void Prop3DTransform(vtkProp3D *prop3D, double *boxCenter,
                       int numRotation, double **rotate,
                       double *scale);
-  void ActorTransform(vtkActor *actor,float *boxCenter,
+  void Prop3DTransform(vtkProp3D *prop3D,float *boxCenter,
                       int NumRotation,double **rotate,
                       double *scale);
   void FindPickedActor(int X, int Y);
