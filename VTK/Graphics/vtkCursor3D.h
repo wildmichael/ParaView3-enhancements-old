@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCursor3D.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:33 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2001-03-16 15:06:02 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -71,7 +71,7 @@ public:
   // Set / get the boundary of the 3D cursor.
   void SetModelBounds(float xmin, float xmax, float ymin, float ymax, 
 		      float zmin, float zmax);
-  void SetModelBounds(float *bounds);
+  void SetModelBounds(float bounds[6]);
   vtkGetVectorMacro(ModelBounds,float,6);
 
   // Description:

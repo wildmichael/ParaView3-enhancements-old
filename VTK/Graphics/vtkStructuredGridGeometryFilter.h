@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:53 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2001-03-16 15:06:02 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -83,7 +83,7 @@ public:
 
   // Description:
   // Specify (imin,imax, jmin,jmax, kmin,kmax) indices in array form.
-  void SetExtent(int *extent);
+  void SetExtent(int extent[6]);
 
 protected:
   vtkStructuredGridGeometryFilter();

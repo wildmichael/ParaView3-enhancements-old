@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:54 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2001-03-16 15:06:02 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -77,7 +77,7 @@ public:
   
   // Description:
   // Set / get the extent (imin,imax, jmin,jmax, kmin,kmax) indices.
-  void SetExtent(int *extent);
+  void SetExtent(int extent[6]);
   void SetExtent(int iMin, int iMax, int jMin, int jMax, int kMin, int kMax);
   int *GetExtent() { return this->Extent;};
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCursor3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:33 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2001-03-16 15:06:02 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -450,7 +450,7 @@ void vtkCursor3D::SetModelBounds(float xmin, float xmax, float ymin, float ymax,
     }
 }
 
-void vtkCursor3D::SetModelBounds(float *bounds)
+void vtkCursor3D::SetModelBounds(float bounds[6])
 {
   this->SetModelBounds(bounds[0], bounds[1], bounds[2], bounds[3], bounds[4],
                        bounds[5]);

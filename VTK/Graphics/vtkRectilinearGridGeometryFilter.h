@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:49 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-03-16 15:06:02 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -85,7 +85,7 @@ public:
 
   // Description:
   // Specify (imin,imax, jmin,jmax, kmin,kmax) indices in array form.
-  void SetExtent(int *extent);
+  void SetExtent(int extent[6]);
 
 protected:
   vtkRectilinearGridGeometryFilter();

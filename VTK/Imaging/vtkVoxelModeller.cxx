@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxelModeller.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:00 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2001-03-16 15:06:02 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -84,7 +84,7 @@ vtkVoxelModeller::vtkVoxelModeller()
 }
 
 // Specify the position in space to perform the voxelization.
-void vtkVoxelModeller::SetModelBounds(float *bounds)
+void vtkVoxelModeller::SetModelBounds(float bounds[6])
 {
   vtkVoxelModeller::SetModelBounds(bounds[0], bounds[1], bounds[2], bounds[3], bounds[4], bounds[5]);
 }

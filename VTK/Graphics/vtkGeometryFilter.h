@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:38 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2001-03-16 15:06:02 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -125,7 +125,7 @@ public:
 
   // Description:
   // Set / get a (xmin,xmax, ymin,ymax, zmin,zmax) bounding box to clip data.
-  void SetExtent(float *extent);
+  void SetExtent(float extent[6]);
   float *GetExtent() { return this->Extent;};
 
   // Description:

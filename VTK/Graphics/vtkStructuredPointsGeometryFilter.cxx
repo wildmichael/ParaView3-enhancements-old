@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-22 12:48:07 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2001-03-16 15:06:02 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -410,7 +410,7 @@ void vtkStructuredPointsGeometryFilter::SetExtent(int iMin, int iMax,
 }
 
 // Specify (imin,imax, jmin,jmax, kmin,kmax) indices.
-void vtkStructuredPointsGeometryFilter::SetExtent(int *extent)
+void vtkStructuredPointsGeometryFilter::SetExtent(int extent[6])
 {
   int i;
 

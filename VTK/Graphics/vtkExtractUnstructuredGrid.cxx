@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-23 19:05:08 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-03-16 15:06:02 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -98,7 +98,7 @@ void vtkExtractUnstructuredGrid::SetExtent(float xMin,float xMax, float yMin,
 }
 
 // Specify a (xmin,xmax, ymin,ymax, zmin,zmax) bounding box to clip data.
-void vtkExtractUnstructuredGrid::SetExtent(float *extent)
+void vtkExtractUnstructuredGrid::SetExtent(float extent[6])
 {
   int i;
 

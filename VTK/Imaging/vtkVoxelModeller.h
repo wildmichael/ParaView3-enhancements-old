@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxelModeller.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:00 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2001-03-16 15:06:02 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -89,7 +89,7 @@ public:
 
   // Description:
   // Specify the position in space to perform the voxelization.
-  void SetModelBounds(float *bounds);
+  void SetModelBounds(float bounds[6]);
   void SetModelBounds(float xmin, float xmax, float ymin, float ymax, float zmin, float zmax);
   vtkGetVectorMacro(ModelBounds,float,6);
 

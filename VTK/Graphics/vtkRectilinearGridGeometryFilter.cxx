@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:49 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-03-16 15:06:02 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -413,7 +413,7 @@ void vtkRectilinearGridGeometryFilter::SetExtent(int iMin, int iMax, int jMin,
 }
 
 // Specify (imin,imax, jmin,jmax, kmin,kmax) indices in array form.
-void vtkRectilinearGridGeometryFilter::SetExtent(int *extent)
+void vtkRectilinearGridGeometryFilter::SetExtent(int extent[6])
 {
   int i;
 
