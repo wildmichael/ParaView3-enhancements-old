@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProcessObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-02-25 20:56:20 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2003-04-14 17:14:11 $
+  Version:   $Revision: 1.31 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkOldStyleCallbackCommand.h"
 #include "vtkDataObject.h"
 
-vtkCxxRevisionMacro(vtkProcessObject, "$Revision: 1.30 $");
+vtkCxxRevisionMacro(vtkProcessObject, "$Revision: 1.31 $");
 
 // Instantiate object with no start, end, or progress methods.
 vtkProcessObject::vtkProcessObject()
@@ -99,16 +99,15 @@ void vtkProcessObject::SetNumberOfInputs(int num)
     }
   
   // delete the previous arrays
-  if (this->Inputs)
-    {
-    delete [] this->Inputs;
-    this->Inputs = NULL;
-    this->NumberOfInputs = 0;
-    delete [] this->SortedInputs;
-    this->SortedInputs = NULL;
-    delete [] this->SortedInputs2;
-    this->SortedInputs2 = NULL;
-    }
+  delete [] this->Inputs;
+  this->Inputs = NULL;
+  this->NumberOfInputs = 0;
+
+  delete [] this->SortedInputs;
+  this->SortedInputs = NULL;
+
+  delete [] this->SortedInputs2;
+  this->SortedInputs2 = NULL;
   
   // Set the new arrays
   this->Inputs = inputs;
