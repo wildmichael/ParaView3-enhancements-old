@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPushPipeline.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-04 18:17:11 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2003-04-09 14:40:02 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,9 +33,11 @@
 #ifdef _MSC_VER
 #pragma warning (push, 2)
 #endif
+
 #include <vector>
 #include <map>
 #include <algorithm>
+
 #ifdef _MSC_VER
 #pragma warning(pop)
 #endif
@@ -124,7 +126,7 @@ public:
   vtkPushPipeline *PushPipeline;
 };
 
-vtkCxxRevisionMacro(vtkPushPipeline, "$Revision: 1.13 $");
+vtkCxxRevisionMacro(vtkPushPipeline, "$Revision: 1.14 $");
 vtkStandardNewMacro(vtkPushPipeline);
 
 vtkPushPipeline::vtkPushPipeline()
