@@ -3,8 +3,8 @@
 Program:   Visualization Toolkit
 Module:    $RCSfile: vtkImageReader2Factory.cxx,v $
 Language:  C++
-Date:      $Date: 2002-01-08 22:32:18 $
-Version:   $Revision: 1.5 $
+Date:      $Date: 2002-01-13 04:02:35 $
+Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -52,7 +52,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkImageReader2Collection.h"
 #include "vtkObjectFactoryCollection.h"
 
-vtkCxxRevisionMacro(vtkImageReader2Factory, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkImageReader2Factory, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkImageReader2Factory);
 
 class vtkCleanUpImageReader2Factory
@@ -132,6 +132,8 @@ vtkImageReader2* vtkImageReader2Factory::CreateImageReader2(const char* path)
     {
     if(ret->CanReadFile(path))
       {
+      ret->Register(ret); // up the reference count for return as this is
+      // like a new call
       return ret;
       }
     }
