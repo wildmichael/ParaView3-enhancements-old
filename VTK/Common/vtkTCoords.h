@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTCoords.h,v $
   Language:  C++
-  Date:      $Date: 1994-09-14 14:55:05 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1994-09-14 19:47:21 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -16,7 +16,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 // .NAME vlTCoords - abstract interface to 3D texture coordinates
 // .SECTION Description
 // vlTCoords provides an abstract interface to 3D texture coordinates. 
-// Texture coordinates are 2D (u,v) or 3D (u,v,w) parametric values that
+// Texture coordinates are 2D (s,t) or 3D (r,s,t) parametric values that
 // map geometry into regular 2D or 3D arrays of color and/or transparency
 // values. During rendering the array are mapped onto the geometry for
 // fast image detailing. The subclasses of vlTCoords are concrete data 
