@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToImageFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-03 10:41:07 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-08-03 17:07:51 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -201,7 +201,21 @@ VTK_THREAD_RETURN_TYPE vtkImageThreadedExecute( void *arg )
 // an imaging style Execute method.
 void vtkImageToImageFilter::Execute()
 {
-  this->Execute(this->GetInput(), this->GetOutput());
+  if (this->Bypass == 0)
+    {
+    this->Execute(this->GetInput(), this->GetOutput());
+    }
+  else
+    {
+    vtkImageData *inData = this->GetInput();
+
+    if ( inData == NULL)
+      {
+      vtkErrorMacro("No Input.");
+      return;
+      }    
+    this->GetOutput()->GetPointData()->PassData(inData->GetPointData());
+    }
 }
 
 

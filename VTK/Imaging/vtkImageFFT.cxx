@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFFT.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-30 18:37:45 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-08-03 17:07:48 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,15 +45,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 //----------------------------------------------------------------------------
 // This extent of the components changes to real and imaginary values.
-void vtkImageFFT::ExecuteInformation(vtkImageData *inData, 
-				     vtkImageData *outData)
+void vtkImageFFT::ExecuteImageInformation(vtkImageData *inData, 
+					  vtkImageData *outData)
 {
   outData->SetNumberOfScalarComponents(2);
   outData->SetScalarType(VTK_FLOAT);
-
-  this->GetOutput()->SetOrigin(this->GetInput()->GetOrigin());
-  this->GetOutput()->SetSpacing(this->GetInput()->GetSpacing());
-  this->GetOutput()->SetWholeExtent(this->GetInput()->GetWholeExtent());
 }
 
 //----------------------------------------------------------------------------

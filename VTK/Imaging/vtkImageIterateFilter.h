@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIterateFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:41 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-08-03 17:07:49 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,33 +64,40 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
-  // This updates the WholeExtent, Spacing and Origin of the output.
-  void UpdateInformation();
-  
-  // Description:
   // Get which iteration is current being performed. Normally the
   // user will not access this method.
   vtkGetMacro(Iteration,int);
   vtkGetMacro(NumberOfIterations,int);  
   
 protected:
-  virtual void RecursiveStreamUpdate(vtkImageData *outData);
-  
-  // Description:
-  // Called for each iteration.
-  virtual void ExecuteInformation(vtkImageData *inData, vtkImageData *outData);
 
+  // Superclass API. Sets defaults, then calls 
+  // ExecuteImageInformation(vtkImageData *inData, vtkImageData *outData)
+  // for each iteration
+  void ExecuteInformation();
+  // called for each iteration (differs from superclass in arguments).
+  virtual void ExecuteImageInformation(vtkImageData *inData, vtkImageData *outData);
+  
+  // Ends up calling ComputeInputUpdateExtent(int inExt[6],int outExt[6])
+  // for each iteration.
+  int ComputeInputUpdateExtents(vtkDataObject *output);
+
+  // Superclass API: Calls Execute(vtkImageData *inData, vtkImageData *outData)
+  // for each iteration.
+  void Execute();
+  // defined in superclass, but hidden by Execute().
+  void Execute(vtkImageData *inData, vtkImageData *outData);
+  
+  // Allows subclass to specify the number of iterations  
+  virtual void SetNumberOfIterations(int num);
+  
   // for filteres that execute multiple times.
   int NumberOfIterations;
   int Iteration;
   // A list of intermediate caches that is created when 
   // is called SetNumberOfIterations()
-  vtkImageData **IterationCaches;
+  vtkImageData **IterationData;
   
-  virtual void SetNumberOfIterations(int num);
-  void IterateExecute(vtkImageData *inData, vtkImageData *outData);
-  void IterateRequiredInputUpdateExtent();
-
   // returns correct vtkImageDatas based on current iteration.
   vtkImageData *GetIterationInput();
   vtkImageData *GetIterationOutput();

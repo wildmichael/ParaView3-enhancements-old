@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSpatialFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:55 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1999-08-03 17:07:50 $
+  Version:   $Revision: 1.32 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -90,16 +90,27 @@ void vtkImageSpatialFilter::PrintSelf(ostream& os, vtkIndent indent)
 // output.
 void vtkImageSpatialFilter::ExecuteInformation()
 {
-  int extent[6];
-  float spacing[3];
+  vtkImageData *input = this->GetInput();
+  vtkImageData *output = this->GetOutput();
   
-  this->GetInput()->GetWholeExtent(extent);
-  this->GetInput()->GetSpacing(spacing);
+  output->SetSpacing(input->GetSpacing());
+  output->SetOrigin(input->GetOrigin());
+  output->SetScalarType(input->GetScalarType());
+  output->SetNumberOfScalarComponents(input->GetNumberOfScalarComponents());
 
-  this->ComputeOutputWholeExtent(extent, this->HandleBoundaries);
-  this->GetOutput()->SetWholeExtent(extent);
-  
-  this->GetOutput()->SetSpacing(spacing);
+  if ( ! this->Bypass)
+    {
+    int extent[6];
+    input->GetWholeExtent(extent);
+    this->ComputeOutputWholeExtent(extent, this->HandleBoundaries);
+    output->SetWholeExtent(extent);
+    // Maybe the subclass is using the old style method.
+    this->ExecuteImageInformation();
+    }
+  else
+    {
+    output->SetWholeExtent(input->GetWholeExtent());
+    }
 }
 
 //----------------------------------------------------------------------------

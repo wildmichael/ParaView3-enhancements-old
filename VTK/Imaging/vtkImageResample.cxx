@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageResample.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-30 18:37:48 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-08-03 17:07:49 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -162,8 +162,8 @@ void vtkImageResample::ComputeInputUpdateExtent(int inExt[6],
 
 //----------------------------------------------------------------------------
 // Computes any global image information associated with regions.
-void vtkImageResample::ExecuteInformation(vtkImageData *inData, 
-					  vtkImageData *outData) 
+void vtkImageResample::ExecuteImageInformation(vtkImageData *inData, 
+					       vtkImageData *outData) 
 {
   int wholeMin, wholeMax, axis, ext[6];
   float spacing[3], factor;
@@ -194,12 +194,6 @@ void vtkImageResample::ExecuteInformation(vtkImageData *inData,
     // Cause MagnificationFactor to recompute.
     this->MagnificationFactors[axis] = 0.0;
     }
-
-  // Set default values
-  this->GetOutput()->SetOrigin(this->GetInput()->GetOrigin());
-  this->GetOutput()->SetScalarType(this->GetInput()->GetScalarType());
-  this->GetOutput()->SetNumberOfScalarComponents(
-                            this->GetInput()->GetNumberOfScalarComponents());
 }
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFlip.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-30 18:37:45 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1999-08-03 17:07:48 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,7 +51,7 @@ vtkImageFlip::vtkImageFlip()
 
 //----------------------------------------------------------------------------
 // Image extent is modified by this filter.
-void vtkImageFlip::ExecuteInformation()
+void vtkImageFlip::ExecuteImageInformation()
 {
   int extent[6];
   int axis, temp;
@@ -64,12 +64,6 @@ void vtkImageFlip::ExecuteInformation()
     extent[axis*2+1] = -temp;
     this->GetOutput()->SetWholeExtent(extent);
     }
-
-  this->GetOutput()->SetOrigin(this->GetInput()->GetOrigin());
-  this->GetOutput()->SetSpacing(this->GetInput()->GetSpacing());
-  this->GetOutput()->SetScalarType(this->GetInput()->GetScalarType());
-  this->GetOutput()->SetNumberOfScalarComponents(
-                            this->GetInput()->GetNumberOfScalarComponents());
 }
 
 //----------------------------------------------------------------------------
