@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMandelbrotSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-01 21:30:32 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-08-02 17:59:03 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -76,6 +76,7 @@ void vtkImageMandelbrotSource::PrintSelf(ostream& os, vtkIndent indent)
      << this->WholeExtent[3] << ", " << this->WholeExtent[4] << ", " 
      << this->WholeExtent[5] << ")\n";
   os << "MaximumNumberOfIterations: " << this->MaximumNumberOfIterations << endl;
+  os << "JuliaSet: " << this->JuliaSet << endl;
 }
 
 //----------------------------------------------------------------------------
@@ -232,8 +233,8 @@ unsigned short vtkImageMandelbrotSource::EvaluateSet(double x, double y,
     {
     zReal = x;
     zImag = y;
-    cReal = z;
-    cImag = -1;
+    cReal = -0.75;
+    cImag = z;
     }
   else
     {
