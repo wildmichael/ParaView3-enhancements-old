@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageResample.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-15 11:18:33 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1999-09-30 21:28:52 $
+  Version:   $Revision: 1.22 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -295,7 +295,7 @@ static void vtkImageResampleExecuteNI(vtkImageResample *self,
           *outPtrC = (T)*inPtrX;
           outPtrC += maxC;
           xPos += xFloatInc;
-          while (xPos >= 1.0 ) 
+          while (xPos > 0.5 ) 
             {
             inPtrX += inIncX;
             xPos -= 1.0;
@@ -303,7 +303,7 @@ static void vtkImageResampleExecuteNI(vtkImageResample *self,
           }
         outPtrC += outIncY;
         yPos += yFloatInc;
-        while (yPos >= 1.0 ) 
+        while (yPos > 0.5 ) 
           {
           inPtrY += inIncY;
           yPos -= 1.0;
@@ -311,7 +311,7 @@ static void vtkImageResampleExecuteNI(vtkImageResample *self,
         }
       outPtrC += outIncZ;
       zPos += zFloatInc;
-      while (zPos >= 1.0) 
+      while (zPos > 0.5) 
         {
         inPtrZ += inIncZ;
         zPos -= 1.0;
