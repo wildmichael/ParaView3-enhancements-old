@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-22 18:39:30 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-08-28 19:01:17 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,6 +21,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkOpenGLRenderer.h"
 #include "vtkRenderWindow.h"
+#include "vtkImageData.h"
 
 #ifdef VTK_USE_CARBON
  #include "vtkCarbonRenderWindow.h"
@@ -37,7 +38,6 @@
 #endif
 
 #include <math.h>
-#include <string.h>
 
 #ifdef __APPLE__
 #include <OpenGL/gl.h>
@@ -47,7 +47,7 @@
 
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkOpenGLImageActor, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkOpenGLImageActor, "$Revision: 1.16 $");
 vtkStandardNewMacro(vtkOpenGLImageActor);
 #endif
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:11 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 2002-08-28 19:01:17 $
+  Version:   $Revision: 1.59 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,9 +31,17 @@
 #ifndef __vtkProperty_h
 #define __vtkProperty_h
 
-#include "vtkRender.h"
 #include "vtkObject.h"
-#include "vtkStructuredPoints.h"
+
+// shading models
+#define VTK_FLAT    0
+#define VTK_GOURAUD 1
+#define VTK_PHONG   2
+
+// representation models
+#define VTK_POINTS    0
+#define VTK_WIREFRAME 1
+#define VTK_SURFACE   2
 
 class vtkRenderer;
 class vtkActor;

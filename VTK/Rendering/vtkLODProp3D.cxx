@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODProp3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-27 14:27:44 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2002-08-28 19:01:17 $
+  Version:   $Revision: 1.34 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,14 +19,15 @@
 
 #include "vtkActor.h"
 #include "vtkMapper.h"
+#include "vtkMatrix4x4.h"
 #include "vtkObjectFactory.h"
 #include "vtkPropCollection.h"
 #include "vtkVolume.h"
+#include "vtkVolumeMapper.h"
 
-#include <stdlib.h>
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkLODProp3D, "$Revision: 1.33 $");
+vtkCxxRevisionMacro(vtkLODProp3D, "$Revision: 1.34 $");
 vtkStandardNewMacro(vtkLODProp3D);
 
 #define VTK_INDEX_NOT_IN_USE    -1

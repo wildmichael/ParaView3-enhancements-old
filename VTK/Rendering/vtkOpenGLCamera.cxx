@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-22 18:39:30 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2002-08-28 19:01:17 $
+  Version:   $Revision: 1.54 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -15,22 +15,25 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
-#include <math.h>
-
-#include "vtkRenderWindow.h"
-#include "vtkOpenGLRenderer.h"
 #include "vtkOpenGLCamera.h"
+
+#include "vtkMatrix4x4.h"
+#include "vtkObjectFactory.h"
+#include "vtkOpenGLRenderer.h"
+#include "vtkOutputWindow.h"
+#include "vtkRenderWindow.h"
+#include "vtkgluPickMatrix.h"
+
 #ifdef __APPLE__
 #include <OpenGL/gl.h>
 #else
 #include <GL/gl.h>
 #endif
-#include "vtkObjectFactory.h"
-#include "vtkOutputWindow.h"
-#include "vtkgluPickMatrix.h"
+
+#include <math.h>
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkOpenGLCamera, "$Revision: 1.53 $");
+vtkCxxRevisionMacro(vtkOpenGLCamera, "$Revision: 1.54 $");
 vtkStandardNewMacro(vtkOpenGLCamera);
 #endif
 

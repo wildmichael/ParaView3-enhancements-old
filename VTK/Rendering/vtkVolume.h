@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-26 21:17:59 $
-  Version:   $Revision: 1.62 $
+  Date:      $Date: 2002-08-28 19:01:17 $
+  Version:   $Revision: 1.63 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,14 +32,13 @@
 #define __vtkVolume_h
 
 #include "vtkProp3D.h"
-#include "vtkTransform.h"
-#include "vtkVolumeProperty.h"
-#include "vtkVolumeMapper.h"
 
 class vtkRenderer;
 class vtkPropCollection;
 class vtkVolumeCollection;
 class vtkWindow;
+class vtkVolumeProperty;
+class vtkVolumeMapper;
 
 class VTK_RENDERING_EXPORT vtkVolume : public vtkProp3D
 {

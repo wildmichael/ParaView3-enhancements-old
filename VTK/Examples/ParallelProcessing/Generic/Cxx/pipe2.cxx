@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: pipe2.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-16 13:59:21 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-08-28 19:01:17 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -15,12 +15,14 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
+#include "vtkActor.h"
+#include "vtkContourFilter.h"
+#include "vtkImageData.h"
 #include "vtkInputPort.h"
+#include "vtkPolyDataMapper.h"
 #include "vtkRenderWindow.h"
 #include "vtkRenderer.h"
-#include "vtkPolyDataMapper.h"
-#include "vtkContourFilter.h"
-#include "vtkActor.h"
+
 #include "PipelineParallelism.h"
 
 // Pipe 2 for PipelineParallelism.

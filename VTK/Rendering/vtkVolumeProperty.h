@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProperty.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-22 22:00:34 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2002-08-28 19:01:17 $
+  Version:   $Revision: 1.38 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -51,12 +51,6 @@
 class vtkPiecewiseFunction;
 class vtkTimeStamp;
 class vtkColorTransferFunction;
-
-// Constants for InterpolationType
-#define VTK_NEAREST_INTERPOLATION       0
-#define VTK_LINEAR_INTERPOLATION        1
-
-#define VTK_MAX_VRCOMP                  4
 
 class VTK_RENDERING_EXPORT vtkVolumeProperty : public vtkObject
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleJoystickActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-28 03:33:50 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2002-08-28 19:01:17 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,8 +25,10 @@
 #include "vtkProp3D.h"
 #include "vtkRenderer.h"
 #include "vtkCellPicker.h"
+#include "vtkTransform.h"
+#include "vtkMatrix4x4.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyleJoystickActor, "$Revision: 1.25 $");
+vtkCxxRevisionMacro(vtkInteractorStyleJoystickActor, "$Revision: 1.26 $");
 vtkStandardNewMacro(vtkInteractorStyleJoystickActor);
 
 //----------------------------------------------------------------------------

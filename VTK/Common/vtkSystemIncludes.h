@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSystemIncludes.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-07 23:12:43 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-08-28 19:01:17 $
+  Version:   $Revision: 1.22 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -215,6 +215,13 @@ typedef int vtkIdType;
 
 #define VTK_COLOR_MODE_DEFAULT 0
 #define VTK_COLOR_MODE_MAP_SCALARS 1
+
+// Constants for InterpolationType
+#define VTK_NEAREST_INTERPOLATION       0
+#define VTK_LINEAR_INTERPOLATION        1
+
+// For volume rendering
+#define VTK_MAX_VRCOMP                  4
 
 // 
 

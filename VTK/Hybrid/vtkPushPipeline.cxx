@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPushPipeline.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-22 13:47:09 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-08-28 19:01:17 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,17 +16,19 @@
 
 =========================================================================*/
 #include "vtkPushPipeline.h"
-#include "vtkSource.h"
-#include "vtkObjectFactory.h"
+
 #include "vtkAbstractMapper.h"
+#include "vtkArrayMap.txx"
 #include "vtkCommand.h"
 #include "vtkImageActor.h"
+#include "vtkObjectFactory.h"
 #include "vtkPushImageReader.h"
-#include "vtkRenderer.h"
 #include "vtkRenderWindow.h"
+#include "vtkRenderer.h"
 #include "vtkRendererCollection.h"
+#include "vtkSource.h"
 #include "vtkVector.txx"
-#include "vtkArrayMap.txx"
+#include "vtkVolumeMapper.h"
 
 class vtkPushPipelineProcessInfo {
 public:
@@ -103,7 +105,7 @@ public:
   vtkPushPipeline *PushPipeline;
 };
 
-vtkCxxRevisionMacro(vtkPushPipeline, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkPushPipeline, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkPushPipeline);
 
 vtkPushPipeline::vtkPushPipeline()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-22 22:00:34 $
-  Version:   $Revision: 1.71 $
+  Date:      $Date: 2002-08-28 19:01:17 $
+  Version:   $Revision: 1.72 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,15 +19,19 @@
 
 #include "vtkCamera.h"
 #include "vtkColorTransferFunction.h"
+#include "vtkLinearTransform.h"
+#include "vtkMatrix4x4.h"
 #include "vtkObjectFactory.h"
-#include "vtkRenderer.h"
-#include "vtkVolumeCollection.h"
-#include "vtkVolumeRayCastMapper.h"
 #include "vtkPiecewiseFunction.h"
+#include "vtkRenderer.h"
+#include "vtkTransform.h"
+#include "vtkVolumeCollection.h"
+#include "vtkVolumeProperty.h"
+#include "vtkVolumeRayCastMapper.h"
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkVolume, "$Revision: 1.71 $");
+vtkCxxRevisionMacro(vtkVolume, "$Revision: 1.72 $");
 vtkStandardNewMacro(vtkVolume);
 
 // Creates a Volume with the following defaults: origin(0,0,0) 

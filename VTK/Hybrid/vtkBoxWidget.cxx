@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBoxWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-28 16:27:36 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-08-28 19:01:17 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,8 +33,9 @@
 #include "vtkRenderer.h"
 #include "vtkSphereSource.h"
 #include "vtkRenderWindowInteractor.h"
+#include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkBoxWidget, "$Revision: 1.20 $");
+vtkCxxRevisionMacro(vtkBoxWidget, "$Revision: 1.21 $");
 vtkStandardNewMacro(vtkBoxWidget);
 
 vtkBoxWidget::vtkBoxWidget()

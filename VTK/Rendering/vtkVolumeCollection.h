@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeCollection.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-22 18:39:31 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2002-08-28 19:01:17 $
+  Version:   $Revision: 1.40 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,8 @@
 #define __vtkVolumeC_h
 
 #include "vtkPropCollection.h"
-#include "vtkVolume.h"
+
+#include "vtkVolume.h"  // Needed for static cast
 
 class VTK_RENDERING_EXPORT vtkVolumeCollection : public vtkPropCollection
 {
