@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageLogic.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-01-05 21:49:33 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-01-05 21:55:09 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -100,7 +100,7 @@ static void vtkImageLogicExecute1(vtkImageLogic *self,
 	switch (op)
 	  {
 	  case VTK_NOT:
-	    if ( ! *outPtr)
+	    if ( ! *in1Ptr)
 	      {
 	      *outPtr = trueValue;
 	      }
@@ -110,7 +110,7 @@ static void vtkImageLogicExecute1(vtkImageLogic *self,
 	      }
 	    break;
 	  case VTK_NOP:
-	    if (*outPtr)
+	    if (*in1Ptr)
 	      {
 	      *outPtr = trueValue;
 	      }
