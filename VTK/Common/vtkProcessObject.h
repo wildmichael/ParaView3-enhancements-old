@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProcessObject.h,v $
   Language:  C++
-  Date:      $Date: 2003-01-06 20:36:14 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2003-07-29 19:27:43 $
+  Version:   $Revision: 1.35 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -126,6 +126,11 @@ public:
   // Remove all the input data.
   void RemoveAllInputs();
 
+  // Description:
+  // The error code contains a possible error that occured while
+  // reading or writing the file.
+  vtkGetMacro( ErrorCode, unsigned long );
+
 protected:
   vtkProcessObject();
   ~vtkProcessObject();
@@ -159,6 +164,12 @@ protected:
   virtual void SetNthInput(int num, vtkDataObject *input);
   virtual void AddInput(vtkDataObject *input);
   virtual void RemoveInput(vtkDataObject *input);
+  
+  // Description:
+  // The error code contains a possible error that occured while
+  // reading or writing the file.
+  vtkSetMacro( ErrorCode, unsigned long );
+  unsigned long ErrorCode;
   
 private:
   vtkProcessObject(const vtkProcessObject&);  // Not implemented.

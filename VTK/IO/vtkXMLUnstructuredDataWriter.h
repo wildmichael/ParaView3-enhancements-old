@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLUnstructuredDataWriter.h,v $
   Language:  C++
-  Date:      $Date: 2003-05-05 20:13:55 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-07-29 19:27:44 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -65,11 +65,11 @@ protected:
   // The actual writing driver required by vtkXMLWriter.
   int WriteData();
   
-  virtual void WriteInlineMode(vtkIndent indent);
+  virtual int WriteInlineMode(vtkIndent indent);
   virtual void WriteInlinePieceAttributes();
   virtual void WriteInlinePiece(vtkIndent indent);
   
-  virtual void WriteAppendedMode(vtkIndent indent);
+  virtual int WriteAppendedMode(vtkIndent indent);
   virtual void WriteAppendedPieceAttributes(int index);
   virtual void WriteAppendedPiece(int index, vtkIndent indent);
   virtual void WriteAppendedPieceData(int index);  

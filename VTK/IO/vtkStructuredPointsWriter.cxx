@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-31 23:13:18 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2003-07-29 19:27:43 $
+  Version:   $Revision: 1.35 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkStructuredPoints.h"
 
-vtkCxxRevisionMacro(vtkStructuredPointsWriter, "$Revision: 1.34 $");
+vtkCxxRevisionMacro(vtkStructuredPointsWriter, "$Revision: 1.35 $");
 vtkStandardNewMacro(vtkStructuredPointsWriter);
 
 //----------------------------------------------------------------------------
@@ -55,6 +55,13 @@ void vtkStructuredPointsWriter::WriteData()
 
   if ( !(fp=this->OpenVTKFile()) || !this->WriteHeader(fp) )
       {
+      if (fp)
+        {
+        vtkErrorMacro("Ran out of disk space; deleting file: "
+                      << this->FileName);
+        this->CloseVTKFile(fp);
+        unlink(this->FileName);
+        }
       return;
       }
   //
@@ -63,7 +70,13 @@ void vtkStructuredPointsWriter::WriteData()
   *fp << "DATASET STRUCTURED_POINTS\n";
 
   // Write data owned by the dataset
-  this->WriteDataSetData(fp, input);
+  if (!this->WriteDataSetData(fp, input))
+    {
+    vtkErrorMacro("Ran out of disk space; deleting file: " << this->FileName);
+    this->CloseVTKFile(fp);
+    unlink(this->FileName);
+    return;
+    }
 
   input->GetDimensions(dim);
   *fp << "DIMENSIONS " << dim[0] << " " << dim[1] << " " << dim[2] << "\n";
@@ -80,8 +93,20 @@ void vtkStructuredPointsWriter::WriteData()
   origin[2] += ext[4] * spacing[2];
   *fp << "ORIGIN " << origin[0] << " " << origin[1] << " " << origin[2] << "\n";
 
-  this->WriteCellData(fp, input);
-  this->WritePointData(fp, input);
+  if (!this->WriteCellData(fp, input))
+    {
+    vtkErrorMacro("Ran out of disk space; deleting file: " << this->FileName);
+    this->CloseVTKFile(fp);
+    unlink(this->FileName);
+    return;
+    }
+  if (!this->WritePointData(fp, input))
+    {
+    vtkErrorMacro("Ran out of disk space; deleting file: " << this->FileName);
+    this->CloseVTKFile(fp);
+    unlink(this->FileName);
+    return;
+    }
 
   this->CloseVTKFile(fp);
 }

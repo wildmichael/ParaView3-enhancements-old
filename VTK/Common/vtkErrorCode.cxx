@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkErrorCode.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:21 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-07-29 19:27:43 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,6 +30,7 @@ static const char *vtkErrorCodeErrorStrings[] = {
   "PrematureEndOfFileError",
   "FileFormatError",
   "NoFileNameError",
+  "OutOfDiskSpaceError",
   "UnknownError",
   "UserError",
   NULL

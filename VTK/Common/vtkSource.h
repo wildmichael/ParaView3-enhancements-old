@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSource.h,v $
   Language:  C++
-  Date:      $Date: 2003-02-28 17:21:08 $
-  Version:   $Revision: 1.71 $
+  Date:      $Date: 2003-07-29 19:27:43 $
+  Version:   $Revision: 1.72 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -48,7 +48,6 @@
 #include "vtkProcessObject.h"
 
 class vtkDataObject;
-class vtkErrorCode;
 
 class VTK_COMMON_EXPORT vtkSource : public vtkProcessObject
 {
@@ -119,12 +118,6 @@ public:
   // does not match any of the outputs
   int GetOutputIndex(vtkDataObject *out);
   
-  // Description:
-  // The reader should set this code at the end of the update.
-  // The error code contains a possible error that occured while
-  // reading the file.
-  vtkGetMacro( ErrorCode, unsigned long );
-
 protected:
   vtkSource();
   ~vtkSource();
@@ -166,16 +159,9 @@ protected:
   // Time when ExecuteInformation was last called.
   vtkTimeStamp InformationTime;
 
-  // Description:
-  // The reader should set this code at the end of the update.
-  // The error code contains a possible error that occured while
-  // reading the file.
-  vtkSetMacro( ErrorCode, unsigned long );
 private:
   vtkSource(const vtkSource&);  // Not implemented.
   void operator=(const vtkSource&);  // Not implemented.
-
-  unsigned long ErrorCode;
 };
 
 #endif

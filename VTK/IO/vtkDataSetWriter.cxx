@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-31 23:13:18 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2003-07-29 19:27:43 $
+  Version:   $Revision: 1.35 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,6 +17,7 @@
 =========================================================================*/
 #include "vtkDataSet.h"
 #include "vtkDataSetWriter.h"
+#include "vtkErrorCode.h"
 #include "vtkObjectFactory.h"
 #include "vtkPolyDataWriter.h"
 #include "vtkRectilinearGridWriter.h"
@@ -24,7 +25,7 @@
 #include "vtkStructuredPointsWriter.h"
 #include "vtkUnstructuredGridWriter.h"
 
-vtkCxxRevisionMacro(vtkDataSetWriter, "$Revision: 1.34 $");
+vtkCxxRevisionMacro(vtkDataSetWriter, "$Revision: 1.35 $");
 vtkStandardNewMacro(vtkDataSetWriter);
 
 //----------------------------------------------------------------------------
@@ -109,6 +110,10 @@ void vtkDataSetWriter::WriteData()
   writer->SetDebug(this->Debug);
   writer->SetWriteToOutputString(this->WriteToOutputString);
   writer->Write();
+  if (writer->GetErrorCode() == vtkErrorCode::OutOfDiskSpaceError)
+    {
+    this->SetErrorCode(vtkErrorCode::OutOfDiskSpaceError);
+    }
   if (this->WriteToOutputString)
     {
     if (this->OutputString)

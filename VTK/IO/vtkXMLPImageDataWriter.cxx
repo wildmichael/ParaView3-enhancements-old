@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLPImageDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-16 18:23:06 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-07-29 19:27:43 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,9 +18,10 @@
 #include "vtkXMLPImageDataWriter.h"
 #include "vtkObjectFactory.h"
 #include "vtkXMLImageDataWriter.h"
+#include "vtkErrorCode.h"
 #include "vtkImageData.h"
 
-vtkCxxRevisionMacro(vtkXMLPImageDataWriter, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkXMLPImageDataWriter, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkXMLPImageDataWriter);
 
 //----------------------------------------------------------------------------
@@ -72,8 +73,18 @@ const char* vtkXMLPImageDataWriter::GetDefaultFileExtension()
 void vtkXMLPImageDataWriter::WritePrimaryElementAttributes()
 {
   this->Superclass::WritePrimaryElementAttributes();
+  if (this->ErrorCode == vtkErrorCode::OutOfDiskSpaceError)
+    {
+    return;
+    }
+  
   vtkImageData* input = this->GetInput();
   this->WriteVectorAttribute("Origin", 3, input->GetOrigin());
+  if (this->ErrorCode == vtkErrorCode::OutOfDiskSpaceError)
+    {
+    return;
+    }
+  
   this->WriteVectorAttribute("Spacing", 3, input->GetSpacing());
 }
 

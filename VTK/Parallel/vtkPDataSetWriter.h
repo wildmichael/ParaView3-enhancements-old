@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPDataSetWriter.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-12 15:20:30 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2003-07-29 19:27:44 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -83,14 +83,14 @@ protected:
 
 //BTX
   ostream *OpenFile();
-  void WriteUnstructuredMetaData(vtkDataSet *input, 
-                          char *root, char *str, ostream *fptr);
-  void WriteImageMetaData(vtkImageData *input, 
-                          char *root, char *str, ostream *fptr);
-  void WriteRectilinearGridMetaData(vtkRectilinearGrid *input,
-                          char *root, char *str, ostream *fptr);
-  void WriteStructuredGridMetaData(vtkStructuredGrid *input,
-                          char *root, char *str, ostream *fptr);
+  int WriteUnstructuredMetaData(vtkDataSet *input, 
+                                char *root, char *str, ostream *fptr);
+  int WriteImageMetaData(vtkImageData *input, 
+                         char *root, char *str, ostream *fptr);
+  int WriteRectilinearGridMetaData(vtkRectilinearGrid *input,
+                                   char *root, char *str, ostream *fptr);
+  int WriteStructuredGridMetaData(vtkStructuredGrid *input,
+                                  char *root, char *str, ostream *fptr);
 //ETX
 
   int StartPiece;
@@ -102,6 +102,8 @@ protected:
 
   char *FilePattern;
 
+  void DeleteFiles();
+  
 private:
   vtkPDataSetWriter(const vtkPDataSetWriter&); // Not implemented
   void operator=(const vtkPDataSetWriter&); // Not implemented

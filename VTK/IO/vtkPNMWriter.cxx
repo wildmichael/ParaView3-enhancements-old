@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNMWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:18:50 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2003-07-29 19:27:43 $
+  Version:   $Revision: 1.22 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,11 +17,12 @@
 =========================================================================*/
 #include "vtkPNMWriter.h"
 
+#include "vtkErrorCode.h"
 #include "vtkImageData.h"
 #include "vtkObjectFactory.h"
 #include "vtkPointData.h"
 
-vtkCxxRevisionMacro(vtkPNMWriter, "$Revision: 1.21 $");
+vtkCxxRevisionMacro(vtkPNMWriter, "$Revision: 1.22 $");
 vtkStandardNewMacro(vtkPNMWriter);
 
 #ifdef write
@@ -112,9 +113,8 @@ void vtkPNMWriter::WriteFile(ofstream *file, vtkImageData *data,
         ptr = data->GetScalarPointer(idx0, idx1, idx2);
         if ( ! file->write((char *)ptr, rowLength))
           {
-          vtkErrorMacro("WriteFile: write failed");
-          file->close();
-          delete file;
+          this->SetErrorCode(vtkErrorCode::OutOfDiskSpaceError);
+          return;
           }
         }
       }

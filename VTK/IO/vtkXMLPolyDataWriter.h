@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLPolyDataWriter.h,v $
   Language:  C++
-  Date:      $Date: 2003-05-05 20:13:55 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-07-29 19:27:43 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -60,7 +60,7 @@ protected:
   void WriteInlinePieceAttributes();
   void WriteInlinePiece(vtkIndent indent);
   
-  void WriteAppendedMode(vtkIndent indent);
+  int WriteAppendedMode(vtkIndent indent);
   void WriteAppendedPieceAttributes(int index);
   void WriteAppendedPiece(int index, vtkIndent indent);
   void WriteAppendedPieceData(int index);

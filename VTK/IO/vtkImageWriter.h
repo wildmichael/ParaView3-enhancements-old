@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWriter.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-31 23:12:41 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2003-07-29 19:27:43 $
+  Version:   $Revision: 1.33 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -72,6 +72,8 @@ public:
   // The main interface which triggers the writer to start.
   virtual void Write();
 
+  void DeleteFiles();
+
 protected:
   vtkImageWriter();
   ~vtkImageWriter();
@@ -90,11 +92,14 @@ protected:
   virtual void WriteFile(ofstream *file, vtkImageData *data, int extent[6]);
   virtual void WriteFileHeader(ofstream *, vtkImageData *) {};
   virtual void WriteFileTrailer(ofstream *, vtkImageData *) {};
+  
+  int MinimumFileNumber;
+  int MaximumFileNumber;
+  int FilesDeleted;
+  
 private:
   vtkImageWriter(const vtkImageWriter&);  // Not implemented.
   void operator=(const vtkImageWriter&);  // Not implemented.
 };
 
 #endif
-
-

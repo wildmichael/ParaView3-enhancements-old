@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTIFFWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:18:50 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2003-07-29 19:27:43 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,8 +20,9 @@
 #include "vtkObjectFactory.h"
 #include "vtkImageData.h"
 #include "vtkPointData.h"
+#include "vtkErrorCode.h"
 
-vtkCxxRevisionMacro(vtkTIFFWriter, "$Revision: 1.23 $");
+vtkCxxRevisionMacro(vtkTIFFWriter, "$Revision: 1.24 $");
 vtkStandardNewMacro(vtkTIFFWriter);
 
 #if (_MIPS_SZLONG == 64)
@@ -473,9 +474,8 @@ void vtkTIFFWriter::WriteFile(ofstream *file, vtkImageData *data,
       ptr = data->GetScalarPointer(extent[0], idx1, idx2);
       if ( ! file->write((char *)ptr, rowLength))
         {
-        vtkErrorMacro("WriteFile: write failed");
-        file->close();
-        delete file;
+        this->SetErrorCode(vtkErrorCode::OutOfDiskSpaceError);
+        return;
         }
       }
     }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkErrorCode.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:22 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-07-29 19:27:43 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -44,6 +44,7 @@ public:
     PrematureEndOfFileError,
     FileFormatError,
     NoFileNameError,
+    OutOfDiskSpaceError,
     UnknownError,
     UserError = 1000
   };

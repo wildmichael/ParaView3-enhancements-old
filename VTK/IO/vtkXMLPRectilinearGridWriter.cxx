@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLPRectilinearGridWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-22 20:51:52 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-07-29 19:27:43 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,9 +18,10 @@
 #include "vtkXMLPRectilinearGridWriter.h"
 #include "vtkObjectFactory.h"
 #include "vtkXMLRectilinearGridWriter.h"
+#include "vtkErrorCode.h"
 #include "vtkRectilinearGrid.h"
 
-vtkCxxRevisionMacro(vtkXMLPRectilinearGridWriter, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkXMLPRectilinearGridWriter, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkXMLPRectilinearGridWriter);
 
 //----------------------------------------------------------------------------
@@ -82,6 +83,11 @@ vtkXMLPRectilinearGridWriter::CreateStructuredPieceWriter()
 void vtkXMLPRectilinearGridWriter::WritePData(vtkIndent indent)
 {
   this->Superclass::WritePData(indent);
+  if (this->ErrorCode == vtkErrorCode::OutOfDiskSpaceError)
+    {
+    return;
+    }
+  
   vtkRectilinearGrid* input = this->GetInput();
   this->WritePCoordinates(input->GetXCoordinates(), input->GetYCoordinates(),
                           input->GetZCoordinates(), indent);

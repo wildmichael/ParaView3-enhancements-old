@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLPStructuredDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-16 18:23:06 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-07-29 19:27:43 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,9 +18,10 @@
 #include "vtkXMLPStructuredDataWriter.h"
 #include "vtkXMLStructuredDataWriter.h"
 #include "vtkExtentTranslator.h"
+#include "vtkErrorCode.h"
 #include "vtkDataSet.h"
 
-vtkCxxRevisionMacro(vtkXMLPStructuredDataWriter, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkXMLPStructuredDataWriter, "$Revision: 1.2 $");
 vtkCxxSetObjectMacro(vtkXMLPStructuredDataWriter, ExtentTranslator,
                      vtkExtentTranslator);
 
@@ -68,6 +69,10 @@ void vtkXMLPStructuredDataWriter::WritePPieceAttributes(int index)
   this->ExtentTranslator->GetExtent(extent);
   
   this->WriteVectorAttribute("Extent", 6, extent);
+  if (this->ErrorCode == vtkErrorCode::OutOfDiskSpaceError)
+    {
+    return;
+    }
   this->Superclass::WritePPieceAttributes(index);
 }
 

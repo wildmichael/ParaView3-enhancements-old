@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLPUnstructuredDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-16 18:23:07 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-07-29 19:27:43 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,9 +17,10 @@
 =========================================================================*/
 #include "vtkXMLPUnstructuredDataWriter.h"
 #include "vtkXMLUnstructuredDataWriter.h"
+#include "vtkErrorCode.h"
 #include "vtkPointSet.h"
 
-vtkCxxRevisionMacro(vtkXMLPUnstructuredDataWriter, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkXMLPUnstructuredDataWriter, "$Revision: 1.2 $");
 
 //----------------------------------------------------------------------------
 vtkXMLPUnstructuredDataWriter::vtkXMLPUnstructuredDataWriter()
@@ -63,6 +64,10 @@ vtkXMLWriter* vtkXMLPUnstructuredDataWriter::CreatePieceWriter(int index)
 void vtkXMLPUnstructuredDataWriter::WritePData(vtkIndent indent)
 {
   this->Superclass::WritePData(indent);
+  if (this->ErrorCode == vtkErrorCode::OutOfDiskSpaceError)
+    {
+    return;
+    }
   vtkPointSet* input = this->GetInputAsPointSet();  
   this->WritePPoints(input->GetPoints(), indent);
 }
