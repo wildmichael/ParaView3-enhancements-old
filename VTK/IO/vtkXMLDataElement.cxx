@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkXMLDataElement.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-16 18:23:06 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-10-17 13:09:10 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -45,7 +45,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include <ctype.h>
 
-vtkCxxRevisionMacro(vtkXMLDataElement, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkXMLDataElement, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkXMLDataElement);
 
 //----------------------------------------------------------------------------
@@ -65,6 +65,7 @@ vtkXMLDataElement::vtkXMLDataElement()
   this->NestedElements = new vtkXMLDataElement*[this->NestedElementsSize];
   
   this->InlineDataPosition = 0;
+  this->XMLByteIndex = 0;
 }
 
 //----------------------------------------------------------------------------
