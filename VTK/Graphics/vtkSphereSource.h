@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkSphereSource.h,v $
   Language:  C++
-  Date:      $Date: 1994-02-22 19:05:14 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-02-23 21:16:31 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -41,10 +41,10 @@ public:
   vlGetMacro(PhiResolution,int);
 
   vlSetClampMacro(Theta,float,0.0,360.0);
-  vlGetMacro(Theta,int);
+  vlGetMacro(Theta,float);
 
   vlSetClampMacro(Phi,float,0.0,180.0);
-  vlGetMacro(Phi,int);
+  vlGetMacro(Phi,float);
 
 protected:
   void Execute();
