@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-16 16:36:14 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2001-12-06 22:46:27 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1283,6 +1283,9 @@ void vtkInteractorStyle::DollyCamera(int vtkNotUsed(x), int y)
 void vtkInteractorStyle::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkObject::PrintSelf(os,indent);
+
+  os << indent << "Auto Adjust Camera Clipping Range " 
+     << (this->AutoAdjustCameraClippingRange  ? "On\n" : "Off\n");
 
   os << indent << "Pick Color: (" << this->PickColor[0] << ", "
      << this->PickColor[1] << ", "
