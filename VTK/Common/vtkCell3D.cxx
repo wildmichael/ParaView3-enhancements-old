@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-23 17:24:02 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2003-09-19 11:28:24 $
+  Version:   $Revision: 1.39 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,12 +21,13 @@
 #include "vtkPointLocator.h"
 #include "vtkMarchingCubesCases.h"
 #include "vtkPointData.h"
+#include "vtkCellData.h"
 #include "vtkTetra.h"
 #include "vtkPoints.h"
 #include "vtkCellArray.h"
 #include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkCell3D, "$Revision: 1.38 $");
+vtkCxxRevisionMacro(vtkCell3D, "$Revision: 1.39 $");
 
 vtkCell3D::vtkCell3D()
 {
@@ -128,7 +129,13 @@ void vtkCell3D::Clip(float value, vtkDataArray *cellScalars,
     // If the cell is interior we are done.
     if ( allInside )
       {
+      vtkIdType numTetras = tets->GetNumberOfCells();
       this->Triangulator->AddTetras(0,tets);
+      vtkIdType numAddedTetras = tets->GetNumberOfCells() - numTetras;
+      for (j=0; j<numAddedTetras; j++)
+        {
+        outCD->CopyData(inCD, cellId, numTetras+j);
+        }
       }
     // Otherwise we have produced tetrahedra and now clip these using
     // the faster vtkTetra::Clip() method.
