@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCast.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:45 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2001-12-10 23:13:42 $
+  Version:   $Revision: 1.39 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -102,7 +102,7 @@ static void vtkImageCastExecute(vtkImageCast *self,
                                 vtkImageData *outData, OT *outPtr,
                                 int outExt[6], int id)
 {
-  float typeMin, typeMax, val;
+  double typeMin, typeMax, val;
   int clamp;
   int idxR, idxY, idxZ;
   int maxY, maxZ;

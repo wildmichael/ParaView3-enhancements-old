@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageRGBToHSV.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:32:58 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-12-10 23:13:43 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -123,7 +123,11 @@ static void vtkImageRGBToHSVExecute(vtkImageRGBToHSV *self,
         V = temp / 3.0;
         
         // Hue
-        temp = acos((0.5 * ((R-G) + (R-B))) / sqrt((R-G)*(R-G) + (R-B)*(G-B)));
+        temp = sqrt((R-G)*(R-G) + (R-B)*(G-B));
+        if(temp != 0.0)
+          {
+          temp = acos((0.5 * ((R-G) + (R-B))) / temp);
+          }
         if (G >= B)
           {
           H = max * (temp / 6.2831853);
@@ -143,7 +147,15 @@ static void vtkImageRGBToHSVExecute(vtkImageRGBToHSV *self,
           {
           temp = B;
           }
-        S = max * (1.0 - (3.0 * temp / (R+G+B)));
+        float sumRGB = R+G+B;
+        if(sumRGB == 0.0)
+          {
+          S = 0.0;
+          }
+        else
+          {
+          S = max * (1.0 - (3.0 * temp / sumRGB));
+          }
         
         // assign output.
         *outPtr = (T)(H); outPtr++;
