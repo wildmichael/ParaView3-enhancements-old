@@ -2,11 +2,8 @@
 
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArrayTemplate.h,v $
-  Language:  C++
-  Date:      $Date: 2003-11-20 19:54:47 $
-  Version:   $Revision: 1.3 $
 
-  Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
+  Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
   See Copyright.txt or http://www.kitware.com/Copyright.htm for details.
 
@@ -174,7 +171,7 @@ private:
 # define VTK_DATA_ARRAY_TEMPLATE_INSTANTIATE(T) \
    template class VTK_COMMON_EXPORT vtkDataArrayTemplate< T >
 #else
-# include "vtkDataArrayTemplate.txx"
+# include "vtkDataArrayTemplateImplicit.txx"
 # define VTK_DATA_ARRAY_TEMPLATE_INSTANTIATE(T)
 #endif
 
