@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleTrackball.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-27 17:26:59 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-08-27 19:49:19 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1387,6 +1387,7 @@ void vtkInteractorStyleTrackball::OnRightButtonDown(int ctrl, int shift,
   this->OldY = Y;
   //
   this->UpdateInternalState(ctrl, shift, X, Y);
+  this->FindPokedCamera(X, Y);
   this->Preprocess = 1;
   if (this->RightButtonPressMethod) 
     {
