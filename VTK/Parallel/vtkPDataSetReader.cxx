@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPDataSetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-26 15:04:35 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-11-28 14:56:27 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -829,7 +829,7 @@ ifstream *vtkPDataSetReader::OpenFile()
     {
     if (file)
       {
-      delete [] file;
+      delete file;
       }
     vtkErrorMacro(<< "Initialize: Could not open file " << this->FileName);
     return NULL;
