@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-19 20:35:43 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1998-06-22 14:17:23 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -502,7 +502,7 @@ static float InsertionLevel;
 // data. Bounds are the box that the points lie in.
 int vtkPointLocator::InitPointInsertion(vtkPoints *newPts, float bounds[6])
 {
-  this->InitPointInsertion(newPts,bounds,0);
+  return this->InitPointInsertion(newPts,bounds,0);
 }
 
 // Description:
@@ -537,7 +537,7 @@ int vtkPointLocator::InitPointInsertion(vtkPoints *newPts, float bounds[6],
       this->Bounds[2*i+1] = this->Bounds[2*i] + 1.0;
     }
 
-  if ( this->Automatic ) 
+  if ( this->Automatic && (estNumPts > 0) )
     {
     level = (float) estNumPts / this->NumberOfPointsPerBucket;
     level = ceil( pow((double)level,(double)0.33333333) );
