@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-25 18:42:28 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2001-09-25 21:04:21 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -722,9 +722,11 @@ void vtkDataArray::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkObject::PrintSelf(os,indent);
 
-  if ( this->GetName() )
+  os << indent << "Name: " ;
+  const char* name = this->GetName();
+  if (name)
     {
-    os << indent << "Name: " << this->GetName() << "\n";
+    os << indent << "Name: " << name << "\n";
     }
   else
     {
