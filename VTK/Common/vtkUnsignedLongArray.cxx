@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedLongArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-06 19:47:01 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-06-29 15:48:12 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -153,7 +153,7 @@ void vtkUnsignedLongArray::DeepCopy(vtkDataArray& sa)
 
 void vtkUnsignedLongArray::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkObject::PrintSelf(os,indent);
+  vtkReferenceCount::PrintSelf(os,indent);
 
   os << indent << "Array: " << this->Array << "\n";
 }
