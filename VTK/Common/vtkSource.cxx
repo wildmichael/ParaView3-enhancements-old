@@ -5,16 +5,16 @@
  Module:    $RCSfile: vtkSource.cxx,v $
  Language:  C++
 
- Date:      $Date: 1994-02-04 12:44:59 $
- Version:   $Revision: 1.4 $
+ Date:      $Date: 1994-02-04 14:07:32 $
+ Version:   $Revision: 1.5 $
 
- This file is part of the Visualization
- Library. No part of this file or its
- contents may be copied, reproduced or
- altered in any way without the express
+ This file is part of the Visualization Library. No part of this file or its
+ contents may be copied, reproduced or altered in any way without the express
  written consent of the authors.
- Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
- =========================================================================*/
+ 
+Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
+
+=========================================================================*/
 
 #include "Source.hh"
 
