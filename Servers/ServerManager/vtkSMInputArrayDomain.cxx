@@ -25,13 +25,13 @@
 #include "vtkSMSourceProxy.h"
 
 vtkStandardNewMacro(vtkSMInputArrayDomain);
-vtkCxxRevisionMacro(vtkSMInputArrayDomain, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkSMInputArrayDomain, "$Revision: 1.6 $");
 
 //---------------------------------------------------------------------------
 static const char* const vtkSMInputArrayDomainAttributeTypes[] = {
-  "POINT",
-  "CELL",
-  "ANY"
+  "point",
+  "cell",
+  "any"
 };
 
 //---------------------------------------------------------------------------
