@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume16Reader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-19 18:36:11 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2002-06-25 13:13:07 $
+  Version:   $Revision: 1.47 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkTransform.h"
 #include "vtkUnsignedShortArray.h"
 
-vtkCxxRevisionMacro(vtkVolume16Reader, "$Revision: 1.46 $");
+vtkCxxRevisionMacro(vtkVolume16Reader, "$Revision: 1.47 $");
 vtkStandardNewMacro(vtkVolume16Reader);
 
 vtkCxxSetObjectMacro(vtkVolume16Reader,Transform,vtkTransform);
@@ -251,7 +251,6 @@ void vtkVolume16Reader::ReadImage(int sliceNumber,
   unsigned short *pixels;
   FILE *fp;
   int numPts;
-  int status;
   char filename[1024];
 
   // build the file name. if there is no prefix, just use the slice number
@@ -275,9 +274,9 @@ void vtkVolume16Reader::ReadImage(int sliceNumber,
   pixels = scalars->WritePointer(0, numPts);
 
   // read the image data
-  status = this->Read16BitImage (fp, pixels, this->DataDimensions[0], 
-                                 this->DataDimensions[1], this->HeaderSize, 
-                                 this->SwapBytes);
+  this->Read16BitImage (fp, pixels, this->DataDimensions[0], 
+                        this->DataDimensions[1], this->HeaderSize, 
+                        this->SwapBytes);
 
   // close the file
   fclose (fp);
