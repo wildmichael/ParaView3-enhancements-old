@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:16 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 2002-05-08 19:07:16 $
+  Version:   $Revision: 1.61 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkPolyData.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkDelaunay3D, "$Revision: 1.60 $");
+vtkCxxRevisionMacro(vtkDelaunay3D, "$Revision: 1.61 $");
 vtkStandardNewMacro(vtkDelaunay3D);
 
 //----------------------------------------------------------------------------
@@ -219,7 +219,7 @@ vtkIdType vtkDelaunay3D::FindEnclosingFaces(float x[3],
   vtkCellLinks *links = Mesh->GetCellLinks();
   int numCells = links->GetNcells(closestPoint);
   vtkIdType *cells = links->GetCells(closestPoint);
-  if ( numCells < 0 ) //shouldn't happen
+  if ( numCells <= 0 ) //shouldn't happen
     {
     this->NumberOfDegeneracies++;
     return 0;

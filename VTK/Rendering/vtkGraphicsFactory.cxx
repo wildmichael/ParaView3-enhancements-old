@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGraphicsFactory.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:32 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2002-05-08 19:07:16 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -54,7 +54,7 @@
 #include "vtkXOpenGLRenderWindow.h"
 #endif
 
-vtkCxxRevisionMacro(vtkGraphicsFactory, "$Revision: 1.25 $");
+vtkCxxRevisionMacro(vtkGraphicsFactory, "$Revision: 1.26 $");
 
 const char *vtkGraphicsFactory::GetRenderLibrary()
 {
@@ -200,8 +200,6 @@ vtkObject* vtkGraphicsFactory::CreateInstance(const char* vtkclassname )
     }
 #endif
         
- vtkGenericWarningMacro("Attempting to create an OpenGL  based object with a VTK that is not linked/configured with OpenGL.");
-  abort();
   return 0;
 }
 
