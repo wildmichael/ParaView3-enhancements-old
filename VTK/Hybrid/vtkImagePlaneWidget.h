@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePlaneWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-14 20:36:55 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2002-12-06 19:01:52 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -223,6 +223,14 @@ public:
   vtkBooleanMacro(RestrictPlaneToVolume,int);
 
   // Description:
+  // Let the user control the lookup table. NOTE: apply this method BEFORE
+  // applying the SetLookupTable method.
+  // Default is Off.
+  vtkSetMacro(UserControlledLookupTable,int);
+  vtkGetMacro(UserControlledLookupTable,int);
+  vtkBooleanMacro(UserControlledLookupTable,int);
+
+  // Description:
   // Specify whether to interpolate the texture or not. When off, the
   // reslice interpolation is nearest neighbour regardless of how the
   // interpolation is set through the API. Set before setting the
@@ -385,6 +393,7 @@ protected:
   int   TextureInterpolate;
   int   UserPickerEnabled;
   int   UserLookupTableEnabled;
+  int   UserControlledLookupTable;
   int   DisplayText;
 
   // The geometric represenation of the plane and it's outline
