@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-23 20:26:32 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 1998-07-10 18:19:04 $
+  Version:   $Revision: 1.41 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -65,6 +65,7 @@ vtkImageReader::vtkImageReader()
     this->DataSpacing[idx] = 1.0;
     this->DataOrigin[idx] = 0.0;
     }
+  this->DataIncrements[3] = 1;
   
   this->FileName = NULL;
   this->InternalFileName = NULL;
@@ -445,6 +446,7 @@ void vtkImageReader::ComputeDataIncrements()
     fileDataLength = fileDataLength *
       (this->DataExtent[idx*2+1] - this->DataExtent[idx*2] + 1);
     }
+  this->DataIncrements[3] = fileDataLength;
 }
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.h,v $
   Language:  C++
-  Date:      $Date: 1998-04-21 19:02:17 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1998-07-10 18:19:03 $
+  Version:   $Revision: 1.27 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -179,7 +179,7 @@ public:
   // Warning !!!
   // following should only be used by methods or template helpers, not users
   ifstream *File;
-  int DataIncrements[3];
+  int DataIncrements[4];
   int DataExtent[6];
   unsigned short DataMask;  // Mask each pixel with ...
   int SwapBytes;
