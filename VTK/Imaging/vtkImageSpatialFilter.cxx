@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSpatialFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-30 12:58:12 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1996-09-06 18:58:40 $
+  Version:   $Revision: 1.5 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -127,7 +127,7 @@ void vtkImageSpatialFilter::ComputeRequiredInputRegionBounds(
   outRegion->GetBounds4d(bounds);
   inRegion->GetImageBounds4d(imageBounds);
 
-  for (idx = 0; idx < 8; ++idx)
+  for (idx = 0; idx < 4; ++idx)
     {
     // Expand to get inRegion Bounds
     bounds[idx*2] -= this->KernelMiddle[idx];
