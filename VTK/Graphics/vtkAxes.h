@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAxes.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:43:05 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1998-07-02 15:45:24 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,11 +69,19 @@ public:
   vtkSetMacro(ScaleFactor,float);
   vtkGetMacro(ScaleFactor,float);
 
+  // Description:
+  // If Symetric is on, the the axis continue to negative values.
+  vtkSetMacro(Symmetric,int);
+  vtkGetMacro(Symmetric,int);
+  vtkBooleanMacro(Symmetric,int);
+
 protected:
   void Execute();
 
   float Origin[3];
   float ScaleFactor;
+  
+  int Symmetric;
 };
 
 #endif
