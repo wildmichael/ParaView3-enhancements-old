@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAnisotropicDiffusion2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-09-03 18:51:25 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1996-09-06 19:00:15 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -104,21 +104,24 @@ void vtkImage2dAnisotropicDiffusionFilter::Execute2d(vtkImageRegion *inRegion,
   vtkImageRegion *in;
   vtkImageRegion *out;
   vtkImageRegion *temp;
+  int bounds[6]; 
 
   inRegion->GetAspectRatio2d(ar0, ar1);
-  
+  inRegion->GetBounds3d (bounds);
+  bounds[4] = bounds[5] = inRegion->GetDefaultCoordinate2 ();
+
   // make the temporary regions to iterate over.
   in = new vtkImageRegion;
   out = new vtkImageRegion;
   
   // might as well make these floats
-  in->SetBounds(inRegion->GetBounds());
+  in->SetBounds3d(bounds);
   in->SetDataType(VTK_IMAGE_FLOAT);
   in->CopyRegionData(inRegion);
-  out->SetBounds(inRegion->GetBounds());
+  out->SetBounds3d(bounds);
   out->SetDataType(VTK_IMAGE_FLOAT);
   out->Allocate();
-  
+
   // Loop performing the diffusion
   // Note: region bounds could get smaller as the diffusion progresses
   // (but never get smaller than output region).
@@ -132,6 +135,8 @@ void vtkImage2dAnisotropicDiffusionFilter::Execute2d(vtkImageRegion *inRegion,
   
   // copy results into output.
   outRegion->CopyRegionData(in);
+  in->Delete ();
+  out->Delete ();
 }
 
 
