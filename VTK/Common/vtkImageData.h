@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-17 19:44:13 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 1999-09-17 19:55:06 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,7 +55,6 @@ class vtkLine;
 class vtkPixel;
 class vtkVoxel;
 class vtkImageToStructuredPoints;
-class vtkExtent;
 class vtkStructuredExtent;
 class vtkImageInformation;
 
@@ -222,7 +221,8 @@ public:
   // In order to pass a generic update extent through a port we are going 
   // to need these methods (which should eventually replace the 
   // CopyUpdateExtent method).
-  vtkExtent *GetGenericUpdateExtent() {return (vtkExtent*)this->UpdateExtent;}
+  vtkStructuredExtent *GetStructuredUpdateExtent() 
+    {return (vtkStructuredExtent*)this->UpdateExtent;}
   
   // Description:
   // Required for the lowest common denominator for setting the UpdateExtent
@@ -348,9 +348,6 @@ protected:
   vtkPixel *Pixel;
   vtkVoxel *Voxel;
   
-  // What will be generated on the next call to Update.
-  vtkStructuredExtent *UpdateExtent;
-
   // The extent of what is currently in the structured grid.
   int Extent[6];
   int Dimensions[3];

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-17 19:42:56 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1999-09-17 19:55:05 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -213,8 +213,7 @@ public:
   // In order to pass a generic update extent through a port we are going 
   // to need these methods (which should eventually replace the 
   // CopyUpdateExtent method).
-  virtual vtkExtent *GetGenericUpdateExtent()
-    {vtkErrorMacro("Subclass did not implent GetGenericUpdateExtent"); return NULL;}
+  virtual vtkExtent *GetGenericUpdateExtent() { return this->UpdateExtent; }
   virtual void CopyGenericUpdateExtent(vtkExtent *vtkNotUsed(ext))
     {vtkErrorMacro("Subclass did not implent CopyGenericUpdateExtent");}  
   
@@ -269,7 +268,11 @@ protected:
   int DataReleased; //keep track of data release during network execution
   int ReleaseDataFlag; //data will release after use by a filter
   vtkTimeStamp UpdateTime;
-  vtkTimeStamp PreUpdateTime;
+
+  // Between PreUpdate and InternalUpdate we are "WaitingForUpdate".
+  // This enforces the one to one corespondence between PreUpdate
+  // and InternalUpdate.
+  int WaitingForUpdate;
   
   // The input of a filter holds the memory limit that triggers streamining.
   // Not all filters will respect this limit.
@@ -277,6 +280,9 @@ protected:
 
   // All the information is containted in this object now.
   vtkDataInformation *Information;
+  
+  // The UpdateExtent is stored here.
+  vtkExtent *UpdateExtent;
 };
 
 #endif
