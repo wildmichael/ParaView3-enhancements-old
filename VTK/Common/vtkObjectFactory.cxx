@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObjectFactory.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-27 21:05:10 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2003-10-09 13:12:00 $
+  Version:   $Revision: 1.41 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 
 #include <ctype.h>
 
-vtkCxxRevisionMacro(vtkObjectFactory, "$Revision: 1.40 $");
+vtkCxxRevisionMacro(vtkObjectFactory, "$Revision: 1.41 $");
 
 vtkObjectFactoryCollection* vtkObjectFactory::RegisteredFactories = 0;
 
@@ -120,11 +120,10 @@ void vtkObjectFactory::LoadDynamicFactories()
 #ifndef _WIN32_WCE
   LoadPath = getenv("VTK_AUTOLOAD_PATH");
 #endif
-  if(LoadPath == 0)
+  if(LoadPath == 0 || strlen(LoadPath) == 0)
     {
     return;
     }
-  
   char* CurrentPath = new char[strlen(LoadPath)+1];
   char* SeparatorPosition = LoadPath; // initialize to env variable
   while(SeparatorPosition)
