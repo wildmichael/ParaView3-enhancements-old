@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-02 13:17:54 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-04-05 01:14:51 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -127,6 +127,13 @@ void vtkTextMapper::PrintSelf(ostream& os, vtkIndent indent)
     case 0: os << "Left  (0)" << endl; break;
     case 1: os << "Centered  (1)" << endl; break;
     case 2: os << "Right  (2)" << endl; break;
+    }
+  os << indent << "VerticalJustification: ";
+  switch (this->VerticalJustification)
+    {
+    case VTK_TEXT_TOP: os << "Top" << endl; break;
+    case VTK_TEXT_CENTERED: os << "Centered" << endl; break;
+    case VTK_TEXT_BOTTOM: os << "Bottom" << endl; break;
     }
   
   vtkMapper2D::PrintSelf(os,indent);
