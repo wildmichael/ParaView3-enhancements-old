@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdListCollection.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-12 11:48:09 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,8 @@
 #define __vtkIdListCollection_h
 
 #include "vtkCollection.h"
-#include "vtkIdList.h"
+
+#include "vtkIdList.h" // Needed for inline methods
 
 class VTK_COMMON_EXPORT vtkIdListCollection : public vtkCollection
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLinks.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-28 22:55:56 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.27 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,12 +16,14 @@
 
 =========================================================================*/
 #include "vtkCellLinks.h"
-#include "vtkDataSet.h"
-#include "vtkCellArray.h"
-#include "vtkPolyData.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkCellLinks, "$Revision: 1.26 $");
+#include "vtkCellArray.h"
+#include "vtkDataSet.h"
+#include "vtkGenericCell.h"
+#include "vtkObjectFactory.h"
+#include "vtkPolyData.h"
+
+vtkCxxRevisionMacro(vtkCellLinks, "$Revision: 1.27 $");
 vtkStandardNewMacro(vtkCellLinks);
 
 void vtkCellLinks::Allocate(vtkIdType sz, vtkIdType ext)

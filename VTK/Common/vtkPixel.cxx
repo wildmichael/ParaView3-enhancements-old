@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPixel.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 18:55:41 $
-  Version:   $Revision: 1.75 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.76 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,8 +27,9 @@
 #include "vtkPointLocator.h"
 #include "vtkPointData.h"
 #include "vtkCellData.h"
+#include "vtkPoints.h"
 
-vtkCxxRevisionMacro(vtkPixel, "$Revision: 1.75 $");
+vtkCxxRevisionMacro(vtkPixel, "$Revision: 1.76 $");
 vtkStandardNewMacro(vtkPixel);
 
 // Construct the pixel with four points.

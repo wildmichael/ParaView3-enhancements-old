@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleStrip.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 18:55:41 $
-  Version:   $Revision: 1.70 $
+  Date:      $Date: 2002-12-26 18:24:22 $
+  Version:   $Revision: 1.71 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,12 +16,15 @@
 
 =========================================================================*/
 #include "vtkTriangleStrip.h"
+
 #include "vtkCellArray.h"
+#include "vtkFloatArray.h"
 #include "vtkLine.h"
 #include "vtkObjectFactory.h"
-#include "vtkFloatArray.h"
+#include "vtkTriangle.h"
+#include "vtkPoints.h"
 
-vtkCxxRevisionMacro(vtkTriangleStrip, "$Revision: 1.70 $");
+vtkCxxRevisionMacro(vtkTriangleStrip, "$Revision: 1.71 $");
 vtkStandardNewMacro(vtkTriangleStrip);
 
 vtkTriangleStrip::vtkTriangleStrip()

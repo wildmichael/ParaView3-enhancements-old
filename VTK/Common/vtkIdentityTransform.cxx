@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdentityTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:27 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,10 +16,13 @@
 
 =========================================================================*/
 #include "vtkIdentityTransform.h"
-#include "vtkObjectFactory.h"
-#include "vtkMath.h"
 
-vtkCxxRevisionMacro(vtkIdentityTransform, "$Revision: 1.16 $");
+#include "vtkDataArray.h"
+#include "vtkMath.h"
+#include "vtkObjectFactory.h"
+#include "vtkPoints.h"
+
+vtkCxxRevisionMacro(vtkIdentityTransform, "$Revision: 1.17 $");
 vtkStandardNewMacro(vtkIdentityTransform);
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInstantiator.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-24 22:15:41 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -60,7 +60,7 @@
 
 // The vtkDebugLeaks singleton must be initialized before and
 // destroyed after the vtkInstantiator singleton.
-#include "vtkDebugLeaksManager.h"
+#include "vtkDebugLeaksManager.h" // Needed for proper singleton initialization
 
 class vtkInstantiatorInitialize;
 class vtkInstantiatorHashTable;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolygon.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 18:55:41 $
-  Version:   $Revision: 1.73 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.74 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,10 +26,12 @@
 #define __vtkPolygon_h
 
 #include "vtkCell.h"
-#include "vtkPoints.h"
-#include "vtkLine.h"
-#include "vtkTriangle.h"
-#include "vtkQuad.h"
+
+class vtkFloatArray;
+class vtkLine;
+class vtkPoints;
+class vtkQuad;
+class vtkTriangle;
 
 class VTK_COMMON_EXPORT vtkPolygon : public vtkCell
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSet.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-18 19:03:26 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.60 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,6 +30,8 @@
 #define __vtkPointSet_h
 
 #include "vtkDataSet.h"
+
+#include "vtkPoints.h" // Needed for inline methods
 
 class vtkPointLocator;
 

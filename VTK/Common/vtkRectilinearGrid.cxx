@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 18:32:04 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2002-12-26 18:24:22 $
+  Version:   $Revision: 1.58 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,15 +16,21 @@
 
 =========================================================================*/
 #include "vtkRectilinearGrid.h"
-#include "vtkVertex.h"
-#include "vtkLine.h"
-#include "vtkPixel.h"
-#include "vtkVoxel.h"
-#include "vtkObjectFactory.h"
-#include "vtkFloatArray.h"
-#include "vtkExtentTranslator.h"
 
-vtkCxxRevisionMacro(vtkRectilinearGrid, "$Revision: 1.57 $");
+#include "vtkCellData.h"
+#include "vtkExtentTranslator.h"
+#include "vtkFloatArray.h"
+#include "vtkGenericCell.h"
+#include "vtkLine.h"
+#include "vtkObjectFactory.h"
+#include "vtkPixel.h"
+#include "vtkPointData.h"
+#include "vtkPoints.h"
+#include "vtkUnsignedCharArray.h"
+#include "vtkVertex.h"
+#include "vtkVoxel.h"
+
+vtkCxxRevisionMacro(vtkRectilinearGrid, "$Revision: 1.58 $");
 vtkStandardNewMacro(vtkRectilinearGrid);
 
 vtkCxxSetObjectMacro(vtkRectilinearGrid,XCoordinates,vtkDataArray);

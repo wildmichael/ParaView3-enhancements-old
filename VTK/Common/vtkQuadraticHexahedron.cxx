@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadraticHexahedron.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 18:55:41 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-12-26 18:24:22 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,16 +16,19 @@
 
 =========================================================================*/
 #include "vtkQuadraticHexahedron.h"
-#include "vtkPolyData.h"
-#include "vtkPointLocator.h"
+
+#include "vtkCellData.h"
+#include "vtkFloatArray.h"
+#include "vtkHexahedron.h"
 #include "vtkMath.h"
+#include "vtkObjectFactory.h"
+#include "vtkPointData.h"
+#include "vtkPointLocator.h"
+#include "vtkPolyData.h"
 #include "vtkQuadraticEdge.h"
 #include "vtkQuadraticQuad.h"
-#include "vtkHexahedron.h"
-#include "vtkFloatArray.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkQuadraticHexahedron, "$Revision: 1.13 $");
+vtkCxxRevisionMacro(vtkQuadraticHexahedron, "$Revision: 1.14 $");
 vtkStandardNewMacro(vtkQuadraticHexahedron);
 
 // Construct the hex with 20 points + 7 extra points for internal

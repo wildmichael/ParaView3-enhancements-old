@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarsToColors.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-04 16:53:59 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-12-26 18:24:22 $
+  Version:   $Revision: 1.27 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,9 +32,9 @@
 #define __vtkScalarsToColors_h
 
 #include "vtkObject.h"
-#include "vtkUnsignedCharArray.h"
 
 class vtkDataArray;
+class vtkUnsignedCharArray;
 
 class VTK_COMMON_EXPORT vtkScalarsToColors : public vtkObject
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: otherStructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-05 17:47:09 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-12-26 18:24:22 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,13 +20,16 @@
 // .SECTION Description
 // this program tests vtkStructuredGrid
 
-#include "vtkStructuredGrid.h"
-#include "vtkFloatArray.h"
-#include "vtkDoubleArray.h"
-#include "vtkLongArray.h"
-#include "vtkShortArray.h"
-
+#include "vtkCell.h"
 #include "vtkDebugLeaks.h"
+#include "vtkDoubleArray.h"
+#include "vtkFloatArray.h"
+#include "vtkGenericCell.h"
+#include "vtkIdList.h"
+#include "vtkLongArray.h"
+#include "vtkPointData.h"
+#include "vtkShortArray.h"
+#include "vtkStructuredGrid.h"
 
 int TestOSG(ostream& strm)
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCollectionIterator.h,v $
   Language:  C++
-  Date:      $Date: 2002-07-11 21:16:23 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -78,8 +78,8 @@ protected:
   vtkCollectionElement* Element;
   
 private:
-  vtkCollectionIterator(const vtkCollectionIterator&);
-  void operator=(const vtkCollectionIterator&);
+  vtkCollectionIterator(const vtkCollectionIterator&); // Not implemented
+  void operator=(const vtkCollectionIterator&); // Not implemented
 };
 
 #endif

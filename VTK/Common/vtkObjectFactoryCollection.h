@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObjectFactoryCollection.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:49 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,8 +27,8 @@
 #define __vtkObjectFactoryCollection_h
 
 #include "vtkCollection.h"
-#include "vtkObjectFactory.h"
-#include "vtkDebugLeaks.h"
+
+#include "vtkObjectFactory.h" // Needed for inline methods
 
 class VTK_COMMON_EXPORT vtkObjectFactoryCollection : public vtkCollection
 {
@@ -43,7 +43,8 @@ public:
   // Description:
   // Get the next ObjectFactory in the list. Return NULL when the end of the
   // list is reached.
-  vtkObjectFactory *GetNextItem() { return static_cast<vtkObjectFactory *>(this->GetNextItemAsObject());}
+  vtkObjectFactory *GetNextItem() 
+    { return static_cast<vtkObjectFactory *>(this->GetNextItemAsObject());}
 
 protected:
   vtkObjectFactoryCollection() {};

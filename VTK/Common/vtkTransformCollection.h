@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformCollection.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:26:30 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2002-12-26 18:24:22 $
+  Version:   $Revision: 1.32 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,8 @@
 #define __vtkTransformCollection_h
 
 #include "vtkCollection.h"
-#include "vtkTransform.h"
+
+#include "vtkTransform.h" // Needed for inline methods
 
 class VTK_COMMON_EXPORT vtkTransformCollection : public vtkCollection
 {

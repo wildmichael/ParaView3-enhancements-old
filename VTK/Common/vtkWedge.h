@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWedge.h,v $
   Language:  C++
-  Date:      $Date: 2002-12-11 22:47:41 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-12-26 18:24:22 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,9 +29,10 @@
 #define __vtkWedge_h
 
 #include "vtkCell3D.h"
-#include "vtkLine.h"
-#include "vtkTriangle.h"
-#include "vtkQuad.h"
+
+class vtkLine;
+class vtkTriangle;
+class vtkQuad;
 
 class vtkUnstructuredGrid;
 

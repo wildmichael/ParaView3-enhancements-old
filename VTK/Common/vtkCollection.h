@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCollection.h,v $
   Language:  C++
-  Date:      $Date: 2002-07-11 21:16:23 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.46 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -124,8 +124,8 @@ protected:
   //ETX
   
 private:
-  vtkCollection(const vtkCollection&);
-  void operator=(const vtkCollection&);
+  vtkCollection(const vtkCollection&); // Not implemented
+  void operator=(const vtkCollection&); // Not implemented
 };
 
 

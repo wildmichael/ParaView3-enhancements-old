@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarsToColors.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-04 16:53:59 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-12-26 18:24:22 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,9 +17,11 @@
 =========================================================================*/
 #include "vtkScalarsToColors.h"
 
+#include "vtkUnsignedCharArray.h"
+
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkScalarsToColors, "$Revision: 1.19 $");
+vtkCxxRevisionMacro(vtkScalarsToColors, "$Revision: 1.20 $");
 
 vtkScalarsToColors::vtkScalarsToColors()
 {

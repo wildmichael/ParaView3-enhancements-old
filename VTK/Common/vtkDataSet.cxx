@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:17 $
-  Version:   $Revision: 1.89 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.90 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,11 +16,18 @@
 
 =========================================================================*/
 #include "vtkDataSet.h"
+
+#include "vtkCell.h"
+#include "vtkCellData.h"
+#include "vtkCellTypes.h"
+#include "vtkGenericCell.h"
+#include "vtkIdList.h"
+#include "vtkPointData.h"
 #include "vtkSource.h"
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkDataSet, "$Revision: 1.89 $");
+vtkCxxRevisionMacro(vtkDataSet, "$Revision: 1.90 $");
 
 //----------------------------------------------------------------------------
 // Constructor with default bounds (0,1, 0,1, 0,1).

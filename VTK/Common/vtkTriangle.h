@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangle.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 18:55:41 $
-  Version:   $Revision: 1.77 $
+  Date:      $Date: 2002-12-26 18:24:22 $
+  Version:   $Revision: 1.78 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,9 +24,11 @@
 #define __vtkTriangle_h
 
 #include "vtkCell.h"
-#include "vtkMath.h"
-#include "vtkLine.h"
-#include "vtkQuadric.h"
+
+#include "vtkMath.h" // Needed for inline methods
+
+class vtkLine;
+class vtkQuadric;
 
 class VTK_COMMON_EXPORT vtkTriangle : public vtkCell
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:26:29 $
-  Version:   $Revision: 1.82 $
+  Date:      $Date: 2002-12-26 18:24:22 $
+  Version:   $Revision: 1.83 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -47,7 +47,8 @@
 #define __vtkTransform_h
 
 #include "vtkLinearTransform.h"
-#include "vtkMatrix4x4.h"
+
+#include "vtkMatrix4x4.h" // Needed for inline methods
 
 class VTK_COMMON_EXPORT vtkTransform : public vtkLinearTransform
 {
@@ -311,8 +312,8 @@ protected:
   double DoublePoint[4];
   float ReturnValue[4];
 private:
-  vtkTransform (const vtkTransform& t);  // Not implemented.
-  void operator=(const vtkTransform&);  // Not implemented.
+  vtkTransform (const vtkTransform&);  // Not implemented
+  void operator=(const vtkTransform&);  // Not implemented
 };
 
 #endif

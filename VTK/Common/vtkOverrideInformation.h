@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOverrideInformation.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-03 22:53:38 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,8 @@
 #define __vtkOverrideInformation_h
 
 #include "vtkObject.h"
-#include "vtkObjectFactory.h"
+
+class vtkObjectFactory;
 
 class VTK_COMMON_EXPORT vtkOverrideInformation : public vtkObject
 {

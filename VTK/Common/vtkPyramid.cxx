@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPyramid.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 18:55:41 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.29 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,13 +16,19 @@
 
 =========================================================================*/
 #include "vtkPyramid.h"
-#include "vtkMath.h"
-#include "vtkCellArray.h"
-#include "vtkPointLocator.h"
-#include "vtkUnstructuredGrid.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkPyramid, "$Revision: 1.28 $");
+#include "vtkCellArray.h"
+#include "vtkCellData.h"
+#include "vtkLine.h"
+#include "vtkMath.h"
+#include "vtkObjectFactory.h"
+#include "vtkPointData.h"
+#include "vtkPointLocator.h"
+#include "vtkQuad.h"
+#include "vtkTriangle.h"
+#include "vtkUnstructuredGrid.h"
+
+vtkCxxRevisionMacro(vtkPyramid, "$Revision: 1.29 $");
 vtkStandardNewMacro(vtkPyramid);
 
 static const float VTK_DIVERGED = 1.e6;

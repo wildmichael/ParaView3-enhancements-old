@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellTypes.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:14 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -37,10 +37,10 @@
 #define __vtkCellTypes_h
 
 #include "vtkObject.h"
-#include "vtkCellType.h"
-#include "vtkIntArray.h"
-#include "vtkUnsignedCharArray.h"
 
+#include "vtkIntArray.h" // Needed for inline methods
+#include "vtkUnsignedCharArray.h" // Needed for inline methods
+#include "vtkCellType.h" // Needed for VTK_EMPTY_CELL
 
 class VTK_COMMON_EXPORT vtkCellTypes : public vtkObject 
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyVertex.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 18:55:41 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.60 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,8 @@
 #define __vtkPolyVertex_h
 
 #include "vtkCell.h"
-#include "vtkVertex.h"
+
+class vtkVertex;
 
 class VTK_COMMON_EXPORT vtkPolyVertex : public vtkCell
 {

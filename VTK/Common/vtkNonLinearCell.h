@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkNonLinearCell.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-07 15:33:04 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -37,12 +37,13 @@
 #define __vtkNonLinearCell_h
 
 #include "vtkCell.h"
-#include "vtkPointLocator.h"
+
+#include "vtkPointLocator.h" // Needed for inline method
+#include "vtkPoints.h" // Needed for inline method
 
 class vtkPolyData;
 class vtkDataSet;
 class vtkUnstructuredGrid;
-
 
 class VTK_COMMON_EXPORT vtkNonLinearCell : public vtkCell
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArray.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 18:32:04 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.47 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -46,7 +46,6 @@
 #define __vtkDataArray_h
 
 #include "vtkObject.h"
-#include "vtkLargeInteger.h"
 
 class vtkFloatArray;
 class vtkLookupTable;

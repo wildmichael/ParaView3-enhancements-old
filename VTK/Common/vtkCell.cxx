@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 18:55:41 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.55 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,11 @@
 
 =========================================================================*/
 #include "vtkCell.h"
-#include "vtkMarchingSquaresCases.h"
 
-vtkCxxRevisionMacro(vtkCell, "$Revision: 1.54 $");
+#include "vtkMarchingSquaresCases.h"
+#include "vtkPoints.h"
+
+vtkCxxRevisionMacro(vtkCell, "$Revision: 1.55 $");
 
 // Construct cell.
 vtkCell::vtkCell()

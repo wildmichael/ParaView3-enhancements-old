@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyLine.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 18:55:41 $
-  Version:   $Revision: 1.73 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.74 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,12 +16,15 @@
 
 =========================================================================*/
 #include "vtkPolyLine.h"
+
 #include "vtkMath.h"
 #include "vtkCellArray.h"
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
+#include "vtkLine.h"
+#include "vtkPoints.h"
 
-vtkCxxRevisionMacro(vtkPolyLine, "$Revision: 1.73 $");
+vtkCxxRevisionMacro(vtkPolyLine, "$Revision: 1.74 $");
 vtkStandardNewMacro(vtkPolyLine);
 
 vtkPolyLine::vtkPolyLine()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: otherCellPosition.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-05 17:47:09 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-12-26 18:24:22 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,20 +21,20 @@
 // this program tests the Cell Position and Location Boundary methods for each cell type
 
 #include "vtkDebugLeaks.h"
-
-#include "vtkIdList.h"
-#include "vtkVertex.h"
-#include "vtkVoxel.h"
-#include "vtkPolyVertex.h"
-#include "vtkTetra.h"
 #include "vtkHexahedron.h"
+#include "vtkIdList.h"
 #include "vtkLine.h"
-#include "vtkPolyLine.h"
-#include "vtkPolygon.h"
 #include "vtkPixel.h"
+#include "vtkPoints.h"
+#include "vtkPolyLine.h"
+#include "vtkPolyVertex.h"
+#include "vtkPolygon.h"
 #include "vtkQuad.h"
+#include "vtkTetra.h"
 #include "vtkTriangle.h"
 #include "vtkTriangleStrip.h"
+#include "vtkVertex.h"
+#include "vtkVoxel.h"
 
 int TestOCP(ostream& strm)
 {

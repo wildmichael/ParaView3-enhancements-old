@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewport.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-18 22:10:44 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2002-12-26 18:24:22 $
+  Version:   $Revision: 1.52 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,16 +16,15 @@
 
 =========================================================================*/
 #include "vtkViewport.h"
-#include "vtkWindow.h"
+
 #include "vtkActor2DCollection.h"
-#include "vtkPropCollection.h"
-#include "vtkProp.h"
+#include "vtkAssemblyPath.h"
 #include "vtkOldStyleCallbackCommand.h"
+#include "vtkProp.h"
+#include "vtkPropCollection.h"
+#include "vtkWindow.h"
 
-#include <stdlib.h>
-#include <string.h>
-
-vtkCxxRevisionMacro(vtkViewport, "$Revision: 1.51 $");
+vtkCxxRevisionMacro(vtkViewport, "$Revision: 1.52 $");
 
 // Create a vtkViewport with a black background, a white ambient light, 
 // two-sided lighting turned on, a viewport of (0,0,1,1), and backface culling

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor2DCollection.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:09 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.28 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,7 +29,9 @@
 #define __vtkActor2DCollection_h
 
 #include "vtkPropCollection.h"
-#include "vtkActor2D.h"
+
+#include "vtkActor2D.h" // Needed for inline methods
+
 class vtkViewport;
 
 class VTK_COMMON_EXPORT vtkActor2DCollection : public vtkPropCollection

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-16 14:54:16 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.28 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,13 +17,15 @@
 =========================================================================*/
 #include "vtkAbstractMapper.h"
 
+#include "vtkCellData.h"
 #include "vtkDataSet.h"
 #include "vtkObjectFactory.h"
-#include "vtkPlanes.h"
 #include "vtkPlaneCollection.h"
+#include "vtkPlanes.h"
+#include "vtkPointData.h"
 #include "vtkTimerLog.h"
 
-vtkCxxRevisionMacro(vtkAbstractMapper, "$Revision: 1.27 $");
+vtkCxxRevisionMacro(vtkAbstractMapper, "$Revision: 1.28 $");
 
 vtkCxxSetObjectMacro(vtkAbstractMapper,ClippingPlanes,vtkPlaneCollection);
 

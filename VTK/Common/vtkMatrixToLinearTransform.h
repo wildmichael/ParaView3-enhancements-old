@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMatrixToLinearTransform.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-03 22:53:38 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,7 +30,8 @@
 #define __vtkMatrixToLinearTransform_h
 
 #include "vtkLinearTransform.h"
-#include "vtkMatrix4x4.h"
+
+class vtkMatrix4x4;
 
 class VTK_COMMON_EXPORT vtkMatrixToLinearTransform : public vtkLinearTransform
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeneralTransform.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:24 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.40 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,10 +26,12 @@
 // .SECTION see also
 // vtkTransform vtkPerspectiveTransform
 
-#include "vtkAbstractTransform.h"
-
 #ifndef __vtkGeneralTransform_h
 #define __vtkGeneralTransform_h
+
+#include "vtkAbstractTransform.h"
+
+#include "vtkMatrix4x4.h" // Needed for inline methods
 
 class VTK_COMMON_EXPORT vtkGeneralTransform : public vtkAbstractTransform
 {

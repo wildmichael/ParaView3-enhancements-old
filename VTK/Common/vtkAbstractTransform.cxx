@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-18 19:03:26 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -15,14 +15,17 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
-
 #include "vtkAbstractTransform.h"
+
+#include "vtkCriticalSection.h"
+#include "vtkDataArray.h"
+#include "vtkDebugLeaks.h"
 #include "vtkHomogeneousTransform.h"
 #include "vtkMath.h"
-#include "vtkDebugLeaks.h"
-#include "vtkCriticalSection.h"
+#include "vtkMatrix4x4.h"
+#include "vtkPoints.h"
 
-vtkCxxRevisionMacro(vtkAbstractTransform, "$Revision: 1.22 $");
+vtkCxxRevisionMacro(vtkAbstractTransform, "$Revision: 1.23 $");
 
 //----------------------------------------------------------------------------
 vtkAbstractTransform::vtkAbstractTransform()
@@ -380,7 +383,7 @@ protected:
   void operator=(const vtkSimpleTransform&);
 };
 
-vtkCxxRevisionMacro(vtkSimpleTransform, "$Revision: 1.22 $");
+vtkCxxRevisionMacro(vtkSimpleTransform, "$Revision: 1.23 $");
 
 //----------------------------------------------------------------------------
 vtkTransformConcatenation::vtkTransformConcatenation()

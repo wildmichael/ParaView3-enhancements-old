@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLookupTable.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-25 11:17:44 $
-  Version:   $Revision: 1.69 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.70 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,6 +30,8 @@
 #define __vtkLookupTable_h
 
 #include "vtkScalarsToColors.h"
+
+#include "vtkUnsignedCharArray.h" // Needed for inline method
 
 #define VTK_RAMP_LINEAR 0
 #define VTK_RAMP_SCURVE 1

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPoints.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 19:33:40 $
-  Version:   $Revision: 1.62 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.63 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,8 @@
 #define __vtkPoints_h
 
 #include "vtkObject.h"
-#include "vtkDataArray.h"
+
+#include "vtkDataArray.h" // Needed for inline methods
 
 class vtkIdList;
 class vtkPoints;
@@ -221,11 +222,6 @@ inline vtkIdType vtkPoints::InsertNextPoint(double x, double y, double z)
   p[2] = z;
   return this->Data->InsertNextTuple(p);
 }
-
-
-// These include files are placed here so that if Points.h is included 
-// all other classes necessary for compilation are also included. 
-#include "vtkIdList.h"
 
 #endif
 

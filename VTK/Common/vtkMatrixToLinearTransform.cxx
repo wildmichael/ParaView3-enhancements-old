@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMatrixToLinearTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-03 22:53:38 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,11 @@
 
 =========================================================================*/
 #include "vtkMatrixToLinearTransform.h"
+
+#include "vtkMatrix4x4.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkMatrixToLinearTransform, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkMatrixToLinearTransform, "$Revision: 1.12 $");
 vtkStandardNewMacro(vtkMatrixToLinearTransform);
 vtkCxxSetObjectMacro(vtkMatrixToLinearTransform,Input,vtkMatrix4x4);
 

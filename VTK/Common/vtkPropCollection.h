@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPropCollection.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:26:10 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,8 @@
 #define __vtkPropC_h
 
 #include "vtkCollection.h"
-#include "vtkProp.h"
+
+#include "vtkProp.h" // Needed for inline methods
 
 class VTK_COMMON_EXPORT vtkPropCollection : public vtkCollection
 {

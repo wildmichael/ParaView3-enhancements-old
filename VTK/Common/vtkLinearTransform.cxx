@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:34 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.32 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,13 @@
 
 =========================================================================*/
 #include "vtkLinearTransform.h"
-#include "vtkMath.h"
 
-vtkCxxRevisionMacro(vtkLinearTransform, "$Revision: 1.31 $");
+#include "vtkDataArray.h"
+#include "vtkMath.h"
+#include "vtkMatrix4x4.h"
+#include "vtkPoints.h"
+
+vtkCxxRevisionMacro(vtkLinearTransform, "$Revision: 1.32 $");
 
 //------------------------------------------------------------------------
 void vtkLinearTransform::PrintSelf(ostream& os, vtkIndent indent)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractTransform.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-18 19:03:26 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -41,9 +41,13 @@
 #define __vtkAbstractTransform_h
 
 #include "vtkObject.h"
-#include "vtkMatrix4x4.h"
-#include "vtkPoints.h"
 
+
+//#include "vtkMatrix4x4.h"
+//#include "vtkPoints.h"
+class vtkDataArray;
+class vtkMatrix4x4;
+class vtkPoints;
 class vtkSimpleCriticalSection;
 
 

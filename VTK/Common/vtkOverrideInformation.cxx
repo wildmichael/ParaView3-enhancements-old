@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOverrideInformation.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-03 22:53:38 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,7 +17,9 @@
 =========================================================================*/
 #include "vtkOverrideInformation.h"
 
-vtkCxxRevisionMacro(vtkOverrideInformation, "$Revision: 1.6 $");
+#include "vtkObjectFactory.h"
+
+vtkCxxRevisionMacro(vtkOverrideInformation, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkOverrideInformation);
 vtkCxxSetObjectMacro(vtkOverrideInformation,ObjectFactory,vtkObjectFactory);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-15 20:02:06 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.62 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,13 +16,15 @@
 
 =========================================================================*/
 #include "vtkPointLocator.h"
-#include "vtkMath.h"
-#include "vtkIntArray.h"
-#include "vtkPolyData.h"
-#include "vtkObjectFactory.h"
-#include "vtkIdList.h"
 
-vtkCxxRevisionMacro(vtkPointLocator, "$Revision: 1.61 $");
+#include "vtkCellArray.h"
+#include "vtkIdList.h"
+#include "vtkIntArray.h"
+#include "vtkMath.h"
+#include "vtkObjectFactory.h"
+#include "vtkPolyData.h"
+
+vtkCxxRevisionMacro(vtkPointLocator, "$Revision: 1.62 $");
 vtkStandardNewMacro(vtkPointLocator);
 
 static const int VTK_INITIAL_SIZE=1000;

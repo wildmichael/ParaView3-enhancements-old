@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssemblyPath.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:10 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,11 +16,13 @@
 
 =========================================================================*/
 #include "vtkAssemblyPath.h"
+
 #include "vtkAssemblyNode.h"
 #include "vtkTransform.h"
 #include "vtkObjectFactory.h"
+#include "vtkProp.h"
 
-vtkCxxRevisionMacro(vtkAssemblyPath, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkAssemblyPath, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkAssemblyPath);
 
 vtkAssemblyPath::vtkAssemblyPath()

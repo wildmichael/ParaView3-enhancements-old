@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindowLevelLookupTable.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:26:47 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2002-12-26 18:24:22 $
+  Version:   $Revision: 1.31 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -36,7 +36,6 @@
 #ifndef __vtkWindowLevelLookupTable_h
 #define __vtkWindowLevelLookupTable_h
 
-#include "vtkObject.h"
 #include "vtkLookupTable.h"
 
 class VTK_COMMON_EXPORT vtkWindowLevelLookupTable : public vtkLookupTable

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetCollection.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:19 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,8 @@
 #define __vtkDataSetCollection_h
 
 #include "vtkCollection.h"
-#include "vtkDataSet.h"
+
+#include "vtkDataSet.h" // Needed for inline methods.
 
 class VTK_COMMON_EXPORT vtkDataSetCollection : public vtkCollection
 {

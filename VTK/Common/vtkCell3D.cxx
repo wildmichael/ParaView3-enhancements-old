@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-28 21:35:00 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.31 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,8 +21,9 @@
 #include "vtkPointLocator.h"
 #include "vtkMarchingCubesCases.h"
 #include "vtkPointData.h"
+#include "vtkPoints.h"
 
-vtkCxxRevisionMacro(vtkCell3D, "$Revision: 1.30 $");
+vtkCxxRevisionMacro(vtkCell3D, "$Revision: 1.31 $");
 
 vtkCell3D::~vtkCell3D()
 {

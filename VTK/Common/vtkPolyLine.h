@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyLine.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 18:55:41 $
-  Version:   $Revision: 1.64 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.65 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,9 +24,16 @@
 #define __vtkPolyLine_h
 
 #include "vtkCell.h"
-#include "vtkPoints.h"
-#include "vtkCellArray.h"
-#include "vtkLine.h"
+
+//#include "vtkPoints.h"
+//#include "vtkCellArray.h"
+//#include "vtkLine.h"
+class vtkPoints;
+class vtkCellArray;
+class vtkLine;
+class vtkDataArray;
+class vtkPointLocator;
+class vtkCellData;
 
 class VTK_COMMON_EXPORT vtkPolyLine : public vtkCell
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolygon.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 18:55:41 $
-  Version:   $Revision: 1.97 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.98 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,17 +16,20 @@
 
 =========================================================================*/
 #include "vtkPolygon.h"
-#include "vtkMath.h"
-#include "vtkPlane.h"
-#include "vtkDataSet.h"
+
 #include "vtkCellArray.h"
-#include "vtkPriorityQueue.h"
+#include "vtkDataSet.h"
 #include "vtkFloatArray.h"
+#include "vtkLine.h"
+#include "vtkMath.h"
 #include "vtkObjectFactory.h"
+#include "vtkPlane.h"
+#include "vtkPoints.h"
+#include "vtkPriorityQueue.h"
+#include "vtkQuad.h"
+#include "vtkTriangle.h"
 
-#include <stdlib.h>
-
-vtkCxxRevisionMacro(vtkPolygon, "$Revision: 1.97 $");
+vtkCxxRevisionMacro(vtkPolygon, "$Revision: 1.98 $");
 vtkStandardNewMacro(vtkPolygon);
 
 // Instantiate polygon.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPriorityQueue.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-28 22:55:56 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.37 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -39,7 +39,8 @@
 #define __vtkPriorityQueue_h
 
 #include "vtkObject.h"
-#include "vtkIdTypeArray.h"
+
+#include "vtkIdTypeArray.h" // Needed for inline methods
 
 class VTK_COMMON_EXPORT vtkPriorityQueue : public vtkObject
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 19:21:02 $
-  Version:   $Revision: 1.101 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.102 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,12 +26,14 @@
 #define __vtkImageData_h
 
 #include "vtkDataSet.h"
-#include "vtkStructuredData.h"
-class vtkVertex;
+
+#include "vtkStructuredData.h" // Needed for inline methods
+
+class vtkDataArray;
 class vtkLine;
 class vtkPixel;
+class vtkVertex;
 class vtkVoxel;
-
 
 class VTK_COMMON_EXPORT vtkImageData : public vtkDataSet
 {

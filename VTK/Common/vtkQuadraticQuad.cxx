@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadraticQuad.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 18:55:41 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-12-26 18:24:22 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,15 +16,18 @@
 
 =========================================================================*/
 #include "vtkQuadraticQuad.h"
-#include "vtkPolyData.h"
-#include "vtkPointLocator.h"
-#include "vtkMath.h"
-#include "vtkQuadraticEdge.h"
-#include "vtkQuad.h"
-#include "vtkFloatArray.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkQuadraticQuad, "$Revision: 1.14 $");
+#include "vtkCellData.h"
+#include "vtkFloatArray.h"
+#include "vtkMath.h"
+#include "vtkObjectFactory.h"
+#include "vtkPointData.h"
+#include "vtkPointLocator.h"
+#include "vtkPolyData.h"
+#include "vtkQuad.h"
+#include "vtkQuadraticEdge.h"
+
+vtkCxxRevisionMacro(vtkQuadraticQuad, "$Revision: 1.15 $");
 vtkStandardNewMacro(vtkQuadraticQuad);
 
 // Construct the line with two points.

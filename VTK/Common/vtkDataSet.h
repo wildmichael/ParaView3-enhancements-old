@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:17 $
-  Version:   $Revision: 1.112 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.113 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -41,10 +41,13 @@
 #define __vtkDataSet_h
 
 #include "vtkDataObject.h"
-#include "vtkCellData.h"
-#include "vtkPointData.h"
-#include "vtkGenericCell.h"
-#include "vtkCellTypes.h"
+
+class vtkCell;
+class vtkCellData;
+class vtkCellTypes;
+class vtkGenericCell;
+class vtkIdList;
+class vtkPointData;
 
 class VTK_COMMON_EXPORT vtkDataSet : public vtkDataObject
 {

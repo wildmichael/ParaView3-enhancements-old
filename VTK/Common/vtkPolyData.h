@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 19:21:02 $
-  Version:   $Revision: 1.121 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.122 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -38,10 +38,9 @@
 #define __vtkPolyData_h
 
 #include "vtkPointSet.h"
-#include "vtkPoints.h"
-#include "vtkCellArray.h"
-#include "vtkCellTypes.h"
-#include "vtkCellLinks.h"
+
+#include "vtkCellTypes.h" // Needed for inline methods
+#include "vtkCellLinks.h" // Needed for inline methods
 
 class vtkVertex;
 class vtkPolyVertex;
@@ -52,8 +51,6 @@ class vtkQuad;
 class vtkPolygon;
 class vtkTriangleStrip;
 class vtkEmptyCell;
-
-
 
 class VTK_COMMON_EXPORT vtkPolyData : public vtkPointSet 
 {

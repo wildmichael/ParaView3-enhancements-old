@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-20 12:10:51 $
-  Version:   $Revision: 1.108 $
+  Date:      $Date: 2002-12-26 18:24:22 $
+  Version:   $Revision: 1.109 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,29 +16,37 @@
 
 =========================================================================*/
 #include "vtkUnstructuredGrid.h"
-#include "vtkVertex.h"
-#include "vtkPolyVertex.h"
-#include "vtkLine.h"
-#include "vtkPolyLine.h"
-#include "vtkTriangle.h"
-#include "vtkTriangleStrip.h"
-#include "vtkQuad.h"
-#include "vtkPixel.h"
-#include "vtkPolygon.h"
-#include "vtkTetra.h"
+
+#include "vtkCellArray.h"
+#include "vtkCellData.h"
+#include "vtkCellLinks.h"
+#include "vtkConvexPointSet.h"
+#include "vtkGenericCell.h"
 #include "vtkHexahedron.h"
-#include "vtkVoxel.h"
-#include "vtkWedge.h"
+#include "vtkIntArray.h"
+#include "vtkLine.h"
+#include "vtkObjectFactory.h"
+#include "vtkPixel.h"
+#include "vtkPointData.h"
+#include "vtkPolyLine.h"
+#include "vtkPolyVertex.h"
+#include "vtkPolygon.h"
 #include "vtkPyramid.h"
+#include "vtkQuad.h"
 #include "vtkQuadraticEdge.h"
-#include "vtkQuadraticTriangle.h"
+#include "vtkQuadraticHexahedron.h"
 #include "vtkQuadraticQuad.h"
 #include "vtkQuadraticTetra.h"
-#include "vtkQuadraticHexahedron.h"
-#include "vtkConvexPointSet.h"
-#include "vtkObjectFactory.h"
+#include "vtkQuadraticTriangle.h"
+#include "vtkTetra.h"
+#include "vtkTriangle.h"
+#include "vtkTriangleStrip.h"
+#include "vtkUnsignedCharArray.h"
+#include "vtkVertex.h"
+#include "vtkVoxel.h"
+#include "vtkWedge.h"
 
-vtkCxxRevisionMacro(vtkUnstructuredGrid, "$Revision: 1.108 $");
+vtkCxxRevisionMacro(vtkUnstructuredGrid, "$Revision: 1.109 $");
 vtkStandardNewMacro(vtkUnstructuredGrid);
 
 vtkUnstructuredGrid::vtkUnstructuredGrid ()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDynamicLoader.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-15 15:40:30 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,7 +29,7 @@
 // Ugly stuff for library handles
 // They are different on several different OS's
 #if defined(__hpux)
-# include <dl.h>
+# include <dl.h> // Needed for special dynamic loading on hp
   typedef shl_t vtkLibHandle;
 #elif defined(_WIN32)
   typedef HMODULE vtkLibHandle;

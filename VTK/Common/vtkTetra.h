@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTetra.h,v $
   Language:  C++
-  Date:      $Date: 2002-12-11 22:47:41 $
-  Version:   $Revision: 1.73 $
+  Date:      $Date: 2002-12-26 18:24:22 $
+  Version:   $Revision: 1.74 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,9 +28,9 @@
 #define __vtkTetra_h
 
 #include "vtkCell3D.h"
-#include "vtkLine.h"
-#include "vtkTriangle.h"
 
+class vtkLine;
+class vtkTriangle;
 class vtkUnstructuredGrid;
 
 class VTK_COMMON_EXPORT vtkTetra : public vtkCell3D

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEmptyCell.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:21 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,12 +16,14 @@
 
 =========================================================================*/
 #include "vtkEmptyCell.h"
-#include "vtkMath.h"
-#include "vtkCellArray.h"
-#include "vtkPointLocator.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkEmptyCell, "$Revision: 1.17 $");
+#include "vtkCellArray.h"
+#include "vtkMath.h"
+#include "vtkObjectFactory.h"
+#include "vtkPointLocator.h"
+#include "vtkPoints.h"
+
+vtkCxxRevisionMacro(vtkEmptyCell, "$Revision: 1.18 $");
 vtkStandardNewMacro(vtkEmptyCell);
 
 int vtkEmptyCell::EvaluatePosition(float  vtkNotUsed(x)[3], 

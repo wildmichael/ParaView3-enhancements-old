@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSource.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-25 14:12:28 $
-  Version:   $Revision: 1.69 $
+  Date:      $Date: 2002-12-26 18:24:22 $
+  Version:   $Revision: 1.70 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -46,8 +46,8 @@
 #define __vtkSource_h
 
 #include "vtkProcessObject.h"
-#include "vtkDataObject.h"
 
+class vtkDataObject;
 class vtkErrorCode;
 
 class VTK_COMMON_EXPORT vtkSource : public vtkProcessObject

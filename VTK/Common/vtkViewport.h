@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewport.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-26 21:01:04 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2002-12-26 18:24:22 $
+  Version:   $Revision: 1.40 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,11 +33,12 @@
 #define __vtkViewport_h
 
 #include "vtkObject.h"
-#include "vtkPropCollection.h"
-#include "vtkActor2DCollection.h"
 
-class vtkWindow;
+class vtkActor2DCollection;
 class vtkAssemblyPath;
+class vtkProp;
+class vtkPropCollection;
+class vtkWindow;
 
 class VTK_COMMON_EXPORT vtkViewport : public vtkObject
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHomogeneousTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-25 17:14:41 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,12 @@
 
 =========================================================================*/
 #include "vtkHomogeneousTransform.h"
-#include "vtkMath.h"
 
-vtkCxxRevisionMacro(vtkHomogeneousTransform, "$Revision: 1.7 $");
+#include "vtkMath.h"
+#include "vtkMatrix4x4.h"
+#include "vtkPoints.h"
+
+vtkCxxRevisionMacro(vtkHomogeneousTransform, "$Revision: 1.8 $");
 
 //----------------------------------------------------------------------------
 vtkHomogeneousTransform::vtkHomogeneousTransform()

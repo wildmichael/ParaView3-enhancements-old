@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlaneCollection.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:55 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,8 @@
 #define __vtkPlaneCollection_h
 
 #include "vtkCollection.h"
-#include "vtkPlane.h"
+
+#include "vtkPlane.h" // Needed for inline methods
 
 class VTK_COMMON_EXPORT vtkPlaneCollection : public vtkCollection
 {

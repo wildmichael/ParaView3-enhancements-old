@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOverrideInformationCollection.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:52 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,8 @@
 #define __vtkOverrideInformationCollection_h
 
 #include "vtkCollection.h"
-#include "vtkOverrideInformation.h"
+
+#include "vtkOverrideInformation.h" // Needed for inline methods
 
 class VTK_COMMON_EXPORT vtkOverrideInformationCollection : public vtkCollection
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 18:55:41 $
-  Version:   $Revision: 1.78 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.79 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -41,16 +41,16 @@
 #define VTK_TOL 1.e-05 // Tolerance for geometric calculation
 
 #include "vtkObject.h"
-#include "vtkPoints.h"
-#include "vtkIdList.h"
 
-// Include vtkCellType to include the defined cell types
-#include "vtkCellType.h"
+#include "vtkIdList.h" // Needed for inline methods
+#include "vtkCellType.h" // Needed to define cell types
 
 class vtkCellArray;
-class vtkPointLocator;
-class vtkPointData;
 class vtkCellData;
+class vtkDataArray;
+class vtkPointData;
+class vtkPointLocator;
+class vtkPoints;
 
 class VTK_COMMON_EXPORT vtkCell : public vtkObject
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPropAssembly.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:26:09 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,11 +16,16 @@
 
 =========================================================================*/
 #include "vtkPropAssembly.h"
-#include "vtkViewport.h"
-#include "vtkAssemblyNode.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkPropAssembly, "$Revision: 1.20 $");
+#include "vtkAssemblyNode.h"
+#include "vtkAssemblyPath.h"
+#include "vtkAssemblyPaths.h"
+#include "vtkObjectFactory.h"
+#include "vtkProp.h"
+#include "vtkPropCollection.h"
+#include "vtkViewport.h"
+
+vtkCxxRevisionMacro(vtkPropAssembly, "$Revision: 1.21 $");
 vtkStandardNewMacro(vtkPropAssembly);
 
 // Construct object with no children.

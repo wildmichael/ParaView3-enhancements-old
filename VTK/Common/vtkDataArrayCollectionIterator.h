@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArrayCollectionIterator.h,v $
   Language:  C++
-  Date:      $Date: 2002-07-11 21:16:23 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -51,8 +51,8 @@ protected:
   ~vtkDataArrayCollectionIterator();  
   
 private:
-  vtkDataArrayCollectionIterator(const vtkDataArrayCollectionIterator&);
-  void operator=(const vtkDataArrayCollectionIterator&);
+  vtkDataArrayCollectionIterator(const vtkDataArrayCollectionIterator&); // Not implemented
+  void operator=(const vtkDataArrayCollectionIterator&); // Not implemented
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTimerLog.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-08 19:57:36 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2002-12-26 18:24:22 $
+  Version:   $Revision: 1.33 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,6 +26,9 @@
 // table logging.
 
 #include "vtkTimerLog.h"
+
+#include <stdarg.h>  // Needed for ...
+
 #ifndef _WIN32
 #include <limits.h>     // for CLK_TCK
 #include <sys/time.h>
@@ -38,7 +41,7 @@
 #endif
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkTimerLog, "$Revision: 1.32 $");
+vtkCxxRevisionMacro(vtkTimerLog, "$Revision: 1.33 $");
 vtkStandardNewMacro(vtkTimerLog);
 
 // initialze the class variables

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOrderedTriangulator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-03 12:45:49 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.46 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,12 +16,15 @@
 
 =========================================================================*/
 #include "vtkOrderedTriangulator.h"
-#include "vtkUnstructuredGrid.h"
-#include "vtkTetra.h"
-#include "vtkEdgeTable.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkOrderedTriangulator, "$Revision: 1.45 $");
+#include "vtkCellArray.h"
+#include "vtkEdgeTable.h"
+#include "vtkMath.h"
+#include "vtkObjectFactory.h"
+#include "vtkTetra.h"
+#include "vtkUnstructuredGrid.h"
+
+vtkCxxRevisionMacro(vtkOrderedTriangulator, "$Revision: 1.46 $");
 vtkStandardNewMacro(vtkOrderedTriangulator);
 
 #ifdef _WIN32_WCE

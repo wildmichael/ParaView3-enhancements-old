@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHomogeneousTransform.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:26 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,8 @@
 #define __vtkHomogeneousTransform_h
 
 #include "vtkAbstractTransform.h"
-#include "vtkMatrix4x4.h"
+
+class vtkMatrix4x4;
 
 class VTK_COMMON_EXPORT vtkHomogeneousTransform : public vtkAbstractTransform
 {
@@ -93,6 +94,7 @@ protected:
   void InternalDeepCopy(vtkAbstractTransform *transform);
 
   vtkMatrix4x4 *Matrix;
+
 private:
   vtkHomogeneousTransform(const vtkHomogeneousTransform&);  // Not implemented.
   void operator=(const vtkHomogeneousTransform&);  // Not implemented.

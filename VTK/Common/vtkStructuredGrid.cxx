@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 19:33:40 $
-  Version:   $Revision: 1.92 $
+  Date:      $Date: 2002-12-26 18:24:22 $
+  Version:   $Revision: 1.93 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,15 +16,19 @@
 
 =========================================================================*/
 #include "vtkStructuredGrid.h"
-#include "vtkVertex.h"
-#include "vtkLine.h"
-#include "vtkQuad.h"
-#include "vtkHexahedron.h"
+
+#include "vtkCellData.h"
 #include "vtkEmptyCell.h"
 #include "vtkExtentTranslator.h"
+#include "vtkGenericCell.h"
+#include "vtkHexahedron.h"
+#include "vtkLine.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
+#include "vtkQuad.h"
+#include "vtkVertex.h"
 
-vtkCxxRevisionMacro(vtkStructuredGrid, "$Revision: 1.92 $");
+vtkCxxRevisionMacro(vtkStructuredGrid, "$Revision: 1.93 $");
 vtkStandardNewMacro(vtkStructuredGrid);
 
 #define vtkAdjustBoundsMacro( A, B ) \

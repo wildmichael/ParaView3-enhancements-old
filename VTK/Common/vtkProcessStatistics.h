@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProcessStatistics.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:26:07 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,8 +22,6 @@
 #define __vtkProcessStatistics_h
 
 #include "vtkObject.h"
-#include "vtkLine.h"
-#include "vtkPixel.h"
 
 class VTK_COMMON_EXPORT vtkProcessStatistics : public vtkObject
 {

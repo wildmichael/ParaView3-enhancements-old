@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-07 22:11:59 $
-  Version:   $Revision: 1.148 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.149 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,10 +17,14 @@
 =========================================================================*/
 #include "vtkPolyData.h"
 
+#include "vtkCellArray.h"
+#include "vtkCellData.h"
 #include "vtkCriticalSection.h"
 #include "vtkEmptyCell.h"
+#include "vtkGenericCell.h"
 #include "vtkLine.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 #include "vtkPointLocator.h"
 #include "vtkPolyLine.h"
 #include "vtkPolyVertex.h"
@@ -30,7 +34,7 @@
 #include "vtkTriangleStrip.h"
 #include "vtkVertex.h"
 
-vtkCxxRevisionMacro(vtkPolyData, "$Revision: 1.148 $");
+vtkCxxRevisionMacro(vtkPolyData, "$Revision: 1.149 $");
 vtkStandardNewMacro(vtkPolyData);
 
 //----------------------------------------------------------------------------

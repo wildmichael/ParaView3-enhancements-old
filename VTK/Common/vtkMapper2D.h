@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 2002-07-03 15:59:39 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.28 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,6 @@
 #define __vtkMapper2D_h
 
 #include "vtkAbstractMapper.h"
-#include "vtkWindow.h"
 
 class vtkViewport;
 class vtkActor2D;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMutexLock.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:46 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,17 +30,17 @@
 //BTX
 
 #ifdef VTK_USE_SPROC
-#include <abi_mutex.h>
+#include <abi_mutex.h> // Needed for SPROC implementation of mutex
 typedef abilock_t vtkMutexType;
 #endif
 
 #ifdef VTK_USE_PTHREADS
-#include <pthread.h>
+#include <pthread.h> // Needed for PTHREAD implementation of mutex
 typedef pthread_mutex_t vtkMutexType;
 #endif
  
 #ifdef VTK_USE_WIN32_THREADS
-#include <winbase.h>
+#include <winbase.h> // Needed for WIN32 implementation of mutex
 typedef HANDLE vtkMutexType;
 #endif
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: otherRectilinearGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-05 17:47:09 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-12-26 18:24:22 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,11 +20,15 @@
 // .SECTION Description
 // this program tests vtkRectilinearGrid
 
+#include "vtkCell.h"
 #include "vtkDebugLeaks.h"
-#include "vtkRectilinearGrid.h"
-#include "vtkFloatArray.h"
 #include "vtkDoubleArray.h"
+#include "vtkFloatArray.h"
+#include "vtkGenericCell.h"
+#include "vtkIdList.h"
 #include "vtkLongArray.h"
+#include "vtkPointData.h"
+#include "vtkRectilinearGrid.h"
 #include "vtkShortArray.h"
 
 int TestORG(ostream& strm)

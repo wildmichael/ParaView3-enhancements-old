@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssemblyPaths.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:10 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,8 @@
 #define __vtkAssemblyPaths_h
 
 #include "vtkCollection.h"
-#include "vtkAssemblyPath.h"
+
+#include "vtkAssemblyPath.h" // Needed for inline methods
 
 class vtkProp;
 

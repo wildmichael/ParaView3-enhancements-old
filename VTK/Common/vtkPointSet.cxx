@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSet.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 19:33:40 $
-  Version:   $Revision: 1.76 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.77 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,10 +17,12 @@
 =========================================================================*/
 #include "vtkPointSet.h"
 
-#include "vtkSource.h"
+#include "vtkCell.h"
+#include "vtkGenericCell.h"
 #include "vtkPointLocator.h"
+#include "vtkSource.h"
 
-vtkCxxRevisionMacro(vtkPointSet, "$Revision: 1.76 $");
+vtkCxxRevisionMacro(vtkPointSet, "$Revision: 1.77 $");
 
 vtkCxxSetObjectMacro(vtkPointSet,Points,vtkPoints);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPerspectiveTransform.h,v $
   Language:  C++
-  Date:      $Date: 2002-12-15 22:21:31 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2002-12-26 18:24:21 $
+  Version:   $Revision: 1.30 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -46,6 +46,8 @@
 #define __vtkPerspectiveTransform_h
 
 #include "vtkHomogeneousTransform.h"
+
+#include "vtkMatrix4x4.h" // Needed for inline methods
 
 class VTK_COMMON_EXPORT vtkPerspectiveTransform : public vtkHomogeneousTransform
 {
@@ -312,9 +314,10 @@ protected:
   vtkHomogeneousTransform *Input;
   vtkTransformConcatenation *Concatenation;
   vtkTransformConcatenationStack *Stack;
+
 private:
-  vtkPerspectiveTransform(const vtkPerspectiveTransform& t);  // Not implemented.
-  void operator=(const vtkPerspectiveTransform&);  // Not implemented.
+  vtkPerspectiveTransform(const vtkPerspectiveTransform&);  // Not implemented
+  void operator=(const vtkPerspectiveTransform&);  // Not implemented
 };
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 19:21:02 $
-  Version:   $Revision: 1.92 $
+  Date:      $Date: 2002-12-26 18:24:22 $
+  Version:   $Revision: 1.93 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,14 +33,15 @@
 #define __vtkStructuredGrid_h
 
 #include "vtkPointSet.h"
-#include "vtkStructuredData.h"
-#include "vtkUnsignedCharArray.h"
 
-class vtkVertex;
+#include "vtkStructuredData.h" // Needed for inline methods
+#include "vtkUnsignedCharArray.h" // Needed for inline methods
+
+class vtkEmptyCell;
+class vtkHexahedron;
 class vtkLine;
 class vtkQuad;
-class vtkHexahedron;
-class vtkEmptyCell;
+class vtkVertex;
 
 class VTK_COMMON_EXPORT vtkStructuredGrid : public vtkPointSet 
 {

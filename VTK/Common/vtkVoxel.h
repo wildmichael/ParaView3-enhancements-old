@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxel.h,v $
   Language:  C++
-  Date:      $Date: 2002-12-11 22:47:41 $
-  Version:   $Revision: 1.66 $
+  Date:      $Date: 2002-12-26 18:24:22 $
+  Version:   $Revision: 1.67 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,8 +26,9 @@
 #define __vtkVoxel_h
 
 #include "vtkCell3D.h"
-#include "vtkLine.h"
-#include "vtkPixel.h"
+
+class vtkLine;
+class vtkPixel;
 
 class VTK_COMMON_EXPORT vtkVoxel : public vtkCell3D
 {
