@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLProjectedPolyDataRayBounder.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-01 19:42:27 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1999-04-27 13:44:16 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to Lisa Sobierajski Avila who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -195,7 +195,7 @@ float *vtkOpenGLProjectedPolyDataRayBounder::Draw( vtkRenderer *ren,
   // Put the volume's matrix on the stack
   position_matrix->Transpose();
   glPushMatrix();
-  glMultMatrixf( &(position_matrix->Element[0][0]) );
+  glMultMatrixd( &(position_matrix->Element[0][0]) );
 
   // Do the far buffer 
   glDepthFunc( GL_GREATER );

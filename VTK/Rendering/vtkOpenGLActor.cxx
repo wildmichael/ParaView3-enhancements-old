@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:44:52 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-04-27 13:44:16 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,7 +69,7 @@ void vtkOpenGLActor::Render(vtkRenderer *ren, vtkMapper *mapper)
   // insert model transformation 
   glMatrixMode( GL_MODELVIEW );
   glPushMatrix();
-  glMultMatrixf(matrix->Element[0]);
+  glMultMatrixd(matrix->Element[0]);
 
   // send a render to the mapper; update pipeline
   mapper->Render(ren,this);

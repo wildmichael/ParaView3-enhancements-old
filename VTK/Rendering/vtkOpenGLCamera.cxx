@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-11 20:15:07 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1999-04-27 13:44:16 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -137,7 +137,7 @@ void vtkOpenGLCamera::Render(vtkRenderer *ren)
 						       -1,1));
   matrix->Transpose();
   // insert camera view transformation 
-  glLoadMatrixf(matrix->Element[0]);
+  glLoadMatrixd(matrix->Element[0]);
 
   // since lookat modifies the model view matrix do a push 
   // first and set the mmode.  This will be undone in the  
@@ -149,7 +149,7 @@ void vtkOpenGLCamera::Render(vtkRenderer *ren)
   matrix->Transpose();
   
   // insert camera view transformation 
-  glMultMatrixf(matrix->Element[0]);
+  glMultMatrixd(matrix->Element[0]);
 
   if ((ren->GetRenderWindow())->GetErase()) 
     {
