@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMathematics.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-12 13:34:47 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2002-04-16 15:48:15 $
+  Version:   $Revision: 1.39 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageMathematics, "$Revision: 1.38 $");
+vtkCxxRevisionMacro(vtkImageMathematics, "$Revision: 1.39 $");
 vtkStandardNewMacro(vtkImageMathematics);
 
 //----------------------------------------------------------------------------
@@ -141,7 +141,7 @@ static void vtkImageMathematicsExecute1(vtkImageMathematics *self,
                 }
               else
                 {
-                *outPtr = 1e5;
+                *outPtr = (T)outData->GetScalarTypeMax();
                 }
               }
             break;
