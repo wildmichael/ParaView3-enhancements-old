@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageHybridMedian2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-15 13:01:35 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-07-15 16:46:21 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,6 +48,7 @@ vtkImageHybridMedian2D::vtkImageHybridMedian2D()
   this->KernelSize[0] = 5;
   this->KernelSize[1] = 5;
   this->SetNumberOfElements(9);
+  this->SetFilteredAxes(VTK_IMAGE_X_AXIS, VTK_IMAGE_Y_AXIS);
 }
 
 

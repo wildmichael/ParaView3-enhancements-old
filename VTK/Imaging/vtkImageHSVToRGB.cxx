@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageHSVToRGB.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-15 16:15:38 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-07-15 16:46:20 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -100,10 +100,10 @@ static void vtkImageHSVToRGBExecute(vtkImageHSVToRGB *self,
   g = (1.0 + S*(3.0*g - 1.0))/3.0;
   b = (1.0 + S*(3.0*b - 1.0))/3.0;
   
-  // Use value to get actual RGB
-  R = r * V * 3.0 * max;
-  G = g * V * 3.0 * max;
-  B = b * V * 3.0 * max;
+  // Use value to get actual RGB (max is already in value.
+  R = r * V * 3.0;
+  G = g * V * 3.0;
+  B = b * V * 3.0;
   
   // clip below 255
   if (R > 255.0) R = max;
