@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:57:34 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1996-11-06 14:43:39 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,6 +50,8 @@ vtkXRenderWindow::vtkXRenderWindow()
   this->WindowId = (Window)NULL;
   this->NextWindowId = (Window)NULL;
   this->ColorMap = (Colormap)NULL;
+  this->ScreenSize[0] = 0;
+  this->ScreenSize[1] = 0;
 }
 
 vtkXRenderWindow::~vtkXRenderWindow()
