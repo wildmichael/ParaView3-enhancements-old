@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-04 13:36:47 $
-  Version:   $Revision: 1.89 $
+  Date:      $Date: 2000-10-04 17:41:23 $
+  Version:   $Revision: 1.90 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -174,6 +174,7 @@ void vtkXRenderWindowInteractor::Start()
     this->Initialize();
     }
   this->SetExitMethod(BreakXtLoop, this);
+  this->BreakLoopFlag = 0;
   do 
     {
     XEvent event;
