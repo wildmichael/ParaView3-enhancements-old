@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEncodedGradientShader.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-06 20:45:30 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-04-07 20:33:36 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -110,19 +110,19 @@ protected:
   // are calculating the "other side" of two sided lighting, so no 
   // ambient intensity is added in. If the update flag is 0,
   // the shading table is overwritten with these new shading values.
-  // If the update_flag is 1, then the computed light contribution is
+  // If the updateFlag is 1, then the computed light contribution is
   // added to the current shading table values. There is one shading
   // table per volume, and the index value indicated which index table
   // should be used. It is computed in the UpdateShadingTable method.
   void  BuildShadingTable( int index,
-			   float light_direction[3],
-			   float light_color[3],
-			   float light_intensity,
-			   float view_direction[3],
+			   float lightDirection[3],
+			   float lightColor[3],
+			   float lightIntensity,
+			   float viewDirection[3],
 			   float material[4],
+			   int twoSided,
 			   vtkEncodedGradientEstimator *gradest,
-			   int ambient_flag,
-			   int update_flag );
+			   int updateFlag );
   
   // The six shading tables (r diffuse ,g diffuse ,b diffuse, 
   // r specular, g specular, b specular ) - with an entry for each
