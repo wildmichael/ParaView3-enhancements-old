@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1995-01-05 10:57:15 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-05-02 13:26:33 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -148,8 +148,8 @@ public:
 
   // Description:
   // Set/Get the filename used for saving images.
-  vlSetStringMacro(FileName);
-  vlGetStringMacro(FileName);
+  vlSetStringMacro(Filename);
+  vlGetStringMacro(Filename);
 
 
   // Description:
@@ -195,7 +195,7 @@ protected:
   int StereoType;
   int StereoStatus; // used for keeping track of what's going on
   vlRenderWindowInteractor *Interactor;
-  char *FileName;
+  char *Filename;
   unsigned char* temp_buffer;  // used for red blue stereo
   unsigned char** AABuffer;    // used for anti aliasing
   int AAFrames;
