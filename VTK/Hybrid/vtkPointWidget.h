@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-27 19:56:57 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-06-28 17:15:51 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -100,9 +100,9 @@ public:
     {this->Cursor3D->SetFocalPoint(x,y,z);}
   void SetPosition(float x[3])
     {this->SetPosition(x[0],x[1],x[2]);}
-  float* GetCenter() 
+  float* GetPosition() 
     {return this->Cursor3D->GetFocalPoint();}
-  void GetCenter(float xyz[3]) 
+  void GetPosition(float xyz[3]) 
     {this->Cursor3D->SetFocalPoint(xyz);}
 
   // Description:
