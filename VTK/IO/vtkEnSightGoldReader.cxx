@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightGoldReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-21 12:14:02 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-03-07 16:01:37 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1003,6 +1003,13 @@ int vtkEnSightGoldReader::CreateUnstructuredGridOutput(int partId,
           delete [] nodeIds;
           }
         }
+      for (i = 0; i < numElements*2; i++)
+        {
+        delete [] newLines[i];
+        newLines[i] = NULL;
+        }
+      delete [] newLines;
+      newLines = NULL;
       }
     else if (strncmp(line, "tria3", 5) == 0 ||
              strncmp(line, "tria6", 5) == 0)
