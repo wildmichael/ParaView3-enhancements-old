@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlanes.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:24:21 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2003-09-24 21:56:56 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkPlanes, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkPlanes, "$Revision: 1.10 $");
 vtkStandardNewMacro(vtkPlanes);
 vtkCxxSetObjectMacro(vtkPlanes,Points,vtkPoints);
 
@@ -64,7 +64,7 @@ void vtkPlanes::SetNormals(vtkDataArray* normals)
   vtkDebugMacro(<< this->GetClassName() << " (" << this
                 << "): setting Normals to " << normals ); 
 
-  if (normals->GetNumberOfComponents() != 3)
+  if (normals && normals->GetNumberOfComponents() != 3)
     {
     vtkWarningMacro("This array does not have 3 components. Ignoring normals.");
     return;
