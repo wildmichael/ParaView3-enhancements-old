@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSetGet.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:25 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 1999-08-26 21:39:47 $
+  Version:   $Revision: 1.59 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -147,7 +147,7 @@ type Get##name () { \
 // (e.g., SetFilename(char *));
 //
 #define vtkSetStringMacro(name) \
-void Set##name (char* _arg) \
+void Set##name (const char* _arg) \
   { \
   vtkDebugMacro(<< this->GetClassName() << " (" << this << "): setting " << #name " to " << _arg ); \
   if ( this->name && _arg && (!strcmp(this->name,_arg))) { return;} \
