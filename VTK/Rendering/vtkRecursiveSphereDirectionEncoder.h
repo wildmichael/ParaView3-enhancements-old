@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRecursiveSphereDirectionEncoder.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:13 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-02-09 04:29:34 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -126,6 +126,10 @@ protected:
   // built
   void                  InitializeIndexTable( void );
   int                   IndexTableRecursionDepth;
+
+  int                   OuterSize;
+  int                   InnerSize;
+  int                   GridSize;
 }; 
 
 
