@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObjectFactory.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-14 21:25:58 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-10-02 18:13:51 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -366,8 +366,11 @@ void vtkObjectFactory::UnRegisterAllFactories()
   while((factory =
 	 vtkObjectFactory::RegisteredFactories->GetNextItem()))
     {
-    vtkObjectFactory::UnRegisterFactory(factory);
-    vtkObjectFactory::RegisteredFactories->InitTraversal();
+    void* lib = factory->LibraryHandle;
+    if(lib)
+      {
+      vtkDynamicLoader::CloseLibrary((vtkLibHandle)lib);
+      }
     }
   vtkObjectFactory::RegisteredFactories->Delete();
   vtkObjectFactory::RegisteredFactories = 0;
