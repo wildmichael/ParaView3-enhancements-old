@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPolyDataCollection.h,v $
   Language:  C++
-  Date:      $Date: 1994-11-06 19:30:36 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1995-02-12 10:28:52 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -16,7 +16,8 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 // .NAME vlPolyDataCollection - maintain a list of polygonal data objects
 // .SECTION Description
 // vlPolyDataCollection is an object that creates and manipulates lists of
-// datasets. See also vlDataSetCollection and vlCollection and subclasses.
+// datasets of type vlPolyData. See also vlDataSetCollection and vlCollection
+// and subclasses. 
 
 #ifndef __vlPolyDataCollection_hh
 #define __vlPolyDataCollection_hh
