@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkActor.h,v $
   Language:  C++
-  Date:      $Date: 1995-05-08 18:13:20 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1995-05-10 16:04:32 $
+  Version:   $Revision: 1.16 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -141,7 +141,7 @@ class vlActor : public vlObject
   vlBooleanMacro(Dragable,int);
 
   vlMatrix4x4& GetMatrix();
-  void GetMatrix(vlMatrix4x4& m);
+  virtual void GetMatrix(vlMatrix4x4& m);
 
   float *GetBounds();
   float *GetXRange();
