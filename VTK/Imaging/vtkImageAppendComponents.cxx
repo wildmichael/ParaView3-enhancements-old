@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAppendComponents.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-29 16:38:14 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-07-07 17:27:44 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -154,14 +154,14 @@ void vtkImageAppendComponents::ThreadedExecute(vtkImageData **inData,
 	// this filter expects that input is the same type as output.
 	if (inData[idx1]->GetScalarType() != outData->GetScalarType())
 	  {
-	  vtkErrorMacro(<< "Execute: input" << inComp << " ScalarType (" << 
-	  inData[inComp]->GetScalarType() << 
+	  vtkErrorMacro(<< "Execute: input" << idx1 << " ScalarType (" << 
+	  inData[idx1]->GetScalarType() << 
 	  "), must match output ScalarType (" << outData->GetScalarType() 
 	  << ")");
 	  return;
 	  }
 	
-	switch (inData[inComp]->GetScalarType())
+	switch (inData[idx1]->GetScalarType())
 	  {
 	  case VTK_FLOAT:
 	    vtkImageAppendComponentsExecute(this, inData[idx1],
