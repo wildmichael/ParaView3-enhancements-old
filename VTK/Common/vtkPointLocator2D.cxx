@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-05-27 18:43:36 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-06-02 13:39:29 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -667,7 +667,8 @@ void vtkPointLocator2D::BuildLocator()
   float *x;
   typedef vtkIdList *vtkIdListPtr;
 
-  if ( this->HashTable != NULL && this->BuildTime > this->MTime )
+  if ( (this->HashTable != NULL) && (this->BuildTime > this->MTime)
+       && (this->BuildTime > this->DataSet->GetMTime()) )
     {
     return;
     }
