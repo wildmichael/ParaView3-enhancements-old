@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGaussianSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-29 22:26:29 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-03-08 13:51:07 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -130,7 +130,7 @@ void vtkImageGaussianSource::ExecuteInformation()
   output->SetNumberOfScalarComponents(1);
 }
 
-void vtkImageGaussianSource::Execute(vtkImageData *data)
+void vtkImageGaussianSource::ExecuteData(vtkDataObject *output)
 {
   float *outPtr;
   int idxX, idxY, idxZ;
@@ -143,6 +143,8 @@ void vtkImageGaussianSource::Execute(vtkImageData *data)
   unsigned long count = 0;
   unsigned long target;
   
+  vtkImageData *data = this->AllocateOutputData(output);
+
   if (data->GetScalarType() != VTK_FLOAT)
     {
     vtkErrorMacro("Execute: This source only outputs floats");
