@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCarbonTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-30 05:45:43 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-08-23 02:11:35 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 #include "vtkViewport.h"
 #include "vtkgluPickMatrix.h"
 
-vtkCxxRevisionMacro(vtkCarbonTextMapper, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkCarbonTextMapper, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkCarbonTextMapper);
 
 struct vtkFontStruct
@@ -520,3 +520,8 @@ void vtkCarbonTextMapper::RenderOverlay(vtkViewport* viewport,
   glEnable( GL_LIGHTING);
 }
 
+//----------------------------------------------------------------------------
+void vtkCarbonTextMapper::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
+}
