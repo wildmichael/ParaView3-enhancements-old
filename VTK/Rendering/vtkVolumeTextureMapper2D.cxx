@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeTextureMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-09 15:46:31 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2000-08-10 10:33:06 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1431,14 +1431,13 @@ void vtkVolumeTextureMapper2D::InitializeRender( vtkRenderer *ren,
       this->InternalSkipFactor++;
       }
     }
-  
   // Assume that the spacing between samples is 1/2 of the maximum - this could be
   // computed accurately for parallel (but isn't right now). For perspective, this
   // spacing changes across the image so no one number will be accurate. 1/2 the
-  // maximum is 1 / 2*sqrt(2) = .353553
+  // maximum is (1 + sqrt(2)) / 2 = 1.2071
   this->GetInput()->GetSpacing( this->DataSpacing );
   this->SampleDistance = 
-    this->DataSpacing[this->MajorDirection/2]*this->InternalSkipFactor*.353553;
+    this->DataSpacing[this->MajorDirection/2]*this->InternalSkipFactor*1.2071;
   this->vtkVolumeTextureMapper::InitializeRender( ren, vol );
 }
 
