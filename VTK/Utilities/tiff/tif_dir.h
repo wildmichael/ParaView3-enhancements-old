@@ -1,4 +1,4 @@
-/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_dir.h,v 1.2 2003-12-03 23:23:45 barre Exp $ */
+/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_dir.h,v 1.3 2003-12-04 17:02:24 barre Exp $ */
 
 /*
  * Copyright (c) 1988-1997 Sam Leffler
@@ -127,7 +127,7 @@ typedef struct {
   
         /* uic data */
         uint32  td_uic2tagLength;
-        int32 *td_uic2tagData;
+        uint32 *td_uic2tagData;
 
 } TIFFDirectory;
 
