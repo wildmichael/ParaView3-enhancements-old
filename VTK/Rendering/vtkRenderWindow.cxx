@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-24 18:43:10 $
-  Version:   $Revision: 1.106 $
+  Date:      $Date: 2000-08-30 09:00:44 $
+  Version:   $Revision: 1.107 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -731,8 +731,8 @@ void vtkRenderWindow::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "NeverRendered: " << this->NeverRendered << "\n";
   os << indent << "Interactor: " << this->Interactor << "\n";
   os << indent << "Motion Blur Frames: " << this->SubFrames << "\n";
-  os << indent << "SwapBuffers: " << (this->SwapBuffers ? "On\n":"Off\n");
-  os << indent << "StereoType: " << this->GetStereoTypeAsString() << "\n";
+  os << indent << "Swap Buffers: " << (this->SwapBuffers ? "On\n":"Off\n");
+  os << indent << "Stereo Type: " << this->GetStereoTypeAsString() << "\n";
   os << indent << "Number of Layers: " << this->NumLayers << "\n";
 
   os << indent << "File Name: " 
