@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimate.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-15 23:24:39 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1997-05-23 20:40:40 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -409,7 +409,7 @@ void vtkDecimate::CreateOutput(int numPts, int numTris, int numEliminated,
     outputPD->CopyScalarsOff();
     }
   outputPD->CopyAllocate(pd,numNewPts);
-  newPts = new vtkFloatPoints(numNewPts);
+  newPts = vtkFloatPoints::New();
   newPts->SetNumberOfPoints(numNewPts);
 
   for (ptId=0; ptId < numPts; ptId++)
@@ -423,7 +423,8 @@ void vtkDecimate::CreateOutput(int numPts, int numTris, int numEliminated,
 
   if ( this->GenerateErrorScalars )
     {
-    newScalars = new vtkFloatScalars[numNewPts];
+    newScalars = vtkFloatScalars::New();
+    newScalars->SetNumberOfScalars(numNewPts);
     for (ptId=0; ptId < numPts; ptId++)
       if ( map[ptId] > -1 )
         newScalars->SetScalar(map[ptId],VertexError[ptId]);
