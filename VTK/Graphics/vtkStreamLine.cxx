@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamLine.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:55:46 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1996-11-18 20:55:48 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -151,7 +151,7 @@ void vtkStreamLine::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkStreamer::PrintSelf(os,indent);
 
-  os << indent << "Step Length: " << this->StepLength << " <<\n";
+  os << indent << "Step Length: " << this->StepLength << "\n";
 
 }
 

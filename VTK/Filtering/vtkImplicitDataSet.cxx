@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-10-11 16:28:04 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1996-11-18 20:55:44 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -88,7 +88,7 @@ float vtkImplicitDataSet::EvaluateFunction(float x[3])
     }
 
   // Find the cell that contains xyz and get it
-  cell = this->DataSet->FindAndGetCell(x,NULL,0.0,subId,pcoords,this->Weights);
+  cell = this->DataSet->FindAndGetCell(x,NULL,-1,0.0,subId,pcoords,this->Weights);
 
   if (cell)
     { // Interpolate the point data
@@ -148,7 +148,7 @@ void vtkImplicitDataSet::EvaluateGradient(float x[3], float n[3])
     }
 
   // Find the cell that contains xyz and get it
-  cell = this->DataSet->FindAndGetCell(x,NULL,0.0,subId,pcoords,this->Weights);
+  cell = this->DataSet->FindAndGetCell(x,NULL,-1,0.0,subId,pcoords,this->Weights);
 
   if (cell)
     { // Interpolate the point data
