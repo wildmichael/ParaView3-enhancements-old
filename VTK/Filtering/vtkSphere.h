@@ -3,11 +3,9 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkSphere.h,v $
   Language:  C++
-  Date:      $Date: 1994-07-13 21:46:03 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-08-15 07:47:11 $
+  Version:   $Revision: 1.3 $
 
-Description:
----------------------------------------------------------------------------
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
 without the express written consent of the authors.
@@ -18,6 +16,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 // .NAME vlSphere - implicit function of a sphere
 // .SECTION Description
 // vlSphere computes the implicit function and surface normal for a sphere.
+// vlSphere is a concrete implementation of vlImplicitFunction.
 
 #ifndef __vlSphere_h
 #define __vlSphere_h

@@ -3,11 +3,9 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTriangle.h,v $
   Language:  C++
-  Date:      $Date: 1994-05-15 19:17:06 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-08-15 07:47:23 $
+  Version:   $Revision: 1.8 $
 
-Description:
----------------------------------------------------------------------------
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
 without the express written consent of the authors.
@@ -15,9 +13,11 @@ without the express written consent of the authors.
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-//
-// Computational class for triangles
-//
+// .NAME vlTriangle - a cell that represents a triangle
+// .SECTION Description
+// vlTriangle is a concrete implementation of vlCell to represent a 2D 
+// triangle.
+
 #ifndef __vlTriangle_h
 #define __vlTriangle_h
 

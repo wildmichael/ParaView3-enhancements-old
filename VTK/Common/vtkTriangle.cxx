@@ -3,11 +3,9 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTriangle.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-06-13 10:50:04 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1994-08-15 07:47:22 $
+  Version:   $Revision: 1.12 $
 
-Description:
----------------------------------------------------------------------------
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
 without the express written consent of the authors.
