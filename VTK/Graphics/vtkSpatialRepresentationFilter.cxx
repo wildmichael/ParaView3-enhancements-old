@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpatialRepresentationFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:52 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-04-24 20:38:06 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -136,6 +136,10 @@ void vtkSpatialRepresentationFilter::Execute()
 void vtkSpatialRepresentationFilter::GenerateOutput()
 {
   vtkDataSet *input = this->GetInput();
+  if (!input)
+    {
+    return;
+    }
   vtkPolyData *output;
   int inputModified=(input->GetMTime() > this->GetMTime() ? 1 : 0);
   int i;
