@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObjectFactory.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:47 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2002-02-07 19:53:00 $
+  Version:   $Revision: 1.33 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 #include "vtkOverrideInformation.h"
 #include "vtkDebugLeaks.h"
 
-vtkCxxRevisionMacro(vtkObjectFactory, "$Revision: 1.32 $");
+vtkCxxRevisionMacro(vtkObjectFactory, "$Revision: 1.33 $");
 
 vtkObjectFactoryCollection* vtkObjectFactory::RegisteredFactories = 0;
 
@@ -657,6 +657,9 @@ public:
         ((vtkObjectFactoryCollectionIterator*)this->Source)->Top;
     }
   vtkCollection* Source;
+private:
+  vtkObjectFactoryCollectionIterator(const vtkObjectFactoryCollectionIterator&);
+  void operator=(const vtkObjectFactoryCollectionIterator&);
 };
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:26:01 $
-  Version:   $Revision: 1.144 $
+  Date:      $Date: 2002-02-07 19:53:00 $
+  Version:   $Revision: 1.145 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkCriticalSection.h"
 
-vtkCxxRevisionMacro(vtkPolyData, "$Revision: 1.144 $");
+vtkCxxRevisionMacro(vtkPolyData, "$Revision: 1.145 $");
 vtkStandardNewMacro(vtkPolyData);
 
 //----------------------------------------------------------------------------
@@ -304,7 +304,8 @@ vtkCell *vtkPolyData::GetCell(vtkIdType cellId)
 void vtkPolyData::GetCell(vtkIdType cellId, vtkGenericCell *cell)
 {
   int             i, loc;
-  vtkIdType       *pts, numPts;
+  vtkIdType       *pts=0;
+  vtkIdType       numPts;
   unsigned char   type;
   float           x[3];
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRegressionTestImage.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:26:54 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-02-07 19:53:02 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -136,7 +136,7 @@ int vtkRegressionTester::Test(int argc, char *argv[], vtkRenderWindow *rw,
     // If the test failed with the first image (foo.png)
     // check if there are images of the form foo_N.png
     // (where N=1,2,3...) and compare against them.
-    float error;
+    float error=0;
     int count=1, errIndex=-1;
     char* newFileName;
     while (1)

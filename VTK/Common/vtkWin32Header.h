@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32Header.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:26:43 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-02-07 19:53:01 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -46,6 +46,7 @@
 #pragma warning ( disable : 4244 )
 #pragma warning ( disable : 4305 )
 #pragma warning ( disable : 4309 )
+#pragma warning ( disable : 4706 )
 #endif
 
 #if defined(WIN32) && !defined(VTKSTATIC)
