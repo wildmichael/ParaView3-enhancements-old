@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitFunctionCollection.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 20:34:08 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1999-07-02 19:42:12 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,7 +43,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // vtkImplicitFunctionCollection is an object that creates and manipulates
 // lists of objects of type vtkImplicitFunction. 
 // .SECTION See Also
-// vtkCollection
+// vtkCollection vtkPlaneCollection
 
 #ifndef __vtkImplicitFunctionCollection_h
 #define __vtkImplicitFunctionCollection_h
