@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensor.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 20:34:17 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1998-09-23 18:18:24 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,15 +71,15 @@ public:
 
   // Description:
   // Set the value of the tensor component (i,j).
-  void SetComponent(int i, int j, float v) {this->T[i+3*j] = v;};
+  void SetComponent(int i, int j, float v) {if (i > 2 || j > 2) {vtkErrorMacro("trying to set tensor component i or j > 2: i = " << i << ", j = " << j); return;}; this->T[i+3*j] = v;};
 
   // Description:
   // Add to the value of the tensor component at location (i,j).
-  void AddComponent(int i, int j, float v) { this->T[i+3*j] += v;};
+  void AddComponent(int i, int j, float v) { if (i > 2 || j > 2) {vtkErrorMacro("trying to add tensor component i or j > 2: i = " << i << ", j = " << j); return;}; this->T[i+3*j] += v;};
 
   // Description:
   // Return column vector from tensor. (Assumes 2D matrix form and 0-offset.)
-  float *GetColumn(int j) { return this->T + 3*j;};
+  float *GetColumn(int j) { if (j > 2) {vtkErrorMacro("trying to get tensor column j > 2: j = " << j); return NULL;}; return this->T + 3*j;};
 
   // Description:
   // Deep copy of one tensor to another tensor.
