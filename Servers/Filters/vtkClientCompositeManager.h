@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClientCompositeManager.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-07 16:17:19 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-01-21 16:27:31 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -38,6 +38,7 @@ class vtkCompositer;
 class vtkRenderer;
 class vtkDataArray;
 class vtkFloatArray;
+class vtkUnsignedCharArray;
 
 class VTK_EXPORT vtkClientCompositeManager : public vtkObject
 {
@@ -173,6 +174,11 @@ protected:
                      vtkDataArray* magP,
                      int windowSize[2]);
 
+  void DoubleBuffer(vtkDataArray* localP, 
+                    vtkDataArray* magP,
+                    int windowSize[2]);
+
+
   // Our simple alternative to compositing.
   void ReceiveAndSetColorBuffer();
 
@@ -184,6 +190,18 @@ protected:
   // Temporary arrays used for compositing.
   vtkDataArray *PData2;
   vtkFloatArray *ZData2;
+
+  int SquirtCompression;
+  vtkUnsignedCharArray *SquirtArray;
+  void SquirtCompress(vtkUnsignedCharArray *in,
+                      vtkUnsignedCharArray *out,
+                      int compress_level);
+  void SquirtDecompress(vtkUnsignedCharArray *in,
+                        vtkUnsignedCharArray *out);
+
+  vtkUnsignedCharArray *BaseArray;
+  void DeltaEncode(vtkUnsignedCharArray *buf);
+  void DeltaDecode(vtkUnsignedCharArray *buf);
 
   int PDataSize[2];
 
