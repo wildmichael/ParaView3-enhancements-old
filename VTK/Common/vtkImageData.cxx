@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-22 12:48:06 $
-  Version:   $Revision: 1.106 $
+  Date:      $Date: 2001-01-22 19:56:16 $
+  Version:   $Revision: 1.107 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -171,7 +171,7 @@ unsigned long vtkImageData::GetEstimatedMemorySize()
   unsigned long   lsize;
 
   // Start with the number of scalar components
-  size = (float)(this->GetNumberOfScalarComponents());
+  size = (unsigned long)(this->GetNumberOfScalarComponents());
 
   // Multiply by the number of bytes per scalar
   switch (this->GetScalarType())
@@ -1077,7 +1077,6 @@ void vtkImageData::UpdateData()
       return;
       }
     this->Crop();
-    return;
     }
   
   if (this->UpdateNumberOfPieces == 1)
