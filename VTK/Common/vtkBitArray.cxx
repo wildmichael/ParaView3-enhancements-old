@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkBitArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-01-23 21:13:43 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1995-05-23 17:09:04 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -29,8 +29,8 @@ int vlBitArray::Allocate(const int sz, const int ext)
 {
   if ( this->Array != NULL ) delete [] this->Array;
 
-  this->Size = ( sz > 0 ? sz : 1);
-  if ( (this->Array = new unsigned char[(sz+7)/8]) == NULL ) return 0;
+  this->Size = ( (sz/8) > 0 ? sz : 1);
+  if ( (this->Array = new unsigned char[(this->Size+7)/8]) == NULL ) return 0;
   this->Extend = ( ext > 0 ? ext : 1);
   this->MaxId = -1;
 
@@ -54,8 +54,8 @@ void vlBitArray::Initialize()
 // Construct with specified storage and extend value.
 vlBitArray::vlBitArray(const int sz, const int ext)
 {
-  this->Size = ( sz > 0 ? sz : 1);
-  this->Array = new unsigned char[(sz+7)/8];
+  this->Size = ( (sz/8) > 0 ? sz : 1);
+  this->Array = new unsigned char[(this->Size+7)/8];
   this->Extend = ( ext > 0 ? ext : 1);
   this->MaxId = -1;
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkFloatArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-04-26 15:26:32 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1995-05-23 17:08:59 $
+  Version:   $Revision: 1.15 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -22,7 +22,7 @@ int vlFloatArray::Allocate(const int sz, const int ext)
   if ( this->Array ) delete [] this->Array;
 
   this->Size = ( sz > 0 ? sz : 1);
-  if ( (this->Array = new float[sz]) == NULL ) return 0;
+  if ( (this->Array = new float[this->Size]) == NULL ) return 0;
   this->Extend = ( ext > 0 ? ext : 1);
   this->MaxId = -1;
 
@@ -47,7 +47,7 @@ void vlFloatArray::Initialize()
 vlFloatArray::vlFloatArray(const int sz, const int ext)
 {
   this->Size = ( sz > 0 ? sz : 1);
-  this->Array = new float[sz];
+  this->Array = new float[this->Size];
   this->Extend = ( ext > 0 ? ext : 1);
   this->MaxId = -1;
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkUnsignedCharArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-04-26 15:27:23 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-05-23 17:09:02 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -26,7 +26,7 @@ int vlCharArray::Allocate(const int sz, const int ext)
   if ( this->Array != NULL ) delete [] this->Array;
 
   this->Size = ( sz > 0 ? sz : 1);
-  if ( (this->Array = new unsigned char[sz]) == NULL ) return 0;
+  if ( (this->Array = new unsigned char[this->Size]) == NULL ) return 0;
   this->Extend = ( ext > 0 ? ext : 1);
   this->MaxId = -1;
 
@@ -51,7 +51,7 @@ void vlCharArray::Initialize()
 vlCharArray::vlCharArray(const int sz, const int ext)
 {
   this->Size = ( sz > 0 ? sz : 1);
-  this->Array = new unsigned char[sz];
+  this->Array = new unsigned char[this->Size];
   this->Extend = ( ext > 0 ? ext : 1);
   this->MaxId = -1;
 }
