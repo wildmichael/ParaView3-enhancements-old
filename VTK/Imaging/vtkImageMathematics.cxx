@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMathematics.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-30 19:14:32 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2002-02-04 13:42:58 $
+  Version:   $Revision: 1.37 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageMathematics, "$Revision: 1.36 $");
+vtkCxxRevisionMacro(vtkImageMathematics, "$Revision: 1.37 $");
 vtkStandardNewMacro(vtkImageMathematics);
 
 //----------------------------------------------------------------------------
@@ -452,6 +452,14 @@ void vtkImageMathematics::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Operation: " << this->Operation << "\n";
   os << indent << "ConstantK: " << this->ConstantK << "\n";
   os << indent << "ConstantC: " << this->ConstantC << "\n";
-
+  os << indent << "DivideByZeroToC: ";
+  if ( this->DivideByZeroToC )
+    {
+    os << "On\n";
+    }
+  else
+    {
+    os << "Off\n";
+    }
 }
 
