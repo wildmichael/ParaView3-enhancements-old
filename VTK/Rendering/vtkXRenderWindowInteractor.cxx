@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-27 12:53:43 $
-  Version:   $Revision: 1.69 $
+  Date:      $Date: 1999-09-14 11:56:34 $
+  Version:   $Revision: 1.70 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -350,7 +350,6 @@ void vtkXRenderWindowInteractorTimer(XtPointer client_data,
   Window root,child;
   int root_x,root_y;
   int x,y;
-  float xf,yf;
   unsigned int keys;
 
   // get the pointer position

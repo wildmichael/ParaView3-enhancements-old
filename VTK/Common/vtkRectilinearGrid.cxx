@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-10 12:24:29 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1999-09-14 11:56:29 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1066,7 +1066,6 @@ unsigned long vtkRectilinearGrid::GetEstimatedUpdateMemorySize()
 //----------------------------------------------------------------------------
 void vtkRectilinearGrid::PrintSelf(ostream& os, vtkIndent indent)
 {
-  int idx;
   vtkDataSet::PrintSelf(os,indent);
 
   os << indent << "Dimensions: (" << this->Dimensions[0] << ", "

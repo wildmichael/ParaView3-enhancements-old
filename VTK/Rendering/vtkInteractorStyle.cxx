@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-08 16:02:50 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-09-14 11:56:32 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -687,7 +687,6 @@ void vtkInteractorStyle::OnLeftButtonDown(int ctrl, int shift,
   //
  this->UpdateInternalState(ctrl, shift, X, Y);
   //
-  vtkRenderWindowInteractor *rwi = this->Interactor;
   this->FindPokedCamera(X, Y);
   if (this->LeftButtonPressMethod) 
     {

@@ -3,8 +3,8 @@
  Program:   Visualization Toolkit
  Module:    $RCSfile: vtkSource.cxx,v $
  Language:  C++
- Date:      $Date: 1999-09-10 12:24:30 $
- Version:   $Revision: 1.44 $
+ Date:      $Date: 1999-09-14 11:56:30 $
+ Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -419,7 +419,6 @@ void vtkSource::UpdateInformation()
 {
   unsigned long t1, t2, size;
   int locality, l2, idx;
-  int maxPieces = 1;
   vtkDataObject *pd;
   vtkDataObject *output;
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMandelbrotSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-10 12:28:29 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-09-14 11:56:34 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -84,7 +84,7 @@ void vtkImageMandelbrotSource::PrintSelf(ostream& os, vtkIndent indent)
   os << "MaximumNumberOfIterations: " << this->MaximumNumberOfIterations << endl;
 
   os << indent << "ProjectionAxes: (" << this->ProjectionAxes[0] << ", "
-     << this->ProjectionAxes[1] << this->ProjectionAxes[3] << ")\n";
+     << this->ProjectionAxes[1] << this->ProjectionAxes[2] << ")\n";
 
 }
 
@@ -170,7 +170,7 @@ void vtkImageMandelbrotSource::GetWholeExtent(int extent[6])
 //----------------------------------------------------------------------------
 void vtkImageMandelbrotSource::ExecuteInformation()
 {
-  int idx, axis, *ext = this->WholeExtent;
+  int idx, axis;
   float origin[3];
   vtkImageData *output = this->GetOutput();
   unsigned long mem;

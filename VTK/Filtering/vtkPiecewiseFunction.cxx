@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPiecewiseFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-17 19:56:09 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-09-14 11:56:33 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -450,7 +450,6 @@ void vtkPiecewiseFunction::AddSegment( float x1, float val1,
 {
   int	index1, index2;
   int	swap;
-  int	num_points;
   int   distance;
   int   i;
 
@@ -470,7 +469,6 @@ void vtkPiecewiseFunction::AddSegment( float x1, float val1,
     index2 = swap;
     }
 
-  num_points = this->FunctionSize - index2;
   distance = index2 - index1 - 1;
 
   // Loop between index2 and last point and remove points

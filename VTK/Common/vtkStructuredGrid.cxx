@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-10 12:24:30 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 1999-09-14 11:56:31 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -990,7 +990,6 @@ unsigned long vtkStructuredGrid::GetEstimatedUpdateMemorySize()
 void vtkStructuredGrid::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkPointSet::PrintSelf(os,indent);
-  int idx;
 
   os << indent << "Dimensions: (" << this->Dimensions[0] << ", "
                                   << this->Dimensions[1] << ", "

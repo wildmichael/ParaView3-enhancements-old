@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiThreader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-27 21:16:47 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1999-09-14 11:56:29 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -526,7 +526,6 @@ int vtkMultiThreader::SpawnThread( vtkThreadFunctionType f, void *UserData )
 #endif
 
   id = 0;
-  int flag_latch;
 
   while ( id < VTK_MAX_THREADS )
     {

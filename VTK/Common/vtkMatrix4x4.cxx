@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMatrix4x4.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-27 21:11:44 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1999-09-14 11:56:28 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -246,7 +246,6 @@ void vtkMatrix4x4::Invert (vtkMatrix4x4 *in,vtkMatrix4x4 *out)
 
 void vtkMatrix4x4::Invert(double inElements[16], double outElements[16])
 {
-  SqMatPtr inElem = (SqMatPtr) inElements;
   SqMatPtr outElem = (SqMatPtr) outElements;
 
   // inverse( original_matrix, inverse_matrix )
