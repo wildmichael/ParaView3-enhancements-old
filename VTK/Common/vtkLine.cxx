@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLine.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-06 19:05:57 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 1998-05-25 13:33:59 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -203,7 +203,7 @@ void vtkLine::Contour(float value, vtkScalars *cellScalars,
                       vtkCellData *inCd, int cellId, vtkCellData *outCd)
 {
   static int CASE_MASK[2] = {1,2};
-  int index, i;
+  int index, i, newCellId;
   VERT_CASES *vertCase;
   VERT_LIST *vert;
   float t, x[3], *x1, *x2;
@@ -237,7 +237,8 @@ void vtkLine::Contour(float value, vtkScalars *cellScalars,
         outPd->InterpolateEdge(inPd,pts[0],p1,p2,t);
         }
       }
-    verts->InsertNextCell(1,pts);
+    newCellId = verts->InsertNextCell(1,pts);
+    outCd->CopyData(inCd,cellId,newCellId);
     }
 }
 
@@ -435,7 +436,7 @@ void vtkLine::Clip(float value, vtkScalars *cellScalars,
 {
   static int CASE_MASK[3] = {1,2};
   LINE_CASES *lineCase;
-  int i, j, index, *vert;
+  int i, j, index, *vert, newCellId;
   int pts[3];
   int vertexId;
   float t, x1[3], x2[3], x[3];
@@ -494,7 +495,11 @@ void vtkLine::Clip(float value, vtkScalars *cellScalars,
         }
       }
     // check for degenerate tri's
-    if ( pts[0] != pts[1] ) lines->InsertNextCell(2,pts);
+    if ( pts[0] != pts[1] ) 
+      {
+      newCellId = lines->InsertNextCell(2,pts);
+      outCd->CopyData(inCd,cellId,newCellId);
+      }
     }
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPixel.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-06 19:05:59 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 1998-05-25 13:34:01 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -202,7 +202,7 @@ void vtkPixel::Contour(float value, vtkScalars *cellScalars,
   LINE_CASES *lineCase;
   EDGE_LIST  *edge;
   int i, j, index, *vert;
-  int pts[2];
+  int pts[2], newCellId;
   float t, *x1, *x2, x[3];
 
   // Build the case table
@@ -237,7 +237,8 @@ void vtkPixel::Contour(float value, vtkScalars *cellScalars,
     // check for degenerate line
     if ( pts[0] != pts[1] )
       {
-      lines->InsertNextCell(2,pts);
+      newCellId = lines->InsertNextCell(2,pts);
+      outCd->CopyData(inCd,cellId,newCellId);
       }
     }
 }

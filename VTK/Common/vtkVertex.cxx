@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVertex.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-06 19:06:13 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1998-05-25 13:34:09 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -121,13 +121,14 @@ void vtkVertex::Contour(float value, vtkScalars *cellScalars,
 {
   if ( value == cellScalars->GetScalar(0) )
     {
-    int pts[1];
+    int pts[1], newCellId;
     pts[0] = locator->InsertNextPoint(this->Points.GetPoint(0));
     if ( outPd )
       {   
       outPd->CopyData(inPd,this->PointIds.GetId(0),pts[0]);
       }
-    verts->InsertNextCell(1,pts);
+    newCellId = verts->InsertNextCell(1,pts);
+    outCd->CopyData(inCd,cellId,newCellId);
     }
 }
 
@@ -200,12 +201,12 @@ void vtkVertex::Derivatives(int vtkNotUsed(subId),
 
 void vtkVertex::Clip(float value, vtkScalars *cellScalars, 
                      vtkPointLocator *locator, vtkCellArray *verts,
-                     vtkPointData *inPD, vtkPointData *outPD,
-                     vtkCellData *inCD, int cellId, vtkCellData *outCD,
+                     vtkPointData *inPd, vtkPointData *outPd,
+                     vtkCellData *inCd, int cellId, vtkCellData *outCd,
                      int insideOut)
 {
   float s, *x;
-  int pts[1];
+  int pts[1], newCellId;
     
   s = cellScalars->GetScalar(0);
 
@@ -215,9 +216,10 @@ void vtkVertex::Clip(float value, vtkScalars *cellScalars,
     if ( (pts[0] = locator->IsInsertedPoint(x)) < 0 )
       {
       pts[0] = locator->InsertNextPoint(x);
-      outPD->CopyData(inPD,this->PointIds.GetId(0),pts[0]);
+      outPd->CopyData(inPd,this->PointIds.GetId(0),pts[0]);
       }
-    verts->InsertNextCell(1,pts);
+    newCellId = verts->InsertNextCell(1,pts);
+    outCd->CopyData(inCd,cellId,newCellId);
     }
 
 }

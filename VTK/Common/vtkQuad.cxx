@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuad.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-06 19:06:05 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 1998-05-25 13:34:04 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -356,7 +356,7 @@ void vtkQuad::Contour(float value, vtkScalars *cellScalars,
   LINE_CASES *lineCase;
   EDGE_LIST  *edge;
   int i, j, index, *vert;
-  int pts[2];
+  int pts[2], newCellId;
   int e1, e2;
   float t, x1[3], x2[3], x[3], deltaScalar;
 
@@ -407,7 +407,8 @@ void vtkQuad::Contour(float value, vtkScalars *cellScalars,
     // check for degenerate line
     if ( pts[0] != pts[1] )
       {
-      lines->InsertNextCell(2,pts);
+      newCellId = lines->InsertNextCell(2,pts);
+      outCd->CopyData(inCd,cellId,newCellId);
       }
     }
 }
@@ -651,7 +652,7 @@ void vtkQuad::Clip(float value, vtkScalars *cellScalars,
   QUAD_EDGE_LIST  *edge;
   int i, j, index, *vert;
   int e1, e2;
-  int pts[4];
+  int pts[4], newCellId;
   int vertexId;
   float t, x1[3], x2[3], x[3], deltaScalar;
   float scalar0, scalar1, e1Scalar;
@@ -743,6 +744,7 @@ void vtkQuad::Clip(float value, vtkScalars *cellScalars,
       (pts[0] == pts[1] && pts[3] == pts[2]) ) continue;
       }
 
-    polys->InsertNextCell(edge[0],pts);
+    newCellId = polys->InsertNextCell(edge[0],pts);
+    outCd->CopyData(inCd,cellId,newCellId);
     }
 }
