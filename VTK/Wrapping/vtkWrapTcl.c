@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapTcl.c,v $
   Language:  C++
-  Date:      $Date: 2003-03-09 14:49:39 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2003-03-12 14:35:54 $
+  Version:   $Revision: 1.32 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -672,7 +672,7 @@ void vtkParseOutput(FILE *fp, FileInfo *data)
     fprintf(fp,"    op->Print(buf);\n");
     fprintf(fp,"    buf.put('\\0');\n");
     fprintf(fp,"    Tcl_SetResult(interp,buf.str(),TCL_VOLATILE);\n");
-    fprintf(fp,"    delete [] buf.str();\n");
+    fprintf(fp,"    buf.rdbuf()->freeze(0);\n");
     fprintf(fp,"    return TCL_OK;\n    }\n");
     /* Add the PrintRevisions method to vtkObjectBase. */
     fprintf(fp,"  if ((!strcmp(\"PrintRevisions\",argv[1]))&&(argc == 2))\n    {\n");
