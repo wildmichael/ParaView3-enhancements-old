@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleImage.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-26 21:54:14 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-04-30 05:04:42 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkMath.h"
 #include "vtkCommand.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyleImage, "$Revision: 1.17 $");
+vtkCxxRevisionMacro(vtkInteractorStyleImage, "$Revision: 1.18 $");
 vtkStandardNewMacro(vtkInteractorStyleImage);
 
 //----------------------------------------------------------------------------
@@ -225,8 +225,10 @@ void vtkInteractorStyleImage::OnChar(int ctrl,
       {
       this->AnimState = VTKIS_ANIM_ON;
       vtkAssemblyPath *path=NULL;
-      this->FindPokedRenderer(this->LastPos[0],this->LastPos[1]);
-      rwi->GetPicker()->Pick(this->LastPos[0],this->LastPos[1], 0.0, 
+      this->FindPokedRenderer(rwi->GetLastEventPosition()[0],
+                              rwi->GetLastEventPosition()[1]);
+      rwi->GetPicker()->Pick(rwi->GetLastEventPosition()[0],
+                             rwi->GetLastEventPosition()[1], 0.0, 
                              this->CurrentRenderer);
       vtkAbstractPropPicker *picker;
       if ( (picker=vtkAbstractPropPicker::SafeDownCast(rwi->GetPicker())) )

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleFlight.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-29 05:17:08 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-04-30 05:04:42 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -153,6 +153,9 @@ protected:
   double        PitchAngle;
   double        FixedUpVector[3];
   double        AzimuthStepSize;
+
+  int LastPos[2];
+
 private:
   vtkInteractorStyleFlight(const vtkInteractorStyleFlight&);  // Not implemented.
   void operator=(const vtkInteractorStyleFlight&);  // Not implemented.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleJoystickActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-26 21:57:20 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-04-30 05:04:42 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkMath.h"
 #include "vtkCommand.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyleJoystickActor, "$Revision: 1.18 $");
+vtkCxxRevisionMacro(vtkInteractorStyleJoystickActor, "$Revision: 1.19 $");
 vtkStandardNewMacro(vtkInteractorStyleJoystickActor);
 
 //----------------------------------------------------------------------------
@@ -66,8 +66,6 @@ void vtkInteractorStyleJoystickActor::OnMouseMove(int vtkNotUsed(ctrl),
                                                   int x, 
                                                   int y) 
 {
-  // why this code ?
-
   switch (this->State) 
     {
     case VTKIS_ROTATE:
@@ -90,9 +88,6 @@ void vtkInteractorStyleJoystickActor::OnMouseMove(int vtkNotUsed(ctrl),
       this->FindPokedCamera(x, y);
       break;
     }
-
-  this->LastPos[0] = x;
-  this->LastPos[1] = y;
 }
 
 //----------------------------------------------------------------------------
@@ -166,6 +161,7 @@ void vtkInteractorStyleJoystickActor::OnMiddleButtonDown(int ctrl,
     this->StartPan();
     }
 }
+
 //----------------------------------------------------------------------------
 void vtkInteractorStyleJoystickActor::OnMiddleButtonUp(int vtkNotUsed(ctrl),
                                                        int vtkNotUsed(shift), 

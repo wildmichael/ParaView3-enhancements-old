@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorObserver.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-26 21:52:52 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-04-30 05:04:42 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -108,10 +108,6 @@ public:
   vtkSetMacro(KeyPressActivationValue,char);
   vtkGetMacro(KeyPressActivationValue,char);
 
-  // Description:
-  // Keep track of a previous state (mouse position in display coordinates)
-  vtkGetVectorMacro(LastPos,int,2);
-
 protected:
   vtkInteractorObserver();
   ~vtkInteractorObserver();
@@ -149,9 +145,6 @@ protected:
   // Internal ivars for processing events
   vtkRenderer *CurrentRenderer;
   vtkCamera *CurrentCamera;
-
-  // Keep track of a previous state (mouse position in display coordinates)
-  int LastPos[2];
 
 private:
   vtkInteractorObserver(const vtkInteractorObserver&);  // Not implemented.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleTrackballCamera.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-29 05:17:08 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-04-30 05:04:42 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -61,7 +61,7 @@ protected:
   // These methods for the different interactions in different modes
   // are overridden in subclasses to perform the correct motion. Since
   // they are called by OnTimer, they do not have mouse coord parameters
-  // (use GetLastPos and interactor GetEventPosition)
+  // (use interactor's GetEventPosition and GetLastEventPosition)
   virtual void Rotate();
   virtual void Spin();
   virtual void Pan();
