@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-07 22:43:18 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-03-09 21:17:47 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -201,7 +201,6 @@ void vtkOpenGLRenderer::DeviceRender(void)
 
   // set matrix mode for actors 
   glMatrixMode(GL_MODELVIEW);
-
   actor_count =  this->UpdateActors();
 
   // If we are rendering with a reduced size image for the volume
