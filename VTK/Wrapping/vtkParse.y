@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParse.y,v $
   Language:  C++
-  Date:      $Date: 2000-07-04 14:12:17 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2000-07-12 15:07:38 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -947,7 +947,7 @@ void output_function()
     switch (currentFunction->ReturnType%1000)
       {
       case 301: case 302: case 307:
-      case 304: case 305: case 306:
+      case 304: case 305: case 306: case 313:
         look_for_hint();
 	break;
       }
