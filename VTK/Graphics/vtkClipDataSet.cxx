@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-24 16:03:46 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2003-07-30 11:18:49 $
+  Version:   $Revision: 1.29 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,7 +33,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkClipDataSet, "$Revision: 1.28 $");
+vtkCxxRevisionMacro(vtkClipDataSet, "$Revision: 1.29 $");
 vtkStandardNewMacro(vtkClipDataSet);
 vtkCxxSetObjectMacro(vtkClipDataSet,ClipFunction,vtkImplicitFunction);
 
@@ -145,7 +145,6 @@ void vtkClipDataSet::Execute()
   vtkUnsignedCharArray *types[2];
   vtkIntArray *locs[2];
   int numOutputs = 1;
-  vtkIdType newCellId;
   
   vtkDebugMacro(<< "Clipping dataset");
   
@@ -340,7 +339,7 @@ void vtkClipDataSet::Execute()
             break;
           } //switch
 
-        newCellId = types[i]->InsertNextValue(cellType);
+        types[i]->InsertNextValue(cellType);
         } //for each new cell
       } //for both outputs
     } //for each cell
