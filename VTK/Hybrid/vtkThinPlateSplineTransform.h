@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThinPlateSplineTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-03-05 14:14:03 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2000-03-05 19:04:19 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to David G. Gobbi who developed this class 
              based on code from vtkThinPlateSplineMeshWarp.cxx
 	     written by Tim Hutton.
@@ -135,10 +135,10 @@ protected:
   // Newton's method.  The InverseFlag specifies whether we should 
   // calculate the inverse transformation instead of providing the 
   // forward transformation.
-  void ForwardTransformPoint(float in[3], float out[3]);
-  void ForwardTransformDerivative(float in[3], float out[3],
-				  float derivative[3][3]);
-  void InverseTransformPoint(float in[3], float out[3]);
+  void ForwardTransformPoint(const float in[3], float out[3]);
+  void ForwardTransformDerivative(const float in[3], float out[3],
+					  float derivative[3][3]);
+  void InverseTransformPoint(const float in[3], float out[3]);
 
   vtkThinPlateSplineTransform *ApproximateInverse;
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeneralTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-03-05 14:14:00 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-03-05 19:04:16 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -94,8 +94,8 @@ public:
   // Description:
   // Apply the transformation to a coordinate.  You can use the same 
   // array to store both the input and output point.
-  virtual void TransformPoint(float in[3], float out[3]);
-  virtual void TransformPoint(double in[3], double out[3]);
+  virtual void TransformPoint(const float in[3], float out[3]);
+  virtual void TransformPoint(const double in[3], double out[3]);
 
   // Description:
   // Apply the transformation to a series of points, and append the
@@ -140,13 +140,13 @@ public:
   // Description:
   // This will calculate the transformation without calling Update.
   // Meant for use only within other VTK classes.
-  virtual void InternalTransformPoint(float in[3], float out[3]) = 0;
+  virtual void InternalTransformPoint(const float in[3], float out[3]) = 0;
 
   // Description:
   // This will calculate the transformation as well as its derivative
   // without calling Update.  Meant for use only within other VTK
   // classes.
-  virtual void InternalTransformDerivative(float in[3], float out[3],
+  virtual void InternalTransformDerivative(const float in[3], float out[3],
 					   float derivative[3][3]) = 0;
 
   // Description:
