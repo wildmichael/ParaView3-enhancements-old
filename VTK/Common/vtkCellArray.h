@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCellArray.h,v $
   Language:  C++
-  Date:      $Date: 1994-10-27 21:31:16 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1994-11-06 19:32:27 $
+  Version:   $Revision: 1.28 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -202,10 +202,8 @@ inline void vlCellArray::ReverseCell(int loc)
 // Replace the point ids of the cell with a different list of point ids.
 inline void vlCellArray::ReplaceCell(int loc, int npts, int *pts)
 {
-  int i;
-  int npts=this->Ia.GetValue(loc);
   int *oldPts=this->Ia.GetPtr(loc+1);
-  for (i=0; i < npts; i++)  oldPts[i] = pts[i];
+  for (int i=0; i < npts; i++)  oldPts[i] = pts[i];
 }
 
 #endif

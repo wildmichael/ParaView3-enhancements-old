@@ -3,11 +3,9 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-10-27 21:37:20 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1994-11-06 19:32:29 $
+  Version:   $Revision: 1.17 $
 
-Description:
----------------------------------------------------------------------------
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
 without the express written consent of the authors.
@@ -204,9 +202,16 @@ float *vlStructuredPoints::GetPoint(int ptId)
   return x;
 }
 
+unsigned long vlStructuredPoints::GetMtime()
+{
+  unsigned long dtime = this->vlDataSet::GetMTime();
+  unsigned long ftime = this->vlStructuredData::_GetMTime();
+  return (dtime > ftime ? dtime : ftime);
+}
+
 void vlStructuredPoints::Initialize()
 {
-  vlStructuredData::Initialize();
+  vlStructuredData::_Initialize();
 
   this->SetAspectRatio(1,1,1);
   this->SetOrigin(0,0,0);
@@ -268,7 +273,7 @@ void vlStructuredPoints::PrintSelf(ostream& os, vlIndent indent)
 {
   if (this->ShouldIPrint(vlStructuredPoints::GetClassName()))
     {
-    vlStructuredData::PrintSelf(os,indent);
+    vlDataSet::PrintSelf(os,indent);
     
     os << indent << "Origin: (" << this->Origin[0] << ", "
                                     << this->Origin[1] << ", "
