@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVDataSetAttributesInformation.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-01 18:23:50 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-05-02 18:02:40 $
+  Version:   $Revision: 1.4 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -48,7 +48,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkPVDataSetAttributesInformation);
-vtkCxxRevisionMacro(vtkPVDataSetAttributesInformation, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkPVDataSetAttributesInformation, "$Revision: 1.4 $");
 
 
 //----------------------------------------------------------------------------
@@ -115,7 +115,7 @@ void vtkPVDataSetAttributesInformation::CopyFromDataSetAttributes(vtkDataSetAttr
   int idx;
   int num;
   vtkDataArray *array;
-  int infoArrayIndex;
+  short infoArrayIndex;
   int attribute;
 
   // Clear array information.
@@ -155,8 +155,8 @@ void vtkPVDataSetAttributesInformation::AddInformation(vtkPVDataSetAttributesInf
   vtkPVArrayInformation* ai1;
   vtkPVArrayInformation* ai2;
   int                    attribute1, attribute2;
-  int                    infoArrayIndex;
-  int                    newAttributeIndices[5]; 
+  short                  infoArrayIndex;
+  short                  newAttributeIndices[5]; 
   vtkCollection*         newArrayInformation;
 
   // Combine point array information.
@@ -287,7 +287,7 @@ int vtkPVDataSetAttributesInformation::WriteMessage(unsigned char *msg)
   // Shorts for default attributes.
   for (idx = 0; idx < 5; ++idx)
     {
-    memcpy(msg, (unsigned char*)&this->AttributeIndices[0], sizeof(short));
+    memcpy(msg, (unsigned char*)&this->AttributeIndices[idx], sizeof(short));
     msg += sizeof(short); 
     length += sizeof(short);
     }
