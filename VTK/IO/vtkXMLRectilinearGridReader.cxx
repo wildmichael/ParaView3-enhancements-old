@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLRectilinearGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-31 21:58:34 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2003-02-07 20:06:29 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkXMLDataElement.h"
 #include "vtkXMLDataParser.h"
 
-vtkCxxRevisionMacro(vtkXMLRectilinearGridReader, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkXMLRectilinearGridReader, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkXMLRectilinearGridReader);
 
 //----------------------------------------------------------------------------
@@ -64,6 +64,12 @@ vtkRectilinearGrid* vtkXMLRectilinearGridReader::GetOutput()
     return 0;
     }
   return static_cast<vtkRectilinearGrid*>(this->Outputs[0]);
+}
+
+//----------------------------------------------------------------------------
+vtkRectilinearGrid* vtkXMLRectilinearGridReader::GetOutput(int idx)
+{
+  return static_cast<vtkRectilinearGrid*>(this->Superclass::GetOutput(idx));
 }
 
 //----------------------------------------------------------------------------

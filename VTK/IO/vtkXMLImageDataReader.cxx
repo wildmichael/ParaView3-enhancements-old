@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLImageDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:18:50 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-02-07 20:06:29 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkPointData.h"
 #include "vtkXMLDataElement.h"
 
-vtkCxxRevisionMacro(vtkXMLImageDataReader, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkXMLImageDataReader, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkXMLImageDataReader);
 
 //----------------------------------------------------------------------------
@@ -63,6 +63,13 @@ vtkImageData* vtkXMLImageDataReader::GetOutput()
     }
   return static_cast<vtkImageData*>(this->Outputs[0]);
 }
+
+//----------------------------------------------------------------------------
+vtkImageData* vtkXMLImageDataReader::GetOutput(int idx)
+{
+  return static_cast<vtkImageData*>(this->Superclass::GetOutput(idx));
+}
+
 
 //----------------------------------------------------------------------------
 const char* vtkXMLImageDataReader::GetDataSetName()

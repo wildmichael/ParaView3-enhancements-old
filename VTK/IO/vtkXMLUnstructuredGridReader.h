@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLUnstructuredGridReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-16 18:23:07 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-02-07 20:06:29 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -44,6 +44,7 @@ public:
   // Get/Set the reader's output.
   void SetOutput(vtkUnstructuredGrid *output);
   vtkUnstructuredGrid *GetOutput();
+  vtkUnstructuredGrid *GetOutput(int idx);
   
 protected:
   vtkXMLUnstructuredGridReader();

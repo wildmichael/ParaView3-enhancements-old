@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLPolyDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-16 18:23:07 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-02-07 20:06:29 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkUnsignedCharArray.h"
 #include "vtkCellArray.h"
 
-vtkCxxRevisionMacro(vtkXMLPolyDataReader, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkXMLPolyDataReader, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkXMLPolyDataReader);
 
 //----------------------------------------------------------------------------
@@ -72,6 +72,12 @@ vtkPolyData* vtkXMLPolyDataReader::GetOutput()
     return 0;
     }
   return static_cast<vtkPolyData*>(this->Outputs[0]);
+}
+
+//----------------------------------------------------------------------------
+vtkPolyData* vtkXMLPolyDataReader::GetOutput(int idx)
+{
+  return static_cast<vtkPolyData*>(this->Superclass::GetOutput(idx));
 }
 
 //----------------------------------------------------------------------------
