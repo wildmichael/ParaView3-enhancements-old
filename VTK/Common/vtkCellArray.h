@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellArray.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:35:17 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1995-08-31 08:39:41 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,7 +45,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // of the form: (n,id1,id2,...,idn, n,id1,id2,...,idn, ...)
 // where n is the number of points in the cell, and id is a zero-offset index 
 // into an associated point list.
-//    Advantages of this data structure are its compactness, simplicity, and 
+//
+// Advantages of this data structure are its compactness, simplicity, and 
 // easy interface to external data.  However, it is totally inadequate for 
 // random access.  This functionality (when necessary) is accomplished by 
 // using the vtkCellList and vtkLinkList objects to extend the definition of 
