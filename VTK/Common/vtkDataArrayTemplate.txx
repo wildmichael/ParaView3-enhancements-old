@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArrayTemplate.txx,v $
   Language:  C++
-  Date:      $Date: 2003-11-18 13:38:32 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-11-18 15:24:47 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -206,9 +206,9 @@ T* vtkDataArrayTemplate<T>::ResizeAndExtend(vtkIdType sz)
     }
 
   newArray = new T[newSize];
-  if(!newSize)
+  if(!newArray)
     {
-    vtkErrorMacro(<< "Cannot allocate memory\n");
+    vtkErrorMacro("Cannot allocate memory\n");
     return 0;
     }
 
