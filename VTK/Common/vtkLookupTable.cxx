@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLookupTable.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-01 15:44:23 $
-  Version:   $Revision: 1.73 $
+  Date:      $Date: 2001-10-02 12:15:05 $
+  Version:   $Revision: 1.74 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -567,7 +567,7 @@ static void vtkLookupTableMapData(vtkLookupTable *self, T *input,
           *output++ = *cptr++;
           *output++ = *cptr++;
           *output++ = *cptr++;
-          *output++ = (*cptr)*alpha; cptr++;
+          *output++ = (unsigned char)((*cptr)*alpha); cptr++;
           input += inIncr;
           }
         }
@@ -591,7 +591,7 @@ static void vtkLookupTableMapData(vtkLookupTable *self, T *input,
           cptr = vtkLinearLookup(val, table, maxIndex, shift, scale); 
           *output++ = (unsigned char)(cptr[0]*0.30 + cptr[1]*0.59 + 
                                       cptr[2]*0.11 + 0.5);
-          *output++ = alpha*cptr[3];
+          *output++ = (unsigned char)(alpha*cptr[3]);
           input += inIncr;
           }
         }
@@ -624,7 +624,7 @@ static void vtkLookupTableMapData(vtkLookupTable *self, T *input,
           *output++ = *cptr++;
           *output++ = *cptr++;
           *output++ = *cptr++;
-          *output++ = (*cptr)*alpha; cptr++;
+          *output++ = (unsigned char)((*cptr)*alpha); cptr++;
           input += inIncr;
           }
         }
@@ -646,7 +646,7 @@ static void vtkLookupTableMapData(vtkLookupTable *self, T *input,
           cptr = vtkLinearLookup(*input, table, maxIndex, shift, scale); 
           *output++ = (unsigned char)(cptr[0]*0.30 + cptr[1]*0.59 + 
                                       cptr[2]*0.11 + 0.5);
-          *output++ = cptr[3]*alpha;
+          *output++ = (unsigned char)(cptr[3]*alpha);
           input += inIncr;
           }
         }
