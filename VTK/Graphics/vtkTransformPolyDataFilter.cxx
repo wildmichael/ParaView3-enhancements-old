@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:56 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-02-21 19:10:59 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -172,6 +172,7 @@ void vtkTransformPolyDataFilter::Execute()
   output->SetLines(input->GetLines());
   output->SetPolys(input->GetPolys());
   output->SetStrips(input->GetStrips());
+  output->SetFieldData(input->GetFieldData());
 
   if (newNormals)
     {
