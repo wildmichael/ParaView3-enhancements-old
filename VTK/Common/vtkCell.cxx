@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-15 20:13:54 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1998-08-19 11:57:47 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -210,7 +210,6 @@ void vtkCell::GetBounds(float bounds[6])
 float vtkCell::GetLength2 ()
 {
   float diff, l=0.0;
-  float *bounds;
   int i;
 
   this->GetBounds();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPixel.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-25 13:34:01 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 1998-08-19 11:57:53 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -450,8 +450,8 @@ void vtkPixel::Clip(float vtkNotUsed(value),
 		    vtkPointLocator *vtkNotUsed(locator), 
 		    vtkCellArray *vtkNotUsed(tetras),
 		    vtkPointData *vtkNotUsed(inPd), vtkPointData *vtkNotUsed(outPd),
-		    vtkCellData *vtkNotUsed(inCd), int cellId, 
-		    vtkCellData *vtkNotUsed(outCd), int insideOut)
+		    vtkCellData *vtkNotUsed(inCd), int vtkNotUsed(cellId), 
+		    vtkCellData *vtkNotUsed(outCd), int vtkNotUsed(insideOut))
 {
 
 }

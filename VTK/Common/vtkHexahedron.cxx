@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHexahedron.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-25 13:33:57 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 1998-08-19 11:57:50 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -664,8 +664,8 @@ void vtkHexahedron::Clip(float vtkNotUsed(value),
                          vtkPointLocator *vtkNotUsed(locator), 
 			 vtkCellArray *vtkNotUsed(tetras),
                          vtkPointData *vtkNotUsed(inPd), vtkPointData *vtkNotUsed(outPd),
-                         vtkCellData *vtkNotUsed(inCd), int cellId, 
-			 vtkCellData *vtkNotUsed(outCd), int insideOut)
+                         vtkCellData *vtkNotUsed(inCd), int vtkNotUsed(cellId), 
+			 vtkCellData *vtkNotUsed(outCd), int vtkNotUsed(insideOut))
 {
 
 }
