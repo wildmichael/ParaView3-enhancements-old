@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProcrustesAlignmentFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-03-11 13:46:44 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2003-03-11 15:19:30 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkPolyData.h"
 #include "vtkMath.h"
 
-vtkCxxRevisionMacro(vtkProcrustesAlignmentFilter, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkProcrustesAlignmentFilter, "$Revision: 1.10 $");
 vtkStandardNewMacro(vtkProcrustesAlignmentFilter);
 
 //----------------------------------------------------------------------------
@@ -369,5 +369,6 @@ void vtkProcrustesAlignmentFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->Superclass::PrintSelf(os,indent);
   this->LandmarkTransform->PrintSelf(os,indent);
+  this->MeanPoints->PrintSelf(os, indent);
 }
 
