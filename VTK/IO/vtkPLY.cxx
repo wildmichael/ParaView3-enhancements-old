@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLY.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-07 15:34:39 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-09-07 21:15:38 $
+  Version:   $Revision: 1.3 $
   Thanks:    Mike Dresser MD/PhD
              Director of Core Facility for Imaging
              Program in Molecular and Cell Biology
@@ -940,7 +940,7 @@ Entry:
   elem_ptr - pointer to location where the element information should be put
 ******************************************************************************/
 
-vtkPLY::ply_get_element(PlyFile *plyfile, void *elem_ptr)
+void vtkPLY::ply_get_element(PlyFile *plyfile, void *elem_ptr)
 {
   if (plyfile->file_type == PLY_ASCII)
     ascii_get_element (plyfile, (char *) elem_ptr);
