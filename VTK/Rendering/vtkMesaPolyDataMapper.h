@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaPolyDataMapper.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:43 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-01-08 14:10:29 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -71,7 +71,7 @@ public:
 
   // Description:
   // Implement superclass render method.
-  void Render(vtkRenderer *ren, vtkActor *a);
+  virtual void RenderPiece(vtkRenderer *ren, vtkActor *a);
 
   // Description:
   // Release any graphics resources that are being consumed by this mapper.
