@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldData.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-02 21:14:09 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1998-12-25 17:58:10 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -210,7 +210,10 @@ void vtkFieldData::SetNumberOfArrays(int num)
       {
       for ( i=0; i<this->NumberOfArrays; i++ )
         {
-        if ( this->ArrayNames[i] != NULL ) delete [] this->ArrayNames[i];
+        if ( this->ArrayNames[i] != NULL )
+	  {
+	  delete [] this->ArrayNames[i];
+	  }
         }
       delete [] this->ArrayNames;
       }
