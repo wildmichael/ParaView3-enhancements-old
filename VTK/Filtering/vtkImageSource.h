@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.h,v $
   Language:  C++
-  Date:      $Date: 1996-09-18 14:00:54 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1996-09-26 21:02:36 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -78,10 +78,10 @@ public:
   // Description:
   // This method returns the data type of the region that will be returned by
   // the UpdateRegion method.  This method is used to automatically set
-  // the DataTypes of elements in the pipline.  When this source is set as an 
-  // input, the consumer may call this function and use the returned DataType
+  // the ScalarTypes of elements in the pipline.  When this source is set as an 
+  // input, the consumer may call this function and use the returned ScalarType
   // as a default.
-  virtual int GetDataType() = 0;
+  virtual int GetScalarType() = 0;
 
 protected:
 };
