@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:18:50 $
-  Version:   $Revision: 1.98 $
+  Date:      $Date: 2003-06-18 14:12:44 $
+  Version:   $Revision: 1.99 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -38,7 +38,7 @@
 #include "vtkUnsignedLongArray.h"
 #include "vtkUnsignedShortArray.h"
 
-vtkCxxRevisionMacro(vtkDataWriter, "$Revision: 1.98 $");
+vtkCxxRevisionMacro(vtkDataWriter, "$Revision: 1.99 $");
 vtkStandardNewMacro(vtkDataWriter);
 
 // this undef is required on the hp. vtkMutexLock ends up including
@@ -853,7 +853,7 @@ int vtkDataWriter::WriteTCoordData(ostream *fp, vtkDataArray *tcoords, int num)
 
 
   *fp << "TEXTURE_COORDINATES ";
-  sprintf(format, "%s %d %s\n", this->TCoordsName, dim, "%s");
+  sprintf(format, "%s %d %s\n", tcoordsName, dim, "%s");
   delete[] tcoordsName;
 
   return this->WriteArray(fp, tcoords->GetDataType(), tcoords, format, num, 
