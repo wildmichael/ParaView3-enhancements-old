@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkActor.h,v $
   Language:  C++
-  Date:      $Date: 1994-10-06 18:01:39 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1994-10-07 10:13:14 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -66,7 +66,7 @@ class vlActor : public vlObject
   // Sets the posiiton of the actor.
   vlSetVector3Macro(Position,float);
   void AddPosition(float deltaPosition[3]);
-  void AddPosition(float delatX, float deltaY, float deltaZ);
+  void AddPosition(float deltaX,float deltaY,float deltaZ);
 
   // Description:
   // Get the origin of the actor. This is the point about which all 
@@ -125,7 +125,7 @@ class vlActor : public vlObject
   // This does not affect methods such as SetPosition.
   vlSetMacro(Dragable,int);
   // Description:
-  // Set the value of the dragable instance variable. This determines if 
+  // Turn on/off the dragable instance variable. This determines if 
   // an actor once picked, can be dragged (translated) through space.
   // This is typically done through an interactive mouse interface.
   // This does not affect methods such as SetPosition.
