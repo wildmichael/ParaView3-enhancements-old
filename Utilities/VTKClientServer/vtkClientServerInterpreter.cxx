@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClientServerInterpreter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-12-02 18:28:08 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-12-04 18:14:35 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -28,7 +28,7 @@
 #include <sys/stat.h>
 
 vtkStandardNewMacro(vtkClientServerInterpreter);
-vtkCxxRevisionMacro(vtkClientServerInterpreter, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkClientServerInterpreter, "$Revision: 1.3 $");
 
 //----------------------------------------------------------------------------
 class vtkClientServerInterpreterInternals
@@ -737,8 +737,8 @@ void vtkClientServerInterpreterSplit(const char* path,
                                      vtkstd::vector<vtkstd::string>& paths)
 {
   vtkstd::string str = path?path:"";
-  std::string::size_type lpos = 0;
-  std::string::size_type rpos = str.npos;
+  vtkstd::string::size_type lpos = 0;
+  vtkstd::string::size_type rpos = str.npos;
   while((rpos = str.find(split, lpos)) != str.npos)
     {
     if(lpos < rpos)
