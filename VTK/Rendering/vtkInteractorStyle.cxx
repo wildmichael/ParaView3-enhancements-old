@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-08 20:58:33 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-10-18 15:32:15 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -424,14 +424,14 @@ void  vtkInteractorStyle::StartState(int newstate)
   vtkRenderWindowInteractor *rwi = this->Interactor;
   this->State = newstate;
   if (this->AnimState == VTKIS_ANIM_OFF) 
-   {
-	  rwi->GetRenderWindow()->SetDesiredUpdateRate(rwi->GetDesiredUpdateRate());
-	  if ( !rwi->CreateTimer(VTKI_TIMER_FIRST) ) 
-	    {
-	    vtkErrorMacro(<< "Timer start failed");
- 	   this->State = VTKIS_START;
- 	   }
-	}
+    {
+    rwi->GetRenderWindow()->SetDesiredUpdateRate(rwi->GetDesiredUpdateRate());
+    if ( !rwi->CreateTimer(VTKI_TIMER_FIRST) ) 
+      {
+      vtkErrorMacro(<< "Timer start failed");
+      this->State = VTKIS_START;
+      }
+    }
 }
 //----------------------------------------------------------------------------
 void  vtkInteractorStyle::StopState() 
@@ -439,13 +439,14 @@ void  vtkInteractorStyle::StopState()
   vtkRenderWindowInteractor *rwi = this->Interactor;
   this->State = VTKIS_START;
   if (this->AnimState == VTKIS_ANIM_OFF) 
-   {	
-	  rwi->GetRenderWindow()->SetDesiredUpdateRate(rwi->GetStillUpdateRate());
-	  if ( !rwi->DestroyTimer() ) 
-    	{
-   	 vtkErrorMacro(<< "Timer stop failed");
-   	 }
-     }	
+    {	
+    rwi->GetRenderWindow()->SetDesiredUpdateRate(rwi->GetStillUpdateRate());
+    rwi->Render();
+    if ( !rwi->DestroyTimer() ) 
+      {
+      vtkErrorMacro(<< "Timer stop failed");
+      }
+    }	
 }
 
 //----------------------------------------------------------------------------
@@ -456,14 +457,14 @@ void  vtkInteractorStyle::StartAnimate()
 	    vtkErrorMacro(<< "starting animation");
   this->AnimState = VTKIS_ANIM_ON;
   if (this->State == VTKIS_START) 
-   {	
-	    vtkErrorMacro(<< "Start state found");
-	  rwi->GetRenderWindow()->SetDesiredUpdateRate(rwi->GetDesiredUpdateRate());
-	  if ( !rwi->CreateTimer(VTKI_TIMER_FIRST) ) 
-	    {
-	    vtkErrorMacro(<< "Timer start failed");
- 	   }
-     }	
+    {	
+    vtkErrorMacro(<< "Start state found");
+    rwi->GetRenderWindow()->SetDesiredUpdateRate(rwi->GetDesiredUpdateRate());
+    if ( !rwi->CreateTimer(VTKI_TIMER_FIRST) ) 
+      {
+      vtkErrorMacro(<< "Timer start failed");
+      }
+    }	
   rwi->Render();
 }
 //----------------------------------------------------------------------------
@@ -472,13 +473,13 @@ void  vtkInteractorStyle::StopAnimate()
   vtkRenderWindowInteractor *rwi = this->Interactor;
   this->AnimState = VTKIS_ANIM_OFF;
   if (this->State == VTKIS_START) 
-   {	
-	  rwi->GetRenderWindow()->SetDesiredUpdateRate(rwi->GetStillUpdateRate());
-	  if ( !rwi->DestroyTimer() ) 
-    	{
-   	 vtkErrorMacro(<< "Timer stop failed");
-   	 }
-     }	
+    {	
+    rwi->GetRenderWindow()->SetDesiredUpdateRate(rwi->GetStillUpdateRate());
+    if ( !rwi->DestroyTimer() ) 
+      {
+      vtkErrorMacro(<< "Timer stop failed");
+      }
+    }	
 }
 
 // JCP Animation control
