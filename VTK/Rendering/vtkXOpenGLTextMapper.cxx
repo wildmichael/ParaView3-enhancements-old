@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-26 12:56:12 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-05-04 20:16:40 $
+  Version:   $Revision: 1.16 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -204,6 +204,9 @@ void vtkXOpenGLTextMapper::RenderOpaqueGeometry(vtkViewport* viewport,
 {
   vtkDebugMacro (<< "RenderOpaqueGeometry");
 
+  // turn off texturing in case it is on
+  glDisable( GL_TEXTURE_2D );
+  
   // Get the window information for display
   vtkWindow*  window = viewport->GetVTKWindow();
   if (this->LastWindow && this->LastWindow != window)
