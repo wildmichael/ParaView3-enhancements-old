@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-19 21:53:16 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1999-02-24 17:36:49 $
+  Version:   $Revision: 1.35 $
   
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -397,7 +397,7 @@ void vtkLODActor::BuildPaths(vtkAssemblyPaths *vtkNotUsed(paths),
   
   previous = path->GetLastItem();
   vtkMatrix4x4 *matrix = vtkMatrix4x4::New();
-  matrix->DeepCopy(previous->vtkProp::GetMatrixPointer());
+  matrix->DeepCopy(previous->vtkProp3D::GetMatrixPointer());
   copy->SetUserMatrix(matrix);
   matrix->Delete();
 
