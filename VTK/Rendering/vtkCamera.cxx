@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:43:15 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 1998-05-01 21:41:37 $
+  Version:   $Revision: 1.53 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -622,7 +622,7 @@ void vtkCamera::ComputePerspectiveTransform(float aspect,
   
   // now do the shear to get the z axis to go through the
   // center of the window
-  ftemp = PRP[2]*tan(this->ViewAngle*aspect*3.1415926/360.0);
+  ftemp = PRP[2]*aspect*tan(this->ViewAngle*3.1415926/360.0);
   DOP[0] = ftemp*this->WindowCenter[0] - PRP[0];
   ftemp = PRP[2]*tan(this->ViewAngle*3.1415926/360.0);
   DOP[1] = ftemp*this->WindowCenter[1] - PRP[1];
