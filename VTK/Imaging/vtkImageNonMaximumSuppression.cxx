@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageNonMaximumSuppression.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-12-12 15:26:41 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1996-12-12 16:20:24 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -253,7 +253,7 @@ void vtkImageNonMaximumSuppression::Execute(vtkImageRegion *inRegion1,
 	  for (idx = 0; idx < this->NumberOfAxes; ++idx)
 	    {
 	    d = vector[idx] = *in2Ptr4 / ratio[idx];
-	    normalizeFactor = d * d;
+	    normalizeFactor += d * d;
 	    in2Ptr4 += in2Inc4;
 	    }
 	  normalizeFactor = 1.0 / sqrt(normalizeFactor);
