@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-31 14:10:25 $
-  Version:   $Revision: 1.95 $
+  Date:      $Date: 1999-02-08 17:12:40 $
+  Version:   $Revision: 1.96 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -232,6 +232,10 @@ void vtkRenderer::Render(void)
       rx2 = (int)(this->Viewport[2]*(this->RenderWindow->GetSize()[0] - 1));
       ry2 = (int)(this->Viewport[3]*(this->RenderWindow->GetSize()[1] - 1));
       this->RenderWindow->SetPixelData(rx1,ry1,rx2,ry2,this->BackingImage,0);
+      if (this->EndRenderMethod) 
+       {
+       (*this->EndRenderMethod)(this->EndRenderMethodArg);
+       }
       return;
       }
     }
