@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLImporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-02 12:31:24 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2001-05-07 19:05:34 $
+  Version:   $Revision: 1.22 $
   Thanks:    Tom Citriniti who implemented and contributed this class
 
 
@@ -5338,7 +5338,7 @@ class vtkVRMLUseStruct {
 
 VectorType<vtkVRMLUseStruct *> useList;
 
-vtkVRMLImporter::vtkVRMLImporter ()
+vtkVRMLImporter::vtkVRMLImporter () : Heap(1)
 {
   this->CurrentActor = NULL;
   this->CurrentLight = NULL;
