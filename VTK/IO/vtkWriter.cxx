@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-13 02:20:12 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2002-03-13 04:02:52 $
+  Version:   $Revision: 1.35 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkWriter.h"
 #include "vtkCommand.h"
 
-vtkCxxRevisionMacro(vtkWriter, "$Revision: 1.34 $");
+vtkCxxRevisionMacro(vtkWriter, "$Revision: 1.35 $");
 
 // Construct with no start and end write methods or arguments.
 vtkWriter::vtkWriter()
@@ -87,7 +87,6 @@ void vtkWriter::PrintSelf(ostream& os, vtkIndent indent)
 
 void vtkWriter::EncodeArrayName(char* resname, const char* name)
 {
-  cout << "Encoding the name: [" << name << "]" << endl;
   if ( !name || !resname )
     {   
     return;
@@ -116,5 +115,4 @@ void vtkWriter::EncodeArrayName(char* resname, const char* name)
   str << ends;
   strcpy(resname, str.str());
   str.rdbuf()->freeze(0);
-  cout << "Produce: [" << resname << "]" << endl;
 }
