@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-03 18:37:18 $
-  Version:   $Revision: 1.88 $
+  Date:      $Date: 2002-06-19 17:52:06 $
+  Version:   $Revision: 1.89 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #include "vtkPyramid.h"
 #include "vtkUnsignedCharArray.h"
 
-vtkCxxRevisionMacro(vtkGeometryFilter, "$Revision: 1.88 $");
+vtkCxxRevisionMacro(vtkGeometryFilter, "$Revision: 1.89 $");
 vtkStandardNewMacro(vtkGeometryFilter);
 
 // Construct with all types of clipping turned off.
@@ -288,7 +288,8 @@ void vtkGeometryFilter::Execute()
           break;
 
         case 3:
-          for (j=0; j < cell->GetNumberOfFaces(); j++)
+          int numFaces = cell->GetNumberOfFaces();
+          for (j=0; j < numFaces; j++)
             {
             face = cell->GetFace(j);
             input->GetCellNeighbors(cellId, face->PointIds, cellIds);

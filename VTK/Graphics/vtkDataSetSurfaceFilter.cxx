@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetSurfaceFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-03 12:10:13 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-06-19 17:52:06 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,7 +30,7 @@
 #include "vtkUnsignedCharArray.h"
 #include "vtkStructuredGridGeometryFilter.h"
 
-vtkCxxRevisionMacro(vtkDataSetSurfaceFilter, "$Revision: 1.20 $");
+vtkCxxRevisionMacro(vtkDataSetSurfaceFilter, "$Revision: 1.21 $");
 vtkStandardNewMacro(vtkDataSetSurfaceFilter);
 
 //----------------------------------------------------------------------------
@@ -844,7 +844,8 @@ void vtkDataSetSurfaceFilter::UnstructuredGridExecute()
         {
         if (cell->GetCellDimension() == 3)
           {
-          for (j=0; j < cell->GetNumberOfFaces(); j++)
+          int numFaces = cell->GetNumberOfFaces();
+          for (j=0; j < numFaces; j++)
             {
             face = cell->GetFace(j);
             numFacePts = face->GetNumberOfPoints();
@@ -910,13 +911,13 @@ void vtkDataSetSurfaceFilter::UnstructuredGridExecute()
         else //3D nonlinear cell
           {
           vtkIdList *cellIds = vtkIdList::New();
-          for (j=0; j < cell->GetNumberOfFaces(); j++)
+          int numFaces = cell->GetNumberOfFaces();
+          for (j=0; j < numFaces; j++)
             {
             face = cell->GetFace(j);
             input->GetCellNeighbors(cellId, face->PointIds, cellIds);
             if ( cellIds->GetNumberOfIds() <= 0)
               {
-              ;
               face->Triangulate(0,pts,coords);
               for (i=0; i < pts->GetNumberOfIds(); i+=3)
                 {
