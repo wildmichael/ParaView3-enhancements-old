@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMutexLock.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:13 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-08-10 20:42:14 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -123,6 +123,9 @@ public:
 
 protected:
   vtkSimpleMutexLock   SimpleMutexLock;
+  vtkMutexLock() {};
+  vtkMutexLock(const vtkMutexLock&);
+  void operator=(const vtkMutexLock&);
 };
 
 
