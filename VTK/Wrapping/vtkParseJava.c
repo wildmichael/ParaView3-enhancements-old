@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParseJava.c,v $
   Language:  C++
-  Date:      $Date: 2002-12-04 18:21:02 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2003-01-20 16:23:05 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -216,11 +216,16 @@ void outputFunction(FILE *fp, FileInfo *data)
     return;
     }
 
-  /* NewInstance can not be wrapped because it is a (non-virtual)   */
-  /* method which returns a pointer of the same type as the current */ 
-  /* pointer. Since all methods are virtual in Java, this looks     */
-  /* like polymorphic return type.                                  */
+  /* NewInstance and SafeDownCast can not be wrapped because it is a
+     (non-virtual) method which returns a pointer of the same type as
+     the current pointer. Since all methods are virtual in Java, this
+     looks like polymorphic return type.  */
   if (!strcmp("NewInstance",currentFunction->Name))
+    {
+    return ;
+    }
+  
+  if (!strcmp("SafeDownCast",currentFunction->Name))
     {
     return ;
     }
