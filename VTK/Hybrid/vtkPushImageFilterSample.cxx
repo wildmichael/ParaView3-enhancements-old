@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPushImageFilterSample.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-08 13:29:23 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-09-30 20:36:23 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -15,9 +15,10 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
+#include "vtkPushImageFilterSample.h"
 
 #include "vtkCommand.h"
-#include "vtkPushImageFilterSample.h"
+#include "vtkImageData.h"
 #include "vtkObjectFactory.h"
 #include "vtkPushPipeline.h"
 
@@ -39,7 +40,7 @@ public:
     }
 };
 
-vtkCxxRevisionMacro(vtkPushImageFilterSample, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkPushImageFilterSample, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkPushImageFilterSample);
 
 vtkPushImageFilterSample::vtkPushImageFilterSample()

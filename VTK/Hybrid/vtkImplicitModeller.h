@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitModeller.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-13 15:58:53 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 2002-09-30 20:36:23 $
+  Version:   $Revision: 1.57 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -77,8 +77,9 @@
 #define VTK_VOXEL_MODE   0
 #define VTK_CELL_MODE    1
 
-class vtkMultiThreader;
+class vtkDataArray;
 class vtkExtractGeometry;
+class vtkMultiThreader;
 
 class VTK_HYBRID_EXPORT vtkImplicitModeller : public vtkDataSetToImageFilter 
 {

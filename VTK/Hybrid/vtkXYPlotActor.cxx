@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXYPlotActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-26 17:22:32 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2002-09-30 20:36:23 $
+  Version:   $Revision: 1.41 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,6 +19,7 @@
 
 #include "vtkAppendPolyData.h"
 #include "vtkAxisActor2D.h"
+#include "vtkCellArray.h"
 #include "vtkDataObjectCollection.h"
 #include "vtkDataSetCollection.h"
 #include "vtkFloatArray.h"
@@ -30,6 +31,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkPlane.h"
 #include "vtkPlanes.h"
+#include "vtkPolyData.h"
 #include "vtkPolyDataMapper2D.h"
 #include "vtkProperty2D.h"
 #include "vtkTextMapper.h"
@@ -38,7 +40,7 @@
 
 #define VTK_MAX_PLOTS 50
 
-vtkCxxRevisionMacro(vtkXYPlotActor, "$Revision: 1.40 $");
+vtkCxxRevisionMacro(vtkXYPlotActor, "$Revision: 1.41 $");
 vtkStandardNewMacro(vtkXYPlotActor);
 
 vtkCxxSetObjectMacro(vtkXYPlotActor,TitleTextProperty,vtkTextProperty);

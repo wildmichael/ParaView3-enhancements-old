@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPushImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-18 14:29:11 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-09-30 20:36:23 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,11 @@
 
 =========================================================================*/
 #include "vtkPushImageReader.h"
-#include "vtkObjectFactory.h"
-#include "vtkCommand.h"
+
 #include "vtkByteSwap.h"
+#include "vtkCommand.h"
+#include "vtkImageData.h"
+#include "vtkObjectFactory.h"
 #include "vtkPushPipeline.h"
 
 class vtkPIRIncrementSlice : public vtkCommand
@@ -53,7 +55,7 @@ public:
     }
 };
 
-vtkCxxRevisionMacro(vtkPushImageReader, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkPushImageReader, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkPushImageReader);
 
 vtkPushImageReader::vtkPushImageReader()

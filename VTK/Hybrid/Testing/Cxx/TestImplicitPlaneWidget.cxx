@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestImplicitPlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-12 12:22:23 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-09-30 20:36:23 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -15,22 +15,23 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
-#include "vtkImplicitPlaneWidget.h"
-#include "vtkSphereSource.h"
-#include "vtkPolyDataMapper.h"
+#include "vtkActor.h"
 #include "vtkAppendPolyData.h"
 #include "vtkClipPolyData.h"
+#include "vtkCommand.h"
 #include "vtkConeSource.h"
 #include "vtkGlyph3D.h"
-#include "vtkActor.h"
+#include "vtkImplicitPlaneWidget.h"
+#include "vtkInteractorEventRecorder.h"
 #include "vtkLODActor.h"
-#include "vtkRenderer.h"
+#include "vtkPlane.h"
+#include "vtkPolyData.h"
+#include "vtkPolyDataMapper.h"
+#include "vtkProperty.h"
 #include "vtkRenderWindow.h"
 #include "vtkRenderWindowInteractor.h"
-#include "vtkCommand.h"
-#include "vtkPlane.h"
-#include "vtkProperty.h"
-#include "vtkInteractorEventRecorder.h"
+#include "vtkRenderer.h"
+#include "vtkSphereSource.h"
 
 #include "vtkRegressionTestImage.h"
 #include "vtkDebugLeaks.h"

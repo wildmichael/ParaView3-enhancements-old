@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformToGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-17 14:10:53 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-09-30 20:36:23 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,9 +19,10 @@
 
 #include "vtkAbstractTransform.h"
 #include "vtkIdentityTransform.h"
+#include "vtkImageData.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkTransformToGrid, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtkTransformToGrid, "$Revision: 1.11 $");
 vtkStandardNewMacro(vtkTransformToGrid);
 
 vtkCxxSetObjectMacro(vtkTransformToGrid,Input,vtkAbstractTransform);

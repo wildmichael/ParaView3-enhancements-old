@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWeightedTransformFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:30:44 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-09-30 20:36:23 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,12 +16,17 @@
 
 =========================================================================*/
 #include "vtkWeightedTransformFilter.h"
-#include "vtkObjectFactory.h"
-#include "vtkLinearTransform.h"
-#include "vtkFloatArray.h"
-#include "vtkMath.h"
 
-vtkCxxRevisionMacro(vtkWeightedTransformFilter, "$Revision: 1.9 $");
+#include "vtkCellData.h"
+#include "vtkFieldData.h"
+#include "vtkFloatArray.h"
+#include "vtkLinearTransform.h"
+#include "vtkMath.h"
+#include "vtkObjectFactory.h"
+#include "vtkPointData.h"
+#include "vtkPointSet.h"
+
+vtkCxxRevisionMacro(vtkWeightedTransformFilter, "$Revision: 1.10 $");
 vtkStandardNewMacro(vtkWeightedTransformFilter);
 
 // helper functions.  Can't easily get to these in Matrix4x4 as written.
