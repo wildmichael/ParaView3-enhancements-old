@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLightCollection.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:36:52 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-08-15 17:19:43 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,9 +40,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 // .NAME vtkLightCollection - a list of lights
 // .SECTION Description
-// vtkLightCollection represents and provides methods to manipulate list of
+// vtkLightCollection represents and provides methods to manipulate a list of
 // lights (i.e., vtkLight and subclasses). The list is unsorted and duplicate
 // entries are not prevented.
+
+// .SECTION see also
+// vtkCollection vtkLight
 
 #ifndef __vtkLightC_hh
 #define __vtkLightC_hh
@@ -69,7 +72,7 @@ inline void vtkLightCollection::AddItem(vtkLight *a)
 }
 
 // Description:
-// Remove an light from the list.
+// Remove a light from the list.
 inline void vtkLightCollection::RemoveItem(vtkLight *a) 
 {
   this->vtkCollection::RemoveItem((vtkObject *)a);
@@ -84,7 +87,8 @@ inline int vtkLightCollection::IsItemPresent(vtkLight *a)
 }
 
 // Description:
-// Get the next light in the list.
+// Get the next light in the list. NULL is returned when the collection is 
+// exausted.
 inline vtkLight *vtkLightCollection::GetNextItem() 
 { 
   return (vtkLight *)(this->vtkCollection::GetNextItem());
