@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-21 14:58:37 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-10-06 13:06:06 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -813,8 +813,14 @@ void vtkInteractorStyle::OnMiddleButtonDown(int ctrl, int shift,
     }
   else 
     {
-    if (this->CtrlKey) this->StartDolly();
-    else         this->StartPan();
+    if (this->CtrlKey)
+      {
+      this->StartDolly();
+      }
+    else
+      {
+      this->StartPan();
+      }
     }
 }
 //----------------------------------------------------------------------------
