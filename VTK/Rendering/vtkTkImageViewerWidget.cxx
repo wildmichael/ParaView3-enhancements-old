@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkImageViewerWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:09:08 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2000-03-29 14:22:51 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -455,7 +455,7 @@ LRESULT APIENTRY vtkTkImageViewerWidgetProc(HWND hWnd, UINT message,
       {
       SetWindowLong(hWnd,GWL_USERDATA,(LONG)self->ImageViewer->GetImageWindow());
       SetWindowLong(hWnd,GWL_WNDPROC,(LONG)self->OldProc);
-      self->OldProc(hWnd,message,wParam,lParam);
+      CallWindowProc(self->OldProc,hWnd,message,wParam,lParam);
       }
 
     // now reset to the original config
