@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCTHFractal.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-09-19 15:54:58 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-09-22 16:34:23 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,7 +29,7 @@
 
 
 
-vtkCxxRevisionMacro(vtkCTHFractal, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkCTHFractal, "$Revision: 1.5 $");
 vtkStandardNewMacro(vtkCTHFractal);
 
 //----------------------------------------------------------------------------
@@ -253,9 +253,6 @@ void vtkCTHFractal::Traverse(int &blockId, int level, vtkCTHData* output,
 {
   int ext[6];
   float bds[6];
-  float* spacing = output->GetTopLevelSpacing();
-  float* origin = output->GetTopLevelOrigin();
-  int spacingFactor = 1;
   int dim = this->Dimensions;
 
   // Compute cell extent.
