@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-21 18:02:19 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2000-10-03 12:21:23 $
+  Version:   $Revision: 1.19 $
 
 Copyright (c) 1998-2000 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -109,13 +109,13 @@ void vtkPVContourFilter::SetInput(vtkPVData *pvData)
 }
 
 //----------------------------------------------------------------------------
-void vtkPVContourFilter::SetOutput(vtkPVPolyData *pvd)
+void vtkPVContourFilter::SetPVOutput(vtkPVPolyData *pvd)
 {
   vtkPVApplication *pvApp = this->GetPVApplication();
   
   if (pvApp && pvApp->GetController()->GetLocalProcessId() == 0)
     {
-    pvApp->BroadcastScript("%s SetOutput %s", this->GetTclName(),
+    pvApp->BroadcastScript("%s SetPVOutput %s", this->GetTclName(),
 			   pvd->GetTclName());
     }  
   
@@ -124,9 +124,9 @@ void vtkPVContourFilter::SetOutput(vtkPVPolyData *pvd)
 }
 
 //----------------------------------------------------------------------------
-vtkPVPolyData *vtkPVContourFilter::GetOutput()
+vtkPVPolyData *vtkPVContourFilter::GetPVOutput()
 {
-  return vtkPVPolyData::SafeDownCast(this->Output);
+  return vtkPVPolyData::SafeDownCast(this->PVOutput);
 }
 
 //----------------------------------------------------------------------------
@@ -185,7 +185,7 @@ void vtkPVContourFilter::ContourValueChanged()
     this->GetContour()->SetEndMethod(EndContourFilterProgress, this);
     pvd = vtkPVPolyData::New();
     pvd->Clone(pvApp);
-    this->SetOutput(pvd);
+    this->SetPVOutput(pvd);
     a = this->GetInput()->GetAssignment();
     pvd->SetAssignment(a);
     this->GetInput()->GetActorComposite()->VisibilityOff();

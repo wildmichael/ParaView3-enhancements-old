@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVContourFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-20 18:07:56 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-10-03 12:21:23 $
+  Version:   $Revision: 1.11 $
 
 Copyright (c) 1998-1999 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -35,7 +35,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkPVSource.h"
 
 class vtkPVPolyData;
-class vtkPVImage;
+class vtkPVImageData;
 
 
 class VTK_EXPORT vtkPVContourFilter : public vtkPVSource
@@ -56,8 +56,8 @@ public:
   // For now you have to set the output explicitly.  This allows you to manage
   // the object creation/tcl-names in the other processes.  Do not try to
   // set the output before the input has been set.
-  void SetOutput(vtkPVPolyData *pvd);
-  vtkPVPolyData *GetOutput();
+  void SetPVOutput(vtkPVPolyData *pvd);
+  vtkPVPolyData *GetPVOutput();
   
   // Description:
   // This interface broadcasts the change to all the processes.
