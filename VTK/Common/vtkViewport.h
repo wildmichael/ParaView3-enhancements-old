@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewport.h,v $
   Language:  C++
-  Date:      $Date: 1997-12-04 21:52:38 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-12-08 14:29:24 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,6 +56,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkViewport_h
 
 #include "vtkObject.h"
+#include "vtkActor2DCollection.h"
 
 class vtkWindow;
 
@@ -123,6 +124,8 @@ public:
   virtual void DisplayToWorld();
   virtual void WorldToDisplay();
 
+  void AddActor2D(vtkActor2D* actor);
+  void RemoveActor2D(vtkActor2D* actor);
 
   // Description:
   // Get the size and origin of the viewport in display coordinates
@@ -147,6 +150,7 @@ protected:
   float DisplayPoint[3];
   float ViewPoint[3];
   float WorldPoint[4];
+  vtkActor2DCollection Actors2D;
 
 };
 

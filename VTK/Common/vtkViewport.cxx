@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewport.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-12-04 21:52:40 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-12-08 14:29:22 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -89,6 +89,23 @@ vtkViewport::vtkViewport()
   this->Origin[1] = 0;
 
 }
+
+
+void vtkViewport::AddActor2D(vtkActor2D* actor)
+{
+  vtkDebugMacro (<< "vtkViewport::AddActor2D");
+  this->Actors2D.AddItem(actor);
+}
+
+void vtkViewport::RemoveActor2D(vtkActor2D* actor)
+{
+  vtkDebugMacro (<< "vtkViewport::RemoveActor2D");
+
+  this->Actors2D.RemoveItem(actor);
+}
+
+
+
 
 // Description:
 // Convert display coordinates to view coordinates.
