@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:05 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1999-12-02 21:13:49 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1101,6 +1101,29 @@ unsigned long vtkRectilinearGrid::GetActualMemorySize()
     }
 
   return size;
+}
+
+//----------------------------------------------------------------------------
+void vtkRectilinearGrid::GetCellNeighbors(int cellId, vtkIdList *ptIds,
+                                          vtkIdList *cellIds)
+{
+  int numPtIds=ptIds->GetNumberOfIds();
+
+  // Use special methods for speed
+  switch (numPtIds)
+    {
+    case 0:
+      cellIds->Reset();
+      return;
+
+    case 1: case 2: case 4: //vertex, edge, face neighbors
+      vtkStructuredData::GetCellNeigbors(cellId, ptIds, 
+                                         cellIds, this->Dimensions);
+      break;
+      
+    default:
+      this->vtkDataSet::GetCellNeighbors(cellId, ptIds, cellIds);
+    }
 }
 
 //----------------------------------------------------------------------------
