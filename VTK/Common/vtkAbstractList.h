@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractList.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-10 15:52:00 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-04-12 21:53:41 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -51,7 +51,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // are dynamic array (vector) and linked list.
 
 // .SECTION See also
-// vtkContainer
+// vtkContainer vtkAbstractMap
 
 #include "vtkContainer.h"
 

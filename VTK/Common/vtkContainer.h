@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContainer.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-10 18:40:24 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-04-12 21:53:41 $
+  Version:   $Revision: 1.9 $
 
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -28,9 +28,9 @@
 // Since vtkContainer and vtkAbstractList provide some pure 
 // virtual methods, each object of type container will have
 // v-tabe.
-//
-// The reference counting scheme used in vtkContainer is not
-// used with debug leaks yet.
+
+// .SECTION See Also
+// vtkAbstractIterator, vtkAbstractList, vtkAbstractMap
 
 #include "vtkObject.h"
 #include "vtkString.h"
