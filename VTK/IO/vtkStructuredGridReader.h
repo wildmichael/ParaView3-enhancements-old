@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridReader.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:32:24 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1996-01-25 13:27:09 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,6 +63,17 @@ public:
 
   void SetFilename(char *name);
   char *GetFilename();
+
+  // Description:
+  // Specify the InputString for use when reading from a character array.
+  SetInputString(char *in) {this->Reader.SetInputString(in);};
+  char *GetInputString() { return this->Reader.GetInputString();};
+
+  // Description:
+  // Set/Get reading from an InputString instead of the default, a file.
+  SetReadFromInputString(int in) {this->Reader.SetReadFromInputString(in);};
+  int GetReadFromInputString() {this->Reader.GetReadFromInputString();};
+  vtkBooleanMacro(ReadFromInputString,int);
 
   int GetFileType();
 
