@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-02-18 12:50:53 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-02-24 17:47:02 $
+  Version:   $Revision: 1.9 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -73,11 +73,6 @@ public:
   static vtkPolyDataMapper2D *New();
   void PrintSelf(ostream& os, vtkIndent indent);
   
-  // Description:
-  // Draw the polydata to the screen.  This function is implemented in
-  // the device dependent subclasses.
-  virtual void Render(vtkViewport*, vtkActor2D*) {};
-
   // Description:
   // Set the input to the mapper.  
   vtkSetObjectMacro(Input, vtkPolyData);
