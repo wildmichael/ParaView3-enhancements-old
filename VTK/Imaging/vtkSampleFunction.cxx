@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkSampleFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-03-08 16:46:36 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-05-04 15:54:36 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -118,7 +118,7 @@ void vlSampleFunction::Execute()
   for (ptId=0; ptId < numPts; ptId++ )
     {
     p = this->GetPoint(ptId);
-    s = this->ImplicitFunction->Evaluate(p[0], p[1], p[2]);
+    s = this->ImplicitFunction->FunctionValue(p);
     newScalars->SetScalar(ptId,s);
     }
 //
@@ -131,7 +131,7 @@ void vlSampleFunction::Execute()
     for (ptId=0; ptId < numPts; ptId++ )
       {
       p = this->GetPoint(ptId);
-      this->ImplicitFunction->EvaluateGradient(p[0], p[1], p[2], n);
+      this->ImplicitFunction->FunctionGradient(p, n);
       math.Normalize(n);
       newNormals->SetNormal(ptId,n);
       }

@@ -3,8 +3,8 @@
  Program:   Visualization Library
  Module:    $RCSfile: vtkSource.cxx,v $
  Language:  C++
- Date:      $Date: 1995-05-01 21:06:51 $
- Version:   $Revision: 1.12 $
+ Date:      $Date: 1995-05-04 15:54:37 $
+ Version:   $Revision: 1.13 $
 
  This file is part of the Visualization Library. No part of this file or its
  contents may be copied, reproduced or altered in any way without the express
@@ -36,7 +36,6 @@ void vlSource::UpdateFilter()
     {
     if ( this->StartMethod ) (*this->StartMethod)(this->StartMethodArg);
     this->Execute();
-    this->_MTime.Modified();
     this->ExecuteTime.Modified();
     this->SetDataReleased(0);
     if ( this->EndMethod ) (*this->EndMethod)(this->EndMethodArg);
