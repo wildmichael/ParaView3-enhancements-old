@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:10:00 $
-  Version:   $Revision: 1.85 $
+  Date:      $Date: 2000-05-10 03:34:56 $
+  Version:   $Revision: 1.86 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -134,7 +134,10 @@ void vtkImageData::CopyStructure(vtkDataSet *ds)
     this->Extent[i] = sPts->Extent[i];
     this->Extent[i+3] = sPts->Extent[i+3];
     this->Dimensions[i] = sPts->Dimensions[i];
+    this->Spacing[i] = sPts->Spacing[i];
     }
+  this->NumberOfScalarComponents = sPts->NumberOfScalarComponents;
+  this->ScalarType = sPts->ScalarType;
   this->DataDescription = sPts->DataDescription;
   this->CopyInformation(sPts);
 }
