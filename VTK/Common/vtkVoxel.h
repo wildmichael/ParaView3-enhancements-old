@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxel.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-12 13:48:34 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1995-09-13 07:35:52 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,7 +41,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .NAME vtkVoxel - a cell that represents a 3D orthogonal parallelepiped
 // .SECTION Description
 // vtkVoxel is a concrete implementation of vtkCell to represent a 3D
-// orthogonal parallelpiped. Unlike vtkHexahedeon, vtkVoxel has interior angles
+// orthogonal parallelepiped. Unlike vtkHexahedeon, vtkVoxel has interior angles
 // of 90 degrees, and sides are parallel to coordinate axes. This results 
 // in large increases in computational performance.
 
