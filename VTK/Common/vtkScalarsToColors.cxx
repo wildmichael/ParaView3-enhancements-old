@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarsToColors.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-28 20:30:10 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-10-01 17:49:38 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -69,7 +69,6 @@ vtkUnsignedCharArray *vtkScalarsToColors::MapScalars(vtkDataArray *scalars,
     newColors = vtkUnsignedCharArray::New();
     newColors->SetNumberOfComponents(4);
     newColors->SetNumberOfTuples(scalars->GetNumberOfTuples());
-    newColors->Register(this);
     this->
       MapScalarsThroughTable2(scalars->GetVoidPointer(comp), 
                               newColors->GetPointer(0),
