@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-08-26 18:36:14 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1997-09-03 18:41:45 $
+  Version:   $Revision: 1.22 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -105,7 +105,9 @@ void vtkImageViewer::PrintSelf(ostream& os, vtkIndent indent)
      << this->DisplayExtent[3] << ")\n";
   os << indent << "ColorWindow: " << this->ColorWindow << "\n";
   os << indent << "ColorLevel: " << this->ColorLevel << "\n";
-
+  os << indent << "Size: " << this->Size[0] << ", " << this->Size[1] << "\n";
+  os << indent << "Position: " << this->Position[0] << ", " 
+     << this->Position[1] << "\n";
 }
 
 

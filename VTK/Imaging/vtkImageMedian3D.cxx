@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMedian3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-14 21:00:42 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-09-03 18:41:43 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -95,6 +95,7 @@ void vtkImageMedian3D::SetKernelSize(int size0, int size1, int size2)
   this->KernelMiddle[3] = 0;
 
   this->SetNumberOfElements(volume);
+  this->Modified();
 }
 
 
