@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTubeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-05 21:48:47 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 2002-02-07 16:41:42 $
+  Version:   $Revision: 1.59 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkTubeFilter, "$Revision: 1.58 $");
+vtkCxxRevisionMacro(vtkTubeFilter, "$Revision: 1.59 $");
 vtkStandardNewMacro(vtkTubeFilter);
 
 // Construct object with radius 0.5, radius variation turned off, the number 
@@ -504,6 +504,8 @@ void vtkTubeFilter::PrintSelf(ostream& os, vtkIndent indent)
 
   os << indent << "Use Default Normal: " 
      << (this->UseDefaultNormal ? "On\n" : "Off\n");
+  os << indent << "Sides Share Vertices: " 
+     << (this->SidesShareVertices ? "On\n" : "Off\n");
   os << indent << "Default Normal: " << "( " << this->DefaultNormal[0] <<
      ", " << this->DefaultNormal[1] << ", " << this->DefaultNormal[2] <<
      " )\n";
