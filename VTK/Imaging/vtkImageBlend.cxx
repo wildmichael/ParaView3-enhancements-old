@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageBlend.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-27 07:37:23 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2000-09-28 13:12:34 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to David G. Gobbi and Sebastien Barre who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -687,7 +687,6 @@ static void vtkImageBlendCompoundExecute(vtkImageBlend *self,
 // This templated function executes the filter for any type of data.
 template <class T>
 static void vtkImageBlendCompoundTransferExecute(vtkImageBlend *self,
-                                                   int id,
                                                    int outExt[6], 
                                                    vtkImageData *outData, 
                                                    T *outPtr,
@@ -953,9 +952,8 @@ void vtkImageBlend::ThreadedExecute(vtkImageData **inData,
       outPtr = outData->GetScalarPointerForExtent(outExt);
       switch (outData->GetScalarType())
         {
-        vtkTemplateMacro6(vtkImageBlendCompoundTransferExecute, 
+        vtkTemplateMacro5(vtkImageBlendCompoundTransferExecute, 
                           this, 
-                          id, 
                           outExt,
                           outData, 
                           (VTK_TT *)(outPtr), 
