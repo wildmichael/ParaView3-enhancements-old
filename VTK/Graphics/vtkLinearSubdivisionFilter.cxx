@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearSubdivisionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 20:01:35 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-10-11 21:25:35 $
+  Version:   $Revision: 1.2 $
   Thanks:    This work was supported bt PHS Research Grant No. 1 P41 RR13218-01
              from the National Center for Research Resources
 
@@ -41,6 +41,19 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkLinearSubdivisionFilter.h"
 #include "vtkEdgeTable.h"
+#include "vtkObjectFactory.h"
+
+vtkLinearSubdivisionFilter* vtkLinearSubdivisionFilter::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkLinearSubdivisionFilter");
+  if(ret)
+    {
+    return (vtkLinearSubdivisionFilter*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkLinearSubdivisionFilter;
+}
 
 void vtkLinearSubdivisionFilter::GenerateSubdivisionPoints (vtkPolyData *inputDS, vtkIntArray *edgeData, vtkPoints *outputPts, vtkPointData *outputPD)
 {
