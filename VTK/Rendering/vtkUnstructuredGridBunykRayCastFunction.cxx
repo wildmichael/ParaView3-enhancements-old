@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridBunykRayCastFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-12-06 02:28:24 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2003-12-12 19:57:24 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -34,7 +34,7 @@
 #include "vtkColorTransferFunction.h"
 #include "vtkVolumeProperty.h"
 
-vtkCxxRevisionMacro(vtkUnstructuredGridBunykRayCastFunction, "$Revision: 1.14 $");
+vtkCxxRevisionMacro(vtkUnstructuredGridBunykRayCastFunction, "$Revision: 1.15 $");
 vtkStandardNewMacro(vtkUnstructuredGridBunykRayCastFunction);
 
 #define VTK_BUNYKRCF_NUMLISTS 100000
@@ -376,13 +376,13 @@ void vtkUnstructuredGridBunykRayCastFunction::TransformPoints()
 {
   vtkRenderer *ren = this->Renderer;  
   ren->ComputeAspect();
-  float *aspect = ren->GetAspect();
+  double *aspect = ren->GetAspect();
 
   vtkTransform *perspectiveTransform = vtkTransform::New();
   vtkMatrix4x4 *perspectiveMatrix = vtkMatrix4x4::New();
   
-  // Get the view matrix in two steps -  there is a one step method in camera but it turns
-  // off stereo so we do not want to use that one
+  // Get the view matrix in two steps - there is a one step method in camera
+  // but it turns off stereo so we do not want to use that one
   vtkCamera *cam = ren->GetActiveCamera();
   perspectiveTransform->Identity();
   perspectiveTransform->Concatenate(cam->GetPerspectiveTransformMatrix(aspect[0]/aspect[1], 0.0, 1.0 ));
