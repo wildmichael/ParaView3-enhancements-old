@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkLookupTable.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-09 10:48:42 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1994-11-09 19:53:40 $
+  Version:   $Revision: 1.18 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -193,20 +193,17 @@ float *vlLookupTable::GetTableValue (int indx)
 
 void vlLookupTable::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlLookupTable::GetClassName()))
-    {
-    vlObject::PrintSelf(os,indent);
+  vlObject::PrintSelf(os,indent);
 
-    os << indent << "Build Time: " <<this->BuildTime.GetMTime() << "\n";
-    os << indent << "Hue Range: (" << this->HueRange[0] << ", "
-       << this->HueRange[1] << ")\n";
-    os << indent << "Insert Time: " <<this->InsertTime.GetMTime() << "\n";
-    os << indent << "Number Of Colors: " << this->GetNumberOfColors() << "\n";
-    os << indent << "Saturation Range: (" << this->SaturationRange[0] << ", "
-       << this->SaturationRange[1] << ")\n";
-    os << indent << "Table Range: (" << this->TableRange[0] << ", "
-       << this->TableRange[1] << ")\n";
-    os << indent << "Value Range: (" << this->ValueRange[0] << ", "
-       << this->ValueRange[1] << ")\n";
-   }
+  os << indent << "Build Time: " <<this->BuildTime.GetMTime() << "\n";
+  os << indent << "Hue Range: (" << this->HueRange[0] << ", "
+     << this->HueRange[1] << ")\n";
+  os << indent << "Insert Time: " <<this->InsertTime.GetMTime() << "\n";
+  os << indent << "Number Of Colors: " << this->GetNumberOfColors() << "\n";
+  os << indent << "Saturation Range: (" << this->SaturationRange[0] << ", "
+     << this->SaturationRange[1] << ")\n";
+  os << indent << "Table Range: (" << this->TableRange[0] << ", "
+     << this->TableRange[1] << ")\n";
+  os << indent << "Value Range: (" << this->ValueRange[0] << ", "
+     << this->ValueRange[1] << ")\n";
 }
