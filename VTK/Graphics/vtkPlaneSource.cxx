@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPlaneSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-03-12 19:00:34 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1994-05-15 19:21:38 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -59,7 +59,7 @@ void vlPlaneSource::Execute()
   newTCoords = new vlFloatTCoords(numPts,2);
 
   newPolys = new vlCellArray;
-  newPolys->Initialize(newPolys->EstimateSize(numPolys,4));
+  newPolys->Allocate(newPolys->EstimateSize(numPolys,4));
 //
 // Generate points and point data
 //

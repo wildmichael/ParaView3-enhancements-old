@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMaskPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-05-08 22:28:05 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-05-15 19:21:41 $
+  Version:   $Revision: 1.3 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -66,13 +66,13 @@ void vlMaskPolyData::Execute()
   newVerts = new vlCellArray(numNewVerts);
 
   newLines = new vlCellArray;
-  newLines->Initialize(newLines->EstimateSize(numNewLines,2));
+  newLines->Allocate(newLines->EstimateSize(numNewLines,2));
 
   newPolys = new vlCellArray;
-  newPolys->Initialize(newPolys->EstimateSize(numNewPolys,4));
+  newPolys->Allocate(newPolys->EstimateSize(numNewPolys,4));
 
   newStrips = new vlCellArray;
-  newStrips->Initialize(newStrips->EstimateSize(numNewStrips,6));
+  newStrips->Allocate(newStrips->EstimateSize(numNewStrips,6));
 //
 // Traverse topological lists and traverse
 //

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMaskPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-05-08 22:28:04 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-05-15 19:21:40 $
+  Version:   $Revision: 1.3 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -42,7 +42,7 @@ void vlMaskPoints::Execute()
 //
   numNewPts = numPts / this->OnRatio;
   newPts = new vlFloatPoints(numNewPts);
-  this->PointData.CopyInitialize(pd);
+  this->PointData.CopyAllocate(pd);
 //
 // Traverse points and copy
 //
