@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorText.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:27 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2001-10-21 13:59:19 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -41,11 +41,12 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 // .NAME vtkVectorText - create polygonal text
 // .SECTION Description
-// vtkVectorText generates vtkPolyData from an input text string. Besides
-// the ASCII alphanumeric characters a-z, A-Z, 0-9, vtkVectorText also 
-// supports ASCII punctuation marks. (Supported set is ASCII characters
-// (33-126) inclusive. The only control character supported is the 
-// line feed character "\n", which advances to a new line.
+
+// vtkVectorText generates vtkPolyData from an input text string. Besides the
+// ASCII alphanumeric characters a-z, A-Z, 0-9, vtkVectorText also supports
+// ASCII punctuation marks. (The supported ASCII character set are the codes
+// (33-126) inclusive.) The only control character supported is the line feed
+// character "\n", which advances to a new line.
 //
 // To use thie class, you normally couple it with a vtkPolyDataMapper and a
 // vtkActor. In this case you would use the vtkActor's transformation methods
@@ -79,6 +80,7 @@ protected:
   void Execute();
   char *Text;
   char *Letters[127];
+
 private:
   vtkVectorText(const vtkVectorText&);  // Not implemented.
   void operator=(const vtkVectorText&);  // Not implemented.
