@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPIController.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-30 17:33:11 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2003-09-24 19:35:49 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -68,9 +68,9 @@ void vtkMPIController::CreateOutputWindow()
   vtkOutputWindow::SetInstance(this->OutputWindow);
 }
 
-vtkCxxRevisionMacro(vtkMPIOutputWindow, "$Revision: 1.16 $");
+vtkCxxRevisionMacro(vtkMPIOutputWindow, "$Revision: 1.17 $");
 
-vtkCxxRevisionMacro(vtkMPIController, "$Revision: 1.16 $");
+vtkCxxRevisionMacro(vtkMPIController, "$Revision: 1.17 $");
 vtkStandardNewMacro(vtkMPIController);
 
 //----------------------------------------------------------------------------
@@ -231,7 +231,6 @@ void vtkMPIController::InitializeCommunicator(vtkMPICommunicator* comm)
       this->Communicator->Register(this); 
       } 
 
-    vtkMPICommunicator* comm = (vtkMPICommunicator*)this->Communicator;
     if (comm && comm->Comm->Handle)
       {
       this->InitializeNumberOfProcesses();
