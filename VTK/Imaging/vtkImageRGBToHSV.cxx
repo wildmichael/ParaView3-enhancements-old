@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageRGBToHSV.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:09:11 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-12-06 04:18:32 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -76,8 +76,8 @@ static void vtkImageRGBToHSVExecute(vtkImageRGBToHSV *self,
 				    vtkImageData *outData, T *outPtr,
 				    int outExt[6], int id)
 {
-  int idxX, idxY, idxZ;
-  int maxX, maxY, maxZ;
+  int idxC, idxX, idxY, idxZ;
+  int maxC, maxX, maxY, maxZ;
   int inIncX, inIncY, inIncZ;
   int outIncX, outIncY, outIncZ;
   unsigned long count = 0;
@@ -87,6 +87,7 @@ static void vtkImageRGBToHSVExecute(vtkImageRGBToHSV *self,
   float temp;
   
   // find the region to loop over
+  maxC = inData->GetNumberOfScalarComponents()-1;
   maxX = outExt[1] - outExt[0]; 
   maxY = outExt[3] - outExt[2]; 
   maxZ = outExt[5] - outExt[4];
@@ -147,6 +148,11 @@ static void vtkImageRGBToHSVExecute(vtkImageRGBToHSV *self,
 	*outPtr = (T)(H); outPtr++;
 	*outPtr = (T)(S); outPtr++;
 	*outPtr = (T)(V); outPtr++;
+
+	for (idxC = 3; idxC <= maxC; idxC++)
+	  {
+	  *outPtr++ = *inPtr++;
+	  }
 	}
       outPtr += outIncY;
       inPtr += inIncY;
