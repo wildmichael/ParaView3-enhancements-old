@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-22 12:14:49 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1996-08-26 17:25:18 $
+  Version:   $Revision: 1.12 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -423,7 +423,7 @@ int vtkImageData::Allocate()
 // increments are calculate as a side action of this call.
 void vtkImageData::SetScalars(vtkScalars *scalars)
 {
-  int idx, inc, num;
+  int idx, inc=1, num;
 
   // Set the proper type.
   if (strcmp(scalars->GetDataType(), "float") == 0)
