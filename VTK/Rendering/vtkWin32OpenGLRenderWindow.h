@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-19 18:16:29 $
-  Version:   $Revision: 1.62 $
+  Date:      $Date: 2003-01-23 19:42:28 $
+  Version:   $Revision: 1.63 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -238,6 +238,7 @@ protected:
   int CursorHidden;
   int ForceMakeCurrent;
 
+  char   *Capabilities;
 
   void ResizeWhileOffscreen(int xsize, int ysize);
   void CreateAWindow(int x, int y, int width, int height);

@@ -3,8 +3,8 @@
 Program:   Visualization Toolkit
 Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
 Language:  C++
-Date:      $Date: 2002-11-22 12:47:39 $
-Version:   $Revision: 1.107 $
+Date:      $Date: 2003-01-23 19:42:28 $
+Version:   $Revision: 1.108 $
 
 Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -38,7 +38,7 @@ PURPOSE.  See the above copyright notice for more information.
 #include <GL/gl.h>
 #endif
 
-vtkCxxRevisionMacro(vtkWin32OpenGLRenderWindow, "$Revision: 1.107 $");
+vtkCxxRevisionMacro(vtkWin32OpenGLRenderWindow, "$Revision: 1.108 $");
 vtkStandardNewMacro(vtkWin32OpenGLRenderWindow);
 
 #define VTK_MAX_LIGHTS 8
@@ -71,6 +71,7 @@ vtkWin32OpenGLRenderWindow::vtkWin32OpenGLRenderWindow()
   this->MFChandledWindow = FALSE;       // hsr
   this->StereoType = VTK_STEREO_CRYSTAL_EYES;  
   this->CursorHidden = 0;
+  this->Capabilities = 0;
 }
 
 vtkWin32OpenGLRenderWindow::~vtkWin32OpenGLRenderWindow()
@@ -96,6 +97,8 @@ vtkWin32OpenGLRenderWindow::~vtkWin32OpenGLRenderWindow()
       vtkSetWindowLong(this->WindowId,4,(LONG)0);
       DestroyWindow(this->WindowId);
     }
+
+  delete[] this->Capabilities;
 }
 
 void vtkWin32OpenGLRenderWindow::Clean()
@@ -421,7 +424,10 @@ const char* vtkWin32OpenGLRenderWindow::ReportCapabilities()
   strm << "accum:  redSize=" << static_cast<int>(pfd.cAccumRedBits) << " greenSize=" << static_cast<int>(pfd.cAccumGreenBits) << "blueSize=" << static_cast<int>(pfd.cAccumBlueBits) << "alphaSize=" << static_cast<int>(pfd.cAccumAlphaBits) << endl;
 
   strm << ends;
-  return strm.str();
+  delete[] this->Capabilities;
+  this->Capabilities = new char[strlen(strm.str()) + 1];
+  strcpy(this->Capabilities, strm.str());
+  return this->Capabilities;
 }
 
  

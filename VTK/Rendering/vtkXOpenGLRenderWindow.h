@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-19 18:16:29 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2003-01-23 19:42:28 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -212,6 +212,7 @@ protected:
   int      CursorHidden;
   int      ForceMakeCurrent;
   int      UsingHardware;
+  char    *Capabilities;
 
   // we must keep track of the cursors we are using
   Cursor XCArrow;
