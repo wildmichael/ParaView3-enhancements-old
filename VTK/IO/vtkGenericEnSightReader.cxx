@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericEnSightReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-21 12:57:48 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2002-06-27 15:30:33 $
+  Version:   $Revision: 1.32 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkEnSightGoldReader.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkGenericEnSightReader, "$Revision: 1.31 $");
+vtkCxxRevisionMacro(vtkGenericEnSightReader, "$Revision: 1.32 $");
 vtkStandardNewMacro(vtkGenericEnSightReader);
 
 vtkCxxSetObjectMacro(vtkGenericEnSightReader,TimeSets, 
@@ -954,6 +954,9 @@ void vtkGenericEnSightReader::ReplaceWildcards(char* fileName, int timeSet,
     sscanf(line, " %*s %*s %d", &fileNameNum);
     this->ReplaceWildcardsHelper(fileName, fileNameNum);
     }
+  
+  delete this->IS;
+  this->IS = NULL;
 }
 
 void vtkGenericEnSightReader::ReplaceWildcardsHelper(char* fileName, int num)
