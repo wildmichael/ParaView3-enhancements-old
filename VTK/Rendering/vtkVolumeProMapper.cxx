@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-07 19:10:41 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-11-08 21:21:57 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -118,7 +118,7 @@ vtkVolumeProMapper::vtkVolumeProMapper()
 
   this->Cut = NULL;
   
-
+  this->IntermixIntersectingGeometry = 0;
 }
 
 // Destroy the mapper. Delete the context, volume build time, and the

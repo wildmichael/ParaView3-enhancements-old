@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-05 19:17:26 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-11-08 21:21:58 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -224,7 +224,14 @@ public:
 					   unsigned int * vtkNotUsed(xSize),
 					   unsigned int * vtkNotUsed(ySize),
 					   unsigned int * vtkNotUsed(zSize)) {};
- 
+
+  // Description:
+  // Specify whether any geometry intersects the volume.
+  // Does nothing with VG500
+  vtkSetClampMacro(IntermixIntersectingGeometry, int, 0, 1);
+  vtkGetMacro(IntermixIntersectingGeometry, int);
+  vtkBooleanMacro(IntermixIntersectingGeometry, int);
+  
 protected:
   vtkVolumeProMapper();
   ~vtkVolumeProMapper();
@@ -293,6 +300,9 @@ protected:
   int                  WrongVLIVersion;
   int                  DisplayedMessage;
 
+  // The embedded geometry flag
+  int IntermixIntersectingGeometry;
+  
 private:
   vtkVolumeProMapper(const vtkVolumeProMapper&);  // Not implemented.
   void operator=(const vtkVolumeProMapper&);  // Not implemented.

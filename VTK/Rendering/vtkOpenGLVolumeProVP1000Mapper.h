@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLVolumeProVP1000Mapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-05 19:17:28 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-11-08 21:21:57 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -86,6 +86,11 @@ protected:
                           vtkVolume    *vol,
                           int          size[2],
                           unsigned int *outData );
+  
+  // Get the OpenGL depth buffer values in a the form needed for the
+  // VolumePro board
+  virtual void GetDepthBufferValues( vtkRenderer *ren, int size[2],
+                                     unsigned int *outData);
 };
 
 
