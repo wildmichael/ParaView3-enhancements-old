@@ -3,8 +3,8 @@
   Program:   OSCAR 
   Module:    $RCSfile: vtkActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-01-06 11:09:34 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-01-09 15:58:05 $
+  Version:   $Revision: 1.3 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -21,6 +21,9 @@ This file is part of the vis library
 
 Actor::Actor()
 {
+  mapper = 0;
+  MyProperty = 0;
+
   this->Origin[0] = 0.0;
   this->Origin[1] = 0.0;
   this->Origin[2] = 0.0;
@@ -116,4 +119,20 @@ Actor *ActorCollection::GetMember(int num)
     }
   
   return (elem->Actor);
+}
+
+void Actor::setMapper(Mapper *m)
+{
+  if ( this->mapper != m )
+  {
+    if ( this->mapper ) this->mapper->UnRegister((void *)this);
+    this->mapper = m;
+    m->Register((void *)this);
+//    modified();
+  }
+}
+
+Mapper *Actor::getMapper()
+{
+  return this->mapper;
 }
