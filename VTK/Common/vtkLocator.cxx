@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 21:02:42 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1997-06-06 18:07:27 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,8 +67,8 @@ void vtkLocator::Initialize()
 
 void vtkLocator::Update()
 {
-  if ((this->BuildTime < this->MTime)||
-  (this->DataSet->GetMTime() < this->BuildTime))
+  if ((this->MTime > this->BuildTime) ||
+      (this->DataSet->GetMTime() > this->BuildTime))
     {
     this->BuildLocator();
     }

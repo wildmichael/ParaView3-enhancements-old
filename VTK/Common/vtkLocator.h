@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLocator.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 17:54:50 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1997-06-06 18:07:30 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -149,6 +149,8 @@ public:
   // the tree. You must provide a vtkPolyData object into which to place the 
   // data.
   virtual void GenerateRepresentation(int level, vtkPolyData *pd) = 0;
+
+  vtkGetMacro(BuildTime, int);
 
 protected:
   vtkDataSet *DataSet;

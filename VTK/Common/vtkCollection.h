@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCollection.h,v $
   Language:  C++
-  Date:      $Date: 1997-05-16 18:21:07 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1997-06-06 18:07:25 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,6 +75,8 @@ public:
   char *GetClassName() {return "vtkCollection";};
 
   void AddItem(vtkObject *);
+  void ReplaceItem(int i, vtkObject *);
+  void RemoveItem(int i);  
   void RemoveItem(vtkObject *);
   void RemoveAllItems();
   int  IsItemPresent(vtkObject *);
@@ -82,7 +84,7 @@ public:
   void InitTraversal();
   vtkObject *GetNextItemAsObject();  
   vtkObject *GetItemAsObject(int i);
-  
+
 
 protected:
   int NumberOfItems;
