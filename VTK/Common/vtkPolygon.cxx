@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPolygon.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-03-27 22:28:23 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1994-03-29 12:19:50 $
+  Version:   $Revision: 1.9 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -138,7 +138,7 @@ void vlPolygon::ComputeNormal(vlFloatPoints *p, float *n)
     }
 }
 
-float vlPolygon::EvaluatePosition(float x[3], int& subId, float pcoords[3])
+int vlPolygon::EvaluatePosition(float x[3], int& subId, float pcoords[3], float& minDist2)
 {
   int i;
   float p0[3], p10[3], l10, p20[3], l20, n[3];
@@ -157,13 +157,14 @@ float vlPolygon::EvaluatePosition(float x[3], int& subId, float pcoords[3])
   pcoords[1] >= 0.0 && pcoords[1] <= 1.0 &&
   this->PointInPolygon(this->GetBounds(),xproj,n) == INSIDE )
     {
-    return math.Distance2BetweenPoints(x,xproj);      
+    minDist2 = math.Distance2BetweenPoints(x,xproj);
+    return 1;
     }
 //
 // If here, point is outside of polygon, so need to find distance to boundary
 //
   vlLine line;
-  float pc[3], dist2, minDist2;
+  float pc[3], dist2;
   int ignoreId, numPts;
   vlFloatPoints pts(2);
 
@@ -172,14 +173,14 @@ float vlPolygon::EvaluatePosition(float x[3], int& subId, float pcoords[3])
     {
     line.Points.SetPoint(0,this->Points.GetPoint(i));
     line.Points.SetPoint(1,this->Points.GetPoint(i+1));
-    dist2 = line.EvaluatePosition(x, ignoreId, pc);
+    line.EvaluatePosition(x, ignoreId, pc, dist2);
     if ( dist2 < minDist2 )
       {
       minDist2 = dist2;
       }
     }
 
-  return minDist2;
+  return 0;
 }
 
 void vlPolygon::EvaluateLocation(int& subId, float pcoords[3], float x[3])

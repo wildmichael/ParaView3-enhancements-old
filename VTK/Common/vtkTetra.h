@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTetra.h,v $
   Language:  C++
-  Date:      $Date: 1994-03-23 14:07:30 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-03-29 12:19:56 $
+  Version:   $Revision: 1.5 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -33,11 +33,12 @@ public:
   void Contour(float value, vlFloatScalars *cellScalars, 
                vlFloatPoints *points, vlCellArray *verts, 
                vlCellArray *lines, vlCellArray *polys, vlFloatScalars *s);
-  float EvaluatePosition(float x[3], int& subId, float pcoords[3]);
+  int EvaluatePosition(float x[3], int& subId, float pcoords[3], float& dist2);
   void EvaluateLocation(int& subId, float pcoords[3], float x[3]);
 
 };
 
 #endif
+
 
 

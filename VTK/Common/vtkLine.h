@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkLine.h,v $
   Language:  C++
-  Date:      $Date: 1994-03-23 14:05:33 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-03-29 12:19:44 $
+  Version:   $Revision: 1.7 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -34,7 +34,7 @@ public:
                vlFloatPoints *points, vlCellArray *verts, 
                vlCellArray *lines, vlCellArray *polys, 
                vlFloatScalars *s);
-  float EvaluatePosition(float x[3], int& subId, float pcoords[3]);
+  int EvaluatePosition(float x[3], int& subId, float pcoords[3], float& dist2);
   void EvaluateLocation(int& subId, float pcoords[3], float x[3]);
 
   Intersection(float x[3], float xray[3], float x1[3], float x2[3],
