@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-26 14:16:19 $
-  Version:   $Revision: 1.87 $
+  Date:      $Date: 2002-04-11 17:42:19 $
+  Version:   $Revision: 1.88 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -260,6 +260,16 @@ public:
         }
       this->Modified();
     }
+
+  // Description:
+  // Calls SetEventInformation, but flips the Y based on the current Size[1] value.
+  // y = this->Size[1] - y - 1.
+  void SetEventInformationFlipY(int x, int y, int ctrl=0, int shift=0, int keycode=0, int repeatcount=0,
+                                const char* keysym=0)
+    {
+      this->SetEventInformation(x, this->Size[1] - y - 1, ctrl, shift, keycode, repeatcount, keysym);
+    }
+  
 
   // Description:
   // This methods sets the Size ivar of the interactor without
