@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-21 12:59:14 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2002-06-21 13:21:15 $
+  Version:   $Revision: 1.41 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 #include "vtkStructuredPoints.h"
 #include "vtkUnstructuredGrid.h"
 
-vtkCxxRevisionMacro(vtkEnSightReader, "$Revision: 1.40 $");
+vtkCxxRevisionMacro(vtkEnSightReader, "$Revision: 1.41 $");
 
 //----------------------------------------------------------------------------
 vtkEnSightReader::vtkEnSightReader()
@@ -1901,4 +1901,5 @@ void vtkEnSightReader::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "MinimumTimeValue: " << this->MinimumTimeValue << endl;
   os << indent << "MaximumTimeValue: " << this->MaximumTimeValue << endl;
   os << indent << "TimeSets: " << this->TimeSets << endl;
+  os << indent << "OutputsAreValid: " << this->OutputsAreValid << endl;
 }
