@@ -3,8 +3,8 @@
 
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-01-08 18:48:10 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1998-01-09 01:21:29 $
+  Version:   $Revision: 1.37 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -350,6 +350,9 @@ void vtkImageData::AllocateScalars()
 	}
       break;
     }
+  
+  // Unregister the scalars since PointData now has a references
+  this->PointData.GetScalars()->UnRegister(this);
   
   // allocate enough memory
   this->PointData.GetScalars()->
