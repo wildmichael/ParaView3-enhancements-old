@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-15 14:57:45 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1995-10-09 16:43:49 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -83,7 +83,8 @@ void vtkGlyph3D::Execute()
   vtkTransform trans;
   vtkCell *cell;
   vtkIdList *cellPts;
-  int npts, pts[VTK_MAX_CELL_SIZE];
+  int npts;
+  vtkIdList pts(VTK_CELL_SIZE);
   int orient, scaleSource, ptIncr, cellId;
   float scale, den;
   vtkMath math;
@@ -160,8 +161,9 @@ void vtkGlyph3D::Execute()
       cell = this->Source->GetCell(cellId);
       cellPts = cell->GetPointIds();
       npts = cellPts->GetNumberOfIds();
-      for (i=0; i < npts; i++) pts[i] = cellPts->GetId(i) + ptIncr;
-      output->InsertNextCell(cell->GetCellType(),npts,pts);
+      for (pts.Reset(), i=0; i < npts; i++) 
+        pts.InsertId(i,cellPts->GetId(i) + ptIncr);
+      output->InsertNextCell(cell->GetCellType(),pts);
       }
     }
 //

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-29 10:21:25 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1995-10-09 16:43:13 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,7 +43,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // Description:
 // Construct cell.
 vtkCell::vtkCell():
-Points(VTK_MAX_CELL_SIZE), PointIds(VTK_MAX_CELL_SIZE)
+Points(VTK_CELL_SIZE), PointIds(VTK_CELL_SIZE)
 {
   this->Points.ReferenceCountingOff();
 }  

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointData.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-08 12:47:51 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1995-10-09 16:44:17 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -309,13 +309,13 @@ static vtkAPixmap *cellColors;
 void vtkPointData::InterpolateAllocate(vtkPointData* pd, int sze, int ext)
 {
   // statics avoid constructor/destructor calls
-  static vtkFloatScalars cellScalars_s(VTK_MAX_CELL_SIZE);
-  static vtkFloatVectors cellVectors_s(VTK_MAX_CELL_SIZE);
-  static vtkFloatNormals cellNormals_s(VTK_MAX_CELL_SIZE);
-  static vtkFloatTCoords cellTCoords_s(VTK_MAX_CELL_SIZE,3);
-  static vtkFloatTensors cellTensors_s(VTK_MAX_CELL_SIZE,3);
-  static vtkUserDefined cellUserDefined_s(VTK_MAX_CELL_SIZE);
-  static vtkAPixmap cellColors_s(VTK_MAX_CELL_SIZE);
+  static vtkFloatScalars cellScalars_s(VTK_CELL_SIZE);
+  static vtkFloatVectors cellVectors_s(VTK_CELL_SIZE);
+  static vtkFloatNormals cellNormals_s(VTK_CELL_SIZE);
+  static vtkFloatTCoords cellTCoords_s(VTK_CELL_SIZE,3);
+  static vtkFloatTensors cellTensors_s(VTK_CELL_SIZE,3);
+  static vtkUserDefined cellUserDefined_s(VTK_CELL_SIZE);
+  static vtkAPixmap cellColors_s(VTK_CELL_SIZE);
   static int initialized = 0;
   
   if (!initialized)

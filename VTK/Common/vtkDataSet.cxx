@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-12 22:24:29 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1995-10-09 16:43:35 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -235,7 +235,7 @@ void vtkDataSet::GetCellNeighbors(int cellId, vtkIdList &ptIds,
                                  vtkIdList &cellIds)
 {
   int i;
-  vtkIdList otherCells(VTK_MAX_CELL_SIZE);
+  vtkIdList otherCells(VTK_CELL_SIZE);
 
   // load list with candidate cells, remove current cell
   this->GetPointCells(ptIds.GetId(0),cellIds);

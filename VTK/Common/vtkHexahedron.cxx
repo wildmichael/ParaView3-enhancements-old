@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHexahedron.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-08 12:47:13 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1995-10-09 16:43:53 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,7 +61,7 @@ vtkHexahedron::vtkHexahedron(const vtkHexahedron& h)
 
 int vtkHexahedron::EvaluatePosition(float x[3], float closestPoint[3],
                                    int& subId, float pcoords[3], 
-                                   float& dist2, float weights[VTK_MAX_CELL_SIZE])
+                                   float& dist2, float *weights)
 {
   int iteration, converged;
   float  params[3];
@@ -219,7 +219,7 @@ void vtkHexahedron::InterpolationDerivs(float pcoords[3], float derivs[24])
 }
 
 void vtkHexahedron::EvaluateLocation(int& subId, float pcoords[3], float x[3],
-                                    float weights[VTK_MAX_CELL_SIZE])
+                                     float *weights)
 {
   int i, j;
   float *pt;
@@ -523,3 +523,21 @@ void vtkHexahedron::Derivatives(int subId, float pcoords[3], float *values,
 {
 }
 
+// Description:
+// Given parametric coordinates compute inverse Jacobian transformation
+// matrix. Returns 9 elements of 3x3 inverse Jacobian plus interpolation
+// function derivatives.
+void vtkHexahedron::JacobianInverse(float pcoords[3], float inverse[9],
+                                    float derivs[24])
+{
+  int i;
+  double xCol[3], yCol[3], zCol[3];
+
+  this->InterpolationDerivs(pcoords, derivs);
+
+  for (i=0; i<3; i++)
+    {
+    xCol[i] = yCol[i] = zCol[i] = 0.0;
+    }
+
+}

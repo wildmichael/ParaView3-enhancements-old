@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractGeometry.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-08 12:47:02 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1995-10-09 16:43:41 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -77,10 +77,9 @@ void vtkExtractGeometry::Execute()
   float *x;
   float multiplier;
   vtkFloatPoints *newPts;
-  vtkIdList newCellPts(VTK_MAX_CELL_SIZE);
+  vtkIdList newCellPts(VTK_CELL_SIZE);
   vtkUnstructuredGrid *output = this->GetOutput();
   vtkPointData *outputPD = output->GetPointData();
-  
   
   vtkDebugMacro(<< "Extracting geometry");
 
@@ -93,8 +92,8 @@ void vtkExtractGeometry::Execute()
   if ( this->ExtractInside ) multiplier = 1.0;
   else multiplier = -1.0;
 //
-// Loop over all points determining whether they are inside sphere. Copy if
-// they are.
+// Loop over all points determining whether they are inside implicit function.
+// Copy if they are.
 //
   numPts = this->Input->GetNumberOfPoints();
   numCells = this->Input->GetNumberOfCells();
@@ -117,8 +116,8 @@ void vtkExtractGeometry::Execute()
       }
     }
 //
-// Now loop over all cells to see whether they are inside sphere. Copy if
-// they are.
+// Now loop over all cells to see whether they are inside implicit
+// function. Copy if they are.
 //
   for (cellId=0; cellId < this->Input->GetNumberOfCells(); cellId++)
     {
@@ -130,7 +129,7 @@ void vtkExtractGeometry::Execute()
       {
       ptId = cellPts->GetId(i);
       if ( pointMap[ptId] < 0 ) break;
-      newCellPts.SetId(i,pointMap[ptId]);
+      newCellPts.InsertId(i,pointMap[ptId]);
       }
 
     if ( i >= numCellPts )

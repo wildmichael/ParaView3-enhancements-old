@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLine.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-08 12:46:53 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1995-10-09 16:43:31 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,7 +58,7 @@ vtkLine::vtkLine(const vtkLine& l)
 
 int vtkLine::EvaluatePosition(float x[3], float closestPoint[3], 
                              int& subId, float pcoords[3],
-                             float& dist2, float weights[VTK_MAX_CELL_SIZE])
+                             float& dist2, float *weights)
 {
   float *a1, *a2;
   int i;
@@ -79,7 +79,7 @@ int vtkLine::EvaluatePosition(float x[3], float closestPoint[3],
 }
 
 void vtkLine::EvaluateLocation(int& subId, float pcoords[3], float x[3],
-                              float weights[VTK_MAX_CELL_SIZE])
+                               float *weights)
 {
   int i;
   float *a1 = this->Points.GetPoint(0);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFeatureEdges.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-08 12:47:05 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1995-10-09 16:43:43 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,7 +74,7 @@ void vtkFeatureEdges::Execute()
   vtkCellArray *inPolys;
   vtkFloatNormals *polyNormals;
   int numPts, nei;
-  vtkIdList neighbors(VTK_MAX_CELL_SIZE);
+  vtkIdList neighbors(VTK_CELL_SIZE);
   int p1, p2;
   vtkPolyData *output = this->GetOutput();
   
