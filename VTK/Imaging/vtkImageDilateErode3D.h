@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDilateErode3D.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-12 11:46:08 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1998-09-14 13:28:38 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,7 +58,12 @@ class vtkImageEllipsoidSource;
 class VTK_EXPORT vtkImageDilateErode3D : public vtkImageSpatialFilter
 {
 public:
+
+// Description:
+// Construct an instance of vtkImageDilateErode3D fitler.
+// By default zero values are dilated.
   vtkImageDilateErode3D();
+
   ~vtkImageDilateErode3D();
   static vtkImageDilateErode3D *New() 
     {return new vtkImageDilateErode3D;};
@@ -66,7 +71,12 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
   
   // Set/Get the size of the neighood.
+
+// Description:
+// This method sets the size of the neighborhood.  It also sets the 
+// default middle of the neighborhood and computes the eliptical foot print.
   void SetKernelSize(int size0, int size1, int size2);
+
   
   vtkSetMacro(DilateValue, float);
   vtkGetMacro(DilateValue, float);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGradient.h,v $
   Language:  C++
-  Date:      $Date: 1998-01-19 18:07:49 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1998-09-14 13:28:39 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,7 +58,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImageGradient : public vtkImageFilter
 {
 public:
+
+// Description:
+// Construct an instance of vtkImageGradient fitler.
   vtkImageGradient();
+
   static vtkImageGradient *New() {return new vtkImageGradient;};
   const char *GetClassName() {return "vtkImageGradient";};
   void PrintSelf(ostream& os, vtkIndent indent);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-15 20:38:25 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-09-14 13:28:45 $
+  Version:   $Revision: 1.5 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -78,7 +78,11 @@ public:
   vtkGetObjectMacro(Input, vtkPolyData);
   vtkSetObjectMacro(Input, vtkPolyData);
 
+
+// Description:
+// Specify a lookup table for the mapper to use.
   void SetLookupTable(vtkLookupTable *lut);
+
   void SetLookupTable(vtkLookupTable& lut) {this->SetLookupTable(&lut);};
   vtkLookupTable *GetLookupTable();
 
@@ -125,7 +129,12 @@ public:
   // method may return NULL if no color information is available.
   vtkScalars *GetColors();
 
+
+// Description:
+// Overload standard modified time function. If lookup table is modified,
+// then this object is modified as well.
   virtual unsigned long GetMTime();
+
 
 protected:
   vtkPolyData* Input;

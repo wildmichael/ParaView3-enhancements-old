@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCityBlockDistance.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-08 14:04:46 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-09-14 13:28:36 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,7 +67,12 @@ public:
     {return new vtkImageCityBlockDistance;};
   const char *GetClassName() {return "vtkImageCityBlockDistance";};
   
+
+// Description:
+// Intercepts the caches Update to make the region larger than requested.
+// Create the whole output array.
   void InterceptCacheUpdate();
+
   
 protected:
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageVariance3D.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-11 20:16:10 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-09-14 13:28:44 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,7 +67,12 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
   
   // Set/Get the size of the neighood.
+
+// Description:
+// This method sets the size of the neighborhood.  It also sets the 
+// default middle of the neighborhood and computes the Elliptical foot print.
   void SetKernelSize(int size0, int size1, int size2);
+
   
 protected:
   vtkImageEllipsoidSource *Ellipse;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePadFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 19:11:01 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1998-09-14 13:28:41 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,7 +55,11 @@ class vtkImageCache;
 class VTK_EXPORT vtkImagePadFilter : public vtkImageFilter
 {
 public:
+
+// Description:
+// Constructor sets default values
   vtkImagePadFilter();
+
   static vtkImagePadFilter *New() {return new vtkImagePadFilter;};
   const char *GetClassName() {return "vtkImagePadFilter";};
 

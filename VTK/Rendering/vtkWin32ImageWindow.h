@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32ImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:53:39 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-09-14 13:28:45 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -76,12 +76,24 @@ public:
   
   //BTX
   void SetDisplayId(void *foo) {vtkDebugMacro(<<"SetDisplayID not implemented");};
+
+// Description:
+// Get the window id.
   HWND GetWindowId(); 
+
   void SetWindowId(void* id) {this->WindowId = (HWND) id;};
   void SetParentId(void* id) {this->ParentId = (HWND) id;};
   void SetDeviceContext(void* dc) {this->DeviceContext = (HDC) dc;};
+
+// Description:
+// Set the window id to a pre-existing window.
   void SetWindowId(HWND);
+
+
+// Description:
+// Set the window id to a pre-existing window.
   void SetParentId(HWND);
+
   void SetDeviceContext(HDC);
 
   void *GetGenericDisplayId() 
@@ -94,8 +106,16 @@ public:
   //ETX
 
   void   SetSize(int,int);
+
+// Description:
+// Get the current size of the window.
   int   *GetSize();
+
+
+// Description:
+// Get the position in screen coordinates of the window.
   int   *GetPosition();
+
   void   SetPosition(int,int);
   void PenLineTo(int x,int y);
   void PenMoveTo(int x,int y);

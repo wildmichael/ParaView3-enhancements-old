@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAppendComponents.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-29 16:38:17 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-09-14 13:28:36 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -77,6 +77,7 @@ protected:
 };
 
 #endif
+
 
 
 

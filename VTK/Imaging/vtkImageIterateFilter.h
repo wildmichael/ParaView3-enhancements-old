@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIterateFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-12 14:41:16 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-09-14 13:28:39 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,7 +67,11 @@ public:
   const char *GetClassName() {return "vtkImageIterateFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
+
+// Description:
+// This method sets the WholeExtent, Spacing and Origin of the output.
   void UpdateImageInformation();
+
 
   // Description:
   // Public for templated iteration filters

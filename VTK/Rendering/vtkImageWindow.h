@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:53:28 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-09-14 13:28:44 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,7 +62,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImageWindow : public vtkWindow
 {
 public:
+
+// Description:
+// Creates a vtkImageWindow with 
+// background erasing disabled and gray scale hint off
   vtkImageWindow();
+
   ~vtkImageWindow();
 
   void PrintSelf(ostream& os, vtkIndent indent);

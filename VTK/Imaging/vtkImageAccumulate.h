@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAccumulate.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 19:10:18 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-09-14 13:28:35 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,14 +55,22 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImageAccumulate : public vtkImageFilter
 {
 public:
+
+// Description:
+// Constructor sets default values
   vtkImageAccumulate();
+
   static vtkImageAccumulate *New() {return new vtkImageAccumulate;};
   const char *GetClassName() {return "vtkImageAccumulate";};
 
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Always generate the whole data set.
+
+// Description:
+// Intercepts the caches Update to make the extent larger than requested.
   void InterceptCacheUpdate();
+
 
   // Description:
   // Set/Get - The component spacing is the dimension of each cell.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageThreshold.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 19:11:12 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1998-09-14 13:28:43 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,15 +55,31 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImageThreshold : public vtkImageFilter
 {
 public:
+
+// Description:
+// Constructor sets default values
   vtkImageThreshold();
+
   static vtkImageThreshold *New() {return new vtkImageThreshold;};
   const char *GetClassName() {return "vtkImageThreshold";};
 
   void PrintSelf(ostream& os, vtkIndent indent);
 
+
+// Description:
+// The values greater than or equal to the value match.
   void ThresholdByUpper(float thresh);
+
+
+// Description:
+// The values less than or equal to the value match.
   void ThresholdByLower(float thresh);
+
+
+// Description:
+// The values in a range (inclusive) match
   void ThresholdBetween(float lower, float upper);
+
 
   // Description:
   // Determines whether to replace the pixel in range with InValue

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextMapper.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:53:35 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-09-14 13:28:45 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,7 +69,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkTextMapper : public vtkMapper2D
 {
 public:
+
+// Description:
+// Creates a new text mapper with Font size 12, bold off, italic off,
+// and Arial font
   vtkTextMapper();
+
   virtual ~vtkTextMapper();
   const char *GetClassName() {return "vtkTextMapper";};
   static vtkTextMapper *New();

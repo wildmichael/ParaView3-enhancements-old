@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarBarActor.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-07 21:15:49 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-09-14 13:28:45 $
+  Version:   $Revision: 1.4 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -83,7 +83,14 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkScalarBarActor : public vtkActor2D
 {
 public:
+
+// Description:
+// Instantiate object with 64 maximum colors; 5 labels; font size 12
+// of font Arial (bolding, italic, shadows on); %%-#6.3g label
+// format, no title, and vertical orientation. The initial scalar bar
+// size is (0.05 x 0.8) of the viewport size.
   vtkScalarBarActor();
+
   ~vtkScalarBarActor();
   const char *GetClassName() {return "vtkScalarBarActor";};
   static vtkScalarBarActor *New() {return new vtkScalarBarActor;};

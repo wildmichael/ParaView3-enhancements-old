@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageOpenClose3D.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-27 20:24:00 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-09-14 13:28:41 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,31 +62,80 @@ class VTK_EXPORT vtkImageOpenClose3D : public vtkImageFilter
 {
 public:
   vtkImageOpenClose3D();
+
+// Description:
+// Destructor: Delete the sub filters.
   ~vtkImageOpenClose3D();
+
   static vtkImageOpenClose3D *New() {return new vtkImageOpenClose3D;};
   const char *GetClassName() {return "vtkImageOpenClose3D";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
+
+// Description:
+// This method considers the sub filters MTimes when computing this objects
+// MTime
   unsigned long int GetMTime();
+
   
   // Forward Object messages to filter0 and fitler1
+
+// Description:
+// Turn debugging output on. (in sub filters also)
   void DebugOn();
+
+
+// Description:
+// Pass modified message to sub filters.
   void Modified();
+
   
   // Foward Source messages to filter1
+
+// Description:
+// This method sets the cache object of the filter.
+// It justs feeds the request to the sub filter.
   void SetCache(vtkImageCache *cache);
+
+
+// Description:
+// This method returns the l;ast cache of the internal pipline.
   vtkImageCache *GetCache();
+
+
+// Description:
+// This method returns the cache to make a connection
+// It justs feeds the request to the sub filter.
   vtkImageCache *GetOutput();
+
   unsigned long GetPipelineMTime();
   // Foward filter messages
+
+// Description:
+// Set the Input of the filter.
   void SetInput(vtkImageCache *Input);
+
   void SetInput(vtkStructuredPoints *spts)
     {this->SetInput(spts->GetStructuredPointsToImage()->GetOutput());}
 
   // Forward dilateErode messages to both filters.
+
+// Description:
+// Selects the size of gaps or objects removed.
   void SetKernelSize(int size0, int size1, int size2);
+
+
+// Description:
+// Determines the value that will opened.  
+// Open value is first eroded, and then dilated.
   void SetOpenValue(float value);
+
+
+// Description:
+// Determines the value that will closed.
+// Close value is first dilated, and then eroded
   void SetCloseValue(float value);
+
   float GetOpenValue();
   float GetCloseValue();
 

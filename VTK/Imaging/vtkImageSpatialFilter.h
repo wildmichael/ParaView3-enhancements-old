@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSpatialFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:53:25 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1998-09-14 13:28:43 $
+  Version:   $Revision: 1.25 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,7 +57,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImageSpatialFilter : public vtkImageFilter
 {
 public:
+
+// Description:
+// Construct an instance of vtkImageSpatialFilter fitler.
   vtkImageSpatialFilter();
+
   static vtkImageSpatialFilter *New() {return new vtkImageSpatialFilter;};
   const char *GetClassName() {return "vtkImageSpatialFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);

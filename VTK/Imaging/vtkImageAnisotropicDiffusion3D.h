@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAnisotropicDiffusion3D.h,v $
   Language:  C++
-  Date:      $Date: 1998-01-16 19:52:42 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1998-09-14 13:28:36 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,12 +68,21 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImageAnisotropicDiffusion3D : public vtkImageSpatialFilter
 {
 public:
+
+// Description:
+// Construct an instance of vtkImageAnisotropicDiffusion3D fitler.
   vtkImageAnisotropicDiffusion3D();
+
   static vtkImageAnisotropicDiffusion3D *New() {return new vtkImageAnisotropicDiffusion3D;};
   const char *GetClassName() {return "vtkImageAnisotropicDiffusion3D";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
+
+// Description:
+// This method sets the number of inputs which also affects the
+// input neighborhood needed to compute one output pixel.
   void SetNumberOfIterations(int num);
+
   // Description:
   // Get the number of iterations.
   vtkGetMacro(NumberOfIterations,int);

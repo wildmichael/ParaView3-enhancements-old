@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDifference.h,v $
   Language:  C++
-  Date:      $Date: 1998-08-07 13:55:59 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-09-14 13:28:37 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,7 +53,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImageDifference : public vtkImageTwoInputFilter
 {
 public:
+
+// Description:
+// Construct object to extract all of the input data.
   vtkImageDifference();
+
   static vtkImageDifference *New() {return new vtkImageDifference;};
   const char *GetClassName() {return "vtkImageDifference";};
   void PrintSelf(ostream& os, vtkIndent indent);
