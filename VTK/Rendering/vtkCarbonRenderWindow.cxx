@@ -3,8 +3,8 @@
 Program:   Visualization Toolkit
 Module:    $RCSfile: vtkCarbonRenderWindow.cxx,v $
 Language:  C++
-Date:      $Date: 2002-10-24 15:27:55 $
-Version:   $Revision: 1.13 $
+Date:      $Date: 2002-10-24 15:56:45 $
+Version:   $Revision: 1.14 $
 Thanks:    to Yves Starreveld for developing this class
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
@@ -32,7 +32,7 @@ Thanks:    to Yves Starreveld for developing this class
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkCarbonRenderWindow, "$Revision: 1.13 $");
+vtkCxxRevisionMacro(vtkCarbonRenderWindow, "$Revision: 1.14 $");
 vtkStandardNewMacro(vtkCarbonRenderWindow);
 
 
@@ -471,7 +471,7 @@ void vtkCarbonRenderWindow::MakeCurrent()
 
 void vtkCarbonRenderWindow::SetForceMakeCurrent()
 {
-  this.ForceMakeCurrent = 1;
+  this->ForceMakeCurrent = 1;
 }
 
 // --------------------------------------------------------------------------

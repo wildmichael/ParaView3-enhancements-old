@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-24 15:27:55 $
-  Version:   $Revision: 1.98 $
+  Date:      $Date: 2002-10-24 15:56:45 $
+  Version:   $Revision: 1.99 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -39,7 +39,7 @@
 #include <GL/gl.h>
 #endif
 
-vtkCxxRevisionMacro(vtkWin32OpenGLRenderWindow, "$Revision: 1.98 $");
+vtkCxxRevisionMacro(vtkWin32OpenGLRenderWindow, "$Revision: 1.99 $");
 vtkStandardNewMacro(vtkWin32OpenGLRenderWindow);
 
 #define VTK_MAX_LIGHTS 8
@@ -232,7 +232,7 @@ void vtkWin32OpenGLRenderWindow::MakeCurrent()
 
 void vtkWin32OpenGLRenderWindow::SetForceMakeCurrent()
 {
-  this.ForceMakeCurrent = 1;
+  this->ForceMakeCurrent = 1;
 }
 
 void vtkWin32OpenGLRenderWindow::SetSize(int x, int y)

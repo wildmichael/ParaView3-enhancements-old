@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWinCEOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-24 15:27:55 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-10-24 15:56:45 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,7 +31,7 @@
 #include "vtkOpenGLPolyDataMapper.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkWinCEOpenGLRenderWindow, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkWinCEOpenGLRenderWindow, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkWinCEOpenGLRenderWindow);
 
 #define VTK_MAX_LIGHTS 8
@@ -176,7 +176,7 @@ void vtkWinCEOpenGLRenderWindow::MakeCurrent()
 
 void vtkWinCEOpenGLRenderWindow::SetForceMakeCurrent()
 {
-  this.ForceMakeCurrent = 1;
+  this->ForceMakeCurrent = 1;
 }
 
 void vtkWinCEOpenGLRenderWindow::SetSize(int x, int y)
