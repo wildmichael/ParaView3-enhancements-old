@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastFunction.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-21 15:00:48 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-01-18 14:05:35 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,7 +65,7 @@ class vtkVolumeRayCastMapper;
 class VTK_EXPORT vtkVolumeRayCastFunction : public vtkObject
 {
 public:
-  const char *GetClassName() {return "vtkVolumeRayCastFunction";};
+  vtkTypeMacro(vtkVolumeRayCastFunction,vtkObject);
 
   // Description:
   // Do the basic initialization. This includes saving the parameters

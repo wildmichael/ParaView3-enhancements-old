@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDirectionEncoder.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-21 14:58:07 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-01-18 14:04:42 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,7 +63,7 @@ class VTK_EXPORT vtkDirectionEncoder : public vtkObject
 public:
   // Description:
   // Get the name of this class
-  const char *GetClassName() {return "vtkDirectionEncoder";};
+  vtkTypeMacro(vtkDirectionEncoder,vtkObject);
 
   // Description:
   // Given a normal vector n, return the encoded direction

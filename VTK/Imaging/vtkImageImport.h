@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageImport.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-07 09:11:22 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2000-01-18 14:05:51 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,7 +57,7 @@ class VTK_EXPORT vtkImageImport : public vtkImageSource
 {
 public:
   static vtkImageImport *New();
-  const char *GetClassName() {return "vtkImageImport";};
+  vtkTypeMacro(vtkImageImport,vtkImageSource);
   void PrintSelf(ostream& os, vtkIndent indent);   
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSetGet.h,v $
   Language:  C++
-  Date:      $Date: 1999-12-09 16:14:33 $
-  Version:   $Revision: 1.64 $
+  Date:      $Date: 2000-01-18 14:04:06 $
+  Version:   $Revision: 1.65 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -527,6 +527,28 @@ virtual void Set##name(float x, float y) \
 virtual float *Get##name() \
 { \
     return this->name##Coordinate->GetValue(); \
+}
+
+// Macro used to determine whether a class is the same class or
+// a subclass of the named class.
+//
+#define vtkTypeMacro(thisClass,superclass) \
+virtual const char *GetClassName() {return #thisClass;};\
+virtual int IsA(const char *type) \
+{ \
+  if ( !strcmp(this->thisClass::GetClassName(),type) ) \
+    { \
+    return 1; \
+    } \
+  return this->superclass::IsA(type); \
+} \
+static thisClass* SafeDownCast(vtkObject *o) \
+{ \
+  if ( o->IsA(#thisClass) ) \
+    { \
+    return (thisClass *)o; \
+    } \
+  return NULL;\
 }
 
 #endif

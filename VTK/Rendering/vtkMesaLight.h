@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaLight.h,v $
   Language:  C++
-  Date:      $Date: 1999-12-22 20:14:04 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-01-18 14:04:59 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,7 +54,7 @@ class VTK_EXPORT vtkMesaLight : public vtkLight
 {
 public:
   static vtkMesaLight *New();
-  const char *GetClassName() {return "vtkMesaLight";};
+  vtkTypeMacro(vtkMesaLight,vtkLight);
 
   // Description:
   // Implement base class method.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBJReader.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:36 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2000-01-18 14:04:21 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,7 +55,7 @@ class VTK_EXPORT vtkOBJReader : public vtkPolyDataSource
 {
 public:
   static vtkOBJReader *New();
-  const char *GetClassName() {return "vtkOBJReader";};
+  vtkTypeMacro(vtkOBJReader,vtkPolyDataSource);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

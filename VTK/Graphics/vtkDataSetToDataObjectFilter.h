@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToDataObjectFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-07 09:13:33 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2000-01-18 14:04:38 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -76,7 +76,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkDataSetToDataObjectFilter : public vtkDataObjectSource
 {
 public:
-  const char *GetClassName() {return "vtkDataSetToDataObjectFilter";};
+  vtkTypeMacro(vtkDataSetToDataObjectFilter,vtkDataObjectSource);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

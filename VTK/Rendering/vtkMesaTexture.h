@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaTexture.h,v $
   Language:  C++
-  Date:      $Date: 1999-12-22 20:14:05 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-01-18 14:05:00 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,7 +56,7 @@ class VTK_EXPORT vtkMesaTexture : public vtkTexture
 {
 public:
   static vtkMesaTexture *New();
-  const char *GetClassName() {return "vtkMesaTexture";};
+  vtkTypeMacro(vtkMesaTexture,vtkTexture);
 
   // Description:
   // Implement base class method.

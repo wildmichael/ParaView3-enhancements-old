@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCuller.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-21 14:57:45 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2000-01-18 14:04:34 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,7 +59,7 @@ class vtkRenderer;
 class VTK_EXPORT vtkCuller : public vtkObject
 {
 public:
-  const char *GetClassName() {return "vtkCuller";};
+  vtkTypeMacro(vtkCuller,vtkObject);
 
   // Description:
   // This is called outside the render loop by vtkRenderer

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32RenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:30 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2000-01-18 14:05:39 $
+  Version:   $Revision: 1.25 $
   
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -60,7 +60,7 @@ public:
   // Construct object so that light follows camera motion.
   static vtkWin32RenderWindowInteractor *New();
 
-  const char *GetClassName() {return "vtkWin32RenderWindowInteractor";};
+  vtkTypeMacro(vtkWin32RenderWindowInteractor,vtkRenderWindowInteractor);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

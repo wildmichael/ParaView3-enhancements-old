@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFourierFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:56:57 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2000-01-18 14:05:49 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -115,7 +115,7 @@ class VTK_EXPORT vtkImageFourierFilter : public vtkImageDecomposeFilter
 {
 public:
   static vtkImageFourierFilter *New();
-  const char *GetClassName() {return "vtkImageFourierFilter";};
+  vtkTypeMacro(vtkImageFourierFilter,vtkImageDecomposeFilter);
   
   // public for templated functions of this object
   //BTX

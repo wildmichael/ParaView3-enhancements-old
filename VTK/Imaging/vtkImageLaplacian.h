@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageLaplacian.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-07 09:11:25 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2000-01-18 14:05:52 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,7 +59,7 @@ class VTK_EXPORT vtkImageLaplacian : public vtkImageToImageFilter
 {
 public:
   static vtkImageLaplacian *New();
-  const char *GetClassName() {return "vtkImageLaplacian";};
+  vtkTypeMacro(vtkImageLaplacian,vtkImageToImageFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:

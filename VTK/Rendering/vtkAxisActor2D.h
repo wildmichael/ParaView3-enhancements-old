@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAxisActor2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:56:52 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2000-01-18 14:05:41 $
+  Version:   $Revision: 1.9 $
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -80,7 +80,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkAxisActor2D : public vtkActor2D
 {
 public:
-  const char *GetClassName() {return "vtkAxisActor2D";};
+  vtkTypeMacro(vtkAxisActor2D,vtkActor2D);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

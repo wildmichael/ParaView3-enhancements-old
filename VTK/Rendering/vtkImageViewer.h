@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:09:21 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2000-01-18 14:06:02 $
+  Version:   $Revision: 1.33 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -69,7 +69,7 @@ class VTK_EXPORT vtkImageViewer : public vtkObject
 public:
   static vtkImageViewer *New();
   
-  const char *GetClassName() {return "vtkImageViewer";};
+  vtkTypeMacro(vtkImageViewer,vtkObject);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

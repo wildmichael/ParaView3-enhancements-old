@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDilateErode3D.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:47 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2000-01-18 14:05:47 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,7 +62,7 @@ public:
   // Construct an instance of vtkImageDilateErode3D fitler.
   // By default zero values are dilated.
   static vtkImageDilateErode3D *New();
-  const char *GetClassName() {return "vtkImageDilateErode3D";};
+  vtkTypeMacro(vtkImageDilateErode3D,vtkImageSpatialFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSuperquadricSource.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:41 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2000-01-18 14:04:23 $
+  Version:   $Revision: 1.6 $
   Thanks:    Mike Halle, Brigham and Women's Hospital
 
 
@@ -86,7 +86,7 @@ public:
   // spherical, and centered at the origin.
   static vtkSuperquadricSource *New();
 
-  const char *GetClassName() {return "vtkSuperquadricSource";};
+  vtkTypeMacro(vtkSuperquadricSource,vtkPolyDataSource);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImager.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:09:25 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2000-01-18 14:06:05 $
+  Version:   $Revision: 1.6 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -55,7 +55,7 @@ class VTK_EXPORT vtkOpenGLImager : public vtkImager
 { 
 public:
   static vtkOpenGLImager *New();
-  const char *GetClassName() {return "vtkOpenGLImager";};
+  vtkTypeMacro(vtkOpenGLImager,vtkImager);
 
   // Description:
   // Renders an imager.  Passes Render message on the 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCoordinate.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:04:31 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-01-18 14:03:48 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -84,7 +84,7 @@ class vtkViewport;
 class VTK_EXPORT vtkCoordinate : public vtkObject
 {
 public:
-  const char *GetClassName() {return "vtkCoordinate";};
+  vtkTypeMacro(vtkCoordinate,vtkObject);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

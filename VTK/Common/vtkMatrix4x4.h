@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMatrix4x4.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-04 20:51:22 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2000-01-18 14:03:57 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,7 +70,7 @@ class VTK_EXPORT vtkMatrix4x4 : public vtkObject
   // Construct a 4x4 identity matrix.
   static vtkMatrix4x4 *New();
 
-  const char *GetClassName() {return "vtkMatrix4x4";};
+  vtkTypeMacro(vtkMatrix4x4,vtkObject);
   void PrintSelf (ostream& os, vtkIndent indent);
   
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLinks.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-10 21:20:33 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-01-18 14:03:47 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,7 +64,7 @@ class VTK_EXPORT vtkCellLinks : public vtkObject
 {
 public:
   static vtkCellLinks *New();
-  const char *GetClassName() {return "vtkCellLinks";};
+  vtkTypeMacro(vtkCellLinks,vtkObject);
 
   // Description:
   // Allocate the specified number of links (i.e., number of points) that

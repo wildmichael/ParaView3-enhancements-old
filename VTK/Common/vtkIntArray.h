@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIntArray.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:04:47 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2000-01-18 14:03:55 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,7 +54,7 @@ class VTK_EXPORT vtkIntArray : public vtkDataArray
 public:
   static vtkIntArray *New();
 
-  const char *GetClassName() {return "vtkIntArray";};
+  vtkTypeMacro(vtkIntArray,vtkDataArray);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

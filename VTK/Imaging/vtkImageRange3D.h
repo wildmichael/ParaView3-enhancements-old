@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageRange3D.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:57:03 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-01-18 14:05:58 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,7 +57,7 @@ class VTK_EXPORT vtkImageRange3D : public vtkImageSpatialFilter
 {
 public:
   static vtkImageRange3D *New();
-  const char *GetClassName() {return "vtkImageRange3D";};
+  vtkTypeMacro(vtkImageRange3D,vtkImageSpatialFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:

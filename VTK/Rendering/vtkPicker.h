@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPicker.h,v $
   Language:  C++
-  Date:      $Date: 1999-12-27 19:54:48 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2000-01-18 14:05:04 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -83,7 +83,7 @@ class VTK_EXPORT vtkPicker : public vtkObject
 {
 public:
   static vtkPicker *New();
-  const char *GetClassName() {return "vtkPicker";};
+  vtkTypeMacro(vtkPicker,vtkObject);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

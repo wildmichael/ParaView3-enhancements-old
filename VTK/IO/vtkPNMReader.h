@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNMReader.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-21 19:09:35 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-01-18 14:06:06 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,7 +66,7 @@ class VTK_EXPORT vtkPNMReader : public vtkImageReader
 {
 public:
   static vtkPNMReader *New();
-  const char *GetClassName() {return "vtkPNMReader";};
+  vtkTypeMacro(vtkPNMReader,vtkImageReader);
   
 protected:
   vtkPNMReader() {};

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorTopology.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:44 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2000-01-18 14:04:24 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,7 +71,7 @@ public:
   // Construct object with distance 0.1.
   static vtkVectorTopology *New();
 
-  const char *GetClassName() {return "vtkVectorTopology";};
+  vtkTypeMacro(vtkVectorTopology,vtkDataSetToPolyDataFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

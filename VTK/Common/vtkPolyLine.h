@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyLine.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:04:59 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2000-01-18 14:04:02 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,7 +56,7 @@ class VTK_EXPORT vtkPolyLine : public vtkCell
 {
 public:
   static vtkPolyLine *New();
-  const char *GetClassName() {return "vtkPolyLine";};
+  vtkTypeMacro(vtkPolyLine,vtkCell);
 
   // Description:
   // Given points and lines, compute normals to lines. These are not true 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSource.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-07 08:57:15 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2000-01-18 14:04:07 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -76,7 +76,7 @@ class VTK_EXPORT vtkSource : public vtkProcessObject
 public:
   static vtkSource *New();
 
-  const char *GetClassName() {return "vtkSource";};
+  vtkTypeMacro(vtkSource,vtkProcessObject);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

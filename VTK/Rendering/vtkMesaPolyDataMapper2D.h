@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaPolyDataMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-22 19:15:51 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-01-18 14:06:05 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -54,7 +54,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkMesaPolyDataMapper2D : public vtkPolyDataMapper2D
 {
 public:
-  const char *GetClassName() {return "vtkMesaPolyDataMapper2D";};
+  vtkTypeMacro(vtkMesaPolyDataMapper2D,vtkPolyDataMapper2D);
   static vtkMesaPolyDataMapper2D *New();
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexture.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:09 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2000-01-18 14:05:27 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,7 +80,7 @@ class VTK_EXPORT vtkTexture : public vtkObject
 {
 public:
   static vtkTexture *New();
-  const char *GetClassName() {return "vtkTexture";};
+  vtkTypeMacro(vtkTexture,vtkObject);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:04:57 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2000-01-18 14:04:01 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,7 +79,7 @@ public:
   // 25 points per bucket.
   static vtkPointLocator2D *New();
 
-  const char *GetClassName() {return "vtkPointLocator2D";};
+  vtkTypeMacro(vtkPointLocator2D,vtkLocator);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

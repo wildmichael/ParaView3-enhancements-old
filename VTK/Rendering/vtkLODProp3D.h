@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODProp3D.h,v $
   Language:  C++
-  Date:      $Date: 1999-12-07 19:45:22 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-01-18 14:04:54 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -76,7 +76,7 @@ class VTK_EXPORT vtkLODProp3D : public vtkProp3D
 public:
   static vtkLODProp3D *New();
 
-  const char *GetClassName() {return "vtkLODProp3D";};
+  vtkTypeMacro(vtkLODProp3D,vtkProp3D);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:09 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2000-01-18 14:05:29 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,7 +65,7 @@ class VTK_EXPORT vtkTransformFilter : public vtkPointSetToPointSetFilter
 {
 public:
   static vtkTransformFilter *New();
-  const char *GetClassName() {return "vtkTransformFilter";};
+  vtkTypeMacro(vtkTransformFilter,vtkPointSetToPointSetFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

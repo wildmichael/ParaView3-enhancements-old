@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageHybridMedian2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:56 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-01-18 14:05:51 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,7 +59,7 @@ class VTK_EXPORT vtkImageHybridMedian2D : public vtkImageSpatialFilter
 {
 public:
   static vtkImageHybridMedian2D *New();
-  const char *GetClassName() {return "vtkImageHybridMedian2D";};
+  vtkTypeMacro(vtkImageHybridMedian2D,vtkImageSpatialFilter);
 
 protected:
   vtkImageHybridMedian2D();

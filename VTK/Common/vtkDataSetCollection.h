@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetCollection.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:55:41 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2000-01-18 14:03:50 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,7 +53,7 @@ class VTK_EXPORT vtkDataSetCollection : public vtkCollection
 {
 public:
   static vtkDataSetCollection *New();
-  const char *GetClassName() {return "vtkDataSetCollection";};
+  vtkTypeMacro(vtkDataSetCollection,vtkCollection);
 
   // Description:
   // Add a dataset to the list.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageEllipsoidSource.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:56:56 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-01-18 14:05:47 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,7 +55,7 @@ class VTK_EXPORT vtkImageEllipsoidSource : public vtkImageSource
 {
 public:
   static vtkImageEllipsoidSource *New();
-  const char *GetClassName() {return "vtkImageEllipsoidSource";};
+  vtkTypeMacro(vtkImageEllipsoidSource,vtkImageSource);
   void PrintSelf(ostream& os, vtkIndent indent);   
   
   // Description:

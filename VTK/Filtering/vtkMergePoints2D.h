@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergePoints2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:04:52 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2000-01-18 14:03:58 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,7 +56,7 @@ class VTK_EXPORT vtkMergePoints2D : public vtkPointLocator2D
 {
 public:
   static vtkMergePoints2D *New();
-  const char *GetClassName() {return "vtkMergePoints2D";};
+  vtkTypeMacro(vtkMergePoints2D,vtkPointLocator2D);
 
   // Description:
   // Determine whether point given by x[] has been inserted into points list.

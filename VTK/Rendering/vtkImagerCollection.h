@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagerCollection.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:57:06 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-01-18 14:06:03 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,7 +56,7 @@ class VTK_EXPORT vtkImagerCollection : public vtkCollection
 {
  public:
   static vtkImagerCollection *New();
-  const char *GetClassName() {return "vtkImagerCollection";};
+  vtkTypeMacro(vtkImagerCollection,vtkCollection);
 
   // Description:
   // Standard methods for manipulating the collection.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipVolume.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:59 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-01-18 14:04:33 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -85,7 +85,7 @@ class vtkDelaunay3D;
 class VTK_EXPORT vtkClipVolume : public vtkStructuredPointsToUnstructuredGridFilter
 {
 public:
-  const char *GetClassName() {return "vtkClipVolume";};
+  vtkTypeMacro(vtkClipVolume,vtkStructuredPointsToUnstructuredGridFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

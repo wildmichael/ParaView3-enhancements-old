@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor2DCollection.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:55:40 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-01-18 14:03:45 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,7 +62,8 @@ class VTK_EXPORT vtkActor2DCollection : public vtkPropCollection
   // Desctructor for the vtkActor2DCollection class. This removes all 
   // objects from the collection.
   static vtkActor2DCollection *New();
-  const char *GetClassName() {return "vtkActor2DCollection";};
+
+  vtkTypeMacro(vtkActor2DCollection,vtkPropCollection);
 
   // Description:
   // Sorts the vtkActor2DCollection by layer number.  Smaller layer

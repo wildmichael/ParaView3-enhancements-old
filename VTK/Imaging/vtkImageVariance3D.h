@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageVariance3D.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:57:05 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-01-18 14:06:02 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,7 +60,7 @@ class VTK_EXPORT vtkImageVariance3D : public vtkImageSpatialFilter
 {
 public:
   static vtkImageVariance3D *New();
-  const char *GetClassName() {return "vtkImageVariance3D";};
+  vtkTypeMacro(vtkImageVariance3D,vtkImageSpatialFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:

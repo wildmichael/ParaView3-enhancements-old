@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-12 15:00:51 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2000-01-18 14:03:54 $
+  Version:   $Revision: 1.41 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,7 +57,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImageSource : public vtkSource
 {
 public:
-  const char *GetClassName() {return "vtkImageSource";};
+  vtkTypeMacro(vtkImageSource,vtkSource);
   static vtkImageSource *New();
 
   // Description:

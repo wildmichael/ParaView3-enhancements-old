@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-13 14:54:03 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2000-01-18 14:06:13 $
+  Version:   $Revision: 1.5 $
 
 
 
@@ -73,7 +73,7 @@ class VTK_EXPORT vtkSynchronizedTemplates2D : public vtkStructuredPointsToPolyDa
 {
 public:
   static vtkSynchronizedTemplates2D *New();
-  const char *GetClassName() {return "vtkSynchronizedTemplates2D";};
+  vtkTypeMacro(vtkSynchronizedTemplates2D,vtkStructuredPointsToPolyDataFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

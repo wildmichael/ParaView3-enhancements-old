@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSubdivideTetra.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:40 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2000-01-18 14:04:23 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,7 +52,7 @@ class VTK_EXPORT vtkSubdivideTetra : public vtkUnstructuredGridToUnstructuredGri
 {
 public:
   static vtkSubdivideTetra *New();
-  const char *GetClassName() {return "vtkSubdivideTetra";};
+  vtkTypeMacro(vtkSubdivideTetra,vtkUnstructuredGridToUnstructuredGridFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObjectFactoryCollection.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:55:45 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2000-01-18 14:03:59 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to William A. Hoffman who developed this class
 
 
@@ -56,7 +56,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkObjectFactoryCollection : public vtkCollection
 {
 public:
-  const char *GetClassName() {return "vtkObjectFactoryCollection";};
+  vtkTypeMacro(vtkObjectFactoryCollection,vtkCollection);
   static vtkObjectFactoryCollection *New() {return new vtkObjectFactoryCollection;};
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMutexLock.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:04:52 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-01-18 14:03:58 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -124,6 +124,20 @@ void vtkSimpleMutexLock::Unlock()
 #endif
 }
 
+int vtkSimpleMutexLock::IsA(const char *type)
+{
+  if ( !strcmp(this->vtkSimpleMutexLock::GetClassName(),type) )
+    {
+    return 1;
+    }
+  return 0;
+}
+
+vtkSimpleMutexLock *vtkSimpleMutexLock::SafeDownCast(vtkSimpleMutexLock *o)
+{
+  return (vtkSimpleMutexLock *)o;
+}
+  
 void vtkMutexLock::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkObject::PrintSelf(os, indent);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCanvasSource2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:41 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-01-18 14:05:43 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -77,7 +77,7 @@ public:
   // Construct an instance of vtkImageCanvasSource2D with no data.
   static vtkImageCanvasSource2D *New();
 
-  const char *GetClassName() {return "vtkImageCanvasSource2D";};
+  vtkTypeMacro(vtkImageCanvasSource2D,vtkStructuredPoints);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

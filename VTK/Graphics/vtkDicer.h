@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDicer.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-04 21:11:47 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2000-01-18 14:04:42 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,7 +80,7 @@ public:
   // Instantiate an object.
   static vtkDicer *New();
 
-  const char *GetClassName() {return "vtkDicer";};
+  vtkTypeMacro(vtkDicer,vtkDataSetToDataSetFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlane.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:55:46 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2000-01-18 14:04:00 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,7 +58,7 @@ public:
   // Construct plane passing through origin and normal to z-axis.
   static vtkPlane *New();
 
-  const char *GetClassName() {return "vtkPlane";};
+  vtkTypeMacro(vtkPlane,vtkImplicitFunction);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNMWriter.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:09:26 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-01-18 14:06:06 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -54,7 +54,7 @@ class VTK_EXPORT vtkPNMWriter : public vtkImageWriter
 {
 public:
   static vtkPNMWriter *New();
-  const char *GetClassName() {return "vtkPNMWriter";};
+  vtkTypeMacro(vtkPNMWriter,vtkImageWriter);
 
 protected:
   vtkPNMWriter() {};

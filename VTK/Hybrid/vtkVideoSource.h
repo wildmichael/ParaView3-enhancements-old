@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVideoSource.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-07 08:59:23 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-01-18 14:04:25 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,7 +61,7 @@ class VTK_EXPORT vtkVideoSource : public vtkImageSource
 {
 public:
   static vtkVideoSource *New();
-  const char *GetClassName() {return "vtkVideoSource";};
+  vtkTypeMacro(vtkVideoSource,vtkImageSource);
   void PrintSelf(ostream& os, vtkIndent indent);   
 
   // Description:

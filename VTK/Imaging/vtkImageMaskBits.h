@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMaskBits.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:09:04 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2000-01-18 14:05:55 $
+  Version:   $Revision: 1.6 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -55,7 +55,7 @@ class VTK_EXPORT vtkImageMaskBits : public vtkImageToImageFilter
 {
 public:
   static vtkImageMaskBits *New();
-  const char *GetClassName() {return "vtkImageMaskBits";};
+  vtkTypeMacro(vtkImageMaskBits,vtkImageToImageFilter);
   void PrintSelf(ostream &, vtkIndent);
   
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewport.h,v $
   Language:  C++
-  Date:      $Date: 1999-12-21 00:34:00 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2000-01-18 14:04:15 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,7 +64,7 @@ class vtkWindow;
 class VTK_EXPORT vtkViewport : public vtkObject
 {
 public:
-  const char *GetClassName() {return "vtkViewport";};
+  vtkTypeMacro(vtkViewport,vtkObject);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

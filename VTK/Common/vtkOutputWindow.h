@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutputWindow.h,v $
   Language:  C++
-  Date:      $Date: 1999-12-15 20:14:39 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-01-18 14:04:00 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,7 +55,7 @@ class VTK_EXPORT vtkOutputWindow : public vtkObject
 {
 public: 
 // Methods from vtkObject
-  virtual const char *GetClassName() {return "vtkOutputWindow";};
+  vtkTypeMacro(vtkOutputWindow,vtkObject);
   // Description:
   // Print ObjectFactor to stream.
   virtual void PrintSelf(ostream& os, vtkIndent indent);

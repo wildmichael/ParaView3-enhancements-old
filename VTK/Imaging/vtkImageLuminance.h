@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageLuminance.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:56:59 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-01-18 14:05:53 $
+  Version:   $Revision: 1.10 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -51,7 +51,7 @@ class VTK_EXPORT vtkImageLuminance : public vtkImageToImageFilter
 {
 public:
   static vtkImageLuminance *New();
-  const char *GetClassName() {return "vtkImageLuminance";};
+  vtkTypeMacro(vtkImageLuminance,vtkImageToImageFilter);
 
 protected:
   vtkImageLuminance() {};

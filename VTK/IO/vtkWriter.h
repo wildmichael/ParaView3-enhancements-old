@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWriter.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:20 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2000-01-18 14:05:40 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,7 +68,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkWriter : public vtkProcessObject
 {
 public:
-  const char *GetClassName() {return "vtkWriter";};
+  vtkTypeMacro(vtkWriter,vtkProcessObject);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

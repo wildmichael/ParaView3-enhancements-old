@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIndent.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:04:46 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-01-18 14:03:55 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,4 +80,18 @@ ostream& operator<<(ostream& os, vtkIndent& ind)
 {
   os << blanks + (VTK_NUMBER_OF_BLANKS-ind.Indent) ;
   return os;
+}
+
+int vtkIndent::IsA(const char *type)
+{
+  if ( !strcmp(this->vtkIndent::GetClassName(),type) )
+    {
+    return 1;
+    }
+  return 0;
+}
+
+vtkIndent *vtkIndent::SafeDownCast(vtkIndent *o)
+{
+  return (vtkIndent *)o;
 }

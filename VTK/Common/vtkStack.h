@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStack.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:09 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2000-01-18 14:04:07 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,7 +64,7 @@ class VTK_EXPORT vtkStack : public vtkObject
 public:
   static vtkStack *New();
 
-  const char *GetClassName() {return "vtkStack";};
+  vtkTypeMacro(vtkStack,vtkObject);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

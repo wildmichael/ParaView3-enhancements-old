@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSimpleElevationFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-09 20:39:35 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-01-18 14:05:20 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,7 +55,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkSimpleElevationFilter : public vtkDataSetToDataSetFilter 
 {
 public:
-  const char *GetClassName() {return "vtkSimpleElevationFilter";};
+  vtkTypeMacro(vtkSimpleElevationFilter,vtkDataSetToDataSetFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-04 16:45:26 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2000-01-18 14:04:11 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -76,7 +76,7 @@ class VTK_EXPORT vtkTransform : public vtkObject
   // creates an identity matrix as the top matrix on the stack.
   static vtkTransform *New();
 
-  const char *GetClassName () {return "vtkTransform";};
+  vtkTypeMacro(vtkTransform,vtkObject);
   void PrintSelf (ostream& os, vtkIndent indent);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataToPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-16 21:50:12 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-01-18 14:05:08 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,7 +60,7 @@ class VTK_EXPORT vtkPolyDataToPolyDataFilter : public vtkPolyDataSource
 {
 public:
   static vtkPolyDataToPolyDataFilter *New();
-  const char *GetClassName() {return "vtkPolyDataToPolyDataFilter";};
+  vtkTypeMacro(vtkPolyDataToPolyDataFilter,vtkPolyDataSource);
 
   // Description:
   // Set / get the input data or filter.

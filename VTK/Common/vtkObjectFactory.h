@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObjectFactory.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-22 19:14:41 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2000-01-18 14:03:59 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to William A. Hoffman who developed this class
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,7 +69,7 @@ class VTK_EXPORT vtkObjectFactory : public vtkObject
 {
 public:  
   // Methods from vtkObject
-  virtual const char *GetClassName() {return "vtkObjectFactory";};
+  vtkTypeMacro(vtkObjectFactory,vtkObject);
   // Description:
   // Print ObjectFactor to stream.
   virtual void PrintSelf(ostream& os, vtkIndent indent);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaCamera.h,v $
   Language:  C++
-  Date:      $Date: 1999-12-22 20:14:04 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-01-18 14:04:58 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,7 +54,7 @@ class VTK_EXPORT vtkMesaCamera : public vtkCamera
 {
 public:
   static vtkMesaCamera *New();
-  const char *GetClassName() {return "vtkMesaCamera";};
+  vtkTypeMacro(vtkMesaCamera,vtkCamera);
 
   // Description:
   // Implement base class method.

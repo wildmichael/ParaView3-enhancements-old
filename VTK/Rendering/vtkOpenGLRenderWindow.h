@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:07:04 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-01-18 14:05:02 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,7 +65,7 @@ protected:
 
 public:
   static vtkOpenGLRenderWindow *New();
-  const char *GetClassName() {return "vtkOpenGLRenderWindow";};
+  vtkTypeMacro(vtkOpenGLRenderWindow,vtkXRenderWindow);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleUser.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:06:44 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2000-01-18 14:04:53 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,7 +58,7 @@ class VTK_EXPORT vtkInteractorStyleUser : public vtkInteractorStyleTrackball
 {
 public:
   static vtkInteractorStyleUser *New();
-  const char *GetClassName() {return "vtkInteractorStyleUser";};
+  vtkTypeMacro(vtkInteractorStyleUser,vtkInteractorStyleTrackball);
   void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description: 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBMPWriter.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:36 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-01-18 14:05:41 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,7 +55,7 @@ class VTK_EXPORT vtkBMPWriter : public vtkImageWriter
 {
 public:
   static vtkBMPWriter *New();
-  const char *GetClassName() {return "vtkBMPWriter";};
+  vtkTypeMacro(vtkBMPWriter,vtkImageWriter);
 
 protected:
   vtkBMPWriter();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAsynchronousBuffer.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:26 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2000-01-18 14:04:17 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,7 +65,7 @@ class vtkPortController;
 class VTK_EXPORT vtkAsynchronousBuffer : public vtkDataSetToDataSetFilter
 {
 public:
-  const char *GetClassName() {return "vtkAsynchronousBuffer";};
+  vtkTypeMacro(vtkAsynchronousBuffer,vtkDataSetToDataSetFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
   static vtkAsynchronousBuffer *New();
 

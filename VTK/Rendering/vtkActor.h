@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:56:02 $
-  Version:   $Revision: 1.76 $
+  Date:      $Date: 2000-01-18 14:04:26 $
+  Version:   $Revision: 1.77 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,7 +68,7 @@ class vtkActorCollection;
 class VTK_EXPORT vtkActor : public vtkProp3D
 {
  public:
-  const char *GetClassName() {return "vtkActor";};
+  vtkTypeMacro(vtkActor,vtkProp3D);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSetToPointSetFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-07 09:13:44 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2000-01-18 14:05:06 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -73,7 +73,7 @@ class VTK_EXPORT vtkPointSetToPointSetFilter : public vtkPointSetSource
 {
 public:
   static vtkPointSetToPointSetFilter *New();
-  const char *GetClassName() {return "vtkPointSetToPointSetFilter";};
+  vtkTypeMacro(vtkPointSetToPointSetFilter,vtkPointSetSource);
   
   // Description:
   // Specify the input data or filter.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataCollection.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:56:12 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2000-01-18 14:05:07 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,7 +56,7 @@ class VTK_EXPORT vtkPolyDataCollection : public vtkCollection
 {
 public:
   static vtkPolyDataCollection *New();
-  const char *GetClassName() {return "vtkPolyDataCollection";};
+  vtkTypeMacro(vtkPolyDataCollection,vtkCollection);
 
   // Description:
   // Add a poly data to the list.

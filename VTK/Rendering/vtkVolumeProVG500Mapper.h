@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProVG500Mapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-12-22 16:28:52 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2000-01-18 14:04:25 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -110,7 +110,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkVolumeProVG500Mapper : public vtkVolumeProMapper
 {
 public:
-  const char *GetClassName() {return "vtkVolumeProVG500Mapper";};
+  vtkTypeMacro(vtkVolumeProVG500Mapper,vtkVolumeProMapper);
   static vtkVolumeProVG500Mapper *New();
  // Description:
   // Render the image using the hardware and place it in the frame buffer

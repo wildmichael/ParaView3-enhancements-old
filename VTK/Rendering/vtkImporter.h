@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImporter.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:06:42 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-01-18 14:04:52 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,7 +79,7 @@ class VTK_EXPORT vtkImporter : public vtkObject
 {
 public:
   static vtkImporter *New();
-  const char *GetClassName() {return "vtkImporter";};
+  vtkTypeMacro(vtkImporter,vtkObject);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

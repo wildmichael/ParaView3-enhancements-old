@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPyramid.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-10 21:20:35 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2000-01-18 14:04:05 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,7 +57,7 @@ class vtkUnstructuredGrid;
 class VTK_EXPORT vtkPyramid : public vtkCell
 {
 public:
-  const char *GetClassName() {return "vtkPyramid";};
+  vtkTypeMacro(vtkPyramid,vtkCell);
 
   // Description:
   // Create an instance of this class.

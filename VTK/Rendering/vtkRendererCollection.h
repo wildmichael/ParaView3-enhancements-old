@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRendererCollection.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:56:16 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2000-01-18 14:05:15 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,7 +57,7 @@ class VTK_EXPORT vtkRendererCollection : public vtkCollection
 {
  public:
   static vtkRendererCollection *New();
-  const char *GetClassName() {return "vtkRendererCollection";};
+  vtkTypeMacro(vtkRendererCollection,vtkCollection);
 
   // Description:
   // Add a Renderer to the list.

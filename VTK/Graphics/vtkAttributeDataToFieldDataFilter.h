@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAttributeDataToFieldDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:50 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2000-01-18 14:04:28 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,7 +70,7 @@ class VTK_EXPORT vtkAttributeDataToFieldDataFilter : public vtkDataSetToDataSetF
 {
 public:
   void PrintSelf(ostream& os, vtkIndent indent);
-  const char *GetClassName() {return "vtkAttributeDataToFieldDataFilter";};
+  vtkTypeMacro(vtkAttributeDataToFieldDataFilter,vtkDataSetToDataSetFilter);
 
   // Description:
   // Construct this object.

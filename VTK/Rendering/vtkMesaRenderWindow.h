@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-08 19:35:52 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-01-18 14:04:59 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,7 +79,7 @@ protected:
 
 public:
   static vtkMesaRenderWindow *New() {return new vtkMesaRenderWindow;};
-  const char *GetClassName() {return "vtkMesaRenderWindow";};
+  vtkTypeMacro(vtkMesaRenderWindow,vtkXRenderWindow);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

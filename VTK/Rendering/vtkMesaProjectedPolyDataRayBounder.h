@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaProjectedPolyDataRayBounder.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-22 19:09:32 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-01-18 14:04:59 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to Lisa Sobierajski Avila who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,7 +71,7 @@ class vtkWindow;
 class VTK_EXPORT vtkMesaProjectedPolyDataRayBounder : public vtkProjectedPolyDataRayBounder
 {
 public:
-  const char *GetClassName() {
+    vtkTypeMacro(vtkMesaProjectedPolyDataRayBounder,methods);
     return "vtkMesaProjectedPolyDataRayBounder";};  
   void PrintSelf(ostream& os, vtkIndent indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay3D.h,v $
   Language:  C++
-  Date:      $Date: 1999-12-01 21:16:21 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2000-01-18 14:04:41 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -116,7 +116,7 @@ class vtkSphereArray;
 class VTK_EXPORT vtkDelaunay3D : public vtkUnstructuredGridSource
 {
 public:
-  const char *GetClassName() {return "vtkDelaunay3D";};
+  vtkTypeMacro(vtkDelaunay3D,vtkUnstructuredGridSource);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

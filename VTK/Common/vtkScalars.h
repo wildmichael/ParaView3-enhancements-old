@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalars.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:07 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 2000-01-18 14:04:06 $
+  Version:   $Revision: 1.61 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -81,7 +81,7 @@ public:
   static vtkScalars *New();
   static vtkScalars *New(int dataType, int numComp=1);
 
-  const char *GetClassName() {return "vtkScalars";};
+  vtkTypeMacro(vtkScalars,vtkAttributeData);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

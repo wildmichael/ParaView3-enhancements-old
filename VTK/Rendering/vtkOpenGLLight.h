@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLLight.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:07:00 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2000-01-18 14:05:01 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,7 +54,7 @@ class VTK_EXPORT vtkOpenGLLight : public vtkLight
 {
 public:
   static vtkOpenGLLight *New();
-  const char *GetClassName() {return "vtkOpenGLLight";};
+  vtkTypeMacro(vtkOpenGLLight,vtkLight);
 
   // Description:
   // Implement base class method.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkButterflySubdivisionFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-12-09 19:04:00 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-01-18 14:04:30 $
+  Version:   $Revision: 1.3 $
   Thanks:    This work was supported bt PHS Research Grant No. 1 P41 RR13218-01
              from the National Center for Research Resources
 
@@ -76,7 +76,7 @@ public:
   // Description:
   // Construct object with NumberOfSubdivisions set to 1.
   static vtkButterflySubdivisionFilter *New();
-  const char *GetClassName() {return "vtkButterflySubdivisionFilter";};
+  vtkTypeMacro(vtkButterflySubdivisionFilter,vtkInterpolatingSubdivisionFilter);
 
  protected:
   vtkButterflySubdivisionFilter () {};

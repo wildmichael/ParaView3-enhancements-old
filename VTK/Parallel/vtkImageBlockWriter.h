@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageBlockWriter.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:33 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2000-01-18 14:04:19 $
+  Version:   $Revision: 1.4 $
   
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -55,7 +55,7 @@ class VTK_EXPORT vtkImageBlockWriter : public vtkProcessObject
 {
 public:
   static vtkImageBlockWriter *New();
-  const char *GetClassName() {return "vtkImageBlockWriter";};
+  vtkTypeMacro(vtkImageBlockWriter,vtkProcessObject);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

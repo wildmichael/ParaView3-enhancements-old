@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:56:17 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2000-01-18 14:05:34 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,7 +68,7 @@ class vtkWindow;
 class VTK_EXPORT vtkVolume : public vtkProp3D
 {
 public:
-  const char *GetClassName() {return "vtkVolume";};
+  vtkTypeMacro(vtkVolume,vtkProp3D);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

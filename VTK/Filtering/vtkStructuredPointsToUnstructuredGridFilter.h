@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsToUnstructuredGridFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-16 21:50:37 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-01-18 14:05:26 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,8 +58,7 @@ class VTK_EXPORT vtkStructuredPointsToUnstructuredGridFilter : public vtkUnstruc
 {
 public:
   static vtkStructuredPointsToUnstructuredGridFilter *New();
-  const char *GetClassName() {
-    return "vtkStructuredPointsToUnstructuredGridFilter";};
+  vtkTypeMacro(vtkStructuredPointsToUnstructuredGridFilter,vtkUnstructuredGridSource);
 
   // Description:
   // Set / get the input data or filter.

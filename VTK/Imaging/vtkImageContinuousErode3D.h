@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageContinuousErode3D.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:45 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-01-18 14:05:45 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,7 +60,7 @@ public:
   // Construct an instance of vtkImageContinuousErode3D fitler.
   // By default zero values are eroded.
   static vtkImageContinuousErode3D *New();
-  const char *GetClassName() {return "vtkImageContinuousErode3D";};
+  vtkTypeMacro(vtkImageContinuousErode3D,vtkImageSpatialFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:

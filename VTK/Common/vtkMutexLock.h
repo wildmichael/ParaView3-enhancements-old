@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMutexLock.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:04:53 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-01-18 14:03:58 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -82,7 +82,11 @@ public:
   ~vtkSimpleMutexLock();
 
   static vtkSimpleMutexLock *New();
-  const char *GetClassName() {return "vtkSimpleMutexLock";}
+
+  virtual const char *GetClassName() {return "vtkSimpleMutexLock";};
+  virtual int IsA(const char *name);
+  static vtkSimpleMutexLock *SafeDownCast(vtkSimpleMutexLock *o);
+
   void Delete() {delete this;}
   
   // Description:
@@ -104,7 +108,7 @@ class VTK_EXPORT vtkMutexLock : public vtkObject
 public:
   static vtkMutexLock *New();
 
-  const char *GetClassName() {return "vtkMutexLock";}
+  vtkTypeMacro(vtkMutexLock,vtkObject);
   void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLProjectedPolyDataRayBounder.h,v $
   Language:  C++
-  Date:      $Date: 1999-12-21 17:37:58 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2000-01-18 14:05:02 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to Lisa Sobierajski Avila who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,8 +67,7 @@ class vtkWindow;
 class VTK_EXPORT vtkOpenGLProjectedPolyDataRayBounder : public vtkProjectedPolyDataRayBounder
 {
 public:
-  const char *GetClassName() {
-    return "vtkOpenGLProjectedPolyDataRayBounder";};  
+  vtkTypeMacro(vtkOpenGLProjectedPolyDataRayBounder,vtkProjectedPolyDataRayBounder);    
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

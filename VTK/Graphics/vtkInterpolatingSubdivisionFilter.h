@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInterpolatingSubdivisionFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 20:01:34 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-01-18 14:04:53 $
+  Version:   $Revision: 1.2 $
   Thanks:    This work was supported bt PHS Research Grant No. 1 P41 RR13218-01
              from the National Center for Research Resources
 
@@ -57,7 +57,7 @@ class vtkCellArray;
 class VTK_EXPORT vtkInterpolatingSubdivisionFilter : public vtkPolyDataToPolyDataFilter
 {
 public:
-  const char *GetClassName() {return "vtkInterpolatingSubdivisionFilter";};
+  vtkTypeMacro(vtkInterpolatingSubdivisionFilter,vtkPolyDataToPolyDataFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

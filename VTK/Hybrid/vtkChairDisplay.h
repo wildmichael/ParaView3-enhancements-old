@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkChairDisplay.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:27 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-01-18 14:04:17 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,7 +52,7 @@ class VTK_EXPORT vtkChairDisplay : public vtkPolyDataSource
 {
 public:
   static vtkChairDisplay *New();
-  const char *GetClassName() {return "vtkChairDisplay";};
+  vtkTypeMacro(vtkChairDisplay,vtkPolyDataSource);
   void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:

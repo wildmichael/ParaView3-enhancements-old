@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeDataObjectFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-07 09:13:40 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2000-01-18 14:04:57 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,7 +69,7 @@ class VTK_EXPORT vtkMergeDataObjectFilter : public vtkDataSetToDataSetFilter
 {
 public:
   static vtkMergeDataObjectFilter *New();
-  const char *GetClassName() {return "vtkMergeDataObjectFilter";};
+  vtkTypeMacro(vtkMergeDataObjectFilter,vtkDataSetToDataSetFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

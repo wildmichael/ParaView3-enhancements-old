@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellTypes.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:04:29 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2000-01-18 14:03:47 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,7 +71,7 @@ class VTK_EXPORT vtkCellTypes : public vtkObject
 {
 public:
   static vtkCellTypes *New();
-  const char *GetClassName() {return "vtkCellTypes";};
+  vtkTypeMacro(vtkCellTypes,vtkObject);
 
   // Description:
   // Allocate memory for this array. Delete old storage only if necessary.

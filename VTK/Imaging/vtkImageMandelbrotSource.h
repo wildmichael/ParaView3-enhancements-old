@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMandelbrotSource.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:57:00 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2000-01-18 14:05:54 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,7 +59,7 @@ class VTK_EXPORT vtkImageMandelbrotSource : public vtkImageSource
 {
 public:
   static vtkImageMandelbrotSource *New();
-  const char *GetClassName() {return "vtkImageMandelbrotSource";};
+  vtkTypeMacro(vtkImageMandelbrotSource,vtkImageSource);
   void PrintSelf(ostream& os, vtkIndent indent);   
   
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:04:32 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-01-18 14:03:50 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,7 +65,7 @@ public:
   // Construct object with copying turned on for all data.
   static vtkDataSetAttributes *New();
   
-  const char *GetClassName() {return "vtkDataSetAttributes";};
+  vtkTypeMacro(vtkDataSetAttributes,vtkObject);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

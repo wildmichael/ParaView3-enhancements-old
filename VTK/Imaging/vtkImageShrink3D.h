@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageShrink3D.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-07 09:11:33 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2000-01-18 14:06:00 $
+  Version:   $Revision: 1.27 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,7 +53,7 @@ class VTK_EXPORT vtkImageShrink3D : public vtkImageToImageFilter
 {
 public:
   static vtkImageShrink3D *New();
-  const char *GetClassName() {return "vtkImageShrink3D";};
+  vtkTypeMacro(vtkImageShrink3D,vtkImageToImageFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:

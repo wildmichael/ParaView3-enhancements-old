@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRayCaster.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:07:28 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2000-01-18 14:05:12 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,7 +64,7 @@ class VTK_EXPORT vtkRayCaster : public vtkObject
 {
 public:
   static vtkRayCaster *New();
-  const char *GetClassName() {return "vtkRayCaster";};
+  vtkTypeMacro(vtkRayCaster,vtkObject);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

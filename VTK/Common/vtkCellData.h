@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellData.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:04:27 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2000-01-18 14:03:47 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,7 +56,7 @@ class VTK_EXPORT vtkCellData : public vtkDataSetAttributes
 public:
   static vtkCellData *New();
 
-  const char *GetClassName() {return "vtkCellData";};
+  vtkTypeMacro(vtkCellData,vtkDataSetAttributes);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

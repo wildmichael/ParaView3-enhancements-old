@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridToUnstructuredGridFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-16 21:50:46 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2000-01-18 14:05:32 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,7 +53,7 @@ class VTK_EXPORT vtkUnstructuredGridToUnstructuredGridFilter : public vtkUnstruc
 {
 public:
   static vtkUnstructuredGridToUnstructuredGridFilter *New();
-  const char *GetClassName() {return "vtkUnstructuredGridToUnstructuredGridFilter";};
+  vtkTypeMacro(vtkUnstructuredGridToUnstructuredGridFilter,vtkUnstructuredGridSource);
 
   // Description:
   // Set / get the input Grid or filter.

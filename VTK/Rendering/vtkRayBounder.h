@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRayBounder.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-21 14:59:49 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-01-18 14:05:12 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,7 +62,7 @@ class vtkWindow;
 class VTK_EXPORT vtkRayBounder : public vtkObject
 {
 public:
-  const char *GetClassName() {return "vtkRayBounder";};
+  vtkTypeMacro(vtkRayBounder,vtkObject);
 
   // Description:
   // Get the ray bounds - a floating point array with two

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageHSVToRGB.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:56 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-01-18 14:05:50 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,7 +57,7 @@ class VTK_EXPORT vtkImageHSVToRGB : public vtkImageToImageFilter
 {
 public:
   static vtkImageHSVToRGB *New();
-  const char *GetClassName() {return "vtkImageHSVToRGB";};
+  vtkTypeMacro(vtkImageHSVToRGB,vtkImageToImageFilter);
 
   void PrintSelf(ostream& os, vtkIndent indent);
 
