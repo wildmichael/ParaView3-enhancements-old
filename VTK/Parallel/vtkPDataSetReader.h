@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPDataSetReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-04 14:29:23 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-01-17 19:23:49 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -102,7 +102,7 @@ protected:
   void SetNumberOfPieces(int num);
 
 //BTX
-  ifstream *vtkPDataSetReader::OpenFile();
+  ifstream *OpenFile();
 //ETX
   int ReadXML(ifstream *file, char **block, char **param, char **value);
 

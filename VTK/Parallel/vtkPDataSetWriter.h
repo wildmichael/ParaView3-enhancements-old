@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPDataSetWriter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-04 14:29:23 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-01-17 19:23:49 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -108,7 +108,7 @@ protected:
   void operator=(const vtkPDataSetWriter&);
 
 //BTX
-  ostream *vtkPDataSetWriter::OpenFile();
+  ostream *OpenFile();
   void WriteUnstructuredMetaData(vtkDataSet *input, 
                           char *root, char *str, ostream *fptr);
   void WriteImageMetaData(vtkImageData *input, 
