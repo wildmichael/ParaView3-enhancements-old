@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkConnectivityFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-30 19:37:05 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-11-09 19:50:18 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -331,26 +331,23 @@ void vlConnectivityFilter::DeleteSpecifiedRegion(int id)
 
 void vlConnectivityFilter::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlConnectivityFilter::GetClassName()))
-    {
-    vlDataSetToUnstructuredGridFilter::PrintSelf(os,indent);
+  vlDataSetToUnstructuredGridFilter::PrintSelf(os,indent);
 
-    os << indent << "Extraction Mode: ";
-    switch (this->ExtractionMode)
-      {
-      case EXTRACT_POINT_SEEDED_REGIONS:
-        os << "(Extract point seeded regions)\n";
-        break;
-      case EXTRACT_CELL_SEEDED_REGIONS:
-        os << "(Extract cell seeded regions)\n";
-        break;
-      case EXTRACT_SPECIFIED_REGIONS:
-        os << "(Extract specified regions)\n";
-        break;
-      case EXTRACT_LARGEST_REGIONS:
-        os << "(Extract " << this->NumberOfRegionsToExtract << " largest regions)\n";
-        break;
-      }
+  os << indent << "Extraction Mode: ";
+  switch (this->ExtractionMode)
+    {
+    case EXTRACT_POINT_SEEDED_REGIONS:
+      os << "(Extract point seeded regions)\n";
+      break;
+    case EXTRACT_CELL_SEEDED_REGIONS:
+      os << "(Extract cell seeded regions)\n";
+      break;
+    case EXTRACT_SPECIFIED_REGIONS:
+      os << "(Extract specified regions)\n";
+      break;
+    case EXTRACT_LARGEST_REGIONS:
+      os << "(Extract " << this->NumberOfRegionsToExtract << " largest regions)\n";
+      break;
 
     os << indent << "Color Regions: " << (this->ColorRegions ? "On\n" : "Off\n");
     os << indent << "Maximum Recursion Depth: " << this->MaxRecursionDepth << "\n";

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTransformFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-06 19:34:52 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-11-09 19:52:15 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -99,10 +99,7 @@ unsigned long vlTransformFilter::GetMTime()
 
 void vlTransformFilter::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlTransformFilter::GetClassName()))
-    {
-    vlPointSetToPointSetFilter::PrintSelf(os,indent);
+  vlPointSetToPointSetFilter::PrintSelf(os,indent);
 
-    os << indent << "Transform: " << this->Transform << "\n";
-    }
+  os << indent << "Transform: " << this->Transform << "\n";
 }

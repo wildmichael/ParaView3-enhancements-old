@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRibbonFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-06 19:34:31 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1994-11-09 19:51:25 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -134,12 +134,9 @@ void vlRibbonFilter::Execute()
 
 void vlRibbonFilter::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlRibbonFilter::GetClassName()))
-    {
-    vlPolyToPolyFilter::PrintSelf(os,indent);
+  vlPolyToPolyFilter::PrintSelf(os,indent);
 
-    os << indent << "Radius: " << this->Radius << "\n";
-    os << indent << "Angle: " << this->Angle << "\n";
-    }
+  os << indent << "Radius: " << this->Radius << "\n";
+  os << indent << "Angle: " << this->Angle << "\n";
 }
 

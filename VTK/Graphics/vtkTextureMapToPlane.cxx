@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTextureMapToPlane.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-29 14:07:57 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1994-11-09 19:52:01 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -37,20 +37,17 @@ vlTextureMapToPlane::vlTextureMapToPlane()
 
 void vlTextureMapToPlane::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlTextureMapToPlane::GetClassName()))
-    {
-    vlDataSetToDataSetFilter::PrintSelf(os,indent);
+  vlDataSetToDataSetFilter::PrintSelf(os,indent);
 
-    os << indent << "S Range: (" << this->SRange[0] << ", "
-                                 << this->SRange[1] << ")\n";
-    os << indent << "T Range: (" << this->TRange[0] << ", "
-                                 << this->TRange[1] << ")\n";
-    os << indent << "Automatic Normal Generation: " << 
-                    (this->AutomaticPlaneGeneration ? "On\n" : "Off\n");
-    os << indent << "Normal: (" << this->Normal[0] << ", "
-                                  << this->Normal[1] << ", "
-                                  << this->Normal[2] << ")\n";
-    }
+  os << indent << "S Range: (" << this->SRange[0] << ", "
+                               << this->SRange[1] << ")\n";
+  os << indent << "T Range: (" << this->TRange[0] << ", "
+                               << this->TRange[1] << ")\n";
+  os << indent << "Automatic Normal Generation: " << 
+                  (this->AutomaticPlaneGeneration ? "On\n" : "Off\n");
+  os << indent << "Normal: (" << this->Normal[0] << ", "
+                                << this->Normal[1] << ", "
+                                << this->Normal[2] << ")\n";
 }
 
 void vlTextureMapToPlane::Execute()

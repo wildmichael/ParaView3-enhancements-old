@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkImplicitModeller.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-10-27 21:39:58 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1994-11-09 19:50:58 $
+  Version:   $Revision: 1.16 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -42,19 +42,16 @@ vlImplicitModeller::vlImplicitModeller()
 
 void vlImplicitModeller::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlImplicitModeller::GetClassName()))
-    {
-    vlDataSetToStructuredPointsFilter::PrintSelf(os,indent);
+  vlDataSetToStructuredPointsFilter::PrintSelf(os,indent);
 
-    os << indent << "Maximum Distance: " << this->MaximumDistance << "\n";
-    os << indent << "Sample Dimensions: (" << this->SampleDimensions[0] << ", "
-                 << this->SampleDimensions[1] << ", "
-                 << this->SampleDimensions[2] << ")\n";
-    os << indent << "ModelBounds: \n";
-    os << indent << "  Xmin,Xmax: (" << this->ModelBounds[0] << ", " << this->ModelBounds[1] << ")\n";
-    os << indent << "  Ymin,Ymax: (" << this->ModelBounds[2] << ", " << this->ModelBounds[3] << ")\n";
-    os << indent << "  Zmin,Zmax: (" << this->ModelBounds[4] << ", " << this->ModelBounds[5] << ")\n";
-    }
+  os << indent << "Maximum Distance: " << this->MaximumDistance << "\n";
+  os << indent << "Sample Dimensions: (" << this->SampleDimensions[0] << ", "
+               << this->SampleDimensions[1] << ", "
+               << this->SampleDimensions[2] << ")\n";
+  os << indent << "ModelBounds: \n";
+  os << indent << "  Xmin,Xmax: (" << this->ModelBounds[0] << ", " << this->ModelBounds[1] << ")\n";
+  os << indent << "  Ymin,Ymax: (" << this->ModelBounds[2] << ", " << this->ModelBounds[3] << ")\n";
+  os << indent << "  Zmin,Zmax: (" << this->ModelBounds[4] << ", " << this->ModelBounds[5] << ")\n";
 }
 // Description:
 // Specify the position in space to perform the sampling.

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDividingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-06 19:37:31 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-11-09 19:50:27 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -23,13 +23,10 @@ vlDividingCubes::vlDividingCubes()
 
 void vlDividingCubes::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlDividingCubes::GetClassName()))
-    {
-    vlStructuredPointsToPolyDataFilter::PrintSelf(os,indent);
+  vlStructuredPointsToPolyDataFilter::PrintSelf(os,indent);
 
-    os << indent << "Value: " << this->Value << "\n";
-    os << indent << "Distance: " << this->Distance << "\n";
-    }
+  os << indent << "Value: " << this->Value << "\n";
+  os << indent << "Distance: " << this->Distance << "\n";
 }
 
 

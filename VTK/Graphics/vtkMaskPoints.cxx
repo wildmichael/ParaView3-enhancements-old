@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMaskPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-08 09:16:21 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-11-09 19:51:12 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -58,11 +58,8 @@ void vlMaskPoints::Execute()
 
 void vlMaskPoints::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlMaskPoints::GetClassName()))
-    {
-    vlDataSetToPolyFilter::PrintSelf(os,indent);
+  vlDataSetToPolyFilter::PrintSelf(os,indent);
 
-    os << indent << "On Ratio: " << this->OnRatio << "\n";
-    os << indent << "Offset: " << this->Offset << "\n";
-    }
+  os << indent << "On Ratio: " << this->OnRatio << "\n";
+  os << indent << "Offset: " << this->Offset << "\n";
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkFeatureEdges.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-06 19:37:43 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-11-09 19:50:41 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -162,15 +162,12 @@ void vlFeatureEdges::Execute()
 
 void vlFeatureEdges::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlFeatureEdges::GetClassName()))
-    {
-    vlPolyToPolyFilter::PrintSelf(os,indent);
+  vlPolyToPolyFilter::PrintSelf(os,indent);
 
-    os << indent << "Feature Angle: " << this->FeatureAngle << "\n";
-    os << indent << "BoundaryEdges: " << (this->BoundaryEdges ? "On\n" : "Off\n");
-    os << indent << "FeatureEdges: " << (this->FeatureEdges ? "On\n" : "Off\n"); 
-    os << indent << "Non-Manifold Edges: " << (this->NonManifoldEdges ? "On\n" : "Off\n");
-    os << indent << "Coloring: " << (this->Coloring ? "On\n" : "Off\n");
-   }
+  os << indent << "Feature Angle: " << this->FeatureAngle << "\n";
+  os << indent << "BoundaryEdges: " << (this->BoundaryEdges ? "On\n" : "Off\n");
+  os << indent << "FeatureEdges: " << (this->FeatureEdges ? "On\n" : "Off\n"); 
+  os << indent << "Non-Manifold Edges: " << (this->NonManifoldEdges ? "On\n" : "Off\n");
+  os << indent << "Coloring: " << (this->Coloring ? "On\n" : "Off\n");
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMaskPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-06 19:37:45 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-11-09 19:51:08 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -127,11 +127,8 @@ void vlMaskPolyData::Execute()
 
 void vlMaskPolyData::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlMaskPolyData::GetClassName()))
-    {
-    vlPolyToPolyFilter::PrintSelf(os,indent);
+  vlPolyToPolyFilter::PrintSelf(os,indent);
 
-    os << indent << "On Ratio: " << this->OnRatio << "\n";
-    os << indent << "Offset: " << this->Offset << "\n";
-    }
+  os << indent << "On Ratio: " << this->OnRatio << "\n";
+  os << indent << "Offset: " << this->Offset << "\n";
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRenderer.h,v $
   Language:  C++
-  Date:      $Date: 1994-11-09 16:56:13 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1994-11-09 19:54:17 $
+  Version:   $Revision: 1.16 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -13,7 +13,7 @@ written consent of the authors.
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 
 =========================================================================*/
-// .NAME vlRenderer - abstract specification  for renderers
+// .NAME vlRenderer - abstract specification for renderers
 // .SECTION Description
 // vlRenderer provides an abstract specification for renderers. A renderer
 // is an object that controls the rendering process for objects. Rendering

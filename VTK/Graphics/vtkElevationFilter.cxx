@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkElevationFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-03 09:51:07 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1994-11-09 19:50:32 $
+  Version:   $Revision: 1.15 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -98,17 +98,14 @@ void vlElevationFilter::Execute()
 
 void vlElevationFilter::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlElevationFilter::GetClassName()))
-    {
-    vlDataSetToDataSetFilter::PrintSelf(os,indent);
+  vlDataSetToDataSetFilter::PrintSelf(os,indent);
 
-    os << indent << "Low Point: (" << this->LowPoint[0] << ", "
-                                  << this->LowPoint[1] << ", "
-                                  << this->LowPoint[2] << ")\n";
-    os << indent << "High Point: (" << this->HighPoint[0] << ", "
-                                  << this->HighPoint[1] << ", "
-                                  << this->HighPoint[2] << ")\n";
-    os << indent << "Scalar Range: (" << this->ScalarRange[0] << ", "
-                                  << this->ScalarRange[1] << ")\n";
-    }
+  os << indent << "Low Point: (" << this->LowPoint[0] << ", "
+                                << this->LowPoint[1] << ", "
+                                << this->LowPoint[2] << ")\n";
+  os << indent << "High Point: (" << this->HighPoint[0] << ", "
+                                << this->HighPoint[1] << ", "
+                                << this->HighPoint[2] << ")\n";
+  os << indent << "Scalar Range: (" << this->ScalarRange[0] << ", "
+                                << this->ScalarRange[1] << ")\n";
 }

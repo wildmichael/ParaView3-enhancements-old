@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkExtractGeometry.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-10-27 21:39:56 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-11-09 19:50:37 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -95,12 +95,9 @@ void vlExtractGeometry::Execute()
 
 void vlExtractGeometry::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlExtractGeometry::GetClassName()))
-    {
-    vlDataSetToUnstructuredGridFilter::PrintSelf(os,indent);
+  vlDataSetToUnstructuredGridFilter::PrintSelf(os,indent);
 
-    os << indent << "Radius: " << this->Radius << "\n";
-    os << indent << "Center: (" << this->Center[0] << ", "
-       << this->Center[1] << ", " << this->Center[2] << ")\n";
-    }
+  os << indent << "Radius: " << this->Radius << "\n";
+  os << indent << "Center: (" << this->Center[0] << ", "
+     << this->Center[1] << ", " << this->Center[2] << ")\n";
 }

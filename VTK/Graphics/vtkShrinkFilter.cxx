@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkShrinkFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-07-13 16:32:30 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1994-11-09 19:51:29 $
+  Version:   $Revision: 1.16 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -80,10 +80,7 @@ void vlShrinkFilter::Execute()
 
 void vlShrinkFilter::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlShrinkFilter::GetClassName()))
-    {
-    vlDataSetToUnstructuredGridFilter::PrintSelf(os,indent);
+  vlDataSetToUnstructuredGridFilter::PrintSelf(os,indent);
 
-    os << indent << "Shrink Factor: " << this->ShrinkFactor << "\n";
-    }
+  os << indent << "Shrink Factor: " << this->ShrinkFactor << "\n";
 }

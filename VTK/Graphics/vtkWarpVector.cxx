@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkWarpVector.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-06 19:34:57 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-11-09 19:52:41 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -63,10 +63,7 @@ void vlWarpVector::Execute()
 
 void vlWarpVector::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlWarpVector::GetClassName()))
-    {
-    vlPointSetToPointSetFilter::PrintSelf(os,indent);
+  vlPointSetToPointSetFilter::PrintSelf(os,indent);
 
-    os << indent << "Scale Factor: " << this->ScaleFactor << "\n";
-    }
+  os << indent << "Scale Factor: " << this->ScaleFactor << "\n";
 }

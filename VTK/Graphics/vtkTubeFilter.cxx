@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTubeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-06 19:34:54 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-11-09 19:52:23 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -88,14 +88,11 @@ void vlTubeFilter::Execute()
 
 void vlTubeFilter::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlTubeFilter::GetClassName()))
-    {
-    vlPolyToPolyFilter::PrintSelf(os,indent);
+  vlPolyToPolyFilter::PrintSelf(os,indent);
 
-    os << indent << "Radius: " << this->Radius << "\n";
-    os << indent << "Vary Radius: " << (this->VaryRadius ? "On\n" : "Off\n");
-    os << indent << "Number Of Sides: " << this->NumberOfSides << "\n";
-    os << indent << "Rotation: " << this->Rotation << "\n";
-    }
+  os << indent << "Radius: " << this->Radius << "\n";
+  os << indent << "Vary Radius: " << (this->VaryRadius ? "On\n" : "Off\n");
+  os << indent << "Number Of Sides: " << this->NumberOfSides << "\n";
+  os << indent << "Rotation: " << this->Rotation << "\n";
 }
 

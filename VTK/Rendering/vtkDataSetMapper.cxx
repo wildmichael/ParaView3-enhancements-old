@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataSetMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-29 14:08:42 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1994-11-09 19:53:13 $
+  Version:   $Revision: 1.16 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -100,35 +100,32 @@ void vlDataSetMapper::Render(vlRenderer *ren)
 
 void vlDataSetMapper::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlDataSetMapper::GetClassName()))
+  vlMapper::PrintSelf(os,indent);
+
+  if ( this->Input )
     {
-    vlMapper::PrintSelf(os,indent);
+    os << indent << "Input: (" << this->Input << ")\n";
+    }
+  else
+    {
+    os << indent << "Input: (none)\n";
+    }
 
-    if ( this->Input )
-      {
-      os << indent << "Input: (" << this->Input << ")\n";
-      }
-    else
-      {
-      os << indent << "Input: (none)\n";
-      }
+  if ( this->PolyMapper )
+    {
+    os << indent << "Poly Mapper: (" << this->PolyMapper << ")\n";
+    }
+  else
+    {
+    os << indent << "Poly Mapper: (none)\n";
+    }
 
-    if ( this->PolyMapper )
-      {
-      os << indent << "Poly Mapper: (" << this->PolyMapper << ")\n";
-      }
-    else
-      {
-      os << indent << "Poly Mapper: (none)\n";
-      }
-
-    if ( this->GeometryExtractor )
-      {
-      os << indent << "Geometry Extractor: (" << this->GeometryExtractor << ")\n";
-      }
-    else
-      {
-      os << indent << "Geometry Extractor: (none)\n";
-      }
-   }
+  if ( this->GeometryExtractor )
+    {
+    os << indent << "Geometry Extractor: (" << this->GeometryExtractor << ")\n";
+    }
+  else
+    {
+    os << indent << "Geometry Extractor: (none)\n";
+    }
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkImplicitTextureCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-03 10:28:27 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-11-09 19:51:03 $
+  Version:   $Revision: 1.2 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -110,16 +110,13 @@ void vlImplicitTextureCoords::CreateDefaultTransform()
 
 void vlImplicitTextureCoords::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlImplicitTextureCoords::GetClassName()))
-    {
-    vlDataSetToDataSetFilter::PrintSelf(os,indent);
+  vlDataSetToDataSetFilter::PrintSelf(os,indent);
 
-    os << indent << "Clamp: " << (this->Clamp ? "On\n" : "Off\n");
+  os << indent << "Clamp: " << (this->Clamp ? "On\n" : "Off\n");
 
-    os << indent << "Scale Factor: " << this->ScaleFactor << "\n";
-    os << indent << "RRange: (" << this->RRange[0] << ", " << this->RRange[1] << ")\n";
-    os << indent << "SRange: (" << this->SRange[0] << ", " << this->SRange[1] << ")\n";
-    os << indent << "TRange: (" << this->TRange[0] << ", " << this->TRange[1] << ")\n";
+  os << indent << "Scale Factor: " << this->ScaleFactor << "\n";
+  os << indent << "RRange: (" << this->RRange[0] << ", " << this->RRange[1] << ")\n";
+  os << indent << "SRange: (" << this->SRange[0] << ", " << this->SRange[1] << ")\n";
+  os << indent << "TRange: (" << this->TRange[0] << ", " << this->TRange[1] << ")\n";
 
-    }
 }

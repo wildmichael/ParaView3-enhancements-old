@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkShortArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-30 18:30:47 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-11-09 19:50:02 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -111,15 +111,12 @@ void vlShortArray::operator+=(const vlShortArray& sa)
 
 void vlShortArray::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlShortArray::GetClassName()))
-    {
-    vlObject::PrintSelf(os,indent);
+  vlObject::PrintSelf(os,indent);
 
-    os << indent << "Array: " << this->Array << "\n";
-    os << indent << "Size: " << this->Size << "\n";
-    os << indent << "MaxId: " << this->MaxId << "\n";
-    os << indent << "Extend size: " << this->Extend << "\n";
-    }
+  os << indent << "Array: " << this->Array << "\n";
+  os << indent << "Size: " << this->Size << "\n";
+  os << indent << "MaxId: " << this->MaxId << "\n";
+  os << indent << "Extend size: " << this->Extend << "\n";
 }
 
 //

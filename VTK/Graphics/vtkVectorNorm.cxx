@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkVectorNorm.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-09 15:07:59 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-11-09 19:52:27 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -26,12 +26,9 @@ vlVectorNorm::vlVectorNorm()
 
 void vlVectorNorm::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlVectorNorm::GetClassName()))
-    {
-    vlDataSetToDataSetFilter::PrintSelf(os,indent);
+  vlDataSetToDataSetFilter::PrintSelf(os,indent);
 
-    os << indent << "Normalize: " << (this->Normalize ? "On\n" : "Off\n");
-    }
+  os << indent << "Normalize: " << (this->Normalize ? "On\n" : "Off\n");
 }
 
 void vlVectorNorm::Execute()

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStripper.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-06 19:34:49 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1994-11-09 19:51:52 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -169,12 +169,9 @@ void vlStripper::Execute()
 
 void vlStripper::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlStripper::GetClassName()))
-    {
-    vlPolyToPolyFilter::PrintSelf(os,indent);
+  vlPolyToPolyFilter::PrintSelf(os,indent);
 
-    os << indent << "Maximum Strip Length: " << this->MaximumStripLength << "\n";
-    }
+  os << indent << "Maximum Strip Length: " << this->MaximumStripLength << "\n";
 
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTriangleFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-06 19:34:53 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-11-09 19:52:19 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -107,13 +107,10 @@ void vlTriangleFilter::Execute()
 
 void vlTriangleFilter::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlTriangleFilter::GetClassName()))
-    {
-    vlPolyToPolyFilter::PrintSelf(os,indent);
+  vlPolyToPolyFilter::PrintSelf(os,indent);
 
-    os << indent << "Pass Verts: " << (this->PassVerts ? "On\n" : "Off\n");
-    os << indent << "Pass Lines: " << (this->PassLines ? "On\n" : "Off\n");
-    }
+  os << indent << "Pass Verts: " << (this->PassVerts ? "On\n" : "Off\n");
+  os << indent << "Pass Lines: " << (this->PassLines ? "On\n" : "Off\n");
 
 }
 

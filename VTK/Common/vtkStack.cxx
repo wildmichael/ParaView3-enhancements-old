@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStack.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-29 14:03:27 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-11-09 19:50:06 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -93,12 +93,9 @@ int vlStack::GetNumberOfItems()
 
 void vlStack::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlStack::GetClassName()))
-    {
-    vlObject::PrintSelf(os,indent);
-    
-    os << indent << "Number Of Items: " << this->NumberOfItems << "\n";
-    }
+  vlObject::PrintSelf(os,indent);
+
+  os << indent << "Number Of Items: " << this->NumberOfItems << "\n";
 }
 
 

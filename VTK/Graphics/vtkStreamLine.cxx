@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStreamLine.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-27 15:53:18 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-11-09 19:51:44 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -56,12 +56,9 @@ void vlStreamLine::Execute()
 
 void vlStreamLine::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlStreamLine::GetClassName()))
-    {
-    vlDataSetToPolyFilter::PrintSelf(os,indent);
+  vlDataSetToPolyFilter::PrintSelf(os,indent);
 
-    os << indent << "";
-    }
+  os << indent << "";
 
 }
 

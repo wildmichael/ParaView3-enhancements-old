@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkHedgeHog.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-07-08 22:00:43 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-11-09 19:50:53 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -78,10 +78,7 @@ void vlHedgeHog::Execute()
 
 void vlHedgeHog::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlHedgeHog::GetClassName()))
-    {
-    vlDataSetToPolyFilter::PrintSelf(os,indent);
+  vlDataSetToPolyFilter::PrintSelf(os,indent);
 
-    os << indent << "Scale Factor: " << this->ScaleFactor << "\n";
-    }
+  os << indent << "Scale Factor: " << this->ScaleFactor << "\n";
 }

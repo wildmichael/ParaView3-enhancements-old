@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkProbeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-29 14:07:54 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1994-11-09 19:51:21 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -116,10 +116,7 @@ void vlProbeFilter::Update()
 
 void vlProbeFilter::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlProbeFilter::GetClassName()))
-    {
-    vlDataSetToDataSetFilter::PrintSelf(os,indent);
+  vlDataSetToDataSetFilter::PrintSelf(os,indent);
 
-    os << indent << "Source: " << this->Source << "\n";
-    }
+  os << indent << "Source: " << this->Source << "\n";
 }
