@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapToRGBA.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-23 18:49:15 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-09-01 21:23:18 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -121,6 +121,10 @@ static void vtkImageMapToRGBAExecute(vtkImageMapToRGBA *self,
   
   // Get increments to march through data 
   inData->GetContinuousIncrements(outExt, inIncX, inIncY, inIncZ);
+  // because we are using void * and char * we must take care
+  // of the scalar size in the increments
+  inIncY *= scalarSize;
+  inIncZ *= scalarSize;
   outData->GetContinuousIncrements(outExt, outIncX, outIncY, outIncZ);
   numberOfComponents = inData->GetNumberOfScalarComponents();
   rowLength = extX*scalarSize;
