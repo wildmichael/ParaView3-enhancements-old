@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPSphereSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-07-02 18:56:14 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-08-10 20:06:53 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -63,8 +63,8 @@ public:
 protected:
   vtkPSphereSource() {};
   ~vtkPSphereSource() {};
-  vtkPSphereSource(const vtkPSphereSource&) {};
-  void operator=(const vtkPSphereSource&) {};
+  vtkPSphereSource(const vtkPSphereSource&);
+  void operator=(const vtkPSphereSource&);
 
   void Execute();
 };

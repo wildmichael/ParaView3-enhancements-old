@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageResample.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:10 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2001-08-10 20:06:52 $
+  Version:   $Revision: 1.27 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -88,8 +88,8 @@ public:
 protected:
   vtkImageResample();
   ~vtkImageResample() {};
-  vtkImageResample(const vtkImageResample&) {};
-  void operator=(const vtkImageResample&) {};
+  vtkImageResample(const vtkImageResample&);
+  void operator=(const vtkImageResample&);
 
   float MagnificationFactors[3];
   float OutputSpacing[3];

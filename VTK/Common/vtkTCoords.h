@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTCoords.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-22 19:12:49 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2001-08-10 20:06:46 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -130,8 +130,8 @@ public:
 protected:
   vtkTCoords();
   ~vtkTCoords() {};
-  vtkTCoords(const vtkTCoords&) {};
-  void operator=(const vtkTCoords&) {};
+  vtkTCoords(const vtkTCoords&);
+  void operator=(const vtkTCoords&);
   
 };
 

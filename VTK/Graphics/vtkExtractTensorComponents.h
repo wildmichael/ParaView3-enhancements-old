@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractTensorComponents.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:37 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2001-08-10 20:06:49 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -166,8 +166,8 @@ public:
 protected:
   vtkExtractTensorComponents();
   ~vtkExtractTensorComponents() {};
-  vtkExtractTensorComponents(const vtkExtractTensorComponents&) {};
-  void operator=(const vtkExtractTensorComponents&) {};
+  vtkExtractTensorComponents(const vtkExtractTensorComponents&);
+  void operator=(const vtkExtractTensorComponents&);
 
   void Execute();
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleFlight.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:40 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-08-10 20:06:56 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to John Biddiscombe of the Rutherford Appleton Laboratory
              who developed this class.
 
@@ -146,8 +146,8 @@ public:
 protected:
   vtkInteractorStyleFlight();
   ~vtkInteractorStyleFlight();
-  vtkInteractorStyleFlight(const vtkInteractorStyleFlight&) {};
-  void operator=(const vtkInteractorStyleFlight&) {};
+  vtkInteractorStyleFlight(const vtkInteractorStyleFlight&);
+  void operator=(const vtkInteractorStyleFlight&);
   //
   // Description:
   // Routines used internally for computing motion and steering

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredData.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-22 19:12:49 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2001-08-10 20:06:46 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -111,8 +111,8 @@ public:
 protected:
   vtkStructuredData() {};
   ~vtkStructuredData() {};
-  vtkStructuredData(const vtkStructuredData&) {};
-  void operator=(const vtkStructuredData&) {};
+  vtkStructuredData(const vtkStructuredData&);
+  void operator=(const vtkStructuredData&);
   
 };
 

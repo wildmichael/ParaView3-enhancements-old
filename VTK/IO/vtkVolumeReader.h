@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeReader.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:59 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-08-10 20:06:53 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -110,8 +110,8 @@ public:
 protected:
   vtkVolumeReader();
   ~vtkVolumeReader();
-  vtkVolumeReader(const vtkVolumeReader&) {};
-  void operator=(const vtkVolumeReader&) {};
+  vtkVolumeReader(const vtkVolumeReader&);
+  void operator=(const vtkVolumeReader&);
 
   char *FilePrefix;
   char *FilePattern;

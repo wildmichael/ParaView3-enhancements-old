@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGridSynchronizedTemplates3D.h,v $
   Language:  C++
-  Date:      $Date: 2001-07-03 14:05:57 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-08-10 20:06:53 $
+  Version:   $Revision: 1.20 $
 
 
 
@@ -171,8 +171,8 @@ public:
 protected:
   vtkGridSynchronizedTemplates3D();
   ~vtkGridSynchronizedTemplates3D();
-  vtkGridSynchronizedTemplates3D(const vtkGridSynchronizedTemplates3D&) {};
-  void operator=(const vtkGridSynchronizedTemplates3D&) {};
+  vtkGridSynchronizedTemplates3D(const vtkGridSynchronizedTemplates3D&);
+  void operator=(const vtkGridSynchronizedTemplates3D&);
 
   int ComputeNormals;
   int ComputeGradients;

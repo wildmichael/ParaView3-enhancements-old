@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2001-03-10 13:50:11 $
-  Version:   $Revision: 1.107 $
+  Date:      $Date: 2001-08-10 20:07:01 $
+  Version:   $Revision: 1.108 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -374,8 +374,8 @@ public:
 protected:
   vtkRenderWindow();
   ~vtkRenderWindow();
-  vtkRenderWindow(const vtkRenderWindow&) {};
-  void operator=(const vtkRenderWindow&) {};
+  vtkRenderWindow(const vtkRenderWindow&);
+  void operator=(const vtkRenderWindow&);
 
   virtual void DoStereoRender();
   virtual void DoFDRender();

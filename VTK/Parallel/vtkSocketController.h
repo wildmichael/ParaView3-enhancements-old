@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSocketController.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-09 20:37:59 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-08-10 20:06:53 $
+  Version:   $Revision: 1.6 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -143,8 +143,8 @@ protected:
 
   vtkSocketController();
   ~vtkSocketController();
-  vtkSocketController(const vtkSocketController&) {};
-  void operator=(const vtkSocketController&) {};
+  vtkSocketController(const vtkSocketController&);
+  void operator=(const vtkSocketController&);
 
   // Initialize only once, finialize on destruction.
   static int Initialized;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleJoystickCamera.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-30 18:30:57 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-08-10 20:06:57 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -91,8 +91,8 @@ public:
 protected:
   vtkInteractorStyleJoystickCamera();
   ~vtkInteractorStyleJoystickCamera();
-  vtkInteractorStyleJoystickCamera(const vtkInteractorStyleJoystickCamera&) {};
-  void operator=(const vtkInteractorStyleJoystickCamera&) {};
+  vtkInteractorStyleJoystickCamera(const vtkInteractorStyleJoystickCamera&);
+  void operator=(const vtkInteractorStyleJoystickCamera&);
   
   int State;
   float MotionFactor;

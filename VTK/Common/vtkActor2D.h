@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor2D.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:05 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2001-08-10 20:06:44 $
+  Version:   $Revision: 1.31 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -144,8 +144,8 @@ public:
 protected:
   vtkActor2D();
   ~vtkActor2D();
-  vtkActor2D(const vtkActor2D&) {};
-  void operator=(const vtkActor2D&) {};
+  vtkActor2D(const vtkActor2D&);
+  void operator=(const vtkActor2D&);
 
   vtkMapper2D *Mapper;
   int LayerNumber;

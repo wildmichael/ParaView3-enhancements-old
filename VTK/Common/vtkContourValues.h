@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourValues.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:07 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-08-10 20:06:44 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -109,8 +109,8 @@ public:
 protected:
   vtkContourValues();
   ~vtkContourValues();
-  vtkContourValues(const vtkContourValues&) {};
-  void operator=(const vtkContourValues&) {};
+  vtkContourValues(const vtkContourValues&);
+  void operator=(const vtkContourValues&);
 
   vtkFloatArray *Contours;
 

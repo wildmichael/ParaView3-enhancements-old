@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightGoldBinaryReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-14 17:26:22 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-08-10 20:06:52 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -73,8 +73,8 @@ public:
 protected:
   vtkEnSightGoldBinaryReader();
   ~vtkEnSightGoldBinaryReader();
-  vtkEnSightGoldBinaryReader(const vtkEnSightGoldBinaryReader&) {};
-  void operator=(const vtkEnSightGoldBinaryReader&) {};
+  vtkEnSightGoldBinaryReader(const vtkEnSightGoldBinaryReader&);
+  void operator=(const vtkEnSightGoldBinaryReader&);
   
   // Description:
   // Read the geometry file.  If an error occurred, 0 is returned; otherwise 1.

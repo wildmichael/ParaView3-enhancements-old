@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLLight.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:44 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-08-10 20:07:00 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -64,8 +64,8 @@ public:
 protected:  
   vtkOpenGLLight() {};
   ~vtkOpenGLLight() {};
-  vtkOpenGLLight(const vtkOpenGLLight&) {};
-  void operator=(const vtkOpenGLLight&) {};
+  vtkOpenGLLight(const vtkOpenGLLight&);
+  void operator=(const vtkOpenGLLight&);
 };
 
 #endif

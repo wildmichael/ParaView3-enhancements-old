@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActorCollection.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:29 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2001-08-10 20:06:53 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -87,8 +87,8 @@ public:
 protected:
   vtkActorCollection() {};
   ~vtkActorCollection() {};
-  vtkActorCollection(const vtkActorCollection&) {};
-  void operator=(const vtkActorCollection&) {};
+  vtkActorCollection(const vtkActorCollection&);
+  void operator=(const vtkActorCollection&);
     
 
 private:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLWriter.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:51 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2001-08-10 20:06:53 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -66,8 +66,8 @@ public:
 protected:
   vtkSTLWriter();
   ~vtkSTLWriter() {};
-  vtkSTLWriter(const vtkSTLWriter&) {};
-  void operator=(const vtkSTLWriter&) {};
+  vtkSTLWriter(const vtkSTLWriter&);
+  void operator=(const vtkSTLWriter&);
 
   void WriteData();
 

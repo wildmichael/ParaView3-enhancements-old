@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitVolume.h,v $
   Language:  C++
-  Date:      $Date: 2001-02-13 19:10:36 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2001-08-10 20:06:47 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -113,8 +113,8 @@ public:
 protected:
   vtkImplicitVolume();
   ~vtkImplicitVolume();
-  vtkImplicitVolume(const vtkImplicitVolume&) {};
-  void operator=(const vtkImplicitVolume&) {};
+  vtkImplicitVolume(const vtkImplicitVolume&);
+  void operator=(const vtkImplicitVolume&);
 
   vtkImageData *Volume; // the structured points
   float OutValue;

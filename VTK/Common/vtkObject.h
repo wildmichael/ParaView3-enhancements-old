@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.h,v $
   Language:  C++
-  Date:      $Date: 2001-04-24 20:39:24 $
-  Version:   $Revision: 1.75 $
+  Date:      $Date: 2001-08-10 20:06:45 $
+  Version:   $Revision: 1.76 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -213,8 +213,8 @@ public:
 protected:
   vtkObject(); 
   virtual ~vtkObject(); 
-  vtkObject(const vtkObject&) {};
-  void operator=(const vtkObject&) {};
+  vtkObject(const vtkObject&);
+  void operator=(const vtkObject&);
 
   unsigned char Debug;     // Enable debug messages
   vtkTimeStamp MTime;      // Keep track of modification time

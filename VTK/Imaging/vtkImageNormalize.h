@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageNormalize.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:09 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2001-08-10 20:06:52 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -61,8 +61,8 @@ public:
 protected:
   vtkImageNormalize() {};
   ~vtkImageNormalize() {};
-  vtkImageNormalize(const vtkImageNormalize&) {};
-  void operator=(const vtkImageNormalize&) {};
+  vtkImageNormalize(const vtkImageNormalize&);
+  void operator=(const vtkImageNormalize&);
 
   void ExecuteInformation(vtkImageData *inData, vtkImageData *outData);
   void ExecuteInformation(){this->vtkImageToImageFilter::ExecuteInformation();};

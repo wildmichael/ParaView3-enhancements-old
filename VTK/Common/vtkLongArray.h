@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLongArray.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-24 19:06:44 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2001-08-10 20:06:45 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -168,8 +168,8 @@ public:
 protected:
   vtkLongArray(vtkIdType numComp=1);
   ~vtkLongArray();
-  vtkLongArray(const vtkLongArray&) {};
-  void operator=(const vtkLongArray&) {};
+  vtkLongArray(const vtkLongArray&);
+  void operator=(const vtkLongArray&);
 
   long *Array;   // pointer to data
   long *ResizeAndExtend(const vtkIdType sz);  // function to resize data

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLandmarkTransform.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-10 20:04:52 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-08-10 20:06:51 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to Tim Hutton and David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -108,8 +108,8 @@ public:
 protected:
   vtkLandmarkTransform();
   ~vtkLandmarkTransform();
-  vtkLandmarkTransform(const vtkLandmarkTransform&) {};
-  void operator=(const vtkLandmarkTransform&) {};
+  vtkLandmarkTransform(const vtkLandmarkTransform&);
+  void operator=(const vtkLandmarkTransform&);
 
   // Update the matrix from the quaternion.
   void InternalUpdate();

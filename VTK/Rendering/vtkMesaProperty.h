@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaProperty.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:43 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-08-10 20:07:00 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,8 +68,8 @@ public:
 protected:
   vtkMesaProperty() {};
   ~vtkMesaProperty() {};
-  vtkMesaProperty(const vtkMesaProperty&) {};
-  void operator=(const vtkMesaProperty&) {};
+  vtkMesaProperty(const vtkMesaProperty&);
+  void operator=(const vtkMesaProperty&);
 };
 
 #endif

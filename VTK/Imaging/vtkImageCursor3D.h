@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCursor3D.h,v $
   Language:  C++
-  Date:      $Date: 2001-03-12 19:28:15 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-08-10 20:06:51 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -76,8 +76,8 @@ public:
 protected:
   vtkImageCursor3D();
   ~vtkImageCursor3D() {};
-  vtkImageCursor3D(const vtkImageCursor3D&) {};
-  void operator=(const vtkImageCursor3D&) {};
+  vtkImageCursor3D(const vtkImageCursor3D&);
+  void operator=(const vtkImageCursor3D&);
 
   float CursorPosition[3];
   float CursorValue;

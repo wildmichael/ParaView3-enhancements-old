@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageHSVToRGB.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:06 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-08-10 20:06:51 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -73,8 +73,8 @@ public:
 protected:
   vtkImageHSVToRGB();
   ~vtkImageHSVToRGB() {};
-  vtkImageHSVToRGB(const vtkImageHSVToRGB&) {};
-  void operator=(const vtkImageHSVToRGB&) {};
+  vtkImageHSVToRGB(const vtkImageHSVToRGB&);
+  void operator=(const vtkImageHSVToRGB&);
 
   float Maximum;
   

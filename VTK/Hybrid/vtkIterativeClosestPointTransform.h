@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIterativeClosestPointTransform.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-04 13:11:13 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-08-10 20:06:51 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to Sebastien Barre who developed this class. Thanks to
              Tim Hutton too for the idea.
 
@@ -164,8 +164,8 @@ protected:
 
   vtkIterativeClosestPointTransform();
   ~vtkIterativeClosestPointTransform();
-  vtkIterativeClosestPointTransform(const vtkIterativeClosestPointTransform&) {};
-  void operator=(const vtkIterativeClosestPointTransform&) {};
+  vtkIterativeClosestPointTransform(const vtkIterativeClosestPointTransform&);
+  void operator=(const vtkIterativeClosestPointTransform&);
 
   void InternalUpdate();
 

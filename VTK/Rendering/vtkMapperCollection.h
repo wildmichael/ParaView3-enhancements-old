@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapperCollection.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:42 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-08-10 20:07:00 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -77,8 +77,8 @@ class VTK_EXPORT vtkMapperCollection : public vtkCollection
 protected:  
   vtkMapperCollection() {};
   ~vtkMapperCollection() {};
-  vtkMapperCollection(const vtkMapperCollection&) {};
-  void operator=(const vtkMapperCollection&) {};
+  vtkMapperCollection(const vtkMapperCollection&);
+  void operator=(const vtkMapperCollection&);
 
 private:
   // hide the standard AddItem from the user and the compiler.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-23 13:32:13 $
-  Version:   $Revision: 1.71 $
+  Date:      $Date: 2001-08-10 20:07:00 $
+  Version:   $Revision: 1.72 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -324,8 +324,8 @@ public:
 protected:
   vtkMapper();
   ~vtkMapper();
-  vtkMapper(const vtkMapper&) {};
-  void operator=(const vtkMapper&) {};
+  vtkMapper(const vtkMapper&);
+  void operator=(const vtkMapper&);
 
   vtkScalars *Colors;
 

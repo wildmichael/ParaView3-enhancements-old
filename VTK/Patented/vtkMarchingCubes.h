@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingCubes.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-28 05:54:03 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2001-08-10 20:06:53 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -131,8 +131,8 @@ public:
 protected:
   vtkMarchingCubes();
   ~vtkMarchingCubes();
-  vtkMarchingCubes(const vtkMarchingCubes&) {};
-  void operator=(const vtkMarchingCubes&) {};
+  vtkMarchingCubes(const vtkMarchingCubes&);
+  void operator=(const vtkMarchingCubes&);
 
   void Execute();
 

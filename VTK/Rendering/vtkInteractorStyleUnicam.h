@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleUnicam.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-29 13:42:39 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-08-10 20:06:57 $
+  Version:   $Revision: 1.9 $
 
 =========================================================================*/
 
@@ -145,8 +145,8 @@ public:
 protected:
   vtkInteractorStyleUnicam();
   virtual ~vtkInteractorStyleUnicam();
-  vtkInteractorStyleUnicam(const vtkInteractorStyleUnicam&) {};
-  void operator=(const vtkInteractorStyleUnicam&) {};
+  vtkInteractorStyleUnicam(const vtkInteractorStyleUnicam&);
+  void operator=(const vtkInteractorStyleUnicam&);
 
   vtkWorldPointPicker *InteractionPicker;
   

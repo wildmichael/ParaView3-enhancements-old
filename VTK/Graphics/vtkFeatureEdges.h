@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFeatureEdges.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:37 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2001-08-10 20:06:49 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -127,8 +127,8 @@ public:
 protected:
   vtkFeatureEdges();
   ~vtkFeatureEdges();
-  vtkFeatureEdges(const vtkFeatureEdges&) {};
-  void operator=(const vtkFeatureEdges&) {};
+  vtkFeatureEdges(const vtkFeatureEdges&);
+  void operator=(const vtkFeatureEdges&);
 
   // Usual data generation method
   void Execute();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXYPlotActor.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-22 21:06:27 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-08-10 20:06:51 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to Kitware & RPI/SCOREC who supported the development
              of this class.
 
@@ -464,8 +464,8 @@ public:
 protected:
   vtkXYPlotActor();
   ~vtkXYPlotActor();
-  vtkXYPlotActor(const vtkXYPlotActor&) {};
-  void operator=(const vtkXYPlotActor&) {};
+  vtkXYPlotActor(const vtkXYPlotActor&);
+  void operator=(const vtkXYPlotActor&);
 
   vtkDataSetCollection *InputList; //list of data sets to plot
   vtkDataObjectCollection *DataObjectInputList; //list of data objects to plot

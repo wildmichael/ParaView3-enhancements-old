@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObjectFactory.h,v $
   Language:  C++
-  Date:      $Date: 2001-03-02 17:07:38 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-08-10 20:06:45 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to William A. Hoffman who developed this class
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -213,8 +213,8 @@ protected:
   
   vtkObjectFactory();
   ~vtkObjectFactory();
-  vtkObjectFactory(const vtkObjectFactory&) {};
-  void operator=(const vtkObjectFactory&) {};
+  vtkObjectFactory(const vtkObjectFactory&);
+  void operator=(const vtkObjectFactory&);
   //BTX
   struct OverrideInformation
   {

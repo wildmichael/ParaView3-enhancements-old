@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPropAssembly.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:16 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-08-10 20:06:46 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -147,8 +147,8 @@ public:
 protected:
   vtkPropAssembly();
   ~vtkPropAssembly();
-  vtkPropAssembly(const vtkPropAssembly&) {};
-  void operator=(const vtkPropAssembly&) {};
+  vtkPropAssembly(const vtkPropAssembly&);
+  void operator=(const vtkPropAssembly&);
 
   vtkPropCollection *Parts;
   float Bounds[6];

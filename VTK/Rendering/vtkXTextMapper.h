@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXTextMapper.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:15 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-08-10 20:07:01 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -83,8 +83,8 @@ public:
 protected:
   vtkXTextMapper();
   ~vtkXTextMapper() {};
-  vtkXTextMapper(const vtkXTextMapper&) {};
-  void operator=(const vtkXTextMapper&) {};
+  vtkXTextMapper(const vtkXTextMapper&);
+  void operator=(const vtkXTextMapper&);
 
   // Description:
   // Actually get the size of the rectangle.

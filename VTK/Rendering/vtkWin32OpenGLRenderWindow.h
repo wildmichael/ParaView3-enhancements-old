@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-11 20:54:24 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2001-08-10 20:07:01 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -246,8 +246,8 @@ public:
 protected:
   vtkWin32OpenGLRenderWindow();
   ~vtkWin32OpenGLRenderWindow();
-  vtkWin32OpenGLRenderWindow(const vtkWin32OpenGLRenderWindow&) {};
-  void operator=(const vtkWin32OpenGLRenderWindow&) {};
+  vtkWin32OpenGLRenderWindow(const vtkWin32OpenGLRenderWindow&);
+  void operator=(const vtkWin32OpenGLRenderWindow&);
 
   HINSTANCE ApplicationInstance;
   HPALETTE  Palette;

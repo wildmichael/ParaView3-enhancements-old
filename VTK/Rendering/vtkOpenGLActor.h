@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLActor.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:44 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-08-10 20:07:00 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -66,8 +66,8 @@ public:
 protected:
   vtkOpenGLActor() {};
   ~vtkOpenGLActor() {};
-  vtkOpenGLActor(const vtkOpenGLActor&) {};
-  void operator=(const vtkOpenGLActor&) {};
+  vtkOpenGLActor(const vtkOpenGLActor&);
+  void operator=(const vtkOpenGLActor&);
 
 };
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOverrideInformation.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-01 22:43:33 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-08-10 20:06:45 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to William A. Hoffman who developed this class
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -108,8 +108,8 @@ protected:
 private:
   vtkOverrideInformation();
   ~vtkOverrideInformation();
-  vtkOverrideInformation(const vtkOverrideInformation&) {};
-  void operator=(const vtkOverrideInformation&) {};
+  vtkOverrideInformation(const vtkOverrideInformation&);
+  void operator=(const vtkOverrideInformation&);
   // allow the object factory to set the values in this
   // class, but only the object factory
 //BTX

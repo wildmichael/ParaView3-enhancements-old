@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitModeller.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-21 15:26:49 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2001-08-10 20:06:51 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -216,8 +216,8 @@ public:
 protected:
   vtkImplicitModeller();
   ~vtkImplicitModeller();
-  vtkImplicitModeller(const vtkImplicitModeller&) {};
-  void operator=(const vtkImplicitModeller&) {};
+  vtkImplicitModeller(const vtkImplicitModeller&);
+  void operator=(const vtkImplicitModeller&);
 
   void Execute();
   void ExecuteInformation();

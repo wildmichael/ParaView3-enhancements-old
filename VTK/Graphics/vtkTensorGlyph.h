@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensorGlyph.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:55 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2001-08-10 20:06:50 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -137,8 +137,8 @@ public:
 protected:
   vtkTensorGlyph();
   ~vtkTensorGlyph();
-  vtkTensorGlyph(const vtkTensorGlyph&) {};
-  void operator=(const vtkTensorGlyph&) {};
+  vtkTensorGlyph(const vtkTensorGlyph&);
+  void operator=(const vtkTensorGlyph&);
 
   void Execute();
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUReader.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:30 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2001-08-10 20:06:52 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -107,8 +107,8 @@ public:
 protected:
   vtkBYUReader();
   ~vtkBYUReader();
-  vtkBYUReader(const vtkBYUReader&) {};
-  void operator=(const vtkBYUReader&) {};
+  vtkBYUReader(const vtkBYUReader&);
+  void operator=(const vtkBYUReader&);
 
   void Execute();
   // This source does not know how to generate pieces yet.

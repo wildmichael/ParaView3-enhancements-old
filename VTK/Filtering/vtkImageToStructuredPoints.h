@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToStructuredPoints.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:11 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2001-08-10 20:06:47 $
+  Version:   $Revision: 1.31 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -84,8 +84,8 @@ public:
 protected:
   vtkImageToStructuredPoints();
   ~vtkImageToStructuredPoints();
-  vtkImageToStructuredPoints(const vtkImageToStructuredPoints&) {};
-  void operator=(const vtkImageToStructuredPoints&) {};
+  vtkImageToStructuredPoints(const vtkImageToStructuredPoints&);
+  void operator=(const vtkImageToStructuredPoints&);
 
   // to translate the wholeExtent to have min 0 ( I do not like this hack).
   int Translate[3];

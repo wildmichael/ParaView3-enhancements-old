@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRTAnalyticSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-03-08 20:21:37 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-08-10 20:06:53 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -96,8 +96,8 @@ public:
 protected:
   vtkRTAnalyticSource();
   ~vtkRTAnalyticSource() {};
-  vtkRTAnalyticSource(const vtkRTAnalyticSource&) {};
-  void operator=(const vtkRTAnalyticSource&) {};
+  vtkRTAnalyticSource(const vtkRTAnalyticSource&);
+  void operator=(const vtkRTAnalyticSource&);
 
   float XFreq;
   float YFreq;

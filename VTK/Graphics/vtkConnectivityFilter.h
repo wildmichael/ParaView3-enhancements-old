@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConnectivityFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-07-18 17:16:40 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2001-08-10 20:06:48 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -170,8 +170,8 @@ public:
 protected:
   vtkConnectivityFilter();
   ~vtkConnectivityFilter();
-  vtkConnectivityFilter(const vtkConnectivityFilter&) {};
-  void operator=(const vtkConnectivityFilter&) {};
+  vtkConnectivityFilter(const vtkConnectivityFilter&);
+  void operator=(const vtkConnectivityFilter&);
 
   // Usual data generation method
   void Execute();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFiniteDifferenceGradientEstimator.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:37 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-08-10 20:06:54 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -88,8 +88,8 @@ public:
 protected:
   vtkFiniteDifferenceGradientEstimator();
   ~vtkFiniteDifferenceGradientEstimator();
-  vtkFiniteDifferenceGradientEstimator(const vtkFiniteDifferenceGradientEstimator&) {};
-  void operator=(const vtkFiniteDifferenceGradientEstimator&) {};
+  vtkFiniteDifferenceGradientEstimator(const vtkFiniteDifferenceGradientEstimator&);
+  void operator=(const vtkFiniteDifferenceGradientEstimator&);
 
 
   // Description:

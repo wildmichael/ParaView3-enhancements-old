@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipVolume.h,v $
   Language:  C++
-  Date:      $Date: 2001-07-12 20:33:39 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-08-10 20:06:48 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -164,8 +164,8 @@ public:
 protected:
   vtkClipVolume(vtkImplicitFunction *cf=NULL);
   ~vtkClipVolume();
-  vtkClipVolume(const vtkClipVolume&) {};
-  void operator=(const vtkClipVolume&) {};
+  vtkClipVolume(const vtkClipVolume&);
+  void operator=(const vtkClipVolume&);
 
   void Execute();
   void ClipVoxel(float value, vtkDataArray *cellScalars, int flip,

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSight6Reader.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-13 20:46:33 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-08-10 20:06:52 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -73,8 +73,8 @@ public:
 protected:
   vtkEnSight6Reader();
   ~vtkEnSight6Reader();
-  vtkEnSight6Reader(const vtkEnSight6Reader&) {};
-  void operator=(const vtkEnSight6Reader&) {};
+  vtkEnSight6Reader(const vtkEnSight6Reader&);
+  void operator=(const vtkEnSight6Reader&);
   
   // Description:
   // Read the geometry file.  If an error occurred, 0 is returned; otherwise 1.

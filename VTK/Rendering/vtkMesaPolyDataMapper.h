@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaPolyDataMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-01 19:24:49 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2001-08-10 20:07:00 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -97,8 +97,8 @@ public:
 protected:
   vtkMesaPolyDataMapper();
   ~vtkMesaPolyDataMapper();
-  vtkMesaPolyDataMapper(const vtkMesaPolyDataMapper&) {};
-  void operator=(const vtkMesaPolyDataMapper&) {};
+  vtkMesaPolyDataMapper(const vtkMesaPolyDataMapper&);
+  void operator=(const vtkMesaPolyDataMapper&);
 
   int ListId;
   vtkRenderWindow *RenderWindow;   // RenderWindow used for the previous render

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutlineSource.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:45 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2001-08-10 20:06:50 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -64,8 +64,8 @@ public:
 protected:
   vtkOutlineSource();
   ~vtkOutlineSource() {};
-  vtkOutlineSource(const vtkOutlineSource&) {};
-  void operator=(const vtkOutlineSource&) {};
+  vtkOutlineSource(const vtkOutlineSource&);
+  void operator=(const vtkOutlineSource&);
 
   void Execute();
   float Bounds[6];

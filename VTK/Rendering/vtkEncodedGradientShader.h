@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEncodedGradientShader.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:36 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-08-10 20:06:53 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -100,8 +100,8 @@ public:
 protected:
   vtkEncodedGradientShader();
   ~vtkEncodedGradientShader();
-  vtkEncodedGradientShader(const vtkEncodedGradientShader&) {};
-  void operator=(const vtkEncodedGradientShader&) {};
+  vtkEncodedGradientShader(const vtkEncodedGradientShader&);
+  void operator=(const vtkEncodedGradientShader&);
 
   // Description:
   // Build a shading table for a light with the specified direction,

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBProperty.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:26 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-08-10 20:06:51 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -95,8 +95,8 @@ public:
 protected:
   vtkRIBProperty();
   ~vtkRIBProperty();
-  vtkRIBProperty(const vtkRIBProperty&) {};
-  void operator=(const vtkRIBProperty&) {};
+  vtkRIBProperty(const vtkRIBProperty&);
+  void operator=(const vtkRIBProperty&);
 
   void Render(vtkActor *a, vtkRenderer *ren);
   vtkProperty *Property;

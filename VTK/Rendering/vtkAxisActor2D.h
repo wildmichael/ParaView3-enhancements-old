@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAxisActor2D.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:02 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-08-10 20:06:53 $
+  Version:   $Revision: 1.16 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -249,8 +249,8 @@ public:
 protected:
   vtkAxisActor2D();
   ~vtkAxisActor2D();
-  vtkAxisActor2D(const vtkAxisActor2D&) {};
-  void operator=(const vtkAxisActor2D&) {};
+  vtkAxisActor2D(const vtkAxisActor2D&);
+  void operator=(const vtkAxisActor2D&);
 
   vtkCoordinate *Point1Coordinate;
   vtkCoordinate *Point2Coordinate;

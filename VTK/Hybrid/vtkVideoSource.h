@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVideoSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-04-11 20:39:34 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-08-10 20:06:51 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -237,8 +237,8 @@ public:
 protected:
   vtkVideoSource();
   ~vtkVideoSource();
-  vtkVideoSource(const vtkVideoSource&) {};
-  void operator=(const vtkVideoSource&) {};
+  vtkVideoSource(const vtkVideoSource&);
+  void operator=(const vtkVideoSource&);
   void ExecuteInformation();
 
   int Initialized;

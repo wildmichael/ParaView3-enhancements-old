@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutputWindow.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-18 16:03:14 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-08-10 20:06:45 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -117,8 +117,8 @@ public:
 protected:
   vtkOutputWindow();
   virtual ~vtkOutputWindow();
-  vtkOutputWindow(const vtkOutputWindow&) {};
-  void operator=(const vtkOutputWindow&) {};
+  vtkOutputWindow(const vtkOutputWindow&);
+  void operator=(const vtkOutputWindow&);
   int PromptUser;
 private:
   static vtkOutputWindow* Instance;

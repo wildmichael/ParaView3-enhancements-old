@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-04-16 14:13:03 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-08-10 20:06:44 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -100,8 +100,8 @@ public:
 protected:
   vtkAbstractMapper();
   ~vtkAbstractMapper();
-  vtkAbstractMapper(const vtkAbstractMapper&) {};
-  void operator=(const vtkAbstractMapper&) {};
+  vtkAbstractMapper(const vtkAbstractMapper&);
+  void operator=(const vtkAbstractMapper&);
 
   vtkTimerLog *Timer;
   float TimeToDraw;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreadedController.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-02 21:03:01 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-08-10 20:06:53 $
+  Version:   $Revision: 1.3 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -106,8 +106,8 @@ protected:
 
   vtkThreadedController();
   ~vtkThreadedController();
-  vtkThreadedController(const vtkThreadedController&) {};
-  void operator=(const vtkThreadedController&) {};
+  vtkThreadedController(const vtkThreadedController&);
+  void operator=(const vtkThreadedController&);
   
   void CreateProcessControllers();
   

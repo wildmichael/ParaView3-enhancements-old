@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutlineCornerFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:25 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-08-10 20:06:50 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to Sebastien Barre who developed this class.
 
 
@@ -71,8 +71,8 @@ public:
 protected:
   vtkOutlineCornerFilter();
   ~vtkOutlineCornerFilter();
-  vtkOutlineCornerFilter(const vtkOutlineCornerFilter&) {};
-  void operator=(const vtkOutlineCornerFilter&) {};
+  vtkOutlineCornerFilter(const vtkOutlineCornerFilter&);
+  void operator=(const vtkOutlineCornerFilter&);
 
   vtkOutlineCornerSource *OutlineCornerSource;
   void Execute();

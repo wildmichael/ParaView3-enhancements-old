@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimatePro.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-27 13:24:31 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2001-08-10 20:06:48 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -319,8 +319,8 @@ public:
 protected:
   vtkDecimatePro();
   ~vtkDecimatePro();
-  vtkDecimatePro(const vtkDecimatePro&) {};
-  void operator=(const vtkDecimatePro&) {};
+  vtkDecimatePro(const vtkDecimatePro&);
+  void operator=(const vtkDecimatePro&);
 
   void Execute();
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLookupTable.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-28 15:42:17 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 2001-08-10 20:06:45 $
+  Version:   $Revision: 1.57 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -215,8 +215,8 @@ public:
 protected:
   vtkLookupTable(int sze=256, int ext=256);
   ~vtkLookupTable();
-  vtkLookupTable(const vtkLookupTable&) {};
-  void operator=(const vtkLookupTable&) {};
+  vtkLookupTable(const vtkLookupTable&);
+  void operator=(const vtkLookupTable&);
 
   int NumberOfColors;
   vtkUnsignedCharArray *Table;

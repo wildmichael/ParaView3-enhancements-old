@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpLens.h,v $
   Language:  C++
-  Date:      $Date: 2001-07-02 18:08:08 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-08-10 20:06:50 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -105,8 +105,8 @@ public:
 protected:
   vtkWarpLens();
   ~vtkWarpLens() {};
-  vtkWarpLens(const vtkWarpLens&) {};
-  void operator=(const vtkWarpLens&) {};
+  vtkWarpLens(const vtkWarpLens&);
+  void operator=(const vtkWarpLens&);
 
   void Execute();
 

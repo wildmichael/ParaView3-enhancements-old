@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStack.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:18 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2001-08-10 20:06:46 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -87,8 +87,8 @@ public:
 protected:
   vtkStack();
   ~vtkStack();
-  vtkStack(const vtkStack&) {};
-  void operator=(const vtkStack&) {};
+  vtkStack(const vtkStack&);
+  void operator=(const vtkStack&);
 
   int NumberOfItems;
   vtkStackElement *Top;

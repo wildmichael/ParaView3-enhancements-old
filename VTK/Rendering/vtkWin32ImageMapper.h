@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32ImageMapper.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-11 12:51:02 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-08-10 20:07:01 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -116,8 +116,8 @@ protected:
 
   vtkWin32ImageMapper();
   ~vtkWin32ImageMapper();
-  vtkWin32ImageMapper(const vtkWin32ImageMapper&) {};
-  void operator=(const vtkWin32ImageMapper&) {};
+  vtkWin32ImageMapper(const vtkWin32ImageMapper&);
+  void operator=(const vtkWin32ImageMapper&);
 
 };
 #endif

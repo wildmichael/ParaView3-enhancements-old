@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProperty.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:58 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2001-08-10 20:07:01 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -211,8 +211,8 @@ public:
 protected:
   vtkVolumeProperty();
   ~vtkVolumeProperty();
-  vtkVolumeProperty(const vtkVolumeProperty&) {};
-  void operator=(const vtkVolumeProperty&) {};
+  vtkVolumeProperty(const vtkVolumeProperty&);
+  void operator=(const vtkVolumeProperty&);
 
   int				InterpolationType;
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetCollection.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:08 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-08-10 20:06:44 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -74,8 +74,8 @@ public:
 protected:
   vtkDataSetCollection() {};
   ~vtkDataSetCollection() {};
-  vtkDataSetCollection(const vtkDataSetCollection&) {};
-  void operator=(const vtkDataSetCollection&) {};
+  vtkDataSetCollection(const vtkDataSetCollection&);
+  void operator=(const vtkDataSetCollection&);
 
 
 private:

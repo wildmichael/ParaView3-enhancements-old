@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:24 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-08-10 20:06:51 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -187,8 +187,8 @@ public:
 protected:
   vtkImageToPolyDataFilter();
   ~vtkImageToPolyDataFilter();
-  vtkImageToPolyDataFilter(const vtkImageToPolyDataFilter&) {};
-  void operator=(const vtkImageToPolyDataFilter&) {};
+  vtkImageToPolyDataFilter(const vtkImageToPolyDataFilter&);
+  void operator=(const vtkImageToPolyDataFilter&);
 
   void Execute();
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNMWriter.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:13 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-08-10 20:06:52 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -60,8 +60,8 @@ public:
 protected:
   vtkPNMWriter() {};
   ~vtkPNMWriter() {};
-  vtkPNMWriter(const vtkPNMWriter&) {};
-  void operator=(const vtkPNMWriter&) {};
+  vtkPNMWriter(const vtkPNMWriter&);
+  void operator=(const vtkPNMWriter&);
 
   virtual void WriteFile(ofstream *file, vtkImageData *data, int extent[6]);
   virtual void WriteFileHeader(ofstream *, vtkImageData *);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaImageActor.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:43 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-08-10 20:07:00 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -73,8 +73,8 @@ public:
 protected:
   vtkMesaImageActor();
   ~vtkMesaImageActor();
-  vtkMesaImageActor(const vtkMesaImageActor&) {};
-  void operator=(const vtkMesaImageActor&) {};
+  vtkMesaImageActor(const vtkMesaImageActor&);
+  void operator=(const vtkMesaImageActor&);
 
   unsigned char *MakeDataSuitable(int &xsize, int &ysize, int &release);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObjectToDataSetFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-26 15:21:25 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-08-10 20:06:47 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -269,8 +269,8 @@ public:
 protected:
   vtkDataObjectToDataSetFilter();
   ~vtkDataObjectToDataSetFilter();
-  vtkDataObjectToDataSetFilter(const vtkDataObjectToDataSetFilter&) {};
-  void operator=(const vtkDataObjectToDataSetFilter&) {};
+  vtkDataObjectToDataSetFilter(const vtkDataObjectToDataSetFilter&);
+  void operator=(const vtkDataObjectToDataSetFilter&);
 
   void Execute(); //generate output data
   void ExecuteInformation();

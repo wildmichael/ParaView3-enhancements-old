@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-28 05:39:44 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2001-08-10 20:06:46 $
+  Version:   $Revision: 1.31 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -302,8 +302,8 @@ public:
 protected:
   vtkProp();
   ~vtkProp();
-  vtkProp(const vtkProp&) {};
-  void operator=(const vtkProp&) {};
+  vtkProp(const vtkProp&);
+  void operator=(const vtkProp&);
 
   int Visibility;
   int Pickable;

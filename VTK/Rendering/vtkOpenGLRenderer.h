@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderer.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:45 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-08-10 20:07:00 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -78,8 +78,8 @@ public:
 protected:
   vtkOpenGLRenderer();
   ~vtkOpenGLRenderer();
-  vtkOpenGLRenderer(const vtkOpenGLRenderer&) {};
-  void operator=(const vtkOpenGLRenderer&) {};
+  vtkOpenGLRenderer(const vtkOpenGLRenderer&);
+  void operator=(const vtkOpenGLRenderer&);
 
   //BTX
   // Picking functions to be implemented by sub-classes

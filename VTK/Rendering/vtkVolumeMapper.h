@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeMapper.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:58 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2001-08-10 20:07:01 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -172,8 +172,8 @@ public:
 protected:
   vtkVolumeMapper();
   ~vtkVolumeMapper();
-  vtkVolumeMapper(const vtkVolumeMapper&) {};
-  void operator=(const vtkVolumeMapper&) {};
+  vtkVolumeMapper(const vtkVolumeMapper&);
+  void operator=(const vtkVolumeMapper&);
 
   int                  Cropping;
   float                CroppingRegionPlanes[6];

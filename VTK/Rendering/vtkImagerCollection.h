@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagerCollection.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:12 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-08-10 20:06:54 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,8 +68,8 @@ class VTK_EXPORT vtkImagerCollection : public vtkCollection
 protected:  
   vtkImagerCollection() {};
   ~vtkImagerCollection() {};
-  vtkImagerCollection(const vtkImagerCollection&) {};
-  void operator=(const vtkImagerCollection&) {};
+  vtkImagerCollection(const vtkImagerCollection&);
+  void operator=(const vtkImagerCollection&);
 
 private:
   // hide the standard AddItem from the user and the compiler.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFunctionSet.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:10 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-08-10 20:06:45 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -85,8 +85,8 @@ public:
 protected:
   vtkFunctionSet();
   ~vtkFunctionSet() {};
-  vtkFunctionSet(const vtkFunctionSet&) {};
-  void operator=(const vtkFunctionSet&) {};
+  vtkFunctionSet(const vtkFunctionSet&);
+  void operator=(const vtkFunctionSet&);
 
   int NumFuncs;
   int NumIndepVars;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGridSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-03-08 13:55:31 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-08-10 20:06:51 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -111,8 +111,8 @@ public:
 protected:
   vtkImageGridSource();
   ~vtkImageGridSource() {};
-  vtkImageGridSource(const vtkImageGridSource&) {};
-  void operator=(const vtkImageGridSource&) {};
+  vtkImageGridSource(const vtkImageGridSource&);
+  void operator=(const vtkImageGridSource&);
 
   int GridSpacing[3];
   int GridOrigin[3];

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDynamicLoader.h,v $
   Language:  C++
-  Date:      $Date: 2001-07-22 21:32:37 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2001-08-10 20:06:45 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to William A. Hoffman who developed this class
 
 
@@ -105,8 +105,8 @@ public:
 protected:
   vtkDynamicLoader() {};
   ~vtkDynamicLoader() {};
-  vtkDynamicLoader(const vtkDynamicLoader&) {};
-  void operator=(const vtkDynamicLoader&) {};
+  vtkDynamicLoader(const vtkDynamicLoader&);
+  void operator=(const vtkDynamicLoader&);
 
   
 };

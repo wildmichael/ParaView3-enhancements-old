@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleUser.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:41 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-08-10 20:06:58 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -198,8 +198,8 @@ public:
 protected:
   vtkInteractorStyleUser();
   ~vtkInteractorStyleUser();
-  vtkInteractorStyleUser(const vtkInteractorStyleUser&) {};
-  void operator=(const vtkInteractorStyleUser&) {};
+  vtkInteractorStyleUser(const vtkInteractorStyleUser&);
+  void operator=(const vtkInteractorStyleUser&);
 
   void OnChar(int ctrl, int shift, char keycode, int repeatcount);
   void OnKeyPress(int ctrl, int shift, char keycode, char *keysym,

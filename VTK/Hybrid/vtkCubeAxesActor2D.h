@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeAxesActor2D.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:22 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2001-08-10 20:06:50 $
+  Version:   $Revision: 1.23 $
   Thanks:    Thorsten Dowe who modified and improved this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -237,8 +237,8 @@ public:
 protected:
   vtkCubeAxesActor2D();
   ~vtkCubeAxesActor2D();
-  vtkCubeAxesActor2D(const vtkCubeAxesActor2D&) {};
-  void operator=(const vtkCubeAxesActor2D&) {};
+  vtkCubeAxesActor2D(const vtkCubeAxesActor2D&);
+  void operator=(const vtkCubeAxesActor2D&);
 
   vtkDataSet *Input;    //Define bounds from input data, or
   vtkProp    *Prop;     //Define bounds from actor/assembly, or

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyphSource2D.h,v $
   Language:  C++
-  Date:      $Date: 2001-04-19 21:45:31 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-08-10 20:06:49 $
+  Version:   $Revision: 1.7 $
   Thanks:    Tim Smith who sponsored and encouraged the development
              of this class.
 
@@ -155,8 +155,8 @@ public:
 protected:
   vtkGlyphSource2D();
   ~vtkGlyphSource2D() {};
-  vtkGlyphSource2D(const vtkGlyphSource2D&) {};
-  void operator=(const vtkGlyphSource2D&) {};
+  vtkGlyphSource2D(const vtkGlyphSource2D&);
+  void operator=(const vtkGlyphSource2D&);
 
   void Execute();
 

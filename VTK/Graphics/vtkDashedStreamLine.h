@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDashedStreamLine.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:33 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2001-08-10 20:06:48 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -78,8 +78,8 @@ public:
 protected:
   vtkDashedStreamLine();
   ~vtkDashedStreamLine() {};
-  vtkDashedStreamLine(const vtkDashedStreamLine&) {};
-  void operator=(const vtkDashedStreamLine&) {};
+  vtkDashedStreamLine(const vtkDashedStreamLine&);
+  void operator=(const vtkDashedStreamLine&);
 
   // Convert streamer array into vtkPolyData
   void Execute();

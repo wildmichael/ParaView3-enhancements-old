@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpatialRepresentationFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-19 19:58:03 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2001-08-10 20:06:50 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -121,8 +121,8 @@ public:
 protected:
   vtkSpatialRepresentationFilter();
   ~vtkSpatialRepresentationFilter();
-  vtkSpatialRepresentationFilter(const vtkSpatialRepresentationFilter&) {};
-  void operator=(const vtkSpatialRepresentationFilter&) {};
+  vtkSpatialRepresentationFilter(const vtkSpatialRepresentationFilter&);
+  void operator=(const vtkSpatialRepresentationFilter&);
 
   void Execute();
   void GenerateOutput();

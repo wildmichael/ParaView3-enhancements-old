@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDepthSortPolyData.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-28 05:15:20 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-08-10 20:06:50 $
+  Version:   $Revision: 1.5 $
   Thanks:    Scott Hill for implementing this class
 
 
@@ -152,8 +152,8 @@ public:
 protected:
   vtkDepthSortPolyData();
   ~vtkDepthSortPolyData();
-  vtkDepthSortPolyData(const vtkDepthSortPolyData&) {};
-  void operator=(const vtkDepthSortPolyData&) {};
+  vtkDepthSortPolyData(const vtkDepthSortPolyData&);
+  void operator=(const vtkDepthSortPolyData&);
 
   void Execute();
   void ComputeProjectionVector(double vector[3], double origin[3]);

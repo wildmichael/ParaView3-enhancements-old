@@ -2,8 +2,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellTypes.h,v $
   Language:  C++
-  Date:      $Date: 2001-03-20 03:11:17 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-08-10 20:06:44 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -136,8 +136,8 @@ public:
 protected:
   vtkCellTypes();
   ~vtkCellTypes();
-  vtkCellTypes(const vtkCellTypes&) {};
-  void operator=(const vtkCellTypes&) {};  
+  vtkCellTypes(const vtkCellTypes&);
+  void operator=(const vtkCellTypes&);  
 
   vtkUnsignedCharArray *TypeArray; // pointer to types array
   vtkIntArray *LocationArray;   // pointer to array of offsets

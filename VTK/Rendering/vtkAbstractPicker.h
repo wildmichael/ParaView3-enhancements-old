@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractPicker.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:29 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-08-10 20:06:53 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -169,8 +169,8 @@ public:
 protected:
   vtkAbstractPicker();
   ~vtkAbstractPicker();
-  vtkAbstractPicker(const vtkAbstractPicker&) {};
-  void operator=(const vtkAbstractPicker&) {};
+  vtkAbstractPicker(const vtkAbstractPicker&);
+  void operator=(const vtkAbstractPicker&);
 
   virtual void Initialize();
 

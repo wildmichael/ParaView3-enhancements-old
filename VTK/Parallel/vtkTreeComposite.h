@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTreeComposite.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-13 15:29:17 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2001-08-10 20:06:53 $
+  Version:   $Revision: 1.10 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -185,8 +185,8 @@ public:
 protected:
   vtkTreeComposite();
   ~vtkTreeComposite();
-  vtkTreeComposite(const vtkTreeComposite&) {};
-  void operator=(const vtkTreeComposite&) {};
+  vtkTreeComposite(const vtkTreeComposite&);
+  void operator=(const vtkTreeComposite&);
   
   vtkRenderWindow* RenderWindow;
   vtkRenderWindowInteractor* RenderWindowInteractor;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShepardMethod.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-03 11:43:41 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2001-08-10 20:06:52 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -115,8 +115,8 @@ public:
 protected:
   vtkShepardMethod();
   ~vtkShepardMethod() {};
-  vtkShepardMethod(const vtkShepardMethod&) {};
-  void operator=(const vtkShepardMethod&) {};
+  vtkShepardMethod(const vtkShepardMethod&);
+  void operator=(const vtkShepardMethod&);
 
   void Execute();
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkElevationFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:36 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2001-08-10 20:06:49 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -81,8 +81,8 @@ public:
 protected:
   vtkElevationFilter();
   ~vtkElevationFilter() {};
-  vtkElevationFilter(const vtkElevationFilter&) {};
-  void operator=(const vtkElevationFilter&) {};
+  vtkElevationFilter(const vtkElevationFilter&);
+  void operator=(const vtkElevationFilter&);
 
   void Execute();
   float LowPoint[3];

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInterpolatingSubdivisionFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-28 13:33:50 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2001-08-10 20:06:49 $
+  Version:   $Revision: 1.10 $
   Thanks:    This work was supported bt PHS Research Grant No. 1 P41 RR13218-01
              from the National Center for Research Resources
 
@@ -69,8 +69,8 @@ public:
 protected:
   vtkInterpolatingSubdivisionFilter();
   ~vtkInterpolatingSubdivisionFilter() {};
-  vtkInterpolatingSubdivisionFilter(const vtkInterpolatingSubdivisionFilter&) {};
-  void operator=(const vtkInterpolatingSubdivisionFilter&) {};
+  vtkInterpolatingSubdivisionFilter(const vtkInterpolatingSubdivisionFilter&);
+  void operator=(const vtkInterpolatingSubdivisionFilter&);
 
   void Execute();
   virtual void GenerateSubdivisionPoints (vtkPolyData *inputDS, vtkIntArray *edgeData, vtkPoints *outputPts, vtkPointData *outputPD) = 0;

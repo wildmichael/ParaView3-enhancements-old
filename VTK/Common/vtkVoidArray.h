@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoidArray.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-24 19:06:44 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2001-08-10 20:06:46 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -155,8 +155,8 @@ public:
 protected:
   vtkVoidArray();
   ~vtkVoidArray();
-  vtkVoidArray(const vtkVoidArray&) {};
-  void operator=(const vtkVoidArray&) {};
+  vtkVoidArray(const vtkVoidArray&);
+  void operator=(const vtkVoidArray&);
 
   void** Array;  // pointer to data
   void** ResizeAndExtend(const vtkIdType sz);  // function to resize data

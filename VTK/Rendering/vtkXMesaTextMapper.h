@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMesaTextMapper.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:15 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-08-10 20:07:01 $
+  Version:   $Revision: 1.6 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -77,8 +77,8 @@ public:
 protected:
   vtkXMesaTextMapper();
   ~vtkXMesaTextMapper() {};
-  vtkXMesaTextMapper(const vtkXMesaTextMapper&) {};
-  void operator=(const vtkXMesaTextMapper&) {};
+  vtkXMesaTextMapper(const vtkXMesaTextMapper&);
+  void operator=(const vtkXMesaTextMapper&);
 };
 
 

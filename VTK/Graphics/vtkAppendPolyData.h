@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendPolyData.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-26 15:21:25 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2001-08-10 20:06:47 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -113,8 +113,8 @@ public:
 protected:
   vtkAppendPolyData();
   ~vtkAppendPolyData();
-  vtkAppendPolyData(const vtkAppendPolyData&) {};
-  void operator=(const vtkAppendPolyData&) {};
+  vtkAppendPolyData(const vtkAppendPolyData&);
+  void operator=(const vtkAppendPolyData&);
 
   // Flag for selecting parallel streaming behavior
   int ParallelStreaming;

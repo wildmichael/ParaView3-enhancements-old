@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeneralTransform.h,v $
   Language:  C++
-  Date:      $Date: 2001-03-30 21:37:20 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2001-08-10 20:06:45 $
+  Version:   $Revision: 1.32 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -241,8 +241,8 @@ public:
 protected:
   vtkGeneralTransform();
   ~vtkGeneralTransform();
-  vtkGeneralTransform(const vtkGeneralTransform&) {};
-  void operator=(const vtkGeneralTransform&) {};
+  vtkGeneralTransform(const vtkGeneralTransform&);
+  void operator=(const vtkGeneralTransform&);
 
   void InternalDeepCopy(vtkAbstractTransform *t);
   void InternalUpdate();

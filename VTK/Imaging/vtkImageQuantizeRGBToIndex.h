@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageQuantizeRGBToIndex.h,v $
   Language:  C++
-  Date:      $Date: 2001-03-08 14:38:20 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2001-08-10 20:06:52 $
+  Version:   $Revision: 1.22 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -94,8 +94,8 @@ public:
 protected:
   vtkImageQuantizeRGBToIndex();
   ~vtkImageQuantizeRGBToIndex();
-  vtkImageQuantizeRGBToIndex(const vtkImageQuantizeRGBToIndex&) {};
-  void operator=(const vtkImageQuantizeRGBToIndex&) {};
+  vtkImageQuantizeRGBToIndex(const vtkImageQuantizeRGBToIndex&);
+  void operator=(const vtkImageQuantizeRGBToIndex&);
 
   vtkLookupTable  *LookupTable;
   int             NumberOfColors;

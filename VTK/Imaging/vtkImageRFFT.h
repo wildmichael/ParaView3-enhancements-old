@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageRFFT.h,v $
   Language:  C++
-  Date:      $Date: 2001-03-13 20:24:36 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2001-08-10 20:06:52 $
+  Version:   $Revision: 1.26 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -78,8 +78,8 @@ public:
 protected:
   vtkImageRFFT() {};
   ~vtkImageRFFT() {};
-  vtkImageRFFT(const vtkImageRFFT&) {};
-  void operator=(const vtkImageRFFT&) {};
+  vtkImageRFFT(const vtkImageRFFT&);
+  void operator=(const vtkImageRFFT&);
 
   void ExecuteInformation(vtkImageData *inData, vtkImageData *outData);
   void ComputeInputUpdateExtent(int inExt[6], int outExt[6]);

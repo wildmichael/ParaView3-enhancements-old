@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGridTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:24 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-08-10 20:06:50 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -111,8 +111,8 @@ public:
 protected:
   vtkGridTransform();
   ~vtkGridTransform();
-  vtkGridTransform(const vtkGridTransform&) {};
-  void operator=(const vtkGridTransform&) {};
+  vtkGridTransform(const vtkGridTransform&);
+  void operator=(const vtkGridTransform&);
 
   // Description:
   // Update the displacement grid.

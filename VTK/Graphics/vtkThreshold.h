@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreshold.h,v $
   Language:  C++
-  Date:      $Date: 2001-07-02 16:19:42 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2001-08-10 20:06:50 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -116,8 +116,8 @@ public:
 protected:
   vtkThreshold();
   ~vtkThreshold() {};
-  vtkThreshold(const vtkThreshold&) {};
-  void operator=(const vtkThreshold&) {};
+  vtkThreshold(const vtkThreshold&);
+  void operator=(const vtkThreshold&);
 
   // Usual data generation method
   void Execute();

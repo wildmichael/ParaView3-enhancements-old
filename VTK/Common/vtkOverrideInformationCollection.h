@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOverrideInformationCollection.h,v $
   Language:  C++
-  Date:      $Date: 2001-03-08 22:29:32 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-08-10 20:06:45 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -69,8 +69,8 @@ public:
 protected:
   vtkOverrideInformationCollection() {};
   ~vtkOverrideInformationCollection() {};
-  vtkOverrideInformationCollection(const vtkOverrideInformationCollection&) {};
-  void operator=(const vtkOverrideInformationCollection&) {};
+  vtkOverrideInformationCollection(const vtkOverrideInformationCollection&);
+  void operator=(const vtkOverrideInformationCollection&);
   
 
 private:

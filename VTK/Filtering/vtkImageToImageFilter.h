@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToImageFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-30 13:12:19 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2001-08-10 20:06:47 $
+  Version:   $Revision: 1.30 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -102,8 +102,8 @@ public:
 protected:
   vtkImageToImageFilter();
   ~vtkImageToImageFilter();
-  vtkImageToImageFilter(const vtkImageToImageFilter&) {};
-  void operator=(const vtkImageToImageFilter&) {};
+  vtkImageToImageFilter(const vtkImageToImageFilter&);
+  void operator=(const vtkImageToImageFilter&);
 
   vtkMultiThreader *Threader;
   int Bypass;

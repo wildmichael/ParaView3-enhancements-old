@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-03-02 12:35:38 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 2001-08-10 20:06:46 $
+  Version:   $Revision: 1.61 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -155,8 +155,8 @@ public:
 protected:
   vtkSource();
   ~vtkSource();
-  vtkSource(const vtkSource&) {};
-  void operator=(const vtkSource&) {};
+  vtkSource(const vtkSource&);
+  void operator=(const vtkSource&);
 
   // Description:
   // This method is the one that should be used by subclasses, right now the 

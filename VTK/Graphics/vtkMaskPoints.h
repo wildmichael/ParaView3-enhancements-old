@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMaskPoints.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-29 17:36:33 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2001-08-10 20:06:49 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -94,8 +94,8 @@ public:
 protected:
   vtkMaskPoints();
   ~vtkMaskPoints() {};
-  vtkMaskPoints(const vtkMaskPoints&) {};
-  void operator=(const vtkMaskPoints&) {};
+  vtkMaskPoints(const vtkMaskPoints&);
+  void operator=(const vtkMaskPoints&);
 
   void Execute();
 

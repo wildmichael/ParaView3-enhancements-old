@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuartzRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 2001-04-09 02:08:48 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-08-10 20:07:00 $
+  Version:   $Revision: 1.2 $
   
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -158,8 +158,8 @@ public:
 protected:
   vtkQuartzRenderWindowInteractor();
   ~vtkQuartzRenderWindowInteractor();
-  vtkQuartzRenderWindowInteractor(const vtkQuartzRenderWindowInteractor&) {};
-  void operator=(const vtkQuartzRenderWindowInteractor&) {};
+  vtkQuartzRenderWindowInteractor(const vtkQuartzRenderWindowInteractor&);
+  void operator=(const vtkQuartzRenderWindowInteractor&);
 
   void   *WindowId;
   void	 *ApplicationId;

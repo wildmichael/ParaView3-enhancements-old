@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-21 15:21:51 $
-  Version:   $Revision: 1.75 $
+  Date:      $Date: 2001-08-10 20:06:46 $
+  Version:   $Revision: 1.76 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -184,8 +184,8 @@ public:
 protected:
   vtkUnstructuredGrid();
   ~vtkUnstructuredGrid();
-  vtkUnstructuredGrid(const vtkUnstructuredGrid&) {};
-  void operator=(const vtkUnstructuredGrid&) {};
+  vtkUnstructuredGrid(const vtkUnstructuredGrid&);
+  void operator=(const vtkUnstructuredGrid&);
 
   // used by GetCell method
   vtkVertex *Vertex;

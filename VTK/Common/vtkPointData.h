@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointData.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-22 19:12:49 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2001-08-10 20:06:45 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -63,8 +63,8 @@ public:
 protected:
   vtkPointData() {};
   ~vtkPointData() {};
-  vtkPointData(const vtkPointData&) {};
-  void operator=(const vtkPointData&) {};
+  vtkPointData(const vtkPointData&);
+  void operator=(const vtkPointData&);
   
 };
 

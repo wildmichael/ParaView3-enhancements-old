@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetSurfaceFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-27 13:24:31 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-08-10 20:06:48 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -78,8 +78,8 @@ public:
 protected:
   vtkDataSetSurfaceFilter();
   ~vtkDataSetSurfaceFilter();
-  vtkDataSetSurfaceFilter(const vtkDataSetSurfaceFilter&) {};
-  void operator=(const vtkDataSetSurfaceFilter&) {};
+  vtkDataSetSurfaceFilter(const vtkDataSetSurfaceFilter&);
+  void operator=(const vtkDataSetSurfaceFilter&);
 
   int UseStrips;
   

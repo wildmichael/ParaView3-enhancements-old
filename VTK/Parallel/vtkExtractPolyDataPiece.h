@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractPolyDataPiece.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-16 16:40:01 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-08-10 20:06:53 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -63,8 +63,8 @@ public:
 protected:
   vtkExtractPolyDataPiece();
   ~vtkExtractPolyDataPiece() {};
-  vtkExtractPolyDataPiece(const vtkExtractPolyDataPiece&) {};
-  void operator=(const vtkExtractPolyDataPiece&) {};
+  vtkExtractPolyDataPiece(const vtkExtractPolyDataPiece&);
+  void operator=(const vtkExtractPolyDataPiece&);
 
   // Usual data generation method
   void Execute();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractPolyDataGeometry.h,v $
   Language:  C++
-  Date:      $Date: 2001-07-03 14:15:59 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-08-10 20:06:49 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -102,8 +102,8 @@ public:
 protected:
   vtkExtractPolyDataGeometry(vtkImplicitFunction *f=NULL);
   ~vtkExtractPolyDataGeometry();
-  vtkExtractPolyDataGeometry(const vtkExtractPolyDataGeometry&) {};
-  void operator=(const vtkExtractPolyDataGeometry&) {};
+  vtkExtractPolyDataGeometry(const vtkExtractPolyDataGeometry&);
+  void operator=(const vtkExtractPolyDataGeometry&);
 
   // Usual data generation method
   void Execute();

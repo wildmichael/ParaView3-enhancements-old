@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAccumulate.h,v $
   Language:  C++
-  Date:      $Date: 2001-07-30 19:01:31 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-08-10 20:06:51 $
+  Version:   $Revision: 1.25 $
   Thanks:    Thanks to C. Charles Law who developed this class
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -106,8 +106,8 @@ public:
 protected:
   vtkImageAccumulate();
   ~vtkImageAccumulate();
-  vtkImageAccumulate(const vtkImageAccumulate&) {};
-  void operator=(const vtkImageAccumulate&) {};
+  vtkImageAccumulate(const vtkImageAccumulate&);
+  void operator=(const vtkImageAccumulate&);
 
   float ComponentSpacing[3];
   float ComponentOrigin[3];

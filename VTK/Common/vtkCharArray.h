@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCharArray.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-24 19:06:44 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2001-08-10 20:06:44 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -187,8 +187,8 @@ public:
 protected:
   vtkCharArray(vtkIdType numComp=1);
   ~vtkCharArray();
-  vtkCharArray(const vtkCharArray&) {};
-  void operator=(const vtkCharArray&) {};
+  vtkCharArray(const vtkCharArray&);
+  void operator=(const vtkCharArray&);
 
   char *Array;    // pointer to data
   char *ResizeAndExtend(const vtkIdType sz);  // function to resize data

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAnisotropicDiffusion2D.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:03 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-08-10 20:06:51 $
+  Version:   $Revision: 1.25 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -113,8 +113,8 @@ public:
 protected:
   vtkImageAnisotropicDiffusion2D();
   ~vtkImageAnisotropicDiffusion2D() {};
-  vtkImageAnisotropicDiffusion2D(const vtkImageAnisotropicDiffusion2D&) {};
-  void operator=(const vtkImageAnisotropicDiffusion2D&) {};
+  vtkImageAnisotropicDiffusion2D(const vtkImageAnisotropicDiffusion2D&);
+  void operator=(const vtkImageAnisotropicDiffusion2D&);
 
   int NumberOfIterations;
   float DiffusionThreshold;

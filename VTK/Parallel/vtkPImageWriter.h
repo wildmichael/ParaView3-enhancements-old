@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPImageWriter.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-31 14:02:28 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-08-10 20:06:53 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -70,8 +70,8 @@ public:
 protected:
   vtkPImageWriter();
   ~vtkPImageWriter();
-  vtkPImageWriter(const vtkPImageWriter&) {};
-  void operator=(const vtkPImageWriter&) {};
+  vtkPImageWriter(const vtkPImageWriter&);
+  void operator=(const vtkPImageWriter&);
 
   unsigned long MemoryLimit;
   

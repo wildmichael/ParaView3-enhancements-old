@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInputPort.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-22 20:15:18 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-08-10 20:06:53 $
+  Version:   $Revision: 1.3 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -142,8 +142,8 @@ public:
 protected:
   vtkInputPort();
   ~vtkInputPort();  
-  vtkInputPort(const vtkInputPort&) {};
-  void operator=(const vtkInputPort&) {};
+  vtkInputPort(const vtkInputPort&);
+  void operator=(const vtkInputPort&);
   
   vtkMultiProcessController *Controller;
   int RemoteProcessId;

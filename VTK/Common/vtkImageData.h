@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.h,v $
   Language:  C++
-  Date:      $Date: 2001-07-25 21:16:52 $
-  Version:   $Revision: 1.86 $
+  Date:      $Date: 2001-08-10 20:06:45 $
+  Version:   $Revision: 1.87 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -318,8 +318,8 @@ public:
 protected:
   vtkImageData();
   ~vtkImageData();
-  vtkImageData(const vtkImageData&) {};
-  void operator=(const vtkImageData&) {};
+  vtkImageData(const vtkImageData&);
+  void operator=(const vtkImageData&);
 
   // for the GetCell method
   vtkVertex *Vertex;

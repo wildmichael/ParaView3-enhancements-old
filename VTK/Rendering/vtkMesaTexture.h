@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaTexture.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:44 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-08-10 20:07:00 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -73,8 +73,8 @@ public:
 protected:
   vtkMesaTexture();
   ~vtkMesaTexture();
-  vtkMesaTexture(const vtkMesaTexture&) {};
-  void operator=(const vtkMesaTexture&) {};
+  vtkMesaTexture(const vtkMesaTexture&);
+  void operator=(const vtkMesaTexture&);
 
   unsigned char *ResampleToPowerOfTwo(int &xsize, int &ysize, 
                                       unsigned char *dptr, int bpp);

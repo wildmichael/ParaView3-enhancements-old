@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAsynchronousBuffer.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:22 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-08-10 20:06:53 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -113,8 +113,8 @@ public:
 protected:
   vtkAsynchronousBuffer();
   ~vtkAsynchronousBuffer();
-  vtkAsynchronousBuffer(const vtkAsynchronousBuffer&) {};
-  void operator=(const vtkAsynchronousBuffer&) {};
+  vtkAsynchronousBuffer(const vtkAsynchronousBuffer&);
+  void operator=(const vtkAsynchronousBuffer&);
 
   int Blocking;
   vtkMultiThreader *Threader;

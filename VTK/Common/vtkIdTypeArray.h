@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdTypeArray.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-21 15:21:51 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-08-10 20:06:45 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -172,8 +172,8 @@ public:
 protected:
   vtkIdTypeArray(vtkIdType numComp=1);
   ~vtkIdTypeArray();
-  vtkIdTypeArray(const vtkIdTypeArray&) {};
-  void operator=(const vtkIdTypeArray&) {};
+  vtkIdTypeArray(const vtkIdTypeArray&);
+  void operator=(const vtkIdTypeArray&);
 
   vtkIdType *Array;   // pointer to data
   vtkIdType *ResizeAndExtend(const vtkIdType sz);  // function to resize data

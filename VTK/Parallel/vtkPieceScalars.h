@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPieceScalars.h,v $
   Language:  C++
-  Date:      $Date: 2001-07-02 18:56:14 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-08-10 20:06:53 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -76,8 +76,8 @@ public:
 protected:
   vtkPieceScalars();
   ~vtkPieceScalars();
-  vtkPieceScalars(const vtkPieceScalars&) {};
-  void operator=(const vtkPieceScalars&) {};
+  vtkPieceScalars(const vtkPieceScalars&);
+  void operator=(const vtkPieceScalars&);
   
   // Append the pieces.
   void Execute();

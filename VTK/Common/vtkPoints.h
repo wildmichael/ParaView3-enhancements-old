@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPoints.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-21 15:21:51 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 2001-08-10 20:06:45 $
+  Version:   $Revision: 1.56 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -131,8 +131,8 @@ public:
 protected:
   vtkPoints(int dataType=VTK_FLOAT);
   ~vtkPoints() {};
-  vtkPoints(const vtkPoints&) {};
-  void operator=(const vtkPoints&) {};
+  vtkPoints(const vtkPoints&);
+  void operator=(const vtkPoints&);
 
   float Bounds[6];
   vtkTimeStamp ComputeTime; // Time at which bounds computed

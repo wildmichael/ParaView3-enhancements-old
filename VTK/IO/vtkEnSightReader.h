@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-25 20:03:57 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-08-10 20:06:52 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -156,8 +156,8 @@ public:
 protected:
   vtkEnSightReader();
   ~vtkEnSightReader();
-  vtkEnSightReader(const vtkEnSightReader&) {};
-  void operator=(const vtkEnSightReader&) {};
+  vtkEnSightReader(const vtkEnSightReader&);
+  void operator=(const vtkEnSightReader&);
   
   void Execute();
 

@@ -4,8 +4,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFrustumCoverageCuller.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:38 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-08-10 20:06:54 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -117,8 +117,8 @@ public:
 protected:
   vtkFrustumCoverageCuller();
   ~vtkFrustumCoverageCuller() {};
-  vtkFrustumCoverageCuller(const vtkFrustumCoverageCuller&) {};
-  void operator=(const vtkFrustumCoverageCuller&) {};
+  vtkFrustumCoverageCuller(const vtkFrustumCoverageCuller&);
+  void operator=(const vtkFrustumCoverageCuller&);
 
   float        MinimumCoverage;
   float        MaximumCoverage;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBBDicer.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-26 15:03:35 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2001-08-10 20:06:49 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -72,8 +72,8 @@ public:
 protected:
   vtkOBBDicer() {};
   ~vtkOBBDicer() {};
-  vtkOBBDicer(const vtkOBBDicer&) {};
-  void operator=(const vtkOBBDicer&) {};
+  vtkOBBDicer(const vtkOBBDicer&);
+  void operator=(const vtkOBBDicer&);
 
   // Usual data generation method
   void Execute();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-22 17:47:45 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2001-08-10 20:07:00 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -224,8 +224,8 @@ public:
 protected:
   vtkProperty();
   ~vtkProperty() {};
-  vtkProperty(const vtkProperty&) {};
-  void operator=(const vtkProperty&) {};
+  vtkProperty(const vtkProperty&);
+  void operator=(const vtkProperty&);
 
   float Color[3];
   float AmbientColor[3];

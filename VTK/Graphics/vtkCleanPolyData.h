@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCleanPolyData.h,v $
   Language:  C++
-  Date:      $Date: 2001-04-24 20:36:31 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2001-08-10 20:06:48 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen
@@ -152,8 +152,8 @@ public:
 protected:
   vtkCleanPolyData();
  ~vtkCleanPolyData();
-  vtkCleanPolyData(const vtkCleanPolyData&) {};
-  void operator=(const vtkCleanPolyData&) {};
+  vtkCleanPolyData(const vtkCleanPolyData&);
+  void operator=(const vtkCleanPolyData&);
 
   // Usual data generation method
   void Execute();

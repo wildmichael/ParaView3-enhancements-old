@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNGWriter.h,v $
   Language:  C++
-  Date:      $Date: 2001-07-13 17:47:47 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-08-10 20:06:52 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -65,8 +65,8 @@ public:
 protected:
   vtkPNGWriter();
   ~vtkPNGWriter() {};
-  vtkPNGWriter(const vtkPNGWriter&) {};
-  void operator=(const vtkPNGWriter&) {};
+  vtkPNGWriter(const vtkPNGWriter&);
+  void operator=(const vtkPNGWriter&);
   
   void WriteSlice(vtkImageData *data);
 

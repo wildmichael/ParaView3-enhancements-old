@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageHybridMedian2D.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:07 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-08-10 20:06:51 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -65,8 +65,8 @@ public:
 protected:
   vtkImageHybridMedian2D();
   ~vtkImageHybridMedian2D() {};
-  vtkImageHybridMedian2D(const vtkImageHybridMedian2D&) {};
-  void operator=(const vtkImageHybridMedian2D&) {};
+  vtkImageHybridMedian2D(const vtkImageHybridMedian2D&);
+  void operator=(const vtkImageHybridMedian2D&);
 
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
 		       int outExt[6], int id);

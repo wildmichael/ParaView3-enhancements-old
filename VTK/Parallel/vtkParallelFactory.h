@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParallelFactory.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-25 18:42:17 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-08-10 20:06:53 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1999-2000 Mercury Computers Inc. All rigts reserved.
@@ -42,8 +42,8 @@ public:
 protected:
   vtkParallelFactory();
   ~vtkParallelFactory() { }
-  vtkParallelFactory(const vtkParallelFactory&) {};
-  void operator=(const vtkParallelFactory&) {};
+  vtkParallelFactory(const vtkParallelFactory&);
+  void operator=(const vtkParallelFactory&);
 };
 
 extern "C" VTK_EXPORT vtkObjectFactory* vtkLoad();

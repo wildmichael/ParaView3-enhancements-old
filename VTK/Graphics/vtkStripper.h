@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStripper.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:53 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2001-08-10 20:06:50 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -83,8 +83,8 @@ public:
 protected:
   vtkStripper();
   ~vtkStripper() {};
-  vtkStripper(const vtkStripper&) {};
-  void operator=(const vtkStripper&) {};
+  vtkStripper(const vtkStripper&);
+  void operator=(const vtkStripper&);
 
   // Usual data generation method
   void Execute();

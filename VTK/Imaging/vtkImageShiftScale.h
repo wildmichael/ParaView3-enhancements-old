@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageShiftScale.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:10 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2001-08-10 20:06:52 $
+  Version:   $Revision: 1.36 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -107,8 +107,8 @@ public:
 protected:
   vtkImageShiftScale();
   ~vtkImageShiftScale() {};
-  vtkImageShiftScale(const vtkImageShiftScale&) {};
-  void operator=(const vtkImageShiftScale&) {};
+  vtkImageShiftScale(const vtkImageShiftScale&);
+  void operator=(const vtkImageShiftScale&);
 
   float Shift;
   float Scale;

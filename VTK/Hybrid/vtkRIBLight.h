@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBLight.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:26 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2001-08-10 20:06:51 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -70,8 +70,8 @@ public:
 protected:
   vtkRIBLight();
   ~vtkRIBLight();
-  vtkRIBLight(const vtkRIBLight&) {};
-  void operator=(const vtkRIBLight&) {};
+  vtkRIBLight(const vtkRIBLight&);
+  void operator=(const vtkRIBLight&);
 
   vtkLight *Light;
   int Shadows;

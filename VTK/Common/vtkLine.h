@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLine.h,v $
   Language:  C++
-  Date:      $Date: 2001-07-12 20:33:38 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 2001-08-10 20:06:45 $
+  Version:   $Revision: 1.56 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -144,8 +144,8 @@ public:
 protected:
   vtkLine();
   ~vtkLine() {};
-  vtkLine(const vtkLine&) {};
-  void operator=(const vtkLine&) {};
+  vtkLine(const vtkLine&);
+  void operator=(const vtkLine&);
 
 };
 

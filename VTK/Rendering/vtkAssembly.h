@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssembly.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-28 06:03:39 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2001-08-10 20:06:53 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -172,8 +172,8 @@ public:
 protected:
   vtkAssembly();
   ~vtkAssembly();
-  vtkAssembly(const vtkAssembly&) {};
-  void operator=(const vtkAssembly&) {};
+  vtkAssembly(const vtkAssembly&);
+  void operator=(const vtkAssembly&);
 
   // Keep a list of direct descendants of the assembly hierarchy
   vtkProp3DCollection *Parts;

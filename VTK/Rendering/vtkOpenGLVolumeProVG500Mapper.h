@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLVolumeProVG500Mapper.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:25 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-08-10 20:07:00 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -78,8 +78,8 @@ public:
 protected:
   vtkOpenGLVolumeProVG500Mapper() {};
   ~vtkOpenGLVolumeProVG500Mapper() {};
-  vtkOpenGLVolumeProVG500Mapper(const vtkOpenGLVolumeProVG500Mapper&) {};
-  void operator=(const vtkOpenGLVolumeProVG500Mapper&) {};
+  vtkOpenGLVolumeProVG500Mapper(const vtkOpenGLVolumeProVG500Mapper&);
+  void operator=(const vtkOpenGLVolumeProVG500Mapper&);
 
   // Render the hexagon returned by the hardware to the screen.
   void RenderHexagon( vtkRenderer  *ren, 

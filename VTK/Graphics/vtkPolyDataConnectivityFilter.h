@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataConnectivityFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-07-12 20:33:39 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2001-08-10 20:06:50 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -165,8 +165,8 @@ public:
 protected:
   vtkPolyDataConnectivityFilter();
   ~vtkPolyDataConnectivityFilter();
-  vtkPolyDataConnectivityFilter(const vtkPolyDataConnectivityFilter&) {};
-  void operator=(const vtkPolyDataConnectivityFilter&) {};
+  vtkPolyDataConnectivityFilter(const vtkPolyDataConnectivityFilter&);
+  void operator=(const vtkPolyDataConnectivityFilter&);
 
   // Usual data generation method
   void Execute();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageBlend.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-02 18:46:30 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-08-10 20:06:51 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to David G. Gobbi and Sebastien Barre who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -135,8 +135,8 @@ public:
 protected:
   vtkImageBlend();
   ~vtkImageBlend();
-  vtkImageBlend(const vtkImageBlend&) {};
-  void operator=(const vtkImageBlend&) {};
+  vtkImageBlend(const vtkImageBlend&);
+  void operator=(const vtkImageBlend&);
 
   void ComputeInputUpdateExtent(int inExt[6], int outExt[6],
 				int whichInput);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImporter.h,v $
   Language:  C++
-  Date:      $Date: 2001-04-04 20:13:13 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-08-10 20:06:56 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -109,8 +109,8 @@ public:
 protected:
   vtkImporter();
   ~vtkImporter();
-  vtkImporter(const vtkImporter&) {};
-  void operator=(const vtkImporter&) {};
+  vtkImporter(const vtkImporter&);
+  void operator=(const vtkImporter&);
 
   virtual int ImportBegin () {return 1;};
   virtual void ImportEnd () {};

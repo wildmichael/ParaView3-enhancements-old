@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarBarActor.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-21 15:05:31 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2001-08-10 20:07:01 $
+  Version:   $Revision: 1.32 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -181,8 +181,8 @@ public:
 protected:
   vtkScalarBarActor();
   ~vtkScalarBarActor();
-  vtkScalarBarActor(const vtkScalarBarActor&) {};
-  void operator=(const vtkScalarBarActor&) {};
+  vtkScalarBarActor(const vtkScalarBarActor&);
+  void operator=(const vtkScalarBarActor&);
 
   vtkScalarsToColors *LookupTable;
   int   MaximumNumberOfColors;

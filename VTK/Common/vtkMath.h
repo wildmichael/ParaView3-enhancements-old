@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMath.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-06 21:15:14 $
-  Version:   $Revision: 1.69 $
+  Date:      $Date: 2001-08-10 20:06:45 $
+  Version:   $Revision: 1.70 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -441,8 +441,8 @@ public:
 protected:
   vtkMath() {};
   ~vtkMath() {};
-  vtkMath(const vtkMath&) {};
-  void operator=(const vtkMath&) {};
+  vtkMath(const vtkMath&);
+  void operator=(const vtkMath&);
   
   static long Seed;
 };

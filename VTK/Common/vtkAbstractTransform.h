@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:05 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-08-10 20:06:44 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -277,8 +277,8 @@ public:
 protected:
   vtkAbstractTransform();
   ~vtkAbstractTransform();
-  vtkAbstractTransform(const vtkAbstractTransform&) {};
-  void operator=(const vtkAbstractTransform&) {};
+  vtkAbstractTransform(const vtkAbstractTransform&);
+  void operator=(const vtkAbstractTransform&);
 
   // Description:
   // Perform any subclass-specific Update.

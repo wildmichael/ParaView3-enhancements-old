@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSubPixelPositionEdgels.h,v $
   Language:  C++
-  Date:      $Date: 2001-07-02 16:19:42 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2001-08-10 20:06:50 $
+  Version:   $Revision: 1.27 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -87,8 +87,8 @@ public:
 protected:
   vtkSubPixelPositionEdgels();
   ~vtkSubPixelPositionEdgels();
-  vtkSubPixelPositionEdgels(const vtkSubPixelPositionEdgels&) {};
-  void operator=(const vtkSubPixelPositionEdgels&) {};
+  vtkSubPixelPositionEdgels(const vtkSubPixelPositionEdgels&);
+  void operator=(const vtkSubPixelPositionEdgels&);
 
   // Usual data generation method
   void Execute();

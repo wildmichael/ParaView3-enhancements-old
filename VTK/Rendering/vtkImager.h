@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImager.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:12 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-08-10 20:06:54 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -96,8 +96,8 @@ public:
 protected:
   vtkImager();
   ~vtkImager();
-  vtkImager(const vtkImager&) {};
-  void operator=(const vtkImager&) {};
+  vtkImager(const vtkImager&);
+  void operator=(const vtkImager&);
 
   virtual void StartPick(unsigned int pickFromSize);
   virtual void UpdatePickId();

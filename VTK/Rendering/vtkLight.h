@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLight.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:42 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2001-08-10 20:06:59 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -220,8 +220,8 @@ public:
 protected:
   vtkLight();
   ~vtkLight();
-  vtkLight(const vtkLight&) {};
-  void operator=(const vtkLight&) {};
+  vtkLight(const vtkLight&);
+  void operator=(const vtkLight&);
 
   float FocalPoint[3];
   float Position[3];

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-28 05:34:56 $
-  Version:   $Revision: 1.77 $
+  Date:      $Date: 2001-08-10 20:06:46 $
+  Version:   $Revision: 1.78 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -319,7 +319,7 @@ protected:
   vtkTransform ();
   ~vtkTransform ();
   vtkTransform (const vtkTransform& t);
-  void operator=(const vtkTransform&) {};
+  void operator=(const vtkTransform&);
 
   void InternalDeepCopy(vtkAbstractTransform *t);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlaneCollection.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:14 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-08-10 20:06:45 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -69,8 +69,8 @@ public:
 protected:
   vtkPlaneCollection() {};
   ~vtkPlaneCollection() {};
-  vtkPlaneCollection(const vtkPlaneCollection&) {};
-  void operator=(const vtkPlaneCollection&) {};
+  vtkPlaneCollection(const vtkPlaneCollection&);
+  void operator=(const vtkPlaneCollection&);
   
 
 private:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtentTranslator.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-30 16:49:34 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2001-08-10 20:06:45 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -111,8 +111,8 @@ public:
 protected:
   vtkExtentTranslator();
   ~vtkExtentTranslator();
-  vtkExtentTranslator(const vtkExtentTranslator&) {};
-  void operator=(const vtkExtentTranslator&) {};
+  vtkExtentTranslator(const vtkExtentTranslator&);
+  void operator=(const vtkExtentTranslator&);
 
   // Description:
   // Returns 0 if no data exist for a piece.

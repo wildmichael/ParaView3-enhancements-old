@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProcessObject.h,v $
   Language:  C++
-  Date:      $Date: 2001-03-05 01:50:40 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2001-08-10 20:06:46 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -155,8 +155,8 @@ public:
 protected:
   vtkProcessObject();
   ~vtkProcessObject();
-  vtkProcessObject(const vtkProcessObject&) {};
-  void operator=(const vtkProcessObject&) {};
+  vtkProcessObject(const vtkProcessObject&);
+  void operator=(const vtkProcessObject&);
 
   // Progress/Update handling
   unsigned long StartTag;

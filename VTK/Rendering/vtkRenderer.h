@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.h,v $
   Language:  C++
-  Date:      $Date: 2001-03-19 13:26:03 $
-  Version:   $Revision: 1.94 $
+  Date:      $Date: 2001-08-10 20:07:01 $
+  Version:   $Revision: 1.95 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -337,8 +337,8 @@ public:
 protected:
   vtkRenderer();
   ~vtkRenderer();
-  vtkRenderer(const vtkRenderer&) {};
-  void operator=(const vtkRenderer&) {};
+  vtkRenderer(const vtkRenderer&);
+  void operator=(const vtkRenderer&);
 
   // internal method for doing a render for picking purposes
   virtual void PickRender(vtkPropCollection *props);

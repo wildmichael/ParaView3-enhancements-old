@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxelModeller.h,v $
   Language:  C++
-  Date:      $Date: 2001-07-02 18:08:08 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2001-08-10 20:06:52 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -100,8 +100,8 @@ public:
 protected:
   vtkVoxelModeller();
   ~vtkVoxelModeller() {};
-  vtkVoxelModeller(const vtkVoxelModeller&) {};
-  void operator=(const vtkVoxelModeller&) {};
+  vtkVoxelModeller(const vtkVoxelModeller&);
+  void operator=(const vtkVoxelModeller&);
 
   void Execute();
   int SampleDimensions[3];

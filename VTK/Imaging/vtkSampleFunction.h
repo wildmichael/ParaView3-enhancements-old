@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSampleFunction.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:51 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2001-08-10 20:06:52 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -119,8 +119,8 @@ public:
 protected:
   vtkSampleFunction();
   ~vtkSampleFunction();
-  vtkSampleFunction(const vtkSampleFunction&) {};
-  void operator=(const vtkSampleFunction&) {};
+  vtkSampleFunction(const vtkSampleFunction&);
+  void operator=(const vtkSampleFunction&);
 
   void Execute();
   void ExecuteInformation();

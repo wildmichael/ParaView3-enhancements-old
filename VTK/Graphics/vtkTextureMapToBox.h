@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToBox.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:26 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2001-08-10 20:06:50 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -99,8 +99,8 @@ public:
 protected:
   vtkTextureMapToBox();
   ~vtkTextureMapToBox() {};
-  vtkTextureMapToBox(const vtkTextureMapToBox&) {};
-  void operator=(const vtkTextureMapToBox&) {};
+  vtkTextureMapToBox(const vtkTextureMapToBox&);
+  void operator=(const vtkTextureMapToBox&);
 
   void Execute();
   float Box[6];

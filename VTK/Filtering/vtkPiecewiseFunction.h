@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPiecewiseFunction.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:46 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-08-10 20:06:47 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -149,8 +149,8 @@ public:
 protected:
   vtkPiecewiseFunction();
   ~vtkPiecewiseFunction();
-  vtkPiecewiseFunction(const vtkPiecewiseFunction&) {};
-  void operator=(const vtkPiecewiseFunction&) {};
+  vtkPiecewiseFunction(const vtkPiecewiseFunction&);
+  void operator=(const vtkPiecewiseFunction&);
 
   // Size of the array used to store function points
   int	ArraySize;

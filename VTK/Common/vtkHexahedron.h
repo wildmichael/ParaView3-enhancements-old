@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHexahedron.h,v $
   Language:  C++
-  Date:      $Date: 2001-07-12 20:33:38 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2001-08-10 20:06:45 $
+  Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -115,8 +115,8 @@ public:
 protected:
   vtkHexahedron();
   ~vtkHexahedron();
-  vtkHexahedron(const vtkHexahedron&) {};
-  void operator=(const vtkHexahedron&) {};
+  vtkHexahedron(const vtkHexahedron&);
+  void operator=(const vtkHexahedron&);
 
   vtkLine *Line;
   vtkQuad *Quad;

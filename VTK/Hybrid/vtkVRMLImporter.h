@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLImporter.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-24 17:55:55 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2001-08-10 20:06:51 $
+  Version:   $Revision: 1.10 $
   Thanks:    Tom Citriniti who implemented and contributed this class
 
 
@@ -149,8 +149,8 @@ public:
 protected:
   vtkVRMLImporter();
   ~vtkVRMLImporter();
-  vtkVRMLImporter(const vtkVRMLImporter&) {};
-  void operator=(const vtkVRMLImporter&) {};
+  vtkVRMLImporter(const vtkVRMLImporter&);
+  void operator=(const vtkVRMLImporter&);
 
   virtual int ImportBegin ();
   virtual void ImportEnd ();

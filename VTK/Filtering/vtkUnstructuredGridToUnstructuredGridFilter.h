@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridToUnstructuredGridFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:56 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2001-08-10 20:06:47 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -63,8 +63,8 @@ public:
 protected:
   vtkUnstructuredGridToUnstructuredGridFilter() {this->NumberOfRequiredInputs = 1;};
   ~vtkUnstructuredGridToUnstructuredGridFilter() {};
-  vtkUnstructuredGridToUnstructuredGridFilter(const vtkUnstructuredGridToUnstructuredGridFilter&) {};
-  void operator=(const vtkUnstructuredGridToUnstructuredGridFilter&) {};
+  vtkUnstructuredGridToUnstructuredGridFilter(const vtkUnstructuredGridToUnstructuredGridFilter&);
+  void operator=(const vtkUnstructuredGridToUnstructuredGridFilter&);
 };
 
 #endif

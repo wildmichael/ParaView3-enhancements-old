@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageComposite.h,v $
   Language:  C++
-  Date:      $Date: 2001-07-02 18:56:14 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-08-10 20:06:53 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -91,8 +91,8 @@ public:
 protected:
   vtkImageComposite();
   ~vtkImageComposite();
-  vtkImageComposite(const vtkImageComposite&) {};
-  void operator=(const vtkImageComposite&) {};
+  vtkImageComposite(const vtkImageComposite&);
+  void operator=(const vtkImageComposite&);
 
   // Usual data generation method
   void Execute();

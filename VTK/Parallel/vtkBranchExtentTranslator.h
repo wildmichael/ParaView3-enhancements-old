@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBranchExtentTranslator.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:22 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-08-10 20:06:53 $
+  Version:   $Revision: 1.5 $
 
 
 
@@ -90,8 +90,8 @@ public:
 protected:
   vtkBranchExtentTranslator();
   ~vtkBranchExtentTranslator();
-  vtkBranchExtentTranslator(const vtkBranchExtentTranslator&) {};
-  void operator=(const vtkBranchExtentTranslator&) {};
+  vtkBranchExtentTranslator(const vtkBranchExtentTranslator&);
+  void operator=(const vtkBranchExtentTranslator&);
 
   vtkImageData *OriginalSource;
   int AssignedPiece;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTubeFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-07-02 18:08:08 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2001-08-10 20:06:50 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -150,8 +150,8 @@ public:
 protected:
   vtkTubeFilter();
   ~vtkTubeFilter() {};
-  vtkTubeFilter(const vtkTubeFilter&) {};
-  void operator=(const vtkTubeFilter&) {};
+  vtkTubeFilter(const vtkTubeFilter&);
+  void operator=(const vtkTubeFilter&);
 
   // Usual data generation method
   void Execute();

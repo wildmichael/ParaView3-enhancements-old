@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArray.h,v $
   Language:  C++
-  Date:      $Date: 2001-07-12 20:33:38 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2001-08-10 20:06:44 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -283,8 +283,8 @@ protected:
   // Construct object with default tuple dimension (number of components) of 1.
   vtkDataArray(vtkIdType numComp=1);
   ~vtkDataArray();
-  vtkDataArray(const vtkDataArray&) {};
-  void operator=(const vtkDataArray&) {};
+  vtkDataArray(const vtkDataArray&);
+  void operator=(const vtkDataArray&);
 
   vtkLookupTable *LookupTable;
 

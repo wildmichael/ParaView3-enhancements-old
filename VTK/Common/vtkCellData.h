@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellData.h,v $
   Language:  C++
-  Date:      $Date: 2001-04-18 11:11:48 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-08-10 20:06:44 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -63,8 +63,8 @@ public:
 protected:
   vtkCellData() {}; //make sure constructor and desctructor are protected
   ~vtkCellData() {};
-  vtkCellData(const vtkCellData&) {};
-  void operator=(const vtkCellData&) {};
+  vtkCellData(const vtkCellData&);
+  void operator=(const vtkCellData&);
   
 };
 

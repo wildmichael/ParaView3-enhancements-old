@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODActor.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:41 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2001-08-10 20:06:59 $
+  Version:   $Revision: 1.39 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -129,8 +129,8 @@ public:
 protected:
   vtkLODActor();
   ~vtkLODActor();
-  vtkLODActor(const vtkLODActor&) {};
-  void operator=(const vtkLODActor&) {};
+  vtkLODActor(const vtkLODActor&);
+  void operator=(const vtkLODActor&);
 
   vtkActor            *Device;
   vtkMapperCollection *LODMappers;

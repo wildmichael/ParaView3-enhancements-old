@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataNormals.h,v $
   Language:  C++
-  Date:      $Date: 2001-07-12 20:33:39 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2001-08-10 20:06:50 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -140,8 +140,8 @@ public:
 protected:
   vtkPolyDataNormals();
   ~vtkPolyDataNormals() {};
-  vtkPolyDataNormals(const vtkPolyDataNormals&) {};
-  void operator=(const vtkPolyDataNormals&) {};
+  vtkPolyDataNormals(const vtkPolyDataNormals&);
+  void operator=(const vtkPolyDataNormals&);
 
   // Usual data generation method
   void Execute();

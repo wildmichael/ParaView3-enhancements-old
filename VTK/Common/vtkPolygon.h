@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolygon.h,v $
   Language:  C++
-  Date:      $Date: 2001-07-12 20:33:38 $
-  Version:   $Revision: 1.62 $
+  Date:      $Date: 2001-08-10 20:06:46 $
+  Version:   $Revision: 1.63 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -167,8 +167,8 @@ public:
 protected:
   vtkPolygon();
   ~vtkPolygon();
-  vtkPolygon(const vtkPolygon&) {};
-  void operator=(const vtkPolygon&) {};
+  vtkPolygon(const vtkPolygon&);
+  void operator=(const vtkPolygon&);
 
   // variables used by instances of this class
   float   Tolerance; // Intersection tolerance

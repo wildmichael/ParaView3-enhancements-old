@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractGeometry.h,v $
   Language:  C++
-  Date:      $Date: 2001-07-03 15:42:37 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2001-08-10 20:06:49 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -102,8 +102,8 @@ public:
 protected:
   vtkExtractGeometry(vtkImplicitFunction *f=NULL);
   ~vtkExtractGeometry();
-  vtkExtractGeometry(const vtkExtractGeometry&) {};
-  void operator=(const vtkExtractGeometry&) {};
+  vtkExtractGeometry(const vtkExtractGeometry&);
+  void operator=(const vtkExtractGeometry&);
 
   // Usual data generation method
   void Execute();

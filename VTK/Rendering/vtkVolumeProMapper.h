@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProMapper.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:27 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-08-10 20:07:01 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -231,8 +231,8 @@ public:
 protected:
   vtkVolumeProMapper();
   ~vtkVolumeProMapper();
-  vtkVolumeProMapper(const vtkVolumeProMapper&) {};
-  void operator=(const vtkVolumeProMapper&) {};
+  vtkVolumeProMapper(const vtkVolumeProMapper&);
+  void operator=(const vtkVolumeProMapper&);
  // Make sure everything is OK for rendering
   int StatusOK();
 

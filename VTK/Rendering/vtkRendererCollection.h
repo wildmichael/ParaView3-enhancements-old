@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRendererCollection.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:50 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2001-08-10 20:07:00 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -79,8 +79,8 @@ class VTK_EXPORT vtkRendererCollection : public vtkCollection
 protected:  
   vtkRendererCollection() {};
   ~vtkRendererCollection() {};
-  vtkRendererCollection(const vtkRendererCollection&) {};
-  void operator=(const vtkRendererCollection&) {};
+  vtkRendererCollection(const vtkRendererCollection&);
+  void operator=(const vtkRendererCollection&);
 
 private:
   // hide the standard AddItem from the user and the compiler.

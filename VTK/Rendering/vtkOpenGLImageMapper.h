@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageMapper.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:13 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-08-10 20:07:00 $
+  Version:   $Revision: 1.12 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -76,8 +76,8 @@ protected:
   //
   vtkOpenGLImageMapper();
   ~vtkOpenGLImageMapper();
-  vtkOpenGLImageMapper(const vtkOpenGLImageMapper&) {};
-  void operator=(const vtkOpenGLImageMapper&) {};
+  vtkOpenGLImageMapper(const vtkOpenGLImageMapper&);
+  void operator=(const vtkOpenGLImageMapper&);
 
 };
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaImageMapper.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:12 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-08-10 20:07:00 $
+  Version:   $Revision: 1.6 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -74,8 +74,8 @@ public:
 protected:
   vtkMesaImageMapper();
   ~vtkMesaImageMapper();
-  vtkMesaImageMapper(const vtkMesaImageMapper&) {};
-  void operator=(const vtkMesaImageMapper&) {};
+  vtkMesaImageMapper(const vtkMesaImageMapper&);
+  void operator=(const vtkMesaImageMapper&);
 
 };
 

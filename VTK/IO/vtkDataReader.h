@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-04-11 19:20:03 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 2001-08-10 20:06:52 $
+  Version:   $Revision: 1.62 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -267,8 +267,8 @@ public:
 protected:
   vtkDataReader();
   ~vtkDataReader();
-  vtkDataReader(const vtkDataReader&) {};
-  void operator=(const vtkDataReader&) {};
+  vtkDataReader(const vtkDataReader&);
+  void operator=(const vtkDataReader&);
 
   char *FileName;
   int FileType;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRecursiveDividingCubes.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:50 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2001-08-10 20:06:50 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -90,8 +90,8 @@ public:
 protected:
   vtkRecursiveDividingCubes();
   ~vtkRecursiveDividingCubes();
-  vtkRecursiveDividingCubes(const vtkRecursiveDividingCubes&) {};
-  void operator=(const vtkRecursiveDividingCubes&) {};
+  vtkRecursiveDividingCubes(const vtkRecursiveDividingCubes&);
+  void operator=(const vtkRecursiveDividingCubes&);
 
   void Execute();
   void SubDivide(float origin[3], float h[3], float values[8]);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLoopSubdivisionFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-29 17:14:46 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-08-10 20:06:49 $
+  Version:   $Revision: 1.9 $
   Thanks:    This work was supported bt PHS Research Grant No. 1 P41 RR13218-01
              from the National Center for Research Resources
 
@@ -83,8 +83,8 @@ public:
 protected:
   vtkLoopSubdivisionFilter () {};
   ~vtkLoopSubdivisionFilter () {};
-  vtkLoopSubdivisionFilter(const vtkLoopSubdivisionFilter&) {};
-  void operator=(const vtkLoopSubdivisionFilter&) {};
+  vtkLoopSubdivisionFilter(const vtkLoopSubdivisionFilter&);
+  void operator=(const vtkLoopSubdivisionFilter&);
 
   void GenerateSubdivisionPoints (vtkPolyData *inputDS, vtkIntArray *edgeData,
                                   vtkPoints *outputPts,

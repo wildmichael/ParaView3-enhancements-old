@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLProperty.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:45 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-08-10 20:07:00 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,8 +68,8 @@ public:
 protected:
   vtkOpenGLProperty() {};
   ~vtkOpenGLProperty() {};
-  vtkOpenGLProperty(const vtkOpenGLProperty&) {};
-  void operator=(const vtkOpenGLProperty&) {};
+  vtkOpenGLProperty(const vtkOpenGLProperty&);
+  void operator=(const vtkOpenGLProperty&);
 };
 
 #endif

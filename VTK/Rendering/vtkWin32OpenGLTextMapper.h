@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLTextMapper.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:14 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-08-10 20:07:01 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -79,8 +79,8 @@ public:
 protected:
   vtkWin32OpenGLTextMapper();
   ~vtkWin32OpenGLTextMapper();
-  vtkWin32OpenGLTextMapper(const vtkWin32OpenGLTextMapper&) {};
-  void operator=(const vtkWin32OpenGLTextMapper&) {};
+  vtkWin32OpenGLTextMapper(const vtkWin32OpenGLTextMapper&);
+  void operator=(const vtkWin32OpenGLTextMapper&);
 };
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedIntArray.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-24 19:06:44 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-08-10 20:06:46 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -175,8 +175,8 @@ public:
 protected:
   vtkUnsignedIntArray(vtkIdType numComp=1);
   ~vtkUnsignedIntArray();
-  vtkUnsignedIntArray(const vtkUnsignedIntArray&) {};
-  void operator=(const vtkUnsignedIntArray&) {};
+  vtkUnsignedIntArray(const vtkUnsignedIntArray&);
+  void operator=(const vtkUnsignedIntArray&);
 
   unsigned int *Array;   // pointer to data
   unsigned int *ResizeAndExtend(const vtkIdType sz);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarTree.h,v $
   Language:  C++
-  Date:      $Date: 2001-07-12 20:33:38 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-08-10 20:06:47 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -131,8 +131,8 @@ public:
 protected:
   vtkScalarTree();
   ~vtkScalarTree();
-  vtkScalarTree(const vtkScalarTree&) {};
-  void operator=(const vtkScalarTree&) {};
+  vtkScalarTree(const vtkScalarTree&);
+  void operator=(const vtkScalarTree&);
 
   vtkDataSet *DataSet;
   vtkDataArray *Scalars;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaVolumeTextureMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:44 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2001-08-10 20:07:00 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -77,8 +77,8 @@ public:
 protected:
   vtkMesaVolumeTextureMapper2D();
   ~vtkMesaVolumeTextureMapper2D();
-  vtkMesaVolumeTextureMapper2D(const vtkMesaVolumeTextureMapper2D&) {};
-  void operator=(const vtkMesaVolumeTextureMapper2D&) {};
+  vtkMesaVolumeTextureMapper2D(const vtkMesaVolumeTextureMapper2D&);
+  void operator=(const vtkMesaVolumeTextureMapper2D&);
 
 };
 

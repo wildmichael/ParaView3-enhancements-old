@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergePoints2D.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:13 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-08-10 20:06:47 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,8 +68,8 @@ public:
 protected:
   vtkMergePoints2D() {};
   ~vtkMergePoints2D() {};
-  vtkMergePoints2D(const vtkMergePoints2D&) {};
-  void operator=(const vtkMergePoints2D&) {};
+  vtkMergePoints2D(const vtkMergePoints2D&);
+  void operator=(const vtkMergePoints2D&);
 
 };
 

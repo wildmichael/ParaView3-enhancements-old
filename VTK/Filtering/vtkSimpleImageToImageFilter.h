@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSimpleImageToImageFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-03-08 20:37:08 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-08-10 20:06:47 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -81,8 +81,8 @@ public:
 protected:
   vtkSimpleImageToImageFilter();
   ~vtkSimpleImageToImageFilter();
-  vtkSimpleImageToImageFilter(const vtkSimpleImageToImageFilter&) {};
-  void operator=(const vtkSimpleImageToImageFilter&) {};
+  vtkSimpleImageToImageFilter(const vtkSimpleImageToImageFilter&);
+  void operator=(const vtkSimpleImageToImageFilter&);
 
   // These are called by the superclass.
   // You might have to override ExecuteInformation

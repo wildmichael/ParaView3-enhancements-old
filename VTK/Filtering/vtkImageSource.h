@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-03-01 00:00:47 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2001-08-10 20:06:47 $
+  Version:   $Revision: 1.49 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -78,8 +78,8 @@ public:
 protected:
   vtkImageSource();
   ~vtkImageSource() {};
-  vtkImageSource(const vtkImageSource&) {};
-  void operator=(const vtkImageSource&) {};
+  vtkImageSource(const vtkImageSource&);
+  void operator=(const vtkImageSource&);
 
   // Used by streaming: The extent of the output being processed
   // by the execute method. Set in the ComputeInputUpdateExtents method.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindowedSincPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-07-02 18:08:08 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-08-10 20:06:50 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -220,8 +220,8 @@ public:
  protected:
   vtkWindowedSincPolyDataFilter();
   ~vtkWindowedSincPolyDataFilter() {};
-  vtkWindowedSincPolyDataFilter(const vtkWindowedSincPolyDataFilter&) {};
-  void operator=(const vtkWindowedSincPolyDataFilter&) {};
+  vtkWindowedSincPolyDataFilter(const vtkWindowedSincPolyDataFilter&);
+  void operator=(const vtkWindowedSincPolyDataFilter&);
 
   void Execute();
 

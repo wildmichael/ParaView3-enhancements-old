@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangle.h,v $
   Language:  C++
-  Date:      $Date: 2001-07-12 20:33:38 $
-  Version:   $Revision: 1.67 $
+  Date:      $Date: 2001-08-10 20:06:46 $
+  Version:   $Revision: 1.68 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -218,8 +218,8 @@ public:
 protected:
   vtkTriangle();
   ~vtkTriangle();
-  vtkTriangle(const vtkTriangle&) {};
-  void operator=(const vtkTriangle&) {};
+  vtkTriangle(const vtkTriangle&);
+  void operator=(const vtkTriangle&);
 
   vtkLine *Line;
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-03-16 15:06:02 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-08-10 20:06:50 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -90,8 +90,8 @@ public:
 protected:
   vtkRectilinearGridGeometryFilter();
   ~vtkRectilinearGridGeometryFilter() {};
-  vtkRectilinearGridGeometryFilter(const vtkRectilinearGridGeometryFilter&) {};
-  void operator=(const vtkRectilinearGridGeometryFilter&) {};
+  vtkRectilinearGridGeometryFilter(const vtkRectilinearGridGeometryFilter&);
+  void operator=(const vtkRectilinearGridGeometryFilter&);
 
   void Execute();
   int Extent[6];

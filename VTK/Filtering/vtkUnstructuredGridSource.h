@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridSource.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:56 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2001-08-10 20:06:47 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -69,8 +69,8 @@ public:
 protected:
   vtkUnstructuredGridSource();
   ~vtkUnstructuredGridSource() {};
-  vtkUnstructuredGridSource(const vtkUnstructuredGridSource&) {};
-  void operator=(const vtkUnstructuredGridSource&) {};
+  vtkUnstructuredGridSource(const vtkUnstructuredGridSource&);
+  void operator=(const vtkUnstructuredGridSource&);
   
   // Since the Outputs[0] has the same UpdateExtent format
   // as the generic DataObject we can copy the UpdateExtent

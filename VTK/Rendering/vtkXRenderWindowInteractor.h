@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:01 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2001-08-10 20:07:01 $
+  Version:   $Revision: 1.58 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -180,8 +180,8 @@ public:
 protected:
   vtkXRenderWindowInteractor();
   ~vtkXRenderWindowInteractor();
-  vtkXRenderWindowInteractor(const vtkXRenderWindowInteractor&) {};
-  void operator=(const vtkXRenderWindowInteractor&) {};
+  vtkXRenderWindowInteractor(const vtkXRenderWindowInteractor&);
+  void operator=(const vtkXRenderWindowInteractor&);
 
   Display *DisplayId;
   Window WindowId;

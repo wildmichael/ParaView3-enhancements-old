@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArrayCalculator.h,v $
   Language:  C++
-  Date:      $Date: 2001-04-05 14:33:26 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-08-10 20:06:47 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -141,8 +141,8 @@ public:
 protected:
   vtkArrayCalculator();
   ~vtkArrayCalculator();
-  vtkArrayCalculator(const vtkArrayCalculator&) {};
-  void operator=(const vtkArrayCalculator&) {};
+  vtkArrayCalculator(const vtkArrayCalculator&);
+  void operator=(const vtkArrayCalculator&);
 
   void Execute();
   

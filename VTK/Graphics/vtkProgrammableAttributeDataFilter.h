@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableAttributeDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-28 05:57:35 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-08-10 20:06:50 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -132,8 +132,8 @@ public:
 protected:
   vtkProgrammableAttributeDataFilter();
   ~vtkProgrammableAttributeDataFilter();
-  vtkProgrammableAttributeDataFilter(const vtkProgrammableAttributeDataFilter&) {};
-  void operator=(const vtkProgrammableAttributeDataFilter&) {};
+  vtkProgrammableAttributeDataFilter(const vtkProgrammableAttributeDataFilter&);
+  void operator=(const vtkProgrammableAttributeDataFilter&);
 
   void Execute();
   vtkDataSetCollection *InputList; //list of datasets to process

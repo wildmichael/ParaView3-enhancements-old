@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericEnSightReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-25 20:03:57 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-08-10 20:06:52 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -126,8 +126,8 @@ public:
 protected:
   vtkGenericEnSightReader();
   ~vtkGenericEnSightReader();
-  vtkGenericEnSightReader(const vtkGenericEnSightReader&) {};
-  void operator=(const vtkGenericEnSightReader&) {};
+  vtkGenericEnSightReader(const vtkGenericEnSightReader&);
+  void operator=(const vtkGenericEnSightReader&);
 
   void Execute();
   

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitFunction.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-04 20:47:48 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2001-08-10 20:06:45 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -126,8 +126,8 @@ public:
 protected:
   vtkImplicitFunction();
   ~vtkImplicitFunction();
-  vtkImplicitFunction(const vtkImplicitFunction&) {};
-  void operator=(const vtkImplicitFunction&) {};
+  vtkImplicitFunction(const vtkImplicitFunction&);
+  void operator=(const vtkImplicitFunction&);
 
   vtkAbstractTransform *Transform;
   float ReturnValue[3];

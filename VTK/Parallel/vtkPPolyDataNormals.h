@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPPolyDataNormals.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-26 20:49:40 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-08-10 20:06:53 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -59,8 +59,8 @@ public:
 protected:
   vtkPPolyDataNormals() {};
   ~vtkPPolyDataNormals() {};
-  vtkPPolyDataNormals(const vtkPPolyDataNormals&) {};
-  void operator=(const vtkPPolyDataNormals&) {};
+  vtkPPolyDataNormals(const vtkPPolyDataNormals&);
+  void operator=(const vtkPPolyDataNormals&);
 
   // Usual data generation method
   virtual void Execute();

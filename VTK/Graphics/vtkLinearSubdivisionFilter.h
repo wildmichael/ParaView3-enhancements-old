@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearSubdivisionFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:42 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-08-10 20:06:49 $
+  Version:   $Revision: 1.8 $
   Thanks:    This work was supported bt PHS Research Grant No. 1 P41 RR13218-01
              from the National Center for Research Resources
 
@@ -66,8 +66,8 @@ public:
 protected:
   vtkLinearSubdivisionFilter () {};
   ~vtkLinearSubdivisionFilter () {};
-  vtkLinearSubdivisionFilter(const vtkLinearSubdivisionFilter&) {};
-  void operator=(const vtkLinearSubdivisionFilter&) {};
+  vtkLinearSubdivisionFilter(const vtkLinearSubdivisionFilter&);
+  void operator=(const vtkLinearSubdivisionFilter&);
 
   void GenerateSubdivisionPoints (vtkPolyData *inputDS, vtkIntArray *edgeData, vtkPoints *outputPts, vtkPointData *outputPD);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpScalar.h,v $
   Language:  C++
-  Date:      $Date: 2001-07-02 18:08:08 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2001-08-10 20:06:50 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -101,8 +101,8 @@ public:
 protected:
   vtkWarpScalar();
   ~vtkWarpScalar() {};
-  vtkWarpScalar(const vtkWarpScalar&) {};
-  void operator=(const vtkWarpScalar&) {};
+  vtkWarpScalar(const vtkWarpScalar&);
+  void operator=(const vtkWarpScalar&);
 
   void Execute();
 

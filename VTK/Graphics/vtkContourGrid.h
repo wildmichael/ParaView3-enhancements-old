@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourGrid.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-28 06:01:57 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-08-10 20:06:48 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -154,8 +154,8 @@ public:
 protected:
   vtkContourGrid();
   ~vtkContourGrid();
-  vtkContourGrid(const vtkContourGrid&) {};
-  void operator=(const vtkContourGrid&) {};
+  vtkContourGrid(const vtkContourGrid&);
+  void operator=(const vtkContourGrid&);
 
   void Execute();
 

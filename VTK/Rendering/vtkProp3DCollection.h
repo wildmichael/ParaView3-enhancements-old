@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp3DCollection.h,v $
   Language:  C++
-  Date:      $Date: 2001-04-24 20:36:31 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-08-10 20:07:00 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -75,8 +75,8 @@ public:
 protected:
   vtkProp3DCollection() {};
   ~vtkProp3DCollection() {};
-  vtkProp3DCollection(const vtkProp3DCollection&) {};
-  void operator=(const vtkProp3DCollection&) {};
+  vtkProp3DCollection(const vtkProp3DCollection&);
+  void operator=(const vtkProp3DCollection&);
     
 
 private:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBitArray.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-24 19:06:44 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 2001-08-10 20:06:44 $
+  Version:   $Revision: 1.56 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -162,8 +162,8 @@ public:
 protected:
   vtkBitArray(vtkIdType numComp=1);
   ~vtkBitArray();
-  vtkBitArray(const vtkBitArray&) {};
-  void operator=(const vtkBitArray&) {};
+  vtkBitArray(const vtkBitArray&);
+  void operator=(const vtkBitArray&);
 
   unsigned char *Array;   // pointer to data
   unsigned char *ResizeAndExtend(const vtkIdType sz);

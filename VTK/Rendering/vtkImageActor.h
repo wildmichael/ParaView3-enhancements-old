@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageActor.h,v $
   Language:  C++
-  Date:      $Date: 2001-03-08 00:23:25 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-08-10 20:06:54 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -120,8 +120,8 @@ public:
 protected:
   vtkImageActor();
   ~vtkImageActor();
-  vtkImageActor(const vtkImageActor&) {};
-  void operator=(const vtkImageActor&) {};
+  vtkImageActor(const vtkImageActor&);
+  void operator=(const vtkImageActor&);
 
   int           Interpolate;
   vtkImageData* Input;

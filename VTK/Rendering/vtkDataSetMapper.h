@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-19 19:58:03 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2001-08-10 20:06:53 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -87,8 +87,8 @@ public:
 protected:
   vtkDataSetMapper();
   ~vtkDataSetMapper();
-  vtkDataSetMapper(const vtkDataSetMapper&) {};
-  void operator=(const vtkDataSetMapper&) {};
+  vtkDataSetMapper(const vtkDataSetMapper&);
+  void operator=(const vtkDataSetMapper&);
 
   vtkGeometryFilter *GeometryExtractor;
   vtkPolyDataMapper *PolyDataMapper;

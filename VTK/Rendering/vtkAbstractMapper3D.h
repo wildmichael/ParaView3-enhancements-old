@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractMapper3D.h,v $
   Language:  C++
-  Date:      $Date: 2001-04-15 16:36:25 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-08-10 20:06:53 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -101,8 +101,8 @@ public:
 protected:
    vtkAbstractMapper3D();
   ~vtkAbstractMapper3D() {};
-  vtkAbstractMapper3D(const vtkAbstractMapper3D&) {};
-  void operator=(const vtkAbstractMapper3D&) {};
+  vtkAbstractMapper3D(const vtkAbstractMapper3D&);
+  void operator=(const vtkAbstractMapper3D&);
 
   float Bounds[6];
   float Center[3];

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp3D.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-28 05:56:56 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2001-08-10 20:07:00 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -247,8 +247,8 @@ public:
 protected:
   vtkProp3D();
   ~vtkProp3D();
-  vtkProp3D(const vtkProp3D&) {};
-  void operator=(const vtkProp3D&) {};
+  vtkProp3D(const vtkProp3D&);
+  void operator=(const vtkProp3D&);
 
   vtkLinearTransform *UserTransform;
   vtkMatrix4x4  *UserMatrix;

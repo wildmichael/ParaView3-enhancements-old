@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAxes.h,v $
   Language:  C++
-  Date:      $Date: 2001-04-20 14:23:47 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2001-08-10 20:06:47 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -84,8 +84,8 @@ public:
 protected:
   vtkAxes();
   ~vtkAxes() {};
-  vtkAxes(const vtkAxes&) {};
-  void operator=(const vtkAxes&) {};
+  vtkAxes(const vtkAxes&);
+  void operator=(const vtkAxes&);
 
   void Execute();
   // This source does not know how to generate pieces yet.

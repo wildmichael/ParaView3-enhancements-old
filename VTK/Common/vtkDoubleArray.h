@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDoubleArray.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-24 19:06:44 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2001-08-10 20:06:45 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -168,8 +168,8 @@ public:
 protected:
   vtkDoubleArray(vtkIdType numComp=1);
   ~vtkDoubleArray();
-  vtkDoubleArray(const vtkDoubleArray&) {};
-  void operator=(const vtkDoubleArray&) {};
+  vtkDoubleArray(const vtkDoubleArray&);
+  void operator=(const vtkDoubleArray&);
 
   double *Array;   // pointer to data
   double *ResizeAndExtend(const vtkIdType sz);  // function to resize data

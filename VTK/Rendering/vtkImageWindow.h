@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 2001-03-10 13:50:29 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2001-08-10 20:06:56 $
+  Version:   $Revision: 1.26 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -171,8 +171,8 @@ public:
 protected:
   vtkImageWindow();
   ~vtkImageWindow();
-  vtkImageWindow(const vtkImageWindow&) {};
-  void operator=(const vtkImageWindow&) {};
+  vtkImageWindow(const vtkImageWindow&);
+  void operator=(const vtkImageWindow&);
 
   vtkImagerCollection *Imagers;
   int WindowCreated;

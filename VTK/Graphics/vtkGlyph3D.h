@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:38 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2001-08-10 20:06:49 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -223,8 +223,8 @@ public:
 protected:
   vtkGlyph3D();
   ~vtkGlyph3D();
-  vtkGlyph3D(const vtkGlyph3D&) {};
-  void operator=(const vtkGlyph3D&) {};
+  vtkGlyph3D(const vtkGlyph3D&);
+  void operator=(const vtkGlyph3D&);
 
   void Execute();
   void ExecuteInformation();

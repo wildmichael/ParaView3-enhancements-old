@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataToImageStencil.h,v $
   Language:  C++
-  Date:      $Date: 2001-07-30 21:15:12 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-08-10 20:06:51 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -77,7 +77,7 @@ protected:
   ~vtkPolyDataToImageStencil();
   vtkPolyDataToImageStencil(const vtkPolyDataToImageStencil&)
     {};
-  void operator=(const vtkPolyDataToImageStencil&) {};
+  void operator=(const vtkPolyDataToImageStencil&);
 
   void ExecuteData(vtkDataObject *out);
   void ThreadedExecute(vtkImageStencilData *output,

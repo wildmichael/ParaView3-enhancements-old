@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:13 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-08-10 20:07:00 $
+  Version:   $Revision: 1.9 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -65,8 +65,8 @@ public:
 protected:
   vtkOpenGLPolyDataMapper2D() {};
   ~vtkOpenGLPolyDataMapper2D() {};
-  vtkOpenGLPolyDataMapper2D(const vtkOpenGLPolyDataMapper2D&) {};
-  void operator=(const vtkOpenGLPolyDataMapper2D&) {};
+  vtkOpenGLPolyDataMapper2D(const vtkOpenGLPolyDataMapper2D&);
+  void operator=(const vtkOpenGLPolyDataMapper2D&);
   
 };
 

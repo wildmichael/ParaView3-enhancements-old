@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMedian3D.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:08 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-08-10 20:06:52 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -73,8 +73,8 @@ public:
 protected:
   vtkImageMedian3D();
   ~vtkImageMedian3D() {};
-  vtkImageMedian3D(const vtkImageMedian3D&) {};
-  void operator=(const vtkImageMedian3D&) {};
+  vtkImageMedian3D(const vtkImageMedian3D&);
+  void operator=(const vtkImageMedian3D&);
 
   int NumberOfElements;
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-27 13:24:31 $
-  Version:   $Revision: 1.110 $
+  Date:      $Date: 2001-08-10 20:06:45 $
+  Version:   $Revision: 1.111 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -392,8 +392,8 @@ public:
 protected:
   vtkPolyData();
   ~vtkPolyData();
-  vtkPolyData(const vtkPolyData&) {};
-  void operator=(const vtkPolyData&) {};
+  vtkPolyData(const vtkPolyData&);
+  void operator=(const vtkPolyData&);
 
   // constant cell objects returned by GetCell called.
   vtkVertex *Vertex;

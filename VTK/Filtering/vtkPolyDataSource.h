@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataSource.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:15 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-08-10 20:06:47 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -72,8 +72,8 @@ public:
 protected:
   vtkPolyDataSource();
   ~vtkPolyDataSource() {};
-  vtkPolyDataSource(const vtkPolyDataSource&) {};
-  void operator=(const vtkPolyDataSource&) {};
+  vtkPolyDataSource(const vtkPolyDataSource&);
+  void operator=(const vtkPolyDataSource&);
   
   // Update extent of PolyData is specified in pieces.  
   // Since all DataObjects should be able to set UpdateExent as pieces,

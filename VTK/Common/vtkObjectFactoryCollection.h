@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObjectFactoryCollection.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:13 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-08-10 20:06:45 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to William A. Hoffman who developed this class
 
 
@@ -78,8 +78,8 @@ return new vtkObjectFactoryCollection;};
 protected:
   vtkObjectFactoryCollection() {};
   ~vtkObjectFactoryCollection() {};
-  vtkObjectFactoryCollection(const vtkObjectFactoryCollection&) {};
-  void operator=(const vtkObjectFactoryCollection&) {};
+  vtkObjectFactoryCollection(const vtkObjectFactoryCollection&);
+  void operator=(const vtkObjectFactoryCollection&);
 
 
 private:

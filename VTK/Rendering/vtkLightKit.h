@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLightKit.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:25 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-08-10 20:06:59 $
+  Version:   $Revision: 1.6 $
   Thanks:    Michael Halle, Brigham and Women's Hospital
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -254,8 +254,8 @@ protected:
   void InitializeWarmthFunctions();
   float WarmthToIntensity(float w);
 
-  vtkLightKit(const vtkLightKit&) {};
-  void operator=(const vtkLightKit&) {};
+  vtkLightKit(const vtkLightKit&);
+  void operator=(const vtkLightKit&);
 
   float KeyLightIntensity;
   float KeyToFillRatio;

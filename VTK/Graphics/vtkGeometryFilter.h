@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-28 13:33:50 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2001-08-10 20:06:49 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -153,8 +153,8 @@ public:
 protected:
   vtkGeometryFilter();
   ~vtkGeometryFilter();
-  vtkGeometryFilter(const vtkGeometryFilter&) {};
-  void operator=(const vtkGeometryFilter&) {};
+  vtkGeometryFilter(const vtkGeometryFilter&);
+  void operator=(const vtkGeometryFilter&);
 
   void Execute();
   void PolyDataExecute(); //special cases for performance

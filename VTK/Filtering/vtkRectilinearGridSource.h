@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridSource.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:49 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-08-10 20:06:47 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -69,8 +69,8 @@ public:
 protected:
   vtkRectilinearGridSource();
   ~vtkRectilinearGridSource() {};
-  vtkRectilinearGridSource(const vtkRectilinearGridSource&) {};
-  void operator=(const vtkRectilinearGridSource&) {};
+  vtkRectilinearGridSource(const vtkRectilinearGridSource&);
+  void operator=(const vtkRectilinearGridSource&);
 
   // Used by streaming: The extent of the output being processed
   // by the execute method. Set in the ComputeInputUpdateExtent method.

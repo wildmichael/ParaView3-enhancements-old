@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCGMWriter.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:22 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-08-10 20:06:52 $
+  Version:   $Revision: 1.5 $
   Credit:    The origin of much of this code was from the cd package
              written by G. Edward Johnson at the National Institute 
              of Standards and Technology (US).
@@ -136,8 +136,8 @@ public:
 protected:
   vtkCGMWriter();
   ~vtkCGMWriter();
-  vtkCGMWriter(const vtkCGMWriter&) {};
-  void operator=(const vtkCGMWriter&) {};
+  vtkCGMWriter(const vtkCGMWriter&);
+  void operator=(const vtkCGMWriter&);
   void WriteData();
 
   vtkViewport *Viewport;

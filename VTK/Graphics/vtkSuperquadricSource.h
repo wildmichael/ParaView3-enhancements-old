@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSuperquadricSource.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:26 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-08-10 20:06:50 $
+  Version:   $Revision: 1.14 $
   Thanks:    Mike Halle, Brigham and Women's Hospital
 
 
@@ -142,8 +142,8 @@ public:
 protected:
   vtkSuperquadricSource(int res=16);
   ~vtkSuperquadricSource() {};
-  vtkSuperquadricSource(const vtkSuperquadricSource&) {};
-  void operator=(const vtkSuperquadricSource&) {};
+  vtkSuperquadricSource(const vtkSuperquadricSource&);
+  void operator=(const vtkSuperquadricSource&);
 
   int Toroidal;
   float Thickness;

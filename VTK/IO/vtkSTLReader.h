@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-28 05:56:27 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2001-08-10 20:06:52 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -109,8 +109,8 @@ public:
 protected:
   vtkSTLReader();
   ~vtkSTLReader();
-  vtkSTLReader(const vtkSTLReader&) {};
-  void operator=(const vtkSTLReader&) {};
+  vtkSTLReader(const vtkSTLReader&);
+  void operator=(const vtkSTLReader&);
 
   char *FileName;
   int Merging;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRuledSurfaceFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:03 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-08-10 20:06:50 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -156,8 +156,8 @@ public:
 protected:
   vtkRuledSurfaceFilter();
   ~vtkRuledSurfaceFilter();
-  vtkRuledSurfaceFilter(const vtkRuledSurfaceFilter&) {};
-  void operator=(const vtkRuledSurfaceFilter&) {};
+  vtkRuledSurfaceFilter(const vtkRuledSurfaceFilter&);
+  void operator=(const vtkRuledSurfaceFilter&);
 
   // Usual data generation method
   void Execute();

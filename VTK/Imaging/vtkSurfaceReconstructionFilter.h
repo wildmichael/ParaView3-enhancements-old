@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSurfaceReconstructionFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:26 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2001-08-10 20:06:52 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to Tim Hutton (MINORI Project, Dental and Medical
              Informatics, Eastman Dental Institute, London, UK) who
              developed and contributed this class.
@@ -86,8 +86,8 @@ public:
 protected:
   vtkSurfaceReconstructionFilter();
   ~vtkSurfaceReconstructionFilter() {};
-  vtkSurfaceReconstructionFilter(const vtkSurfaceReconstructionFilter&) {};
-  void operator=(const vtkSurfaceReconstructionFilter&) {};
+  vtkSurfaceReconstructionFilter(const vtkSurfaceReconstructionFilter&);
+  void operator=(const vtkSurfaceReconstructionFilter&);
 
   void Execute();
 

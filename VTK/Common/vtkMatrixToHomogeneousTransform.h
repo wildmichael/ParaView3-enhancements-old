@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMatrixToHomogeneousTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:13 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-08-10 20:06:45 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -91,8 +91,8 @@ class VTK_EXPORT vtkMatrixToHomogeneousTransform :
 protected:
   vtkMatrixToHomogeneousTransform();
   ~vtkMatrixToHomogeneousTransform();
-  vtkMatrixToHomogeneousTransform(const vtkMatrixToHomogeneousTransform&) {};
-  void operator=(const vtkMatrixToHomogeneousTransform&) {};
+  vtkMatrixToHomogeneousTransform(const vtkMatrixToHomogeneousTransform&);
+  void operator=(const vtkMatrixToHomogeneousTransform&);
 
   void InternalUpdate();
   void InternalDeepCopy(vtkAbstractTransform *transform);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-04-18 11:11:48 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2001-08-10 20:06:47 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -87,8 +87,8 @@ public:
 protected:
   vtkAppendFilter();
   ~vtkAppendFilter();
-  vtkAppendFilter(const vtkAppendFilter&) {};
-  void operator=(const vtkAppendFilter&) {};
+  vtkAppendFilter(const vtkAppendFilter&);
+  void operator=(const vtkAppendFilter&);
 
   // Usual data generation method
   void Execute();

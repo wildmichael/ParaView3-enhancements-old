@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGetRemoteGhostCells.h,v $
   Language:  C++
-  Date:      $Date: 2001-07-02 19:27:12 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-08-10 20:06:53 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -73,8 +73,8 @@ public:
 protected:
   vtkGetRemoteGhostCells();
   ~vtkGetRemoteGhostCells();
-  vtkGetRemoteGhostCells(const vtkGetRemoteGhostCells&) {};
-  void operator=(const vtkGetRemoteGhostCells&) {};
+  vtkGetRemoteGhostCells(const vtkGetRemoteGhostCells&);
+  void operator=(const vtkGetRemoteGhostCells&);
 
   void Execute();
 

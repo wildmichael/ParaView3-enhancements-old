@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMarchingCubes.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:16 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2001-08-10 20:06:53 $
+  Version:   $Revision: 1.26 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -156,8 +156,8 @@ public:
 protected:
   vtkImageMarchingCubes();
   ~vtkImageMarchingCubes();
-  vtkImageMarchingCubes(const vtkImageMarchingCubes&) {};
-  void operator=(const vtkImageMarchingCubes&) {};
+  vtkImageMarchingCubes(const vtkImageMarchingCubes&);
+  void operator=(const vtkImageMarchingCubes&);
 
   int NumberOfSlicesPerChunk;
   int InputMemoryLimit;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexture.h,v $
   Language:  C++
-  Date:      $Date: 2001-04-11 18:35:53 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2001-08-10 20:07:01 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -159,8 +159,8 @@ public:
 protected:
   vtkTexture();
   ~vtkTexture();
-  vtkTexture(const vtkTexture&) {};
-  void operator=(const vtkTexture&) {};
+  vtkTexture(const vtkTexture&);
+  void operator=(const vtkTexture&);
 
   int   Repeat;
   int   Interpolate;

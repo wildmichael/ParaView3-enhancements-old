@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:40 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2001-08-10 20:06:56 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -212,8 +212,8 @@ public:
 protected:
   vtkInteractorStyle();
   ~vtkInteractorStyle();
-  vtkInteractorStyle(const vtkInteractorStyle&) {};
-  void operator=(const vtkInteractorStyle&) {};
+  vtkInteractorStyle(const vtkInteractorStyle&);
+  void operator=(const vtkInteractorStyle&);
 
   // convenience methods for converting between coordinate systems
   virtual void ComputeDisplayToWorld(double x, double y, double z,

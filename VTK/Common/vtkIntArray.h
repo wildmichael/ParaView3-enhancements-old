@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIntArray.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-24 19:06:44 $
-  Version:   $Revision: 1.63 $
+  Date:      $Date: 2001-08-10 20:06:45 $
+  Version:   $Revision: 1.64 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -172,8 +172,8 @@ public:
 protected:
   vtkIntArray(vtkIdType numComp=1);
   ~vtkIntArray();
-  vtkIntArray(const vtkIntArray&) {};
-  void operator=(const vtkIntArray&) {};
+  vtkIntArray(const vtkIntArray&);
+  void operator=(const vtkIntArray&);
 
   int *Array;   // pointer to data
   int *ResizeAndExtend(const vtkIdType sz);  // function to resize data

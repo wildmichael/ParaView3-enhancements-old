@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-28 06:01:40 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2001-08-10 20:06:48 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -180,8 +180,8 @@ public:
 protected:
   vtkCutter(vtkImplicitFunction *cf=NULL);
   ~vtkCutter();
-  vtkCutter(const vtkCutter&) {};
-  void operator=(const vtkCutter&) {};
+  vtkCutter(const vtkCutter&);
+  void operator=(const vtkCutter&);
 
   void Execute();
   vtkImplicitFunction *CutFunction;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWorldPointPicker.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:01 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-08-10 20:07:01 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -75,8 +75,8 @@ public:
 protected:
   vtkWorldPointPicker ();
   ~vtkWorldPointPicker() {};
-  vtkWorldPointPicker(const vtkWorldPointPicker&) {};
-  void operator=(const vtkWorldPointPicker&) {};
+  vtkWorldPointPicker(const vtkWorldPointPicker&);
+  void operator=(const vtkWorldPointPicker&);
 
 };
 

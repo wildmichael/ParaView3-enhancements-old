@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGradient.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:06 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2001-08-10 20:06:51 $
+  Version:   $Revision: 1.29 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -77,8 +77,8 @@ public:
 protected:
   vtkImageGradient();
   ~vtkImageGradient() {};
-  vtkImageGradient(const vtkImageGradient&) {};
-  void operator=(const vtkImageGradient&) {};
+  vtkImageGradient(const vtkImageGradient&);
+  void operator=(const vtkImageGradient&);
 
   int HandleBoundaries;
   int Dimensionality;

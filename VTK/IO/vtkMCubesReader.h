@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMCubesReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-28 05:58:43 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2001-08-10 20:06:52 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -163,8 +163,8 @@ public:
 protected:
   vtkMCubesReader();
   ~vtkMCubesReader();
-  vtkMCubesReader(const vtkMCubesReader&) {};
-  void operator=(const vtkMCubesReader&) {};
+  vtkMCubesReader(const vtkMCubesReader&);
+  void operator=(const vtkMCubesReader&);
 
   void Execute();
 

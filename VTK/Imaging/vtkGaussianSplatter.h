@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGaussianSplatter.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-12 13:18:04 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2001-08-10 20:06:51 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -214,8 +214,8 @@ public:
 protected:
   vtkGaussianSplatter();
   ~vtkGaussianSplatter() {};
-  vtkGaussianSplatter(const vtkGaussianSplatter&) {};
-  void operator=(const vtkGaussianSplatter&) {};
+  vtkGaussianSplatter(const vtkGaussianSplatter&);
+  void operator=(const vtkGaussianSplatter&);
 
   void Execute();
   void Cap(vtkFloatArray *s);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsToStructuredPointsFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-22 12:48:07 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2001-08-10 20:06:47 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -67,8 +67,8 @@ public:
 protected:
   vtkStructuredPointsToStructuredPointsFilter() {this->NumberOfRequiredInputs = 1;};
   ~vtkStructuredPointsToStructuredPointsFilter() {};
-  vtkStructuredPointsToStructuredPointsFilter(const vtkStructuredPointsToStructuredPointsFilter&) {};
-  void operator=(const vtkStructuredPointsToStructuredPointsFilter&) {};
+  vtkStructuredPointsToStructuredPointsFilter(const vtkStructuredPointsToStructuredPointsFilter&);
+  void operator=(const vtkStructuredPointsToStructuredPointsFilter&);
 
   // Since input[0] and output are of same type, we can create this
   // method that defaults to just copying information.

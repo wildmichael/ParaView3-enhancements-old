@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProjectedPolyDataRayBounder.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:48 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-08-10 20:07:00 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to Lisa Sobierajski Avila who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -100,8 +100,8 @@ public:
 protected:
   vtkProjectedPolyDataRayBounder();
   ~vtkProjectedPolyDataRayBounder();
-  vtkProjectedPolyDataRayBounder(const vtkProjectedPolyDataRayBounder&) {};
-  void operator=(const vtkProjectedPolyDataRayBounder&) {};
+  vtkProjectedPolyDataRayBounder(const vtkProjectedPolyDataRayBounder&);
+  void operator=(const vtkProjectedPolyDataRayBounder&);
 
   vtkPolyData   *PolyData;
   vtkActor      *ActorMatrixSource;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPerspectiveTransform.h,v $
   Language:  C++
-  Date:      $Date: 2001-03-30 21:37:20 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2001-08-10 20:06:45 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -326,7 +326,7 @@ protected:
   vtkPerspectiveTransform();
   ~vtkPerspectiveTransform();
   vtkPerspectiveTransform(const vtkPerspectiveTransform& t);
-  void operator=(const vtkPerspectiveTransform&) {};
+  void operator=(const vtkPerspectiveTransform&);
 
   void InternalDeepCopy(vtkAbstractTransform *t);
   void InternalUpdate();

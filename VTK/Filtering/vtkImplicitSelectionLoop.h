@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitSelectionLoop.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:39 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-08-10 20:06:47 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -121,8 +121,8 @@ public:
 protected:
   vtkImplicitSelectionLoop();
   ~vtkImplicitSelectionLoop();
-  vtkImplicitSelectionLoop(const vtkImplicitSelectionLoop&) {};
-  void operator=(const vtkImplicitSelectionLoop&) {};
+  vtkImplicitSelectionLoop(const vtkImplicitSelectionLoop&);
+  void operator=(const vtkImplicitSelectionLoop&);
 
   vtkPoints *Loop;
   float Normal[3];

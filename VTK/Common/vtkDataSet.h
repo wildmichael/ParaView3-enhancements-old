@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:00 $
-  Version:   $Revision: 1.103 $
+  Date:      $Date: 2001-08-10 20:06:44 $
+  Version:   $Revision: 1.104 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -320,8 +320,8 @@ protected:
   // Constructor with default bounds (0,1, 0,1, 0,1).
   vtkDataSet();
   ~vtkDataSet();  
-  vtkDataSet(const vtkDataSet&) {};
-  void operator=(const vtkDataSet&) {};  
+  vtkDataSet(const vtkDataSet&);
+  void operator=(const vtkDataSet&);  
 
   vtkCellData *CellData;   // Scalars, vectors, etc. associated w/ each cell
   vtkPointData *PointData;   // Scalars, vectors, etc. associated w/ each point

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEncodedGradientEstimator.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:36 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2001-08-10 20:06:53 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -192,8 +192,8 @@ public:
 protected:
   vtkEncodedGradientEstimator();
   ~vtkEncodedGradientEstimator();
-  vtkEncodedGradientEstimator(const vtkEncodedGradientEstimator&) {};
-  void operator=(const vtkEncodedGradientEstimator&) {};
+  vtkEncodedGradientEstimator(const vtkEncodedGradientEstimator&);
+  void operator=(const vtkEncodedGradientEstimator&);
 
   // The number of threads to use when encoding normals
   int                        NumberOfThreads;
