@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAxes.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-07-02 15:45:22 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1998-07-03 13:20:06 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -106,6 +106,7 @@ void vtkAxes::Execute()
     {
     x[1] = this->Origin[1] - this->ScaleFactor;
     }
+  n[0] = 0.0; n[1] = 0.0; n[2] = 1.0; 
   ptIds[0] = newPts->InsertNextPoint(x);
   newScalars->InsertNextScalar(0.25);
   newNormals->InsertNextNormal(n);
