@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 19:28:16 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1997-04-18 20:50:57 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,7 +72,7 @@ class VTK_EXPORT vtkContourFilter : public vtkDataSetToPolyFilter
 {
 public:
   vtkContourFilter();
-  vtkContourFilter *New() {return new vtkContourFilter;};
+  static vtkContourFilter *New() {return new vtkContourFilter;};
   char *GetClassName() {return "vtkContourFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 19:28:12 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1997-04-18 20:50:53 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,7 +79,7 @@ class VTK_EXPORT vtkClipPolyData : public vtkPolyToPolyFilter
 public:
   vtkClipPolyData(vtkImplicitFunction *cf=NULL);
   ~vtkClipPolyData();
-  vtkClipPolyData *New() {return new vtkClipPolyData;};
+  static vtkClipPolyData *New() {return new vtkClipPolyData;};
   char *GetClassName() {return "vtkClipPolyData";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

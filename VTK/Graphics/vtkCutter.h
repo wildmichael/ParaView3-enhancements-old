@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 19:28:19 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1997-04-18 20:51:01 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,7 +59,7 @@ class VTK_EXPORT vtkCutter : public vtkDataSetToPolyFilter
 {
 public:
   vtkCutter(vtkImplicitFunction *cf=NULL);
-  vtkCutter *New() {return new vtkCutter;};
+  static vtkCutter *New() {return new vtkCutter;};
   char *GetClassName() {return "vtkCutter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
