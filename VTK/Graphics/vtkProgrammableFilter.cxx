@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:06:21 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-10-26 19:14:16 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -70,6 +70,7 @@ vtkProgrammableFilter::vtkProgrammableFilter()
 {
   this->ExecuteMethod = NULL;
   this->ExecuteMethodArg = NULL;
+  this->ExecuteMethodArgDelete = NULL;
 }
 
 vtkProgrammableFilter::~vtkProgrammableFilter()

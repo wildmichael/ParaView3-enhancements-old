@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-19 11:15:49 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2000-10-26 19:13:57 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -462,8 +462,6 @@ void vtkDelaunay3D::Execute()
   holeTetras->Allocate(12);
 
   numPoints = inPoints->GetNumberOfPoints();
-  this->NumberOfDuplicatePoints = 0;
-  this->NumberOfDegeneracies = 0;
 
   // Create initial bounding triangulation. Have to create bounding points.
   // Initialize mesh structure.
@@ -735,6 +733,9 @@ vtkUnstructuredGrid *vtkDelaunay3D::InitPointInsertion(float center[3],
   int pts[4], tetraId;
   vtkUnstructuredGrid *Mesh=vtkUnstructuredGrid::New();
 
+  this->NumberOfDuplicatePoints = 0;
+  this->NumberOfDegeneracies = 0;
+
   points = vtkPoints::New();
   points->Allocate(numPtsToInsert+6);
 
@@ -843,6 +844,9 @@ vtkUnstructuredGrid *vtkDelaunay3D::InitPointInsertion(int numPtsToInsert,
   int i, j, pts[4], ptNum, tetraId;
   float *x;
   vtkUnstructuredGrid *Mesh=vtkUnstructuredGrid::New();
+
+  this->NumberOfDuplicatePoints = 0;
+  this->NumberOfDegeneracies = 0;
 
   points = vtkPoints::New();
   points->Allocate(numPtsToInsert+numTetra*4); //estimate
