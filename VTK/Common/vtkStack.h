@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStack.h,v $
   Language:  C++
-  Date:      $Date: 1994-09-09 10:45:04 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-09-09 13:04:27 $
+  Version:   $Revision: 1.2 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -27,6 +27,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 class vlStackElement
 {
  public:
+  vlStackElement():Item(NULL),Next(NULL) {};
   vlObject *Item;
   vlStackElement *Next;
 };

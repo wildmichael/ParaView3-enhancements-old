@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCollection.h,v $
   Language:  C++
-  Date:      $Date: 1994-09-09 10:45:37 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-09-09 13:04:25 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -27,6 +27,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 class vlCollectionElement
 {
  public:
+  vlCollectionElement():Item(NULL),Next(NULL) {};
   vlObject *Item;
   vlCollectionElement *Next;
 };

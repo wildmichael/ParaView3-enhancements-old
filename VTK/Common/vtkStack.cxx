@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStack.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-09 10:45:05 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-09-09 13:04:26 $
+  Version:   $Revision: 1.2 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
