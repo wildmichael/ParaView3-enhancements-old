@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRegressionTestImage.h,v $
   Language:  C++
-  Date:      $Date: 2002-02-27 15:52:34 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-03-19 16:20:52 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -89,6 +89,8 @@ int vtkRegressionTester::Test(int argc, char *argv[], vtkRenderWindow *rw,
     char* fname=vtkTestUtilities::ExpandDataFileName(argc, argv, argv[imageIndex]);
 
     vtkWindowToImageFilter *rt_w2if = vtkWindowToImageFilter::New(); 
+    // tell it to read the back buffer
+    rt_w2if->ReadFrontBufferOff();
     rt_w2if->SetInput(rw);
     // perform and extra render to make sure it is displayed
     rw->Render();
