@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp.h,v $
   Language:  C++
-  Date:      $Date: 2000-07-04 09:53:51 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2000-07-05 11:59:19 $
+  Version:   $Revision: 1.22 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -273,11 +273,6 @@ public:
   virtual void BuildPaths(vtkAssemblyPaths *paths, vtkAssemblyPath *path);
 
 //ETX
-
-  // Description:
-  // Override vtkObject's Delete() method to break reference count loops 
-  // due to building assembly paths.
-  virtual void Delete();
 
 protected:
   vtkProp();

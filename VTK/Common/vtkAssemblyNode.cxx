@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssemblyNode.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-08 09:11:03 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-07-05 11:59:18 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -65,15 +65,22 @@ vtkAssemblyNode::vtkAssemblyNode()
 
 vtkAssemblyNode::~vtkAssemblyNode()
 {
-  if ( this->Prop )
-    {
-    this->Prop->Delete();
-    }
+//  if ( this->Prop )
+//    {
+//    this->Prop->Delete();
+//    }
   if ( this->Matrix )
     {
     this->Matrix->Delete();
     }
 }
+
+// Don't do reference counting
+void vtkAssemblyNode::SetProp(vtkProp *prop)
+{
+  this->Prop = prop;
+}
+
 
 void vtkAssemblyNode::SetMatrix(vtkMatrix4x4 *matrix)
 {

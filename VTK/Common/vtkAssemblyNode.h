@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssemblyNode.h,v $
   Language:  C++
-  Date:      $Date: 2000-06-08 09:11:03 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-07-05 11:59:18 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -56,6 +56,12 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // vtkProp3D (or subclass). The matrix is evaluated through the assembly
 // path, so the assembly node's matrix is a function of its location in 
 // the vtkAssemblyPath.
+//
+// vtkAssemblyNode does not reference count its association with vtkProp.
+// Therefore, do not create an assembly node, associate a prop with it,
+// delete the prop, and then try to dereference the prop...the program
+// will break. (Reason: vtkAssemblyPath (which uses vtkAssemblyNode)
+// create self-referencing loops that destroy reference counting.)
 
 // .SECTION see also
 // vtkAssemblyPath vtkProp vtkPicker vtkMatrix4x4
@@ -79,7 +85,7 @@ public:
 
   // Description:
   // Set/Get the prop that this assembly node refers to.
-  vtkSetObjectMacro(Prop, vtkProp);
+  void SetProp(vtkProp *prop);
   vtkGetObjectMacro(Prop, vtkProp);
   
   // Description:
