@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitModeller.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-25 15:37:45 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1995-07-27 17:49:50 $
+  Version:   $Revision: 1.21 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -40,19 +40,6 @@ vtkImplicitModeller::vtkImplicitModeller()
   this->CapValue = LARGE_FLOAT;
 }
 
-void vtkImplicitModeller::PrintSelf(ostream& os, vtkIndent indent)
-{
-  vtkDataSetToStructuredPointsFilter::PrintSelf(os,indent);
-
-  os << indent << "Maximum Distance: " << this->MaximumDistance << "\n";
-  os << indent << "Sample Dimensions: (" << this->SampleDimensions[0] << ", "
-               << this->SampleDimensions[1] << ", "
-               << this->SampleDimensions[2] << ")\n";
-  os << indent << "ModelBounds: \n";
-  os << indent << "  Xmin,Xmax: (" << this->ModelBounds[0] << ", " << this->ModelBounds[1] << ")\n";
-  os << indent << "  Ymin,Ymax: (" << this->ModelBounds[2] << ", " << this->ModelBounds[3] << ")\n";
-  os << indent << "  Zmin,Zmax: (" << this->ModelBounds[4] << ", " << this->ModelBounds[5] << ")\n";
-}
 // Description:
 // Specify the position in space to perform the sampling.
 void vtkImplicitModeller::SetModelBounds(float *bounds)
@@ -310,4 +297,19 @@ void vtkImplicitModeller::Cap(vtkFloatScalars *s)
 
 }
 
+void vtkImplicitModeller::PrintSelf(ostream& os, vtkIndent indent)
+{
+  vtkDataSetToStructuredPointsFilter::PrintSelf(os,indent);
 
+  os << indent << "Maximum Distance: " << this->MaximumDistance << "\n";
+  os << indent << "Sample Dimensions: (" << this->SampleDimensions[0] << ", "
+               << this->SampleDimensions[1] << ", "
+               << this->SampleDimensions[2] << ")\n";
+  os << indent << "ModelBounds: \n";
+  os << indent << "  Xmin,Xmax: (" << this->ModelBounds[0] << ", " << this->ModelBounds[1] << ")\n";
+  os << indent << "  Ymin,Ymax: (" << this->ModelBounds[2] << ", " << this->ModelBounds[3] << ")\n";
+  os << indent << "  Zmin,Zmax: (" << this->ModelBounds[4] << ", " << this->ModelBounds[5] << ")\n";
+
+  os << indent << "Capping: " << (this->Capping ? "On\n" : "Off\n");
+  os << indent << "Cap Value: " << this->CapValue << "\n";
+}
