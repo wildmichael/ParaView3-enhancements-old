@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:37:35 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-08-24 15:26:18 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -196,7 +196,7 @@ void vtkTextSource::Execute()
       {
       for (col = 0; col < vtkfont_width; col++)
 	{
-	acol = (this->Text[pos] - 32)*vtkfont_width + col - 2;
+	acol = (this->Text[pos] - 32)*vtkfont_width + col - 1;
 	for (row = 0; row < vtkfont_height; row++)
 	  {
 	  pixelPos = acol + row*vtkfont_row_width;
