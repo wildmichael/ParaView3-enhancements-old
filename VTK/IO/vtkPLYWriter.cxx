@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLYWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-10 19:01:58 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-12-06 02:53:53 $
+  Version:   $Revision: 1.7 $
   Thanks:    Mike Dresser MD/PhD
              Director of Core Facility for Imaging
              Program in Molecular and Cell Biology
@@ -324,4 +324,19 @@ unsigned char *vtkPLYWriter::GetColors(vtkIdType num,
       return NULL;
       }
     }
+}
+
+//----------------------------------------------------------------------------
+void vtkPLYWriter::PrintSelf(ostream& os, vtkIndent indent)
+{
+  vtkPolyDataWriter::PrintSelf(os,indent);
+
+  os << indent << "ArrayName: " << (this->ArrayName ? this->ArrayName : "(none)") << "\n";
+  os << indent << "Component: " << this->Component << "\n";
+  os << indent << "ColorMode: " << this->ColorMode << "\n";
+  os << indent << "DataByteOrder: " << this->DataByteOrder << "\n";
+  os << indent << "Color: " << (int)this->Color[0] << " " 
+     << (int)this->Color[1] << " "
+     << (int)this->Color[2] << "\n";
+  os << indent << "LookupTable: " << this->LookupTable << "\n";
 }

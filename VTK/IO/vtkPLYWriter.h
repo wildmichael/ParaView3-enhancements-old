@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLYWriter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:32 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-12-06 02:53:53 $
+  Version:   $Revision: 1.5 $
   Thanks:    Mike Dresser MD/PhD
              Director of Core Facility for Imaging
              Program in Molecular and Cell Biology
@@ -79,6 +79,7 @@ class VTK_IO_EXPORT vtkPLYWriter : public vtkPolyDataWriter
 public:
   static vtkPLYWriter *New();
   vtkTypeMacro(vtkPLYWriter,vtkPolyDataWriter);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // If the file type is binary, then the user can specify which
