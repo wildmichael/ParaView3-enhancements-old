@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericEnSightReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-01 11:40:39 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-07-03 14:05:28 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -935,6 +935,9 @@ void vtkGenericEnSightReader::ReplaceWildcardsHelper(char* fileName, int num)
       case 9:
 	newChar = '9';
 	break;
+      default:
+        // This case should never be reached.
+        return;
       }
     
     fileName[i + wildcardPos] = newChar;
