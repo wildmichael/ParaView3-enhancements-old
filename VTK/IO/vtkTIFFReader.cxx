@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTIFFReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-21 19:09:47 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-10-24 16:35:44 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -370,6 +370,6 @@ void vtkTIFFReader::ExecuteInformation()
   
   this->SetNumberOfScalarComponents(numComp);
   
-  vtkImageReader::UpdateInformation();
+  vtkImageReader::ExecuteInformation();
 }
 
