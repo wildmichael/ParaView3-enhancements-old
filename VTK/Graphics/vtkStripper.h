@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStripper.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-11 07:41:31 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-09-09 22:30:41 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -36,7 +36,7 @@ public:
 
   // Description:
   // Specify the maximum number of triangles in a triangle strip.
-  vlSetClampMacro(MaximumStripLength,int,4,MAX_CELL_SIZE);
+  vlSetClampMacro(MaximumStripLength,int,4,MAX_CELL_SIZE-2);
   vlGetMacro(MaximumStripLength,int);
 
   // Description:
