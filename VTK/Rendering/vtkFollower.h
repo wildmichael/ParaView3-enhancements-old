@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFollower.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:31 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2002-05-27 14:51:17 $
+  Version:   $Revision: 1.50 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,7 +33,8 @@
 #define __vtkFollower_h
 
 #include "vtkActor.h"
-#include "vtkCamera.h"
+
+class vtkCamera;
 
 class VTK_RENDERING_EXPORT vtkFollower : public vtkActor
 {
@@ -48,7 +49,7 @@ class VTK_RENDERING_EXPORT vtkFollower : public vtkActor
   // Description:
   // Set/Get the camera to follow. If this is not set, then the follower
   // won't know who to follow.
-  vtkSetObjectMacro(Camera,vtkCamera);
+  virtual void SetCamera(vtkCamera*);
   vtkGetObjectMacro(Camera,vtkCamera);
 
   // Description:
