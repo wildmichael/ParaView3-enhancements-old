@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDashedStreamLine.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:35:34 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1995-08-31 08:46:19 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,7 +45,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // of which represents (approximately) a constant time increment. Thus in the
 // resulting visual representation, relatively long dashes represent areas of 
 // high velocity, and small dashes represent areas of low velocity.
-//   vtkDashedStreamLine introduces the instance variable DashFactor. 
+//
+// vtkDashedStreamLine introduces the instance variable DashFactor. 
 // DashFactor interacts with its superclass' instance variable StepLength to
 // create the dashes. DashFactor is the percentage of the StepLength line 
 // segment that is visible. Thus if DashFactor=0.75, the dashes will be 
