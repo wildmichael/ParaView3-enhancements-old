@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-16 22:04:43 $
-  Version:   $Revision: 1.77 $
+  Date:      $Date: 2000-04-18 15:15:54 $
+  Version:   $Revision: 1.78 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -442,13 +442,11 @@ float *vtkCamera::GetOrientationWXYZ()
 }
 
 // Compute the view transform matrix. This is used in converting 
-// between view and world coordinates. It does not include any 
-// perspective effects but it does include rotation and scaling.
+// between view and world coordinates.  It is a rigid-body matrix:
+// only translation and rotation.
 void vtkCamera::ComputeViewTransform()
 {
-  // I believe that the stereo code is incorrect, it leaves the
-  // eyes focussed at infinity instead of at the focal point.
-  // For now, I'm leaving it the way it is.
+  // shift by left or right to the eye position
   if (this->Stereo)
     {
     double phi = this->EyeAngle*vtkMath::DoubleDegreesToRadians();
@@ -493,7 +491,8 @@ void vtkCamera::ComputePerspectiveTransform(double aspect,
 				      this->ClippingRange[0],
 				      this->ClippingRange[1]);
     }
-  else if (this->WindowCenter[0] != 0.0 || this->WindowCenter[1] != 0.0)
+  else if (this->WindowCenter[0] != 0.0 || this->WindowCenter[1] != 0.0 ||
+	   this->Stereo)
     {
     // set up an off-axis frustum
 
@@ -506,7 +505,21 @@ void vtkCamera::ComputePerspectiveTransform(double aspect,
     double ymin = (this->WindowCenter[1]-1.0)*height;
     double ymax = (this->WindowCenter[1]+1.0)*height;
 
-    this->PerspectiveTransform->Frustum(xmin,xmax,ymin,ymax,
+    // handle stereo using an asymmetrical frustum
+    if (this->Stereo)
+      {
+      double tmp0 = tan(this->EyeAngle*vtkMath::DoubleDegreesToRadians()/2);
+      double stereoShift = this->ClippingRange[0]*tmp0;
+      
+      if (!this->LeftEye)
+	{
+	stereoShift = -stereoShift;
+	}
+      xmin += stereoShift;
+      xmax += stereoShift;
+      }
+
+    this->PerspectiveTransform->Frustum(xmin, xmax, ymin, ymax,
 					this->ClippingRange[0],
 					this->ClippingRange[1]);
     }
