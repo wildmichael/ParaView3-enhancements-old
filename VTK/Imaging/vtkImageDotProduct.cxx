@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDotProduct.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-01 14:19:56 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-04-04 14:07:56 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkImageProgressIterator.h"
 
-vtkCxxRevisionMacro(vtkImageDotProduct, "$Revision: 1.24 $");
+vtkCxxRevisionMacro(vtkImageDotProduct, "$Revision: 1.25 $");
 vtkStandardNewMacro(vtkImageDotProduct);
 
 //----------------------------------------------------------------------------
@@ -53,10 +53,10 @@ static void vtkImageDotProductExecute(vtkImageDotProduct *self,
   // Loop through ouput pixels
   while (!outIt.IsAtEnd())
     {
-    vtkImageIterator<T>::SpanIterator inSI1 = inIt1.BeginSpan();
-    vtkImageIterator<T>::SpanIterator inSI2 = inIt2.BeginSpan();
-    vtkImageIterator<T>::SpanIterator outSI = outIt.BeginSpan();
-    vtkImageIterator<T>::SpanIterator outSIEnd = outIt.EndSpan();
+    T* inSI1 = inIt1.BeginSpan();
+    T* inSI2 = inIt2.BeginSpan();
+    T* outSI = outIt.BeginSpan();
+    T* outSIEnd = outIt.EndSpan();
     while (outSI != outSIEnd)
       {
       // now process the components
