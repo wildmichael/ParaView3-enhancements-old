@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-25 21:06:47 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2001-10-02 14:12:53 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -735,8 +735,15 @@ void vtkFieldData::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Number Of Arrays: " << this->GetNumberOfArrays() << "\n";
   for (int i=0; i<this->GetNumberOfArrays(); i++)
     {
-    os << indent << "Array " << i << " name = " 
-       << this->GetArrayName(i) << "\n";
+    if (this->GetArrayName(i))
+      {
+      os << indent << "Array " << i << " name = " 
+         << this->GetArrayName(i) << "\n";
+      }
+    else
+      {
+      os << indent << "Array " << i << " name = NULL\n";
+      }
     }
   os << indent << "Number Of Components: " << this->GetNumberOfComponents() 
      << "\n";
