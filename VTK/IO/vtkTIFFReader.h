@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTIFFReader.h,v $
   Language:  C++
-  Date:      $Date: 2003-08-19 08:02:57 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2003-11-04 21:26:04 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -63,7 +63,8 @@ public:
   vtkTypeRevisionMacro(vtkTIFFReader,vtkImageReader2);
   virtual void PrintSelf(ostream& os, vtkIndent indent);
 
-  // Description: is the given file name a png file?
+  // Description:
+  // Is the given file name a tiff file file?
   virtual int CanReadFile(const char* fname);
 
   // Description:
