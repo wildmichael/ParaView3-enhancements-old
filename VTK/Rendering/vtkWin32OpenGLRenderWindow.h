@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-29 18:31:56 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-08-27 20:05:37 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,6 +50,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <stdlib.h>
 #include "vtkRenderWindow.h"
 #include "vtkMutexLock.h"
+
+#include <GL/gl.h>
+
+class vtkIdList;
 
 class VTK_EXPORT vtkWin32OpenGLRenderWindow : public vtkRenderWindow
 {
@@ -213,6 +217,10 @@ public:
   // Clean up device contexts, rendering contexts, etc.
   void Clean();
 
+  // Description:
+  // Register a texture name with this render window
+  void RegisterTextureResource (GLuint id);
+
  protected:
   HINSTANCE ApplicationInstance;
   HPALETTE  Palette;
@@ -226,6 +234,7 @@ public:
   int       OwnWindow;
   int       ScreenSize[2];
   int       MultiSamples;
+  vtkIdList *TextureResourceIds;
 
   // the following is used to support rendering into memory
   BITMAPINFO MemoryDataHeader;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-26 18:53:59 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1999-08-27 20:05:36 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,6 +42,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <string.h>
 
 #include "vtkRenderWindow.h"
+#ifdef _WIN32
+#include "vtkWin32OpenGLRenderWindow.h"
+#else
+#include "vtkOpenGLRenderWindow.h"
+#endif
 #include "vtkOpenGLRenderer.h"
 #include "vtkOpenGLTexture.h"
 #include <GL/gl.h>
@@ -226,6 +231,13 @@ void vtkOpenGLTexture::Load(vtkRenderer *ren)
     glDeleteLists ((GLuint) this->Index, (GLsizei) 0);
     glNewList ((GLuint) this->Index, GL_COMPILE);
 #endif
+
+#ifdef _WIN32
+    ((vtkWin32OpenGLRenderWindow *)(ren->GetRenderWindow()))->RegisterTextureResource( this->Index );
+#else
+    ((vtkOpenGLRenderWindow *)(ren->GetRenderWindow()))->RegisterTextureResource( this->Index );
+#endif
+    
     if (this->Interpolate)
       {
       glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER,
