@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageThreshold.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-12 14:41:24 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1998-05-26 20:02:34 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -124,7 +124,6 @@ void vtkImageThreshold::ThresholdBetween(float lower, float upper)
 }
 
 //----------------------------------------------------------------------------
-// Output is always float
 void vtkImageThreshold::ExecuteImageInformation()
 {
   if (this->OutputScalarType != -1)

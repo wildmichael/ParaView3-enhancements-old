@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-27 17:12:26 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-05-26 20:02:36 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -94,6 +94,20 @@ void vtkTextMapper::PrintSelf(ostream& os, vtkIndent indent)
  
   vtkMapper2D::PrintSelf(os,indent);
 }
+
+
+void vtkTextMapper::SetShadow(int val) 
+{
+  if (val == this->Shadow)
+    {
+    return;
+    }
+  
+  this->Shadow = val; 
+  this->FontChanged = 1; 
+  this->Modified();
+}
+
 
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageOpenClose3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-12 14:41:19 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-05-26 20:02:28 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -222,6 +222,11 @@ unsigned long int vtkImageOpenClose3D::GetPipelineMTime()
 // Set the Input of the filter.
 void vtkImageOpenClose3D::SetInput(vtkImageCache *input)
 {
+  if (this->Input == input)
+    {
+    return;
+    }
+  
   this->Input = input;
   this->Modified();
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSinusoidSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-09 17:48:00 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-05-26 20:02:32 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -67,23 +67,6 @@ void vtkImageSinusoidSource::SetDirection(float v0, float v1, float v2)
 {
   float sum;
   int idx;
-  int modified = 0;
-
-  if (this->Direction[0] != v0)
-    {
-      this->Direction[0] = v0;
-      modified = 1;
-    }
-  if (this->Direction[1] != v1)
-    {
-      this->Direction[1] = v1;
-      modified = 1;
-    }
-  if (this->Direction[2] != v2)
-    {
-      this->Direction[2] = v2;
-      modified = 1;
-    }
 
   sum = v0*v0 + v1*v1 + v2*v2;
 
@@ -95,15 +78,21 @@ void vtkImageSinusoidSource::SetDirection(float v0, float v1, float v2)
   
   // normalize
   sum = 1.0 / sqrt(sum);
-  for (idx = 0; idx < 3; ++idx)
+  v0 *= sum;
+  v1 *= sum;
+  v2 *= sum;
+  
+  if (this->Direction[0] == v0 && this->Direction[1] == v1 
+      && this->Direction[2] == v2)
     {
-    this->Direction[idx] *= sum;
+    return;
     }
   
-  if (modified)
-    {
-    this->Modified();
-    }
+  this->Direction[0] = v0;
+  this->Direction[1] = v1;
+  this->Direction[2] = v2;
+  
+  this->Modified();
 }
 
 //----------------------------------------------------------------------------

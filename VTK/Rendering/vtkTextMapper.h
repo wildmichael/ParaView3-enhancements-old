@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextMapper.h,v $
   Language:  C++
-  Date:      $Date: 1998-04-27 17:12:24 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-05-26 20:02:37 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -114,8 +114,7 @@ public:
   // Description:
   // Set/Get the shadow property.
   // vtkSetMacro(Shadow, int);
-  void SetShadow(int val) 
-  {this->Shadow = val; this->FontChanged = 1; this->Modified();};
+  void SetShadow(int val);
   vtkGetMacro(Shadow, int);
   vtkBooleanMacro(Shadow, int);
   

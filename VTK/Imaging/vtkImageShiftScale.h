@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageShiftScale.h,v $
   Language:  C++
-  Date:      $Date: 1997-12-23 19:32:47 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1998-05-26 20:02:31 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,12 +67,24 @@ public:
   vtkSetMacro(Scale,float);
   vtkGetMacro(Scale,float);
 
-  void ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
-		       int extent[6], int id);
-  
+  vtkSetMacro(OutputScalarType, int);
+  vtkGetMacro(OutputScalarType, int);
+  void SetOutputScalarTypeToFloat() {this->SetOutputScalarType(VTK_FLOAT);}
+  void SetOutputScalarTypeToInt() {this->SetOutputScalarType(VTK_INT);}
+  void SetOutputScalarTypeToShort() {this->SetOutputScalarType(VTK_SHORT);}
+  void SetOutputScalarTypeToUnsignedShort() 
+    {this->SetOutputScalarType(VTK_UNSIGNED_SHORT);}
+  void SetOutputScalarTypeToUnsignedChar() 
+    {this->SetOutputScalarType(VTK_UNSIGNED_CHAR);}
+
 protected:
   float Shift;
   float Scale;
+  int OutputScalarType;
+  
+  void ExecuteImageInformation();
+  void ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
+		       int extent[6], int id);
 };
 
 #endif
