@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-17 22:32:54 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-03-19 06:48:55 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,6 +42,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkLinearTransform.h"
 #include "vtkLinearTransformInverse.h"
+#include "vtkLinearTransformConcatenation.h"
 #include "vtkMath.h"
 
 //----------------------------------------------------------------------------
@@ -328,5 +329,23 @@ vtkGeneralTransform *vtkLinearTransform::GetInverse()
     this->MyInverse = inverse;
     }
   return (vtkLinearTransform *)this->MyInverse;
+}
+
+//----------------------------------------------------------------------------
+static vtkLinearTransform *vtkLinearTransform::Concatenate(
+                                       vtkLinearTransform *t1,
+				       vtkLinearTransform *t2,
+				       vtkLinearTransform *t3,
+				       vtkLinearTransform *t4)
+{
+  vtkLinearTransformConcatenation *concat =
+    vtkLinearTransformConcatenation::New();
+
+  if (t1) { concat->Concatenate(t1); }
+  if (t2) { concat->Concatenate(t2); }
+  if (t3) { concat->Concatenate(t3); }
+  if (t4) { concat->Concatenate(t4); }
+
+  return concat;
 }
 

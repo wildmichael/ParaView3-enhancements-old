@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-03-17 22:32:54 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2000-03-19 06:48:54 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -151,6 +151,26 @@ public:
   // Get the inverse of this transform, typecast to a vtkLinearTransform.
   vtkLinearTransform *GetLinearInverse() { 
     return (vtkLinearTransform *)this->GetInverse(); }; 
+
+  // Description:
+  // Create a pipelined concatenation of two transforms.  
+  static vtkLinearTransform *Concatenate(vtkLinearTransform *t1,
+					 vtkLinearTransform *t2) {
+    return vtkLinearTransform::Concatenate(t1,t2,0,0); };
+
+  // Description:
+  // Create a pipelined concatenation of three transforms.  
+  static vtkLinearTransform *Concatenate(vtkLinearTransform *t1,
+					 vtkLinearTransform *t2,
+					 vtkLinearTransform *t3) {
+    return vtkLinearTransform::Concatenate(t1,t2,t3,0); };
+
+  // Description:
+  // Create a pipelined concatenation of four transforms.  
+  static vtkLinearTransform *Concatenate(vtkLinearTransform *t1,
+					 vtkLinearTransform *t2,
+					 vtkLinearTransform *t3,
+					 vtkLinearTransform *t4);
 
   // Description:
   // This will calculate the transformation without calling Update.
