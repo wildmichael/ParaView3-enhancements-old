@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-02-10 18:02:57 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-02-24 17:44:05 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -78,11 +78,6 @@ public:
   // Creates a new text mapper with Font size 12, bold off, italic off,
   // and Arial font
   static vtkTextMapper *New();
-  
-  // Description:
-  // Draw the text to the screen.  This function is implemented in
-  // the device dependent subclasses.
-  virtual void Render(vtkViewport*, vtkActor2D*) {};
 
   // Description:
   // What is the size of the rectangle required to draw this
