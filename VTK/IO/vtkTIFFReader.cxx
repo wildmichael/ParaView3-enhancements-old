@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTIFFReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-04 20:39:00 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2002-02-18 15:38:08 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -41,6 +41,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 #include "vtkTIFFReader.h"
 #include "vtkObjectFactory.h"
+#include <sys/stat.h>
 
 extern "C" {
 #include <tiffio.h>
@@ -77,6 +78,11 @@ void TIFFInternal::ErrorHandler(const char* vtkNotUsed(module),
 int TIFFInternal::Open( const char *filename )
 {
   this->Clean();
+  struct stat fs;
+  if ( stat(filename, &fs) )
+    {
+    return 0;
+    }
   this->Image = TIFFOpen(filename, "r");
   if ( !this->Image)
     {
@@ -111,8 +117,8 @@ void TIFFInternal::Clean()
 TIFFInternal::TIFFInternal()
 {
   this->Image           = NULL;
-  TIFFSetErrorHandler(&TIFFInternal::ErrorHandler);
-  TIFFSetWarningHandler(&TIFFInternal::ErrorHandler);
+  //TIFFSetErrorHandler(&TIFFInternal::ErrorHandler);
+  //TIFFSetWarningHandler(&TIFFInternal::ErrorHandler);
   this->Clean();
 }
 

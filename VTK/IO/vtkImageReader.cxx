@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:14 $
-  Version:   $Revision: 1.93 $
+  Date:      $Date: 2002-02-18 15:38:07 $
+  Version:   $Revision: 1.94 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include <ctype.h>
 #include <string.h>
 
-vtkCxxRevisionMacro(vtkImageReader, "$Revision: 1.93 $");
+vtkCxxRevisionMacro(vtkImageReader, "$Revision: 1.94 $");
 vtkStandardNewMacro(vtkImageReader);
 
 #ifdef read
@@ -134,7 +134,10 @@ void vtkImageReader::OpenAndSeekFile(int dataExtent[6], int idx)
     }
   this->ComputeInternalFileName(idx);
   this->OpenFile();
-
+  if ( !this->File )
+    {
+    return;
+    }
   // convert data extent into constants that can be used to seek.
   streamStart = 
     (dataExtent[0] - this->DataExtent[0]) * this->DataIncrements[0];
@@ -368,9 +371,9 @@ void vtkImageReader::ExecuteData(vtkDataObject *output)
   void *ptr = NULL;
   int *ext;
   
-  if (!this->FileName && !this->FilePattern)
+  if (!this->FileName && !this->FilePattern || !this->File)
     {
-    vtkErrorMacro(<<"Either a FileName or FilePattern must be specified.");
+    vtkErrorMacro("Either a valid FileName or FilePattern must be specified.");
     return;
     }
 
