@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLookupTable.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:40:42 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1998-02-19 15:46:53 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -76,7 +76,7 @@ public:
   // Set the number of colors in the lookup table. Use this method before
   // building the lookup table. Use SetNumberOfTableValues() to change the
   // table size after the lookup table has been built.
-  vtkSetClampMacro(NumberOfColors,int,8, 65536);
+  vtkSetClampMacro(NumberOfColors,int,2, 65536);
   vtkGetMacro(NumberOfColors,int);
 
   void SetTableRange(float r[2]); // can't use macro 'cause don't want modified
