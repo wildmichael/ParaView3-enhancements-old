@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-03 15:50:40 $
-  Version:   $Revision: 1.88 $
+  Date:      $Date: 2000-10-04 13:36:47 $
+  Version:   $Revision: 1.89 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -379,6 +379,8 @@ void vtkXRenderWindowInteractor::PrintSelf(ostream& os, vtkIndent indent)
     {
     os << indent << "App: (none)\n";
     }
+  os << indent << "BreakLoopFlag: " 
+     << (this->BreakLoopFlag ? "On\n" : "Off\n");
 }
 
 //void vtkXRenderWindowInteractor::UpdateSize(int x,int y)

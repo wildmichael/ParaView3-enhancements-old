@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 2000-10-03 15:50:40 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2000-10-04 13:36:47 $
+  Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -87,6 +87,8 @@ public:
   // the interactor loop to terminate and return to the
   // calling function.
   vtkSetMacro(BreakLoopFlag, int);
+  vtkGetMacro(BreakLoopFlag, int);
+  vtkBooleanMacro(BreakLoopFlag, int);
 
   // Description:
   // X timer methods
