@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-20 12:40:04 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-08-20 12:55:05 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -36,7 +36,7 @@
 #include "vtkSphereSource.h"
 #include "vtkPlane.h"
 
-vtkCxxRevisionMacro(vtkPlaneWidget, "$Revision: 1.23 $");
+vtkCxxRevisionMacro(vtkPlaneWidget, "$Revision: 1.24 $");
 vtkStandardNewMacro(vtkPlaneWidget);
 
 vtkCxxSetObjectMacro(vtkPlaneWidget,PlaneProperty,vtkProperty);
@@ -672,6 +672,7 @@ void vtkPlaneWidget::OnMiddleButtonUp()
   this->State = vtkPlaneWidget::Start;
   this->HighlightPlane(0);
   this->HighlightNormal(0);
+  this->HighlightHandle(NULL);
   
   this->EventCallbackCommand->SetAbortFlag(1);
   this->EndInteraction();
