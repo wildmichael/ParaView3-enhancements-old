@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTimerLog.h,v $
   Language:  C++
-  Date:      $Date: 1996-12-05 21:13:20 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1996-12-06 14:20:44 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,7 +68,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <unistd.h>
 #include <stdarg.h>
 #include <stdlib.h>
-#include <strings.h>
+#include <string.h>
 
 #include "vtkObject.h"
 #define VTK_LOG_EVENT_LENGTH 40
