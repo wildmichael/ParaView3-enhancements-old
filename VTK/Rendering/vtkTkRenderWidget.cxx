@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkRenderWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-18 13:27:35 $
-  Version:   $Revision: 1.81 $
+  Date:      $Date: 2002-09-18 13:52:01 $
+  Version:   $Revision: 1.82 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -363,7 +363,7 @@ int vtkTkRenderWidget_Configure(Tcl_Interp *interp,
                          vtkTkRenderWidgetConfigSpecs,
                          argc, 
 #if (TCL_MAJOR_VERSION == 8) && (TCL_MINOR_VERSION >= 4 && TCL_RELEASE_LEVEL >= TCL_FINAL_RELEASE)
-                         const_cast<const char **>(argv), 
+                         const_cast<CONST84 char **>(argv), 
 #else
                          argv, 
 #endif
