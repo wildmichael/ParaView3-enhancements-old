@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-11 22:59:15 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 2000-04-11 23:04:41 $
+  Version:   $Revision: 1.62 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -269,7 +269,7 @@ class VTK_EXPORT vtkTransform : public vtkLinearTransform
   // For legacy compatibility. Do not use.
   void Multiply4x4(vtkMatrix4x4 *a, vtkMatrix4x4 *b, vtkMatrix4x4 *c) {
     vtkMatrix4x4::Multiply4x4(a,b,c); }; 
-  void Multiply4x4(double a[16], double b[16], double c[16]) {
+  void Multiply4x4(const double a[16], const double b[16], double c[16]) {
     vtkMatrix4x4::Multiply4x4(a,b,c); }; 
   void Multiply4x4(vtkMatrix4x4 &a, vtkMatrix4x4 &b, vtkMatrix4x4 &c) {
     vtkMatrix4x4::Multiply4x4(&a,&b,&c); }; 
