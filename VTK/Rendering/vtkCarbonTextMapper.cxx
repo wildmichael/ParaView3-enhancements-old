@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCarbonTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-23 02:11:35 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-09-27 23:46:15 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 #include "vtkViewport.h"
 #include "vtkgluPickMatrix.h"
 
-vtkCxxRevisionMacro(vtkCarbonTextMapper, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkCarbonTextMapper, "$Revision: 1.9 $");
 vtkStandardNewMacro(vtkCarbonTextMapper);
 
 struct vtkFontStruct
@@ -497,7 +497,7 @@ void vtkCarbonTextMapper::RenderOverlay(vtkViewport* viewport,
     glBitmap(0, 0, 0, 0, xoff + 1, yoff - 1, NULL);
     
     // Draw the shadow text
-    glCallLists (vtkString::Length(this->Input), GL_UNSIGNED_BYTE, 
+    glCallLists (strlen(this->Input), GL_UNSIGNED_BYTE, 
                  this->Input);  
     }
   
@@ -509,10 +509,9 @@ void vtkCarbonTextMapper::RenderOverlay(vtkViewport* viewport,
   glBitmap(0, 0, 0, 0, xoff, yoff, NULL);
 
   // display a string: // indicate start of glyph display lists 
-  glCallLists (vtkString::Length(this->Input), GL_UNSIGNED_BYTE, 
+  glCallLists (strlen(this->Input), GL_UNSIGNED_BYTE, 
                this->Input);
 
-  glFlush();
   glMatrixMode( GL_PROJECTION);
   glPopMatrix();
   glMatrixMode( GL_MODELVIEW);
