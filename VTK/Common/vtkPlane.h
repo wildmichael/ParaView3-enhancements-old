@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlane.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 20:34:11 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1999-04-14 14:52:02 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -91,6 +91,7 @@ public:
   // Description:
   // Quick evaluation of plane equation n(x-origin)=0.
   static float Evaluate(float normal[3], float origin[3], float x[3]);
+  static float Evaluate(double normal[3], double origin[3], double x[3]);
 
   // Description:
   // Return the distance of a point x to a plane defined by n(x-p0) = 0. The
@@ -114,6 +115,11 @@ protected:
 };
 
 inline float vtkPlane::Evaluate(float normal[3], float origin[3], float x[3])
+{
+  return normal[0]*(x[0]-origin[0]) + normal[1]*(x[1]-origin[1]) + 
+         normal[2]*(x[2]-origin[2]);
+}
+inline float vtkPlane::Evaluate(double normal[3], double origin[3],double x[3])
 {
   return normal[0]*(x[0]-origin[0]) + normal[1]*(x[1]-origin[1]) + 
          normal[2]*(x[2]-origin[2]);
