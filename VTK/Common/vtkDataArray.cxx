@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-12 16:08:42 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2001-09-12 18:33:13 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -269,19 +269,19 @@ float vtkDataArray::GetTuple1(const vtkIdType i)
 }
 float* vtkDataArray::GetTuple2(const vtkIdType i)
 {
-  this->GetTupleN(i, 2);
+  return this->GetTupleN(i, 2);
 }
 float* vtkDataArray::GetTuple3(const vtkIdType i)
 {
-  this->GetTupleN(i, 3);
+  return this->GetTupleN(i, 3);
 }
 float* vtkDataArray::GetTuple4(const vtkIdType i)
 {
-  this->GetTupleN(i, 4);
+  return this->GetTupleN(i, 4);
 }
 float* vtkDataArray::GetTuple9(const vtkIdType i)
 {
-  this->GetTupleN(i, 9);
+  return this->GetTupleN(i, 9);
 }
 
 void vtkDataArray::SetTuple(const vtkIdType i, const double * tuple)
