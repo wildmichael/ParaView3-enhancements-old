@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-17 14:56:09 $
-  Version:   $Revision: 1.84 $
+  Date:      $Date: 1999-06-24 00:58:21 $
+  Version:   $Revision: 1.85 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -137,21 +137,17 @@ int vtkActor::GetIsOpaque()
 {
   if (this->Property->GetOpacity() >= 1.0)
     {
-    float *ar = this->Mapper->GetLookupTable()->GetAlphaRange();
-    if ((ar[0] >= 1.0)&&(ar[1] >= 1.0))
+    if (this->Texture && this->Texture->GetInput()) 
       {
-      if (this->Texture && this->Texture->GetInput()) 
-	{
-	this->Texture->GetInput()->Update();
-	if (this->Texture->GetInput()->GetPointData()->GetScalars()->GetNumberOfComponents()%2)
-	  {
-	  return 1;
-	  }
-	}
-      else
-	{
-	return 1;
-	}
+      this->Texture->GetInput()->Update();
+      if (this->Texture->GetInput()->GetPointData()->GetScalars()->GetNumberOfComponents()%2)
+        {
+        return 1;
+        }
+      }
+    else
+      {
+      return 1;
       }
     }
   return 0;
