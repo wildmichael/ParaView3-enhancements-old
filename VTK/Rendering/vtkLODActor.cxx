@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-24 11:32:07 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1998-06-25 10:01:27 $
+  Version:   $Revision: 1.23 $
   
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -146,37 +146,38 @@ void vtkLODActor::Render(vtkRenderer *ren)
 
   bestMapper = this->Mapper;
   bestTime = bestMapper->GetRenderTime();
-  // cerr << "  Start (" << bestMapper << ") with time: " << bestTime << endl;
-  this->Mappers->InitTraversal();
-  while ((mapper = this->Mappers->GetNextItem()) != NULL && bestTime != 0.0)
+  if (bestTime > myTime)
     {
-    tempTime = mapper->GetRenderTime();
-    // cerr << "    Mapper (" << mapper << ") RenderTime: " << tempTime <<endl;
-
-    // If the LOD has never been rendered, select it!
-    if (tempTime == 0.0)
-      { 
-      // cerr << "      Has never been rendererd\n";
-      bestMapper = mapper;
-      bestTime = 0.0;
-      }
-    else
+    this->Mappers->InitTraversal();
+    while ((mapper = this->Mappers->GetNextItem()) != NULL && bestTime != 0.0)
       {
-      if (bestTime > myTime && tempTime < bestTime)
-	{
-	// cerr << "      Less than best in violation\n";
-	bestMapper = mapper;
-	bestTime = tempTime;
-	}
-      if (tempTime > bestTime && tempTime < myTime)
+      tempTime = mapper->GetRenderTime();
+      
+      // If the LOD has never been rendered, select it!
+      if (tempTime == 0.0)
 	{ 
-	// cerr << "      Larger than best\n";
+	// cerr << "      Has never been rendererd\n";
 	bestMapper = mapper;
-	bestTime = tempTime;
+	bestTime = 0.0;
+	}
+      else
+	{
+	if (bestTime > myTime && tempTime < bestTime)
+	  {
+	  // cerr << "      Less than best in violation\n";
+	  bestMapper = mapper;
+	  bestTime = tempTime;
+	  }
+	if (tempTime > bestTime && tempTime < myTime)
+	  { 
+	  // cerr << "      Larger than best\n";
+	  bestMapper = mapper;
+	  bestTime = tempTime;
+	  }
 	}
       }
     }
-  
+    
   // record start rendering time
   aTime = vtkTimerLog::GetCurrentTime();
   
@@ -194,10 +195,10 @@ void vtkLODActor::Render(vtkRenderer *ren)
     }
   this->Device->SetProperty(this->Property);
   
-
+  
   /* render the texture */
   if (this->Texture) this->Texture->Render(ren);
-    
+  
   // make sure the device has the same matrix
   this->GetMatrix(*matrix);
   this->Device->SetUserMatrix(matrix);
@@ -213,7 +214,6 @@ void vtkLODActor::Render(vtkRenderer *ren)
     if (bestTime == 0.0)
       { // This is the first render. 
       bestMapper->SetRenderTime(myTime);
-      // cerr << "          SETTING (" << bestMapper << ") RenderTime to " << myTime << endl;
       }
     else
       { // Running average of render time as a temporary fix for
