@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMeshQuality.h,v $
   Language:  C++
-  Date:      $Date: 2004-12-23 23:33:13 $ 
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2004-12-24 02:43:33 $ 
+  Version:   $Revision: 1.16 $
 
   Copyright 2003 Sandia Corporation.
   Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -134,6 +134,10 @@ public:
   void SetQuadQualityMeasureToEdgeRatio()
     {
     this->SetQuadQualityMeasure( VTK_QUALITY_EDGE_RATIO );
+    }
+  void SetQuadQualityMeasureToMinAngle()
+    {
+    this->SetQuadQualityMeasure( VTK_QUALITY_MIN_ANGLE );
     }
 
   // Description:
@@ -292,6 +296,14 @@ public:
   // where \f$|q|_\infty\f$ and \f$|q|_0\f$ respectively denote the greatest and
   // the smallest edge lengths of \f$q\f$.
   static double QuadEdgeRatio( vtkCell* cell );
+
+  // Description:
+  // This is a static function used to calculate the minimal (nonoriented) angle
+  // of a quadrilateral, expressed in degrees.
+  // It assumes that you pass the correct type of cell -- no type checking is
+  // performed because this method is called from the inner loop of the Execute()
+  // member function.
+  static double QuadMinAngle( vtkCell* cell );
 
   // Description:
   // This is a static function used to calculate the radius ratio of a tetrahedron.
