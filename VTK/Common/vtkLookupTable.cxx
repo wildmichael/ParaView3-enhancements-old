@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLookupTable.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-07 03:12:39 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2000-12-08 16:34:01 $
+  Version:   $Revision: 1.58 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -214,8 +214,8 @@ void vtkLookupTable::Build()
         ((float)127.5*(1.0+(float)cos((1.0-(double)rgba[2])*3.141593)));
       c_rgba[3] = (unsigned char) (alpha*255.0);
     }
+    this->BuildTime.Modified();
   }
-  this->BuildTime.Modified();
 }
 
 // Given a scalar value v, return an rgba color value from lookup table.
