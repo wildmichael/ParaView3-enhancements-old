@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-18 14:23:35 $
-  Version:   $Revision: 1.131 $
+  Date:      $Date: 2001-12-28 13:23:49 $
+  Version:   $Revision: 1.132 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -270,7 +270,6 @@ vtkCell *vtkImageData::GetCell(vtkIdType cellId)
     case VTK_EMPTY: 
       //cell = this->EmptyCell;
       return NULL;
-      break;
 
     case VTK_SINGLE_POINT: // cellId can only be = 0
       cell = this->Vertex;
