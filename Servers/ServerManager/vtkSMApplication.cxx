@@ -29,7 +29,7 @@
 #include "vtkSMGeneratedModules.h"
 
 vtkStandardNewMacro(vtkSMApplication);
-vtkCxxRevisionMacro(vtkSMApplication, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkSMApplication, "$Revision: 1.4 $");
 
 //---------------------------------------------------------------------------
 vtkSMApplication::vtkSMApplication()
@@ -164,10 +164,10 @@ void vtkSMApplication::Initialize()
 //---------------------------------------------------------------------------
 void vtkSMApplication::Finalize()
 {
-  vtkSMSimpleCommunicationModule::SafeDownCast(this->GetCommunicationModule())
-    ->Disconnect();
+  //vtkSMSimpleCommunicationModule::SafeDownCast(this->GetCommunicationModule())
+  //->Disconnect();
   this->SetCommunicationModule(0);
-  this->GetProcessModule()->FinalizeInterpreter();
+  //this->GetProcessModule()->FinalizeInterpreter();
   this->SetProcessModule(0);
   this->SetProxyManager(0);
 
