@@ -5,8 +5,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDesktopDeliveryClient.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-09-22 16:59:41 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-09-23 19:35:38 $
+  Version:   $Revision: 1.4 $
 
 =========================================================================*/
 
@@ -29,7 +29,7 @@
 
 //#include <vtkRef.h>
 
-vtkCxxRevisionMacro(vtkDesktopDeliveryClient, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkDesktopDeliveryClient, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkDesktopDeliveryClient);
 
 vtkDesktopDeliveryClient::vtkDesktopDeliveryClient()
@@ -341,8 +341,11 @@ void vtkDesktopDeliveryClient::PrintSelf(ostream& os, vtkIndent indent)
      << (this->ReplaceActors ? "on" : "off") << endl;
   os << indent << "RemoteDisplay: "
      << (this->RemoteDisplay ? "on" : "off") << endl;
+  os << indent << "Squirt: "
+     << (this->Squirt? "on" : "off") << endl;
 
   os << indent << "RemoteImageProcessingTime: "
      << this->RemoteImageProcessingTime << endl;
   os << indent << "TransferTime: " << this->TransferTime << endl;
+  os << indent << "SquirtCompressionLevel: " << this->SquirtCompressionLevel << endl;
 }

@@ -5,8 +5,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDesktopDeliveryServer.h,v $
   Language:  C++
-  Date:      $Date: 2003-09-10 19:41:54 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-09-23 19:35:38 $
+  Version:   $Revision: 1.3 $
 
 =========================================================================*/
 // .NAME vtkDesktopDeliveryServer - An object for remote rendering.
@@ -31,8 +31,7 @@
 
 #include "vtkParallelRenderManager.h"
 
-class VTK_EXPORT vtkDesktopDeliveryServer
-    : public vtkParallelRenderManager
+class VTK_EXPORT vtkDesktopDeliveryServer : public vtkParallelRenderManager
 {
 public:
   vtkTypeRevisionMacro(vtkDesktopDeliveryServer, vtkParallelRenderManager);

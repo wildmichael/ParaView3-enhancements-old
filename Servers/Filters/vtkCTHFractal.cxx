@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCTHFractal.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-09-22 16:34:23 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2003-09-23 19:35:38 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,7 +29,7 @@
 
 
 
-vtkCxxRevisionMacro(vtkCTHFractal, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkCTHFractal, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkCTHFractal);
 
 //----------------------------------------------------------------------------
@@ -502,7 +502,6 @@ void vtkCTHFractal::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Dimensions: " << this->Dimensions << endl;
   os << indent << "FractalValue: " << this->FractalValue << endl;
   os << indent << "MaximumLevel: " << this->MaximumLevel << endl;
-
-
+  os << indent << "GhostLevels: " << this->GhostLevels << endl;
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCTHData.h,v $
   Language:  C++
-  Date:      $Date: 2003-09-22 18:54:14 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2003-09-23 19:35:38 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -213,8 +213,8 @@ protected:
   void SetUpdateExtent(int, int ,int, int, int, int) {}
   void SetUpdateExtent(int*) {}
   void GetUpdateExtent(int &,int &,int &,int &,int &,int &) {}
-  int* GetUpdateExtent() {return NULL;}
-  void GetUpdateExtenent(int*) {}
+  int* GetUpdateExtent() {return this->Superclass::GetUpdateExtent();}
+  void GetUpdateExtent(int*) {}
 
 private:
   void InternalCTHDataCopy(vtkCTHData *src);

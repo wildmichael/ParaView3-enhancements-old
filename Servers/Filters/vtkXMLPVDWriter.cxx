@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLPVDWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-30 13:49:07 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-09-23 19:35:38 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -71,7 +71,7 @@ int vtkXMLPVDWriterRemoveDirectory(const char* dirname)
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkXMLPVDWriter);
-vtkCxxRevisionMacro(vtkXMLPVDWriter, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkXMLPVDWriter, "$Revision: 1.5 $");
 
 class vtkXMLPVDWriterInternals
 {
@@ -209,8 +209,8 @@ int vtkXMLPVDWriter::WriteInternal()
         {
         for (j = 0; j < i; j++)
           {
-          vtkstd::string fname = this->Internal->CreatePieceFileName(i);
-          vtkstd::string full = this->Internal->FilePath;
+          fname = this->Internal->CreatePieceFileName(i);
+          full = this->Internal->FilePath;
           full += fname;
           unlink(full.c_str());
           }
