@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkApproximatingSubdivisionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-26 20:46:42 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-02-27 12:47:14 $
+  Version:   $Revision: 1.13 $
   Thanks:    This work was supported bt PHS Research Grant No. 1 P41 RR13218-01
              from the National Center for Research Resources
 
@@ -89,8 +89,12 @@ void vtkApproximatingSubdivisionFilter::Execute()
     inputDS->GetPointData()->PassData(input->GetPointData());
     inputDS->GetCellData()->PassData(input->GetCellData());
 
-  for (level = 0; level < this->NumberOfSubdivisions; level++)
+  int abort=0;
+  for (level = 0; level < this->NumberOfSubdivisions && !abort; level++)
     {
+    this->UpdateProgress((float)(level+1)/this->NumberOfSubdivisions);
+    abort = this->GetAbortExecute();
+
     // Generate topology  for the input dataset
     inputDS->BuildLinks();
 
@@ -295,7 +299,8 @@ void vtkApproximatingSubdivisionFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
 
-  os << indent << "Number of subdivisions: " << this->NumberOfSubdivisions << endl;
+  os << indent << "Number of subdivisions: " 
+     << this->NumberOfSubdivisions << endl;
 }
 
 
