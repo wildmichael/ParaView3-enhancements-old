@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHedgeHog.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-24 18:18:04 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2000-08-30 09:02:32 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -89,7 +89,7 @@ void vtkHedgeHog::Execute()
   //
   for (ptId=0; ptId < numPts; ptId++)
     {
-    if ( ! (i % 10000) ) //abort/progress
+    if ( ! (ptId % 10000) ) //abort/progress
       {
       this->UpdateProgress ((float)ptId/numPts);
       if (this->GetAbortExecute())
