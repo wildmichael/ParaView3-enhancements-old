@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorIterator.txx,v $
   Language:  C++
-  Date:      $Date: 2002-04-25 16:00:39 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-06-16 23:03:29 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -138,5 +138,12 @@ int vtkVectorIterator<DType>::GoToLastItem()
   this->Index = llist->GetNumberOfItems()-1;  
   return VTK_OK;
 }
+
+#if defined ( _MSC_VER )
+template <class DType>
+vtkVectorIterator<DType>::vtkVectorIterator(const vtkVectorIterator<DType>&){}
+template <class DType>
+void vtkVectorIterator<DType>::operator=(const vtkVectorIterator<DType>&){}
+#endif
 
 #endif

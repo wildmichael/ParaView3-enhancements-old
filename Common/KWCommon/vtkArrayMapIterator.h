@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArrayMapIterator.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-10 18:05:01 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-06-16 23:03:29 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -106,8 +106,8 @@ protected:
   vtkIdType Index;
 
 private:
-  vtkArrayMapIterator(const vtkArrayMapIterator<KeyType,DataType>&) {}
-  void operator=(const vtkArrayMapIterator<KeyType,DataType>&) {}
+  vtkArrayMapIterator(const vtkArrayMapIterator<KeyType,DataType>&); // Not implemented
+  void operator=(const vtkArrayMapIterator<KeyType,DataType>&); // Not implemented
 };
 
 #ifdef VTK_NO_EXPLICIT_TEMPLATE_INSTANTIATION

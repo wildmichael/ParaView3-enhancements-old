@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArrayMap.txx,v $
   Language:  C++
-  Date:      $Date: 2002-04-18 19:59:10 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-06-16 23:03:29 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -191,6 +191,14 @@ vtkArrayMap<KeyType,DataType>::NewIterator()
   it->InitTraversal();
   return it;
 }
+
+
+#if defined ( _MSC_VER )
+template <class KeyType,class DataType>
+vtkArrayMap<KeyType,DataType>::vtkArrayMap(const vtkArrayMap<KeyType,DataType>&){}
+template <class KeyType,class DataType>
+void vtkArrayMap<KeyType,DataType>::operator=(const vtkArrayMap<KeyType,DataType>&){}
+#endif
 
 #endif
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVector.txx,v $
   Language:  C++
-  Date:      $Date: 2002-04-12 22:06:28 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-06-16 23:03:29 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -337,5 +337,12 @@ vtkVectorIterator<DType> *vtkVector<DType>::NewIterator()
   it->InitTraversal();
   return it;
 }
+
+#if defined ( _MSC_VER )
+template <class DType>
+vtkVector<DType>::vtkVector(const vtkVector<DType>&){}
+template <class DType>
+void vtkVector<DType>::operator=(const vtkVector<DType>&){}
+#endif
 
 #endif

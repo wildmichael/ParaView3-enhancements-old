@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinkedList.txx,v $
   Language:  C++
-  Date:      $Date: 2002-04-12 22:06:28 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-06-16 23:03:29 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -331,5 +331,12 @@ vtkLinkedListIterator<DType> *vtkLinkedList<DType>::NewIterator()
   it->InitTraversal();
   return it;
 }
+
+#if defined ( _MSC_VER )
+template <class DType>
+vtkLinkedList<DType>::vtkLinkedList(const vtkLinkedList<DType>&){}
+template <class DType>
+void vtkLinkedList<DType>::operator=(const vtkLinkedList<DType>&){}
+#endif
 
 #endif

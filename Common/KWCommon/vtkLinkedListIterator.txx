@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinkedListIterator.txx,v $
   Language:  C++
-  Date:      $Date: 2002-04-25 16:00:39 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-06-16 23:03:29 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -164,5 +164,12 @@ int vtkLinkedListIterator<DType>::GoToLastItem()
     }
   return VTK_OK;
 }
+
+#if defined ( _MSC_VER )
+template <class DType>
+vtkLinkedListIterator<DType>::vtkLinkedListIterator(const vtkLinkedListIterator<DType>&){}
+template <class DType>
+void vtkLinkedListIterator<DType>::operator=(const vtkLinkedListIterator<DType>&){}
+#endif
 
 #endif

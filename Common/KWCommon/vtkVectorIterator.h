@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorIterator.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-10 18:05:01 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-06-16 23:03:29 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -108,8 +108,9 @@ protected:
 
   vtkIdType Index;
 
-  vtkVectorIterator(const vtkVectorIterator&){}
-  void operator=(const vtkVectorIterator&){}
+private:
+  vtkVectorIterator(const vtkVectorIterator&); // Not implemented
+  void operator=(const vtkVectorIterator&); // Not implemented
 };
 
 #ifdef VTK_NO_EXPLICIT_TEMPLATE_INSTANTIATION

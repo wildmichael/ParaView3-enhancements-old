@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArrayMapIterator.txx,v $
   Language:  C++
-  Date:      $Date: 2002-04-25 16:00:39 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-06-16 23:03:29 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -147,5 +147,12 @@ int vtkArrayMapIterator<KeyType,DataType>::GoToLastItem()
   this->Index = lmap->GetNumberOfItems()-1;
   return VTK_OK;
 }
+
+#if defined ( _MSC_VER )
+template <class KeyType,class DataType>
+vtkArrayMapIterator<KeyType,DataType>::vtkArrayMapIterator(const vtkArrayMapIterator<KeyType,DataType>&){}
+template <class KeyType,class DataType>
+void vtkArrayMapIterator<KeyType,DataType>::operator=(const vtkArrayMapIterator<KeyType,DataType>&){}
+#endif
 
 #endif

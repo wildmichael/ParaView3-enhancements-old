@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinkedListIterator.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-10 18:05:01 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-06-16 23:03:29 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -109,8 +109,9 @@ protected:
 
   vtkLinkedListNode<DType> *Pointer;
 
-  vtkLinkedListIterator(const vtkLinkedListIterator&) {}
-  void operator=(const vtkLinkedListIterator&) {}
+private:
+  vtkLinkedListIterator(const vtkLinkedListIterator&); // Not implemented
+  void operator=(const vtkLinkedListIterator&); // Not implemented
 };
 
 #ifdef VTK_NO_EXPLICIT_TEMPLATE_INSTANTIATION
