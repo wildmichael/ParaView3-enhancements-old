@@ -1,10 +1,10 @@
-/*=========================================================================
+n/*=========================================================================
 
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLDataParser.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-06-16 13:23:58 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2003-08-13 17:56:37 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkXMLDataElement.h"
 
-vtkCxxRevisionMacro(vtkXMLDataParser, "$Revision: 1.16 $");
+vtkCxxRevisionMacro(vtkXMLDataParser, "$Revision: 1.17 $");
 vtkStandardNewMacro(vtkXMLDataParser);
 vtkCxxSetObjectMacro(vtkXMLDataParser, Compressor, vtkDataCompressor);
 
@@ -59,6 +59,8 @@ vtkXMLDataParser::vtkXMLDataParser()
 #else
   this->ByteOrder = vtkXMLDataParser::LittleEndian;
 #endif
+
+  this->AttributesEncoding = VTK_ENCODING_NONE;
 }
 
 //----------------------------------------------------------------------------
@@ -94,6 +96,7 @@ void vtkXMLDataParser::PrintSelf(ostream& os, vtkIndent indent)
     }
   os << indent << "Progress: " << this->Progress << "\n";
   os << indent << "Abort: " << this->Abort << "\n";
+  os << indent << "AttributesEncoding: " << this->AttributesEncoding << "\n";
 }
 
 //----------------------------------------------------------------------------
@@ -134,7 +137,7 @@ void vtkXMLDataParser::StartElement(const char* name, const char** atts)
   vtkXMLDataElement* element = vtkXMLDataElement::New();
   element->SetName(name);
   element->SetXMLByteIndex(this->GetXMLByteIndex());
-  element->ReadXMLAttributes(atts);
+  element->ReadXMLAttributes(atts, this->AttributesEncoding);
   const char* id = element->GetAttribute("id");
   if(id)
     {
