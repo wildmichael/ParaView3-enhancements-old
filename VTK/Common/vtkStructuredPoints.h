@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPoints.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:01:47 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 1999-09-02 12:54:09 $
+  Version:   $Revision: 1.61 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -66,18 +66,20 @@ public:
   vtkDataObject *MakeObject() {return new vtkStructuredPoints;}
 
   // Description:
-  // Return what type of dataset this is.
+  // To simplify filter superclasses,
   int GetDataObjectType() {return VTK_STRUCTURED_POINTS;}
 
+protected:
+
   // Description:
-  // Since vtkStructuredPointsToImage, put some translation
-  // features in here.  UpdateInformation updates the source
-  // and the sets WholeExtent and ScalarType variables.
-  void UpdateInformation();
-  
+  // This is an experiment.  When a structured points UpdateExtent
+  // gets clipped, then the UpdateExtent is set to the WholeExtent.
+  // structured points source will always produce all of their output!.
+  int ClipUpdateExtentWithWholeExtent();
   
 protected:
   vtkStructuredPoints();
+
 };
 
 #endif

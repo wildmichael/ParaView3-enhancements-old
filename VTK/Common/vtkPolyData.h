@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:01:41 $
-  Version:   $Revision: 1.77 $
+  Date:      $Date: 1999-09-02 12:54:06 $
+  Version:   $Revision: 1.78 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -391,13 +391,15 @@ protected:
   vtkCellLinks *Links;
 
   // ----- streaming stuff -----------
-  void CopyUpdateExtent(vtkDataObject *polyData);
-  void CopyInformation(vtkDataObject *polyData);
-  // For releasing data. We need another method.
-  void ClipUpdateExtentWithWholeExtent();
-  
   vtkUnstructuredExtent *Extent;
   vtkUnstructuredExtent *UpdateExtent;
+
+  void CopyUpdateExtent(vtkDataObject *polyData);
+  void CopyInformation(vtkDataObject *polyData);
+  // Returns 0 if upstream filter cannot generate the UpdateExtent.
+  // This also releases the data if a different piece is requested.
+  int ClipUpdateExtentWithWholeExtent();
+  
 };
 
 inline void vtkPolyData::GetPointCells(int ptId, unsigned short& ncells, 
