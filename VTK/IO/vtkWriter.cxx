@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-12 11:47:29 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2002-12-11 22:46:18 $
+  Version:   $Revision: 1.37 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,11 @@
 
 =========================================================================*/
 #include "vtkWriter.h"
-#include "vtkCommand.h"
 
-vtkCxxRevisionMacro(vtkWriter, "$Revision: 1.36 $");
+#include "vtkCommand.h"
+#include "vtkDataObject.h"
+
+vtkCxxRevisionMacro(vtkWriter, "$Revision: 1.37 $");
 
 // Construct with no start and end write methods or arguments.
 vtkWriter::vtkWriter()
