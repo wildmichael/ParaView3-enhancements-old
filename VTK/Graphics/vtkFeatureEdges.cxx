@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFeatureEdges.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-25 20:44:38 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2001-05-04 14:22:08 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -134,7 +134,7 @@ void vtkFeatureEdges::Execute()
   if ( (numPts=input->GetNumberOfPoints()) < 1 || !inPts || 
        (numPolys < 1 && numStrips < 1) )
     {
-    vtkErrorMacro(<<"No input data!");
+    //vtkErrorMacro(<<"No input data!");
     return;
     }
 
