@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-11 21:12:22 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1997-07-17 21:32:16 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -66,6 +66,7 @@ vtkImageViewer::vtkImageViewer()
   this->Position[0] = this->Position[1] = 0;
   this->Input = NULL;
   this->Mapped = 0;
+  this->OwnWindow = 0;
   this->WindowName = NULL;
   
   this->ColorWindow = 255.0;

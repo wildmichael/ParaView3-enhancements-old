@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-11 16:42:51 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1997-07-17 21:32:14 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -208,6 +208,7 @@ protected:
   int Size[2];
   int Position[2];
   int GrayScaleHint;
+  int OwnWindow;
 };
 
 #endif
