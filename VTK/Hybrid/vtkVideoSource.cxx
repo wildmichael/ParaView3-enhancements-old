@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVideoSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-08 23:03:02 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2001-04-11 20:39:34 $
+  Version:   $Revision: 1.22 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1049,8 +1049,9 @@ void vtkVideoSource::UnpackRasterLine(char *outPtr, char *rowPtr,
 // it unless you have to.  Override the UnpackRasterLine() method instead.
 // You should only have to override it if you are using something other 
 // than 8-bit vtkScalars for the frame buffer.
-void vtkVideoSource::Execute(vtkImageData *data)
+void vtkVideoSource::ExecuteData(vtkDataObject *output)
 {
+  vtkImageData *data = this->AllocateOutputData(output);
   int i,j;
 
   int outputExtent[6];     // will later be clipped in Z to a single frame

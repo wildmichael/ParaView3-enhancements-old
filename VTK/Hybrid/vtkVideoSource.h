@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVideoSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-03-08 23:03:01 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-04-11 20:39:34 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -303,8 +303,7 @@ protected:
   // These methods can be overridden in subclasses
   virtual void UpdateFrameBuffer();
   virtual void AdvanceFrameBuffer(int n);
-  virtual void Execute(vtkImageData *data);
-  void Execute() { this->vtkImageSource::Execute(); };
+  virtual void ExecuteData(vtkDataObject *data);
   // if some component conversion is required, it is done here:
   virtual void UnpackRasterLine(char *outPtr, char *rowPtr, 
 				int start, int count);

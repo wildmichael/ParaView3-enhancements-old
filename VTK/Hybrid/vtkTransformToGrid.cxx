@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformToGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:27 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-04-11 20:39:34 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -372,8 +372,9 @@ static void vtkTransformToGridExecute(vtkTransformToGrid *self,
 }       
 
 //----------------------------------------------------------------------------
-void vtkTransformToGrid::Execute(vtkImageData *grid)
+void vtkTransformToGrid::ExecuteData(vtkDataObject *output)
 {
+  vtkImageData *grid = this->AllocateOutputData(output);
   int *extent = grid->GetExtent();
 
   float *gridPtr = (float *)grid->GetScalarPointerForExtent(extent);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformToGrid.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:27 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-04-11 20:39:34 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen
@@ -112,8 +112,7 @@ protected:
 
   void ExecuteInformation();
 
-  void Execute(vtkImageData *data);
-  void Execute() { this->vtkImageSource::Execute(); };
+  void ExecuteData(vtkDataObject *data);
 
   // Description:
   // Internal method to calculate the shift and scale values which
