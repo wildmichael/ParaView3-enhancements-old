@@ -3,8 +3,8 @@
  Program:   Visualization Toolkit
  Module:    $RCSfile: vtkSource.cxx,v $
  Language:  C++
- Date:      $Date: 1999-09-16 16:47:56 $
- Version:   $Revision: 1.46 $
+ Date:      $Date: 1999-09-16 18:12:17 $
+ Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -312,6 +312,7 @@ void vtkSource::InternalUpdate(vtkDataObject *output)
     if (this->ComputeDivisionExtents(output, division, numDivisions))
       {
       // Preupdate: Needed for ports. (like a non-blocking  update)
+      // (Only need to be called for inputs with locality != 0.)
       this->Updating = 1;
       for (idx = 0; idx < this->NumberOfInputs; ++idx)
 	{
@@ -322,7 +323,7 @@ void vtkSource::InternalUpdate(vtkDataObject *output)
 	}
       this->Updating = 0;
       
-      // Update the inputs
+      // Update the inputs (these should be sorted by Locality)
       this->Updating = 1;
       for (idx = 0; idx < this->NumberOfInputs; ++idx)
 	{

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-16 16:47:55 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1999-09-16 18:12:16 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -141,6 +141,7 @@ int vtkDataObject::ShouldIReleaseData()
 void vtkDataObject::Update()
 {
   this->UpdateInformation();
+  this->PreUpdate();
   this->InternalUpdate();
 }
 
