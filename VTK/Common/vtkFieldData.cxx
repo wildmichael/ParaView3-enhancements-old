@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:09 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-03-17 11:09:07 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -626,9 +626,13 @@ unsigned long vtkFieldData::GetActualMemorySize()
 
 void vtkFieldData::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkObject::PrintSelf(os,indent);
+  vtkObject::PrintSelf(os,indent);    
 
   os << indent << "Number Of Arrays: " << this->GetNumberOfArrays() << "\n";
+  for (int i=0; i<this->NumberOfArrays; i++)
+    {
+    os << indent << "Array " << i << " name = " << this->GetArrayName(i) << "\n";
+    }
   os << indent << "Number Of Components: " << this->GetNumberOfComponents() << "\n";
   os << indent << "Number Of Tuples: " << this->GetNumberOfTuples() << "\n";
 }
