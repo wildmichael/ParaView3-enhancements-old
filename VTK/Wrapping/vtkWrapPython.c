@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapPython.c,v $
   Language:  C++
-  Date:      $Date: 2003-06-24 20:50:36 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 2003-08-28 02:07:39 $
+  Version:   $Revision: 1.62 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -1021,9 +1021,15 @@ void vtkParseOutput(FILE *fp, FileInfo *data)
     /* Block inclusion of full streams.  */
     fprintf(fp,"#define VTK_STREAMS_FWD_ONLY\n");
     }
+
+#if !defined(__APPLE__)
   fprintf(fp,"#include \"vtkPythonUtil.h\"\n\n");
+#endif
   fprintf(fp,"#include \"vtkSystemIncludes.h\"\n");
   fprintf(fp,"#include \"%s.h\"\n",data->ClassName);
+#ifdef __APPLE__
+  fprintf(fp,"#include \"vtkPythonUtil.h\"\n\n");
+#endif
   
   fprintf(fp,"#if defined(WIN32)\n");
   fprintf(fp,"extern \"C\" { __declspec( dllexport ) PyObject *PyVTKClass_%sNew(char *); }\n",
