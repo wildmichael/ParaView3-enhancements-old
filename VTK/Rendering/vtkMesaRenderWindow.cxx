@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-15 15:04:12 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-11-16 12:15:28 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -93,7 +93,7 @@ XVisualInfo *vtkMesaRenderWindowTryForVisual(Display *DisplayId,
     }
   attributes[index++] = None;
 
-  return glXChooseVisual(this->DisplayId,DefaultScreen(DisplayId),attributes);
+  return glXChooseVisual(DisplayId,DefaultScreen(DisplayId),attributes);
 }
 
 XVisualInfo *vtkMesaRenderWindow::GetDesiredVisualInfo()
