@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxel.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-29 16:14:20 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1995-12-15 10:29:27 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -210,8 +210,8 @@ int vtkVoxel::CellBoundary(int subId, float pcoords[3], vtkIdList& pts)
     return 1;
 }
 
-static int edges[12][2] = { {0,1}, {1,3}, {3,2}, {2,0},
-                            {4,5}, {5,7}, {7,6}, {6,4},
+static int edges[12][2] = { {0,1}, {1,3}, {2,3}, {0,2},
+                            {4,5}, {5,7}, {6,7}, {4,6},
                             {0,4}, {1,5}, {2,6}, {3,7}};
 // define in terms vtkPixel understands
 static int faces[6][4] = { {0,2,4,6}, {1,3,5,7},
