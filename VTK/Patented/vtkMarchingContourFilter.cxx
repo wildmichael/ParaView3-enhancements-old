@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-12-20 12:08:04 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2000-01-26 17:42:55 $
+  Version:   $Revision: 1.6 $
 
 
-Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
 
     THIS CLASS IS PATENTED UNDER UNITED STATES PATENT NUMBER 4,710,876
     "System and Method for the Display of Surface Structures Contained

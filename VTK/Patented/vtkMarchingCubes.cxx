@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-12-19 22:14:06 $
-  Version:   $Revision: 1.62 $
+  Date:      $Date: 2000-01-26 17:42:55 $
+  Version:   $Revision: 1.63 $
 
 
-Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
 
     THIS CLASS IS PATENTED UNDER UNITED STATES PATENT NUMBER 4,710,876
     "System and Method for the Display of Surface Structures Contained

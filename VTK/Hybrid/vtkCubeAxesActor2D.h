@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeAxesActor2D.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-18 14:04:18 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-01-26 17:38:34 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thorsten Dowe who modified and improved this class.
 
-Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless

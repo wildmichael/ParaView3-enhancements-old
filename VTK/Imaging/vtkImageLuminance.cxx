@@ -3,10 +3,10 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageLuminance.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:09:01 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-01-26 17:42:07 $
+  Version:   $Revision: 1.12 $
 
-Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless

@@ -3,12 +3,12 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-13 14:54:03 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2000-01-26 17:42:58 $
+  Version:   $Revision: 1.4 $
 
 
 
-Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
 
     THIS CLASS IS PATENT PENDING.
 

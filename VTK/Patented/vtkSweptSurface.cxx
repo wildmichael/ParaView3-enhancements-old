@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSweptSurface.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-12-19 21:47:57 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 2000-01-26 17:42:57 $
+  Version:   $Revision: 1.53 $
 
 
-Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
 
     THIS CLASS IS PATENTED UNDER UNITED STATES PATENT NUMBER 5,542,036
     "Implicit Modeling of Swept Volumes and Swept Surfaces"

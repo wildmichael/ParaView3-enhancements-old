@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimate.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-18 14:06:11 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2000-01-26 17:42:51 $
+  Version:   $Revision: 1.42 $
 
 
-Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
 
     THIS CLASS IS PATENTED UNDER UNITED STATES PATENT NUMBER 5,559,388
     "Method for Reducting the Complexity of a Polygonal Mesh".

@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePermute.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-07 09:11:29 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2000-01-26 17:42:17 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
-Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless

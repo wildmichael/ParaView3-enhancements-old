@@ -3,10 +3,10 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:56:32 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2000-01-26 17:39:56 $
+  Version:   $Revision: 1.46 $
   
-Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless

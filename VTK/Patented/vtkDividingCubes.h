@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDividingCubes.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-18 14:06:11 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2000-01-26 17:42:52 $
+  Version:   $Revision: 1.34 $
 
 
-Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
 
     THIS CLASS IS PATENTED UNDER UNITED STATES PATENT NUMBER 4,719,585
     "Dividing Cubes System and Method for the Display of Surface Structures

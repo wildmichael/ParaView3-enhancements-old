@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCast.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-12 14:59:23 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2000-01-26 17:41:47 $
+  Version:   $Revision: 1.32 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
-Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless

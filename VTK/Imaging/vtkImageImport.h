@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageImport.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-18 14:05:51 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2000-01-26 17:42:04 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
-Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless

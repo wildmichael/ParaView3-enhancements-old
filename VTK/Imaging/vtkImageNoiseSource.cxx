@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageNoiseSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-07 09:11:27 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2000-01-26 17:42:14 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
-Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
+Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless

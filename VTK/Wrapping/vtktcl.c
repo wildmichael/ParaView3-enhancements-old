@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtktcl.c,v $
   Language:  C++
-  Date:      $Date: 1999-06-15 15:53:43 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2000-01-26 17:43:01 $
+  Version:   $Revision: 1.6 $
 
 
-Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless

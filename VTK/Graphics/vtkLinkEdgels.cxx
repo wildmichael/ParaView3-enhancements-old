@@ -3,10 +3,10 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinkEdgels.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:06:50 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2000-01-26 17:39:59 $
+  Version:   $Revision: 1.20 $
 
-Copyright (c) 1993-1997 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless

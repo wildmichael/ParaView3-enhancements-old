@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-18 14:06:09 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-01-26 17:42:48 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
-Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless

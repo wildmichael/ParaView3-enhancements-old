@@ -3,10 +3,10 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScaledTextActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-18 19:34:33 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-01-26 17:42:40 $
+  Version:   $Revision: 1.11 $
 
-Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless

@@ -3,12 +3,12 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGridSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-16 21:51:31 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-01-26 17:42:52 $
+  Version:   $Revision: 1.14 $
 
 
 
-Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
 
     THIS CLASS IS PATENT PENDING.
 

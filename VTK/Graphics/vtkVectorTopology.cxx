@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorTopology.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:43 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-01-26 17:38:50 $
+  Version:   $Revision: 1.3 $
 
 
-Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless

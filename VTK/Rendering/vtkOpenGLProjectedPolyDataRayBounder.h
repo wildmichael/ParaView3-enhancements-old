@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLProjectedPolyDataRayBounder.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-18 14:05:02 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-01-26 17:40:14 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to Lisa Sobierajski Avila who developed this class.
 
-Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless

@@ -3,13 +3,13 @@
   Program:   Java Wrapper for VTK
   Module:    $RCSfile: vtkJavaPanel.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-11-07 15:03:23 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-01-26 17:39:55 $
+  Version:   $Revision: 1.3 $
 
 This file's contents may be copied, reproduced or altered in any way 
 without the express written consent of the author.
 
-Copyright (c) Ken Martin 1995
+Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
 
 =========================================================================*/
 

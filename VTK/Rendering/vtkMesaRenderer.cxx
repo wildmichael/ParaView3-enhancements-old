@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-12-21 17:38:00 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-01-26 17:40:09 $
+  Version:   $Revision: 1.3 $
 
 
-Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless

@@ -3,12 +3,12 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSuperquadricSource.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-18 14:04:23 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2000-01-26 17:38:49 $
+  Version:   $Revision: 1.7 $
   Thanks:    Mike Halle, Brigham and Women's Hospital
 
 
-Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless
