@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalars.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 21:03:21 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1997-03-01 18:23:47 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -125,6 +125,10 @@ void vtkScalars::CreateDefaultLookupTable()
 {
   if ( this->LookupTable ) this->LookupTable->UnRegister(this);
   this->LookupTable = new vtkLookupTable;
+  // make sure it is built 
+  // otherwise problems with InsertScalar trying to map through 
+  // non built lut
+  this->LookupTable->Build();
   this->LookupTable->Register(this);
 }
 
