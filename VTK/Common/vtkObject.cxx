@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 21:02:52 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1997-03-28 20:07:27 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -136,4 +136,14 @@ void vtkObject::SetDebug(int debugFlag)
 {
   this->Debug = debugFlag;
 }
+
+
+// Description:
+// This method is called when vtkErrorMacro executes. It allows 
+// the debugger to break on error.
+void vtkObject::BreakOnError()
+{
+}
+
+
 

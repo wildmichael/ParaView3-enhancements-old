@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSetGet.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-26 15:12:45 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1997-03-28 20:07:29 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -363,7 +363,7 @@ void Get##name (type data[count]) \
       vtkmsgbuff = vtkmsg.str(); \
       vtkmsgbuff[vtkmsg.pcount()] = '\0'; \
       MessageBox(NULL,vtkmsgbuff,"Debug Info",MB_ICONERROR | MB_OK); \
-      delete vtkmsgbuff;}
+      delete vtkmsgbuff; vtkObject::BreakOnError();}
 
 #else
 //
@@ -385,7 +385,7 @@ void Get##name (type data[count]) \
 // vtkErrorMacro(<< "Error message" << variable);
 //
 #define vtkErrorMacro(x) \
-  cerr << "ERROR In " __FILE__ << ", line " << __LINE__ << "\n" << this->GetClassName() << " (" << this << "): " x << "\n\n"
+  {cerr << "ERROR In " __FILE__ << ", line " << __LINE__ << "\n" << this->GetClassName() << " (" << this << "): " x << "\n\n"; vtkObject::BreakOnError();}
 #endif
 
 //

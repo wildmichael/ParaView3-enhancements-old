@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-13 02:41:35 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1997-03-28 20:07:28 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,6 +80,8 @@ public:
   virtual void PrintHeader(ostream& os, vtkIndent indent);
   virtual void PrintTrailer(ostream& os, vtkIndent indent);
 
+  static void BreakOnError();
+  
 protected:
   int Debug;         // Enable debug messages
   vtkTimeStamp MTime; // Keep track of modification time
