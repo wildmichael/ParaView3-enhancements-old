@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIslandRemoval2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-17 14:29:48 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1997-07-29 12:58:17 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -102,6 +102,13 @@ void vtkImageIslandRemoval2D::InterceptCacheUpdate()
 {
   int min, max;
 
+  // Filter superclass has no control of intercept cache update.
+  // a work around
+  if (this->Bypass)
+    {
+    return;
+    }
+  
   this->Output->GetAxisWholeExtent(this->FilteredAxes[0], min ,max);
   this->Output->SetAxisUpdateExtent(this->FilteredAxes[0], min ,max);
   this->Output->GetAxisWholeExtent(this->FilteredAxes[1], min ,max);

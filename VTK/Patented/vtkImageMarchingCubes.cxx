@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMarchingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-24 15:53:43 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1997-07-29 12:58:21 $
+  Version:   $Revision: 1.7 $
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -153,8 +153,9 @@ void vtkImageMarchingCubes::Execute()
   this->NumberOfSlicesPerChunk = this->InputMemoryLimit * 1000 / (temp + 1);
   if (this->NumberOfSlicesPerChunk < minSlicesPerChunk)
     {
-    vtkWarningMacro("Execute: Need " << (temp/1000) << " KB to load " 
-		    << minSlicesPerChunk << " minimum.\n");
+    vtkWarningMacro("Execute: Need " 
+      <<  minSlicesPerChunk*(temp/1000) << " KB to load " 
+      << minSlicesPerChunk << " slices.\n");
     this->NumberOfSlicesPerChunk = minSlicesPerChunk;
     }
   vtkDebugMacro("Execute: NumberOfSlicesPerChunk = " 

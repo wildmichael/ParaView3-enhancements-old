@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSeedConnectivity.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-17 14:30:16 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-07-29 12:58:18 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -137,6 +137,13 @@ void vtkImageSeedConnectivity::InterceptCacheUpdate()
   int idx, axis;
   int min, max;
 
+  // Filter superclass has no control of intercept cache update.
+  // a work around
+  if (this->Bypass)
+    {
+    return;
+    }
+  
   for (idx = 0; idx < this->NumberOfFilteredAxes; ++idx)
     {
     axis = this->FilteredAxes[idx];
