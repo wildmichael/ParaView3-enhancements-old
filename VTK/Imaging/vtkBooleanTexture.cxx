@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBooleanTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-11 15:47:59 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2002-06-12 13:50:30 $
+  Version:   $Revision: 1.32 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkUnsignedCharArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkBooleanTexture, "$Revision: 1.31 $");
+vtkCxxRevisionMacro(vtkBooleanTexture, "$Revision: 1.32 $");
 vtkStandardNewMacro(vtkBooleanTexture);
 
 vtkBooleanTexture::vtkBooleanTexture()
@@ -51,13 +51,13 @@ void vtkBooleanTexture::ExecuteInformation()
 
 void vtkBooleanTexture::ExecuteData(vtkDataObject *outp)
 {
-  int numPts, i, j;
+  int i, j;
   int midILower, midJLower, midIUpper, midJUpper;
   vtkImageData *output = this->AllocateOutputData(outp);
   vtkUnsignedCharArray *newScalars = 
     vtkUnsignedCharArray::SafeDownCast(output->GetPointData()->GetScalars());
   
-  if (!newScalars || (numPts = this->XSize * this->YSize) < 1 )
+  if (!newScalars || this->XSize*this->YSize < 1 )
     {
     vtkErrorMacro(<<"Bad texture (xsize,ysize) specification!");
     return;
