@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-10 11:36:38 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1997-07-11 21:12:22 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -96,7 +96,6 @@ vtkImageViewer *vtkImageViewer::New()
 #else
   return vtkImageXViewer::New();
 #endif  
-  return NULL;
 }
 
 
