@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageImport.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-14 00:41:25 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-07-15 12:40:06 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -135,7 +135,7 @@ void vtkImageImport::UpdateImageInformation()
 
 // A templated function to import the data and copy it into the output.
 template<class T>
-void vtkImageImportExecute(vtkImageImport *self, vtkImageData *data, T *inPtr)
+static void vtkImageImportExecute(vtkImageImport *self, vtkImageData *data, T *inPtr)
 {
   int i,j;
 
