@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleUser.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-25 14:24:12 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-04-26 21:57:20 $
+  Version:   $Revision: 1.27 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkOldStyleCallbackCommand.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyleUser, "$Revision: 1.26 $");
+vtkCxxRevisionMacro(vtkInteractorStyleUser, "$Revision: 1.27 $");
 vtkStandardNewMacro(vtkInteractorStyleUser);
 
 //----------------------------------------------------------------------------
@@ -41,7 +41,6 @@ vtkInteractorStyleUser::vtkInteractorStyleUser()
   // Tell the parent class not to handle observers
   // that has to be done here
   this->HandleObserversOff();
-  this->LastPos[0] = this->LastPos[1] = 0;
   this->OldPos[0] = this->OldPos[1] = 0;
   this->Char = '\0';
   this->KeySym = (char *) "";
@@ -279,7 +278,7 @@ void vtkInteractorStyleUser::SetUserInteractionMethodArgDelete(void (*f)(void *)
 //----------------------------------------------------------------------------
 void  vtkInteractorStyleUser::StartUserInteraction() 
 {
-  if (this->State != VTKIS_START) 
+  if (this->State != VTKIS_NONE) 
     {
     return;
     }
@@ -312,7 +311,10 @@ void vtkInteractorStyleUser::OnTimer(void)
       this->InvokeEvent(vtkCommand::UserEvent,NULL);
       this->OldPos[0] = this->LastPos[0];
       this->OldPos[1] = this->LastPos[1];
-      this->Interactor->CreateTimer(VTKI_TIMER_UPDATE);
+      if (this->UseTimers) 
+        {
+        this->Interactor->CreateTimer(VTKI_TIMER_UPDATE);
+        }
       }
     }
   else if (!(this->HasObserver(vtkCommand::MouseMoveEvent) && 
@@ -325,7 +327,10 @@ void vtkInteractorStyleUser::OnTimer(void)
     }
   else if (this->HasObserver(vtkCommand::TimerEvent))
     {
-    this->Interactor->CreateTimer(VTKI_TIMER_UPDATE);
+    if (this->UseTimers) 
+      {
+      this->Interactor->CreateTimer(VTKI_TIMER_UPDATE);
+      }
     }
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleFlight.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-25 02:33:23 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-04-26 21:57:20 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -141,10 +141,8 @@ protected:
   int           AzimuthScanning;
   int           DisableMotion;
   int           FixUpVector;
-  double        OldX;
-  double        OldY;
-  double        X2;
-  double        Y2;
+  int           X2;
+  int           Y2;
   double        DiagonalLength;
   double        MotionStepSize;
   double        MotionUserScale;

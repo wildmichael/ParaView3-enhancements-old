@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleTrackballCamera.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-25 03:07:02 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-04-26 21:57:20 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -58,10 +58,14 @@ protected:
   vtkInteractorStyleTrackballCamera();
   ~vtkInteractorStyleTrackballCamera();
 
-  void RotateXY(int dx, int dy);
-  void PanXY(int x, int y, int oldX, int oldY);
-  void DollyXY(int dx, int dy);
-  void SpinXY(int dx, int dy, int oldX, int oldY);
+  // These methods for the different interactions in different modes
+  // are overridden in subclasses to perform the correct motion. Since
+  // they are called by OnTimer, they do not have mouse coord parameters
+  // (use GetLastPos and interactor GetEventPosition)
+  virtual void Rotate();
+  virtual void Spin();
+  virtual void Pan();
+  virtual void Dolly();
   
   float MotionFactor;
   float RadianToDegree;                 // constant: for conv from deg to rad

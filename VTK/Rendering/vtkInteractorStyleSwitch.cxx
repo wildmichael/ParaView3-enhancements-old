@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleSwitch.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-25 03:01:11 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-04-26 21:57:20 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkInteractorStyleTrackballActor.h"
 #include "vtkInteractorStyleTrackballCamera.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyleSwitch, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkInteractorStyleSwitch, "$Revision: 1.16 $");
 vtkStandardNewMacro(vtkInteractorStyleSwitch);
 
 //----------------------------------------------------------------------------
@@ -55,6 +55,7 @@ vtkInteractorStyleSwitch::~vtkInteractorStyleSwitch()
   this->TrackballCamera = NULL;
 }
 
+//----------------------------------------------------------------------------
 void vtkInteractorStyleSwitch::SetAutoAdjustCameraClippingRange( int value )
 {
   if ( value == this->AutoAdjustCameraClippingRange )
@@ -78,6 +79,7 @@ void vtkInteractorStyleSwitch::SetAutoAdjustCameraClippingRange( int value )
   this->Modified();
 }
 
+//----------------------------------------------------------------------------
 void vtkInteractorStyleSwitch::SetCurrentStyleToJoystickActor()
 {
   this->JoystickOrTrackball = VTKIS_JOYSTICK;
@@ -85,6 +87,7 @@ void vtkInteractorStyleSwitch::SetCurrentStyleToJoystickActor()
   this->SetCurrentStyle();
 }
 
+//----------------------------------------------------------------------------
 void vtkInteractorStyleSwitch::SetCurrentStyleToJoystickCamera()
 {
   this->JoystickOrTrackball = VTKIS_JOYSTICK;
@@ -92,6 +95,7 @@ void vtkInteractorStyleSwitch::SetCurrentStyleToJoystickCamera()
   this->SetCurrentStyle();
 }
 
+//----------------------------------------------------------------------------
 void vtkInteractorStyleSwitch::SetCurrentStyleToTrackballActor()
 {
   this->JoystickOrTrackball = VTKIS_TRACKBALL;
@@ -99,6 +103,7 @@ void vtkInteractorStyleSwitch::SetCurrentStyleToTrackballActor()
   this->SetCurrentStyle();
 }
 
+//----------------------------------------------------------------------------
 void vtkInteractorStyleSwitch::SetCurrentStyleToTrackballCamera()
 {
   this->JoystickOrTrackball = VTKIS_TRACKBALL;
@@ -135,7 +140,7 @@ void vtkInteractorStyleSwitch::OnChar(int vtkNotUsed(ctrl),
   this->SetCurrentStyle();
 }
 
-
+//----------------------------------------------------------------------------
 // this will do nothing if the CurrentStyle matchs
 // JoystickOrTrackball and CameraOrActor
 void vtkInteractorStyleSwitch::SetCurrentStyle()
@@ -200,7 +205,6 @@ void vtkInteractorStyleSwitch::SetCurrentStyle()
     }
 }
 
-
 //----------------------------------------------------------------------------
 void vtkInteractorStyleSwitch::SetInteractor(vtkRenderWindowInteractor *iren)
 {
@@ -223,7 +227,7 @@ void vtkInteractorStyleSwitch::SetInteractor(vtkRenderWindowInteractor *iren)
   this->SetCurrentStyle();
 }
 
-
+//----------------------------------------------------------------------------
 void vtkInteractorStyleSwitch::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->Superclass::PrintSelf(os,indent);

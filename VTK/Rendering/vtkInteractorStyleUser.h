@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleUser.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-25 14:24:12 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2002-04-26 21:57:20 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -212,6 +212,7 @@ protected:
   vtkInteractorStyleUser();
   ~vtkInteractorStyleUser();
 
+  int LastPos[2];
   int OldPos[2];
 
   int Char;
