@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPIEventLog.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-08 15:29:13 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-05-09 12:32:54 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -83,10 +83,6 @@ void vtkMPIEventLog::FinalizeLogging(const char* fname)
 
 int vtkMPIEventLog::SetDescription(const char* name, const char* desc)
 {
-  // Trying to make sure that the object is created on all
-  // processes
-  MPI_Barrier(MPI_COMM_WORLD);
-
   int err, processId;
   if ( (err = MPI_Comm_rank(MPI_COMM_WORLD,&processId)) 
        != MPI_SUCCESS)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPIEventLog.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-08 15:29:13 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-05-09 12:32:54 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,11 +39,20 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-// .NAME vtkMPIEventLog - Class for creating MPI groups.
+// .NAME vtkMPIEventLog - Class for logging and timing.
 
 // .SECTION Description
+// This class is wrapper around MPE event logging functions
+// (available from Argonne National Lab/Missippi State
+// University). It allows users to create events with names
+// and log them. Different log file formats can be generated
+// by changing MPE's configuration. Some of these formats are
+// binary (for examples SLOG and CLOG) and can be analyzed with
+// viewers from ANL. ALOG is particularly useful since it is
+// text based and can be processed with simple scripts.
 
 // .SECTION See Also
+// vtkTimerLog vtkMPIController vtkMPICommunicator
 
 #ifndef __vtkMPIEventLog_h
 #define __vtkMPIEventLog_h
