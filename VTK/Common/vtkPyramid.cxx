@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPyramid.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:00 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-06-22 19:12:49 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -364,12 +364,13 @@ static TRIANGLE_CASES triCases[] = {
 };
 
 void vtkPyramid::Contour(float value, vtkScalars *cellScalars, 
-                       vtkPointLocator *locator,
-                       vtkCellArray *vtkNotUsed(verts), 
-                       vtkCellArray *vtkNotUsed(lines), 
-                       vtkCellArray *polys,
-                       vtkPointData *inPd, vtkPointData *outPd,
-                       vtkCellData *inCd, int cellId, vtkCellData *outCd)
+                         vtkPointLocator *locator,
+                         vtkCellArray *vtkNotUsed(verts), 
+                         vtkCellArray *vtkNotUsed(lines), 
+                         vtkCellArray *polys,
+                         vtkPointData *inPd, vtkPointData *outPd,
+                         vtkCellData *inCd, vtkIdType cellId,
+                         vtkCellData *outCd)
 {
   static int CASE_MASK[5] = {1,2,4,8,16};
   TRIANGLE_CASES *triCase;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLinks.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-21 15:21:50 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-06-22 19:12:48 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -96,9 +96,9 @@ vtkCellLinks::~vtkCellLinks()
 }
 
 // Allocate memory for the list of lists of cell ids.
-void vtkCellLinks::AllocateLinks(int n)
+void vtkCellLinks::AllocateLinks(vtkIdType n)
 {
-  for (int i=0; i < n; i++)
+  for (vtkIdType i=0; i < n; i++)
     {
     this->Array[i].cells = new vtkIdType[this->Array[i].ncells];
     }

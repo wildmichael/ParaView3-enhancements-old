@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWedge.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:01 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-06-22 19:12:49 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -406,7 +406,7 @@ void vtkWedge::Contour(float value, vtkScalars *cellScalars,
                        vtkCellArray *vtkNotUsed(lines), 
                        vtkCellArray *polys,
                        vtkPointData *inPd, vtkPointData *outPd,
-                       vtkCellData *inCd, int cellId, vtkCellData *outCd)
+                       vtkCellData *inCd, vtkIdType cellId, vtkCellData *outCd)
 {
   static int CASE_MASK[6] = {1,2,4,8,16,32};
   TRIANGLE_CASES *triCase;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-22 17:12:41 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2001-06-22 19:12:48 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -63,7 +63,7 @@ vtkCell::~vtkCell()
 //
 // Instantiate cell from outside
 //
-void vtkCell::Initialize(int npts, int *pts, vtkPoints *p)
+void vtkCell::Initialize(int npts, vtkIdType *pts, vtkPoints *p)
 {
   this->PointIds->Reset();
   this->Points->Reset();

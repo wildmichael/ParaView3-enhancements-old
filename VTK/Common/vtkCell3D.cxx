@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:00 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-06-22 19:12:48 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -55,7 +55,8 @@ vtkCell3D::~vtkCell3D()
 void vtkCell3D::Clip(float value, vtkScalars *cellScalars, 
                      vtkPointLocator *locator, vtkCellArray *tets,
                      vtkPointData *inPD, vtkPointData *outPD,
-                     vtkCellData *vtkNotUsed(inCD), int vtkNotUsed(cellId),
+                     vtkCellData *vtkNotUsed(inCD),
+                     vtkIdType vtkNotUsed(cellId),
 		     vtkCellData *vtkNotUsed(outCD), int insideOut)
 {
   vtkCell3D *cell3D = (vtkCell3D *)this; //has to be to be in this method

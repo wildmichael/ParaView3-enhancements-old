@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectors.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:20 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2001-06-22 19:12:49 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -80,10 +80,10 @@ vtkVectors::vtkVectors()
 void vtkVectors::GetVectors(vtkIdList *ptIds, vtkVectors *v)
 {
   float vector[3];
-  int num=ptIds->GetNumberOfIds();
+  vtkIdType num=ptIds->GetNumberOfIds();
   
   v->SetNumberOfVectors(num);
-  for (int i=0; i<num; i++)
+  for (vtkIdType i=0; i<num; i++)
     {
     this->GetVector(ptIds->GetId(i),vector);
     v->SetVector(i,vector);
@@ -93,7 +93,7 @@ void vtkVectors::GetVectors(vtkIdList *ptIds, vtkVectors *v)
 // Compute the largest norm for these vectors.
 void vtkVectors::ComputeMaxNorm()
 {
-  int i;
+  vtkIdType i;
   float *v, norm;
 
   if ( this->GetMTime() > this->ComputeTime )

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredData.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-28 05:38:21 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2001-06-22 19:12:49 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -83,29 +83,29 @@ public:
 
   // Description:
   // Get the points defining a cell. (See vtkDataSet for more info.)
-  static void GetCellPoints(int cellId, vtkIdList *ptIds, 
+  static void GetCellPoints(vtkIdType cellId, vtkIdList *ptIds, 
                             int dataDescription, int dim[3]);
 
   // Description:
   // Get the cells using a point. (See vtkDataSet for more info.)
-  static void GetPointCells(int ptId, vtkIdList *cellIds, int dim[3]);
+  static void GetPointCells(vtkIdType ptId, vtkIdList *cellIds, int dim[3]);
 
   // Description:
   // Get the cells using the points ptIds, exclusive of the cell cellId. 
   // (See vtkDataSet for more info.)
-  static void GetCellNeigbors(int cellId, vtkIdList *ptIds, 
+  static void GetCellNeigbors(vtkIdType cellId, vtkIdList *ptIds, 
                               vtkIdList *cellIds, int dim[3]);
 
   // Description:
   // Given a location in structured coordinates (i-j-k), and the dimensions
   // of the structured dataset, return the point id.
-  static int ComputePointId(int dim[3], int ijk[3]) {
+  static vtkIdType ComputePointId(int dim[3], int ijk[3]) {
     return ijk[2]*dim[0]*dim[1] + ijk[1]*dim[0] + ijk[0];}
 
   // Description:
   // Given a location in structured coordinates (i-j-k), and the dimensions
   // of the structured dataset, return the cell id.
-  static int ComputeCellId(int dim[3], int ijk[3]) {
+  static vtkIdType ComputeCellId(int dim[3], int ijk[3]) {
     return ijk[2]*(dim[0]-1)*(dim[1]-1) + ijk[1]*(dim[0]-1) + ijk[0];};
 
 protected:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergePoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:03 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2001-06-22 19:12:49 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -64,10 +64,10 @@ vtkMergePoints* vtkMergePoints::New()
 // Determine whether point given by x[3] has been inserted into points list.
 // Return id of previously inserted point if this is true, otherwise return
 // -1.
-int vtkMergePoints::IsInsertedPoint(const float x[3])
+vtkIdType vtkMergePoints::IsInsertedPoint(const float x[3])
 {
   int i, ijk0, ijk1, ijk2;
-  int idx;
+  vtkIdType idx;
   vtkIdList *bucket;
   //
   //  Locate bucket that point is in.
@@ -94,7 +94,7 @@ int vtkMergePoints::IsInsertedPoint(const float x[3])
     //
     // Check the list of points in that bucket.
     //
-    int ptId;
+    vtkIdType ptId;
     float *pt;
     int NumberOfIds = bucket->GetNumberOfIds ();
 
@@ -128,7 +128,7 @@ int
 vtkMergePoints::InsertUniquePoint(const float x[3], vtkIdType &id)
 {
   int i, ijk0, ijk1, ijk2;
-  int idx;
+  vtkIdType idx;
   vtkIdList *bucket;
 
   //
@@ -151,7 +151,7 @@ vtkMergePoints::InsertUniquePoint(const float x[3], vtkIdType &id)
     //
     // Check the list of points in that bucket.
     //
-    int ptId;
+    vtkIdType ptId;
     float *pt;
     int NumberOfIds = bucket->GetNumberOfIds ();
 

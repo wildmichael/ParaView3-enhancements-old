@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericCell.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-21 20:07:50 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-06-22 19:12:48 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -79,17 +79,17 @@ public:
 		       int& subId, float pcoords[3], 
 		       float& dist2, float *weights);
   void EvaluateLocation(int& subId, float pcoords[3], 
-                                float x[3], float *weights);
+                        float x[3], float *weights);
   void Contour(float value, vtkScalars *cellScalars, 
 	       vtkPointLocator *locator, vtkCellArray *verts, 
 	       vtkCellArray *lines, vtkCellArray *polys, 
 	       vtkPointData *inPd, vtkPointData *outPd,
-	       vtkCellData *inCd, int cellId, vtkCellData *outCd);
+	       vtkCellData *inCd, vtkIdType cellId, vtkCellData *outCd);
   void Clip(float value, vtkScalars *cellScalars, 
 	    vtkPointLocator *locator, vtkCellArray *connectivity,
 	    vtkPointData *inPd, vtkPointData *outPd,
-	    vtkCellData *inCd, int cellId, vtkCellData *outCd, 
-                    int insideOut);
+	    vtkCellData *inCd, vtkIdType cellId, vtkCellData *outCd, 
+            int insideOut);
   int IntersectWithLine(float p1[3], float p2[3], float tol, float& t,
 			float x[3], float pcoords[3], int& subId);
   int Triangulate(int index, vtkIdList *ptIds, vtkPoints *pts);

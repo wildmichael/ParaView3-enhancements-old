@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLine.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-28 05:47:08 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2001-06-22 19:12:48 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,7 +68,7 @@ public:
                vtkPointLocator *locator, vtkCellArray *verts, 
                vtkCellArray *lines, vtkCellArray *polys, 
                vtkPointData *inPd, vtkPointData *outPd,
-               vtkCellData *inCd, int cellId, vtkCellData *outCd);
+               vtkCellData *inCd, vtkIdType cellId, vtkCellData *outCd);
   int EvaluatePosition(float x[3], float* closestPoint,
                        int& subId, float pcoords[3], 
                        float& dist2, float *weights);
@@ -84,7 +84,8 @@ public:
   void Clip(float value, vtkScalars *cellScalars, 
             vtkPointLocator *locator, vtkCellArray *lines,
             vtkPointData *inPd, vtkPointData *outPd,
-            vtkCellData *inCd, int cellId, vtkCellData *outCd, int insideOut);
+            vtkCellData *inCd, vtkIdType cellId, vtkCellData *outCd,
+            int insideOut);
 
   // Description:
   // Line-line intersection. Intersection has to occur within [0,1] parametric

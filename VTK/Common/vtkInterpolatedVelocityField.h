@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInterpolatedVelocityField.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:11 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-06-22 19:12:48 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -92,8 +92,8 @@ public:
 
   // Description:
   // Return the cell id cached from last evaluation.
-  vtkGetMacro(LastCellId, int);
-  vtkSetMacro(LastCellId, int);
+  vtkGetMacro(LastCellId, vtkIdType);
+  vtkSetMacro(LastCellId, vtkIdType);
 
   // Description:
   // Set the last cell id to -1 so that the next search does not
@@ -129,7 +129,7 @@ protected:
   vtkGenericCell* Cell;
   float* Weights; // last weights
   float LastPCoords[3]; // last local coordinates
-  int LastCellId;
+  vtkIdType LastCellId;
   int CacheHit;
   int CacheMiss;
   int Caching;

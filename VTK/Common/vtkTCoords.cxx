@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:18 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2001-06-22 19:12:49 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -96,10 +96,10 @@ void vtkTCoords::SetData(vtkDataArray *data)
 // Given a list of pt ids, return an array of texture coordinates.
 void vtkTCoords::GetTCoords(vtkIdList *ptIds, vtkTCoords *tc)
 {
-  int num = ptIds->GetNumberOfIds();
+  vtkIdType num = ptIds->GetNumberOfIds();
 
   tc->SetNumberOfTCoords(num);
-  for (int i=0; i<num; i++)
+  for (vtkIdType i=0; i<num; i++)
     {
     tc->SetTCoord(i,this->GetTCoord(ptIds->GetId(i)));
     }

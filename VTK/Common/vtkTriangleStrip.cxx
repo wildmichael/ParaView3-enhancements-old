@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleStrip.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:01 $
-  Version:   $Revision: 1.63 $
+  Date:      $Date: 2001-06-22 19:12:49 $
+  Version:   $Revision: 1.64 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -167,10 +167,11 @@ int vtkTriangleStrip::CellBoundary(int subId, float pcoords[3], vtkIdList *pts)
 }
 
 void vtkTriangleStrip::Contour(float value, vtkScalars *cellScalars, 
-                              vtkPointLocator *locator, vtkCellArray *verts, 
-                              vtkCellArray *lines, vtkCellArray *polys, 
-                              vtkPointData *inPd, vtkPointData *outPd,
-                              vtkCellData *inCd, int cellId, vtkCellData *outCd)
+                               vtkPointLocator *locator, vtkCellArray *verts, 
+                               vtkCellArray *lines, vtkCellArray *polys, 
+                               vtkPointData *inPd, vtkPointData *outPd,
+                               vtkCellData *inCd, vtkIdType cellId,
+                               vtkCellData *outCd)
 {
   int i, numTris=this->Points->GetNumberOfPoints()-2;
   vtkScalars *triScalars=vtkScalars::New();
@@ -319,8 +320,8 @@ void vtkTriangleStrip::DecomposeStrip(int npts, vtkIdType *pts,
 void vtkTriangleStrip::Clip(float value, vtkScalars *cellScalars, 
                             vtkPointLocator *locator, vtkCellArray *tris,
                             vtkPointData *inPd, vtkPointData *outPd,
-                            vtkCellData *inCd, int cellId, vtkCellData *outCd,
-                            int insideOut)
+                            vtkCellData *inCd, vtkIdType cellId,
+                            vtkCellData *outCd, int insideOut)
 {
   int i, numTris=this->Points->GetNumberOfPoints()-2;
   int id1, id2, id3;

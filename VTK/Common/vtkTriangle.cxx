@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangle.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:01 $
-  Version:   $Revision: 1.84 $
+  Date:      $Date: 2001-06-22 19:12:49 $
+  Version:   $Revision: 1.85 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -386,7 +386,8 @@ void vtkTriangle::Contour(float value, vtkScalars *cellScalars,
 			  vtkCellArray *lines, 
 			  vtkCellArray *vtkNotUsed(polys), 
                           vtkPointData *inPd, vtkPointData *outPd,
-                          vtkCellData *inCd, int cellId, vtkCellData *outCd)
+                          vtkCellData *inCd, vtkIdType cellId,
+                          vtkCellData *outCd)
 {
   static int CASE_MASK[3] = {1,2,4};
   LINE_CASES *lineCase;
@@ -840,7 +841,7 @@ static TRIANGLE_CASES triangleCases[] = {
 void vtkTriangle::Clip(float value, vtkScalars *cellScalars, 
                        vtkPointLocator *locator, vtkCellArray *tris,
                        vtkPointData *inPd, vtkPointData *outPd,
-                       vtkCellData *inCd, int cellId, vtkCellData *outCd,
+                       vtkCellData *inCd, vtkIdType cellId, vtkCellData *outCd,
                        int insideOut)
 {
   static int CASE_MASK[3] = {1,2,4};

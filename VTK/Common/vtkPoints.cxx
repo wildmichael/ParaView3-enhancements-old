@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-21 15:21:51 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2001-06-22 19:12:49 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -79,9 +79,9 @@ vtkPoints::vtkPoints(int dataType) : vtkAttributeData(dataType)
 // Given a list of pt ids, return an array of points.
 void vtkPoints::GetPoints(vtkIdList *ptIds, vtkPoints *fp)
 {
-  int num = ptIds->GetNumberOfIds();
+  vtkIdType num = ptIds->GetNumberOfIds();
 
-  for (int i=0; i < num; i++)
+  for (vtkIdType i=0; i < num; i++)
     {
     fp->InsertPoint(i, this->GetPoint(ptIds->GetId(i)));
     }

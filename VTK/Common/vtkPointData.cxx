@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-18 11:11:48 $
-  Version:   $Revision: 1.62 $
+  Date:      $Date: 2001-06-22 19:12:48 $
+  Version:   $Revision: 1.63 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,7 +57,7 @@ vtkPointData* vtkPointData::New()
   return new vtkPointData;
 }
 
-void vtkPointData::NullPoint (int ptId)
+void vtkPointData::NullPoint (vtkIdType ptId)
 {
   vtkFieldData::Iterator it(this);
   vtkDataArray* da;

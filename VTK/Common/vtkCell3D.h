@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell3D.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-21 20:07:50 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-06-22 19:12:48 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -91,7 +91,7 @@ public:
   virtual void Clip(float value, vtkScalars *cellScalars, 
                     vtkPointLocator *locator, vtkCellArray *connectivity,
                     vtkPointData *inPd, vtkPointData *outPd,
-                    vtkCellData *inCd, int cellId, vtkCellData *outCd, 
+                    vtkCellData *inCd, vtkIdType cellId, vtkCellData *outCd, 
                     int insideOut);
 
   // Description:

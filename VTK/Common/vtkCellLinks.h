@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLinks.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-21 15:21:50 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-06-22 19:12:48 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -156,7 +156,7 @@ protected:
   // Increment the count of the number of cells using the point.
   void IncrementLinkCount(vtkIdType ptId) { this->Array[ptId].ncells++;};
 
-  void AllocateLinks(int n);
+  void AllocateLinks(vtkIdType n);
 
   // Description:
   // Insert a cell id into the list of cells using the point.
