@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-12-11 12:01:28 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1998-01-16 21:22:01 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -155,6 +155,7 @@ void vtkMergeFilter::Update()
     this->Progress = 0.0;
     this->Execute();
     this->ExecuteTime.Modified();
+    if ( !this->AbortExecute ) this->UpdateProgress(1.0);
     this->SetDataReleased(0);
     if ( this->EndMethod ) (*this->EndMethod)(this->EndMethodArg);
     }

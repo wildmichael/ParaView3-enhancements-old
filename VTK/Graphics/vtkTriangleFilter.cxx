@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-12-31 20:55:15 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1998-01-16 21:22:50 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,7 +66,8 @@ void vtkTriangleFilter::Execute()
   newPolys->Allocate(newPolys->EstimateSize(numCells,3),3*numCells);
 
   // pass through triangles; triangulate polygons if necessary
-  for (cellNum=0, inPolys->InitTraversal(); inPolys->GetNextCell(npts,pts); cellNum++)
+  for (cellNum=0, inPolys->InitTraversal(); inPolys->GetNextCell(npts,pts);
+  cellNum++)
     {
     if ( npts == 3 )
       {
@@ -96,8 +97,6 @@ void vtkTriangleFilter::Execute()
     vtkTriangleStrip strip;
     strip.DecomposeStrips(inStrips,newPolys);
     }
-
-  this->UpdateProgress (1.0);
 //
 // Update ourselves
 //

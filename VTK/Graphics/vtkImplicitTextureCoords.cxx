@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitTextureCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:45:10 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1998-01-16 21:21:54 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -243,9 +243,12 @@ void vtkImplicitTextureCoords::Update()
 
     if ( this->StartMethod ) (*this->StartMethod)(this->StartMethodArg);
     // copy topological/geometric structure from input
+    this->AbortExecute = 0;
+    this->Progress = 0.0;
     this->Output->CopyStructure(this->Input);
     this->Execute();
     this->ExecuteTime.Modified();
+    if ( !this->AbortExecute ) this->UpdateProgress(1.0);
     this->SetDataReleased(0);
     if ( this->EndMethod ) (*this->EndMethod)(this->EndMethodArg);
     }

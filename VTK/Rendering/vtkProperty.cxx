@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-09-24 13:23:28 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1998-01-16 21:22:29 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -171,6 +171,9 @@ void vtkProperty::SetColor(float R,float G,float B)
   this->SpecularColor[2] = B;
 }
 
+// Description:
+// Return composite color of object (ambient + diffuse + specular). Return value
+// is a pointer to rgb values.
 float *vtkProperty::GetColor()
 {
   float norm;
@@ -186,6 +189,18 @@ float *vtkProperty::GetColor()
     }
   
   return this->Color;  
+}
+
+// Description:
+// Copy composite color of object (ambient + diffuse + specular) into array 
+// provided.
+void vtkProperty::GetColor(float rgb[3])
+{
+  this->GetColor();
+
+  rgb[0] = this->Color[0];
+  rgb[1] = this->Color[1];
+  rgb[2] = this->Color[2];
 }
 
  

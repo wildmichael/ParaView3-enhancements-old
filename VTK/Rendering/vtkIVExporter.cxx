@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIVExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-12-17 01:31:43 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-01-16 21:21:43 $
+  Version:   $Revision: 1.6 $
   Thanks:    to Jon A. Webb of Visual Interface Inc.
 
 
@@ -281,7 +281,7 @@ void vtkIVExporter::WriteAnActor(vtkActor *anActor, FILE *fp)
   ds = anActor->GetMapper()->GetInput();
   
   // we really want polydata
-  if (strcmp(ds->GetClassName(),"vtkPolyData"))
+  if ( ds->GetDataSetType() != VTK_POLY_DATA )
     {
     gf = new vtkGeometryFilter;
     gf->SetInput(ds);
@@ -360,7 +360,7 @@ void vtkIVExporter::WriteAnActor(vtkActor *anActor, FILE *fp)
     // make sure using unsigned char data of color scalars type
     if (aTexture->GetMapColorScalarsThroughLookupTable () ||
         (scalars->GetDataType() != VTK_UNSIGNED_CHAR ||
-        strcmp(scalars->GetScalarType(),"ColorScalar")) )
+         scalars->GetScalarType() != VTK_COLOR_SCALAR) )
       {
       mappedScalars = aTexture->GetMappedScalars ();
       }

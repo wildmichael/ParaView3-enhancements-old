@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty.h,v $
   Language:  C++
-  Date:      $Date: 1997-09-24 13:23:29 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1998-01-16 21:22:33 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -110,6 +110,7 @@ public:
   void SetColor(float r,float g,float b);
   void SetColor(float a[3]) { this->SetColor(a[0], a[1], a[2]); };
   float *GetColor();
+  void GetColor(float rgb[3]);
 
   // Description:
   // Set/Get the ambient lighting coefficient.
