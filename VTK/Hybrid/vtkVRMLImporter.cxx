@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLImporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-25 11:45:23 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-11-02 12:53:45 $
+  Version:   $Revision: 1.14 $
   Thanks:    Tom Citriniti who implemented and contributed this class
 
 
@@ -1191,6 +1191,8 @@ yyparse(YYPARSE_PARAM)
   yylen = yyr2[yyn];
   if (yylen > 0)
     yyval = yyvsp[1-yylen]; /* implement default value of the action */
+  else
+    yyval.sfint = 0;
 
 #if YYDEBUG != 0
   if (yydebug)
