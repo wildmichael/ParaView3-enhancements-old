@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataNormals.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-04 15:47:16 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2001-04-25 20:43:56 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -134,7 +134,6 @@ void vtkPolyDataNormals::Execute()
   this->OldMesh->SetPoints(inPts);
   if ( numStrips > 0 ) //have to decompose strips into triangles
     {
-    vtkTriangleStrip *strip = vtkTriangleStrip::New();
     if ( numPolys > 0 )
       {
       polys = vtkCellArray::New();
@@ -147,12 +146,11 @@ void vtkPolyDataNormals::Execute()
       }
     for ( inStrips->InitTraversal(); inStrips->GetNextCell(npts,pts); )
       {
-      strip->DecomposeStrip(npts, pts, polys);
+      vtkTriangleStrip::DecomposeStrip(npts, pts, polys);
       }
     this->OldMesh->SetPolys(polys);
     polys->Delete();
     numPolys = polys->GetNumberOfCells();//added some new triangles
-    strip->Delete();
     }
   else
     {
