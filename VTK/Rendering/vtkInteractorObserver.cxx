@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorObserver.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-29 18:25:35 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-06-12 11:09:47 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkRenderWindow.h"
 #include "vtkRenderWindowInteractor.h"
 
-vtkCxxRevisionMacro(vtkInteractorObserver, "$Revision: 1.19 $");
+vtkCxxRevisionMacro(vtkInteractorObserver, "$Revision: 1.20 $");
 
 vtkInteractorObserver::vtkInteractorObserver()
 {
@@ -101,8 +101,8 @@ void vtkInteractorObserver::ProcessEvents(vtkObject* vtkNotUsed(object),
       self->OnChar();
       break;
     case vtkCommand::DeleteEvent:
-      self->Interactor = NULL; //its going bye bye
-      self->Enabled = 0;
+      //self->Interactor = NULL; //commented out, can't write to a 
+      //self->Enabled = 0;       //deleted object
       break;
     }
 }
