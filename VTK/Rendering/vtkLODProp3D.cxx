@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODProp3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-25 19:14:30 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-08-26 19:07:19 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -827,5 +827,11 @@ void vtkLODProp3D::PrintSelf(ostream& os, vtkIndent indent)
   vtkProp3D::PrintSelf(os,indent);
 
   os << indent << "Number Of LODs: " << this->NumberOfLODs << endl;
+
+  os << indent << "Selected LOD ID: " << this->SelectedLODID << endl;
+
+  os << indent << "AutomaticLODSelection: " 
+     << (this->AutomaticLODSelection ? "On\n" : "Off\n");
+
 }
 
