@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSweptSurface.h,v $
   Language:  C++
-  Date:      $Date: 2002-07-02 12:38:16 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2002-09-30 20:35:19 $
+  Version:   $Revision: 1.55 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -56,9 +56,10 @@
 
 #include "vtkImageToImageFilter.h"
 
-class vtkTransformCollection;
-class vtkTransform;
+class vtkDataArray;
 class vtkMatrix4x4;
+class vtkTransform;
+class vtkTransformCollection;
 
 class VTK_PATENTED_EXPORT vtkSweptSurface : public vtkImageToImageFilter
 {

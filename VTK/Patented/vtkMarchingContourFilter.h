@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingContourFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-13 12:39:08 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-09-30 20:35:19 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -73,6 +73,7 @@
 
 #include "vtkContourValues.h" // Needed for direct access to ContourValues
 
+class vtkPointLocator;
 class vtkScalarTree;
 
 class VTK_PATENTED_EXPORT vtkMarchingContourFilter : public vtkDataSetToPolyDataFilter

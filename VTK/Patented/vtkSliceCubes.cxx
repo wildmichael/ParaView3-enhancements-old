@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSliceCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-19 18:35:16 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2002-09-30 20:35:19 $
+  Version:   $Revision: 1.58 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,24 +31,25 @@
 
 =========================================================================*/
 #include "vtkSliceCubes.h"
-#include <stdio.h>
-#include "vtkMarchingCubesCases.h"
-#include "vtkMath.h"
+
 #include "vtkByteSwap.h"
 #include "vtkCharArray.h"
-#include "vtkUnsignedCharArray.h"
-#include "vtkShortArray.h"
-#include "vtkUnsignedShortArray.h"
-#include "vtkIntArray.h"
-#include "vtkUnsignedIntArray.h"
-#include "vtkLongArray.h"
-#include "vtkUnsignedLongArray.h"
 #include "vtkDoubleArray.h"
 #include "vtkFloatArray.h"
+#include "vtkImageData.h"
+#include "vtkIntArray.h"
+#include "vtkLongArray.h"
+#include "vtkMarchingCubesCases.h"
+#include "vtkMath.h"
 #include "vtkObjectFactory.h"
+#include "vtkShortArray.h"
+#include "vtkUnsignedCharArray.h"
+#include "vtkUnsignedIntArray.h"
+#include "vtkUnsignedLongArray.h"
+#include "vtkUnsignedShortArray.h"
 #include "vtkVolumeReader.h"
 
-vtkCxxRevisionMacro(vtkSliceCubes, "$Revision: 1.57 $");
+vtkCxxRevisionMacro(vtkSliceCubes, "$Revision: 1.58 $");
 vtkStandardNewMacro(vtkSliceCubes);
 
 vtkCxxSetObjectMacro(vtkSliceCubes,Reader,vtkVolumeReader);

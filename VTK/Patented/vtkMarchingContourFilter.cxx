@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 22:02:22 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-09-30 20:35:19 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,21 +30,23 @@
      for more information.
 
 =========================================================================*/
-#include <math.h>
 #include "vtkMarchingContourFilter.h"
-#include "vtkStructuredPoints.h"
+
 #include "vtkCell.h"
-#include "vtkMergePoints.h"
-#include "vtkContourValues.h"
-#include "vtkScalarTree.h"
-
 #include "vtkContourFilter.h"
-#include "vtkMarchingSquares.h"
-#include "vtkMarchingCubes.h"
+#include "vtkContourValues.h"
 #include "vtkImageMarchingCubes.h"
+#include "vtkMarchingCubes.h"
+#include "vtkMarchingSquares.h"
+#include "vtkMergePoints.h"
 #include "vtkObjectFactory.h"
+#include "vtkPolyData.h"
+#include "vtkScalarTree.h"
+#include "vtkStructuredPoints.h"
 
-vtkCxxRevisionMacro(vtkMarchingContourFilter, "$Revision: 1.20 $");
+#include <math.h>
+
+vtkCxxRevisionMacro(vtkMarchingContourFilter, "$Revision: 1.21 $");
 vtkStandardNewMacro(vtkMarchingContourFilter);
 
 // Construct object with initial range (0,1) and single contour value
