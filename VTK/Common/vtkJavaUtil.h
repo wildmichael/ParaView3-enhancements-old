@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJavaUtil.h,v $
   Language:  C++
-  Date:      $Date: 2000-11-10 22:07:32 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-11-13 16:59:38 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -104,7 +104,7 @@ public:
   void SetMethodID(jmethodID id) { this->mid = id; };
   void AssignJavaVM(JNIEnv *env) { env->GetJavaVM(&(this->vm)); };
   
-  void Execute(vtkObject *, void *)
+  void Execute(vtkObject *, unsigned long, void *)
     {
     // make sure we have a valid method ID
     if (this->mid)

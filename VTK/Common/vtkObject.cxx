@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-20 13:54:50 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 2000-11-13 16:59:38 $
+  Version:   $Revision: 1.56 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -390,7 +390,7 @@ void vtkSubjectHelper::InvokeEvent(unsigned long event, void *callData,
     next = elem->Next;
     if (elem->Event == event)
       {
-      elem->Command->Execute(self,callData);
+      elem->Command->Execute(self,event,callData);
       }
     elem = next;
     }  
