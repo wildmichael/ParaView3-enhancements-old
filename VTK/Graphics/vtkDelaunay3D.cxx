@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-10-15 19:30:47 $
-  Version:   $Revision: 1.65 $
+  Date:      $Date: 2003-11-06 19:58:44 $
+  Version:   $Revision: 1.66 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #include "vtkTriangle.h"
 #include "vtkUnstructuredGrid.h"
 
-vtkCxxRevisionMacro(vtkDelaunay3D, "$Revision: 1.65 $");
+vtkCxxRevisionMacro(vtkDelaunay3D, "$Revision: 1.66 $");
 vtkStandardNewMacro(vtkDelaunay3D);
 
 //----------------------------------------------------------------------------
@@ -253,6 +253,9 @@ vtkIdType vtkDelaunay3D::FindEnclosingFaces(float x[3],
     this->CheckedTetras->InsertId(i,tetras->GetId(i));
     }
 
+  p1 = 0;
+  p2 = 0;
+  p3 = 0;
   for (i=0; i < numTetras; i++)
     {
     tetraId = tetras->GetId(i);
