@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-19 13:20:13 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-04-19 18:06:57 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -86,15 +86,8 @@ void vtkDataArray::SetName(const char* name)
   delete[] this->Name;
   this->Name = 0;
   int size = strlen(name);
-  if (size > 0)
-    {
-    this->Name = new char[size+1];
-    strcpy(this->Name, name);
-    }
-  else
-    {
-    return;
-    }
+  this->Name = new char[size+1];
+  strcpy(this->Name, name);
 }
 
 const char* vtkDataArray::GetName()
