@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:51 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-09-12 16:09:31 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -98,7 +98,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 class vtkStructuredPoints;
 class vtkEdgeTable;
-class vtkScalars;
 class vtkAppendPolyData;
 
 class VTK_EXPORT vtkImageToPolyDataFilter : public vtkStructuredPointsToPolyDataFilter
@@ -224,7 +223,7 @@ private:
   vtkAppendPolyData    *Append;
 
   void BuildTable(unsigned char *inPixels);
-  vtkUnsignedCharArray *QuantizeImage(vtkScalars *inScalars, int numComp,
+  vtkUnsignedCharArray *QuantizeImage(vtkDataArray *inScalars, int numComp,
                                           int type, int dims[3], int ext[4]);
   int ProcessImage(vtkUnsignedCharArray *pixels, int dims[2]);
   int BuildEdges(vtkUnsignedCharArray *pixels, int dims[3], float origin[3],

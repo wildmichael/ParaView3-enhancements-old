@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-13 14:35:10 $
-  Version:   $Revision: 1.122 $
+  Date:      $Date: 2001-09-12 16:08:43 $
+  Version:   $Revision: 1.123 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -835,8 +835,8 @@ void vtkImageData::ComputeBounds()
 // volume where forward difference is used). The scalars s are the scalars
 // from which the gradient is to be computed. This method will treat 
 // only 3D structured point datasets (i.e., volumes).
-void vtkImageData::GetVoxelGradient(int i, int j, int k, vtkScalars *s, 
-                                    vtkVectors *g)
+void vtkImageData::GetVoxelGradient(int i, int j, int k, vtkDataArray *s, 
+                                    vtkDataArray *g)
 {
   float gv[3];
   int ii, jj, kk, idx=0;
@@ -848,7 +848,7 @@ void vtkImageData::GetVoxelGradient(int i, int j, int k, vtkScalars *s,
       for ( ii=0; ii < 2; ii++)
         {
         this->GetPointGradient(i+ii, j+jj, k+kk, s, gv);
-        g->SetVector(idx++, gv);
+        g->SetTuple(idx++, gv);
         }
       } 
     }

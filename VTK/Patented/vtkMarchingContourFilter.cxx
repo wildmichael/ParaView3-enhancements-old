@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-03 14:05:57 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-09-12 16:09:54 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -55,7 +55,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 #include <math.h>
 #include "vtkMarchingContourFilter.h"
-#include "vtkScalars.h"
 #include "vtkStructuredPoints.h"
 #include "vtkCell.h"
 #include "vtkMergePoints.h"
@@ -137,7 +136,7 @@ unsigned long vtkMarchingContourFilter::GetMTime()
 //
 void vtkMarchingContourFilter::Execute()
 {
-  vtkScalars *inScalars;
+  vtkDataArray *inScalars;
   vtkDataSet *input=this->GetInput();
   vtkIdType numCells;
   
@@ -150,7 +149,7 @@ void vtkMarchingContourFilter::Execute()
     }
 
   numCells = input->GetNumberOfCells();
-  inScalars = input->GetPointData()->GetScalars();
+  inScalars = input->GetPointData()->GetActiveScalars();
   if ( ! inScalars || numCells < 1 )
     {
     vtkErrorMacro(<<"No data to contour");

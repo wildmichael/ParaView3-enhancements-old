@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDividingCubes.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:53 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2001-09-12 16:09:53 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -113,8 +113,8 @@ protected:
 
   vtkIdList *SubVoxelPts;
   vtkVoxel *SubVoxel;
-  vtkScalars *SubVoxelScalars;
-  vtkNormals *SubVoxelNormals;
+  vtkFloatArray *SubVoxelScalars;
+  vtkFloatArray *SubVoxelNormals;
 };
 
 #endif

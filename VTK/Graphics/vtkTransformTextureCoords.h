@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformTextureCoords.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:50 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-09-12 16:09:07 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -54,7 +54,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 // .SECTION See Also
 // vtkTextureMapToPlane vtkTextureMapToBox vtkTextureMapToCylinder 
-// vtkTextureMapToSphere vtkThresholdTextureCoords vtkTexture vtkTCoords
+// vtkTextureMapToSphere vtkThresholdTextureCoords vtkTexture
 
 #ifndef __vtkTransformTextureCoords_h
 #define __vtkTransformTextureCoords_h

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPieceScalars.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:53 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-09-12 16:09:44 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -82,8 +82,8 @@ protected:
   // Append the pieces.
   void Execute();
   
-  vtkScalars *MakePieceScalars(int piece, vtkIdType numScalars);
-  vtkScalars *MakeRandomScalars(int piece, vtkIdType numScalars);
+  vtkIntArray *MakePieceScalars(int piece, vtkIdType numScalars);
+  vtkFloatArray *MakeRandomScalars(int piece, vtkIdType numScalars);
   
   vtkSetMacro(CellScalarsFlag,int);
   int CellScalarsFlag;

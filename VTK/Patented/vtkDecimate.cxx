@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimate.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-03 14:05:57 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 2001-09-12 16:09:53 $
+  Version:   $Revision: 1.61 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -54,6 +54,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 #include "vtkDecimate.h"
 #include "vtkObjectFactory.h"
+#include "vtkFloatArray.h"
 
 //----------------------------------------------------------------------------
 vtkDecimate* vtkDecimate::New()
@@ -470,7 +471,7 @@ void vtkDecimate::CreateOutput(vtkIdType numPts, vtkIdType numTris,
   vtkIdType *pts, npts;
   vtkPoints *newPts;
   vtkCellArray *newPolys;
-  vtkScalars *newScalars = NULL;
+  vtkFloatArray *newScalars = NULL;
   vtkPolyData *output = this->GetOutput();
   vtkPointData *outputPD = output->GetPointData();
   
@@ -515,13 +516,13 @@ void vtkDecimate::CreateOutput(vtkIdType numPts, vtkIdType numTris,
 
   if ( this->GenerateErrorScalars )
     {
-    newScalars = vtkScalars::New();
-    newScalars->SetNumberOfScalars(numNewPts);
+    newScalars = vtkFloatArray::New();
+    newScalars->SetNumberOfTuples(numNewPts);
     for (ptId=0; ptId < numPts; ptId++)
       {
       if ( map[ptId] > -1 )
 	{
-        newScalars->SetScalar(map[ptId],VertexError[ptId]);
+        newScalars->SetComponent(map[ptId],0,VertexError[ptId]);
 	}
       }
     }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMarchingCubes.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:53 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2001-09-12 16:09:54 $
+  Version:   $Revision: 1.27 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -79,6 +79,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkPolyDataSource.h"
 #include "vtkContourValues.h"
 
+class vtkFloatArray;
+
 class VTK_EXPORT vtkImageMarchingCubes : public vtkPolyDataSource
 {
 public:
@@ -135,10 +137,10 @@ public:
   int NeedGradients;
 
   vtkCellArray *Triangles;
-  vtkScalars *Scalars;
+  vtkFloatArray *Scalars;
   vtkPoints *Points;
-  vtkNormals *Normals;
-  vtkVectors *Gradients;
+  vtkFloatArray *Normals;
+  vtkFloatArray *Gradients;
   
   int GetLocatorPoint(int cellX, int cellY, int edge);
   void AddLocatorPoint(int cellX, int cellY, int edge, int ptId);

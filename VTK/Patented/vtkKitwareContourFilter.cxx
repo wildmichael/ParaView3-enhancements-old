@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKitwareContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-03 14:05:57 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-09-12 16:09:54 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -41,7 +41,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 #include <math.h>
 #include "vtkKitwareContourFilter.h"
-#include "vtkScalars.h"
 #include "vtkCell.h"
 #include "vtkMergePoints.h"
 #include "vtkContourValues.h"
@@ -165,14 +164,14 @@ void vtkKitwareContourFilter::ExecuteInformation()
 //
 void vtkKitwareContourFilter::Execute()
 {
-  vtkScalars *inScalars;
+  vtkDataArray *inScalars;
   vtkDataSet *input=this->GetInput();
   vtkIdType numCells;
   
   vtkDebugMacro(<< "Executing contour filter");
 
   numCells = input->GetNumberOfCells();
-  inScalars = input->GetPointData()->GetScalars();
+  inScalars = input->GetPointData()->GetActiveScalars();
   if ( ! inScalars || numCells < 1 )
     {
     // vtkErrorMacro(<<"No data to contour");
