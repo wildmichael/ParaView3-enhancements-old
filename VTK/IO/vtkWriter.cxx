@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-15 11:15:53 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1995-02-14 13:46:27 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -20,8 +20,10 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 vlWriter::vlWriter()
 {
   this->StartWrite = NULL;
+  this->StartWriteArgDelete = NULL;
   this->StartWriteArg = NULL;
   this->EndWrite = NULL;
+  this->EndWriteArgDelete = NULL;
   this->EndWriteArg = NULL;
 }
 
@@ -32,8 +34,36 @@ void vlWriter::SetStartWrite(void (*f)(void *), void *arg)
 {
   if ( f != this->StartWrite )
     {
+    // delete the current arg if there is one and a delete meth
+    if ((this->StartWriteArg)&&(this->StartWriteArgDelete))
+      {
+      (*this->StartWriteArgDelete)(this->StartWriteArg);
+      }
     this->StartWrite = f;
     this->StartWriteArg = arg;
+    this->Modified();
+    }
+}
+
+
+// Description:
+// Set the arg delete method. This is used to free user memory.
+void vlWriter::SetStartWriteArgDelete(void (*f)(void *))
+{
+  if ( f != this->StartWriteArgDelete)
+    {
+    this->StartWriteArgDelete = f;
+    this->Modified();
+    }
+}
+
+// Description:
+// Set the arg delete method. This is used to free user memory.
+void vlWriter::SetEndWriteArgDelete(void (*f)(void *))
+{
+  if ( f != this->EndWriteArgDelete)
+    {
+    this->EndWriteArgDelete = f;
     this->Modified();
     }
 }
@@ -45,6 +75,11 @@ void vlWriter::SetEndWrite(void (*f)(void *), void *arg)
 {
   if ( f != this->EndWrite )
     {
+    // delete the current arg if there is one and a delete meth
+    if ((this->EndWriteArg)&&(this->EndWriteArgDelete))
+      {
+      (*this->EndWriteArgDelete)(this->EndWriteArg);
+      }
     this->EndWrite = f;
     this->EndWriteArg = arg;
     this->Modified();

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkWriter.h,v $
   Language:  C++
-  Date:      $Date: 1994-11-15 11:15:52 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1995-02-14 13:46:26 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -37,11 +37,15 @@ public:
 
   void SetStartWrite(void (*f)(void *), void *arg);
   void SetEndWrite(void (*f)(void *), void *arg);
+  void SetStartWriteArgDelete(void (*f)(void *));
+  void SetEndWriteArgDelete(void (*f)(void *));
 
 protected:
   void (*StartWrite)(void *);
+  void (*StartWriteArgDelete)(void *);
   void *StartWriteArg;
   void (*EndWrite)(void *);
+  void (*EndWriteArgDelete)(void *);
   void *EndWriteArg;
 
 };
