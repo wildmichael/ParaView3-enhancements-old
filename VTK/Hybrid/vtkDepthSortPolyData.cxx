@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDepthSortPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-17 16:58:12 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-07-18 10:11:39 $
+  Version:   $Revision: 1.2 $
   Thanks:    Scott Hill for implementing this class
 
 
@@ -193,6 +193,7 @@ void vtkDepthSortPolyData::Execute()
     sortScalars->SetNumberOfScalars(numCells);
     scalars = ((vtkUnsignedIntArray *)sortScalars->GetData())->GetPointer(0);
     }
+  outCD->CopyAllocate(inCD);
   output->Allocate(numCells);
   for ( cellId=0; cellId < numCells; cellId++ )
     {
@@ -221,6 +222,7 @@ void vtkDepthSortPolyData::Execute()
     }
 
   // Clean up and get out    
+  delete [] depth;
   cell->Delete();
   output->Squeeze();
 }
