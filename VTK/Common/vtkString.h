@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkString.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-04 17:55:00 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-07-09 20:47:38 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -67,6 +67,12 @@ public:
   // Description:
   // Check if the first string ends with the second one.
   static int EndsWith(const char* str1, const char* str2);
+
+  // Description:
+  // Append two strings and prroduce new one.  Programmer must delete
+  // the resulting string. The method returns 0 if inputs are empty or
+  // if there was an error.
+  static char* Append(const char* str1, const char* str2);
   
 protected:
   vtkString() {};
