@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractUnstructuredGridPiece.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-10-14 15:16:08 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2003-11-02 02:42:01 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,7 @@
 #include "vtkUnsignedCharArray.h"
 #include "vtkUnstructuredGrid.h"
 
-vtkCxxRevisionMacro(vtkExtractUnstructuredGridPiece, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkExtractUnstructuredGridPiece, "$Revision: 1.13 $");
 vtkStandardNewMacro(vtkExtractUnstructuredGridPiece);
 
 vtkExtractUnstructuredGridPiece::vtkExtractUnstructuredGridPiece()
@@ -152,7 +152,7 @@ void vtkExtractUnstructuredGridPiece::Execute()
   if (ghostLevel > 0 && this->CreateGhostCells)
     {
     cellGhostLevels = vtkUnsignedCharArray::New();
-    cellGhostLevels->SetNumberOfTuples(numCells);
+    cellGhostLevels->Allocate(numCells);
     // We may want to create point ghost levels even
     // if there are no ghost cells.  Since it cost extra,
     // and no filter really uses it, and the filter did not
@@ -161,7 +161,7 @@ void vtkExtractUnstructuredGridPiece::Execute()
     pointOwnership = vtkIdList::New();
     pointOwnership->Allocate(numPts);
     pointGhostLevels = vtkUnsignedCharArray::New();
-    pointGhostLevels->SetNumberOfTuples(numPts);
+    pointGhostLevels->Allocate(numPts);
     }
     
   // Break up cells based on which piece they belong to.
