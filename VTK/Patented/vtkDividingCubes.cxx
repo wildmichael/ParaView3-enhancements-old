@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDividingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-09 16:44:54 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1995-10-28 12:51:00 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,7 +62,7 @@ static int SubSliceSize;
 
 void vtkDividingCubes::Execute()
 {
-  int i, j, k, idx, ii;
+  int i, j, k, idx;
   vtkScalars *inScalars;
   vtkIdList voxelPts(8);
   vtkFloatScalars voxelScalars(8);
