@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsToUnstructuredGridFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:56:46 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2000-01-22 16:36:23 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,26 +39,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkStructuredPointsToUnstructuredGridFilter.h"
-#include "vtkObjectFactory.h"
-
-
-
-//------------------------------------------------------------------------------
-vtkStructuredPointsToUnstructuredGridFilter* vtkStructuredPointsToUnstructuredGridFilter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkStructuredPointsToUnstructuredGridFilter");
-  if(ret)
-    {
-    return (vtkStructuredPointsToUnstructuredGridFilter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkStructuredPointsToUnstructuredGridFilter;
-}
-
-
-
-
 
 //----------------------------------------------------------------------------
 // Specify the input data or filter.

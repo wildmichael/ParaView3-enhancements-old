@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridToPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:56:40 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2000-01-22 16:35:48 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,26 +39,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkRectilinearGridToPolyDataFilter.h"
-#include "vtkObjectFactory.h"
-
-
-
-//------------------------------------------------------------------------------
-vtkRectilinearGridToPolyDataFilter* vtkRectilinearGridToPolyDataFilter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkRectilinearGridToPolyDataFilter");
-  if(ret)
-    {
-    return (vtkRectilinearGridToPolyDataFilter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkRectilinearGridToPolyDataFilter;
-}
-
-
-
-
 
 //----------------------------------------------------------------------------
 // Specify the input data or filter.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDicer.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-18 19:34:28 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2000-01-22 16:35:14 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,25 +40,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkDicer.h"
 #include "vtkMath.h"
-#include "vtkObjectFactory.h"
-
-
-
-//------------------------------------------------------------------------------
-vtkDicer* vtkDicer::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkDicer");
-  if(ret)
-    {
-    return (vtkDicer*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkDicer;
-}
-
-
-
 
 // Instantiate object.
 vtkDicer::vtkDicer()

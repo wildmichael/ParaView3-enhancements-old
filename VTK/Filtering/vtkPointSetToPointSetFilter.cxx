@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSetToPointSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-16 21:50:08 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2000-01-22 16:35:34 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,25 +42,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkPolyData.h"
 #include "vtkStructuredGrid.h"
 #include "vtkUnstructuredGrid.h"
-#include "vtkObjectFactory.h"
-
-
-
-//------------------------------------------------------------------------------
-vtkPointSetToPointSetFilter* vtkPointSetToPointSetFilter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkPointSetToPointSetFilter");
-  if(ret)
-    {
-    return (vtkPointSetToPointSetFilter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkPointSetToPointSetFilter;
-}
-
-
-
 
 //----------------------------------------------------------------------------
 // Construct object.

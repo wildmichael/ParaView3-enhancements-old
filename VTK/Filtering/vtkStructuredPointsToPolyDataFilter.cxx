@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsToPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:56:45 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-01-22 16:36:07 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,26 +39,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkStructuredPointsToPolyDataFilter.h"
-#include "vtkObjectFactory.h"
-
-
-
-//------------------------------------------------------------------------------
-vtkStructuredPointsToPolyDataFilter* vtkStructuredPointsToPolyDataFilter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkStructuredPointsToPolyDataFilter");
-  if(ret)
-    {
-    return (vtkStructuredPointsToPolyDataFilter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkStructuredPointsToPolyDataFilter;
-}
-
-
-
-
 
 //----------------------------------------------------------------------------
 // Specify the input data or filter.

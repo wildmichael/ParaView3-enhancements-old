@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsToStructuredPointsFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-07 09:13:51 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2000-01-22 16:36:15 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,25 +39,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkStructuredPointsToStructuredPointsFilter.h"
-#include "vtkObjectFactory.h"
-
-
-
-//------------------------------------------------------------------------------
-vtkStructuredPointsToStructuredPointsFilter* vtkStructuredPointsToStructuredPointsFilter::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkStructuredPointsToStructuredPointsFilter");
-  if(ret)
-    {
-    return (vtkStructuredPointsToStructuredPointsFilter*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkStructuredPointsToStructuredPointsFilter;
-}
-
-
-
 
 //----------------------------------------------------------------------------
 // Specify the input data or filter.
