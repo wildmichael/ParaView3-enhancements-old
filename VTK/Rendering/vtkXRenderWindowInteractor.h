@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:29:57 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-07-24 09:37:31 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Toolkit. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -69,6 +69,8 @@ public:
   friend void vtkXRenderWindowInteractorTimer(XtPointer,XtIntervalId *);
 
 protected:
+  Display *DisplayId;
+  Window WindowId;
   Widget top;
   XtAppContext App;
   int PositionBeforeStereo[2];
