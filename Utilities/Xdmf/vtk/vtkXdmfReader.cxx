@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2004-04-27 17:46:25 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2004-05-01 14:52:15 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -74,7 +74,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <vtkstd/vector>
 
 vtkStandardNewMacro(vtkXdmfReader);
-vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.44 $");
+vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.45 $");
 
 #if defined(_WIN32) && (defined(_MSC_VER) || defined(__BORLANDC__))
 #  include <direct.h>
@@ -2053,12 +2053,15 @@ public:
       this->Valid = 1;
       }
     }
-private:
+
+protected:
   vtkXdmfReaderTester()
     {
     this->Valid = 0;
     this->Done = 0;
     }
+
+private:
   void ReportStrayAttribute(const char*, const char*, const char*) {}
   void ReportMissingAttribute(const char*, const char*) {}
   void ReportBadAttribute(const char*, const char*, const char*) {}
