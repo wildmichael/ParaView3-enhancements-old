@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProVP1000Mapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-04 14:30:18 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-01-14 20:00:59 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -52,15 +52,19 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <stdio.h>
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkVolumeProVP1000Mapper, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkVolumeProVP1000Mapper, "$Revision: 1.10 $");
 
 vtkVolumeProVP1000Mapper::vtkVolumeProVP1000Mapper()
 {
   VLIStatus         status;
   VLIConfiguration  *config;
 
-    // Establish a connection with vli
+  this->ImageBuffer = NULL;
+  this->DepthBuffer = NULL;
+
+  // Establish a connection with vli
   status = VLIOpen();
+  
   if ( status != kVLIOK )
     {
     vtkDebugMacro( << "VLIOpen failed!" );
@@ -111,9 +115,6 @@ vtkVolumeProVP1000Mapper::vtkVolumeProVP1000Mapper()
     vtkErrorMacro( << "Cut plane could not be created!" );
     return;    
     }
-  
-  this->ImageBuffer = NULL;
-  this->DepthBuffer = NULL;
 }
 
 
