@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 1997-12-08 14:27:14 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-12-11 20:33:39 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,10 +63,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkMapper2D : public vtkReferenceCount
 {
 public:
+  void PrintSelf(ostream& os, vtkIndent indent);
   virtual void Render(vtkViewport* viewport, vtkActor2D* actor) = 0;
   void GetActorClipSize(vtkViewport* viewport, vtkActor2D* actor, int* clipWidth, int* clipHeight);
   void GetViewportClipSize(vtkViewport* viewport, int* clipWidth, int* clipHeight);
-
 protected:
 
 
