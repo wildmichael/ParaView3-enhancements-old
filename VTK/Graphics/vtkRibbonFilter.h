@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRibbonFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-08 18:35:24 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2002-08-09 10:59:27 $
+  Version:   $Revision: 1.39 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -109,7 +109,7 @@ public:
   // calculated from scalars or length) is mapped to the [0,1)
   // texture space.
   vtkSetClampMacro(TextureLength,float,0.000001,VTK_LARGE_INTEGER);
-  vtkGetMacro(TextureLength,int);
+  vtkGetMacro(TextureLength,float);
 
 protected:
   vtkRibbonFilter();
