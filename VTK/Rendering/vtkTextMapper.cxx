@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-17 14:38:43 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2003-08-22 12:42:50 $
+  Version:   $Revision: 1.52 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkTextProperty.h"
 #include "vtkToolkits.h"
 
-vtkCxxRevisionMacro(vtkTextMapper, "$Revision: 1.51 $");
+vtkCxxRevisionMacro(vtkTextMapper, "$Revision: 1.52 $");
 
 //----------------------------------------------------------------------------
 // Needed when we don't use the vtkStandardNewMacro.
@@ -186,8 +186,8 @@ int vtkTextMapper::SetConstrainedFontSize(vtkViewport *viewport,
 
   // While the size is too small increase it
 
-  while (tempi[1] < targetHeight &&
-         tempi[0] < targetWidth && 
+  while (tempi[1] <= targetHeight &&
+         tempi[0] <= targetWidth && 
          fontSize < 100)
     {
     fontSize++;
