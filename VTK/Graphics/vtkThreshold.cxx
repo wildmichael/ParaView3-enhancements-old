@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkThreshold.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-09 19:52:06 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1995-06-14 21:03:55 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -140,6 +140,15 @@ void vlThreshold::Execute()
 void vlThreshold::PrintSelf(ostream& os, vlIndent indent)
 {
   vlDataSetToUnstructuredGridFilter::PrintSelf(os,indent);
+
+  if ( this->ThresholdFunction == &vlThreshold::Upper )
+    os << indent << "Threshold By Upper\n";
+
+  else if ( this->ThresholdFunction == &vlThreshold::Lower )
+    os << indent << "Threshold By Lower\n";
+
+  else if ( this->ThresholdFunction == &vlThreshold::Between )
+    os << indent << "Threshold Between\n";
 
   os << indent << "Lower Threshold: " << this->LowerThreshold << "\n";;
   os << indent << "Upper Threshold: " << this->UpperThreshold << "\n";;

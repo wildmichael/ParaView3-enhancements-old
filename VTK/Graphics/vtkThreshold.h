@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkThreshold.h,v $
   Language:  C++
-  Date:      $Date: 1995-01-11 09:36:22 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1995-06-14 21:03:57 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -15,11 +15,14 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 =========================================================================*/
 // .NAME vlThreshold - extracts cells where scalar value of every point in cell satisfies threshold criterion
 // .SECTION Description
-// vlThreshold is a filter that extracts cells from a dataset that satisfy a
-// threshold criterion. A cell satisfies the criterion if the scalar value
-// of every point satisfies the criterion. The criterion can take three forms:
-// greater than a particular value, less than a particular value, between a
-// particular value.
+// vlThreshold is a filter that extracts cells from any dataset type that 
+// satisfy a threshold criterion. A cell satisfies the criterion if the 
+// scalar value of every point satisfies the criterion. The criterion can 
+// take three forms: greater than a particular value, less than a particular 
+// value, or between two values. The output of this filter is an unstructured 
+// grid.
+// .SECTION See Also
+// vlThresholdPoints, vlThresholdTextureCoords
 
 #ifndef __vlThreshold_h
 #define __vlThreshold_h
