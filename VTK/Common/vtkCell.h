@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCell.h,v $
   Language:  C++
-  Date:      $Date: 1994-05-15 19:23:41 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1994-07-08 10:35:00 $
+  Version:   $Revision: 1.9 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -83,6 +83,9 @@ public:
 
   // Compute cell bounding box (xmin,xmax,ymin,ymax,zmin,zmax)
   float *GetBounds();
+
+  // Compute Length squared of cell (i.e., bounding box diagonal squared)
+  float GetLength2();
 
   // Quick intersection of cell bounding box.  Returns != 0 for hit.
   char HitBBox(float bounds[6], float origin[3], float dir[3], float coord[3]);
