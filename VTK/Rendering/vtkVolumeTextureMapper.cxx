@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeTextureMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-02 20:26:53 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-09-08 00:49:41 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -264,4 +264,7 @@ void vtkVolumeTextureMapper::PrintSelf(ostream& os, vtkIndent indent)
     }
 
   // this->Shade is a temporary variable that should not be printed
+  // this->RenderWindow is a temporary variable that should not be printed
+  // this->DataSpacing is a temporary variable that should not be printed
+  // this->DataOrigin is a temporary variable that should not be printed
 }
