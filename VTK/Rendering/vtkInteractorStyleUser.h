@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleUser.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-15 10:02:22 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-04-16 14:13:50 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -107,6 +107,12 @@ public:
   void SetConfigureMethodArgDelete(void (*f)(void *));
 
   // Description:
+  // Set methods that will be called when some part of the render
+  // window is exposed.
+  void SetExposeMethod(void (*f)(void *), void *arg);
+  void SetExposeMethodArgDelete(void (*f)(void *));
+
+  // Description:
   // Set methods to be called when the mouse enters or leaves
   // the window.  Use GetLastPos() to determine where the mouse
   // pointer was when the event occurred.
@@ -190,6 +196,7 @@ protected:
 
   void OnMouseMove(int ctrl, int shift, int X, int Y);
 
+  void OnExpose(int x, int y, int width, int height);
   void OnConfigure(int width, int height);
  
   void OnEnter(int ctrl, int shift, int X, int Y);
@@ -209,6 +216,7 @@ protected:
   unsigned long CharTag;
   unsigned long EnterTag;
   unsigned long LeaveTag;
+  unsigned long ExposeTag;
   unsigned long ConfigureTag;
   unsigned long TimerTag;
   unsigned long UserTag;
