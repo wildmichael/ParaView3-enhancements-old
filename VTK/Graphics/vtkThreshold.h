@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkThreshold.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-11 07:41:33 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1995-01-11 09:36:22 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -48,7 +48,10 @@ protected:
   float LowerThreshold;
   float UpperThreshold;
 
+  //BTX
   int (vlThreshold::*ThresholdFunction)(float s);
+  //ETX
+
   int Lower(float s) {return ( s <= this->LowerThreshold ? 1 : 0 );};
   int Upper(float s) {return ( s >= this->UpperThreshold ? 1 : 0 );};
   int Between(float s) {return ( s >= this->LowerThreshold ? 
