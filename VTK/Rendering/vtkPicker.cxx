@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-11 11:54:34 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 2000-06-12 16:22:24 $
+  Version:   $Revision: 1.57 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -362,6 +362,10 @@ int vtkPicker::Pick(float selectionX, float selectionY, float selectionZ,
               ((1.0 - t)*p1World[0] + t*p2World[0],
                (1.0 - t)*p1World[1] + t*p2World[1],
                (1.0 - t)*p1World[2] + t*p2World[2]);
+	    // this next line is for backwards compatibility only,
+	    // what it does is an extreme no-no and a better backwards
+	    // compatibility fix will have to be found
+	    this->Actors->AddItem((vtkActor *)prop);
             }
           }
 
