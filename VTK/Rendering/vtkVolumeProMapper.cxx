@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-16 17:00:08 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2002-01-16 20:12:28 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -51,9 +51,12 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkVolumeProVP1000Mapper.h"
 #endif
 
+#include "vtkDebugLeaks.h"
+
+
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkVolumeProMapper, "$Revision: 1.28 $");
+vtkCxxRevisionMacro(vtkVolumeProMapper, "$Revision: 1.29 $");
 
 // Create the mapper. No context has been created, no volume has
 // been created yet.
@@ -141,10 +144,12 @@ vtkVolumeProMapper *vtkVolumeProMapper::New()
     }
   
 #if defined (VTK_HAVE_VP1000) || defined (VTK_FORCE_COMPILE_VP1000)
+  vtkDebugLeaks::DestructClass("vtkVolumeProMapper");
   return vtkVolumeProVP1000Mapper::New();
 #else
 
 #if defined (VTK_HAVE_VG500) || defined (VTK_FORCE_COMPILE_VG500)
+  vtkDebugLeaks::DestructClass("vtkVolumeProMapper");
   return vtkVolumeProVG500Mapper::New();
 #else
   // if not using vli, then return the stub class, which will render
