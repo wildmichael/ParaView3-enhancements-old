@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSight6Reader.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:12 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-06-03 21:19:06 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -39,6 +39,8 @@
 #define __vtkEnSight6Reader_h
 
 #include "vtkEnSightReader.h"
+
+class vtkIdTypeArray;
 
 class VTK_IO_EXPORT vtkEnSight6Reader : public vtkEnSightReader
 {
@@ -113,7 +115,7 @@ protected:
   // global list of points for the unstructured parts of the model
   int NumberOfUnstructuredPoints;
   vtkPoints* UnstructuredPoints;
-  vtkIdList* UnstructuredNodeIds; // matching of node ids to point ids
+  vtkIdTypeArray* UnstructuredNodeIds; // matching of node ids to point ids
 private:
   vtkEnSight6Reader(const vtkEnSight6Reader&);  // Not implemented.
   void operator=(const vtkEnSight6Reader&);  // Not implemented.

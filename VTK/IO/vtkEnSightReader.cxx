@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-03 13:16:55 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2002-06-03 21:19:06 $
+  Version:   $Revision: 1.34 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkStructuredPoints.h"
 #include "vtkUnstructuredGrid.h"
 
-vtkCxxRevisionMacro(vtkEnSightReader, "$Revision: 1.33 $");
+vtkCxxRevisionMacro(vtkEnSightReader, "$Revision: 1.34 $");
 
 //----------------------------------------------------------------------------
 vtkEnSightReader::vtkEnSightReader()
@@ -109,6 +109,22 @@ vtkEnSightReader::~vtkEnSightReader()
 {
   int i, j;
 
+  if (this->CellIds)
+    {
+    for (i = 0; i < this->UnstructuredPartIds->GetNumberOfIds(); i++)
+      {
+      for (j = 0; j < 16; j++)
+        {
+        this->CellIds[i][j]->Delete();
+        this->CellIds[i][j] = NULL;
+        }
+      delete [] this->CellIds[i];
+      this->CellIds[i] = NULL;
+      }
+    delete [] this->CellIds;
+    this->CellIds = NULL;
+    }
+  
   if (this->FilePath)
     {
     delete [] this->FilePath;
@@ -173,22 +189,6 @@ vtkEnSightReader::~vtkEnSightReader()
     this->ComplexVariableDescriptions = NULL;
     delete [] this->ComplexVariableTypes;
     this->ComplexVariableTypes = NULL;
-    }
-  
-  if (this->CellIds)
-    {
-    for (i = 0; i < this->UnstructuredPartIds->GetNumberOfIds(); i++)
-      {
-      for (j = 0; j < 16; j++)
-        {
-        this->CellIds[i][j]->Delete();
-        this->CellIds[i][j] = NULL;
-        }
-      delete [] this->CellIds[i];
-      this->CellIds[i] = NULL;
-      }
-    delete [] this->CellIds;
-    this->CellIds = NULL;
     }
   
   this->UnstructuredPartIds->Delete();
@@ -477,6 +477,8 @@ int vtkEnSightReader::ReadCaseFile()
     return 0;
     }
 
+  this->NumberOfVariables = 0;
+  
   this->ReadNextDataLine(line);
   
   if (strncmp(line, "FORMAT", 6) == 0)
@@ -1869,6 +1871,11 @@ void vtkEnSightReader::ReplaceWildcards(char* filename, int num)
   
   wildcardPos = static_cast<int>(strcspn(filename, "*"));
   numWildcards = static_cast<int>(strspn(filename + wildcardPos, "*"));
+  
+  if (numWildcards == 0)
+    {
+    return;
+    }
   
   tmpNum /= 10;
   while (tmpNum >= 1)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightGoldBinaryReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-30 18:23:54 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-06-03 21:19:06 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 
 #include <ctype.h>
 
-vtkCxxRevisionMacro(vtkEnSightGoldBinaryReader, "$Revision: 1.19 $");
+vtkCxxRevisionMacro(vtkEnSightGoldBinaryReader, "$Revision: 1.20 $");
 vtkStandardNewMacro(vtkEnSightGoldBinaryReader);
 
 //----------------------------------------------------------------------------
@@ -1248,7 +1248,7 @@ int vtkEnSightGoldBinaryReader::ReadTensorsPerNode(char* fileName,
     }
   
   this->IFile = fopen(line, "rb");
-  if (this->IFile)
+  if (this->IFile == NULL)
     {
     vtkErrorMacro("Unable to open file: " << line);
     return 0;
@@ -1766,7 +1766,7 @@ int vtkEnSightGoldBinaryReader::ReadTensorsPerElement(char* fileName,
     }
   
   this->IFile = fopen(line, "rb");
-  if (this->IFile)
+  if (this->IFile == NULL)
     {
     vtkErrorMacro("Unable to open file: " << line);
     return 0;
