@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTriangleFilter.h,v $
   Language:  C++
-  Date:      $Date: 1994-05-23 22:25:30 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-07-21 17:00:14 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -15,9 +15,12 @@ without the express written consent of the authors.
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-//
-// Converts PolyData (polygons and strips) strictly to triangles.
-//
+// .NAME vlTriangleFilter - create triangle polygons from input polygons and triangle strips
+// .SECTION Description
+// vlTriangleFilter generates triangles from input polygons and triangle 
+// strips. The filter will also pass through vertices and lines, if
+// requested.
+
 #ifndef __vlTriangleFilter_h
 #define __vlTriangleFilter_h
 

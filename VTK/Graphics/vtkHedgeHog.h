@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkHedgeHog.h,v $
   Language:  C++
-  Date:      $Date: 1994-07-08 22:00:40 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-07-21 17:00:12 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -15,9 +15,12 @@ without the express written consent of the authors.
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-//
-// Creates oriented lines directed along vector
-//
+// .NAME vlHedgeHog - create oriented lines from vector data
+// .SECTION Description
+// vlHedgeHog creates oriented lines from the input data set. Line length
+// is controlled by vector magnitude times scale factor. Vectors are
+// colored by scalar data, if available.
+
 #ifndef __vlHedgeHog_h
 #define __vlHedgeHog_h
 
