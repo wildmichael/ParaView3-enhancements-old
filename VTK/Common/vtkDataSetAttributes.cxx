@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-10 21:17:12 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2001-12-14 15:30:13 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -100,25 +100,23 @@ vtkDataSetAttributes::~vtkDataSetAttributes()
 // Turn on copying of all data.
 void vtkDataSetAttributes::CopyAllOn()
 {
+  this->vtkFieldData::CopyAllOn();
   this->CopyScalarsOn();
   this->CopyVectorsOn();
   this->CopyNormalsOn();
   this->CopyTCoordsOn();
   this->CopyTensorsOn();
-  this->DoCopyAllOn = 1;
-  this->DoCopyAllOff = 0;
 }
 
 // Turn off copying of all data.
 void vtkDataSetAttributes::CopyAllOff()
 {
+  this->vtkFieldData::CopyAllOff();
   this->CopyScalarsOff();
   this->CopyVectorsOff();
   this->CopyNormalsOff();
   this->CopyTCoordsOff();
   this->CopyTensorsOff();
-  this->DoCopyAllOn = 0;
-  this->DoCopyAllOff = 1;
 }
 
 // Deep copy of data (i.e., create new data arrays and

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:09:40 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2001-12-14 15:30:13 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -251,6 +251,9 @@ void vtkFieldData::Initialize()
 
   this->NumberOfArrays = 0;
   this->NumberOfActiveArrays = 0;
+
+  this->CopyAllOn();
+  this->ClearFieldFlags();
 }
 
 // Allocate data for each array.
