@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMask.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-08-19 11:27:21 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-08-19 11:28:53 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,7 +75,7 @@ void vtkImageMask::SetMaskedOutputValue(int num, float *v)
     this->MaskedOutputValueLength = num;
     }
 
-  this->MaskedOutputValue = num;
+  this->MaskedOutputValueLength = num;
   for (idx = 0; idx < num; ++ idx)
     {
     if (this->MaskedOutputValue[idx] != v[idx])
