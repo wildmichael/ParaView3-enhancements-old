@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPICommunicator.h,v $
   Language:  C++
-  Date:      $Date: 2001-04-11 17:41:43 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-05-01 19:51:20 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -106,7 +106,7 @@ public:
 
 //BTX
 
-  class Request
+  class VTK_EXPORT Request
   {
   public:
     int Test();
