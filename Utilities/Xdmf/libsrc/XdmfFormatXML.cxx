@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfFormatXML.cxx,v 1.4 2003-09-30 22:07:56 andy Exp $  */
-/*  Date : $Date: 2003-09-30 22:07:56 $ */
-/*  Version : $Revision: 1.4 $ */
+/*  Id : $Id: XdmfFormatXML.cxx,v 1.5 2003-10-21 15:12:48 andy Exp $  */
+/*  Date : $Date: 2003-10-21 15:12:48 $ */
+/*  Version : $Revision: 1.5 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -39,7 +39,7 @@ XdmfArray *
 XdmfFormatXML::ElementToArray( XdmfXNode *Element, XdmfDataDesc *Desc, XdmfArray *Array  ) {
 
 XdmfInt32  NumberType;
-XdmfString  Data;
+XdmfConstString  Data;
 XdmfArray  *NewArray = NULL;
 XdmfDataDesc  *NewDesc = NULL;
 

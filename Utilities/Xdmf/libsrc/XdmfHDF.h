@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfHDF.h,v 1.4 2003-09-29 16:00:41 andy Exp $  */
-/*  Date : $Date: 2003-09-29 16:00:41 $ */
-/*  Version : $Revision: 1.4 $ */
+/*  Id : $Id: XdmfHDF.h,v 1.5 2003-10-21 15:12:48 andy Exp $  */
+/*  Date : $Date: 2003-10-21 15:12:48 $ */
+/*  Version : $Revision: 1.5 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -53,7 +53,7 @@ public:
   XdmfHDF();
   ~XdmfHDF();
 
-  const char * GetClassName() { return ( "XdmfHDF" ) ; };
+  XdmfConstString GetClassName() { return ( "XdmfHDF" ) ; };
 
 //! Set the current internal HDF "Group" for creation
   XdmfInt32 SetCwdName( XdmfString Directory );
@@ -76,10 +76,10 @@ public:
     };
 
 //! Internal Call to set the name of the next child in the list
-  void SetNextChild( const char *Name );
+  void SetNextChild( XdmfConstString Name );
 
 //! Internal HDF5 info
-  XdmfInt32 Info( hid_t Group, const char *Name );
+  XdmfInt32 Info( hid_t Group, XdmfConstString Name );
 
 //! Get The Type of the Child : Directory, Dataset, ot Other
   XdmfInt32 GetChildType( XdmfInt64 Index ) {
@@ -113,8 +113,8 @@ public:
 //! Open an existing Dataset in a currently open HDF5 file
   XdmfInt32 OpenDataset();
 //! Open an HDF5 file and OpenDataset = DataSetName
-  XdmfInt32 Open( XdmfString DataSetName  = NULL ,
-    XdmfString Access = NULL );
+  XdmfInt32 Open( XdmfConstString DataSetName  = NULL ,
+    XdmfConstString Access = NULL );
 /*!
 Read the cueently open dataset into and Array.
 */

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfAttribute.h,v 1.3 2003-09-29 16:00:41 andy Exp $  */
-/*  Date : $Date: 2003-09-29 16:00:41 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: XdmfAttribute.h,v 1.4 2003-10-21 15:12:48 andy Exp $  */
+/*  Date : $Date: 2003-10-21 15:12:48 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -51,15 +51,15 @@ public:
   XdmfAttribute();
   ~XdmfAttribute();
 
-  const char * GetClassName() { return ( "XdmfAttribute" ) ; };
+  XdmfConstString GetClassName() { return ( "XdmfAttribute" ) ; };
 
   XdmfSetValueMacro( AttributeType, XdmfInt32 );
   XdmfGetValueMacro( AttributeType, XdmfInt32 );
 
-  XdmfInt32 SetAttributeTypeFromString( XdmfString AttributeType );
+  XdmfInt32 SetAttributeTypeFromString( XdmfConstString AttributeType );
   XdmfString GetAttributeTypeAsString( void );
 
-  XdmfInt32 SetAttributeCenterFromString( XdmfString AttributeCenter );
+  XdmfInt32 SetAttributeCenterFromString( XdmfConstString AttributeCenter );
   XdmfString GetAttributeCenterAsString( void );
 
   XdmfSetValueMacro( AttributeCenter, XdmfInt32 );

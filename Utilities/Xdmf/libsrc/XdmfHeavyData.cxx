@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfHeavyData.cxx,v 1.2 2003-09-30 15:59:02 andy Exp $  */
-/*  Date : $Date: 2003-09-30 15:59:02 $ */
-/*  Version : $Revision: 1.2 $ */
+/*  Id : $Id: XdmfHeavyData.cxx,v 1.3 2003-10-21 15:12:48 andy Exp $  */
+/*  Date : $Date: 2003-10-21 15:12:48 $ */
+/*  Version : $Revision: 1.3 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -42,7 +42,7 @@ XdmfHeavyData::~XdmfHeavyData() {
   this->SetWorkingDirectory(0);
 }
 
-void XdmfHeavyData::SetWorkingDirectory( char *String )
+void XdmfHeavyData::SetWorkingDirectory( XdmfString String )
 {
   if ( String == this->WorkingDirectory )
     {
@@ -64,7 +64,7 @@ void XdmfHeavyData::SetWorkingDirectory( char *String )
     }
 }
 
-void XdmfHeavyData::SetFileName( char *String )
+void XdmfHeavyData::SetFileName( XdmfString String )
 {
   if ( String == this->FileName )
     {

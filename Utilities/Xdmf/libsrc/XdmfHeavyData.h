@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfHeavyData.h,v 1.4 2003-09-30 15:59:02 andy Exp $  */
-/*  Date : $Date: 2003-09-30 15:59:02 $ */
-/*  Version : $Revision: 1.4 $ */
+/*  Id : $Id: XdmfHeavyData.h,v 1.5 2003-10-21 15:12:48 andy Exp $  */
+/*  Date : $Date: 2003-10-21 15:12:48 $ */
+/*  Version : $Revision: 1.5 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -45,17 +45,17 @@ public:
   XdmfHeavyData();
   ~XdmfHeavyData();
 
-  const char * GetClassName() { return ( "XdmfHeavyData" ) ; };
+  XdmfConstString GetClassName() { return ( "XdmfHeavyData" ) ; };
 
 //! Get the default NDGM Host for NDGM:File:/Dataset
         XdmfGetValueMacro(NdgmHost, XdmfString);
 //! Set the default NDGM Host for NDGM:File:/Dataset
-        void SetNdgmHost( char *String ) { strcpy( this->NdgmHost, String ); }
+        void SetNdgmHost( XdmfString String ) { strcpy( this->NdgmHost, String ); }
 
 //! Get the default Pathname for File:/Dataset
         XdmfGetValueMacro(WorkingDirectory, XdmfString);
 //! Set the default Pathname for File:/Dataset
-        void SetWorkingDirectory( char *String );
+        void SetWorkingDirectory( XdmfString String );
 
 
 //! Get the current domain
@@ -93,18 +93,18 @@ values can be :
 protected:
 
   char    NdgmHost[XDMF_MAX_STRING_LENGTH];
-  char    *WorkingDirectory;
+  XdmfString WorkingDirectory;
   char    Access[XDMF_MAX_STRING_LENGTH];
   char    Domain[XDMF_MAX_STRING_LENGTH];
-  char    *FileName;
+  XdmfString FileName;
   char    Path[XDMF_MAX_STRING_LENGTH];
 };
 
 /*
 extern "C" {
-extern char *XdmfGetNdgmEntries( void );
+extern XdmfString XdmfGetNdgmEntries( void );
 extern void XdmfDeleteAllNdgmEntries( void );
-extern XdmfInt64 XdmfAddNdgmEntry( char *Name, XdmfInt64 Length );
+extern XdmfInt64 XdmfAddNdgmEntry( XdmfString Name, XdmfInt64 Length );
   }
 */
 #endif // __XdmfHeavyData_h

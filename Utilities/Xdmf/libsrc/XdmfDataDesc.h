@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataDesc.h,v 1.3 2003-09-29 16:00:41 andy Exp $  */
-/*  Date : $Date: 2003-09-29 16:00:41 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: XdmfDataDesc.h,v 1.4 2003-10-21 15:12:48 andy Exp $  */
+/*  Date : $Date: 2003-10-21 15:12:48 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -72,7 +72,7 @@ public :
         return( this->SetShape( 1, &Length ) );
         };
 //! Set Rank and Dimensions of Dataset From a String
-  XdmfInt32  SetShapeFromString( const XdmfString String  );
+  XdmfInt32  SetShapeFromString( XdmfConstString String  );
 
 //! Select the Entire Dataset for Transfer
   XdmfInt32  SelectAll( void );
@@ -122,14 +122,14 @@ public :
 
 //! Compound Data Type Access: SetDataType( XDMF_COMPOUND_TYPE ) must be called First
 #ifndef SWIG
-  XdmfInt32  AddCompoundMember( XdmfString Name,
+  XdmfInt32  AddCompoundMember( XdmfConstString Name,
         XdmfInt32 NumberType = XDMF_FLOAT32_TYPE,
         XdmfInt32 Rank = 1,
         XdmfInt64 *Dimensions = NULL,
         XdmfInt64 Offset = 0);
 #endif
 
-  XdmfInt32  AddCompoundMemberFromString( XdmfString Name,
+  XdmfInt32  AddCompoundMemberFromString( XdmfConstString Name,
         XdmfString NumberType,
         XdmfString Shape,
         XdmfInt64  Offset = 0);

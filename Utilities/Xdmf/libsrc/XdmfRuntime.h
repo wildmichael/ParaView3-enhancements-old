@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfRuntime.h,v 1.4 2003-09-29 16:00:41 andy Exp $  */
-/*  Date : $Date: 2003-09-29 16:00:41 $ */
-/*  Version : $Revision: 1.4 $ */
+/*  Id : $Id: XdmfRuntime.h,v 1.5 2003-10-21 15:12:48 andy Exp $  */
+/*  Date : $Date: 2003-10-21 15:12:48 $ */
+/*  Version : $Revision: 1.5 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -49,7 +49,7 @@ public:
   XdmfRuntime();
   ~XdmfRuntime();
 
-  const char * GetClassName() { return ( "XdmfRuntime" ) ; };
+  XdmfConstString GetClassName() { return ( "XdmfRuntime" ) ; };
 
 //! Set/Get Barrier Mode
   XdmfSetValueMacro( BarrierMode, XdmfInt32 );
@@ -98,7 +98,7 @@ next Frequency multiple
   XdmfInt32  Term( void );
 //! Update from XML in a Disk File
   XdmfInt32  ParseFile( XdmfString FileName = "XdmfRuntime.xml" );
-//! Update from XML in a char *
+//! Update from XML in a XdmfString
   XdmfInt32  ParseBuffer( XdmfString Buffer = NULL  );
 
 //! Signal Completed Update in Free Run or Safe Mode

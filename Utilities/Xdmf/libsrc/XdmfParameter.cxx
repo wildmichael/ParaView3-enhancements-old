@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfParameter.cxx,v 1.4 2003-10-01 17:48:37 andy Exp $  */
-/*  Date : $Date: 2003-10-01 17:48:37 $ */
-/*  Version : $Revision: 1.4 $ */
+/*  Id : $Id: XdmfParameter.cxx,v 1.5 2003-10-21 15:12:48 andy Exp $  */
+/*  Date : $Date: 2003-10-21 15:12:48 $ */
+/*  Version : $Revision: 1.5 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -87,7 +87,7 @@ if( Attribute ){
   }
 Attribute = Node->Get("CurrentIndex");
 if( Attribute ){
-  this->CurrentIndex = strtol( Attribute, ( char **)NULL, 0 );
+  this->CurrentIndex = strtol( Attribute, ( XdmfString *)NULL, 0 );
   }
 return( XDMF_SUCCESS );
 }
@@ -156,10 +156,10 @@ return( XDMF_SUCCESS );
 XdmfString
 XdmfParameter::Substitute( XdmfString OriginalString ){
 
-char  *NewString;
-char  *Where;
-char  *Name;
-char  *NewName = NULL;
+XdmfString NewString;
+XdmfString Where;
+XdmfString Name;
+XdmfString NewName = NULL;
 
 this->Update();
 

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfAttribute.cxx,v 1.3 2003-09-29 16:00:41 andy Exp $  */
-/*  Date : $Date: 2003-09-29 16:00:41 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: XdmfAttribute.cxx,v 1.4 2003-10-21 15:12:48 andy Exp $  */
+/*  Date : $Date: 2003-10-21 15:12:48 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -60,7 +60,7 @@ return("None");
 }
 
 XdmfInt32
-XdmfAttribute::SetAttributeTypeFromString( XdmfString AttributeType ){
+XdmfAttribute::SetAttributeTypeFromString( XdmfConstString AttributeType ){
 XdmfInt64  Dimensions[3];
 
 XdmfDebug("Setting Type to " << AttributeType );
@@ -106,7 +106,7 @@ return( "Node" );
 }
 
 XdmfInt32
-XdmfAttribute::SetAttributeCenterFromString( XdmfString AttributeCenter ){
+XdmfAttribute::SetAttributeCenterFromString( XdmfConstString AttributeCenter ){
 
 if( XDMF_WORD_CMP( AttributeCenter, "Grid" ) ) {
   this->AttributeCenter = XDMF_ATTRIBUTE_CENTER_GRID;
@@ -128,7 +128,7 @@ return( XDMF_SUCCESS );
 XdmfInt32
 XdmfAttribute::InitAttributeFromElement( XdmfXNode *Element ) {
 
-XdmfString  Attribute;
+XdmfConstString  Attribute;
 
 if( !Element ){
   XdmfErrorMessage("Element is NULL");
@@ -173,7 +173,7 @@ XdmfInt32  Status;
 XdmfXNode   *ValuesNode;
 XdmfTransform  ValueReader;
 
-XdmfString  Attribute;
+XdmfConstString  Attribute;
 
 if( !Element ){
   XdmfErrorMessage("Element is NULL");

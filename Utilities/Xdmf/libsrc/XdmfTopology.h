@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfTopology.h,v 1.4 2003-09-29 16:00:41 andy Exp $  */
-/*  Date : $Date: 2003-09-29 16:00:41 $ */
-/*  Version : $Revision: 1.4 $ */
+/*  Id : $Id: XdmfTopology.h,v 1.5 2003-10-21 15:12:48 andy Exp $  */
+/*  Date : $Date: 2003-10-21 15:12:48 $ */
+/*  Version : $Revision: 1.5 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -80,7 +80,7 @@ public:
   XdmfTopology();
   ~XdmfTopology();
 
-  const char * GetClassName() { return ( "XdmfTopology" ) ; };
+  XdmfConstString GetClassName() { return ( "XdmfTopology" ) ; };
 
 //! Get General Class
   XdmfInt32 GetClass ( void ) {
@@ -98,7 +98,7 @@ public:
     };
 //! Set the base topology type
   XdmfInt32 SetTopologyType( XdmfInt32 TopologyType );
-  XdmfInt32 SetTopologyTypeFromString( XdmfString TopologyType );
+  XdmfInt32 SetTopologyTypeFromString( XdmfConstString TopologyType );
 //! Get the base topology type
   XdmfGetValueMacro( TopologyType, XdmfInt32 );
   XdmfString GetTopologyTypeAsString( void );
@@ -106,7 +106,7 @@ public:
 
   XdmfInt32  *GetOrder( void );
   XdmfString  GetOrderAsString( void );
-  XdmfInt32  SetOrderFromString( XdmfString Order );
+  XdmfInt32  SetOrderFromString( XdmfConstString Order );
   XdmfInt32  SetOrder( XdmfInt32 Length, XdmfInt32 *Order );
   XdmfSetValueMacro( NodesPerElement, XdmfInt32 );
   XdmfGetValueMacro( NodesPerElement, XdmfInt32 );
@@ -142,5 +142,5 @@ protected:
   XdmfDataDesc  *Shape;
 };
 
-extern XDMF_EXPORT XdmfTopology *HandleToXdmfTopology( char *Source );
+extern XDMF_EXPORT XdmfTopology *HandleToXdmfTopology( XdmfString Source );
 #endif // __XdmfTopology_h

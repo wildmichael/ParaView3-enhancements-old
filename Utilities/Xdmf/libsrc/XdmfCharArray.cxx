@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfCharArray.cxx,v 1.2 2003-10-01 17:48:37 andy Exp $  */
-/*  Date : $Date: 2003-10-01 17:48:37 $ */
-/*  Version : $Revision: 1.2 $ */
+/*  Id : $Id: XdmfCharArray.cxx,v 1.3 2003-10-21 15:12:48 andy Exp $  */
+/*  Date : $Date: 2003-10-21 15:12:48 $ */
+/*  Version : $Revision: 1.3 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -38,7 +38,7 @@ XdmfCharArray::~XdmfCharArray() {
 XdmfInt32
 XdmfCharArray::SetFromFile(  XdmfString FileName ) {
 
-char  *cp;
+XdmfString cp;
 int  ch;
 FILE  *fp;
 struct stat FileStatus;
@@ -50,7 +50,7 @@ if ( stat( FileName, &FileStatus ) < 0 ) {
   }
 XdmfDebug("File " << FileName << " is " << FileStatus.st_size << " bytes long");
 this->SetNumberOfElements( FileStatus.st_size + 1 );
-cp = (char *)this->GetDataPointer();
+cp = (XdmfString )this->GetDataPointer();
 if( (fp = fopen( FileName, "r" )) ) {
   while( ( ch = getc( fp ) ) != EOF ){
     *cp++ = ch;  

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfFormat.h,v 1.3 2003-09-29 16:00:41 andy Exp $  */
-/*  Date : $Date: 2003-09-29 16:00:41 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: XdmfFormat.h,v 1.4 2003-10-21 15:12:48 andy Exp $  */
+/*  Date : $Date: 2003-10-21 15:12:48 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -55,7 +55,7 @@ public :
   XdmfFormat();
   ~XdmfFormat();
 
-  const char * GetClassName() { return("XdmfFormat"); } ;
+  XdmfConstString GetClassName() { return("XdmfFormat"); } ;
 
   void  SetFormat( XdmfString Format ) {
     strcpy( this->DataFormat, Format );

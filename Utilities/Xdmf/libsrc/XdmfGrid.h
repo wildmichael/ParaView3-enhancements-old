@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGrid.h,v 1.4 2003-09-29 16:00:41 andy Exp $  */
-/*  Date : $Date: 2003-09-29 16:00:41 $ */
-/*  Version : $Revision: 1.4 $ */
+/*  Id : $Id: XdmfGrid.h,v 1.5 2003-10-21 15:12:48 andy Exp $  */
+/*  Date : $Date: 2003-10-21 15:12:48 $ */
+/*  Version : $Revision: 1.5 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -36,7 +36,7 @@ public:
   XdmfGrid();
   ~XdmfGrid();
 
-  const char * GetClassName() { return ( "XdmfGrid" ) ; };
+  XdmfConstString GetClassName() { return ( "XdmfGrid" ) ; };
 
   XdmfSetValueMacro( Geometry, XdmfGeometry *);
   XdmfGetValueMacro( Geometry, XdmfGeometry *);
@@ -76,5 +76,5 @@ protected:
   XdmfAttribute  *AssignedAttribute;
 };
 
-extern XDMF_EXPORT XdmfGrid *HandleToXdmfGrid( char *Source);
+extern XDMF_EXPORT XdmfGrid *HandleToXdmfGrid( XdmfString Source);
 #endif // __XdmfGrid_h

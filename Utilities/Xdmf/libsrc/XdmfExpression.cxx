@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfExpression.cxx,v 1.1 2002-12-02 17:11:03 clarke Exp $  */
-/*  Date : $Date: 2002-12-02 17:11:03 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfExpression.cxx,v 1.2 2003-10-21 15:12:48 andy Exp $  */
+/*  Date : $Date: 2003-10-21 15:12:48 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -24,7 +24,7 @@
 /*******************************************************************/
 #include "XdmfExpression.h"
 
-extern XdmfArray *XdmfExprParse( char *string );
+extern XdmfArray *XdmfExprParse( XdmfString string );
 
 XdmfArray *
 XdmfExpr( XdmfString Statement ) {

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfFormat.cxx,v 1.5 2003-09-30 22:07:56 andy Exp $  */
-/*  Date : $Date: 2003-09-30 22:07:56 $ */
-/*  Version : $Revision: 1.5 $ */
+/*  Id : $Id: XdmfFormat.cxx,v 1.6 2003-10-21 15:12:48 andy Exp $  */
+/*  Date : $Date: 2003-10-21 15:12:48 $ */
+/*  Version : $Revision: 1.6 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -148,7 +148,7 @@ XdmfDebug("Total = " << ICE_64BIT_CAST(TotalSize) );
 Desc->SetNumberType( XDMF_COMPOUND_TYPE, TotalSize );
 // Now Fill in the Members
 for( i = 0 ; i < NumberOfMembers ; i++ ){
-  XdmfString  Name;
+  XdmfConstString  Name;
   XdmfXNode    *Child;
   XdmfDataDesc  *ChildDesc;
 
@@ -175,7 +175,7 @@ XdmfDataDesc *
 XdmfFormat::ElementToDataDesc( XdmfXNode *Element ) {
 
 XdmfDataDesc  *Desc;
-XdmfString  Attribute;
+XdmfConstString  Attribute;
 XdmfInt32  Rank = 1, NumberType;
 XdmfInt64  Dimensions[ XDMF_MAX_DIMENSION ];
 
@@ -210,7 +210,7 @@ if( NumberType == XDMF_COMPOUND_TYPE ){
 //
 Attribute = this->DOM->Get(Element, "Rank");
 if( Attribute ){
-  Rank = strtol( Attribute, (char **)NULL, 0 );
+  Rank = strtol( Attribute, (XdmfString *)NULL, 0 );
   }
 Attribute = this->DOM->Get(Element, "Dimensions");
 if( Attribute ){
@@ -228,7 +228,7 @@ if( Attribute ){
 */
   Desc->SetShapeFromString( Attribute );
 } else {
-  XdmfString  Values;
+  XdmfConstString  Values;
   XdmfArray  *Array = new XdmfArray( XDMF_FLOAT32_TYPE );
 
   Values = this->DOM->Get(Element, "CData");

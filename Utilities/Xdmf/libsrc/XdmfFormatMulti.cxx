@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfFormatMulti.cxx,v 1.3 2003-09-29 16:00:41 andy Exp $  */
-/*  Date : $Date: 2003-09-29 16:00:41 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: XdmfFormatMulti.cxx,v 1.4 2003-10-21 15:12:48 andy Exp $  */
+/*  Date : $Date: 2003-10-21 15:12:48 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -37,8 +37,8 @@ XdmfFormatMulti::~XdmfFormatMulti() {
 
 XdmfArray *
 XdmfFormatMulti::ElementToArray( XdmfXNode *Element, XdmfDataDesc *Desc, XdmfArray *Array  ) {
-XdmfString  ElementType;
-XdmfString  ElementFormat;
+XdmfConstString  ElementType;
+XdmfConstString  ElementFormat;
 
 if( !Element ){
   XdmfErrorMessage("Element is NULL");
@@ -77,7 +77,7 @@ XdmfFormatMulti::ArrayToElement( XdmfArray *Array,
       XdmfString HeavyDataset,
       XdmfXNode *Element,
       XdmfDataDesc *Desc ) {
-XdmfString  ElementFormat;
+XdmfConstString  ElementFormat;
 
 if( Element ){
   ElementFormat = this->DOM->Get( Element, "Format");
@@ -103,9 +103,9 @@ if(strcmp(ElementFormat, "XML") == 0 ){
 return( Element );
 }
 
-XdmfString
+XdmfConstString
 XdmfFormatMulti::SetFormatFromElement( XdmfXNode *Element ) {
-XdmfString  Format;
+XdmfConstString  Format;
 
 Format = this->DOM->Get(Element, "Format");
 if( Format ) {

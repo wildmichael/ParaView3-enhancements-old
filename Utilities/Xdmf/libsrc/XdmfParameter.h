@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfParameter.h,v 1.3 2003-09-29 16:00:41 andy Exp $  */
-/*  Date : $Date: 2003-09-29 16:00:41 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: XdmfParameter.h,v 1.4 2003-10-21 15:12:48 andy Exp $  */
+/*  Date : $Date: 2003-10-21 15:12:48 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -45,7 +45,7 @@ class XDMF_EXPORT XdmfParameter : public XdmfObject {
 public:
   XdmfParameter();
   ~XdmfParameter();
-  const char * GetClassName() { return ( "XdmfParameter" ) ; };
+  XdmfConstString GetClassName() { return ( "XdmfParameter" ) ; };
 
 //! Get the type of Parameter
   XdmfGetValueMacro(ParameterType, XdmfInt32);

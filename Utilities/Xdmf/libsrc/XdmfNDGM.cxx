@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfNDGM.cxx,v 1.4 2003-10-08 15:27:28 clarke Exp $  */
-/*  Date : $Date: 2003-10-08 15:27:28 $ */
-/*  Version : $Revision: 1.4 $ */
+/*  Id : $Id: XdmfNDGM.cxx,v 1.5 2003-10-21 15:12:48 andy Exp $  */
+/*  Date : $Date: 2003-10-21 15:12:48 $ */
+/*  Version : $Revision: 1.5 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -38,9 +38,9 @@ extern "C" {
     return(NDGM_SUCCESS); /* Device Close and Free Lower Data Structs */
     }
 #else
-   char *XdmfGetNdgmEntries( void ){return(NULL);}
+   XdmfString XdmfGetNdgmEntries( void ){return(NULL);}
    void XdmfDeleteAllNdgmEntries( void ){return;}
-   XdmfInt64 XdmfAddNdgmEntry( char *Name, XdmfInt64 Length )
+   XdmfInt64 XdmfAddNdgmEntry( XdmfString Name, XdmfInt64 Length )
      {
      (void)Name;
      (void)Length;
@@ -112,7 +112,7 @@ switch ( this->NdgmMode ) {
     {
       int   i, argc = 0;
       char  args[10][80];
-      char   *argv[10];
+      XdmfString argv[10];
 
       strcpy(args[argc++], "XDMF_NDGM_CLIENT");
       strcpy(args[argc++], "-host");

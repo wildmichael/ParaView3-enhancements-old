@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGrid.cxx,v 1.4 2003-09-29 16:00:41 andy Exp $  */
-/*  Date : $Date: 2003-09-29 16:00:41 $ */
-/*  Version : $Revision: 1.4 $ */
+/*  Id : $Id: XdmfGrid.cxx,v 1.5 2003-10-21 15:12:48 andy Exp $  */
+/*  Date : $Date: 2003-10-21 15:12:48 $ */
+/*  Version : $Revision: 1.5 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -28,7 +28,7 @@
 #include "XdmfGeometry.h"
 #include "XdmfAttribute.h"
 
-XdmfGrid *HandleToXdmfGrid( char *Source ){
+XdmfGrid *HandleToXdmfGrid( XdmfString Source ){
   XdmfObject  *TempObj;
   XdmfGrid   *Grid;
 
@@ -122,7 +122,7 @@ XdmfInt32
 XdmfGrid::InitGridFromElement( XdmfXNode *Element ) {
 
 XdmfInt32  Status = XDMF_FAIL;
-XdmfString  Attribute;
+XdmfConstString  Attribute;
 
 Attribute = this->DOM->Get( Element, "NodeType");
 if( XDMF_WORD_CMP( Attribute, "Grid" ) == 0 ){
@@ -180,7 +180,7 @@ XdmfInt32
 XdmfGrid::SetGridFromElement( XdmfXNode *Element ) {
 
 XdmfInt32  Status = XDMF_FAIL;
-XdmfString  Attribute;
+XdmfConstString  Attribute;
 
 Attribute = this->DOM->Get( Element, "NodeType");
 if( XDMF_WORD_CMP( Attribute, "Grid" ) == 0 ){

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfObject.cxx,v 1.5 2003-10-01 17:48:37 andy Exp $  */
-/*  Date : $Date: 2003-10-01 17:48:37 $ */
-/*  Version : $Revision: 1.5 $ */
+/*  Id : $Id: XdmfObject.cxx,v 1.6 2003-10-21 15:12:48 andy Exp $  */
+/*  Date : $Date: 2003-10-21 15:12:48 $ */
+/*  Version : $Revision: 1.6 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -75,7 +75,7 @@ String << Pattern << ICE_64BIT_CAST(NameCntr++) << ends;
 return( ReturnName );
 }
 
-char *
+XdmfString 
 XdmfObjectToHandle( XdmfObject *Source ){
 ostrstream Handle;
 XDMF_64_INT RealObjectPointer;
@@ -91,8 +91,8 @@ return( (XdmfString)Handle.str() );
 }
 
 XdmfObject *
-HandleToXdmfObject( char *Source ){
-char* src = new char[ strlen(Source) + 1 ];
+HandleToXdmfObject( XdmfString Source ){
+XdmfString src = new char[ strlen(Source) + 1 ];
 strcpy(src, Source);
 istrstream Handle( src, strlen(src));
 char  c;

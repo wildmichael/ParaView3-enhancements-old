@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGeometry.h,v 1.2 2003-06-26 18:02:26 andy Exp $  */
-/*  Date : $Date: 2003-06-26 18:02:26 $ */
-/*  Version : $Revision: 1.2 $ */
+/*  Id : $Id: XdmfGeometry.h,v 1.3 2003-10-21 15:12:48 andy Exp $  */
+/*  Date : $Date: 2003-10-21 15:12:48 $ */
+/*  Version : $Revision: 1.3 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -42,7 +42,7 @@ public:
   XdmfGeometry();
   ~XdmfGeometry();
 
-  const char * GetClassName() { return ( "XdmfGeometry" ) ; };
+  XdmfConstString GetClassName() { return ( "XdmfGeometry" ) ; };
 
   XdmfSetValueMacro( NumberOfPoints, XdmfInt64 );
   XdmfGetValueMacro( NumberOfPoints, XdmfInt64 );
@@ -51,7 +51,7 @@ public:
   XdmfGetValueMacro( GeometryType, XdmfInt32 );
 
   XdmfString GetGeometryTypeAsString( void );
-  XdmfInt32 SetGeometryTypeFromString( XdmfString GeometryType );
+  XdmfInt32 SetGeometryTypeFromString( XdmfConstString GeometryType );
 
   XdmfInt32 InitGeometryFromElement( XdmfXNode *Element );
   XdmfInt32 SetGeometryFromElement( XdmfXNode *Element );
