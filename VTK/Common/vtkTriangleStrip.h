@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleStrip.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:25:01 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 1998-11-03 01:16:30 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -97,9 +97,9 @@ public:
   int GetParametricCenter(float pcoords[3]);
 
   // Description:
-  // Given a list of triangle strips, decompose into a list of (triangle) 
-  // polygons. The polygons are appended to the end of the list of polygons.
-  void DecomposeStrips(vtkCellArray *strips, vtkCellArray *tris);
+  // Given a triangle strip, decompose it into a list of (triangle) 
+  // polygons. The polygons are appended to the end of the list of triangles.
+  void DecomposeStrip(int npts, int *pts, vtkCellArray *tris);
   
   // Description:
   // For legacy compatibility. Do not use.
