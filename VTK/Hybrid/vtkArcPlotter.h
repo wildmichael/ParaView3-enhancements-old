@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArcPlotter.h,v $
   Language:  C++
-  Date:      $Date: 2002-02-27 16:26:50 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-05-16 02:04:35 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -42,7 +42,6 @@
 #define __vtkArcPlotter_h
 
 #include "vtkPolyDataToPolyDataFilter.h"
-#include "vtkCamera.h"
 
 #define VTK_PLOT_SCALARS    1
 #define VTK_PLOT_VECTORS    2
@@ -50,6 +49,8 @@
 #define VTK_PLOT_TCOORDS    4
 #define VTK_PLOT_TENSORS    5
 #define VTK_PLOT_FIELD_DATA 6
+
+class vtkCamera;
 
 class VTK_HYBRID_EXPORT vtkArcPlotter : public vtkPolyDataToPolyDataFilter 
 {
@@ -65,7 +66,7 @@ public:
   // Description:
   // Specify a camera used to orient the plot along the arc. If no camera
   // is specified, then the orientation of the plot is arbitrary.
-  vtkSetObjectMacro(Camera,vtkCamera);
+  virtual void SetCamera(vtkCamera*);
   vtkGetObjectMacro(Camera,vtkCamera);
 
   // Description:
