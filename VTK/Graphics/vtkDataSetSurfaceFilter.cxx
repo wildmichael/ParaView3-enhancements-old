@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetSurfaceFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-20 14:24:34 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-06-01 18:38:26 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -135,6 +135,13 @@ void vtkDataSetSurfaceFilter::Execute()
       vtkImageData *image = vtkImageData::SafeDownCast(input);
       ext = image->GetExtent();      
       this->StructuredExecute(image, ext);
+      return;
+      }
+    case VTK_POLY_DATA:      
+      {
+      vtkPolyData *inPd = vtkPolyData::SafeDownCast(input);
+      vtkPolyData *output = this->GetOutput();
+      output->ShallowCopy(inPd);
       return;
       }
     default:
