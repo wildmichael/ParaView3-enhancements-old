@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyVertex.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:26:03 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2002-06-08 00:28:44 $
+  Version:   $Revision: 1.58 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,12 +16,15 @@
 
 =========================================================================*/
 #include "vtkPolyVertex.h"
+
 #include "vtkMath.h"
 #include "vtkCellArray.h"
 #include "vtkPointLocator.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
+#include "vtkCellData.h"
 
-vtkCxxRevisionMacro(vtkPolyVertex, "$Revision: 1.57 $");
+vtkCxxRevisionMacro(vtkPolyVertex, "$Revision: 1.58 $");
 vtkStandardNewMacro(vtkPolyVertex);
 
 vtkPolyVertex::vtkPolyVertex()

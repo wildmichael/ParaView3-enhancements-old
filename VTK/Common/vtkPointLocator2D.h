@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator2D.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-07 22:27:32 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-06-08 00:28:44 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -44,10 +44,10 @@
 
 #include "vtkLocator.h"
 
-class vtkPoints;
+class vtkCellArray;
 class vtkIdList;
-
 class vtkNeighborPoints2D;
+class vtkPoints;
 
 class VTK_COMMON_EXPORT vtkPointLocator2D : public vtkLocator
 {

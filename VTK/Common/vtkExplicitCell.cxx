@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExplicitCell.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-07 22:40:02 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-06-08 00:28:44 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,9 +19,9 @@
 
 #include "vtkCellArray.h"
 #include "vtkObjectFactory.h"
+#include "vtkDataSet.h"
 
-
-vtkCxxRevisionMacro(vtkExplicitCell, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkExplicitCell, "$Revision: 1.4 $");
 vtkCxxSetObjectMacro(vtkExplicitCell,DataSet,vtkDataSet);
 
 vtkExplicitCell::vtkExplicitCell()

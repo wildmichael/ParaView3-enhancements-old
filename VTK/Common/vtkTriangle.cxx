@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangle.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:26:30 $
-  Version:   $Revision: 1.89 $
+  Date:      $Date: 2002-06-08 00:28:44 $
+  Version:   $Revision: 1.90 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,15 +16,18 @@
 
 =========================================================================*/
 #include "vtkTriangle.h"
-#include "vtkPolygon.h"
-#include "vtkPlane.h"
-#include "vtkMath.h"
-#include "vtkCellArray.h"
-#include "vtkLine.h"
-#include "vtkPointLocator.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkTriangle, "$Revision: 1.89 $");
+#include "vtkCellArray.h"
+#include "vtkCellData.h"
+#include "vtkLine.h"
+#include "vtkMath.h"
+#include "vtkObjectFactory.h"
+#include "vtkPlane.h"
+#include "vtkPointData.h"
+#include "vtkPointLocator.h"
+#include "vtkPolygon.h"
+
+vtkCxxRevisionMacro(vtkTriangle, "$Revision: 1.90 $");
 vtkStandardNewMacro(vtkTriangle);
 
 // Construct the triangle with three points.

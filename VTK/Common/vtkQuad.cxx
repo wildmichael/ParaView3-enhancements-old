@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuad.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:26:13 $
-  Version:   $Revision: 1.77 $
+  Date:      $Date: 2002-06-08 00:28:44 $
+  Version:   $Revision: 1.78 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,15 +16,18 @@
 
 =========================================================================*/
 #include "vtkQuad.h"
-#include "vtkTriangle.h"
-#include "vtkPlane.h"
+
 #include "vtkCellArray.h"
+#include "vtkCellData.h"
 #include "vtkLine.h"
-#include "vtkPointLocator.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
+#include "vtkPlane.h"
+#include "vtkPointData.h"
+#include "vtkPointLocator.h"
+#include "vtkTriangle.h"
 
-vtkCxxRevisionMacro(vtkQuad, "$Revision: 1.77 $");
+vtkCxxRevisionMacro(vtkQuad, "$Revision: 1.78 $");
 vtkStandardNewMacro(vtkQuad);
 
 static const float VTK_DIVERGED = 1.e6;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergePoints2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-24 14:54:26 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-06-08 00:28:44 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,12 @@
 
 =========================================================================*/
 #include "vtkMergePoints2D.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkMergePoints2D, "$Revision: 1.11 $");
+#include "vtkObjectFactory.h"
+#include "vtkIdList.h"
+#include "vtkPoints.h"
+
+vtkCxxRevisionMacro(vtkMergePoints2D, "$Revision: 1.12 $");
 
 vtkMergePoints2D* vtkMergePoints2D::New() 
 { 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIterativeClosestPointTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:30:32 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-06-08 00:28:44 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -15,15 +15,16 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
-
 #include "vtkIterativeClosestPointTransform.h"
-#include "vtkCellLocator.h"
-#include "vtkLandmarkTransform.h"
-#include "vtkTransform.h"
-#include "vtkObjectFactory.h"
-#include "vtkMath.h"
 
-vtkCxxRevisionMacro(vtkIterativeClosestPointTransform, "$Revision: 1.8 $");
+#include "vtkCellLocator.h"
+#include "vtkDataSet.h"
+#include "vtkLandmarkTransform.h"
+#include "vtkMath.h"
+#include "vtkObjectFactory.h"
+#include "vtkTransform.h"
+
+vtkCxxRevisionMacro(vtkIterativeClosestPointTransform, "$Revision: 1.9 $");
 vtkStandardNewMacro(vtkIterativeClosestPointTransform);
 
 //----------------------------------------------------------------------------

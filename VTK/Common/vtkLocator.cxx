@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:34 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2002-06-08 00:28:44 $
+  Version:   $Revision: 1.43 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,7 +17,11 @@
 =========================================================================*/
 #include "vtkLocator.h"
 
-vtkCxxRevisionMacro(vtkLocator, "$Revision: 1.42 $");
+#include "vtkDataSet.h"
+
+vtkCxxRevisionMacro(vtkLocator, "$Revision: 1.43 $");
+
+vtkCxxSetObjectMacro(vtkLocator,DataSet,vtkDataSet);
 
 // Construct with automatic computation of divisions, averaging
 // 25 points per bucket.

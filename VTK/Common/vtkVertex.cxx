@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVertex.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:26:38 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 2002-06-08 00:28:44 $
+  Version:   $Revision: 1.56 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,12 +16,15 @@
 
 =========================================================================*/
 #include "vtkVertex.h"
+
 #include "vtkMath.h"
 #include "vtkCellArray.h"
 #include "vtkPointLocator.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
+#include "vtkCellData.h"
 
-vtkCxxRevisionMacro(vtkVertex, "$Revision: 1.55 $");
+vtkCxxRevisionMacro(vtkVertex, "$Revision: 1.56 $");
 vtkStandardNewMacro(vtkVertex);
 
 // Construct the vertex with a single point.

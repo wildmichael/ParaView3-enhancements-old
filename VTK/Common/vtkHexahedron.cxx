@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHexahedron.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-27 13:09:09 $
-  Version:   $Revision: 1.79 $
+  Date:      $Date: 2002-06-08 00:28:44 $
+  Version:   $Revision: 1.80 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,14 +16,17 @@
 
 =========================================================================*/
 #include "vtkHexahedron.h"
-#include "vtkObjectFactory.h"
-#include "vtkMath.h"
-#include "vtkLine.h"
-#include "vtkQuad.h"
-#include "vtkCellArray.h"
-#include "vtkPointLocator.h"
 
-vtkCxxRevisionMacro(vtkHexahedron, "$Revision: 1.79 $");
+#include "vtkCellArray.h"
+#include "vtkCellData.h"
+#include "vtkLine.h"
+#include "vtkMath.h"
+#include "vtkObjectFactory.h"
+#include "vtkPointData.h"
+#include "vtkPointLocator.h"
+#include "vtkQuad.h"
+
+vtkCxxRevisionMacro(vtkHexahedron, "$Revision: 1.80 $");
 vtkStandardNewMacro(vtkHexahedron);
 
 static const float VTK_DIVERGED = 1.e6;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLocator.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:28:01 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2002-06-08 00:28:44 $
+  Version:   $Revision: 1.58 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -40,7 +40,11 @@
 
 #include "vtkLocator.h"
 
+class vtkCellArray;
+class vtkGenericCell;
+class vtkIdList;
 class vtkNeighborCells;
+class vtkPoints;
 
 class VTK_FILTERING_EXPORT vtkCellLocator : public vtkLocator
 {

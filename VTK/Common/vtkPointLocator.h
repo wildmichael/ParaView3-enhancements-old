@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:58 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2002-06-08 00:28:44 $
+  Version:   $Revision: 1.50 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -44,6 +44,7 @@
 
 class vtkIdList;
 class vtkNeighborPoints;
+class vtkCellArray;
 
 class VTK_COMMON_EXPORT vtkPointLocator : public vtkLocator
 {
