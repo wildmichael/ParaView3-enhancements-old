@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-07 08:57:16 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 2000-01-13 13:25:27 $
+  Version:   $Revision: 1.59 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -864,6 +864,10 @@ void vtkStructuredGrid::PrintSelf(ostream& os, vtkIndent indent)
 
   os << indent << "Blanking: " << (this->Blanking ? "On\n" : "Off\n");
 
+  os << indent << "WholeExtent: " << this->WholeExtent[0] << ", "
+     << this->WholeExtent[1] << ", " << this->WholeExtent[2] << ", "
+     << this->WholeExtent[3] << ", " << this->WholeExtent[4] << ", "
+     << this->WholeExtent[5] << endl;
   os << indent << "Extent: " << this->Extent[0] << ", "
      << this->Extent[1] << ", " << this->Extent[2] << ", "
      << this->Extent[3] << ", " << this->Extent[4] << ", "

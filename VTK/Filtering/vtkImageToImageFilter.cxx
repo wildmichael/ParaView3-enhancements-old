@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToImageFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-07 09:11:35 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2000-01-13 13:25:41 $
+  Version:   $Revision: 1.24 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -78,6 +78,15 @@ void vtkImageToImageFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
   os << indent << "NumberOfThreads: " << this->NumberOfThreads << "\n";
 
+  if ( this->Bypass )
+    {
+    os << indent << "Bypass: On\n";
+    }
+  else
+    {
+    os << indent << "Bypass: Off\n";
+    }
+  
   vtkImageSource::PrintSelf(os,indent);
 }
 

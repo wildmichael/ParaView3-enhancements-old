@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-07 09:13:30 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2000-01-13 13:25:57 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -656,6 +656,15 @@ vtkPolyData *vtkAppendPolyData::GetInput(int idx)
 void vtkAppendPolyData::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
+
+  if ( this->ParallelStreaming )
+    {
+    os << indent << "ParallelStreamingOn\n";
+    }
+  else
+    {
+    os << indent << "ParallelStreamingOff\n";
+    }
 }
 
 void vtkAppendPolyData::AppendData(vtkDataArray *dest, vtkDataArray *src,

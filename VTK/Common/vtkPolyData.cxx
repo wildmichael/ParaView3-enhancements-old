@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-07 08:57:13 $
-  Version:   $Revision: 1.108 $
+  Date:      $Date: 2000-01-13 13:25:19 $
+  Version:   $Revision: 1.109 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1440,7 +1440,15 @@ void vtkPolyData::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Number Of Lines: " << this->GetNumberOfLines() << "\n";
   os << indent << "Number Of Polygons: " << this->GetNumberOfPolys() << "\n";
   os << indent << "Number Of Triangle Strips: " << this->GetNumberOfStrips() << "\n";
-  
+
+  os << indent << "Number Of Pieces: " << this->NumberOfPieces << endl;
+  os << indent << "Piece: " << this->Piece << endl;
+  os << indent << "Maximum Number Of Pieces: " << this->MaximumNumberOfPieces << endl;
+
+  os << indent << "UpdateExtent: " << this->UpdateExtent[0] << ", "
+     << this->UpdateExtent[1] << ", " << this->UpdateExtent[2] << ", "
+     << this->UpdateExtent[3] << ", " << this->UpdateExtent[4] << ", "
+     << this->UpdateExtent[5] << endl;
 }
 
 
