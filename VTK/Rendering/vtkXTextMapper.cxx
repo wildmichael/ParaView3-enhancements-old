@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-24 18:34:11 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-02-24 20:56:17 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -206,7 +206,8 @@ void vtkXTextMapper::RenderOverlay(vtkViewport* viewport, vtkActor2D* actor)
 {
   if (this->Input == NULL) 
     {
-    vtkErrorMacro (<<"vtkXTextMapper::Render - No input");
+    vtkDebugMacro (<<"vtkXTextMapper::Render - No input");
+    return;
     }
   
   // Get the window info
