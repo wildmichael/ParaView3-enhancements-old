@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkImageWindowWidget.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 15:30:22 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-09-16 21:09:20 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,7 +44,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // vtkTkImageWindowWidget is a Tk widget that you can render into. It has a 
 // GetImageWindow method that returns a vtkImageWindow. You can also 
 // specify a vtkImageWindow to be used when creating the widget by using
-// the -iv option. It also takes -width and -height options.
+// the -iw option. It also takes -width and -height options.
 // Events can be bound on this widget just like any other Tk widget.
 
 // .SECTION See Also

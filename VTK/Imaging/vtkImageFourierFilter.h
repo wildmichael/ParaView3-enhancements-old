@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFourierFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:28:38 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1998-09-16 21:09:09 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -120,17 +120,17 @@ public:
   // public for templated functions of this object
   //BTX
 
-// Description:
-// This function calculates the whole fft of an array.
-// The contents of the input array are changed.
-// (It is engineered for no decimation)
+  // Description:
+  // This function calculates the whole fft of an array.
+  // The contents of the input array are changed.
+  // (It is engineered for no decimation)
   void ExecuteFft(vtkImageComplex *in, vtkImageComplex *out, int N);
 
 
-// Description:
-// This function calculates the whole fft of an array.
-// The contents of the input array are changed.
-// (It is engineered for no decimation)
+  // Description:
+  // This function calculates the whole fft of an array.
+  // The contents of the input array are changed.
+  // (It is engineered for no decimation)
   void ExecuteRfft(vtkImageComplex *in, vtkImageComplex *out, int N);
 
   //ETX

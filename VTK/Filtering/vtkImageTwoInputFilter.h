@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageTwoInputFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:28:44 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1998-09-16 21:09:17 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,12 +38,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkImageTwoInputFilter - Generic superclass for filter that have
+// .NAME vtkImageTwoInputFilter - Generic superclass for filters that have
 // two inputs.
 // .SECTION Description
-// vtkImageTwoInputFilter handles two input.  
+// vtkImageTwoInputFilter handles two inputs.  
 // It is just a subclass of vtkImageMultipleInputFilter with some
-// methods that are specific to two inputs.  Although the inputs are labels
+// methods that are specific to two inputs.  Although the inputs are labeled
 // input1 and input2, they are stored in an array indexed starting at 0.
 
 #ifndef __vtkImageTwoInputFilter_h
@@ -57,26 +57,23 @@ public:
   vtkImageTwoInputFilter();
   static vtkImageTwoInputFilter *New() {return new vtkImageTwoInputFilter;};
   const char *GetClassName() {return "vtkImageTwoInputFilter";};
-
-
-// Description:
-// Set the Input1 of this filter. If a ScalarType has not been set,
-// then the ScalarType of the input is used.
+  
+  // Description:
+  // Set the Input1 of this filter. If a ScalarType has not been set,
+  // then the ScalarType of the input is used.
   virtual void SetInput1(vtkImageCache *input);
-
   void SetInput1(vtkStructuredPoints *spts)
     {this->SetInput1(spts->GetStructuredPointsToImage()->GetOutput());}
-
-// Description:
-// Set the Input2 of this filter. If a ScalarType has not been set,
-// then the ScalarType of the input is used.
-  virtual void SetInput2(vtkImageCache *input);
-
-  void SetInput2(vtkStructuredPoints *spts)
-    {this->SetInput2(spts->GetStructuredPointsToImage()->GetOutput());}
-
+  
   // Description:
-  // Get input to this filter.
+  // Set the Input2 of this filter. If a ScalarType has not been set,
+  // then the ScalarType of the input is used.
+  virtual void SetInput2(vtkImageCache *input);
+  void SetInput2(vtkStructuredPoints *spts)
+  {this->SetInput2(spts->GetStructuredPointsToImage()->GetOutput());}
+  
+  // Description:
+  // Get the inputs to this filter.
   vtkImageCache *GetInput1() {return this->Inputs[0];}
   vtkImageCache *GetInput2() {return this->Inputs[1];}
 

@@ -3,9 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageLuminance.h,v $
   Language:  C++
-  Date:      $Date: 1998-04-23 16:02:55 $
-  Version:   $Revision: 1.1 $
-  Thanks:    Thanks to C. Charles Law who developed this class.
+  Date:      $Date: 1998-09-16 21:09:12 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -38,9 +37,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkImageLuminance - Outputs a sinlge component
+// .NAME vtkImageLuminance - Computes the luminace of the input
 // .SECTION Description
-// vtkImageLuminance calculates luminance from rgb.n
+// vtkImageLuminance calculates luminance from an rgb input.
 
 #ifndef __vtkImageLuminance_h
 #define __vtkImageLuminance_h
@@ -56,7 +55,6 @@ public:
   const char *GetClassName() {return "vtkImageLuminance";};
 
 protected:
-  
   void ExecuteImageInformation();
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData, 
 		       int ext[6], int id);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIslandRemoval2D.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:28:39 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1998-09-16 21:09:11 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,8 +67,8 @@ class VTK_EXPORT vtkImageIslandRemoval2D : public vtkImageFilter
 {
 public:
 
-// Description:
-// Constructor: Sets default filter to be identity.
+  // Description:
+  // Constructor: Sets default filter to be identity.
   vtkImageIslandRemoval2D();
 
   static vtkImageIslandRemoval2D *New() {return new vtkImageIslandRemoval2D;};
@@ -97,9 +97,9 @@ public:
   vtkGetMacro(ReplaceValue, float);
   
 
-// Description:
-// Intercepts the caches Update to make the region larger than requested.
-// The whole image is generated when any region is requested.
+  // Description:
+  // Intercepts the caches Update to make the region larger than requested.
+  // The whole image is generated when any region is requested.
   void InterceptCacheUpdate();
 
   

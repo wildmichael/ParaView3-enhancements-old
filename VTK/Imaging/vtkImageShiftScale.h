@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageShiftScale.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:28:42 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1998-09-16 21:09:15 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,10 +38,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkImageShiftScale - Upper threshold on pixel values
+// .NAME vtkImageShiftScale - shift and scale an input image
 // .SECTION Description
-// vtkImageShiftScale Pixels are shifted and then scaled.
-
+// With vtkImageShiftScale Pixels are shifted and then scaled. As
+// a convinience this class allows you to set the output scalar type
+// similar to vtkImageCast. This is because frequently shift scale
+// operations are associated with converting data types.
 
 
 #ifndef __vtkImageShiftScale_h
@@ -53,11 +55,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImageShiftScale : public vtkImageFilter
 {
 public:
-
-// Description:
-// Constructor sets default values
   vtkImageShiftScale();
-
   static vtkImageShiftScale *New() {return new vtkImageShiftScale;};
   const char *GetClassName() {return "vtkImageShiftScale";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -72,6 +70,8 @@ public:
   vtkSetMacro(Scale,float);
   vtkGetMacro(Scale,float);
 
+  // Description:
+  // Set the desired output scalar type to cast to
   vtkSetMacro(OutputScalarType, int);
   vtkGetMacro(OutputScalarType, int);
   void SetOutputScalarTypeToFloat() {this->SetOutputScalarType(VTK_FLOAT);}
@@ -89,7 +89,6 @@ public:
   vtkSetMacro(ClampOverflow, int);
   vtkGetMacro(ClampOverflow, int);
   vtkBooleanMacro(ClampOverflow, int);
-  
   
 protected:
   float Shift;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDotProduct.h,v $
   Language:  C++
-  Date:      $Date: 1998-04-09 17:47:56 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1998-09-16 21:09:08 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,11 +40,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 // .NAME vtkImageDotProduct - Dot product of two vector images.
 // .SECTION Description
-// vtkImageDotProduct interpretes one axis of the input images as
-// vectors and takes the dot product vector by vector.  The first axis
-// is the vector axis and defaults to VTK_IMAGE_COMPONENT_AXIS.
-// The output collapses the vector axis to the extent (0,0).
-
+// vtkImageDotProduct interpretes the scalar components of two images
+// as vectors and takes the dot product vector by vector (pixel by pixel).
 
 #ifndef __vtkImageDotProduct_h
 #define __vtkImageDotProduct_h

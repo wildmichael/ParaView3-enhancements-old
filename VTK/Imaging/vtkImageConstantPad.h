@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageConstantPad.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:28:37 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-09-16 21:09:06 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,6 +44,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // Any pixels outside of the original image extent are filled with
 // a constant value.
 
+// .SECTION See Also
+// vtkImageWrapPad vtkImageMirrorPad
 
 #ifndef __vtkImageConstantPad_h
 #define __vtkImageConstantPad_h
@@ -54,9 +56,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImageConstantPad : public vtkImagePadFilter
 {
 public:
-
-// Description:
-// Constructor sets default values
   vtkImageConstantPad();
 
   static vtkImageConstantPad *New() {return new vtkImageConstantPad;};
@@ -64,6 +63,7 @@ public:
 
   void PrintSelf(ostream& os, vtkIndent indent);
 
+  // Description:
   // Set/Get the pad value.
   vtkSetMacro(Constant, float);
   vtkGetMacro(Constant, float);

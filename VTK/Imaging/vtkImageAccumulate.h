@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAccumulate.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:28:35 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-09-16 21:09:05 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,36 +55,30 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImageAccumulate : public vtkImageFilter
 {
 public:
-
-// Description:
-// Constructor sets default values
   vtkImageAccumulate();
-
   static vtkImageAccumulate *New() {return new vtkImageAccumulate;};
   const char *GetClassName() {return "vtkImageAccumulate";};
-
   void PrintSelf(ostream& os, vtkIndent indent);
 
-  // Always generate the whole data set.
-
-// Description:
-// Intercepts the caches Update to make the extent larger than requested.
+  // Description:
+  // Intercepts the caches Update to make the extent larger than requested.
   void InterceptCacheUpdate();
-
 
   // Description:
   // Set/Get - The component spacing is the dimension of each cell.
   vtkSetVector3Macro(ComponentSpacing, float);
   vtkGetVector3Macro(ComponentSpacing, float);
+
   // Description:
   // Set/Get - The component origin is the location of bin (0, 0, 0).
   vtkSetVector3Macro(ComponentOrigin, float);
   vtkGetVector3Macro(ComponentOrigin, float);
+
   // Description:
   // Set/Get - The component extent is the number/extent of the bins.  
   void SetComponentExtent(int extent[6]);
   void SetComponentExtent(int minX, int maxX, int minY, int maxY, 
-			    int minZ, int maxZ);
+			  int minZ, int maxZ);
   void GetComponentExtent(int extent[6]);
   int *GetComponentExtent() {return this->ComponentExtent;}
   

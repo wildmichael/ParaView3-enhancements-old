@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePadFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:28:41 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1998-09-16 21:09:14 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,14 +55,9 @@ class vtkImageCache;
 class VTK_EXPORT vtkImagePadFilter : public vtkImageFilter
 {
 public:
-
-// Description:
-// Constructor sets default values
   vtkImagePadFilter();
-
   static vtkImagePadFilter *New() {return new vtkImagePadFilter;};
   const char *GetClassName() {return "vtkImagePadFilter";};
-
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
@@ -73,7 +68,8 @@ public:
   void GetOutputWholeExtent(int extent[6]);
   int *GetOutputWholeExtent() {return this->OutputWholeExtent;}
 
-  // Pad the scalar components as well.
+  // Description:
+  // Set/Get the number of output scalar components.
   vtkSetMacro(OutputNumberOfScalarComponents, int);
   vtkGetMacro(OutputNumberOfScalarComponents, int);
   

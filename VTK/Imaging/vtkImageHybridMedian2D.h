@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageHybridMedian2D.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-08 19:06:09 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-09-16 21:09:10 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,14 +41,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .NAME vtkImageHybridMedian2D - Median filter that preseverse lines and 
 // corners.
 // .SECTION Description
-// vtkImageHybridMedian2D is a median filter that preserves thin lines and 
-// corners.
-// It operates on a 5x5 pixel neighborhood. 
-// It computes two values initially: the median
-// of the + neighbors and the median of the x neighbors.  
-// It the computes the median of these
-// two values plus the center pixel.  
-// This result of this second median is the output pixel value.
+// vtkImageHybridMedian2D is a median filter that preserves thin lines and
+// corners.  It operates on a 5x5 pixel neighborhood.  It computes two values
+// initially: the median of the + neighbors and the median of the x
+// neighbors.  It the computes the median of these two values plus the center
+// pixel.  This result of this second median is the output pixel value.
 
 
 

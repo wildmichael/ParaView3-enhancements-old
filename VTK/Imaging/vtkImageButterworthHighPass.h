@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageButterworthHighPass.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 19:10:20 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-09-16 21:09:05 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,7 +45,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // (complex numbers).
 // out(i, j) = 1 / (1 + pow(CutOff/Freq(i,j), 2*Order));
 
-
+// .SECTION See Also
+// vtkImageButterworthLowPass
 
 #ifndef __vtkImageButterworthHighPass_h
 #define __vtkImageButterworthHighPass_h
@@ -60,7 +61,6 @@ public:
   static vtkImageButterworthHighPass *New() 
     {return new vtkImageButterworthHighPass;};
   const char *GetClassName() {return "vtkImageButterworthHighPass";};
-
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
@@ -81,7 +81,6 @@ public:
   // The order determines sharpness of the cutoff curve.
   vtkSetMacro(Order, int);
   vtkGetMacro(Order, int);
-  
   
 protected:
   int Order;

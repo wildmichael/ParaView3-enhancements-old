@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageRGBToHSV.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 19:11:05 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-09-16 21:09:14 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,14 +58,13 @@ public:
   static vtkImageRGBToHSV *New() 
     {return new vtkImageRGBToHSV;};
   const char *GetClassName() {return "vtkImageRGBToHSV";};
-
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
-  // Hue is an angle. Maximum specifies when it maps back to 0.
-  // HueMaximum defaults to 255 instead of 2PI, because unsigned char
-  // is expected as input.
-  // Maximum also specifies the maximum of the Saturation.
+
+  // Hue is an angle. Maximum specifies when it maps back to 0.  HueMaximum
+  // defaults to 255 instead of 2PI, because unsigned char is expected as
+  // input.  Maximum also specifies the maximum of the Saturation.
   vtkSetMacro(Maximum,float);
   vtkGetMacro(Maximum,float);
   

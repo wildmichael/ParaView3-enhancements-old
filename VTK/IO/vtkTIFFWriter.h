@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTIFFWriter.h,v $
   Language:  C++
-  Date:      $Date: 1997-12-17 01:27:42 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-09-16 21:09:19 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,8 +41,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .NAME vtkTIFFWriter - write out structured points as a TIFF file
 // .SECTION Description
 // vtkTIFFWriter writes structured points as a non-compressed TIFF data file.
-// The orientation of the image is with origin at lower left to correspond
-// with vtk conventions. This can be changed with the SetOrientation method.
 
 #ifndef __vtkTIFFWriter_h
 #define __vtkTIFFWriter_h

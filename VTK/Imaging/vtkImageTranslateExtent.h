@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageTranslateExtent.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:28:43 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-09-16 21:09:17 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,15 +57,14 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
-  // Delt to change "WholeExtent". -1 changes 0->10 to -1->9.
+  // Delta to change "WholeExtent". -1 changes 0->10 to -1->9.
   vtkSetVector3Macro(Translation, int);
   vtkGetVector3Macro(Translation, int);
 
 
-// Description:
-// This method simply copies by reference the input data to the output.
+  // Description:
+  // This method simply copies by reference the input data to the output.
   void InternalUpdate(vtkImageData *outData);
-
 
 protected:
   int Translation[3];

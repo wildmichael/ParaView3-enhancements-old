@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-19 17:34:03 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-09-16 21:09:21 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,7 +41,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .NAME vtkXImageWindow - 2D display window for X
 // .SECTION Description
 // vtkXImageWindow is a concrete subclass of vtkImageWindow to support
-// contains 2D rendering in vtk. 
+// 2D rendering in vtk. 
 
 // .SECTION See Also
 // vtkImageWindow
@@ -65,7 +65,6 @@ class VTK_EXPORT vtkXImageWindow : public vtkImageWindow
 public:
   vtkXImageWindow();
   ~vtkXImageWindow();
-
   static vtkXImageWindow *New() {return new vtkXImageWindow;};
   const char *GetClassName() {return "vtkXImageWindow";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -97,9 +96,14 @@ public:
   Window   GetWindowId();
   Display *GetDisplayId();
   GC       GetGC();
+
+  // Description:
+  // Set/Get the position of the window.
   int     *GetPosition();
   void     SetPosition(int,int);
 
+  // Description:
+  // Set/Get the size of the window.
   int     *GetSize();
   void     SetSize(int x, int y);
 

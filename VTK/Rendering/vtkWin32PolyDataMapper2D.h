@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32PolyDataMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 19:11:15 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-09-16 21:09:20 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -58,8 +58,12 @@ public:
   static vtkWin32PolyDataMapper2D *New() 
     {return new vtkWin32PolyDataMapper2D;};
 
+  // Description:
+  // Get the win32 compositing mode for a given actor2d.
   int GetCompositingMode(vtkActor2D* actor);
 
+  // Description:
+  // Actually draw the poly data.
   void Render(vtkViewport* viewport, vtkActor2D* actor);
 
 protected:

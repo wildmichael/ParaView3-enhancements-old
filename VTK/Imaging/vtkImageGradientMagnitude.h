@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGradientMagnitude.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:28:39 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1998-09-16 21:09:10 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,14 +39,15 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 // .NAME vtkImageGradientMagnitude - Computes magnitude of the gradient.
+
 // .SECTION Description
-// vtkImageGradientMagnitude computes the gradient magnitude 
-// of an image.  Setting the axes determines whether the gradient
-// computed on 1D lines, 2D images, 3D volumes or higher dimensional 
-// images.  The default is two dimensional XY images.  OutputScalarType
-// is always float.
+// vtkImageGradientMagnitude computes the gradient magnitude of an image.
+// Setting the dimensionality determines whether the gradient is computed on
+// 2D images, or 3D volumes.  The default is two dimensional XY images.
+// OutputScalarType is always float.
 
-
+// .SECTION See Also
+// vtkImageGradient vtkImageMagnitude
 
 #ifndef __vtkImageGradientMagnitude_h
 #define __vtkImageGradientMagnitude_h
@@ -57,11 +58,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImageGradientMagnitude : public vtkImageFilter
 {
 public:
-
-// Description:
-// Construct an instance of vtkImageGradientMagnitude fitler.
   vtkImageGradientMagnitude();
-
   static vtkImageGradientMagnitude *New() 
     {return new vtkImageGradientMagnitude;};
   const char *GetClassName() {return "vtkImageGradientMagnitude";};

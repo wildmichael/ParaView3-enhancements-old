@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMask.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-06 20:09:49 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1998-09-16 21:09:13 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,7 +64,6 @@ public:
   ~vtkImageMask();
   static vtkImageMask *New() {return new vtkImageMask;};
   const char *GetClassName() {return "vtkImageMask";};
-
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
@@ -78,13 +77,18 @@ public:
   float *GetMaskedOutputValue() {return this->MaskedOutputValue;}
   int GetMaskedOutputValueLength() {return this->MaskedOutputValueLength;}
 
+  // Description:
+  // Set the input to be masked.
   void SetImageInput(vtkImageCache *in) {this->SetInput1(in);}
   void SetImageInput(vtkStructuredPoints *in) {this->SetInput1(in);}
+
+  // Description:
+  // Set the mask to be used.
   void SetMaskInput(vtkImageCache *in) {this->SetInput2(in);}
   void SetMaskInput(vtkStructuredPoints *in) {this->SetInput2(in);}
   
   // Description:
-  // When Nopt Mask is on, the mask is passed through a boolean not
+  // When Not Mask is on, the mask is passed through a boolean not
   // before it is used to mask the image.  The effect is to pass the
   // pixels where the input mask is zero, and replace the pixels
   // where the input value is non zero.

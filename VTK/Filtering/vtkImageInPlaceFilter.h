@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageInPlaceFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:28:39 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1998-09-16 21:09:11 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,14 +61,12 @@ public:
   static vtkImageInPlaceFilter *New() {return new vtkImageInPlaceFilter;};
   const char *GetClassName() {return "vtkImageInPlaceFilter";};
 
-
-// Description:
-// This method is called by the cache.  It eventually calls the
-// Execute(vtkImageData *, vtkImageData *) method.
-// ImageInformation has already been updated by this point, 
-// and outRegion is in local coordinates.
-// This method will stream to get the input, and loops over extra axes.
-// Only the UpdateExtent from output will get updated.
+  // Description:
+  // This method is called by the cache.  It eventually calls the
+  // Execute(vtkImageData *, vtkImageData *) method.  ImageInformation has
+  // already been updated by this point, and outRegion is in local
+  // coordinates.  This method will stream to get the input. Only the
+  // UpdateExtent from output will get updated.
   virtual void InternalUpdate(vtkImageData *outData);
 
 protected:

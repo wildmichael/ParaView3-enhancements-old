@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIterateFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:28:39 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-09-16 21:09:11 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,13 +40,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 // .NAME vtkImageIterateFilter - Multiple executes per update.
 // .SECTION Description
-// vtkImageIterateFilter except it has the options of calling execute 
-// multiple times per update.
-// The largest hack/open issue is that the input and output caches
-// are temporarily changed to "fool" the subclasses.  I believe the correct
-// solution is to pass the in and out cache to the subclasses methods
-// as arguments.  Now the data is passes.  Can the caches be passed, and
-// data retieved from the cache? (Ken?)
+// vtkImageIterateFilter is a filter superclass that supports calling execute
+// multiple times per update.  The largest hack/open issue is that the input
+// and output caches are temporarily changed to "fool" the subclasses.  I
+// believe the correct solution is to pass the in and out cache to the
+// subclasses methods as arguments.  Now the data is passes.  Can the caches
+// be passed, and data retieved from the cache? 
 
 #ifndef __vtkImageIterateFilter_h
 #define __vtkImageIterateFilter_h
@@ -67,14 +66,13 @@ public:
   const char *GetClassName() {return "vtkImageIterateFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
-
-// Description:
-// This method sets the WholeExtent, Spacing and Origin of the output.
+  // Description:
+  // This updates the WholeExtent, Spacing and Origin of the output.
   void UpdateImageInformation();
 
-
   // Description:
-  // Public for templated iteration filters
+  // Get which iteration is current being performed. Normally the
+  // user will not access this method.
   vtkGetMacro(Iteration,int);
   
 protected:

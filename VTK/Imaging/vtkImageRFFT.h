@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageRFFT.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:28:41 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1998-09-16 21:09:14 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,14 +60,14 @@ public:
   static vtkImageRFFT *New() {return new vtkImageRFFT;};
   const char *GetClassName() {return "vtkImageRFFT";};
 
-
-// Description:
-// For streaming and threads.  Splits output update extent into num pieces.
-// This method needs to be called num times.  Results must not overlap for
-// consistent starting extent.  Subclass can override this method.
-// This method returns the number of peices resulting from a successful split.
-// This can be from 1 to "total".  
-// If 1 is returned, the extent cannot be split.
+  
+  // Description:
+  // For streaming and threads.  Splits output update extent into num pieces.
+  // This method needs to be called num times.  Results must not overlap for
+  // consistent starting extent.  Subclass can override this method.  This
+  // method returns the number of peices resulting from a successful split.
+  // This can be from 1 to "total".  If 1 is returned, the extent cannot be
+  // split.
   int SplitExtent(int splitExt[6], int startExt[6], 
 		  int num, int total);
 

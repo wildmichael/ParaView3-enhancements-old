@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageNoiseSource.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 19:10:57 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-09-16 21:09:13 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,15 +40,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 // .NAME vtkImageNoiseSource - Create an image filled with noise.
 // .SECTION Description
-// vtkImageNoiseSource just produces images filled with noise.  
-// The only option now is uniform noise
-// specified by a min and a max.  
-// There is one major problem with this source. Every time it
-// executes, it will output different pixel values.  
-// This has important implications when
-// a stream requests overlapping regions.  
-// The same pixels will have different values on different
-// updates.
+// vtkImageNoiseSource just produces images filled with noise.  The only
+// option now is uniform noise specified by a min and a max.  There is one
+// major problem with this source. Every time it executes, it will output
+// different pixel values.  This has important implications when a stream
+// requests overlapping regions.  The same pixels will have different values
+// on different updates.
 
 
 #ifndef __vtkImageNoiseSource_h
@@ -64,17 +61,22 @@ public:
   vtkImageNoiseSource();
   static vtkImageNoiseSource *New() {return new vtkImageNoiseSource;};
   const char *GetClassName() {return "vtkImageNoiseSource";};
-  
   void PrintSelf(ostream& os, vtkIndent indent);
 
+  // Description:
+  // Set/Get the minimum and maximum values for the generated noise.
   vtkSetMacro(Minimum, float);
   vtkGetMacro(Minimum, float);
   vtkSetMacro(Maximum, float);
   vtkGetMacro(Maximum, float);
 
+  // Description:
+  // Set how large of an image to generate.
   void SetWholeExtent(int xMinx, int xMax, int yMin, int yMax,
 		      int zMin, int zMax);
 
+  // Description:
+  // updates the inage information, (Extent, Scalar type, etc).
   void UpdateImageInformation();
 
 private:

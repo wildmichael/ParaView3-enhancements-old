@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDilateErode3D.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:28:38 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1998-09-16 21:09:08 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,9 +59,9 @@ class VTK_EXPORT vtkImageDilateErode3D : public vtkImageSpatialFilter
 {
 public:
 
-// Description:
-// Construct an instance of vtkImageDilateErode3D fitler.
-// By default zero values are dilated.
+  // Description:
+  // Construct an instance of vtkImageDilateErode3D fitler.
+  // By default zero values are dilated.
   vtkImageDilateErode3D();
 
   ~vtkImageDilateErode3D();
@@ -70,14 +70,14 @@ public:
   const char *GetClassName() {return "vtkImageDilateErode3D";};
   void PrintSelf(ostream& os, vtkIndent indent);
   
-  // Set/Get the size of the neighood.
-
-// Description:
-// This method sets the size of the neighborhood.  It also sets the 
-// default middle of the neighborhood and computes the eliptical foot print.
+  // Description:
+  // This method sets the size of the neighborhood.  It also sets the 
+  // default middle of the neighborhood and computes the eliptical foot print.
   void SetKernelSize(int size0, int size1, int size2);
 
   
+  // Description:
+  // Set/Get the Dilate and Erode values to bue used by this filter.
   vtkSetMacro(DilateValue, float);
   vtkGetMacro(DilateValue, float);
   vtkSetMacro(ErodeValue, float);

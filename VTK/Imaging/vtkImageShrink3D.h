@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageShrink3D.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:28:42 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1998-09-16 21:09:15 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,10 +41,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .NAME vtkImageShrink3D - Subsamples an image.
 // .SECTION Description
 // vtkImageShrink3D shrinks an image by sub sampling on a 
-// uniform grid (integer multiples).  This has become an obsolete
-// filter, because spatial filters now have strides which will produce 
-// the save result.
-
+// uniform grid (integer multiples).  
 
 #ifndef __vtkImageShrink3D_h
 #define __vtkImageShrink3D_h
@@ -55,11 +52,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImageShrink3D : public vtkImageFilter
 {
 public:
-
-// Description:
-// Constructor: Sets default filter to be identity.
   vtkImageShrink3D();
-
   static vtkImageShrink3D *New() {return new vtkImageShrink3D;};
   const char *GetClassName() {return "vtkImageShrink3D";};
   void PrintSelf(ostream& os, vtkIndent indent);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGaussianSource.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 19:10:37 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-09-16 21:09:10 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,7 +55,6 @@ public:
   vtkImageGaussianSource();
   static vtkImageGaussianSource *New() {return new vtkImageGaussianSource;};
   const char *GetClassName() {return "vtkImageGaussianSource";};
-  
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
@@ -68,9 +67,13 @@ public:
   vtkSetVector3Macro(Center, float);
   vtkGetVector3Macro(Center, float);
 
+  // Description:
+  // Set/Get the Maximum value of the gaussian
   vtkSetMacro(Maximum, float);
   vtkGetMacro(Maximum, float);
 
+  // Description:
+  // Set/Get the standard deviation of the gaussian
   vtkSetMacro(StandardDeviation, float);
   vtkGetMacro(StandardDeviation, float);
 

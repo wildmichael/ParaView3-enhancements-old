@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarBarActor.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:28:45 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-09-16 21:09:19 $
+  Version:   $Revision: 1.5 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -83,12 +83,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkScalarBarActor : public vtkActor2D
 {
 public:
-
-// Description:
-// Instantiate object with 64 maximum colors; 5 labels; font size 12
-// of font Arial (bolding, italic, shadows on); %%-#6.3g label
-// format, no title, and vertical orientation. The initial scalar bar
-// size is (0.05 x 0.8) of the viewport size.
+  // Description:
+  // Instantiate object with 64 maximum colors; 5 labels; font size 12
+  // of font Arial (bolding, italic, shadows on); %%-#6.3g label
+  // format, no title, and vertical orientation. The initial scalar bar
+  // size is (0.05 x 0.8) of the viewport size.
   vtkScalarBarActor();
 
   ~vtkScalarBarActor();
@@ -101,15 +100,13 @@ public:
   void Render(vtkViewport*);
 
   // Description:
-  // Set/Get the vtkMapper which contains the lookup table and scalar
-  // data from which to create the scalar bar actor. The lookup table
-  // specifies the number of colors to use in the table (if not
-  // overridden), as well as the scalar range.
+  // Set/Get the vtkLookupTable to use. The lookup table specifies the number
+  // of colors to use in the table (if not overridden), as well as the scalar
+  // range.
   vtkSetObjectMacro(LookupTable,vtkLookupTable);
   vtkGetObjectMacro(LookupTable,vtkLookupTable);
 
   // Description:
-  // 
   // Set/Get the width of the scalar bar. The value is expressed
   // as a fraction of the viewport. (Note: if the orientation of the scalar
   // bar is vertical, then the width is in the direction of the viewport 

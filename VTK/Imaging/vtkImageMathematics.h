@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMathematics.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 19:10:55 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-09-16 21:09:13 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,12 +38,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkImageMathematics - Add, subtract, multiply, divide, invert,
-// sin, cos, exp, log.
+// .NAME vtkImageMathematics - Add, subtract, multiply, divide, invert, sin, cos, exp, log.
 // .SECTION Description
-// vtkImageMathematics implents basic mathematic operations 
-// SetOperation is used to select the filteres behavior.
-// The filter can take two or one input.
+// vtkImageMathematics implents basic mathematic operations SetOperation is
+// used to select the filteres behavior.  The filter can take two or one
+// input.
 
 
 #ifndef __vtkImageMathematics_h
@@ -75,7 +74,6 @@ public:
   vtkImageMathematics();
   static vtkImageMathematics *New() {return new vtkImageMathematics;};
   const char *GetClassName() {return "vtkImageMathematics";};
-
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

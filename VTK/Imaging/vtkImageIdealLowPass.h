@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIdealLowPass.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 19:10:44 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-09-16 21:09:11 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,10 +40,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 // .NAME vtkImageIdealLowPass - Simple frequency domain band pass.
 // .SECTION Description
-// vtkImageIdealLowPass just sets a portion of the image to zero.
-// The result is an image with a lot of ringing.
-// Input and Output must be floats.  Dimensionality is set when the
-// axes are set.  Defaults to 2D on X and Y axes.
+// vtkImageIdealLowPass just sets a portion of the image to zero.  The result
+// is an image with a lot of ringing.  Input and Output must be floats.
+// Dimensionality is set when the axes are set.  Defaults to 2D on X and Y
+// axes.
 
 
 
@@ -60,7 +60,6 @@ public:
   static vtkImageIdealLowPass *New() 
     {return new vtkImageIdealLowPass;};
   const char *GetClassName() {return "vtkImageIdealLowPass";};
-
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

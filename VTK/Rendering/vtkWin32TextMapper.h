@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32TextMapper.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 20:45:08 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-09-16 21:09:21 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,8 +58,12 @@ public:
   const char *GetClassName() {return "vtkWin32TextMapper";};
   static vtkWin32TextMapper *New() {return new vtkWin32TextMapper;};
 
+  // Description:
+  // Return the Win32 compositing value for an actor.
   int GetCompositingMode(vtkActor2D* actor);
 
+  // Description:
+  // Actally draw the text.
   void Render(vtkViewport* viewport, vtkActor2D* actor);
 
 

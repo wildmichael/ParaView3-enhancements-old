@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImager.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:28:44 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-09-16 21:09:18 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,7 +41,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .NAME vtkImager - Renders into part of a ImageWindow
 // .SECTION Description
 // vtkImager is the 2D counterpart to vtkRenderer. An Imager renders
-// 2D actors into a viewport of a window. 
+// 2D actors into a viewport of an image window. 
 
 // .SECTION See Also
 //  vtkImageWindow vtkViewport
@@ -61,10 +61,8 @@ class vtkImageWindow;
 class VTK_EXPORT vtkImager : public vtkViewport
 { 
 public:
-
-
-// Description:
-// Create an imager with viewport (0, 0, 1, 1)
+  // Description:
+  // Create an imager with viewport (0, 0, 1, 1)
   vtkImager();
 
   static vtkImager *New() {return new vtkImager;};

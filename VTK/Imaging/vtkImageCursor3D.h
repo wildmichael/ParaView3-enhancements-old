@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCursor3D.h,v $
   Language:  C++
-  Date:      $Date: 1998-01-13 21:58:49 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-09-16 21:09:07 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,9 +38,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkImageCursor3D - Paints on top of an image.
+// .NAME vtkImageCursor3D - Paints a cursor on top of an image or volume.
 // .SECTION Description
-// vtkImageCursor3D will draw a cursor on a 2d image.
+// vtkImageCursor3D will draw a cursor on a 2d image or 3d volume.
 
 #ifndef __vtkImageCursor3D_h
 #define __vtkImageCursor3D_h
@@ -55,12 +55,20 @@ public:
   const char *GetClassName() {return "vtkImageCursor3D";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
+
+  // Description:
+  // Sets/Gets the center point of the 3d cursor.
   vtkSetVector3Macro(CursorPosition, float);
   vtkGetVector3Macro(CursorPosition, float);
 
+  // Description:
+  // Sets/Gets what pixel value to draw the cursor in.
   vtkSetMacro(CursorValue, float);
   vtkGetMacro(CursorValue, float);
   
+  // Description:
+  // Sets/Gets the radius of the cursor. The radius determines
+  // how far the axis lines project out from the cursors center.
   vtkSetMacro(CursorRadius, int);
   vtkGetMacro(CursorRadius, int);
   

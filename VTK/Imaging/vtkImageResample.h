@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageResample.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:28:42 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-09-16 21:09:15 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,7 +40,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 // .NAME vtkImageResample - Resamples an image using linear interpolation.
 // .SECTION Description
-// vtkImageResample 
+// vtkImageResample resamples the input image 
 
 
 #ifndef __vtkImageResample_h
@@ -64,7 +64,7 @@ public:
   // Set desired spacing.  
   // Zero is a reserved value indicating spacing has not been set.
   void SetAxisOutputSpacing(int axis, float spacing);
-
+  
   // Description:
   // Set/Get Magnification factors.
   // Zero is a reserved value indicating values have not been computed.

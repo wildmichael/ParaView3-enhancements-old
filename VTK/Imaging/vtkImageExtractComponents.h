@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageExtractComponents.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 19:10:33 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-09-16 21:09:08 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,11 +38,13 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkImageExtractComponents - Outputs a sinlge component
+// .NAME vtkImageExtractComponents - Outputs a single component
 // .SECTION Description
 // vtkImageExtractComponents takes an input with any number of components
 // and outputs some of them.  It does involve a copy of the data.
 
+// .SECTION See Also
+// vtkImageAppendComponents
 
 #ifndef __vtkImageExtractComponents_h
 #define __vtkImageExtractComponents_h
@@ -57,7 +59,6 @@ public:
   static vtkImageExtractComponents *New()
     {return new vtkImageExtractComponents;};
   const char *GetClassName() {return "vtkImageExtractComponents";};
-
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

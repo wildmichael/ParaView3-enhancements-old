@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCast.h,v $
   Language:  C++
-  Date:      $Date: 1998-08-18 15:52:28 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1998-09-16 21:09:06 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,6 +45,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // already has the correct type.  To specify the "CastTo" type,
 // use "SetOutputScalarType" method.
 
+// .SECTION See Also
+// vtkImageThreshold vtkImageShiftScale
 
 #ifndef __vtkImageCast_h
 #define __vtkImageCast_h
@@ -60,6 +62,10 @@ public:
   const char *GetClassName() {return "vtkImageCast";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
+  // Description:
+  // Set the desired output scalar type to cast to
+  vtkSetMacro(OutputScalarType,int);
+  vtkGetMacro(OutputScalarType,int);
   void SetOutputScalarTypeToFloat(){this->SetOutputScalarType(VTK_FLOAT);}
   void SetOutputScalarTypeToInt(){this->SetOutputScalarType(VTK_INT);}
   void SetOutputScalarTypeToShort(){this->SetOutputScalarType(VTK_SHORT);}
@@ -67,11 +73,6 @@ public:
     {this->SetOutputScalarType(VTK_UNSIGNED_SHORT);}
   void SetOutputScalarTypeToUnsignedChar()
     {this->SetOutputScalarType(VTK_UNSIGNED_CHAR);}
-
-  // Description:
-  // Set the desired output scalar type to cast to
-  vtkSetMacro(OutputScalarType,int);
-  vtkGetMacro(OutputScalarType,int);
 
   // Description:
   // When the ClampOverflow flag is on, the data is thresholded so that

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFlip.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 19:10:35 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-09-16 21:09:09 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,9 +44,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // If PreserveImageExtent is "On", then the 
 // image is shifted so that it has the same image extent, and the origin is
 // shifted appropriately. When PreserveImageExtent is "off",
-// The Origin  is not changed, min and max of extent (opf filtered axis) are
-// negated, and are swapped.  
-// The default preserves the extent of the input.
+// The Origin  is not changed, min and max of extent (of filtered axis) are
+// negated, and are swapped. The default preserves the extent of the input.
 
 #ifndef __vtkImageFlip_h
 #define __vtkImageFlip_h
@@ -67,6 +66,9 @@ public:
   // Specify which axes will be flipped.
   vtkSetMacro(FilteredAxis, int);
   vtkGetMacro(FilteredAxis, int);
+
+  // Description:
+  // Specify which axes will be flipped.
   // For compatability with old scripts
   void SetFilteredAxes(int axis) {this->SetFilteredAxis(axis);}
   

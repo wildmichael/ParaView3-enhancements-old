@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageClip.h,v $
   Language:  C++
-  Date:      $Date: 1998-01-13 21:58:48 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1998-09-16 21:09:06 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,7 +61,7 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
-  // The image extent of the output has to be set explicitely.
+  // The whole extent of the output has to be set explicitely.
   void SetOutputWholeExtent(int extent[6]);
   void SetOutputWholeExtent(int minX, int maxX, int minY, int maxY, 
 			    int minZ, int maxZ);

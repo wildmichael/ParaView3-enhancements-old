@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageConnector.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:28:37 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-09-16 21:09:06 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -97,11 +97,10 @@ public:
   vtkGetMacro(UnconnectedValue, unsigned char);
 
 
-// Description:
-// Input a data of 0's and "UnconnectedValue"s. Seeds of this object are 
-// used to find connected pixels.
-// All pixels connected to seeds are set to ConnectedValue.  
-// The data has to be unsigned char.
+  // Description:
+  // Input a data of 0's and "UnconnectedValue"s. Seeds of this object are
+  // used to find connected pixels.  All pixels connected to seeds are set to
+  // ConnectedValue.  The data has to be unsigned char.
   void MarkData(vtkImageData *data, int dimensionality, int ext[6]);
 
 

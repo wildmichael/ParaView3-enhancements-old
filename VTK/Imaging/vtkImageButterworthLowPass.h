@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageButterworthLowPass.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 19:10:22 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-09-16 21:09:05 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,7 +45,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // (complex numbers).
 // out(i, j) = (1 + pow(CutOff/Freq(i,j), 2*Order));
 
-
+// .SECTION See Also
+// vtkImageButterworthHighPass
 
 #ifndef __vtkImageButterworthLowPass_h
 #define __vtkImageButterworthLowPass_h
@@ -60,7 +61,6 @@ public:
   static vtkImageButterworthLowPass *New() 
     {return new vtkImageButterworthLowPass;};
   const char *GetClassName() {return "vtkImageButterworthLowPass";};
-
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

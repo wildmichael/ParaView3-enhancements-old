@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSeedConnectivity.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-23 20:26:34 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-09-16 21:09:15 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,9 +49,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // are 0 for any off pixel in input, "OutputTrueValue" for any pixels
 // connected to seeds, and "OutputUnconnectedValue" for any on pixels not
 // connected to seeds.  The same seeds are used for all images in the image
-// set (images along unfiltered axes).  Index values for unfiltered axes are
-// ignored.
-
+// set.
 
 #ifndef __vtkImageSeedConnectivity_h
 #define __vtkImageSeedConnectivity_h
@@ -70,20 +68,30 @@ public:
   const char *GetClassName() {return "vtkImageSeedConnectivity";};
   void PrintSelf(ostream& os, vtkIndent indent);
   
+  // Description:
+  // Methods for manipulating the seed pixels.
   void RemoveAllSeeds();
   void AddSeed(int num, int *index);
   void AddSeed(int i0, int i1, int i2);
   void AddSeed(int i0, int i1);
 
+  // Description:
+  // Set/Get what value is considered as conencting pixels.
   vtkSetMacro(InputConnectValue, int);
   vtkGetMacro(InputConnectValue, int);
+
+  // Description:
+  // Set/Get the value to set connected pixels to.
   vtkSetMacro(OutputConnectedValue, int);
   vtkGetMacro(OutputConnectedValue, int);
+
+  // Description:
+  // Set/Get the value to set unconnected pixels to.
   vtkSetMacro(OutputUnconnectedValue, int);
   vtkGetMacro(OutputUnconnectedValue, int);
   
-  void InterceptCacheUpdate();
-
+  // Description:
+  // Get the vtkImageCOnnector used bythis filter.
   vtkGetObjectMacro(Connector,vtkImageConnector);
 
   // Description:
@@ -91,6 +99,8 @@ public:
   vtkSetMacro(Dimensionality,int);
   vtkGetMacro(Dimensionality,int);
   
+  void InterceptCacheUpdate();
+
 private:
   unsigned char InputConnectValue;
   unsigned char OutputConnectedValue;

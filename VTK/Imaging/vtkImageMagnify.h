@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMagnify.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:28:40 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1998-09-16 21:09:12 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,14 +53,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImageMagnify : public vtkImageFilter
 {
 public:
-
-// Description:
-// Constructor: Sets default filter to be identity.
   vtkImageMagnify();
-
   static vtkImageMagnify *New() {return new vtkImageMagnify;};
   const char *GetClassName() {return "vtkImageMagnify";};
-
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
@@ -69,7 +64,7 @@ public:
   vtkGetVector3Macro(MagnificationFactors,int);
   
   // Description:
-  // Turn interpolation on and off (pixel replication)
+  // Turn interpolation on and off (pixel replication used when off)
   vtkSetMacro(Interpolate,int);
   vtkGetMacro(Interpolate,int);
   vtkBooleanMacro(Interpolate,int);

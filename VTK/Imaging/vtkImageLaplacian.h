@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageLaplacian.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:28:40 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1998-09-16 21:09:12 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,7 +45,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // divergence after a gradient.  Boundaries are handled, so the input
 // is the same as the output.  The output is always float.
 // Dimensionality determines how the input regions are interpreted.
-// lines, images, or volumes.
+// (images, or volumes). The Dimensionality defaults to two.
 
 
 
@@ -58,11 +58,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImageLaplacian : public vtkImageFilter
 {
 public:
-
-// Description:
-// Construct an instance of vtkImageLaplacian fitler.
   vtkImageLaplacian();
-
   static vtkImageLaplacian *New() {return new vtkImageLaplacian;};
   const char *GetClassName() {return "vtkImageLaplacian";};
   void PrintSelf(ostream& os, vtkIndent indent);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSinusoidSource.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 19:11:07 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-09-16 21:09:16 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,7 +55,6 @@ public:
   vtkImageSinusoidSource();
   static vtkImageSinusoidSource *New() {return new vtkImageSinusoidSource;};
   const char *GetClassName() {return "vtkImageSinusoidSource";};
-  
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
@@ -80,6 +79,8 @@ public:
   vtkSetMacro(Phase, float);
   vtkGetMacro(Phase, float);
 
+  // Description:
+  // Set/Get the magnitude of the sinusiod.
   vtkSetMacro(Amplitude, float);
   vtkGetMacro(Amplitude, float);
 

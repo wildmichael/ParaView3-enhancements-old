@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageEuclideanToPolar.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-23 20:26:30 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-09-16 21:09:08 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,8 +61,7 @@ public:
   // Description:
   // Theta is an angle. Maximum specifies when it maps back to 0.
   // ThetaMaximum defaults to 255 instead of 2PI, because unsigned char
-  // is expected as input.
-  // Output type must be the same as input type.
+  // is expected as input. The output type must be the same as input type.
   vtkSetMacro(ThetaMaximum,float);
   vtkGetMacro(ThetaMaximum,float);
   

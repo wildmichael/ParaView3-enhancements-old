@@ -3,9 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBMPWriter.h,v $
   Language:  C++
-  Date:      $Date: 1997-12-17 01:27:23 $
-  Version:   $Revision: 1.2 $
-  Thanks:    Thanks to C. Charles Law who developed this class.
+  Date:      $Date: 1998-09-16 21:09:04 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,6 +43,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // vtkBMPWriter writes BMP files. The data type
 // of the file is unsigned char regardless of the input type.
 
+// .SECTION See Also
+// vtkBMPReader
 
 #ifndef __vtkBMPWriter_h
 #define __vtkBMPWriter_h
