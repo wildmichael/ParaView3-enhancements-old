@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTetra.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:38:19 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 1998-10-06 14:40:30 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -171,7 +171,7 @@ void vtkTetra::EvaluateLocation(int& vtkNotUsed(subId), float pcoords[3],
 // are closest parametrically to the point specified. This may include faces,
 // edges, or vertices.
 int vtkTetra::CellBoundary(int vtkNotUsed(subId), float pcoords[3], 
-                           vtkIdList& pts)
+                           vtkIdList *pts)
 {
   float minPCoord = 1.0 - pcoords[0] - pcoords[1] - pcoords[2];
   int i, idx=3;
@@ -185,31 +185,31 @@ int vtkTetra::CellBoundary(int vtkNotUsed(subId), float pcoords[3],
       }
     }
   
-  pts.SetNumberOfIds(3);
+  pts->SetNumberOfIds(3);
   switch (idx) //find the face closest to the point
     {
     case 0:
-      pts.SetId(0,this->PointIds->GetId(0));
-      pts.SetId(1,this->PointIds->GetId(2));
-      pts.SetId(2,this->PointIds->GetId(3));
+      pts->SetId(0,this->PointIds->GetId(0));
+      pts->SetId(1,this->PointIds->GetId(2));
+      pts->SetId(2,this->PointIds->GetId(3));
       break;
       
     case 1:
-      pts.SetId(0,this->PointIds->GetId(0));
-      pts.SetId(1,this->PointIds->GetId(1));
-      pts.SetId(2,this->PointIds->GetId(3));
+      pts->SetId(0,this->PointIds->GetId(0));
+      pts->SetId(1,this->PointIds->GetId(1));
+      pts->SetId(2,this->PointIds->GetId(3));
       break;
       
     case 2:
-      pts.SetId(0,this->PointIds->GetId(0));
-      pts.SetId(1,this->PointIds->GetId(1));
-      pts.SetId(2,this->PointIds->GetId(2));
+      pts->SetId(0,this->PointIds->GetId(0));
+      pts->SetId(1,this->PointIds->GetId(1));
+      pts->SetId(2,this->PointIds->GetId(2));
       break;
       
     case 3:
-      pts.SetId(0,this->PointIds->GetId(1));
-      pts.SetId(1,this->PointIds->GetId(2));
-      pts.SetId(2,this->PointIds->GetId(3));
+      pts->SetId(0,this->PointIds->GetId(1));
+      pts->SetId(1,this->PointIds->GetId(2));
+      pts->SetId(2,this->PointIds->GetId(3));
       break;
     }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPoints.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 20:34:16 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 1998-10-06 14:40:29 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,6 +51,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkDataSet.h"
 #include "vtkStructuredData.h"
 class vtkStructuredPointsToImage;
+class vtkVertex;
+class vtkLine;
+class vtkPixel;
+class vtkVoxel;
 
 
 class VTK_EXPORT vtkStructuredPoints : public vtkDataSet
@@ -89,8 +93,11 @@ public:
   vtkCell *FindAndGetCell(float x[3], vtkCell *cell, int cellId, 
                float tol2, int& subId, float pcoords[3], float *weights);
   int GetCellType(int cellId);
-  void GetCellPoints(int cellId, vtkIdList& ptIds);
-  void GetPointCells(int ptId, vtkIdList& cellIds);
+  void GetCellPoints(int cellId, vtkIdList *ptIds)
+    {vtkStructuredData::GetCellPoints(cellId,ptIds,this->DataDescription,
+				      this->Dimensions);}
+  void GetPointCells(int ptId, vtkIdList *cellIds)
+    {vtkStructuredData::GetPointCells(ptId,cellIds,this->Dimensions);}
   void ComputeBounds();
   int GetMaxCellSize() {return 8;}; //voxel is the largest
 
@@ -162,7 +169,20 @@ public:
   // method to connect the visualization pipeline to the image pipeline..
   vtkStructuredPointsToImage *GetStructuredPointsToImage();
 
+  // Description:
+  // For legacy compatability. Do not use.
+  void GetCellPoints(int cellId, vtkIdList &ptIds)
+    {this->GetCellPoints(cellId, &ptIds);}
+  void GetPointCells(int ptId, vtkIdList &cellIds)
+    {this->GetPointCells(ptId, &cellIds);}
+
 protected:
+  // for the GetCell method
+  vtkVertex *Vertex;
+  vtkLine *Line;
+  vtkPixel *Pixel;
+  vtkVoxel *Voxel;
+  
   int Dimensions[3];
   int DataDescription;
   float Origin[3];
@@ -201,17 +221,5 @@ inline int vtkStructuredPoints::GetDataDimension()
 {
   return vtkStructuredData::GetDataDimension(this->DataDescription);
 }
-
-inline void vtkStructuredPoints::GetCellPoints(int cellId, vtkIdList& ptIds)
-{
-  vtkStructuredData::GetCellPoints(cellId,ptIds,this->DataDescription,
-                                     this->Dimensions);
-}
-
-inline void vtkStructuredPoints::GetPointCells(int ptId, vtkIdList& cellIds)
-{
-  vtkStructuredData::GetPointCells(ptId,cellIds,this->Dimensions);
-}
-
 
 #endif

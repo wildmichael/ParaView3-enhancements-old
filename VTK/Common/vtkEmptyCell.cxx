@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEmptyCell.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:38:34 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-10-06 14:40:21 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,7 +67,7 @@ void vtkEmptyCell::EvaluateLocation(int&  vtkNotUsed(subId),
 
 int vtkEmptyCell::CellBoundary(int vtkNotUsed(subId), 
                             float vtkNotUsed(pcoords)[3], 
-			    vtkIdList& vtkNotUsed(pts))
+			    vtkIdList *vtkNotUsed(pts))
 {
   return 0;
 }

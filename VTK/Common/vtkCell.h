@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:37:58 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 1998-10-06 14:40:20 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -150,7 +150,7 @@ public:
   // is defined by a list of points (pts) that specify a face (3D cell), edge 
   // (2D cell), or vertex (1D cell). If the return value of the method is != 0, 
   // then the point is inside the cell.
-  virtual int CellBoundary(int subId, float pcoords[3], vtkIdList& pts) = 0;
+  virtual int CellBoundary(int subId, float pcoords[3], vtkIdList *pts) = 0;
 
   // Description:
   // Given a point x[3] return inside(=1) or outside(=0) cell; evaluate 

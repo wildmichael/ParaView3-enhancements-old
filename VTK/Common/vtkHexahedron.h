@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHexahedron.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:38:04 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1998-10-06 14:40:22 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,7 +67,7 @@ public:
   int GetNumberOfFaces() {return 6;};
   vtkCell *GetEdge(int edgeId);
   vtkCell *GetFace(int faceId);
-  int CellBoundary(int subId, float pcoords[3], vtkIdList& pts);
+  int CellBoundary(int subId, float pcoords[3], vtkIdList *pts);
   void Contour(float value, vtkScalars *cellScalars, 
                vtkPointLocator *locator, vtkCellArray *verts, 
                vtkCellArray *lines, vtkCellArray *polys,
@@ -99,6 +99,10 @@ public:
   // function derivatives.
   void JacobianInverse(float pcoords[3], double **inverse, float derivs[24]);
 
+  // Description:
+  // For legacy compatability. Do not use.
+  int CellBoundary(int subId, float pcoords[3], vtkIdList &pts)
+    {return this->CellBoundary(subId, pcoords, &pts);}
 
 protected:
   vtkLine *Line;

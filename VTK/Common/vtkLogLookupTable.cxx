@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLogLookupTable.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:38:37 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1998-10-06 14:40:23 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -122,7 +122,7 @@ unsigned char *vtkLogLookupTable::MapValue(float v)
                   (this->NumberOfColors-1) );
     }
 
-  return this->Table.GetPointer(4*indx);
+  return this->Table->GetPointer(4*indx);
 }
 
 void vtkLogLookupTable::PrintSelf(ostream& os, vtkIndent indent)

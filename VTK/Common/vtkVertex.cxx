@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVertex.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:38:23 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1998-10-06 14:40:32 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -102,11 +102,11 @@ void vtkVertex::EvaluateLocation(int& vtkNotUsed(subId),
 // is defined by a list of points (pts) that specify a vertex (1D cell). 
 // If the return value of the method is != 0, then the point is inside the cell.
 int vtkVertex::CellBoundary(int vtkNotUsed(subId), float pcoords[3], 
-			    vtkIdList& pts)
+			    vtkIdList *pts)
 {
 
-  pts.SetNumberOfIds(1);
-  pts.SetId(0,this->PointIds->GetId(0));
+  pts->SetNumberOfIds(1);
+  pts->SetId(0,this->PointIds->GetId(0));
 
   if ( pcoords[0] != 0.0 )  
     {

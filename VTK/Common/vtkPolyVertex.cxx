@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyVertex.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:38:12 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 1998-10-06 14:40:26 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -117,10 +117,10 @@ void vtkPolyVertex::EvaluateLocation(int& subId,
   weights[subId] = 1.0;
 }
 
-int vtkPolyVertex::CellBoundary(int subId, float pcoords[3], vtkIdList& pts)
+int vtkPolyVertex::CellBoundary(int subId, float pcoords[3], vtkIdList *pts)
 {
-  pts.SetNumberOfIds(1);
-  pts.SetId(0,this->PointIds->GetId(subId));
+  pts->SetNumberOfIds(1);
+  pts->SetId(0,this->PointIds->GetId(subId));
 
   if ( pcoords[0] != 0.0 )
     {

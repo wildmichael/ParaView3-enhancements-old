@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTetra.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:38:20 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 1998-10-06 14:40:30 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -89,7 +89,7 @@ public:
   // Returns the set of points that are on the boundary of the tetrahedron that
   // are closest parametrically to the point specified. This may include faces,
   // edges, or vertices.
-  int CellBoundary(int subId, float pcoords[3], vtkIdList& pts);
+  int CellBoundary(int subId, float pcoords[3], vtkIdList *pts);
 
   
   // Description:
@@ -140,6 +140,11 @@ public:
   // Tetra specific methods.
   static void InterpolationFunctions(float pcoords[3], float weights[4]);
   static void InterpolationDerivs(float derivs[12]);
+
+  // Description:
+  // For legacy compatability. Do not use.
+  int CellBoundary(int subId, float pcoords[3], vtkIdList &pts)
+    {return this->CellBoundary(subId, pcoords, &pts);}
 
 protected:
   vtkLine *Line;

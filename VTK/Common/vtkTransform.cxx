@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:38:20 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 1998-10-06 14:40:30 $
+  Version:   $Revision: 1.56 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -639,15 +639,15 @@ float *vtkTransform::GetScale()
 }
 
 // Returns the current transformation matrix.
-vtkMatrix4x4 & vtkTransform::GetMatrix ()
+vtkMatrix4x4 *vtkTransform::GetMatrixPointer()
 {
-  return **this->Stack;;
+  return *this->Stack;
 }
 
 // Set the current matrix directly.
-void vtkTransform::SetMatrix(vtkMatrix4x4 *m)
+void vtkTransform::SetMatrix(vtkMatrix4x4 &m)
 {
-  **this->Stack = *m;
+  **this->Stack = m;
 }
 
 // Creates an identity matrix and makes it the current transformation matrix.

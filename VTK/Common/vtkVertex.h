@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVertex.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 20:34:20 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1998-10-06 14:40:33 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -82,7 +82,7 @@ public:
   // cell boundary is defined by a list of points (pts) that specify a vertex
   // (1D cell).  If the return value of the method is != 0, then the point is
   // inside the cell.
-  int CellBoundary(int subId, float pcoords[3], vtkIdList& pts);
+  int CellBoundary(int subId, float pcoords[3], vtkIdList *pts);
 
   // Description:
   // Generate contouring primitives. The scalar list cellScalars are
@@ -113,6 +113,10 @@ public:
   void Derivatives(int subId, float pcoords[3], float *values, 
                    int dim, float *derivs);
 
+  // Description:
+  // For legacy compatability. Do not use.
+  int CellBoundary(int subId, float pcoords[3], vtkIdList &pts)
+    {return this->CellBoundary(subId, pcoords, &pts);}
 };
 
 #endif

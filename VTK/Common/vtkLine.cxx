@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLine.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:38:06 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 1998-10-06 14:40:22 $
+  Version:   $Revision: 1.53 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -162,13 +162,13 @@ int vtkLine::Intersection (float a1[3], float a2[3], float b1[3], float b2[3],
 }
 
 int vtkLine::CellBoundary(int vtkNotUsed(subId), float pcoords[3], 
-			  vtkIdList& pts)
+			  vtkIdList *pts)
 {
- pts.SetNumberOfIds(1);
+  pts->SetNumberOfIds(1);
 
   if ( pcoords[0] >= 0.5 )
     {
-    pts.SetId(0,this->PointIds->GetId(1));
+    pts->SetId(0,this->PointIds->GetId(1));
     if ( pcoords[0] > 1.0 )
       {
       return 0;
@@ -180,7 +180,7 @@ int vtkLine::CellBoundary(int vtkNotUsed(subId), float pcoords[3],
     }
   else
     {
-    pts.SetId(0,this->PointIds->GetId(0));
+    pts->SetId(0,this->PointIds->GetId(0));
     if ( pcoords[0] < 0.0 )
       {
       return 0;

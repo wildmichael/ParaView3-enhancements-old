@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:38:02 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 1998-10-06 14:40:21 $
+  Version:   $Revision: 1.61 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -260,7 +260,7 @@ void vtkDataSet::GetCellNeighbors(int cellId, vtkIdList *ptIds,
   otherCells->Allocate(VTK_CELL_SIZE);
 
   // load list with candidate cells, remove current cell
-  this->GetPointCells(ptIds->GetId(0),*cellIds);
+  this->GetPointCells(ptIds->GetId(0), cellIds);
   cellIds->DeleteId(cellId);
 
   // now perform multiple intersections on list
@@ -268,7 +268,7 @@ void vtkDataSet::GetCellNeighbors(int cellId, vtkIdList *ptIds,
     {
     for ( numPts=ptIds->GetNumberOfIds(), i=1; i < numPts; i++)
       {
-      this->GetPointCells(ptIds->GetId(i), *otherCells);
+      this->GetPointCells(ptIds->GetId(i), otherCells);
       cellIds->IntersectWith(*otherCells);
       }
     }
