@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-04 14:30:10 $
-  Version:   $Revision: 1.114 $
+  Date:      $Date: 2002-01-08 14:39:39 $
+  Version:   $Revision: 1.115 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -297,7 +297,11 @@ public:
   vtkSetMacro(InAbortCheck,int);
   virtual int CheckAbortStatus();
   virtual int GetEventPending() { return 0;};
-  
+  // Description:
+  // Are we rendering at the moment 
+  virtual int CheckInRenderStatus() { return this->InRender; }
+  virtual int ClearInRenderStatus() { this->InRender = 0; }
+
   // Description:
   // Specify a function to be called to check and see if an abort
   // of the rendering in progress is desired.
