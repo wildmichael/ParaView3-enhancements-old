@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLookupTable.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-20 19:37:36 $
-  Version:   $Revision: 1.91 $
+  Date:      $Date: 2003-06-23 11:16:26 $
+  Version:   $Revision: 1.92 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkMath.h"
 
-vtkCxxRevisionMacro(vtkLookupTable, "$Revision: 1.91 $");
+vtkCxxRevisionMacro(vtkLookupTable, "$Revision: 1.92 $");
 vtkStandardNewMacro(vtkLookupTable);
 
 // Construct with range=(0,1); and hsv ranges set up for rainbow color table 
@@ -828,6 +828,11 @@ void vtkLookupTable::MapScalarsThroughTable2(void *input,
       
     case VTK_UNSIGNED_SHORT:
       vtkLookupTableMapData(this,static_cast<unsigned short *>(input),output,
+                            numberOfValues,inputIncrement,outputFormat);
+      break;
+      
+    case VTK_ID_TYPE:
+      vtkLookupTableMapData(this,static_cast<vtkIdType *>(input),output,
                             numberOfValues,inputIncrement,outputFormat);
       break;
       
