@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSplineWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-12-16 01:21:57 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-12-16 15:38:24 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -208,10 +208,7 @@ public:
   // user supplied subclasses of vtkSpline.
   void SetClosed(int closed);
   vtkGetMacro(Closed,int);
-  void ClosedOn()
-    { this->SetClosed(1); }
-  void ClosedOff()
-    { this->SetClosed(0); }
+  vtkBooleanMacro(Closed,int);
 
 protected:
   vtkSplineWidget();
