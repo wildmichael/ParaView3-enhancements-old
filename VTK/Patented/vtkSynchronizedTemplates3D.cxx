@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-12 20:04:02 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2001-01-30 16:49:34 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -710,12 +710,9 @@ VTK_THREAD_RETURN_TYPE vtkSyncTempThreadedExecute( void *arg )
     }
   else
     {
-    translator->SetWholeExtent(ext);
-    translator->SetPiece(threadId);
-    translator->SetNumberOfPieces(threadCount);
-    if (translator->PieceToExtent())
+    if (translator->PieceToExtentThreadSafe(threadId, threadCount,0,tmp, ext, 
+                                            translator->GetSplitMode(),0))
       {
-      translator->GetExtent(ext);
       self->ThreadedExecute(self->GetInput(), ext, threadId);
       }
     }

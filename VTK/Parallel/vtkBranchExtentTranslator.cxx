@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBranchExtentTranslator.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:22 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-01-30 16:49:34 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -97,7 +97,7 @@ int vtkBranchExtentTranslator::PieceToExtent()
   //     << this->Extent[2] << ", " << this->Extent[3] << ", " 
   //     << this->Extent[4] << ", " << this->Extent[5] << endl;
   
-  if (this->SplitExtent(this->Piece, this->NumberOfPieces, this->Extent) == 0)
+  if (this->SplitExtent(this->Piece, this->NumberOfPieces, this->Extent, 3) == 0)
     {
     //cerr << "Split thinks nothing is in the piece" << endl;
     //cerr << this << " Split: " << this->Extent[0] << ", " << this->Extent[1] << ", " 
