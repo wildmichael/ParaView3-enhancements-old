@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellDerivatives.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:10:40 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-10-02 19:49:31 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -56,6 +56,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // .SECTION Caveats
 // The computed derivatives are cell attribute data; you can convert them to
 // point attribute data by using the vtkCellDataToPointData filter.
+// Note that, due to the interpolation function used (obtained using 
+// 1/r**2 normalized sum), the derivatives calculated for polygons
+// with more than 4 vertices are inaccurate in most cases.
 //
 // The point data is passed through the filter to the output.
 
