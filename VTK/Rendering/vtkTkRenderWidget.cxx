@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkRenderWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:48:42 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1997-07-16 21:23:17 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -367,8 +367,15 @@ LRESULT APIENTRY vtkTkRenderWidgetProc(HWND hWnd, UINT message,
     }
   else
     {
+//
+// TkWinTopLevelProc has been deprecated in Tcl/Tk8.0.
+//
+#if(TK_MAJOR_VERSION < 8)
     SetWindowLong(hWnd,GWL_WNDPROC,(LONG)TkWinTopLevelProc);
     rval = TkWinTopLevelProc(hWnd,message,wParam,lParam);
+#else
+    rval = 0;
+#endif
     }
 
     if (message != WM_PAINT)
