@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:11 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-03-10 13:50:29 $
+  Version:   $Revision: 1.25 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -116,6 +116,8 @@ public:
   // useful for scripting languages
   virtual void SetWindowInfo(char *) 
       { vtkErrorMacro(<<"vtkImageWindow::SetWindowInfo - Not implemented"); };
+  virtual void SetParentInfo(char *)
+      { vtkErrorMacro(<<"vtkImageWindow::SetParentInfo - Not implemented"); };
 
   // Description:
   // By default this is a color viewer.  GrayScaleHintOn will improve the
