@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimate.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-23 20:40:40 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1997-06-06 12:49:15 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1066,7 +1066,7 @@ int vtkDecimate::CheckError ()
 
 void vtkDecimate::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolyToPolyFilter::PrintSelf(os,indent);
+  vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
 
   os << indent << "Target Reduction: " << this->TargetReduction << "\n";
   os << indent << "Initial Error: " << this->InitialError << "\n";
