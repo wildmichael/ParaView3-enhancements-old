@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArrayMap.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-12 22:06:28 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-04-17 21:31:31 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -65,6 +65,8 @@ class vtkArrayMap : public vtkAbstractMap<KeyType,DataType>
   friend class vtkArrayMapIterator<KeyType,DataType>;
   
 public:
+  typedef vtkArrayMapIterator<KeyType,DataType> IteratorType;
+
   // Cannot use this macro because of the comma in the type name.
   // The CPP splits that in two and we ae in trouble.
   //vtkContainerTypeMacro((vtkArrayMap<KeyType,DataType>), vtkContainer);
@@ -97,29 +99,29 @@ public:
   // Sets the item at with specific key to data.
   // It overwrites the old item.
   // It returns VTK_OK if successfull.
-  virtual int SetItem(const KeyType& key, const DataType& data);
+  int SetItem(const KeyType& key, const DataType& data);
   
   // Description:
   // Remove an Item with the key from the map.
   // It returns VTK_OK if successfull.
-  virtual int RemoveItem(const KeyType& key);
+  int RemoveItem(const KeyType& key);
   
   // Description:
   // Remove all items from the map.
-  virtual void RemoveAllItems();
+  void RemoveAllItems();
   
   // Description:
   // Return the data asociated with the key.
   // It returns VTK_OK if successfull.
-  virtual int GetItem(const KeyType& key, DataType& data);
+  int GetItem(const KeyType& key, DataType& data);
   
   // Description:
   // Return the number of items currently held in this container. This
   // different from GetSize which is provided for some containers. GetSize
   // will return how many items the container can currently hold.
-  virtual vtkIdType GetNumberOfItems();
+  vtkIdType GetNumberOfItems();
 
-  virtual void DebugList();
+  void DebugList();
 
 protected:
   vtkArrayMap() { this->Array = 0; }
