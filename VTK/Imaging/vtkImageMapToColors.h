@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapToColors.h,v $
   Language:  C++
-  Date:      $Date: 2002-12-11 14:26:22 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2003-04-10 17:55:35 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -69,7 +69,7 @@ public:
 
   // Description:
   // We need to check the modified time of the lookup table too.
-  unsigned long GetMTime();
+  virtual unsigned long GetMTime();
 
 protected:
   vtkImageMapToColors();
