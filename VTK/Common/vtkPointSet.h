@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointSet.h,v $
   Language:  C++
-  Date:      $Date: 1994-04-08 08:07:58 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-04-15 16:11:12 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -28,10 +28,12 @@ class vlPointSet : virtual public vlDataSet
 {
 public:
   vlPointSet();
+  vlPointSet(const vlPointSet& ps);
   char *GetClassName() {return "vlPointSet";};
   void PrintSelf(ostream& os, vlIndent indent);
 
   // dataset interface
+  void Initialize();
   int GetNumberOfPoints()
   {if (this->Points) return this->Points->GetNumberOfPoints();
   else return 0;};

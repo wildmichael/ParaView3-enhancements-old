@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-04-08 08:06:25 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1994-04-15 16:11:07 $
+  Version:   $Revision: 1.18 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -105,6 +105,8 @@ void vlDataSet::PrintSelf(ostream& os, vlIndent indent)
     
     vlObject::PrintSelf(os,indent);
     
+    os << indent << "Number Of Points: " << this->GetNumberOfPoints() << "\n";
+    os << indent << "Number Of Cells: " << this->GetNumberOfCells() << "\n";
     os << indent << "Point Data:\n";
     this->PointData.PrintSelf(os,indent.GetNextIndent());
     bounds = this->GetBounds();
